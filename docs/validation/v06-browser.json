@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-11",
+  "environment": "Chrome partagé via CUA, navigateur réel",
+  "url": "https://imperium-march.vercel.app/",
+  "applicationVersion": "0.6.0",
+  "codeCommit": "2a73cdddb919c0d0834c154f3696cb9a7ffdf3f4",
+  "actions": [
+    "VERSION 0.6 et cinq missions observées",
+    "Import du véritable dossier historique v4 terminé via sélecteur de fichier et confirmation visible",
+    "Quatre rapports conservés et MI05 débloquée",
+    "Briefing MI05 avec héritage Vesper puis lancement avec Pèlerin",
+    "Commande D maintenue et pause",
+    "Rechargement de la publication corrigée et reprise MI05 depuis le dossier existant",
+    "Prompt, marée, coque, munitions et scène inspectés",
+    "Mission laissée en pause pour reprise"
+  ],
+  "beforeReload": {
+    "convoy-status": "0 / 2 CÂBLES LIBÉRÉS · BATEAU ATTEND LE CHENAL · 100 %",
+    "hud-timer": "00:02",
+    "hull-value": "100%",
+    "tide-phase": "BASSE MER",
+    "tide-window": "CHANGEMENT DANS 24 s"
+  },
+  "afterResume": {
+    "convoy-status": "0 / 2 CÂBLES LIBÉRÉS · BATEAU ATTEND LE CHENAL · 100 %",
+    "hud-interaction": "Ouvrir les deux câbles · vérifier les barges · protéger le passage",
+    "hud-timer": "00:02",
+    "hull-value": "100%",
+    "tide-phase": "BASSE MER",
+    "tide-window": "CHANGEMENT DANS 24 s"
+  },
+  "layout": {
+    "gap": 14,
+    "instruments": {
+      "bottom": 793.84375,
+      "top": 674.53125
+    },
+    "prompt": {
+      "bottom": 660.53125,
+      "left": 436.2109375,
+      "right": 926.7890625,
+      "top": 624.171875
+    },
+    "tide": {
+      "bottom": 489.765625,
+      "top": 426.46875
+    },
+    "viewport": {
+      "height": 936,
+      "width": 1363
+    }
+  },
+  "screenshot": "docs/previews/browser-v06-nacre.jpg",
+  "limits": [
+    "Un navigateur de bureau, viewport 1363 × 936",
+    "Pas de parcours complet MI05 dans Chrome",
+    "Les matrices de six châssis et deux choix sont des tests Node",
+    "Aucune mesure de performance ni validation humaine du son ou de l’accessibilité"
+  ],
+  "consoleObservation": {
+    "scope": "Échantillon limité à 20 messages de niveau erreur capturés par le navigateur; pas un audit exhaustif.",
+    "sampleCount": 20,
+    "applicationOriginEntries": 0,
+    "browserExtensionEntries": 20,
+    "note": "Les messages de cet échantillon concernent l’extension du navigateur et ne sont pas publiés avec ses identifiants internes."
+  },
+  "layoutVerified": true
+}

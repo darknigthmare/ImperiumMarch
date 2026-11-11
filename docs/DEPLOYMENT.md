@@ -51,6 +51,8 @@ La 0.6 ajoute MI05 et le dossier v5, avec un classeur de 643 fiches. `package.js
 
 Le commit `9e4a9671cd978c8f097ec3436d783d22587c1957` a publié 202 fichiers, tous comparés à l'arbre distant. Le déploiement `dpl_2P9vnQYqGNupCCiznGiz9rLo2ve5` est passé READY pour ce SHA exact. La [CI 42974893958](https://github.com/darknigthmare/ImperiumMarch/actions/runs/42974893958) a réussi sous Node 22.23.4 : 145 tests, builds et contrôles UI compris. Les dix ressources contrôlées répondent HTTP 200. Chrome a importé le dossier historique v4, conservé ses quatre rapports et lancé MI05. Le contrôle visuel a conduit à placer la consigne contextuelle au-dessus des instruments HTML ; la correction et la vérification de reprise sont suivies dans [QA_V06.md](QA_V06.md).
 
+Le correctif de disposition est publié dans `2a73cdddb919c0d0834c154f3696cb9a7ffdf3f4`. Son déploiement `dpl_4TXYeffTPfoik8rUUtMwPrvWgxtk` est READY pour ce même SHA, et la [CI 42977724833](https://github.com/darknigthmare/ImperiumMarch/actions/runs/42977724833) a réussi sous Node 22.23.4. Chrome a repris le point MI05 existant après rechargement et confirmé la séparation réelle entre consigne et jauges. Le [reçu](validation/v06-publication.json) rattache les preuves à ce code ; le [rapport navigateur](validation/v06-browser.json) précise les actions, les valeurs visibles et les limites.
+
 ## Dossier du joueur
 
 La sauvegarde reste locale au navigateur et à l'adresse du site. Utiliser l'adresse de production stable pour continuer une partie. Une adresse de prévisualisation, un autre domaine et le fichier autonome disposent de stockages distincts. Pour déplacer une partie, utiliser **Exporter le dossier**, puis importer le JSON sur la nouvelle adresse.

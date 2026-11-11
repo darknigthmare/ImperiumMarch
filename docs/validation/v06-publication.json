@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "gameVersion": "0.6.0",
+  "change": "Interaction prompt positioned above browser HUD instruments",
+  "repository": "darknigthmare/ImperiumMarch",
+  "branch": "main",
+  "codeCommit": "2a73cdddb919c0d0834c154f3696cb9a7ffdf3f4",
+  "codeTree": "ea2b74419d542e7d0e4d5209bc761ce5665e7def",
+  "localSourceCommit": "39dae0027038b35dc9f982f677b54363a8a2c66e",
+  "remoteFilesVerified": 202,
+  "remoteFileMismatches": 0,
+  "referenceUpdate": {
+    "expectedHead": "9e4a9671cd978c8f097ec3436d783d22587c1957",
+    "force": false
+  },
+  "deployment": {
+    "id": "dpl_4TXYeffTPfoik8rUUtMwPrvWgxtk",
+    "sha": "2a73cdddb919c0d0834c154f3696cb9a7ffdf3f4",
+    "target": "production",
+    "state": "READY",
+    "url": "https://imperium-march-mzi3cqohn-darknigthmares-projects.vercel.app",
+    "productionUrl": "https://imperium-march.vercel.app",
+    "aliases": [
+      "imperium-march.vercel.app",
+      "imperium-march-darknigthmares-projects.vercel.app",
+      "imperium-march-git-main-darknigthmares-projects.vercel.app"
+    ],
+    "protection": "unchanged"
+  },
+  "ci": {
+    "id": 42977724833,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/42977724833",
+    "head_sha": "2a73cdddb919c0d0834c154f3696cb9a7ffdf3f4",
+    "nodeVersion": "22.23.4",
+    "tests": 145,
+    "passed": 145,
+    "failed": 0
+  },
+  "http": {
+    "origin": "https://imperium-march.vercel.app",
+    "resources": [
+      {
+        "path": "/",
+        "status": 200,
+        "type": "text/html; charset=utf-8",
+        "expectedMarker": "id=\"hud-interaction\"",
+        "markerPresent": true
+      },
+      {
+        "path": "/src/main.mjs",
+        "status": 200,
+        "type": "application/javascript; charset=utf-8",
+        "expectedMarker": "interactionPrompt: false",
+        "markerPresent": true
+      },
+      {
+        "path": "/src/renderer.mjs",
+        "status": 200,
+        "type": "application/javascript; charset=utf-8",
+        "expectedMarker": "options.interactionPrompt !== false",
+        "markerPresent": true
+      },
+      {
+        "path": "/src/ui.css",
+        "status": 200,
+        "type": "text/css; charset=utf-8",
+        "expectedMarker": ".hud-interaction",
+        "markerPresent": true
+      }
+    ]
+  },
+  "browserVerification": {
+    "status": "completed within documented scope",
+    "environment": "Chrome partagé via CUA",
+    "report": "docs/validation/v06-browser.json",
+    "screenshot": "docs/previews/browser-v06-nacre.jpg",
+    "verifiedCodeCommit": "2a73cdddb919c0d0834c154f3696cb9a7ffdf3f4",
+    "flows": [
+      "authentic v4 file import and preserved four reports",
+      "MI05 unlock, briefing and launch",
+      "movement, pause, reload and resume",
+      "HTML prompt separated from instruments by 14 CSS pixels at 1363 × 936"
+    ],
+    "fullMissionBrowserPlaythrough": false
+  }
+}

@@ -16,8 +16,10 @@ La cinquième mission ouvre Nacre après les quatre rapports de Vesper. La valid
 | Catalogue | 643 fiches, six châssis, trois opérations, cinq missions de campagne | [v06-project-check.txt](validation/v06-project-check.txt) |
 | Classeur | 643 fiches, 4 409 cellules de source réconciliées, 581 IDs antérieurs conservés, 126 formules recalculées | [workbook-v0.6-export.json](validation/workbook-v0.6-export.json) |
 | Scènes de Nacre | Cinq rendus Canvas issus d'entrées publiques, états copiés profondément | [mi05-render-manifest.json](previews/mi05-render-manifest.json) |
+| Navigateur réel | Import v4, quatre rapports conservés, MI05 débloquée et lancée, marche, pause, rechargement et reprise ; prompt séparé des jauges | [v06-browser.json](validation/v06-browser.json) |
+| Publication | Arbre distant vérifié, Vercel READY sur le SHA exact et CI Node 22 réussie | [v06-publication.json](validation/v06-publication.json) |
 
-Les commandes locales utilisent Node.js 24.22.1 ; le projet cible explicitement Node.js 22.x pour Vercel et la CI. Le résultat de la CI distante doit être lu séparément dans le reçu de publication.
+Les commandes locales utilisent Node.js 24.22.1 ; le projet cible explicitement Node.js 22.x pour Vercel et la CI. La CI distante a également réussi ses 145 tests et tous ses contrôles sous Node 22.23.4. Les empreintes des sources, du HTML autonome et du classeur figurent dans [v06-release-checks.json](validation/v06-release-checks.json).
 
 ## MI05 : règles observées
 
@@ -56,6 +58,12 @@ Les cinq scènes livrées montrent une passerelle, une facture, la liaison avec 
 Le 11 novembre 2026, Chrome partagé a ouvert le domaine de production `https://imperium-march.vercel.app/` avec la première publication complète, **c8f1a4d / application 0.5.0**. Le contrôle a sélectionné Pèlerin dans le hangar, lancé MI01, envoyé une commande de marche, mis la sortie en pause, rechargé la page et repris le point conservé. La scène et le HUD ont été inspectés. Ce parcours prouve l'ouverture du jeu et sa reprise dans cet environnement ; il ne valide pas encore MI05.
 
 Le Chromium local échoue avant toute navigation sur `socket() Operation not permitted`. Le navigateur partagé autorisé fournit un environnement distinct. Sur la publication 0.6 `9e4a9671`, Chrome a affiché les cinq missions et VERSION 0.6, importé via le sélecteur de fichier le véritable dossier v4 terminé, confirmé les quatre rapports préservés, puis débloqué et lancé MI05. Le briefing reprend le journal conservé et les survivants du train. La scène Nacre, les six appuis du Pèlerin, le bateau, les objectifs et l'instrument HTML de marée sont présents. Une commande de marche puis la pause ont été exécutées. Un prompt Canvas chevauchait la jauge de coque ; sa correction de placement dans le HUD HTML fait l'objet du contrôle de reprise suivant.
+
+La correction publiée sous **2a73cdddb919c0d0834c154f3696cb9a7ffdf3f4** a été rechargée sur la même adresse. Le bouton **Reprendre MI05** retrouve le point : l'affichage revient à 00:02, basse mer, changement dans 24 s, coque 100 %, bateau intact attendant le chenal et deux câbles encore fermés. Ces indications concordent avec celles relevées avant le rechargement. Il s'agit de valeurs affichées, pas d'une comparaison de chaque champ interne ; les tests Node assurent séparément la reprise exacte.
+
+Le HUD corrigé a été inspecté dans un viewport de **1363 × 936**. Sa consigne finit à 660,53 px, les instruments commencent à 674,53 px : un espace effectif de **14 px** les sépare. L'instrument de marée reste visible dans la colonne d'objectifs. La mission a ensuite été laissée en pause. Le [rapport navigateur](validation/v06-browser.json) conserve les observations et la portée ; la [capture réelle](previews/browser-v06-nacre.jpg) montre cette disposition.
+
+Ce parcours ne va pas jusqu'à l'extraction de MI05. Les six châssis, les deux décisions et les branches de perte sont validés dans Node et le DOM modélisé. L'audio, la difficulté humaine et les performances sur appareils cibles restent ouverts. Les messages de console échantillonnés provenaient d'une extension du navigateur ; ils ne constituent pas un audit exhaustif des erreurs de l'application.
 
 Le [suivi du déploiement](DEPLOYMENT.md) relie publication GitHub, SHA déployé, construction Vercel et contrôles de ressources. Un état READY ne suffit pas à démontrer un parcours jouable.
 
