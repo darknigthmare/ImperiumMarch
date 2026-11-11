@@ -1,6 +1,7 @@
 import { WALKERS, MISSIONS, CAMPAIGN_MISSIONS, DIFFICULTIES } from './content.mjs';
 import { createGame, updateGame, commandGame } from './simulation.mjs';
 import { Renderer } from './renderer.mjs';
+import { livingRouteSummary } from './thyr-renderer.mjs';
 import { AudioEngine } from './audio.mjs';
 import { CONTROL_ACTIONS, normalizeBindings, bindingLabel, remapBinding, keyboardActions, GamepadInput, defaultBindings, formatControlText } from './controls.mjs';
 import { createCampaign, readCampaign, writeCampaign, beginCampaignMission, checkpointCampaign, restoreCampaignGame, finishCampaignMission, serviceCampaignWalker, repairCampaignPipe, campaignRepairCost, serializeCampaign, parseCampaign, nextCampaignMissionId } from './campaign.mjs';
@@ -42,6 +43,12 @@ const pointer = { x: 1100, y: 570, clientX: 0, clientY: 0, visible: false, fire:
 const selectedWalker = () => WALKERS.find(w => w.id === settings.walkerId);
 const selectedMission = () => MISSIONS.find(m => m.id === settings.missionId);
 const campaignOrders = {
+  MI09: {
+    status: 'Première affectation sur Thyr. Holt veut une route logistique dégagée à travers la vallée.',
+    description: 'Les colonnes vivantes portent des habitats absents de la carte. Un troupeau attend devant la barrière du couloir militaire. Le poste des cultures peut vous indiquer une approche adaptée aux racines et à votre châssis.',
+    task: 'Reconnaître les appuis, confronter les cartes, accomplir la route choisie puis escorter la logistique.',
+    caution: 'Les longues-dorses fécondent les vergers. Les racines portent les habitats ; tirs, pas et projecteurs ont des effets distincts.',
+  },
   MI01: {
     status: 'Ordre reçu. Préparez votre marcheur au hangar, puis rejoignez Sami.',
     description: 'Le poste des mineurs attend ses filtres depuis trois jours. Sami connaît la route. Tess connaît les limites de votre machine.',
@@ -94,7 +101,15 @@ const campaignOrders = {
 const timeLabel = time => `${Math.floor(time / 60).toString().padStart(2, '0')}:${Math.floor(time % 60).toString().padStart(2, '0')}`;
 let toastTimer;
 function toast(message) { $('toast').textContent = message; $('toast').hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').hidden = true, 3200); }
-function clearInput() { keys.clear(); gamepad.reset(); padState = { ...padState, input: gamepad.sample([]).input }; pointer.fire = false; pointer.secondary = false; for (const k of Object.keys(touch)) touch[k] = false; }
+function releasePointer() { pointer.fire = false; pointer.secondary = false; }
+function clearInput() { keys.clear(); gamepad.reset(); padState = { ...padState, input: gamepad.sample([]).input }; releasePointer(); for (const k of Object.keys(touch)) touch[k] = false; }
+function hasPageFocus() { return !document.hidden && document.hasFocus?.() !== false; }
+function missionAcceptsInput() { return inGame && game?.status === 'playing' && !paused && !game.decision.active && hasPageFocus(); }
+function suspendForFocus() {
+  clearInput();
+  if (inGame && !document.querySelector('dialog[open]')) pauseMission();
+  audio.setPaused(true);
+}
 function closeDialogs() { all('dialog[open]').forEach(d => d.close()); }
 
 function saveCampaign({ replaceInvalid = false } = {}) {
@@ -108,7 +123,7 @@ function saveCampaign({ replaceInvalid = false } = {}) {
   return result.ok;
 }
 function captureCampaign(beforeDecision = false) {
-  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08'].includes(game.missionId) && game.status === 'lost'))) return;
+  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08', 'MI09'].includes(game.missionId) && game.status === 'lost'))) return;
   try {
     campaign = checkpointCampaign(campaign, game, { beforeDecision });
     lastCampaignSaveAt = game.elapsed;
@@ -125,6 +140,17 @@ function renderCampaignStatus() {
   $('campaign-save-status').classList.toggle('save-warning', Boolean(campaignWarning || campaignBlocked));
 }
 function campaignReceiptFacts(receipt) {
+  if (receipt.missionId === 'MI09') return [
+    ['LONGUES-DORSES', `${receipt.migratorsArrived} au verger · ${receipt.migratorsDisplaced} détournées · ${receipt.migratorsLost} perdues`],
+    ['ROUTE ACCOMPLIE', receipt.route === 'migration' ? 'Passage migratoire' : 'Déviation impériale'],
+    ['APPROCHE', receipt.approach === 'guided' ? 'Guidée par les habitants' : receipt.approach === 'surveyed' ? 'Relevée sans aide locale' : 'Aucune reconnaissance accomplie'],
+    ['HABITATS HABITABLES', `${receipt.homesHabitable} / 2`],
+    ['COLONNES INTACTES', `${receipt.columnsIntact} / 2`],
+    ['ÉVENTAILS REVENUS', `${receipt.pollinatorsPresent} / 2 colonies`],
+    ['CULTURES', receipt.harvestFragile ? 'Récoltes fragilisées' : 'Quatre arrivées fécondantes'],
+    ['LOGISTIQUE', receipt.logisticsArrived ? 'Arrivée constatée' : receipt.logisticsDestroyed ? 'Transport perdu' : 'Trajet non accompli'],
+    ['CARTE', receipt.hamletsRecorded ? 'Deux habitats et la route migratoire relevés' : 'Omissions non relevées'],
+  ];
   if (receipt.missionId === 'MI08') return [
     ['PERSONNES RECENSÉES', receipt.peopleTotal], ['DÉPARTS ACQUIS', receipt.peopleDeparted],
     ['ARRIVÉES AU REFUGE', receipt.peopleArrived], ['ACCUEIL LOCAL', receipt.peopleLocal], ['PERTES À AVAL', receipt.peopleLost],
@@ -212,6 +238,7 @@ function renderCampaignUI() {
   $('campaign-order-task').textContent = order.task;
   $('campaign-order-caution').textContent = order.caution;
   $('view-campaign').classList.toggle('nacre-chapter', mission.planetId === 'PL02');
+  $('view-campaign').classList.toggle('thyr-chapter', mission.planetId === 'PL03');
   $('campaign-progress').textContent = `${Object.keys(campaign.completed).length} / ${CAMPAIGN_MISSIONS.length} RAPPORTS CLASSÉS`;
   $('campaign-transition').hidden = !campaign.completed.MI04;
   if (campaign.completed.MI04) {
@@ -220,8 +247,12 @@ function renderCampaignUI() {
       : 'Le journal du poste a été perdu. Le bilan de Vesper conserve cette absence ; une autre source technique reste à trouver.';
     const passage = campaign.completed.MI05;
     $('campaign-transition-text').textContent = `${inherited} ${passage
-      ? campaign.completed.MI08 ? `Aux portes d’Aval, ${campaign.completed.MI08.peopleDeparted} personnes sont parties, ${campaign.completed.MI08.peopleArrived} sont arrivées au refuge et ${campaign.completed.MI08.peopleLocal} ont rejoint l’accueil local. Le bilan garde ${campaign.completed.MI08.peopleLost} pertes. L’arc de Nacre est achevé ; la prochaine affectation vers Thyr reste en préparation.` : campaign.completed.MI07 ? `Sur la chaussée des Salines, ${campaign.completed.MI07.patientsArrived} patients sont arrivés et ${campaign.completed.MI07.patientsLost} sont morts. Le dossier sanitaire garde leur destination, l’équipe et la balise séparément. Les portes d’Aval sont maintenant accessibles dans « La marée compte les absents ». Retrouvez les survivants avant toute allocation de place.` : campaign.completed.MI06 ? `Aux Trois-Vannes, ${campaign.completed.MI06.residentsSafe} habitants sont à l’abri et ${campaign.completed.MI06.homesUninhabitable} logements sont inhabitables. La chaussée des Salines est maintenant accessible dans « Une ambulance sans escorte ». Le chantier détermine la rampe utilisable.` : `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai. La digue des Trois-Vannes est maintenant accessible dans « Les maisons sous la ligne ». ${campaign.resources.fuel} lots de carburant restent disponibles ; une solution manuelle existe sans réserve.`
+      ? campaign.completed.MI08 ? `Aux portes d’Aval, ${campaign.completed.MI08.peopleDeparted} personnes sont parties, ${campaign.completed.MI08.peopleArrived} sont arrivées au refuge et ${campaign.completed.MI08.peopleLocal} ont rejoint l’accueil local. Le bilan garde ${campaign.completed.MI08.peopleLost} pertes. L’affectation sur Thyr est ouverte : rejoignez « La route des vivants ». Le dossier d’Aval reste conservé tel qu’il a été signé.` : campaign.completed.MI07 ? `Sur la chaussée des Salines, ${campaign.completed.MI07.patientsArrived} patients sont arrivés et ${campaign.completed.MI07.patientsLost} sont morts. Le dossier sanitaire garde leur destination, l’équipe et la balise séparément. Les portes d’Aval sont maintenant accessibles dans « La marée compte les absents ». Retrouvez les survivants avant toute allocation de place.` : campaign.completed.MI06 ? `Aux Trois-Vannes, ${campaign.completed.MI06.residentsSafe} habitants sont à l’abri et ${campaign.completed.MI06.homesUninhabitable} logements sont inhabitables. La chaussée des Salines est maintenant accessible dans « Une ambulance sans escorte ». Le chantier détermine la rampe utilisable.` : `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai. La digue des Trois-Vannes est maintenant accessible dans « Les maisons sous la ligne ». ${campaign.resources.fuel} lots de carburant restent disponibles ; une solution manuelle existe sans réserve.`
       : 'Votre nouvelle affectation est ouverte : rejoignez le chenal de Nacre dans « Le prix du passage ». Le départ reste possible avec ou sans le journal.'}`;
+  }
+  if (campaign.completed.MI09) {
+    const r = campaign.completed.MI09;
+    $('campaign-transition-text').textContent = `Le premier relevé de Thyr est classé : ${r.migratorsArrived} longues-dorses au verger, ${r.migratorsDisplaced} détournées et ${r.migratorsLost} perdues. ${r.homesHabitable} habitats restent habitables. ${r.harvestFragile ? 'Les récoltes sont fragilisées par ce passage.' : 'Les quatre migrateurs ont rejoint les cultures.'} La suite de l’enquête sur Thyr reste à produire ; les huit rapports antérieurs sont conservés.`;
   }
   $('campaign-mission-list').innerHTML = CAMPAIGN_MISSIONS.map((m, index) => {
     const done = Boolean(campaign.completed[m.id]), active = campaign.activeMissionId === m.id;
@@ -287,6 +318,11 @@ function renderWorkshop() {
     $('workshop-departure').textContent = `Aval : ${r.peopleDeparted} départs, ${r.peopleArrived} arrivées au refuge, ${r.peopleLocal} personnes accueillies localement, ${r.peopleLost} pertes. ${r.registryCopied ? 'Registre de relogement copié.' : 'Registre perdu : absence conservée.'} Les personnes et les bateaux gardent leur résultat individuel dans le journal de vol.`;
   }
   $('campaign-repair-pipe').hidden = !campaign.completed?.MI01 || world.pipeIntact || world.pipeRepaired;
+  $('workshop-thyr').hidden = !campaign.completed.MI09;
+  if (campaign.completed.MI09) {
+    const r = campaign.completed.MI09;
+    $('workshop-thyr').textContent = `Thyr : ${r.migratorsArrived} longues-dorses au verger, ${r.migratorsDisplaced} détournées, ${r.migratorsLost} perdues ; ${r.homesHabitable} habitats habitables. ${r.localsHeard ? 'Les indications locales ont été écoutées.' : 'Aucun échange local accompli.'} Le journal conserve chaque animal, chaque support et l’arrivée du transport.`;
+  }
   $('campaign-repair-pipe').textContent = 'Réparer la conduite · 2 lots';
   $('campaign-repair-pipe').disabled = active || campaign.resources.parts < 2 || campaignBlocked;
   $('workshop-active-note').hidden = !active;
@@ -404,6 +440,15 @@ const factions = [
   ['09 / COHORTE VÉTÉRANE', 'Cohorte des Serments', 'Des équipages expérimentés disposent de machines et de ravitaillement prioritaires. Leur fidélité au commandement se mesure aussi à la peur de perdre ceux qui dépendent d’eux.'],
 ];
 all('[data-archive]').forEach(el => el.addEventListener('click', () => { archive = el.dataset.archive; renderArchive(); }));
+function thyrArchive() {
+  const r = campaign.completed.MI09;
+  if (!r) return '';
+  const phase = { arrived: 'Verger atteint', displaced: 'Zone d’exclusion atteinte', lost: 'Perdu' };
+  const animals = r.roster.migrators.map((a, i) => `<tr><th scope="row">Longue-dorse ${i + 1} · ${a.age === 'young' ? 'jeune' : 'adulte'}</th><td>${escapeHTML(phase[a.phase] || 'Trajet en cours')}</td><td>${a.destroyed ? 'Décès constaté' : `${Math.round(a.hp / a.maxHp * 100)} % d’intégrité`}</td></tr>`).join('');
+  const homes = r.roster.homes.map((h, i) => `<tr><th scope="row">Habitat suspendu ${i + 1}</th><td>${h.habitable ? 'Habitable' : h.destroyed ? 'Détruit' : 'Support perdu'}</td><td>${h.supported ? 'Colonne et racine porteuses' : 'Continuité porteuse perdue'}</td></tr>`).join('');
+  return `<section class="nacre-dossiers thyr-dossiers" aria-label="Relevé de Thyr"><p class="eyebrow">THYR / PREMIER RELEVÉ DE LA VALLÉE</p><details class="dossier-detail"><summary>La route des vivants <span>${r.migratorsArrived} au verger · ${r.migratorsLost} pertes · ${r.homesHabitable} habitats habitables</span></summary><p>${r.hamletsRecorded ? 'Deux habitats suspendus et la migration ont été relevés sur place, malgré leur omission sur la carte militaire.' : 'Le relevé reste incomplet.'} Les quatre animaux sont ceux rencontrés dans cette vallée. Aucun habitant de Nacre n’est attribué à ces maisons.</p><div class="dossier-table-wrap"><table><caption>Destinations et supports matériellement constatés</caption><thead><tr><th scope="col">Élément</th><th scope="col">État au départ</th><th scope="col">Constat</th></tr></thead><tbody>${animals}${homes}</tbody></table></div><p>${r.harvestFragile ? 'Le passage a fragilisé les récoltes.' : 'Les quatre migrateurs ont atteint les vergers.'} ${r.logisticsArrived ? 'Le transport logistique a atteint son point d’arrivée.' : 'Son arrivée n’est pas constatée.'} ${r.localsHeard ? 'Les habitants ont été écoutés par la liaison locale.' : 'Aucune aide locale n’a été obtenue.'}</p></details></section>`;
+}
+
 function nacreArchive() {
   const medical = campaign.completed.MI07, departure = campaign.completed.MI08;
   if (!medical && !departure) return '';
@@ -451,7 +496,7 @@ function renderArchive() {
       return `<article class="record-card"><div><p class="eyebrow">CAMPAGNE / ${r.missionId} / PREMIÈRE RÉUSSITE</p><h3>${escapeHTML(r.missionName)}</h3><p>${escapeHTML(r.walkerName)} · ${timeLabel(r.elapsed)}</p></div><div><p>${facts}<br>${escapeHTML(r.decisionLabel)}</p></div></article>`;
     }).join('');
     const simulations = finished.length ? finished.map(m => { const r = records[m.id]; return `<article class="record-card"><div><p class="eyebrow">SIMULATION / ${m.planet.toUpperCase()} / OPÉRATION ${m.number}</p><h3>${m.name}</h3><p>${escapeHTML(r.walker || 'Marcheur')} · ${timeLabel(Number(r.time) || 0)}</p></div><div><p>Preuves récupérées : ${Number(r.evidence) || 0}<br>Pertes civiles : ${Number(r.collateral) || 0}<br>Décision : ${r.choice === 'defy' ? 'Ordre contesté' : 'Ordre exécuté'}</p></div></article>`; }).join('') : '<p class="muted">Aucun rapport de simulation. Les exercices sont indépendants du dossier de campagne.</p>';
-    $('archive-content').innerHTML = nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
+    $('archive-content').innerHTML = thyrArchive() + nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
   }
 }
 
@@ -470,12 +515,7 @@ function renderBindings() {
   $('game-canvas').setAttribute('aria-label', `Champ de bataille. ${keyLabel('left')} et ${keyLabel('right')} pour marcher, souris pour viser, clic pour tirer. ${keyLabel('repair')} pour réparer le radiateur à l’arrêt. ${keyLabel('pause')} pour la pause.`);
 }
 function refreshGamepad() {
-  if (document.hidden || document.hasFocus?.() === false) {
-    gamepad.reset(); padState = gamepad.sample([]);
-    if (inGame && !paused) pauseMission();
-    audio.setPaused(true);
-    return;
-  }
+  if (!hasPageFocus()) { suspendForFocus(); return; }
   let devices = [];
   try { devices = navigator.getGamepads?.() || []; } catch { /* Browser permissions may hide devices. */ }
   padState = gamepad.sample(devices);
@@ -535,6 +575,10 @@ function showBriefing() {
     const n = campaign.world.nacre;
     $('briefing-description').textContent += ` Les rapports précédents conservent ${n.passage.refugeesPassed} passagers du chenal, ${n.dike.residentsSafe} habitants mis à l’abri et ${n.ambulance.patientsArrived} patients arrivés à l’accueil sanitaire. Il faut les retrouver et leur proposer les places disponibles. ${n.passage.smugglerVerified ? 'Vann a déjà été contacté : une nouvelle demande de service reste nécessaire.' : 'Aucun accord antérieur ne permet de compter sur Rive-Courte.'} ${n.ambulance.vehicleSeized ? 'L’ambulance reste saisie au poste impérial.' : 'Le véhicule sanitaire ne fait pas partie de la flotte du quai.'}`;
   }
+  if (pendingMode === 'campaign' && m.id === 'MI09') {
+    const r = campaign.completed.MI08;
+    $('briefing-description').textContent += ` ${r ? `Le rapport d’Aval conserve ${r.peopleArrived} arrivées au refuge et ${r.peopleLost} pertes ; Sami peut en parler par radio.` : 'Le bilan d’Aval est conservé dans votre dossier.'} Cette vallée a ses propres habitants et sa propre faune. Écoutez le poste local pour baliser une approche guidée, ou effectuez vous-même un relevé plus long. Les châssis hauts doivent reconnaître le passage avant de franchir la canopée.`;
+  }
   $('briefing-walker').textContent = `${w.designation} ${w.name}`;
   $('briefing-assist').textContent = settings.assist ? 'Marche assistée' : 'Appuis manuels';
   $('briefing-difficulty').textContent = DIFFICULTIES[settings.difficulty].label;
@@ -572,7 +616,7 @@ function enterMission(nextGame) {
   $('intro-location').textContent = game.mission.intro; $('intro-title').textContent = game.mission.name;
   $('restart').textContent = activeMode === 'campaign' ? 'Recommencer la mission' : 'Recommencer l’opération';
   aimMode = 'pointer'; padAim.x = 1; padAim.y = 0;
-  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
+  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08', 'MI09'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
   audio.setPaused(false); audio.update(game);
   $('game-canvas').focus({ preventScroll: true }); audio.unlock(); updateHUD();
 }
@@ -582,7 +626,7 @@ function pauseMission() {
   paused = true; audio.setPaused(true); clearInput(); captureCampaign(); $('pause-dialog').showModal();
 }
 function resumeMission() {
-  if (!game || game.status !== 'playing') return;
+  if (!game || game.status !== 'playing' || !hasPageFocus()) return;
   closeDialogs(); inGame = true; paused = false; audio.setPaused(false); clearInput();
   $('menu').hidden = true; $('game-screen').hidden = false; $('game-canvas').focus({ preventScroll: true }); audio.unlock();
   if (game.decision.active) showDecision();
@@ -626,7 +670,8 @@ function showResult() {
   const dikeMission = game.missionId === 'MI06';
   const ambulanceMission = game.missionId === 'MI07';
   const departureMission = game.missionId === 'MI08';
-  const missionStat = departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
+  const livingRouteMission = game.missionId === 'MI09';
+  const missionStat = livingRouteMission ? ['LONGUES-DORSES AU VERGER', `${game.campaign.migratorsArrived} / 4`] : departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
     : industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
     : networkMission ? ['RÉSEAUX CIVILS ACTIFS', `${game.campaign.civilRelaysOnline} / 2`]
     : railMission ? ['OUVRIERS LIBÉRÉS', `${game.campaign.hostagesRescued} / ${game.campaign.hostagesTotal}`]
@@ -634,7 +679,11 @@ function showResult() {
     : ['PREUVES RÉCUPÉRÉES', game.stats.evidence];
   const stats = [['DURÉE', timeLabel(game.elapsed)], ['CIBLES NEUTRALISÉES', game.stats.kills], missionStat, ['PERTES CIVILES', game.stats.collateral]];
   let decisionText;
-  if (departureMission) {
+  if (livingRouteMission) {
+    const f = game.campaign;
+    stats.push(['DÉTOURNÉES', f.migratorsDisplaced], ['LONGUES-DORSES PERDUES', f.migratorsLost], ['HABITATS HABITABLES', `${f.homesHabitable} / 2`], ['ÉVENTAILS REVENUS', `${f.pollinatorsPresent} / 2`]);
+    decisionText = `${f.route === 'migration' ? 'Passage migratoire choisi.' : f.route === 'imperial' ? 'Déviation impériale choisie.' : 'Aucune route choisie.'} ${f.gateOperated ? 'Manœuvre de barrière accomplie.' : 'Barrière non manœuvrée.'} ${f.migrationResolved ? `${f.migratorsArrived} au verger, ${f.migratorsDisplaced} détournées et ${f.migratorsLost} perdues.` : 'Trajet du troupeau non résolu.'} ${f.harvestFragile ? 'Récoltes fragilisées.' : f.migrationResolved ? 'Les quatre migrateurs ont rejoint les cultures.' : ''} ${f.logisticsArrived ? 'Logistique arrivée.' : f.logisticsDestroyed ? 'Transport logistique perdu.' : 'Transport encore à accompagner.'} ${f.reportTransmitted ? 'Bilan transmis.' : 'Rapport non transmis.'}`;
+  } else if (departureMission) {
     const f = game.campaign;
     stats.push(['DÉPARTS ACQUIS',f.peopleDeparted],['ACCUEIL LOCAL',f.peopleLocal],['PERTES À AVAL',f.peopleLost],['PATIENTS ARRIVÉS',`${f.patientsArrived} refuge · ${f.patientsLocal} local`]);
     decisionText = `${f.plan === 'open' ? 'Maintien du passage choisi.' : f.plan === 'window' ? 'Fenêtre avant fermeture choisie.' : f.plan === 'close' ? 'Fermeture immédiate choisie.' : 'Aucune conduite choisie.'} ${f.execution === 'damaged' ? 'Des avaries sont constatées sur les ouvrages.' : f.closureCompleted ? 'Les deux accès ont été fermés.' : f.accessMaintained ? 'Le passage est maintenu.' : 'Les opérations ne sont pas achevées.'} ${f.boatsDeparted} bateaux partis, ${f.boatsArrived} arrivés, ${f.boatsLost} perdus. ${f.registryCopied ? 'Pages de relogement copiées.' : 'Registre non copié.'} ${f.reportTransmitted ? 'Bilan effectivement transmis.' : 'Rapport encore à transmettre.'}`;
@@ -684,6 +733,16 @@ let lastObjectives = '';
 function updateHUD() {
   if (!game) return;
   const p = game.player;
+  $('thyr-instrument').hidden = !game.livingRoute;
+  if (game.livingRoute) {
+    const r = game.livingRoute, f = game.campaign, v = livingRouteSummary(game);
+    $('thyr-route').textContent = f.route === 'migration' ? 'PASSAGE VERS LES VERGERS' : f.route === 'imperial' ? 'DÉVIATION VERS L’EXCLUSION' : 'ROUTE À RELEVER ET À CHOISIR';
+    $('thyr-herd').textContent = `LONGUES-DORSES : ${v.arrived} VERGER · ${v.displaced} DÉTOURNÉES · ${v.lost} PERDUES`;
+    $('thyr-homes').textContent = `${v.homes} / 2 HABITATS HABITABLES · ${v.columns} / 2 COLONNES INTACTES`;
+    $('thyr-approach').textContent = `${r.approach.prepared ? r.approach.kind === 'guided' ? 'APPROCHE GUIDÉE' : 'APPROCHE RELEVÉE' : 'APPROCHE À BALISER'} · ${v.settled} / 2 ÉVENTAILS REVENUS`;
+    $('thyr-logistics').textContent = r.report.transmitted ? 'BILAN TRANSMIS · REJOINDRE LA RAMPE' : r.logistics.destroyed ? 'TRANSPORT LOGISTIQUE PERDU' : r.logistics.arrived ? 'LOGISTIQUE ARRIVÉE · TRANSMETTRE LE BILAN' : r.logistics.moving ? 'LOGISTIQUE EN ROUTE · COUVRIR LE TRAJET' : 'LOGISTIQUE EN ATTENTE';
+    $('thyr-instrument').classList.toggle('thyr-warning', v.lost > 0 || v.homes < 2 || r.logistics.destroyed);
+  }
   $('departure-instrument').hidden = !game.departure;
   if (game.departure) {
     const d=game.departure, f=game.campaign;
@@ -788,35 +847,52 @@ window.addEventListener('keydown', e => {
     if (result.ok) { const id = bindingCapture; settings.bindings = result.bindings; bindingCapture = null; saveSettings(); renderBindings(); document.querySelector(`[data-binding="${id}"]`)?.focus(); }
     return;
   }
-  if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement?.tagName) || e.ctrlKey || e.metaKey || e.altKey) return;
+  // Navigation can move focus before a keyup reaches the page. Release first,
+  // while leaving Tab and browser shortcuts to their normal handlers.
+  if (e.code === 'Tab' || e.ctrlKey || e.metaKey || e.altKey) { if (inGame) clearInput(); return; }
+  if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
   if (['Enter','Space'].includes(e.code) && ['BUTTON','A','SUMMARY'].includes(document.activeElement?.tagName)) return;
   if (settings.bindings.fullscreen.includes(e.code) && !e.repeat) { e.preventDefault(); fullscreen(); return; }
   if (!inGame || !game) return;
+  if (!hasPageFocus()) { suspendForFocus(); return; }
   if (settings.bindings.pause.includes(e.code)) {
-    if (e.code !== 'Escape' && $('pause-dialog').open && !e.repeat) { e.preventDefault(); resumeMission(); }
+    if (e.repeat) return;
+    if (e.code !== 'Escape' && $('pause-dialog').open) { e.preventDefault(); resumeMission(); }
     else if (!$('pause-dialog').open && !$('decision-dialog').open && !$('result-dialog').open) { e.preventDefault(); pauseMission(); }
     return;
   }
-  if (paused || game.decision.active || game.status !== 'playing') return;
-  if (Object.values(settings.bindings).some(codes => codes.includes(e.code))) e.preventDefault();
+  if (!missionAcceptsInput() || document.activeElement !== $('game-canvas')) return;
+  if (!Object.values(settings.bindings).some(codes => codes.includes(e.code))) return;
+  e.preventDefault();
+  // Clearing input is a release boundary. Auto-repeat from a still-held key
+  // cannot arm it again after a pause or a focus change; a fresh press can.
+  if (e.repeat && !keys.has(e.code)) return;
   keys.add(e.code);
 });
 window.addEventListener('keyup', e => keys.delete(e.code));
-window.addEventListener('blur', () => { clearInput(); if (inGame && !document.querySelector('dialog[open]')) pauseMission(); });
-document.addEventListener('visibilitychange', () => { if (document.hidden) { clearInput(); pauseMission(); } });
+window.addEventListener('blur', suspendForFocus);
+document.addEventListener('visibilitychange', () => { if (document.hidden) suspendForFocus(); });
 window.addEventListener('beforeunload', () => captureCampaign());
-window.addEventListener('pagehide', event => { if (event.persisted) audio.setPaused(true); else audio.dispose(); });
+window.addEventListener('pagehide', event => { suspendForFocus(); if (!event.persisted) audio.dispose(); });
 const canvas = $('game-canvas');
+const missionFocusTargets = new Set([canvas, $('pause-button'), ...all('[data-hold]'), ...all('[data-action]')]);
+for (const target of missionFocusTargets) target.addEventListener('blur', event => {
+  if (!inGame) return;
+  clearInput();
+  // HUD controls keep their native focus and activation. Moving outside the
+  // mission surface suspends the game, including a canvas-only focus loss.
+  if (!missionFocusTargets.has(event.relatedTarget) && !paused && game?.status === 'playing' && !game.decision.active && !document.querySelector('dialog[open]')) suspendForFocus();
+});
 canvas.addEventListener('pointermove', e => { aimMode = 'pointer'; pointer.clientX = e.clientX; pointer.clientY = e.clientY; pointer.visible = true; pointer.touched = e.pointerType === 'touch'; const p = renderer.worldPoint(e.clientX, e.clientY); pointer.x = p.x; pointer.y = p.y; });
-canvas.addEventListener('pointerdown', e => { aimMode = 'pointer'; if (paused || !game || game.decision.active) return; audio.unlock(); canvas.setPointerCapture(e.pointerId); const p = renderer.worldPoint(e.clientX, e.clientY); Object.assign(pointer, p, { clientX: e.clientX, clientY: e.clientY, visible: true, touched: e.pointerType === 'touch' }); if (e.button === 2) pointer.secondary = true; else pointer.fire = true; });
+canvas.addEventListener('pointerdown', e => { if (!missionAcceptsInput()) return; aimMode = 'pointer'; canvas.focus({ preventScroll: true }); audio.unlock(); canvas.setPointerCapture(e.pointerId); const p = renderer.worldPoint(e.clientX, e.clientY); Object.assign(pointer, p, { clientX: e.clientX, clientY: e.clientY, visible: true, touched: e.pointerType === 'touch' }); if (e.button === 2) pointer.secondary = true; else pointer.fire = true; });
 window.addEventListener('pointerup', e => { if (e.button === 2) pointer.secondary = false; else pointer.fire = false; });
-canvas.addEventListener('pointercancel', clearInput); canvas.addEventListener('contextmenu', e => e.preventDefault());
+canvas.addEventListener('pointercancel', clearInput); canvas.addEventListener('lostpointercapture', releasePointer); canvas.addEventListener('contextmenu', e => e.preventDefault());
 all('[data-hold]').forEach(el => {
-  el.addEventListener('pointerdown', e => { e.preventDefault(); el.setPointerCapture(e.pointerId); touch[el.dataset.hold] = true; pointer.touched = true; document.body.classList.add('touch-active'); audio.unlock(); });
+  el.addEventListener('pointerdown', e => { e.preventDefault(); if (!missionAcceptsInput()) return; el.setPointerCapture(e.pointerId); touch[el.dataset.hold] = true; pointer.touched = true; document.body.classList.add('touch-active'); audio.unlock(); });
   const release = e => { e.preventDefault(); touch[el.dataset.hold] = false; };
   el.addEventListener('pointerup', release); el.addEventListener('pointercancel', release); el.addEventListener('lostpointercapture', release);
 });
-all('[data-action]').forEach(el => el.addEventListener('click', () => { if (game && !paused) commandGame(game, el.dataset.action); }));
+all('[data-action]').forEach(el => el.addEventListener('click', () => { if (missionAcceptsInput()) commandGame(game, el.dataset.action); }));
 
 function input() {
   const keyboard = keyboardActions(keys, settings.bindings), pad = padState.input;
@@ -866,7 +942,7 @@ function frame(now) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
       if (!paused && activeMode === 'campaign' && !campaignReplay) {
         const fuelChanged = game.missionId === 'MI06' && game.campaign.fuelSpent !== campaign.checkpoint?.campaign.fuelSpent;
-        const failedSortie = ['MI06', 'MI07', 'MI08'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
+        const failedSortie = ['MI06', 'MI07', 'MI08', 'MI09'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
         if (fuelChanged || failedSortie || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
       }
       renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, departureInstrument: false, interactionPrompt: false, pointer });

@@ -1,0 +1,189 @@
+{
+  "version": "0.10.0",
+  "scope": "MI09 production Canvas validation only",
+  "generatedBy": "node tools/render-mi09-previews.mjs",
+  "manifest": "docs/previews/mi09-render-manifest.json",
+  "imageCount": 22,
+  "completedRuns": 17,
+  "campaignExports": 3,
+  "sourceHashes": {
+    "src/content.mjs": "ae0d137afbb364a317292df0e11917fd00c8bdcf16a614edfb354c963cec907c",
+    "src/simulation.mjs": "236f3c7f06bec8a32525b652b5612502a2e415466224445397cd0bf85849c617",
+    "src/renderer.mjs": "b5f8ca4b0e20ac18bd3577c22e6361ce6d2905ab50ff8780162ece0f194f823a",
+    "src/thyr-renderer.mjs": "4b887111c090a90e2084699acf6e43ed0d2613ab73afdb1e4b6fe5eed0a01580",
+    "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+    "src/campaign.mjs": "b3ea42fb30869f79b84a7555caa637facf1398626a4ffaefe0ed78c1bad8dbfa",
+    "src/thyr-validation.mjs": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+    "tests/helpers/mi09-driver.mjs": "9a5fc59291594f13491128f77b6cf15fd6768ec87308d7239ce723f4df5ab1a4",
+    "tools/render-mi09-previews.mjs": "f8c7c6e180d55a245a27eaa0c49d477d16efb81e60bad496a31a32157c73995b",
+    "tests/fixtures/campaign-v8-mi08.json": "19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007"
+  },
+  "historicalFixture": "tests/fixtures/campaign-v8-mi08.json",
+  "checks": {
+    "publicControlsOnly": true,
+    "deepSnapshotsUnchangedAfterContinuation": true,
+    "rendererDidNotMutateAuthoritativeState": true,
+    "capturesAcceptedByCampaignValidator": true,
+    "completedReceiptsRoundTripExactly": true,
+    "allSixChassisBothRoutesComplete": true
+  },
+  "nativeBrowserExamined": false,
+  "humanPlaytestPerformed": false,
+  "images": [
+    {
+      "file": "mi09-arrival-thyr.png",
+      "title": "Début de Thyr : un nouveau lieu, aucun recensement humain transféré depuis Nacre",
+      "walkerId": "WK09",
+      "elapsed": 0,
+      "sha256": "e4faadbb821a8b7839061be83f2c16030a99c010d414bbf8388b36c1e51cd3b6"
+    },
+    {
+      "file": "mi09-local-listening.png",
+      "title": "Écoute du poste local réellement en cours, aide non encore attribuée",
+      "walkerId": "WK09",
+      "elapsed": 3.049999999999994,
+      "sha256": "ecf9344669c10f2cb514d854eacfef6d36277afd89e8dcd3274faf92250422c3"
+    },
+    {
+      "file": "mi09-guided-approach.png",
+      "title": "Balisage guidé sous ancrage, tous les appuis en contact avant le contournement",
+      "walkerId": "WK09",
+      "elapsed": 11.000000000000126,
+      "sha256": "568fae4c4c388776d65c168f67f8c507855d06395884ac073b19664f4e3f6d99"
+    },
+    {
+      "file": "mi09-root-contacts.png",
+      "title": "Appuis réels élevés par le relief de la racine porteuse ; habitat suspendu au même support",
+      "walkerId": "WK09",
+      "elapsed": 17.21666666666697,
+      "sha256": "e4061b6029df4a05d25bbe3ccda0bd1bfcdb6e810eec2270fe03972217fe113f"
+    },
+    {
+      "file": "mi09-map-decision.png",
+      "title": "Carte relevée et choix ouvert : aucune manœuvre ni destination animale encore accomplie",
+      "walkerId": "WK09",
+      "elapsed": 41.61666666666559,
+      "sha256": "b8bbdbf1892a93dd02f444e9b2c1df78991d0d41488c9b950502e9fb5ff089d0"
+    },
+    {
+      "file": "mi09-barrier-operation.png",
+      "title": "Manœuvre ancrée en cours après le choix ; troupeau encore au point de départ",
+      "walkerId": "WK09",
+      "elapsed": 49.89999999999845,
+      "sha256": "2ab489a3c2d34c17938d5fe8ee956dbb32ee3f857650a0e9f6ca0f80e28d68fc"
+    },
+    {
+      "file": "mi09-migration-in-progress.png",
+      "title": "Longues-dorses en déplacement physique vers le verger, arrivée non encore acquise",
+      "walkerId": "WK09",
+      "elapsed": 67.26666666666414,
+      "sha256": "627368dcff5a936b435cb758ac4e32aa960923ce988cfab77dfd17678c1cfcc4"
+    },
+    {
+      "file": "mi09-sniper-corridor.png",
+      "title": "Tireur d’élite réellement présent après résolution du troupeau, colonne et habitat dans les angles de tir",
+      "walkerId": "WK09",
+      "elapsed": 121.16666666666107,
+      "sha256": "7f71daf4b053e8319e6573ad0ca5da1295573e65ebfd3fbe656733ab7ae0462b"
+    },
+    {
+      "file": "mi09-orchard-arrivals.png",
+      "title": "Quatre animaux effectivement au verger, distincts du transport encore en route",
+      "walkerId": "WK09",
+      "elapsed": 136.1500000000005,
+      "sha256": "3868985de6d7c47ccd2c5c00a2283d6d2942ff3334579c655b97aacfd53f446a"
+    },
+    {
+      "file": "mi09-logistics-route.png",
+      "title": "Transport physiquement en route et deux tireurs neutralisés ; dépôt non encore atteint",
+      "walkerId": "WK09",
+      "elapsed": 139.41666666666976,
+      "sha256": "d51a4652e1fe686b2f68cbae281a86926ba4ae809e515598f509d83bf1a2adfe"
+    },
+    {
+      "file": "mi09-report-transmission.png",
+      "title": "Transmission du rapport en cours après l’arrivée logistique, le troupeau et la défense",
+      "walkerId": "WK09",
+      "elapsed": 159.91666666668607,
+      "sha256": "230c36b4566707f1badc2cfb0bb276a3f63204089c559c9135e2f88563aa9acb"
+    },
+    {
+      "file": "mi09-before-extraction.png",
+      "title": "Bilan transmis, conséquences conservées, extraction encore à rejoindre",
+      "walkerId": "WK09",
+      "elapsed": 161.26666666668714,
+      "sha256": "08e1ae2caea725265386c567c3e8a53f8e94b73f874140b735a4768d44d8ed78"
+    },
+    {
+      "file": "mi09-exclusion-destination.png",
+      "title": "Quatre longues-dorses vivantes atteignent l’exclusion ; le verger ne reçoit pas leur passage",
+      "walkerId": "WK01",
+      "elapsed": 89.33333333332955,
+      "sha256": "acff48ebf2ce38d0b7eb5e6681a89cd4b3816ddca3f1f7132eca636229a04c68"
+    },
+    {
+      "file": "mi09-root-damage.png",
+      "title": "Racine rompue par des tirs réels : habitat effondré, tronc encore présent",
+      "walkerId": "WK01",
+      "elapsed": 17.033333333333648,
+      "sha256": "d796ea09555c988e1a57301de4c00b19405a7b2fc95ad73a7e419fd07ed354ae"
+    },
+    {
+      "file": "mi09-column-damage.png",
+      "title": "Colonne détruite : habitat et colonie d’éventails perdus, faits non reconstruits",
+      "walkerId": "WK01",
+      "elapsed": 21.30000000000007,
+      "sha256": "1c9dcb1592793628748f4888a311ee5a6d89f65e52b11c7de882c54203f45d4c"
+    },
+    {
+      "file": "mi09-broken-barrier.png",
+      "title": "Barrière détruite puis guides manuels en cours ; la brèche n’avait pas affecté le troupeau",
+      "walkerId": "WK01",
+      "elapsed": 48.749999999998515,
+      "sha256": "cee97cf8b153e3ca8ed55efa9cf5ac150eae7de5325606b4243fca51d71e2473"
+    },
+    {
+      "file": "mi09-chassis-wk01.png",
+      "title": "M-12 Vigie : gabarit réel et pieds portés par la même racine",
+      "walkerId": "WK01",
+      "elapsed": 16.63333333333367,
+      "sha256": "3a82d5ea4a28f516403378f4a3c3f58ef641b64ac67f5a7868a117de87b4177a"
+    },
+    {
+      "file": "mi09-chassis-wk02.png",
+      "title": "C-5 Caracal : gabarit réel et pieds portés par la même racine",
+      "walkerId": "WK02",
+      "elapsed": 16.266666666667025,
+      "sha256": "00a9286dad69dc46e43b5a24d15213a19f2f663790d4a88327f1279e7d8052cc"
+    },
+    {
+      "file": "mi09-chassis-wk05.png",
+      "title": "Q-40 Bastion : gabarit réel et pieds portés par la même racine",
+      "walkerId": "WK05",
+      "elapsed": 19.75000000000016,
+      "sha256": "996057de6fd090b92f06c602e3b7c32035f33d00f0ff2aca3d5ca46976f82074"
+    },
+    {
+      "file": "mi09-chassis-wk06.png",
+      "title": "A-17 Arpenteur : gabarit réel et pieds portés par la même racine",
+      "walkerId": "WK06",
+      "elapsed": 18.4666666666669,
+      "sha256": "7eceb745a38c026a8261a026fe4082aef2fa8d03519a27c815f234c33f6bfdc0"
+    },
+    {
+      "file": "mi09-chassis-wk09.png",
+      "title": "H-6 Pèlerin : gabarit réel et pieds portés par la même racine",
+      "walkerId": "WK09",
+      "elapsed": 17.21666666666697,
+      "sha256": "e4061b6029df4a05d25bbe3ccda0bd1bfcdb6e810eec2270fe03972217fe113f"
+    },
+    {
+      "file": "mi09-chassis-wk10.png",
+      "title": "CL-4 Cloporte : gabarit réel et pieds portés par la même racine",
+      "walkerId": "WK10",
+      "elapsed": 20.666666666666774,
+      "sha256": "4b55ef4beb1bc97b2d16d300a4c04cf30d7ed7776d4a89a311b69343382c6197"
+    }
+  ],
+  "limitations": "No browser, HTML HUD, CSS, native focus, human playtest, hardware control, human voice or performance certification."
+}

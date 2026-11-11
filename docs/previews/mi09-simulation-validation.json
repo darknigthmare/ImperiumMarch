@@ -1,0 +1,56 @@
+{
+  "version": "0.10.0",
+  "scope": "MI09 deterministic simulation, public controls only",
+  "command": "node --test tests/mi09-simulation.test.mjs",
+  "nodeVersion": "v24.22.1",
+  "log": "docs/previews/mi09-simulation-tests.txt",
+  "logSha256": "193a96b700dcda24a5bd849dcea20788ced2dabeafbb21abd6af5d9661740f6e",
+  "totals": {
+    "tests": 28,
+    "suites": 0,
+    "pass": 28,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "duration_ms": 3158.541865
+  },
+  "sourceHashes": {
+    "src/content.mjs": "ae0d137afbb364a317292df0e11917fd00c8bdcf16a614edfb354c963cec907c",
+    "src/simulation.mjs": "236f3c7f06bec8a32525b652b5612502a2e415466224445397cd0bf85849c617",
+    "tests/helpers/mi09-driver.mjs": "9a5fc59291594f13491128f77b6cf15fd6768ec87308d7239ce723f4df5ab1a4",
+    "tests/mi09-simulation.test.mjs": "ebe0a5a7b037579478e76336233bd9adbb6c3c220fdda6c9f3c95b94026e8bda"
+  },
+  "walkers": [
+    "WK01",
+    "WK02",
+    "WK05",
+    "WK06",
+    "WK09",
+    "WK10"
+  ],
+  "routes": [
+    "obey",
+    "defy"
+  ],
+  "matrixCombinations": 12,
+  "publicControlsOnly": true,
+  "scenePositionHealthTimeSettersUsed": false,
+  "verified": [
+    "physical feet on roots",
+    "real chassis clearance and anchored bypass",
+    "local listening and guided cadence",
+    "manual alternating step cadence",
+    "FU08 local flash and quiet return",
+    "choice without remote gate actuation",
+    "deterministic mid-work and migration continuation",
+    "snipers absent before physical trigger",
+    "column/root/home/barrier destruction",
+    "individual migrator losses and terminal destinations",
+    "transport loss retained as lost",
+    "actual walker defeat under sniper fire"
+  ],
+  "nativeBrowserExamined": false,
+  "humanPlaytestPerformed": false,
+  "limitations": "These automated simulation tests do not attest native input, hardware controls, human acceptance, audio or browser frame pacing."
+}

@@ -31,7 +31,7 @@ test('authentic d7d76b6 v4 live and completed dossiers gain only an unvisited Na
     const migrated = parseCampaign(JSON.stringify(old));
     assert.equal(migrated.version, CAMPAIGN_SAVE_VERSION);
     const originalShape = clone(migrated);
-    originalShape.version = 4; delete originalShape.world.nacre; delete originalShape.resources.fuel;
+    originalShape.version = 4; delete originalShape.world.thyr; delete originalShape.world.nacre; delete originalShape.resources.fuel;
     assert.deepEqual(originalShape, old);
     assert.equal(migrated.resources.fuel, 0);
     assert.equal(migrated.world.nacre.passage.smugglerVerified, false);

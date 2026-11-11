@@ -1,12 +1,22 @@
 # Bible Excel — Ordre de cendre
 
-Le classeur `ORDRE_DE_CENDRE_Bible.xlsx` présente la conception et la réception de production d’**ImperiumMarch**. La version **0.9.0** conserve les **21 onglets** et porte le référentiel à **816 fiches**. Les compteurs décrivent les vingt domaines; ils ne mesurent pas un pourcentage d’achèvement du jeu.
+Le classeur `ORDRE_DE_CENDRE_Bible.xlsx` présente la conception et la réception de production d’**ImperiumMarch**. La version **0.10.0** conserve **21 onglets** et porte le référentiel à **845 fiches**. Les compteurs décrivent les vingt domaines; ils ne mesurent pas un pourcentage d’achèvement du jeu.
 
-**MI01–MI08 possèdent une version jouable au stade prototype.** Les quatre sorties de Vesper sont suivies du chenal, de la digue, de la chaussée sanitaire et des portes d’Aval sur Nacre. Les 24 missions MI09–MI32 et les seize contrats restent conçus. Les trois opérations OP01–OP03 gardent leurs rapports indépendants. Six châssis sont jouables.
+**MI01–MI09 possèdent une version jouable au stade prototype.** Après Vesper et les quatre sorties de Nacre, MI09 ouvre une route locale sur Thyr. Les 23 missions MI10–MI32 et les seize contrats restent conçus. Les trois opérations OP01–OP03 gardent leurs rapports indépendants. Six châssis sont jouables.
 
-Les **769 identifiants de la 0.8** sont conservés et **47 fiches** sont ajoutées : dix systèmes, six éléments narratifs, dix périmètres Prototype et vingt et une QA. Le dossier v8 garde les anciens états et ajoute le départ de Nacre. Accord, embarquement, départ de zone, arrivée au refuge et accueil local sont des faits distincts.
+Les **816 identifiants de la 0.9** sont conservés dans leur ordre de feuille. Les **29 ajouts** se répartissent ainsi :
 
-Les **133 lignes initialement À produire** disposent de leur [baseline immuable](validation/production-v09-baseline.json) et d’un [registre complet de réception](PRODUCTION_REGISTER_V09.md). Un fichier ou comportement reçu au stade Prototype ne clôt pas son critère d’art final, de matériel ou d’essai humain. Le texte initial et le travail restant sont conservés par ID.
+| Domaine | Nouveaux IDs | Fiches |
+| --- | --- | ---: |
+| Systèmes | SY93–SY98 | 6 |
+| Narration | NA75–NA78 | 4 |
+| Production | PR83–PR85 | 3 |
+| Prototype | PX89–PX93 | 5 |
+| QA | QA159–QA169 | 11 |
+
+Le dossier v9 ajoute un état local de Thyr sans transformer les anciens habitants de Nacre en nouveaux occupants. La migration conserve les faits précédents, le carburant et même l’ancien marqueur `stage:'complete'`; la progression propose ensuite MI09 à partir du rapport manquant. Les deux supports FL07, les quatre migrateurs FU07 et les deux colonies FU08 possèdent des mécanismes locaux. FL08 reste décorative et FL09 conserve seulement une réaction visuelle.
+
+Les **133 lignes initialement À produire** gardent leur [baseline immuable](validation/production-v09-baseline.json) et leur [registre complet de réception 0.10](PRODUCTION_REGISTER_V10.md). Le texte initial, les reçus 0.9 et le travail restant sont conservés par ID. Les nouveaux systèmes et QA ne gonflent pas ce dénominateur.
 
 ## Lire les statuts
 
@@ -17,7 +27,7 @@ Les **133 lignes initialement À produire** disposent de leur [baseline immuable
 | À produire | Travail identifié dont la réalisation ou le critère de réception reste ouvert. |
 | Vérifié | Contrôle réellement exécuté, avec preuve et portée explicites. |
 
-Le statut d’un scénario QA ne certifie pas la finition complète du système. Un test DOM ne certifie pas un navigateur, une image Canvas ne certifie pas le HUD HTML et un périphérique simulé ne certifie pas du matériel physique. Les protocoles humains préparés ne contiennent aucun résultat de session.
+Le statut d’un scénario QA ne certifie pas la finition complète du système. Un test DOM ne certifie pas un navigateur, une image Canvas ne certifie pas le HUD HTML et un périphérique simulé ne certifie pas du matériel physique. Les protocoles humains préparés ne contiennent aucun résultat de session. QA19 conserve les deux observations natives contradictoires de la 0.9; les correctifs modélisés ne les clôturent pas. PR85 et QA169 gardent la réception humaine de Thyr ouverte.
 
 ## Rechercher et mettre à jour
 
@@ -27,50 +37,63 @@ Pour conserver une version reproductible, reporter les modifications dans `data/
 
 ## Régénérer et contrôler
 
-Le générateur emploie **@oai/artifact-tool** depuis le runtime primaire, sans installer de dépendance dans le dépôt.
+Le générateur emploie **@oai/artifact-tool** depuis le runtime primaire, sans installer de dépendance dans le dépôt. La configuration 0.10 contient les onze vues d’ensemble et vingt-neuf plages ciblées de cette réception.
 
 ```bash
-"$CODEX_PRIMARY_RUNTIME_NODE" tools/build-bible.mjs
+BIBLE_PREVIEW_CONFIG=data/bible-v010-previews.json \
+  "$CODEX_PRIMARY_RUNTIME_NODE" tools/build-bible.mjs
 ```
 
-Il exporte le classeur, ses inspections et ses aperçus sous `../outputs/imperium-march/`, puis copie le XLSX dans `docs/ORDRE_DE_CENDRE_Bible.xlsx` et le rapport dans `docs/validation/workbook-validation.json`. Les deux arguments optionnels fixent la racine du dépôt et la sortie. `BIBLE_RENDER_SHEETS` limite les vues aux feuilles modifiées; `BIBLE_EXTRA_PREVIEWS` ajoute des plages ciblées par `sheetName`, `range` et `file`.
+Le générateur exporte le classeur, ses inspections et ses aperçus sous `../outputs/imperium-march/`, puis copie le XLSX dans `docs/ORDRE_DE_CENDRE_Bible.xlsx`. Les deux arguments optionnels fixent la racine du dépôt et le répertoire de sortie. La livraison 0.10 a utilisé `../outputs/imperium-march-v010/`. `BIBLE_RENDER_SHEETS` et `BIBLE_EXTRA_PREVIEWS` permettent de remplacer les sélections de la configuration.
+
+Le rapport courant est **`docs/validation/workbook-v0.10-validation.json`**. Le fichier générique `workbook-validation.json` reste la preuve historique de la 0.9; il n’est plus écrasé par le générateur. Les anciens reçus ne décrivent pas implicitement les nouveaux octets du classeur.
 
 La génération réconcilie comptes et statuts avec le JSON. Elle modifie temporairement un statut, recalcule, contrôle l’effet puis restaure la valeur. Le vérificateur indépendant lit le ZIP/XML : cellules source, caches de formules, tables, validations, règles conditionnelles et volets.
 
 ```bash
-"$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-export.py . 03c69e7
+"$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-export.py . \
+  --reference-report docs/validation/production-v010-reference-audit.json
 ```
 
-La baseline par défaut est le commit local authentique `03c69e73175d6e2d61f59f6f9ba8ee80da827103`, version 0.8. La publication précédente possède une histoire différente, au commit `0ae303a7b04d45472dc17154039ddc73760dc97a`. La fixture `tests/fixtures/bible-v08-ids.json` conserve les 769 IDs, la révision complète, le blob Git et le SHA-256 de la source. Elle sert de fallback seulement lorsque cette révision enregistrée n’est pas disponible dans Git.
+La baseline par défaut est la publication 0.9 authentique **`2bb8d7a708e4fab5ab34b3cac10f2418b60fe037`**. La fixture `tests/fixtures/bible-v09-ids.json` conserve les 816 IDs, la révision, l’arbre, le blob Git et le SHA-256 de cette source. Elle a été copiée depuis le snapshot publié, identique à la base locale `e0026cb3fcd342309f2201a9288f10b78b8cff84`; elle n’a pas été reconstruite à partir des fiches nouvelles. Le fallback s’applique seulement à une révision enregistrée absente de Git.
 
-Les baselines v0.7, v0.6, v0.5 et v0.4 restent disponibles, respectivement pour 705, 643, 581 et 526 IDs. Une révision absente non reconnue demeure une erreur. Ces fixtures ne reconstituent pas tout l’historique Git et ne modifient pas les fichiers historiques.
+Les baselines 0.8, 0.7, 0.6, 0.5 et 0.4 restent disponibles pour 769, 705, 643, 581 et 526 IDs. Les six baselines ont été contrôlées dans une copie sans Git. Une révision absente non reconnue demeure une erreur. Ces fixtures ne reconstituent pas tout l’historique Git et ne modifient pas les fichiers historiques.
 
-L’audit des références peut aussi être exécuté sans toucher au classeur ni aux rapports d’export :
+L’audit des références et ses sondes peuvent aussi être exécutés séparément :
 
 ```bash
 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-export.py . --references-only
+"$CODEX_PRIMARY_RUNTIME_PYTHON" tools/audit-bible-references.py
 ```
 
-Il résout les identifiants explicites à deux lettres et deux ou trois chiffres, les plages fermées et les paires abrégées. Les opérations et familles de preuve disposent d’ancres canoniques. [BIBLE_REFERENCES.md](BIBLE_REFERENCES.md) décrit les limites et les sondes négatives. Résoudre une référence ne prouve pas l’implémentation de son contenu.
+Il résout les identifiants explicites à deux lettres et deux ou trois chiffres, les plages fermées et les paires abrégées. Les opérations et familles de preuve disposent d’ancres canoniques. [BIBLE_REFERENCES.md](BIBLE_REFERENCES.md) décrit les limites et les sept mutations négatives. Résoudre une référence ne prouve pas l’implémentation de son contenu.
 
-## Contrôle de réception 0.9
+## Réception du classeur 0.10
 
-Le fichier exporté réconcilie **816 fiches et 5 527 cellules source**, avec **769 IDs historiques conservés** et 47 ajouts. Ses 21 onglets comportent 20 tables, 126 formules calculées sans erreur, 20 plages de validation, 80 règles conditionnelles et 20 feuilles de données aux volets figés. La modification temporaire d’un statut et la restauration ont été contrôlées dans le moteur de génération.
+L’export réconcilie **845 fiches et 5 715 cellules source**, avec **816 IDs historiques conservés** et 29 ajouts. Les 21 onglets comportent **20 tables, 126 formules calculées sans erreur, 20 plages de validation, 80 règles conditionnelles et 20 feuilles de données aux volets figés**. La modification temporaire d’un statut et sa restauration ont été contrôlées dans le moteur de génération.
 
 | Statut | Fiches |
 | --- | ---: |
-| Conçu | 287 |
-| Prototype | 310 |
-| À produire | 83 |
-| Vérifié | 136 |
-| **Total** | **816** |
+| Conçu | 282 |
+| Prototype | 333 |
+| À produire | 84 |
+| Vérifié | 146 |
+| **Total** | **845** |
 
-Les preuves comprennent la [réconciliation de l’export](validation/workbook-v0.9-export.json), le [contrôle des baselines](validation/workbook-v0.9-baseline-check.json), la [relecture visuelle](validation/workbook-v0.9-visual-review.json), l’[inspection des cellules](validation/workbook-v0.9-inspection.ndjson) et le [contrôle des formules](validation/workbook-v0.9-formula-check.ndjson). Les **37 vues de dix feuilles** ciblent les lignes modifiées et la synthèse. Les vues conservées d’un export précédent ont exactement les mêmes valeurs, formules, hauteurs de lignes et colonnes que le fichier final.
+Les preuves comprennent la [réconciliation de l’export](validation/workbook-v0.10-export.json), le [contrôle indépendant des baselines](validation/workbook-v0.10-baseline-check.json), la [relecture visuelle](validation/workbook-v0.10-visual-review.json), l’[inspection des cellules](validation/workbook-v0.10-inspection.ndjson) et le [contrôle des formules](validation/workbook-v0.10-formula-check.ndjson).
 
-Empreinte SHA-256 du classeur final : `af5c84c1a1efc9d78300f3443d0097fca0027596385db97358d97c7e6bdcf701`.
+Les **40 vues de onze feuilles** couvrent la synthèse, les en-têtes retenus et toutes les plages de lignes ajoutées ou modifiées. L’export final a régénéré les quarante images : trente-cinq sont identiques aux vues déjà examinées, et les cinq vues nouvelles ou modifiées ont été relues après réception. Les vingt feuilles de données gardent leurs largeurs de colonne; les 791 lignes source historiques inchangées gardent leurs hauteurs. La feuille de styles XML est identique à celle de la 0.9. Le [tableau de synthèse](previews/bible-v010/00-Synthese.png) rend visibles les compteurs finaux.
 
-Un contrôle indépendant a exécuté **LibreOfficeDev 26.8.0.0.alpha0 2c87e51eeaa2b413ff4ae097b2705eea1995d8e5** en mode headless sur une copie jetable, après retrait des 126 caches de formules. Les 126 résultats ont été recalculés; les 5 527 cellules source et toutes les valeurs comparées concordent. L’original est resté inchangé. Le [rapport natif](validation/workbook-v0.9-libreoffice.json) conserve version, commande, empreintes et observations structurelles.
+Empreinte SHA-256 du classeur final : `6a5e10c5296f1bbc0468926dde4424a41f9425fc8cd9b02b7fa52e2fc08d5082`.
+
+## Recalcul dans LibreOffice
+
+```bash
+"$CODEX_PRIMARY_RUNTIME_PYTHON" tools/recalculate-bible-libreoffice.py
+```
+
+Le contrôle indépendant a exécuté **LibreOfficeDev 26.8.0.0.alpha0 2c87e51eeaa2b413ff4ae097b2705eea1995d8e5** en mode headless sur une copie jetable après retrait des 126 caches de formules. Les **126 résultats ont été recalculés**; les 5 715 cellules source et toutes les valeurs comparées concordent. L’original est resté inchangé. Le [rapport de recalcul](validation/workbook-v0.10-libreoffice.json) conserve version, commande, empreintes et observations structurelles.
 
 LibreOffice a normalisé cent expressions en retirant les apostrophes facultatives autour des noms de feuille; leurs résultats sont identiques. La copie conserve aussi les tables, validations, règles conditionnelles et volets contrôlés en XML. Ces observations structurelles ne valident pas le tri interactif, le défilement des volets ou une modification par un utilisateur. **QA29 reste ouverte** pour ces gestes. Aucune exécution dans Excel desktop n’est revendiquée.
 
-Le [bilan de production](PRODUCTION_V09.md), le [contrat de Nacre](NACRE_CONSEQUENCES_V09.md) et le [registre des 133 critères](PRODUCTION_REGISTER_V09.md) expliquent les changements et les travaux ouverts. Les documents des tranches précédentes conservent leurs bilans historiques.
+Le [bilan de production](PRODUCTION_V10.md), le [contrat de MI09](CAMPAIGN_MISSION_09.md), le [contrat du dossier v9](CAMPAIGN_SAVE_V9.md) et le [registre des 133 critères](PRODUCTION_REGISTER_V10.md) expliquent les réalisations et le travail restant. Les documents et preuves des versions précédentes conservent leurs bilans historiques.

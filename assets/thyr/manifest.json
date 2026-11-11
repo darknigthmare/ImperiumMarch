@@ -1,0 +1,1274 @@
+{
+  "schema": 1,
+  "version": "0.10.0",
+  "created": "2026-11-11",
+  "title": "Thyr — colonnes, habitats et migration",
+  "source": "src/thyr-assets.mjs",
+  "generator": "tools/build-thyr-assets.mjs",
+  "runtime": "src/thyr-renderer.mjs",
+  "provenance": {
+    "author": "Original code and geometry authored by OpenAI assistant for Darknigthmare",
+    "method": "Code-native original vector geometry shared by SVG exports and Canvas runtime; no generated, traced, stock or third-party artwork.",
+    "references": [
+      "data/bible.json",
+      "docs/CAMPAIGN_FR.md",
+      "docs/ART_DIRECTION.md"
+    ]
+  },
+  "authority": "Positions, contacts, damage, herd identities and outcomes are supplied by simulation.mjs. Drawings never alter state or add occupants.",
+  "limitations": [
+    "Sheets are asset benches, not browser screenshots or human art approval.",
+    "FL08 membranes are decorative here: air filtering and fire toxicity are not simulated by MI09.",
+    "FL09 blades react visually to nearby moving migrators, without a new sensory or stealth mechanic.",
+    "Habitat drawings contain no occupants or invented census."
+  ],
+  "sourceSha256": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+  "files": [
+    {
+      "file": "assets/thyr/column-normal.svg",
+      "bytes": 5596,
+      "sha256": "490ea790f5fe4cb150d1c6848023f3d870185daeaefa862c1b385fe47dcab0a8",
+      "format": "svg",
+      "part": "column",
+      "state": "normal",
+      "canonIds": [
+        "FL07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "home": [
+          80,
+          -265
+        ],
+        "canopy": [
+          0,
+          -440
+        ]
+      },
+      "nominalSize": [
+        92,
+        470
+      ],
+      "inkBounds": [
+        -195,
+        -510,
+        390,
+        530
+      ]
+    },
+    {
+      "file": "assets/thyr/column-damaged.svg",
+      "bytes": 5844,
+      "sha256": "3c7cc4573ab36598028ab572378b1c17256b6c529821af628281c95149cad721",
+      "format": "svg",
+      "part": "column",
+      "state": "damaged",
+      "canonIds": [
+        "FL07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "home": [
+          80,
+          -265
+        ],
+        "canopy": [
+          0,
+          -440
+        ]
+      },
+      "nominalSize": [
+        92,
+        470
+      ],
+      "inkBounds": [
+        -195,
+        -510,
+        390,
+        530
+      ]
+    },
+    {
+      "file": "assets/thyr/column-destroyed.svg",
+      "bytes": 1593,
+      "sha256": "08ca86bf50a27088185fa287ce5dea73144c0d91b2f618dbed4cc5f311718b19",
+      "format": "svg",
+      "part": "column",
+      "state": "destroyed",
+      "canonIds": [
+        "FL07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "home": [
+          80,
+          -265
+        ],
+        "canopy": [
+          0,
+          -440
+        ]
+      },
+      "nominalSize": [
+        92,
+        470
+      ],
+      "inkBounds": [
+        -195,
+        -510,
+        390,
+        530
+      ]
+    },
+    {
+      "file": "assets/thyr/root-normal.svg",
+      "bytes": 1684,
+      "sha256": "2ff70f130715b969bf6b58eb81cae7948a7b9d4327e62e5d473b569c60bd0c25",
+      "format": "svg",
+      "part": "root",
+      "state": "normal",
+      "canonIds": [
+        "FL07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "contact": [
+          0,
+          -28
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        340,
+        28
+      ],
+      "inkBounds": [
+        -177,
+        -34,
+        354,
+        43
+      ]
+    },
+    {
+      "file": "assets/thyr/root-damaged.svg",
+      "bytes": 1821,
+      "sha256": "77502c61cbe01a0d9acb8f5608c3302b55232589d63ccac1ee0f15f36a8675e1",
+      "format": "svg",
+      "part": "root",
+      "state": "damaged",
+      "canonIds": [
+        "FL07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "contact": [
+          0,
+          -28
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        340,
+        28
+      ],
+      "inkBounds": [
+        -177,
+        -34,
+        354,
+        43
+      ]
+    },
+    {
+      "file": "assets/thyr/root-destroyed.svg",
+      "bytes": 860,
+      "sha256": "2992671d684e3f2f20bd42d61e6525ba80cb744c1d0ec38aa40276015ab62378",
+      "format": "svg",
+      "part": "root",
+      "state": "destroyed",
+      "canonIds": [
+        "FL07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "contact": [
+          0,
+          -28
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        340,
+        28
+      ],
+      "inkBounds": [
+        -177,
+        -34,
+        354,
+        43
+      ]
+    },
+    {
+      "file": "assets/thyr/suspended-home-normal.svg",
+      "bytes": 2333,
+      "sha256": "25a133fd78de25d44059ce94dc168c8b637f322b617ce8e1e1069a6ca3ed511c",
+      "format": "svg",
+      "part": "suspended-home",
+      "state": "normal",
+      "canonIds": [
+        "PL03"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "suspension": [
+          -55,
+          -160
+        ],
+        "threshold": [
+          45,
+          0
+        ]
+      },
+      "nominalSize": [
+        160,
+        110
+      ],
+      "inkBounds": [
+        -92,
+        -165,
+        184,
+        190
+      ]
+    },
+    {
+      "file": "assets/thyr/suspended-home-damaged.svg",
+      "bytes": 2464,
+      "sha256": "eea37d94dd7bec4a7a4650800beba31bf2809d29f4d87d20a67b574728ca0aa4",
+      "format": "svg",
+      "part": "suspended-home",
+      "state": "damaged",
+      "canonIds": [
+        "PL03"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "suspension": [
+          -55,
+          -160
+        ],
+        "threshold": [
+          45,
+          0
+        ]
+      },
+      "nominalSize": [
+        160,
+        110
+      ],
+      "inkBounds": [
+        -92,
+        -165,
+        184,
+        190
+      ]
+    },
+    {
+      "file": "assets/thyr/suspended-home-destroyed.svg",
+      "bytes": 1164,
+      "sha256": "90070581749caf0a6288b3478bc8cc0d8d0aa82a688e0d5dbd1f790a75349dc6",
+      "format": "svg",
+      "part": "suspended-home",
+      "state": "destroyed",
+      "canonIds": [
+        "PL03"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "suspension": [
+          -55,
+          -160
+        ],
+        "threshold": [
+          45,
+          0
+        ]
+      },
+      "nominalSize": [
+        160,
+        110
+      ],
+      "inkBounds": [
+        -92,
+        -165,
+        184,
+        190
+      ]
+    },
+    {
+      "file": "assets/thyr/longuedorse-adult-waiting.svg",
+      "bytes": 3446,
+      "sha256": "6ad6d330848fed349cf8e0e2876c9999b20b721fadd3e29b403afa376a56c8c4",
+      "format": "svg",
+      "part": "longuedorse-adult",
+      "state": "waiting",
+      "canonIds": [
+        "FU07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          63,
+          -61
+        ]
+      },
+      "nominalSize": [
+        136,
+        94
+      ],
+      "inkBounds": [
+        -84,
+        -112,
+        180,
+        120
+      ]
+    },
+    {
+      "file": "assets/thyr/longuedorse-adult-moving.svg",
+      "bytes": 3441,
+      "sha256": "78c2e4e778fbecaa23f035ee7756c11e5e133dba37a4f66fbb8db6f891949024",
+      "format": "svg",
+      "part": "longuedorse-adult",
+      "state": "moving",
+      "canonIds": [
+        "FU07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          63,
+          -61
+        ]
+      },
+      "nominalSize": [
+        136,
+        94
+      ],
+      "inkBounds": [
+        -84,
+        -112,
+        180,
+        120
+      ]
+    },
+    {
+      "file": "assets/thyr/longuedorse-adult-arrived.svg",
+      "bytes": 3446,
+      "sha256": "6894bbfa5f2031e724d95133798a26ee3b270cf1cb2b692a46168ef44021359b",
+      "format": "svg",
+      "part": "longuedorse-adult",
+      "state": "arrived",
+      "canonIds": [
+        "FU07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          63,
+          -61
+        ]
+      },
+      "nominalSize": [
+        136,
+        94
+      ],
+      "inkBounds": [
+        -84,
+        -112,
+        180,
+        120
+      ]
+    },
+    {
+      "file": "assets/thyr/longuedorse-adult-diverted.svg",
+      "bytes": 3449,
+      "sha256": "7409452d14a36ccfb0eba61d46e9f42a1326b1b79ac7dbfe1d9a790a11a23d0e",
+      "format": "svg",
+      "part": "longuedorse-adult",
+      "state": "diverted",
+      "canonIds": [
+        "FU07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          63,
+          -61
+        ]
+      },
+      "nominalSize": [
+        136,
+        94
+      ],
+      "inkBounds": [
+        -84,
+        -112,
+        180,
+        120
+      ]
+    },
+    {
+      "file": "assets/thyr/longuedorse-adult-dead.svg",
+      "bytes": 1174,
+      "sha256": "8d5896b282600ecb7e0c035da8518b1518e9a99215f41d9f8babe158e6f6d6ff",
+      "format": "svg",
+      "part": "longuedorse-adult",
+      "state": "dead",
+      "canonIds": [
+        "FU07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          63,
+          -61
+        ]
+      },
+      "nominalSize": [
+        136,
+        94
+      ],
+      "inkBounds": [
+        -84,
+        -112,
+        180,
+        120
+      ]
+    },
+    {
+      "file": "assets/thyr/longuedorse-young-waiting.svg",
+      "bytes": 4206,
+      "sha256": "3cd8d7505d1d9cea3f81343ef91a0d552675c1fb6722266a43189cb71ab2bf12",
+      "format": "svg",
+      "part": "longuedorse-young",
+      "state": "waiting",
+      "canonIds": [
+        "FU07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          40,
+          -42
+        ]
+      },
+      "nominalSize": [
+        86,
+        64
+      ],
+      "inkBounds": [
+        -56,
+        -76,
+        118,
+        83
+      ]
+    },
+    {
+      "file": "assets/thyr/longuedorse-young-moving.svg",
+      "bytes": 4234,
+      "sha256": "473bfb97a0af3d11bc8519d1216d9564b1395195c36c483d9132ad6ae4a04058",
+      "format": "svg",
+      "part": "longuedorse-young",
+      "state": "moving",
+      "canonIds": [
+        "FU07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          40,
+          -42
+        ]
+      },
+      "nominalSize": [
+        86,
+        64
+      ],
+      "inkBounds": [
+        -56,
+        -76,
+        118,
+        83
+      ]
+    },
+    {
+      "file": "assets/thyr/longuedorse-young-arrived.svg",
+      "bytes": 4206,
+      "sha256": "6f8f17decf1c285b18294a05543b55cb3ef1f202f9d480b270a6099b0bba4467",
+      "format": "svg",
+      "part": "longuedorse-young",
+      "state": "arrived",
+      "canonIds": [
+        "FU07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          40,
+          -42
+        ]
+      },
+      "nominalSize": [
+        86,
+        64
+      ],
+      "inkBounds": [
+        -56,
+        -76,
+        118,
+        83
+      ]
+    },
+    {
+      "file": "assets/thyr/longuedorse-young-diverted.svg",
+      "bytes": 4209,
+      "sha256": "74ef61298a86cf60e2a31651e32fa92e6d27672aead039681bea2d94587ee0c6",
+      "format": "svg",
+      "part": "longuedorse-young",
+      "state": "diverted",
+      "canonIds": [
+        "FU07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          40,
+          -42
+        ]
+      },
+      "nominalSize": [
+        86,
+        64
+      ],
+      "inkBounds": [
+        -56,
+        -76,
+        118,
+        83
+      ]
+    },
+    {
+      "file": "assets/thyr/longuedorse-young-dead.svg",
+      "bytes": 1324,
+      "sha256": "03bc9380eae7f6aa2f6fe2a13a696257f04a33e18befa84a718c3b36cb7618ca",
+      "format": "svg",
+      "part": "longuedorse-young",
+      "state": "dead",
+      "canonIds": [
+        "FU07"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          40,
+          -42
+        ]
+      },
+      "nominalSize": [
+        86,
+        64
+      ],
+      "inkBounds": [
+        -56,
+        -76,
+        118,
+        83
+      ]
+    },
+    {
+      "file": "assets/thyr/fan-colony-settled.svg",
+      "bytes": 2762,
+      "sha256": "107540ff5e13d61f3f773c547b004b681f758cdc569470954354d108b669b6af",
+      "format": "svg",
+      "part": "fan-colony",
+      "state": "settled",
+      "canonIds": [
+        "FU08"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "perch": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        112,
+        78
+      ],
+      "inkBounds": [
+        -85,
+        -150,
+        175,
+        172
+      ]
+    },
+    {
+      "file": "assets/thyr/fan-colony-dispersed.svg",
+      "bytes": 3393,
+      "sha256": "3633f078519ef2d004c0f514e8782e47f52957e467417ebc23571f92bea32180",
+      "format": "svg",
+      "part": "fan-colony",
+      "state": "dispersed",
+      "canonIds": [
+        "FU08"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "perch": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        112,
+        78
+      ],
+      "inkBounds": [
+        -85,
+        -150,
+        175,
+        172
+      ]
+    },
+    {
+      "file": "assets/thyr/fan-colony-lost.svg",
+      "bytes": 727,
+      "sha256": "410914efed7125a074e2b8ba345f4a165dbdfdf0339aa977767649babcc9ea14",
+      "format": "svg",
+      "part": "fan-colony",
+      "state": "lost",
+      "canonIds": [
+        "FU08"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "perch": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        112,
+        78
+      ],
+      "inkBounds": [
+        -85,
+        -150,
+        175,
+        172
+      ]
+    },
+    {
+      "file": "assets/thyr/breathing-vine-normal.svg",
+      "bytes": 1560,
+      "sha256": "f9479a754be13bfb512344d6b7c395395b7e26ff436bf779f4c2dc6a8727d92e",
+      "format": "svg",
+      "part": "breathing-vine",
+      "state": "normal",
+      "canonIds": [
+        "FL08"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "crown": [
+          0,
+          -145
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        120,
+        145
+      ],
+      "inkBounds": [
+        -69,
+        -157,
+        145,
+        175
+      ]
+    },
+    {
+      "file": "assets/thyr/breathing-vine-wilted.svg",
+      "bytes": 1556,
+      "sha256": "adbefffc458bca86d803fffa60a11d6049098d6c9ef38433aebd501aa554b463",
+      "format": "svg",
+      "part": "breathing-vine",
+      "state": "wilted",
+      "canonIds": [
+        "FL08"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "crown": [
+          0,
+          -145
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        120,
+        145
+      ],
+      "inkBounds": [
+        -69,
+        -157,
+        145,
+        175
+      ]
+    },
+    {
+      "file": "assets/thyr/breathing-vine-burnt.svg",
+      "bytes": 1169,
+      "sha256": "a54b92cbcf8b714a94b3cbc91a6502312b5d28f2c5b16f751cda6cd98dad2475",
+      "format": "svg",
+      "part": "breathing-vine",
+      "state": "burnt",
+      "canonIds": [
+        "FL08"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "crown": [
+          0,
+          -145
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        120,
+        145
+      ],
+      "inkBounds": [
+        -69,
+        -157,
+        145,
+        175
+      ]
+    },
+    {
+      "file": "assets/thyr/echo-grass-calm.svg",
+      "bytes": 2712,
+      "sha256": "902c94c9e50046801f1af804fb754bf3abfcd50d0bd3a225f68083c70472db3e",
+      "format": "svg",
+      "part": "echo-grass",
+      "state": "calm",
+      "canonIds": [
+        "FL09"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        90,
+        78
+      ],
+      "inkBounds": [
+        -62,
+        -85,
+        124,
+        95
+      ]
+    },
+    {
+      "file": "assets/thyr/echo-grass-moving.svg",
+      "bytes": 2714,
+      "sha256": "49af1460ea9a09cfa68d95bffd19a53297d00a56bdb8c9d91714135c4da5da57",
+      "format": "svg",
+      "part": "echo-grass",
+      "state": "moving",
+      "canonIds": [
+        "FL09"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        90,
+        78
+      ],
+      "inkBounds": [
+        -62,
+        -85,
+        124,
+        95
+      ]
+    },
+    {
+      "file": "assets/thyr/migration-barrier-closed.svg",
+      "bytes": 2391,
+      "sha256": "fa00a2f9d027ecd205cbbe59739cc9025661f3bcfffefc6da451a3961ca3be23",
+      "format": "svg",
+      "part": "migration-barrier",
+      "state": "closed",
+      "canonIds": [
+        "MI09"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "hinge": [
+          -76,
+          -76
+        ],
+        "control": [
+          -88,
+          -46
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        170,
+        112
+      ],
+      "inkBounds": [
+        -185,
+        -255,
+        292,
+        274
+      ]
+    },
+    {
+      "file": "assets/thyr/migration-barrier-working.svg",
+      "bytes": 2791,
+      "sha256": "a125859b3c093890e3a5bf1678af150c3f9722f25751266d09ce8d53616d5602",
+      "format": "svg",
+      "part": "migration-barrier",
+      "state": "working",
+      "canonIds": [
+        "MI09"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "hinge": [
+          -76,
+          -76
+        ],
+        "control": [
+          -88,
+          -46
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        170,
+        112
+      ],
+      "inkBounds": [
+        -185,
+        -255,
+        292,
+        274
+      ]
+    },
+    {
+      "file": "assets/thyr/migration-barrier-open.svg",
+      "bytes": 2821,
+      "sha256": "b091dc7306450119e2b704d070ec60f4917d806f8ad11fdccd3d2b6ab90fe45f",
+      "format": "svg",
+      "part": "migration-barrier",
+      "state": "open",
+      "canonIds": [
+        "MI09"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "hinge": [
+          -76,
+          -76
+        ],
+        "control": [
+          -88,
+          -46
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        170,
+        112
+      ],
+      "inkBounds": [
+        -185,
+        -255,
+        292,
+        274
+      ]
+    },
+    {
+      "file": "assets/thyr/migration-barrier-broken.svg",
+      "bytes": 1146,
+      "sha256": "fffade347e50719d482ff834b79809cf474b6bf91ee89d5cceea3a703bd99a4e",
+      "format": "svg",
+      "part": "migration-barrier",
+      "state": "broken",
+      "canonIds": [
+        "MI09"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "hinge": [
+          -76,
+          -76
+        ],
+        "control": [
+          -88,
+          -46
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        170,
+        112
+      ],
+      "inkBounds": [
+        -185,
+        -255,
+        292,
+        274
+      ]
+    },
+    {
+      "file": "assets/thyr/route-map-concealed.svg",
+      "bytes": 1420,
+      "sha256": "5652c6212530ffbf63e1f3ca1fe2a1df6fbe58ee3ce2ae9ca5eec8ffb40e5b0f",
+      "format": "svg",
+      "part": "route-map",
+      "state": "concealed",
+      "canonIds": [
+        "MI09"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "inspect": [
+          0,
+          -62
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        95,
+        110
+      ],
+      "inkBounds": [
+        -59,
+        -123,
+        126,
+        140
+      ]
+    },
+    {
+      "file": "assets/thyr/route-map-surveyed.svg",
+      "bytes": 1682,
+      "sha256": "a3ed1426039a09bfe13ca6375727371fb42068a651b78941233d7ac1c5accfd8",
+      "format": "svg",
+      "part": "route-map",
+      "state": "surveyed",
+      "canonIds": [
+        "MI09"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "inspect": [
+          0,
+          -62
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        95,
+        110
+      ],
+      "inkBounds": [
+        -59,
+        -123,
+        126,
+        140
+      ]
+    },
+    {
+      "file": "assets/thyr/route-marker-imperial.svg",
+      "bytes": 1083,
+      "sha256": "f02381879f0e07e6e68af4602104ecc3459ba0737466bfa514891d74672e481c",
+      "format": "svg",
+      "part": "route-marker",
+      "state": "imperial",
+      "canonIds": [
+        "MI09"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        50,
+        90
+      ],
+      "inkBounds": [
+        -34,
+        -99,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "assets/thyr/route-marker-local.svg",
+      "bytes": 1098,
+      "sha256": "5932dd2990ca37d4872a31af57f16da7c1fa795b49663c89bcdcb04f49ce9f2c",
+      "format": "svg",
+      "part": "route-marker",
+      "state": "local",
+      "canonIds": [
+        "MI09"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "nominalSize": [
+        50,
+        90
+      ],
+      "inkBounds": [
+        -34,
+        -99,
+        81,
+        112
+      ]
+    },
+    {
+      "file": "assets/thyr/previews/thyr-kit.png",
+      "bytes": 182399,
+      "sha256": "ad3a7a0e4fe7e063adb8f408f087229aaa120300b50938af8d6586e86a64cbe6",
+      "format": "png",
+      "kind": "Authoring sheet, varied scales stated per nominal dimensions in manifest"
+    },
+    {
+      "file": "assets/thyr/previews/thyr-states.png",
+      "bytes": 118916,
+      "sha256": "2e0fdb48b8f4a45f7a6b8cfe143e0bd062b568e05823e065f9cd3d7c3520e317",
+      "format": "png",
+      "kind": "Authored states on a bench; not gameplay or reception evidence"
+    }
+  ],
+  "counts": {
+    "files": 37,
+    "svg": 35,
+    "png": 2,
+    "components": 11,
+    "bytes": 388834
+  }
+}

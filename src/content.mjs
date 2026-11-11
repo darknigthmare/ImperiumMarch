@@ -300,12 +300,40 @@ export const CAMPAIGN_MISSIONS = [
     intro: 'NACRE // PORTES D’AVAL · 18:40',
   },
 
+
+  {
+    id: 'MI09', number: '09', campaign: true, act: 'II — Le coût du silence',
+    name: 'La route des vivants', planetId: 'PL03', planet: 'Thyr',
+    biome: 'VERGERS SOUS CANOPÉE', length: 6400, difficulty: 'APPUIS VIVANTS', duration: '6–10 min',
+    faction: 'Communautés de Thyr / détachement logistique impérial', accent: '#b9ce83', sky: ['#182d30', '#496359', '#b9bd8e'],
+    description: 'Une route déclarée sauvage traverse des racines porteuses, des maisons suspendues et la migration des longues-dorses. Écoutez le poste local, préparez des appuis adaptés, puis ouvrez une route au transport. Les destinations du troupeau et les habitats encore debout feront foi.',
+    briefing: '« Dégagez la route logistique de Thyr. Nos cartes n’indiquent aucune implantation permanente dans ce secteur. » — Major Holt',
+    hint: 'E au poste local ouvre le balisage guidé ; E au repère prépare le contournement indispensable aux coques hautes. Les pieds se posent réellement sur les racines : J/L permettent une cadence espacée, Espace stabilise les travaux. Coupez les projecteurs pour calmer les éventails. Relevez la carte et choisissez la route ; revenez manœuvrer la barrière. Attendez les destinations effectives des longues-dorses, repoussez les deux tireurs d’élite, puis libérez et escortez le transport jusqu’au dépôt. Le rapport attend son arrivée.',
+    type: 'living-route', evidenceX: 2680, decisionX: 2680, extractionX: 6060,
+    evidenceLabel: 'RELEVÉ LOCAL DES PASSAGES ET HAMEAUX', civilianPositions: [], supplyPositions: [730, 2850, 3940, 5380, 5860],
+    enemyPlan: [],
+    livingRoute: { interactionRadius: 150, contactTime: 3, guidedTime: 4, surveyedTime: 8,
+      inspectTime: 3, lightsTime: 2, gateTime: 6, damagedGateTime: 8, dispatchTime: 3, reportTime: 3,
+      contactX: 540, approachX: 850, columnXs: [1260, 3560], rootWidth: 340, rootRise: 28,
+      canopyFrom: 960, canopyTo: 1520, initialClearance: 185, preparedClearance: 300, safeCadence: 1.15,
+      lightsX: 1660, gateX: 2420, gateControlX: 2200, mapX: 2680, logisticsX: 2860,
+      logisticsControlX: 3020, logisticsTargetX: 5500, reportX: 5660,
+      migratorXs: [1880, 1960, 2040, 2120], orchardXs: [4660, 4740, 4820, 4900], exclusionXs: [3260, 3340, 3420, 3500],
+      sniperXs: [4080, 5200] },
+    decision: { title: 'Une route traverse leur saison',
+      body: 'La carte omet deux habitats suspendus. Une route directe détourne les longues-dorses vers la zone d’exclusion ; garder leur passage demande d’attendre leur arrivée au verger avant le transport. Le choix doit encore être mis en œuvre à la barrière.',
+      obey: 'Exécuter le couloir impérial ; dévier le troupeau vers l’exclusion',
+      defy: 'Préserver le passage du verger ; faire attendre la logistique' },
+    intro: 'THYR // ROUTE DES VERGERS · 07:20',
+  },
+
 ];
 
 export const ALL_MISSIONS = [...MISSIONS, ...CAMPAIGN_MISSIONS];
 
 export const ENEMY_TYPES = {
   rifle: { name: 'Fusilier', kind: 'infantry', w: 24, h: 36, hp: 65, speed: 22, range: 650, cooldown: 1.65, damage: 10, projectileSpeed: 430, windup: 0.42, score: 70 },
+  sniper: { name: 'Tireur d’élite', kind: 'infantry', w: 28, h: 38, hp: 150, speed: 0, range: 960, cooldown: 3.5, damage: 26, projectileSpeed: 720, windup: 1.4, score: 180 },
   rocket: { name: 'Lancier antichar', kind: 'infantry', w: 26, h: 38, hp: 80, speed: 14, range: 790, cooldown: 4.4, damage: 43, projectileSpeed: 255, windup: 1.2, score: 130 },
   buggy: { name: 'Buggy de raid', kind: 'vehicle', w: 85, h: 44, hp: 220, speed: 35, range: 740, cooldown: 2.8, damage: 21, projectileSpeed: 400, windup: 0.7, score: 230 },
   skimmer: { name: 'Patin de raid', kind: 'vehicle', w: 96, h: 42, hp: 240, speed: 42, range: 720, cooldown: 2.8, damage: 19, projectileSpeed: 400, windup: .85, score: 230 },

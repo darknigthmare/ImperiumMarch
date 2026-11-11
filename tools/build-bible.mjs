@@ -216,7 +216,8 @@ const summaryValues = summary.getRange(`A${summaryStart}:G${totalRow}`).values;
 for (const row of summaryValues) for (const value of row) if (typeof value === 'string' && /^#(?:REF!|DIV\/0!|VALUE!|NAME\?|N\/A|NUM!|NULL!|SPILL!|CALC!)/.test(value)) throw new Error(`Formula error in summary: ${value}`);
 
 const previews = [];
-const previewSelection = process.env.BIBLE_RENDER_SHEETS ? process.env.BIBLE_RENDER_SHEETS.split(',') : null;
+const previewConfig = process.env.BIBLE_PREVIEW_CONFIG ? JSON.parse(await fs.readFile(path.resolve(repoRoot, process.env.BIBLE_PREVIEW_CONFIG), 'utf8')) : {};
+const previewSelection = process.env.BIBLE_RENDER_SHEETS ? process.env.BIBLE_RENDER_SHEETS.split(',') : previewConfig.sheets || null;
 for (const [previewIndex, record] of [{ name: 'Synthèse', lastColumn: 'G' }, ...catalog].entries()) {
   if (previewSelection && !previewSelection.includes(record.name)) continue;
   const preview = await workbook.render({ sheetName: record.name, range: `A1:${record.lastColumn}${record.name === 'Synthèse' ? totalRow : 9}`, scale: 1, format: 'png' });
@@ -225,7 +226,7 @@ for (const [previewIndex, record] of [{ name: 'Synthèse', lastColumn: 'G' }, ..
   previews.push(file);
 }
 // Optional bounded views of added rows: avoid rerendering unchanged content.
-const extraPreviews = process.env.BIBLE_EXTRA_PREVIEWS ? JSON.parse(process.env.BIBLE_EXTRA_PREVIEWS) : [];
+const extraPreviews = process.env.BIBLE_EXTRA_PREVIEWS ? JSON.parse(process.env.BIBLE_EXTRA_PREVIEWS) : previewConfig.ranges || [];
 for (const extra of extraPreviews) {
   if (!catalog.some(record => record.name === extra.sheetName)) throw new Error(`Unknown preview sheet ${extra.sheetName}`);
   if (!/^[A-Za-z0-9_-]+\.png$/.test(extra.file)) throw new Error('Preview name must be a simple PNG filename');
@@ -241,5 +242,6 @@ await fs.copyFile(outputFile, path.join(repoRoot, 'docs', 'ORDRE_DE_CENDRE_Bible
 const report = { workbook: 'ORDRE_DE_CENDRE_Bible.xlsx', version: source.meta.version, sheets: catalog.length + 1, designRows: independentTotal, statusCounts: Object.fromEntries(statuses.map((s, i) => [s, expectedStatusTotals[i]])), catalog, previews, tests: ['Total des fiches réconcilié avec le JSON', 'Statuts réconciliés avec le JSON', 'Modification temporaire de statut et recalcul vérifiés, valeur restaurée'], scope: source.meta.scope };
 await fs.writeFile(path.join(outputDir, 'workbook-validation.json'), JSON.stringify(report, null, 2) + '\n');
 await fs.mkdir(path.join(repoRoot, 'docs', 'validation'), { recursive: true });
-await fs.copyFile(path.join(outputDir, 'workbook-validation.json'), path.join(repoRoot, 'docs', 'validation', 'workbook-validation.json'));
+const reportRelease = source.meta.version.split('.').slice(0, 2).join('.');
+await fs.copyFile(path.join(outputDir, 'workbook-validation.json'), path.join(repoRoot, 'docs', 'validation', `workbook-v${reportRelease}-validation.json`));
 console.log(JSON.stringify({ outputFile, sheets: report.sheets, designRows: report.designRows, statusCounts: report.statusCounts, previews: previews.length }));

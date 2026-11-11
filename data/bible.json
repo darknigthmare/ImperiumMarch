@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "date": "2026-11-11",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "Bible de conception et registre de production. MI01–MI04 forment l’arc jouable de Vesper; MI05–MI08 couvrent chenal, digue, ambulance et portes d’Aval sur Nacre. Huit missions, six châssis, trois opérations indépendantes et dossier v8 sont disponibles au stade prototype. Les 24 autres missions principales restent conçues. Les 133 critères À produire de la 0.8 sont conservés dans un registre immuable et réconciliés avec les livrables reçus, sans assimiler art procédural, test automatique et essai humain.",
+    "scope": "Bible de conception et registre de production. MI01–MI04 forment Vesper, MI05–MI08 couvrent Nacre et MI09 ouvre la route des vivants sur Thyr. Neuf missions, six châssis, trois opérations indépendantes et dossier v9 sont disponibles au stade prototype. MI10–MI32 et les seize contrats restent conçus. Les 133 critères À produire de la 0.8 et les 816 IDs de la 0.9 restent conservés. Réception partielle, contrôle automatique, navigateur et essai humain gardent des portées distinctes.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Livrable partiel disponible. L’onglet Prototype et les reçus de production précisent son intégration, sa portée et les critères encore ouverts.",
@@ -17,7 +17,7 @@
     "balanceDisclaimer": "Dimensions, charges et valeurs de gameplay décrites ici sont des hypothèses à calibrer.",
     "qualityDisclaimer": "AAA est une ambition de qualité, pas une description du niveau de finition du prototype.",
     "sheetCount": 20,
-    "recordCount": 816,
+    "recordCount": 845,
     "release": {
       "playableCampaignMissions": [
         "MI01",
@@ -27,7 +27,8 @@
         "MI05",
         "MI06",
         "MI07",
-        "MI08"
+        "MI08",
+        "MI09"
       ],
       "standaloneOperations": [
         "OP01",
@@ -35,8 +36,8 @@
         "OP03"
       ],
       "campaignMissionDesigns": 32,
-      "remainingCampaignMissionDesigns": 24,
-      "saveFormatVersion": 8,
+      "remainingCampaignMissionDesigns": 23,
+      "saveFormatVersion": 9,
       "playableWalkerIds": [
         "WK01",
         "WK02",
@@ -64,8 +65,14 @@
         "QA": 39
       },
       "path": "docs/validation/production-v09-baseline.json",
-      "registry": "docs/validation/production-v09-registry.json",
+      "registry": "docs/validation/production-v010-registry.json",
       "rule": "Le statut Prototype atteste une réception partielle. Le critère original et le reste sont conservés; seul un contrôle exécuté reçoit Vérifié."
+    },
+    "previousRelease": {
+      "version": "0.9.0",
+      "recordCount": 816,
+      "sourceRevision": "2bb8d7a708e4fab5ab34b3cac10f2418b60fe037",
+      "ids": "tests/fixtures/bible-v09-ids.json"
     }
   },
   "sheets": [
@@ -1166,6 +1173,60 @@
           "acceptance": "Les manifestes identifient chaque export; le rendu ne déplace pas les collisions pour faire correspondre une illustration.",
           "priority": "P0",
           "status": "Prototype"
+        },
+        {
+          "id": "SY93",
+          "system": "Appuis sous la canopée",
+          "design": "MI09 utilise la hauteur réelle du châssis et la surface des racines. Une coque trop haute doit préparer le contournement; les appuis manuels espacés de 1,15 s préservent mieux les supports.",
+          "counterplay": "Le guidage local règle cette cadence en assistance. Une racine rompue ou une colonne détruite fait perdre son habitat; une illustration ne crée pas de collision.",
+          "acceptance": "Tester hauteurs, six châssis, vrais contacts, tirs et explosions. Deux habitats au maximum; aucun effectif humain inféré.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY94",
+          "system": "Quatre migrateurs distincts",
+          "design": "Deux adultes et deux jeunes Longue-dorses gardent leur santé, peur, position et destination. Ils doivent parcourir la route au verger ou la voie d’exclusion.",
+          "counterplay": "Les adultes attendent les jeunes éloignés. L’exclusion vivante ne vaut pas perte; l’arrivée au verger féconde le sol et devient terminale.",
+          "acceptance": "Au bilan résolu, arrivés au verger + déplacés vivants + perdus = quatre. Aucun choix ne téléporte le troupeau.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY95",
+          "system": "Lumière et colonies",
+          "design": "Deux colonies d’Éventails se dispersent sous les projecteurs et les flashs locaux. Après extinction et cinq secondes de calme, elles se reposent sur leur colonne.",
+          "counterplay": "Une colonne détruite perd sa colonie. Le retour au calme ne reconstruit pas le support; les tirs lointains ne constituent pas un bruit local universel.",
+          "acceptance": "Distinguer repos, dispersion temporaire et perte. Les variantes visuelles de FL08 et FL09 n’ajoutent aucun mécanisme absent.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY96",
+          "system": "Route accomplie avant rapport",
+          "design": "Le choix impérial ou migratoire fixe une intention. La barrière exige six secondes ancrées, ou huit par guidage manuel si détruite. La résolution du troupeau déclenche ensuite deux tireurs.",
+          "counterplay": "La logistique attend sa libération de trois secondes puis accomplit le trajet. Un rapport de trois secondes vient après arrivée et neutralisation des tireurs.",
+          "acceptance": "Aucun choix, dialogue, relevé de carte ou état de barrière ne crédite seul le trajet ou le rapport.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY97",
+          "system": "Dossier local de Thyr",
+          "design": "Le format v9 ajoute world.thyr.route vide aux dossiers v8. MI09 relit quatre faits de Nacre pour le contexte radio; elle introduit ses propres objets et animaux.",
+          "counterplay": "Le premier rapport reste immuable; une relecture est séparée. Une perte terminale ne restaure pas une sortie vivante et une reprise avant choix ne remplace pas un état officiel différent.",
+          "acceptance": "Conserver octets historiques de fixture, anciens états, carburant et rapports. Une seule dotation de quatre lots après la première réussite.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY98",
+          "system": "Relâchement et focus",
+          "design": "Sortir du canvas relâche les commandes. Les boutons HUD conservent leur focus et leur activation native; sortir de la surface de mission suspend. Une répétition ancienne ne réarme pas une touche.",
+          "counterplay": "La reprise reste explicite et exige une page focalisée. Perdre la capture coupe le tir; une commande clavier indépendante reste disponible. La manette exige son neutre.",
+          "acceptance": "Séparer preuve DOM modélisée, répétition du problème natif QA19 et essai matériel. Aucun succès automatique ne vaut réception native.",
+          "priority": "P0",
+          "status": "Prototype"
         }
       ]
     },
@@ -1834,10 +1895,10 @@
           "name": "Thyr",
           "biome": "Forêts de colonnes vivantes, vallées cultivées, maisons suspendues et pistes sous canopée.",
           "society": "Communautés humaines et Khelt entretiennent des sols symbiotiques; les récoltes se synchronisent avec la faune.",
-          "terrain": "Racines porteuses, clairières humides et branches basses; le feu crée fumées et voies mortes.",
+          "terrain": "Racines porteuses, clairières et branches basses. MI09 applique la hauteur réelle des coques, le contournement et la cadence des appuis; le feu de forêt et l’écologie globale restent conçus.",
           "reveal": "Les relevés de stérilité sont fabriqués pour justifier l’expulsion et la destruction des mémoires de culture.",
           "missions": "MI09–MI12",
-          "status": "Conçu"
+          "status": "Prototype"
         },
         {
           "id": "PL04",
@@ -2186,7 +2247,7 @@
     },
     {
       "name": "Campagne",
-      "description": "32 missions principales : MI01–MI07 jouables au stade prototype, 25 autres conçues. MI08 possède un contrat de production détaillé. OP01–OP03 restent autonomes.",
+      "description": "32 missions principales : MI01–MI09 jouables au stade prototype, 23 autres conçues. MI09 ouvre Thyr après le bilan de Nacre. OP01–OP03 restent autonomes.",
       "columns": [
         {
           "key": "id",
@@ -2329,10 +2390,10 @@
           "planet": "PL03",
           "title": "La route des vivants",
           "order": "Dégager une route logistique à travers une zone déclarée sauvage.",
-          "play": "Adapter hauteur et cadence aux colonnes vivantes; détourner des migrateurs puis repousser des tireurs d’élite.",
-          "truth": "La route coupe la migration dont dépendent les cultures; les cartes militaires omettent les hameaux.",
-          "consequence": "Passages préservés ou récoltes fragilisées; meilleure approche offerte par les habitants si écoutés.",
-          "status": "Conçu"
+          "play": "Prototype : écouter le poste local, préparer une approche adaptée au châssis, relever la carte et régler les projecteurs. Après le choix, manœuvrer réellement la barrière, laisser les quatre migrateurs accomplir leur trajet, neutraliser les deux tireurs puis libérer le véhicule logistique et transmettre son bilan après arrivée.",
+          "truth": "Le relevé constate deux habitats absents de la carte. Le passage au verger et l’exclusion vivante ont des conséquences différentes. Cette carte locale ne donne ni PT02 ni TE01 et ne prouve pas le mécanisme global de PALINODE.",
+          "consequence": "Quatre Longue-dorses distincts : arrivés au verger, déplacés vivants ou perdus. Deux habitats habitables ou effondrés et deux colonies conservées ou perdues. Le rapport garde les actes; les dommages ne deviennent pas un effectif humain inventé.",
+          "status": "Prototype"
         },
         {
           "id": "MI10",
@@ -3448,18 +3509,18 @@
           "name": "Longue-dorse",
           "planet": "PL03",
           "ecology": "Grand brouteur migrant entre vergers symbiotiques.",
-          "behavior": "Protège ses jeunes et fuit vers sa route traditionnelle.",
-          "gameplay": "S’interposer à distance ou ouvrir la barrière; son passage féconde les cultures.",
-          "status": "Conçu"
+          "behavior": "MI09 : deux adultes et deux jeunes nouveaux. Les adultes attendent un jeune trop éloigné; les tirs proches déclenchent une peur temporaire. Un animal arrivé sort des risques de la zone.",
+          "gameplay": "La barrière dirige un trajet réel vers le verger ou l’exclusion. L’arrivée au verger féconde les cultures; une exclusion vivante n’est pas un décès. Quatre issues individuelles persistent sans importer les personnes de Nacre.",
+          "status": "Prototype"
         },
         {
           "id": "FU08",
           "name": "Éventail de Thyr",
           "planet": "PL03",
           "ecology": "Pollinisateur en colonies accroché aux colonnes vivantes.",
-          "behavior": "S’envole aux flashs et retourne quand le calme revient.",
-          "gameplay": "Couper les projecteurs permet un passage discret sans incendier les nids.",
-          "status": "Conçu"
+          "behavior": "MI09 : deux colonies sur les colonnes vivantes. Projecteurs et flashs locaux les dispersent; cinq secondes de calme permettent leur retour. Une colonne perdue détruit sa colonie.",
+          "gameplay": "Éteindre les projecteurs protège le calme du passage. Le reçu distingue colonies posées, dispersées et perdues; la pollinisation générale de tous les écosystèmes reste conçue.",
+          "status": "Prototype"
         },
         {
           "id": "FU09",
@@ -3707,9 +3768,9 @@
           "name": "Colonne-mère",
           "planet": "PL03",
           "ecology": "Arbre creux géant servant de support aux hameaux.",
-          "interaction": "Permet passerelles et abris; ses racines définissent les routes de marcheur.",
-          "risk": "Détruire une colonne porteuse affecte les maisons qui y sont fixées.",
-          "status": "Conçu"
+          "interaction": "MI09 : deux colonnes et leurs racines portent deux habitats. Les vrais appuis rencontrent la surface des racines; une cadence espacée et le guidage protègent ce support.",
+          "risk": "Une racine rompue ou une colonne détruite effondre son habitat. Le bilan distingue les deux habitabilités sans inventer de résidents ni de morts humains. Forêt complète et propagation générale restent conçues.",
+          "status": "Prototype"
         },
         {
           "id": "FL08",
@@ -3717,7 +3778,7 @@
           "planet": "PL03",
           "ecology": "Liane à membranes purifiant l’air des sous-bois.",
           "interaction": "Offre des haltes respirables aux équipes à pied.",
-          "risk": "Une source de feu détruit la membrane et produit fumée toxique.",
+          "risk": "Interaction de filtration et fumée toxique encore conçue. La 0.10 livre seulement un élément visuel de vigne et ses variantes dans le kit Thyr; aucun effet respiratoire ou incendie de membrane n’est joué.",
           "status": "Conçu"
         },
         {
@@ -3726,7 +3787,7 @@
           "planet": "PL03",
           "ecology": "Tiges creuses transmettant les vibrations au vent.",
           "interaction": "Annonce des mouvements derrière la végétation.",
-          "risk": "Réagit également à la faune et aux machines civiles.",
+          "risk": "L’annonce fiable des mouvements de faune et de machines civiles reste conçue. La 0.10 fournit une réaction visuelle de brins dans le décor, sans transformer cette animation en capteur simulé.",
           "status": "Conçu"
         },
         {
@@ -4491,7 +4552,39 @@
           "type": "État",
           "name": "Ceux qui restent à Aval",
           "rule": "Accueil local et refuge en aval sont deux destinations réelles. Les deux techniciens terminent leur service dans une niche distincte. Le bilan ne présente pas toute personne non embarquée comme morte ou disparue.",
-          "sources": "MI08; recensement individuel, arrivées et replis. MI09–MI32 et CT03/CT04 restent conçus.",
+          "sources": "MI08; recensement individuel, arrivées et replis. MI09 ouvre une scène locale sur Thyr sans déplacer ce recensement. MI10–MI32 et CT03/CT04 restent conçus.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA75",
+          "type": "État local",
+          "name": "Thyr après Nacre",
+          "rule": "MI09 reprend des faits de Nacre dans le contexte radio sans déplacer ses personnes, bateaux, techniciens ou témoins. Ses quatre migrateurs et deux colonies sont nouveaux et locaux.",
+          "sources": "MI08; MI09; SY97; dossier v9. Aucun agrégat d’Aval ne devient une personne présente sur Thyr.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA76",
+          "type": "Constat",
+          "name": "Deux habitats omis",
+          "rule": "Un relevé de trois secondes constate deux habitats absents de la carte logistique. Leur habitabilité est conservée séparément de ce constat. Aucun nombre de résidents ou de décès humains n’est inventé.",
+          "sources": "MI09; FL07; SY93. Aucune PT02, TE01 ou preuve politique attribuée par cette carte locale.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA77",
+          "type": "Service local",
+          "name": "Écouter avant de passer",
+          "rule": "L’écoute du poste local prend trois secondes et rend possible une préparation guidée de quatre secondes. Sans cet échange, le relevé d’approche demande huit secondes. L’aide ne constitue pas un pacte global.",
+          "sources": "MI09; SY93; guide et contrepartie locaux. Défection toujours située en MI16.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA78",
+          "type": "Rapport",
+          "name": "Route, cultures et ouvrages",
+          "rule": "Le rapport distingue intention choisie, barrière manœuvrée, migrateurs arrivés ou exclus, pertes, colonies et habitat. Un véhicule arrivé ne prouve pas la conservation des cultures; une exclusion vivante n’est pas une mort.",
+          "sources": "MI09; SY94–SY97. Source locale sans révélation globale de PALINODE ni prime de relecture.",
           "status": "Prototype"
         }
       ]
@@ -4694,10 +4787,10 @@
           "id": "AS18",
           "category": "Décors",
           "deliverable": "Kit Thyr",
-          "spec": "Canopée, colonnes-mères, hameaux suspendus, racines et pistes modulaires.",
+          "spec": "Canopée, colonnes-mères, hameaux suspendus, racines et pistes modulaires. Réception 0.10 : onze composants partagés SVG/Canvas, trente-cinq SVG et deux planches PNG. Supports, habitats, migrateurs, colonies, barrière, carte et jalons ont des variantes explicites. FL08 est décorative et FL09 seulement réactive visuellement; matières finales et lecture humaine restent ouvertes.",
           "acceptance": "Arbres porteurs raccordés aux bâtiments; aucune porte flottante.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS19",
@@ -4721,7 +4814,7 @@
           "id": "AS21",
           "category": "Biologie",
           "deliverable": "Faune et flore",
-          "spec": "24 espèces animales et 24 végétales; silhouettes, variations et interactions ciblées.",
+          "spec": "24 espèces animales et 24 végétales; silhouettes, variations et interactions ciblées. La 0.10 reçoit une tranche de Thyr pour FL07, FU07 et FU08. FL08 et FL09 ne disposent pas de leur interaction écologique finale; le reste du catalogue et l’animation finale demeurent à produire.",
           "acceptance": "Distribution écologique par planète et animation adaptée à son rôle.",
           "priority": "P2",
           "status": "À produire"
@@ -5294,7 +5387,7 @@
         {
           "id": "PR18",
           "workstream": "Acte II",
-          "deliverable": "MI09–MI16 et CT05–CT08, départ de l’Empire.",
+          "deliverable": "MI09–MI16 et CT05–CT08, départ de l’Empire. Réception 0.10 : MI09 ouvre Thyr au stade prototype. MI10–MI16, les quatre contrats et la défection de MI16 restent à produire.",
           "depends": "PR17; AS18; AS19",
           "acceptance": "Défection cohérente avec équipage, stocks et sources conservées.",
           "priority": "P1",
@@ -5348,7 +5441,7 @@
         {
           "id": "PR24",
           "workstream": "Accessibilité",
-          "deliverable": "Reconfiguration, manette, marche assistée, contraste, texte et secousses. 0.9 : Onze actions clavier reconfigurables et contrôles standard de manette en mission; préférences et relâchement des entrées.",
+          "deliverable": "Reconfiguration, manette, marche assistée, contraste, texte et secousses. 0.9 : onze actions clavier reconfigurables et manette standard de mission. 0.10 : focus des surfaces de jeu, répétitions après relâchement et perte de capture du pointeur traités; contrôle natif QA19 encore ouvert.",
           "depends": "PR09; SY27",
           "acceptance": "Tester avec utilisateurs concernés et matériel réellement disponible.",
           "priority": "P1",
@@ -5875,6 +5968,33 @@
           "acceptance": "Aucune duplication entre quai, bateau et refuge. Une destination annoncée n’est pas une arrivée observée.",
           "priority": "P1",
           "status": "Prototype"
+        },
+        {
+          "id": "PR83",
+          "workstream": "MI09 — route vivante",
+          "deliverable": "Approche, supports porteurs, migration, éclairage, barrière, tireurs, trajet logistique et rapport local.",
+          "depends": "MI09; FL07; FU07; FU08; AS18; SY93–SY96",
+          "acceptance": "Les deux conduites se réalisent physiquement et conservent leurs pertes. Les six châssis possèdent une route praticable sans supprimer leur hauteur.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR84",
+          "workstream": "Thyr — continuité",
+          "deliverable": "Dossier v9, migration authentique v8, checkpoint exact, premier rapport et relecture séparée.",
+          "depends": "MI08; MI09; SY97; NA75; QA159; QA165",
+          "acceptance": "Conservation des huit premiers rapports, anciennes scènes et registre de carburant; perte terminale et dotation unique restent effectives.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR85",
+          "workstream": "Essai humain — Thyr",
+          "deliverable": "Parcours sans guidage sur matériel déclaré pour hauteur, racines, calme des colonies, migration et résultats de route.",
+          "depends": "PR83; AS18; QA169",
+          "acceptance": "La personne distingue décoration, support réel, perte d’habitat, exclusion vivante et arrivée au verger; observations et aides consignées.",
+          "priority": "P1",
+          "status": "À produire"
         }
       ]
     },
@@ -6062,7 +6182,7 @@
           "id": "QA19",
           "area": "Entrées",
           "scenario": "Perdre le focus en maintenant déplacement ou tir puis revenir.",
-          "expected": "Entrées réinitialisées; aucune action maintenue sans intention du joueur. Observation 0.9 : Deux essais natifs avec D maintenu, changement d’onglet puis barre d’adresse, ont laissé la marche et l’horloge continuer. Aucun retour en pause n’a été observé. Cause application ou entrées gérées indéterminée; non validé, observation à caractériser. Preuve : docs/validation/v09-browser.json.",
+          "expected": "Entrées réinitialisées; aucune action maintenue sans intention du joueur. Observation 0.9 : Deux essais natifs avec D maintenu, changement d’onglet puis barre d’adresse, ont laissé la marche et l’horloge continuer. Aucun retour en pause n’a été observé. Cause application ou entrées gérées indéterminée; non validé, observation à caractériser. Preuve : docs/validation/v09-browser.json. Correctif 0.10 : quatre lacunes reproduites puis corrigées dans le DOM modélisé (bouton HUD, répétition de touche, navigation, capture du pointeur). Protocole et preuve : docs/validation/v10-focus-modeled.json. Cela ne détermine pas la cause des deux observations natives 0.9 et ne clôt pas leur répétition.",
           "priority": "P0",
           "status": "À produire"
         },
@@ -6110,7 +6230,7 @@
           "id": "QA25",
           "area": "Intégrité bible",
           "scenario": "Vérifier IDs et références de tous onglets.",
-          "expected": "Aucun ID dupliqué et chaque référence de contenu pointe vers une entrée existante ou une plage explicitée. Contrôle exécuté : Tous les IDs, références, plages et symboles résolus; sept copies négatives et cinq baselines sans Git contrôlées. Portée : Existence d’une référence, sans certification du gameplay ou de la finition qu’elle décrit; audit rafraîchi avec la source finale. Preuve : docs/validation/production-v09-reference-audit.json.",
+          "expected": "Aucun ID dupliqué et chaque référence de contenu pointe vers une entrée existante ou une plage explicitée. Réception 0.10 : 845 IDs uniques, références et symboles résolus; sept mutations incorrectes rejetées et six baselines authentiques contrôlées sans Git. Preuves : docs/validation/production-v010-reference-audit.json et docs/validation/production-v010-reference-probes.json. La réception 0.9 reste archivée. Résoudre un lien ne certifie ni gameplay ni finition.",
           "priority": "P0",
           "status": "Vérifié"
         },
@@ -7177,6 +7297,94 @@
           "expected": "La personne distingue service, embarquement, départ, refuge, accueil local et perte; observations non déduites des scripts.",
           "priority": "P1",
           "status": "À produire"
+        },
+        {
+          "id": "QA159",
+          "area": "Thyr — migration et accès",
+          "scenario": "Importer les variantes v8 natives, ouvrir MI09 après MI08 et comparer tous les rapports et états antérieurs.",
+          "expected": "Seuls version et dossier Thyr vide sont ajoutés. Aucun vieux habitant ni stock n’est créé; MI09 reste bloquée sans le rapport MI08. Fixture authentique distincte des tests courants. Contrôle exécuté : 34 tests de dossier v9 au sein de 146 tests de campagne, migration exacte et refus des états incohérents. Preuve : docs/validation/v010-campaign-validation.json. Le marqueur historique stage:complete demeure inchangé.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA160",
+          "area": "Thyr — six châssis",
+          "scenario": "Accomplir les deux conduites avec les six châssis par commandes publiques.",
+          "expected": "Approche praticable pour chaque hauteur, barrière manœuvrée, troupeau résolu, tireurs traités et logistique réellement arrivée avant rapport et extraction. Contrôle exécuté : 28 tests de simulation par commandes publiques, dont la matrice des six châssis et deux routes. Preuve : docs/previews/mi09-simulation-validation.json. Aucun essai humain ou navigateur déduit.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA161",
+          "area": "Thyr — supports porteurs",
+          "scenario": "Comparer contact élevé, pas prudent, dommage réel de racine et destruction de colonne.",
+          "expected": "Le rendu suit la surface réellement rencontrée. La perte du support effondre son habitat; au plus deux habitats, aucun nombre de décès humains déduit. Contrôle exécuté : 28 tests de simulation par commandes publiques, dont la matrice des six châssis et deux routes. Preuve : docs/previews/mi09-simulation-validation.json. Aucun essai humain ou navigateur déduit.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA162",
+          "area": "Thyr — migrateurs",
+          "scenario": "Suivre quatre individus au verger, dans la voie d’exclusion et après pertes locales.",
+          "expected": "Attente des jeunes, peur bornée et trajet réel. Au bilan, arrivés + déplacés vivants + perdus = quatre; une arrivée terminale ne reçoit plus de dégâts. Contrôle exécuté : 28 tests de simulation par commandes publiques, dont la matrice des six châssis et deux routes. Preuve : docs/previews/mi09-simulation-validation.json. Aucun essai humain ou navigateur déduit.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA163",
+          "area": "Thyr — pollinisateurs",
+          "scenario": "Comparer les projecteurs allumés à leur extinction, tirer près ou loin et perdre un support.",
+          "expected": "Deux colonies au maximum, dispersion locale temporaire, retour après cinq secondes de calme et perte irréversible du nid détruit. Contrôle exécuté : 28 tests de simulation par commandes publiques, dont la matrice des six châssis et deux routes. Preuve : docs/previews/mi09-simulation-validation.json. Aucun essai humain ou navigateur déduit.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA164",
+          "area": "Thyr — actes et rapport",
+          "scenario": "Choisir chaque conduite puis tenter de sauter barrière, troupeau, tireurs, trajet et transmission.",
+          "expected": "Les étapes matérielles restent nécessaires, y compris avec une barrière détruite. Carte et rapport locaux ne donnent aucune PT02, TE01 ou révélation globale. Contrôle exécuté : 28 tests de simulation par commandes publiques, dont la matrice des six châssis et deux routes. Preuve : docs/previews/mi09-simulation-validation.json. Aucun essai humain ou navigateur déduit.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA165",
+          "area": "Thyr — reprise et relecture",
+          "scenario": "Reprendre des travaux partiels, une perte terminale et une relecture après premier bilan; tenter une restauration antérieure incohérente.",
+          "expected": "Même scène et mêmes résultats à entrées égales; rapport et quatre lots attribués une seule fois. Aucun état vivant ni ancien point différent ne remplace la perte officielle. Contrôle exécuté : 34 tests de dossier v9 au sein de 146 tests de campagne, migration exacte et refus des états incohérents. Preuve : docs/validation/v010-campaign-validation.json.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA166",
+          "area": "Thyr — pièces et rendu",
+          "scenario": "Contrôler les composants, variantes, cadres et scènes Canvas réellement atteintes.",
+          "expected": "Onze composants, trente-cinq SVG et deux PNG du kit partagent leurs formes avec le renderer. Supports, accès et états correspondent au monde; Canvas ne certifie pas HUD, navigateur ou perception humaine. Contrôles exécutés : trois tests du kit, quarante comparaisons raster et vingt-deux scènes Canvas issues de dix-sept sorties publiques. Portée et sources : docs/validation/v10-raster-validation.json, docs/validation/v10-node-tests.json et docs/previews/mi09-canvas-validation.json. Aucun essai humain ou navigateur déduit.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA167",
+          "area": "Entrées — preuve modélisée",
+          "scenario": "Exécuter navigation HUD, répétition ancienne, sortie de focus, pause remappée et perte de capture dans le script autonome.",
+          "expected": "Quatre échecs établis sur la base 0.9 puis corrigés. 61 parcours complets et un parcours supplémentaire exécutés sur l’étape focus isolée. La preuve docs/validation/v10-focus-modeled.json ne certifie pas le navigateur ni le paquet final intégré. La suite intégrée 0.10 compte 66 parcours DOM, avec cinq parcours focus; réception finale dans docs/validation/v10-ui-validation.json. QA19 native demeure distincte.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA168",
+          "area": "Bible — réception 0.10",
+          "scenario": "Régénérer, recalculer et réconcilier les données, références, 816 IDs historiques, formules et vues modifiées.",
+          "expected": "Réception exécutée : 845 fiches et 5 715 cellules source réconciliées; 816 IDs historiques conservés et 29 ajoutés. Les 133 critères initiaux restent intégraux. Les 126 formules sont recalculées sans cache dans une copie LibreOffice; 40 vues de onze feuilles relues. Preuves : docs/validation/workbook-v0.10-export.json, workbook-v0.10-libreoffice.json, workbook-v0.10-visual-review.json et workbook-v0.10-baseline-check.json. Usage interactif natif QA29 et essais humains restent ouverts.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA169",
+          "area": "Essai humain — route vivante",
+          "scenario": "Faire parcourir Thyr sans guidage sur matériel déclaré en observant appuis, migration, calme et rapport.",
+          "expected": "Distinguer support physique et décor, habitat et personne, exclusion vivante et décès, choix et résultat. Consigner hésitations, aides et observations contradictoires sans les déduire des scripts.",
+          "priority": "P1",
+          "status": "À produire"
         }
       ]
     },
@@ -7260,7 +7468,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.8.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "description": "Portée présente dans le code de la version 0.10.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -7492,7 +7700,7 @@
           "id": "PX22",
           "link": "SY26",
           "name": "Résultats et réglages locaux",
-          "implemented": "Réglages et rapports des opérations autonomes conservés séparément. MI01–MI08 possèdent un dossier de campagne v8 et des points de reprise. Les nouveaux reçus d’Aval gardent personnes et bateaux individuellement.",
+          "implemented": "Réglages et rapports des opérations autonomes conservés séparément. MI01–MI09 possèdent un dossier de campagne v9 et des reprises. Le dossier d’Aval garde ses personnes et bateaux; le nouveau dossier de Thyr décrit des animaux, ouvrages et trajets locaux distincts.",
           "limits": "Les rapports OP01–OP03 ne deviennent pas des réussites de campagne. Une relecture ne réécrit pas les résultats et ressources officiels.",
           "path": "src/main.mjs; src/campaign.mjs",
           "status": "Prototype"
@@ -7520,7 +7728,7 @@
           "link": "MI01; PN02; PN14; PR29",
           "name": "MI01 — Le couloir quarante-deux",
           "implemented": "Escorte de filtres sur Vesper, apprentissage des appuis, embuscade antichar, livraison au poste des mineurs, lecture du manifeste puis choix du bordereau.",
-          "limits": "MI01 est complétée par MI02–MI07. MI08–MI32, mise en scène finale, doublage et performance cible restent à produire ou valider. Aucun dossier PALINODE révélé dans MI01.",
+          "limits": "MI01 est complétée par MI02–MI09. MI10–MI32, mise en scène finale, doublage et performance cible restent à produire ou valider. Aucun dossier PALINODE révélé dans MI01.",
           "path": "src/content.mjs; src/simulation.mjs",
           "status": "Prototype"
         },
@@ -7538,7 +7746,7 @@
           "link": "SY24; PN02; PN14; PR31",
           "name": "Retour d’équipage et dossier de Vesper",
           "implemented": "Livraison de 24 caisses si le transport arrive, état de la conduite, pertes civiles, notice de Sami et répliques contextuelles de Tess/Sami conservés. Une réussite reçoit une seule dotation.",
-          "limits": "Dossier étendu à MI01–MI07. Les pactes, autres mondes et quatre fins restent conçus. Rejouer ne réécrit ni premier dossier ni ressources.",
+          "limits": "Dossier étendu à MI01–MI09. Les pactes, mondes suivants et quatre fins restent conçus. Rejouer ne réécrit ni premier dossier ni ressources.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -7547,7 +7755,7 @@
           "link": "SY26; PR30",
           "name": "Reprise de mission et décision",
           "implemented": "État de mission versionné, sauvegarde de la simulation en cours et point de reprise conservé avant le choix du bordereau. Restauration explicite du même monde et des objectifs.",
-          "limits": "Portée de sauvegarde : MI01–MI07. Compatibilité suivie version par version. Le changement de fichier ou de navigateur peut changer l’emplacement du stockage local.",
+          "limits": "Portée de sauvegarde : MI01–MI09. Compatibilité suivie version par version. Le changement de fichier ou de navigateur peut changer l’emplacement du stockage local.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -7564,8 +7772,8 @@
           "id": "PX30",
           "link": "SY25; PR21; PR31",
           "name": "Atelier et réparation locale",
-          "implemented": "Six lots initiaux et quatre par première réussite de MI01–MI08. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
-          "limits": "Huit dotations de première réussite; aucune en relecture. Une nouvelle sortie renouvelle munitions et deux kits. Le carburant acquis à MI05 puis dépensé à MI06 ne revient pas. Modules, pièces rares et économie complète restent à produire.",
+          "implemented": "Six lots initiaux et quatre par première réussite de MI01–MI09. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
+          "limits": "Neuf dotations de première réussite; aucune en relecture. Une nouvelle sortie renouvelle munitions et deux kits. Le carburant de MI05 consommé à MI06 ne revient pas. Modules, pièces rares et économie complète restent à produire.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -7574,7 +7782,7 @@
           "link": "MI02; VE17; PR33",
           "name": "MI02 — La dette sous la poussière",
           "implemented": "Reprise du train détourné sur le viaduc : deux harpons à libérer, poursuite, freinage, ouverture du wagon, lecture et choix de rapport avant extraction.",
-          "limits": "Seconde mission sur 32, complétée par MI03–MI07. Itinéraire latéral unique, assaut de prototype et retour textuel. MI08–MI32, mise en scène et finition du niveau restent à produire.",
+          "limits": "Seconde mission sur 32, complétée par MI03–MI09. Itinéraire latéral unique, assaut de prototype et retour textuel. MI10–MI32, mise en scène et finition du niveau restent à produire.",
           "path": "src/content.mjs; src/simulation.mjs; docs/CAMPAIGN_MISSION_02.md",
           "status": "Prototype"
         },
@@ -7790,7 +7998,7 @@
           "link": "MI05; PR57",
           "name": "MI05 — Le prix du passage",
           "implemented": "Cinquième mission après MI04, deux treuils, inspections séparées, issue du bateau, décision et extraction. Disponible avec ou sans PT01.",
-          "limits": "MI05 est le premier niveau de Nacre; MI06 poursuit la digue et MI07 suit l’ambulance. MI08, contrats locaux et transfert spatial mis en scène restent conçus.",
+          "limits": "MI05 ouvre Nacre; MI06 poursuit la digue, MI07 l’ambulance et MI08 les départs d’Aval. MI09 ouvre Thyr. Contrats locaux et transfert spatial mis en scène restent conçus.",
           "path": "src/content.mjs; src/simulation.mjs; src/campaign.mjs",
           "status": "Prototype"
         },
@@ -7862,7 +8070,7 @@
           "link": "MI06; PR60",
           "name": "MI06 — Les maisons sous la ligne",
           "implemented": "Sixième mission après MI05, chantier de digue, deux maisons, deux techniciens, choix de circuit puis opérations matérielles et extraction.",
-          "limits": "MI08 et contrats locaux restent conçus. Ce chantier ne constitue pas une simulation hydraulique générale de Nacre.",
+          "limits": "MI07 et MI08 prolongent Nacre au stade prototype; les contrats locaux restent conçus. Ce chantier ne constitue pas une simulation hydraulique générale de Nacre.",
           "path": "src/content.mjs; src/simulation.mjs; src/campaign.mjs",
           "status": "Prototype"
         },
@@ -7934,7 +8142,7 @@
           "link": "MI07; PR61",
           "name": "MI07 — Une ambulance sans escorte",
           "implemented": "Septième mission après MI06 : arrêt, accord, examens, balise, rampe héritée et transfert sanitaire.",
-          "limits": "MI08–MI32, contrats locaux, navigation amphibie et finition restent conçus.",
+          "limits": "MI08 et MI09 prolongent la campagne. MI10–MI32, contrats locaux, navigation amphibie et finition restent conçus.",
           "path": "src/content.mjs; src/simulation.mjs; src/campaign.mjs",
           "status": "Prototype"
         },
@@ -8060,7 +8268,7 @@
           "link": "SY89; SY90; PR24",
           "name": "Clavier et manette de mission",
           "implemented": "Onze actions reconfigurables; entrées standard de manette, zone morte, neutre, déconnexion et pause contrôlés par tests synthétiques et DOM. Reconfiguration clavier également reçue dans Chrome.",
-          "limits": "Pas de menus à la manette ni d’essai matériel ou utilisateur concerné. QA19 : deux essais natifs de perte de focus ont laissé continuer la marche; cause indéterminée, réception ouverte.",
+          "limits": "Pas de menus à la manette ni d’essai matériel ou utilisateur concerné. Le correctif de focus 0.10 possède une preuve modélisée distincte. Les deux observations natives 0.9 de QA19 restent ouvertes tant que leur répétition n’est pas reçue.",
           "path": "src/controls.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -8088,7 +8296,52 @@
           "name": "Registre de réception",
           "implemented": "Les 133 critères initiaux disposent d’une baseline immuable, d’un audit par ID, de preuves et d’un reste. Les références symboliques sont résolues explicitement.",
           "limits": "Une réception partielle ne clôt pas un critère d’art final ou d’essai humain; les compteurs ne mesurent pas le pourcentage du jeu fini.",
-          "path": "docs/validation/production-v09-registry.json; tools/verify-bible-export.py",
+          "path": "docs/validation/production-v010-registry.json; docs/validation/production-v09-baseline.json; tools/verify-bible-export.py",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX89",
+          "link": "MI09; PR83; SY93–SY96",
+          "name": "MI09 — La route des vivants",
+          "implemented": "Neuvième mission après MI08 : écoute, approche adaptée, relevé, projecteurs, deux conduites de migration, tireurs puis trajet logistique et rapport.",
+          "limits": "MI10–MI32 et contrats restent conçus. Pas de réglage libre de hauteur, forêt générale, effectif humain local, PT02, TE01 ou défection.",
+          "path": "src/content.mjs; src/simulation.mjs; docs/CAMPAIGN_MISSION_09.md",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX90",
+          "link": "FL07; FU07; FU08; SY93–SY95",
+          "name": "Supports et vie locale",
+          "implemented": "Deux supports portent deux habitats, quatre migrateurs ont des issues individuelles et deux colonies réagissent à la lumière et au bruit locaux.",
+          "limits": "FL08 est décorative et FL09 possède seulement une réaction visuelle. FU09, écologie globale, incendie et recensement humain ne sont pas livrés.",
+          "path": "src/simulation.mjs; src/thyr-renderer.mjs; tests/mi09-simulation.test.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX91",
+          "link": "AS18; SY92; QA166",
+          "name": "Onze pièces de Thyr",
+          "implemented": "Onze composants réutilisables : trente-cinq variantes SVG et deux planches PNG. Le renderer et les exports partagent les formes, les états visibles viennent de la simulation.",
+          "limits": "Un export ou une planche ne prouve pas tout le niveau en mouvement. Vignes et herbes ne créditent aucun effet écologique absent; art final et réception humaine ouverts.",
+          "path": "src/thyr-assets.mjs; src/thyr-renderer.mjs; assets/thyr/manifest.json",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX92",
+          "link": "SY97; PR84; QA159; QA165",
+          "name": "Sauvegarde v9 et héritage",
+          "implemented": "Migration v8 avec seul dossier Thyr vide, neuf premiers rapports possibles, quatre lots une seule fois, reprise physique et relecture indépendante.",
+          "limits": "Les anciens rapports et les personnes de Nacre ne sont ni rejoués ni reconstitués sur Thyr. Formats futurs protégés; stockage local toujours lié au navigateur.",
+          "path": "src/campaign.mjs; src/thyr-validation.mjs; docs/CAMPAIGN_SAVE_V9.md; tests/fixtures/campaign-v8-mi08.json",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX93",
+          "link": "SY98; QA19; QA167",
+          "name": "Entrées après changement de focus",
+          "implemented": "Navigation, boutons HUD, répétitions clavier et perte de capture du pointeur ont des gardes et des parcours du script réel dans un DOM modélisé.",
+          "limits": "La preuve modélisée ne clôt pas les deux observations natives contradictoires de 0.9. Retour de focus sans reprise automatique; manette physique non essayée.",
+          "path": "src/main.mjs; tools/test-ui-runtime.mjs; docs/validation/v10-focus-modeled.json",
           "status": "Prototype"
         }
       ]

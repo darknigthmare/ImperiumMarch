@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "scope": "Campaign v9 migration, physical MI09 saves and regression of previous campaign dossiers; no native-browser claim.",
+  "command": "node --test --test-reporter=tap tests/campaign*.test.mjs tests/mi02-mission.test.mjs",
+  "runtime": "v24.22.1",
+  "tests": 146,
+  "passed": 146,
+  "failed": 0,
+  "skipped": 0,
+  "campaignV9Tests": 34,
+  "historicMigration": "Exact native v8 live and completed exports; only version9 and empty world.thyr appended. Historical stage is unchanged.",
+  "sourceHashes": {
+    "src/campaign.mjs": {
+      "sha256": "c6d38b9845d53150c901f177a8e44876a3e81f82e7a73aa07aa022e2f963c31b",
+      "bytes": 134667
+    },
+    "src/thyr-validation.mjs": {
+      "sha256": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+      "bytes": 28583
+    },
+    "tests/campaign-v9.test.mjs": {
+      "sha256": "4696d5a6bd3178c96b473c3c905434c97b578807ebc1d1c0ea6e1694cc8e6b69",
+      "bytes": 19947
+    },
+    "tests/fixtures/campaign-v8-mi08.json": {
+      "sha256": "19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007",
+      "bytes": 182074
+    },
+    "docs/CAMPAIGN_SAVE_V9.md": {
+      "sha256": "0ab71cec0e21d5b59b0714215e266b012a24ba5939ee90796b59cf447ec07f71",
+      "bytes": 7454
+    },
+    "docs/validation/v010-historic-v8.json": {
+      "sha256": "67b04cb76a7473323cac7328dda4373fc70f559f94a100348c6bf2a6e5dd19ad",
+      "bytes": 3434
+    },
+    "docs/validation/v010-campaign-tests.tap": {
+      "sha256": "9dabc2c66c605c4d7900b6e1c2bc605f7520093bb57cf78b3cf49696bccfd6f9",
+      "bytes": 36578
+    }
+  },
+  "recordedAt": "2026-11-11T15:59:25.172678+00:00"
+}

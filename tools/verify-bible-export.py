@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 
 parser=argparse.ArgumentParser(description='Reconcile the Bible XLSX and audit its identifier references.')
 parser.add_argument('root',nargs='?',default=str(Path(__file__).resolve().parents[1]))
-parser.add_argument('baseline',nargs='?',default='03c69e7')
+parser.add_argument('baseline',nargs='?',default='2bb8d7a708e4fab5ab34b3cac10f2418b60fe037')
 parser.add_argument('--references-only',action='store_true',help='Check source identifiers and references without touching the workbook or its existing reports.')
 parser.add_argument('--reference-report',type=Path,help='Write the complete reference audit to this path relative to the repository root.')
 args=parser.parse_args()
@@ -33,7 +33,7 @@ def historical_ids(revision):
         # Published snapshots and source archives may not carry local Git history.
         # Each frozen fixture is valid for its recorded historical revision only.
         candidates=[]
-        for name in ['bible-v08-ids.json','bible-v07-ids.json','bible-v06-ids.json','bible-v05-ids.json','bible-v04-ids.json']:
+        for name in ['bible-v09-ids.json','bible-v08-ids.json','bible-v07-ids.json','bible-v06-ids.json','bible-v05-ids.json','bible-v04-ids.json']:
             fixture_path=root/'tests/fixtures'/name
             if fixture_path.is_file(): candidates.append(json.loads(fixture_path.read_text()))
         matches=[candidate for candidate in candidates
@@ -234,8 +234,12 @@ with zipfile.ZipFile(file) as z:
         tables=[ET.fromstring(z.read(f)) for f in table_files]
         table=next(t for t in tables if t.attrib['name']==f'Bible_{i:02}')
         assert table.attrib['ref']==f'A6:{col(len(spec["columns"]))}{6+len(spec["rows"])}'
-    state=root/'docs/validation/workbook-validation.json'
-    q=json.loads(state.read_text())
+    release='.'.join(source['meta']['version'].split('.')[:2])
+    state=root/f'docs/validation/workbook-v{release}-validation.json'
+    # Legacy generic reports remain immutable evidence of their original release.
+    generation_state=state if state.exists() else root/'docs/validation/workbook-validation.json'
+    q=json.loads(generation_state.read_text())
+    assert q['version']==source['meta']['version'], 'Generation report belongs to a different release'
     preview_count=len(q.get('previews',[]))
     preview_generation=q.get('previewGeneration',{})
     generated_count=preview_generation.get('generatedThisExport',preview_count)
@@ -252,7 +256,6 @@ with zipfile.ZipFile(file) as z:
       'generatedPreviewCountThisExport':generated_count,'retainedPreviewCount':retained_count,
       'visualScope':f'{preview_count} vues associées à la réception : {generated_count} générées par cet export et {retained_count} conservées sur des plages source inchangées. Leur relecture effective et leurs empreintes sont consignées séparément; le nombre de vues ne certifie ni navigateur ni usage natif du classeur.' if preview_count else 'Aucune nouvelle vue générée pour cet export initial. Relecture visuelle finale et contrôle natif restent séparés de cette réconciliation XML.',
     }
-    release='.'.join(source['meta']['version'].split('.')[:2])
     out=root/f'docs/validation/workbook-v{release}-export.json'; out.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     q['exportValidation']=report;state.write_text(json.dumps(q,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps(report,ensure_ascii=False))

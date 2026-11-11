@@ -26,7 +26,7 @@ test('authentic v6 migration adds only unvisited ambulance and departure dossier
   for (const old of [historical.live, historical.completed, historical.manualCompleted]) {
     const migrated = parseCampaign(JSON.stringify(old));
     assert.equal(migrated.version, CAMPAIGN_SAVE_VERSION);
-    const prior = clone(migrated); prior.version = 6; delete prior.world.nacre.ambulance; delete prior.world.nacre.departure;
+    const prior = clone(migrated); prior.version = 6; delete prior.world.thyr; delete prior.world.nacre.ambulance; delete prior.world.nacre.departure;
     assert.deepEqual(prior, old);
     assert.equal(migrated.world.nacre.ambulance.patientsTotal, 0);
     assert.equal(migrated.world.nacre.ambulance.beaconRecovered, false);

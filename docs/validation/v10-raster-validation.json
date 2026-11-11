@@ -1,0 +1,21 @@
+{
+  "version": "0.10.0",
+  "type": "Same-resolution SVG and Canvas raster comparison",
+  "command": "npm run check:assets-render",
+  "log": "docs/validation/v10-raster-tests.log",
+  "logSha256": "542ecbc2cc0d31fd4a945f96112b5459a6333aca70b77e8dfd489af4a95e04e1",
+  "library": "@napi-rs/canvas 0.1.100",
+  "cases": 40,
+  "threshold": 0.92,
+  "minimumObservedPercent": 99.57,
+  "maximumObservedPercent": 100.0,
+  "result": "passed",
+  "sourceHashes": {
+    "src/production-assets.mjs": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0",
+    "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+    "tools/test-assets-render.mjs": "7484e2a227bd57122a080641131ccb93e59d4223194e0f60e316407a610fa5ea"
+  },
+  "limitations": [
+    "Pixel coverage proof, not browser gameplay, human art reception or animation assessment."
+  ]
+}

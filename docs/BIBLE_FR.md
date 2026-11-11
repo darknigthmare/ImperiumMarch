@@ -2,7 +2,7 @@
 
 ## Chaque pas laisse une trace.
 
-**Nom de code :** ImperiumMarch · **Version de conception :** 0.9.0 · **Date :** 11 novembre 2026
+**Nom de code :** ImperiumMarch · **Version de conception :** 0.10.0 · **Date :** 11 novembre 2026
 
 **ORDRE DE CENDRE** est un jeu d’action tactique en 2D dans lequel le joueur pilote les machines d’occupation de l’Empire d’Orthe. D’abord chargé de « pacifier » ses mondes périphériques, il découvre que les catastrophes justifiant ces interventions sont en partie organisées par ceux qui prétendent les réparer. Sa machine ne change pas soudainement de nature lorsqu’il refuse un ordre : elle reste lourde, dangereuse et dépendante de pièces fabriquées par l’Empire. Il doit apprendre à s’en servir pour autre chose que contraindre.
 
@@ -10,7 +10,7 @@ La signature du jeu est le rapport entre **appui, puissance et responsabilité**
 
 La qualité AAA est une **ambition de direction et de finition**. Cette version constitue une fondation de production, avec un prototype jouable et une bible étendue. Elle ne représente pas une campagne finale ni un jeu commercial terminé. La source structurée est [data/bible.json](../data/bible.json). L’onglet **Prototype** du classeur décrit précisément les éléments présents et leurs limites; les autres onglets comprennent aussi les règles prévues pour la suite.
 
-**Portée exécutée en 0.9 :** MI01–MI04 constituent le premier arc jouable de Vesper. MI05–MI08 couvrent le chenal, la digue, la chaussée sanitaire et les portes d’Aval sur Nacre. La campagne conserve ses conséquences dans un dossier v8, avec recensement individuel au départ d’Aval. Les six châssis gardent leurs réserves finies et leur radiateur réparable. Le carburant engagé à MI06 ne revient pas dans les missions suivantes. Les 24 autres missions principales et les seize contrats restent conçus. La [production 0.9](PRODUCTION_V09.md) décrit les missions, les lots visuels et sonores et les commandes livrées; le [registre des 133 critères initiaux](PRODUCTION_REGISTER_V09.md) conserve leurs limites. Le [concept complet](CONCEPT_COMPLET_V04.md), [Vesper](VESPER_CONSEQUENCES_V05.md) et [Nacre 0.9](NACRE_CONSEQUENCES_V09.md) précisent la direction et les conséquences. Les bilans antérieurs conservent leur portée historique.
+**Portée exécutée en 0.10 :** MI01–MI04 constituent Vesper et MI05–MI08 couvrent le chenal, la digue, la chaussée sanitaire et les portes d’Aval sur Nacre. MI09 ouvre Thyr avec une route logistique, des supports vivants, quatre migrateurs et deux colonies de pollinisateurs. La campagne conserve ses conséquences dans un dossier v9; la migration ajoute Thyr sans réécrire les anciens états, même un ancien marqueur de campagne complète. Les six châssis gardent leurs réserves finies et leur radiateur réparable. Le carburant engagé à MI06 ne revient pas. MI10–MI32 et les seize contrats restent conçus. La [production 0.10](PRODUCTION_V10.md) et le [registre des 133 critères initiaux](PRODUCTION_REGISTER_V10.md) distinguent les nouveaux livrables et leurs limites. Le [concept complet](CONCEPT_COMPLET_V04.md), [Vesper](VESPER_CONSEQUENCES_V05.md) et [Nacre 0.9](NACRE_CONSEQUENCES_V09.md) conservent leur direction et leur portée historique.
 
 ## 1. Le contrat avec le joueur
 
@@ -77,6 +77,14 @@ MI08 distingue la porte d’amenée, qui règle le bassin, et la porte de passag
 Le niveau retrouve les personnes arrivées dans les trois missions précédentes. Un nouvel échange, un trajet vers le quai et un accord de destination sont nécessaires. Les places assises, brancards et postes d’opérateur ne sont pas interchangeables. La sortie de la zone est un départ; l’arrivée au refuge exige encore une traversée, un accostage et la marche jusqu’à sa porte.
 
 La fermeture immédiate, la fenêtre suivie de fermeture et le maintien du passage sont trois conduites à exécuter. Un mécanisme perdu peut imposer un constat et un repli. Les personnes restées à Aval rejoignent un accueil local; elles ne sont pas déclarées mortes parce qu’elles n’ont pas embarqué. Le [contrat MI08](CAMPAIGN_MISSION_08.md) décrit ces actions et leurs limites.
+
+### Une route traverse un milieu vivant
+
+MI09 ouvre Thyr après le rapport d’Aval. La hauteur de la coque et les vrais contacts des pieds déterminent le passage sous canopée et sur les racines. Un échange local aide à préparer un contournement et une cadence prudente. Deux colonnes et leurs racines portent deux habitats : perdre le support peut effondrer le logement. Le prototype conserve leur habitabilité sans inventer un nombre d’habitants ou de décès humains.
+
+Quatre Longue-dorses accomplissent leur trajet vers les vergers ou la voie d’exclusion. Les adultes attendent les jeunes trop éloignés, le bruit proche provoque une peur temporaire et les arrivées sont terminales. L’exclusion vivante reste distincte d’une perte. Deux colonies d’Éventails se dispersent sous les projecteurs ou les flashs et reviennent après le calme; une colonne détruite ne retrouve pas son nid.
+
+Le choix de route ne remplace ni la manœuvre de barrière, ni le trajet des animaux, ni l’escorte du transport logistique. Le rapport vient après les résultats physiques. La carte révèle deux habitats omis, sans accorder PT02, TE01 ou connaissance globale de PALINODE. Les plantes FL08 et FL09 gardent leurs mécanismes conçus : leur décor et leur réaction visuelle ne simulent ni filtration de l’air ni capteur fiable de mouvements. Le [contrat MI09](CAMPAIGN_MISSION_09.md) précise les opérations, les bornes et les essais.
 
 ### Les avaries
 
@@ -194,7 +202,11 @@ Le prototype est une base web portable qui sépare contenu, simulation, rendu, i
 
 La 0.9 fournit des pièces SVG, rigs, planches et modules partageant leur définition avec le rendu Canvas, ainsi que des signaux, ambiances, motifs et exports WAV. Le pied affiché et le radiateur gardent leurs positions de simulation. Ces lots font avancer la fabrication sans certifier une animation finale, des voix enregistrées ou un mix éprouvé par des joueurs. Leur réception est détaillée par critère, avec provenance et fichiers, dans le registre de production.
 
+La 0.10 ajoute onze composants de Thyr, trente-cinq SVG et deux planches PNG, avec des états distincts pour supports, habitats, migrateurs, colonies et ouvrages de route. Les formes sont partagées avec le renderer; les conséquences viennent de la simulation. Ce kit reste une production de prototype dont la finition et la lecture humaine restent ouvertes.
+
 Onze actions clavier sont reconfigurables. Les commandes standard de manette sont prises en charge en mission, avec neutre, zone morte et remise à zéro après déconnexion ou perte de focus. Les menus à la manette, le matériel réel et les essais avec utilisateurs concernés restent des tâches distinctes. Le protocole préparé ne remplace pas leurs observations.
+
+Le correctif de focus 0.10 relâche les commandes lors de la navigation, préserve les boutons du HUD et empêche une répétition ancienne de relancer une touche après suspension. La perte de capture coupe le tir. Sa preuve modélisée est distincte des deux observations natives contradictoires de la 0.9; QA19 reste ouverte tant que ces essais ne sont pas reçus à nouveau.
 
 Le prochain jalon de qualité doit être **MI01 entièrement finalisée**, du briefing au retour au hangar. Il doit réunir animation mécanique, environnement, objectifs, civils, dialogue, son et mesure de performance. Produire huit planètes avant de réussir ce niveau rendrait les corrections très coûteuses.
 
@@ -204,7 +216,7 @@ L’estimation de calendrier et de financement doit être fondée sur la vitesse
 
 ## 14. Utilisation de la bible Excel
 
-La version 0.9 du classeur contient 816 fiches dans vingt feuilles de contenu source, plus une synthèse. Les 769 identifiants de la 0.8 restent présents. Les 133 lignes initialement À produire gardent une baseline immuable, leur critère d’origine et un reçu de production. Les IDs permettent de relier une mission à sa planète, un système à une validation ou un châssis à son armement. Une ligne de production possède un livrable et un critère de clôture; une réception partielle conserve le travail restant.
+La source 0.10 contient 845 fiches dans vingt domaines, plus la synthèse du classeur. Les 816 identifiants de la 0.9 restent présents et vingt-neuf fiches explicitent les nouvelles règles, limites et réceptions. Les 133 lignes initialement À produire gardent une baseline immuable, leur critère d’origine et des reçus versionnés. Les IDs relient une mission à sa planète, un système à sa validation et un châssis à son armement. Une réception partielle conserve son travail restant. Le [guide du classeur](BIBLE_README.md) détaille la génération et les contrôles réellement exécutés.
 
 **Conçu** signifie spécifié; **Prototype** signifie présent dans la portée détaillée de l’onglet éponyme; **À produire** désigne le travail identifié mais non livré; **Vérifié** doit toujours se rapporter à un contrôle réellement exécuté. Un test prévu dans QA ne devient pas vérifié parce que le code existe. Un asset illustré ne devient pas une animation intégrée parce qu’il est beau.
 

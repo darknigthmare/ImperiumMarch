@@ -1,0 +1,110 @@
+{
+  "version": "0.10 candidate",
+  "recordedAtUtc": "2026-11-11T15:47:26Z",
+  "scope": "Input/focus changes only, tested against an isolated copy of the 0.9 application; this does not validate the later MI09 integration.",
+  "baselineCommit": "e0026cb3fcd342309f2201a9288f10b78b8cff84",
+  "nativePriorEvidence": "docs/validation/v09-browser.json",
+  "qa19": {
+    "status": "OPEN_NATIVE",
+    "nativeExecutionInThisReport": false,
+    "conclusion": "The two contradictory native Chrome 0.9 focus-loss observations remain unresolved. The deterministic bugs established here do not establish their exact cause.",
+    "requiredNextEvidence": "Repeat native held-D tab-click and address-bar-click cases on the integrated delivery, separately from in-page keyboard navigation."
+  },
+  "testedArtifacts": {
+    "mainSha256": "8195e05a6504ebeb5cf080ef8e8c788bcc965dcfe99937fcf28b7d5b3ed88af6",
+    "finalRuntimeTestSha256": "d6f72cb3d4a606a9d82fa079f54561e848ec6d7d7d86dcf179ea6b1199208707",
+    "isolatedOfflineSha256": "5f90448329f5ce12567734e17b32bf04db9f7e219456dabd4cb90c0a476c5d99",
+    "warning": "These hashes identify the isolated focus stage, not the final 0.10 delivery."
+  },
+  "establishedBaselineFailures": [
+    {
+      "scenario": "Held D, then canvas focus transfers to the radiator HUD button",
+      "observed": "player.move remained 1",
+      "expected": "Release the old command while preserving the button's usable focus"
+    },
+    {
+      "scenario": "Window blur pauses; explicit resume followed by a repeated keydown for the old held D",
+      "observed": "player.move returned to 1",
+      "expected": "Only a fresh key press may rearm movement"
+    },
+    {
+      "scenario": "Held D, then Tab navigation",
+      "observed": "player.move remained 1",
+      "expected": "Release commands without preventing native navigation"
+    },
+    {
+      "scenario": "Primary fire, then lostpointercapture without pointerup",
+      "observed": "shots increased from 6 to 11",
+      "expected": "Pointer fire stops; independently held keyboard movement remains active"
+    }
+  ],
+  "implementedContract": [
+    "Tab and browser modifier shortcuts release held commands and are not prevented.",
+    "Canvas and mission HUD focus changes release commands. HUD buttons keep native focus and Enter/Space activation.",
+    "Leaving mission surfaces while playing, window blur, hidden documents, hasFocus fallback and pagehide suspend the mission.",
+    "Focus return does not resume the mission. Resume while the page is hidden or unfocused is rejected.",
+    "Mission keyboard actions are accepted from the canvas. A canvas pointer press restores its focus.",
+    "A repeated keydown cannot rearm an input cleared by focus loss or pause; a new press can.",
+    "Remapped pause is edge-triggered per key press.",
+    "Lost pointer capture clears primary and secondary fire, without cancelling an unrelated keyboard hold.",
+    "Standard gamepad neutral-release handling remains in place."
+  ],
+  "verification": {
+    "build": {
+      "command": "npm run build",
+      "passed": true,
+      "stage": "isolated focus application",
+      "modules": 9
+    },
+    "staticUi": {
+      "command": "npm run check:ui",
+      "passed": true
+    },
+    "unitTests": {
+      "command": "npm test",
+      "passed": 291,
+      "failed": 0
+    },
+    "modeledRuntime": {
+      "command": "npm run check:ui-runtime",
+      "passed": 61,
+      "failed": 0,
+      "note": "This full run started before the fifth new focus flow was appended. That additional flow was executed separately and passed; the final test file contains 62 flows.",
+      "additionalPassedFlow": "a remapped pause reacts once per press and cannot resume a background document",
+      "focusedFlowsPassed": [
+        "Enter assigned to fullscreen leaves button activation available and operates from the Canvas",
+        "key rebinding reports conflicts, persists valid keys and keeps Escape cancellation",
+        "rebound movement drives the real simulation; old keys release and navigation cancels capture",
+        "focus navigation releases movement while HUD repair and button activation stay available",
+        "focus exits suspend held movement and fire until an explicit resume and fresh inputs",
+        "Tab and browser modifier shortcuts release commands without consuming native navigation",
+        "lost pointer capture stops fire while a separate held movement key stays active",
+        "synthetic standard-gamepad input drives the actual application and releases after pause or disconnect",
+        "a remapped pause reacts once per press and cannot resume a background document"
+      ]
+    },
+    "syntax": {
+      "command": "node --check src/main.mjs && node --check tools/test-ui-runtime.mjs",
+      "passed": true
+    },
+    "whitespace": {
+      "command": "git diff --check -- src/main.mjs tools/test-ui-runtime.mjs",
+      "passed": true
+    }
+  },
+  "modeledLimits": [
+    "The harness executes the actual offline script with real handlers and simulation.",
+    "Element.focus models synchronous blur/focus with relatedTarget. It is not native browser focus behavior.",
+    "defaultPrevented checks establish that Enter and Space are not intercepted. Resulting button clicks are dispatched separately because the harness does not synthesize browser activation.",
+    "No browser, CSS, native dialog, hardware keyboard/gamepad/touch, real download or audio verification is claimed.",
+    "The worn-radiator fixture is deliberate test input, not evidence of a played damage route."
+  ],
+  "nativeProtocol": [
+    "In-page navigation: from a quiet mission start, hold D then Tab to Pause and Repair. Movement must settle, native focus must remain visible, and Enter/Space must activate each button. Refocus canvas: the old held repeat stays inert until a fresh key press.",
+    "External tab: repeat the original held-D click on another browser tab, then return. Record paused dialog, unchanged elapsed time and no automatic resume.",
+    "Address bar: separately repeat the original held-D click on the address bar. A Ctrl+L check is useful but cannot replace this original click case.",
+    "Explicit resume: use Reprendre; old movement and fire must remain released. A new press must operate normally.",
+    "Pointer capture: fire, leave/release the pointer, return and confirm that no unattended firing remains.",
+    "Record native outcomes independently of this modeled report. Keep QA19 open if native behavior remains contradictory."
+  ]
+}

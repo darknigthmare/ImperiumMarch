@@ -1,0 +1,10 @@
+LibreOfficeDev 26.8.0.0.alpha0 2c87e51eeaa2b413ff4ae097b2705eea1995d8e5
+soffice
+-env:UserInstallation=file:///tmp/ordre-bible-native-og_0_uf0/profile
+--headless
+--convert-to
+xlsx:Calc MS Excel 2007 XML
+--outdir
+/tmp/ordre-bible-native-og_0_uf0/output
+/tmp/ordre-bible-native-og_0_uf0/input/ORDRE_DE_CENDRE_Bible.xlsx
+convert /tmp/ordre-bible-native-og_0_uf0/input/ORDRE_DE_CENDRE_Bible.xlsx as a Calc document -> /tmp/ordre-bible-native-og_0_uf0/output/ORDRE_DE_CENDRE_Bible.xlsx using filter : Calc MS Excel 2007 XML

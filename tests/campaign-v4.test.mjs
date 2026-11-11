@@ -34,7 +34,7 @@ function removeV4Fields(value) {
   const old = clone(value);
   old.version = 3;
   delete old.world.vesper.industrial;
-  delete old.world.nacre; delete old.resources.fuel;
+  delete old.world.thyr; delete old.world.nacre; delete old.resources.fuel;
   for (const condition of Object.values(old.fleet)) delete condition.radiator;
   for (const checkpoint of [old.checkpoint, old.preDecisionCheckpoint]) if (checkpoint) delete checkpoint.player.radiator;
   return old;

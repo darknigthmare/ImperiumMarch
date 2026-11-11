@@ -7,7 +7,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - `data/bible.json` est la source des fiches de conception et du classeur. Garder les IDs stables.
 - `docs/BIBLE_FR.md`, `docs/CAMPAIGN_FR.md` et `docs/ART_DIRECTION.md` développent le canon du projet.
 - `src/content.mjs` décrit uniquement les données actuellement utilisées par le prototype.
-- `src/campaign.mjs` gère les dossiers MI01–MI08, leur progression et la migration des sauvegardes v1/v2/v3/v4/v5/v6/v7 vers v8 ; les opérations OP01–OP03 restent indépendantes.
+- `src/campaign.mjs` gère les dossiers MI01–MI09, leur progression et la migration des sauvegardes v1/v2/v3/v4/v5/v6/v7/v8 vers v9 ; les opérations OP01–OP03 restent indépendantes.
 - L’onglet Prototype précise la différence entre le comportement actuel et le comportement final conçu.
 
 ## Développement
@@ -24,7 +24,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 
 - Ne pas marquer une fiche finie parce qu’une description existe. Conçu, Prototype et Vérifié décrivent des niveaux différents.
 - Les trois opérations de prototype ne sont pas les 32 missions de la campagne finale.
-- MI01–MI08 sont jouables au stade prototype depuis les 0.2 à 0.9 ; les 24 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
+- MI01–MI09 sont jouables au stade prototype depuis les 0.2 à 0.10 ; les 23 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
 - Ne pas présenter une image de concept comme une capture du jeu, un rendu Canvas comme une capture navigateur ou un test statique comme un clic exécuté.
 - Une nouvelle vérification navigateur doit préciser l’environnement réel et les parcours effectués.
 - Les références de gameplay servent la conception ; conserver les noms, assets, silhouettes et récits originaux du projet.
@@ -73,3 +73,14 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - Le nouveau reçu MI08 conserve sa liste de personnes et de bateaux. Départ historique, arrivée au refuge, accueil local et perte restent distincts. Le choix `delay` est autorisé uniquement dans MI08.
 - `production-assets.mjs` partage la géométrie SVG/Canvas ; garder pivots et positions des vrais pieds. Les WAV sont des exports : le runtime synthétise les mêmes PCM sans requête réseau.
 - Le registre v09 conserve les 133 critères À produire de la baseline. Réception d’un livrable, validation du prototype et critère humain satisfait sont trois faits différents. Ne pas transformer un test synthétique de manette en essai matériel.
+
+## Thyr et commandes 0.10
+
+- MI09 s’ouvre après le rapport MI08. Ses quatre longues-dorses (deux adultes et deux jeunes), deux colonnes, racines et habitats appartiennent à cette vallée. Ne pas y transférer les habitants de Nacre ou inventer un recensement local. Le contexte MI08 reste radiophonique.
+- Les vrais pieds emploient `livingRouteSurfaceAt`. Le passage haut exige un contournement reconnu ; le guidage local exige un échange accompli, puis un balisage. La cadence manuelle J/L et l’ancrage existants sont conservés, sans commande de hauteur fictive.
+- Le choix ouvre un ordre, sans déplacer le troupeau ni manœuvrer la barrière. Verger atteint, exclusion atteinte et perte sont des états individuels distincts. Le transport doit être libéré, escorté puis arrivé avant la transmission du rapport.
+- Les tireurs de MI09 n’apparaissent qu’après résolution de la migration et arrivée du contrôle. Les tirs, explosions et pas peuvent endommager les êtres et les supports. Une perte acquise ne s’efface ni à la décision ni à l’extraction.
+- MI09 ne crée ni PT02, ni TE01, ni preuve globale PALINODE. La défection reste prévue à MI16. FL08 est décoratif dans cette tranche et FL09 réagit visuellement à proximité ; leurs systèmes finaux restent conçus.
+- La fixture v8 vient des deux exports natifs Chrome conservés de la 0.9 et du snapshot public attesté. La migration v9 ajoute seulement `world.thyr.route` vide et la version9 ; elle conserve aussi l’ancien champ `stage`, les huit rapports, le carburant et les scènes anciennes. La progression déduit MI09 du premier rapport manquant sans réécrire l’étape historique. Ne pas régénérer les fixtures v1–v8 depuis le code courant.
+- Le rendu Thyr partage la source SVG/Canvas de `src/thyr-assets.mjs` et suit les objets de `livingRoute`. Ses planches restent des bancs graphiques, pas des captures de jeu.
+- Quitter le canvas relâche les commandes. Quitter les surfaces de jeu ou la fenêtre suspend ; une répétition de touche ne réarme pas une commande vidée. Les boutons gardent leur activation native. Ne pas confondre ce contrôle DOM modélisé avec QA19 dans Chrome.

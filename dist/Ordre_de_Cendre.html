@@ -83,6 +83,11 @@
 .binding-list{display:grid;gap:6px;margin:18px 0}.binding-row{display:grid;grid-template-columns:minmax(120px,1fr) minmax(110px,1fr);align-items:center;gap:12px;border-bottom:1px solid var(--line);padding:5px 0}.binding-row>span{font-size:13px;line-height:1.4}.binding-button{min-height:38px;padding:8px 10px;text-align:center;background:#263335;border:1px solid #62716c;color:#e3ddca;font:11px var(--mono);overflow-wrap:anywhere}.binding-button[aria-pressed=true]{border-color:var(--copper);background:#3b382e;color:#ffe0b2}.binding-status{min-height:2.8em;font-size:12px;line-height:1.5;color:#ddc3a0}.controls-panel>#manual-help{margin-top:22px}.controls-panel h3:not(:first-child){margin-top:26px}#keyboard-hints{flex-wrap:wrap;row-gap:5px}.high-contrast .binding-button{border-color:#f0e7ce;color:#fff;background:#152022}@media(max-width:550px){.binding-row{grid-template-columns:1fr 1fr;gap:8px}.controls-panel{min-width:0}.binding-button{font-size:10px}}
 
 .departure-instrument{border-top:1px solid #668b8c88;padding-top:10px;margin-top:12px;color:#d9e6d8;font:9px var(--mono);line-height:1.5}.departure-instrument strong{font-weight:600;color:#c6e8dc}.departure-instrument p{margin:5px 0}.departure-warning{border-color:#d79472}.departure-warning strong{color:#ffc59b}.nacre-dossiers{margin:12px 0 32px}.dossier-detail{border:1px solid var(--line);background:#142126bb;margin:12px 0;padding:18px 22px}.dossier-detail summary{cursor:pointer;font:16px var(--display);line-height:1.5;color:#e6d4b8}.dossier-detail summary span{display:inline-block;font:11px var(--mono);color:#aacbc1;margin-left:14px}.dossier-detail summary:focus-visible{outline:2px solid #f4d4aa;outline-offset:5px}.dossier-detail>p{margin:18px 0 12px;max-width:78ch;line-height:1.7;color:#c0c8be}.dossier-table-wrap{overflow-x:auto;max-width:100%;margin:16px 0}.dossier-detail table{border-collapse:collapse;width:100%;font-size:12px;line-height:1.6}.dossier-detail caption{text-align:left;font:10px var(--mono);letter-spacing:1px;padding:8px 0 14px;color:#a4b8b3}.dossier-detail th,.dossier-detail td{text-align:left;border-bottom:1px solid #4d646244;padding:10px 14px;vertical-align:top}.dossier-detail th{font-weight:500;color:#d7d5c3}.dossier-detail th[scope=row]{width:29%}.dossier-detail thead th{color:#a5c9be;font:10px var(--mono);text-transform:uppercase}.high-contrast .departure-instrument{color:#fff;border-color:#fff}.high-contrast .departure-instrument strong{color:#b5ffeb}@media(max-width:760px){.dossier-detail{padding:15px 12px}.dossier-detail summary span{display:block;margin-left:0}.dossier-detail td,.dossier-detail th{padding:8px}.departure-instrument{font-size:8px}}
+.thyr-chapter .campaign-dossier{border-color:#a1ad6b66;background:linear-gradient(130deg,#21382eeb,#132923e8)}
+.thyr-instrument{border-top:1px solid #8a9a6688;padding-top:9px;margin-top:11px;color:#d1ddbc;font:9px var(--mono);line-height:1.5}
+.thyr-instrument strong{font-weight:600;color:#d6dfb0}.thyr-instrument p{margin:5px 0}.thyr-warning{border-color:#d79472}.thyr-warning strong{color:#ffc59b}
+.thyr-dossiers .dossier-detail{border-color:#8b9a6550;background:#1a3027cc}.high-contrast .thyr-instrument{color:#fff;border-color:#fff}.high-contrast .thyr-instrument strong{color:#e5ffb4}
+@media(max-width:760px){.thyr-instrument{font-size:8px;margin-top:8px;padding-top:7px}}
 
 </style>
 </head>
@@ -149,7 +154,7 @@
         <div class="rig-details"><p class="eyebrow" id="rig-role"></p><h3 id="rig-name"></h3><p id="rig-description"></p><div id="rig-stats"></div><dl class="weapon-details"><dt>ARMEMENT PRINCIPAL</dt><dd id="rig-weapon"></dd><dt>ARMEMENT SECONDAIRE</dt><dd id="rig-secondary"></dd></dl><p class="rig-note" id="rig-strength"></p><button id="confirm-rig" class="primary-button">ASSIGNER CE MARCHEUR <span>→</span></button></div>
       </div>
       <div id="walker-cards" class="walker-cards"></div>
-      <section class="workshop-panel" aria-label="Atelier et équipage"><div class="workshop-heading"><div><p class="eyebrow">TESS ARDAN / ÉTAT AU RETOUR</p><h3>Avant la prochaine marche.</h3></div><div class="workshop-stocks"><span id="workshop-parts" class="workshop-parts"></span><span id="workshop-fuel" class="workshop-fuel" hidden></span><span id="workshop-fuel-used" class="workshop-fuel" hidden></span></div></div><div class="workshop-grid"><article><p id="workshop-condition"></p><p id="workshop-repair-note" class="muted"></p><button id="campaign-repair" class="secondary-button">Réparer le marcheur</button></article><article><p id="workshop-pipe"></p><p id="workshop-sami" class="muted"></p><p id="workshop-network" class="muted" hidden></p><p id="workshop-industrial" class="muted" hidden></p><p id="workshop-nacre" class="muted" hidden></p><p id="workshop-dike" class="muted" hidden></p><p id="workshop-ambulance" class="muted" hidden></p><p id="workshop-departure" class="muted" hidden></p><button id="campaign-repair-pipe" class="secondary-button" hidden>Envoyer une équipe de réparation</button></article></div><p id="workshop-active-note" class="muted" hidden>Une mission est en cours. Reprenez-la pour retrouver le châssis déjà déployé. L’atelier sera disponible au retour.</p></section>
+      <section class="workshop-panel" aria-label="Atelier et équipage"><div class="workshop-heading"><div><p class="eyebrow">TESS ARDAN / ÉTAT AU RETOUR</p><h3>Avant la prochaine marche.</h3></div><div class="workshop-stocks"><span id="workshop-parts" class="workshop-parts"></span><span id="workshop-fuel" class="workshop-fuel" hidden></span><span id="workshop-fuel-used" class="workshop-fuel" hidden></span></div></div><div class="workshop-grid"><article><p id="workshop-condition"></p><p id="workshop-repair-note" class="muted"></p><button id="campaign-repair" class="secondary-button">Réparer le marcheur</button></article><article><p id="workshop-pipe"></p><p id="workshop-sami" class="muted"></p><p id="workshop-network" class="muted" hidden></p><p id="workshop-industrial" class="muted" hidden></p><p id="workshop-nacre" class="muted" hidden></p><p id="workshop-dike" class="muted" hidden></p><p id="workshop-ambulance" class="muted" hidden></p><p id="workshop-departure" class="muted" hidden></p><p id="workshop-thyr" class="muted" hidden></p><button id="campaign-repair-pipe" class="secondary-button" hidden>Envoyer une équipe de réparation</button></article></div><p id="workshop-active-note" class="muted" hidden>Une mission est en cours. Reprenez-la pour retrouver le châssis déjà déployé. L’atelier sera disponible au retour.</p></section>
     </section>
 
     <section id="view-archives" class="view archives-view" aria-label="Archives de bord" hidden>
@@ -172,7 +177,7 @@
         <div class="controls-panel"><h3>Vos commandes</h3><p class="muted">Cliquez sur une touche pour la modifier. Échap reste disponible pour la pause. Les touches indiquent leur position physique ; Q et A couvrent les claviers AZERTY et QWERTY par défaut.</p><div id="binding-list" class="binding-list"></div><p id="binding-status" class="binding-status" role="status" aria-live="polite"></p><button id="bindings-reset" class="secondary-button" type="button">Rétablir les touches</button><p id="manual-help" class="muted">En marche manuelle, alternez J et L.</p><h3>Souris et manette</h3><div class="controls-grid"><kbd>Souris</kbd><span>Viser · clic gauche : canon · clic droit : roquette</span><kbd>Stick gauche</kbd><span>Marcher</span><kbd>Stick droit</kbd><span>Orienter la tourelle</span><kbd>RT / R2</kbd><span>Canon · RB / R1 : roquette</span><kbd>LT / L2</kbd><span>Ancrage · LB / L1 : purge</span><kbd>A / ✕</kbd><span>Interagir · X / □ : recharger · Y / △ : réparer</span><kbd>↑ / ↓</kbd><span>Appuis A / B en marche manuelle</span><kbd>Start / Options</kbd><span>Pause / reprise</span></div><p id="gamepad-status" class="muted" role="status" aria-live="polite">Aucune manette standard détectée.</p><p class="muted">La manette commande la mission. Utilisez le clavier ou la souris dans les menus et pour les décisions.</p></div>
       </div>
     </section>
-    <footer class="menu-footer"><span>IMPERIUM MARCH <i>/</i> VERSION 0.9</span><span id="local-status"><span class="status-dot"></span> POSTE PRÊT</span><span>CHAQUE PAS LAISSE UNE TRACE.</span></footer>
+    <footer class="menu-footer"><span>IMPERIUM MARCH <i>/</i> VERSION 0.10</span><span id="local-status"><span class="status-dot"></span> POSTE PRÊT</span><span>CHAQUE PAS LAISSE UNE TRACE.</span></footer>
   </main>
 
   <section id="game-screen" hidden aria-label="Mission en cours">
@@ -180,7 +185,7 @@
       <canvas id="game-canvas" width="1600" height="900" tabindex="0" aria-label="Champ de bataille. Q ou A et D pour marcher, souris pour viser, clic pour tirer. T pour réparer le radiateur à l’arrêt. Échap pour la pause."></canvas>
       <div id="hud">
         <div class="hud-top"><div class="hud-mission"><span class="hud-insignia">VII</span><div><span class="small-caps" id="hud-planet"></span><h2 id="hud-title"></h2></div></div><div class="hud-top-right"><span id="hud-timer">00:00</span><button id="pause-button" class="icon-button" aria-label="Mettre en pause" title="Pause (Échap)">Ⅱ</button></div></div>
-        <div class="objectives-panel"><span class="small-caps">ORDRES DE MISSION</span><ul id="hud-objectives"></ul><div id="convoy-status" hidden></div><section id="tide-instrument" class="tide-instrument" aria-label="État de la marée" hidden><div><strong id="tide-phase"></strong><span id="tide-window"></span></div><div class="meter" aria-hidden="true"><i id="tide-level"></i></div><p id="tide-route"></p></section><section id="departure-instrument" class="departure-instrument" aria-label="Portes, courant et destinations d’Aval" hidden><strong id="departure-gates"></strong><p id="departure-water"></p><p id="departure-queue"></p><p id="departure-arrivals"></p><p id="departure-patients"></p><p id="departure-refuge"></p></section><section id="ambulance-instrument" class="ambulance-instrument" aria-label="État du transfert sanitaire" hidden><strong id="ambulance-stage"></strong><p id="ambulance-route"></p><p id="ambulance-people"></p><p id="ambulance-cargo"></p><p id="ambulance-beacon"></p></section><section id="dike-instrument" class="dike-instrument" aria-label="État du chantier de digue" hidden><strong id="dike-support"></strong><p id="dike-pressure"></p><p id="dike-residents"></p><p id="dike-fuel"></p></section></div>
+        <div class="objectives-panel"><span class="small-caps">ORDRES DE MISSION</span><ul id="hud-objectives"></ul><div id="convoy-status" hidden></div><section id="tide-instrument" class="tide-instrument" aria-label="État de la marée" hidden><div><strong id="tide-phase"></strong><span id="tide-window"></span></div><div class="meter" aria-hidden="true"><i id="tide-level"></i></div><p id="tide-route"></p></section><section id="thyr-instrument" class="thyr-instrument" aria-label="Migration, appuis et habitats de Thyr" hidden><strong id="thyr-route"></strong><p id="thyr-herd"></p><p id="thyr-homes"></p><p id="thyr-approach"></p><p id="thyr-logistics"></p></section><section id="departure-instrument" class="departure-instrument" aria-label="Portes, courant et destinations d’Aval" hidden><strong id="departure-gates"></strong><p id="departure-water"></p><p id="departure-queue"></p><p id="departure-arrivals"></p><p id="departure-patients"></p><p id="departure-refuge"></p></section><section id="ambulance-instrument" class="ambulance-instrument" aria-label="État du transfert sanitaire" hidden><strong id="ambulance-stage"></strong><p id="ambulance-route"></p><p id="ambulance-people"></p><p id="ambulance-cargo"></p><p id="ambulance-beacon"></p></section><section id="dike-instrument" class="dike-instrument" aria-label="État du chantier de digue" hidden><strong id="dike-support"></strong><p id="dike-pressure"></p><p id="dike-residents"></p><p id="dike-fuel"></p></section></div>
         <div id="radio" class="radio-panel" role="status"><div class="radio-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div><span class="small-caps">CANAL DE BORD</span><p id="radio-text"></p></div></div>
         <div id="mission-intro" class="mission-intro"><p id="intro-location"></p><h2 id="intro-title"></h2><span>LIAISON ÉTABLIE</span></div>
         <div class="hud-bottom"><p id="hud-interaction" class="hud-interaction" hidden></p><div class="hull-panel"><span class="small-caps" id="hud-walker"></span><div class="hull-numbers"><strong id="hull-value"></strong><span>INTÉGRITÉ COQUE</span></div><div class="meter"><i id="hull-bar"></i></div><div class="leg-status" id="leg-status"></div></div><div class="heat-panel"><div class="instrument"><span class="small-caps">TEMPÉRATURE</span><b id="heat-value"></b><div class="meter heat"><i id="heat-bar"></i></div></div><div class="instrument"><span class="small-caps">STABILITÉ</span><b id="stability-value"></b><div class="meter stability"><i id="stability-bar"></i></div></div><div class="instrument radiator-instrument"><div><span class="small-caps">RADIATEUR</span><b id="radiator-value"></b><div class="meter radiator"><i id="radiator-bar"></i></div><small id="radiator-condition"></small></div><button id="radiator-repair" data-action="repair" title="Répare 60 points en 4 secondes sans marcher ni tirer ; consomme un kit à la fin.">T · RÉPARER À L’ARRÊT</button></div></div><div class="ammo-panel"><span class="small-caps" id="hud-weapon"></span><div><strong id="ammo-value"></strong><span id="ammo-total"></span></div><small id="ammo-reserve"></small><small id="rocket-value"></small></div></div>
@@ -508,12 +513,40 @@ const CAMPAIGN_MISSIONS = [
     intro: 'NACRE // PORTES D’AVAL · 18:40',
   },
 
+
+  {
+    id: 'MI09', number: '09', campaign: true, act: 'II — Le coût du silence',
+    name: 'La route des vivants', planetId: 'PL03', planet: 'Thyr',
+    biome: 'VERGERS SOUS CANOPÉE', length: 6400, difficulty: 'APPUIS VIVANTS', duration: '6–10 min',
+    faction: 'Communautés de Thyr / détachement logistique impérial', accent: '#b9ce83', sky: ['#182d30', '#496359', '#b9bd8e'],
+    description: 'Une route déclarée sauvage traverse des racines porteuses, des maisons suspendues et la migration des longues-dorses. Écoutez le poste local, préparez des appuis adaptés, puis ouvrez une route au transport. Les destinations du troupeau et les habitats encore debout feront foi.',
+    briefing: '« Dégagez la route logistique de Thyr. Nos cartes n’indiquent aucune implantation permanente dans ce secteur. » — Major Holt',
+    hint: 'E au poste local ouvre le balisage guidé ; E au repère prépare le contournement indispensable aux coques hautes. Les pieds se posent réellement sur les racines : J/L permettent une cadence espacée, Espace stabilise les travaux. Coupez les projecteurs pour calmer les éventails. Relevez la carte et choisissez la route ; revenez manœuvrer la barrière. Attendez les destinations effectives des longues-dorses, repoussez les deux tireurs d’élite, puis libérez et escortez le transport jusqu’au dépôt. Le rapport attend son arrivée.',
+    type: 'living-route', evidenceX: 2680, decisionX: 2680, extractionX: 6060,
+    evidenceLabel: 'RELEVÉ LOCAL DES PASSAGES ET HAMEAUX', civilianPositions: [], supplyPositions: [730, 2850, 3940, 5380, 5860],
+    enemyPlan: [],
+    livingRoute: { interactionRadius: 150, contactTime: 3, guidedTime: 4, surveyedTime: 8,
+      inspectTime: 3, lightsTime: 2, gateTime: 6, damagedGateTime: 8, dispatchTime: 3, reportTime: 3,
+      contactX: 540, approachX: 850, columnXs: [1260, 3560], rootWidth: 340, rootRise: 28,
+      canopyFrom: 960, canopyTo: 1520, initialClearance: 185, preparedClearance: 300, safeCadence: 1.15,
+      lightsX: 1660, gateX: 2420, gateControlX: 2200, mapX: 2680, logisticsX: 2860,
+      logisticsControlX: 3020, logisticsTargetX: 5500, reportX: 5660,
+      migratorXs: [1880, 1960, 2040, 2120], orchardXs: [4660, 4740, 4820, 4900], exclusionXs: [3260, 3340, 3420, 3500],
+      sniperXs: [4080, 5200] },
+    decision: { title: 'Une route traverse leur saison',
+      body: 'La carte omet deux habitats suspendus. Une route directe détourne les longues-dorses vers la zone d’exclusion ; garder leur passage demande d’attendre leur arrivée au verger avant le transport. Le choix doit encore être mis en œuvre à la barrière.',
+      obey: 'Exécuter le couloir impérial ; dévier le troupeau vers l’exclusion',
+      defy: 'Préserver le passage du verger ; faire attendre la logistique' },
+    intro: 'THYR // ROUTE DES VERGERS · 07:20',
+  },
+
 ];
 
 const ALL_MISSIONS = [...MISSIONS, ...CAMPAIGN_MISSIONS];
 
 const ENEMY_TYPES = {
   rifle: { name: 'Fusilier', kind: 'infantry', w: 24, h: 36, hp: 65, speed: 22, range: 650, cooldown: 1.65, damage: 10, projectileSpeed: 430, windup: 0.42, score: 70 },
+  sniper: { name: 'Tireur d’élite', kind: 'infantry', w: 28, h: 38, hp: 150, speed: 0, range: 960, cooldown: 3.5, damage: 26, projectileSpeed: 720, windup: 1.4, score: 180 },
   rocket: { name: 'Lancier antichar', kind: 'infantry', w: 26, h: 38, hp: 80, speed: 14, range: 790, cooldown: 4.4, damage: 43, projectileSpeed: 255, windup: 1.2, score: 130 },
   buggy: { name: 'Buggy de raid', kind: 'vehicle', w: 85, h: 44, hp: 220, speed: 35, range: 740, cooldown: 2.8, damage: 21, projectileSpeed: 400, windup: 0.7, score: 230 },
   skimmer: { name: 'Patin de raid', kind: 'vehicle', w: 96, h: 42, hp: 240, speed: 42, range: 720, cooldown: 2.8, damage: 19, projectileSpeed: 400, windup: .85, score: 230 },
@@ -864,7 +897,16 @@ function createGame(options = {}) {
     };
   }
   if (mission.id === 'MI08') createDepartureMission(state, options.campaignContext || {});
+  if (mission.id === 'MI09') createLivingRouteMission(state, options.campaignContext || {});
   state.enemies = spawnEnemies(state);
+  if (mission.id === 'MI09') {
+    for (const [i, x] of mission.livingRoute.sniperXs.entries()) {
+      const sniper = enemy(state, 'sniper', x, state.enemies.length);
+      sniper.id = `thyr-sniper-${i + 1}`; state.enemies.push(sniper);
+    }
+    emit(state, 'radio', 'Tess : « La branche basse ne laisse pas passer tous les gabarits. Le repère de contournement précède la première racine ; le poste local peut nous y guider. »');
+    if (state.campaign.context.departureRecorded) emit(state, 'radio', `Sami : « Le bilan de Nacre reste au dossier : ${state.campaign.context.departureArrived} arrivées au refuge, ${state.campaign.context.departureLost} pertes. Ici, nous découvrons un autre lieu ; aucun de ces nombres ne recense Thyr. »`);
+  }
   if (mission.id === 'MI08') {
     for (const [i, x] of [4480, 4890].entries()) {
       const drone = enemy(state, 'drone', x, state.enemies.length);
@@ -944,15 +986,20 @@ function step(s, group) {
   const feet = p.feet.filter(f => f.group === group);
   const integrity = feet.reduce((sum, f) => sum + f.health / 100, 0) / feet.length;
   const stride = s.walker.stride * (0.65 + integrity * 0.35) * (s.channel ? channelSurfaceAt(s, p.x).traction : 1);
+  if (s.livingRoute && direction > 0 && p.x + stride / 2 >= s.mission.livingRoute.canopyFrom && p.x < s.mission.livingRoute.canopyTo && s.walker.height + p.height / 2 > s.livingRoute.approach.clearance) {
+    if (!s.notified.thyrHeight) { s.notified.thyrHeight = true; emit(s, 'radio', 'Tess : « Notre coque ne passe pas sous cette branche. Reviens au repère et prépare le contournement avec E, ancré. »'); }
+    return false;
+  }
   for (const f of feet) {
     f.fromX = f.x; f.fromY = f.y;
     f.targetX = clamp(p.x + f.homeOffset + direction * stride, 110, s.mission.length - 110);
-    f.targetY = terrainAt(f.targetX, s.planetId);
+    f.targetY = walkerGroundAt(s, f.targetX);
     f.phase = 'swing'; f.contact = false; f.progress = 0;
   }
   p.energy = Math.max(0, p.energy - 6);
   p.lastGroup = group; s.lastStepGroup = group;
   p.stepCooldown = s.walker.stepTime + (1 - integrity) * 0.22;
+  if (s.livingRoute?.approach.kind === 'guided' && s.livingRoute.roots.some(root => !root.destroyed && Math.abs(p.x - root.x) < root.w / 2 + s.walker.stride)) p.stepCooldown = Math.max(p.stepCooldown, s.mission.livingRoute.safeCadence);
   s.stats.steps++;
   if (s.campaign) s.campaign.tutorial.stepped = true;
   return true;
@@ -1198,6 +1245,10 @@ function interactTrainMission(s) {
 
 function interact(s) {
   if (s.status !== 'playing' || s.decision.active) return false;
+  if (s.missionId === 'MI09') {
+    const changed = interactLivingRouteMission(s);
+    refreshLivingRouteFacts(s); refreshObjectives(s); return changed;
+  }
   if (s.missionId === 'MI08') {
     const changed = interactDepartureMission(s);
     refreshDepartureFacts(s); refreshObjectives(s); return changed;
@@ -1242,6 +1293,12 @@ function commandGame(s, action, payload) {
   if (action === 'choice') {
     if (!s.decision.active || s.decision.resolved || !(s.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : ['obey', 'defy']).includes(payload)) return false;
     s.decision.choice = payload; s.decision.resolved = true; s.decision.active = false;
+    if (s.missionId === 'MI09') {
+      s.campaign.route = payload === 'obey' ? 'imperial' : 'migration'; s.campaign.phase = 'routing';
+      if (payload === 'obey') s.stats.ordersObeyed++; else s.stats.ordersDefied++;
+      emit(s, 'radio', payload === 'obey' ? 'Sera : « Déviation impériale retenue. La barrière doit encore être manœuvrée ; le troupeau n’a pas bougé. »' : 'Sera : « La logistique attendra le passage au verger. Retournons à la barrière ; notre décision ne l’ouvre pas à distance. »');
+      refreshLivingRouteFacts(s); refreshObjectives(s); return true;
+    }
     if (s.missionId === 'MI08') {
       s.campaign.plan = payload === 'obey' ? 'close' : payload === 'delay' ? 'window' : 'open';
       s.campaign.phase = 'boarding';
@@ -1375,6 +1432,7 @@ function enemyPresent(s, e) {
   // The controller has a fixed save slot before arrival, not a physical target.
   if (e.id.startsWith('seizure-drone-') && !s.ambulance?.raidTriggered) return false;
   if (e.id.startsWith('aval-control-drone-') && !s.departure?.alert.triggered) return false;
+  if (e.id.startsWith('thyr-sniper-') && !s.livingRoute?.alert.triggered) return false;
   if (e.id === 'private-hauler' && s.industrial?.retreatEscaped) return false;
   return e.id !== 'holt-observer' || Boolean(s.network?.scrutinyTriggered);
 }
@@ -1487,6 +1545,7 @@ function damagePlayer(s, damage, hitX, hitY, bypassArmor = false) {
 function stomp(s, f) {
   particles(s, f.x, f.y, 'dust', 9);
   emit(s, 'step', '', f.x, f.y);
+  if (s.livingRoute) livingRouteFootfall(s, f);
   // A pipe incident is caused by a real planted foot, never by camera/body position.
   if (s.missionId === 'MI01' && f.contact && !s.campaign.passageSecured && s.campaign.pipeIntact &&
       f.x >= s.mission.passage.pipeFrom && f.x <= s.mission.passage.pipeTo &&
@@ -1551,17 +1610,18 @@ function updateWalker(s, dt, input) {
       const t = f.progress * f.progress * (3 - 2 * f.progress);
       f.x = lerp(f.fromX, f.targetX, t);
       f.y = lerp(f.fromY, f.targetY, t) - Math.sin(f.progress * Math.PI) * (s.walker.legs === 2 ? 65 : 43);
-      if (f.progress >= 1) { f.phase = 'stance'; f.contact = true; f.y = terrainAt(f.x, s.planetId); stomp(s, f); }
+      if (f.progress >= 1) { f.phase = 'stance'; f.contact = true; f.y = walkerGroundAt(s, f.x); stomp(s, f); }
     }
   }
+  if (s.livingRoute) for (const foot of p.feet) if (foot.contact) foot.y = walkerGroundAt(s, foot.x);
   const anchor = p.feet.reduce((sum, f) => sum + f.x - f.homeOffset, 0) / p.feet.length;
   const lastX = p.x;
   p.anchorX = anchor;
-  const surfaceSpeed = s.channel ? channelSurfaceAt(s, p.x).traction : 1;
+  const surfaceSpeed = s.channel ? channelSurfaceAt(s, p.x).traction : s.livingRoute ? livingRouteSurfaceAt(s, p.x).traction : 1;
   p.x += clamp((anchor - p.x) * 6 * dt, -s.walker.speed * surfaceSpeed * dt, s.walker.speed * surfaceSpeed * dt);
   p.x = clamp(p.x, 110, s.mission.length - 110);
   p.speed = (p.x - lastX) / Math.max(dt, 0.0001);
-  p.groundY = terrainAt(p.x, s.planetId);
+  p.groundY = walkerGroundAt(s, p.x);
   const stepping = p.feet.some(f => !f.contact);
   const bob = stepping ? Math.sin(p.feet.find(f => !f.contact).progress * Math.PI) * 3 : 0;
   p.y = lerp(p.y, p.groundY - s.walker.height + bob, Math.min(1, dt * 12));
@@ -1591,6 +1651,7 @@ function fire(s, rocket) {
   if (rocket) { p.rockets--; p.rocketCooldown = 1.25; }
   else { p.ammo--; p.fireCooldown = s.walker.fireRate; }
   s.stats.shots++;
+  if (s.livingRoute) livingRouteNoise(s, p.x, 1, 3);
   particles(s, x, y, 'spark', 3);
   emit(s, rocket ? 'rocket' : 'shot', '', x, y);
   if (p.heat >= 100) { p.overheated = true; emit(s, 'overheat', 'Surchauffe. Ventilez le réacteur.'); }
@@ -1619,6 +1680,7 @@ function updateEnemies(s, dt) {
     if (e.dead) continue;
     if (e.id.startsWith('seizure-drone-') && !s.ambulance?.raidTriggered) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id.startsWith('aval-control-drone-') && !s.departure?.alert.triggered) { e.active = false; e.phase = 'idle'; continue; }
+    if (e.id.startsWith('thyr-sniper-') && !s.livingRoute?.alert.triggered) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'holt-observer' && !s.campaign?.holtAlerted) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'private-hauler') {
       const site = s.industrial;
@@ -1640,7 +1702,7 @@ function updateEnemies(s, dt) {
     }
     const delta = Math.abs(e.x - p.x);
     if (s.missionId === 'MI01' && !s.notified.ambush) { e.active = false; e.phase = 'idle'; continue; }
-    e.active = delta < 1150 || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
+    e.active = delta < 1150 || Boolean(s.livingRoute && s.livingRoute.logistics.released && !s.livingRoute.logistics.arrived && !s.livingRoute.logistics.destroyed && Math.abs(e.x - s.livingRoute.logistics.x) < 1000) || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
       || Boolean(s.channel && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < 900)
       || Boolean(s.dike && [...s.dike.technicians.filter(t => t.called), ...s.dike.residents.filter(r => r.phase === 'evacuating')].some(person => person.alive && !person.safe && Math.abs(e.x - person.x) < 900))
       || Boolean(s.ambulance && (s.ambulance.vehicle.called && !s.ambulance.vehicle.destroyed && Math.abs(e.x - s.ambulance.vehicle.x) < 900
@@ -1672,7 +1734,8 @@ function updateEnemies(s, dt) {
         .filter(item => Math.abs(e.x - item.x) < Math.abs(e.x - target.x)).sort((a, b) => Math.abs(e.x - a.x) - Math.abs(e.x - b.x));
       if (candidates.length) target = candidates[0];
     }
-    e.attackTarget = target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : target === s.ambulance?.vehicle ? 'ambulance' : s.ambulance?.staff.includes(target) ? 'medical-staff' : s.ambulance?.patients.includes(target) ? 'patient' : s.departure?.boats.includes(target) ? 'departure-boat' : s.departure?.people.includes(target) ? 'departure-person' : 'convoy';
+    if (s.livingRoute?.logistics.released && !s.livingRoute.logistics.arrived && !s.livingRoute.logistics.destroyed && Math.abs(e.x - s.livingRoute.logistics.x) < Math.abs(e.x - target.x)) target = s.livingRoute.logistics;
+    e.attackTarget = target === s.livingRoute?.logistics ? 'logistics' : target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : target === s.ambulance?.vehicle ? 'ambulance' : s.ambulance?.staff.includes(target) ? 'medical-staff' : s.ambulance?.patients.includes(target) ? 'patient' : s.departure?.boats.includes(target) ? 'departure-boat' : s.departure?.people.includes(target) ? 'departure-person' : 'convoy';
     const td = Math.abs(e.x - target.x);
     if (e.phase === 'attack') {
       e.telegraph = Math.min(1, e.telegraph + dt / e.windup);
@@ -1763,6 +1826,11 @@ function explosion(s, shot, direct = null) {
     const distance = dist(part.x, part.y, shot.x, shot.y);
     if (distance < radius + (part.w || 20) * .35) hitAmbulancePart(s, part, shot.damage * .75 * (1 - distance / (radius + (part.w || 20) * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1));
   }
+  if (s.livingRoute) for (const part of livingRouteSolids(s)) {
+    if (part === direct || part.destroyed) continue;
+    const distance = dist(part.x, part.y, shot.x, shot.y);
+    if (distance < radius + part.w * .35) hitLivingRoutePart(s, part, shot.damage * .7 * (1 - distance / (radius + part.w * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1));
+  }
   if (s.departure) for (const part of [...departureSolids(s), ...s.departure.people.filter(departureExposed)]) {
     if (part === direct || part.destroyed) continue;
     const bounds = s.departure.locks.includes(part) ? departureGateBounds(part) : part;
@@ -1829,6 +1897,7 @@ function updateProjectiles(s, dt) {
       for (const item of [a.vehicle, a.cargo, a.beacon, ...a.barriers]) if (!item.destroyed && !item.recovered && !item.cleared) test(item, 'ambulance');
       for (const person of [...a.staff, ...a.patients]) if (person.alive && !person.safe && person.phase !== 'aboard') test(person, 'ambulance');
     }
+    if (s.livingRoute) for (const part of livingRouteSolids(s)) if (!part.destroyed) test(part, 'living-route');
     if (s.departure) {
       for (const part of departureSolids(s)) if (!part.destroyed) {
         const bounds = s.departure.locks.includes(part) ? departureGateBounds(part) : part;
@@ -1855,6 +1924,7 @@ function updateProjectiles(s, dt) {
       if (hit.kind === 'player') damagePlayer(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'radiator') damageRadiator(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'ambulance') hitAmbulancePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
+      if (hit.kind === 'living-route') hitLivingRoutePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'departure') hitDeparturePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'dike') hitDikePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'channel') hitChannelPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
@@ -3420,6 +3490,293 @@ function departureInteraction(s) {
     : `Courant ${Math.round(d.current * 100)} % · ${d.tide.slack ? 'renverse annoncée' : `renverse dans ${Math.ceil(d.tide.nextSlack)} s`} · vérifier chaque bateau`;
 }
 
+/** MI09 observes a new place. Nacre's report is a provenance echo, never a population seed. */
+function livingRouteContext(previous = {}) {
+  return { departureRecorded: previous.departureRecorded === true,
+    departureChoice: ['obey', 'delay', 'defy'].includes(previous.departureChoice) ? previous.departureChoice : 'none',
+    departureArrived: clamp(Number.isInteger(previous.departureArrived) ? previous.departureArrived : 0, 0, 100),
+    departureLost: clamp(Number.isInteger(previous.departureLost) ? previous.departureLost : 0, 0, 100) };
+}
+
+function createLivingRouteMission(s, previous) {
+  const settings = s.mission.livingRoute;
+  const solid = (id, x, w, h, hp) => ({ id, x, y: terrainAt(x, s.planetId) - h / 2,
+    w, h, hp, maxHp: hp, destroyed: false, flash: 0 });
+  const job = (id, x, w = 48, h = 54) => ({ id, x, y: terrainAt(x, s.planetId) - h / 2,
+    w, h, working: false, progress: 0 });
+  const columns = settings.columnXs.map((x, i) => ({ ...solid(`thyr-column-${i + 1}`, x, 92, 420, 620), species: 'FL07' }));
+  s.livingRoute = {
+    columns,
+    roots: columns.map((column, i) => ({ ...solid(`thyr-root-${i + 1}`, column.x, settings.rootWidth, settings.rootRise, 360),
+      columnId: column.id, lastContactAt: -10, lastStep: -1 })),
+    homes: columns.map((column, i) => ({ ...solid(`thyr-home-${i + 1}`, column.x + 105, 144, 94, 260),
+      y: terrainAt(column.x, s.planetId) - 310, columnId: column.id, supported: true, habitable: true })),
+    pollinators: columns.map((column, i) => ({ id: `thyr-fan-${i + 1}`, species: 'FU08', columnId: column.id,
+      x: column.x - 40, y: terrainAt(column.x, s.planetId) - 305, w: 68, h: 36,
+      phase: 'flying', calm: 0, alive: true })),
+    migrators: settings.migratorXs.map((x, i) => ({ ...solid(`thyr-longue-dorse-${i + 1}`, x, i % 2 ? 84 : 132, i % 2 ? 54 : 88, i % 2 ? 150 : 240),
+      species: 'FU07', age: i % 2 ? 'young' : 'adult', phase: 'waiting', destination: 'unselected',
+      targetX: x, fear: 0, moving: false })),
+    barrier: { ...solid('thyr-migration-barrier', settings.gateX, 38, 84, 280), controlX: settings.gateControlX,
+      opening: 0, operated: false, working: false, progress: 0 },
+    logistics: { ...solid('thyr-logistics', settings.logisticsX, 126, 68, 720),
+      controlX: settings.logisticsControlX, targetX: settings.logisticsTargetX, speed: 66,
+      released: false, moving: false, arrived: false, working: false, progress: 0 },
+    contact: { ...job('thyr-local-post', settings.contactX), heard: false },
+    approach: { ...job('thyr-approach-marker', settings.approachX), prepared: false, kind: 'unprepared', clearance: settings.initialClearance },
+    maps: { ...job('thyr-route-map', settings.mapX, 68, 68), inspected: false },
+    lights: { ...job('thyr-light-control', settings.lightsX, 44, 74), on: true },
+    report: { ...job('thyr-route-report', settings.reportX, 58, 72), transmitted: false },
+    alert: { triggered: false }, disturbance: { x: 0, remaining: 0, strength: 0 },
+  };
+  s.campaign = { missionId: 'MI09', phase: 'approach', route: 'unselected',
+    localsHeard: false, approach: 'unprepared', approachPrepared: false, routeInspected: false,
+    hamletsRecorded: false, migrationObserved: false, lightsOff: false, gateOperated: false,
+    migrationResolved: false, migratorsTotal: 4, migratorsArrived: 0, migratorsDisplaced: 0, migratorsLost: 0,
+    columnsIntact: 2, homesHabitable: 2, pollinatorsPresent: 0, passagePreserved: false,
+    cropsFertilized: false, harvestFragile: false, snipersTriggered: false, snipersNeutralized: 0,
+    logisticsReleased: false, logisticsArrived: false, logisticsDestroyed: false, logisticsIntegrity: 1,
+    reportTransmitted: false, manifestRead: false, context: livingRouteContext(previous), tutorial: { stepped: false, braced: false } };
+}
+
+/** The feet, hull ground reference and Canvas all use this same root surface. */
+function livingRouteSurfaceAt(s, x) {
+  const ground = terrainAt(x, s.planetId), route = s.livingRoute;
+  if (!route) return { groundY: ground, rootId: null, rise: 0, traction: 1, clearance: Infinity };
+  const root = route.roots.find(part => !part.destroyed && Math.abs(x - part.x) <= part.w / 2);
+  const rise = root ? root.h * Math.sin(Math.PI * (x - root.x + root.w / 2) / root.w) : 0;
+  return { groundY: ground - rise, rootId: root?.id || null, rise,
+    traction: root && route.approach.kind === 'guided' ? .7 : 1,
+    clearance: x >= s.mission.livingRoute.canopyFrom && x <= s.mission.livingRoute.canopyTo ? route.approach.clearance : 1000 };
+}
+
+function walkerGroundAt(s, x) { return s.livingRoute ? livingRouteSurfaceAt(s, x).groundY : terrainAt(x, s.planetId); }
+function livingRouteTerminal(animal) { return ['arrived', 'displaced', 'lost'].includes(animal.phase); }
+function livingRouteSupported(s) { return s.player.braced && Math.abs(s.player.speed) <= 3 && !s.player.move && s.player.feet.every(foot => foot.contact); }
+function livingRouteSolids(s) {
+  const d = s.livingRoute;
+  return [...d.columns, ...d.roots, ...d.homes, ...d.migrators.filter(animal => !livingRouteTerminal(animal)),
+    ...(d.barrier.opening < .85 ? [d.barrier] : []), ...(!d.logistics.arrived ? [d.logistics] : [])];
+}
+
+function livingRouteReceiptRoster(s) {
+  return structuredClone({ ...s.livingRoute,
+    snipers: s.enemies.filter(e => e.id.startsWith('thyr-sniper-')).map(e => ({ id: e.id, hp: e.hp, maxHp: e.maxHp, dead: e.dead })) });
+}
+
+function refreshLivingRouteFacts(s) {
+  const d = s.livingRoute, c = s.campaign, count = phase => d.migrators.filter(animal => animal.phase === phase).length;
+  for (const home of d.homes) {
+    home.supported = !d.columns.find(column => column.id === home.columnId).destroyed && !d.roots.find(root => root.columnId === home.columnId).destroyed;
+    home.habitable = home.supported && !home.destroyed;
+  }
+  Object.assign(c, { localsHeard: d.contact.heard, approach: d.approach.kind, approachPrepared: d.approach.prepared,
+    routeInspected: d.maps.inspected, hamletsRecorded: d.maps.inspected, manifestRead: d.maps.inspected,
+    lightsOff: !d.lights.on, gateOperated: d.barrier.operated, migrationResolved: d.migrators.every(livingRouteTerminal),
+    migratorsArrived: count('arrived'), migratorsDisplaced: count('displaced'), migratorsLost: count('lost'),
+    columnsIntact: d.columns.filter(column => !column.destroyed).length, homesHabitable: d.homes.filter(home => home.habitable).length,
+    pollinatorsPresent: d.pollinators.filter(fan => fan.alive && fan.phase === 'settled').length,
+    passagePreserved: d.barrier.operated && c.route === 'migration' && !d.barrier.destroyed && d.roots.every(root => !root.destroyed),
+    cropsFertilized: count('arrived') > 0, snipersTriggered: d.alert.triggered,
+    snipersNeutralized: s.enemies.filter(e => e.id.startsWith('thyr-sniper-') && e.dead).length,
+    logisticsReleased: d.logistics.released, logisticsArrived: d.logistics.arrived,
+    logisticsDestroyed: d.logistics.destroyed, logisticsIntegrity: d.logistics.hp / d.logistics.maxHp,
+    reportTransmitted: d.report.transmitted });
+  c.harvestFragile = c.migrationResolved && (c.migratorsArrived < 4 || c.columnsIntact < 2 || d.pollinators.some(fan => !fan.alive));
+  if (s.decision.active || s.decision.resolved) s.decision.body = livingRouteDecisionBody(s);
+}
+
+function livingRouteDecisionBody(s) {
+  const c = s.campaign;
+  return `Deux habitats suspendus absents de la carte militaire ont été relevés. ${c.localsHeard ? 'Le poste local a expliqué la migration et balisé une meilleure approche.' : 'Le poste local n’a pas encore été écouté ; aucune aide des habitants n’est attribuée.'} ${c.homesHabitable} habitats restent habitables. Le couloir impérial dévie les quatre longues-dorses vers l’exclusion ; préserver leur passage exige de les laisser atteindre le verger avant la logistique. Choisir ne manœuvre pas la barrière et ne déplace aucun animal.`;
+}
+
+function livingRouteNoise(s, x, strength, duration) {
+  const noise = s.livingRoute.disturbance;
+  noise.x = x; noise.strength = strength; noise.remaining = Math.max(noise.remaining, duration);
+}
+
+function hitLivingRoutePart(s, part, damage) {
+  const d = s.livingRoute;
+  if (damage <= 0 || part.destroyed || part === d.logistics && part.arrived || d.migrators.includes(part) && livingRouteTerminal(part)) return;
+  part.hp = Math.max(0, part.hp - damage); part.flash = .15;
+  livingRouteNoise(s, part.x, 1, 4);
+  particles(s, part.x, part.y, 'spark', 5);
+  if (part.hp === 0) {
+    part.destroyed = true;
+    particles(s, part.x, part.y, 'smoke', 12);
+    if (d.migrators.includes(part)) {
+      part.phase = 'lost'; part.moving = false;
+      emit(s, 'radio', 'Tess : « Une longue-dorse est perdue. La destination prévue ne vaut pas arrivée. »');
+    } else if (part === d.barrier) {
+      part.opening = 1; part.working = false; part.progress = 0;
+      emit(s, 'radio', 'Barrière détruite. Le passage est béant ; il faut encore poser les guides au poste de commande.');
+    } else if (part === d.logistics) {
+      part.moving = false; part.working = false;
+      emit(s, 'radio', 'Transport logistique détruit. La sortie a échoué ; les pertes de Thyr restent consignées.');
+    } else if (d.columns.includes(part) || d.roots.includes(part)) {
+      const columnId = d.columns.includes(part) ? part.id : part.columnId;
+      const home = d.homes.find(item => item.columnId === columnId);
+      if (!home.destroyed) { home.hp = 0; home.destroyed = true; home.supported = false; home.habitable = false; }
+      if (d.columns.includes(part)) {
+        const fan = d.pollinators.find(item => item.columnId === columnId);
+        fan.alive = false; fan.phase = 'lost'; fan.calm = 0;
+      }
+      emit(s, 'radio', 'Appui porteur rompu. L’habitat suspendu s’est effondré ; aucune réparation de route ne le rétablit.');
+    } else if (d.homes.includes(part)) emit(s, 'radio', 'Habitat détruit. La carte et le bilan conserveront ce dommage.');
+  }
+  refreshLivingRouteFacts(s);
+}
+
+function livingRouteFootfall(s, foot) {
+  const d = s.livingRoute;
+  livingRouteNoise(s, foot.x, .22, .6);
+  const root = d.roots.find(item => !item.destroyed && foot.x >= item.x - item.w / 2 && foot.x <= item.x + item.w / 2);
+  if (root && root.lastStep !== s.stats.steps) {
+    const interval = s.elapsed - root.lastContactAt;
+    root.lastStep = s.stats.steps; root.lastContactAt = s.elapsed;
+    if (d.approach.kind !== 'guided' && interval < s.mission.livingRoute.safeCadence) {
+      hitLivingRoutePart(s, root, s.walker.weight * .3);
+      if (!s.notified.thyrCadence) { s.notified.thyrCadence = true; emit(s, 'radio', 'Tess : « La racine prend les appuis trop vite. Espace les groupes J/L, ou fais baliser le passage par le poste local. »'); }
+    }
+  }
+  // The prepared side lane separates walker footprints from the herd's track.
+  if (!d.approach.prepared) for (const animal of d.migrators) {
+    if (!livingRouteTerminal(animal) && Math.abs(foot.x - animal.x) < animal.w / 2 + 22
+      && Math.abs(foot.y - animal.y - animal.h / 2) < 32) hitLivingRoutePart(s, animal, 70);
+  }
+}
+
+function startLivingRouteWork(job) { if (!job.working) { job.working = true; job.progress = 0; } return true; }
+function livingRouteReportReady(s) {
+  return s.decision.resolved && s.campaign.routeInspected && s.campaign.gateOperated
+    && s.campaign.migrationResolved && s.campaign.snipersNeutralized === 2 && s.livingRoute.logistics.arrived;
+}
+
+function interactLivingRouteMission(s) {
+  const d = s.livingRoute, c = s.campaign, near = x => Math.abs(s.player.x - x) < s.mission.livingRoute.interactionRadius;
+  if (near(d.contact.x) && !d.contact.heard) return startLivingRouteWork(d.contact);
+  if (near(d.approach.x) && (!d.approach.prepared || d.contact.heard && d.approach.kind !== 'guided')) return startLivingRouteWork(d.approach);
+  if (near(d.lights.x) && d.lights.on) return startLivingRouteWork(d.lights);
+  if (near(d.maps.x)) {
+    if (!d.maps.inspected) return startLivingRouteWork(d.maps);
+    if (!s.decision.resolved) { s.decision.body = livingRouteDecisionBody(s); s.decision.active = true; emit(s, 'decision', s.decision.title); return true; }
+  }
+  if (near(d.barrier.controlX) && !d.barrier.operated) {
+    if (!s.decision.resolved) { emit(s, 'radio', 'Relevez les cartes au poste oriental avant de choisir la destination du troupeau.'); return false; }
+    return startLivingRouteWork(d.barrier);
+  }
+  if (near(d.logistics.controlX) && !d.logistics.released && !d.logistics.destroyed) {
+    if (!c.migrationResolved) { emit(s, 'radio', 'Le transport attend que chaque longue-dorse ait atteint sa destination ou soit constatée perdue.'); return false; }
+    return startLivingRouteWork(d.logistics);
+  }
+  if (near(d.report.x) && !d.report.transmitted && livingRouteReportReady(s)) return startLivingRouteWork(d.report);
+  return false;
+}
+
+function updateLivingRouteMission(s, dt) {
+  const d = s.livingRoute, c = s.campaign, settings = s.mission.livingRoute;
+  const near = x => Math.abs(s.player.x - x) < settings.interactionRadius;
+  const work = (job, x, duration, done, anchored = false) => {
+    if (!job.working) return;
+    if (!near(x) || anchored && !livingRouteSupported(s)) { job.working = false; job.progress = 0; return; }
+    job.progress = Math.min(1, job.progress + dt / duration);
+    if (job.progress >= 1) { job.working = false; done(); }
+  };
+  work(d.contact, d.contact.x, settings.contactTime, () => {
+    d.contact.heard = true;
+    emit(s, 'radio', 'Poste des vergers : « Les longues-dorses ne traversent pas une friche. Elles portent la saison entre les vergers. Nous vous indiquerons les appuis qui contournent nos maisons. »');
+  });
+  work(d.approach, d.approach.x, d.contact.heard ? settings.guidedTime : settings.surveyedTime, () => {
+    d.approach.prepared = true; d.approach.kind = d.contact.heard ? 'guided' : 'surveyed'; d.approach.clearance = settings.preparedClearance;
+    emit(s, 'radio', d.contact.heard
+      ? 'Tess : « Le passage indiqué contourne la branche basse et le troupeau. L’assistance espace maintenant les appuis sur les racines. »'
+      : 'Tess : « Contournement relevé pour notre gabarit. Sans les repères locaux, les appuis manuels espacés restent nécessaires sur les racines. »');
+  }, true);
+  work(d.lights, d.lights.x, settings.lightsTime, () => { d.lights.on = false; emit(s, 'radio', 'Projecteurs coupés. Les éventails reviendront aux colonnes après quelques secondes de calme local.'); });
+  work(d.maps, d.maps.x, settings.inspectTime, () => {
+    d.maps.inspected = true; s.evidence.collected = true; s.evidence.scanProgress = 1;
+    emit(s, 'radio', 'Sami : « Deux habitats suspendus sur le terrain, aucune ligne sur la carte militaire. Les routes du verger et de l’exclusion sont relevées ; il faut choisir et manœuvrer la barrière. »');
+  });
+  work(d.barrier, d.barrier.controlX, d.barrier.destroyed ? settings.damagedGateTime : settings.gateTime, () => {
+    d.barrier.operated = true; d.barrier.opening = d.barrier.destroyed || c.route === 'migration' ? 1 : 0;
+    d.migrators.forEach((animal, i) => {
+      if (livingRouteTerminal(animal)) return;
+      animal.destination = c.route === 'migration' ? 'orchard' : 'exclusion';
+      animal.targetX = c.route === 'migration' ? settings.orchardXs[i] : settings.exclusionXs[i]; animal.phase = 'migrating';
+    });
+    emit(s, 'radio', c.route === 'migration' ? 'Passage traditionnel ouvert. Les longues-dorses doivent encore atteindre le verger ; garde tes distances.' : 'Déviation posée vers l’exclusion. Le troupeau contourne désormais les cultures.');
+  }, true);
+  work(d.logistics, d.logistics.controlX, settings.dispatchTime, () => {
+    if (!c.migrationResolved) { d.logistics.progress = 0; return; }
+    d.logistics.released = true; emit(s, 'radio', 'Transport libéré. Son arrivée au dépôt n’est pas encore acquise ; ouvre ses angles face aux tireurs d’élite.');
+  });
+  work(d.report, d.report.x, settings.reportTime, () => {
+    if (!livingRouteReportReady(s)) { d.report.progress = 0; return; }
+    d.report.transmitted = true;
+    emit(s, 'radio', `Holt reçoit le bilan : ${c.migratorsArrived} longues-dorses au verger, ${c.migratorsDisplaced} déplacées, ${c.migratorsLost} perdues ; ${c.homesHabitable} habitats habitables. Aucune cause générale n’est encore établie.`);
+  });
+  d.disturbance.remaining = Math.max(0, d.disturbance.remaining - dt);
+  for (const fan of d.pollinators) {
+    if (!fan.alive) continue;
+    const disturbed = d.lights.on || d.disturbance.remaining > 0 && Math.abs(d.disturbance.x - fan.x) < 550;
+    if (disturbed) { fan.phase = 'flying'; fan.calm = 0; }
+    else { fan.calm = Math.min(5, fan.calm + dt); if (fan.calm >= 5) fan.phase = 'settled'; }
+  }
+  for (const animal of d.migrators) {
+    animal.flash = Math.max(0, animal.flash - dt); animal.moving = false;
+    if (livingRouteTerminal(animal)) continue;
+    const noise = d.disturbance.remaining > 0 && Math.abs(d.disturbance.x - animal.x) < 520 ? d.disturbance.strength : 0;
+    animal.fear = clamp(animal.fear + dt * (noise ? noise * 1.5 : -.24), 0, 1);
+    if (animal.phase !== 'migrating') continue;
+    // Adults remain close to their young; no actor knows a distant threat.
+    const index = d.migrators.indexOf(animal), young = animal.age === 'adult' ? d.migrators[index + 1] : null;
+    const guarding = young && !young.destroyed && !livingRouteTerminal(young) && animal.x - young.x > 135;
+    const pace = animal.fear > .78 ? 18 : 64;
+    if (!guarding) { animal.x = Math.min(animal.targetX, animal.x + dt * pace); animal.moving = true; c.migrationObserved = true; }
+    animal.y = terrainAt(animal.x, s.planetId) - animal.h / 2;
+    if (animal.x >= animal.targetX) {
+      animal.moving = false; animal.phase = animal.destination === 'orchard' ? 'arrived' : 'displaced';
+      emit(s, 'objective', animal.destination === 'orchard' ? 'Une longue-dorse atteint le verger. Son passage nourrit effectivement le sol cultivé.' : 'Une longue-dorse atteint la zone d’exclusion. Elle reste vivante ; son passage ne féconde pas le verger.');
+    }
+  }
+  refreshLivingRouteFacts(s);
+  if (d.barrier.operated && c.migrationResolved && !d.alert.triggered) {
+    d.alert.triggered = true;
+    emit(s, 'radio', 'Tess : « Deux tireurs d’élite dans la trouée orientale. Le troupeau a quitté le corridor ; dégage la route du transport. »');
+  }
+  const vehicle = d.logistics;
+  if (vehicle.released && !vehicle.arrived && !vehicle.destroyed) {
+    const threat = s.enemies.some(e => e.id.startsWith('thyr-sniper-') && !e.dead && d.alert.triggered && Math.abs(e.x - vehicle.x) < 420);
+    const landingLimit = Math.min(Infinity, ...s.player.feet.filter(foot => foot.phase === 'swing').map(foot => foot.targetX - vehicle.w / 2 - 35));
+    vehicle.moving = !threat && s.player.x - vehicle.x > 135 && s.player.x - vehicle.x < 850 && vehicle.x < landingLimit;
+    if (vehicle.moving) vehicle.x = Math.min(vehicle.targetX, landingLimit, vehicle.x + dt * vehicle.speed);
+    vehicle.y = terrainAt(vehicle.x, s.planetId) - vehicle.h / 2;
+    if (vehicle.x >= vehicle.targetX) { vehicle.arrived = true; vehicle.moving = false; emit(s, 'objective', 'Le transport atteint le dépôt de Thyr. Le rapport peut être transmis après neutralisation des deux tireurs.'); }
+  }
+  for (const part of [...d.columns, ...d.roots, ...d.homes, d.barrier, vehicle]) part.flash = Math.max(0, part.flash - dt);
+  refreshLivingRouteFacts(s);
+  c.phase = d.report.transmitted ? 'report' : vehicle.arrived ? 'report' : vehicle.released ? 'logistics'
+    : d.alert.triggered ? 'defence' : d.barrier.operated ? 'migration' : s.decision.resolved ? 'routing'
+      : d.maps.inspected ? 'survey' : 'approach';
+  if (vehicle.destroyed) finish(s, false, 'Le transport logistique de Thyr est perdu. Les appuis détruits, les destinations et les pertes du troupeau restent dans la sortie.');
+}
+
+function livingRouteInteraction(s) {
+  const d = s.livingRoute, c = s.campaign, near = x => Math.abs(s.player.x - x) < s.mission.livingRoute.interactionRadius;
+  const progress = (job, label) => job.working ? `${label} ${Math.round(job.progress * 100)} % · rester à portée` : `E · ${label}`;
+  if (near(d.contact.x) && !d.contact.heard) return progress(d.contact, 'Écouter le poste des vergers');
+  if (near(d.approach.x) && (!d.approach.prepared || d.contact.heard && d.approach.kind !== 'guided')) return progress(d.approach, d.contact.heard ? 'Baliser le passage guidé · ancrage Espace' : 'Relever un contournement de gabarit · ancrage Espace');
+  if (near(d.lights.x) && d.lights.on) return progress(d.lights, 'Couper les projecteurs des colonnes');
+  if (near(d.maps.x) && !s.decision.resolved) return d.maps.inspected ? 'E · Choisir la route logistique et la destination du troupeau' : progress(d.maps, 'Comparer la carte militaire aux hameaux visibles');
+  if (near(d.barrier.controlX) && !d.barrier.operated) return !s.decision.resolved ? 'Relever la carte au poste oriental avant la manœuvre' : progress(d.barrier, d.barrier.destroyed ? 'Poser les guides manuels sur la barrière détruite · ancrage' : 'Manœuvrer la barrière choisie · ancrage Espace');
+  if (near(d.logistics.controlX) && !d.logistics.released) return !c.migrationResolved ? 'Le transport attend les destinations réelles du troupeau' : progress(d.logistics, 'Libérer le transport puis le précéder sur la route');
+  if (near(d.report.x) && !d.report.transmitted) return livingRouteReportReady(s) ? progress(d.report, 'Transmettre le bilan de Thyr') : 'Le rapport attend le transport arrivé et les deux tireurs neutralisés';
+  return c.reportTransmitted ? 'Bilan transmis · rejoindre la sortie orientale' : d.logistics.released && !d.logistics.arrived ? 'Garder le transport à moins de 850 m derrière le marcheur'
+    : d.barrier.operated && !c.migrationResolved ? 'Garder ses distances · laisser les longues-dorses atteindre leur destination'
+      : 'Poste local · appuis · projecteurs · carte · barrière · transport';
+}
+
 function updateWorld(s, dt) {
   const p = s.player;
   const e = s.evidence;
@@ -3431,6 +3788,7 @@ function updateWorld(s, dt) {
   if (s.missionId === 'MI06') updateDikeMission(s, dt);
   if (s.missionId === 'MI07') updateAmbulanceMission(s, dt);
   if (s.missionId === 'MI08') updateDepartureMission(s, dt);
+  if (s.missionId === 'MI09') updateLivingRouteMission(s, dt);
   if (s.status !== 'playing') return;
   if (e.scanning && !e.collected) {
     if (Math.abs(p.x - e.x) > (s.missionId === 'MI04' ? s.mission.industrial.interactionRadius : 250)) { e.scanning = false; e.scanProgress = 0; emit(s, 'radio', 'Lecture interrompue : terminal hors de portée.'); }
@@ -3522,6 +3880,7 @@ function updateWorld(s, dt) {
   else if (s.missionId === 'MI06') s.interaction = dikeInteraction(s);
   else if (s.missionId === 'MI07') s.interaction = ambulanceInteraction(s);
   else if (s.missionId === 'MI08') s.interaction = departureInteraction(s);
+  else if (s.missionId === 'MI09') s.interaction = livingRouteInteraction(s);
   else if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     s.interaction = s.campaign.passageWorking ? `Déploiement des dalles ${Math.round(s.campaign.passageProgress * 100)} % · restez près du treuil` : 'E · Déployer les dalles de protection (4,5 s)';
   } else if (!e.collected && Math.abs(p.x - e.x) < 230) {
@@ -3532,6 +3891,10 @@ function updateWorld(s, dt) {
   if (p.hull <= 0) finish(s, false, 'Marcheur immobilisé. Votre équipage a déclenché la balise de secours.');
   else if (s.convoy && s.convoy.hp <= 0) finish(s, false, s.campaign ? s.campaign.filtersDelivered ? 'Le camion de Sami est perdu au poste. Les filtres ont été livrés, mais l’escorte a échoué. Reprenez le dernier point de contrôle pour retenter la mission.' : 'Le camion de Sami est perdu. Les filtres n’atteindront pas le poste des mineurs. Reprenez le dernier point de contrôle pour retenter l’escorte.' : 'Le transport est perdu. La route du bac se ferme.');
   else if (s.extraction.active && Math.abs(p.x - s.extraction.x) < s.extraction.radius) {
+    if (s.missionId === 'MI09') {
+      refreshLivingRouteFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
+      finish(s, true, `Transport arrivé au dépôt. ${c.migratorsArrived} longues-dorses au verger, ${c.migratorsDisplaced} déplacées, ${c.migratorsLost} perdues. ${c.homesHabitable} habitats habitables. ${c.passagePreserved ? 'Le passage traditionnel est préservé.' : 'Le passage traditionnel reste compromis.'} ${c.harvestFragile ? 'La récolte est fragilisée par les faits de cette sortie.' : 'La migration a nourri les cultures.'} ${c.localsHeard ? 'L’approche locale a été réellement transmise.' : 'Le poste local n’a pas été écouté.'}`); return;
+    }
     if (s.missionId === 'MI08') {
       refreshDepartureFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
       finish(s, true, `${c.peopleDeparted} départs acquis, ${c.peopleArrived} personnes arrivées au refuge, ${c.peopleLocal} à l’accueil local, ${c.peopleLost} perdues. ${c.boatsDeparted} bateaux sortis, ${c.boatsLost} perdus. ${c.registryCopied ? 'Les pages copiées du relogement sont conservées.' : 'Le registre perdu reste un constat de ruines.'} ${c.execution === 'open' ? 'Le passage reste ouvert.' : c.execution === 'damaged' ? 'Les avaries et leurs positions réelles sont consignées.' : 'Les accès sont fermés.'}`);
@@ -3585,6 +3948,18 @@ function updateWorld(s, dt) {
 
 function refreshObjectives(s) {
   const goals = [];
+  if (s.missionId === 'MI09') {
+    const c = s.campaign;
+    goals.push({ id: 'survey', label: 'Comparer la carte aux hameaux présents', current: Number(c.routeInspected), target: 1, complete: c.routeInspected });
+    goals.push({ id: 'route', label: 'Choisir puis manœuvrer réellement la barrière', current: Number(c.gateOperated), target: 1, complete: s.decision.resolved && c.gateOperated });
+    goals.push({ id: 'migration', label: `${c.migratorsArrived} au verger · ${c.migratorsDisplaced} déplacées · ${c.migratorsLost} perdues`, current: c.migratorsArrived + c.migratorsDisplaced + c.migratorsLost, target: 4, complete: c.migrationResolved });
+    goals.push({ id: 'snipers', label: 'Repousser les deux tireurs d’élite', current: c.snipersNeutralized, target: 2, complete: c.snipersNeutralized === 2 });
+    goals.push({ id: 'logistics', label: 'Libérer puis escorter le transport jusqu’au dépôt', current: Number(c.logisticsArrived), target: 1, complete: c.logisticsArrived });
+    goals.push({ id: 'report', label: 'Transmettre le bilan des faits accomplis', current: Number(c.reportTransmitted), target: 1, complete: c.reportTransmitted });
+    s.extraction.active = goals.every(goal => goal.complete);
+    goals.push({ id: 'extract', label: 'Rejoindre la sortie orientale', current: Number(s.status === 'won'), target: 1, complete: s.status === 'won' });
+    s.objectives = goals; return;
+  }
   if (s.missionId === 'MI08') {
     const c = s.campaign, d = s.departure;
     goals.push({ id: 'controls', label: 'Inspecter les deux portes et leurs marques de pression', current: c.controlsInspected, target: 2, complete: c.controlsInspected === 2 });
@@ -3733,7 +4108,7 @@ function updateGame(s, delta, input = {}) {
   return s;
 }
 
-return {terrainAt,createGame,radiatorBounds,radiatorCoolingFactor,trainDecisionBody,networkDecisionBody,industrialDecisionBody,commandGame,channelTideAt,channelSurfaceAt,channelDecisionBody,dikeSupportReady,dikeDecisionBody,ambulanceStopClear,ambulanceDecisionBody,departurePersonSeeds,departureReceiptRoster,departureTideAt,departureWindow,departureGateBounds,departureDecisionBody,updateGame};
+return {terrainAt,createGame,radiatorBounds,radiatorCoolingFactor,trainDecisionBody,networkDecisionBody,industrialDecisionBody,commandGame,channelTideAt,channelSurfaceAt,channelDecisionBody,dikeSupportReady,dikeDecisionBody,ambulanceStopClear,ambulanceDecisionBody,departurePersonSeeds,departureReceiptRoster,departureTideAt,departureWindow,departureGateBounds,departureDecisionBody,livingRouteContext,livingRouteSurfaceAt,livingRouteReceiptRoster,livingRouteDecisionBody,updateGame};
 })();
 __modules["src/production-assets.mjs"] = (() => {
 /** Original production vector components, Ordre de Cendre 0.9.
@@ -4104,9 +4479,407 @@ function productionSilhouetteGeometry(id){
 
 return {PRODUCTION_RIGS,PRODUCTION_PART_NAMES,PRODUCTION_COMPONENT_NAMES,SILHOUETTE_MODELS,productionPartGeometry,drawProductionGeometry,drawProductionPart,productionGeometrySVG,PRODUCTION_COMPONENT_SPECS,productionComponentGeometry,productionLegPose,productionWalkerParts,productionSilhouetteGeometry};
 })();
+__modules["src/thyr-assets.mjs"] = (() => {
+/** Original Thyr vector pieces. Canvas and SVG share these exact shapes.
+ * Coordinates are drawing coordinates; contacts, damage and people belong to
+ * simulation.mjs. No artwork adds a survivor, footprint or collision. */
+const { drawProductionGeometry, productionGeometrySVG } = __modules["src/production-assets.mjs"];
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const THYR_ASSET_SPECS = {
+  column: { size: [92, 470], bounds: [-195, -510, 390, 530], ids: ['FL07'], states: ['normal', 'damaged', 'destroyed'], anchors: { ground: [0, 0], home: [80, -265], canopy: [0, -440] } },
+  root: { size: [340, 28], bounds: [-177, -34, 354, 43], ids: ['FL07'], states: ['normal', 'damaged', 'destroyed'], anchors: { contact: [0, -28], ground: [0, 0] } },
+  'suspended-home': { size: [160, 110], bounds: [-92, -165, 184, 190], ids: ['PL03'], states: ['normal', 'damaged', 'destroyed'], anchors: { suspension: [-55, -160], threshold: [45, 0] } },
+  'longuedorse-adult': { size: [136, 94], bounds: [-84, -112, 180, 120], ids: ['FU07'], states: ['waiting', 'moving', 'arrived', 'diverted', 'dead'], anchors: { ground: [0, 0], head: [63, -61] } },
+  'longuedorse-young': { size: [86, 64], bounds: [-56, -76, 118, 83], ids: ['FU07'], states: ['waiting', 'moving', 'arrived', 'diverted', 'dead'], anchors: { ground: [0, 0], head: [40, -42] } },
+  'fan-colony': { size: [112, 78], bounds: [-85, -150, 175, 172], ids: ['FU08'], states: ['settled', 'dispersed', 'lost'], anchors: { perch: [0, 0] } },
+  'breathing-vine': { size: [120, 145], bounds: [-69, -157, 145, 175], ids: ['FL08'], states: ['normal', 'wilted', 'burnt'], anchors: { crown: [0, -145], ground: [0, 0] } },
+  'echo-grass': { size: [90, 78], bounds: [-62, -85, 124, 95], ids: ['FL09'], states: ['calm', 'moving'], anchors: { ground: [0, 0] } },
+  'migration-barrier': { size: [170, 112], bounds: [-185, -255, 292, 274], ids: ['MI09'], states: ['closed', 'working', 'open', 'broken'], anchors: { hinge: [-76, -76], control: [-88, -46], ground: [0, 0] } },
+  'route-map': { size: [95, 110], bounds: [-59, -123, 126, 140], ids: ['MI09'], states: ['concealed', 'surveyed'], anchors: { inspect: [0, -62], ground: [0, 0] } },
+  'route-marker': { size: [50, 90], bounds: [-34, -99, 81, 112], ids: ['MI09'], states: ['imperial', 'local'], anchors: { ground: [0, 0] } },
+};
+const THYR_ASSET_NAMES = Object.keys(THYR_ASSET_SPECS);
+
+function painter() {
+  const shapes = [];
+  return { shapes,
+    poly(points, fill, stroke = '#142f31', strokeWidth = 1.5) { shapes.push({ type: 'polygon', points, fill, stroke, strokeWidth }); },
+    line(x1, y1, x2, y2, stroke, strokeWidth = 1.5) { shapes.push({ type: 'line', x1, y1, x2, y2, stroke, strokeWidth }); },
+    circle(x, y, r, fill, stroke = null, strokeWidth = 1) { shapes.push({ type: 'circle', x, y, r, fill, stroke, strokeWidth }); },
+    rect(x, y, w, h, fill, stroke = null, strokeWidth = 1) { shapes.push({ type: 'rect', x, y, w, h, fill, stroke, strokeWidth }); },
+    path(commands, fill, stroke = null, strokeWidth = 1.5) { shapes.push({ type: 'path', commands, fill, stroke, strokeWidth }); },
+  };
+}
+
+function column(d, state) {
+  const broken = state === 'destroyed', top = broken ? -135 : -468;
+  // The great hollow column is a support, not a conventional tree trunk.
+  d.poly([[-48, 0], [-46, -33], [-45, -96], [-43, top + 20], [-23, top], [24, top + 5], [43, top + 27], [47, -96], [49, -34], [51, 0], [37, -9], [-35, -9]], '#476451', '#193b37', 3);
+  for (const [x, side] of [[-35, -1], [-13, -1], [17, 1], [36, 1]]) {
+    d.path([['M', x + side * 7, -2], ['Q', x + side * 5, -27, x, -121], ['L', x * .66, top + 32]], null, side < 0 ? '#8c9c66' : '#6e8258', side < 0 ? 6 : 4);
+  }
+  d.path([['M', -20, -41], ['Q', -33, -160, -15, top + 78], ['Q', 0, top + 43, 19, top + 81], ['Q', 37, -159, 24, -42], ['Z']], '#1a3b35', '#829667', 2);
+  if (!broken) {
+    for (let row = 0; row < 4; row++) {
+      const y = -460 + row * 49, side = row % 2 ? 1 : -1;
+      d.path([['M', side * 21, y + 40], ['Q', side * 77, y + 24, side * 157, y - 10]], null, '#395f4a', 16 - row * 2);
+      for (let leaf = 0; leaf < 3; leaf++) {
+        const x = side * (64 + leaf * 37), ly = y + 11 - leaf * 8;
+        d.path([['M', x - 38, ly], ['Q', x, ly - 40, x + 47, ly - 7], ['Q', x + 6, ly + 17, x - 38, ly], ['Z']], leaf % 2 ? '#709663' : '#567e59', '#2c5a43', 1.3);
+        d.line(x - 29, ly - 1, x + 30, ly - 7, '#a4b67b', 1.3);
+      }
+    }
+    for (let i = 0; i < 7; i++) {
+      const y = -346 + i * 39, x = 23 + Math.sin(i * 2) * 5;
+      d.circle(x, y, 3 + i % 2, '#c3c98d', '#5a8058', 1);
+    }
+    d.path([['M', -28, -324], ['Q', -52, -271, -29, -212], ['Q', -11, -187, -25, -142]], null, '#a4b783', 2);
+  } else {
+    d.poly([[-44, -117], [-33, -160], [-17, -126], [3, -153], [15, -121], [40, -145], [45, -114]], '#b6ae77', '#3d5c41', 2);
+    d.poly([[83, -5], [124, -37], [162, -30], [180, 3]], '#546b4c', '#2a4c3d', 2);
+  }
+  if (state === 'damaged') {
+    d.poly([[-44, -230], [-9, -209], [-30, -186], [-2, -170], [-28, -157], [-47, -185]], '#c1a879', '#344f3c', 2);
+    d.line(-18, -201, -22, -178, '#233e34', 4);
+  }
+}
+
+function root(d, state) {
+  if (state === 'destroyed') {
+    d.poly([[-170, 0], [-112, -10], [-43, -3], [9, -12], [89, -4], [170, 1], [160, 6], [-168, 6]], '#405b45', '#274535', 2);
+    d.line(-72, -3, -31, -2, '#a4a16f', 4); d.line(9, -10, 44, -4, '#a4a16f', 3); return;
+  }
+  d.poly([[-170, 0], [-135, -17], [-75, -25], [0, -28], [73, -25], [134, -17], [170, 0], [106, 5], [-105, 5]], '#6f8758', '#2e513c', 2);
+  d.path([['M', -164, -1], ['Q', -81, -29, 0, -27], ['Q', 81, -29, 164, -1]], null, '#bfbe87', 2);
+  for (let i = 0; i < 9; i++) { const x = -129 + i * 32; d.line(x, -7, x + 13, -16 - (4 - Math.abs(i - 4)), '#8fa06e', 1.5); }
+  if (state === 'damaged') d.poly([[-15, -27], [-3, -15], [-12, -7], [8, -4], [13, -17], [1, -28]], '#334c37', '#b5ab79', 1.2);
+}
+
+function home(d, state) {
+  if (state === 'destroyed') {
+    d.poly([[-78, -4], [-34, -39], [23, -18], [75, -5], [70, 10], [-75, 10]], '#6b6b4d');
+    for (let i = 0; i < 5; i++) d.line(-60 + i * 28, -4 - (i % 2) * 12, -28 + i * 24, 4, '#b8ad79', 4);
+    return;
+  }
+  for (const x of [-58, 56]) { d.line(x, -160, x + (x < 0 ? -12 : 12), -6, '#203d37', 4); d.line(x + 2, -160, x + 2 + (x < 0 ? -12 : 12), -6, '#a9b58a', 1.2); }
+  d.poly([[-75, -68], [-28, -104], [43, -93], [77, -57], [65, -1], [-66, -1]], '#887d58', '#263f35', 2.5);
+  d.poly([[-86, -67], [-29, -115], [42, -104], [87, -58], [38, -78], [-27, -88]], '#587a58', '#294e3b', 2);
+  for (let i = 0; i < 6; i++) d.line(-62 + i * 24, -61 + Math.sin(i) * 4, -57 + i * 23, -7, '#acaa79', 2);
+  d.poly([[28, -50], [53, -46], [53, -3], [28, -3]], '#283f36', '#c2b88a', 2);
+  d.poly([[-48, -51], [-16, -57], [-16, -29], [-48, -25]], '#304e42', '#c2b88a', 2);
+  d.line(-33, -54, -32, -27, '#938d66', 2);
+  d.poly([[-83, -4], [82, -4], [77, 5], [-80, 5]], '#b0a577', '#2b4338', 2);
+  if (state === 'damaged') d.poly([[-10, -74], [14, -60], [-2, -49], [18, -34], [-8, -23]], '#273e33', '#c1ac7b', 2);
+}
+
+function longuedorse(d, young, state, progress) {
+  const s = young ? .65 : 1;
+  const shape = painter(), phase = state === 'moving' ? progress * Math.PI * 2 : 0;
+  if (state === 'dead') {
+    shape.path([['M', -68, -14], ['Q', -74, -48, -23, -51], ['Q', 34, -58, 68, -30], ['L', 77, -9], ['L', -62, -2], ['Z']], '#596a59', '#244438', 2.3);
+    for (let i = 0; i < 4; i++) shape.line(-42 + i * 25, -16, -33 + i * 27, -5, '#344d40', 7);
+    shape.line(61, -27, 66, -24, '#192e2b', 2);
+  } else {
+    // Four visible appendages; the rear pair is deliberately darker.
+    for (const [i, x] of [-43, 28, -34, 42].entries()) {
+      const step = Math.sin(phase + (i % 2) * Math.PI) * (state === 'moving' ? 10 : 0), near = i > 1;
+      shape.path([['M', x, -40], ['L', x - 4 + step, -21], ['L', x + step * 1.3, -3], ['L', x + 12 + step * 1.3, -2]], null, near ? '#b8b589' : '#64795c', near ? 9 : 7);
+      shape.line(x - 3 + step * 1.3, -1, x + 14 + step * 1.3, -1, '#344e3f', 4);
+    }
+    shape.path([['M', -64, -44], ['Q', -75, -76, -45, -88], ['Q', -12, -109, 27, -90], ['Q', 48, -80, 51, -57], ['L', 28, -35], ['Q', -16, -28, -56, -37], ['Z']], '#91956f', '#284c3c', 2.5);
+    shape.path([['M', -53, -77], ['Q', -11, -106, 25, -80], ['L', 35, -65], ['Q', -13, -82, -55, -58]], '#6e805b', '#b7bb87', 1.5);
+    for (let i = 0; i < 5; i++) shape.line(-43 + i * 14, -81 - Math.sin(i / 4 * Math.PI) * 7, -48 + i * 17, -56, '#a9b47c', 2.2);
+    shape.path([['M', 28, -61], ['Q', 44, -84, 69, -74], ['L', 85, -57], ['L', 81, -43], ['L', 60, -39], ['L', 40, -48], ['Z']], '#b8b38b', '#2b4e3e', 2.2);
+    shape.poly([[44, -71], [37, -95], [55, -80], [67, -78], [65, -92], [78, -68]], '#97ac7b', '#365c42', 1.5);
+    shape.circle(72, -62, 2.2, '#20372e'); shape.line(73, -45, 82, -48, '#567052', 1.2);
+    shape.path([['M', -62, -57], ['Q', -83, -65, -77, -83]], null, '#738460', 5);
+    // Culture spores are visible on the coat, not a prepainted crop outcome.
+    for (let i = 0; i < 6; i++) shape.circle(-38 + i * 12, -60 + (i % 2) * 10, young ? 1.8 : 2.4, '#d0cda0');
+  }
+  for (const item of shape.shapes) {
+    const out = { ...item };
+    if (out.points) out.points = out.points.map(p => p.map(v => v * s));
+    if (out.commands) out.commands = out.commands.map(([op, ...values]) => [op, ...values.map(v => v * s)]);
+    for (const key of ['x', 'y', 'r', 'x1', 'x2', 'y1', 'y2', 'strokeWidth']) if (typeof out[key] === 'number') out[key] *= s;
+    d.shapes.push(out);
+  }
+}
+
+function fan(d, state, progress) {
+  if (state === 'lost') { d.line(-28, -5, 23, 0, '#4b6a4f', 4); d.path([['M', -12, -4], ['Q', -33, -26, -47, -21]], null, '#647a56', 3); return; }
+  const dispersed = state === 'dispersed';
+  for (let n = 0; n < 3; n++) {
+    const x = (n - 1) * 32 + (dispersed ? Math.sin(progress * 6.28 + n * 2) * 17 : 0), y = -8 - (n % 2) * 18 - (dispersed ? 28 + n * 8 : 0);
+    const spread = dispersed ? 22 : 29;
+    d.path([['M', x, y], ['Q', x - spread - 8, y - 18, x - spread, y - 48], ['Q', x, y - 68, x + spread, y - 48], ['Q', x + spread + 8, y - 18, x, y], ['Z']], n % 2 ? '#7f9b83' : '#93ad86', '#254c40', 1.7);
+    for (let k = -2; k <= 2; k++) d.line(x, y - 3, x + k * 10, y - 48 - (2 - Math.abs(k)) * 5, '#d7d4a0', 1.1);
+    d.circle(x, y - 8, 4, '#3e6653', '#c1cb94', 1);
+  }
+}
+
+function vine(d, state, progress) {
+  const burnt = state === 'burnt', wilted = state === 'wilted', tone = burnt ? '#405146' : '#77996c';
+  d.path([['M', -28, 2], ['Q', 30, -44, 2, -91], ['Q', -14, -125, 15, -149]], null, burnt ? '#30483c' : '#b8bd88', 4);
+  for (let i = 0; i < 4; i++) {
+    const y = -22 - i * 31, side = i % 2 ? 1 : -1, size = 27 + Math.sin(progress * 6.28) * 2;
+    d.path([['M', 0, y], ['Q', side * size, y - (wilted ? -17 : 30), side * 57, y - (wilted ? -9 : 16)], ['Q', side * 46, y + 20, 0, y], ['Z']], tone, burnt ? '#273f34' : '#b7c58d', 1.2);
+    if (!burnt) d.line(3, y + 1, side * 45, y - (wilted ? -12 : 9), '#ced1a1', 1);
+  }
+}
+
+function grass(d, state, progress) {
+  const sway = state === 'moving' ? Math.sin(progress * Math.PI * 2) * 9 : 0;
+  for (let i = 0; i < 7; i++) {
+    const x = -37 + i * 12, top = -35 - (i % 3) * 17;
+    d.path([['M', x, 0], ['Q', x - 7 + sway, top * .58, x + sway + (i - 3) * 3, top]], null, i % 2 ? '#9bb77c' : '#729a67', 3);
+    d.circle(x + sway + (i - 3) * 3, top, 4.3, '#2a5041', '#b7c889', 1.8);
+    d.line(x - 2, -17, x + 3, -18, '#ccd2a0', 1);
+  }
+}
+
+function barrier(d, state, progress) {
+  d.poly([[-94, 4], [-85, -100], [-70, -104], [-62, 4]], '#7d8a6d', '#294437', 2);
+  d.rect(-96, -62, 32, 31, '#294a3f', '#b8bb8a', 2); d.circle(-80, -47, 9, '#749071', '#cad1a0', 1.5);
+  if (state === 'broken') {
+    d.poly([[-70, -71], [-9, -43], [-6, -29], [-73, -60]], '#a7ad7c');
+    d.poly([[7, -5], [73, -28], [81, -16], [17, 3]], '#909b6c');
+    return;
+  }
+  const open = state === 'open' ? 1 : state === 'working' ? clamp(progress, 0, 1) : 0;
+  const a = open * -Math.PI * .69, hinge = [-76, -77], rotate = ([x, y]) => [hinge[0] + x * Math.cos(a) - y * Math.sin(a), hinge[1] + x * Math.sin(a) + y * Math.cos(a)];
+  d.poly([[0, -7], [167, -7], [167, 7], [0, 7]].map(rotate), '#c4bd8a', '#304d3b', 2);
+  for (let i = 0; i < 8; i++) d.poly([[i * 20 + 4, -6], [i * 20 + 12, -6], [i * 20 + 20, 6], [i * 20 + 12, 6]].map(rotate), '#617b58', null);
+  d.circle(...hinge, 11, '#365745', '#b3c18a', 2); d.circle(...hinge, 4, '#d2c494');
+  d.line(90, 2, 90, -65, '#82946f', 6); d.line(82, -67, 99, -67, '#c2c393', 4);
+}
+
+function map(d, state) {
+  d.line(-33, 3, -28, -77, '#73856a', 6); d.line(38, 3, 31, -77, '#73856a', 6);
+  d.poly([[-50, -111], [44, -105], [48, -35], [-49, -41]], '#3d5c4c', '#b8bf91', 2.5);
+  d.poly([[-43, -103], [36, -98], [39, -44], [-41, -49]], '#a8b28a', '#576d52', 1);
+  d.path([['M', -36, -83], ['Q', -9, -105, 4, -68], ['Q', 12, -49, 32, -56]], null, '#5d8a76', 3);
+  d.line(-36, -60, 31, -84, '#725a45', 4);
+  if (state === 'surveyed') {
+    d.path([['M', -34, -91], ['Q', -13, -65, 2, -62], ['Q', 18, -55, 32, -86]], null, '#e7d4a2', 2.3);
+    for (const [x, y] of [[-20, -72], [18, -75]]) { d.poly([[x - 5, y], [x, y - 6], [x + 6, y], [x + 5, y + 5], [x - 5, y + 5]], '#335c46', '#e3cf9a', 1); }
+    d.circle(28, -42, 8, '#789875', '#d9d2a0', 1.6);
+  } else { d.rect(-47, -111, 24, 14, '#5e6e4e', '#c0ba86', 1); d.line(-43, -105, -27, -104, '#d8cea0', 1.2); }
+}
+
+function marker(d, state) {
+  d.poly([[-7, 4], [-7, -85], [2, -93], [10, -85], [8, 4]], '#7d8963', '#294837', 2);
+  if (state === 'local') {
+    d.poly([[-27, -71], [14, -74], [35, -62], [14, -49], [-27, -52]], '#91ae80', '#274d3b', 2);
+    d.path([['M', -19, -61], ['Q', -4, -76, 11, -61], ['Q', 19, -50, 27, -61]], null, '#e1dcaa', 2);
+    d.line(-12, -44, -16, -24, '#c3be8c', 2); d.line(-3, -44, -2, -19, '#9eb27c', 3);
+  } else {
+    d.poly([[-27, -74], [17, -74], [35, -61], [17, -49], [-27, -49]], '#c3b88a', '#354b39', 2);
+    d.line(-17, -62, 19, -62, '#546645', 5); d.line(11, -69, 20, -62, '#546645', 3); d.line(11, -55, 20, -62, '#546645', 3);
+  }
+}
+
+function thyrAssetGeometry({ part = 'column', state, progress = 0 } = {}) {
+  const spec = THYR_ASSET_SPECS[part];
+  if (!spec) throw new RangeError(`Unknown Thyr asset: ${part}`);
+  state ??= spec.states[0];
+  if (!spec.states.includes(state)) throw new RangeError(`Unknown ${part} state: ${state}`);
+  const d = painter();
+  if (part === 'column') column(d, state);
+  else if (part === 'root') root(d, state);
+  else if (part === 'suspended-home') home(d, state);
+  else if (part.startsWith('longuedorse-')) longuedorse(d, part.endsWith('young'), state, progress);
+  else if (part === 'fan-colony') fan(d, state, progress);
+  else if (part === 'breathing-vine') vine(d, state, progress);
+  else if (part === 'echo-grass') grass(d, state, progress);
+  else if (part === 'migration-barrier') barrier(d, state, progress);
+  else if (part === 'route-map') map(d, state);
+  else marker(d, state);
+  return { id: `thyr-${part}-${state}`, part, state, size: [...spec.size], bounds: [...spec.bounds], pivot: [0, 0], anchors: spec.anchors, canonIds: spec.ids, shapes: d.shapes };
+}
+
+const cache = new Map();
+function drawThyrAsset(ctx, options = {}) {
+  const part = options.part || 'column', state = options.state || THYR_ASSET_SPECS[part]?.states[0];
+  const progress = Math.round(clamp(options.progress || 0, 0, 1) * 32) / 32, key = `${part}:${state}:${progress}`;
+  let geometry = cache.get(key);
+  if (!geometry) { geometry = thyrAssetGeometry({ part, state, progress }); if (cache.size >= 512) cache.clear(); cache.set(key, geometry); }
+  ctx.save(); ctx.translate(options.x || 0, options.y || 0);
+  ctx.scale((options.scale ?? 1) * (options.width ?? geometry.size[0]) / geometry.size[0] * (options.facing === -1 ? -1 : 1), (options.scale ?? 1) * (options.height ?? geometry.size[1]) / geometry.size[1]);
+  drawProductionGeometry(ctx, geometry); ctx.restore(); return geometry;
+}
+
+function thyrAssetSVG(geometry) {
+  return productionGeometrySVG(geometry, { title: `${geometry.canonIds.join(' / ')} — ${geometry.part} — ${geometry.state}` })
+    .replace('src/production-assets.mjs', 'src/thyr-assets.mjs')
+    .replace('tools/build-production-assets.mjs', 'tools/build-thyr-assets.mjs');
+}
+
+return {THYR_ASSET_SPECS,THYR_ASSET_NAMES,thyrAssetGeometry,drawThyrAsset,thyrAssetSVG};
+})();
+__modules["src/thyr-renderer.mjs"] = (() => {
+/** MI09 drawing only. All objects, contacts and outcomes come from the live state. */
+const { terrainAt, livingRouteSurfaceAt } = __modules["src/simulation.mjs"];
+const { drawThyrAsset } = __modules["src/thyr-assets.mjs"];
+const { drawProductionPart } = __modules["src/production-assets.mjs"];
+const percent = v => Math.round((v || 0) * 100);
+const damageState = o => o.destroyed ? 'destroyed' : o.hp < o.maxHp * .6 ? 'damaged' : 'normal';
+function line(c, x1, y1, x2, y2, color, width = 1) { c.beginPath(); c.moveTo(x1, y1); c.lineTo(x2, y2); c.strokeStyle = color; c.lineWidth = width; c.stroke(); }
+function label(c, text, x, y, size = 11, color = '#d7ddba', align = 'center') { c.font = `500 ${size}px "IBM Plex Mono", "Courier New", monospace`; c.fillStyle = color; c.textAlign = align; c.fillText(text, x, y); }
+function health(c, o, width = 64) { if (o.destroyed || o.hp >= o.maxHp) return; c.fillStyle = '#142d2a'; c.fillRect(o.x - width / 2, o.y - o.h / 2 - 10, width, 3); c.fillStyle = '#c5b180'; c.fillRect(o.x - width / 2, o.y - o.h / 2 - 10, width * Math.max(0, o.hp / o.maxHp), 3); }
+function station(c, o, name, done) {
+  drawProductionPart(c, { part: 'maintenance-post', x: o.x, y: o.y, width: o.w, height: o.h, state: o.destroyed ? 'destroyed' : 'normal' });
+  label(c, name, o.x, o.y - o.h / 2 - 17, 10, done ? '#acd2ab' : '#dfcd97');
+  if (o.working) { c.fillStyle = '#233d32'; c.fillRect(o.x - 31, o.y - o.h / 2 - 8, 62, 4); c.fillStyle = '#cee0ae'; c.fillRect(o.x - 31, o.y - o.h / 2 - 8, 62 * o.progress, 4); }
+}
+
+function drawLivingRouteSite(renderer, s, t) {
+  const c = renderer.ctx, r = s.livingRoute;
+  // Distinct receiving zones stay at the authored destination coordinates.
+  // Their paint adds neither crops to the ledger nor a new physical surface.
+  for (const [kind, positions] of [['orchard', s.mission.livingRoute.orchardXs], ['exclusion', s.mission.livingRoute.exclusionXs]]) {
+    const from = positions[0] - 72, to = positions.at(-1) + 72;
+    if (!renderer.visible((from + to) / 2, (to - from) / 2 + 50)) continue;
+    for (let x = from; x <= to; x += 24) {
+      const y = terrainAt(x, s.planetId);
+      line(c, x, y + 10, x + 17, terrainAt(x + 17, s.planetId) + 13, kind === 'orchard' ? '#afb67b' : '#758671', 2);
+      if (kind === 'orchard') { line(c, x + 6, y, x + 6, y - 23, '#97b478', 2); line(c, x + 6, y - 12, x - 1, y - 18, '#d1cf8e', 3); line(c, x + 6, y - 17, x + 12, y - 23, '#c0c688', 3); }
+    }
+    for (const x of [from, to]) { const y = terrainAt(x, s.planetId); line(c, x, y, x, y - 49, kind === 'orchard' ? '#b6c393' : '#86997a', 4); line(c, x - 9, y - 43, x + 9, y - 43, kind === 'orchard' ? '#d7d8a6' : '#a3a88a', 3); }
+    label(c, kind === 'orchard' ? 'VERGERS SYMBIOTIQUES · PASSAGE TRADITIONNEL' : 'ZONE D’EXCLUSION · HORS DES CULTURES', (from + to) / 2, terrainAt((from + to) / 2, s.planetId) - 126, 10, kind === 'orchard' ? '#d1dfa9' : '#c4ba8e');
+  }
+  for (const column of r.columns) {
+    if (!renderer.visible(column.x, 280)) continue;
+    const base = column.y + column.h / 2;
+    drawThyrAsset(c, { part: 'column', state: damageState(column), x: column.x, y: base, scale: column.h / 470 });
+    if (!column.destroyed) drawThyrAsset(c, { part: 'breathing-vine', x: column.x + 54, y: base - 110, scale: .8, progress: (t * .12) % 1 });
+    health(c, column);
+  }
+  for (const home of r.homes) {
+    if (!renderer.visible(home.x, 200)) continue;
+    const column = r.columns.find(o => o.id === home.columnId);
+    if (!home.destroyed && column && !column.destroyed) line(c, column.x, column.y - column.h / 2 + 48, home.x + 50, home.y - home.h / 2 - 39, '#9aaf7c', 2);
+    const homeBase = home.destroyed ? terrainAt(home.x, s.planetId) : home.y + home.h / 2;
+    drawThyrAsset(c, { part: 'suspended-home', state: damageState(home), x: home.x, y: homeBase, width: home.w, height: home.h });
+    label(c, home.destroyed ? 'HABITAT EFFONDRÉ' : home.habitable ? 'HABITAT SUSPENDU' : 'HABITAT FRAGILISÉ', home.x, home.destroyed ? homeBase - 62 : home.y - home.h / 2 - 55, 9, home.destroyed ? '#c9a286' : '#c4d5ad');
+    health(c, home, 48);
+  }
+  for (const root of r.roots) {
+    if (!renderer.visible(root.x, 240)) continue;
+    // Art is anchored at the root; the exposed contact edge is sampled from
+    // the same curved surface as the feet, including the underlying terrain.
+    drawThyrAsset(c, { part: 'root', state: damageState(root), x: root.x, y: root.y + root.h / 2, scale: root.w / 340 });
+    if (!root.destroyed) {
+      const from = root.x - root.w / 2, to = root.x + root.w / 2;
+      c.beginPath(); c.moveTo(from, terrainAt(from, s.planetId));
+      for (let x = from; x <= to; x += 5) c.lineTo(x, livingRouteSurfaceAt(s, x).groundY);
+      for (let x = to; x >= from; x -= 5) c.lineTo(x, terrainAt(x, s.planetId) + 3);
+      c.closePath(); c.fillStyle = '#6f8758'; c.fill();
+      c.beginPath(); c.moveTo(from, livingRouteSurfaceAt(s, from).groundY);
+      for (let x = from + 5; x <= to; x += 5) c.lineTo(x, livingRouteSurfaceAt(s, x).groundY);
+      c.strokeStyle = '#d1cf94'; c.lineWidth = 1.6; c.stroke();
+    }
+  }
+  for (const fan of r.pollinators) {
+    if (!renderer.visible(fan.x, 140)) continue;
+    const phase = fan.phase === 'flying' ? 'dispersed' : fan.phase === 'lost' ? 'lost' : 'settled';
+    drawThyrAsset(c, { part: 'fan-colony', state: phase, x: fan.x, y: fan.y + fan.h / 2, scale: fan.w / 112, progress: (t * .3) % 1 });
+  }
+  const b = r.barrier;
+  if (renderer.visible(b.x, 220)) {
+    drawThyrAsset(c, { part: 'migration-barrier', state: b.destroyed ? 'broken' : b.opening >= .999 ? 'open' : b.opening > 0 || b.working ? 'working' : 'closed', progress: b.opening, x: b.x, y: b.y + b.h / 2, width: b.w, height: b.h });
+    health(c, b, 45);
+  }
+  if (renderer.visible(b.controlX, 100)) {
+    const y = terrainAt(b.controlX, s.planetId);
+    drawProductionPart(c, { part: 'gate-mechanism', x: b.controlX, y: y - 26, state: b.destroyed ? 'destroyed' : b.working ? 'working' : 'normal', progress: b.progress });
+    label(c, b.destroyed ? 'COMMANDE PERDUE' : 'COMMANDE DE LA BARRIÈRE', b.controlX, y - 67, 9);
+  }
+  const m = r.maps;
+  if (renderer.visible(m.x, 130)) {
+    drawThyrAsset(c, { part: 'route-map', state: m.inspected ? 'surveyed' : 'concealed', x: m.x, y: m.y + m.h / 2, scale: .85 });
+    label(c, m.inspected ? 'HAMEAUX ET MIGRATION RELEVÉS' : 'CARTE MILITAIRE', m.x, m.y - m.h / 2 - 17, 9);
+  }
+  for (const [o, name, done] of [[r.contact, 'LIAISON DES CULTURES', r.contact.heard], [r.approach, 'BALISAGE DES APPUIS', r.approach.prepared], [r.report, r.report.transmitted ? 'BILAN TRANSMIS' : 'POSTE DE RAPPORT', r.report.transmitted]])
+    if (renderer.visible(o.x, 160)) station(c, o, name, done);
+  if (renderer.visible(r.logistics.controlX, 130)) {
+    const o = r.logistics, x = o.controlX;
+    station(c, { x, y: terrainAt(x, s.planetId) - 30, w: 48, h: 60, working: o.working, progress: o.progress }, o.released ? 'DÉPART LOGISTIQUE AUTORISÉ' : 'LIAISON DU TRANSPORT', o.released);
+  }
+  if (renderer.visible(r.lights.x, 150)) {
+    const o = r.lights, y = o.y + o.h / 2;
+    line(c, o.x, y, o.x, y - 131, '#506e54', 8);
+    c.fillStyle = o.on ? '#ded8a4' : '#3d5c48'; c.fillRect(o.x - 22, y - 138, 44, 18);
+    if (o.on) { c.beginPath(); c.moveTo(o.x - 18, y - 120); c.lineTo(o.x - 125, y - 8); c.lineTo(o.x + 125, y - 8); c.lineTo(o.x + 18, y - 120); c.closePath(); c.fillStyle = '#ddd8a00e'; c.fill(); }
+    label(c, o.on ? 'PROJECTEUR ALLUMÉ' : 'PROJECTEUR COUPÉ', o.x, y - 153, 9);
+  }
+  for (const x of [975, 1540, 3040, 3860, 4490, 5000]) if (renderer.visible(x, 90)) {
+    const nearby = r.migrators.some(a => a.moving && Math.abs(a.x - x) < 350);
+    drawThyrAsset(c, { part: 'echo-grass', state: nearby ? 'moving' : 'calm', x, y: terrainAt(x, s.planetId) + 8, scale: .65, progress: (t * .5) % 1 });
+  }
+  if (r.approach.prepared) for (const x of [1000, 1450, 3320, 3820]) if (renderer.visible(x, 80))
+    drawThyrAsset(c, { part: 'route-marker', state: r.approach.kind === 'guided' ? 'local' : 'imperial', x, y: terrainAt(x, s.planetId), scale: .7 });
+}
+
+function drawLivingRouteActors(renderer, s, t) {
+  const c = renderer.ctx, r = s.livingRoute;
+  for (const animal of r.migrators) {
+    if (!renderer.visible(animal.x, 120)) continue;
+    const state = animal.destroyed ? 'dead' : animal.moving ? 'moving' : animal.phase === 'arrived' ? 'arrived' : animal.phase === 'displaced' ? 'diverted' : 'waiting';
+    drawThyrAsset(c, { part: `longuedorse-${animal.age}`, state, x: animal.x, y: animal.y + animal.h / 2, width: animal.w, height: animal.h, facing: animal.targetX < animal.x ? -1 : 1, progress: (t * .8 + animal.x * .003) % 1 });
+    health(c, animal, 40);
+    if (animal.flash > 0) { c.strokeStyle = '#d9c397'; c.lineWidth = 1.5; c.strokeRect(animal.x - animal.w / 2 - 3, animal.y - animal.h / 2 - 3, animal.w + 6, animal.h + 6); }
+  }
+  const convoy = r.logistics;
+  if (renderer.visible(convoy.x, 180)) {
+    const base = convoy.y + convoy.h / 2;
+    c.save(); c.translate(convoy.x, base);
+    c.fillStyle = convoy.destroyed ? '#455747' : '#74856b'; c.fillRect(-60, -48, 95, 34);
+    c.fillStyle = convoy.destroyed ? '#35463b' : '#9aa080'; c.fillRect(21, -59, 39, 45);
+    c.fillStyle = '#2b483d'; c.fillRect(37, -53, 19, 13);
+    for (let x = -48; x < 26; x += 17) { c.strokeStyle = '#b4b48b'; c.lineWidth = 1; c.strokeRect(x, -43, 13, 23); }
+    for (const x of [-40, 37]) { c.beginPath(); c.arc(x, -10, 13, 0, Math.PI * 2); c.fillStyle = '#233c33'; c.fill(); c.beginPath(); c.arc(x, -10, 6, 0, Math.PI * 2); c.fillStyle = '#8b9d78'; c.fill(); }
+    line(c, -65, -14, 64, -14, '#d3c79b', 3);
+    if (convoy.destroyed) { line(c, -37, -46, 12, -19, '#223c32', 5); line(c, -18, -48, 22, -22, '#596e52', 3); }
+    c.restore(); health(c, convoy, 72);
+    label(c, convoy.destroyed ? 'LOGISTIQUE PERDUE' : convoy.arrived ? 'LOGISTIQUE ARRIVÉE' : convoy.moving ? 'TRANSPORT LOGISTIQUE EN ROUTE' : 'LOGISTIQUE EN ATTENTE', convoy.x, convoy.y - convoy.h / 2 - 20, 9);
+  }
+}
+
+function livingRouteSummary(s) {
+  const r = s.livingRoute;
+  return {
+    arrived: r.migrators.filter(a => a.phase === 'arrived' && !a.destroyed).length,
+    displaced: r.migrators.filter(a => a.phase === 'displaced' && !a.destroyed).length,
+    lost: r.migrators.filter(a => a.destroyed).length,
+    moving: r.migrators.filter(a => a.moving && !a.destroyed).length,
+    columns: r.columns.filter(a => !a.destroyed).length,
+    homes: r.homes.filter(a => a.habitable && !a.destroyed).length,
+    settled: r.pollinators.filter(a => a.phase === 'settled' && a.alive).length,
+  };
+}
+
+function drawLivingRouteLabels(renderer, s) {
+  const c = renderer.ctx, r = s.livingRoute, v = livingRouteSummary(s), px = s.player.x, entries = [];
+  const add = (title, detail, sub, warning = false) => entries.push({ title, detail, sub, color: warning ? '#dfb084' : '#cbdba8' });
+  if (Math.abs(px - r.contact.x) < 330) add('LIAISON AVEC LES CULTURES', r.contact.heard ? 'HABITANTS ÉCOUTÉS · APPROCHE GUIDÉE DISPONIBLE' : r.contact.working ? `ÉCOUTE ${percent(r.contact.progress)} %` : 'ÉTABLIR LA LIAISON AVANT DE BALISER', 'Le contact ne recense aucun habitant à votre place');
+  if (Math.abs(px - r.approach.x) < (r.approach.prepared ? 170 : 300)) add('HAUTEUR ET APPUIS DANS LA CANOPÉE', r.approach.prepared ? `${r.approach.kind === 'guided' ? 'APPROCHE GUIDÉE' : 'RELEVÉ MILITAIRE'} · CONTOURNEMENT BALISÉ` : r.approach.working ? `BALISAGE ${percent(r.approach.progress)} %` : 'RECONNAÎTRE LES RACINES AVANT LE PASSAGE', 'Ancrage et marche contrôlent les appuis réels du châssis');
+  const nearest = r.roots.find(o => Math.abs(o.x - px) < 250);
+  if (nearest) add('RACINE PORTEUSE · COLONNE VIVANTE', nearest.destroyed ? 'RACINE PERDUE · APPUI RETIRÉ' : `INTÉGRITÉ ${Math.round(nearest.hp / nearest.maxHp * 100)} %`, `${v.columns} colonnes intactes · ${v.homes} habitats habitables`, nearest.destroyed || nearest.hp < nearest.maxHp * .5);
+  if (Math.abs(px - r.barrier.controlX) < 420) add('BARRIÈRE DE MIGRATION', r.barrier.destroyed ? 'BARRIÈRE DÉTRUITE · AVARIE CONSERVÉE' : r.barrier.working ? `MANŒUVRE ${percent(r.barrier.progress)} % · ANCRAGE` : `OUVERTURE ${percent(r.barrier.opening)} %`, 'Le choix donne un ordre ; la manœuvre doit être accomplie', r.barrier.destroyed);
+  if (Math.abs(px - r.maps.x) < 340) add('DEUX LECTURES DE LA ROUTE', r.maps.inspected ? 'MIGRATION ET HAMEAUX OMIS SUR LA CARTE' : r.maps.working ? `CONFRONTATION ${percent(r.maps.progress)} %` : 'EXAMINER LA CARTE AU POSTE', 'Le passage féconde les vergers de cette vallée');
+  if (px > 1720 && r.migrators.some(a => renderer.visible(a.x, 100))) add('LES QUATRE LONGUES-DORSES', `${v.arrived} AU VERGER · ${v.displaced} DÉTOURNÉS · ${v.lost} PERDUS`, `${v.moving} en déplacement · ${v.settled} colonies d’éventails revenues`, v.lost > 0);
+  if (r.alert.triggered && s.enemies.some(e => e.id.startsWith('thyr-sniper-') && !e.dead)) add('TIREURS SUR LA ROUTE', 'ÉCLAT DE LUNETTE · IMMOBILITÉ AVANT LE TIR', 'Repositionnez le radiateur et protégez les êtres exposés', true);
+  if (Math.abs(px - r.report.x) < 350) entries.unshift({ title: 'RAPPORT DE LA ROUTE DES VIVANTS', detail: r.report.transmitted ? 'TRANSMISSION ACQUISE' : r.report.working ? `TRANSMISSION ${percent(r.report.progress)} %` : 'CONSTATER LE TRAJET ET TRANSMETTRE', sub: `${v.homes} habitats habitables · ${v.arrived} migrateurs au verger · ${v.lost} pertes`, color: '#d5d7ad' });
+  const shown = entries.slice(0, 2), top = 130;
+  shown.forEach((e, index) => { const x = renderer.cameraX + 880, y = top + index * 78, w = 426; c.fillStyle = '#17382fee'; c.fillRect(x - w / 2, y, w, 68); line(c, x - w / 2, y, x + w / 2, y, e.color, 1.5); label(c, e.title, x, y + 17, 10, e.color); label(c, e.detail, x, y + 36, 9); label(c, e.sub, x, y + 55, 9, '#a9c29e'); });
+}
+
+return {drawLivingRouteSite,drawLivingRouteActors,livingRouteSummary,drawLivingRouteLabels};
+})();
 __modules["src/renderer.mjs"] = (() => {
 const { terrainAt, radiatorBounds, channelSurfaceAt, departureGateBounds, departureWindow } = __modules["src/simulation.mjs"];
 const { drawProductionPart, productionLegPose } = __modules["src/production-assets.mjs"];
+const { drawLivingRouteSite, drawLivingRouteActors, drawLivingRouteLabels } = __modules["src/thyr-renderer.mjs"];
 const { WALKERS } = __modules["src/content.mjs"];
 const W = 1600, H = 900;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -4242,11 +5015,12 @@ class Renderer {
     if (s.dike) this.drawDike(s, t);
     if (s.ambulance) this.drawAmbulanceSite(s, t);
     if (s.departure) this.drawDepartureSite(s, t);
+    if (s.livingRoute) drawLivingRouteSite(this, s, t);
     for (const r of s.relays) if (this.visible(r.x, 150)) this.drawRelay(r, s);
-    if (!s.train && !s.industrial && !s.dike && !s.ambulance && !s.departure) this.drawEvidence(s, t);
+    if (!s.train && !s.industrial && !s.dike && !s.ambulance && !s.departure && !s.livingRoute) this.drawEvidence(s, t);
     this.drawExtraction(s, t);
     for (const item of s.pickups) if (!item.collected && this.visible(item.x, 100)) this.drawSupply(item, t);
-    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped) && (!e.id.startsWith('seizure-drone-') || s.ambulance?.raidTriggered) && (!e.id.startsWith('aval-control-drone-') || s.departure?.alert.triggered));
+    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped) && (!e.id.startsWith('seizure-drone-') || s.ambulance?.raidTriggered) && (!e.id.startsWith('aval-control-drone-') || s.departure?.alert.triggered) && (!e.id.startsWith('thyr-sniper-') || s.livingRoute?.alert.triggered));
     for (const e of visibleEnemies) this.drawTelegraph(e, s, t);
     for (const civilian of s.civilians) if (civilian.alive && !civilian.safe && this.visible(civilian.x, 100)) this.drawHuman(civilian, t, true);
     if (s.convoy && this.visible(s.convoy.x, 200)) this.drawConvoy(s.convoy, t);
@@ -4258,6 +5032,7 @@ class Renderer {
     if (s.dike) { this.drawDikeControls(s, t); this.drawDikePeople(s, t); }
     if (s.ambulance) { this.drawAmbulanceVehicle(s, t); this.drawAmbulancePeople(s, t); }
     if (s.departure) { this.drawDepartureBoats(s, t); this.drawDeparturePeople(s, t); }
+    if (s.livingRoute) drawLivingRouteActors(this, s, t);
     for (const e of visibleEnemies) if (e.kind === 'air') this.drawEnemy(e, s, t);
     this.drawShots(s);
     this.drawParticles(s);
@@ -4269,6 +5044,7 @@ class Renderer {
     if (s.dike) this.drawDikeLabels(s);
     if (s.ambulance) this.drawAmbulanceLabels(s);
     if (s.departure) this.drawDepartureLabels(s);
+    if (s.livingRoute) drawLivingRouteLabels(this, s);
     c.restore();
     this.drawAtmosphere(s, t);
     this.drawMarkers(s);
@@ -5396,7 +6172,7 @@ class Renderer {
   }
 
   drawCampaignLandmarks(s, t) {
-    if (s.channel || s.dike || s.ambulance || s.departure) return;
+    if (s.channel || s.dike || s.ambulance || s.departure || s.livingRoute) return;
     if (s.train) { this.drawRailHarpoons(s, t); return; }
     if (s.network) { this.drawNetworkStations(s, t); return; }
     if (s.industrial) { this.drawIndustrialStation(s, t); return; }
@@ -5935,7 +6711,7 @@ class Renderer {
       circle(c, toX(s.mission.passage.stationX), by, 4, s.campaign.passageSecured ? '#91bea8' : '#d4ae73');
       line(c, toX(s.mission.passage.pipeFrom), by + 5, toX(s.mission.passage.pipeTo), by + 5, s.campaign.pipeIntact ? '#afb68a' : '#d88e6b', 3);
     }
-    const ex = toX(s.evidence.x); poly(c, [[ex, by - 5], [ex + 4, by], [ex, by + 5], [ex - 4, by]], s.evidence.collected ? '#91bea8' : '#e6c284');
+    if (!s.livingRoute) { const ex = toX(s.evidence.x); poly(c, [[ex, by - 5], [ex + 4, by], [ex, by + 5], [ex - 4, by]], s.evidence.collected ? '#91bea8' : '#e6c284'); }
     if (s.convoy) { c.fillStyle = '#91d2c4'; c.fillRect(toX(s.convoy.x) - 3, by - 3, 6, 6); }
     if (s.train) {
       for (const h of s.train.harpoons) circle(c, toX(h.x), by, 4, h.released ? '#91bea8' : '#d4ae73');
@@ -5975,6 +6751,13 @@ class Renderer {
       circle(c, toX(s.dike.auxiliary.x), by + 7, 3, s.dike.auxiliary.destroyed ? '#dc997b' : s.dike.auxiliary.active ? '#a2d3bb' : '#708d7c');
       for (const person of s.dike.technicians) if (person.alive) circle(c, toX(person.x), by - 7, 2, '#cce3cb');
       line(c, toX(s.mission.dike.shelterX), by - 5, toX(s.mission.dike.shelterX), by + 5, '#9fd7c6', 3);
+    }
+    if (s.livingRoute) {
+      const route = s.livingRoute;
+      for (const o of route.roots) line(c, toX(o.x - o.w / 2), by + 6, toX(o.x + o.w / 2), by + 6, o.destroyed ? '#cf9474' : '#b3c68d', 3);
+      for (const o of route.migrators) circle(c, toX(o.x), by - 5, o.age === 'young' ? 2 : 3, o.destroyed ? '#cf9474' : o.phase === 'arrived' ? '#c8dfa2' : '#d6c797');
+      circle(c, toX(route.barrier.x), by, 3, route.barrier.opening > .99 ? '#b9cf94' : '#d5ab77');
+      c.fillStyle = route.logistics.destroyed ? '#d58c73' : '#adc79e'; c.fillRect(toX(route.logistics.x) - 4, by - 3, 8, 6);
     }
     const px = toX(s.player.x); poly(c, [[px, by - 8], [px + 5, by - 15], [px - 5, by - 15]], '#e2c893');
     const exitX = toX(s.extraction.x); line(c, exitX, by - 7, exitX, by + 7, s.extraction.active ? '#c6dfb1' : '#657b73', 2);
@@ -6555,6 +7338,340 @@ function departureDossierFromGame(game) {
 
 return {createDepartureDossier,departureContextFor,validateDepartureFacts,validateDepartureReceipt,validateDepartureMission,departureDossierFromGame};
 })();
+__modules["src/thyr-validation.mjs"] = (() => {
+/** MI09 save and receipt validation. No mutation, game advancement or persistence. */
+const { DIFFICULTIES, ENEMY_TYPES } = __modules["src/content.mjs"];
+const { createGame, livingRouteReceiptRoster, terrainAt } = __modules["src/simulation.mjs"];
+const FLAGS = ['localsHeard', 'approachPrepared', 'routeInspected', 'hamletsRecorded', 'migrationObserved', 'lightsOff',
+  'gateOperated', 'migrationResolved', 'passagePreserved', 'cropsFertilized', 'harvestFragile', 'snipersTriggered',
+  'logisticsReleased', 'logisticsArrived', 'logisticsDestroyed', 'reportTransmitted', 'manifestRead'];
+const COUNTS = ['migratorsTotal', 'migratorsArrived', 'migratorsDisplaced', 'migratorsLost', 'columnsIntact',
+  'homesHabitable', 'pollinatorsPresent', 'snipersNeutralized'];
+const CONTEXT_KEYS = ['departureRecorded', 'departureChoice', 'departureArrived', 'departureLost'];
+const TERMINAL = ['arrived', 'displaced', 'lost'];
+const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+
+function requireValue(ok, message) { if (!ok) throw new Error(`Sauvegarde invalide : route de Thyr — ${message}`); }
+function number(value, min, max, label, integer = false) {
+  requireValue(Number.isFinite(value) && value >= min && value <= max && (!integer || Number.isInteger(value)), label);
+}
+function boolean(value, label) { requireValue(typeof value === 'boolean', label); }
+function equal(value, expected, label) { requireValue(JSON.stringify(value) === JSON.stringify(expected), label); }
+function keys(value, expected, label) {
+  requireValue(object(value) && Object.keys(value).length === expected.length && expected.every(key => Object.hasOwn(value, key)), label);
+}
+function fixed(value, expected, fields, label) {
+  for (const key of fields) requireValue(value[key] === expected[key], `${label}.${key}`);
+}
+function shape(value, initial, label) {
+  keys(value, Object.keys(initial), `${label} : champs`);
+  for (const [key, expected] of Object.entries(initial)) {
+    if (expected !== null && !object(expected) && !Array.isArray(expected)) requireValue(typeof value[key] === typeof expected, `${label}.${key} : type`);
+  }
+}
+
+function createLivingRouteDossier() {
+  return { route: 'unselected', approach: 'unprepared', ...Object.fromEntries(FLAGS.map(key => [key, false])),
+    ...Object.fromEntries(COUNTS.map(key => [key, 0])), logisticsIntegrity: 0, roster: null };
+}
+
+function livingRouteContextFor(campaign) {
+  const report = campaign.completed.MI08;
+  return { departureRecorded: Boolean(report), departureChoice: report?.choice || 'none',
+    departureArrived: report?.peopleArrived || 0, departureLost: report?.peopleLost || 0 };
+}
+
+function validateContext(context) {
+  keys(context, CONTEXT_KEYS, 'héritage de Nacre');
+  boolean(context.departureRecorded, 'présence du rapport de Nacre');
+  requireValue(['none', 'obey', 'delay', 'defy'].includes(context.departureChoice), 'choix de Nacre');
+  number(context.departureArrived, 0, 100, 'arrivées héritées de Nacre', true);
+  number(context.departureLost, 0, 100, 'pertes héritées de Nacre', true);
+  requireValue(context.departureRecorded === (context.departureChoice !== 'none'), 'choix sans rapport de Nacre');
+  requireValue(context.departureRecorded || context.departureArrived === 0 && context.departureLost === 0, 'bilan de Nacre sans rapport');
+}
+
+function validateLivingRouteFacts(facts, finished = false) {
+  for (const key of FLAGS) boolean(facts[key], `bilan ${key}`);
+  for (const key of COUNTS) number(facts[key], 0, key.startsWith('migrators') ? 4 : 2, `bilan ${key}`, true);
+  requireValue(facts.migratorsTotal === 4, 'effectif du troupeau');
+  requireValue(['unselected', 'imperial', 'migration'].includes(facts.route), 'route inconnue');
+  requireValue(['unprepared', 'surveyed', 'guided'].includes(facts.approach), 'approche inconnue');
+  number(facts.logisticsIntegrity, 0, 1, 'intégrité logistique');
+  const terminal = facts.migratorsArrived + facts.migratorsDisplaced + facts.migratorsLost;
+  requireValue(terminal <= 4 && facts.migrationResolved === (terminal === 4), 'bilan migratoire incomplet ou dédoublé');
+  requireValue(facts.approachPrepared === (facts.approach !== 'unprepared'), 'préparation de l’approche');
+  requireValue(facts.approach !== 'guided' || facts.localsHeard, 'guidage sans échange local');
+  requireValue(facts.hamletsRecorded === facts.routeInspected && facts.manifestRead === facts.routeInspected, 'carte et habitats relevés');
+  requireValue(!facts.gateOperated || facts.route !== 'unselected' && facts.routeInspected, 'barrière manœuvrée avant choix et relevé');
+  requireValue(facts.cropsFertilized === (facts.migratorsArrived > 0), 'fertilisation sans arrivée');
+  requireValue(!facts.passagePreserved || facts.route === 'migration' && facts.gateOperated, 'passage préservé sans manœuvre');
+  requireValue(!facts.migratorsArrived || facts.route === 'migration', 'arrivée au verger contraire au choix');
+  requireValue(!facts.migratorsDisplaced || facts.route === 'imperial', 'déplacement vers l’exclusion contraire au choix');
+  requireValue(!facts.snipersTriggered || facts.gateOperated && facts.migrationResolved, 'tireurs arrivés avant libération du corridor');
+  requireValue(!facts.snipersNeutralized || facts.snipersTriggered, 'tireur neutralisé avant son arrivée');
+  requireValue(!facts.logisticsReleased || facts.migrationResolved, 'départ logistique avant le bilan des animaux');
+  requireValue(!facts.logisticsArrived || facts.logisticsReleased && !facts.logisticsDestroyed, 'arrivée logistique sans véhicule sorti et vivant');
+  requireValue(facts.logisticsDestroyed === (facts.logisticsIntegrity === 0), 'perte et intégrité logistique');
+  requireValue(!facts.reportTransmitted || facts.routeInspected && facts.gateOperated && facts.migrationResolved && facts.snipersNeutralized === 2 && facts.logisticsArrived, 'rapport transmis avant les actes requis');
+  if (finished) requireValue(facts.reportTransmitted && facts.route !== 'unselected', 'rapport final incomplet');
+}
+
+function validateScene(scene, initial, facts, settings, options) {
+  const { elapsed, planetId, snipers, initialSnipers, receipt = false, steps = 10_000_000, player = null } = options;
+  shape(scene, initial, 'scène');
+  for (const group of ['columns', 'roots', 'homes', 'pollinators', 'migrators']) {
+    requireValue(Array.isArray(scene[group]) && scene[group].length === initial[group].length, `${group} incomplet`);
+    scene[group].forEach((item, index) => shape(item, initial[group][index], `${group}[${index}]`));
+  }
+  for (const name of ['barrier', 'logistics', 'contact', 'approach', 'maps', 'lights', 'report', 'alert', 'disturbance']) shape(scene[name], initial[name], name);
+  const solid = (item, original, moving = false) => {
+    fixed(item, original, moving ? ['id', 'w', 'h', 'maxHp'] : ['id', 'x', 'y', 'w', 'h', 'maxHp'], 'objet physique');
+    number(item.hp, 0, item.maxHp, `${item.id} intégrité`);
+    number(item.flash, 0, .15, `${item.id} impact`);
+    boolean(item.destroyed, `${item.id} destruction`);
+    requireValue(item.destroyed === (item.hp === 0), `${item.id} destruction sans perte d’intégrité`);
+  };
+  const work = (job, done, name, allowFinishedWork = false) => {
+    boolean(job.working, `${name} travail`);
+    number(job.progress, 0, 1, `${name} progression`);
+    if (!allowFinishedWork) requireValue(!done || !job.working, `${name} déjà terminé encore actif`);
+    requireValue(!job.working || job.progress < 1, `${name} travail achevé`);
+    requireValue(job.working || job.progress === 0 || job.progress === 1 || name === 'transport' && job.destroyed, `${name} progression inactive non annulée`);
+  };
+  const localWork = (name, done, allowFinishedWork = false) => {
+    const item = scene[name];
+    fixed(item, initial[name], ['id', 'x', 'y', 'w', 'h'], name);
+    work(item, done, name, allowFinishedWork);
+    const duration = { contact: settings.contactTime, approach: item.kind === 'guided' ? settings.guidedTime : settings.surveyedTime,
+      maps: settings.inspectTime, lights: settings.lightsTime, report: settings.reportTime }[name];
+    if (done) requireValue(elapsed + 1e-6 >= duration, `${name} achevé avant sa durée minimale`);
+    if (player && item.working && item.progress > 0) requireValue(Math.abs(player.x - item.x) < settings.interactionRadius, `${name} travail hors portée`);
+  };
+
+  scene.columns.forEach((column, index) => {
+    solid(column, initial.columns[index]);
+    fixed(column, initial.columns[index], ['species'], 'colonne');
+  });
+  scene.roots.forEach((root, index) => {
+    solid(root, initial.roots[index]);
+    fixed(root, initial.roots[index], ['columnId'], 'racine');
+    number(root.lastContactAt, -10, elapsed, 'dernier appui sur racine');
+    number(root.lastStep, -1, steps, 'dernier pas sur racine', true);
+    requireValue(root.lastStep === -1 ? root.lastContactAt === -10 : root.lastContactAt >= 0, 'trace de pied sans pas correspondant');
+  });
+  scene.homes.forEach((home, index) => {
+    solid(home, initial.homes[index]);
+    fixed(home, initial.homes[index], ['columnId'], 'habitat');
+    boolean(home.supported, 'habitat soutenu'); boolean(home.habitable, 'habitat habitable');
+    const supported = !scene.columns[index].destroyed && !scene.roots[index].destroyed;
+    requireValue(home.supported === supported && home.habitable === (supported && !home.destroyed), 'habitat contraire à ses appuis physiques');
+    requireValue(supported || home.destroyed, 'habitat maintenu après rupture de son appui');
+  });
+  scene.pollinators.forEach((fan, index) => {
+    fixed(fan, initial.pollinators[index], ['id', 'species', 'columnId', 'x', 'y', 'w', 'h'], 'éventail');
+    boolean(fan.alive, 'vie de l’éventail');
+    number(fan.calm, 0, 5, 'calme de l’éventail');
+    requireValue(['flying', 'settled', 'lost'].includes(fan.phase), 'phase de l’éventail');
+    requireValue(fan.alive === !scene.columns[index].destroyed && (fan.phase === 'lost') === !fan.alive, 'éventail contraire à sa colonne');
+    requireValue(fan.phase === 'settled' ? fan.calm === 5 && !scene.lights.on : fan.calm < 5, 'éventail posé sans retour au calme');
+    requireValue(fan.alive || fan.calm === 0, 'calme d’un éventail perdu');
+    requireValue(!scene.lights.on || fan.phase !== 'settled' && fan.calm === 0, 'éventail calme sous les projecteurs');
+  });
+
+  boolean(scene.contact.heard, 'échange local'); localWork('contact', scene.contact.heard);
+  requireValue(scene.contact.heard === (scene.contact.progress === 1), 'échange local sans écoute accomplie');
+  boolean(scene.approach.prepared, 'approche préparée'); localWork('approach', scene.approach.prepared, true);
+  requireValue(['unprepared', 'surveyed', 'guided'].includes(scene.approach.kind), 'type de contournement');
+  requireValue(scene.approach.prepared === (scene.approach.kind !== 'unprepared'), 'contournement non préparé');
+  requireValue(scene.approach.clearance === (scene.approach.prepared ? settings.preparedClearance : settings.initialClearance), 'hauteur de passage fictive');
+  requireValue(scene.approach.kind !== 'guided' || scene.contact.heard && scene.approach.progress === 1 && !scene.approach.working, 'guidage sans poste local et travail accompli');
+  requireValue(!scene.approach.prepared || !scene.approach.working || scene.approach.kind === 'surveyed' && scene.contact.heard, 'préparation achevée reprise sans amélioration');
+  requireValue(scene.approach.prepared || scene.approach.progress < 1, 'préparation achevée sans contournement');
+  boolean(scene.maps.inspected, 'cartes inspectées'); localWork('maps', scene.maps.inspected);
+  requireValue(scene.maps.inspected === (scene.maps.progress === 1), 'cartes sans relevé accompli');
+  boolean(scene.lights.on, 'projecteurs allumés'); localWork('lights', !scene.lights.on);
+  requireValue(!scene.lights.on === (scene.lights.progress === 1), 'coupure des projecteurs sans travail');
+
+  const gate = scene.barrier;
+  solid(gate, initial.barrier); fixed(gate, initial.barrier, ['controlX'], 'commande de barrière');
+  boolean(gate.operated, 'barrière manœuvrée'); work(gate, gate.operated, 'barrière');
+  requireValue(gate.opening === (gate.destroyed || gate.operated && facts.route === 'migration' ? 1 : 0), 'ouverture contraire à la manœuvre et aux dégâts');
+  requireValue(!gate.operated || facts.route !== 'unselected' && scene.maps.inspected, 'manœuvre sans choix et cartes');
+  requireValue(!gate.operated || gate.progress === 1 || gate.destroyed && gate.progress === 0, 'manœuvre non accomplie');
+  if (gate.operated) requireValue(elapsed + 1e-6 >= (gate.destroyed && gate.progress === 1 ? settings.damagedGateTime : settings.gateTime), 'manœuvre achevée avant sa durée minimale');
+  requireValue(gate.operated || gate.progress < 1, 'barrière achevée sans opération');
+  requireValue(!gate.working || facts.route !== 'unselected' && scene.maps.inspected, 'travail de barrière avant le choix');
+  if (player && gate.working && gate.progress > 0) requireValue(Math.abs(player.x - gate.controlX) < settings.interactionRadius && player.braced && Math.abs(player.speed) <= 3 && !player.move && player.feet.every(foot => foot.contact), 'barrière en travail sans appuis stables');
+
+  scene.migrators.forEach((animal, index) => {
+    const original = initial.migrators[index];
+    solid(animal, original, true); fixed(animal, original, ['species', 'age'], 'longue-dorse');
+    requireValue(['waiting', 'migrating', ...TERMINAL].includes(animal.phase), 'phase de longue-dorse');
+    requireValue(['unselected', 'orchard', 'exclusion'].includes(animal.destination), 'destination de longue-dorse');
+    boolean(animal.moving, 'déplacement de longue-dorse'); number(animal.fear, 0, 1, 'peur de longue-dorse');
+    requireValue((animal.phase === 'lost') === animal.destroyed, 'longue-dorse perdue encore vivante');
+    const selected = animal.destination !== 'unselected';
+    const target = selected ? animal.destination === 'orchard' ? settings.orchardXs[index] : settings.exclusionXs[index] : original.x;
+    requireValue(animal.targetX === target, 'cible de migration modifiée');
+    number(animal.x, original.x, target, 'position de longue-dorse');
+    requireValue(animal.y === terrainAt(animal.x, planetId) - animal.h / 2, 'hauteur de longue-dorse hors terrain');
+    requireValue(animal.x <= original.x + elapsed * 64 + 1e-6, 'trajet migratoire plus rapide que son déplacement');
+    requireValue(!selected || gate.operated && animal.destination === (facts.route === 'migration' ? 'orchard' : 'exclusion'), 'destination animale sans manœuvre correspondante');
+    requireValue(selected || ['waiting', 'lost'].includes(animal.phase) && animal.x === original.x, 'départ migratoire sans destination');
+    requireValue(animal.phase !== 'waiting' || !selected && !gate.operated, 'troupeau encore en attente après manœuvre');
+    requireValue(animal.phase !== 'migrating' || selected && animal.x < target && !animal.destroyed, 'migration hors trajet');
+    requireValue(!['arrived', 'displaced'].includes(animal.phase) || selected && animal.x === target && !animal.destroyed && animal.phase === (animal.destination === 'orchard' ? 'arrived' : 'displaced'), 'arrivée animale sans trajet achevé');
+    requireValue(!animal.moving || animal.phase === 'migrating', 'mouvement d’un animal terminal ou immobile');
+  });
+
+  const vehicle = scene.logistics;
+  solid(vehicle, initial.logistics, true); fixed(vehicle, initial.logistics, ['controlX', 'targetX', 'speed'], 'trajet logistique');
+  for (const key of ['released', 'moving', 'arrived']) boolean(vehicle[key], `transport ${key}`);
+  work(vehicle, vehicle.released || vehicle.destroyed, 'transport');
+  number(vehicle.x, initial.logistics.x, vehicle.targetX, 'position logistique');
+  requireValue(vehicle.y === terrainAt(vehicle.x, planetId) - vehicle.h / 2, 'hauteur logistique hors terrain');
+  requireValue(vehicle.x <= initial.logistics.x + elapsed * vehicle.speed + 1e-6, 'trajet logistique sans temps de déplacement');
+  requireValue(vehicle.released || vehicle.x === initial.logistics.x, 'transport déplacé avant départ');
+  requireValue(!vehicle.released || facts.migrationResolved && vehicle.progress === 1, 'départ sans opération logistique');
+  requireValue(vehicle.released || vehicle.progress < 1, 'opération logistique achevée sans départ');
+  if (vehicle.released) requireValue(elapsed + 1e-6 >= settings.dispatchTime, 'départ avant sa durée minimale');
+  requireValue(vehicle.arrived === (vehicle.x === vehicle.targetX), 'arrivée logistique contraire à sa position');
+  requireValue(!vehicle.arrived || vehicle.released && !vehicle.destroyed && !vehicle.moving, 'arrivée logistique sans véhicule vivant');
+  requireValue(!vehicle.moving || vehicle.released && !vehicle.destroyed && !vehicle.arrived, 'mouvement logistique impossible');
+  requireValue(!vehicle.working || facts.migrationResolved && !vehicle.destroyed && !vehicle.released, 'opération logistique sans bilan migratoire');
+
+  boolean(scene.alert.triggered, 'arrivée des tireurs');
+  requireValue(scene.alert.triggered === (gate.operated && facts.migrationResolved), 'arrivée des tireurs sans corridor libéré');
+  requireValue(Array.isArray(snipers) && snipers.length === 2, 'groupe de tireurs incomplet');
+  snipers.forEach((sniper, index) => {
+    const original = initialSnipers[index];
+    if (receipt) keys(sniper, ['id', 'hp', 'maxHp', 'dead'], 'tireur au rapport');
+    requireValue(sniper.id === original.id, 'identité de tireur');
+    const capacities = Object.values(DIFFICULTIES).map(difficulty => Math.round(ENEMY_TYPES.sniper.hp * difficulty.enemyHealth));
+    requireValue(receipt ? capacities.includes(sniper.maxHp) : sniper.maxHp === original.maxHp, 'capacité de tireur');
+    number(sniper.hp, 0, sniper.maxHp, 'intégrité de tireur'); boolean(sniper.dead, 'tireur neutralisé');
+    requireValue(sniper.dead === (sniper.hp === 0), 'neutralisation sans perte d’intégrité');
+    requireValue(scene.alert.triggered || !sniper.dead && sniper.hp === sniper.maxHp, 'dégâts sur un tireur absent');
+    if (!receipt) {
+      fixed(sniper, original, ['x', 'spawnX', 'y'], 'poste de tireur');
+      requireValue(scene.alert.triggered || !sniper.active && sniper.phase === 'idle', 'tireur actif avant son arrivée');
+    }
+  });
+  requireValue(snipers[0].maxHp === snipers[1].maxHp, 'capacités de tireurs provenant de difficultés différentes');
+  boolean(scene.report.transmitted, 'rapport transmis'); localWork('report', scene.report.transmitted);
+  requireValue(scene.report.transmitted === (scene.report.progress === 1), 'rapport sans transmission accomplie');
+  requireValue(!scene.report.working || facts.routeInspected && gate.operated && facts.migrationResolved && snipers.every(sniper => sniper.dead) && vehicle.arrived, 'transmission commencée avant les actes requis');
+  number(scene.disturbance.x, -500, 6900, 'position du bruit');
+  number(scene.disturbance.remaining, 0, 4, 'durée du bruit');
+  number(scene.disturbance.strength, 0, 1, 'intensité du bruit');
+
+  const count = phase => scene.migrators.filter(animal => animal.phase === phase).length;
+  const derived = {
+    localsHeard: scene.contact.heard, approach: scene.approach.kind, approachPrepared: scene.approach.prepared,
+    routeInspected: scene.maps.inspected, hamletsRecorded: scene.maps.inspected, manifestRead: scene.maps.inspected,
+    migrationObserved: scene.migrators.some((animal, index) => animal.x > initial.migrators[index].x),
+    lightsOff: !scene.lights.on, gateOperated: gate.operated, migratorsTotal: 4,
+    migrationResolved: scene.migrators.every(animal => TERMINAL.includes(animal.phase)),
+    migratorsArrived: count('arrived'), migratorsDisplaced: count('displaced'), migratorsLost: count('lost'),
+    columnsIntact: scene.columns.filter(column => !column.destroyed).length,
+    homesHabitable: scene.homes.filter(home => home.habitable).length,
+    pollinatorsPresent: scene.pollinators.filter(fan => fan.alive && fan.phase === 'settled').length,
+    passagePreserved: gate.operated && facts.route === 'migration' && !gate.destroyed && scene.roots.every(root => !root.destroyed),
+    cropsFertilized: count('arrived') > 0,
+    harvestFragile: scene.migrators.every(animal => TERMINAL.includes(animal.phase)) && (count('arrived') < 4 || scene.columns.some(column => column.destroyed) || scene.pollinators.some(fan => !fan.alive)),
+    snipersTriggered: scene.alert.triggered, snipersNeutralized: snipers.filter(sniper => sniper.dead).length,
+    logisticsReleased: vehicle.released, logisticsArrived: vehicle.arrived, logisticsDestroyed: vehicle.destroyed,
+    logisticsIntegrity: vehicle.hp / vehicle.maxHp, reportTransmitted: scene.report.transmitted,
+  };
+  fixed(facts, derived, Object.keys(derived), 'bilan contraire aux objets physiques');
+}
+
+function validateLivingRouteMission(value, template) {
+  const facts = value.campaign, scene = value.livingRoute;
+  requireValue(object(facts) && facts.missionId === 'MI09' && object(scene), 'scène absente');
+  validateContext(facts.context); validateLivingRouteFacts(facts, value.status === 'won');
+  requireValue(facts.route === (value.decision.choice === null ? 'unselected' : value.decision.choice === 'obey' ? 'imperial' : 'migration'), 'route contraire au choix');
+  requireValue(!value.decision.active && !value.decision.resolved || scene.maps.inspected, 'choix avant relevé des cartes');
+  validateScene(scene, template.livingRoute, facts, value.mission.livingRoute, {
+    elapsed: value.elapsed, planetId: value.planetId, snipers: value.enemies, initialSnipers: template.enemies,
+    steps: value.stats.steps, player: value.player,
+  });
+  const expectedPhase = value.status === 'won' ? 'complete' : scene.report.transmitted || scene.logistics.arrived ? 'report'
+    : scene.logistics.released ? 'logistics' : scene.alert.triggered ? 'defence' : scene.barrier.operated ? 'migration'
+      : value.decision.resolved ? 'routing' : scene.maps.inspected ? 'survey' : 'approach';
+  requireValue(facts.phase === expectedPhase, 'phase contraire aux actes accomplis');
+  requireValue(value.evidence.collected === scene.maps.inspected && value.evidence.scanProgress === (scene.maps.inspected ? 1 : 0) && !value.evidence.scanning, 'lecture du relevé contraire aux cartes');
+  fixed(value.evidence, template.evidence, Object.keys(template.evidence).filter(key => !['collected', 'scanProgress', 'scanning'].includes(key)), 'géométrie du relevé');
+  requireValue(value.stats.evidence === 0, 'aucune nouvelle preuve PALINODE sur cette route');
+  requireValue(value.stats.collateral === 0, 'aucune population humaine supposée dans le bilan de Thyr');
+  requireValue(value.stats.kills === facts.snipersNeutralized, 'décompte des tireurs');
+  requireValue(value.stats.ordersObeyed === Number(value.decision.choice === 'obey') && value.stats.ordersDefied === Number(value.decision.choice === 'defy'), 'décompte du choix');
+  const expected = [
+    ['survey', Number(facts.routeInspected), 1, facts.routeInspected],
+    ['route', Number(facts.gateOperated), 1, value.decision.resolved && facts.gateOperated],
+    ['migration', facts.migratorsArrived + facts.migratorsDisplaced + facts.migratorsLost, 4, facts.migrationResolved],
+    ['snipers', facts.snipersNeutralized, 2, facts.snipersNeutralized === 2],
+    ['logistics', Number(facts.logisticsArrived), 1, facts.logisticsArrived],
+    ['report', Number(facts.reportTransmitted), 1, facts.reportTransmitted],
+    ['extract', Number(value.status === 'won'), 1, value.status === 'won'],
+  ];
+  requireValue(value.objectives.length === expected.length, 'liste des objectifs de Thyr');
+  expected.forEach(([id, current, target, complete], index) => fixed(value.objectives[index], { id, current, target, complete }, ['id', 'current', 'target', 'complete'], 'objectif contraire aux actes'));
+  requireValue(value.extraction.active === expected.slice(0, -1).every(([, , , complete]) => complete), 'extraction avant accomplissement');
+  fixed(value.extraction, template.extraction, Object.keys(template.extraction).filter(key => key !== 'active'), 'point de sortie');
+  if (value.status === 'won') requireValue(facts.phase === 'complete' && value.player.hull > 0 && value.objectives.every(goal => goal.complete) && Math.abs(value.player.x - value.extraction.x) < value.extraction.radius, 'victoire sans extraction accomplie');
+  if (value.status === 'lost') requireValue(value.player.hull === 0 || scene.logistics.destroyed, 'défaite sans perte terminale');
+  if (value.status === 'playing') requireValue(!scene.logistics.destroyed, 'transport détruit dans une sortie encore vivante');
+}
+
+function validateLivingRouteReceipt(receipt, context) {
+  validateContext(context); validateLivingRouteFacts(receipt, true);
+  requireValue(receipt.route === (receipt.choice === 'obey' ? 'imperial' : 'migration'), 'route du rapport contraire au choix');
+  const template = createGame({ missionId: 'MI09', walkerId: receipt.walkerId, campaignContext: context });
+  keys(receipt.roster, [...Object.keys(template.livingRoute), 'snipers'], 'registre individuel de Thyr');
+  const scene = Object.fromEntries(Object.keys(template.livingRoute).map(key => [key, receipt.roster[key]]));
+  validateScene(scene, template.livingRoute, receipt, template.mission.livingRoute, {
+    elapsed: receipt.elapsed, planetId: template.planetId, snipers: receipt.roster.snipers, initialSnipers: template.enemies, receipt: true,
+  });
+  requireValue(receipt.collateral === 0 && receipt.kills === receipt.snipersNeutralized && receipt.hull > 0, 'bilan de retour contraire aux acteurs');
+}
+
+function livingRouteDossierFromGame(game) {
+  const fields = Object.keys(createLivingRouteDossier()).filter(key => key !== 'roster');
+  return { ...Object.fromEntries(fields.map(key => [key, game.campaign[key]])), roster: livingRouteReceiptRoster(game) };
+}
+
+/** Official checkpoints may advance consequences, never revive or rewind them. */
+function validateLivingRouteSortie(previous, current) {
+  requireValue(previous?.missionId === 'MI09' && current.missionId === 'MI09', 'checkpoint hors sortie officielle');
+  requireValue(current.walkerId === previous.walkerId && current.seed === previous.seed && current.difficultyId === previous.difficultyId, 'changement de sortie');
+  requireValue(current.elapsed >= previous.elapsed, 'recul de sortie');
+  equal(current.campaign.context, previous.campaign.context, 'héritage modifié pendant la sortie');
+  requireValue(previous.status === 'playing' || JSON.stringify(current) === JSON.stringify(previous), 'sortie perdue à recommencer explicitement');
+  requireValue(!previous.decision.resolved || current.decision.resolved && current.decision.choice === previous.decision.choice, 'choix acquis annulé');
+  for (const key of ['localsHeard', 'approachPrepared', 'routeInspected', 'hamletsRecorded', 'migrationObserved', 'lightsOff', 'gateOperated', 'migrationResolved', 'snipersTriggered', 'logisticsReleased', 'logisticsArrived', 'logisticsDestroyed', 'reportTransmitted', 'manifestRead']) {
+    requireValue(!previous.campaign[key] || current.campaign[key], `fait acquis annulé : ${key}`);
+  }
+  const old = previous.livingRoute, now = current.livingRoute;
+  for (const group of ['columns', 'roots', 'homes', 'migrators']) {
+    old[group].forEach((item, index) => {
+      requireValue(now[group][index].hp <= item.hp, `intégrité restituée : ${item.id}`);
+      if (group === 'roots') requireValue(now[group][index].lastContactAt >= item.lastContactAt && now[group][index].lastStep >= item.lastStep, `trace d’appui reculée : ${item.id}`);
+      if (group === 'migrators') {
+        requireValue(now[group][index].x >= item.x, `trajet migratoire reculé : ${item.id}`);
+        if (TERMINAL.includes(item.phase)) fixed(now[group][index], item, ['hp', 'destroyed', 'phase', 'destination', 'targetX', 'x', 'y'], 'destination individuelle acquise modifiée');
+      }
+    });
+  }
+  for (const name of ['barrier', 'logistics']) requireValue(now[name].hp <= old[name].hp, `intégrité restituée : ${name}`);
+  requireValue(now.logistics.x >= old.logistics.x, 'trajet logistique reculé');
+  if (old.approach.kind === 'guided') requireValue(now.approach.kind === 'guided', 'approche guidée annulée');
+  previous.enemies.forEach((enemy, index) => requireValue(current.enemies[index].hp <= enemy.hp, 'tireur ressuscité ou réparé'));
+}
+
+return {createLivingRouteDossier,livingRouteContextFor,validateLivingRouteFacts,validateLivingRouteMission,validateLivingRouteReceipt,livingRouteDossierFromGame,validateLivingRouteSortie};
+})();
 __modules["src/campaign.mjs"] = (() => {
 /**
  * Sequential campaign dossiers, workshop maintenance and resilient local saves.
@@ -6562,17 +7679,18 @@ __modules["src/campaign.mjs"] = (() => {
  * Every campaign transition returns a new value; gameplay remains in simulation.mjs.
  */
 const { WALKERS, DIFFICULTIES, ENEMY_TYPES } = __modules["src/content.mjs"];
-const { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt, dikeDecisionBody, dikeSupportReady, ambulanceDecisionBody, ambulanceStopClear, departureDecisionBody } = __modules["src/simulation.mjs"];
+const { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt, dikeDecisionBody, dikeSupportReady, ambulanceDecisionBody, ambulanceStopClear, departureDecisionBody, livingRouteDecisionBody } = __modules["src/simulation.mjs"];
 const { createDepartureDossier, departureContextFor, departureDossierFromGame, validateDepartureMission, validateDepartureFacts, validateDepartureReceipt } = __modules["src/departure-validation.mjs"];
+const { createLivingRouteDossier, livingRouteContextFor, livingRouteDossierFromGame, validateLivingRouteMission, validateLivingRouteFacts, validateLivingRouteReceipt, validateLivingRouteSortie } = __modules["src/thyr-validation.mjs"];
 const CAMPAIGN_SAVE_KEY = 'imperium.campaign.v1';
 const CAMPAIGN_BACKUP_KEY = 'imperium.campaign.v1.backup';
-const CAMPAIGN_SAVE_VERSION = 8;
+const CAMPAIGN_SAVE_VERSION = 9;
 const FORMAT = 'ordre-de-cendre.campaign';
 const MAX_BYTES = 2_000_000;
 const INITIAL_PARTS = 6;
 const DELIVERY_PARTS = 4;
 const PIPE_PARTS = 2;
-const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08'];
+const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08', 'MI09'];
 const LEGACY_WALKER_IDS = ['WK01', 'WK05', 'WK09'];
 const clone = value => JSON.parse(JSON.stringify(value));
 const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
@@ -6710,7 +7828,7 @@ function validateGame(value, finished = false) {
   } else requireValue(value.convoy === null, 'convoi inattendu');
   requireValue(value.decision.choice === null || (value.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : ['obey', 'defy']).includes(value.decision.choice), 'décision inconnue');
   for (const key of ['title', 'body', 'options']) {
-    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : value.missionId === 'MI07' ? ambulanceDecisionBody : value.missionId === 'MI08' ? departureDecisionBody : null;
+    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : value.missionId === 'MI07' ? ambulanceDecisionBody : value.missionId === 'MI08' ? departureDecisionBody : value.missionId === 'MI09' ? livingRouteDecisionBody : null;
     const expected = key === 'body' && dynamicBody && (value.decision.active || value.decision.resolved)
       ? dynamicBody(value) : template.decision[key];
     requireValue(JSON.stringify(value.decision[key]) === JSON.stringify(expected), 'texte de décision incompatible');
@@ -6725,6 +7843,10 @@ function validateGame(value, finished = false) {
     number(objective.target, 1, 100000, 'cible d’objectif');
   }
   const mission = value.campaign;
+  if (value.missionId === 'MI09') {
+    validateLivingRouteMission(value, template);
+    return value;
+  }
   if (value.missionId === 'MI08') {
     validateDepartureMission(value, template);
     return value;
@@ -6941,7 +8063,8 @@ function createCampaign() {
     world: { vesper: { pipeIntact: true, pipeRepaired: false, servicesInterrupted: false, filtersDelivered: false,
       filtersDeliveredCount: 0, calesBassesExcluded: false, noticeFiled: false,
       rail: createRailDossier(), communications: createCommunicationsDossier(), industrial: createIndustrialDossier() },
-      nacre: { passage: createChannelDossier(), dike: createDikeDossier(), fuelSpent: 0, ambulance: createAmbulanceDossier(), departure: createDepartureDossier() } },
+      nacre: { passage: createChannelDossier(), dike: createDikeDossier(), fuelSpent: 0, ambulance: createAmbulanceDossier(), departure: createDepartureDossier() },
+      thyr: { route: createLivingRouteDossier() } },
     fleet: Object.fromEntries(WALKERS.map(walker => [walker.id, { hull: walker.hull, feet: Array(walker.legs).fill(100), radiator: 100 }])),
     checkpoint: null, preDecisionCheckpoint: null, lastDebrief: null, maintenanceLog: [],
   };
@@ -7289,6 +8412,7 @@ function validateAmbulanceMission(value, template) {
 
 function campaignContextFor(campaign, missionId) {
   const world = campaign.world.vesper;
+  if (missionId === 'MI09') return livingRouteContextFor(campaign);
   if (missionId === 'MI08') return departureContextFor(campaign);
   if (missionId === 'MI07') return Object.fromEntries(AMBULANCE_CONTEXT_KEYS.map(key => [key, campaign.world.nacre.dike[key]]));
   if (missionId === 'MI06') {
@@ -7338,6 +8462,10 @@ function applyDikeFuel(next, previous, game) {
 }
 
 function validateAmbulanceSortie(previous, game) {
+  if (game.missionId === 'MI09') {
+    validateLivingRouteSortie(previous.checkpoint, game);
+    return;
+  }
   if (!['MI07','MI08'].includes(game.missionId)) return;
   const old = previous.checkpoint;
   if (game.missionId === 'MI08') requireValue(old && game.elapsed >= old.elapsed, 'recul de sortie d’Aval');
@@ -7358,7 +8486,7 @@ function validateReceipt(receipt) {
   const specificKeys = receipt.missionId === 'MI01' ? ['convoyIntegrity', 'route', 'pipeIntact', 'noticeFiled', 'filtersDeliveredCount', 'pipeRepairCost']
     : receipt.missionId === 'MI02' ? ['trainIntegrity', 'trainStopped', 'harpoonsReleased', 'hostagesTotal', 'hostagesRescued', 'hostagesLost', 'evidencePreserved', 'recordFiled']
       : receipt.missionId === 'MI03' ? ['signalsIdentified', 'militaryRelayDisabled', 'verifiedBuildings', 'networkPreserved', 'civilRelaysOnline', 'dispensaryIntact', 'witnessAvailable', 'residentsLost', 'holtAlerted', 'reportFiled']
-        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : receipt.missionId === 'MI05' ? Object.keys(createChannelDossier()) : receipt.missionId === 'MI06' ? Object.keys(createDikeDossier()) : receipt.missionId === 'MI07' ? Object.keys(createAmbulanceDossier()) : Object.keys(createDepartureDossier());
+        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : receipt.missionId === 'MI05' ? Object.keys(createChannelDossier()) : receipt.missionId === 'MI06' ? Object.keys(createDikeDossier()) : receipt.missionId === 'MI07' ? Object.keys(createAmbulanceDossier()) : receipt.missionId === 'MI08' ? Object.keys(createDepartureDossier()) : Object.keys(createLivingRouteDossier());
   const expectedKeys = [...commonKeys, ...specificKeys];
   requireValue(Object.keys(receipt).length === expectedKeys.length && expectedKeys.every(key => own(receipt, key)), 'champs du rapport incompatibles');
   for (const key of ['walkerName', 'missionName', 'decisionLabel', 'tessLine', 'samiLine']) requireValue(typeof receipt[key] === 'string', `rapport ${key}`);
@@ -7371,6 +8499,10 @@ function validateReceipt(receipt) {
   number(receipt.collateral, 0, 1000, 'pertes civiles', true);
   number(receipt.kills, 0, 1000, 'adversaires neutralisés', true);
   requireValue(receipt.partsGranted === DELIVERY_PARTS, 'dotation du rapport');
+  if (receipt.missionId === 'MI09') {
+    validateLivingRouteFacts(receipt, true);
+    return;
+  }
   if (receipt.missionId === 'MI08') {
     validateDepartureFacts(receipt, true);
     return;
@@ -7473,10 +8605,10 @@ function validateCampaign(campaign) {
     number(log.cost, 1, 6, 'coût intervention', true);
   }
   if (campaign.checkpoint !== null) {
-    validateGame(campaign.checkpoint, ['MI06', 'MI07', 'MI08'].includes(campaign.checkpoint.missionId) && campaign.checkpoint.status === 'lost');
+    validateGame(campaign.checkpoint, ['MI06', 'MI07', 'MI08', 'MI09'].includes(campaign.checkpoint.missionId) && campaign.checkpoint.status === 'lost');
     if (campaign.checkpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.checkpoint);
     requireValue(campaign.checkpoint.missionId === campaign.activeMissionId, 'checkpoint d’une autre mission');
-    if (['MI02', 'MI03', 'MI04', 'MI05', 'MI07', 'MI08'].includes(campaign.checkpoint.missionId)) {
+    if (['MI02', 'MI03', 'MI04', 'MI05', 'MI07', 'MI08', 'MI09'].includes(campaign.checkpoint.missionId)) {
       requireValue(JSON.stringify(campaign.checkpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.checkpoint.missionId)), 'héritage des missions précédentes contradictoire');
     }
   }
@@ -7484,7 +8616,14 @@ function validateCampaign(campaign) {
     validateGame(campaign.preDecisionCheckpoint);
     if (campaign.preDecisionCheckpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.preDecisionCheckpoint, true);
     requireValue(campaign.preDecisionCheckpoint.decision.active && !campaign.preDecisionCheckpoint.decision.resolved, 'checkpoint avant décision incompatible');
-    if ((campaign.stage === 'mission' && ['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.preDecisionCheckpoint.missionId) || ['MI07','MI08'].includes(campaign.preDecisionCheckpoint.missionId))) requireValue(JSON.stringify(campaign.preDecisionCheckpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.preDecisionCheckpoint.missionId)), 'héritage du point de décision contradictoire');
+    if ((campaign.stage === 'mission' && ['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.preDecisionCheckpoint.missionId) || ['MI07','MI08','MI09'].includes(campaign.preDecisionCheckpoint.missionId))) requireValue(JSON.stringify(campaign.preDecisionCheckpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.preDecisionCheckpoint.missionId)), 'héritage du point de décision contradictoire');
+    if (campaign.preDecisionCheckpoint.missionId === 'MI09') {
+      const current = campaign.checkpoint?.missionId === 'MI09' ? campaign.checkpoint : null;
+      const reference = current || campaign.completed.MI09;
+      requireValue(reference && campaign.preDecisionCheckpoint.elapsed <= reference.elapsed, 'point de décision de Thyr postérieur à la sortie');
+      requireValue(campaign.preDecisionCheckpoint.walkerId === reference.walkerId, 'point de décision d’un autre marcheur sur Thyr');
+      if (current) requireValue(campaign.preDecisionCheckpoint.seed === current.seed && campaign.preDecisionCheckpoint.difficultyId === current.difficultyId, 'point de décision d’une autre sortie sur Thyr');
+    }
   }
   for (const [id, receipt] of Object.entries(campaign.completed)) {
     validateReceipt(receipt);
@@ -7541,6 +8680,11 @@ function validateCampaign(campaign) {
     validateDepartureReceipt(report, departureContextFor(campaign));
     for (const key of Object.keys(createDepartureDossier())) requireValue(JSON.stringify(campaign.world.nacre.departure[key]) === JSON.stringify(report[key]), `dossier de départ ${key}`);
   } else requireValue(JSON.stringify(campaign.world.nacre.departure) === JSON.stringify(createDepartureDossier()), 'départ sans dossier MI08');
+  if (campaign.completed.MI09) {
+    const report = campaign.completed.MI09;
+    validateLivingRouteReceipt(report, livingRouteContextFor(campaign));
+    for (const key of Object.keys(createLivingRouteDossier())) requireValue(JSON.stringify(campaign.world.thyr.route[key]) === JSON.stringify(report[key]), `dossier de la route vivante ${key}`);
+  } else requireValue(JSON.stringify(campaign.world.thyr.route) === JSON.stringify(createLivingRouteDossier()), 'route de Thyr sans dossier MI09');
   if (campaign.stage === 'mission') {
     requireValue(campaign.checkpoint !== null && MISSION_IDS.includes(campaign.activeMissionId) && !own(campaign.completed, campaign.activeMissionId), 'mission sans checkpoint ou déjà achevée');
     const previousId = MISSION_IDS[MISSION_IDS.indexOf(campaign.activeMissionId) - 1];
@@ -7571,7 +8715,7 @@ function parseCampaign(text) {
 
 /** Add only documented fields to historical saves; completed receipts stay intact. */
 function migrateCampaign(value) {
-  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4, 5, 6, 7].includes(value.version)) return value;
+  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4, 5, 6, 7, 8].includes(value.version)) return value;
   walkJSON(value);
   requireValue(isObject(value.world) && isObject(value.world.vesper), 'Vesper absent du dossier historique');
   if (value.version === 1) {
@@ -7660,16 +8804,27 @@ function migrateCampaign(value) {
     value.world.nacre.ambulance = createAmbulanceDossier();
     value.version = 7;
   }
-  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01','MI02','MI03','MI04','MI05','MI06','MI07'].includes(id)), 'dossier v7 contient une mission inconnue');
-  requireValue(value.activeMissionId === null || ['MI01','MI02','MI03','MI04','MI05','MI06','MI07'].includes(value.activeMissionId), 'mission active v7 inconnue');
-  requireValue(isObject(value.world.nacre) && !own(value.world.nacre,'departure'), 'départ inattendu dans le dossier historique');
+  if (value.version === 7) {
+    requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01','MI02','MI03','MI04','MI05','MI06','MI07'].includes(id)), 'dossier v7 contient une mission inconnue');
+    requireValue(value.activeMissionId === null || ['MI01','MI02','MI03','MI04','MI05','MI06','MI07'].includes(value.activeMissionId), 'mission active v7 inconnue');
+    requireValue(isObject(value.world.nacre) && !own(value.world.nacre,'departure'), 'départ inattendu dans le dossier historique');
+    for (const checkpoint of [value.checkpoint,value.preDecisionCheckpoint]) if (checkpoint !== null) {
+      requireValue(isObject(checkpoint) && ['MI01','MI02','MI03','MI04','MI05','MI06','MI07'].includes(checkpoint.missionId), 'checkpoint v7 inconnu');
+      requireValue(!own(checkpoint,'departure'), 'scène d’Aval inattendue dans un checkpoint historique');
+    }
+    value.world.nacre.departure = createDepartureDossier();
+    value.version = 8;
+  }
+  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08'].includes(id)), 'dossier v8 contient une mission inconnue');
+  requireValue(value.activeMissionId === null || ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08'].includes(value.activeMissionId), 'mission active v8 inconnue');
+  requireValue(!own(value.world,'thyr'), 'Thyr inattendue dans le dossier historique');
   for (const checkpoint of [value.checkpoint,value.preDecisionCheckpoint]) if (checkpoint !== null) {
-    requireValue(isObject(checkpoint) && ['MI01','MI02','MI03','MI04','MI05','MI06','MI07'].includes(checkpoint.missionId), 'checkpoint v7 inconnu');
-    requireValue(!own(checkpoint,'departure'), 'scène d’Aval inattendue dans un checkpoint historique');
+    requireValue(isObject(checkpoint) && ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08'].includes(checkpoint.missionId), 'checkpoint v8 inconnu');
+    requireValue(!own(checkpoint,'livingRoute'), 'route de Thyr inattendue dans un checkpoint historique');
   }
   // Only an empty future dossier is added. Earlier identities, receipts, supplies,
   // exact simulations and the historical first outcomes remain untouched.
-  value.world.nacre.departure = createDepartureDossier();
+  value.world.thyr = { route: createLivingRouteDossier() };
   value.version = CAMPAIGN_SAVE_VERSION;
   return value;
 }
@@ -7687,7 +8842,7 @@ function unsupportedDossier(text) {
   try {
     const value = JSON.parse(text);
     return isObject(value) && ((typeof value.format === 'string' && value.format !== FORMAT) ||
-      (value.format === FORMAT && ![1, 2, 3, 4, 5, 6, 7, CAMPAIGN_SAVE_VERSION].includes(value.version)));
+      (value.format === FORMAT && ![1, 2, 3, 4, 5, 6, 7, 8, CAMPAIGN_SAVE_VERSION].includes(value.version)));
   } catch { return false; }
 }
 
@@ -7740,6 +8895,7 @@ function beginCampaignMission(campaign, options = {}) {
   if (missionId === 'MI06' && !campaign.completed.MI05) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le rapport du chenal avant de rejoindre les maisons des Trois-Vannes.' };
   if (missionId === 'MI07' && !campaign.completed.MI06) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le bilan de la digue avant de rejoindre l’ambulance sur la chaussée des Salines.' };
   if (missionId === 'MI08' && !campaign.completed.MI07) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le bilan sanitaire avant de rejoindre les portes d’Aval.' };
+  if (missionId === 'MI09' && !campaign.completed.MI08) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le registre de départ de Nacre avant de rejoindre la route des vivants sur Thyr.' };
   const walkerId = WALKERS.some(walker => walker.id === options.walkerId) ? options.walkerId : WALKERS[0].id;
   const replay = Boolean(options.replay || own(campaign.completed, missionId));
   if (!replay && campaign.stage === 'mission' && !options.restart) return { ok: false, campaign, game: null, replay: false, message: 'Une sortie est déjà en cours. Reprenez-la ou recommencez-la explicitement.' };
@@ -7762,13 +8918,14 @@ function beginCampaignMission(campaign, options = {}) {
         : missionId === 'MI04' ? 'La station industrielle est accessible. Refroidissez les turbines et relevez ce qui reste du journal de maintenance.'
           : missionId === 'MI05' ? 'L’affectation de Nacre est ouverte. Libérez le chenal et vérifiez les deux équipages avant de signer votre rapport.'
             : missionId === 'MI06' ? 'La digue des Trois-Vannes vous attend. Relevez les seuils et soutenez le chantier avant de choisir le circuit.'
-              : missionId === 'MI08' ? 'Les portes d’Aval sont accessibles. Retrouvez les personnes, confirmez les accueils et rendez compte des départs réellement accomplis.' : 'L’ambulance vous attend sur la chaussée des Salines. Faites-la arrêter, établissez sa cargaison et protégez son transfert.';
+              : missionId === 'MI09' ? 'La route des vivants est accessible sur Thyr. Relevez les hameaux, écoutez les habitants et accompagnez la migration avant le passage logistique.'
+                : missionId === 'MI08' ? 'Les portes d’Aval sont accessibles. Retrouvez les personnes, confirmez les accueils et rendez compte des départs réellement accomplis.' : 'L’ambulance vous attend sur la chaussée des Salines. Faites-la arrêter, établissez sa cargaison et protégez son transfert.';
   return { ok: true, campaign: next, game, replay: false, message };
 }
 
 function checkpointCampaign(campaign, game, options = {}) {
   validateCampaign(campaign);
-  const terminalSortie = ['MI06', 'MI07', 'MI08'].includes(game?.missionId) && game.status === 'lost';
+  const terminalSortie = ['MI06', 'MI07', 'MI08', 'MI09'].includes(game?.missionId) && game.status === 'lost';
   if (options.replay || own(campaign.completed, game?.missionId) || (game?.status !== 'playing' && !terminalSortie)) return campaign;
   requireValue(campaign.stage === 'mission' && campaign.activeMissionId === game.missionId, 'aucune campagne active pour cette mission');
   const snapshot = clone(game);
@@ -7786,14 +8943,19 @@ function restoreCampaignGame(campaign, options = {}) {
   validateCampaign(campaign);
   if (campaign.stage !== 'mission' || own(campaign.completed, campaign.activeMissionId)) return null;
   const snapshot = options.beforeDecision ? campaign.preDecisionCheckpoint : campaign.checkpoint;
+  if (options.beforeDecision && campaign.activeMissionId === 'MI09' && (campaign.checkpoint.status === 'lost' || !snapshot || JSON.stringify(snapshot) !== JSON.stringify(campaign.checkpoint))) return null;
   if (options.beforeDecision && campaign.activeMissionId === 'MI07' && campaign.checkpoint.status === 'lost') return null;
   if (options.beforeDecision && campaign.activeMissionId === 'MI08' && (campaign.checkpoint.status === 'lost' || snapshot && snapshot.elapsed < campaign.checkpoint.elapsed)) return null;
   if (options.beforeDecision && campaign.activeMissionId === 'MI06' && (campaign.checkpoint.status === 'lost' || (snapshot && (snapshot.elapsed < campaign.checkpoint.elapsed || snapshot.campaign.fuelSpent < campaign.checkpoint.campaign.fuelSpent)))) return null;
-  return snapshot ? clone(validateGame(snapshot, ['MI06', 'MI07', 'MI08'].includes(snapshot.missionId) && snapshot.status === 'lost')) : null;
+  return snapshot ? clone(validateGame(snapshot, ['MI06', 'MI07', 'MI08', 'MI09'].includes(snapshot.missionId) && snapshot.status === 'lost')) : null;
 }
 
 function crewLines(game) {
   const mission = game.campaign;
+  if (game.missionId === 'MI09') return {
+    tessLine: `${mission.migratorsArrived} longues-dorses ont rejoint les vergers, ${mission.migratorsDisplaced} ont été détournés et ${mission.migratorsLost} sont morts. ${mission.homesHabitable} habitats restent utilisables ; le rapport conserve aussi les racines et les colonnes dont ils dépendent.`,
+    samiLine: `${mission.localsHeard ? 'Les habitants ont été écoutés sur place ; leur indication de passage est consignée.' : 'Aucun échange local n’a été accompli.'} ${mission.passagePreserved ? 'Le passage migratoire est resté praticable.' : 'La continuité migratoire n’a pas été préservée.'} ${mission.cropsFertilized ? 'Des longues-dorses ont atteint les cultures.' : 'Aucun longue-dorse n’a atteint les cultures.'} La carte omet ces passages. Nous savons ce qu’ils font vivre ; il reste à comprendre qui a imposé ce tracé.`,
+  };
   if (game.missionId === 'MI08') return {
     tessLine: `${mission.peopleDeparted} départs enregistrés, ${mission.peopleArrived} arrivées au refuge, ${mission.peopleLocal} personnes à l’accueil local et ${mission.peopleLost} pertes. Les ${mission.patientsTotal} patients hérités ont chacun leur destination ; un bateau parti ne suffit pas à déclarer son arrivée.`,
     samiLine: `${mission.registryCopied ? 'Les pages copiées relient les adresses de relogement aux obligations de travail imposées.' : 'Le registre n’a pas été copié. Les noms manquants ne prouvent pas un décès.'} ${mission.maraDeparted ? 'Mara est partie après une rencontre et un accord recueillis à Aval.' : mission.maraPresent ? 'Mara a rejoint le quai ; son bilan personnel reste au registre.' : 'Mara n’a pas rejoint physiquement le quai.'} Le rapport suit les manœuvres et les personnes effectivement arrivées.`,
@@ -7883,7 +9045,7 @@ function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(campaign);
   if (options.replay || own(campaign.completed, game?.missionId)) return { ok: true, campaign, receipt: campaign.completed[game?.missionId] || campaign.lastDebrief, applied: false, message: 'Rejeu terminé. Le rapport de campagne et les lots restent inchangés.' };
   if (game?.status !== 'won') {
-    const terminal = ['MI06', 'MI07', 'MI08'].includes(game?.missionId) && game.status === 'lost';
+    const terminal = ['MI06', 'MI07', 'MI08', 'MI09'].includes(game?.missionId) && game.status === 'lost';
     const failed = terminal ? checkpointCampaign(campaign, game) : campaign;
     return { ok: true, campaign: failed, receipt: null, applied: false, message: terminal ? 'Sortie perdue. Le bilan est conservé ; recommencez explicitement la mission avec le stock restant.' : 'Aucune sortie validée. Le dernier checkpoint reste disponible.' };
   }
@@ -7898,7 +9060,10 @@ function finishCampaignMission(campaign, game, options = {}) {
     elapsed: game.elapsed, collateral: game.stats.collateral, kills: game.stats.kills, choice: game.decision.choice,
     partsGranted: DELIVERY_PARTS, ...crewLines(game),
   };
-  const receipt = game.missionId === 'MI08' ? {
+  const receipt = game.missionId === 'MI09' ? {
+    ...commonReceipt, ...livingRouteDossierFromGame(game),
+    decisionLabel: mission.passagePreserved ? 'Passage migratoire préservé et trajet logistique accompli' : mission.route === 'imperial' ? 'Déviation impériale accomplie, effets sur les cultures consignés' : 'Itinéraire migratoire demandé, dommages et trajet consignés',
+  } : game.missionId === 'MI08' ? {
     ...commonReceipt, ...departureDossierFromGame(game),
     decisionLabel: mission.execution === 'damaged' ? 'Avaries constatées, accueils et départs consignés' : mission.plan === 'open' ? 'Passage maintenu, départs consentis et arrivées consignés' : mission.execution === 'delayed' ? 'Fenêtre de départ accomplie avant fermeture' : 'Fermeture accomplie et accueil local consigné',
   } : game.missionId === 'MI07' ? {
@@ -7937,7 +9102,12 @@ function finishCampaignMission(campaign, game, options = {}) {
   next.stage = 'complete'; next.activeMissionId = null; next.checkpoint = null; next.revision++;
   next.resources.parts += DELIVERY_PARTS;
   next.fleet[game.walkerId] = { hull: game.player.hull, feet: game.player.feet.map(foot => foot.health), radiator: game.player.radiator.health };
-  if (game.missionId === 'MI08') {
+  if (game.missionId === 'MI09') {
+    next.world.thyr.route = livingRouteDossierFromGame(game);
+    next.authority.suspicion = clamp(next.authority.suspicion + (mission.route === 'migration' ? 2 : 0), 0, 100);
+    next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.passagePreserved ? 2 : 0) - mission.migratorsLost, 0, 100);
+    next.crew.sami.trust = clamp(next.crew.sami.trust + (mission.localsHeard ? 2 : 0) + (mission.hamletsRecorded ? 1 : 0) - game.stats.collateral, 0, 100);
+  } else if (game.missionId === 'MI08') {
     next.world.nacre.departure = departureDossierFromGame(game);
     next.authority.suspicion = clamp(next.authority.suspicion + (mission.plan === 'open' ? 4 : mission.plan === 'window' ? 1 : 0), 0, 100);
     next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.peopleLost ? -mission.peopleLost : 2), 0, 100);
@@ -7986,7 +9156,7 @@ function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(next);
   const action = game.missionId === 'MI01' ? 'Livraison inscrite au dossier.'
     : game.missionId === 'MI02' ? 'Récupération du train inscrite au dossier.' : game.missionId === 'MI03' ? 'Constat des émetteurs inscrit au dossier.'
-      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : game.missionId === 'MI05' ? 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.' : game.missionId === 'MI06' ? 'Le bilan des Trois-Vannes est inscrit au dossier : personnes, logements, chantier et carburant.' : game.missionId === 'MI08' ? 'Le registre d’Aval est classé : personnes, départs, arrivées, replis locaux et état des deux portes.' : 'Le bilan sanitaire des Salines est inscrit au dossier : patients, équipe, véhicule, balise et destination.';
+      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : game.missionId === 'MI05' ? 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.' : game.missionId === 'MI06' ? 'Le bilan des Trois-Vannes est inscrit au dossier : personnes, logements, chantier et carburant.' : game.missionId === 'MI09' ? 'Le premier relevé de Thyr est classé : migration, habitats, cultures et trajet logistique.' : game.missionId === 'MI08' ? 'Le registre d’Aval est classé : personnes, départs, arrivées, replis locaux et état des deux portes.' : 'Le bilan sanitaire des Salines est inscrit au dossier : patients, équipe, véhicule, balise et destination.';
   return { ok: true, campaign: next, receipt, applied: true, message: `${action} Quatre lots d’atelier ont été affectés au retour.` };
 }
 
@@ -8037,6 +9207,7 @@ __modules["src/main.mjs"] = (() => {
 const { WALKERS, MISSIONS, CAMPAIGN_MISSIONS, DIFFICULTIES } = __modules["src/content.mjs"];
 const { createGame, updateGame, commandGame } = __modules["src/simulation.mjs"];
 const { Renderer } = __modules["src/renderer.mjs"];
+const { livingRouteSummary } = __modules["src/thyr-renderer.mjs"];
 const { AudioEngine } = __modules["src/audio.mjs"];
 const { CONTROL_ACTIONS, normalizeBindings, bindingLabel, remapBinding, keyboardActions, GamepadInput, defaultBindings, formatControlText } = __modules["src/controls.mjs"];
 const { createCampaign, readCampaign, writeCampaign, beginCampaignMission, checkpointCampaign, restoreCampaignGame, finishCampaignMission, serviceCampaignWalker, repairCampaignPipe, campaignRepairCost, serializeCampaign, parseCampaign, nextCampaignMissionId } = __modules["src/campaign.mjs"];
@@ -8077,6 +9248,12 @@ const pointer = { x: 1100, y: 570, clientX: 0, clientY: 0, visible: false, fire:
 const selectedWalker = () => WALKERS.find(w => w.id === settings.walkerId);
 const selectedMission = () => MISSIONS.find(m => m.id === settings.missionId);
 const campaignOrders = {
+  MI09: {
+    status: 'Première affectation sur Thyr. Holt veut une route logistique dégagée à travers la vallée.',
+    description: 'Les colonnes vivantes portent des habitats absents de la carte. Un troupeau attend devant la barrière du couloir militaire. Le poste des cultures peut vous indiquer une approche adaptée aux racines et à votre châssis.',
+    task: 'Reconnaître les appuis, confronter les cartes, accomplir la route choisie puis escorter la logistique.',
+    caution: 'Les longues-dorses fécondent les vergers. Les racines portent les habitats ; tirs, pas et projecteurs ont des effets distincts.',
+  },
   MI01: {
     status: 'Ordre reçu. Préparez votre marcheur au hangar, puis rejoignez Sami.',
     description: 'Le poste des mineurs attend ses filtres depuis trois jours. Sami connaît la route. Tess connaît les limites de votre machine.',
@@ -8129,7 +9306,15 @@ const campaignOrders = {
 const timeLabel = time => `${Math.floor(time / 60).toString().padStart(2, '0')}:${Math.floor(time % 60).toString().padStart(2, '0')}`;
 let toastTimer;
 function toast(message) { $('toast').textContent = message; $('toast').hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').hidden = true, 3200); }
-function clearInput() { keys.clear(); gamepad.reset(); padState = { ...padState, input: gamepad.sample([]).input }; pointer.fire = false; pointer.secondary = false; for (const k of Object.keys(touch)) touch[k] = false; }
+function releasePointer() { pointer.fire = false; pointer.secondary = false; }
+function clearInput() { keys.clear(); gamepad.reset(); padState = { ...padState, input: gamepad.sample([]).input }; releasePointer(); for (const k of Object.keys(touch)) touch[k] = false; }
+function hasPageFocus() { return !document.hidden && document.hasFocus?.() !== false; }
+function missionAcceptsInput() { return inGame && game?.status === 'playing' && !paused && !game.decision.active && hasPageFocus(); }
+function suspendForFocus() {
+  clearInput();
+  if (inGame && !document.querySelector('dialog[open]')) pauseMission();
+  audio.setPaused(true);
+}
 function closeDialogs() { all('dialog[open]').forEach(d => d.close()); }
 
 function saveCampaign({ replaceInvalid = false } = {}) {
@@ -8143,7 +9328,7 @@ function saveCampaign({ replaceInvalid = false } = {}) {
   return result.ok;
 }
 function captureCampaign(beforeDecision = false) {
-  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08'].includes(game.missionId) && game.status === 'lost'))) return;
+  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08', 'MI09'].includes(game.missionId) && game.status === 'lost'))) return;
   try {
     campaign = checkpointCampaign(campaign, game, { beforeDecision });
     lastCampaignSaveAt = game.elapsed;
@@ -8160,6 +9345,17 @@ function renderCampaignStatus() {
   $('campaign-save-status').classList.toggle('save-warning', Boolean(campaignWarning || campaignBlocked));
 }
 function campaignReceiptFacts(receipt) {
+  if (receipt.missionId === 'MI09') return [
+    ['LONGUES-DORSES', `${receipt.migratorsArrived} au verger · ${receipt.migratorsDisplaced} détournées · ${receipt.migratorsLost} perdues`],
+    ['ROUTE ACCOMPLIE', receipt.route === 'migration' ? 'Passage migratoire' : 'Déviation impériale'],
+    ['APPROCHE', receipt.approach === 'guided' ? 'Guidée par les habitants' : receipt.approach === 'surveyed' ? 'Relevée sans aide locale' : 'Aucune reconnaissance accomplie'],
+    ['HABITATS HABITABLES', `${receipt.homesHabitable} / 2`],
+    ['COLONNES INTACTES', `${receipt.columnsIntact} / 2`],
+    ['ÉVENTAILS REVENUS', `${receipt.pollinatorsPresent} / 2 colonies`],
+    ['CULTURES', receipt.harvestFragile ? 'Récoltes fragilisées' : 'Quatre arrivées fécondantes'],
+    ['LOGISTIQUE', receipt.logisticsArrived ? 'Arrivée constatée' : receipt.logisticsDestroyed ? 'Transport perdu' : 'Trajet non accompli'],
+    ['CARTE', receipt.hamletsRecorded ? 'Deux habitats et la route migratoire relevés' : 'Omissions non relevées'],
+  ];
   if (receipt.missionId === 'MI08') return [
     ['PERSONNES RECENSÉES', receipt.peopleTotal], ['DÉPARTS ACQUIS', receipt.peopleDeparted],
     ['ARRIVÉES AU REFUGE', receipt.peopleArrived], ['ACCUEIL LOCAL', receipt.peopleLocal], ['PERTES À AVAL', receipt.peopleLost],
@@ -8247,6 +9443,7 @@ function renderCampaignUI() {
   $('campaign-order-task').textContent = order.task;
   $('campaign-order-caution').textContent = order.caution;
   $('view-campaign').classList.toggle('nacre-chapter', mission.planetId === 'PL02');
+  $('view-campaign').classList.toggle('thyr-chapter', mission.planetId === 'PL03');
   $('campaign-progress').textContent = `${Object.keys(campaign.completed).length} / ${CAMPAIGN_MISSIONS.length} RAPPORTS CLASSÉS`;
   $('campaign-transition').hidden = !campaign.completed.MI04;
   if (campaign.completed.MI04) {
@@ -8255,8 +9452,12 @@ function renderCampaignUI() {
       : 'Le journal du poste a été perdu. Le bilan de Vesper conserve cette absence ; une autre source technique reste à trouver.';
     const passage = campaign.completed.MI05;
     $('campaign-transition-text').textContent = `${inherited} ${passage
-      ? campaign.completed.MI08 ? `Aux portes d’Aval, ${campaign.completed.MI08.peopleDeparted} personnes sont parties, ${campaign.completed.MI08.peopleArrived} sont arrivées au refuge et ${campaign.completed.MI08.peopleLocal} ont rejoint l’accueil local. Le bilan garde ${campaign.completed.MI08.peopleLost} pertes. L’arc de Nacre est achevé ; la prochaine affectation vers Thyr reste en préparation.` : campaign.completed.MI07 ? `Sur la chaussée des Salines, ${campaign.completed.MI07.patientsArrived} patients sont arrivés et ${campaign.completed.MI07.patientsLost} sont morts. Le dossier sanitaire garde leur destination, l’équipe et la balise séparément. Les portes d’Aval sont maintenant accessibles dans « La marée compte les absents ». Retrouvez les survivants avant toute allocation de place.` : campaign.completed.MI06 ? `Aux Trois-Vannes, ${campaign.completed.MI06.residentsSafe} habitants sont à l’abri et ${campaign.completed.MI06.homesUninhabitable} logements sont inhabitables. La chaussée des Salines est maintenant accessible dans « Une ambulance sans escorte ». Le chantier détermine la rampe utilisable.` : `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai. La digue des Trois-Vannes est maintenant accessible dans « Les maisons sous la ligne ». ${campaign.resources.fuel} lots de carburant restent disponibles ; une solution manuelle existe sans réserve.`
+      ? campaign.completed.MI08 ? `Aux portes d’Aval, ${campaign.completed.MI08.peopleDeparted} personnes sont parties, ${campaign.completed.MI08.peopleArrived} sont arrivées au refuge et ${campaign.completed.MI08.peopleLocal} ont rejoint l’accueil local. Le bilan garde ${campaign.completed.MI08.peopleLost} pertes. L’affectation sur Thyr est ouverte : rejoignez « La route des vivants ». Le dossier d’Aval reste conservé tel qu’il a été signé.` : campaign.completed.MI07 ? `Sur la chaussée des Salines, ${campaign.completed.MI07.patientsArrived} patients sont arrivés et ${campaign.completed.MI07.patientsLost} sont morts. Le dossier sanitaire garde leur destination, l’équipe et la balise séparément. Les portes d’Aval sont maintenant accessibles dans « La marée compte les absents ». Retrouvez les survivants avant toute allocation de place.` : campaign.completed.MI06 ? `Aux Trois-Vannes, ${campaign.completed.MI06.residentsSafe} habitants sont à l’abri et ${campaign.completed.MI06.homesUninhabitable} logements sont inhabitables. La chaussée des Salines est maintenant accessible dans « Une ambulance sans escorte ». Le chantier détermine la rampe utilisable.` : `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai. La digue des Trois-Vannes est maintenant accessible dans « Les maisons sous la ligne ». ${campaign.resources.fuel} lots de carburant restent disponibles ; une solution manuelle existe sans réserve.`
       : 'Votre nouvelle affectation est ouverte : rejoignez le chenal de Nacre dans « Le prix du passage ». Le départ reste possible avec ou sans le journal.'}`;
+  }
+  if (campaign.completed.MI09) {
+    const r = campaign.completed.MI09;
+    $('campaign-transition-text').textContent = `Le premier relevé de Thyr est classé : ${r.migratorsArrived} longues-dorses au verger, ${r.migratorsDisplaced} détournées et ${r.migratorsLost} perdues. ${r.homesHabitable} habitats restent habitables. ${r.harvestFragile ? 'Les récoltes sont fragilisées par ce passage.' : 'Les quatre migrateurs ont rejoint les cultures.'} La suite de l’enquête sur Thyr reste à produire ; les huit rapports antérieurs sont conservés.`;
   }
   $('campaign-mission-list').innerHTML = CAMPAIGN_MISSIONS.map((m, index) => {
     const done = Boolean(campaign.completed[m.id]), active = campaign.activeMissionId === m.id;
@@ -8322,6 +9523,11 @@ function renderWorkshop() {
     $('workshop-departure').textContent = `Aval : ${r.peopleDeparted} départs, ${r.peopleArrived} arrivées au refuge, ${r.peopleLocal} personnes accueillies localement, ${r.peopleLost} pertes. ${r.registryCopied ? 'Registre de relogement copié.' : 'Registre perdu : absence conservée.'} Les personnes et les bateaux gardent leur résultat individuel dans le journal de vol.`;
   }
   $('campaign-repair-pipe').hidden = !campaign.completed?.MI01 || world.pipeIntact || world.pipeRepaired;
+  $('workshop-thyr').hidden = !campaign.completed.MI09;
+  if (campaign.completed.MI09) {
+    const r = campaign.completed.MI09;
+    $('workshop-thyr').textContent = `Thyr : ${r.migratorsArrived} longues-dorses au verger, ${r.migratorsDisplaced} détournées, ${r.migratorsLost} perdues ; ${r.homesHabitable} habitats habitables. ${r.localsHeard ? 'Les indications locales ont été écoutées.' : 'Aucun échange local accompli.'} Le journal conserve chaque animal, chaque support et l’arrivée du transport.`;
+  }
   $('campaign-repair-pipe').textContent = 'Réparer la conduite · 2 lots';
   $('campaign-repair-pipe').disabled = active || campaign.resources.parts < 2 || campaignBlocked;
   $('workshop-active-note').hidden = !active;
@@ -8439,6 +9645,15 @@ const factions = [
   ['09 / COHORTE VÉTÉRANE', 'Cohorte des Serments', 'Des équipages expérimentés disposent de machines et de ravitaillement prioritaires. Leur fidélité au commandement se mesure aussi à la peur de perdre ceux qui dépendent d’eux.'],
 ];
 all('[data-archive]').forEach(el => el.addEventListener('click', () => { archive = el.dataset.archive; renderArchive(); }));
+function thyrArchive() {
+  const r = campaign.completed.MI09;
+  if (!r) return '';
+  const phase = { arrived: 'Verger atteint', displaced: 'Zone d’exclusion atteinte', lost: 'Perdu' };
+  const animals = r.roster.migrators.map((a, i) => `<tr><th scope="row">Longue-dorse ${i + 1} · ${a.age === 'young' ? 'jeune' : 'adulte'}</th><td>${escapeHTML(phase[a.phase] || 'Trajet en cours')}</td><td>${a.destroyed ? 'Décès constaté' : `${Math.round(a.hp / a.maxHp * 100)} % d’intégrité`}</td></tr>`).join('');
+  const homes = r.roster.homes.map((h, i) => `<tr><th scope="row">Habitat suspendu ${i + 1}</th><td>${h.habitable ? 'Habitable' : h.destroyed ? 'Détruit' : 'Support perdu'}</td><td>${h.supported ? 'Colonne et racine porteuses' : 'Continuité porteuse perdue'}</td></tr>`).join('');
+  return `<section class="nacre-dossiers thyr-dossiers" aria-label="Relevé de Thyr"><p class="eyebrow">THYR / PREMIER RELEVÉ DE LA VALLÉE</p><details class="dossier-detail"><summary>La route des vivants <span>${r.migratorsArrived} au verger · ${r.migratorsLost} pertes · ${r.homesHabitable} habitats habitables</span></summary><p>${r.hamletsRecorded ? 'Deux habitats suspendus et la migration ont été relevés sur place, malgré leur omission sur la carte militaire.' : 'Le relevé reste incomplet.'} Les quatre animaux sont ceux rencontrés dans cette vallée. Aucun habitant de Nacre n’est attribué à ces maisons.</p><div class="dossier-table-wrap"><table><caption>Destinations et supports matériellement constatés</caption><thead><tr><th scope="col">Élément</th><th scope="col">État au départ</th><th scope="col">Constat</th></tr></thead><tbody>${animals}${homes}</tbody></table></div><p>${r.harvestFragile ? 'Le passage a fragilisé les récoltes.' : 'Les quatre migrateurs ont atteint les vergers.'} ${r.logisticsArrived ? 'Le transport logistique a atteint son point d’arrivée.' : 'Son arrivée n’est pas constatée.'} ${r.localsHeard ? 'Les habitants ont été écoutés par la liaison locale.' : 'Aucune aide locale n’a été obtenue.'}</p></details></section>`;
+}
+
 function nacreArchive() {
   const medical = campaign.completed.MI07, departure = campaign.completed.MI08;
   if (!medical && !departure) return '';
@@ -8486,7 +9701,7 @@ function renderArchive() {
       return `<article class="record-card"><div><p class="eyebrow">CAMPAGNE / ${r.missionId} / PREMIÈRE RÉUSSITE</p><h3>${escapeHTML(r.missionName)}</h3><p>${escapeHTML(r.walkerName)} · ${timeLabel(r.elapsed)}</p></div><div><p>${facts}<br>${escapeHTML(r.decisionLabel)}</p></div></article>`;
     }).join('');
     const simulations = finished.length ? finished.map(m => { const r = records[m.id]; return `<article class="record-card"><div><p class="eyebrow">SIMULATION / ${m.planet.toUpperCase()} / OPÉRATION ${m.number}</p><h3>${m.name}</h3><p>${escapeHTML(r.walker || 'Marcheur')} · ${timeLabel(Number(r.time) || 0)}</p></div><div><p>Preuves récupérées : ${Number(r.evidence) || 0}<br>Pertes civiles : ${Number(r.collateral) || 0}<br>Décision : ${r.choice === 'defy' ? 'Ordre contesté' : 'Ordre exécuté'}</p></div></article>`; }).join('') : '<p class="muted">Aucun rapport de simulation. Les exercices sont indépendants du dossier de campagne.</p>';
-    $('archive-content').innerHTML = nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
+    $('archive-content').innerHTML = thyrArchive() + nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
   }
 }
 
@@ -8505,12 +9720,7 @@ function renderBindings() {
   $('game-canvas').setAttribute('aria-label', `Champ de bataille. ${keyLabel('left')} et ${keyLabel('right')} pour marcher, souris pour viser, clic pour tirer. ${keyLabel('repair')} pour réparer le radiateur à l’arrêt. ${keyLabel('pause')} pour la pause.`);
 }
 function refreshGamepad() {
-  if (document.hidden || document.hasFocus?.() === false) {
-    gamepad.reset(); padState = gamepad.sample([]);
-    if (inGame && !paused) pauseMission();
-    audio.setPaused(true);
-    return;
-  }
+  if (!hasPageFocus()) { suspendForFocus(); return; }
   let devices = [];
   try { devices = navigator.getGamepads?.() || []; } catch { /* Browser permissions may hide devices. */ }
   padState = gamepad.sample(devices);
@@ -8570,6 +9780,10 @@ function showBriefing() {
     const n = campaign.world.nacre;
     $('briefing-description').textContent += ` Les rapports précédents conservent ${n.passage.refugeesPassed} passagers du chenal, ${n.dike.residentsSafe} habitants mis à l’abri et ${n.ambulance.patientsArrived} patients arrivés à l’accueil sanitaire. Il faut les retrouver et leur proposer les places disponibles. ${n.passage.smugglerVerified ? 'Vann a déjà été contacté : une nouvelle demande de service reste nécessaire.' : 'Aucun accord antérieur ne permet de compter sur Rive-Courte.'} ${n.ambulance.vehicleSeized ? 'L’ambulance reste saisie au poste impérial.' : 'Le véhicule sanitaire ne fait pas partie de la flotte du quai.'}`;
   }
+  if (pendingMode === 'campaign' && m.id === 'MI09') {
+    const r = campaign.completed.MI08;
+    $('briefing-description').textContent += ` ${r ? `Le rapport d’Aval conserve ${r.peopleArrived} arrivées au refuge et ${r.peopleLost} pertes ; Sami peut en parler par radio.` : 'Le bilan d’Aval est conservé dans votre dossier.'} Cette vallée a ses propres habitants et sa propre faune. Écoutez le poste local pour baliser une approche guidée, ou effectuez vous-même un relevé plus long. Les châssis hauts doivent reconnaître le passage avant de franchir la canopée.`;
+  }
   $('briefing-walker').textContent = `${w.designation} ${w.name}`;
   $('briefing-assist').textContent = settings.assist ? 'Marche assistée' : 'Appuis manuels';
   $('briefing-difficulty').textContent = DIFFICULTIES[settings.difficulty].label;
@@ -8607,7 +9821,7 @@ function enterMission(nextGame) {
   $('intro-location').textContent = game.mission.intro; $('intro-title').textContent = game.mission.name;
   $('restart').textContent = activeMode === 'campaign' ? 'Recommencer la mission' : 'Recommencer l’opération';
   aimMode = 'pointer'; padAim.x = 1; padAim.y = 0;
-  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
+  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08', 'MI09'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
   audio.setPaused(false); audio.update(game);
   $('game-canvas').focus({ preventScroll: true }); audio.unlock(); updateHUD();
 }
@@ -8617,7 +9831,7 @@ function pauseMission() {
   paused = true; audio.setPaused(true); clearInput(); captureCampaign(); $('pause-dialog').showModal();
 }
 function resumeMission() {
-  if (!game || game.status !== 'playing') return;
+  if (!game || game.status !== 'playing' || !hasPageFocus()) return;
   closeDialogs(); inGame = true; paused = false; audio.setPaused(false); clearInput();
   $('menu').hidden = true; $('game-screen').hidden = false; $('game-canvas').focus({ preventScroll: true }); audio.unlock();
   if (game.decision.active) showDecision();
@@ -8661,7 +9875,8 @@ function showResult() {
   const dikeMission = game.missionId === 'MI06';
   const ambulanceMission = game.missionId === 'MI07';
   const departureMission = game.missionId === 'MI08';
-  const missionStat = departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
+  const livingRouteMission = game.missionId === 'MI09';
+  const missionStat = livingRouteMission ? ['LONGUES-DORSES AU VERGER', `${game.campaign.migratorsArrived} / 4`] : departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
     : industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
     : networkMission ? ['RÉSEAUX CIVILS ACTIFS', `${game.campaign.civilRelaysOnline} / 2`]
     : railMission ? ['OUVRIERS LIBÉRÉS', `${game.campaign.hostagesRescued} / ${game.campaign.hostagesTotal}`]
@@ -8669,7 +9884,11 @@ function showResult() {
     : ['PREUVES RÉCUPÉRÉES', game.stats.evidence];
   const stats = [['DURÉE', timeLabel(game.elapsed)], ['CIBLES NEUTRALISÉES', game.stats.kills], missionStat, ['PERTES CIVILES', game.stats.collateral]];
   let decisionText;
-  if (departureMission) {
+  if (livingRouteMission) {
+    const f = game.campaign;
+    stats.push(['DÉTOURNÉES', f.migratorsDisplaced], ['LONGUES-DORSES PERDUES', f.migratorsLost], ['HABITATS HABITABLES', `${f.homesHabitable} / 2`], ['ÉVENTAILS REVENUS', `${f.pollinatorsPresent} / 2`]);
+    decisionText = `${f.route === 'migration' ? 'Passage migratoire choisi.' : f.route === 'imperial' ? 'Déviation impériale choisie.' : 'Aucune route choisie.'} ${f.gateOperated ? 'Manœuvre de barrière accomplie.' : 'Barrière non manœuvrée.'} ${f.migrationResolved ? `${f.migratorsArrived} au verger, ${f.migratorsDisplaced} détournées et ${f.migratorsLost} perdues.` : 'Trajet du troupeau non résolu.'} ${f.harvestFragile ? 'Récoltes fragilisées.' : f.migrationResolved ? 'Les quatre migrateurs ont rejoint les cultures.' : ''} ${f.logisticsArrived ? 'Logistique arrivée.' : f.logisticsDestroyed ? 'Transport logistique perdu.' : 'Transport encore à accompagner.'} ${f.reportTransmitted ? 'Bilan transmis.' : 'Rapport non transmis.'}`;
+  } else if (departureMission) {
     const f = game.campaign;
     stats.push(['DÉPARTS ACQUIS',f.peopleDeparted],['ACCUEIL LOCAL',f.peopleLocal],['PERTES À AVAL',f.peopleLost],['PATIENTS ARRIVÉS',`${f.patientsArrived} refuge · ${f.patientsLocal} local`]);
     decisionText = `${f.plan === 'open' ? 'Maintien du passage choisi.' : f.plan === 'window' ? 'Fenêtre avant fermeture choisie.' : f.plan === 'close' ? 'Fermeture immédiate choisie.' : 'Aucune conduite choisie.'} ${f.execution === 'damaged' ? 'Des avaries sont constatées sur les ouvrages.' : f.closureCompleted ? 'Les deux accès ont été fermés.' : f.accessMaintained ? 'Le passage est maintenu.' : 'Les opérations ne sont pas achevées.'} ${f.boatsDeparted} bateaux partis, ${f.boatsArrived} arrivés, ${f.boatsLost} perdus. ${f.registryCopied ? 'Pages de relogement copiées.' : 'Registre non copié.'} ${f.reportTransmitted ? 'Bilan effectivement transmis.' : 'Rapport encore à transmettre.'}`;
@@ -8719,6 +9938,16 @@ let lastObjectives = '';
 function updateHUD() {
   if (!game) return;
   const p = game.player;
+  $('thyr-instrument').hidden = !game.livingRoute;
+  if (game.livingRoute) {
+    const r = game.livingRoute, f = game.campaign, v = livingRouteSummary(game);
+    $('thyr-route').textContent = f.route === 'migration' ? 'PASSAGE VERS LES VERGERS' : f.route === 'imperial' ? 'DÉVIATION VERS L’EXCLUSION' : 'ROUTE À RELEVER ET À CHOISIR';
+    $('thyr-herd').textContent = `LONGUES-DORSES : ${v.arrived} VERGER · ${v.displaced} DÉTOURNÉES · ${v.lost} PERDUES`;
+    $('thyr-homes').textContent = `${v.homes} / 2 HABITATS HABITABLES · ${v.columns} / 2 COLONNES INTACTES`;
+    $('thyr-approach').textContent = `${r.approach.prepared ? r.approach.kind === 'guided' ? 'APPROCHE GUIDÉE' : 'APPROCHE RELEVÉE' : 'APPROCHE À BALISER'} · ${v.settled} / 2 ÉVENTAILS REVENUS`;
+    $('thyr-logistics').textContent = r.report.transmitted ? 'BILAN TRANSMIS · REJOINDRE LA RAMPE' : r.logistics.destroyed ? 'TRANSPORT LOGISTIQUE PERDU' : r.logistics.arrived ? 'LOGISTIQUE ARRIVÉE · TRANSMETTRE LE BILAN' : r.logistics.moving ? 'LOGISTIQUE EN ROUTE · COUVRIR LE TRAJET' : 'LOGISTIQUE EN ATTENTE';
+    $('thyr-instrument').classList.toggle('thyr-warning', v.lost > 0 || v.homes < 2 || r.logistics.destroyed);
+  }
   $('departure-instrument').hidden = !game.departure;
   if (game.departure) {
     const d=game.departure, f=game.campaign;
@@ -8823,35 +10052,52 @@ window.addEventListener('keydown', e => {
     if (result.ok) { const id = bindingCapture; settings.bindings = result.bindings; bindingCapture = null; saveSettings(); renderBindings(); document.querySelector(`[data-binding="${id}"]`)?.focus(); }
     return;
   }
-  if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement?.tagName) || e.ctrlKey || e.metaKey || e.altKey) return;
+  // Navigation can move focus before a keyup reaches the page. Release first,
+  // while leaving Tab and browser shortcuts to their normal handlers.
+  if (e.code === 'Tab' || e.ctrlKey || e.metaKey || e.altKey) { if (inGame) clearInput(); return; }
+  if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
   if (['Enter','Space'].includes(e.code) && ['BUTTON','A','SUMMARY'].includes(document.activeElement?.tagName)) return;
   if (settings.bindings.fullscreen.includes(e.code) && !e.repeat) { e.preventDefault(); fullscreen(); return; }
   if (!inGame || !game) return;
+  if (!hasPageFocus()) { suspendForFocus(); return; }
   if (settings.bindings.pause.includes(e.code)) {
-    if (e.code !== 'Escape' && $('pause-dialog').open && !e.repeat) { e.preventDefault(); resumeMission(); }
+    if (e.repeat) return;
+    if (e.code !== 'Escape' && $('pause-dialog').open) { e.preventDefault(); resumeMission(); }
     else if (!$('pause-dialog').open && !$('decision-dialog').open && !$('result-dialog').open) { e.preventDefault(); pauseMission(); }
     return;
   }
-  if (paused || game.decision.active || game.status !== 'playing') return;
-  if (Object.values(settings.bindings).some(codes => codes.includes(e.code))) e.preventDefault();
+  if (!missionAcceptsInput() || document.activeElement !== $('game-canvas')) return;
+  if (!Object.values(settings.bindings).some(codes => codes.includes(e.code))) return;
+  e.preventDefault();
+  // Clearing input is a release boundary. Auto-repeat from a still-held key
+  // cannot arm it again after a pause or a focus change; a fresh press can.
+  if (e.repeat && !keys.has(e.code)) return;
   keys.add(e.code);
 });
 window.addEventListener('keyup', e => keys.delete(e.code));
-window.addEventListener('blur', () => { clearInput(); if (inGame && !document.querySelector('dialog[open]')) pauseMission(); });
-document.addEventListener('visibilitychange', () => { if (document.hidden) { clearInput(); pauseMission(); } });
+window.addEventListener('blur', suspendForFocus);
+document.addEventListener('visibilitychange', () => { if (document.hidden) suspendForFocus(); });
 window.addEventListener('beforeunload', () => captureCampaign());
-window.addEventListener('pagehide', event => { if (event.persisted) audio.setPaused(true); else audio.dispose(); });
+window.addEventListener('pagehide', event => { suspendForFocus(); if (!event.persisted) audio.dispose(); });
 const canvas = $('game-canvas');
+const missionFocusTargets = new Set([canvas, $('pause-button'), ...all('[data-hold]'), ...all('[data-action]')]);
+for (const target of missionFocusTargets) target.addEventListener('blur', event => {
+  if (!inGame) return;
+  clearInput();
+  // HUD controls keep their native focus and activation. Moving outside the
+  // mission surface suspends the game, including a canvas-only focus loss.
+  if (!missionFocusTargets.has(event.relatedTarget) && !paused && game?.status === 'playing' && !game.decision.active && !document.querySelector('dialog[open]')) suspendForFocus();
+});
 canvas.addEventListener('pointermove', e => { aimMode = 'pointer'; pointer.clientX = e.clientX; pointer.clientY = e.clientY; pointer.visible = true; pointer.touched = e.pointerType === 'touch'; const p = renderer.worldPoint(e.clientX, e.clientY); pointer.x = p.x; pointer.y = p.y; });
-canvas.addEventListener('pointerdown', e => { aimMode = 'pointer'; if (paused || !game || game.decision.active) return; audio.unlock(); canvas.setPointerCapture(e.pointerId); const p = renderer.worldPoint(e.clientX, e.clientY); Object.assign(pointer, p, { clientX: e.clientX, clientY: e.clientY, visible: true, touched: e.pointerType === 'touch' }); if (e.button === 2) pointer.secondary = true; else pointer.fire = true; });
+canvas.addEventListener('pointerdown', e => { if (!missionAcceptsInput()) return; aimMode = 'pointer'; canvas.focus({ preventScroll: true }); audio.unlock(); canvas.setPointerCapture(e.pointerId); const p = renderer.worldPoint(e.clientX, e.clientY); Object.assign(pointer, p, { clientX: e.clientX, clientY: e.clientY, visible: true, touched: e.pointerType === 'touch' }); if (e.button === 2) pointer.secondary = true; else pointer.fire = true; });
 window.addEventListener('pointerup', e => { if (e.button === 2) pointer.secondary = false; else pointer.fire = false; });
-canvas.addEventListener('pointercancel', clearInput); canvas.addEventListener('contextmenu', e => e.preventDefault());
+canvas.addEventListener('pointercancel', clearInput); canvas.addEventListener('lostpointercapture', releasePointer); canvas.addEventListener('contextmenu', e => e.preventDefault());
 all('[data-hold]').forEach(el => {
-  el.addEventListener('pointerdown', e => { e.preventDefault(); el.setPointerCapture(e.pointerId); touch[el.dataset.hold] = true; pointer.touched = true; document.body.classList.add('touch-active'); audio.unlock(); });
+  el.addEventListener('pointerdown', e => { e.preventDefault(); if (!missionAcceptsInput()) return; el.setPointerCapture(e.pointerId); touch[el.dataset.hold] = true; pointer.touched = true; document.body.classList.add('touch-active'); audio.unlock(); });
   const release = e => { e.preventDefault(); touch[el.dataset.hold] = false; };
   el.addEventListener('pointerup', release); el.addEventListener('pointercancel', release); el.addEventListener('lostpointercapture', release);
 });
-all('[data-action]').forEach(el => el.addEventListener('click', () => { if (game && !paused) commandGame(game, el.dataset.action); }));
+all('[data-action]').forEach(el => el.addEventListener('click', () => { if (missionAcceptsInput()) commandGame(game, el.dataset.action); }));
 
 function input() {
   const keyboard = keyboardActions(keys, settings.bindings), pad = padState.input;
@@ -8901,7 +10147,7 @@ function frame(now) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
       if (!paused && activeMode === 'campaign' && !campaignReplay) {
         const fuelChanged = game.missionId === 'MI06' && game.campaign.fuelSpent !== campaign.checkpoint?.campaign.fuelSpent;
-        const failedSortie = ['MI06', 'MI07', 'MI08'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
+        const failedSortie = ['MI06', 'MI07', 'MI08', 'MI09'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
         if (fuelChanged || failedSortie || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
       }
       renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, departureInstrument: false, interactionPrompt: false, pointer });

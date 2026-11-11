@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "generatedAt": "2026-11-11T11:56:06.356Z",
+  "generatedAt": "2026-11-11T16:19:58.339Z",
   "scope": "Exhaustive media inventory of source assets/, actual media files under web-dist/, and all data:...;base64 media in the observed offline HTML. Code-generated media and excluded reference/documentation media are recorded separately.",
   "repository": {
-    "head": "1fc6b2d519458ff8fae57f60c3493c04ade4eded",
-    "packageVersion": "0.9.0",
-    "sourceUIVersion": "0.9",
+    "head": "e0026cb3fcd342309f2201a9288f10b78b8cff84",
+    "packageVersion": "0.10.0",
+    "sourceUIVersion": "0.10",
     "workingTree": "Current files, including uncommitted work. HEAD is an identification point, not a claim that these files are committed."
   },
   "tool": "tools/audit-media-provenance.mjs",
@@ -19,17 +19,20 @@
     "offline": {
       "file": "dist/Ordre_de_Cendre.html",
       "present": true,
-      "bytes": 10168928,
-      "sha256": "6a22452f5fda661284378d36bc358c38fc6a50de88bb4403238eb92431a67d90",
-      "uiVersion": "0.9",
+      "bytes": 10276479,
+      "sha256": "e911f1ebc8fd1a77dfb1cadf65db893c047b2533cceff1ccaa76b1af347bf428",
+      "uiVersion": "0.10",
       "modules": [
         "src/content.mjs",
         "src/simulation.mjs",
         "src/production-assets.mjs",
+        "src/thyr-assets.mjs",
+        "src/thyr-renderer.mjs",
         "src/renderer.mjs",
         "src/audio.mjs",
         "src/controls.mjs",
         "src/departure-validation.mjs",
+        "src/thyr-validation.mjs",
         "src/campaign.mjs",
         "src/main.mjs"
       ],
@@ -90,8 +93,8 @@
     "web": {
       "entry": "web-dist/index.html",
       "present": true,
-      "indexSha256": "5061cf364a44588fedfd259b4d6ce27b37fdbe040154a988f7151ee02e9d45e5",
-      "uiVersion": "0.9",
+      "indexSha256": "31cd84e2d4da5c02f4e123b370299a731a468ec6bf5c3dbaa26b4da99d65bd80",
+      "uiVersion": "0.10",
       "files": [
         {
           "file": "web-dist/assets/art/key-art.png",
@@ -2900,6 +2903,302 @@
           "sha256": "c514a27f9316c5cb860f0579aaeacc491fdab4d7d42fbad368012e01093c044c",
           "registered": true,
           "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/breathing-vine-burnt.svg",
+          "source": "assets/thyr/breathing-vine-burnt.svg",
+          "bytes": 1169,
+          "sha256": "a54b92cbcf8b714a94b3cbc91a6502312b5d28f2c5b16f751cda6cd98dad2475",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/breathing-vine-normal.svg",
+          "source": "assets/thyr/breathing-vine-normal.svg",
+          "bytes": 1560,
+          "sha256": "f9479a754be13bfb512344d6b7c395395b7e26ff436bf779f4c2dc6a8727d92e",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/breathing-vine-wilted.svg",
+          "source": "assets/thyr/breathing-vine-wilted.svg",
+          "bytes": 1556,
+          "sha256": "adbefffc458bca86d803fffa60a11d6049098d6c9ef38433aebd501aa554b463",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/column-damaged.svg",
+          "source": "assets/thyr/column-damaged.svg",
+          "bytes": 5844,
+          "sha256": "3c7cc4573ab36598028ab572378b1c17256b6c529821af628281c95149cad721",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/column-destroyed.svg",
+          "source": "assets/thyr/column-destroyed.svg",
+          "bytes": 1593,
+          "sha256": "08ca86bf50a27088185fa287ce5dea73144c0d91b2f618dbed4cc5f311718b19",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/column-normal.svg",
+          "source": "assets/thyr/column-normal.svg",
+          "bytes": 5596,
+          "sha256": "490ea790f5fe4cb150d1c6848023f3d870185daeaefa862c1b385fe47dcab0a8",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/echo-grass-calm.svg",
+          "source": "assets/thyr/echo-grass-calm.svg",
+          "bytes": 2712,
+          "sha256": "902c94c9e50046801f1af804fb754bf3abfcd50d0bd3a225f68083c70472db3e",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/echo-grass-moving.svg",
+          "source": "assets/thyr/echo-grass-moving.svg",
+          "bytes": 2714,
+          "sha256": "49af1460ea9a09cfa68d95bffd19a53297d00a56bdb8c9d91714135c4da5da57",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/fan-colony-dispersed.svg",
+          "source": "assets/thyr/fan-colony-dispersed.svg",
+          "bytes": 3393,
+          "sha256": "3633f078519ef2d004c0f514e8782e47f52957e467417ebc23571f92bea32180",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/fan-colony-lost.svg",
+          "source": "assets/thyr/fan-colony-lost.svg",
+          "bytes": 727,
+          "sha256": "410914efed7125a074e2b8ba345f4a165dbdfdf0339aa977767649babcc9ea14",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/fan-colony-settled.svg",
+          "source": "assets/thyr/fan-colony-settled.svg",
+          "bytes": 2762,
+          "sha256": "107540ff5e13d61f3f773c547b004b681f758cdc569470954354d108b669b6af",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/longuedorse-adult-arrived.svg",
+          "source": "assets/thyr/longuedorse-adult-arrived.svg",
+          "bytes": 3446,
+          "sha256": "6894bbfa5f2031e724d95133798a26ee3b270cf1cb2b692a46168ef44021359b",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/longuedorse-adult-dead.svg",
+          "source": "assets/thyr/longuedorse-adult-dead.svg",
+          "bytes": 1174,
+          "sha256": "8d5896b282600ecb7e0c035da8518b1518e9a99215f41d9f8babe158e6f6d6ff",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/longuedorse-adult-diverted.svg",
+          "source": "assets/thyr/longuedorse-adult-diverted.svg",
+          "bytes": 3449,
+          "sha256": "7409452d14a36ccfb0eba61d46e9f42a1326b1b79ac7dbfe1d9a790a11a23d0e",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/longuedorse-adult-moving.svg",
+          "source": "assets/thyr/longuedorse-adult-moving.svg",
+          "bytes": 3441,
+          "sha256": "78c2e4e778fbecaa23f035ee7756c11e5e133dba37a4f66fbb8db6f891949024",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/longuedorse-adult-waiting.svg",
+          "source": "assets/thyr/longuedorse-adult-waiting.svg",
+          "bytes": 3446,
+          "sha256": "6ad6d330848fed349cf8e0e2876c9999b20b721fadd3e29b403afa376a56c8c4",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/longuedorse-young-arrived.svg",
+          "source": "assets/thyr/longuedorse-young-arrived.svg",
+          "bytes": 4206,
+          "sha256": "6f8f17decf1c285b18294a05543b55cb3ef1f202f9d480b270a6099b0bba4467",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/longuedorse-young-dead.svg",
+          "source": "assets/thyr/longuedorse-young-dead.svg",
+          "bytes": 1324,
+          "sha256": "03bc9380eae7f6aa2f6fe2a13a696257f04a33e18befa84a718c3b36cb7618ca",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/longuedorse-young-diverted.svg",
+          "source": "assets/thyr/longuedorse-young-diverted.svg",
+          "bytes": 4209,
+          "sha256": "74ef61298a86cf60e2a31651e32fa92e6d27672aead039681bea2d94587ee0c6",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/longuedorse-young-moving.svg",
+          "source": "assets/thyr/longuedorse-young-moving.svg",
+          "bytes": 4234,
+          "sha256": "473bfb97a0af3d11bc8519d1216d9564b1395195c36c483d9132ad6ae4a04058",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/longuedorse-young-waiting.svg",
+          "source": "assets/thyr/longuedorse-young-waiting.svg",
+          "bytes": 4206,
+          "sha256": "3cd8d7505d1d9cea3f81343ef91a0d552675c1fb6722266a43189cb71ab2bf12",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/migration-barrier-broken.svg",
+          "source": "assets/thyr/migration-barrier-broken.svg",
+          "bytes": 1146,
+          "sha256": "fffade347e50719d482ff834b79809cf474b6bf91ee89d5cceea3a703bd99a4e",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/migration-barrier-closed.svg",
+          "source": "assets/thyr/migration-barrier-closed.svg",
+          "bytes": 2391,
+          "sha256": "fa00a2f9d027ecd205cbbe59739cc9025661f3bcfffefc6da451a3961ca3be23",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/migration-barrier-open.svg",
+          "source": "assets/thyr/migration-barrier-open.svg",
+          "bytes": 2821,
+          "sha256": "b091dc7306450119e2b704d070ec60f4917d806f8ad11fdccd3d2b6ab90fe45f",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/migration-barrier-working.svg",
+          "source": "assets/thyr/migration-barrier-working.svg",
+          "bytes": 2791,
+          "sha256": "a125859b3c093890e3a5bf1678af150c3f9722f25751266d09ce8d53616d5602",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/previews/thyr-kit.png",
+          "source": "assets/thyr/previews/thyr-kit.png",
+          "bytes": 182399,
+          "sha256": "ad3a7a0e4fe7e063adb8f408f087229aaa120300b50938af8d6586e86a64cbe6",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/previews/thyr-states.png",
+          "source": "assets/thyr/previews/thyr-states.png",
+          "bytes": 118916,
+          "sha256": "2e0fdb48b8f4a45f7a6b8cfe143e0bd062b568e05823e065f9cd3d7c3520e317",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/root-damaged.svg",
+          "source": "assets/thyr/root-damaged.svg",
+          "bytes": 1821,
+          "sha256": "77502c61cbe01a0d9acb8f5608c3302b55232589d63ccac1ee0f15f36a8675e1",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/root-destroyed.svg",
+          "source": "assets/thyr/root-destroyed.svg",
+          "bytes": 860,
+          "sha256": "2992671d684e3f2f20bd42d61e6525ba80cb744c1d0ec38aa40276015ab62378",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/root-normal.svg",
+          "source": "assets/thyr/root-normal.svg",
+          "bytes": 1684,
+          "sha256": "2ff70f130715b969bf6b58eb81cae7948a7b9d4327e62e5d473b569c60bd0c25",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/route-map-concealed.svg",
+          "source": "assets/thyr/route-map-concealed.svg",
+          "bytes": 1420,
+          "sha256": "5652c6212530ffbf63e1f3ca1fe2a1df6fbe58ee3ce2ae9ca5eec8ffb40e5b0f",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/route-map-surveyed.svg",
+          "source": "assets/thyr/route-map-surveyed.svg",
+          "bytes": 1682,
+          "sha256": "a3ed1426039a09bfe13ca6375727371fb42068a651b78941233d7ac1c5accfd8",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/route-marker-imperial.svg",
+          "source": "assets/thyr/route-marker-imperial.svg",
+          "bytes": 1083,
+          "sha256": "f02381879f0e07e6e68af4602104ecc3459ba0737466bfa514891d74672e481c",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/route-marker-local.svg",
+          "source": "assets/thyr/route-marker-local.svg",
+          "bytes": 1098,
+          "sha256": "5932dd2990ca37d4872a31af57f16da7c1fa795b49663c89bcdcb04f49ce9f2c",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/suspended-home-damaged.svg",
+          "source": "assets/thyr/suspended-home-damaged.svg",
+          "bytes": 2464,
+          "sha256": "eea37d94dd7bec4a7a4650800beba31bf2809d29f4d87d20a67b574728ca0aa4",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/suspended-home-destroyed.svg",
+          "source": "assets/thyr/suspended-home-destroyed.svg",
+          "bytes": 1164,
+          "sha256": "90070581749caf0a6288b3478bc8cc0d8d0aa82a688e0d5dbd1f790a75349dc6",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/thyr/suspended-home-normal.svg",
+          "source": "assets/thyr/suspended-home-normal.svg",
+          "bytes": 2333,
+          "sha256": "25a133fd78de25d44059ce94dc168c8b637f322b617ce8e1e1069a6ca3ed511c",
+          "registered": true,
+          "sourceHashMatches": true
         }
       ],
       "missingExpectedMedia": []
@@ -2995,6 +3294,24 @@
         "Post-rupture motif is authored but must be selected explicitly; current local choices do not reveal or trigger it.",
         "Library montage is a listening sample, not a recording of a completed mission."
       ]
+    },
+    "thyr-vector": {
+      "source": "assets/thyr/manifest.json",
+      "sourceSha256": "be3109e516cafd525cfcaa0862e2c9209c119a20365f64ffe484e90d05311a02",
+      "code": "src/thyr-assets.mjs",
+      "codeSha256": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+      "version": "0.10.0",
+      "date": "2026-11-11",
+      "authorOrGenerator": "Original code and geometry authored by OpenAI assistant for Darknigthmare",
+      "method": "Code-native original vector geometry shared by SVG exports and Canvas runtime; no generated, traced, stock or third-party artwork.",
+      "rightsDeclaration": "Original project vector code; no third-party artwork declared.",
+      "rightsStatus": "Project originality declaration, no separate license grant asserted.",
+      "limitations": [
+        "Sheets are asset benches, not browser screenshots or human art approval.",
+        "FL08 membranes are decorative here: air filtering and fire toxicity are not simulated by MI09.",
+        "FL09 blades react visually to nearby moving migrators, without a new sensory or stealth mechanic.",
+        "Habitat drawings contain no occupants or invented census."
+      ]
     }
   },
   "entries": [
@@ -3059,7 +3376,7 @@
       "sourceReferences": [
         {
           "source": "src/renderer.mjs",
-          "line": 101,
+          "line": 102,
           "kind": "module literal image URL"
         }
       ],
@@ -18733,9 +19050,1905 @@
           "runtimeRequested": false
         }
       }
+    },
+    {
+      "file": "assets/thyr/breathing-vine-burnt.svg",
+      "extension": "svg",
+      "bytes": 1169,
+      "sha256": "a54b92cbcf8b714a94b3cbc91a6502312b5d28f2c5b16f751cda6cd98dad2475",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: breathing-vine; burnt",
+      "canonIds": [
+        "FL08"
+      ],
+      "nominalSize": [
+        120,
+        145
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "crown": [
+          0,
+          -145
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "burnt",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/breathing-vine-burnt.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/breathing-vine-normal.svg",
+      "extension": "svg",
+      "bytes": 1560,
+      "sha256": "f9479a754be13bfb512344d6b7c395395b7e26ff436bf779f4c2dc6a8727d92e",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: breathing-vine; normal",
+      "canonIds": [
+        "FL08"
+      ],
+      "nominalSize": [
+        120,
+        145
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "crown": [
+          0,
+          -145
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "normal",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/breathing-vine-normal.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/breathing-vine-wilted.svg",
+      "extension": "svg",
+      "bytes": 1556,
+      "sha256": "adbefffc458bca86d803fffa60a11d6049098d6c9ef38433aebd501aa554b463",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: breathing-vine; wilted",
+      "canonIds": [
+        "FL08"
+      ],
+      "nominalSize": [
+        120,
+        145
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "crown": [
+          0,
+          -145
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "wilted",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/breathing-vine-wilted.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/column-damaged.svg",
+      "extension": "svg",
+      "bytes": 5844,
+      "sha256": "3c7cc4573ab36598028ab572378b1c17256b6c529821af628281c95149cad721",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: column; damaged",
+      "canonIds": [
+        "FL07"
+      ],
+      "nominalSize": [
+        92,
+        470
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "home": [
+          80,
+          -265
+        ],
+        "canopy": [
+          0,
+          -440
+        ]
+      },
+      "state": "damaged",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/column-damaged.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/column-destroyed.svg",
+      "extension": "svg",
+      "bytes": 1593,
+      "sha256": "08ca86bf50a27088185fa287ce5dea73144c0d91b2f618dbed4cc5f311718b19",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: column; destroyed",
+      "canonIds": [
+        "FL07"
+      ],
+      "nominalSize": [
+        92,
+        470
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "home": [
+          80,
+          -265
+        ],
+        "canopy": [
+          0,
+          -440
+        ]
+      },
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/column-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/column-normal.svg",
+      "extension": "svg",
+      "bytes": 5596,
+      "sha256": "490ea790f5fe4cb150d1c6848023f3d870185daeaefa862c1b385fe47dcab0a8",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: column; normal",
+      "canonIds": [
+        "FL07"
+      ],
+      "nominalSize": [
+        92,
+        470
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "home": [
+          80,
+          -265
+        ],
+        "canopy": [
+          0,
+          -440
+        ]
+      },
+      "state": "normal",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/column-normal.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/echo-grass-calm.svg",
+      "extension": "svg",
+      "bytes": 2712,
+      "sha256": "902c94c9e50046801f1af804fb754bf3abfcd50d0bd3a225f68083c70472db3e",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: echo-grass; calm",
+      "canonIds": [
+        "FL09"
+      ],
+      "nominalSize": [
+        90,
+        78
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "calm",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/echo-grass-calm.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/echo-grass-moving.svg",
+      "extension": "svg",
+      "bytes": 2714,
+      "sha256": "49af1460ea9a09cfa68d95bffd19a53297d00a56bdb8c9d91714135c4da5da57",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: echo-grass; moving",
+      "canonIds": [
+        "FL09"
+      ],
+      "nominalSize": [
+        90,
+        78
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "moving",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/echo-grass-moving.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/fan-colony-dispersed.svg",
+      "extension": "svg",
+      "bytes": 3393,
+      "sha256": "3633f078519ef2d004c0f514e8782e47f52957e467417ebc23571f92bea32180",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: fan-colony; dispersed",
+      "canonIds": [
+        "FU08"
+      ],
+      "nominalSize": [
+        112,
+        78
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "perch": [
+          0,
+          0
+        ]
+      },
+      "state": "dispersed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/fan-colony-dispersed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/fan-colony-lost.svg",
+      "extension": "svg",
+      "bytes": 727,
+      "sha256": "410914efed7125a074e2b8ba345f4a165dbdfdf0339aa977767649babcc9ea14",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: fan-colony; lost",
+      "canonIds": [
+        "FU08"
+      ],
+      "nominalSize": [
+        112,
+        78
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "perch": [
+          0,
+          0
+        ]
+      },
+      "state": "lost",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/fan-colony-lost.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/fan-colony-settled.svg",
+      "extension": "svg",
+      "bytes": 2762,
+      "sha256": "107540ff5e13d61f3f773c547b004b681f758cdc569470954354d108b669b6af",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: fan-colony; settled",
+      "canonIds": [
+        "FU08"
+      ],
+      "nominalSize": [
+        112,
+        78
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "perch": [
+          0,
+          0
+        ]
+      },
+      "state": "settled",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/fan-colony-settled.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/longuedorse-adult-arrived.svg",
+      "extension": "svg",
+      "bytes": 3446,
+      "sha256": "6894bbfa5f2031e724d95133798a26ee3b270cf1cb2b692a46168ef44021359b",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: longuedorse-adult; arrived",
+      "canonIds": [
+        "FU07"
+      ],
+      "nominalSize": [
+        136,
+        94
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          63,
+          -61
+        ]
+      },
+      "state": "arrived",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/longuedorse-adult-arrived.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/longuedorse-adult-dead.svg",
+      "extension": "svg",
+      "bytes": 1174,
+      "sha256": "8d5896b282600ecb7e0c035da8518b1518e9a99215f41d9f8babe158e6f6d6ff",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: longuedorse-adult; dead",
+      "canonIds": [
+        "FU07"
+      ],
+      "nominalSize": [
+        136,
+        94
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          63,
+          -61
+        ]
+      },
+      "state": "dead",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/longuedorse-adult-dead.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/longuedorse-adult-diverted.svg",
+      "extension": "svg",
+      "bytes": 3449,
+      "sha256": "7409452d14a36ccfb0eba61d46e9f42a1326b1b79ac7dbfe1d9a790a11a23d0e",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: longuedorse-adult; diverted",
+      "canonIds": [
+        "FU07"
+      ],
+      "nominalSize": [
+        136,
+        94
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          63,
+          -61
+        ]
+      },
+      "state": "diverted",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/longuedorse-adult-diverted.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/longuedorse-adult-moving.svg",
+      "extension": "svg",
+      "bytes": 3441,
+      "sha256": "78c2e4e778fbecaa23f035ee7756c11e5e133dba37a4f66fbb8db6f891949024",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: longuedorse-adult; moving",
+      "canonIds": [
+        "FU07"
+      ],
+      "nominalSize": [
+        136,
+        94
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          63,
+          -61
+        ]
+      },
+      "state": "moving",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/longuedorse-adult-moving.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/longuedorse-adult-waiting.svg",
+      "extension": "svg",
+      "bytes": 3446,
+      "sha256": "6ad6d330848fed349cf8e0e2876c9999b20b721fadd3e29b403afa376a56c8c4",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: longuedorse-adult; waiting",
+      "canonIds": [
+        "FU07"
+      ],
+      "nominalSize": [
+        136,
+        94
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          63,
+          -61
+        ]
+      },
+      "state": "waiting",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/longuedorse-adult-waiting.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/longuedorse-young-arrived.svg",
+      "extension": "svg",
+      "bytes": 4206,
+      "sha256": "6f8f17decf1c285b18294a05543b55cb3ef1f202f9d480b270a6099b0bba4467",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: longuedorse-young; arrived",
+      "canonIds": [
+        "FU07"
+      ],
+      "nominalSize": [
+        86,
+        64
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          40,
+          -42
+        ]
+      },
+      "state": "arrived",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/longuedorse-young-arrived.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/longuedorse-young-dead.svg",
+      "extension": "svg",
+      "bytes": 1324,
+      "sha256": "03bc9380eae7f6aa2f6fe2a13a696257f04a33e18befa84a718c3b36cb7618ca",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: longuedorse-young; dead",
+      "canonIds": [
+        "FU07"
+      ],
+      "nominalSize": [
+        86,
+        64
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          40,
+          -42
+        ]
+      },
+      "state": "dead",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/longuedorse-young-dead.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/longuedorse-young-diverted.svg",
+      "extension": "svg",
+      "bytes": 4209,
+      "sha256": "74ef61298a86cf60e2a31651e32fa92e6d27672aead039681bea2d94587ee0c6",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: longuedorse-young; diverted",
+      "canonIds": [
+        "FU07"
+      ],
+      "nominalSize": [
+        86,
+        64
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          40,
+          -42
+        ]
+      },
+      "state": "diverted",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/longuedorse-young-diverted.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/longuedorse-young-moving.svg",
+      "extension": "svg",
+      "bytes": 4234,
+      "sha256": "473bfb97a0af3d11bc8519d1216d9564b1395195c36c483d9132ad6ae4a04058",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: longuedorse-young; moving",
+      "canonIds": [
+        "FU07"
+      ],
+      "nominalSize": [
+        86,
+        64
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          40,
+          -42
+        ]
+      },
+      "state": "moving",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/longuedorse-young-moving.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/longuedorse-young-waiting.svg",
+      "extension": "svg",
+      "bytes": 4206,
+      "sha256": "3cd8d7505d1d9cea3f81343ef91a0d552675c1fb6722266a43189cb71ab2bf12",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: longuedorse-young; waiting",
+      "canonIds": [
+        "FU07"
+      ],
+      "nominalSize": [
+        86,
+        64
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          40,
+          -42
+        ]
+      },
+      "state": "waiting",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/longuedorse-young-waiting.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/migration-barrier-broken.svg",
+      "extension": "svg",
+      "bytes": 1146,
+      "sha256": "fffade347e50719d482ff834b79809cf474b6bf91ee89d5cceea3a703bd99a4e",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: migration-barrier; broken",
+      "canonIds": [
+        "MI09"
+      ],
+      "nominalSize": [
+        170,
+        112
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "hinge": [
+          -76,
+          -76
+        ],
+        "control": [
+          -88,
+          -46
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "broken",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/migration-barrier-broken.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/migration-barrier-closed.svg",
+      "extension": "svg",
+      "bytes": 2391,
+      "sha256": "fa00a2f9d027ecd205cbbe59739cc9025661f3bcfffefc6da451a3961ca3be23",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: migration-barrier; closed",
+      "canonIds": [
+        "MI09"
+      ],
+      "nominalSize": [
+        170,
+        112
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "hinge": [
+          -76,
+          -76
+        ],
+        "control": [
+          -88,
+          -46
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "closed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/migration-barrier-closed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/migration-barrier-open.svg",
+      "extension": "svg",
+      "bytes": 2821,
+      "sha256": "b091dc7306450119e2b704d070ec60f4917d806f8ad11fdccd3d2b6ab90fe45f",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: migration-barrier; open",
+      "canonIds": [
+        "MI09"
+      ],
+      "nominalSize": [
+        170,
+        112
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "hinge": [
+          -76,
+          -76
+        ],
+        "control": [
+          -88,
+          -46
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "open",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/migration-barrier-open.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/migration-barrier-working.svg",
+      "extension": "svg",
+      "bytes": 2791,
+      "sha256": "a125859b3c093890e3a5bf1678af150c3f9722f25751266d09ce8d53616d5602",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: migration-barrier; working",
+      "canonIds": [
+        "MI09"
+      ],
+      "nominalSize": [
+        170,
+        112
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "hinge": [
+          -76,
+          -76
+        ],
+        "control": [
+          -88,
+          -46
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "working",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/migration-barrier-working.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/previews/thyr-kit.png",
+      "extension": "png",
+      "bytes": 182399,
+      "sha256": "ad3a7a0e4fe7e063adb8f408f087229aaa120300b50938af8d6586e86a64cbe6",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Authoring sheet, varied scales stated per nominal dimensions in manifest",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/previews/thyr-kit.png",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/previews/thyr-states.png",
+      "extension": "png",
+      "bytes": 118916,
+      "sha256": "2e0fdb48b8f4a45f7a6b8cfe143e0bd062b568e05823e065f9cd3d7c3520e317",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Authored states on a bench; not gameplay or reception evidence",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/previews/thyr-states.png",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/root-damaged.svg",
+      "extension": "svg",
+      "bytes": 1821,
+      "sha256": "77502c61cbe01a0d9acb8f5608c3302b55232589d63ccac1ee0f15f36a8675e1",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: root; damaged",
+      "canonIds": [
+        "FL07"
+      ],
+      "nominalSize": [
+        340,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "contact": [
+          0,
+          -28
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "damaged",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/root-damaged.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/root-destroyed.svg",
+      "extension": "svg",
+      "bytes": 860,
+      "sha256": "2992671d684e3f2f20bd42d61e6525ba80cb744c1d0ec38aa40276015ab62378",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: root; destroyed",
+      "canonIds": [
+        "FL07"
+      ],
+      "nominalSize": [
+        340,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "contact": [
+          0,
+          -28
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/root-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/root-normal.svg",
+      "extension": "svg",
+      "bytes": 1684,
+      "sha256": "2ff70f130715b969bf6b58eb81cae7948a7b9d4327e62e5d473b569c60bd0c25",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: root; normal",
+      "canonIds": [
+        "FL07"
+      ],
+      "nominalSize": [
+        340,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "contact": [
+          0,
+          -28
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "normal",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/root-normal.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/route-map-concealed.svg",
+      "extension": "svg",
+      "bytes": 1420,
+      "sha256": "5652c6212530ffbf63e1f3ca1fe2a1df6fbe58ee3ce2ae9ca5eec8ffb40e5b0f",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: route-map; concealed",
+      "canonIds": [
+        "MI09"
+      ],
+      "nominalSize": [
+        95,
+        110
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "inspect": [
+          0,
+          -62
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "concealed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/route-map-concealed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/route-map-surveyed.svg",
+      "extension": "svg",
+      "bytes": 1682,
+      "sha256": "a3ed1426039a09bfe13ca6375727371fb42068a651b78941233d7ac1c5accfd8",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: route-map; surveyed",
+      "canonIds": [
+        "MI09"
+      ],
+      "nominalSize": [
+        95,
+        110
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "inspect": [
+          0,
+          -62
+        ],
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "surveyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/route-map-surveyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/route-marker-imperial.svg",
+      "extension": "svg",
+      "bytes": 1083,
+      "sha256": "f02381879f0e07e6e68af4602104ecc3459ba0737466bfa514891d74672e481c",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: route-marker; imperial",
+      "canonIds": [
+        "MI09"
+      ],
+      "nominalSize": [
+        50,
+        90
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "imperial",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/route-marker-imperial.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/route-marker-local.svg",
+      "extension": "svg",
+      "bytes": 1098,
+      "sha256": "5932dd2990ca37d4872a31af57f16da7c1fa795b49663c89bcdcb04f49ce9f2c",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: route-marker; local",
+      "canonIds": [
+        "MI09"
+      ],
+      "nominalSize": [
+        50,
+        90
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ]
+      },
+      "state": "local",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/route-marker-local.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/suspended-home-damaged.svg",
+      "extension": "svg",
+      "bytes": 2464,
+      "sha256": "eea37d94dd7bec4a7a4650800beba31bf2809d29f4d87d20a67b574728ca0aa4",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: suspended-home; damaged",
+      "canonIds": [
+        "PL03"
+      ],
+      "nominalSize": [
+        160,
+        110
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "suspension": [
+          -55,
+          -160
+        ],
+        "threshold": [
+          45,
+          0
+        ]
+      },
+      "state": "damaged",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/suspended-home-damaged.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/suspended-home-destroyed.svg",
+      "extension": "svg",
+      "bytes": 1164,
+      "sha256": "90070581749caf0a6288b3478bc8cc0d8d0aa82a688e0d5dbd1f790a75349dc6",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: suspended-home; destroyed",
+      "canonIds": [
+        "PL03"
+      ],
+      "nominalSize": [
+        160,
+        110
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "suspension": [
+          -55,
+          -160
+        ],
+        "threshold": [
+          45,
+          0
+        ]
+      },
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/suspended-home-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/thyr/suspended-home-normal.svg",
+      "extension": "svg",
+      "bytes": 2333,
+      "sha256": "25a133fd78de25d44059ce94dc168c8b637f322b617ce8e1e1069a6ca3ed511c",
+      "provenanceId": "thyr-vector",
+      "version": "0.10.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Thyr reusable vector: suspended-home; normal",
+      "canonIds": [
+        "PL03"
+      ],
+      "nominalSize": [
+        160,
+        110
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "suspension": [
+          -55,
+          -160
+        ],
+        "threshold": [
+          45,
+          0
+        ]
+      },
+      "state": "normal",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/thyr/suspended-home-normal.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
     }
   ],
   "codeGeneratedMedia": [
+    {
+      "file": "src/thyr-assets.mjs",
+      "sha256": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+      "provenanceId": "thyr-vector",
+      "use": "Shared original Thyr geometry and scene drawing. SVG exports are not requested by runtime.",
+      "observedOfflineModule": true,
+      "observedWebCodeCopy": true
+    },
+    {
+      "file": "src/thyr-renderer.mjs",
+      "sha256": "4b887111c090a90e2084699acf6e43ed0d2613ab73afdb1e4b6fe5eed0a01580",
+      "provenanceId": "thyr-vector",
+      "use": "Shared original Thyr geometry and scene drawing. SVG exports are not requested by runtime.",
+      "observedOfflineModule": true,
+      "observedWebCodeCopy": true
+    },
     {
       "file": "src/production-assets.mjs",
       "sha256": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0",
@@ -18754,7 +20967,7 @@
     },
     {
       "file": "src/renderer.mjs",
-      "sha256": "3627328993c9e4152672d6edaa36933ab69a3ea22337359fcb9803ccda01bfa0",
+      "sha256": "b5f8ca4b0e20ac18bd3577c22e6361ce6d2905ab50ff8780162ece0f194f823a",
       "provenanceEvidence": "docs/ASSET_PROVENANCE.md",
       "use": "Original procedural drawing of world, particles, actors and remaining scenery.",
       "observedOfflineModule": true,
@@ -18780,6 +20993,326 @@
       "file": "docs/previews/bible-synthese.png",
       "bytes": 124102,
       "sha256": "26034b39c26aa8ee8d804233bd4191378ff1f9598c738697987b107785bf16c5",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/00-Synthese.png",
+      "bytes": 129865,
+      "sha256": "d51f13a98dc22b358c6a1360ed7f009282ee92681020095ffdecca188bffccf7",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/02-Systemes.png",
+      "bytes": 82846,
+      "sha256": "08fb82863e188663fc07e7a9a4fc8af74599556c20fa7309dd748cfaf4380e7f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/06-Planetes.png",
+      "bytes": 118233,
+      "sha256": "8e7082e6cb253e13e2717fc361050221db8e44b6b47bd38a8988ae63aa863572",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/09-Campagne.png",
+      "bytes": 106497,
+      "sha256": "f1aeefbbbb2df809353a484e30bf72b066e41d9dea07ff7710c0f5a73451dadf",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/13-Faune.png",
+      "bytes": 69374,
+      "sha256": "65e59ec7e977c3b7aac44a452f0bf0bcbe1a22b7f8a47e9133f102d67d1499d3",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/14-Flore.png",
+      "bytes": 67319,
+      "sha256": "f8d710509c802dab189ceb45de52ab93002e241956aba15d9d48cd1399d937c3",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/15-Narration.png",
+      "bytes": 71067,
+      "sha256": "fce3d93856a70f0f6dd82c962c956e5efe5d5f6f21c1d9762aea5d042484644f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/16-Assets.png",
+      "bytes": 111956,
+      "sha256": "3d0f10e5d4c985decde9e10556ea9837afb97b6098344f1518dfd5c71860d653",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/17-Production.png",
+      "bytes": 71041,
+      "sha256": "5b59b138dc8eda0249fc478916573d59faa4232904d6354d9658f90b452e6e51",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/18-QA.png",
+      "bytes": 63679,
+      "sha256": "6892692bbc1fbdf05a8859551d432f4102bdf20d06dd667060a314f458f16ed8",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/20-Prototype.png",
+      "bytes": 93185,
+      "sha256": "58ae6de77e32709f9b2df2964e5fd680e7fcfd89f34d201d445556f969b38cd2",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-assets-24-24.png",
+      "bytes": 41684,
+      "sha256": "8a3744da12cf2377d09385611e0300310cccdc336b25bad7433f9b5286844444",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-assets-27-27.png",
+      "bytes": 32090,
+      "sha256": "71c32d669fc223bc908325516f635360f65beda8c27db7cea94b95e7f6b4097c",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-campagne-15-15.png",
+      "bytes": 53417,
+      "sha256": "cc13fed05c4c076aa9eb5517a00f8e846a8c9a3d4ffdb2b85839a37085c14b0a",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-faune-13-14.png",
+      "bytes": 58874,
+      "sha256": "cba8c465010af91dc23469a1a837c042b6962c7bb0c13742b649f6a6fb9b8e04",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-flore-13-15.png",
+      "bytes": 78507,
+      "sha256": "5e6def3237f6768d9df3dab9da63e08f19e7828c281b6cf02491a0a6d87592c1",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-narration-80-82.png",
+      "bytes": 81234,
+      "sha256": "fc8be37cd8b0a283a16e8ecbcfb0db7668aa012a80630f4ac84318772b1603a2",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-narration-83-84.png",
+      "bytes": 54631,
+      "sha256": "ca715d68db9aa7b6a0afa94046da1a7a0563afb89953ee12eef2add8099ff98d",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-planetes-9-9.png",
+      "bytes": 31794,
+      "sha256": "3b39ad7f1228687cfd9442447f1496cde25b28e762fbd6f0b64174f497492e86",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-production-24-24.png",
+      "bytes": 26952,
+      "sha256": "e87fb3665c77909b5d8018d7723be5dfe8ea829a10fdfd69c09f6c60e87899fe",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-production-30-30.png",
+      "bytes": 33661,
+      "sha256": "7f9acde93d38c9d4564859a4d3fbc5c0c1f93da83d8355d1903d68878517c229",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-production-89-91.png",
+      "bytes": 74331,
+      "sha256": "a4d3f4835eb4a19210a5f15654ea4b0a28cf2f65ab91e2c642f948e454fb9b8a",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-prototype-28-28.png",
+      "bytes": 36590,
+      "sha256": "f4ff9039c203b3514c7e5837ae8aacc6e7f2ec6a551695d91d060bc4e4b53a45",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-prototype-31-31.png",
+      "bytes": 32662,
+      "sha256": "3e2738fd2727d2df2a9dde408925916c3b8339e986e2ae8c4a262ca58b246a30",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-prototype-33-34.png",
+      "bytes": 59157,
+      "sha256": "4db9ca2465a4d9d8fbb76eb0f371b5671207e997927a2e109ee1a7adcc9e8c2e",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-prototype-36-37.png",
+      "bytes": 69946,
+      "sha256": "600dec7fb9d8fa360d48bb6e1f9c7c12c04caa75a1b037d3048f58c881d1cd6b",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-prototype-61-61.png",
+      "bytes": 30705,
+      "sha256": "5f0bca193114d4103852f5059db0a860618ee834229eaa30938bba3ed29dd007",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-prototype-69-69.png",
+      "bytes": 29684,
+      "sha256": "447a146d66ab29b05ccc018c87cf07173718c22f73ae2490abf343077167fc02",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-prototype-77-77.png",
+      "bytes": 24080,
+      "sha256": "cd23f7c838e5f03e40605f5f9338909e7dff8227b2f6c437ea35f589c71f3b55",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-prototype-91-91.png",
+      "bytes": 38083,
+      "sha256": "27b80f1f4a74f28b4823c4e3e08cd20a468d6178a6457a86cce74b4412473faf",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-prototype-94-96.png",
+      "bytes": 96774,
+      "sha256": "37ed4fcfea30de601ab94c31a3bbd3f70a3e4829f90ad21a016bc0dc65671836",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-prototype-97-99.png",
+      "bytes": 101682,
+      "sha256": "71b074af9bc9be37b88291400b74b65c8a17fd483c5f257260990f56cd7ecacf",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-qa-165-167.png",
+      "bytes": 121972,
+      "sha256": "d9abb02afb50b6aa94a1235446b13be6a672f14324436ca10ef3314a13d77b9b",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-qa-168-170.png",
+      "bytes": 113919,
+      "sha256": "c34dd4a32e0cd2d1d9cbc868dc72309ffbd7978c437cde29259894c12b4b7e58",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-qa-171-173.png",
+      "bytes": 138643,
+      "sha256": "436ce98cb52618b53640e518f5c448e0f860a69e4100d0c8edbb312586c5d03c",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-qa-174-175.png",
+      "bytes": 76731,
+      "sha256": "785887767855bbab4cd2f05b003462ee4c11d7c5e82b008795ec108a022edca3",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-qa-25-25.png",
+      "bytes": 65329,
+      "sha256": "14df5c754380da9bcd865c80ab4b6b932766de5fbd38f41c8822c2899a2b1ddf",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-qa-31-31.png",
+      "bytes": 46542,
+      "sha256": "d7f6d4e889a4eec7b9ffe7983ca335f1f0441c171124c7e7a4d8184d816f297e",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-systemes-102-104.png",
+      "bytes": 91669,
+      "sha256": "8413a2b3142c2d4e8bfa71800c531fe4e3b1300b9f923b3192951db3b7cc5eda",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v010/bible-v010-systemes-99-101.png",
+      "bytes": 84084,
+      "sha256": "ddb1f7c341e2d3e7a3ed24eca75999b96649afd05e81145f24ac411691b7b9f6",
       "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
       "copiedInWeb": false,
       "embeddedInOffline": false
@@ -20385,6 +22918,182 @@
       "embeddedInOffline": false
     },
     {
+      "file": "docs/previews/mi09-arrival-thyr.png",
+      "bytes": 384966,
+      "sha256": "e4faadbb821a8b7839061be83f2c16030a99c010d414bbf8388b36c1e51cd3b6",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-barrier-operation.png",
+      "bytes": 392649,
+      "sha256": "2ab489a3c2d34c17938d5fe8ee956dbb32ee3f857650a0e9f6ca0f80e28d68fc",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-before-extraction.png",
+      "bytes": 366770,
+      "sha256": "08e1ae2caea725265386c567c3e8a53f8e94b73f874140b735a4768d44d8ed78",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-broken-barrier.png",
+      "bytes": 384007,
+      "sha256": "cee97cf8b153e3ca8ed55efa9cf5ac150eae7de5325606b4243fca51d71e2473",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-chassis-wk01.png",
+      "bytes": 394496,
+      "sha256": "3a82d5ea4a28f516403378f4a3c3f58ef641b64ac67f5a7868a117de87b4177a",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-chassis-wk02.png",
+      "bytes": 373684,
+      "sha256": "00a9286dad69dc46e43b5a24d15213a19f2f663790d4a88327f1279e7d8052cc",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-chassis-wk05.png",
+      "bytes": 394517,
+      "sha256": "996057de6fd090b92f06c602e3b7c32035f33d00f0ff2aca3d5ca46976f82074",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-chassis-wk06.png",
+      "bytes": 425022,
+      "sha256": "7eceb745a38c026a8261a026fe4082aef2fa8d03519a27c815f234c33f6bfdc0",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-chassis-wk09.png",
+      "bytes": 408880,
+      "sha256": "e4061b6029df4a05d25bbe3ccda0bd1bfcdb6e810eec2270fe03972217fe113f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-chassis-wk10.png",
+      "bytes": 386423,
+      "sha256": "4b55ef4beb1bc97b2d16d300a4c04cf30d7ed7776d4a89a311b69343382c6197",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-column-damage.png",
+      "bytes": 372818,
+      "sha256": "1c9dcb1592793628748f4888a311ee5a6d89f65e52b11c7de882c54203f45d4c",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-exclusion-destination.png",
+      "bytes": 416499,
+      "sha256": "acff48ebf2ce38d0b7eb5e6681a89cd4b3816ddca3f1f7132eca636229a04c68",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-guided-approach.png",
+      "bytes": 402893,
+      "sha256": "568fae4c4c388776d65c168f67f8c507855d06395884ac073b19664f4e3f6d99",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-local-listening.png",
+      "bytes": 390820,
+      "sha256": "ecf9344669c10f2cb514d854eacfef6d36277afd89e8dcd3274faf92250422c3",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-logistics-route.png",
+      "bytes": 374678,
+      "sha256": "d51a4652e1fe686b2f68cbae281a86926ba4ae809e515598f509d83bf1a2adfe",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-map-decision.png",
+      "bytes": 402888,
+      "sha256": "b8bbdbf1892a93dd02f444e9b2c1df78991d0d41488c9b950502e9fb5ff089d0",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-migration-in-progress.png",
+      "bytes": 387803,
+      "sha256": "627368dcff5a936b435cb758ac4e32aa960923ce988cfab77dfd17678c1cfcc4",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-orchard-arrivals.png",
+      "bytes": 391399,
+      "sha256": "3868985de6d7c47ccd2c5c00a2283d6d2942ff3334579c655b97aacfd53f446a",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-report-transmission.png",
+      "bytes": 362567,
+      "sha256": "230c36b4566707f1badc2cfb0bb276a3f63204089c559c9135e2f88563aa9acb",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-root-contacts.png",
+      "bytes": 408880,
+      "sha256": "e4061b6029df4a05d25bbe3ccda0bd1bfcdb6e810eec2270fe03972217fe113f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-root-damage.png",
+      "bytes": 394466,
+      "sha256": "d796ea09555c988e1a57301de4c00b19405a7b2fc95ad73a7e419fd07ed354ae",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi09-sniper-corridor.png",
+      "bytes": 401589,
+      "sha256": "7f71daf4b053e8319e6573ad0ca5da1295573e65ebfd3fbe656733ab7ae0462b",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
       "file": "docs/previews/scene-nacre-bastion.png",
       "bytes": 225745,
       "sha256": "312fcd1beb3b89de4116ce56d2f4022fa9787e56b034cbc7ac8b5a40f42f3810",
@@ -20448,15 +23157,16 @@
     "note": "System font names are fallbacks, not distributed font binaries. Preview rendering uses installed fonts; that does not add a font file to the game."
   },
   "coverage": {
-    "registeredSourceMedia": 351,
-    "sourceMedia": 351,
+    "registeredSourceMedia": 388,
+    "sourceMedia": 388,
     "runtimeImageFiles": 3,
     "productionGraphicsMedia": 292,
     "productionAudioMedia": 56,
-    "observedWebMedia": 351,
+    "thyrGraphicsMedia": 37,
+    "observedWebMedia": 388,
     "observedInlineOccurrences": 5,
     "observedInlineDistinctHashes": 3,
-    "excludedDocumentationMedia": 206,
+    "excludedDocumentationMedia": 268,
     "unregisteredSourceMedia": 0,
     "unregisteredWebMedia": 0,
     "unregisteredInlineMedia": 0,

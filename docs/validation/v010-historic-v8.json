@@ -1,0 +1,76 @@
+{
+  "sourceRevision": "2bb8d7a708e4fab5ab34b3cac10f2418b60fe037",
+  "localSourceRevision": "e0026cb3fcd342309f2201a9288f10b78b8cff84",
+  "sourceTree": "e8e278cc5c35f0ef0995ff78c8d499961b96cae9",
+  "sourceVersion": "0.9.0",
+  "saveVersion": 8,
+  "verifiedHistoricBlobs": 889,
+  "source": "Exact native Chrome UI exports archived in the immutable publication-v09-final snapshot. Every tracked Git blob was verified against the published tree before copying; no development or historical gameplay modules were executed.",
+  "nativeVariants": {
+    "live": {
+      "path": "docs/validation/v09-browser-mi08-gate-after-reload.json",
+      "description": "Native MI08 after-reload export; delayed departure at gate work, seven completed reports."
+    },
+    "completed": {
+      "path": "docs/validation/v09-browser-postfix-completed.json",
+      "description": "Native completed MI08 after corrective browser pass; eight completed reports, 34 arrivals, 2 local residents, 0 losses."
+    }
+  },
+  "sourceHashes": {
+    "docs/validation/v09-browser-mi08-gate-after-reload.json": {
+      "sha256": "cb5befc445bb25cc254acc45468189f145c71105b2294352bb97637964f227ac",
+      "bytes": 55916
+    },
+    "docs/validation/v09-browser-postfix-completed.json": {
+      "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f",
+      "bytes": 48326
+    }
+  },
+  "moduleHashes": {
+    "src/campaign.mjs": "e3b960fd7ec90c49af82b1046ddbb95fba2f8d706051ae840941cfb0095f5272",
+    "src/simulation.mjs": "a3ec0c6cdfee1b5d312bde8fb6db59dd8bfb711f39740aca729759d7bc1afd06",
+    "src/content.mjs": "5dea60cf815deaf606ab419fff363a575082b883c8af7ec1cf6bbdbaf8143f16",
+    "src/departure-validation.mjs": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b",
+    "tests/helpers/mi08-driver.mjs": "07b577d7ad7cd860bfcd4604d19744e976f988e01a2435f6e2dc5e415a4f2088"
+  },
+  "publicationReceipt": {
+    "sha256": "f5297d98ab119907f0e40cf93bb8719cb4c69e96b5288a284c4f5612b4800e0e",
+    "bytes": 32009,
+    "sourceTreeMatchesPublishedTree": true
+  },
+  "protectedHistoricalFixtures": {
+    "tests/fixtures/campaign-v1-mi01.json": {
+      "sha256": "c6bad07aede50fe980460dc67a307bf69804d170abeeb643477358d36c02a22b",
+      "bytes": 37769
+    },
+    "tests/fixtures/campaign-v2-mi02.json": {
+      "sha256": "9024310b7c33e39ed73ac30a03b7db5103be73ee472e95804c4214054ebe5cf2",
+      "bytes": 131152
+    },
+    "tests/fixtures/campaign-v3-mi03.json": {
+      "sha256": "22793763d19477737abf7193590f00863ce32fd2fc14b1a0a49b273c81180288",
+      "bytes": 124642
+    },
+    "tests/fixtures/campaign-v4-mi04.json": {
+      "sha256": "d34af557cc5cb280e803c289a193cbebfc1dd43146890c193a880b83381bbede",
+      "bytes": 123266
+    },
+    "tests/fixtures/campaign-v5-mi05.json": {
+      "sha256": "7c79efb68911f1519cdae2d788e259c424c8750af9a99167ae100bcac4ecc7e3",
+      "bytes": 150965
+    },
+    "tests/fixtures/campaign-v6-mi06.json": {
+      "sha256": "e7ea0548ce459ef3a7d378a1892b7bfde4c591630eaec1e67c99c8b75e95b12c",
+      "bytes": 231369
+    },
+    "tests/fixtures/campaign-v7-mi07.json": {
+      "sha256": "8ca58deb11f4048039cda3a54157f7eddb2dd6af6a34450a3d177b3bdfa67a5c",
+      "bytes": 416347
+    }
+  },
+  "fixture": "tests/fixtures/campaign-v8-mi08.json",
+  "fixtureSha256": "19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007",
+  "fixtureBytes": 182074,
+  "nativeExportsUnchanged": true,
+  "priorFixturesUnchanged": true
+}

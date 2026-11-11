@@ -1,0 +1,537 @@
+{
+  "release": "0.10.0",
+  "saveVersion": 9,
+  "phase": "Initial frozen candidate before native browser testing of 0.10; final remote CI and publication follow this receipt",
+  "checkedAt": "2026-11-11T16:21:53.707608+00:00",
+  "localBaseRevision": "e0026cb3fcd342309f2201a9288f10b78b8cff84",
+  "publicBaseRevision": "2bb8d7a708e4fab5ab34b3cac10f2418b60fe037",
+  "nodeVersion": "v24.22.1",
+  "nodeTests": {
+    "scope": "Node test suite only",
+    "command": "npm test",
+    "nodeVersion": "v24.22.1",
+    "startedAtUTC": "2026-11-11T16:02:23.192Z",
+    "endedAtUTC": "2026-11-11T16:03:29.996Z",
+    "exitCode": 0,
+    "log": "docs/validation/v10-node-tests.log",
+    "logSha256": "a9a60ec7309038f68d0612a5b6667c094e8e51d9fa2bd675adf5097e184f205a",
+    "totals": {
+      "tests": 356,
+      "suites": 0,
+      "pass": 356,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 66261.909479
+    },
+    "sourceHashes": {
+      "package.json": "efd50a52936e9f5d94205043e890e6a882847270c9c37f6e591d871aa84b0bd2",
+      "src/audio.mjs": "a1fe78add6c0eac7961d937afd501295d5772af6f20191b377cadd8fc7282829",
+      "src/campaign.mjs": "c6d38b9845d53150c901f177a8e44876a3e81f82e7a73aa07aa022e2f963c31b",
+      "src/content.mjs": "ae0d137afbb364a317292df0e11917fd00c8bdcf16a614edfb354c963cec907c",
+      "src/controls.mjs": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32",
+      "src/departure-validation.mjs": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b",
+      "src/main.mjs": "00dc8c1c96e92b556eb6eed3c7938ed6851ebd82fda653c177ff613465d2d649",
+      "src/production-assets.mjs": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0",
+      "src/renderer.mjs": "b5f8ca4b0e20ac18bd3577c22e6361ce6d2905ab50ff8780162ece0f194f823a",
+      "src/simulation.mjs": "236f3c7f06bec8a32525b652b5612502a2e415466224445397cd0bf85849c617",
+      "src/style.css": "38c454a6edd05c26fc258ca95082037ebfa00753c28fe8c9aeccf25b56e6e2af",
+      "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+      "src/thyr-renderer.mjs": "4b887111c090a90e2084699acf6e43ed0d2613ab73afdb1e4b6fe5eed0a01580",
+      "src/thyr-validation.mjs": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+      "src/ui.css": "177533d784ada32fecdacb8bd987d0aada274364e6f3f9685c6cb44eed040d12",
+      "tests/ammunition.test.mjs": "44c9d0df784b395d9b89cd6aea6914a6e75a03e209adf73654580ef5f3aee09b",
+      "tests/campaign-mission.test.mjs": "be7bf2b2456f823269fd1cc92a56bc48c4a3bb6e1ef9eb4c53bb50a9df2ad7f1",
+      "tests/campaign-progression.test.mjs": "5dd1df2402f5e85cf3f77b30cc0a6275c62d67078ea7d9ee5eaed03c299d2c6d",
+      "tests/campaign-save.test.mjs": "cc31b7bfa40293f317a62f869626d4ddf549c6069e7d244e1cd85385008da7a8",
+      "tests/campaign-v3.test.mjs": "1cc38bd5b0705fdc1c752b11369a54e14582107c484c2a3fe46864a631505ccf",
+      "tests/campaign-v4.test.mjs": "a587d80248198011d9568864f2cf46ce8eb2f79425ec683bc69e2561ff19dff0",
+      "tests/campaign-v5.test.mjs": "4dc1321b78d3873d7bc8790c18f0ecf504a455b47cb7d3a5a4f2014ad9f38e5b",
+      "tests/campaign-v6.test.mjs": "54e2ad3cb05dd1506d63fa01400c4daefab13a22fdfcec959eb525ab995d79b6",
+      "tests/campaign-v7.test.mjs": "52f9605b60b3a97626dfd1d1aefb66f072f8673ffd8e48964693498ea69e8a95",
+      "tests/campaign-v8.test.mjs": "62457c1d2774316e23fc0b838b4758cd08b5b2ddcc15f98a8612eb5f98f372e2",
+      "tests/campaign-v9.test.mjs": "4696d5a6bd3178c96b473c3c905434c97b578807ebc1d1c0ea6e1694cc8e6b69",
+      "tests/controls.test.mjs": "4a71a9bbd9c0968312464ddb53f9bd39ad723683254a42b0cc02b95e0692371d",
+      "tests/fixtures/bible-v04-ids.json": "b691ebaf828209b80554f2250558baf277b33b174c521306c56acf3c55a140f1",
+      "tests/fixtures/bible-v05-ids.json": "d2b185eb93fbe4b29f95ee5c50dcae62d77e77b50a9436487e6f09dced251947",
+      "tests/fixtures/bible-v06-ids.json": "2533b142309da79d83a7bf954371001c7150745511382a284c6051bae0119d53",
+      "tests/fixtures/bible-v07-ids.json": "18147eecdcef2c37609df8e1f1e0dc0a6c8b53f4ad1b6b11d2396fe92b312bfa",
+      "tests/fixtures/bible-v08-ids.json": "343d0ed826c78cabf1f4e6bccd8056891986b8894ee2f3a71ac010eba279712a",
+      "tests/fixtures/bible-v09-ids.json": "baae7cbeed52293b0d254fea97085e29c92608b46b3449822c983b234ef1670b",
+      "tests/fixtures/campaign-v1-mi01.json": "c6bad07aede50fe980460dc67a307bf69804d170abeeb643477358d36c02a22b",
+      "tests/fixtures/campaign-v2-mi02.json": "9024310b7c33e39ed73ac30a03b7db5103be73ee472e95804c4214054ebe5cf2",
+      "tests/fixtures/campaign-v3-mi03.json": "22793763d19477737abf7193590f00863ce32fd2fc14b1a0a49b273c81180288",
+      "tests/fixtures/campaign-v4-mi04.json": "d34af557cc5cb280e803c289a193cbebfc1dd43146890c193a880b83381bbede",
+      "tests/fixtures/campaign-v5-mi05.json": "7c79efb68911f1519cdae2d788e259c424c8750af9a99167ae100bcac4ecc7e3",
+      "tests/fixtures/campaign-v6-mi06.json": "e7ea0548ce459ef3a7d378a1892b7bfde4c591630eaec1e67c99c8b75e95b12c",
+      "tests/fixtures/campaign-v7-mi07.json": "8ca58deb11f4048039cda3a54157f7eddb2dd6af6a34450a3d177b3bdfa67a5c",
+      "tests/fixtures/campaign-v8-mi08.json": "19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007",
+      "tests/helpers/mi02-driver.mjs": "48a4b776f66010d94345e55a381b94897d628ad1c7c982eb756d7ee4b1080305",
+      "tests/helpers/mi03-driver.mjs": "7215097131e8a26da02122ee066687cedf88d72aa6172b41915fa23279107d48",
+      "tests/helpers/mi04-driver.mjs": "c10509d1f233642fc129cd7903607a61c7d59fcf25773e110edd97bb66e71ab3",
+      "tests/helpers/mi05-driver.mjs": "ec4f6edfba77046bb6c4137f09540c370787fef4ff4ca9ae68f2ab34216117fe",
+      "tests/helpers/mi06-driver.mjs": "c77171a3e903de9843168e7bf40c1e67cb1e46311876e448300e4137fe6edb99",
+      "tests/helpers/mi07-driver.mjs": "2d465771f34b997e8681e74730b0249a34c184fd3370ec7418cfc5839695120c",
+      "tests/helpers/mi08-driver.mjs": "07b577d7ad7cd860bfcd4604d19744e976f988e01a2435f6e2dc5e415a4f2088",
+      "tests/helpers/mi09-driver.mjs": "9a5fc59291594f13491128f77b6cf15fd6768ec87308d7239ce723f4df5ab1a4",
+      "tests/mi02-mission.test.mjs": "bf53ea67c85b01ee845f48c096660c886496c404da0e2859171f029ac0993213",
+      "tests/mi03-mission.test.mjs": "9c637671775e74db041540e2ae1641229cbf43fb8d62e813a85eef11ed57ee60",
+      "tests/mi04-mission.test.mjs": "049e0f359c44be02fae795d6773d53fdaef9f2b2e39e8113a59d2dcd0d91edf2",
+      "tests/mi05-mission.test.mjs": "aebf08a19c13a424e83723da0739a3ff6829e8a5335045f43e5cd173a02f9254",
+      "tests/mi06-mission.test.mjs": "85705ab4815f620b8295af9d1a5bb5d96aba784528ff4922c80cf346d33e1e3f",
+      "tests/mi07-mission.test.mjs": "938c21da9caf258157d7ec6ef9a1c1564824bbfe809af336cf57f1d63bd8fba0",
+      "tests/mi08-mission.test.mjs": "07be574fc751a2d278c93e5733c6a95a6b1dcb0e79fa651b8d7abed4413abd8f",
+      "tests/mi09-simulation.test.mjs": "ebe0a5a7b037579478e76336233bd9adbb6c3c220fdda6c9f3c95b94026e8bda",
+      "tests/production-assets.test.mjs": "68f0709de88574d724d999bfe5311f8ee4d3033d0b41b1f20c2e7220d4a0af1e",
+      "tests/production-audio.test.mjs": "be3713f7185f7ed321fc4d7d2f25d53a8a7833bfbd84ab2a882a3e9c6bb90bdc",
+      "tests/production-backlog.test.mjs": "aaa0bdcdfe0e22ab78f4a415977fe0d910302ac7b87c1353b6d6e35a258c253c",
+      "tests/radiator.test.mjs": "0a33f64da30d92533da884095d1904c5549c3b300023b673732757382e77ccd4",
+      "tests/simulation.test.mjs": "6946d2512492bd11ea8a448863b749a7636b39f590daa3f228174d52f94a36ea",
+      "tests/thyr-assets.test.mjs": "a885f1daefa3fc49528c18eefaaf355627d37fc56f8fb38f3eb2d8ba275c006d"
+    },
+    "sourceSnapshotStable": false,
+    "changedWhileRunning": [
+      "src/main.mjs"
+    ],
+    "completeLogRetained": true,
+    "nativeBrowserExamined": false,
+    "humanPlaytestPerformed": false
+  },
+  "uiModel": {
+    "version": "0.10.0",
+    "type": "Modeled DOM executing the final built application script",
+    "command": "npm run check:ui-runtime",
+    "log": "docs/validation/v10-ui-runtime.log",
+    "logSha256": "074eea62ec0d85b4b9dc81f1f1c7f1d53c3dd2b41dd372303e6014bd4b8f3c50",
+    "flows": 66,
+    "result": "passed",
+    "sourceHashes": {
+      "src/main.mjs": "8b0e76a9890f00f7401b33204108978620b12b9d93d7773060d846207e0499b7",
+      "src/controls.mjs": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32",
+      "src/campaign.mjs": "b3ea42fb30869f79b84a7555caa637facf1398626a4ffaefe0ed78c1bad8dbfa",
+      "src/content.mjs": "ae0d137afbb364a317292df0e11917fd00c8bdcf16a614edfb354c963cec907c",
+      "src/simulation.mjs": "236f3c7f06bec8a32525b652b5612502a2e415466224445397cd0bf85849c617",
+      "src/thyr-validation.mjs": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+      "src/thyr-renderer.mjs": "4b887111c090a90e2084699acf6e43ed0d2613ab73afdb1e4b6fe5eed0a01580",
+      "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+      "src/renderer.mjs": "b5f8ca4b0e20ac18bd3577c22e6361ce6d2905ab50ff8780162ece0f194f823a",
+      "index.html": "31cd84e2d4da5c02f4e123b370299a731a468ec6bf5c3dbaa26b4da99d65bd80",
+      "src/style.css": "38c454a6edd05c26fc258ca95082037ebfa00753c28fe8c9aeccf25b56e6e2af",
+      "src/ui.css": "177533d784ada32fecdacb8bd987d0aada274364e6f3f9685c6cb44eed040d12",
+      "tools/test-ui-runtime.mjs": "c6bcee3f43404e630e20c98f21f3e6fc837d9ed51b6ec8dcf076e9cfb885f3ef",
+      "dist/Ordre_de_Cendre.html": "e911f1ebc8fd1a77dfb1cadf65db893c047b2533cceff1ccaa76b1af347bf428"
+    },
+    "limitations": [
+      "No native browser, focus event delivery, CSS layout, hardware gamepad, human audio or playtest claim.",
+      "The source was frozen before this final UI execution; previous focus-only and pre-integration proofs remain separate."
+    ]
+  },
+  "raster": {
+    "version": "0.10.0",
+    "type": "Same-resolution SVG and Canvas raster comparison",
+    "command": "npm run check:assets-render",
+    "log": "docs/validation/v10-raster-tests.log",
+    "logSha256": "542ecbc2cc0d31fd4a945f96112b5459a6333aca70b77e8dfd489af4a95e04e1",
+    "library": "@napi-rs/canvas 0.1.100",
+    "cases": 40,
+    "threshold": 0.92,
+    "minimumObservedPercent": 99.57,
+    "maximumObservedPercent": 100.0,
+    "result": "passed",
+    "sourceHashes": {
+      "src/production-assets.mjs": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0",
+      "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+      "tools/test-assets-render.mjs": "7484e2a227bd57122a080641131ccb93e59d4223194e0f60e316407a610fa5ea"
+    },
+    "limitations": [
+      "Pixel coverage proof, not browser gameplay, human art reception or animation assessment."
+    ]
+  },
+  "catalogue": {
+    "records": 845,
+    "domains": 20,
+    "walkers": 6,
+    "operations": 3,
+    "campaignMissions": 9,
+    "remainingCampaignMissions": 23
+  },
+  "thyrAssets": {
+    "files": 37,
+    "svg": 35,
+    "png": 2,
+    "components": 11,
+    "bytes": 388834
+  },
+  "media": {
+    "path": "assets/production/distribution-manifest.json",
+    "coverage": {
+      "registeredSourceMedia": 388,
+      "sourceMedia": 388,
+      "runtimeImageFiles": 3,
+      "productionGraphicsMedia": 292,
+      "productionAudioMedia": 56,
+      "thyrGraphicsMedia": 37,
+      "observedWebMedia": 388,
+      "observedInlineOccurrences": 5,
+      "observedInlineDistinctHashes": 3,
+      "excludedDocumentationMedia": 268,
+      "unregisteredSourceMedia": 0,
+      "unregisteredWebMedia": 0,
+      "unregisteredInlineMedia": 0,
+      "productionWavsEmbedded": 0
+    },
+    "strictPassed": true
+  },
+  "workbook": {
+    "workbook": "ORDRE_DE_CENDRE_Bible.xlsx",
+    "version": "0.10.0",
+    "sha256": "6a5e10c5296f1bbc0468926dde4424a41f9425fc8cd9b02b7fa52e2fc08d5082",
+    "sourceRecords": 845,
+    "sourceCellsCompared": 5715,
+    "historicalRevision": "2bb8d7a708e4fab5ab34b3cac10f2418b60fe037",
+    "historicalIdsPreserved": 816,
+    "addedIds": 29,
+    "sheets": 21,
+    "namedTables": 20,
+    "calculatedFormulaCells": 126,
+    "errorCells": 0,
+    "summaryCachesReconciled": true,
+    "statusValidationRanges": 20,
+    "conditionalFormatRules": 80,
+    "frozenDataSheets": 20,
+    "referenceAudit": {
+      "source": "data/bible.json",
+      "version": "0.10.0",
+      "sourceSha256": "9cea476b966a95074655007df71470a2aaf9e99177366ecfd7fc374dd620478a",
+      "scope": "All explicit two-letter/two-or-three-digit identifiers in row fields and metadata, closed ranges and abbreviated pairs such as PT03/04. Symbols resolve to canonical declaration rows. Existence of a reference does not certify gameplay, art, narrative truth or human usability.",
+      "sourceSheets": 20,
+      "sourceRows": 845,
+      "uniqueIds": 845,
+      "textFieldsScanned": 4915,
+      "referenceOccurrences": 1234,
+      "closedRanges": 101,
+      "abbreviatedPairs": 1,
+      "expandedReferences": 1906,
+      "resolvedByKind": {
+        "standalone_operation": 29,
+        "row": 1816,
+        "technical_evidence": 45,
+        "witness_evidence": 10,
+        "political_evidence": 6
+      },
+      "issues": [],
+      "passed": true
+    },
+    "engineScope": "Recalcul et test de modification de statut exécutés dans @oai/artifact-tool. Ce contrôle lit le ZIP/XML exporté; une éventuelle exécution native est consignée séparément et ne se déduit pas de ce rapport.",
+    "renderedPreviewCount": 40,
+    "generatedPreviewCountThisExport": 40,
+    "retainedPreviewCount": 0,
+    "visualScope": "40 vues associées à la réception : 40 générées par cet export et 0 conservées sur des plages source inchangées. Leur relecture effective et leurs empreintes sont consignées séparément; le nombre de vues ne certifie ni navigateur ni usage natif du classeur."
+  },
+  "workbookVisual": {
+    "path": "docs/validation/workbook-v0.10-visual-review.json",
+    "passed": true
+  },
+  "workbookRecalculation": {
+    "path": "docs/validation/workbook-v0.10-libreoffice.json",
+    "passed": true,
+    "scope": "Disposable copy, caches cleared, headless LibreOffice; no interactive Calc or Excel certification"
+  },
+  "productionRegister": {
+    "path": "docs/validation/production-v010-registry.json",
+    "counts": {
+      "baselineRecords": 133,
+      "bySheet": {
+        "Assets": {
+          "baseline": 56,
+          "Conçu": 0,
+          "Prototype": 30,
+          "À produire": 26,
+          "Vérifié": 0
+        },
+        "Production": {
+          "baseline": 38,
+          "Conçu": 0,
+          "Prototype": 6,
+          "À produire": 32,
+          "Vérifié": 0
+        },
+        "QA": {
+          "baseline": 39,
+          "Conçu": 0,
+          "Prototype": 0,
+          "À produire": 23,
+          "Vérifié": 16
+        }
+      },
+      "recordsWithV010Work": 8,
+      "statusChangesSinceV09": 1,
+      "currentBaselineStatuses": {
+        "Conçu": 0,
+        "Prototype": 36,
+        "À produire": 81,
+        "Vérifié": 16
+      }
+    }
+  },
+  "browser": {
+    "version010Tested": false,
+    "scope": "The original v8 dossier was imported and exported unchanged in the prior published 0.9. Tests of the new application await its production URL; no native 0.10 completion is claimed."
+  },
+  "historicalEvidence": "Prior fixtures, preview and validation paths must retain exact Git blobs; publisher independently enforces this.",
+  "fingerprints": {
+    "AGENTS.md": {
+      "bytes": 13712,
+      "sha256": "bf0cece739b5ee39b6f163a5e7ae73a1bc860cb012635eb3287f601d57494b41"
+    },
+    "README.md": {
+      "bytes": 34554,
+      "sha256": "fc1b876a4abe397b97355f71006f7d9eb68cef18a54b2ee22c11286a1e70b32d"
+    },
+    "assets/production/distribution-manifest.json": {
+      "bytes": 693639,
+      "sha256": "4234deb2d53fced146fb9acf3a1b58fc9d32aecd6b69b823de7c3d8958c60b8d"
+    },
+    "assets/thyr/manifest.json": {
+      "bytes": 23658,
+      "sha256": "be3109e516cafd525cfcaa0862e2c9209c119a20365f64ffe484e90d05311a02"
+    },
+    "data/bible-v010-previews.json": {
+      "bytes": 3537,
+      "sha256": "9edda1ed32eebef117a165c7339d49003460481cd4d82bdad3596a31a4cd0376"
+    },
+    "data/bible.json": {
+      "bytes": 457755,
+      "sha256": "9cea476b966a95074655007df71470a2aaf9e99177366ecfd7fc374dd620478a"
+    },
+    "data/production-v010-receipts.json": {
+      "bytes": 7148,
+      "sha256": "eb27eb870549123ab513ea1caf858a8c0ff5fccfda47d407fca1366cdab0c1d8"
+    },
+    "dist/Ordre_de_Cendre.html": {
+      "bytes": 10276479,
+      "sha256": "e911f1ebc8fd1a77dfb1cadf65db893c047b2533cceff1ccaa76b1af347bf428"
+    },
+    "docs/ARCHITECTURE.md": {
+      "bytes": 32550,
+      "sha256": "11e71b2c9ef646239cdf7761c39c9055f7851121fd74b51436562a70fa41c844"
+    },
+    "docs/BIBLE_FR.md": {
+      "bytes": 35069,
+      "sha256": "15bc4ee7f59cf1472fb8c430d7560e1f0b97f185cb7a1d393ac3e22813087f13"
+    },
+    "docs/BIBLE_README.md": {
+      "bytes": 9460,
+      "sha256": "40c1e484e8aaaecdb78bfa47774a5183db440a4031013c41cd823ffddcb68956"
+    },
+    "docs/CAMPAIGN_MISSION_09.md": {
+      "bytes": 13258,
+      "sha256": "5219f994ac5264093856a1e2c577d1c69d7f34f6e3d49f114e7e88f8beb40d41"
+    },
+    "docs/CAMPAIGN_SAVE_V9.md": {
+      "bytes": 7454,
+      "sha256": "0ab71cec0e21d5b59b0714215e266b012a24ba5939ee90796b59cf447ec07f71"
+    },
+    "docs/ORDRE_DE_CENDRE_Bible.xlsx": {
+      "bytes": 188578,
+      "sha256": "6a5e10c5296f1bbc0468926dde4424a41f9425fc8cd9b02b7fa52e2fc08d5082"
+    },
+    "docs/PRODUCTION_REGISTER_V10.md": {
+      "bytes": 77411,
+      "sha256": "178ec28d71936f0a4e6ab9a2c2fb1c0d1e8ab017bf89f4e2d6f03daa53d1103f"
+    },
+    "docs/PRODUCTION_V10.md": {
+      "bytes": 7317,
+      "sha256": "5f4d9b249cd504ce51c0eac1d5fc39fa3e9413a4ee2590616bbbaed2bce5555a"
+    },
+    "docs/QA_V10.md": {
+      "bytes": 7203,
+      "sha256": "d1b0d883698493e4c884b468bf51a562bbfde2718ad759f92eca88f91df840fe"
+    },
+    "docs/SIMULATION_API.md": {
+      "bytes": 49465,
+      "sha256": "82f280c518637ff0c89383cfb1a7daae7f40dddf4ace74e8f479a425da9ad437"
+    },
+    "docs/previews/mi09-before-extraction-checkpoint.json": {
+      "bytes": 96502,
+      "sha256": "f8c6d322507975e7339d4b28263c29718b3c58d8619fc161487451ffed82ddb7"
+    },
+    "docs/previews/mi09-canvas-validation.json": {
+      "bytes": 8410,
+      "sha256": "a2d8d1250d1049e18e1df251aa074bf8215210387a43c024bf53fb14ca9500a1"
+    },
+    "docs/previews/mi09-completed-campaign.json": {
+      "bytes": 73635,
+      "sha256": "ee7e116ea5246ca9807db33e21ec47abb6936e5b1c289bc95bdb65330c339a98"
+    },
+    "docs/previews/mi09-decision-checkpoint.json": {
+      "bytes": 96420,
+      "sha256": "b82dc2449da912321fc9469fe5c43b2bfd473ca5ca0de7053bbc5802f7a06b50"
+    },
+    "docs/previews/mi09-render-manifest.json": {
+      "bytes": 1104531,
+      "sha256": "7ff20aa8335589923a45b5b6719b6c0452951c497ec6f22ec60164892462afb7"
+    },
+    "docs/validation/production-v010-reference-audit.json": {
+      "bytes": 372870,
+      "sha256": "89d7d4082af58e4898a302f96b63e812ee192b526dea417064f5d3b6c4bba858"
+    },
+    "docs/validation/production-v010-reference-probes.json": {
+      "bytes": 8758,
+      "sha256": "9cd382dc6f151fea75ef50de20e82afbc01ab692f01d3005cd7e35da76e3e2b1"
+    },
+    "docs/validation/production-v010-registry-check.json": {
+      "bytes": 1031,
+      "sha256": "c53504bb3ce5b11811ef7afd88f9b52581bbc0944123242bbf52330136b9de5a"
+    },
+    "docs/validation/production-v010-registry.json": {
+      "bytes": 427516,
+      "sha256": "b11bbb4cb2ce8b13f1bb112809efde8b965b7416a346ad9541c9d87b11d71d53"
+    },
+    "docs/validation/v010-campaign-tests.tap": {
+      "bytes": 36578,
+      "sha256": "9dabc2c66c605c4d7900b6e1c2bc605f7520093bb57cf78b3cf49696bccfd6f9"
+    },
+    "docs/validation/v010-campaign-validation.json": {
+      "bytes": 1638,
+      "sha256": "3224773285513dc9bb47503497ca6eaf9a580cdfc79015401b8b4051450d0a0b"
+    },
+    "docs/validation/v010-historic-v8.json": {
+      "bytes": 3434,
+      "sha256": "67b04cb76a7473323cac7328dda4373fc70f559f94a100348c6bf2a6e5dd19ad"
+    },
+    "docs/validation/v10-focus-modeled.json": {
+      "bytes": 6533,
+      "sha256": "74d894523427d9fa2541780931606a02e0c4130522133c6bcbba75802b8d2cb6"
+    },
+    "docs/validation/v10-node-tests.json": {
+      "bytes": 7184,
+      "sha256": "c05d72bfe8688ae25c235d42fedaaca4c40debeca38937266adeead46663d4a6"
+    },
+    "docs/validation/v10-node-tests.log": {
+      "bytes": 46927,
+      "sha256": "a9a60ec7309038f68d0612a5b6667c094e8e51d9fa2bd675adf5097e184f205a"
+    },
+    "docs/validation/v10-raster-tests.log": {
+      "bytes": 2264,
+      "sha256": "542ecbc2cc0d31fd4a945f96112b5459a6333aca70b77e8dfd489af4a95e04e1"
+    },
+    "docs/validation/v10-raster-validation.json": {
+      "bytes": 875,
+      "sha256": "d8de784c68613a104b9c2d30cb8d3f58823124b18531f09ffc7d630ef6001996"
+    },
+    "docs/validation/v10-ui-runtime.log": {
+      "bytes": 6758,
+      "sha256": "074eea62ec0d85b4b9dc81f1f1c7f1d53c3dd2b41dd372303e6014bd4b8f3c50"
+    },
+    "docs/validation/v10-ui-validation.json": {
+      "bytes": 1888,
+      "sha256": "a3a87c1a882e576c56216f27152bd946648782114b186fda0b320a7b4af99384"
+    },
+    "docs/validation/workbook-v0.10-baseline-check.json": {
+      "bytes": 19902,
+      "sha256": "9d0987f483034dcf5d574cca2ec92ae6c207c2b1cb2f6688aa675d709acf6fb3"
+    },
+    "docs/validation/workbook-v0.10-export.json": {
+      "bytes": 2057,
+      "sha256": "3d134a9f71421a7e4dfc3cc3a654673abe30559b17a43e0d21b2c793a9beec85"
+    },
+    "docs/validation/workbook-v0.10-formula-check.ndjson": {
+      "bytes": 60,
+      "sha256": "acc0111e19cf44d2753fc9ecd164bf1b27fbd65597463a25cf48bd1c65e90146"
+    },
+    "docs/validation/workbook-v0.10-inspection.ndjson": {
+      "bytes": 740,
+      "sha256": "98129001f984d9709aed096fc7f65eea6b39562411926d1a7f2752fbbc36b85a"
+    },
+    "docs/validation/workbook-v0.10-libreoffice.json": {
+      "bytes": 14919,
+      "sha256": "863dcfd258d698b3d4b8d1f162cf7fe6fa360f05f64bea064d7f5925ac97f28d"
+    },
+    "docs/validation/workbook-v0.10-libreoffice.txt": {
+      "bytes": 518,
+      "sha256": "618de962c486f0fed2209be476ccbbbca3c9bee3377e418dbb80b2a2dfcffa3f"
+    },
+    "docs/validation/workbook-v0.10-validation.json": {
+      "bytes": 8502,
+      "sha256": "fc48659d5fdfbf04535d0ddfbb6be50581c73243082787a83a933b560a69a00f"
+    },
+    "docs/validation/workbook-v0.10-visual-review.json": {
+      "bytes": 21958,
+      "sha256": "76a2c0724c064aab3abaf47a471293a95260b59939e68f1135f197ed501f21d6"
+    },
+    "index.html": {
+      "bytes": 21557,
+      "sha256": "31cd84e2d4da5c02f4e123b370299a731a468ec6bf5c3dbaa26b4da99d65bd80"
+    },
+    "package.json": {
+      "bytes": 727,
+      "sha256": "efd50a52936e9f5d94205043e890e6a882847270c9c37f6e591d871aa84b0bd2"
+    },
+    "src/campaign.mjs": {
+      "bytes": 134692,
+      "sha256": "b3ea42fb30869f79b84a7555caa637facf1398626a4ffaefe0ed78c1bad8dbfa"
+    },
+    "src/content.mjs": {
+      "bytes": 32222,
+      "sha256": "ae0d137afbb364a317292df0e11917fd00c8bdcf16a614edfb354c963cec907c"
+    },
+    "src/controls.mjs": {
+      "bytes": 6981,
+      "sha256": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32"
+    },
+    "src/main.mjs": {
+      "bytes": 101595,
+      "sha256": "8b0e76a9890f00f7401b33204108978620b12b9d93d7773060d846207e0499b7"
+    },
+    "src/production-assets.mjs": {
+      "bytes": 45583,
+      "sha256": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0"
+    },
+    "src/renderer.mjs": {
+      "bytes": 135408,
+      "sha256": "b5f8ca4b0e20ac18bd3577c22e6361ce6d2905ab50ff8780162ece0f194f823a"
+    },
+    "src/simulation.mjs": {
+      "bytes": 261930,
+      "sha256": "236f3c7f06bec8a32525b652b5612502a2e415466224445397cd0bf85849c617"
+    },
+    "src/style.css": {
+      "bytes": 25092,
+      "sha256": "38c454a6edd05c26fc258ca95082037ebfa00753c28fe8c9aeccf25b56e6e2af"
+    },
+    "src/thyr-assets.mjs": {
+      "bytes": 16284,
+      "sha256": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83"
+    },
+    "src/thyr-renderer.mjs": {
+      "bytes": 13888,
+      "sha256": "4b887111c090a90e2084699acf6e43ed0d2613ab73afdb1e4b6fe5eed0a01580"
+    },
+    "src/thyr-validation.mjs": {
+      "bytes": 28583,
+      "sha256": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a"
+    },
+    "src/ui.css": {
+      "bytes": 14365,
+      "sha256": "177533d784ada32fecdacb8bd987d0aada274364e6f3f9685c6cb44eed040d12"
+    },
+    "tests/fixtures/campaign-v8-mi08.json": {
+      "bytes": 182074,
+      "sha256": "19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007"
+    },
+    "tools/test-assets-render.mjs": {
+      "bytes": 3467,
+      "sha256": "7484e2a227bd57122a080641131ccb93e59d4223194e0f60e316407a610fa5ea"
+    },
+    "tools/test-ui-runtime.mjs": {
+      "bytes": 96221,
+      "sha256": "c6bcee3f43404e630e20c98f21f3e6fc837d9ed51b6ec8dcf076e9cfb885f3ef"
+    },
+    "vercel.json": {
+      "bytes": 174,
+      "sha256": "b5136729e3187422d3e1113a8c82f973bd3a95649789c745522d0a6a952949cd"
+    }
+  }
+}

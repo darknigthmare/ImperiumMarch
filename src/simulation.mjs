@@ -331,7 +331,16 @@ export function createGame(options = {}) {
     };
   }
   if (mission.id === 'MI08') createDepartureMission(state, options.campaignContext || {});
+  if (mission.id === 'MI09') createLivingRouteMission(state, options.campaignContext || {});
   state.enemies = spawnEnemies(state);
+  if (mission.id === 'MI09') {
+    for (const [i, x] of mission.livingRoute.sniperXs.entries()) {
+      const sniper = enemy(state, 'sniper', x, state.enemies.length);
+      sniper.id = `thyr-sniper-${i + 1}`; state.enemies.push(sniper);
+    }
+    emit(state, 'radio', 'Tess : « La branche basse ne laisse pas passer tous les gabarits. Le repère de contournement précède la première racine ; le poste local peut nous y guider. »');
+    if (state.campaign.context.departureRecorded) emit(state, 'radio', `Sami : « Le bilan de Nacre reste au dossier : ${state.campaign.context.departureArrived} arrivées au refuge, ${state.campaign.context.departureLost} pertes. Ici, nous découvrons un autre lieu ; aucun de ces nombres ne recense Thyr. »`);
+  }
   if (mission.id === 'MI08') {
     for (const [i, x] of [4480, 4890].entries()) {
       const drone = enemy(state, 'drone', x, state.enemies.length);
@@ -411,15 +420,20 @@ function step(s, group) {
   const feet = p.feet.filter(f => f.group === group);
   const integrity = feet.reduce((sum, f) => sum + f.health / 100, 0) / feet.length;
   const stride = s.walker.stride * (0.65 + integrity * 0.35) * (s.channel ? channelSurfaceAt(s, p.x).traction : 1);
+  if (s.livingRoute && direction > 0 && p.x + stride / 2 >= s.mission.livingRoute.canopyFrom && p.x < s.mission.livingRoute.canopyTo && s.walker.height + p.height / 2 > s.livingRoute.approach.clearance) {
+    if (!s.notified.thyrHeight) { s.notified.thyrHeight = true; emit(s, 'radio', 'Tess : « Notre coque ne passe pas sous cette branche. Reviens au repère et prépare le contournement avec E, ancré. »'); }
+    return false;
+  }
   for (const f of feet) {
     f.fromX = f.x; f.fromY = f.y;
     f.targetX = clamp(p.x + f.homeOffset + direction * stride, 110, s.mission.length - 110);
-    f.targetY = terrainAt(f.targetX, s.planetId);
+    f.targetY = walkerGroundAt(s, f.targetX);
     f.phase = 'swing'; f.contact = false; f.progress = 0;
   }
   p.energy = Math.max(0, p.energy - 6);
   p.lastGroup = group; s.lastStepGroup = group;
   p.stepCooldown = s.walker.stepTime + (1 - integrity) * 0.22;
+  if (s.livingRoute?.approach.kind === 'guided' && s.livingRoute.roots.some(root => !root.destroyed && Math.abs(p.x - root.x) < root.w / 2 + s.walker.stride)) p.stepCooldown = Math.max(p.stepCooldown, s.mission.livingRoute.safeCadence);
   s.stats.steps++;
   if (s.campaign) s.campaign.tutorial.stepped = true;
   return true;
@@ -665,6 +679,10 @@ function interactTrainMission(s) {
 
 function interact(s) {
   if (s.status !== 'playing' || s.decision.active) return false;
+  if (s.missionId === 'MI09') {
+    const changed = interactLivingRouteMission(s);
+    refreshLivingRouteFacts(s); refreshObjectives(s); return changed;
+  }
   if (s.missionId === 'MI08') {
     const changed = interactDepartureMission(s);
     refreshDepartureFacts(s); refreshObjectives(s); return changed;
@@ -709,6 +727,12 @@ export function commandGame(s, action, payload) {
   if (action === 'choice') {
     if (!s.decision.active || s.decision.resolved || !(s.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : ['obey', 'defy']).includes(payload)) return false;
     s.decision.choice = payload; s.decision.resolved = true; s.decision.active = false;
+    if (s.missionId === 'MI09') {
+      s.campaign.route = payload === 'obey' ? 'imperial' : 'migration'; s.campaign.phase = 'routing';
+      if (payload === 'obey') s.stats.ordersObeyed++; else s.stats.ordersDefied++;
+      emit(s, 'radio', payload === 'obey' ? 'Sera : « Déviation impériale retenue. La barrière doit encore être manœuvrée ; le troupeau n’a pas bougé. »' : 'Sera : « La logistique attendra le passage au verger. Retournons à la barrière ; notre décision ne l’ouvre pas à distance. »');
+      refreshLivingRouteFacts(s); refreshObjectives(s); return true;
+    }
     if (s.missionId === 'MI08') {
       s.campaign.plan = payload === 'obey' ? 'close' : payload === 'delay' ? 'window' : 'open';
       s.campaign.phase = 'boarding';
@@ -842,6 +866,7 @@ function enemyPresent(s, e) {
   // The controller has a fixed save slot before arrival, not a physical target.
   if (e.id.startsWith('seizure-drone-') && !s.ambulance?.raidTriggered) return false;
   if (e.id.startsWith('aval-control-drone-') && !s.departure?.alert.triggered) return false;
+  if (e.id.startsWith('thyr-sniper-') && !s.livingRoute?.alert.triggered) return false;
   if (e.id === 'private-hauler' && s.industrial?.retreatEscaped) return false;
   return e.id !== 'holt-observer' || Boolean(s.network?.scrutinyTriggered);
 }
@@ -954,6 +979,7 @@ function damagePlayer(s, damage, hitX, hitY, bypassArmor = false) {
 function stomp(s, f) {
   particles(s, f.x, f.y, 'dust', 9);
   emit(s, 'step', '', f.x, f.y);
+  if (s.livingRoute) livingRouteFootfall(s, f);
   // A pipe incident is caused by a real planted foot, never by camera/body position.
   if (s.missionId === 'MI01' && f.contact && !s.campaign.passageSecured && s.campaign.pipeIntact &&
       f.x >= s.mission.passage.pipeFrom && f.x <= s.mission.passage.pipeTo &&
@@ -1018,17 +1044,18 @@ function updateWalker(s, dt, input) {
       const t = f.progress * f.progress * (3 - 2 * f.progress);
       f.x = lerp(f.fromX, f.targetX, t);
       f.y = lerp(f.fromY, f.targetY, t) - Math.sin(f.progress * Math.PI) * (s.walker.legs === 2 ? 65 : 43);
-      if (f.progress >= 1) { f.phase = 'stance'; f.contact = true; f.y = terrainAt(f.x, s.planetId); stomp(s, f); }
+      if (f.progress >= 1) { f.phase = 'stance'; f.contact = true; f.y = walkerGroundAt(s, f.x); stomp(s, f); }
     }
   }
+  if (s.livingRoute) for (const foot of p.feet) if (foot.contact) foot.y = walkerGroundAt(s, foot.x);
   const anchor = p.feet.reduce((sum, f) => sum + f.x - f.homeOffset, 0) / p.feet.length;
   const lastX = p.x;
   p.anchorX = anchor;
-  const surfaceSpeed = s.channel ? channelSurfaceAt(s, p.x).traction : 1;
+  const surfaceSpeed = s.channel ? channelSurfaceAt(s, p.x).traction : s.livingRoute ? livingRouteSurfaceAt(s, p.x).traction : 1;
   p.x += clamp((anchor - p.x) * 6 * dt, -s.walker.speed * surfaceSpeed * dt, s.walker.speed * surfaceSpeed * dt);
   p.x = clamp(p.x, 110, s.mission.length - 110);
   p.speed = (p.x - lastX) / Math.max(dt, 0.0001);
-  p.groundY = terrainAt(p.x, s.planetId);
+  p.groundY = walkerGroundAt(s, p.x);
   const stepping = p.feet.some(f => !f.contact);
   const bob = stepping ? Math.sin(p.feet.find(f => !f.contact).progress * Math.PI) * 3 : 0;
   p.y = lerp(p.y, p.groundY - s.walker.height + bob, Math.min(1, dt * 12));
@@ -1058,6 +1085,7 @@ function fire(s, rocket) {
   if (rocket) { p.rockets--; p.rocketCooldown = 1.25; }
   else { p.ammo--; p.fireCooldown = s.walker.fireRate; }
   s.stats.shots++;
+  if (s.livingRoute) livingRouteNoise(s, p.x, 1, 3);
   particles(s, x, y, 'spark', 3);
   emit(s, rocket ? 'rocket' : 'shot', '', x, y);
   if (p.heat >= 100) { p.overheated = true; emit(s, 'overheat', 'Surchauffe. Ventilez le réacteur.'); }
@@ -1086,6 +1114,7 @@ function updateEnemies(s, dt) {
     if (e.dead) continue;
     if (e.id.startsWith('seizure-drone-') && !s.ambulance?.raidTriggered) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id.startsWith('aval-control-drone-') && !s.departure?.alert.triggered) { e.active = false; e.phase = 'idle'; continue; }
+    if (e.id.startsWith('thyr-sniper-') && !s.livingRoute?.alert.triggered) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'holt-observer' && !s.campaign?.holtAlerted) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'private-hauler') {
       const site = s.industrial;
@@ -1107,7 +1136,7 @@ function updateEnemies(s, dt) {
     }
     const delta = Math.abs(e.x - p.x);
     if (s.missionId === 'MI01' && !s.notified.ambush) { e.active = false; e.phase = 'idle'; continue; }
-    e.active = delta < 1150 || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
+    e.active = delta < 1150 || Boolean(s.livingRoute && s.livingRoute.logistics.released && !s.livingRoute.logistics.arrived && !s.livingRoute.logistics.destroyed && Math.abs(e.x - s.livingRoute.logistics.x) < 1000) || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
       || Boolean(s.channel && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < 900)
       || Boolean(s.dike && [...s.dike.technicians.filter(t => t.called), ...s.dike.residents.filter(r => r.phase === 'evacuating')].some(person => person.alive && !person.safe && Math.abs(e.x - person.x) < 900))
       || Boolean(s.ambulance && (s.ambulance.vehicle.called && !s.ambulance.vehicle.destroyed && Math.abs(e.x - s.ambulance.vehicle.x) < 900
@@ -1139,7 +1168,8 @@ function updateEnemies(s, dt) {
         .filter(item => Math.abs(e.x - item.x) < Math.abs(e.x - target.x)).sort((a, b) => Math.abs(e.x - a.x) - Math.abs(e.x - b.x));
       if (candidates.length) target = candidates[0];
     }
-    e.attackTarget = target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : target === s.ambulance?.vehicle ? 'ambulance' : s.ambulance?.staff.includes(target) ? 'medical-staff' : s.ambulance?.patients.includes(target) ? 'patient' : s.departure?.boats.includes(target) ? 'departure-boat' : s.departure?.people.includes(target) ? 'departure-person' : 'convoy';
+    if (s.livingRoute?.logistics.released && !s.livingRoute.logistics.arrived && !s.livingRoute.logistics.destroyed && Math.abs(e.x - s.livingRoute.logistics.x) < Math.abs(e.x - target.x)) target = s.livingRoute.logistics;
+    e.attackTarget = target === s.livingRoute?.logistics ? 'logistics' : target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : target === s.ambulance?.vehicle ? 'ambulance' : s.ambulance?.staff.includes(target) ? 'medical-staff' : s.ambulance?.patients.includes(target) ? 'patient' : s.departure?.boats.includes(target) ? 'departure-boat' : s.departure?.people.includes(target) ? 'departure-person' : 'convoy';
     const td = Math.abs(e.x - target.x);
     if (e.phase === 'attack') {
       e.telegraph = Math.min(1, e.telegraph + dt / e.windup);
@@ -1230,6 +1260,11 @@ function explosion(s, shot, direct = null) {
     const distance = dist(part.x, part.y, shot.x, shot.y);
     if (distance < radius + (part.w || 20) * .35) hitAmbulancePart(s, part, shot.damage * .75 * (1 - distance / (radius + (part.w || 20) * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1));
   }
+  if (s.livingRoute) for (const part of livingRouteSolids(s)) {
+    if (part === direct || part.destroyed) continue;
+    const distance = dist(part.x, part.y, shot.x, shot.y);
+    if (distance < radius + part.w * .35) hitLivingRoutePart(s, part, shot.damage * .7 * (1 - distance / (radius + part.w * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1));
+  }
   if (s.departure) for (const part of [...departureSolids(s), ...s.departure.people.filter(departureExposed)]) {
     if (part === direct || part.destroyed) continue;
     const bounds = s.departure.locks.includes(part) ? departureGateBounds(part) : part;
@@ -1296,6 +1331,7 @@ function updateProjectiles(s, dt) {
       for (const item of [a.vehicle, a.cargo, a.beacon, ...a.barriers]) if (!item.destroyed && !item.recovered && !item.cleared) test(item, 'ambulance');
       for (const person of [...a.staff, ...a.patients]) if (person.alive && !person.safe && person.phase !== 'aboard') test(person, 'ambulance');
     }
+    if (s.livingRoute) for (const part of livingRouteSolids(s)) if (!part.destroyed) test(part, 'living-route');
     if (s.departure) {
       for (const part of departureSolids(s)) if (!part.destroyed) {
         const bounds = s.departure.locks.includes(part) ? departureGateBounds(part) : part;
@@ -1322,6 +1358,7 @@ function updateProjectiles(s, dt) {
       if (hit.kind === 'player') damagePlayer(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'radiator') damageRadiator(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'ambulance') hitAmbulancePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
+      if (hit.kind === 'living-route') hitLivingRoutePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'departure') hitDeparturePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'dike') hitDikePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'channel') hitChannelPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
@@ -2887,6 +2924,293 @@ function departureInteraction(s) {
     : `Courant ${Math.round(d.current * 100)} % · ${d.tide.slack ? 'renverse annoncée' : `renverse dans ${Math.ceil(d.tide.nextSlack)} s`} · vérifier chaque bateau`;
 }
 
+/** MI09 observes a new place. Nacre's report is a provenance echo, never a population seed. */
+export function livingRouteContext(previous = {}) {
+  return { departureRecorded: previous.departureRecorded === true,
+    departureChoice: ['obey', 'delay', 'defy'].includes(previous.departureChoice) ? previous.departureChoice : 'none',
+    departureArrived: clamp(Number.isInteger(previous.departureArrived) ? previous.departureArrived : 0, 0, 100),
+    departureLost: clamp(Number.isInteger(previous.departureLost) ? previous.departureLost : 0, 0, 100) };
+}
+
+function createLivingRouteMission(s, previous) {
+  const settings = s.mission.livingRoute;
+  const solid = (id, x, w, h, hp) => ({ id, x, y: terrainAt(x, s.planetId) - h / 2,
+    w, h, hp, maxHp: hp, destroyed: false, flash: 0 });
+  const job = (id, x, w = 48, h = 54) => ({ id, x, y: terrainAt(x, s.planetId) - h / 2,
+    w, h, working: false, progress: 0 });
+  const columns = settings.columnXs.map((x, i) => ({ ...solid(`thyr-column-${i + 1}`, x, 92, 420, 620), species: 'FL07' }));
+  s.livingRoute = {
+    columns,
+    roots: columns.map((column, i) => ({ ...solid(`thyr-root-${i + 1}`, column.x, settings.rootWidth, settings.rootRise, 360),
+      columnId: column.id, lastContactAt: -10, lastStep: -1 })),
+    homes: columns.map((column, i) => ({ ...solid(`thyr-home-${i + 1}`, column.x + 105, 144, 94, 260),
+      y: terrainAt(column.x, s.planetId) - 310, columnId: column.id, supported: true, habitable: true })),
+    pollinators: columns.map((column, i) => ({ id: `thyr-fan-${i + 1}`, species: 'FU08', columnId: column.id,
+      x: column.x - 40, y: terrainAt(column.x, s.planetId) - 305, w: 68, h: 36,
+      phase: 'flying', calm: 0, alive: true })),
+    migrators: settings.migratorXs.map((x, i) => ({ ...solid(`thyr-longue-dorse-${i + 1}`, x, i % 2 ? 84 : 132, i % 2 ? 54 : 88, i % 2 ? 150 : 240),
+      species: 'FU07', age: i % 2 ? 'young' : 'adult', phase: 'waiting', destination: 'unselected',
+      targetX: x, fear: 0, moving: false })),
+    barrier: { ...solid('thyr-migration-barrier', settings.gateX, 38, 84, 280), controlX: settings.gateControlX,
+      opening: 0, operated: false, working: false, progress: 0 },
+    logistics: { ...solid('thyr-logistics', settings.logisticsX, 126, 68, 720),
+      controlX: settings.logisticsControlX, targetX: settings.logisticsTargetX, speed: 66,
+      released: false, moving: false, arrived: false, working: false, progress: 0 },
+    contact: { ...job('thyr-local-post', settings.contactX), heard: false },
+    approach: { ...job('thyr-approach-marker', settings.approachX), prepared: false, kind: 'unprepared', clearance: settings.initialClearance },
+    maps: { ...job('thyr-route-map', settings.mapX, 68, 68), inspected: false },
+    lights: { ...job('thyr-light-control', settings.lightsX, 44, 74), on: true },
+    report: { ...job('thyr-route-report', settings.reportX, 58, 72), transmitted: false },
+    alert: { triggered: false }, disturbance: { x: 0, remaining: 0, strength: 0 },
+  };
+  s.campaign = { missionId: 'MI09', phase: 'approach', route: 'unselected',
+    localsHeard: false, approach: 'unprepared', approachPrepared: false, routeInspected: false,
+    hamletsRecorded: false, migrationObserved: false, lightsOff: false, gateOperated: false,
+    migrationResolved: false, migratorsTotal: 4, migratorsArrived: 0, migratorsDisplaced: 0, migratorsLost: 0,
+    columnsIntact: 2, homesHabitable: 2, pollinatorsPresent: 0, passagePreserved: false,
+    cropsFertilized: false, harvestFragile: false, snipersTriggered: false, snipersNeutralized: 0,
+    logisticsReleased: false, logisticsArrived: false, logisticsDestroyed: false, logisticsIntegrity: 1,
+    reportTransmitted: false, manifestRead: false, context: livingRouteContext(previous), tutorial: { stepped: false, braced: false } };
+}
+
+/** The feet, hull ground reference and Canvas all use this same root surface. */
+export function livingRouteSurfaceAt(s, x) {
+  const ground = terrainAt(x, s.planetId), route = s.livingRoute;
+  if (!route) return { groundY: ground, rootId: null, rise: 0, traction: 1, clearance: Infinity };
+  const root = route.roots.find(part => !part.destroyed && Math.abs(x - part.x) <= part.w / 2);
+  const rise = root ? root.h * Math.sin(Math.PI * (x - root.x + root.w / 2) / root.w) : 0;
+  return { groundY: ground - rise, rootId: root?.id || null, rise,
+    traction: root && route.approach.kind === 'guided' ? .7 : 1,
+    clearance: x >= s.mission.livingRoute.canopyFrom && x <= s.mission.livingRoute.canopyTo ? route.approach.clearance : 1000 };
+}
+
+function walkerGroundAt(s, x) { return s.livingRoute ? livingRouteSurfaceAt(s, x).groundY : terrainAt(x, s.planetId); }
+function livingRouteTerminal(animal) { return ['arrived', 'displaced', 'lost'].includes(animal.phase); }
+function livingRouteSupported(s) { return s.player.braced && Math.abs(s.player.speed) <= 3 && !s.player.move && s.player.feet.every(foot => foot.contact); }
+function livingRouteSolids(s) {
+  const d = s.livingRoute;
+  return [...d.columns, ...d.roots, ...d.homes, ...d.migrators.filter(animal => !livingRouteTerminal(animal)),
+    ...(d.barrier.opening < .85 ? [d.barrier] : []), ...(!d.logistics.arrived ? [d.logistics] : [])];
+}
+
+export function livingRouteReceiptRoster(s) {
+  return structuredClone({ ...s.livingRoute,
+    snipers: s.enemies.filter(e => e.id.startsWith('thyr-sniper-')).map(e => ({ id: e.id, hp: e.hp, maxHp: e.maxHp, dead: e.dead })) });
+}
+
+function refreshLivingRouteFacts(s) {
+  const d = s.livingRoute, c = s.campaign, count = phase => d.migrators.filter(animal => animal.phase === phase).length;
+  for (const home of d.homes) {
+    home.supported = !d.columns.find(column => column.id === home.columnId).destroyed && !d.roots.find(root => root.columnId === home.columnId).destroyed;
+    home.habitable = home.supported && !home.destroyed;
+  }
+  Object.assign(c, { localsHeard: d.contact.heard, approach: d.approach.kind, approachPrepared: d.approach.prepared,
+    routeInspected: d.maps.inspected, hamletsRecorded: d.maps.inspected, manifestRead: d.maps.inspected,
+    lightsOff: !d.lights.on, gateOperated: d.barrier.operated, migrationResolved: d.migrators.every(livingRouteTerminal),
+    migratorsArrived: count('arrived'), migratorsDisplaced: count('displaced'), migratorsLost: count('lost'),
+    columnsIntact: d.columns.filter(column => !column.destroyed).length, homesHabitable: d.homes.filter(home => home.habitable).length,
+    pollinatorsPresent: d.pollinators.filter(fan => fan.alive && fan.phase === 'settled').length,
+    passagePreserved: d.barrier.operated && c.route === 'migration' && !d.barrier.destroyed && d.roots.every(root => !root.destroyed),
+    cropsFertilized: count('arrived') > 0, snipersTriggered: d.alert.triggered,
+    snipersNeutralized: s.enemies.filter(e => e.id.startsWith('thyr-sniper-') && e.dead).length,
+    logisticsReleased: d.logistics.released, logisticsArrived: d.logistics.arrived,
+    logisticsDestroyed: d.logistics.destroyed, logisticsIntegrity: d.logistics.hp / d.logistics.maxHp,
+    reportTransmitted: d.report.transmitted });
+  c.harvestFragile = c.migrationResolved && (c.migratorsArrived < 4 || c.columnsIntact < 2 || d.pollinators.some(fan => !fan.alive));
+  if (s.decision.active || s.decision.resolved) s.decision.body = livingRouteDecisionBody(s);
+}
+
+export function livingRouteDecisionBody(s) {
+  const c = s.campaign;
+  return `Deux habitats suspendus absents de la carte militaire ont été relevés. ${c.localsHeard ? 'Le poste local a expliqué la migration et balisé une meilleure approche.' : 'Le poste local n’a pas encore été écouté ; aucune aide des habitants n’est attribuée.'} ${c.homesHabitable} habitats restent habitables. Le couloir impérial dévie les quatre longues-dorses vers l’exclusion ; préserver leur passage exige de les laisser atteindre le verger avant la logistique. Choisir ne manœuvre pas la barrière et ne déplace aucun animal.`;
+}
+
+function livingRouteNoise(s, x, strength, duration) {
+  const noise = s.livingRoute.disturbance;
+  noise.x = x; noise.strength = strength; noise.remaining = Math.max(noise.remaining, duration);
+}
+
+function hitLivingRoutePart(s, part, damage) {
+  const d = s.livingRoute;
+  if (damage <= 0 || part.destroyed || part === d.logistics && part.arrived || d.migrators.includes(part) && livingRouteTerminal(part)) return;
+  part.hp = Math.max(0, part.hp - damage); part.flash = .15;
+  livingRouteNoise(s, part.x, 1, 4);
+  particles(s, part.x, part.y, 'spark', 5);
+  if (part.hp === 0) {
+    part.destroyed = true;
+    particles(s, part.x, part.y, 'smoke', 12);
+    if (d.migrators.includes(part)) {
+      part.phase = 'lost'; part.moving = false;
+      emit(s, 'radio', 'Tess : « Une longue-dorse est perdue. La destination prévue ne vaut pas arrivée. »');
+    } else if (part === d.barrier) {
+      part.opening = 1; part.working = false; part.progress = 0;
+      emit(s, 'radio', 'Barrière détruite. Le passage est béant ; il faut encore poser les guides au poste de commande.');
+    } else if (part === d.logistics) {
+      part.moving = false; part.working = false;
+      emit(s, 'radio', 'Transport logistique détruit. La sortie a échoué ; les pertes de Thyr restent consignées.');
+    } else if (d.columns.includes(part) || d.roots.includes(part)) {
+      const columnId = d.columns.includes(part) ? part.id : part.columnId;
+      const home = d.homes.find(item => item.columnId === columnId);
+      if (!home.destroyed) { home.hp = 0; home.destroyed = true; home.supported = false; home.habitable = false; }
+      if (d.columns.includes(part)) {
+        const fan = d.pollinators.find(item => item.columnId === columnId);
+        fan.alive = false; fan.phase = 'lost'; fan.calm = 0;
+      }
+      emit(s, 'radio', 'Appui porteur rompu. L’habitat suspendu s’est effondré ; aucune réparation de route ne le rétablit.');
+    } else if (d.homes.includes(part)) emit(s, 'radio', 'Habitat détruit. La carte et le bilan conserveront ce dommage.');
+  }
+  refreshLivingRouteFacts(s);
+}
+
+function livingRouteFootfall(s, foot) {
+  const d = s.livingRoute;
+  livingRouteNoise(s, foot.x, .22, .6);
+  const root = d.roots.find(item => !item.destroyed && foot.x >= item.x - item.w / 2 && foot.x <= item.x + item.w / 2);
+  if (root && root.lastStep !== s.stats.steps) {
+    const interval = s.elapsed - root.lastContactAt;
+    root.lastStep = s.stats.steps; root.lastContactAt = s.elapsed;
+    if (d.approach.kind !== 'guided' && interval < s.mission.livingRoute.safeCadence) {
+      hitLivingRoutePart(s, root, s.walker.weight * .3);
+      if (!s.notified.thyrCadence) { s.notified.thyrCadence = true; emit(s, 'radio', 'Tess : « La racine prend les appuis trop vite. Espace les groupes J/L, ou fais baliser le passage par le poste local. »'); }
+    }
+  }
+  // The prepared side lane separates walker footprints from the herd's track.
+  if (!d.approach.prepared) for (const animal of d.migrators) {
+    if (!livingRouteTerminal(animal) && Math.abs(foot.x - animal.x) < animal.w / 2 + 22
+      && Math.abs(foot.y - animal.y - animal.h / 2) < 32) hitLivingRoutePart(s, animal, 70);
+  }
+}
+
+function startLivingRouteWork(job) { if (!job.working) { job.working = true; job.progress = 0; } return true; }
+function livingRouteReportReady(s) {
+  return s.decision.resolved && s.campaign.routeInspected && s.campaign.gateOperated
+    && s.campaign.migrationResolved && s.campaign.snipersNeutralized === 2 && s.livingRoute.logistics.arrived;
+}
+
+function interactLivingRouteMission(s) {
+  const d = s.livingRoute, c = s.campaign, near = x => Math.abs(s.player.x - x) < s.mission.livingRoute.interactionRadius;
+  if (near(d.contact.x) && !d.contact.heard) return startLivingRouteWork(d.contact);
+  if (near(d.approach.x) && (!d.approach.prepared || d.contact.heard && d.approach.kind !== 'guided')) return startLivingRouteWork(d.approach);
+  if (near(d.lights.x) && d.lights.on) return startLivingRouteWork(d.lights);
+  if (near(d.maps.x)) {
+    if (!d.maps.inspected) return startLivingRouteWork(d.maps);
+    if (!s.decision.resolved) { s.decision.body = livingRouteDecisionBody(s); s.decision.active = true; emit(s, 'decision', s.decision.title); return true; }
+  }
+  if (near(d.barrier.controlX) && !d.barrier.operated) {
+    if (!s.decision.resolved) { emit(s, 'radio', 'Relevez les cartes au poste oriental avant de choisir la destination du troupeau.'); return false; }
+    return startLivingRouteWork(d.barrier);
+  }
+  if (near(d.logistics.controlX) && !d.logistics.released && !d.logistics.destroyed) {
+    if (!c.migrationResolved) { emit(s, 'radio', 'Le transport attend que chaque longue-dorse ait atteint sa destination ou soit constatée perdue.'); return false; }
+    return startLivingRouteWork(d.logistics);
+  }
+  if (near(d.report.x) && !d.report.transmitted && livingRouteReportReady(s)) return startLivingRouteWork(d.report);
+  return false;
+}
+
+function updateLivingRouteMission(s, dt) {
+  const d = s.livingRoute, c = s.campaign, settings = s.mission.livingRoute;
+  const near = x => Math.abs(s.player.x - x) < settings.interactionRadius;
+  const work = (job, x, duration, done, anchored = false) => {
+    if (!job.working) return;
+    if (!near(x) || anchored && !livingRouteSupported(s)) { job.working = false; job.progress = 0; return; }
+    job.progress = Math.min(1, job.progress + dt / duration);
+    if (job.progress >= 1) { job.working = false; done(); }
+  };
+  work(d.contact, d.contact.x, settings.contactTime, () => {
+    d.contact.heard = true;
+    emit(s, 'radio', 'Poste des vergers : « Les longues-dorses ne traversent pas une friche. Elles portent la saison entre les vergers. Nous vous indiquerons les appuis qui contournent nos maisons. »');
+  });
+  work(d.approach, d.approach.x, d.contact.heard ? settings.guidedTime : settings.surveyedTime, () => {
+    d.approach.prepared = true; d.approach.kind = d.contact.heard ? 'guided' : 'surveyed'; d.approach.clearance = settings.preparedClearance;
+    emit(s, 'radio', d.contact.heard
+      ? 'Tess : « Le passage indiqué contourne la branche basse et le troupeau. L’assistance espace maintenant les appuis sur les racines. »'
+      : 'Tess : « Contournement relevé pour notre gabarit. Sans les repères locaux, les appuis manuels espacés restent nécessaires sur les racines. »');
+  }, true);
+  work(d.lights, d.lights.x, settings.lightsTime, () => { d.lights.on = false; emit(s, 'radio', 'Projecteurs coupés. Les éventails reviendront aux colonnes après quelques secondes de calme local.'); });
+  work(d.maps, d.maps.x, settings.inspectTime, () => {
+    d.maps.inspected = true; s.evidence.collected = true; s.evidence.scanProgress = 1;
+    emit(s, 'radio', 'Sami : « Deux habitats suspendus sur le terrain, aucune ligne sur la carte militaire. Les routes du verger et de l’exclusion sont relevées ; il faut choisir et manœuvrer la barrière. »');
+  });
+  work(d.barrier, d.barrier.controlX, d.barrier.destroyed ? settings.damagedGateTime : settings.gateTime, () => {
+    d.barrier.operated = true; d.barrier.opening = d.barrier.destroyed || c.route === 'migration' ? 1 : 0;
+    d.migrators.forEach((animal, i) => {
+      if (livingRouteTerminal(animal)) return;
+      animal.destination = c.route === 'migration' ? 'orchard' : 'exclusion';
+      animal.targetX = c.route === 'migration' ? settings.orchardXs[i] : settings.exclusionXs[i]; animal.phase = 'migrating';
+    });
+    emit(s, 'radio', c.route === 'migration' ? 'Passage traditionnel ouvert. Les longues-dorses doivent encore atteindre le verger ; garde tes distances.' : 'Déviation posée vers l’exclusion. Le troupeau contourne désormais les cultures.');
+  }, true);
+  work(d.logistics, d.logistics.controlX, settings.dispatchTime, () => {
+    if (!c.migrationResolved) { d.logistics.progress = 0; return; }
+    d.logistics.released = true; emit(s, 'radio', 'Transport libéré. Son arrivée au dépôt n’est pas encore acquise ; ouvre ses angles face aux tireurs d’élite.');
+  });
+  work(d.report, d.report.x, settings.reportTime, () => {
+    if (!livingRouteReportReady(s)) { d.report.progress = 0; return; }
+    d.report.transmitted = true;
+    emit(s, 'radio', `Holt reçoit le bilan : ${c.migratorsArrived} longues-dorses au verger, ${c.migratorsDisplaced} déplacées, ${c.migratorsLost} perdues ; ${c.homesHabitable} habitats habitables. Aucune cause générale n’est encore établie.`);
+  });
+  d.disturbance.remaining = Math.max(0, d.disturbance.remaining - dt);
+  for (const fan of d.pollinators) {
+    if (!fan.alive) continue;
+    const disturbed = d.lights.on || d.disturbance.remaining > 0 && Math.abs(d.disturbance.x - fan.x) < 550;
+    if (disturbed) { fan.phase = 'flying'; fan.calm = 0; }
+    else { fan.calm = Math.min(5, fan.calm + dt); if (fan.calm >= 5) fan.phase = 'settled'; }
+  }
+  for (const animal of d.migrators) {
+    animal.flash = Math.max(0, animal.flash - dt); animal.moving = false;
+    if (livingRouteTerminal(animal)) continue;
+    const noise = d.disturbance.remaining > 0 && Math.abs(d.disturbance.x - animal.x) < 520 ? d.disturbance.strength : 0;
+    animal.fear = clamp(animal.fear + dt * (noise ? noise * 1.5 : -.24), 0, 1);
+    if (animal.phase !== 'migrating') continue;
+    // Adults remain close to their young; no actor knows a distant threat.
+    const index = d.migrators.indexOf(animal), young = animal.age === 'adult' ? d.migrators[index + 1] : null;
+    const guarding = young && !young.destroyed && !livingRouteTerminal(young) && animal.x - young.x > 135;
+    const pace = animal.fear > .78 ? 18 : 64;
+    if (!guarding) { animal.x = Math.min(animal.targetX, animal.x + dt * pace); animal.moving = true; c.migrationObserved = true; }
+    animal.y = terrainAt(animal.x, s.planetId) - animal.h / 2;
+    if (animal.x >= animal.targetX) {
+      animal.moving = false; animal.phase = animal.destination === 'orchard' ? 'arrived' : 'displaced';
+      emit(s, 'objective', animal.destination === 'orchard' ? 'Une longue-dorse atteint le verger. Son passage nourrit effectivement le sol cultivé.' : 'Une longue-dorse atteint la zone d’exclusion. Elle reste vivante ; son passage ne féconde pas le verger.');
+    }
+  }
+  refreshLivingRouteFacts(s);
+  if (d.barrier.operated && c.migrationResolved && !d.alert.triggered) {
+    d.alert.triggered = true;
+    emit(s, 'radio', 'Tess : « Deux tireurs d’élite dans la trouée orientale. Le troupeau a quitté le corridor ; dégage la route du transport. »');
+  }
+  const vehicle = d.logistics;
+  if (vehicle.released && !vehicle.arrived && !vehicle.destroyed) {
+    const threat = s.enemies.some(e => e.id.startsWith('thyr-sniper-') && !e.dead && d.alert.triggered && Math.abs(e.x - vehicle.x) < 420);
+    const landingLimit = Math.min(Infinity, ...s.player.feet.filter(foot => foot.phase === 'swing').map(foot => foot.targetX - vehicle.w / 2 - 35));
+    vehicle.moving = !threat && s.player.x - vehicle.x > 135 && s.player.x - vehicle.x < 850 && vehicle.x < landingLimit;
+    if (vehicle.moving) vehicle.x = Math.min(vehicle.targetX, landingLimit, vehicle.x + dt * vehicle.speed);
+    vehicle.y = terrainAt(vehicle.x, s.planetId) - vehicle.h / 2;
+    if (vehicle.x >= vehicle.targetX) { vehicle.arrived = true; vehicle.moving = false; emit(s, 'objective', 'Le transport atteint le dépôt de Thyr. Le rapport peut être transmis après neutralisation des deux tireurs.'); }
+  }
+  for (const part of [...d.columns, ...d.roots, ...d.homes, d.barrier, vehicle]) part.flash = Math.max(0, part.flash - dt);
+  refreshLivingRouteFacts(s);
+  c.phase = d.report.transmitted ? 'report' : vehicle.arrived ? 'report' : vehicle.released ? 'logistics'
+    : d.alert.triggered ? 'defence' : d.barrier.operated ? 'migration' : s.decision.resolved ? 'routing'
+      : d.maps.inspected ? 'survey' : 'approach';
+  if (vehicle.destroyed) finish(s, false, 'Le transport logistique de Thyr est perdu. Les appuis détruits, les destinations et les pertes du troupeau restent dans la sortie.');
+}
+
+function livingRouteInteraction(s) {
+  const d = s.livingRoute, c = s.campaign, near = x => Math.abs(s.player.x - x) < s.mission.livingRoute.interactionRadius;
+  const progress = (job, label) => job.working ? `${label} ${Math.round(job.progress * 100)} % · rester à portée` : `E · ${label}`;
+  if (near(d.contact.x) && !d.contact.heard) return progress(d.contact, 'Écouter le poste des vergers');
+  if (near(d.approach.x) && (!d.approach.prepared || d.contact.heard && d.approach.kind !== 'guided')) return progress(d.approach, d.contact.heard ? 'Baliser le passage guidé · ancrage Espace' : 'Relever un contournement de gabarit · ancrage Espace');
+  if (near(d.lights.x) && d.lights.on) return progress(d.lights, 'Couper les projecteurs des colonnes');
+  if (near(d.maps.x) && !s.decision.resolved) return d.maps.inspected ? 'E · Choisir la route logistique et la destination du troupeau' : progress(d.maps, 'Comparer la carte militaire aux hameaux visibles');
+  if (near(d.barrier.controlX) && !d.barrier.operated) return !s.decision.resolved ? 'Relever la carte au poste oriental avant la manœuvre' : progress(d.barrier, d.barrier.destroyed ? 'Poser les guides manuels sur la barrière détruite · ancrage' : 'Manœuvrer la barrière choisie · ancrage Espace');
+  if (near(d.logistics.controlX) && !d.logistics.released) return !c.migrationResolved ? 'Le transport attend les destinations réelles du troupeau' : progress(d.logistics, 'Libérer le transport puis le précéder sur la route');
+  if (near(d.report.x) && !d.report.transmitted) return livingRouteReportReady(s) ? progress(d.report, 'Transmettre le bilan de Thyr') : 'Le rapport attend le transport arrivé et les deux tireurs neutralisés';
+  return c.reportTransmitted ? 'Bilan transmis · rejoindre la sortie orientale' : d.logistics.released && !d.logistics.arrived ? 'Garder le transport à moins de 850 m derrière le marcheur'
+    : d.barrier.operated && !c.migrationResolved ? 'Garder ses distances · laisser les longues-dorses atteindre leur destination'
+      : 'Poste local · appuis · projecteurs · carte · barrière · transport';
+}
+
 function updateWorld(s, dt) {
   const p = s.player;
   const e = s.evidence;
@@ -2898,6 +3222,7 @@ function updateWorld(s, dt) {
   if (s.missionId === 'MI06') updateDikeMission(s, dt);
   if (s.missionId === 'MI07') updateAmbulanceMission(s, dt);
   if (s.missionId === 'MI08') updateDepartureMission(s, dt);
+  if (s.missionId === 'MI09') updateLivingRouteMission(s, dt);
   if (s.status !== 'playing') return;
   if (e.scanning && !e.collected) {
     if (Math.abs(p.x - e.x) > (s.missionId === 'MI04' ? s.mission.industrial.interactionRadius : 250)) { e.scanning = false; e.scanProgress = 0; emit(s, 'radio', 'Lecture interrompue : terminal hors de portée.'); }
@@ -2989,6 +3314,7 @@ function updateWorld(s, dt) {
   else if (s.missionId === 'MI06') s.interaction = dikeInteraction(s);
   else if (s.missionId === 'MI07') s.interaction = ambulanceInteraction(s);
   else if (s.missionId === 'MI08') s.interaction = departureInteraction(s);
+  else if (s.missionId === 'MI09') s.interaction = livingRouteInteraction(s);
   else if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     s.interaction = s.campaign.passageWorking ? `Déploiement des dalles ${Math.round(s.campaign.passageProgress * 100)} % · restez près du treuil` : 'E · Déployer les dalles de protection (4,5 s)';
   } else if (!e.collected && Math.abs(p.x - e.x) < 230) {
@@ -2999,6 +3325,10 @@ function updateWorld(s, dt) {
   if (p.hull <= 0) finish(s, false, 'Marcheur immobilisé. Votre équipage a déclenché la balise de secours.');
   else if (s.convoy && s.convoy.hp <= 0) finish(s, false, s.campaign ? s.campaign.filtersDelivered ? 'Le camion de Sami est perdu au poste. Les filtres ont été livrés, mais l’escorte a échoué. Reprenez le dernier point de contrôle pour retenter la mission.' : 'Le camion de Sami est perdu. Les filtres n’atteindront pas le poste des mineurs. Reprenez le dernier point de contrôle pour retenter l’escorte.' : 'Le transport est perdu. La route du bac se ferme.');
   else if (s.extraction.active && Math.abs(p.x - s.extraction.x) < s.extraction.radius) {
+    if (s.missionId === 'MI09') {
+      refreshLivingRouteFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
+      finish(s, true, `Transport arrivé au dépôt. ${c.migratorsArrived} longues-dorses au verger, ${c.migratorsDisplaced} déplacées, ${c.migratorsLost} perdues. ${c.homesHabitable} habitats habitables. ${c.passagePreserved ? 'Le passage traditionnel est préservé.' : 'Le passage traditionnel reste compromis.'} ${c.harvestFragile ? 'La récolte est fragilisée par les faits de cette sortie.' : 'La migration a nourri les cultures.'} ${c.localsHeard ? 'L’approche locale a été réellement transmise.' : 'Le poste local n’a pas été écouté.'}`); return;
+    }
     if (s.missionId === 'MI08') {
       refreshDepartureFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
       finish(s, true, `${c.peopleDeparted} départs acquis, ${c.peopleArrived} personnes arrivées au refuge, ${c.peopleLocal} à l’accueil local, ${c.peopleLost} perdues. ${c.boatsDeparted} bateaux sortis, ${c.boatsLost} perdus. ${c.registryCopied ? 'Les pages copiées du relogement sont conservées.' : 'Le registre perdu reste un constat de ruines.'} ${c.execution === 'open' ? 'Le passage reste ouvert.' : c.execution === 'damaged' ? 'Les avaries et leurs positions réelles sont consignées.' : 'Les accès sont fermés.'}`);
@@ -3052,6 +3382,18 @@ function updateWorld(s, dt) {
 
 function refreshObjectives(s) {
   const goals = [];
+  if (s.missionId === 'MI09') {
+    const c = s.campaign;
+    goals.push({ id: 'survey', label: 'Comparer la carte aux hameaux présents', current: Number(c.routeInspected), target: 1, complete: c.routeInspected });
+    goals.push({ id: 'route', label: 'Choisir puis manœuvrer réellement la barrière', current: Number(c.gateOperated), target: 1, complete: s.decision.resolved && c.gateOperated });
+    goals.push({ id: 'migration', label: `${c.migratorsArrived} au verger · ${c.migratorsDisplaced} déplacées · ${c.migratorsLost} perdues`, current: c.migratorsArrived + c.migratorsDisplaced + c.migratorsLost, target: 4, complete: c.migrationResolved });
+    goals.push({ id: 'snipers', label: 'Repousser les deux tireurs d’élite', current: c.snipersNeutralized, target: 2, complete: c.snipersNeutralized === 2 });
+    goals.push({ id: 'logistics', label: 'Libérer puis escorter le transport jusqu’au dépôt', current: Number(c.logisticsArrived), target: 1, complete: c.logisticsArrived });
+    goals.push({ id: 'report', label: 'Transmettre le bilan des faits accomplis', current: Number(c.reportTransmitted), target: 1, complete: c.reportTransmitted });
+    s.extraction.active = goals.every(goal => goal.complete);
+    goals.push({ id: 'extract', label: 'Rejoindre la sortie orientale', current: Number(s.status === 'won'), target: 1, complete: s.status === 'won' });
+    s.objectives = goals; return;
+  }
   if (s.missionId === 'MI08') {
     const c = s.campaign, d = s.departure;
     goals.push({ id: 'controls', label: 'Inspecter les deux portes et leurs marques de pression', current: c.controlsInspected, target: 2, complete: c.controlsInspected === 2 });

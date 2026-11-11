@@ -32,7 +32,7 @@ function stripV3Additions(value) {
   historicalShape.version = 2;
   delete historicalShape.world.vesper.communications;
   delete historicalShape.world.vesper.industrial;
-  delete historicalShape.world.nacre; delete historicalShape.resources.fuel;
+  delete historicalShape.world.thyr; delete historicalShape.world.nacre; delete historicalShape.resources.fuel;
   for (const condition of Object.values(historicalShape.fleet)) delete condition.radiator;
   for (const id of newWalkerIds) delete historicalShape.fleet[id];
   for (const checkpoint of [historicalShape.checkpoint, historicalShape.preDecisionCheckpoint]) if (checkpoint) {

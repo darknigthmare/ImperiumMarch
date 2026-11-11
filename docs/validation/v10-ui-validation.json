@@ -1,0 +1,29 @@
+{
+  "version": "0.10.0",
+  "type": "Modeled DOM executing the final built application script",
+  "command": "npm run check:ui-runtime",
+  "log": "docs/validation/v10-ui-runtime.log",
+  "logSha256": "074eea62ec0d85b4b9dc81f1f1c7f1d53c3dd2b41dd372303e6014bd4b8f3c50",
+  "flows": 66,
+  "result": "passed",
+  "sourceHashes": {
+    "src/main.mjs": "8b0e76a9890f00f7401b33204108978620b12b9d93d7773060d846207e0499b7",
+    "src/controls.mjs": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32",
+    "src/campaign.mjs": "b3ea42fb30869f79b84a7555caa637facf1398626a4ffaefe0ed78c1bad8dbfa",
+    "src/content.mjs": "ae0d137afbb364a317292df0e11917fd00c8bdcf16a614edfb354c963cec907c",
+    "src/simulation.mjs": "236f3c7f06bec8a32525b652b5612502a2e415466224445397cd0bf85849c617",
+    "src/thyr-validation.mjs": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+    "src/thyr-renderer.mjs": "4b887111c090a90e2084699acf6e43ed0d2613ab73afdb1e4b6fe5eed0a01580",
+    "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+    "src/renderer.mjs": "b5f8ca4b0e20ac18bd3577c22e6361ce6d2905ab50ff8780162ece0f194f823a",
+    "index.html": "31cd84e2d4da5c02f4e123b370299a731a468ec6bf5c3dbaa26b4da99d65bd80",
+    "src/style.css": "38c454a6edd05c26fc258ca95082037ebfa00753c28fe8c9aeccf25b56e6e2af",
+    "src/ui.css": "177533d784ada32fecdacb8bd987d0aada274364e6f3f9685c6cb44eed040d12",
+    "tools/test-ui-runtime.mjs": "c6bcee3f43404e630e20c98f21f3e6fc837d9ed51b6ec8dcf076e9cfb885f3ef",
+    "dist/Ordre_de_Cendre.html": "e911f1ebc8fd1a77dfb1cadf65db893c047b2533cceff1ccaa76b1af347bf428"
+  },
+  "limitations": [
+    "No native browser, focus event delivery, CSS layout, hardware gamepad, human audio or playtest claim.",
+    "The source was frozen before this final UI execution; previous focus-only and pre-integration proofs remain separate."
+  ]
+}

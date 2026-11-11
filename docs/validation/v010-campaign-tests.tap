@@ -1,0 +1,886 @@
+TAP version 13
+# Subtest: MI01 is a separate campaign mission and does not replace the three operations
+ok 1 - MI01 is a separate campaign mission and does not replace the three operations
+  ---
+  duration_ms: 22.498611
+  type: 'test'
+  ...
+# Subtest: the opening lets the player learn real appuis without an enemy attack or an overtaking convoy
+ok 2 - the opening lets the player learn real appuis without an enemy attack or an overtaking convoy
+  ---
+  duration_ms: 64.928148
+  type: 'test'
+  ...
+# Subtest: plate deployment takes time, requires proximity, and stops the convoy
+ok 3 - plate deployment takes time, requires proximity, and stops the convoy
+  ---
+  duration_ms: 53.516614
+  type: 'test'
+  ...
+# Subtest: leaving a partial deployment cancels it; an airborne foot alone does not damage the pipe
+ok 4 - leaving a partial deployment cancels it; an airborne foot alone does not damage the pipe
+  ---
+  duration_ms: 16.234256
+  type: 'test'
+  ...
+# Subtest: all six walkers complete both routes and both report choices through public controls
+ok 5 - all six walkers complete both routes and both report choices through public controls
+  ---
+  duration_ms: 1803.13522
+  type: 'test'
+  ...
+# Subtest: a manifest and decision cannot be obtained at spawn or before delivery
+ok 6 - a manifest and decision cannot be obtained at spawn or before delivery
+  ---
+  duration_ms: 59.98688
+  type: 'test'
+  ...
+# Subtest: reaching the manifest ahead of Sami does not grant the delivery, document, or decision
+ok 7 - reaching the manifest ahead of Sami does not grant the delivery, document, or decision
+  ---
+  duration_ms: 82.72719
+  type: 'test'
+  ...
+# Subtest: a destroyed transport ends the campaign attempt without delivering filters
+ok 8 - a destroyed transport ends the campaign attempt without delivering filters
+  ---
+  duration_ms: 0.714996
+  type: 'test'
+  ...
+# Subtest: campaign state round-trips without changing the next deterministic public actions
+ok 9 - campaign state round-trips without changing the next deterministic public actions
+  ---
+  duration_ms: 149.272262
+  type: 'test'
+  ...
+# Subtest: the real v0.2 checkpoint preserves old state and resumes public actions with its documented finite reserve
+ok 10 - the real v0.2 checkpoint preserves old state and resumes public actions with its documented finite reserve
+  ---
+  duration_ms: 95.600086
+  type: 'test'
+  ...
+# Subtest: the real v0.2 completed dossier unlocks MI02 without rewriting MI01 or its maintenance debt
+ok 11 - the real v0.2 completed dossier unlocks MI02 without rewriting MI01 or its maintenance debt
+  ---
+  duration_ms: 6.76364
+  type: 'test'
+  ...
+# Subtest: migration reads without writes and preserves the original v1 primary during failed and successful commits
+ok 12 - migration reads without writes and preserves the original v1 primary during failed and successful commits
+  ---
+  duration_ms: 7.739449
+  type: 'test'
+  ...
+# Subtest: a future primary remains protected even when its backup is a valid migratable v1 dossier
+ok 13 - a future primary remains protected even when its backup is a valid migratable v1 dossier
+  ---
+  duration_ms: 7.881933
+  type: 'test'
+  ...
+# Subtest: v1 migration rejects invented MI02 data rather than laundering an unknown schema
+ok 14 - v1 migration rejects invented MI02 data rather than laundering an unknown schema
+  ---
+  duration_ms: 5.622761
+  type: 'test'
+  ...
+# Subtest: MI02 is locked before MI01, inherits its concrete consequences and excludes workshop interventions in flight
+ok 15 - MI02 is locked before MI01, inherits its concrete consequences and excludes workshop interventions in flight
+  ---
+  duration_ms: 69.205854
+  type: 'test'
+  ...
+# Subtest: MI02 live saves retain the train, harpoons, physics, input and inherited dossier deterministically
+ok 16 - MI02 live saves retain the train, harpoons, physics, input and inherited dossier deterministically
+  ---
+  duration_ms: 485.892648
+  type: 'test'
+  ...
+# Subtest: MI02 import rejects cross-mission checkpoints, contradictory inherited facts and forged train parts
+ok 17 - MI02 import rejects cross-mission checkpoints, contradictory inherited facts and forged train parts
+  ---
+  duration_ms: 58.542362
+  type: 'test'
+  ...
+# Subtest: the migrated MI01 sortie continues into MI02 and persists both reports, a unique reward and an immutable completed choice
+ok 18 - the migrated MI01 sortie continues into MI02 and persists both reports, a unique reward and an immutable completed choice
+  ---
+  duration_ms: 863.613543
+  type: 'test'
+  ...
+# Subtest: a failed MI02 sortie retains its live checkpoint and cannot grant a reward or erase MI01
+ok 19 - a failed MI02 sortie retains its live checkpoint and cannot grant a reward or erase MI01
+  ---
+  duration_ms: 267.529865
+  type: 'test'
+  ...
+# Subtest: a recovered train with lost workers and a destroyed register persists those losses and the selected report
+ok 20 - a recovered train with lost workers and a destroyed register persists those losses and the selected report
+  ---
+  duration_ms: 437.450103
+  type: 'test'
+  ...
+# Subtest: fresh dossier roundtrips without granting campaign results or knowledge
+ok 21 - fresh dossier roundtrips without granting campaign results or knowledge
+  ---
+  duration_ms: 14.047603
+  type: 'test'
+  ...
+# Subtest: public commands produce a save that resumes identical motion, RNG, projectiles and objectives
+ok 22 - public commands produce a save that resumes identical motion, RNG, projectiles and objectives
+  ---
+  duration_ms: 706.873644
+  type: 'test'
+  ...
+# Subtest: before-decision checkpoint survives later autosaves and restores the unresolved administrative choice
+ok 23 - before-decision checkpoint survives later autosaves and restores the unresolved administrative choice
+  ---
+  duration_ms: 323.139381
+  type: 'test'
+  ...
+# Subtest: real completion posts one delivery and preserves choice, pipe damage, crew responses and workshop costs
+ok 24 - real completion posts one delivery and preserves choice, pipe damage, crew responses and workshop costs
+  ---
+  duration_ms: 990.562687
+  type: 'test'
+  ...
+# Subtest: workshop repair uses finite stock, restores hull and joints, and cannot be repeated for profit
+ok 25 - workshop repair uses finite stock, restores hull and joints, and cannot be repeated for profit
+  ---
+  duration_ms: 2.340338
+  type: 'test'
+  ...
+# Subtest: intact route and standard manifest preserve different concrete dossier facts
+ok 26 - intact route and standard manifest preserve different concrete dossier facts
+  ---
+  duration_ms: 113.216481
+  type: 'test'
+  ...
+# Subtest: defeat neither gives supplies nor erases the last live checkpoint
+ok 27 - defeat neither gives supplies nor erases the last live checkpoint
+  ---
+  duration_ms: 21.209246
+  type: 'test'
+  ...
+# Subtest: starting over requires an explicit restart and never repairs an in-flight walker
+ok 28 - starting over requires an explicit restart and never repairs an in-flight walker
+  ---
+  duration_ms: 3.790603
+  type: 'test'
+  ...
+# Subtest: atomic primary writes retain the last valid dossier across quota failures and corruption
+ok 29 - atomic primary writes retain the last valid dossier across quota failures and corruption
+  ---
+  duration_ms: 19.448782
+  type: 'test'
+  ...
+# Subtest: a failed backup write preserves the valid primary; denied storage stays explicit
+ok 30 - a failed backup write preserves the valid primary; denied storage stays explicit
+  ---
+  duration_ms: 15.240212
+  type: 'test'
+  ...
+# Subtest: unsupported or damaged dossiers are not silently overwritten; explicit replacement is possible
+ok 31 - unsupported or damaged dossiers are not silently overwritten; explicit replacement is possible
+  ---
+  duration_ms: 8.142621
+  type: 'test'
+  ...
+# Subtest: an older valid backup cannot authorize overwriting a newer primary dossier
+ok 32 - an older valid backup cannot authorize overwriting a newer primary dossier
+  ---
+  duration_ms: 11.990368
+  type: 'test'
+  ...
+# Subtest: import rejects future versions, foreign IDs, missing arrays, invalid numbers and prototype keys
+ok 33 - import rejects future versions, foreign IDs, missing arrays, invalid numbers and prototype keys
+  ---
+  duration_ms: 71.086577
+  type: 'test'
+  ...
+# Subtest: prototype operations cannot become campaign checkpoints or campaign victories
+ok 34 - prototype operations cannot become campaign checkpoints or campaign victories
+  ---
+  duration_ms: 34.518278
+  type: 'test'
+  ...
+# Subtest: genuine v0.3 fixtures migrate without rewriting train, timing, decisions, reports, wear or inventory
+ok 35 - genuine v0.3 fixtures migrate without rewriting train, timing, decisions, reports, wear or inventory
+  ---
+  duration_ms: 72.282376
+  type: 'test'
+  ...
+# Subtest: v2 reads are nonmutating, migration is idempotent and a failed v3 write keeps the original primary
+ok 36 - v2 reads are nonmutating, migration is idempotent and a failed v3 write keeps the original primary
+  ---
+  duration_ms: 42.4835
+  type: 'test'
+  ...
+# Subtest: historical formats reject fabricated v3 fields instead of laundering an unknown schema
+ok 37 - historical formats reject fabricated v3 fields instead of laundering an unknown schema
+  ---
+  duration_ms: 27.270255
+  type: 'test'
+  ...
+# Subtest: v3 import enforces finite reserve bounds and protects future data despite a readable v2 backup
+ok 38 - v3 import enforces finite reserve bounds and protects future data despite a readable v2 backup
+  ---
+  duration_ms: 36.731016
+  type: 'test'
+  ...
+# Subtest: an oversized future primary stays protected despite a valid backup until explicit replacement
+ok 39 - an oversized future primary stays protected despite a valid backup until explicit replacement
+  ---
+  duration_ms: 59.448926
+  type: 'test'
+  ...
+# Subtest: MI03 requires both earlier reports and inherits the actual pipes and recovered train for all six chassis
+ok 40 - MI03 requires both earlier reports and inherits the actual pipes and recovered train for all six chassis
+  ---
+  duration_ms: 561.136429
+  type: 'test'
+  ...
+# Subtest: an official MI03 checkpoint survives prior-mission replays, a declined restart and malformed imports
+ok 41 - an official MI03 checkpoint survives prior-mission replays, a declined restart and malformed imports
+  ---
+  duration_ms: 86.111453
+  type: 'test'
+  ...
+# Subtest: six chassis and both MI03 choices preserve three immutable reports, one reward and actual civil access
+ok 42 - six chassis and both MI03 choices preserve three immutable reports, one reward and actual civil access
+  ---
+  duration_ms: 2779.11795
+  type: 'test'
+  ...
+# Subtest: damage after the MI03 decision persists a partial network, lost dispensary access and the real casualties
+ok 43 - damage after the MI03 decision persists a partial network, lost dispensary access and the real casualties
+  ---
+  duration_ms: 226.99732
+  type: 'test'
+  ...
+# Subtest: a real MI03 defeat leaves its live checkpoint and earlier reports without a mission reward
+ok 44 - a real MI03 defeat leaves its live checkpoint and earlier reports without a mission reward
+  ---
+  duration_ms: 100.163081
+  type: 'test'
+  ...
+# Subtest: authentic c81a360 v3 dossiers gain only documented v4 fields and preserve every historical fact
+ok 45 - authentic c81a360 v3 dossiers gain only documented v4 fields and preserve every historical fact
+  ---
+  duration_ms: 94.597054
+  type: 'test'
+  ...
+# Subtest: v3 reads never write and failed v4 commits preserve both original bytes and recoverable backup
+ok 46 - v3 reads never write and failed v4 commits preserve both original bytes and recoverable backup
+  ---
+  duration_ms: 43.894082
+  type: 'test'
+  ...
+# Subtest: old-format imports reject fabricated components and industrial results rather than laundering them
+ok 47 - old-format imports reject fabricated components and industrial results rather than laundering them
+  ---
+  duration_ms: 27.596721
+  type: 'test'
+  ...
+# Subtest: v4 imports enforce component health, stock, repair state and exact field schemas
+ok 48 - v4 imports enforce component health, stock, repair state and exact field schemas
+  ---
+  duration_ms: 87.246449
+  type: 'test'
+  ...
+# Subtest: genuine v3 active MI03 resumes through public controls and unlocks MI04 without changing its first reports
+ok 49 - genuine v3 active MI03 resumes through public controls and unlocks MI04 without changing its first reports
+  ---
+  duration_ms: 98.975789
+  type: 'test'
+  ...
+# Subtest: MI04 is gated by all three reports and consumes real pipe, train and dispensary context for every chassis
+ok 50 - MI04 is gated by all three reports and consumes real pipe, train and dispensary context for every chassis
+  ---
+  duration_ms: 241.882207
+  type: 'test'
+  ...
+# Subtest: field-repair checkpoints retain exact work and kit stock while workshop repairs charge for component wear
+ok 51 - field-repair checkpoints retain exact work and kit stock while workshop repairs charge for component wear
+  ---
+  duration_ms: 64.270862
+  type: 'test'
+  ...
+# Subtest: six chassis and both MI04 decisions complete Vesper with four immutable reports and one technical source
+ok 52 - six chassis and both MI04 decisions complete Vesper with four immutable reports and one technical source
+  ---
+  duration_ms: 2499.883372
+  type: 'test'
+  ...
+# Subtest: an active MI04 dossier survives earlier replays and rejects invented industrial progress or heritage
+ok 53 - an active MI04 dossier survives earlier replays and rejects invented industrial progress or heritage
+  ---
+  duration_ms: 74.674892
+  type: 'test'
+  ...
+# Subtest: a post destroyed by real fire before copying yields a completed mission without PT01 and needs another source
+ok 54 - a post destroyed by real fire before copying yields a completed mission without PT01 and needs another source
+  ---
+  duration_ms: 199.790022
+  type: 'test'
+  ...
+# Subtest: a copied journal keeps PT01 after later post destruction, save/resume and the sealed-report choice
+ok 55 - a copied journal keeps PT01 after later post destruction, save/resume and the sealed-report choice
+  ---
+  duration_ms: 173.33717
+  type: 'test'
+  ...
+# Subtest: an available dispensary channel is not counted as an actual contact when the public pilot skips it
+ok 56 - an available dispensary channel is not counted as an actual contact when the public pilot skips it
+  ---
+  duration_ms: 98.887614
+  type: 'test'
+  ...
+# Subtest: a genuine MI03 cut blocks the later contact without blocking MI04 or granting a witness retrospectively
+ok 57 - a genuine MI03 cut blocks the later contact without blocking MI04 or granting a witness retrospectively
+  ---
+  duration_ms: 351.584419
+  type: 'test'
+  ...
+# Subtest: a real MI04 defeat preserves its earlier live checkpoint and gives no fourth mission reward
+ok 58 - a real MI04 defeat preserves its earlier live checkpoint and gives no fourth mission reward
+  ---
+  duration_ms: 72.518344
+  type: 'test'
+  ...
+# Subtest: real train losses propagate through MI03 into the full cooling procedure and portable coolant never repairs the village pipe
+ok 59 - real train losses propagate through MI03 into the full cooling procedure and portable coolant never repairs the village pipe
+  ---
+  duration_ms: 462.343825
+  type: 'test'
+  ...
+# Subtest: authentic d7d76b6 v4 live and completed dossiers gain only an unvisited Nacre and zero fuel
+ok 60 - authentic d7d76b6 v4 live and completed dossiers gain only an unvisited Nacre and zero fuel
+  ---
+  duration_ms: 145.043861
+  type: 'test'
+  ...
+# Subtest: v4 migration leaves stored bytes untouched until a successful save and protects a future primary
+ok 61 - v4 migration leaves stored bytes untouched until a successful save and protects a future primary
+  ---
+  duration_ms: 60.389585
+  type: 'test'
+  ...
+# Subtest: old versions cannot import invented Nacre results, fuel or MI05 checkpoints
+ok 62 - old versions cannot import invented Nacre results, fuel or MI05 checkpoints
+  ---
+  duration_ms: 39.077907
+  type: 'test'
+  ...
+# Subtest: MI05 requires all four reports but no technical proof, and preserves each inherited fact
+ok 63 - MI05 requires all four reports but no technical proof, and preserves each inherited fact
+  ---
+  duration_ms: 770.97998
+  type: 'test'
+  ...
+# Subtest: a mid-work MI05 save retains tide, footholds, damage and work, then resumes deterministically
+ok 64 - a mid-work MI05 save retains tide, footholds, damage and work, then resumes deterministically
+  ---
+  duration_ms: 169.288938
+  type: 'test'
+  ...
+# Subtest: all chassis and both decisions add one Nacre report and grant only the collected fuel once
+ok 65 - all chassis and both decisions add one Nacre report and grant only the collected fuel once
+  ---
+  duration_ms: 3105.044833
+  type: 'test'
+  ...
+# Subtest: MI05 imports reject contradictory tide, identity, results, inheritance and resource claims
+ok 66 - MI05 imports reject contradictory tide, identity, results, inheritance and resource claims
+  ---
+  duration_ms: 67.30538
+  type: 'test'
+  ...
+# Subtest: authentic public v5 dossiers migrate without rewriting MI01–MI05 or crediting in-flight fuel
+ok 67 - authentic public v5 dossiers migrate without rewriting MI01–MI05 or crediting in-flight fuel
+  ---
+  duration_ms: 247.933248
+  type: 'test'
+  ...
+# Subtest: v5 migration is read-only until writing, keeps the original backup and protects future primaries
+ok 68 - v5 migration is read-only until writing, keeps the original backup and protects future primaries
+  ---
+  duration_ms: 72.733442
+  type: 'test'
+  ...
+# Subtest: historic v5 imports reject a pre-existing dike, fuel ledger or forged MI06 mission
+ok 69 - historic v5 imports reject a pre-existing dike, fuel ledger or forged MI06 mission
+  ---
+  duration_ms: 16.628922
+  type: 'test'
+  ...
+# Subtest: MI06 requires MI05 and inherits the passage facts and current stock without relocating its passengers
+ok 70 - MI06 requires MI05 and inherits the passage facts and current stock without relocating its passengers
+  ---
+  duration_ms: 708.925995
+  type: 'test'
+  ...
+# Subtest: partly connected auxiliary resumes deterministically, debits only at completion and never twice
+ok 71 - partly connected auxiliary resumes deterministically, debits only at completion and never twice
+  ---
+  duration_ms: 398.415934
+  type: 'test'
+  ...
+# Subtest: fuel consumed before an unsaved defeat is retained in a real terminal checkpoint and is not refunded on restart
+ok 72 - fuel consumed before an unsaved defeat is retained in a real terminal checkpoint and is not refunded on restart
+  ---
+  duration_ms: 712.106752
+  type: 'test'
+  ...
+# Subtest: all six campaign chassis finish both circuits with one report, one grant and unchanged earlier facts
+ok 73 - all six campaign chassis finish both circuits with one report, one grant and unchanged earlier facts
+  ---
+  duration_ms: 2692.849147
+  type: 'test'
+  ...
+# Subtest: direct successful finish settles fuel without intermediate capture and replays cannot debit the official stock
+ok 74 - direct successful finish settles fuel without intermediate capture and replays cannot debit the official stock
+  ---
+  duration_ms: 145.892513
+  type: 'test'
+  ...
+# Subtest: a decision checkpoint cannot restore fuel spent later in the same official sortie
+ok 75 - a decision checkpoint cannot restore fuel spent later in the same official sortie
+  ---
+  duration_ms: 78.663368
+  type: 'test'
+  ...
+# Subtest: an earlier MI06 decision point is not offered as a playable restore after the official clock advances
+ok 76 - an earlier MI06 decision point is not offered as a playable restore after the official clock advances
+  ---
+  duration_ms: 96.74107
+  type: 'test'
+  ...
+# Subtest: imports reject inconsistent dike objects, physical results, fuel balance and changed inheritance
+ok 77 - imports reject inconsistent dike objects, physical results, fuel balance and changed inheritance
+  ---
+  duration_ms: 33.861814
+  type: 'test'
+  ...
+# Subtest: authentic v6 migration adds only unvisited ambulance and departure dossiers and preserves a paid live valve exactly
+ok 78 - authentic v6 migration adds only unvisited ambulance and departure dossiers and preserves a paid live valve exactly
+  ---
+  duration_ms: 319.589632
+  type: 'test'
+  ...
+# Subtest: v6 read is nonmutating, first write preserves original bytes and an unsupported primary blocks autosave
+ok 79 - v6 read is nonmutating, first write preserves original bytes and an unsupported primary blocks autosave
+  ---
+  duration_ms: 109.467565
+  type: 'test'
+  ...
+# Subtest: v6 imports reject fabricated ambulance dossiers, scene objects and MI07 reports
+ok 80 - v6 imports reject fabricated ambulance dossiers, scene objects and MI07 reports
+  ---
+  duration_ms: 48.115275
+  type: 'test'
+  ...
+# Subtest: MI07 requires MI06 and derives its ramp from authentic support without crediting or spending fuel
+ok 81 - MI07 requires MI06 and derives its ramp from authentic support without crediting or spending fuel
+  ---
+  duration_ms: 194.476421
+  type: 'test'
+  ...
+# Subtest: MI07 completed/obey classifies physical results once and replay preserves every official fact
+ok 82 - MI07 completed/obey classifies physical results once and replay preserves every official fact
+  ---
+  duration_ms: 1927.466891
+  type: 'test'
+  ...
+# Subtest: MI07 completed/defy classifies physical results once and replay preserves every official fact
+ok 83 - MI07 completed/defy classifies physical results once and replay preserves every official fact
+  ---
+  duration_ms: 1088.222488
+  type: 'test'
+  ...
+# Subtest: MI07 manualCompleted/obey classifies physical results once and replay preserves every official fact
+ok 84 - MI07 manualCompleted/obey classifies physical results once and replay preserves every official fact
+  ---
+  duration_ms: 727.145078
+  type: 'test'
+  ...
+# Subtest: MI07 manualCompleted/defy classifies physical results once and replay preserves every official fact
+ok 85 - MI07 manualCompleted/defy classifies physical results once and replay preserves every official fact
+  ---
+  duration_ms: 520.356221
+  type: 'test'
+  ...
+# Subtest: MI07 rejects contradictory facts, changed inherited support, invented provenance and duplicate rewards
+ok 86 - MI07 rejects contradictory facts, changed inherited support, invented provenance and duplicate rewards
+  ---
+  duration_ms: 265.743126
+  type: 'test'
+  ...
+# Subtest: a partially completed agreement survives JSON and resumes with the exact physical scene
+ok 87 - a partially completed agreement survives JSON and resumes with the exact physical scene
+  ---
+  duration_ms: 483.585936
+  type: 'test'
+  ...
+# Subtest: a partially completed cargo survives JSON and resumes with the exact physical scene
+ok 88 - a partially completed cargo survives JSON and resumes with the exact physical scene
+  ---
+  duration_ms: 482.085087
+  type: 'test'
+  ...
+# Subtest: a partially completed beacon survives JSON and resumes with the exact physical scene
+ok 89 - a partially completed beacon survives JSON and resumes with the exact physical scene
+  ---
+  duration_ms: 897.19935
+  type: 'test'
+  ...
+# Subtest: a partially completed ramp survives JSON and resumes with the exact physical scene
+ok 90 - a partially completed ramp survives JSON and resumes with the exact physical scene
+  ---
+  duration_ms: 844.19421
+  type: 'test'
+  ...
+# Subtest: terminal MI07 hull loss persists as lost, cannot resume a living sortie and restarts without changing fuel
+ok 91 - terminal MI07 hull loss persists as lost, cannot resume a living sortie and restarts without changing fuel
+  ---
+  duration_ms: 589.608052
+  type: 'test'
+  ...
+# Subtest: authentic v7 capture is immutable and migration preserves prior data while adding empty future dossiers
+ok 92 - authentic v7 capture is immutable and migration preserves prior data while adding empty future dossiers
+  ---
+  duration_ms: 210.071489
+  type: 'test'
+  ...
+# Subtest: v7 storage is read without writing, original bytes are backed up and future dossiers stay protected
+ok 93 - v7 storage is read without writing, original bytes are backed up and future dossiers stay protected
+  ---
+  duration_ms: 44.91035
+  type: 'test'
+  ...
+# Subtest: historical v7 cannot smuggle future mission, physical scene, dossier or third decisions
+ok 94 - historical v7 cannot smuggle future mission, physical scene, dossier or third decisions
+  ---
+  duration_ms: 32.043631
+  type: 'test'
+  ...
+# Subtest: MI08 requires the completed sanitary report and starts from actual counted survivors without fuel creation
+ok 95 - MI08 requires the completed sanitary report and starts from actual counted survivors without fuel creation
+  ---
+  duration_ms: 226.756278
+  type: 'test'
+  ...
+# Subtest: new census distinguishes aggregate origins from a surviving identified witness and creates no historical identity
+ok 96 - new census distinguishes aggregate origins from a surviving identified witness and creates no historical identity
+  ---
+  duration_ms: 17.019947
+  type: 'test'
+  ...
+# Subtest: MI08 exact live snapshots preserve tide, people, ammunition, gates and previous reports
+ok 97 - MI08 exact live snapshots preserve tide, people, ammunition, gates and previous reports
+  ---
+  duration_ms: 182.709218
+  type: 'test'
+  ...
+# Subtest: MI08 imports reject forged people, capacities, positions, provenance, facts and inherited supply
+ok 98 - MI08 imports reject forged people, capacities, positions, provenance, facts and inherited supply
+  ---
+  duration_ms: 192.046234
+  type: 'test'
+  ...
+# Subtest: MI08 obey stores individual outcomes, grants once and leaves all previous reports and fuel exact
+ok 99 - MI08 obey stores individual outcomes, grants once and leaves all previous reports and fuel exact
+  ---
+  duration_ms: 5342.668989
+  type: 'test'
+  ...
+# Subtest: MI08 delay stores individual outcomes, grants once and leaves all previous reports and fuel exact
+ok 100 - MI08 delay stores individual outcomes, grants once and leaves all previous reports and fuel exact
+  ---
+  duration_ms: 3582.470678
+  type: 'test'
+  ...
+# Subtest: MI08 defy stores individual outcomes, grants once and leaves all previous reports and fuel exact
+ok 101 - MI08 defy stores individual outcomes, grants once and leaves all previous reports and fuel exact
+  ---
+  duration_ms: 884.149288
+  type: 'test'
+  ...
+# Subtest: MI08 terminal loss is retained exactly and cannot resume an older living scene
+ok 102 - MI08 terminal loss is retained exactly and cannot resume an older living scene
+  ---
+  duration_ms: 261.808278
+  type: 'test'
+  ...
+# Subtest: v9 migration adds only unvisited Thyr to authentic native v8 exports
+ok 103 - v9 migration adds only unvisited Thyr to authentic native v8 exports
+  ---
+  duration_ms: 117.497753
+  type: 'test'
+  ...
+# Subtest: all seven earlier fixture files retain their historical bytes
+ok 104 - all seven earlier fixture files retain their historical bytes
+  ---
+  duration_ms: 3.998365
+  type: 'test'
+  ...
+# Subtest: v8 read is nondestructive, first write backs up the original, future versions remain protected
+ok 105 - v8 read is nondestructive, first write backs up the original, future versions remain protected
+  ---
+  duration_ms: 37.301603
+  type: 'test'
+  ...
+# Subtest: historical v8 cannot import future Thyr state, mission or result
+ok 106 - historical v8 cannot import future Thyr state, mission or result
+  ---
+  duration_ms: 19.101965
+  type: 'test'
+  ...
+# Subtest: MI09 requires the first MI08 report and inherits only its sourced radio context
+ok 107 - MI09 requires the first MI08 report and inherits only its sourced radio context
+  ---
+  duration_ms: 40.789686
+  type: 'test'
+  ...
+# Subtest: Thyr in-progress export preserves exact simulation and detached restore without altering MI01–MI08
+ok 108 - Thyr in-progress export preserves exact simulation and detached restore without altering MI01–MI08
+  ---
+  duration_ms: 63.700857
+  type: 'test'
+  ...
+# Subtest: MI09 import rejects invented objects, aggregate outcomes, geometry, contacts, evidence and supply
+ok 109 - MI09 import rejects invented objects, aggregate outcomes, geometry, contacts, evidence and supply
+  ---
+  duration_ms: 156.932066
+  type: 'test'
+  ...
+# Subtest: matching declared facts do not permit instant work or an abandoned partial operation
+ok 110 - matching declared facts do not permit instant work or an abandoned partial operation
+  ---
+  duration_ms: 17.9537
+  type: 'test'
+  ...
+# Subtest: MI09 obey reconciles its complete physical roster, grants once and isolates replays
+ok 111 - MI09 obey reconciles its complete physical roster, grants once and isolates replays
+  ---
+  duration_ms: 2395.265434
+  type: 'test'
+  ...
+# Subtest: MI09 defy reconciles its complete physical roster, grants once and isolates replays
+ok 112 - MI09 defy reconciles its complete physical roster, grants once and isolates replays
+  ---
+  duration_ms: 2901.205211
+  type: 'test'
+  ...
+# Subtest: MI09 receipt accepts actual WK01 obey public-control completion
+ok 113 - MI09 receipt accepts actual WK01 obey public-control completion
+  ---
+  duration_ms: 329.380765
+  type: 'test'
+  ...
+# Subtest: MI09 receipt accepts actual WK01 defy public-control completion
+ok 114 - MI09 receipt accepts actual WK01 defy public-control completion
+  ---
+  duration_ms: 396.367637
+  type: 'test'
+  ...
+# Subtest: MI09 receipt accepts actual WK02 obey public-control completion
+ok 115 - MI09 receipt accepts actual WK02 obey public-control completion
+  ---
+  duration_ms: 1339.936909
+  type: 'test'
+  ...
+# Subtest: MI09 receipt accepts actual WK02 defy public-control completion
+ok 116 - MI09 receipt accepts actual WK02 defy public-control completion
+  ---
+  duration_ms: 99.666644
+  type: 'test'
+  ...
+# Subtest: MI09 receipt accepts actual WK05 obey public-control completion
+ok 117 - MI09 receipt accepts actual WK05 obey public-control completion
+  ---
+  duration_ms: 94.43382
+  type: 'test'
+  ...
+# Subtest: MI09 receipt accepts actual WK05 defy public-control completion
+ok 118 - MI09 receipt accepts actual WK05 defy public-control completion
+  ---
+  duration_ms: 106.949443
+  type: 'test'
+  ...
+# Subtest: MI09 receipt accepts actual WK06 obey public-control completion
+ok 119 - MI09 receipt accepts actual WK06 obey public-control completion
+  ---
+  duration_ms: 218.921453
+  type: 'test'
+  ...
+# Subtest: MI09 receipt accepts actual WK06 defy public-control completion
+ok 120 - MI09 receipt accepts actual WK06 defy public-control completion
+  ---
+  duration_ms: 99.284386
+  type: 'test'
+  ...
+# Subtest: MI09 receipt accepts actual WK09 obey public-control completion
+ok 121 - MI09 receipt accepts actual WK09 obey public-control completion
+  ---
+  duration_ms: 146.434405
+  type: 'test'
+  ...
+# Subtest: MI09 receipt accepts actual WK09 defy public-control completion
+ok 122 - MI09 receipt accepts actual WK09 defy public-control completion
+  ---
+  duration_ms: 449.791331
+  type: 'test'
+  ...
+# Subtest: MI09 receipt accepts actual WK10 obey public-control completion
+ok 123 - MI09 receipt accepts actual WK10 obey public-control completion
+  ---
+  duration_ms: 112.11239
+  type: 'test'
+  ...
+# Subtest: MI09 receipt accepts actual WK10 defy public-control completion
+ok 124 - MI09 receipt accepts actual WK10 defy public-control completion
+  ---
+  duration_ms: 143.063747
+  type: 'test'
+  ...
+# Subtest: changing the receipt, matching world copy and debrief together cannot bypass physical validation
+ok 125 - changing the receipt, matching world copy and debrief together cannot bypass physical validation
+  ---
+  duration_ms: 157.388151
+  type: 'test'
+  ...
+# Subtest: MI09 preserves adverse physical facts {"skipLocals":true}
+ok 126 - MI09 preserves adverse physical facts {"skipLocals":true}
+  ---
+  duration_ms: 487.164855
+  type: 'test'
+  ...
+# Subtest: MI09 preserves adverse physical facts {"leaveLightsOn":true}
+ok 127 - MI09 preserves adverse physical facts {"leaveLightsOn":true}
+  ---
+  duration_ms: 426.104357
+  type: 'test'
+  ...
+# Subtest: MI09 preserves adverse physical facts {"destroyColumn":1}
+ok 128 - MI09 preserves adverse physical facts {"destroyColumn":1}
+  ---
+  duration_ms: 503.920738
+  type: 'test'
+  ...
+# Subtest: MI09 preserves adverse physical facts {"destroyRoot":1}
+ok 129 - MI09 preserves adverse physical facts {"destroyRoot":1}
+  ---
+  duration_ms: 758.855625
+  type: 'test'
+  ...
+# Subtest: MI09 preserves adverse physical facts {"destroyHome":1}
+ok 130 - MI09 preserves adverse physical facts {"destroyHome":1}
+  ---
+  duration_ms: 487.863065
+  type: 'test'
+  ...
+# Subtest: MI09 preserves adverse physical facts {"destroyBarrier":true}
+ok 131 - MI09 preserves adverse physical facts {"destroyBarrier":true}
+  ---
+  duration_ms: 1583.077652
+  type: 'test'
+  ...
+# Subtest: MI09 preserves adverse physical facts {"killMigrators":1}
+ok 132 - MI09 preserves adverse physical facts {"killMigrators":1}
+  ---
+  duration_ms: 645.95323
+  type: 'test'
+  ...
+# Subtest: MI09 preserves adverse physical facts {"killMigrators":4}
+ok 133 - MI09 preserves adverse physical facts {"killMigrators":4}
+  ---
+  duration_ms: 357.88091
+  type: 'test'
+  ...
+# Subtest: MI09 terminal transport loss is exact, receives no reward and cannot revive an older checkpoint
+ok 134 - MI09 terminal transport loss is exact, receives no reward and cannot revive an older checkpoint
+  ---
+  duration_ms: 184.713554
+  type: 'test'
+  ...
+# Subtest: MI09 prechoice restore cannot undo even an instantaneous official choice
+ok 135 - MI09 prechoice restore cannot undo even an instantaneous official choice
+  ---
+  duration_ms: 70.275732
+  type: 'test'
+  ...
+# Subtest: raising the clock cannot restore an already destroyed structural column
+ok 136 - raising the clock cannot restore an already destroyed structural column
+  ---
+  duration_ms: 97.90748
+  type: 'test'
+  ...
+# Subtest: MI02 declares a separate moving train and carries the actual Vesper dossier without PALINODE knowledge
+ok 137 - MI02 declares a separate moving train and carries the actual Vesper dossier without PALINODE knowledge
+  ---
+  duration_ms: 25.537617
+  type: 'test'
+  ...
+# Subtest: all six walkers complete both MI02 report choices through public commands with every hostage alive
+ok 138 - all six walkers complete both MI02 report choices through public commands with every hostage alive
+  ---
+  duration_ms: 1485.232209
+  type: 'test'
+  ...
+# Subtest: harpoons require proximity and time; a partial release cancels when the pilot leaves
+ok 139 - harpoons require proximity and time; a partial release cancels when the pilot leaves
+  ---
+  duration_ms: 10.922269
+  type: 'test'
+  ...
+# Subtest: MI02 cannot open the wagon, read the manifest, or approve a report while the train runs
+ok 140 - MI02 cannot open the wagon, read the manifest, or approve a report while the train runs
+  ---
+  duration_ms: 36.611941
+  type: 'test'
+  ...
+# Subtest: a train that reaches the broken rail ends the attempt without granting a campaign result
+ok 141 - a train that reaches the broken rail ends the attempt without granting a campaign result
+  ---
+  duration_ms: 125.207576
+  type: 'test'
+  ...
+# Subtest: running-train save state resumes with identical physics, passengers, RNG and objective progress
+ok 142 - running-train save state resumes with identical physics, passengers, RNG and objective progress
+  ---
+  duration_ms: 91.028256
+  type: 'test'
+  ...
+# Subtest: MI01 consequences distinguish intact, repaired and interrupted services and the signed notice
+ok 143 - MI01 consequences distinguish intact, repaired and interrupted services and the signed notice
+  ---
+  duration_ms: 99.321409
+  type: 'test'
+  ...
+# Subtest: two real rockets into the hostage wagon cause irreversible deaths and destroy the sale record
+ok 144 - two real rockets into the hostage wagon cause irreversible deaths and destroy the sale record
+  ---
+  duration_ms: 43.775785
+  type: 'test'
+  ...
+# Subtest: a ground explosion can damage the wagon without a direct hit, while rescued workers stay sheltered
+ok 145 - a ground explosion can damage the wagon without a direct hit, while rescued workers stay sheltered
+  ---
+  duration_ms: 25.930131
+  type: 'test'
+  ...
+# Subtest: a destroyed hostage wagon remains a documented loss and never invents survivors or identities
+ok 146 - a destroyed hostage wagon remains a documented loss and never invents survivors or identities
+  ---
+  duration_ms: 33.555447
+  type: 'test'
+  ...
+1..146
+# tests 146
+# suites 0
+# pass 146
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 18112.874712

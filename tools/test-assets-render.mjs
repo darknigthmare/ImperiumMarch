@@ -6,6 +6,7 @@ import {
   PRODUCTION_COMPONENT_NAMES, productionPartGeometry, productionComponentGeometry,
   productionGeometrySVG, drawProductionGeometry,
 } from '../src/production-assets.mjs';
+import { THYR_ASSET_SPECS, thyrAssetGeometry, thyrAssetSVG } from '../src/thyr-assets.mjs';
 
 const require = createRequire(import.meta.url);
 let canvas;
@@ -22,12 +23,13 @@ const cases = [
   { walkerId: 'WK01', part: 'radiator', state: 'damaged' },
   { part: 'ambulance' },
   { part: 'beacon', state: 'lost' },
+  ...Object.entries(THYR_ASSET_SPECS).flatMap(([part, spec]) => spec.states.map(state => ({ part, state, progress: .5, thyr: true }))),
 ];
 
 for (const options of cases) {
-  const geometry = PRODUCTION_COMPONENT_NAMES.includes(options.part)
+  const geometry = options.thyr ? thyrAssetGeometry(options) : PRODUCTION_COMPONENT_NAMES.includes(options.part)
     ? productionComponentGeometry(options) : productionPartGeometry(options);
-  const svg = productionGeometrySVG(geometry), [x, y, width, height] = geometry.bounds, scale = 3;
+  const svg = options.thyr ? thyrAssetSVG(geometry) : productionGeometrySVG(geometry), [x, y, width, height] = geometry.bounds, scale = 3;
   const direct = createCanvas(Math.ceil(width * scale), Math.ceil(height * scale));
   const directContext = direct.getContext('2d');
   directContext.scale(scale, scale); directContext.translate(-x, -y);
@@ -35,7 +37,11 @@ for (const options of cases) {
 
   const exported = createCanvas(direct.width, direct.height);
   const exportedContext = exported.getContext('2d');
-  const image = await loadImage(Buffer.from(svg));
+  // Rasterize the vector at the same resolution as the direct drawing.
+  // Upscaling an intrinsic-size SVG raster would measure image interpolation,
+  // which disproportionately erodes narrow leaves, rather than shape fidelity.
+  const rasterSVG = svg.replace('<svg ', `<svg width="${direct.width}" height="${direct.height}" `);
+  const image = await loadImage(Buffer.from(rasterSVG));
   exportedContext.drawImage(image, 0, 0, exported.width, exported.height);
   const directPixels = directContext.getImageData(0, 0, direct.width, direct.height).data;
   const exportedPixels = exportedContext.getImageData(0, 0, exported.width, exported.height).data;

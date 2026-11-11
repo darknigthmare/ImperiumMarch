@@ -1,12 +1,12 @@
 # Rapprochement exhaustif des médias distribués
 
-Snapshot : 2026-11-11T11:56:06.356Z. Révision de repère : 1fc6b2d519458ff8fae57f60c3493c04ade4eded. Le relevé porte sur les fichiers courants, y compris les travaux non commités.
+Snapshot : 2026-11-11T16:19:58.339Z. Révision de repère : e0026cb3fcd342309f2201a9288f10b78b8cff84. Le relevé porte sur les fichiers courants, y compris les travaux non commités.
 
 ## Résultat
 
-351 médias sources possèdent une entrée. Les artefacts actuellement observés contiennent 351 médias web et 5 occurrences inline (3 contenus distincts). **0 média non rapproché ou anomalie de provenance.** La source du jeu demande trois fichiers image : illustration du menu, panorama Vesper et emblème. Les formes de production sont du code Canvas ; le son est synthétisé. Aucun WAV de production n’est embarqué dans le HTML observé.
+388 médias sources possèdent une entrée. Les artefacts actuellement observés contiennent 388 médias web et 5 occurrences inline (3 contenus distincts). **0 média non rapproché ou anomalie de provenance.** La source du jeu demande trois fichiers image : illustration du menu, panorama Vesper et emblème. Les formes de production sont du code Canvas ; le son est synthétisé. Aucun WAV de production n’est embarqué dans le HTML observé.
 
-Éditions observées : source UI 0.9, HTML autonome 0.9, web 0.9. **Synchronisation des builds : oui.**
+Éditions observées : source UI 0.10, HTML autonome 0.10, web 0.10. **Synchronisation des builds : oui.**
 
 Les médias copiés et le graphe des modules sont synchronisés avec la source observée.
 
@@ -14,9 +14,11 @@ Les médias copiés et le graphe des modules sont synchronisés avec la source o
 
 Les deux PNG historiques proviennent d’image_gen selon docs/ASSET_PROVENANCE.md, qui conserve leurs prompts complets et précise l’absence d’image de référence. Leur première introduction est le commit 78e2b11 (version 0.1.0, 10 novembre 2026). Cette date est une date de dépôt, pas une heure de génération. Le modèle exact, le numéro de génération et un acte de licence distinct ne sont pas présents ; le manifeste les garde absents. L’emblème est déclaré géométrique et original, sans auteur individuel nommé. Aucune licence ou autorisation supplémentaire n’a été inventée.
 
+Le lot de Thyr ajoute onze composants, trente-cinq SVG et deux planches PNG, issus de src/thyr-assets.mjs et employés par src/thyr-renderer.mjs. Les surfaces des racines suivent la simulation ; les décors ne recensent aucun habitant. Les membranes FL08 restent décoratives et FL09 n’apporte ici qu’une réaction visuelle.
+
 Les nouveaux vecteurs et sons renvoient à leurs manifestes de production datés et versionnés, avec code source et hashes. Les WAV reproduisent la synthèse du runtime ; aucune voix humaine, aucun échantillon tiers ni validation humaine de mix n’est déclaré. Aucun fichier de police n’est distribué ; les noms de polices sont des fallbacks système.
 
-La page officielle Steam de **BE-A Walker** est enregistrée comme référence de conception non distribuée. Aucun fichier local de cette référence n’est documenté : il n’existe donc pas de hash local ou d’autorisation de redistribution à inventer. Tous les octets média effectivement observés sont rapprochés des fichiers originaux du projet. Les 206 médias de documentation sont recensés séparément et exclus des deux politiques de build.
+La page officielle Steam de **BE-A Walker** est enregistrée comme référence de conception non distribuée. Aucun fichier local de cette référence n’est documenté : il n’existe donc pas de hash local ou d’autorisation de redistribution à inventer. Tous les octets média effectivement observés sont rapprochés des fichiers originaux du projet. Les 268 médias de documentation sont recensés séparément et exclus des deux politiques de build.
 
 ## Médias réellement demandés par le jeu
 
@@ -383,6 +385,43 @@ La page officielle Steam de **BE-A Walker** est enregistrée comme référence d
 | assets/production/walkers/wk10/turret-near.svg | 0.9.0 | production-vector | Reusable vector component: turret; normal | non | oui |
 | assets/production/walkers/wk10/upper-far.svg | 0.9.0 | production-vector | Reusable vector component: upper; normal | non | oui |
 | assets/production/walkers/wk10/upper-near.svg | 0.9.0 | production-vector | Reusable vector component: upper; normal | non | oui |
+| assets/thyr/breathing-vine-burnt.svg | 0.10.0 | thyr-vector | Thyr reusable vector: breathing-vine; burnt | non | oui |
+| assets/thyr/breathing-vine-normal.svg | 0.10.0 | thyr-vector | Thyr reusable vector: breathing-vine; normal | non | oui |
+| assets/thyr/breathing-vine-wilted.svg | 0.10.0 | thyr-vector | Thyr reusable vector: breathing-vine; wilted | non | oui |
+| assets/thyr/column-damaged.svg | 0.10.0 | thyr-vector | Thyr reusable vector: column; damaged | non | oui |
+| assets/thyr/column-destroyed.svg | 0.10.0 | thyr-vector | Thyr reusable vector: column; destroyed | non | oui |
+| assets/thyr/column-normal.svg | 0.10.0 | thyr-vector | Thyr reusable vector: column; normal | non | oui |
+| assets/thyr/echo-grass-calm.svg | 0.10.0 | thyr-vector | Thyr reusable vector: echo-grass; calm | non | oui |
+| assets/thyr/echo-grass-moving.svg | 0.10.0 | thyr-vector | Thyr reusable vector: echo-grass; moving | non | oui |
+| assets/thyr/fan-colony-dispersed.svg | 0.10.0 | thyr-vector | Thyr reusable vector: fan-colony; dispersed | non | oui |
+| assets/thyr/fan-colony-lost.svg | 0.10.0 | thyr-vector | Thyr reusable vector: fan-colony; lost | non | oui |
+| assets/thyr/fan-colony-settled.svg | 0.10.0 | thyr-vector | Thyr reusable vector: fan-colony; settled | non | oui |
+| assets/thyr/longuedorse-adult-arrived.svg | 0.10.0 | thyr-vector | Thyr reusable vector: longuedorse-adult; arrived | non | oui |
+| assets/thyr/longuedorse-adult-dead.svg | 0.10.0 | thyr-vector | Thyr reusable vector: longuedorse-adult; dead | non | oui |
+| assets/thyr/longuedorse-adult-diverted.svg | 0.10.0 | thyr-vector | Thyr reusable vector: longuedorse-adult; diverted | non | oui |
+| assets/thyr/longuedorse-adult-moving.svg | 0.10.0 | thyr-vector | Thyr reusable vector: longuedorse-adult; moving | non | oui |
+| assets/thyr/longuedorse-adult-waiting.svg | 0.10.0 | thyr-vector | Thyr reusable vector: longuedorse-adult; waiting | non | oui |
+| assets/thyr/longuedorse-young-arrived.svg | 0.10.0 | thyr-vector | Thyr reusable vector: longuedorse-young; arrived | non | oui |
+| assets/thyr/longuedorse-young-dead.svg | 0.10.0 | thyr-vector | Thyr reusable vector: longuedorse-young; dead | non | oui |
+| assets/thyr/longuedorse-young-diverted.svg | 0.10.0 | thyr-vector | Thyr reusable vector: longuedorse-young; diverted | non | oui |
+| assets/thyr/longuedorse-young-moving.svg | 0.10.0 | thyr-vector | Thyr reusable vector: longuedorse-young; moving | non | oui |
+| assets/thyr/longuedorse-young-waiting.svg | 0.10.0 | thyr-vector | Thyr reusable vector: longuedorse-young; waiting | non | oui |
+| assets/thyr/migration-barrier-broken.svg | 0.10.0 | thyr-vector | Thyr reusable vector: migration-barrier; broken | non | oui |
+| assets/thyr/migration-barrier-closed.svg | 0.10.0 | thyr-vector | Thyr reusable vector: migration-barrier; closed | non | oui |
+| assets/thyr/migration-barrier-open.svg | 0.10.0 | thyr-vector | Thyr reusable vector: migration-barrier; open | non | oui |
+| assets/thyr/migration-barrier-working.svg | 0.10.0 | thyr-vector | Thyr reusable vector: migration-barrier; working | non | oui |
+| assets/thyr/previews/thyr-kit.png | 0.10.0 | thyr-vector | Authoring sheet, varied scales stated per nominal dimensions in manifest | non | oui |
+| assets/thyr/previews/thyr-states.png | 0.10.0 | thyr-vector | Authored states on a bench; not gameplay or reception evidence | non | oui |
+| assets/thyr/root-damaged.svg | 0.10.0 | thyr-vector | Thyr reusable vector: root; damaged | non | oui |
+| assets/thyr/root-destroyed.svg | 0.10.0 | thyr-vector | Thyr reusable vector: root; destroyed | non | oui |
+| assets/thyr/root-normal.svg | 0.10.0 | thyr-vector | Thyr reusable vector: root; normal | non | oui |
+| assets/thyr/route-map-concealed.svg | 0.10.0 | thyr-vector | Thyr reusable vector: route-map; concealed | non | oui |
+| assets/thyr/route-map-surveyed.svg | 0.10.0 | thyr-vector | Thyr reusable vector: route-map; surveyed | non | oui |
+| assets/thyr/route-marker-imperial.svg | 0.10.0 | thyr-vector | Thyr reusable vector: route-marker; imperial | non | oui |
+| assets/thyr/route-marker-local.svg | 0.10.0 | thyr-vector | Thyr reusable vector: route-marker; local | non | oui |
+| assets/thyr/suspended-home-damaged.svg | 0.10.0 | thyr-vector | Thyr reusable vector: suspended-home; damaged | non | oui |
+| assets/thyr/suspended-home-destroyed.svg | 0.10.0 | thyr-vector | Thyr reusable vector: suspended-home; destroyed | non | oui |
+| assets/thyr/suspended-home-normal.svg | 0.10.0 | thyr-vector | Thyr reusable vector: suspended-home; normal | non | oui |
 
 ## Reproduction
 

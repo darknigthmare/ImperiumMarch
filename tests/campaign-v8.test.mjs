@@ -12,10 +12,10 @@ const disk=text=>{const values=new Map([[CAMPAIGN_SAVE_KEY,text]]);return {value
 const after=(name='completed')=>parseCampaign(JSON.stringify(history[name]));
 const start=(name='completed')=>beginCampaignMission(after(name),{missionId:'MI08',walkerId:'WK09',difficulty:'story',seed:1847});
 
-test('authentic v7 capture is immutable and migration adds only an empty MI08 dossier',()=>{
- assert.equal(CAMPAIGN_SAVE_VERSION,8);
+test('authentic v7 capture is immutable and migration preserves prior data while adding empty future dossiers',()=>{
+ assert.equal(after().version,CAMPAIGN_SAVE_VERSION);
  assert.equal(createHash('sha256').update(bytes).digest('hex'),'8ca58deb11f4048039cda3a54157f7eddb2dd6af6a34450a3d177b3bdfa67a5c');
- for(const name of variants){const old=history[name],current=after(name),prior=clone(current);prior.version=7;delete prior.world.nacre.departure;
+ for(const name of variants){const old=history[name],current=after(name),prior=clone(current);prior.version=7;delete prior.world.thyr;delete prior.world.nacre.departure;
   assert.deepEqual(prior,old,name);assert.deepEqual(current.world.nacre.departure,createCampaign().world.nacre.departure);
   assert.deepEqual(parseCampaign(serializeCampaign(current)),current);
   assert.deepEqual(current.resources,old.resources);assert.equal(current.world.nacre.fuelSpent,old.world.nacre.fuelSpent);

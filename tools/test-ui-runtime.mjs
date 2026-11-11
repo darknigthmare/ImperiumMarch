@@ -19,6 +19,7 @@ import { pilotMI05 } from '../tests/helpers/mi05-driver.mjs';
 import { pilotMI06 } from '../tests/helpers/mi06-driver.mjs';
 import { pilotMI07 } from '../tests/helpers/mi07-driver.mjs';
 import { pilotMI08 } from '../tests/helpers/mi08-driver.mjs';
+import { pilotMI09 } from '../tests/helpers/mi09-driver.mjs';
 import { WALKERS } from '../src/content.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -35,9 +36,16 @@ function harness(values = new Map(), { denyWrites = false } = {}) {
   class Events {
     constructor() { this.handlers = new Map(); }
     addEventListener(type, handler) { if (!this.handlers.has(type)) this.handlers.set(type, []); this.handlers.get(type).push(handler); }
+    event(detail) { return { target: this, defaultPrevented: false, preventDefault() { this.defaultPrevented = true; }, ...detail }; }
+    dispatchSync(type, detail = {}) {
+      const event = this.event(detail);
+      for (const handler of this.handlers.get(type) || []) handler(event);
+      return event;
+    }
     async dispatch(type, detail = {}) {
-      const event = { target: this, preventDefault() {}, ...detail };
+      const event = this.event(detail);
       for (const handler of this.handlers.get(type) || []) await handler(event);
+      return event;
     }
   }
   const ctx2d = new Proxy({}, { get(target, key) {
@@ -64,7 +72,13 @@ function harness(values = new Map(), { denyWrites = false } = {}) {
     getContext() { return ctx2d; }
     getBoundingClientRect() { return { x: 0, y: 0, left: 0, top: 0, width: 1600, height: 900 }; }
     setPointerCapture() {}
-    focus() { document.activeElement = this; }
+    focus() {
+      const previous = document.activeElement;
+      if (previous === this) return;
+      document.activeElement = this;
+      previous?.dispatchSync('blur', { relatedTarget: this });
+      this.dispatchSync('focus', { relatedTarget: previous });
+    }
     showModal() { this.open = true; }
     close() { this.open = false; }
     append(node) { this.children.push(node); }
@@ -107,7 +121,7 @@ function harness(values = new Map(), { denyWrites = false } = {}) {
     snapshot: () => normalized(window.__IMPERIUM_TEST__.snapshot()),
     click: id => { assert.ok(ids.has(id), `missing UI element ${id}`); return ids.get(id).click(); },
     data: async (key, value) => { const node = select(`[data-${key}]`).find(item => item.dataset[key] === value); assert.ok(node, `missing ${key}=${value}`); await node.click(); },
-    key: (code, down = true) => window.dispatch(down ? 'keydown' : 'keyup', { code, repeat: false }),
+    key: (code, down = true, detail = {}) => window.dispatch(down ? 'keydown' : 'keyup', { code, repeat: false, ...detail }),
     frames(count) { for (let i = 0; i < count; i++) { const callback = raf.shift(); assert.ok(callback); time += 1000 / 60; callback(time); } assert.deepEqual(errors, [], 'application runtime error'); },
   };
   return api;
@@ -316,7 +330,7 @@ for (const choice of ['obey', 'defy']) await check(`MI03 ${choice} decision, ext
   assert.equal(fresh.ids.get('workshop-network').hidden, false);
   await fresh.data('view', 'campaign');
   assert.match(fresh.ids.get('campaign-debrief').innerHTML, /MI03 \/ RAPPORT/);
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 8 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 9 RAPPORTS CLASSÉS');
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
   for (const id of ['MI01', 'MI02', 'MI03']) assert.match(fresh.ids.get('archive-content').innerHTML, new RegExp(`CAMPAGNE / ${id}`));
   await fresh.data('view', 'campaign'); await fresh.data('chapter', 'MI03'); await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
@@ -391,7 +405,7 @@ for (const choice of ['obey', 'defy']) await check(`MI04 ${choice} records the t
   assert.equal(fresh.ids.get('workshop-industrial').hidden, false);
   assert.match(fresh.ids.get('workshop-condition').textContent, /radiateur/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 8 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 9 RAPPORTS CLASSÉS');
   assert.equal(fresh.ids.get('campaign-transition').hidden, false);
   assert.match(fresh.ids.get('campaign-transition-text').textContent, /Nacre/);
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
@@ -512,7 +526,7 @@ await check('importing a genuine v4 Vesper dossier unlocks Nacre in the delivere
   assert.match(h.ids.get('campaign-import-summary').textContent, /MI04/);
   await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Le prix du passage');
-  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 8 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 9 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v4Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /journal de Vesper/);
@@ -573,7 +587,7 @@ for (const choice of ['obey', 'defy']) await check(`MI05 ${choice} debrief, arch
   assert.match(fresh.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI05/);
   assert.match(fresh.ids.get('archive-content').innerHTML, /Vann Ostre/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 8 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 9 RAPPORTS CLASSÉS');
   await fresh.data('chapter', 'MI05');
   await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
   assert.equal(fresh.snapshot().campaignReplay, true);
@@ -608,7 +622,7 @@ await check('a genuine v5 import unlocks MI06 with its actual stock and ten dist
   h.ids.get('campaign-file').files = [{ size: raw.length, text: async () => raw }];
   await h.ids.get('campaign-file').dispatch('change'); await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Les maisons sous la ligne');
-  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 8 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 9 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v5Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /dix habitants/);
@@ -724,7 +738,7 @@ for (const choice of ['obey', 'defy']) await check(`MI06 ${choice} requires the 
   await h.data('view', 'archives'); await h.data('archive', 'records');
   assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI06/);
   await h.data('view', 'campaign');
-  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 8 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 9 RAPPORTS CLASSÉS');
   await h.data('chapter', 'MI06'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().campaignReplay, true);
   assert.equal(h.snapshot().game.campaign.context.fuelAvailable, 2);
@@ -797,7 +811,7 @@ for (const [variant, route, routeText] of [['completed', 'main', 'PRINCIPALE'], 
   const h = harness(); await importAmbulanceDossier(h, v6Dossier[variant]);
   const prior = h.snapshot().campaign;
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Une ambulance sans escorte');
-  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 8 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 9 RAPPORTS CLASSÉS');
   await h.click('campaign-deploy');
   const briefing = h.ids.get('briefing-description').textContent;
   assert.match(briefing, /quatre patients et deux membres/);
@@ -932,7 +946,7 @@ for (const choice of ['obey', 'defy']) await check(`MI07 ${choice} selects a des
   await h.data('view', 'archives'); await h.data('archive', 'records');
   assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI07/);
   await h.data('view', 'campaign');
-  assert.equal(h.ids.get('campaign-progress').textContent, '7 / 8 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '7 / 9 RAPPORTS CLASSÉS');
   assert.match(h.ids.get('campaign-debrief').innerHTML, /À recouper/);
   await h.data('chapter', 'MI07'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().campaignReplay, true);
@@ -1042,7 +1056,7 @@ function departurePoint(kind, choice = 'delay') {
 await check('MI08 imports a genuine v7 dossier with seven unchanged reports and exposes its inherited briefing',async()=>{
   const h=harness();await importAmbulanceDossier(h,v7Dossier.completed);
   const s=h.snapshot();assert.equal(s.campaign.version,CAMPAIGN_SAVE_VERSION);assert.deepEqual(s.campaign.completed,v7Dossier.completed.completed);
-  assert.equal(h.ids.get('campaign-progress').textContent,'7 / 8 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent,'7 / 9 RAPPORTS CLASSÉS');
   await h.click('campaign-deploy');assert.match(h.ids.get('briefing-title').textContent,/marée compte/);
   assert.match(h.ids.get('briefing-description').textContent,/12 passagers.*10 habitants.*4 patients/);
   await h.click('launch');assert.equal(h.snapshot().game.missionId,'MI08');
@@ -1076,8 +1090,68 @@ for(const choice of ['obey','delay','defy'])await check(`MI08 ${choice} UI selec
   assert.equal(finished.campaign.completed.MI08.peopleLocal,choice==='obey'?36:2);
   const first=JSON.stringify(finished.campaign);await h.click('result-menu');await h.data('view','archives');await h.data('archive','records');
   assert.match(h.ids.get('archive-content').innerHTML,/Registre des personnes d’Aval/);assert.match(h.ids.get('archive-content').innerHTML,/Dossier sanitaire des Salines/);
-  await h.data('view','campaign');await h.click('campaign-deploy');await h.click('launch');
+  await h.data('view','campaign');await h.data('chapter','MI08');await h.click('campaign-deploy');await h.click('launch');
   assert.equal(h.snapshot().campaignReplay,true);assert.equal(JSON.stringify(h.snapshot().campaign),first);
+});
+
+const v8Dossier = JSON.parse(readFileSync(resolve(root, 'tests/fixtures/campaign-v8-mi08.json'), 'utf8'));
+const livingRoutePoints = new Map();
+function livingRoutePoint(stage, choice = 'defy') {
+  const key = `${stage}-${choice}`;
+  if (!livingRoutePoints.has(key)) {
+    const started = beginCampaignMission(parseCampaign(JSON.stringify(v8Dossier.completed)), { missionId: 'MI09', walkerId: 'WK09', difficulty: 'story', seed: 1847 });
+    assert.equal(started.ok, true);
+    const stopAt = stage === 'decision' ? s => s.decision.active
+      : stage === 'barrier' ? s => s.livingRoute.barrier.working && s.livingRoute.barrier.progress > .3 && s.livingRoute.barrier.progress < .8
+        : s => s.campaign.reportTransmitted && s.player.x > 5810;
+    pilotMI09(started.game, { choice, stopAt }); assert.ok(stopAt(started.game)); assert.equal(started.game.status, 'playing');
+    livingRoutePoints.set(key, checkpointCampaign(started.campaign, started.game, { beforeDecision: stage === 'decision' }));
+  }
+  return structuredClone(livingRoutePoints.get(key));
+}
+
+await check('MI09 migrates the native v8 dossier, preserves eight reports and presents the Thyr briefing and instrument', async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, JSON.stringify(v8Dossier.completed)]]));
+  assert.equal(h.snapshot().campaign.version, CAMPAIGN_SAVE_VERSION);
+  assert.deepEqual(h.snapshot().campaign.completed, v8Dossier.completed.completed);
+  assert.equal(h.ids.get('campaign-order-title').textContent, 'La route des vivants');
+  await h.click('campaign-deploy'); assert.match(h.ids.get('briefing-description').textContent, /Cette vallée a ses propres habitants/);
+  await h.click('launch'); h.frames(2);
+  assert.equal(h.snapshot().game.missionId, 'MI09'); assert.equal(h.ids.get('thyr-instrument').hidden, false);
+  assert.match(h.ids.get('thyr-herd').textContent, /0 VERGER.*0 DÉTOURNÉES.*0 PERDUES/);
+  assert.equal(h.ids.get('departure-instrument').hidden, true);
+});
+
+await check('MI09 imported partial work releases absent anchoring and remains exactly resumable', async () => {
+  const point = livingRoutePoint('barrier'), h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]]));
+  await h.click('campaign-resume'); assert.deepEqual(h.snapshot().game, point.checkpoint);
+  h.frames(10); assert.equal(h.snapshot().game.livingRoute.barrier.working, false);
+  assert.equal(h.snapshot().game.livingRoute.barrier.progress, 0);
+  await h.click('pause-button'); const stopped = h.snapshot(); h.frames(20); assert.deepEqual(h.snapshot().game, stopped.game);
+  assert.equal(stopped.campaignWarning, '');
+  const fresh = harness(h.values); await fresh.click('campaign-resume'); assert.deepEqual(fresh.snapshot().game, stopped.game);
+});
+
+for (const choice of ['obey', 'defy']) await check(`MI09 ${choice} UI keeps choice separate from physical travel, files the roster and preserves replay`, async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(livingRoutePoint('decision'))]]));
+  await h.click('campaign-resume'); h.frames(1); assert.equal(h.ids.get('decision-dialog').open, true);
+  const before = h.snapshot().game.livingRoute.migrators;
+  await h.data('choice', choice); assert.equal(h.snapshot().game.decision.choice, choice);
+  assert.deepEqual(h.snapshot().game.livingRoute.migrators, before); assert.equal(h.snapshot().campaignWarning, '');
+  await h.click('pause-button'); await h.click('to-menu');
+  await importAmbulanceDossier(h, livingRoutePoint('extraction', choice)); await h.click('campaign-resume');
+  await h.key('KeyD'); for (let i = 0; i < 600 && h.snapshot().game.status === 'playing'; i++) h.frames(1); await h.key('KeyD', false);
+  const finished = h.snapshot(); assert.equal(finished.game.status, 'won'); assert.equal(finished.campaignWarning, '');
+  assert.equal(finished.campaign.resources.parts, 42); assert.equal(finished.campaign.completed.MI09.choice, choice);
+  assert.equal(finished.campaign.completed.MI09.migratorsArrived, choice === 'defy' ? 4 : 0);
+  assert.equal(finished.campaign.completed.MI09.migratorsDisplaced, choice === 'obey' ? 4 : 0);
+  assert.deepEqual(Object.fromEntries(Object.entries(finished.campaign.completed).filter(([id]) => id !== 'MI09')), v8Dossier.completed.completed);
+  assert.match(h.ids.get('result-stats').innerHTML, /HABITATS HABITABLES/);
+  const official = JSON.stringify(finished.campaign); await h.click('result-menu'); await h.data('view', 'archives'); await h.data('archive', 'records');
+  assert.match(h.ids.get('archive-content').innerHTML, /La route des vivants/); assert.match(h.ids.get('archive-content').innerHTML, /Registre des personnes d’Aval/);
+  assert.match(h.ids.get('archive-content').innerHTML, /Longue-dorse 4 · jeune/);
+  await h.data('view', 'campaign'); await h.click('campaign-deploy'); await h.click('launch');
+  assert.equal(h.snapshot().campaignReplay, true); assert.equal(JSON.stringify(h.snapshot().campaign), official);
 });
 
 await check('Enter assigned to fullscreen leaves button activation available and operates from the Canvas',async()=>{
@@ -1115,6 +1189,104 @@ await check('rebound movement drives the real simulation; old keys release and n
   assert.ok(h.snapshot().game.player.x>x+20);
   await h.click('pause-button');const paused=h.snapshot().game.elapsed;h.frames(15);
   assert.equal(h.snapshot().game.elapsed,paused);assert.equal(h.snapshot().campaignWarning,'');
+});
+
+await check('focus navigation releases movement while HUD repair and button activation stay available', async () => {
+  // Deliberate worn-fleet fixture, as in the radiator flow above; no played damage is asserted.
+  const worn = createCampaign(); worn.fleet.WK01.radiator = 20;
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(worn)]]));
+  await h.click('campaign-deploy'); await h.click('launch');
+  await h.key('KeyD'); h.frames(90);
+  assert.equal(h.snapshot().game.player.move, 1);
+  h.ids.get('radiator-repair').focus(); h.frames(120);
+  assert.equal(h.snapshot().paused, false, 'focusing a mission button must leave its action usable');
+  assert.equal(h.document.activeElement, h.ids.get('radiator-repair'));
+  assert.equal(h.snapshot().game.player.move, 0, 'the old held movement cannot follow focus into a button');
+  await h.key('KeyD', true, { repeat: true }); h.frames(2);
+  assert.equal(h.snapshot().game.player.move, 0);
+  for (const code of ['Enter', 'Space']) {
+    const event = await h.key(code);
+    assert.equal(event.defaultPrevented, false, `${code} remains available for native button activation`);
+    await h.key(code, false);
+  }
+  // The DOM model does not synthesize native activation: dispatch the resulting click separately.
+  await h.click('radiator-repair'); assert.equal(h.snapshot().game.player.radiator.repairing, true);
+  h.frames(250); assert.equal(h.snapshot().game.player.radiator.health, 80);
+  assert.equal(h.snapshot().game.player.radiator.repairKits, 1);
+  h.ids.get('game-canvas').focus();
+  await h.key('KeyD', true, { repeat: true }); h.frames(2);
+  assert.equal(h.snapshot().game.player.move, 0, 'focus return alone cannot rearm a held key');
+  await h.key('KeyD', false); await h.key('KeyD'); h.frames(2);
+  assert.equal(h.snapshot().game.player.move, 1, 'a fresh physical key press restores movement');
+  h.ids.get('pause-button').focus();
+  assert.equal((await h.key('Enter')).defaultPrevented, false);
+  await h.click('pause-button'); const elapsed = h.snapshot().game.elapsed; h.frames(30);
+  assert.equal(h.snapshot().paused, true); assert.equal(h.snapshot().game.elapsed, elapsed);
+});
+
+await check('focus exits suspend held movement and fire until an explicit resume and fresh inputs', async () => {
+  const exits = [
+    ['window blur', async h => h.window.dispatch('blur')],
+    ['canvas focus leaves the game', async h => h.document.body.focus()],
+    ['hidden document', async h => { h.document.hidden = true; await h.document.dispatch('visibilitychange'); }],
+    ['document focus fallback', async h => h.setFocus(false)],
+    ['page enters the back-forward cache', async h => h.window.dispatch('pagehide', { persisted: true })],
+  ];
+  for (const [label, leave] of exits) {
+    const h = harness(); await h.click('campaign-deploy'); await h.click('launch');
+    await h.key('KeyD');
+    await h.ids.get('game-canvas').dispatch('pointerdown', { pointerId: 1, pointerType: 'mouse', button: 0, clientX: 1000, clientY: 300 });
+    h.frames(45); const stopped = h.snapshot().game;
+    await leave(h); h.frames(1);
+    assert.equal(h.snapshot().paused, true, label);
+    assert.equal(h.ids.get('pause-dialog').open, true, label);
+    assert.deepEqual(h.snapshot().game, stopped, `${label}: suspension precedes the next simulation step`);
+    h.document.hidden = false; h.setFocus(true); h.ids.get('game-canvas').focus();
+    await h.key('KeyD', true, { repeat: true }); h.frames(20);
+    assert.deepEqual(h.snapshot().game, stopped, `${label}: returning focus is not a resume`);
+    await h.click('unpause'); await h.key('KeyD', true, { repeat: true }); h.frames(120);
+    assert.equal(h.snapshot().game.player.move, 0, `${label}: the stale repeat is inert`);
+    assert.equal(h.snapshot().game.stats.shots, stopped.stats.shots, `${label}: no stale pointer fire`);
+    await h.key('KeyD', false); await h.key('KeyD'); h.frames(2);
+    assert.equal(h.snapshot().game.player.move, 1, `${label}: fresh movement remains available`);
+  }
+});
+
+await check('Tab and browser modifier shortcuts release commands without consuming native navigation', async () => {
+  const h = harness(); await h.click('campaign-deploy'); await h.click('launch');
+  for (const [code, detail] of [['Tab', {}], ['KeyL', { ctrlKey: true }], ['KeyL', { metaKey: true }], ['Tab', { altKey: true }]]) {
+    await h.key('KeyD'); h.frames(2); assert.equal(h.snapshot().game.player.move, 1);
+    assert.equal((await h.key(code, true, detail)).defaultPrevented, false);
+    await h.key('KeyD', true, { repeat: true }); h.frames(2);
+    assert.equal(h.snapshot().game.player.move, 0, `${code}: old held movement is released`);
+    await h.key('KeyD', false);
+  }
+});
+
+await check('a remapped pause reacts once per press and cannot resume a background document', async () => {
+  const h = harness(); await h.data('view', 'settings'); await h.data('binding', 'pause'); await h.key('KeyP');
+  await h.data('view', 'campaign'); await h.click('campaign-deploy'); await h.click('launch');
+  await h.key('KeyP'); assert.equal(h.snapshot().paused, true);
+  await h.key('KeyP', true, { repeat: true }); assert.equal(h.snapshot().paused, true);
+  await h.key('KeyP', false); await h.key('KeyP'); assert.equal(h.snapshot().paused, false);
+  await h.key('KeyP', true, { repeat: true }); assert.equal(h.snapshot().paused, false, 'holding the resume key must not pause again');
+  h.setFocus(false); h.frames(1); assert.equal(h.snapshot().paused, true);
+  await h.click('unpause'); assert.equal(h.snapshot().paused, true, 'background activation is not a valid resume');
+  h.setFocus(true); h.frames(2); assert.equal(h.snapshot().paused, true);
+  await h.click('unpause'); assert.equal(h.snapshot().paused, false);
+});
+
+await check('lost pointer capture stops fire while a separate held movement key stays active', async () => {
+  const h = harness(); await h.click('campaign-deploy'); await h.click('launch');
+  await h.key('KeyD');
+  const canvas = h.ids.get('game-canvas');
+  await canvas.dispatch('pointerdown', { pointerId: 7, pointerType: 'mouse', button: 0, clientX: 1100, clientY: 200 });
+  h.frames(60); const shots = h.snapshot().game.stats.shots;
+  assert.ok(shots > 0, 'the captured pointer actually fired');
+  await canvas.dispatch('lostpointercapture', { pointerId: 7 }); h.frames(60);
+  assert.equal(h.snapshot().game.stats.shots, shots);
+  assert.equal(h.snapshot().game.player.move, 1, 'pointer release must not cancel an independent keyboard hold');
+  assert.equal(h.snapshot().paused, false);
 });
 
 await check('synthetic standard-gamepad input drives the actual application and releases after pause or disconnect', async () => {

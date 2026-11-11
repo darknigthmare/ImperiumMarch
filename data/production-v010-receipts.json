@@ -1,0 +1,145 @@
+{
+  "version": "0.10.0",
+  "scope": "Réceptions additives sur les 133 critères initiaux de la baseline 0.8. Les fichiers de preuve sont complétés après exécution; le gel des empreintes est une étape distincte.",
+  "records": [
+    {
+      "id": "AS18",
+      "state": "partial_work_received",
+      "workPerformed": [
+        "Onze composants originaux de Thyr, trente-cinq variantes SVG et deux planches PNG, avec primitives partagées par le renderer. Colonnes, racines et habitats sont raccordés aux états simulés."
+      ],
+      "deliverables": [
+        "src/thyr-assets.mjs",
+        "src/thyr-renderer.mjs",
+        "assets/thyr/manifest.json"
+      ],
+      "evidence": [
+        "docs/validation/v10-raster-validation.json",
+        "docs/validation/v10-node-tests.json",
+        "docs/previews/mi09-canvas-validation.json"
+      ],
+      "statusBasis": "Le kit de prototype existe avec ses variantes et son manifeste; ce changement ne certifie pas l’art final ni l’essai humain.",
+      "remainingWork": "Lecture en mouvement et finitions finales de la forêt, accès, matières et transitions. FL08 reste décorative et FL09 ne possède qu’une réaction visuelle. Le critère original et la réception humaine restent ouverts."
+    },
+    {
+      "id": "AS21",
+      "state": "partial_work_received",
+      "workPerformed": [
+        "La tranche Thyr représente FL07, FU07 et FU08 avec états de support, déplacement ou dispersion. FL08 et FL09 possèdent des variantes visuelles, sans leurs interactions écologiques finales."
+      ],
+      "deliverables": [
+        "src/thyr-assets.mjs",
+        "src/thyr-renderer.mjs",
+        "assets/thyr/manifest.json"
+      ],
+      "evidence": [
+        "docs/validation/v10-raster-validation.json",
+        "docs/validation/v10-node-tests.json",
+        "docs/previews/mi09-canvas-validation.json"
+      ],
+      "remainingWork": "Le catalogue de vingt-quatre faunes et vingt-quatre flores, les interactions restantes et l’animation finale ne sont pas livrés par ces trois systèmes locaux. Le statut À produire du lot complet est conservé."
+    },
+    {
+      "id": "PR18",
+      "state": "partial_work_received",
+      "workPerformed": [
+        "MI09 ouvre Thyr après le rapport MI08 avec ses actes physiques, résultats locaux et premier rapport de campagne."
+      ],
+      "deliverables": [
+        "docs/CAMPAIGN_MISSION_09.md",
+        "src/simulation.mjs",
+        "tests/mi09-simulation.test.mjs"
+      ],
+      "evidence": [
+        "docs/previews/mi09-simulation-validation.json",
+        "docs/validation/v010-campaign-validation.json",
+        "docs/validation/v10-ui-validation.json"
+      ],
+      "remainingWork": "MI10–MI16, CT05–CT08 et la défection de MI16 restent à produire. Aucun début de l’Acte II ne clôt le critère de l’Acte II complet."
+    },
+    {
+      "id": "PR24",
+      "state": "partial_work_received",
+      "workPerformed": [
+        "Focus des surfaces de jeu, boutons HUD, répétition des touches et perte de capture du pointeur corrigés sur quatre lacunes déterministes. Les commandes de mission conservent la neutralité manette et la reprise explicite."
+      ],
+      "deliverables": [
+        "src/main.mjs",
+        "tools/test-ui-runtime.mjs"
+      ],
+      "evidence": [
+        "docs/validation/v10-focus-modeled.json",
+        "docs/validation/v10-ui-validation.json"
+      ],
+      "remainingWork": "La preuve modélisée ne détermine pas la cause des deux observations natives 0.9. QA19, navigation des menus à la manette, matériel physique et essais d’utilisateurs concernés restent ouverts."
+    },
+    {
+      "id": "QA19",
+      "state": "model_correction_received_native_pending",
+      "workPerformed": [
+        "Quatre échecs de focus/entrées reproduits sur la 0.9, puis corrigés et vérifiés dans l’application réelle exécutée en DOM modélisé. Un protocole distingue Tab vers le HUD, clic autre onglet et clic barre d’adresse."
+      ],
+      "deliverables": [
+        "src/main.mjs",
+        "tools/test-ui-runtime.mjs"
+      ],
+      "evidence": [
+        "docs/validation/v10-focus-modeled.json",
+        "docs/validation/v10-ui-validation.json"
+      ],
+      "remainingWork": "Répéter et recevoir les deux scénarios natifs contradictoires de la 0.9 avec déplacement et tir maintenus. Ni une garde présente ni un test synthétique réussi ne clôt ce critère natif."
+    },
+    {
+      "id": "PR02",
+      "state": "workbook_received_native_interaction_pending",
+      "workPerformed": [
+        "Source Bible portée à 845 fiches, avec 816 identifiants historiques conservés et 29 fiches nouvelles pour Thyr, sauvegarde v9, focus et réception.",
+        "Classeur de 21 onglets reçu : 5 715 cellules source, 126 formules recalculées dans le moteur puis dans une copie LibreOffice sans caches, 40 vues de onze feuilles relues, tableaux et statuts réconciliés."
+      ],
+      "deliverables": [
+        "data/bible.json",
+        "tests/fixtures/bible-v09-ids.json",
+        "tools/verify-bible-export.py",
+        "tools/build-production-register.mjs",
+        "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+        "tools/recalculate-bible-libreoffice.py"
+      ],
+      "evidence": [
+        "docs/validation/production-v010-reference-audit.json",
+        "docs/validation/workbook-v0.10-export.json",
+        "docs/validation/workbook-v0.10-libreoffice.json",
+        "docs/validation/workbook-v0.10-visual-review.json",
+        "docs/validation/workbook-v0.10-baseline-check.json"
+      ],
+      "remainingWork": "Le critère conserve sa portée de prototype documentaire. QA29 reste ouverte pour tri, filtres, volets et édition dans une application bureautique interactive; aucun essai Excel desktop ou résultat humain n’est déduit du recalcul headless."
+    },
+    {
+      "id": "QA25",
+      "state": "reference_audit_received",
+      "workPerformed": [
+        "Audit des références de la source 0.10 exécuté : IDs, plages fermées et symboles déclarés résolus sans anomalie; sept copies négatives rejetées, six baselines sans Git conservées et une révision inconnue refusée."
+      ],
+      "deliverables": [
+        "tools/verify-bible-export.py",
+        "tests/fixtures/bible-v09-ids.json"
+      ],
+      "evidence": [
+        "docs/validation/production-v010-reference-audit.json",
+        "docs/validation/production-v010-reference-probes.json"
+      ],
+      "remainingWork": "Le contrôle établit la cohérence documentaire de cette source. Aucun gameplay, art final ou résultat humain ne découle de la résolution des références."
+    },
+    {
+      "id": "QA26",
+      "state": "scope_clarification_only",
+      "workPerformed": [
+        "Portée documentaire actualisée aux neuf missions jouables. Aucun nouveau contrôle des quatre fins n’est reçu."
+      ],
+      "deliverables": [
+        "docs/QA_V10.md"
+      ],
+      "evidence": [],
+      "remainingWork": "Produire puis tester la table complète des fins et états contradictoires; les neuf missions actuellement jouables ne couvrent pas FI01–FI04."
+    }
+  ]
+}

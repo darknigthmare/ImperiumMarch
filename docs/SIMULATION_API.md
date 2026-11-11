@@ -1,6 +1,6 @@
-# Contrat de simulation — prototype 0.8
+# Contrat de simulation — prototype 0.10
 
-La simulation est un module JavaScript pur, sans DOM, exécuté en secondes et en pixels monde. `WALKERS` et `MISSIONS` sont des tableaux ; les IDs sont stables. Les six châssis disponibles sont WK01, WK02, WK05, WK06, WK09 et WK10. `MISSIONS` garde OP01–OP03 ; `CAMPAIGN_MISSIONS` contient les sept missions MI01, MI02, MI03, MI04, MI05, MI06 et MI07 ; `ALL_MISSIONS` sert à `createGame`. Les trois opérations restent indépendantes de la progression des missions de campagne.
+La simulation est un module JavaScript pur, sans DOM, exécuté en secondes et en pixels monde. `WALKERS` et `MISSIONS` sont des tableaux ; les IDs sont stables. Les six châssis disponibles sont WK01, WK02, WK05, WK06, WK09 et WK10. `MISSIONS` garde OP01–OP03 ; `CAMPAIGN_MISSIONS` contient les neuf missions MI01–MI09 ; `ALL_MISSIONS` sert à `createGame`. Les trois opérations restent indépendantes de la progression des missions de campagne. Le format de dossier courant est v9 ; les 23 missions MI10–MI32 restent conçues. Les sections v4 à v8 conservent les contrats de leur introduction historique, sans réduire cette portée actuelle.
 
 ```js
 import { WALKERS, MISSIONS, ENEMY_TYPES, DIFFICULTIES } from './content.mjs';
@@ -14,21 +14,21 @@ commandGame(game, 'choice', 'defy');
 
 `move` = −1, 0 ou 1 ; `aimX/aimY` sont des coordonnées monde. `fire`, `secondary`, `brace`, `vent`, `stepA`, `stepB`, `interact`, `reload`, `repair` sont des booléens. Les actions ponctuelles se déclenchent sur front montant, les tirs/ventilation sur maintien. `updateGame` borne chaque delta à 0,05 s et ne simule rien hors `status === 'playing'` ou pendant `decision.active`. En MI05, il synchronise la marée avec `elapsed` avant de traiter les nouvelles commandes ; une ouverture de décision conserve donc une horloge de sauvegarde cohérente.
 
-`commandGame(state, action, payload)` accepte `stepA`, `stepB`, `interact`, `reload`, `repair`, `choice` (payload `obey` ou `defy`), `assist` (booléen). Retour booléen : action acceptée ou rejetée. La pause appartient à l’UI : ne pas appeler `updateGame` pendant la pause.
+`commandGame(state, action, payload)` accepte `stepA`, `stepB`, `interact`, `reload`, `repair`, `choice` (payload `obey` ou `defy`, plus `delay` uniquement dans MI08), `assist` (booléen). Retour booléen : action acceptée ou rejetée. La pause appartient à l’UI : ne pas appeler `updateGame` pendant la pause.
 
 ## État consommable par le rendu
 
 - `mission`, `walker`, `difficulty` : références aux données ; `missionId`, `walkerId`, `planetId` ; `elapsed`, `status` (`playing`, `won`, `lost`), `outcome` (texte de résultat), `seed`.
 - `player` : `x/y` centre coque, `width/height` dimensions coque, `groundY`, `facing`, `aimAngle`, `hull/maxHull`, `armor`, `heat` (0–100), `energy` (0–100), `stability` (0–100), `ammo/maxAmmo`, `reserveAmmo/maxReserveAmmo`, `rockets/maxRockets`, `reloadTime`, `venting`, `braced`, `overheated`, `speed`, `stepCooldown`, `lastGroup`, `feet`, `radiator`.
 - `feet[]` : `id`, `index`, `group` (0 ou 1), `side` (`back` ou `front`), `homeOffset`, `x/y` centre contact, `phase` (`stance` ou `swing`), `progress` (0–1), `fromX/fromY`, `targetX/targetY`, `health/maxHealth`, `contact`. Les jambes partent de la coque vers ces contacts ; le rendu construit ses genoux et segments. Pieds endommagés = cadence et stabilité réduites.
-- `enemies[]` : `id`, `type`, `kind`, `name`, `x/y` centre, `w/h`, `hp/maxHp`, `active`, `dead`, `facing`, `telegraph` (0–1), `attackTarget` (`player`, `convoy`, `boat`, `technician`, `resident`, `ambulance`, `medical-staff` ou `patient`), `spawnX`, `flash`, `phase`, `armor`. Une entité morte conserve sa place dans le tableau et ne participe plus aux collisions ni au comportement actif. Le rendu peut en conserver les effets de destruction.
+- `enemies[]` : `id`, `type`, `kind`, `name`, `x/y` centre, `w/h`, `hp/maxHp`, `active`, `dead`, `facing`, `telegraph` (0–1), `attackTarget` (`player`, `convoy`, `boat`, `technician`, `resident`, `ambulance`, `medical-staff`, `patient`, `departure-boat`, `departure-person` ou `logistics`), `spawnX`, `flash`, `phase`, `armor`. Une entité morte conserve sa place dans le tableau et ne participe plus aux collisions ni au comportement actif. Le rendu peut en conserver les effets de destruction.
 - `relays[]` : `id`, `x/y` centre, `w/h`, `hp/maxHp`, `destroyed`, `flash`.
 - `projectiles[]` : `id`, `x/y`, `prevX/prevY`, `vx/vy`, `team` (`player` ou `enemy`), `type` (`bullet` ou `rocket`), `damage`, `radius`, `life`, `trail`.
 - `particles[]` : `x/y`, `vx/vy`, `life/maxLife`, `size`, `color`, `type` (`spark`, `smoke`, `dust`).
 - `events[]` : file bornée de notifications avec `id`, `type`, `text`, `time`, `x/y` facultatifs. L’UI mémorise le dernier `id` consommé. Types utiles : `shot`, `rocket`, `step`, `hit`, `explosion`, `objective`, `radio`, `decision`, `reload`, `overheat`, `victory`, `defeat`.
 - `convoy` : `null` ou `{x,y,w,h,hp,maxHp,speed,moving,arrived}`. Position centre, roues au sol.
 - `civilians[]` : `{id,x,y,w,h,hp,alive,safe,fleeing}`. Ne sont jamais hostiles ni auto-ciblés ; dégâts et piétinement causent des pertes comptées.
-- `evidence` : `{id,x,y,collected,scanning,scanProgress,scanTime,label}`. Interaction `E` à portée déclenche un scan de 2,4 s ; rester à proximité le poursuit. S’éloigner l’annule.
+- `evidence` : `{id,x,y,collected,scanning,scanProgress,scanTime,label}`. La lecture commune des opérations dure 2,4 s à portée. Les domaines de mission décrits ci-dessous possèdent leurs préconditions et durées propres ; MI09 relève ses cartes en 3 s. Une lecture inachevée s’annule si le joueur quitte sa portée.
 - `pickups[]` : `{id,x,y,type,collected}` (réparations à contact, stock limité).
 - `decision` : `{active,resolved,choice,title,body,options:[{id,label}]}`. `E` près du marqueur après scan ouvre la décision. Tant qu’elle est active, la simulation ne combat pas (pause de lecture). Le choix résout et reprend.
 - `objectives[]` : `{id,label,current,target,complete}` ; `extraction` : `{x,y,active,radius}`.
@@ -43,7 +43,7 @@ Tirs testés sur segments balayés pour éviter de traverser les cibles rapides.
 
 Chaque sortie commence avec un magasin chargé et une réserve de huit magasins, soit `maxReserveAmmo = walker.ammo * 8`. La fin d’un rechargement transfère `min(maxAmmo - ammo, reserveAmmo)` coups : elle conserve le total, peut donner un dernier magasin partiel, et ne crée pas de munitions lorsque la réserve est vide. Un dépôt récupéré ajoute au plus trois magasins en réserve, bornés par `maxReserveAmmo`, deux roquettes bornées par leur capacité, les réparations de coque existantes et trente points de santé par pied. Les conditions de contact incluent désormais une réserve incomplète. Le marqueur `collected` interdit toute seconde collecte. Les cinq tests de `tests/ammunition.test.mjs` couvrent le stock initial, le transfert partiel, l’épuisement, la dernière charge et l’absence de ravitaillement répétable.
 
-Le score mesure seulement la performance de combat ; aucun score moral unifié. La décision, les preuves récupérées, les pertes civiles et l’état du convoi restent séparés. Les opérations sont rejouables indépendamment ; la progression MI01–MI08 et l’atelier passent par `campaign.mjs`.
+Le score mesure seulement la performance de combat ; aucun score moral unifié. La décision, les preuves récupérées, les pertes civiles et l’état du convoi restent séparés. Les opérations sont rejouables indépendamment ; la progression MI01–MI09 et l’atelier passent par `campaign.mjs`.
 
 ## MI01
 
@@ -192,31 +192,31 @@ La commande `repair` exige une santé inférieure au maximum, au moins un kit, d
 
 | Fonction | Résultat |
 | --- | --- |
-| `createCampaign()` | Dossier v7 initial, six lots d’atelier, zéro lot de carburant, six châssis intacts. |
-| `nextCampaignMissionId(dossier)` | Mission officielle active, sinon MI01, MI02, MI03, MI04, MI05, MI06, MI07 ou `null` selon les rapports déjà classés. |
+| `createCampaign()` | Dossier v9 initial, six lots d’atelier, zéro lot de carburant, six châssis intacts. |
+| `nextCampaignMissionId(dossier)` | Mission officielle active, sinon la prochaine mission MI01–MI09 ou `null` selon les rapports déjà classés. |
 | `beginCampaignMission(dossier, options)` | `{ok,campaign,game,replay,message}`. `missionId` cible une mission; sinon la prochaine est choisie. Chaque nouvelle mission exige le rapport officiel précédent. Recommencer exige `restart:true`. |
-| `checkpointCampaign(dossier, game, options)` | Nouveau dossier avec l’état complet ; MI06 et MI07 acceptent aussi une défaite terminale. Le débit d’auxiliaire est réglé avant sauvegarde. `beforeDecision:true` conserve le premier point avant choix. |
-| `restoreCampaignGame(dossier, options)` | État officiel validé, éventuellement `lost` pour MI06 ou MI07 ; `null` sans sortie ou si un point MI06 reculerait l’horloge officielle ou restituerait du carburant. |
-| `finishCampaignMission(dossier, game, options)` | Rapport et dotation une seule fois ; règle aussi la consommation non encore capturée. Une défaite MI06 ou MI07 conserve le checkpoint terminal sans rapport. `replay:true` ne change pas la campagne. |
+| `checkpointCampaign(dossier, game, options)` | Nouveau dossier avec l’état complet ; MI06–MI09 acceptent aussi une défaite terminale. Le débit d’auxiliaire est réglé avant sauvegarde. `beforeDecision:true` conserve le premier point avant choix. |
+| `restoreCampaignGame(dossier, options)` | État officiel validé, éventuellement `lost` pour MI06–MI09 ; `null` sans sortie ou si les règles de reprise de la mission interdisent le point demandé. En MI09, le point avant décision doit être exactement le checkpoint officiel courant. |
+| `finishCampaignMission(dossier, game, options)` | Rapport et dotation une seule fois ; règle aussi la consommation non encore capturée. Une défaite MI06–MI09 conserve le checkpoint terminal sans rapport. `replay:true` ne change pas la campagne. |
 | `campaignRepairCost(dossier, walkerId)` | Coût d’atelier de zéro à six lots. |
 | `serviceCampaignWalker(dossier, walkerId)` | Réparation de coque, appuis et radiateur, stock débité, action refusée en mission. |
 | `repairCampaignPipe(dossier)` | Réparation unique de deux lots, refusée en sortie, service rétabli et incident conservé. |
-| `serializeCampaign(dossier)` / `parseCampaign(text)` | JSON validé au format v7, migrations connues v1/v2/v3/v4/v5/v6 vers v7, limite de taille et structures contrôlées. |
+| `serializeCampaign(dossier)` / `parseCampaign(text)` | JSON validé au format v9, migrations connues des formats v1–v8 vers v9, limite de taille et structures contrôlées. |
 | `readCampaign(storage)` | Dossier, origine, disponibilité, avertissement et indicateur `blocked`. |
 | `writeCampaign(storage, dossier, options)` | `{ok,warning}`. `replaceInvalid:true` réservé à un nouveau dossier ou import explicitement confirmé. |
 
 `storage` est une dépendance fournie avec `getItem` et `setItem`, pas un accès DOM implicite. Les tests comparent l’état complet après restauration et entrées identiques. Les versions futures sont refusées sans écrasement automatique. Le point avant décision d’une mission terminée ne peut pas réécrire le dossier officiel.
 
-Les rapports sont conservés dans `completed.MI01` à `completed.MI07`. `lastDebrief` reflète le dernier rapport officiel. `stage: 'complete'` marque le retour d’une sortie, avec une éventuelle mission suivante encore disponible. Le dossier ferroviaire de `world.vesper.rail` conserve la récupération du train, les nombres de sauvés et perdus, l’état du registre, le signalement et la première rencontre avec les Brisants. `world.vesper.communications` conserve les faits des émissions civiles, le bilan des habitants et la disponibilité du canal du dispensaire. `world.vesper.industrial` conserve le refroidissement, le journal technique, son éventuelle perte, le contact effectué et le mode de remise. `world.nacre.passage` conserve les faits du chenal et correspond au reçu `completed.MI05`. Chaque première réussite attribue quatre lots d’atelier ; le maximum avant dépenses est **34**, soit les six lots initiaux et sept dotations de quatre. `resources.fuel` est distinct : il vaut zéro avant le premier rapport MI05, puis zéro ou deux selon le transfert accompli. MI06 consomme éventuellement ces deux lots. `world.nacre.fuelSpent` conserve la dépense cumulée et `world.nacre.dike` le bilan de la première réussite ; le coût de cette sortie peut être nul après un échec antérieur ayant déjà consommé la réserve. Aucune conversion en pièces d’atelier ni achat n’est implémenté.
+Les rapports sont conservés dans `completed.MI01` à `completed.MI09`. `lastDebrief` reflète le dernier rapport officiel. `stage: 'complete'` marque le retour d’une sortie, avec une éventuelle mission suivante encore disponible. Le dossier ferroviaire de `world.vesper.rail` conserve la récupération du train, les nombres de sauvés et perdus, l’état du registre, le signalement et la première rencontre avec les Brisants. `world.vesper.communications` conserve les faits des émissions civiles, le bilan des habitants et la disponibilité du canal du dispensaire. `world.vesper.industrial` conserve le refroidissement, le journal technique, son éventuelle perte, le contact effectué et le mode de remise. `world.nacre.passage` conserve les faits du chenal et correspond au reçu `completed.MI05`. Les domaines `world.nacre.ambulance`, `world.nacre.departure` et `world.thyr.route` conservent les premiers bilans de MI07, MI08 et MI09, dont les registres physiques individuels d’Aval et de Thyr. Chaque première réussite attribue quatre lots d’atelier ; le maximum avant dépenses est **42**, soit les six lots initiaux et neuf dotations de quatre. `resources.fuel` est distinct : il vaut zéro avant le premier rapport MI05, puis zéro ou deux selon le transfert accompli. MI06 consomme éventuellement ces deux lots. `world.nacre.fuelSpent` conserve la dépense cumulée et `world.nacre.dike` le bilan de la première réussite ; le coût de cette sortie peut être nul après un échec antérieur ayant déjà consommé la réserve. Aucune conversion en pièces d’atelier ni achat n’est implémenté.
 
 Les migrations ajoutent les trois châssis de la 0.4 et une réserve initiale de huit magasins aux points vivants historiques, en conservant le magasin, les roquettes, les dommages, les rapports et les choix existants. Il s’agit d’une conversion déclarée depuis l’ancien rechargement illimité. La migration vers v4 ajoute un radiateur neuf et deux kits aux anciennes sorties, un radiateur neuf à chaque châssis et un dossier industriel encore vide. La migration v4→v5 ajoute seulement `world.nacre.passage` vierge, `resources.fuel: 0` et le nouveau numéro de format. Elle conserve exactement les checkpoints et reçus de Vesper, avec les munitions, radiateurs, kits et travaux en cours. Les fixtures historiques v1, v2, v3 et v4 sont conservées telles qu’exportées par leurs versions d’origine ; celle de v3 provient de `c81a360`, et `tests/fixtures/campaign-v4-mi04.json` provient du commit `d7d76b61ee9e97e27c611e06905f32f70633cb8e`. Cette fixture v4 contient les dossiers MI04 en cours et terminé. Les tests vérifient que retirer les seuls champs ajoutés et rétablir le numéro 4 reproduit exactement l’ancien dossier. Les formats v1 à v4 présentant déjà du carburant, un résultat de Nacre ou un checkpoint MI05 sont refusés.
 
 
 ## Périmètre de validation et suite
 
-[QA_V08.md](QA_V08.md) rassemble les résultats et limites de simulation, sauvegarde, interface et livraison. Les parcours MI06 utilisent les commandes publiques pour les six châssis, les deux circuits et les pertes ; les stimuli de collision unitaires sont identifiés comme tels. Les tests `campaign-v6.test.mjs` couvrent migration historique, bilan et consommation ; `test-ui-runtime.mjs` vérifie les gestionnaires du script autonome dans un DOM modélisé. Les rendus de `render-mi06-previews.mjs` ne sont pas des captures navigateur.
+[QA_V10.md](QA_V10.md) rassemble les résultats et limites courants de simulation, sauvegarde, interface et livraison. [QA_V08.md](QA_V08.md) et les autres rapports de tranche restent des références historiques. Les parcours MI06 utilisent les commandes publiques pour les six châssis, les deux circuits et les pertes ; les stimuli de collision unitaires sont identifiés comme tels. Les tests `campaign-v6.test.mjs` couvrent migration historique, bilan et consommation ; `test-ui-runtime.mjs` vérifie les gestionnaires du script autonome dans un DOM modélisé. Les rendus de `render-mi06-previews.mjs` ne sont pas des captures navigateur.
 
-MI07 — **Une ambulance sans escorte** est jouable au stade prototype. `CAMPAIGN_MISSIONS` et le dossier v7 vont jusqu’à MI07 ; terminer ces sept missions ne termine pas les 32 missions de conception. MI08 et les 24 missions suivantes restent conçues.
+Les neuf missions MI01–MI09 sont jouables au stade prototype. `CAMPAIGN_MISSIONS` et le dossier v9 vont jusqu’à MI09 — **La route des vivants** ; terminer ces neuf missions ne termine pas les 32 missions de conception. Les 23 missions MI10–MI32 restent conçues.
 
 La migration v5→v6 ajoute uniquement le dossier `world.nacre.dike` non visité, le compteur `world.nacre.fuelSpent: 0` et le numéro 6. La fixture `campaign-v5-mi05.json` est issue de l’arbre public immuable `613c07307f2712c5fac28d9403016906e94da168`. Les états MI01–MI05 restent identiques, y compris la différence entre carburant prélevé pendant MI05 et réserve créditée seulement à son rapport.
 
@@ -248,7 +248,7 @@ Les phases du dossier sont `approach`, `interception`, `examination`, `decision`
 
 `witnessConsent` et `witnessId` conservent l’accord historique. `witnessAvailable` indique si cette personne est encore vivante. La disponibilité ne ressuscite pas un témoin. `beaconRecovered`, `fixingsPreserved` et `beaconLogCopied` exigent le démontage ; `provenanceVerified` reste faux, `stats.evidence` reste zéro. Le fait matériel et l’identification de l’auteur de pose ne sont pas confondus.
 
-La sauvegarde v7 conserve les faits de cette scène dans `world.nacre.ambulance` au premier succès, avec quatre lots d’atelier uniques et sans mouvement de carburant. Le [contrat de dossier v7](CAMPAIGN_SAVE_V7.md) précise la migration historique, la validation et les reprises.
+Introduite en 0.8, la sauvegarde v7 conserve les faits de cette scène dans `world.nacre.ambulance` au premier succès, avec quatre lots d’atelier uniques et sans mouvement de carburant. Le [contrat de dossier v7](CAMPAIGN_SAVE_V7.md) précise la migration historique, la validation et les reprises.
 
 Les tests `campaign-v7.test.mjs` complètent les contrôles historiques par la migration v6, les rampes héritées, le rapport sanitaire, la reprise des travaux et l’échec terminal. Les scènes MI07 et leurs pertes sont couvertes séparément par `mi07-mission.test.mjs`; le modèle DOM ne remplace pas la validation visuelle.
 
@@ -275,4 +275,62 @@ Les tests `campaign-v7.test.mjs` complètent les contrôles historiques par la m
 
 Les identités nouvelles issues d’un ancien compte agrégé sont déclarées `sourceKind: aggregate`; elles ne prétendent pas identifier rétroactivement des individus des anciennes missions. L’ID connu d’un témoin sanitaire n’est repris que si les faits antérieurs permettent cette correspondance. Les pertes, départs et accords restent historiques; les arrivées et capacités sont rapprochées des personnes et bateaux concernés par `departure-validation.mjs`.
 
-Le dossier v8 conserve le premier bilan dans `world.nacre.departure` et le reçu MI08, avec quatre pièces uniques, sans dotation de carburant ni preuve globale. Les détails physiques, les parcours de repli et les règles d’import figurent dans [le contrat MI08](CAMPAIGN_MISSION_08.md) et [le contrat de sauvegarde v8](CAMPAIGN_SAVE_V8.md).
+Introduit en 0.9, le dossier v8 conserve le premier bilan dans `world.nacre.departure` et le reçu MI08, avec quatre pièces uniques, sans dotation de carburant ni preuve globale. Les détails physiques, les parcours de repli et les règles d’import figurent dans [le contrat MI08](CAMPAIGN_MISSION_08.md) et [le contrat de sauvegarde v8](CAMPAIGN_SAVE_V8.md).
+
+
+## MI09 — La route des vivants (0.10, dossier v9)
+
+`createGame({ missionId: 'MI09', campaignContext })` ajoute `state.livingRoute` à MI09 uniquement. Le contexte possède exactement `departureRecorded`, `departureChoice`, `departureArrived` et `departureLost`. `beginCampaignMission` exige le premier rapport MI08 et fournit ces valeurs depuis ce rapport ; elles servent à un rappel radio, sans créer des personnes de Thyr depuis les anciens agrégats.
+
+| Objet | Champs et responsabilité |
+| --- | --- |
+| `livingRoute.columns[2]` | `id`, `species: 'FL07'`, géométrie, `hp/maxHp`, `destroyed`, `flash` ; support des habitats et des colonies. |
+| `livingRoute.roots[2]` | Géométrie, intégrité, `columnId`, `lastContactAt`, `lastStep` ; relief réel des pieds et charge par groupe d’appuis. |
+| `livingRoute.homes[2]` | Géométrie, intégrité, `columnId`, `supported`, `habitable` ; aucun effectif humain attribué. |
+| `livingRoute.pollinators[2]` | `species: 'FU08'`, géométrie, `columnId`, `alive`, `phase` (`flying`, `settled`, `lost`), `calm` de 0 à 5 s. |
+| `livingRoute.migrators[4]` | `species: 'FU07'`, `age`, géométrie, intégrité, `phase`, `destination`, `targetX`, `fear`, `moving` ; deux adultes et deux jeunes observés dans cette sortie. |
+| `livingRoute.barrier` | Géométrie, intégrité, `controlX`, `opening`, `operated`, `working`, `progress` ; manœuvre distincte du choix. |
+| `livingRoute.logistics` | Géométrie, intégrité, `controlX`, `targetX`, `speed`, `released`, `moving`, `arrived`, `working`, `progress` ; trajet physique de x2860 à x5500. |
+| `livingRoute.contact` | Poste local, `heard`, `working`, `progress` ; écoute réelle de 3 s. |
+| `livingRoute.approach` | Repère, `prepared`, `kind`, `clearance`, `working`, `progress` ; relevé de 8 s ou guidage de 4 s sous ancrage. |
+| `livingRoute.maps`, `lights`, `report` | Postes et travaux ; respectivement `inspected`, `on`, `transmitted`, avec `working/progress`. |
+| `livingRoute.alert` | `triggered` : arrivée des deux tireurs après manœuvre et résolution du troupeau. |
+| `livingRoute.disturbance` | `x`, `remaining`, `strength` : dernier bruit local, sans alarme omnisciente. |
+
+Les phases du dossier sont `approach`, `survey`, `routing`, `migration`, `defence`, `logistics`, `report`, `complete`. `route` vaut `unselected`, puis `imperial` après `obey` ou `migration` après `defy`. `approach` vaut `unprepared`, `surveyed` ou `guided`. Le choix ne démarre aucune opération et ne déplace aucun animal.
+
+Les animaux passent de `waiting` à `migrating` après la manœuvre, puis à `arrived` au verger ou `displaced` dans l’exclusion. `lost` constate une destruction avant arrivée. Les destinations sont `unselected`, `orchard` ou `exclusion`. Les quatre termes arrivés/déplacés/perdus totalisent quatre seulement quand `migrationResolved` est vrai. Une arrivée et un déplacement restent vivants ; les destinations terminales sont préservées sans dégâts rétroactifs.
+
+Le dossier expose notamment `localsHeard`, `approachPrepared`, `routeInspected`, `hamletsRecorded`, `migrationObserved`, `lightsOff`, `gateOperated`, les comptes individuels, `columnsIntact`, `homesHabitable`, `pollinatorsPresent`, `passagePreserved`, `cropsFertilized`, `harvestFragile`, le bilan des tireurs et celui de la logistique. Ces faits sont dérivés des objets physiques ; ils ne peuvent être importés comme compteurs indépendants. `stats.evidence` et `stats.collateral` restent zéro dans MI09 : aucune preuve technique ou testimoniale ultérieure, aucun décès humain supposé à partir d’un habitat.
+
+### Fonctions exportées et surfaces
+
+| Module et fonction | Contrat |
+| --- | --- |
+| `simulation.mjs` — `livingRouteContext(previous = {})` | Retourne les quatre champs de contexte normalisés ; la couche campagne vérifie ensuite leur égalité avec le rapport MI08. |
+| `simulation.mjs` — `livingRouteSurfaceAt(state, x)` | Retourne `{ groundY, rootId, rise, traction, clearance }` ; même relief pour les contacts de pieds, la référence de coque et le rendu. |
+| `simulation.mjs` — `livingRouteDecisionBody(state)` | Texte dérivé de l’écoute, du relevé et des habitats réellement habitables. |
+| `simulation.mjs` — `livingRouteReceiptRoster(state)` | Copie profonde de `livingRoute` complétée par les deux tireurs `{ id, hp, maxHp, dead }`. |
+| `thyr-validation.mjs` — `createLivingRouteDossier()` | Dossier non visité pour `world.thyr.route`, sans roster ni résultat de mission attribué. |
+| `thyr-validation.mjs` — `livingRouteContextFor(campaign)` | Héritage sourcé directement dans `completed.MI08`. |
+| `thyr-validation.mjs` — `livingRouteDossierFromGame(game)` | Faits persistants et roster détaché utilisés pour le premier reçu et le monde officiel. |
+| `thyr-validation.mjs` — `validateLivingRouteFacts(facts, finished = false)` | Cohérence des types, bornes, comptes, routes et préconditions déclarées ; erreur en cas de contradiction. |
+| `thyr-validation.mjs` — `validateLivingRouteMission(value, template)` | Réconciliation complète de la scène, des faits, du choix, des objectifs et de l’état terminal. |
+| `thyr-validation.mjs` — `validateLivingRouteReceipt(receipt, context)` | Réconciliation du reçu avec son registre physique et l’héritage officiel. |
+| `thyr-validation.mjs` — `validateLivingRouteSortie(previous, current)` | Interdit de reculer l’horloge, changer de sortie ou annuler les choix, dégâts et destinations déjà acquis. |
+
+Le relief d’une racine intacte suit son emprise de 340 et une élévation sinusoïdale maximale de 28. Le gabarit compare `walker.height + player.height / 2` au passage de 185 ; le contournement préparé ouvre un passage de 300. Les hauts Vigie et Arpenteur doivent donc préparer cette voie. Le balisage guidé impose au moins 1,15 s entre groupes au voisinage des racines ; les commandes manuelles `stepA`/`stepB` permettent aussi d’espacer les appuis. Il n’existe aucune commande autonome de réglage de hauteur.
+
+### Durées et conditions de clôture
+
+Les travaux ont une portée strictement inférieure à 150 unités. L’approche et la barrière exigent une coque ancrée, sans déplacement demandé, une vitesse absolue au plus 3 et tous les pieds en contact. L’éloignement ou la perte du support requis annule la progression inachevée. L’écoute dure 3 s, le guidage 4 s ou le relevé seul 8 s, les projecteurs 2 s, les cartes 3 s, la barrière 6 s ou les guides manuels 8 s après destruction, le départ logistique 3 s et le rapport 3 s.
+
+Les tireurs `thyr-sniper-1` et `thyr-sniper-2` gardent des emplacements stables dans `enemies`, mais restent absents du rendu, des dégâts et du comportement avant `alert.triggered`. Ce déclenchement exige une barrière opérée et quatre destins animaux résolus. Le transport attend les animaux, suit le marcheur et doit réellement atteindre le dépôt. Sa destruction ou une coque de marcheur à zéro produit `lost`. Le rapport exige cartes, choix, manœuvre, troupeau terminal, deux tireurs neutralisés et transport arrivé ; l’extraction vient ensuite.
+
+### Persistance et rendu
+
+La migration v8→v9 ajoute uniquement `world.thyr.route` non visité et la nouvelle version, sans réécrire les huit premiers rapports, le registre d’Aval, les checkpoints, la flotte ni les stocks. Le premier succès conserve `completed.MI09` et son roster, crédite quatre lots d’atelier une seule fois et ne crée aucun carburant. La limite théorique avant dépenses est donc 42 lots pour les neuf missions. Les détails et la provenance de la fixture native v8 sont documentés dans [CAMPAIGN_SAVE_V9.md](CAMPAIGN_SAVE_V9.md).
+
+Les sauvegardes conservent le travail exact, les contacts, les positions, la peur, le générateur, les munitions et les projectiles. Une reprise terminale reste terminale. Le point avant décision de MI09 n’est proposé que s’il est exactement le checkpoint officiel, sans retour possible après une décision ou une progression ultérieure. Les relectures restent séparées du premier reçu.
+
+`Renderer.render` et `thyr-renderer.mjs` consomment ces objets sans les modifier. Ils ne déclenchent ni arrivée, ni opération, ni réparation. `drawThyrAsset` utilise les dimensions physiques fournies et partage ses primitives avec les exports SVG. Les snapshots de `render-mi09-previews.mjs` sont profondément copiés et comparés après continuation ; chaque rendu est contrôlé par égalité de l’état avant/après. Cette vérification Canvas reste distincte des parcours natifs de navigateur et de la réception humaine.

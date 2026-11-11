@@ -1,4 +1,8 @@
-# Architecture de la version 0.8
+# Architecture de la version 0.10
+
+## Portée actuelle
+
+La version 0.10 livre trois opérations indépendantes et **neuf missions de campagne jouables au stade prototype, MI01–MI09**, sur six châssis. Le dossier courant est **v9**. Les **23 missions MI10–MI32** restent conçues. Les sections consacrées aux formats v4 à v8 décrivent leurs introductions et leurs invariants historiques ; elles ne limitent pas la portée courante à une ancienne tranche.
 
 ## Intention
 
@@ -10,10 +14,14 @@ Le jeu fonctionne sans bibliothèque externe. Il peut être lancé en modules de
 
 | Fichier | Responsabilité |
 | --- | --- |
-| `src/content.mjs` | Six marcheurs, trois opérations indépendantes, sept missions de campagne MI01–MI07, difficultés et définitions ennemies. |
+| `src/content.mjs` | Six marcheurs, trois opérations indépendantes, neuf missions de campagne MI01–MI09, difficultés et définitions ennemies. |
 | `src/simulation.mjs` | État de mission, mouvement, appuis, combat, interactions, objectifs, événements et résultat. Aucun DOM. |
-| `src/campaign.mjs` | Dossiers MI01–MI07, progression, migrations v1/v2/v3/v4/v5/v6 vers v7, validation, checkpoints, restauration, attributions uniques d’atelier et de carburant, réparations. Aucun DOM ; stockage fourni explicitement. |
-| `src/renderer.mjs` | Canvas 2D : cinématique inverse des jambes, châssis, ennemis, environnement, particules et repères spatiaux. |
+| `src/campaign.mjs` | Dossiers MI01–MI09, progression, migrations historiques v1–v8 vers v9, validation, checkpoints, restauration, attributions uniques d’atelier et de carburant, réparations. Aucun DOM ; stockage fourni explicitement. |
+| `src/renderer.mjs` | Canvas 2D : cinématique inverse des jambes, châssis, ennemis, environnement, particules et repères spatiaux. Lecture de la simulation sans mutation. |
+| `src/departure-validation.mjs`, `src/thyr-validation.mjs` | Réconciliation des scènes, contextes, faits et reçus de MI08 et MI09 ; invariants de reprise et refus des contradictions. |
+| `src/production-assets.mjs`, `src/thyr-assets.mjs` | Primitives partagées entre SVG et Canvas, états et dimensions des éléments de production. |
+| `src/thyr-renderer.mjs` | Rendu de la route vivante, des appuis, habitats, animaux, destinations et postes à partir de leurs objets simulés. |
+| `src/controls.mjs` | Actions, préférences de touches et lecture de manette standard, sans DOM ni stockage implicite. |
 | `src/audio.mjs` | Sons procéduraux déclenchés par les événements, déverrouillés par un geste utilisateur. |
 | `src/main.mjs` | Cinq écrans, entrées, HUD, dialogues, dossier de campagne, atelier, import/export et autosauvegarde. |
 | `src/style.css`, `src/ui.css` | Habillage des menus, hangar, réglages et affichage en mission. |
@@ -89,7 +97,7 @@ La dissipation vaut `0.35 + 0.65 * health/maxHealth`. La ventilation conserve so
 
 La scène de mission a une taille logique de 1600 × 900 et le hangar de 960 × 480. Le Canvas s’adapte à une densité de pixels bornée à 2. La caméra suit la coque ; la conversion de la souris s’effectue via le rectangle réel du Canvas et l’offset caméra. La mise en page conserve un cadre 16:9 pour le jeu. En MI05, le HUD HTML lit directement `channel.tide` et le statut du bateau. `main.mjs` transmet `tideInstrument: false` à `renderer.render` pour masquer le panneau de marée Canvas, qui ferait doublon avec ce HUD. Les rendus Canvas seuls gardent ce panneau par défaut ; ce réglage ne modifie aucun état simulé.
 
-Vesper utilise un panorama peint généré pour le projet. Nacre et Thyr utilisent des plans procéduraux distincts ; les machines et unités sont dessinées avec des primitives Canvas articulées. Cet art est un langage de prototype, et la bible artistique spécifie les assets de production à venir.
+Vesper utilise un panorama peint généré pour le projet. Nacre et Thyr utilisent des plans procéduraux distincts ; les machines et unités sont dessinées avec des primitives Canvas articulées. Les packs de production partagent leurs primitives SVG/Canvas. Celui de Thyr comprend les colonnes, racines, habitats, longues-dorses, éventails, barrière et repères de route. La bible artistique distingue ces éléments livrés des assets et animations restant à produire.
 
 Les images générées sont conservées avec leurs prompts dans `docs/ASSET_PROVENANCE.md`. Le bundle autonome embarque leur contenu encodé, ainsi que l’emblème et les styles. Il ne dépend pas de CDN, de polices distantes, de comptes ou de services de sauvegarde.
 
@@ -99,12 +107,12 @@ Les clés locales séparent les anciens réglages/rapports de la campagne :
 
 - `imperium.settings.v1` : difficulté, aides, confort, volume et sélection.
 - `imperium.records.v1` : dernier rapport victorieux de chaque opération.
-- `imperium.campaign.v1` : dossier de campagne au format v7, mission MI01 à MI07 en cours, point avant décision, résultats et atelier.
+- `imperium.campaign.v1` : dossier de campagne au format v9, mission MI01 à MI09 en cours, point avant décision, résultats et atelier.
 - `imperium.campaign.v1.backup` : précédent dossier complet validé.
 
 `campaign.mjs` conserve des données JSON bornées, avec vérification du format, de la version, des IDs et des structures de simulation. L’interface sauvegarde toutes les huit secondes simulées, à la pause, au retour, avant/après une décision et lors des événements de fermeture disponibles. La graine, le générateur, les projectiles et contacts sont inclus. Une fermeture brutale peut perdre les secondes postérieures à la dernière écriture.
 
-`parseCampaign` migre les formats historiques v1, v2, v3, v4, v5 et v6 vers v7. Les étapes conservent les rapports, ressources, états de mission et stocks antérieurs. V1 reçoit les champs ferroviaires ; v1/v2 reçoivent le dossier de communications, les trois nouveaux châssis et huit magasins en réserve. La migration v3→v4 ajoute le dossier industriel vierge, le radiateur à 100 dans la flotte et les checkpoints, deux kits et aucun travail de réparation lancé. La migration v4→v5 ajoute uniquement `world.nacre.passage` vierge, `resources.fuel: 0` et le nouveau numéro de format ; elle ne réécrit aucun checkpoint, reçu, stock, dommage ni état de radiateur de Vesper. Les fixtures historiques sont produites par leurs révisions d’origine : la v3 provient de `c81a360` et `tests/fixtures/campaign-v4-mi04.json` de `d7d76b61ee9e97e27c611e06905f32f70633cb8e`. Cette dernière contient un vrai dossier MI04 en cours et un dossier MI04 terminé. Aucune fixture n’est régénérée depuis le code actuel. Une version antérieure à v5 contenant déjà un résultat de Nacre, un champ carburant ou un checkpoint MI05 est refusée.
+`parseCampaign` migre les formats historiques v1, v2, v3, v4, v5, v6, v7 et v8 vers v9. Les étapes conservent les rapports, ressources, états de mission et stocks antérieurs. V1 reçoit les champs ferroviaires ; v1/v2 reçoivent le dossier de communications, les trois nouveaux châssis et huit magasins en réserve. La migration v3→v4 ajoute le dossier industriel vierge, le radiateur à 100 dans la flotte et les checkpoints, deux kits et aucun travail de réparation lancé. La migration v4→v5 ajoute uniquement `world.nacre.passage` vierge, `resources.fuel: 0` et le nouveau numéro de format ; elle ne réécrit aucun checkpoint, reçu, stock, dommage ni état de radiateur de Vesper. Les fixtures historiques sont produites par leurs révisions d’origine : la v3 provient de `c81a360` et `tests/fixtures/campaign-v4-mi04.json` de `d7d76b61ee9e97e27c611e06905f32f70633cb8e`. Cette dernière contient un vrai dossier MI04 en cours et un dossier MI04 terminé. Aucune fixture n’est régénérée depuis le code actuel. Une version antérieure à v5 contenant déjà un résultat de Nacre, un champ carburant ou un checkpoint MI05 est refusée.
 
 Le contexte de MI04 copie les faits du monde validé au départ. Le reçu final et `world.vesper.industrial` conservent refroidissement, aide, inspection, journal, PT01, besoin d’autre source, contact effectué, rapport et état du poste. La copie d’un journal reste acquise après destruction de l’original. Le choix administratif ne la supprime pas. Le contexte du checkpoint doit correspondre au dossier officiel, ce qui empêche un import contradictoire de créer un contact ou des renforts. Le contrat historique de ce format reste dans [CAMPAIGN_SAVE_V4.md](CAMPAIGN_SAVE_V4.md). En v5, `world.nacre.passage` et `completed.MI05` conservent les mêmes faits de passage : treuils, inspections, copies et contact, arrivées et pertes, carburant chargé et mode de rapport. Le contexte de MI05 doit correspondre aux faits officiels de Vesper ; la marée doit correspondre exactement à l’horloge du checkpoint. Avant la validation officielle de MI05, le dossier de Nacre reste vierge et `resources.fuel` reste à zéro, même si le checkpoint contient un transfert de carburant déjà effectué.
 
@@ -112,7 +120,7 @@ Le contexte de MI04 copie les faits du monde validé au départ. Le reçu final 
 
 L’écriture principale emploie un remplacement atomique `localStorage.setItem`, précédé de la conservation du dernier dossier valide. Une panne de la deuxième écriture laisse la première copie lisible. Une corruption JSON permet le repli sur une copie compatible. Une version future, un format étranger ou un dossier dépassant la taille autorisée bloque l’écrasement automatique même avec une ancienne copie valide. Créer un dossier ou importer explicitement autorise son remplacement. Ce contrôle protège des incompatibilités et corruptions ordinaires ; il ne constitue pas un système anti-triche.
 
-Les opérations restent indépendantes. Une défaite ne valide pas une sortie. Le premier succès de chacune des sept missions MI01–MI07 inscrit un rapport et attribue quatre lots d’atelier ; les validations répétées et relectures n’en attribuent aucun. Les six lots initiaux et les sept dotations donnent un maximum de **34 lots d’atelier avant dépenses**. Les zéro ou deux lots de carburant de MI05 sont une ressource distincte, attribuée une seule fois selon le transfert réellement accompli. Les réparations débitent les lots disponibles, sont refusées en sortie et conservent l’incident historique. Le dossier conserve les résultats de Vesper pendant MI05. Les missions du chenal, de la digue et de l’ambulance sont exécutées. MI08 doit encore utiliser leurs conséquences ; les autres missions de la campagne restent à produire.
+Les opérations restent indépendantes. Une défaite ne valide pas une sortie. Le premier succès de chacune des neuf missions MI01–MI09 inscrit un rapport et attribue quatre lots d’atelier ; les validations répétées et relectures n’en attribuent aucun. Les six lots initiaux et les neuf dotations donnent un maximum de **42 lots d’atelier avant dépenses**. Les zéro ou deux lots de carburant de MI05 sont une ressource distincte, attribuée une seule fois selon le transfert réellement accompli. Les réparations débitent les lots disponibles, sont refusées en sortie et conservent l’incident historique. Le dossier conserve les résultats de Vesper pendant Nacre, puis les huit premiers rapports au départ de Thyr. MI08 utilise les bilans du chenal, de la digue et de l’ambulance ; MI09 hérite seulement du contexte sourcé de son rapport. Les 23 missions MI10–MI32 restent conçues.
 
 ## Construction autonome
 
@@ -120,11 +128,11 @@ Les opérations restent indépendantes. Une défaite ne valide pas une sortie. L
 
 `tools/test-ui.mjs` compile le script autonome avec `vm.Script`, vérifie les correspondances d’IDs et l’absence de ressources distantes. Cela valide sa cohérence statique, pas l’exécution du DOM ou les interactions du navigateur.
 
-`tools/test-ui-runtime.mjs` exécute ce même script et ses gestionnaires dans un petit modèle de DOM avec stockage simulé. Ses parcours vérifient les liaisons d’état et les transitions. Les appels Canvas y sont neutralisés ; aucune conclusion CSS, audio, téléchargement ou dialogue natif n’en découle. `tools/test-browser.mjs` fournit le contrôle Chromium séparé, disponible sur un environnement autorisé. Les résultats et limites de la 0.8 figurent dans [QA_V08.md](QA_V08.md). Les rapports 0.2, 0.3, 0.4, 0.5, 0.6 et 0.7 restent conservés comme historique. `tools/render-mi05-previews.mjs` produit séparément des images du Canvas de production depuis des états atteints par commandes publiques ; son manifeste copie profondément chaque état. Ces images ne certifient ni le navigateur ni le HUD HTML.
+`tools/test-ui-runtime.mjs` exécute ce même script et ses gestionnaires dans un petit modèle de DOM avec stockage simulé. Ses parcours vérifient les liaisons d’état et les transitions. Les appels Canvas y sont neutralisés ; aucune conclusion CSS, audio, téléchargement ou dialogue natif n’en découle. `tools/test-browser.mjs` fournit le contrôle Chromium séparé, disponible sur un environnement autorisé. Les résultats et limites courants figurent dans [QA_V10.md](QA_V10.md). Les rapports 0.2 à 0.9, notamment [QA_V08.md](QA_V08.md), restent conservés comme historique. Les outils `render-mi05-previews.mjs`, `render-mi08-previews.mjs` et `render-mi09-previews.mjs` produisent séparément des images du Canvas de production depuis des états atteints par commandes publiques ; leurs manifestes copient profondément chaque état. Ces images ne certifient ni le navigateur ni le HUD HTML.
 
 ## Prochaine tranche
 
-MI08 — **La marée compte les absents** reste **Conçu**. La campagne jouable s’arrête après MI07 ; les 25 missions MI08–MI32 ne sont pas encore exécutables. La suite doit aussi compléter les essais auprès de joueurs, le premier composant ennemi, les doctrines d’escouade, les animations définitives et l’inventaire détaillé. Aucun port vers un moteur natif n’est présumé terminé.
+MI09 — **La route des vivants** ouvre Thyr au stade **Prototype** après les huit premières missions jouables. La prochaine mission, MI10 — **Le champ que personne n’a semé**, reste **Conçu** avec les 22 missions suivantes ; MI10–MI32 ne sont pas encore exécutables. La suite doit aussi compléter les essais auprès de joueurs, le premier composant ennemi, les doctrines d’escouade, les animations définitives et l’inventaire détaillé. Aucun port vers un moteur natif n’est présumé terminé.
 
 Le navigateur place le prompt contextuel dans le HUD HTML, au-dessus de la hauteur effective du panneau inférieur. Il transmet `interactionPrompt:false` au renderer pour éviter un chevauchement avec les jauges. Les rendus Canvas autonomes gardent leur prompt par défaut.
 
@@ -143,7 +151,7 @@ La simulation porte le mouvement du véhicule, son arrêt, l’accord à l’exa
 
 Les faits sanitaires rejoignent `world.nacre.ambulance` uniquement au premier rapport réussi. Les relectures sont indépendantes. Le HUD HTML présente l’étape, la route, les personnes, la cargaison et la balise. Le résultat et l’atelier distinguent le véhicule, les personnes et les pièces récupérées. Une perte matérielle reste constatable sans reconstituer les données détruites.
 
-Le dossier v7 ajoute seulement l’ambulance non visitée aux anciennes sauvegardes v6. Les invariants du carburant MI06 restent identiques. Les détails de validation et les limites sont documentés dans [CAMPAIGN_SAVE_V7.md](CAMPAIGN_SAVE_V7.md).
+Introduit avec MI07 en 0.8, le dossier v7 ajoute seulement l’ambulance non visitée aux anciennes sauvegardes v6. Les invariants du carburant MI06 restent identiques. Les détails de validation et les limites sont documentés dans [CAMPAIGN_SAVE_V7.md](CAMPAIGN_SAVE_V7.md).
 
 ## Les portes d’Aval et le dossier v8
 
@@ -156,3 +164,20 @@ Les commandes sont lues par `controls.mjs`, sans DOM ni stockage. `main.mjs` app
 `production-assets.mjs` partage les primitives des exports SVG et du dessin Canvas. Le renderer continue de prendre pieds, articulations et radiateur dans la simulation. L’audio reçoit les événements et observe les faits; son premier passage sur un checkpoint initialise le suivi sans rejouer des réussites historiques. Les deux couches restent sans pouvoir sur les arrivées, les dégâts, les ressources ou les décisions.
 
 Les contrats détaillés de cette tranche sont [MI08](CAMPAIGN_MISSION_08.md), [dossier v8](CAMPAIGN_SAVE_V8.md), [conséquences de Nacre](NACRE_CONSEQUENCES_V09.md) et [commandes et audio](CONTROLS_AUDIO_V09.md).
+
+
+## La route de Thyr et le dossier v9 (0.10)
+
+MI09 ajoute `state.livingRoute` à cette seule mission. Aucun champ vide n’est ajouté aux scènes antérieures. Le contexte copie depuis `completed.MI08` la présence du rapport, son choix, ses arrivées au refuge et ses pertes. Cet écho radio ne devient pas un recensement de Thyr. Les deux habitats n’ont aucun effectif humain supposé ; les quatre longues-dorses sont de nouveaux acteurs de cette scène.
+
+Les colonnes et racines portent les habitats. `livingRouteSurfaceAt` donne la hauteur suivie par les vrais pieds et la référence de coque. Le gabarit haut exige un contournement préparé sous ancrage. L’écoute locale ouvre un balisage guidé, qui adapte réellement la cadence sur les racines ; les appuis manuels espacés restent possibles. Le rendu ne crée aucune commande de hauteur ni aucun contact à la place de la simulation.
+
+La carte, le choix de route, la manœuvre de barrière, les destinations des animaux, l’arrivée des tireurs, le départ logistique, l’arrivée au dépôt et le rapport sont des étapes distinctes. Les animaux possèdent une position, une intégrité, une peur locale et une destination. Les événements et dommages modifient les faits jusqu’à l’extraction. `livingRouteReceiptRoster` produit une copie profonde des objets physiques et du bilan individuel des tireurs ; `thyr-validation.mjs` rapproche ce registre des compteurs déclarés.
+
+Le premier succès inscrit `completed.MI09` et `world.thyr.route`, avec quatre lots uniques et sans carburant nouveau. La migration v8→v9 ajoute uniquement le dossier de Thyr non visité et le numéro de version. La fixture v8 provient des exports natifs de la publication 0.9, sans régénération depuis les modules courants. Les huit premiers rapports, le registre d’Aval, les stocks, les positions et les travaux historiques restent inchangés.
+
+Un checkpoint officiel de MI09 ne peut annuler une destruction, une destination acquise ou un choix. Une défaite par perte du transport ou du marcheur reste `lost` après reprise. Le point avant décision ne redevient jouable que s’il est encore exactement le checkpoint officiel ; il ne constitue pas un moyen de remonter la sortie. Les [règles MI09](CAMPAIGN_MISSION_09.md) et le [contrat v9](CAMPAIGN_SAVE_V9.md) décrivent ces conditions.
+
+`thyr-renderer.mjs` lit les mêmes objets pour dessiner les racines, maisons, troupeau, barrière, logistique et bornes de destination. Les tireurs ne sont visibles qu’après leur déclenchement. Le dessin des débris ne restaure aucun support. `Renderer.render` peut mettre à jour sa propre caméra et ses caches, mais ne modifie ni l’état de jeu ni les décisions, ressources et arrivées. Le générateur de scènes vérifie l’identité de l’état avant/après rendu et l’immuabilité des captures après continuation.
+
+Les scènes Canvas et exports de campagne de `docs/previews/mi09-render-manifest.json` sont obtenus par commandes publiques après migration du dossier v8 authentique. Leur preuve séparée, `mi09-canvas-validation.json`, ne certifie pas une interaction native dans le navigateur ni une réception humaine. Le [contrat de simulation courant](SIMULATION_API.md) expose les objets et fonctions de cette tranche.
