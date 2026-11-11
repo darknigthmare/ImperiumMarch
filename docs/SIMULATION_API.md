@@ -1,6 +1,6 @@
-# Contrat de simulation — prototype 0.5
+# Contrat de simulation — prototype 0.6
 
-La simulation est un module JavaScript pur, sans DOM, exécuté en secondes et en pixels monde. `WALKERS` et `MISSIONS` sont des tableaux ; les IDs sont stables. Les six châssis disponibles sont WK01, WK02, WK05, WK06, WK09 et WK10. `MISSIONS` garde OP01–OP03 ; `CAMPAIGN_MISSIONS` contient MI01, MI02, MI03 et MI04 ; `ALL_MISSIONS` sert à `createGame`. Les trois opérations restent indépendantes de la progression des missions de campagne.
+La simulation est un module JavaScript pur, sans DOM, exécuté en secondes et en pixels monde. `WALKERS` et `MISSIONS` sont des tableaux ; les IDs sont stables. Les six châssis disponibles sont WK01, WK02, WK05, WK06, WK09 et WK10. `MISSIONS` garde OP01–OP03 ; `CAMPAIGN_MISSIONS` contient les cinq missions MI01, MI02, MI03, MI04 et MI05 ; `ALL_MISSIONS` sert à `createGame`. Les trois opérations restent indépendantes de la progression des missions de campagne.
 
 ```js
 import { WALKERS, MISSIONS, ENEMY_TYPES, DIFFICULTIES } from './content.mjs';
@@ -12,7 +12,7 @@ commandGame(game, 'choice', 'defy');
 
 ## Entrées
 
-`move` = −1, 0 ou 1 ; `aimX/aimY` sont des coordonnées monde. `fire`, `secondary`, `brace`, `vent`, `stepA`, `stepB`, `interact`, `reload`, `repair` sont des booléens. Les actions ponctuelles se déclenchent sur front montant, les tirs/ventilation sur maintien. `updateGame` borne chaque delta à 0,05 s et ne simule rien hors `status === 'playing'`.
+`move` = −1, 0 ou 1 ; `aimX/aimY` sont des coordonnées monde. `fire`, `secondary`, `brace`, `vent`, `stepA`, `stepB`, `interact`, `reload`, `repair` sont des booléens. Les actions ponctuelles se déclenchent sur front montant, les tirs/ventilation sur maintien. `updateGame` borne chaque delta à 0,05 s et ne simule rien hors `status === 'playing'` ou pendant `decision.active`. En MI05, il synchronise la marée avec `elapsed` avant de traiter les nouvelles commandes ; une ouverture de décision conserve donc une horloge de sauvegarde cohérente.
 
 `commandGame(state, action, payload)` accepte `stepA`, `stepB`, `interact`, `reload`, `repair`, `choice` (payload `obey` ou `defy`), `assist` (booléen). Retour booléen : action acceptée ou rejetée. La pause appartient à l’UI : ne pas appeler `updateGame` pendant la pause.
 
@@ -21,14 +21,14 @@ commandGame(game, 'choice', 'defy');
 - `mission`, `walker`, `difficulty` : références aux données ; `missionId`, `walkerId`, `planetId` ; `elapsed`, `status` (`playing`, `won`, `lost`), `outcome` (texte de résultat), `seed`.
 - `player` : `x/y` centre coque, `width/height` dimensions coque, `groundY`, `facing`, `aimAngle`, `hull/maxHull`, `armor`, `heat` (0–100), `energy` (0–100), `stability` (0–100), `ammo/maxAmmo`, `reserveAmmo/maxReserveAmmo`, `rockets/maxRockets`, `reloadTime`, `venting`, `braced`, `overheated`, `speed`, `stepCooldown`, `lastGroup`, `feet`, `radiator`.
 - `feet[]` : `id`, `index`, `group` (0 ou 1), `side` (`back` ou `front`), `homeOffset`, `x/y` centre contact, `phase` (`stance` ou `swing`), `progress` (0–1), `fromX/fromY`, `targetX/targetY`, `health/maxHealth`, `contact`. Les jambes partent de la coque vers ces contacts ; le rendu construit ses genoux et segments. Pieds endommagés = cadence et stabilité réduites.
-- `enemies[]` : `id`, `type`, `kind`, `name`, `x/y` centre, `w/h`, `hp/maxHp`, `active`, `dead`, `facing`, `telegraph` (0–1), `attackTarget`, `spawnX`, `flash`, `phase`, `armor`. Une entité morte conserve sa place dans le tableau et ne participe plus aux collisions ni au comportement actif. Le rendu peut en conserver les effets de destruction.
+- `enemies[]` : `id`, `type`, `kind`, `name`, `x/y` centre, `w/h`, `hp/maxHp`, `active`, `dead`, `facing`, `telegraph` (0–1), `attackTarget` (`player`, `convoy` ou `boat`), `spawnX`, `flash`, `phase`, `armor`. Une entité morte conserve sa place dans le tableau et ne participe plus aux collisions ni au comportement actif. Le rendu peut en conserver les effets de destruction.
 - `relays[]` : `id`, `x/y` centre, `w/h`, `hp/maxHp`, `destroyed`, `flash`.
 - `projectiles[]` : `id`, `x/y`, `prevX/prevY`, `vx/vy`, `team` (`player` ou `enemy`), `type` (`bullet` ou `rocket`), `damage`, `radius`, `life`, `trail`.
 - `particles[]` : `x/y`, `vx/vy`, `life/maxLife`, `size`, `color`, `type` (`spark`, `smoke`, `dust`).
 - `events[]` : file bornée de notifications avec `id`, `type`, `text`, `time`, `x/y` facultatifs. L’UI mémorise le dernier `id` consommé. Types utiles : `shot`, `rocket`, `step`, `hit`, `explosion`, `objective`, `radio`, `decision`, `reload`, `overheat`, `victory`, `defeat`.
 - `convoy` : `null` ou `{x,y,w,h,hp,maxHp,speed,moving,arrived}`. Position centre, roues au sol.
 - `civilians[]` : `{id,x,y,w,h,hp,alive,safe,fleeing}`. Ne sont jamais hostiles ni auto-ciblés ; dégâts et piétinement causent des pertes comptées.
-- `evidence` : `{id,x,y,collected,scanProgress,scanTime,label}`. Interaction `E` à portée déclenche un scan de 2,4 s ; rester à proximité le poursuit. S’éloigner l’annule.
+- `evidence` : `{id,x,y,collected,scanning,scanProgress,scanTime,label}`. Interaction `E` à portée déclenche un scan de 2,4 s ; rester à proximité le poursuit. S’éloigner l’annule.
 - `pickups[]` : `{id,x,y,type,collected}` (réparations à contact, stock limité).
 - `decision` : `{active,resolved,choice,title,body,options:[{id,label}]}`. `E` près du marqueur après scan ouvre la décision. Tant qu’elle est active, la simulation ne combat pas (pause de lecture). Le choix résout et reprend.
 - `objectives[]` : `{id,label,current,target,complete}` ; `extraction` : `{x,y,active,radius}`.
@@ -43,7 +43,7 @@ Tirs testés sur segments balayés pour éviter de traverser les cibles rapides.
 
 Chaque sortie commence avec un magasin chargé et une réserve de huit magasins, soit `maxReserveAmmo = walker.ammo * 8`. La fin d’un rechargement transfère `min(maxAmmo - ammo, reserveAmmo)` coups : elle conserve le total, peut donner un dernier magasin partiel, et ne crée pas de munitions lorsque la réserve est vide. Un dépôt récupéré ajoute au plus trois magasins en réserve, bornés par `maxReserveAmmo`, deux roquettes bornées par leur capacité, les réparations de coque existantes et trente points de santé par pied. Les conditions de contact incluent désormais une réserve incomplète. Le marqueur `collected` interdit toute seconde collecte. Les cinq tests de `tests/ammunition.test.mjs` couvrent le stock initial, le transfert partiel, l’épuisement, la dernière charge et l’absence de ravitaillement répétable.
 
-Le score mesure seulement la performance de combat ; aucun score moral unifié. La décision, les preuves récupérées, les pertes civiles et l’état du convoi restent séparés. Les opérations sont rejouables indépendamment ; la progression MI01–MI03 et l’atelier passent par `campaign.mjs`.
+Le score mesure seulement la performance de combat ; aucun score moral unifié. La décision, les preuves récupérées, les pertes civiles et l’état du convoi restent séparés. Les opérations sont rejouables indépendamment ; la progression MI01–MI05 et l’atelier passent par `campaign.mjs`.
 
 ## MI01
 
@@ -89,6 +89,60 @@ Les phases sont `approach`, `cooling`, `inspection`, `report` et `complete`. `pr
 
 Le transport `private-hauler` conserve une place fixe dans `enemies`. `industrial.retreatEscaped` signifie que cette place n’est plus une cible physique : le rendu, la sélection de cible et toutes les collisions l’excluent. Une fuite ne donne aucun point de destruction. Le [contrat MI04](CAMPAIGN_MISSION_04.md) fixe les positions, durées et effets hérités.
 
+## MI05
+
+`createGame({ missionId: 'MI05', campaignContext })` ajoute `state.channel` uniquement à cette mission. Son contexte possède exactement `technicalEvidence`, `railHostagesRescued` et `railRecordFiled`. `beginCampaignMission` les copie depuis `world.vesper.industrial` et `world.vesper.rail`. Le déblocage exige le premier rapport de MI04, avec ou sans PT01.
+
+| Objet | Champs |
+| --- | --- |
+| `channel.tide` | `phase` (`low`, `rising`, `high`, `falling`), `level`, `secondsToChange`, `waterY`, `walkable`, `navigable` |
+| `channel.banks[]` | `id`, `from`, `to`, `stationX`, `bridgeRaised`, `working`, `progress` |
+| `channel.winches[]` | `id`, `x/y`, `w/h`, `hp/maxHp`, `released`, `working`, `progress`, `destroyed`, `flash` |
+| `channel.barges[]` | `id`, `kind` (`trafficker` ou `smuggler`), `x/y`, `w/h`, `hp/maxHp`, `destroyed`, `flash`, `inspected`, `scanning`, `scanProgress`, `civilians`, `casualties` |
+| `channel.boat` | `id`, `x/y`, `w/h`, `hp/maxHp`, `speed`, `arrived`, `destroyed`, `moving`, `passengers` |
+| `channel.fuel` | `id`, `x/y`, `w/h`, `hp/maxHp`, `destroyed`, `collected`, `working`, `progress` |
+| `campaign` | `missionId`, `phase`, `winchesReleased`, `bargesInspected`, `traffickingVerified`, `smugglerVerified`, `refugeesTotal`, `refugeesPassed`, `refugeesLost`, `bargeCiviliansLost`, `passageResolved`, `channelOpen`, `fuelRecovered`, `fuelLots`, `manifestRead`, `reportFiled`, `context`, `tutorial` |
+
+Les phases de mission sont `approach`, `channel`, `passage`, `report` et `complete`. Les géométries de bancs, treuils, barges et dépôt restent fixes. Le bateau suit sa position simulée, avec `y = terrainAt(x, planetId) - 35` ; le rendu ne le déplace pas indépendamment de ses collisions.
+
+### Marée et surfaces
+
+`channelTideAt(elapsed)` est une fonction pure qui retourne la forme de `channel.tide`. Le cycle dure 72 secondes : `low` pendant 26 s, `rising` pendant 10 s, `high` pendant 26 s, `falling` pendant 10 s. `level` va de 0,1 à 1. `walkable` vaut vrai jusqu’à 0,45 inclus ; `navigable` vaut vrai à partir de 0,5 inclus. `secondsToChange` annonce la fin de la phase courante, pas un temps restant de mission. `waterY` vaut `694 - level * 26`.
+
+`channelSurfaceAt(state, x)` retourne `{ kind, traction, submerged }`. Les valeurs de `kind` sont `quay`, `bridge`, `mud` et `submerged`. Le multiplicateur `traction` agit sur la longueur de foulée et la limite de vitesse de coque :
+
+| Surface | Bipèdes et quadrupèdes | Hexapodes |
+| --- | --- | --- |
+| Quai ou passerelle | 1 | 1 |
+| Vase découverte | 0,77 | 0,93 |
+| Banc submergé | 0,46 | 0,66 |
+
+Un pied en contact avec un banc submergé perd 1,25 point de santé par seconde, ou 0,55 pour un hexapode, sans descendre sous zéro. Un pied en levée n’est pas usé par ce contact ; une passerelle supprime cette exposition. Lors d’un impact, le plancher de combat est `min(15, santé avant impact)` : la règle historique reste inchangée au-dessus de 15, mais un tir ne peut pas soigner un pied déjà passé sous ce seuil. Les appuis restent représentés et conservent une marche dégradée, sans mécanisme d’amputation. Cette règle de charge n’implémente pas le module d’équipement final des patins d’estran.
+
+### Interventions et conséquences
+
+Le rayon des interventions propres au chenal est de 175 unités monde. `interact` cherche successivement une commande de passerelle, un treuil non libéré, une barge non inspectée, le dépôt intact non collecté puis le relevé final. `interaction` indique le travail proposé au joueur. Les rayons peuvent se recouvrir : la commande affichée doit être suivie plutôt qu’une supposition fondée uniquement sur la proximité du terminal.
+
+| Intervention | Durée et effet |
+| --- | --- |
+| Passerelle | 4 s ; `bridgeRaised: true`, `progress: 1`, passage permanent. |
+| Treuil | 2,5 s ; `released: true`. Détruire sa tête de 90 HP libère aussi le câble sans exiger la destruction de la barge. |
+| Barge | 3 s ; `inspected: true`, `scanProgress: 1`. Une coque intacte donne sa facture ou sa liaison ; une ruine donne seulement un constat. |
+| Carburant | 3 s ; `collected: true`, `fuelRecovered: true`, `fuelLots: 2`. Le dépôt possède 240 HP. |
+| Relevé final | Scan commun de 2,4 s, après ouverture du chenal, deux inspections et sort du bateau connu ; `manifestRead` suit `evidence.collected`. |
+
+Sortir du rayon des travaux de passerelle, treuil, barge ou carburant annule leur progression inachevée. Le relevé final utilise le rayon d’interruption commun de lecture, 250 unités, après son déclenchement à proximité. Les travaux achevés ne sont pas recommencés. Les coups peuvent détruire les entités pendant une intervention ; ils ne rendent pas automatiquement celle-ci réussie.
+
+Les deux barges possèdent chacune 540 HP. **Saisie** est vide d’occupants dans cette scène ; sa facture permet `traffickingVerified`. **Rive-Courte** contient quatre membres d’équipage ; la liaison avec Vann Ostre permet `smugglerVerified`. Une copie ou une liaison obtenue avant la destruction reste acquise. Les pertes ultérieures sont actualisées séparément. La destruction avant lecture ou contact ne permet pas de reconstituer ces informations. `stats.evidence` demeure zéro pour MI05 : il ne s’agit pas d’une nouvelle preuve PALINODE.
+
+Le bateau possède 420 HP et transporte douze personnes. `moving` exige deux câbles libérés, `tide.navigable`, et un bateau ni arrivé ni détruit. Il avance de 1 480 à 4 100 à 92 unités par seconde, sans téléportation à la réussite d’un objectif. Les adversaires terrestres peuvent le choisir comme cible ; leur activité considère aussi sa proximité après l’ouverture du chenal. L’arrivée fait débarquer les passagers et retire le bateau des dégâts. Une perte avant le dock inscrit douze décès. Les quatre membres de Rive-Courte restent un effectif distinct. Le rapport demeure terminable après une perte du bateau ; il ne la transforme pas en arrivée.
+
+Le carburant reste facultatif. La survie du bateau et la relation avec un équipage ne conditionnent pas ce dépôt distinct. Un transfert accompli n’est pas effacé par une destruction ultérieure de sa source, qui sort alors des cibles de dégâts ; un dépôt détruit avant transfert n’accorde aucun lot. La réserve officielle `resources.fuel` est créditée au premier rapport victorieux, pas au moment du transfert ni pendant une relecture.
+
+`channelDecisionBody(state)` restitue facture, contact, arrivées, pertes des deux effectifs et carburant réellement chargé. Le choix `defy` met `reportFiled` à vrai ; `obey` garde les constatations au dossier sans les joindre au rapport signé. Ni l’un ni l’autre ne réécrit les faits. Le texte est rafraîchi après les dégâts et interventions jusqu’à l’extraction.
+
+Le HUD HTML consomme `channel.tide`, `campaign.winchesReleased` et `channel.boat`. `Renderer.render(state, options)` affiche par défaut son instrument de marée Canvas pour les aperçus sans HTML ; `options.tideInstrument: false`, employé par `main.mjs`, masque uniquement cet instrument pour éviter le chevauchement avec les munitions et le doublon du HUD. Cela ne change pas la simulation.
+
 ## Radiateur et réparation de terrain
 
 Toutes les missions partagent `player.radiator` : `{ health: 100, maxHealth: 100, repairKits: 2, maxRepairKits: 2, repairProgress: 0, repairing: false }` au départ d’une opération neuve. La campagne peut fournir une santé de composant usée. Une reprise n’ajoute pas de kits. `radiatorBounds(state)` retourne le rectangle exact `{x,y,w,h}` au bord arrière de la coque ; `radiatorCoolingFactor(state)` retourne `0,35 + 0,65 × health/maxHealth`.
@@ -103,8 +157,8 @@ La commande `repair` exige une santé inférieure au maximum, au moins un kit, d
 
 | Fonction | Résultat |
 | --- | --- |
-| `createCampaign()` | Dossier initial, six lots, six châssis intacts. |
-| `nextCampaignMissionId(dossier)` | Mission officielle active, sinon MI01, MI02, MI03, MI04 ou `null` selon les rapports déjà classés. |
+| `createCampaign()` | Dossier v5 initial, six lots d’atelier, zéro lot de carburant, six châssis intacts. |
+| `nextCampaignMissionId(dossier)` | Mission officielle active, sinon MI01, MI02, MI03, MI04, MI05 ou `null` selon les rapports déjà classés. |
 | `beginCampaignMission(dossier, options)` | `{ok,campaign,game,replay,message}`. `missionId` cible une mission; sinon la prochaine est choisie. Chaque nouvelle mission exige le rapport officiel précédent. Recommencer exige `restart:true`. |
 | `checkpointCampaign(dossier, game, options)` | Nouveau dossier avec l’état vivant complet ; `beforeDecision:true` conserve le premier point avant choix. |
 | `restoreCampaignGame(dossier, options)` | État de la sortie officielle active validé, ou `null` sans sortie en cours. |
@@ -112,12 +166,19 @@ La commande `repair` exige une santé inférieure au maximum, au moins un kit, d
 | `campaignRepairCost(dossier, walkerId)` | Coût d’atelier de zéro à six lots. |
 | `serviceCampaignWalker(dossier, walkerId)` | Réparation de coque, appuis et radiateur, stock débité, action refusée en mission. |
 | `repairCampaignPipe(dossier)` | Réparation unique de deux lots, refusée en sortie, service rétabli et incident conservé. |
-| `serializeCampaign(dossier)` / `parseCampaign(text)` | JSON validé au format v4, migrations connues v1/v2/v3 vers v4, limite de taille et structures contrôlées. |
+| `serializeCampaign(dossier)` / `parseCampaign(text)` | JSON validé au format v5, migrations connues v1/v2/v3/v4 vers v5, limite de taille et structures contrôlées. |
 | `readCampaign(storage)` | Dossier, origine, disponibilité, avertissement et indicateur `blocked`. |
 | `writeCampaign(storage, dossier, options)` | `{ok,warning}`. `replaceInvalid:true` réservé à un nouveau dossier ou import explicitement confirmé. |
 
 `storage` est une dépendance fournie avec `getItem` et `setItem`, pas un accès DOM implicite. Les tests comparent l’état complet après restauration et entrées identiques. Les versions futures sont refusées sans écrasement automatique. Le point avant décision d’une mission terminée ne peut pas réécrire le dossier officiel.
 
-Les rapports sont conservés dans `completed.MI01`, `completed.MI02`, `completed.MI03` et `completed.MI04`. `lastDebrief` reflète le dernier rapport officiel. `stage: 'complete'` marque le retour d’une sortie, avec une éventuelle mission suivante encore disponible. Le dossier ferroviaire de `world.vesper.rail` conserve la récupération du train, les nombres de sauvés et perdus, l’état du registre, le signalement et la première rencontre avec les Brisants. `world.vesper.communications` conserve les faits des émissions civiles, le bilan des habitants et la disponibilité du canal du dispensaire. `world.vesper.industrial` conserve le refroidissement, le journal technique, son éventuelle perte, le contact effectué et le mode de remise. Chaque première réussite attribue quatre lots ; le maximum avant dépenses est vingt-deux en comptant les six lots initiaux.
+Les rapports sont conservés dans `completed.MI01` à `completed.MI05`. `lastDebrief` reflète le dernier rapport officiel. `stage: 'complete'` marque le retour d’une sortie, avec une éventuelle mission suivante encore disponible. Le dossier ferroviaire de `world.vesper.rail` conserve la récupération du train, les nombres de sauvés et perdus, l’état du registre, le signalement et la première rencontre avec les Brisants. `world.vesper.communications` conserve les faits des émissions civiles, le bilan des habitants et la disponibilité du canal du dispensaire. `world.vesper.industrial` conserve le refroidissement, le journal technique, son éventuelle perte, le contact effectué et le mode de remise. `world.nacre.passage` conserve les faits du chenal et correspond au reçu `completed.MI05`. Chaque première réussite attribue quatre lots d’atelier ; le maximum avant dépenses est **26**, soit les six lots initiaux et cinq dotations de quatre. `resources.fuel` est distinct : il vaut zéro avant le premier rapport MI05, puis zéro ou deux selon le transfert accompli. Aucune consommation, conversion en lots d’atelier ni économie de carburant n’est implémentée dans cette version.
 
-Les migrations ajoutent les trois châssis de la 0.4 et une réserve initiale de huit magasins aux points vivants historiques, en conservant le magasin, les roquettes, les dommages, les rapports et les choix existants. Il s’agit d’une conversion déclarée depuis l’ancien rechargement illimité. La migration vers v4 ajoute un radiateur neuf et deux kits aux anciennes sorties, un radiateur neuf à chaque châssis et un dossier industriel encore vide. Les fixtures historiques v1, v2 et v3 sont conservées telles qu’exportées par leurs versions d’origine ; celle de v3 provient de `c81a360`.
+Les migrations ajoutent les trois châssis de la 0.4 et une réserve initiale de huit magasins aux points vivants historiques, en conservant le magasin, les roquettes, les dommages, les rapports et les choix existants. Il s’agit d’une conversion déclarée depuis l’ancien rechargement illimité. La migration vers v4 ajoute un radiateur neuf et deux kits aux anciennes sorties, un radiateur neuf à chaque châssis et un dossier industriel encore vide. La migration v4→v5 ajoute seulement `world.nacre.passage` vierge, `resources.fuel: 0` et le nouveau numéro de format. Elle conserve exactement les checkpoints et reçus de Vesper, avec les munitions, radiateurs, kits et travaux en cours. Les fixtures historiques v1, v2, v3 et v4 sont conservées telles qu’exportées par leurs versions d’origine ; celle de v3 provient de `c81a360`, et `tests/fixtures/campaign-v4-mi04.json` provient du commit `d7d76b61ee9e97e27c611e06905f32f70633cb8e`. Cette fixture v4 contient les dossiers MI04 en cours et terminé. Les tests vérifient que retirer les seuls champs ajoutés et rétablir le numéro 4 reproduit exactement l’ancien dossier. Les formats historiques présentant déjà du carburant, un résultat de Nacre ou un checkpoint MI05 sont refusés.
+
+
+## Périmètre de validation et suite
+
+[QA_V06.md](QA_V06.md) rassemble les résultats de simulation, sauvegarde, interface et livraison, avec leurs limites. Les seize tests de `tests/mi05-mission.test.mjs` comprennent douze parcours complets par commandes publiques, six châssis et deux décisions, ainsi que pertes de sources, marée, interruptions, carburant et reprise déterministe. Les scénarios de dossier v5 sont séparés dans `tests/campaign-v5.test.mjs`. Un test de contacts pieds/eau utilise explicitement une fixture locale pour isoler la règle physique ; ce n’est pas un parcours de campagne. Les images produites par `tools/render-mi05-previews.mjs` ne sont pas des captures navigateur et n’exercent pas le HUD HTML.
+
+MI06 — **Les maisons sous la ligne** reste **Conçu**. Les pompes, la tenue de digue et la consommation future du carburant doivent encore être produits. `CAMPAIGN_MISSIONS` et le dossier v5 s’arrêtent à MI05 ; terminer ces cinq missions ne termine pas les 32 missions de conception.

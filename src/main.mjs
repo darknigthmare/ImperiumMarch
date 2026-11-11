@@ -60,6 +60,12 @@ const campaignOrders = {
     task: 'Rétablir le circuit, refroidir les deux turbines et inspecter le poste de maintenance.',
     caution: 'Préservez le journal. Les conduites, les ouvriers du train et le dispensaire changent vos moyens sur place.',
   },
+  MI05: {
+    status: 'Le chenal de Nacre est bloqué. Deux barges portent le même pavillon ; leurs équipages ne font pas le même travail.',
+    description: 'Le bateau civil attend une fenêtre de marée devant les câbles du blocus. Depuis la digue, deux équipages vous appellent. Vérifiez ce qu’ils transportent avant de décider qui couvrir.',
+    task: 'Libérer les deux treuils, inspecter les barges et protéger la traversée civile.',
+    caution: 'Bancs submersibles : surveillez la marée ou déployez les passerelles. Vos tirs atteignent aussi les bateaux.',
+  },
 };
 const timeLabel = time => `${Math.floor(time / 60).toString().padStart(2, '0')}:${Math.floor(time % 60).toString().padStart(2, '0')}`;
 let toastTimer;
@@ -95,6 +101,15 @@ function renderCampaignStatus() {
   $('campaign-save-status').classList.toggle('save-warning', Boolean(campaignWarning || campaignBlocked));
 }
 function campaignReceiptFacts(receipt) {
+  if (receipt.missionId === 'MI05') return [
+    ['PASSAGERS AU QUAI', `${receipt.refugeesPassed} / ${receipt.refugeesTotal}`],
+    ['PASSAGERS PERDUS', receipt.refugeesLost],
+    ['ÉQUIPAGE DE RIVE-COURTE', receipt.bargeCiviliansLost ? `${receipt.bargeCiviliansLost} décès consignés` : 'Équipage préservé'],
+    ['TRAFIC CONSTATÉ', receipt.traffickingVerified ? 'Facture relevée' : 'Aucune facture récupérée'],
+    ['CONTACT PASSEUR', receipt.smugglerVerified ? 'Échange avec Vann Ostre réalisé' : 'Aucun échange réalisé'],
+    ['CARBURANT CHARGÉ', `${receipt.fuelLots} lot${receipt.fuelLots > 1 ? 's' : ''}`],
+    ['COMPTE RENDU', receipt.reportFiled ? 'Constat des équipages joint' : 'Passage confirmé au bordereau'],
+  ];
   if (receipt.missionId === 'MI04') return [
     ['TURBINES REFROIDIES', `${receipt.turbinesCooled} / 2`],
     ['JOURNAL TECHNIQUE', receipt.technicalEvidence ? 'PT01 · copie conservée' : 'Perdu · autre source à rechercher'],
@@ -141,17 +156,22 @@ function renderCampaignUI() {
   $('campaign-order-description').textContent = order.description;
   $('campaign-order-task').textContent = order.task;
   $('campaign-order-caution').textContent = order.caution;
+  $('view-campaign').classList.toggle('nacre-chapter', mission.planetId === 'PL02');
   $('campaign-progress').textContent = `${Object.keys(campaign.completed).length} / ${CAMPAIGN_MISSIONS.length} RAPPORTS CLASSÉS`;
   $('campaign-transition').hidden = !campaign.completed.MI04;
   if (campaign.completed.MI04) {
-    $('campaign-transition-text').textContent = campaign.completed.MI04.technicalEvidence
-      ? 'Tess conserve une copie du journal de maintenance. Une pièce a été remplacée avant le rejet, sur ordre militaire. Ce premier indice demande encore d’autres sources. La prochaine affectation mène vers Nacre ; ses missions de campagne sont en préparation.'
-      : 'Le journal du poste a été perdu. Votre dossier garde cette absence et le bilan de Vesper. Une autre source technique devra être trouvée plus tard. La prochaine affectation mène vers Nacre ; ses missions de campagne sont en préparation.';
+    const inherited = campaign.completed.MI04.technicalEvidence
+      ? 'Tess conserve le journal de maintenance : une pièce a été remplacée avant le rejet, sur ordre militaire. Sa raison reste à établir.'
+      : 'Le journal du poste a été perdu. Le bilan de Vesper conserve cette absence ; une autre source technique reste à trouver.';
+    const passage = campaign.completed.MI05;
+    $('campaign-transition-text').textContent = `${inherited} ${passage
+      ? `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai et ${passage.fuelLots} lots de carburant ont été chargés. La suite de l’affectation, aux pompes et aux digues, reste en préparation.`
+      : 'Votre nouvelle affectation est ouverte : rejoignez le chenal de Nacre dans « Le prix du passage ». Le départ reste possible avec ou sans le journal.'}`;
   }
   $('campaign-mission-list').innerHTML = CAMPAIGN_MISSIONS.map((m, index) => {
     const done = Boolean(campaign.completed[m.id]), active = campaign.activeMissionId === m.id;
     const available = done || m.id === nextId;
-    return `<button class="chapter-card ${m.id === selectedCampaignId ? 'active' : ''} ${done ? 'completed' : ''}" data-chapter="${m.id}" aria-pressed="${m.id === selectedCampaignId}" ${available && !campaignBlocked ? '' : 'disabled'}><span class="chapter-number">${done ? '✓' : m.number}</span><span><small>${done ? 'RAPPORT CLASSÉ · RELECTURE' : active ? 'SORTIE EN COURS' : available ? 'ORDRE DISPONIBLE' : `APRÈS LE RAPPORT ${CAMPAIGN_MISSIONS[index - 1]?.number || '01'}`}</small><strong>${escapeHTML(m.name)}</strong></span><span aria-hidden="true">${available ? '↗' : '—'}</span></button>`;
+    return `<button class="chapter-card ${m.id === selectedCampaignId ? 'active' : ''} ${done ? 'completed' : ''}" data-chapter="${m.id}" aria-pressed="${m.id === selectedCampaignId}" ${available && !campaignBlocked ? '' : 'disabled'}><span class="chapter-number">${done ? '✓' : m.number}</span><span><small>${escapeHTML(m.planet.toUpperCase())} · ${done ? 'RAPPORT CLASSÉ · RELECTURE' : active ? 'SORTIE EN COURS' : available ? 'ORDRE DISPONIBLE' : `APRÈS LE RAPPORT ${CAMPAIGN_MISSIONS[index - 1]?.number || '01'}`}</small><strong>${escapeHTML(m.name)}</strong></span><span aria-hidden="true">${available ? '↗' : '—'}</span></button>`;
   }).join('');
   all('[data-chapter]').forEach(el => el.addEventListener('click', () => { selectedCampaignId = el.dataset.chapter; renderCampaignUI(); }));
   const w = selectedWalker();
@@ -170,6 +190,8 @@ function renderWorkshop() {
   const cost = campaignRepairCost(campaign, w.id);
   const feet = condition.feet.map(n => Math.round(n));
   $('workshop-parts').textContent = `${campaign.resources.parts} LOTS D’ATELIER`;
+  $('workshop-fuel').textContent = `${campaign.resources.fuel} LOT${campaign.resources.fuel > 1 ? 'S' : ''} DE CARBURANT EN RÉSERVE`;
+  $('workshop-fuel').hidden = !campaign.completed.MI05;
   $('workshop-condition').textContent = `${w.designation} ${w.name} — coque ${Math.round(condition.hull / w.hull * 100)} % · appuis ${feet.join(' / ')} % · radiateur ${Math.round(condition.radiator)} %`;
   $('workshop-repair-note').textContent = cost ? `Tess demande ${cost} lot${cost > 1 ? 's' : ''} pour remettre la coque, les articulations et le radiateur en état.` : '« Coque, appuis, refroidissement : tout tient. Deux kits de radiateur seront chargés au départ. » — Tess';
   $('campaign-repair').textContent = cost ? `Réparer · ${cost} lot${cost > 1 ? 's' : ''}` : 'Marcheur prêt';
@@ -186,6 +208,11 @@ function renderWorkshop() {
   if (campaign.completed.MI04) {
     const report = campaign.completed.MI04;
     $('workshop-industrial').textContent = `${report.technicalEvidence ? 'PT01 : copie du journal conservée. La chronologie du remplacement reste à expliquer.' : 'Le journal est perdu. Il faudra une autre source pour établir la chronologie.'} ${report.witnessContacted ? 'Le contact du dispensaire a été joint par radio pendant la sortie.' : 'Aucun témoignage du dispensaire n’a été recueilli pendant cette sortie.'}`;
+  }
+  $('workshop-nacre').hidden = !campaign.completed.MI05;
+  if (campaign.completed.MI05) {
+    const report = campaign.completed.MI05;
+    $('workshop-nacre').textContent = `Nacre : ${report.refugeesPassed} passagers au quai, ${report.refugeesLost} perdus. ${report.smugglerVerified ? 'Vann Ostre a répondu depuis Rive-Courte ; ce contact est conservé.' : 'Aucun contact établi avec Rive-Courte.'} ${report.fuelRecovered ? 'Le carburant chargé attend la prochaine affectation.' : 'Le dépôt n’a fourni aucun carburant à cette sortie.'}`;
   }
   $('campaign-repair-pipe').hidden = !campaign.completed?.MI01 || world.pipeIntact || world.pipeRepaired;
   $('campaign-repair-pipe').textContent = 'Réparer la conduite · 2 lots';
@@ -352,6 +379,10 @@ function showBriefing() {
     const vesper = campaign.world.vesper, rail = vesper.rail, network = vesper.communications;
     $('briefing-description').textContent += ` ${vesper.servicesInterrupted ? 'La conduite est hors service : relancez la pompe mobile sur place.' : vesper.pipeRepaired ? 'La conduite réparée alimente de nouveau le circuit de refroidissement.' : 'La conduite préservée alimente déjà le circuit de refroidissement.'} ${rail.hostagesRescued > 0 ? 'Les ouvriers libérés du train guideront vos manœuvres : quatre secondes par vanne.' : 'Sans renfort du train, comptez sept secondes par vanne.'} ${network.witnessAvailable ? 'Le canal du dispensaire est ouvert. Utilisez le terminal de liaison si vous souhaitez parler au contact.' : 'Le canal du dispensaire ne permet aucun contact. Le journal du poste reste à inspecter.'}`;
   }
+  if (pendingMode === 'campaign' && m.id === 'MI05') {
+    const vesper = campaign.world.vesper;
+    $('briefing-description').textContent += ` ${vesper.industrial.technicalEvidence ? 'Tess a rangé la copie du journal de Vesper. Le travail sur le chenal ne permet pas encore d’en expliquer les références militaires.' : 'Le journal de Vesper manque au dossier. Holt maintient pourtant votre nouvelle affectation : rouvrir le chenal.'} ${vesper.rail.hostagesRescued ? 'Sami se souvient du wagon et de ses survivants. Il veut regarder ce que transportent ces barges.' : 'Sami n’a pas oublié les ouvriers morts dans le train. Il demande de vérifier les personnes à bord avant le premier tir.'}`;
+  }
   $('briefing-walker').textContent = `${w.designation} ${w.name}`;
   $('briefing-assist').textContent = settings.assist ? 'Marche assistée' : 'Appuis manuels';
   $('briefing-difficulty').textContent = DIFFICULTIES[settings.difficulty].label;
@@ -435,14 +466,19 @@ function showResult() {
   const railMission = game.missionId === 'MI02';
   const networkMission = game.missionId === 'MI03';
   const industrialMission = game.missionId === 'MI04';
-  const missionStat = industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
+  const channelMission = game.missionId === 'MI05';
+  const missionStat = channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
+    : industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
     : networkMission ? ['RÉSEAUX CIVILS ACTIFS', `${game.campaign.civilRelaysOnline} / 2`]
     : railMission ? ['OUVRIERS LIBÉRÉS', `${game.campaign.hostagesRescued} / ${game.campaign.hostagesTotal}`]
     : campaignMission ? ['FILTRES LIVRÉS', game.campaign.filtersDeliveredCount]
     : ['PREUVES RÉCUPÉRÉES', game.stats.evidence];
   const stats = [['DURÉE', timeLabel(game.elapsed)], ['CIBLES NEUTRALISÉES', game.stats.kills], missionStat, ['PERTES CIVILES', game.stats.collateral]];
   let decisionText;
-  if (industrialMission) {
+  if (channelMission) {
+    const facts = game.campaign;
+    decisionText = `${facts.reportFiled ? 'Les constatations sur les deux équipages sont jointes au rapport.' : game.decision.resolved ? 'Le bordereau confirme le passage ; vos constatations restent au dossier.' : 'Le rapport du chenal reste ouvert.'} ${facts.refugeesPassed} passagers au quai ; ${facts.refugeesLost} perdus. ${facts.fuelLots} lots de carburant réellement chargés.`;
+  } else if (industrialMission) {
     const filed = game.decision.choice === 'defy', sealed = game.decision.choice === 'obey';
     const evidenceText = game.campaign.technicalEvidence
       ? 'La copie du journal PT01 reste conservée. Elle établit un remplacement antérieur au rejet, sans en établir encore la cause.'
@@ -522,6 +558,18 @@ function updateHUD() {
     const facts = game.campaign;
     $('convoy-status').textContent = `${facts.coolantRestored ? 'CIRCUIT ALIMENTÉ' : 'POMPE À RELANCER'} · ${facts.turbinesCooled} / 2 TURBINES REFROIDIES · ${facts.witnessContacted ? 'CONTACT RECUEILLI' : game.industrial.contact.available ? 'CONTACT JOIGNABLE' : 'CONTACT INDISPONIBLE'}`;
   }
+  $('tide-instrument').hidden = !game.channel;
+  if (game.channel) {
+    const { tide, boat } = game.channel, facts = game.campaign;
+    const phases = { low: 'BASSE MER', rising: 'MARÉE MONTANTE', high: 'PLEINE MER', falling: 'MARÉE DESCENDANTE' };
+    $('tide-phase').textContent = phases[tide.phase];
+    $('tide-window').textContent = `CHANGEMENT DANS ${Math.ceil(tide.secondsToChange)} s`;
+    $('tide-level').style.width = `${Math.round(tide.level * 100)}%`;
+    $('tide-route').textContent = tide.walkable ? 'BANCS DÉGAGÉS · VASE RALENTISSANTE' : 'BANCS SUBMERGÉS · PRENEZ LES PASSERELLES';
+    $('tide-instrument').classList.toggle('tide-warning', !tide.walkable);
+    $('convoy-status').hidden = false;
+    $('convoy-status').textContent = `${facts.winchesReleased} / 2 CÂBLES LIBÉRÉS · ${boat.destroyed ? 'BATEAU PERDU' : boat.arrived ? 'BATEAU AU QUAI' : boat.moving ? 'BATEAU EN TRAVERSÉE' : facts.channelOpen ? 'BATEAU ATTEND LA MARÉE' : 'BATEAU ATTEND LE CHENAL'} · ${Math.ceil(boat.hp / boat.maxHp * 100)} %`;
+  }
 }
 
 async function fullscreen() {
@@ -589,7 +637,7 @@ function frame(now) {
     if (inGame && game) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
       if (!paused && activeMode === 'campaign' && !campaignReplay && game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8) captureCampaign();
-      renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, pointer });
+      renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, pointer });
       if (!paused) events();
       hudTick += dt; if (hudTick > .1) { updateHUD(); hudTick = 0; }
       $('mission-intro').classList.toggle('visible', game.elapsed > .4 && game.elapsed < 4.6);

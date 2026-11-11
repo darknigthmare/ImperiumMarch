@@ -18,3 +18,14 @@
 #radiator-repair:disabled{opacity:.65;cursor:default}#radiator-repair:not(:disabled):hover{background:#294a47}
 @media(max-width:760px){.heat-panel{gap:7px 10px}.radiator-instrument{gap:6px;grid-template-columns:1fr}.radiator-instrument .meter{margin-top:4px}#radiator-condition{margin-top:3px}#radiator-repair{min-height:18px;padding:3px;max-width:none}.hud-bottom{gap:4%}.keyboard-hints{gap:8px}}
 @media(pointer:coarse){#radiator-repair{display:none}}
+
+/* Nacre: a shared simulation clock drives the readable tide warning. */
+.tide-instrument{margin-top:14px;padding:10px 12px;border-left:2px solid #83c6c4;background:#0c2528dc;max-width:340px}
+.tide-instrument>div:first-child{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.tide-instrument strong{font:9px/1.5 var(--mono);color:#b2e0d8;letter-spacing:.5px}
+.tide-instrument span{font:8px/1.5 var(--mono);color:#b1c4ba;text-align:right}
+.tide-instrument .meter{margin-top:7px;height:3px}.tide-instrument .meter i{background:#83c6c4}
+.tide-instrument p{margin:7px 0 0;font:8px/1.6 var(--mono);color:#b9d1bd;letter-spacing:.3px}
+.tide-instrument.tide-warning{border-left-color:#e8af7e;background:#30281de8}
+.tide-warning strong,.tide-warning p{color:#f0c393}.tide-warning .meter i{background:#e8af7e}
+@media(max-width:760px){.tide-instrument{margin-top:7px;padding:6px;max-width:240px}.tide-instrument>div:first-child{gap:5px}.tide-instrument strong{font-size:7px}.tide-instrument span,.tide-instrument p{font-size:6px}.tide-instrument .meter{margin-top:4px}.tide-instrument p{margin-top:4px}}

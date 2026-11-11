@@ -1,0 +1,884 @@
+{
+  "version": "0.6.0",
+  "type": "Canvas-only production renderer",
+  "renderer": "@napi-rs/canvas (Skia)",
+  "limitations": "No browser, HTML HUD, CSS, dialogs, hardware input, human playtest, audio or performance certification.",
+  "provenance": "Every state below is reached by public commands. State is cloned at capture, never retained as a live reference.",
+  "files": [
+    {
+      "file": "mi05-bank-bridge.png",
+      "title": "Commande du tablier : passage sûr indépendant de la marée",
+      "missionId": "MI05",
+      "walkerId": "WK06",
+      "elapsed": 6.483333333333316,
+      "playerX": 672.3190722918572,
+      "campaign": {
+        "missionId": "MI05",
+        "phase": "approach",
+        "winchesReleased": 0,
+        "bargesInspected": 0,
+        "traffickingVerified": false,
+        "smugglerVerified": false,
+        "refugeesTotal": 12,
+        "refugeesPassed": 0,
+        "refugeesLost": 0,
+        "bargeCiviliansLost": 0,
+        "passageResolved": false,
+        "channelOpen": false,
+        "fuelRecovered": false,
+        "fuelLots": 0,
+        "manifestRead": false,
+        "reportFiled": false,
+        "context": {
+          "technicalEvidence": false,
+          "railHostagesRescued": 0,
+          "railRecordFiled": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "channel": {
+        "tide": {
+          "phase": "low",
+          "level": 0.1,
+          "secondsToChange": 19.51666666666668,
+          "waterY": 691.4,
+          "walkable": true,
+          "navigable": false
+        },
+        "banks": [
+          {
+            "id": "bank-west",
+            "from": 980,
+            "to": 1280,
+            "stationX": 780,
+            "bridgeRaised": false,
+            "working": true,
+            "progress": 0.5041666666666661
+          },
+          {
+            "id": "bank-east",
+            "from": 2660,
+            "to": 2960,
+            "stationX": 2460,
+            "bridgeRaised": false,
+            "working": false,
+            "progress": 0
+          }
+        ],
+        "winches": [
+          {
+            "id": "channel-winch-1",
+            "x": 1730,
+            "y": 559.9752721911967,
+            "w": 44,
+            "h": 44,
+            "hp": 90,
+            "maxHp": 90,
+            "released": false,
+            "working": false,
+            "progress": 0,
+            "destroyed": false,
+            "flash": 0
+          },
+          {
+            "id": "channel-winch-2",
+            "x": 3530,
+            "y": 559.2941028640538,
+            "w": 44,
+            "h": 44,
+            "hp": 90,
+            "maxHp": 90,
+            "released": false,
+            "working": false,
+            "progress": 0,
+            "destroyed": false,
+            "flash": 0
+          }
+        ],
+        "barges": [
+          {
+            "id": "barge-seizure",
+            "kind": "trafficker",
+            "x": 2010,
+            "y": 639.005752126757,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": false,
+            "scanning": false,
+            "scanProgress": 0,
+            "civilians": 0,
+            "casualties": 0
+          },
+          {
+            "id": "barge-shortbank",
+            "kind": "smuggler",
+            "x": 3280,
+            "y": 631.0077287749754,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": false,
+            "scanning": false,
+            "scanProgress": 0,
+            "civilians": 4,
+            "casualties": 0
+          }
+        ],
+        "boat": {
+          "id": "channel-refugee-boat",
+          "x": 1480,
+          "y": 640.8637500265928,
+          "w": 134,
+          "h": 58,
+          "hp": 420,
+          "maxHp": 420,
+          "speed": 92,
+          "arrived": false,
+          "destroyed": false,
+          "moving": false,
+          "passengers": 12
+        },
+        "fuel": {
+          "id": "dock-fuel",
+          "x": 4280,
+          "y": 648.9259777721007,
+          "w": 65,
+          "h": 72,
+          "hp": 240,
+          "maxHp": 240,
+          "destroyed": false,
+          "collected": false,
+          "working": false,
+          "progress": 0
+        }
+      },
+      "decision": {
+        "active": false,
+        "resolved": false,
+        "choice": null,
+        "title": "Deux pavillons, deux équipages",
+        "body": "Le relevé doit distinguer ce qui a été vu sur chaque barge, les personnes effectivement passées et les pertes. Un pavillon ne suffit pas à prouver les actes de tout un équipage.",
+        "options": [
+          {
+            "id": "obey",
+            "label": "Remettre le relevé sous scellés"
+          },
+          {
+            "id": "defy",
+            "label": "Joindre les faits propres à chaque équipage"
+          }
+        ]
+      }
+    },
+    {
+      "file": "mi05-traffic-invoice.png",
+      "title": "Tête de treuil libérée et facture de Saisie effectivement copiée",
+      "missionId": "MI05",
+      "walkerId": "WK06",
+      "elapsed": 29.816666666666254,
+      "playerX": 1927.6515169231825,
+      "campaign": {
+        "missionId": "MI05",
+        "phase": "channel",
+        "winchesReleased": 1,
+        "bargesInspected": 1,
+        "traffickingVerified": true,
+        "smugglerVerified": false,
+        "refugeesTotal": 12,
+        "refugeesPassed": 0,
+        "refugeesLost": 0,
+        "bargeCiviliansLost": 0,
+        "passageResolved": false,
+        "channelOpen": false,
+        "fuelRecovered": false,
+        "fuelLots": 0,
+        "manifestRead": false,
+        "reportFiled": false,
+        "context": {
+          "technicalEvidence": false,
+          "railHostagesRescued": 0,
+          "railRecordFiled": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "channel": {
+        "tide": {
+          "phase": "rising",
+          "level": 0.4434999999999626,
+          "secondsToChange": 6.183333333333749,
+          "waterY": 682.469000000001,
+          "walkable": true,
+          "navigable": false
+        },
+        "banks": [
+          {
+            "id": "bank-west",
+            "from": 980,
+            "to": 1280,
+            "stationX": 780,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          },
+          {
+            "id": "bank-east",
+            "from": 2660,
+            "to": 2960,
+            "stationX": 2460,
+            "bridgeRaised": false,
+            "working": false,
+            "progress": 0
+          }
+        ],
+        "winches": [
+          {
+            "id": "channel-winch-1",
+            "x": 1730,
+            "y": 559.9752721911967,
+            "w": 44,
+            "h": 44,
+            "hp": 90,
+            "maxHp": 90,
+            "released": true,
+            "working": false,
+            "progress": 1,
+            "destroyed": false,
+            "flash": 0
+          },
+          {
+            "id": "channel-winch-2",
+            "x": 3530,
+            "y": 559.2941028640538,
+            "w": 44,
+            "h": 44,
+            "hp": 61,
+            "maxHp": 90,
+            "released": false,
+            "working": false,
+            "progress": 0,
+            "destroyed": false,
+            "flash": 0
+          }
+        ],
+        "barges": [
+          {
+            "id": "barge-seizure",
+            "kind": "trafficker",
+            "x": 2010,
+            "y": 639.005752126757,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 0,
+            "casualties": 0
+          },
+          {
+            "id": "barge-shortbank",
+            "kind": "smuggler",
+            "x": 3280,
+            "y": 631.0077287749754,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": false,
+            "scanning": false,
+            "scanProgress": 0,
+            "civilians": 4,
+            "casualties": 0
+          }
+        ],
+        "boat": {
+          "id": "channel-refugee-boat",
+          "x": 1480,
+          "y": 640.8637500265928,
+          "w": 134,
+          "h": 58,
+          "hp": 420,
+          "maxHp": 420,
+          "speed": 92,
+          "arrived": false,
+          "destroyed": false,
+          "moving": false,
+          "passengers": 12
+        },
+        "fuel": {
+          "id": "dock-fuel",
+          "x": 4280,
+          "y": 648.9259777721007,
+          "w": 65,
+          "h": 72,
+          "hp": 240,
+          "maxHp": 240,
+          "destroyed": false,
+          "collected": false,
+          "working": false,
+          "progress": 0
+        }
+      },
+      "decision": {
+        "active": false,
+        "resolved": false,
+        "choice": null,
+        "title": "Deux pavillons, deux équipages",
+        "body": "Le relevé doit distinguer ce qui a été vu sur chaque barge, les personnes effectivement passées et les pertes. Un pavillon ne suffit pas à prouver les actes de tout un équipage.",
+        "options": [
+          {
+            "id": "obey",
+            "label": "Remettre le relevé sous scellés"
+          },
+          {
+            "id": "defy",
+            "label": "Joindre les faits propres à chaque équipage"
+          }
+        ]
+      }
+    },
+    {
+      "file": "mi05-smuggler-contact.png",
+      "title": "Vann Ostre répond depuis Rive-Courte : contact réel avec un équipage distinct",
+      "missionId": "MI05",
+      "walkerId": "WK06",
+      "elapsed": 52.63333333333163,
+      "playerX": 3182.981177958124,
+      "campaign": {
+        "missionId": "MI05",
+        "phase": "passage",
+        "winchesReleased": 2,
+        "bargesInspected": 2,
+        "traffickingVerified": true,
+        "smugglerVerified": true,
+        "refugeesTotal": 12,
+        "refugeesPassed": 0,
+        "refugeesLost": 0,
+        "bargeCiviliansLost": 0,
+        "passageResolved": false,
+        "channelOpen": true,
+        "fuelRecovered": false,
+        "fuelLots": 0,
+        "manifestRead": false,
+        "reportFiled": false,
+        "context": {
+          "technicalEvidence": false,
+          "railHostagesRescued": 0,
+          "railRecordFiled": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "channel": {
+        "tide": {
+          "phase": "high",
+          "level": 1,
+          "secondsToChange": 9.36666666666838,
+          "waterY": 668,
+          "walkable": false,
+          "navigable": true
+        },
+        "banks": [
+          {
+            "id": "bank-west",
+            "from": 980,
+            "to": 1280,
+            "stationX": 780,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          },
+          {
+            "id": "bank-east",
+            "from": 2660,
+            "to": 2960,
+            "stationX": 2460,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          }
+        ],
+        "winches": [
+          {
+            "id": "channel-winch-1",
+            "x": 1730,
+            "y": 559.9752721911967,
+            "w": 44,
+            "h": 44,
+            "hp": 90,
+            "maxHp": 90,
+            "released": true,
+            "working": false,
+            "progress": 1,
+            "destroyed": false,
+            "flash": 0
+          },
+          {
+            "id": "channel-winch-2",
+            "x": 3530,
+            "y": 559.2941028640538,
+            "w": 44,
+            "h": 44,
+            "hp": 0,
+            "maxHp": 90,
+            "released": true,
+            "working": false,
+            "progress": 1,
+            "destroyed": true,
+            "flash": 0
+          }
+        ],
+        "barges": [
+          {
+            "id": "barge-seizure",
+            "kind": "trafficker",
+            "x": 2010,
+            "y": 639.005752126757,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 0,
+            "casualties": 0
+          },
+          {
+            "id": "barge-shortbank",
+            "kind": "smuggler",
+            "x": 3280,
+            "y": 631.0077287749754,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 4,
+            "casualties": 0
+          }
+        ],
+        "boat": {
+          "id": "channel-refugee-boat",
+          "x": 1880.199999999992,
+          "y": 645.4972847456249,
+          "w": 134,
+          "h": 58,
+          "hp": 420,
+          "maxHp": 420,
+          "speed": 92,
+          "arrived": false,
+          "destroyed": false,
+          "moving": true,
+          "passengers": 12
+        },
+        "fuel": {
+          "id": "dock-fuel",
+          "x": 4280,
+          "y": 648.9259777721007,
+          "w": 65,
+          "h": 72,
+          "hp": 240,
+          "maxHp": 240,
+          "destroyed": false,
+          "collected": false,
+          "working": false,
+          "progress": 0
+        }
+      },
+      "decision": {
+        "active": false,
+        "resolved": false,
+        "choice": null,
+        "title": "Deux pavillons, deux équipages",
+        "body": "Le relevé doit distinguer ce qui a été vu sur chaque barge, les personnes effectivement passées et les pertes. Un pavillon ne suffit pas à prouver les actes de tout un équipage.",
+        "options": [
+          {
+            "id": "obey",
+            "label": "Remettre le relevé sous scellés"
+          },
+          {
+            "id": "defy",
+            "label": "Joindre les faits propres à chaque équipage"
+          }
+        ]
+      }
+    },
+    {
+      "file": "mi05-refugee-passage.png",
+      "title": "Douze passagers dans le chenal ouvert, guidés par la vraie marée",
+      "missionId": "MI05",
+      "walkerId": "WK06",
+      "elapsed": 105.68333333332862,
+      "playerX": 4445.510821400203,
+      "campaign": {
+        "missionId": "MI05",
+        "phase": "passage",
+        "winchesReleased": 2,
+        "bargesInspected": 2,
+        "traffickingVerified": true,
+        "smugglerVerified": true,
+        "refugeesTotal": 12,
+        "refugeesPassed": 0,
+        "refugeesLost": 0,
+        "bargeCiviliansLost": 0,
+        "passageResolved": false,
+        "channelOpen": true,
+        "fuelRecovered": true,
+        "fuelLots": 2,
+        "manifestRead": false,
+        "reportFiled": false,
+        "context": {
+          "technicalEvidence": false,
+          "railHostagesRescued": 0,
+          "railRecordFiled": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "channel": {
+        "tide": {
+          "phase": "rising",
+          "level": 0.7914999999995757,
+          "secondsToChange": 2.316666666671381,
+          "waterY": 673.4210000000111,
+          "walkable": false,
+          "navigable": true
+        },
+        "banks": [
+          {
+            "id": "bank-west",
+            "from": 980,
+            "to": 1280,
+            "stationX": 780,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          },
+          {
+            "id": "bank-east",
+            "from": 2660,
+            "to": 2960,
+            "stationX": 2460,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          }
+        ],
+        "winches": [
+          {
+            "id": "channel-winch-1",
+            "x": 1730,
+            "y": 559.9752721911967,
+            "w": 44,
+            "h": 44,
+            "hp": 90,
+            "maxHp": 90,
+            "released": true,
+            "working": false,
+            "progress": 1,
+            "destroyed": false,
+            "flash": 0
+          },
+          {
+            "id": "channel-winch-2",
+            "x": 3530,
+            "y": 559.2941028640538,
+            "w": 44,
+            "h": 44,
+            "hp": 0,
+            "maxHp": 90,
+            "released": true,
+            "working": false,
+            "progress": 1,
+            "destroyed": true,
+            "flash": 0
+          }
+        ],
+        "barges": [
+          {
+            "id": "barge-seizure",
+            "kind": "trafficker",
+            "x": 2010,
+            "y": 639.005752126757,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 0,
+            "casualties": 0
+          },
+          {
+            "id": "barge-shortbank",
+            "kind": "smuggler",
+            "x": 3280,
+            "y": 631.0077287749754,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 4,
+            "casualties": 0
+          }
+        ],
+        "boat": {
+          "id": "channel-refugee-boat",
+          "x": 3551.5333333332924,
+          "y": 645.0290571867423,
+          "w": 134,
+          "h": 58,
+          "hp": 420,
+          "maxHp": 420,
+          "speed": 92,
+          "arrived": false,
+          "destroyed": false,
+          "moving": true,
+          "passengers": 12
+        },
+        "fuel": {
+          "id": "dock-fuel",
+          "x": 4280,
+          "y": 648.9259777721007,
+          "w": 65,
+          "h": 72,
+          "hp": 240,
+          "maxHp": 240,
+          "destroyed": false,
+          "collected": true,
+          "working": false,
+          "progress": 1
+        }
+      },
+      "decision": {
+        "active": false,
+        "resolved": false,
+        "choice": null,
+        "title": "Deux pavillons, deux équipages",
+        "body": "Le relevé doit distinguer ce qui a été vu sur chaque barge, les personnes effectivement passées et les pertes. Un pavillon ne suffit pas à prouver les actes de tout un équipage.",
+        "options": [
+          {
+            "id": "obey",
+            "label": "Remettre le relevé sous scellés"
+          },
+          {
+            "id": "defy",
+            "label": "Joindre les faits propres à chaque équipage"
+          }
+        ]
+      }
+    },
+    {
+      "file": "mi05-smuggler-wreck.png",
+      "title": "Rive-Courte détruite avant liaison : pertes documentées, aucun témoignage inventé",
+      "missionId": "MI05",
+      "walkerId": "WK05",
+      "elapsed": 58.483333333331295,
+      "playerX": 3158.5594290612744,
+      "campaign": {
+        "missionId": "MI05",
+        "phase": "approach",
+        "winchesReleased": 1,
+        "bargesInspected": 2,
+        "traffickingVerified": true,
+        "smugglerVerified": false,
+        "refugeesTotal": 12,
+        "refugeesPassed": 0,
+        "refugeesLost": 0,
+        "bargeCiviliansLost": 4,
+        "passageResolved": false,
+        "channelOpen": false,
+        "fuelRecovered": false,
+        "fuelLots": 0,
+        "manifestRead": false,
+        "reportFiled": false,
+        "context": {
+          "technicalEvidence": false,
+          "railHostagesRescued": 0,
+          "railRecordFiled": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "channel": {
+        "tide": {
+          "phase": "high",
+          "level": 1,
+          "secondsToChange": 3.516666666668698,
+          "waterY": 668,
+          "walkable": false,
+          "navigable": true
+        },
+        "banks": [
+          {
+            "id": "bank-west",
+            "from": 980,
+            "to": 1280,
+            "stationX": 780,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          },
+          {
+            "id": "bank-east",
+            "from": 2660,
+            "to": 2960,
+            "stationX": 2460,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          }
+        ],
+        "winches": [
+          {
+            "id": "channel-winch-1",
+            "x": 1730,
+            "y": 559.9752721911967,
+            "w": 44,
+            "h": 44,
+            "hp": 0,
+            "maxHp": 90,
+            "released": true,
+            "working": false,
+            "progress": 1,
+            "destroyed": true,
+            "flash": 0
+          },
+          {
+            "id": "channel-winch-2",
+            "x": 3530,
+            "y": 559.2941028640538,
+            "w": 44,
+            "h": 44,
+            "hp": 90,
+            "maxHp": 90,
+            "released": false,
+            "working": false,
+            "progress": 0,
+            "destroyed": false,
+            "flash": 0
+          }
+        ],
+        "barges": [
+          {
+            "id": "barge-seizure",
+            "kind": "trafficker",
+            "x": 2010,
+            "y": 639.005752126757,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 0,
+            "casualties": 0
+          },
+          {
+            "id": "barge-shortbank",
+            "kind": "smuggler",
+            "x": 3280,
+            "y": 631.0077287749754,
+            "w": 172,
+            "h": 78,
+            "hp": 0,
+            "maxHp": 540,
+            "destroyed": true,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 4,
+            "casualties": 4
+          }
+        ],
+        "boat": {
+          "id": "channel-refugee-boat",
+          "x": 1480,
+          "y": 640.8637500265928,
+          "w": 134,
+          "h": 58,
+          "hp": 420,
+          "maxHp": 420,
+          "speed": 92,
+          "arrived": false,
+          "destroyed": false,
+          "moving": false,
+          "passengers": 12
+        },
+        "fuel": {
+          "id": "dock-fuel",
+          "x": 4280,
+          "y": 648.9259777721007,
+          "w": 65,
+          "h": 72,
+          "hp": 240,
+          "maxHp": 240,
+          "destroyed": false,
+          "collected": false,
+          "working": false,
+          "progress": 0
+        }
+      },
+      "decision": {
+        "active": false,
+        "resolved": false,
+        "choice": null,
+        "title": "Deux pavillons, deux équipages",
+        "body": "Le relevé doit distinguer ce qui a été vu sur chaque barge, les personnes effectivement passées et les pertes. Un pavillon ne suffit pas à prouver les actes de tout un équipage.",
+        "options": [
+          {
+            "id": "obey",
+            "label": "Remettre le relevé sous scellés"
+          },
+          {
+            "id": "defy",
+            "label": "Joindre les faits propres à chaque équipage"
+          }
+        ]
+      }
+    }
+  ]
+}

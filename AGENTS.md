@@ -7,7 +7,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - `data/bible.json` est la source des fiches de conception et du classeur. Garder les IDs stables.
 - `docs/BIBLE_FR.md`, `docs/CAMPAIGN_FR.md` et `docs/ART_DIRECTION.md` développent le canon du projet.
 - `src/content.mjs` décrit uniquement les données actuellement utilisées par le prototype.
-- `src/campaign.mjs` gère les dossiers MI01/MI02/MI03/MI04, leur progression et la migration des sauvegardes v1/v2/v3 vers v4 ; les opérations OP01–OP03 restent indépendantes.
+- `src/campaign.mjs` gère les dossiers MI01–MI05, leur progression et la migration des sauvegardes v1/v2/v3/v4 vers v5 ; les opérations OP01–OP03 restent indépendantes.
 - L’onglet Prototype précise la différence entre le comportement actuel et le comportement final conçu.
 
 ## Développement
@@ -24,7 +24,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 
 - Ne pas marquer une fiche finie parce qu’une description existe. Conçu, Prototype et Vérifié décrivent des niveaux différents.
 - Les trois opérations de prototype ne sont pas les 32 missions de la campagne finale.
-- MI01, MI02, MI03 et MI04 sont jouables au stade prototype depuis les 0.2/0.3/0.4/0.5 ; les 28 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
+- MI01–MI05 sont jouables au stade prototype depuis les 0.2 à 0.6 ; les 27 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
 - Ne pas présenter une image de concept comme une capture du jeu, un rendu Canvas comme une capture navigateur ou un test statique comme un clic exécuté.
 - Une nouvelle vérification navigateur doit préciser l’environnement réel et les parcours effectués.
 - Les références de gameplay servent la conception ; conserver les noms, assets, silhouettes et récits originaux du projet.
@@ -44,3 +44,10 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - Le radiateur utilise `radiatorBounds` pour les collisions et le rendu. Deux kits par nouvelle sortie, réparation de 4 s, +60 points, annulation sans dépense si interrompue. Reprise exacte ; atelier payant ; composants ennemis à produire.
 - La fixture `campaign-v3-mi03.json` provient du code historique c81a360, comme les v1/v2 elle ne doit pas être régénérée depuis le code courant.
 - Un manifeste de captures doit copier profondément chaque état au moment de sa capture : ne jamais y conserver une référence mutable à la simulation.
+
+- La 0.6 ouvre Nacre avec MI05 après le rapport MI04, avec ou sans PT01. La facture locale de trafic et la liaison Vann Ostre ne sont pas des preuves PALINODE. Vann demeure le passeur PN08 ; le trafiquant de Saisie n'est pas identifié comme lui.
+- La marée, les bancs, les passerelles, les treuils, les barges, le bateau et le dépôt de MI05 appartiennent à `channel`, présent seulement dans cette mission. L'horloge simulée détermine la marée, y compris au moment d'une décision ; une pause ne la fait pas avancer.
+- Une arrivée du bateau implique douze passagers débarqués et interdit des dégâts ultérieurs sur le bateau. Une perte avant arrivée compte douze décès et zéro passage. Le rapport conserve les faits, quel que soit le choix administratif.
+- Le carburant de MI05 est facultatif, destructible, distinct des occupants et des preuves, et ne se récupère qu'une fois. Deux lots sont attribués seulement après prélèvement effectif ; leur consommation dans MI06 reste conçue.
+- La fixture `campaign-v4-mi04.json` provient du code historique d7d76b6. Comme les v1/v2/v3, ne pas la régénérer depuis le code courant. La migration v4 ajoute seulement Nacre non visité et zéro carburant ; elle ne change pas les checkpoints historiques.
+- Le HUD HTML fournit l'instrument de marée dans le navigateur et demande `tideInstrument:false` au renderer. Les rendus Canvas seuls gardent leur instrument intégré par défaut.

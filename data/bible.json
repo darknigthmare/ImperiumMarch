@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "date": "2026-11-11",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "Bible de conception et suivi de production. MI01–MI04 constituent un premier arc jouable de Vesper, avec conséquences locales réellement consommées, anomalie technique PT01 et sauvegarde v4. Six châssis, munitions finies et radiateur réparable sont disponibles. Les 28 autres missions principales restent conçues. OP01–OP03 gardent leurs rapports indépendants. Consulter Prototype pour la portée implémentée.",
+    "scope": "Bible de conception et suivi de production. MI01–MI04 forment le premier arc jouable de Vesper. MI05 ouvre Nacre avec marée, passerelles, treuils séparés des barges, passage civil et carburant conservé. Six châssis, munitions finies, radiateur réparable et dossier v5 sont disponibles. Les 27 autres missions principales restent conçues, dont MI06–MI08 développées dans le contrat de Nacre. OP01–OP03 gardent leurs rapports indépendants. Consulter Prototype pour la portée implémentée.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Présent en partie dans une version jouable; l’onglet Prototype précise la portée et les règles cibles encore absentes.",
@@ -17,13 +17,14 @@
     "balanceDisclaimer": "Dimensions, charges et valeurs de gameplay décrites ici sont des hypothèses à calibrer.",
     "qualityDisclaimer": "AAA est une ambition de qualité, pas une description du niveau de finition du prototype.",
     "sheetCount": 20,
-    "recordCount": 581,
+    "recordCount": 643,
     "release": {
       "playableCampaignMissions": [
         "MI01",
         "MI02",
         "MI03",
-        "MI04"
+        "MI04",
+        "MI05"
       ],
       "standaloneOperations": [
         "OP01",
@@ -31,8 +32,8 @@
         "OP03"
       ],
       "campaignMissionDesigns": 32,
-      "remainingCampaignMissionDesigns": 28,
-      "saveFormatVersion": 4,
+      "remainingCampaignMissionDesigns": 27,
+      "saveFormatVersion": 5,
       "playableWalkerIds": [
         "WK01",
         "WK02",
@@ -235,6 +236,20 @@
           "theme": "Enquête bornée",
           "decision": "Une première anomalie ouvre une question précise. Sa conservation, sa déclaration et sa publication sont des actes différents.",
           "acceptance": "PT01 n’attribue ni le nom des décideurs ni la connaissance complète du programme; chaque dialogue respecte sa source.",
+          "status": "Conçu"
+        },
+        {
+          "id": "VI23",
+          "theme": "Nacre par ses usages",
+          "decision": "Le nouveau monde se reconnaît à sa route mouvante, à ses horaires de passage et au travail des équipages. Le paysage partage les contraintes de la mission.",
+          "acceptance": "La marée, le treuil et le bateau créent des décisions de pilotage vérifiables avant toute multiplication des niveaux.",
+          "status": "Conçu"
+        },
+        {
+          "id": "VI24",
+          "theme": "Responsabilité locale",
+          "decision": "Une intervention militaire peut être utile sans donner à Sera autorité sur les personnes sauvées. Chaque coopération garde un interlocuteur et une limite.",
+          "acceptance": "Vann, Mara et les techniciens savent ce qu’ils ont vécu; survie, confiance, service et consentement restent distincts.",
           "status": "Conçu"
         }
       ]
@@ -747,6 +762,96 @@
           "acceptance": "L’héritage MI04 lit la conduite actuelle; les archives MI01 gardent leur constat initial. Même distinction pour l’intégrité de la flotte.",
           "priority": "P0",
           "status": "Prototype"
+        },
+        {
+          "id": "SY53",
+          "system": "Marée du chenal",
+          "design": "Cycle simulé de basse, montée, haute et descente. Le niveau détermine le risque des bancs et le mouvement du bateau. La pause ne fait pas avancer le temps.",
+          "counterplay": "L’état et la prochaine fenêtre sont annoncés. Les quais offrent des zones d’attente; les passerelles permanentes constituent une autre solution.",
+          "acceptance": "Les transitions de marée, l’attente du bateau et la reprise après sauvegarde correspondent à la même horloge de simulation.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY54",
+          "system": "Passerelles de chenal",
+          "design": "Une intervention de quatre secondes à chaque commande prépare un tablier au-dessus du banc correspondant. Le tablier reste utilisable à toute marée.",
+          "counterplay": "Rester à portée pendant l’intervention. Le joueur investit du temps à l’abri pour conserver une route sûre.",
+          "acceptance": "Le passage devient sûr seulement après intervention achevée; quitter la commande interrompt le travail. Le tablier ne disparaît pas à la reprise.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY55",
+          "system": "Appuis dans la vase",
+          "design": "Les contacts réels sur les bancs appliquent la pénalité de surface. Six appuis réduisent la pénalité de vase; la submersion expose progressivement les appuis.",
+          "counterplay": "Observer l’eau, attendre, déployer un tablier ou choisir le châssis. Aucun module d’estran interchangeable n’est livré par cette seule règle.",
+          "acceptance": "Le ralentissement et les dégâts suivent les contacts de simulation; les six châssis restent capables de terminer avec un itinéraire sûr.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY56",
+          "system": "Treuil et barge séparés",
+          "design": "Deux treuils maintiennent le barrage. Une interaction ou un tir peut les neutraliser sans imposer la destruction des coques qui les portent.",
+          "counterplay": "Viser la pièce exposée; une explosion large peut frapper la barge et ses occupants.",
+          "acceptance": "Treuil neutralisé et coque intacte peuvent coexister. Les dégâts de barge, la perte de personnes et l’ouverture du chenal sont des faits distincts.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY57",
+          "system": "Inspection des équipages",
+          "design": "Inspecter chaque barge produit son constat. Une facture lisible et un contact vivant ont des conditions propres; une épave peut être constatée sans révéler les données détruites.",
+          "counterplay": "Inspecter avant destruction et limiter la zone des tirs. Un document copié reste acquis si son original disparaît ensuite.",
+          "acceptance": "Le dossier ne confond pas avoir vu une épave, avoir lu une facture et avoir échangé avec un équipage.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY58",
+          "system": "Bateau dans le chenal",
+          "design": "Le bateau attend que les deux treuils soient neutralisés et que l’eau permette le passage. Douze personnes possèdent un bilan d’arrivée ou de perte.",
+          "counterplay": "Protéger la route et choisir les lignes de tir. Un bateau détruit ouvre un bilan d’échec local et n’accorde aucun passage réussi.",
+          "acceptance": "Le dock doit être atteint physiquement. Une décision écrite ne déplace pas le bateau et ne recrée pas ses passagers.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY59",
+          "system": "Réserve locale de carburant",
+          "design": "Une réserve distincte du bateau apporte deux lots uniquement après collecte complète. Le dossier conserve cette réserve, séparée des lots d’atelier.",
+          "counterplay": "La réserve peut être perdue avant collecte. Une relecture ne crédite pas à nouveau le dossier officiel.",
+          "acceptance": "Zéro lot sans collecte, deux lots collectés une fois. Consommation dans MI06, achats et économie de carburant globale restent à produire.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY60",
+          "system": "Soutien de panneau",
+          "design": "Cible MI06 : tous les appuis nécessaires posés et machine ancrée soutiennent un panneau sous pression. La charge reprend quand le marcheur se retire.",
+          "counterplay": "Un technicien doit verrouiller le panneau avant le départ; un tir reçu peut perturber la stabilité sans annuler magiquement le travail.",
+          "acceptance": "Tester charge appliquée, interruption, verrouillage et voie secondaire. Aucun soutien attribué à une simple proximité.",
+          "priority": "P1",
+          "status": "Conçu"
+        },
+        {
+          "id": "SY61",
+          "system": "Examen d’un transport",
+          "design": "Cible MI07 : arrêt protégé, échange avec le personnel, examen de cargaison et démontage de balise constituent quatre actes distincts.",
+          "counterplay": "Tirer sur le marquage risque les passagers. Prévoir constat de perte et provenance partielle sans reconstruire un témoignage absent.",
+          "acceptance": "La balise n’est attribuée qu’après récupération physique; sa signature seule ne révèle pas le commanditaire.",
+          "priority": "P1",
+          "status": "Conçu"
+        },
+        {
+          "id": "SY62",
+          "system": "Portes et pression",
+          "design": "Cible MI08 : deux portes gardent leur propre ouverture, pression, fatigue et calendrier de manœuvre. Chaque bateau a une fenêtre et une destination.",
+          "counterplay": "Préparer une évacuation avant de fermer; retirer les personnes d’une zone de rupture. Aucune porte ne résout toutes les issues du quartier.",
+          "acceptance": "Les bateaux déjà sortis restent sortis, ceux encore en attente ne sont pas comptés au refuge. Chaque dommage reste localisé.",
+          "priority": "P1",
+          "status": "Conçu"
         }
       ]
     },
@@ -1405,10 +1510,10 @@
           "name": "Nacre",
           "biome": "Archipels, récifs lumineux, digues habitées, plateformes et docks de récupération.",
           "society": "Les communes de marée dépendent des pompes; pirates prédateurs et capitaines de secours se disputent les routes.",
-          "terrain": "Pieds dans la vase, marées télégraphiées et charges admissibles des quais; protéger les vannes.",
+          "terrain": "La 0.6 simule une marée, deux bancs et des passerelles, avec pénalité des appuis en vase ou sous l’eau. Charges admissibles des quais, fatigue de digue et réseau de pompes restent conçus.",
           "reveal": "Les inondations servent à transformer des habitants sans titre en main-d’œuvre sous contrat.",
           "missions": "MI05–MI08",
-          "status": "Conçu"
+          "status": "Prototype"
         },
         {
           "id": "PL03",
@@ -1705,9 +1810,9 @@
           "name": "Capitaine Vann Ostre",
           "role": "Navigateur des Brisants",
           "desire": "Vend sa connaissance des courants et prétend ne devoir fidélité à personne.",
-          "arc": "Choisit entre un contrat profitable et des passagers qu’il connaît personnellement.",
+          "arc": "À MI05, Vann et Rive-Courte facilitent un passage intéressé si le contact est réellement pris. CT04 doit éprouver son choix entre moteur profitable et passagers connus. Sa coopération ne représente pas tous les Brisants.",
           "faction": "FA04",
-          "status": "Conçu"
+          "status": "Prototype"
         },
         {
           "id": "PN09",
@@ -1767,7 +1872,7 @@
     },
     {
       "name": "Campagne",
-      "description": "32 missions principales : MI01–MI04 jouables au stade prototype, 28 autres conçues. OP01–OP03 restent des opérations autonomes distinctes.",
+      "description": "32 missions principales : MI01–MI05 jouables au stade prototype, 27 autres conçues. MI06–MI08 possèdent un contrat de production détaillé. OP01–OP03 restent autonomes.",
       "columns": [
         {
           "key": "id",
@@ -1866,20 +1971,20 @@
           "planet": "PL02",
           "title": "Le prix du passage",
           "order": "Lever un blocus pirate sur un chenal d’approvisionnement.",
-          "play": "Marcher sur bancs émergents, viser les treuils des barges et protéger les bateaux qui traversent.",
-          "truth": "Le capitaine adverse vend réellement des réfugiés; un autre équipage des Brisants les fait sortir en secret.",
-          "consequence": "Relation distincte avec capitaines; passage civil plus sûr et carburant disponible.",
-          "status": "Conçu"
+          "play": "Lire la marée, poser des passerelles ou choisir le banc découvert. Libérer deux treuils sans détruire leurs barges, vérifier séparément la facture de Saisie et le contact de Rive-Courte, protéger douze passagers jusqu’au dock. Une réserve locale se collecte à part.",
+          "truth": "Une facture identifie un trafic local. Vann Ostre et Rive-Courte assurent un passage intéressé. Une inspection détruite avant lecture ne révèle ni facture ni paroles. Aucun fait nouveau sur PALINODE.",
+          "consequence": "Dossier distinct pour passages, pertes, facture, contact et rapport. Deux lots de carburant seulement si la réserve a réellement été collectée. Coopération locale sans alliance de toute la Flotte.",
+          "status": "Prototype"
         },
         {
           "id": "MI06",
           "act": "I — Le poids de l’ordre",
           "planet": "PL02",
           "title": "Les maisons sous la ligne",
-          "order": "Tenir une digue pendant la reprise des pompes d’Orison.",
-          "play": "Ancrer la machine pour soutenir un panneau, repousser patins armés et escorter des techniciens jusqu’aux vannes.",
-          "truth": "Le nouveau seuil d’eau sacrifie un quartier dont les habitants n’ont pas de titre de propriété reconnu.",
-          "consequence": "Population déplacée, dégâts de digue et confiance de Mara modifient les étapes suivantes.",
+          "order": "Tenir la digue des Trois-Vannes pendant la remise en pression des pompes d’Orison.",
+          "play": "Cible conçue : lire les niveaux aux maisons, soutenir un panneau avec les appuis ancrés, couvrir deux techniciens jusqu’aux vannes, puis choisir entre le seuil officiel et un dérivation locale coûteuse. Le soutien cesse si la machine se déplace.",
+          "truth": "Le seuil prescrit protège les installations privées en inondant les maisons sans titre reconnu. Mara demande un délai pour sortir les personnes; elle ne confond pas leur départ et le maintien de leur quartier.",
+          "consequence": "Conserver séparément habitants sortis, logements devenus inhabitables, état des pompes, fatigue de digue et participation des techniciens. Le carburant de MI05 doit offrir un moyen supplémentaire, sans rendre l’absence de réserve bloquante.",
           "status": "Conçu"
         },
         {
@@ -1887,10 +1992,10 @@
           "act": "I — Le poids de l’ordre",
           "planet": "PL02",
           "title": "Une ambulance sans escorte",
-          "order": "Intercepter un transport signalé comme dépôt mobile de munitions.",
-          "play": "Rattraper le véhicule sans le percuter, le scanner et affronter les drones venus effacer son contenu.",
-          "truth": "La signature hostile provient d’une balise impériale ajoutée au véhicule sanitaire.",
-          "consequence": "Témoins et balise authentifiée conservés si le véhicule atteint le dock.",
+          "order": "Intercepter à la chaussée des Salines un transport classé comme dépôt mobile de munitions.",
+          "play": "Cible conçue : rejoindre une ambulance, lui ménager une zone d’arrêt sans collision, obtenir l’accord à l’examen, observer la balise ajoutée et protéger le transfert au dock contre des drones de saisie. Extraire la balise préserve les fils et sa provenance.",
+          "truth": "Le marquage hostile vient d’un équipement impérial posé sur un véhicule sanitaire. Sa présence établit une fausse désignation locale, sans identifier seule son auteur ni la chaîne de PALINODE.",
+          "consequence": "Patient arrivé, personnel vivant, balise récupérée, provenance vérifiée et accord à témoigner sont distincts. Une perte de véhicule ne livre pas automatiquement ses passagers ou son dossier.",
           "status": "Conçu"
         },
         {
@@ -1898,10 +2003,10 @@
           "act": "I — Le poids de l’ordre",
           "planet": "PL02",
           "title": "La marée compte les absents",
-          "order": "Fermer les accès de l’archipel pour une opération de contrôle.",
-          "play": "Tenir deux portes de digue sous pression tout en laissant des convois quitter la zone.",
-          "truth": "Les listes de relogement sont des contrats de travail forcé; Sera peut couvrir le départ de Mara.",
-          "consequence": "Première désobéissance matérielle possible; refuge ouvert ou familles dispersées.",
+          "order": "Fermer les portes de la digue d’Aval pour l’opération impériale de contrôle de l’archipel.",
+          "play": "Cible conçue : surveiller une pression montante, manœuvrer deux portes, couvrir les bateaux réellement prêts et choisir l’instant de fermeture. Fermer une porte ne détruit pas l’autre; chaque embarcation garde une destination et une place au refuge.",
+          "truth": "Les documents consultés lient le relogement à des contrats forcés. Sera peut laisser partir Mara et les familles présentes; une fermeture administrative ne rend pas le courant ni les habitants abstraits.",
+          "consequence": "Bateaux sortis, personnes restées, pertes, porte endommagée, refuge encore accessible et ordre déclaré déterminent des suites séparées. La désobéissance locale précède la défection militaire de MI16.",
           "status": "Conçu"
         },
         {
@@ -3711,9 +3816,9 @@
           "id": "NA25",
           "type": "Relation",
           "name": "Capitaines distincts",
-          "rule": "Les Brisants conservent des équipages aux actes différents. Libérer le train n’établit pas une alliance générale avec tous les pirates.",
-          "sources": "MI02, MI05, CT04 et PN08 Vann Ostre.",
-          "status": "Conçu"
+          "rule": "MI05 distingue la facture de la barge Saisie et le contact de Vann Ostre sur Rive-Courte. La présence du même pavillon ne suffit pas à leur attribuer les mêmes actes. La relation demeure locale et intéressée.",
+          "sources": "MI05, inspections séparées; CT04 encore conçu; PN08 Vann Ostre.",
+          "status": "Prototype"
         },
         {
           "id": "NA26",
@@ -3744,7 +3849,7 @@
           "type": "Fin",
           "name": "Résolution et priorité",
           "rule": "Vérifier d’abord une issue jouable valide, puis dossier/diffusion, services/pactes et voie de retrait pour départager FI01–FI04.",
-          "sources": "Finale MI32; aucune fin implémentée dans la 0.5.",
+          "sources": "Finale MI32; aucune fin implémentée dans la 0.6.",
           "status": "Conçu"
         },
         {
@@ -3807,9 +3912,9 @@
           "id": "NA37",
           "type": "Structure",
           "name": "Passage vers Nacre",
-          "rule": "MI05 reste accessible sans PT01. Le nouveau problème de chenal donne une respiration; les soupçons de Tess restent bornés à ce qui a été acquis.",
-          "sources": "MI04 vers MI05; transfert interplanétaire à produire.",
-          "status": "Conçu"
+          "rule": "Le premier rapport de MI04 débloque MI05 avec ou sans PT01. Le chenal ouvre un travail nouveau. Le briefing garde le résultat de Vesper sans ajouter une preuve ou un témoin au transfert.",
+          "sources": "MI04 vers MI05; dossier v5. Voyage spatial et scène de transfert finale à produire.",
+          "status": "Prototype"
         },
         {
           "id": "NA38",
@@ -3833,6 +3938,70 @@
           "name": "Mémoire d’une relecture",
           "rule": "Un ancien chapitre rejoué conserve son horizon de connaissance. Les faits du dossier officiel avancé n’autorisent pas une révélation prématurée dans cette scène.",
           "sources": "Relectures MI01–MI04; futurs chapitres; archives distinctes.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA41",
+          "type": "Dialogue",
+          "name": "Vann au chenal",
+          "rule": "Vann accepte de guider parce que Sera ouvre aussi sa route. L’échange réellement accompli révèle le passage des réfugiés; son pavillon ne suffit pas à prouver cette aide.",
+          "sources": "MI05; Rive-Courte inspectée avant destruction; PN08. Participation par radio, portrait et mise en scène finale à produire.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA42",
+          "type": "Document",
+          "name": "La facture de Saisie",
+          "rule": "La facture établit une vente locale de personnes. Si elle est détruite avant lecture, le rapport conserve une épave et des soupçons, sans noms ni détail de vente inventés.",
+          "sources": "MI05; inspection de Saisie. Aucun ajout PT01–PT05 ni preuve politique par cette facture.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA43",
+          "type": "Rapport",
+          "name": "Pavillon et actes",
+          "rule": "Le rapport scellé et le rapport distinguant les équipages conservent les mêmes événements physiques. Une annotation ne transforme pas une coopération locale en alliance de la Flotte.",
+          "sources": "MI05; décision après inspections et résultat du bateau.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA44",
+          "type": "État",
+          "name": "Ceux arrivés au dock",
+          "rule": "Le dossier inscrit les arrivées constatées, les personnes perdues et l’état du passage. La disponibilité ultérieure d’un batelier doit dépendre de sa survie et de son accord.",
+          "sources": "MI05 bilan de douze passagers; réapparitions futures encore conçues.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA45",
+          "type": "Scène conçue",
+          "name": "Mara sous la ligne",
+          "rule": "Mara montre un seuil d’eau et un logement encore occupé. Elle peut accepter une évacuation tout en refusant que son quartier soit déclaré vide. Sa confiance porte sur les secours accomplis.",
+          "sources": "MI06; pompes, maisons et personnes séparées; NACRE_CONSEQUENCES_V06.md.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA46",
+          "type": "Source conçue",
+          "name": "La balise ajoutée",
+          "rule": "Le personnel de l’ambulance ne sait pas qui a donné l’ordre de pose. La balise récupérée, ses fixations et son journal donnent une provenance à vérifier dans une autre scène.",
+          "sources": "MI07; aucune nouvelle preuve PT ou PO ajoutée automatiquement à la chaîne actuelle.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA47",
+          "type": "Choix conçu",
+          "name": "Fermer avec des gens devant",
+          "rule": "Le joueur voit quels bateaux sont encore à l’intérieur et qui peut les recevoir. L’ordre de fermeture, son exécution et la déclaration à Holt ne se confondent pas.",
+          "sources": "MI08; portes, refuge, départ de Mara et ordre impérial.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA48",
+          "type": "Continuité conçue",
+          "name": "Quitter Nacre",
+          "rule": "Le transfert vers Thyr garde les services de Nacre, ses personnes et les documents dans leurs états propres. Mara ne rejoint l’équipage que si une scène et sa décision l’établissent.",
+          "sources": "Fin MI08 vers MI09; défection globale maintenue à MI16.",
           "status": "Conçu"
         }
       ]
@@ -4260,8 +4429,71 @@
           "id": "AS43",
           "category": "Nacre",
           "deliverable": "Kit de chenal de référence",
-          "spec": "Banc émergent, quais, barge à treuil et bateau civil. Matières et signaux montrent charge, accès et mouvement d’eau.",
-          "acceptance": "Un parcours démontre l’ouverture réelle du passage, avec occupants et câble représentés selon leur état simulé.",
+          "spec": "Premier rendu procédural d’un chenal, de bancs, de passerelles, de barges à treuil et d’un bateau civil. Les positions et états viennent de la simulation.",
+          "acceptance": "Portée prototype explicitée par PX55–PX62. Art final, textures animées, équipages animés et audio local restent les lots AS44–AS50.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "AS44",
+          "category": "Nacre",
+          "deliverable": "Repères de marée et matières des bancs",
+          "spec": "Graduations fixes, eau mobile, vase découverte et tablier posé lisibles avec les trois familles de marcheurs. L’animation suit le niveau simulé.",
+          "acceptance": "Lecture sans dépendre seulement de la couleur. Le contact sûr et le risque submergé restent visibles dans un cadrage de combat.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "AS45",
+          "category": "Nacre",
+          "deliverable": "Barges Saisie et Rive-Courte",
+          "spec": "Deux coques aux usages identifiables, pièces de treuil séparées, documents et poste radio, dommages cohérents avec leurs zones de collision.",
+          "acceptance": "Une coque préservée et un treuil coupé se reconnaissent. Une épave ne montre pas de personnel vivant ni une radio disponible.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS46",
+          "category": "Nacre",
+          "deliverable": "Dock et bateau de passage",
+          "spec": "Accès, défenses, marques de niveau, cabine de ferry et aire d’accueil. Arrivée, perte et attente ont des animations propres.",
+          "acceptance": "Le bateau atteint le dock sans se superposer au quai. Une personne comptée à l’arrivée possède une sortie lisible.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS47",
+          "category": "Audio",
+          "deliverable": "Scène sonore de chenal",
+          "spec": "Eau contre piliers, treuil sous tension, tablier qui se verrouille, moteur en attente et radio de Vann. Danger et consigne restent prioritaires.",
+          "acceptance": "Essai d’écoute avec combat, voix et marée simultanés. Les sons n’annoncent pas un événement que la simulation n’a pas produit.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS48",
+          "category": "Nacre",
+          "deliverable": "Digue, panneau et pompe de MI06",
+          "spec": "Panneau articulé avec points d’appui, verrous, canal de dérivation, conduites et seuils sur façades. Techniciens avec trajet d’intervention.",
+          "acceptance": "Le soutien, le verrouillage et la perte de pression se comprennent depuis la vue jouable.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS49",
+          "category": "Nacre",
+          "deliverable": "Ambulance inspectable de MI07",
+          "spec": "Véhicule avec postes de soin, accès patient, attaches de balise ajoutée et variantes de dégâts. Une silhouette sanitaire propre au monde.",
+          "acceptance": "Inspection et transfert possèdent une zone d’approche sûre pour chaque châssis. La balise ne flotte pas hors de la carrosserie.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS50",
+          "category": "Nacre",
+          "deliverable": "Portes d’Aval et départ de MI08",
+          "spec": "Deux portes, indicateurs de pression, niches de refuge, bateaux en file et silhouettes locales dans des états de départ distincts.",
+          "acceptance": "Les portes, personnes et bateaux visibles correspondent à leurs états persistants. Aucune foule générique ne remplace le bilan.",
           "priority": "P1",
           "status": "À produire"
         }
@@ -4781,9 +5013,9 @@
           "workstream": "Nacre — première surface",
           "deliverable": "Un chenal avec banc émergent, barge, treuil et passage civil dans MI05.",
           "depends": "SY34; SY38; AS43; MI05",
-          "acceptance": "Le terrain change la route et le choix d’équipement; ouverture du passage et destin des occupants sont persistants.",
+          "acceptance": "Marée lisible, alternative par passerelle, treuils séparés, inspections et bilan du bateau conservés. Effet des six appuis dans la vase. Module MD02, fatigue et charge de quais restent conçus.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "PR54",
@@ -4810,6 +5042,96 @@
           "depends": "PR46; AS35; essais humains",
           "acceptance": "Plan de production fondé sur travail observé; pas de calendrier commercial déduit du nombre de fiches.",
           "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "PR57",
+          "workstream": "MI05 — chenal",
+          "deliverable": "Premier passage de Nacre avec marée, bancs, passerelles, deux treuils, deux inspections et bateau protégé.",
+          "depends": "MI05; SY53–SY58; AS43",
+          "acceptance": "Une fin par arrivée et une fin avec perte restent jouables. Les objets endommagés, documents et personnes correspondent au résultat.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR58",
+          "workstream": "Dossier v5",
+          "deliverable": "Cinquième rapport, réserve de carburant distincte et état de passage de Nacre.",
+          "depends": "PR51; SY26; SY59",
+          "acceptance": "Anciennes versions migrées, reprise exacte, carburant obtenu une fois et premier rapport immuable.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR59",
+          "workstream": "Interface de Nacre",
+          "deliverable": "Ordre, état de marée, interaction, archive de passage et réserve conservée au hangar.",
+          "depends": "PR57; PR58; PX55–PX62",
+          "acceptance": "Le joueur voit le prochain travail et le résultat réel. Une réserve stockée n’est pas présentée comme une économie déjà consommable.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR60",
+          "workstream": "MI06 — digue",
+          "deliverable": "Soutien du panneau, escorte des techniciens, vannes et résultat distinct maisons/personnes.",
+          "depends": "SY60; AS48; MI05",
+          "acceptance": "Parcours avec et sans carburant de MI05, avec technicien perdu et panneau endommagé, tous explicitement écrits et testés.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "PR61",
+          "workstream": "MI07 — ambulance",
+          "deliverable": "Interception, arrêt protégé, examen, démontage de balise et arrivée sanitaire.",
+          "depends": "SY61; AS49; MI06",
+          "acceptance": "Aucune preuve attribuée avant récupération; patient, personnel, véhicule et consentement restent distincts.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "PR62",
+          "workstream": "MI08 — portes",
+          "deliverable": "Deux portes sous pression, file de bateaux, destination de refuge et décision d’exécution de l’ordre.",
+          "depends": "SY62; AS50; MI05–MI07",
+          "acceptance": "Les sorties sont observées et conservées. Une perte de personne ou de source ne bloque pas la campagne et n’est pas annulée au rapport.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "PR63",
+          "workstream": "Nacre — production visuelle",
+          "deliverable": "Kit final du chenal, barges, ferry, silhouettes et scènes sonores.",
+          "depends": "AS44–AS47; PR46",
+          "acceptance": "Rendu, collision et son concordent. Essai humain documenté pour lisibilité, compréhension et fatigue visuelle.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "PR64",
+          "workstream": "Relations locales",
+          "deliverable": "Scènes de Vann et Mara, conditions de retour et fenêtre de CT03/CT04.",
+          "depends": "NA41; NA45; NA48; CT03; CT04",
+          "acceptance": "Chaque réplique nomme un acte connu. Aucun service militaire rendu ne donne automatiquement confiance, témoignage ou recrutement.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "PR65",
+          "workstream": "Essai humain de Nacre",
+          "deliverable": "Parcours de joueurs sur marée, tablier, tir sur treuil, inspection et protection du bateau.",
+          "depends": "PR57; PR59; QA95",
+          "acceptance": "Observations sans explication extérieure, matériel et conditions notés; difficultés corrigées avant élargissement du biome.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "PR66",
+          "workstream": "Usage futur du carburant",
+          "deliverable": "Consommation des deux lots dans une pompe auxiliaire de MI06 avec voie minimale garantie sans réserve.",
+          "depends": "SY59; SY60; PR60",
+          "acceptance": "Dépense atomique, avantage concret, annonce du coût et absence de duplication. Aucun achat ou économie générale implicite.",
+          "priority": "P1",
           "status": "À produire"
         }
       ]
@@ -5473,6 +5795,142 @@
           "expected": "Environnement, commandes et observations documentés; perception et audio contrôlés par un parcours réel.",
           "priority": "P1",
           "status": "À produire"
+        },
+        {
+          "id": "QA79",
+          "area": "Progression — Nacre",
+          "scenario": "Finir MI04 avec et sans PT01, puis ouvrir MI05.",
+          "expected": "Les quatre rapports sont requis, PT01 ne l’est pas. Départ avec et sans journal vérifié sur six châssis, héritages conservés. Preuves : tests/campaign-v5.test.mjs et tests/mi05-mission.test.mjs, exécutés sous Node.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA80",
+          "area": "Marée",
+          "scenario": "Faire passer le cycle complet, interrompre puis reprendre sa progression.",
+          "expected": "Cycle de 72 s et seuils distincts de marche/navigation contrôlés. Le rapport actif fige l’état; la reprise JSON conserve l’horloge et la suite déterministe. Preuve : tests/mi05-mission.test.mjs. Pause UI contrôlée séparément.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA81",
+          "area": "Appuis et vase",
+          "scenario": "Comparer bipède et hexapode sur banc nu/couvert, isoler le contact pied/eau, puis terminer la mission avec les six châssis.",
+          "expected": "Pénalités de vase comparées sur bipède et hexapode; fixture physique isolée pour usure de pieds submergés et protection par tablier. Six châssis terminent les parcours complets. Preuve : tests/mi05-mission.test.mjs; la fixture locale n’est pas un parcours entier.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA82",
+          "area": "Passerelles",
+          "scenario": "Lancer une pose, quitter la portée, revenir et achever le travail.",
+          "expected": "Quatre secondes mesurées, départ de portée annule et remet la progression à zéro. Snapshot partiel conservé et reprise identique. Preuves : tests/mi05-mission.test.mjs et tests/campaign-v5.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA83",
+          "area": "Treuils",
+          "scenario": "Neutraliser une pièce par interaction et une par tir local, en conservant les coques.",
+          "expected": "Deux treuils neutralisés par tirs visés sans perte de barge ni personne; voie par interaction couverte dans les parcours complets. Preuve : tests/mi05-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA84",
+          "area": "Dégâts de barges",
+          "scenario": "Toucher les coques, puis tenter inspection et radio.",
+          "expected": "Chaque barge détruite avant inspection conserve un constat sans facture ou contact indu. Les quatre membres de Rive-Courte sont distincts des douze passagers. Preuve : tests/mi05-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA85",
+          "area": "Sources de Nacre",
+          "scenario": "Détruire Saisie avant lecture puis inspecter son épave.",
+          "expected": "Destruction de Saisie par tirs réels avant lecture : aucune facture acquise, inspection d’épave et conclusion restent possibles. Preuve : tests/mi05-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA86",
+          "area": "Copie de facture",
+          "scenario": "Lire la facture puis détruire son support.",
+          "expected": "Facture réellement lue puis support détruit : copie conservée. Contact obtenu puis équipage perdu : échange historique conservé, morts comptés. Preuve : tests/mi05-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA87",
+          "area": "Bateau et eau",
+          "scenario": "Ouvrir le chenal à basse eau puis observer la fenêtre suffisante.",
+          "expected": "Le bateau reste derrière le barrage puis attend à basse eau. Déplacement observé et position au dock exigée avant douze arrivées. Preuve : tests/mi05-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA88",
+          "area": "Passagers",
+          "scenario": "Exposer le bateau aux tirs avant arrivée puis terminer le dossier.",
+          "expected": "Bateau détruit par tirs : douze pertes, zéro arrivée et mission terminable. Aucun effet automatique sur le carburant distinct. Preuve : tests/mi05-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA89",
+          "area": "Carburant",
+          "scenario": "Ignorer, collecter puis réessayer la réserve; comparer avec réserve détruite avant collecte.",
+          "expected": "Réserve ignorée ou détruite : zéro lot. Collecte inachevée : zéro lot. Trois secondes achevées : deux lots; interactions répétées sans duplication. Preuve : tests/mi05-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA90",
+          "area": "MI05 complète",
+          "scenario": "Exécuter les deux décisions avec chacun des six châssis par commandes publiques.",
+          "expected": "Douze parcours entiers par commandes publiques, six châssis et deux choix, avec marée, inspections, bateau, carburant et extraction. Aucun état de victoire écrit par le pilote. Preuve : tests/mi05-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA91",
+          "area": "Migration v5",
+          "scenario": "Charger les quatre fixtures historiques et un point de reprise MI05.",
+          "expected": "Fixture d7d76b6 authentique, en cours et terminée : champs historiques identiques après retrait des seuls ajouts v5; zéro carburant et aucun passage inventé. Reprise MI05 exacte, anciens formats et états forgés protégés. Preuve : tests/campaign-v5.test.mjs; migrations v1/v2/v3 conservées par la suite existante.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA92",
+          "area": "Relecture et dotation",
+          "scenario": "Rejouer MI05, finir deux fois et reprendre un ancien checkpoint.",
+          "expected": "Six châssis et deux rapports : quatre lots d’atelier et deux lots de carburant réellement collectés attribués une fois. Les quatre anciens rapports et Vesper restent identiques. Relecture sans nouveau crédit. Preuve : tests/campaign-v5.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA93",
+          "area": "Interface — Nacre",
+          "scenario": "Ouvrir MI05, suspendre un travail, reprendre, conclure et relire l’archive.",
+          "expected": "26 parcours exécutés par les gestionnaires dans un DOM modélisé, dont import v4 vers MI05, reprise de marée, deux décisions, perte du bateau et sortie sans carburant. Ordre, réserve et archive contrôlés. Preuve : docs/validation/v06-ui-runtime.txt. Ce contrôle ne constitue pas un parcours Chrome réel ni un essai humain.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA94",
+          "area": "Bible — continuité 0.6",
+          "scenario": "Comparer JSON, fichier Excel, formules de synthèse et identifiants de la 0.5.",
+          "expected": "643 fiches et 4 409 cellules réconciliées avec le JSON; les 581 IDs de la 0.5 sont conservés. 126 formules sans erreur et statut modifié puis restauré, 20 tables/validations/volets, 80 règles conditionnelles, vues modifiées relues. Preuves : docs/validation/workbook-v0.6-export.json et workbook-v0.6-visual-review.json. Aucune exécution native Excel.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA95",
+          "area": "Essai humain — Nacre",
+          "scenario": "Faire jouer la mission sans consigne extérieure à des personnes sur un matériel déclaré.",
+          "expected": "Elles anticipent la marée, distinguent treuil et coque, expliquent les deux équipages et retrouvent le résultat de leur sortie. Essai humain distinct des tests automatisés.",
+          "priority": "P1",
+          "status": "À produire"
         }
       ]
     },
@@ -5556,7 +6014,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.5.0. Les règles cibles des autres onglets ne sont pas toutes implémentées. Les limites de chaque fiche restent ouvertes.",
+      "description": "Portée présente dans le code de la version 0.6.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -5627,7 +6085,7 @@
           "link": "NA17",
           "name": "OP01 — Les voix sous la cendre",
           "implemented": "Relais destructibles, registre à scanner à proximité, décision sur une bande puis extraction.",
-          "limits": "Extrait autonome de validation; ne remplace pas MI01–MI04 ni leurs civils, dialogues et variantes finales.",
+          "limits": "Extrait autonome de validation; ne remplace pas MI01–MI05 ni leurs civils, dialogues et variantes finales.",
           "path": "src/content.mjs; src/simulation.mjs",
           "status": "Prototype"
         },
@@ -5816,7 +6274,7 @@
           "link": "MI01; PN02; PN14; PR29",
           "name": "MI01 — Le couloir quarante-deux",
           "implemented": "Escorte de filtres sur Vesper, apprentissage des appuis, embuscade antichar, livraison au poste des mineurs, lecture du manifeste puis choix du bordereau.",
-          "limits": "MI01 est complétée par MI02–MI04. MI05–MI32, mise en scène finale, doublage et performance cible restent à produire ou valider. Aucun dossier PALINODE révélé dans MI01.",
+          "limits": "MI01 est complétée par MI02–MI05. MI06–MI32, mise en scène finale, doublage et performance cible restent à produire ou valider. Aucun dossier PALINODE révélé dans MI01.",
           "path": "src/content.mjs; src/simulation.mjs",
           "status": "Prototype"
         },
@@ -5834,7 +6292,7 @@
           "link": "SY24; PN02; PN14; PR31",
           "name": "Retour d’équipage et dossier de Vesper",
           "implemented": "Livraison de 24 caisses si le transport arrive, état de la conduite, pertes civiles, notice de Sami et répliques contextuelles de Tess/Sami conservés. Une réussite reçoit une seule dotation.",
-          "limits": "Dossier étendu à MI01–MI04. Les pactes, autres mondes et quatre fins restent conçus. Rejouer ne réécrit ni premier dossier ni ressources.",
+          "limits": "Dossier étendu à MI01–MI05. Les pactes, autres mondes et quatre fins restent conçus. Rejouer ne réécrit ni premier dossier ni ressources.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -5843,7 +6301,7 @@
           "link": "SY26; PR30",
           "name": "Reprise de mission et décision",
           "implemented": "État de mission versionné, sauvegarde de la simulation en cours et point de reprise conservé avant le choix du bordereau. Restauration explicite du même monde et des objectifs.",
-          "limits": "Portée de sauvegarde : MI01–MI04. Compatibilité suivie version par version. Le changement de fichier ou de navigateur peut changer l’emplacement du stockage local.",
+          "limits": "Portée de sauvegarde : MI01–MI05. Compatibilité suivie version par version. Le changement de fichier ou de navigateur peut changer l’emplacement du stockage local.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -5851,7 +6309,7 @@
           "id": "PX29",
           "link": "SY26; PR30",
           "name": "Sauvegarde portable et récupération",
-          "implemented": "Copie principale et copie de secours valide. Import/export JSON contrôlé. Les formats historiques v1, v2 et v3 sont migrés vers v4 avec conservation des acquis. Erreurs de stockage, corruption et format inconnu signalés.",
+          "implemented": "Copie principale et copie de secours valide. Import/export JSON contrôlé. Les formats historiques v1, v2, v3 et v4 sont migrés vers v5 avec conservation des acquis. Erreurs de stockage, corruption et format inconnu signalés.",
           "limits": "Migration définie pour les seuls formats connus. Un format futur ou étranger reste protégé contre l’écrasement automatique. Pas de synchronisation en ligne; transfert par export manuel.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
@@ -5860,7 +6318,7 @@
           "id": "PX30",
           "link": "SY25; PR21; PR31",
           "name": "Atelier et réparation locale",
-          "implemented": "Six lots initiaux, quatre pour chaque première réussite de MI01–MI04. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
+          "implemented": "Six lots initiaux, quatre pour chaque première réussite de MI01–MI05. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
           "limits": "Économie de prototype pour quatre missions : vingt-deux lots théoriques avant dépenses. Chaque nouvelle sortie renouvelle munitions et deux kits. Modules, pièces rares et économie de campagne complète à produire.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
@@ -5870,7 +6328,7 @@
           "link": "MI02; VE17; PR33",
           "name": "MI02 — La dette sous la poussière",
           "implemented": "Reprise du train détourné sur le viaduc : deux harpons à libérer, poursuite, freinage, ouverture du wagon, lecture et choix de rapport avant extraction.",
-          "limits": "Seconde mission sur 32, complétée par MI03 et MI04. Itinéraire latéral unique, assaut de prototype et retour textuel. MI05–MI32, mise en scène et finition du niveau restent à produire.",
+          "limits": "Seconde mission sur 32, complétée par MI03 et MI04. Itinéraire latéral unique, assaut de prototype et retour textuel. MI06–MI32, mise en scène et finition du niveau restent à produire.",
           "path": "src/content.mjs; src/simulation.mjs; docs/CAMPAIGN_MISSION_02.md",
           "status": "Prototype"
         },
@@ -5905,9 +6363,9 @@
           "id": "PX35",
           "link": "SY26; PR28; PR34",
           "name": "Migrations historiques et reprise de campagne",
-          "implemented": "Dossier v4 sous les mêmes clés de stockage. Les formats v1/v2/v3 conservent rapports, lots, usure et checkpoints. Les migrations complètent la flotte à six châssis, la réserve et le radiateur selon la version source.",
+          "implemented": "Dossier v5 sous les mêmes clés de stockage. Les formats v1/v2/v3/v4 conservent rapports, lots, usure et checkpoints. Les migrations complètent uniquement les champs absents de leur version source.",
           "limits": "Versions historiques connues seulement. Magasin, roquettes, rechargement et résultats existants conservés. Les champs inexistants reçoivent des valeurs initiales documentées; transfert entre appareils par export/import.",
-          "path": "src/campaign.mjs; tests/campaign-v4.test.mjs",
+          "path": "src/campaign.mjs; tests/campaign-v5.test.mjs",
           "status": "Prototype"
         },
         {
@@ -6005,7 +6463,7 @@
           "link": "SY26; PR40",
           "name": "Héritage du format v3",
           "implemented": "La 0.4 a introduit MI03 et le format v3. La 0.5 lit ce véritable format via un fixture historique, puis préserve ses rapports et ressources en v4.",
-          "limits": "Le format courant est v4, détaillé dans PX54. Les 28 missions suivantes et les fins restent conçues.",
+          "limits": "Le format courant est v5, détaillé dans PX61. Les 27 missions suivantes et les fins restent conçues.",
           "path": "src/campaign.mjs; tests/fixtures/campaign-v3-mi03.json",
           "status": "Prototype"
         },
@@ -6075,10 +6533,82 @@
         {
           "id": "PX54",
           "link": "SY26; PR51",
-          "name": "Format v4 et quatrième dossier",
-          "implemented": "MI01–MI04 se débloquent dans l’ordre. Formats v1/v2/v3 migrés; composant, kits et résultat industriel conservés. Premier rapport et dotation restent uniques.",
-          "limits": "28 missions principales, contrats et fins encore conçus. Les formats futurs ou trop volumineux ne sont pas automatiquement remplacés.",
+          "name": "Héritage du format v4",
+          "implemented": "La 0.5 a ajouté MI04, le composant, les kits et le résultat industriel. La 0.6 préserve ces champs et migre le dossier vers v5. Premier rapport et dotation restent uniques.",
+          "limits": "La compatibilité v4 repose sur la fixture historique de la 0.5. Les formats futurs ou trop volumineux ne sont pas automatiquement remplacés.",
           "path": "src/campaign.mjs; tests/campaign-v4.test.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX55",
+          "link": "MI05; PR57",
+          "name": "MI05 — Le prix du passage",
+          "implemented": "Cinquième mission après MI04, deux treuils, inspections séparées, issue du bateau, décision et extraction. Disponible avec ou sans PT01.",
+          "limits": "Premier niveau de Nacre; MI06–MI08, contrats locaux et transfert spatial mis en scène restent conçus.",
+          "path": "src/content.mjs; src/simulation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX56",
+          "link": "SY53; SY55",
+          "name": "Marée et appuis d’estran",
+          "implemented": "Niveau d’eau cyclique, bancs à pénalité de vase ou submersion, avantage relatif des six appuis. Les contacts appartiennent à la simulation.",
+          "limits": "Pas de fluide volumétrique, flottabilité générale ni charge de rupture des quais. MD02 reste un module conçu.",
+          "path": "src/simulation.mjs; src/renderer.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX57",
+          "link": "SY54; AS43",
+          "name": "Deux passerelles sûres",
+          "implemented": "Pose locale de quatre secondes; un tablier achevé offre une traversée permanente au-dessus de son banc.",
+          "limits": "Pas de placement libre, d’inventaire de ponts ou de génie complet. Les positions et longueurs sont écrites pour MI05.",
+          "path": "src/content.mjs; src/simulation.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX58",
+          "link": "SY56; SY57; NA41–NA43",
+          "name": "Barges, constats et contact",
+          "implemented": "Treuils indépendants des coques, inspections de trois secondes, facture de Saisie et radio de Vann conditionnées à leur état au moment de lecture.",
+          "limits": "Portraits animés et équipages physiques à produire. VE08 garde son système final de traction du marcheur comme conception séparée.",
+          "path": "src/simulation.mjs; src/renderer.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX59",
+          "link": "SY58; NA44",
+          "name": "Douze passagers dans le chenal",
+          "implemented": "Le bateau attend l’ouverture et l’eau suffisante. Le dock, les dégâts et les pertes déterminent son bilan.",
+          "limits": "Un seul bateau de référence. Files, embarquement, destinations multiples et animations individuelles restent conçus.",
+          "path": "src/simulation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX60",
+          "link": "SY59; PR66",
+          "name": "Deux lots de carburant conservés",
+          "implemented": "Collecte d’une réserve locale distincte pendant trois secondes; deux lots ajoutés une seule fois au premier dossier officiel.",
+          "limits": "Aucune consommation dans les missions déjà jouables. Pompe auxiliaire MI06, achats et économie de campagne restent à produire.",
+          "path": "src/simulation.mjs; src/campaign.mjs; src/main.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX61",
+          "link": "SY26; PR58",
+          "name": "Format v5 et Nacre persistant",
+          "implemented": "Cinquième rapport, carburant et état local de Nacre. Migrations v1/v2/v3/v4, reprise et premier résultat protégés.",
+          "limits": "La migration ne joue pas rétroactivement MI05 et n’invente aucun carburant. Synchronisation serveur et formats futurs absents.",
+          "path": "src/campaign.mjs; tests/campaign-v5.test.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX62",
+          "link": "SY27; PR59",
+          "name": "Lecture du chenal",
+          "implemented": "Eau, bancs, tabliers, treuils, barges et bateau suivent leur état simulé. Ordre, interactions et bilan exposent les faits disponibles.",
+          "limits": "Rendu procédural et UI de prototype. Art final AS44–AS47 et compréhension humaine QA95 restent ouverts.",
+          "path": "src/renderer.mjs; src/main.mjs",
           "status": "Prototype"
         }
       ]

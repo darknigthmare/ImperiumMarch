@@ -15,6 +15,7 @@ import { commandGame, updateGame } from '../src/simulation.mjs';
 import { pilotMI02 } from '../tests/helpers/mi02-driver.mjs';
 import { pilotMI03 } from '../tests/helpers/mi03-driver.mjs';
 import { pilotMI04 } from '../tests/helpers/mi04-driver.mjs';
+import { pilotMI05 } from '../tests/helpers/mi05-driver.mjs';
 import { WALKERS } from '../src/content.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -308,7 +309,7 @@ for (const choice of ['obey', 'defy']) await check(`MI03 ${choice} decision, ext
   assert.equal(fresh.ids.get('workshop-network').hidden, false);
   await fresh.data('view', 'campaign');
   assert.match(fresh.ids.get('campaign-debrief').innerHTML, /MI03 \/ RAPPORT/);
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 4 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 5 RAPPORTS CLASSÉS');
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
   for (const id of ['MI01', 'MI02', 'MI03']) assert.match(fresh.ids.get('archive-content').innerHTML, new RegExp(`CAMPAGNE / ${id}`));
   await fresh.data('view', 'campaign'); await fresh.data('chapter', 'MI03'); await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
@@ -383,12 +384,12 @@ for (const choice of ['obey', 'defy']) await check(`MI04 ${choice} records the t
   assert.equal(fresh.ids.get('workshop-industrial').hidden, false);
   assert.match(fresh.ids.get('workshop-condition').textContent, /radiateur/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 4 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 5 RAPPORTS CLASSÉS');
   assert.equal(fresh.ids.get('campaign-transition').hidden, false);
   assert.match(fresh.ids.get('campaign-transition-text').textContent, /Nacre/);
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
   for (const id of ['MI01', 'MI02', 'MI03', 'MI04']) assert.match(fresh.ids.get('archive-content').innerHTML, new RegExp(`CAMPAGNE / ${id}`));
-  await fresh.data('view', 'campaign'); await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
+  await fresh.data('view', 'campaign'); await fresh.data('chapter', 'MI04'); await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
   assert.equal(fresh.snapshot().campaignReplay, true);
   assert.deepEqual(fresh.snapshot().campaign.completed, completed.completed);
   assert.equal(fresh.snapshot().campaign.resources.parts, completed.resources.parts);
@@ -412,7 +413,7 @@ await check('MI04 lost-journal UI keeps a neutral decision and records a loss wi
   assert.match(h.ids.get('result-stats').innerHTML, /journal technique est perdu/);
   assert.doesNotMatch(h.ids.get('result-stats').innerHTML, /COPIE CONSERVÉE|copie du journal PT01 reste conservée/);
   await h.click('result-menu');
-  assert.match(h.ids.get('campaign-transition-text').textContent, /Une autre source technique/);
+  assert.match(h.ids.get('campaign-transition-text').textContent, /autre source technique/);
   assert.match(h.ids.get('campaign-debrief').innerHTML, /Constat technique joint/);
 });
 
@@ -486,6 +487,103 @@ await check('an asynchronous import returns an active mission to the menu safely
   assert.equal(h.snapshot().inGame, false); await h.click('campaign-confirm-import');
   assert.equal(h.snapshot().game, null); assert.equal(h.ids.get('menu').hidden, false); assert.equal(h.ids.get('game-screen').hidden, true);
   assert.equal(h.snapshot().campaign.stage, 'hangar');
+});
+
+const v4Dossier = JSON.parse(readFileSync(resolve(root, 'tests/fixtures/campaign-v4-mi04.json'), 'utf8'));
+
+await check('importing a genuine v4 Vesper dossier unlocks Nacre in the delivered interface', async () => {
+  const h = harness(), raw = JSON.stringify(v4Dossier.completed);
+  h.ids.get('campaign-file').files = [{ size: raw.length, text: async () => raw }];
+  await h.ids.get('campaign-file').dispatch('change');
+  assert.equal(h.ids.get('campaign-import-dialog').open, true);
+  assert.match(h.ids.get('campaign-import-summary').textContent, /MI04/);
+  await h.click('campaign-confirm-import');
+  assert.equal(h.ids.get('campaign-order-title').textContent, 'Le prix du passage');
+  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 5 RAPPORTS CLASSÉS');
+  assert.deepEqual(h.snapshot().campaign.completed, v4Dossier.completed.completed);
+  await h.click('campaign-deploy');
+  assert.match(h.ids.get('briefing-description').textContent, /journal de Vesper/);
+  await h.click('launch'); h.frames(2);
+  assert.equal(h.snapshot().game.missionId, 'MI05');
+  assert.equal(h.ids.get('tide-instrument').hidden, false);
+  assert.equal(h.ids.get('tide-phase').textContent, 'BASSE MER');
+  assert.match(h.ids.get('convoy-status').textContent, /CÂBLES LIBÉRÉS/);
+});
+
+await check('Nacre tide and bridge work freeze on pause and restore through the delivered save wiring', async () => {
+  const initial = parseCampaign(JSON.stringify(v4Dossier.completed));
+  const start = beginCampaignMission(initial, { missionId: 'MI05', walkerId: 'WK09', seed: 1847 });
+  pilotMI05(start.game, { stopAt: s => s.channel.banks[0].working && s.channel.banks[0].progress > 0.35 });
+  const dossier = checkpointCampaign(start.campaign, start.game);
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(dossier)]]));
+  await h.click('campaign-resume'); await h.click('pause-button');
+  const paused = h.snapshot().game;
+  h.frames(180); assert.deepEqual(h.snapshot().game, paused);
+  const fresh = harness(h.values); await fresh.click('campaign-resume');
+  assert.deepEqual(fresh.snapshot().game, paused);
+  fresh.frames(180);
+  assert.equal(fresh.snapshot().game.channel.banks[0].bridgeRaised, true);
+  assert.equal(fresh.ids.get('tide-instrument').hidden, false);
+  assert.match(fresh.ids.get('tide-window').textContent, /CHANGEMENT DANS/);
+  await fresh.click('pause-button'); await fresh.click('to-menu');
+  await fresh.data('view', 'operations'); await fresh.click('deploy'); await fresh.click('launch'); fresh.frames(2);
+  assert.equal(fresh.ids.get('tide-instrument').hidden, true);
+  assert.equal(fresh.snapshot().campaign.activeMissionId, 'MI05');
+});
+
+for (const choice of ['obey', 'defy']) await check(`MI05 ${choice} debrief, archives, workshop fuel and replay keep the first report`, async () => {
+  const initial = parseCampaign(JSON.stringify(v4Dossier.completed));
+  const start = beginCampaignMission(initial, { missionId: 'MI05', walkerId: 'WK01', seed: 1847 });
+  pilotMI05(start.game, { stopAt: s => s.decision.active });
+  const dossier = checkpointCampaign(start.campaign, start.game, { beforeDecision: true });
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(dossier)]]));
+  await h.click('campaign-resume'); h.frames(2);
+  assert.equal(h.ids.get('decision-dialog').open, true);
+  assert.match(h.ids.get('decision-body').textContent, /Saisie|Rive-Courte/);
+  await h.data('choice', choice);
+  const fresh = harness(h.values); await fresh.click('campaign-resume');
+  assert.equal(fresh.snapshot().game.decision.choice, choice);
+  await fresh.key('KeyD');
+  for (let frame = 0; frame < 1200 && fresh.snapshot().game.status === 'playing'; frame++) fresh.frames(1);
+  await fresh.key('KeyD', false);
+  assert.equal(fresh.snapshot().game.status, 'won');
+  const completed = fresh.snapshot().campaign;
+  assert.equal(completed.completed.MI05.refugeesPassed, 12);
+  assert.equal(completed.completed.MI05.reportFiled, choice === 'defy');
+  assert.equal(completed.resources.fuel, 2);
+  assert.match(fresh.ids.get('result-stats').innerHTML, /PASSAGERS AU QUAI/);
+  assert.doesNotMatch(fresh.ids.get('result-stats').innerHTML, /FILTRES LIVRÉS|JOURNAL PT01/);
+  await fresh.click('next-operation');
+  assert.equal(fresh.ids.get('workshop-nacre').hidden, false);
+  assert.equal(fresh.ids.get('workshop-fuel').textContent, '2 LOTS DE CARBURANT EN RÉSERVE');
+  await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
+  assert.match(fresh.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI05/);
+  assert.match(fresh.ids.get('archive-content').innerHTML, /Vann Ostre/);
+  await fresh.data('view', 'campaign');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 5 RAPPORTS CLASSÉS');
+  await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
+  assert.equal(fresh.snapshot().campaignReplay, true);
+  assert.deepEqual(fresh.snapshot().campaign.completed, completed.completed);
+  assert.deepEqual(fresh.snapshot().campaign.resources, completed.resources);
+});
+
+await check('the UI records a lost civil boat and skipped fuel without granting either arrival or stock', async () => {
+  const start = beginCampaignMission(parseCampaign(JSON.stringify(v4Dossier.completed)), { missionId: 'MI05', walkerId: 'WK05', seed: 1847 });
+  pilotMI05(start.game, { destroyBoat: true, skipFuel: true, stopAt: s => s.decision.active });
+  assert.equal(start.game.channel.boat.destroyed, true);
+  const dossier = checkpointCampaign(start.campaign, start.game, { beforeDecision: true });
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(dossier)]]));
+  await h.click('campaign-resume'); h.frames(2); await h.data('choice', 'defy');
+  await h.key('KeyD');
+  for (let frame = 0; frame < 1200 && h.snapshot().game.status === 'playing'; frame++) h.frames(1);
+  await h.key('KeyD', false);
+  assert.equal(h.snapshot().game.status, 'won');
+  assert.equal(h.snapshot().campaign.completed.MI05.refugeesPassed, 0);
+  assert.equal(h.snapshot().campaign.completed.MI05.refugeesLost, 12);
+  assert.equal(h.snapshot().campaign.resources.fuel, 0);
+  assert.match(h.ids.get('result-stats').innerHTML, /0 passagers au quai ; 12 perdus/);
+  await h.click('next-operation');
+  assert.equal(h.ids.get('workshop-fuel').textContent, '0 LOT DE CARBURANT EN RÉSERVE');
 });
 
 console.log(`UI STATE INTEGRATION PASSED: ${checks} flows against the actual offline application script in a modeled DOM.`);

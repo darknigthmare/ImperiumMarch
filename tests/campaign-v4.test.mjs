@@ -34,6 +34,7 @@ function removeV4Fields(value) {
   const old = clone(value);
   old.version = 3;
   delete old.world.vesper.industrial;
+  delete old.world.nacre; delete old.resources.fuel;
   for (const condition of Object.values(old.fleet)) delete condition.radiator;
   for (const checkpoint of [old.checkpoint, old.preDecisionCheckpoint]) if (checkpoint) delete checkpoint.player.radiator;
   return old;
@@ -223,7 +224,7 @@ test('six chassis and both MI04 decisions complete Vesper with four immutable re
     assert.equal(result.applied, true);
     const saved = parseCampaign(serializeCampaign(result.campaign)), receipt = saved.completed.MI04;
     assert.equal(saved.resources.parts, 22);
-    assert.equal(saved.stage, 'complete'); assert.equal(nextCampaignMissionId(saved), null);
+    assert.equal(saved.stage, 'complete'); assert.equal(nextCampaignMissionId(saved), 'MI05');
     assert.deepEqual(Object.fromEntries(['MI01', 'MI02', 'MI03'].map(id => [id, saved.completed[id]])), previous);
     assert.deepEqual(saved.lastDebrief, receipt);
     assert.equal(receipt.turbinesCooled, 2); assert.equal(receipt.coolantRestored, true);
@@ -293,7 +294,7 @@ test('a post destroyed by real fire before copying yields a completed mission wi
   assert.equal(receipt.technicalEvidence, false); assert.equal(receipt.evidenceSource, 'none');
   assert.equal(receipt.alternativeSourceNeeded, true); assert.equal(receipt.maintenanceIntact, false);
   assert.equal(receipt.reportFiled, true); assert.equal(receipt.witnessContacted, true);
-  assert.equal(saved.resources.parts, 22); assert.equal(nextCampaignMissionId(saved), null);
+  assert.equal(saved.resources.parts, 22); assert.equal(nextCampaignMissionId(saved), 'MI05');
   assert.match(receipt.tessLine, /autre source technique/);
   assert.equal(saved.world.vesper.industrial.logRecovered, false);
 });

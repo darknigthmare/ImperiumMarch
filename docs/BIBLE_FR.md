@@ -2,7 +2,7 @@
 
 ## Chaque pas laisse une trace.
 
-**Nom de code :** ImperiumMarch · **Version de conception :** 0.5.0 · **Date :** 11 novembre 2026
+**Nom de code :** ImperiumMarch · **Version de conception :** 0.6.0 · **Date :** 11 novembre 2026
 
 **ORDRE DE CENDRE** est un jeu d’action tactique en 2D dans lequel le joueur pilote les machines d’occupation de l’Empire d’Orthe. D’abord chargé de « pacifier » ses mondes périphériques, il découvre que les catastrophes justifiant ces interventions sont en partie organisées par ceux qui prétendent les réparer. Sa machine ne change pas soudainement de nature lorsqu’il refuse un ordre : elle reste lourde, dangereuse et dépendante de pièces fabriquées par l’Empire. Il doit apprendre à s’en servir pour autre chose que contraindre.
 
@@ -10,7 +10,7 @@ La signature du jeu est le rapport entre **appui, puissance et responsabilité**
 
 La qualité AAA est une **ambition de direction et de finition**. Cette version constitue une fondation de production, avec un prototype jouable et une bible étendue. Elle ne représente pas une campagne finale ni un jeu commercial terminé. La source structurée est [data/bible.json](../data/bible.json). L’onglet **Prototype** du classeur décrit précisément les éléments présents et leurs limites; les autres onglets comprennent aussi les règles prévues pour la suite.
 
-**Portée exécutée en 0.5 :** MI01, « Le couloir quarante-deux », MI02, « La dette sous la poussière », MI03, « Une fenêtre encore allumée », et MI04, « Ce qui reste dans les filtres », constituent un premier arc jouable de Vesper. La conduite, les ouvriers sauvés et le canal du dispensaire modifient des actions de MI04. Son poste de maintenance peut fournir la première anomalie technique PT01; sa perte reste une issue de mission possible. Six châssis, leurs réserves finies et un premier radiateur réparable sont disponibles. Les 28 autres missions principales restent conçues. La [production 0.5](PRODUCTION_V05.md) définit cette portée et la [QA 0.5](QA_V05.md) ses contrôles. Le [concept complet](CONCEPT_COMPLET_V04.md) présente l’ensemble du jeu, tandis que [Vesper et ses conséquences](VESPER_CONSEQUENCES_V05.md) précise les retours, la preuve et les critères de la suite.
+**Portée exécutée en 0.6 :** MI01, « Le couloir quarante-deux », MI02, « La dette sous la poussière », MI03, « Une fenêtre encore allumée », et MI04, « Ce qui reste dans les filtres », constituent le premier arc jouable de Vesper. MI05, « Le prix du passage », ouvre Nacre avec une marée simulée, deux passerelles, deux treuils, deux barges inspectables, douze réfugiés et un dépôt de carburant facultatif. La conduite, les ouvriers sauvés et le canal du dispensaire modifient des actions de MI04. Son poste de maintenance peut fournir la première anomalie technique PT01 ; sa perte reste une issue possible et ne bloque pas MI05. Six châssis, leurs réserves finies et un radiateur réparable sont disponibles. Les 27 autres missions principales restent conçues. La [production 0.6](PRODUCTION_V06.md) définit cette portée et la [QA 0.6](QA_V06.md) ses contrôles. Le [concept complet](CONCEPT_COMPLET_V04.md) présente l'ensemble du jeu, tandis que [Vesper](VESPER_CONSEQUENCES_V05.md) et [Nacre](NACRE_CONSEQUENCES_V06.md) précisent les conséquences et la suite.
 
 ## 1. Le contrat avec le joueur
 

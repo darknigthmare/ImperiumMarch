@@ -1,8 +1,8 @@
 # ORDRE DE CENDRE — Campagne et continuité
 
-**Version de conception 0.5.0 · 11 novembre 2026**
+**Version de conception 0.6.0 · 11 novembre 2026**
 
-Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI04 sont jouables au stade prototype, avec progression, dossier et reprise. Les missions MI05–MI32 restent conçues. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées et le passage vers Nacre encore à produire.
+Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI05 sont jouables au stade prototype, avec progression, dossier et reprise. Les missions MI06–MI32 restent conçues. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre](NACRE_CONSEQUENCES_V06.md) précise MI05 jouable et la production encore ouverte de MI06–MI08.
 
 La campagne suit Sera Vey depuis ses premières opérations d’occupation jusqu’à une confrontation avec l’autorité qui les ordonnait. La défection est l’axe du récit. Les décisions déterminent qui part avec elle, ce qu’elle peut prouver, ce qu’elle laisse derrière elle et la forme du pouvoir après la bataille.
 
@@ -119,51 +119,53 @@ Après les turbines, le poste de maintenance peut être inspecté en 2,4 seconde
 
 #### MI05 — Le prix du passage
 
-**Lieu :** Nacre (PL02) · **État :** Conçu
+**Lieu :** Nacre (PL02) · **État :** Prototype
 
-**Ordre reçu.** Lever un blocus pirate sur un chenal d’approvisionnement.
+**Ordre reçu.** Lever le blocus du chenal d’approvisionnement.
 
-**Déroulement jouable.** Marcher sur bancs émergents, viser les treuils des barges et protéger les bateaux qui traversent.
+**Déroulement jouable.** Lire la marée, traverser deux bancs ou poser leurs passerelles. Neutraliser les deux treuils indépendamment des barges, inspecter Saisie et Rive-Courte, puis protéger le bateau de douze passagers jusqu’au dock. Une réserve de deux lots de carburant se collecte séparément.
 
-**Ce que la mission révèle.** Le capitaine adverse vend réellement des réfugiés; un autre équipage des Brisants les fait sortir en secret.
+**Ce que la mission révèle.** La facture de Saisie documente une vente locale de personnes si elle a été lue. Le contact avec Vann Ostre sur Rive-Courte montre un autre usage du pavillon des Brisants. Vann reste un navigateur intéressé, sans alliance globale ni absolution. Un support détruit avant inspection ne révèle pas son contenu.
 
-**Ce qui reste après la mission.** Relation distincte avec capitaines; passage civil plus sûr et carburant disponible.
+**Ce qui reste après la mission.** Bilan des passagers et des quatre membres de Rive-Courte, état du chenal, facture copiée, contact effectué, compte rendu et carburant effectivement collecté. La réserve est conservée; son usage dans MI06 reste à produire.
+
+**Portée jouable de la 0.6.** Marée simulée, pénalités d’appui, passerelles de quatre secondes, treuils par interaction ou tir, inspections de trois secondes, déplacement réel du bateau et deux décisions de rapport. MI05 est accessible après MI04 avec ou sans PT01. Les pertes produisent un constat final sans secours inventé. Le [contrat MI05](CAMPAIGN_MISSION_05.md) distingue cette tranche des capacités finales du biome.
 
 #### MI06 — Les maisons sous la ligne
 
-**Lieu :** Nacre (PL02) · **État :** Conçu
+**Lieu :** Nacre (PL02), digue des Trois-Vannes · **État :** Conçu
 
-**Ordre reçu.** Tenir une digue pendant la reprise des pompes d’Orison.
+**Ordre reçu.** Tenir la digue pendant la remise en pression des pompes d’Orison.
 
-**Déroulement jouable.** Ancrer la machine pour soutenir un panneau, repousser patins armés et escorter des techniciens jusqu’aux vannes.
+**Déroulement à produire.** Lire les seuils aux maisons, soutenir un panneau par ancrage réel et couvrir deux techniciens jusqu’aux vannes. Un technicien verrouille le panneau avant le départ du marcheur. Le réglage officiel assèche un quai privé en faisant monter l’eau derrière les logements. Une dérivation locale maintient les maisons au prix d’un chantier plus long. Une vanne manuelle garde une solution minimale.
 
-**Ce que la mission révèle.** Le nouveau seuil d’eau sacrifie un quartier dont les habitants n’ont pas de titre de propriété reconnu.
+**Ce que la mission révèle.** Le nouveau seuil sacrifie un quartier dont les habitants ne disposent pas de titre reconnu. Mara montre les personnes encore présentes et les marques sur leurs murs. Elle peut accepter une évacuation sans considérer que la perte du quartier a été réparée.
 
-**Ce qui reste après la mission.** Population déplacée, dégâts de digue et confiance de Mara modifient les étapes suivantes.
+**Ce qui reste après la mission.** Personnes sorties, pertes, logements inhabitables, fatigue de digue, pompes et carburant consommé ont des états distincts. La réserve de MI05 pourra alimenter une pompe auxiliaire; l’absence de réserve ne devra pas rendre la mission impossible. Les parcours avec technicien perdu et panneau abîmé doivent exister avant validation.
 
 #### MI07 — Une ambulance sans escorte
 
-**Lieu :** Nacre (PL02) · **État :** Conçu
+**Lieu :** Nacre (PL02), chaussée des Salines · **État :** Conçu
 
-**Ordre reçu.** Intercepter un transport signalé comme dépôt mobile de munitions.
+**Ordre reçu.** Intercepter un transport désigné comme dépôt mobile de munitions.
 
-**Déroulement jouable.** Rattraper le véhicule sans le percuter, le scanner et affronter les drones venus effacer son contenu.
+**Déroulement à produire.** Rejoindre l’ambulance, dégager une aire d’arrêt, obtenir l’accord à l’examen et inspecter la caisse ainsi que le boîtier ajouté sous le châssis. Protéger le démontage de la balise et le transfert sanitaire contre des drones de saisie. Une voie secondaire au dock doit rester possible si un accès a été perdu à MI06.
 
-**Ce que la mission révèle.** La signature hostile provient d’une balise impériale ajoutée au véhicule sanitaire.
+**Ce que la mission révèle.** La signature hostile provient d’une balise impériale ajoutée au transport. Sa récupération et ses attaches donnent une provenance locale à vérifier. La pièce seule ne révèle ni l’auteur de sa pose ni les décideurs de PALINODE.
 
-**Ce qui reste après la mission.** Témoins et balise authentifiée conservés si le véhicule atteint le dock.
+**Ce qui reste après la mission.** Patient arrivé, personnel vivant, véhicule, balise, provenance et consentement à témoigner sont distincts. Une destruction impose un constat sans données recréées. Le relevé ne remplace pas fictivement le journal PT01 perdu sur Vesper.
 
 #### MI08 — La marée compte les absents
 
-**Lieu :** Nacre (PL02) · **État :** Conçu
+**Lieu :** Nacre (PL02), portes d’Aval · **État :** Conçu
 
 **Ordre reçu.** Fermer les accès de l’archipel pour une opération de contrôle.
 
-**Déroulement jouable.** Tenir deux portes de digue sous pression tout en laissant des convois quitter la zone.
+**Déroulement à produire.** Gérer deux portes aux fonctions différentes, lire la pression et préparer les départs des bateaux disponibles. Annoncer refuge, places et horaires avant de choisir fermeture immédiate, fenêtre retardée ou maintien d’un accès. Les départs déjà réalisés restent acquis.
 
-**Ce que la mission révèle.** Les listes de relogement sont des contrats de travail forcé; Sera peut couvrir le départ de Mara.
+**Ce que la mission révèle.** Les registres de relogement consultés imposent des contrats forcés. Sera peut couvrir le départ de Mara et des familles présentes. L’ordre, son exécution et le rapport à Holt restent trois actes distincts.
 
-**Ce qui reste après la mission.** Première désobéissance matérielle possible; refuge ouvert ou familles dispersées.
+**Ce qui reste après la mission.** Personnes arrivées, restées ou perdues, maisons, pompes, portes, refuge et documents alimentent des suites séparées. La désobéissance locale de Nacre ne remplace pas la défection opérationnelle prévue à MI16. Le [contrat de Nacre](NACRE_CONSEQUENCES_V06.md) détaille scènes, héritages, interruptions et limites de ces trois missions encore conçues.
 
 ### Acte II — Le coût du silence
 

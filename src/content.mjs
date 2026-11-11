@@ -199,6 +199,29 @@ export const CAMPAIGN_MISSIONS = [
     },
     intro: 'VESPER // STATION DES FILTRES · 05:42',
   },
+  {
+    id: 'MI05', number: '05', campaign: true, act: 'I — Le poids de l’ordre',
+    name: 'Le prix du passage', planetId: 'PL02', planet: 'Nacre',
+    biome: 'CHENAL DES DEUX RIVES', length: 4950, difficulty: 'OUVERTURE DU CHENAL', duration: '5–8 min',
+    faction: 'Brisants · équipages distincts', accent: '#87cecb', sky: ['#142d3c', '#497e87', '#c5d8cd'],
+    description: 'Deux câbles ferment le chenal. Détachez leurs treuils, identifiez les deux barges et couvrez le passage de douze réfugiés. Sur les bancs, la marée commande les appuis ; les passerelles du génie offrent une traversée permanente.',
+    briefing: '« Deux barrages sur le chenal d’approvisionnement. Ouvrez le passage et relevez les équipages présents. » — Major Holt',
+    hint: 'E près des commandes avant chaque banc déploie une passerelle (4 s). À marée haute, les appuis nus s’enfoncent et s’abîment. E détend chaque treuil (2,5 s), ou visez sa tête sans tirer sur les barges. Inspectez les deux équipages (3 s). Le bateau attend un chenal libre et assez d’eau. Le dépôt du dock donne deux lots de carburant après 3 s, si préservé.',
+    type: 'channel', evidenceX: 4520, extractionX: 4710, decisionX: 4520,
+    evidenceLabel: 'RELEVÉ DU CHENAL', civilianPositions: [], supplyPositions: [1370, 2250, 3920],
+    enemyPlan: [[650, 'rifle'], [1460, 'rocket'], [2360, 'drone'], [3020, 'rifle'], [3980, 'buggy']],
+    channel: { interactionRadius: 175, bridgeTime: 4, winchTime: 2.5, inspectTime: 3, fuelTime: 3,
+      banks: [{ id: 'bank-west', from: 980, to: 1280, stationX: 780 }, { id: 'bank-east', from: 2660, to: 2960, stationX: 2460 }],
+      winchXs: [1730, 3530],
+      barges: [{ id: 'barge-seizure', kind: 'trafficker', name: 'Saisie', x: 2010, civilians: 0 },
+        { id: 'barge-shortbank', kind: 'smuggler', name: 'Rive-Courte', x: 3280, civilians: 4 }],
+      boatStartX: 1480, boatDockX: 4100, boatSpeed: 92, passengers: 12, fuelX: 4280 },
+    decision: { title: 'Deux pavillons, deux équipages',
+      body: 'Le relevé doit distinguer ce qui a été vu sur chaque barge, les personnes effectivement passées et les pertes. Un pavillon ne suffit pas à prouver les actes de tout un équipage.',
+      obey: 'Remettre le relevé sous scellés', defy: 'Joindre les faits propres à chaque équipage' },
+    intro: 'NACRE // CHENAL DES DEUX RIVES · 07:20',
+  },
+
 ];
 
 export const ALL_MISSIONS = [...MISSIONS, ...CAMPAIGN_MISSIONS];

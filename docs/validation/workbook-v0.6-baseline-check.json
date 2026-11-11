@@ -1,0 +1,32 @@
+{
+  "version": "0.6.0",
+  "scope": "Standalone source snapshot without a Git repository; workbook XML checks and exact-provenance frozen ID baseline selection. Authentic v0.5 fixture hashes also compared with available historical Git source.",
+  "checks": [
+    {
+      "requestedRevision": "d7d76b6",
+      "source": "frozen-fixture",
+      "historicalIdsPreserved": 581,
+      "sourceCellsCompared": 4409,
+      "passed": true
+    },
+    {
+      "requestedRevision": "c81a360",
+      "source": "frozen-fixture",
+      "historicalIdsPreserved": 526,
+      "sourceCellsCompared": 4409,
+      "passed": true
+    },
+    {
+      "requestedRevision": "abcdef0",
+      "passed": true,
+      "result": "Unsupported absent revision rejected; no unrelated fallback used."
+    }
+  ],
+  "v05Fixture": {
+    "revision": "d7d76b61ee9e97e27c611e06905f32f70633cb8e",
+    "blob": "9a998f47f6164a2914f184ccb647e5eed4ee936b",
+    "sha256": "7ab1eac561db3ca770e494f1f2c96a3c3b6f421a7d0f1f37477e7e95b495d15c",
+    "ids": 581
+  },
+  "passed": true
+}

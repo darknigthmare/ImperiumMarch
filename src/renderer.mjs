@@ -1,4 +1,4 @@
-import { terrainAt, radiatorBounds } from './simulation.mjs';
+import { terrainAt, radiatorBounds, channelSurfaceAt } from './simulation.mjs';
 import { WALKERS } from './content.mjs';
 
 const W = 1600, H = 900;
@@ -230,6 +230,7 @@ export class Renderer {
     c.translate(-this.cameraX, 0);
     this.drawTerrain(s, t);
     if (s.campaign) this.drawCampaignLandmarks(s, t);
+    if (s.channel) this.drawChannel(s, t);
     for (const r of s.relays) if (this.visible(r.x, 150)) this.drawRelay(r, s);
     if (!s.train && !s.industrial) this.drawEvidence(s, t);
     this.drawExtraction(s, t);
@@ -250,11 +251,109 @@ export class Renderer {
     if (s.train) this.drawTrainLabels(s);
     if (s.network) this.drawNetworkLabels(s);
     if (s.industrial) this.drawIndustrialLabels(s);
+    if (s.channel) this.drawChannelLabels(s);
     c.restore();
     this.drawAtmosphere(s, t);
     this.drawMarkers(s);
+    if (s.channel && options.tideInstrument !== false) this.drawChannelTide(s);
     if (options.pointer?.visible) this.drawReticle(options.pointer, s);
     if (s.interaction) this.drawInteraction(s);
+  }
+
+  drawChannel(s, t) {
+    const c = this.ctx, site = s.channel;
+    // Shore works, support points and vulnerable hulls use the simulation coordinates.
+    for (const bank of site.banks) {
+      if (!this.visible((bank.from + bank.to) / 2, bank.to - bank.from)) continue;
+      const ground = terrainAt((bank.from + bank.to) / 2, s.planetId), surface = channelSurfaceAt(s, (bank.from + bank.to) / 2);
+      c.fillStyle = surface.submerged ? '#337480dd' : '#8f9d85';
+      c.fillRect(bank.from, surface.submerged ? site.tide.waterY : ground - 2, bank.to - bank.from, 36);
+      for (let x = bank.from + 10; x < bank.to; x += 31) {
+        line(c, x, ground + 9, x + 15, ground + 5, surface.submerged ? '#a7d9d399' : '#546d63', 2);
+        if (bank.bridgeRaised) {
+          const supportY = terrainAt(x, s.planetId);
+          line(c, x, supportY + 36, x, supportY - 3, '#28494b', 8);
+          line(c, x - 13, terrainAt(x - 13, s.planetId) - 3, x + 14, terrainAt(x + 14, s.planetId) - 3, '#d1ceaa', 8);
+          line(c, x - 10, terrainAt(x - 10, s.planetId) - 7, x + 10, terrainAt(x + 10, s.planetId) - 7, '#f1dfb2', 2);
+        }
+      }
+      const sx = bank.stationX, sy = terrainAt(sx, s.planetId);
+      c.fillStyle = '#263d43'; c.fillRect(sx - 20, sy - 57, 40, 55);
+      c.strokeStyle = bank.bridgeRaised ? '#a9d6bf' : '#e1c485'; c.strokeRect(sx - 20, sy - 57, 40, 55);
+      circle(c, sx, sy - 40, 8, bank.bridgeRaised ? '#87cbb8' : '#e1b772');
+      if (bank.working) { c.fillStyle = '#a9d6bf'; c.fillRect(sx - 20, sy - 66, 40 * bank.progress, 4); }
+    }
+    for (let index = 0; index < site.winches.length; index++) {
+      const w = site.winches[index], b = site.barges[index];
+      if (!w.released) { line(c, w.x, w.y + 3, b.x, b.y - 15, '#172e36', 5); line(c, w.x, w.y, b.x, b.y - 18, '#ceb878', 2); }
+      const g = terrainAt(w.x, s.planetId);
+      line(c, w.x - 16, g, w.x - 11, w.y + 20, '#3a5e63', 10); line(c, w.x + 16, g, w.x + 11, w.y + 20, '#3a5e63', 10);
+      c.fillStyle = w.destroyed ? '#283d42' : '#5a7974'; c.fillRect(w.x - w.w / 2, w.y - w.h / 2, w.w, w.h);
+      c.strokeStyle = w.released ? '#83cbb9' : '#e4bd7e'; c.lineWidth = 2; c.strokeRect(w.x - w.w / 2, w.y - w.h / 2, w.w, w.h);
+      circle(c, w.x, w.y, 13, '#233f45', w.released ? '#83cbb9' : '#e4bd7e', 2);
+      line(c, w.x - 8, w.y, w.x + 8, w.y, '#d2c49d', 3);
+      if (w.flash) { c.fillStyle = '#ffe4ad88'; c.fillRect(w.x - w.w / 2, w.y - w.h / 2, w.w, w.h); }
+    }
+    for (const b of [...site.barges, site.boat]) {
+      if (!this.visible(b.x, 210)) continue;
+      const left = b.x - b.w / 2, top = b.y - b.h / 2;
+      const boat = b === site.boat, base = b.destroyed ? '#293f44' : boat ? '#789a86' : b.kind === 'smuggler' ? '#547f7a' : '#7c8071';
+      poly(c, [[left, b.y + b.h * .06], [left + b.w, b.y + b.h * .06], [left + b.w - 18, b.y + b.h / 2], [left + 18, b.y + b.h / 2]], base, '#172f37', 3);
+      c.fillStyle = b.destroyed ? '#314448' : base; c.fillRect(left + 19, top + 5, b.w - 38, b.h * .48);
+      line(c, left + 8, b.y, left + b.w - 8, b.y, b.destroyed ? '#6c6d5b' : '#cfcaab', 3);
+      for (let i = 0; i < (boat ? 6 : 4); i++) {
+        const wx = left + 26 + i * (b.w - 52) / (boat ? 6 : 4);
+        c.fillStyle = b.destroyed ? '#111e25' : '#192f3b'; c.fillRect(wx, top + 12, 10, 13);
+        if (!b.destroyed && !b.arrived && (boat || b.kind === 'smuggler')) circle(c, wx + 5, top + 15, 2.4, '#d5b993');
+      }
+      if (b.destroyed) { line(c, left + 17, top + 9, b.x + 30, b.y + 15, '#131f27', 7); line(c, b.x - 12, top, b.x + 24, b.y + 9, '#111f27', 5); }
+      else if (boat && b.moving) { for (let i = 0; i < 3; i++) line(c, left - 12 - i * 8, b.y + b.h / 2 + 4 + i * 5, left + 7 - i * 8, b.y + b.h / 2 + 4 + i * 5, '#b6e2d9bb', 2); }
+      if ('flash' in b && b.flash) { c.fillStyle = '#ffe1ad55'; c.fillRect(left, top, b.w, b.h); }
+      if (b.scanning) { c.fillStyle = '#9bd5bf'; c.fillRect(left, top - 8, b.w * b.scanProgress, 4); }
+    }
+    const fuel = site.fuel;
+    if (!fuel.collected) {
+      c.fillStyle = fuel.destroyed ? '#2d4043' : '#99865c'; c.fillRect(fuel.x - fuel.w / 2, fuel.y - fuel.h / 2, fuel.w, fuel.h);
+      c.strokeStyle = fuel.destroyed ? '#65766d' : '#d1c78d'; c.strokeRect(fuel.x - fuel.w / 2, fuel.y - fuel.h / 2, fuel.w, fuel.h);
+      for (let i = -1; i <= 1; i++) line(c, fuel.x + i * 18, fuel.y - 29, fuel.x + i * 18, fuel.y + 29, '#324a47', 3);
+      label(c, fuel.destroyed ? 'PERDU' : 'FUEL', fuel.x, fuel.y + 4, 11, '#e2ddc3', 'center');
+      if (fuel.working) { c.fillStyle = '#a4d5bc'; c.fillRect(fuel.x - fuel.w / 2, fuel.y - fuel.h / 2 - 9, fuel.w * fuel.progress, 4); }
+    }
+  }
+
+  drawChannelLabels(s) {
+    const c = this.ctx, site = s.channel;
+    for (const bank of site.banks) if (this.visible(bank.stationX, 200)) {
+      label(c, bank.bridgeRaised ? 'PASSERELLE VERROUILLÉE' : 'COMMANDE DU TABLIER', bank.stationX, terrainAt(bank.stationX, s.planetId) - 85, 10, bank.bridgeRaised ? '#acddc7' : '#e4c48a', 'center');
+      label(c, bank.bridgeRaised ? 'APPUIS PORTÉS' : site.tide.walkable ? 'ESTRAN · VASE' : 'BANC SUBMERGÉ', (bank.from + bank.to) / 2, terrainAt(bank.from, s.planetId) + 63, 11, '#d9dec1', 'center');
+    }
+    for (const w of site.winches) if (this.visible(w.x, 200)) label(c, w.released ? 'CÂBLE LIBÉRÉ' : 'TREUIL · CÂBLE TENDU', w.x, w.y - 39, 11, w.released ? '#acddc7' : '#e4c48a', 'center');
+    for (const b of site.barges) if (this.visible(b.x, 200)) {
+      const def = s.mission.channel.barges.find(item => item.id === b.id);
+      label(c, def.name.toUpperCase(), b.x, b.y - b.h / 2 - 30, 12, '#e0debe', 'center');
+      label(c, b.destroyed ? (b.inspected ? 'PERTES CONSTATÉES' : 'RUINES À VÉRIFIER') : b.inspected ? (b.kind === 'trafficker' ? 'FACTURE COPIÉE' : 'CONTACT ÉTABLI · 4 MEMBRES') : 'ÉQUIPAGE À VÉRIFIER', b.x, b.y - b.h / 2 - 15, 9, b.inspected ? '#a2d9c6' : '#d8c393', 'center');
+    }
+    const b = site.boat;
+    if (this.visible(b.x, 250)) {
+      label(c, b.arrived ? '12 PERSONNES AU DOCK' : b.destroyed ? 'BATEAU PERDU · 12 DÉCÈS' : 'BATEAU CIVIL · 12 PERSONNES', b.x, b.y - b.h / 2 - 34, 11, b.destroyed ? '#e6a286' : '#a6e0ce', 'center');
+      if (!b.arrived && !b.destroyed) {
+        label(c, b.moving ? 'PASSAGE EN COURS' : !s.campaign.channelOpen ? 'ATTENTE · CÂBLES TENDUS' : 'ATTENTE · EAU TROP BASSE', b.x, b.y - b.h / 2 - 19, 9, '#cddbc0', 'center');
+        c.fillStyle = '#263e43'; c.fillRect(b.x - 58, b.y + b.h / 2 + 12, 116, 4);
+        c.fillStyle = '#8dc9b5'; c.fillRect(b.x - 58, b.y + b.h / 2 + 12, 116 * b.hp / b.maxHp, 4);
+      }
+    }
+  }
+
+  drawChannelTide(s) {
+    const c = this.ctx, tide = s.channel.tide, x = 1230, y = 715;
+    c.fillStyle = '#102c36e8'; c.fillRect(x, y, 300, 83);
+    c.strokeStyle = '#6ca9ad88'; c.strokeRect(x, y, 300, 83);
+    const name = { low: 'BASSE MER', rising: 'MARÉE MONTANTE', high: 'PLEINE EAU', falling: 'MARÉE DESCENDANTE' }[tide.phase];
+    label(c, `${name} · ${Math.ceil(tide.secondsToChange)} s`, x + 14, y + 22, 12, '#c7e6dc');
+    c.fillStyle = '#213d47'; c.fillRect(x + 14, y + 35, 272, 5);
+    c.fillStyle = tide.walkable ? '#a8c6ab' : '#84ced0'; c.fillRect(x + 14, y + 35, 272 * tide.level, 5);
+    label(c, tide.walkable ? 'BANCS : VASE PRATICABLE' : 'BANCS : APPUIS EXPOSÉS À L’EAU', x + 14, y + 57, 9, tide.walkable ? '#b8d5bb' : '#e2be8b');
+    label(c, tide.navigable ? 'CHENAL : TIRANT D’EAU SUFFISANT' : 'BATEAU : ATTENDRE LA MARÉE', x + 14, y + 73, 9, '#a9cdce');
   }
 
   visible(x, margin = 100) { return x > this.cameraX - margin && x < this.cameraX + W + margin; }
@@ -606,6 +705,7 @@ export class Renderer {
   }
 
   drawCampaignLandmarks(s, t) {
+    if (s.channel) return;
     if (s.train) { this.drawRailHarpoons(s, t); return; }
     if (s.network) { this.drawNetworkStations(s, t); return; }
     if (s.industrial) { this.drawIndustrialStation(s, t); return; }
@@ -1160,6 +1260,11 @@ export class Renderer {
       const contact = s.industrial.contact;
       if (contact.available) circle(c, toX(contact.x), by, 3, contact.contacted ? '#a6d4ba' : '#e4c38d');
       circle(c, toX(s.industrial.pump.x), by, 3, s.industrial.pump.connected ? '#a6d4ba' : '#e4b27c');
+    }
+    if (s.channel) {
+      for (const bank of s.channel.banks) line(c, toX(bank.from), by + 6, toX(bank.to), by + 6, bank.bridgeRaised ? '#a9d6bf' : s.channel.tide.walkable ? '#ccb483' : '#85d2d2', 3);
+      for (const w of s.channel.winches) circle(c, toX(w.x), by, 3, w.released ? '#9fd5bd' : '#e3b476');
+      const boat = s.channel.boat; c.fillStyle = boat.destroyed ? '#d58c73' : '#9cd9ce'; c.fillRect(toX(boat.x) - 4, by - 4, 8, 7);
     }
     const px = toX(s.player.x); poly(c, [[px, by - 8], [px + 5, by - 15], [px - 5, by - 15]], '#e2c893');
     const exitX = toX(s.extraction.x); line(c, exitX, by - 7, exitX, by + 7, s.extraction.active ? '#c6dfb1' : '#657b73', 2);

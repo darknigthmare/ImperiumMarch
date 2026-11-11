@@ -19,3 +19,11 @@
 .chapter-list{grid-template-columns:repeat(2,minmax(0,1fr))}
 .campaign-transition{border-left:2px solid var(--cyan);background:#152123de;padding:23px 28px;margin:20px 0}.campaign-transition h3{font-weight:400;font-size:24px;margin:12px 0}.campaign-transition>p:last-child{max-width:850px;font-size:13px;line-height:1.85;color:#b9c5b8}
 @media(max-width:760px){.chapter-list{grid-template-columns:1fr}.campaign-transition{padding:20px}.campaign-transition h3{font-size:22px}}
+
+/* The fifth dossier introduces a second theatre without changing the menu map. */
+.chapter-card[data-chapter="MI05"]{border-top:2px solid #72b5b4}
+.nacre-chapter .campaign-dossier{border-color:#72b5b466;background:linear-gradient(145deg,#193336ed,#132224f0)}
+.nacre-chapter .dossier-index,.nacre-chapter #campaign-order-index{color:#9dcfca}
+.workshop-stocks{display:flex;flex-direction:column;gap:9px;align-items:flex-end}
+.workshop-fuel{font:9px/1.6 var(--mono);color:#94c9c4;letter-spacing:.6px}
+@media(max-width:760px){.workshop-stocks{align-items:flex-start}.workshop-fuel{font-size:8px}}

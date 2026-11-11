@@ -57,6 +57,7 @@ test('the real v0.2 checkpoint preserves old state and resumes public actions wi
   withoutNewFields.version = 1; delete withoutNewFields.world.vesper.rail;
   delete withoutNewFields.world.vesper.communications;
   delete withoutNewFields.world.vesper.industrial;
+  delete withoutNewFields.world.nacre; delete withoutNewFields.resources.fuel;
   for (const condition of Object.values(withoutNewFields.fleet)) delete condition.radiator;
   for (const id of Object.keys(withoutNewFields.fleet)) if (!Object.hasOwn(old.fleet, id)) delete withoutNewFields.fleet[id];
   for (const checkpoint of [withoutNewFields.checkpoint, withoutNewFields.preDecisionCheckpoint]) if (checkpoint) {

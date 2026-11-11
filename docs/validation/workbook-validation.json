@@ -1,23 +1,23 @@
 {
   "workbook": "ORDRE_DE_CENDRE_Bible.xlsx",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "sheets": 21,
-  "designRows": 581,
+  "designRows": 643,
   "statusCounts": {
-    "Conçu": 287,
-    "Prototype": 147,
-    "À produire": 103,
-    "Vérifié": 44
+    "Conçu": 291,
+    "Prototype": 176,
+    "À produire": 116,
+    "Vérifié": 60
   },
   "catalog": [
     {
       "name": "Vision",
-      "count": 22,
-      "lastRow": 28,
+      "count": 24,
+      "lastRow": 30,
       "lastColumn": "E",
       "statusIndex": 4,
       "sourceCounts": [
-        22,
+        24,
         0,
         0,
         0
@@ -25,13 +25,13 @@
     },
     {
       "name": "Systèmes",
-      "count": 52,
-      "lastRow": 58,
+      "count": 62,
+      "lastRow": 68,
       "lastColumn": "G",
       "statusIndex": 6,
       "sourceCounts": [
-        18,
-        34,
+        21,
+        41,
         0,
         0
       ]
@@ -82,8 +82,8 @@
       "lastColumn": "H",
       "statusIndex": 7,
       "sourceCounts": [
-        8,
-        0,
+        7,
+        1,
         0,
         0
       ]
@@ -108,8 +108,8 @@
       "lastColumn": "G",
       "statusIndex": 6,
       "sourceCounts": [
-        12,
-        2,
+        11,
+        3,
         0,
         0
       ]
@@ -121,8 +121,8 @@
       "lastColumn": "I",
       "statusIndex": 8,
       "sourceCounts": [
-        28,
-        4,
+        27,
+        5,
         0,
         0
       ]
@@ -194,54 +194,54 @@
     },
     {
       "name": "Narration",
-      "count": 44,
-      "lastRow": 50,
+      "count": 52,
+      "lastRow": 58,
       "lastColumn": "F",
       "statusIndex": 5,
       "sourceCounts": [
-        35,
-        9,
+        37,
+        15,
         0,
         0
       ]
     },
     {
       "name": "Assets",
-      "count": 43,
-      "lastRow": 49,
+      "count": 50,
+      "lastRow": 56,
       "lastColumn": "G",
       "statusIndex": 6,
       "sourceCounts": [
         0,
-        3,
-        40,
+        4,
+        46,
         0
       ]
     },
     {
       "name": "Production",
-      "count": 56,
-      "lastRow": 62,
+      "count": 66,
+      "lastRow": 72,
       "lastColumn": "G",
       "statusIndex": 6,
       "sourceCounts": [
         1,
-        28,
-        27,
+        32,
+        33,
         0
       ]
     },
     {
       "name": "QA",
-      "count": 78,
-      "lastRow": 84,
+      "count": 95,
+      "lastRow": 101,
       "lastColumn": "F",
       "statusIndex": 5,
       "sourceCounts": [
         0,
         0,
-        36,
-        42
+        37,
+        58
       ]
     },
     {
@@ -259,37 +259,39 @@
     },
     {
       "name": "Prototype",
-      "count": 54,
-      "lastRow": 60,
+      "count": 62,
+      "lastRow": 68,
       "lastColumn": "G",
       "statusIndex": 6,
       "sourceCounts": [
         0,
-        54,
+        62,
         0,
         0
       ]
     }
   ],
   "previews": [
-    "20-Prototype.png",
-    "v05-prototype-existing.png"
+    "00-Synthese.png",
+    "bible-v06-qa.png",
+    "bible-v06-qa-scope.png",
+    "bible-v06-systems-detail.png"
   ],
   "tests": [
     "Total des fiches réconcilié avec le JSON",
     "Statuts réconciliés avec le JSON",
     "Modification temporaire de statut et recalcul vérifiés, valeur restaurée"
   ],
-  "scope": "Bible de conception et suivi de production. MI01–MI04 constituent un premier arc jouable de Vesper, avec conséquences locales réellement consommées, anomalie technique PT01 et sauvegarde v4. Six châssis, munitions finies et radiateur réparable sont disponibles. Les 28 autres missions principales restent conçues. OP01–OP03 gardent leurs rapports indépendants. Consulter Prototype pour la portée implémentée.",
+  "scope": "Bible de conception et suivi de production. MI01–MI04 forment le premier arc jouable de Vesper. MI05 ouvre Nacre avec marée, passerelles, treuils séparés des barges, passage civil et carburant conservé. Six châssis, munitions finies, radiateur réparable et dossier v5 sont disponibles. Les 27 autres missions principales restent conçues, dont MI06–MI08 développées dans le contrat de Nacre. OP01–OP03 gardent leurs rapports indépendants. Consulter Prototype pour la portée implémentée.",
   "exportValidation": {
     "workbook": "ORDRE_DE_CENDRE_Bible.xlsx",
-    "version": "0.5.0",
-    "sha256": "c6b948033d4b4b8fe33652dfc85417babfaa43dd7b93eaa4fa816d5c21624541",
-    "sourceRecords": 581,
-    "sourceCellsCompared": 4004,
-    "historicalRevision": "c81a360",
-    "historicalIdsPreserved": 526,
-    "addedIds": 55,
+    "version": "0.6.0",
+    "sha256": "371ea3b81a2dbeeafd136fda8c98cd17386abf559d103cf433e2da599bfdf6a5",
+    "sourceRecords": 643,
+    "sourceCellsCompared": 4409,
+    "historicalRevision": "d7d76b6",
+    "historicalIdsPreserved": 581,
+    "addedIds": 62,
     "sheets": 21,
     "namedTables": 20,
     "calculatedFormulaCells": 126,
@@ -300,7 +302,5 @@
     "frozenDataSheets": 20,
     "engineScope": "Recalcul et test de modification de statut exécutés dans @oai/artifact-tool. Contrôle du fichier XLSX exporté par lecture XML; aucune exécution native dans Excel ni LibreOffice.",
     "visualScope": "Synthèse et vues des domaines ajoutés ou modifiés, avec aperçus des lignes nouvelles. Mise en page des autres tables conservée. Pas de validation navigateur ni de comportement natif Excel."
-  },
-  "visualReviewManifest": "docs/validation/workbook-v0.5-visual-review.json",
-  "reviewedPreviewCount": 11
+  }
 }

@@ -204,6 +204,34 @@ export function createGame(options = {}) {
       retreatTriggered: false, retreatEscaped: false,
     };
   }
+  if (mission.id === 'MI05') {
+    const previous = options.campaignContext || {}, settings = mission.channel;
+    const context = { technicalEvidence: previous.technicalEvidence === true,
+      railHostagesRescued: Number.isInteger(previous.railHostagesRescued) ? clamp(previous.railHostagesRescued, 0, 8) : 0,
+      railRecordFiled: previous.railRecordFiled === true };
+    state.campaign = { missionId: 'MI05', phase: 'approach', winchesReleased: 0, bargesInspected: 0,
+      traffickingVerified: false, smugglerVerified: false, refugeesTotal: settings.passengers,
+      refugeesPassed: 0, refugeesLost: 0, bargeCiviliansLost: 0, passageResolved: false,
+      channelOpen: false, fuelRecovered: false, fuelLots: 0, manifestRead: false, reportFiled: false,
+      context, tutorial: { stepped: false, braced: false } };
+    state.channel = {
+      tide: channelTideAt(0),
+      banks: settings.banks.map(bank => ({ ...bank, bridgeRaised: false, working: false, progress: 0 })),
+      winches: settings.winchXs.map((x, index) => ({ id: `channel-winch-${index + 1}`, x,
+        y: terrainAt(x, mission.planetId) - 120, w: 44, h: 44, hp: 90, maxHp: 90,
+        released: false, working: false, progress: 0, destroyed: false, flash: 0 })),
+      barges: settings.barges.map(def => ({ id: def.id, kind: def.kind, x: def.x,
+        y: terrainAt(def.x, mission.planetId) - 45, w: 172, h: 78, hp: 540, maxHp: 540,
+        destroyed: false, flash: 0, inspected: false, scanning: false, scanProgress: 0,
+        civilians: def.civilians, casualties: 0 })),
+      boat: { id: 'channel-refugee-boat', x: settings.boatStartX,
+        y: terrainAt(settings.boatStartX, mission.planetId) - 35, w: 134, h: 58,
+        hp: 420, maxHp: 420, speed: settings.boatSpeed, arrived: false, destroyed: false, moving: false,
+        passengers: settings.passengers },
+      fuel: { id: 'dock-fuel', x: settings.fuelX, y: terrainAt(settings.fuelX, mission.planetId) - 36,
+        w: 65, h: 72, hp: 240, maxHp: 240, destroyed: false, collected: false, working: false, progress: 0 },
+    };
+  }
   state.enemies = spawnEnemies(state);
   if (mission.id === 'MI03') {
     const observer = enemy(state, 'drone', 3200, state.enemies.length);
@@ -244,6 +272,11 @@ export function createGame(options = {}) {
       ? 'Sami : « Le dispensaire a gardé un canal. Tu pourras appeler sa permanence au terminal après les turbines ; personne n’a encore témoigné. »'
       : 'Sami : « Le canal du dispensaire ne permet pas de joindre un témoin. Nous relèverons seulement ce que la station permet de vérifier. »');
   }
+  if (mission.id === 'MI05') {
+    emit(state, 'radio', 'Tess : « Les bancs portent à marée basse. Avant chacun, la commande du génie déploie une passerelle. Tu peux attendre l’estran ou prendre ce temps pour ne plus dépendre de l’eau. »');
+    emit(state, 'radio', 'Sami : « Douze personnes attendent dans le bateau à l’ouest. Coupe les deux câbles ; ils partiront quand il y aura assez d’eau. Ne confonds pas les treuils et les coques. »');
+    if (state.campaign.context.technicalEvidence) emit(state, 'radio', 'Tess : « Le journal de Vesper est à l’abri. Ce chenal ne nous dira pas pourquoi cette pièce a été changée. Ici, on ouvre une route. »');
+  }
   return state;
 }
 
@@ -255,7 +288,7 @@ function step(s, group) {
   if ((p.x < 155 && direction < 0) || (p.x > s.mission.length - 155 && direction > 0)) return false;
   const feet = p.feet.filter(f => f.group === group);
   const integrity = feet.reduce((sum, f) => sum + f.health / 100, 0) / feet.length;
-  const stride = s.walker.stride * (0.65 + integrity * 0.35);
+  const stride = s.walker.stride * (0.65 + integrity * 0.35) * (s.channel ? channelSurfaceAt(s, p.x).traction : 1);
   for (const f of feet) {
     f.fromX = f.x; f.fromY = f.y;
     f.targetX = clamp(p.x + f.homeOffset + direction * stride, 110, s.mission.length - 110);
@@ -513,6 +546,7 @@ function interact(s) {
   if (s.missionId === 'MI02') return interactTrainMission(s);
   if (s.missionId === 'MI03') return interactNetworkMission(s);
   if (s.missionId === 'MI04') return interactIndustrialMission(s);
+  if (s.missionId === 'MI05') return interactChannelMission(s);
   const p = s.player;
   if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     if (!s.campaign.passageWorking) {
@@ -544,6 +578,15 @@ export function commandGame(s, action, payload) {
   if (action === 'choice') {
     if (!s.decision.active || s.decision.resolved || !['obey', 'defy'].includes(payload)) return false;
     s.decision.choice = payload; s.decision.resolved = true; s.decision.active = false;
+    if (s.missionId === 'MI05') {
+      s.campaign.reportFiled = payload === 'defy';
+      if (payload === 'obey') s.stats.ordersObeyed++; else s.stats.ordersDefied++;
+      refreshChannelFacts(s);
+      emit(s, 'radio', payload === 'defy'
+        ? 'Sami : « Chaque coque a sa ligne. Ce qu’on a relevé, ce qui manque, et les personnes arrivées. Le pavillon ne remplace pas les faits. »'
+        : 'Holt : « Relevé reçu sous scellés. Rejoignez le dock. » Les copies réellement obtenues restent dans le dossier de terrain.');
+      refreshObjectives(s); return true;
+    }
     if (s.missionId === 'MI04') {
       s.campaign.reportFiled = payload === 'defy';
       if (payload === 'obey') s.stats.ordersObeyed++;
@@ -728,7 +771,9 @@ function damagePlayer(s, damage, hitX, hitY, bypassArmor = false) {
   p.stability = clamp(p.stability - applied * 0.18, 0, 100);
   if (hitY > p.y + p.height / 2) {
     const nearest = p.feet.reduce((a, b) => Math.abs(a.x - hitX) < Math.abs(b.x - hitX) ? a : b);
-    nearest.health = Math.max(15, nearest.health - applied * 0.48);
+    // The historical combat floor must never heal an appui worn below it by water.
+    const combatFloor = Math.min(15, nearest.health);
+    nearest.health = Math.max(combatFloor, nearest.health - applied * 0.48);
   }
   particles(s, hitX, hitY, 'spark', 8);
   s.cameraShake = Math.max(s.cameraShake, Math.min(0.7, applied / 50));
@@ -804,7 +849,8 @@ function updateWalker(s, dt, input) {
   const anchor = p.feet.reduce((sum, f) => sum + f.x - f.homeOffset, 0) / p.feet.length;
   const lastX = p.x;
   p.anchorX = anchor;
-  p.x += clamp((anchor - p.x) * 6 * dt, -s.walker.speed * dt, s.walker.speed * dt);
+  const surfaceSpeed = s.channel ? channelSurfaceAt(s, p.x).traction : 1;
+  p.x += clamp((anchor - p.x) * 6 * dt, -s.walker.speed * surfaceSpeed * dt, s.walker.speed * surfaceSpeed * dt);
   p.x = clamp(p.x, 110, s.mission.length - 110);
   p.speed = (p.x - lastX) / Math.max(dt, 0.0001);
   p.groundY = terrainAt(p.x, s.planetId);
@@ -884,14 +930,16 @@ function updateEnemies(s, dt) {
     }
     const delta = Math.abs(e.x - p.x);
     if (s.missionId === 'MI01' && !s.notified.ambush) { e.active = false; e.phase = 'idle'; continue; }
-    e.active = delta < 1150 || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900);
+    e.active = delta < 1150 || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
+      || Boolean(s.channel && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < 900);
     if (!e.active) { e.phase = 'idle'; continue; }
     if (e.type === 'boss' && !s.bossReleased) { e.phase = 'guard'; continue; }
     if (e.type === 'boss' && s.decision.choice === 'obey') { e.active = false; e.phase = 'standdown'; e.telegraph = 0; continue; }
     e.facing = e.x > p.x ? -1 : 1;
     let target = p;
     if (s.convoy && Math.abs(e.x - s.convoy.x) < delta && e.kind !== 'air') target = s.convoy;
-    e.attackTarget = target === p ? 'player' : 'convoy';
+    if (s.channel?.boat && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < delta && e.kind !== 'air') target = s.channel.boat;
+    e.attackTarget = target === p ? 'player' : target === s.channel?.boat ? 'boat' : 'convoy';
     const td = Math.abs(e.x - target.x);
     if (e.phase === 'attack') {
       e.telegraph = Math.min(1, e.telegraph + dt / e.windup);
@@ -957,6 +1005,12 @@ function explosion(s, shot, direct = null) {
     if (d < radius + post.w / 2) hitMaintenancePost(s,
       shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1) * 0.55 * Math.max(0.25, 1 - d / (radius + post.w / 2)));
   }
+  if (s.channel) for (const part of [...s.channel.winches.filter(w => !w.released), ...s.channel.barges, s.channel.boat, s.channel.fuel]) {
+    if (part === direct || part.destroyed || part.arrived || part.collected) continue;
+    const d = dist(shot.x, shot.y, part.x, part.y);
+    if (d < radius + part.w / 2) hitChannelPart(s, part,
+      shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1) * .55 * Math.max(.25, 1 - d / (radius + part.w / 2)));
+  }
   if (shot.team === 'player') {
     for (const e of s.enemies) {
       if (e.dead || e === direct || !enemyPresent(s, e)) continue;
@@ -1000,6 +1054,9 @@ function updateProjectiles(s, dt) {
     if (s.train) for (const part of [s.train, ...s.train.wagons]) if (!part.destroyed) test(part, 'train');
     if (s.network) for (const station of s.network.stations) if (!station.destroyed) test(station, 'network');
     if (s.industrial && !s.industrial.post.destroyed) test(s.industrial.post, 'maintenance');
+    if (s.channel) for (const part of [...s.channel.winches.filter(w => !w.released), ...s.channel.barges, s.channel.boat, s.channel.fuel]) {
+      if (!part.destroyed && !part.arrived && !part.collected) test(part, 'channel');
+    }
     candidates.sort((a, b) => a.t - b.t);
     const hit = candidates[0];
     if (hit) {
@@ -1010,6 +1067,7 @@ function updateProjectiles(s, dt) {
       if (hit.kind === 'civilian') hitCivilian(s, hit.entity, shot.damage);
       if (hit.kind === 'player') damagePlayer(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'radiator') damageRadiator(s, shot.damage, shot.x, shot.y);
+      if (hit.kind === 'channel') hitChannelPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'maintenance') hitMaintenancePost(s, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'convoy') { s.convoy.hp = Math.max(0, s.convoy.hp - shot.damage * s.difficulty.damage); particles(s, shot.x, shot.y, 'spark', 7); }
       if (hit.kind === 'train') hitTrainPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
@@ -1291,6 +1349,176 @@ function industrialInteraction(s) {
   return c.coolantRestored ? 'Refroidir les deux turbines · protéger le poste de maintenance' : 'Rétablir le liquide à la pompe portative';
 }
 
+/** A deterministic 72-second tide; every warning and water surface reads this state. */
+export function channelTideAt(elapsed) {
+  const cycle = ((finite(elapsed) % 72) + 72) % 72;
+  let phase, level, secondsToChange;
+  if (cycle < 26) { phase = 'low'; level = .1; secondsToChange = 26 - cycle; }
+  else if (cycle < 36) { phase = 'rising'; level = .1 + (cycle - 26) * .09; secondsToChange = 36 - cycle; }
+  else if (cycle < 62) { phase = 'high'; level = 1; secondsToChange = 62 - cycle; }
+  else { phase = 'falling'; level = 1 - (cycle - 62) * .09; secondsToChange = 72 - cycle; }
+  return { phase, level, secondsToChange, waterY: 694 - level * 26,
+    walkable: level <= .45, navigable: level >= .5 };
+}
+
+/** Ground truth for both feet and renderer; six contacts spread load on the bare banks. */
+export function channelSurfaceAt(s, x) {
+  const bank = s.channel?.banks.find(item => x >= item.from && x <= item.to);
+  if (!bank || bank.bridgeRaised) return { kind: bank ? 'bridge' : 'quay', traction: 1, submerged: false };
+  const submerged = !s.channel.tide.walkable;
+  return { kind: submerged ? 'submerged' : 'mud', submerged,
+    traction: submerged ? s.walker.legs === 6 ? .66 : .46 : s.walker.legs === 6 ? .93 : .77 };
+}
+
+export function channelDecisionBody(s) {
+  const c = s.campaign;
+  const trafficking = c.traffickingVerified
+    ? 'La facture copiée sur Saisie atteste une vente de réfugiés par son capitaine. Elle n’attribue pas ce trafic à tous les Brisants.'
+    : 'Aucune facture n’a pu être copiée sur Saisie. Le contenu des documents détruits reste inconnu.';
+  const passage = c.smugglerVerified
+    ? 'Vann Ostre, joint depuis Rive-Courte, a confirmé que son équipage fait passer des familles hors des contrôles. Cette liaison a eu lieu ; elle ne vaut pas une alliance de sa flotte.'
+    : 'Aucune liaison avec le passeur n’a abouti. Son intention n’est pas inventée à partir du pavillon.';
+  return `${trafficking} ${passage} ${c.refugeesPassed} réfugiés ont atteint le dock, ${c.refugeesLost} ont péri dans le bateau. ${c.bargeCiviliansLost} pertes sont constatées parmi les quatre membres de Rive-Courte. ${c.fuelRecovered ? 'Deux lots de carburant ont été chargés au dépôt.' : 'Aucun carburant n’a été chargé.'} Holt demande une remise sous scellés ; Sami propose de joindre les faits propres à chaque équipage.`;
+}
+
+function refreshChannelFacts(s) {
+  const c = s.campaign, site = s.channel;
+  c.winchesReleased = site.winches.filter(w => w.released).length;
+  c.channelOpen = c.winchesReleased === site.winches.length;
+  c.bargesInspected = site.barges.filter(b => b.inspected).length;
+  c.bargeCiviliansLost = site.barges.reduce((total, b) => total + b.casualties, 0);
+  c.refugeesPassed = site.boat.arrived ? site.boat.passengers : 0;
+  c.refugeesLost = site.boat.destroyed ? site.boat.passengers : 0;
+  c.passageResolved = site.boat.arrived || site.boat.destroyed;
+  c.fuelRecovered = site.fuel.collected; c.fuelLots = c.fuelRecovered ? 2 : 0;
+  // A local trafficking invoice and a direct radio contact are not PALINODE evidence.
+  s.stats.evidence = 0;
+  if (s.decision.active || s.decision.resolved) s.decision.body = channelDecisionBody(s);
+}
+
+function interactChannelMission(s) {
+  const p = s.player, site = s.channel, c = s.campaign, settings = s.mission.channel;
+  const bank = site.banks.find(b => !b.bridgeRaised && Math.abs(p.x - b.stationX) < settings.interactionRadius);
+  if (bank) {
+    if (!bank.working) { bank.working = true; emit(s, 'radio', 'Tess : « Le treuil du génie pose le tablier sur ses pieux. Quatre secondes à portée de la commande. Une fois verrouillé, la marée ne coupe plus ce passage. »'); }
+    return true;
+  }
+  const winch = site.winches.find(w => !w.released && Math.abs(p.x - w.x) < settings.interactionRadius);
+  if (winch) {
+    if (!winch.working) { winch.working = true; c.phase = 'channel'; emit(s, 'radio', 'Tess : « Je détends ce câble. La tête du treuil est distincte de la coque et de son équipage. »'); }
+    return true;
+  }
+  const barge = site.barges.find(b => !b.inspected && Math.abs(p.x - b.x) < settings.interactionRadius);
+  if (barge) {
+    if (!barge.scanning) { barge.scanning = true; emit(s, 'radio', barge.destroyed ? 'Sami : « Il ne reste qu’une coque brûlée. On consigne la perte ; pas des documents ni une voix qui n’existent plus. »' : barge.kind === 'trafficker' ? 'Sami : « La barge Saisie est abandonnée. Son coffre contient encore un bordereau. Je le relève. »' : 'Sami : « Rive-Courte répond sur un canal court. Maintiens la liaison ; je veux entendre leur version. »'); }
+    return true;
+  }
+  if (!site.fuel.collected && !site.fuel.destroyed && Math.abs(p.x - site.fuel.x) < settings.interactionRadius) {
+    if (!site.fuel.working) { site.fuel.working = true; emit(s, 'radio', 'Tess : « Deux lots au dépôt du dock. Je branche le transfert ; ils ne seront chargés qu’à la fin. »'); }
+    return true;
+  }
+  if (Math.abs(p.x - s.evidence.x) < settings.interactionRadius) {
+    if (!c.channelOpen || c.bargesInspected < 2 || !c.passageResolved) {
+      emit(s, 'radio', 'Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »'); return false;
+    }
+    if (!s.evidence.collected) { s.evidence.scanning = true; return true; }
+    if (!s.decision.resolved) { s.decision.body = channelDecisionBody(s); s.decision.active = true; emit(s, 'decision', s.decision.title); return true; }
+  }
+  return false;
+}
+
+function hitChannelPart(s, part, damage) {
+  if (part.destroyed || part.arrived || part.collected || part.released) return;
+  part.hp = Math.max(0, part.hp - damage);
+  if ('flash' in part) part.flash = .1;
+  particles(s, part.x, part.y, 'spark', 4);
+  if (part.hp > 0) return;
+  part.destroyed = true;
+  if ('working' in part) { part.working = false; part.progress = 0; }
+  if ('scanning' in part) { part.scanning = false; part.scanProgress = part.inspected ? 1 : 0; }
+  if (s.channel.winches.includes(part)) {
+    part.released = true; part.progress = 1;
+    emit(s, 'objective', 'Tête de treuil détruite : câble libéré. La barge reste un objet distinct.');
+  } else if (part === s.channel.boat) {
+    part.moving = false; s.stats.collateral += part.passengers;
+    emit(s, 'objective', 'Le bateau a sombré. Ses douze passagers sont perdus ; leur sort devra figurer au relevé.');
+  } else if (s.channel.barges.includes(part)) {
+    part.casualties = part.civilians; s.stats.collateral += part.casualties;
+    emit(s, 'objective', part.kind === 'smuggler' ? 'Rive-Courte est détruite. Ses quatre membres sont perdus. Une liaison déjà enregistrée reste conservée.' : 'Saisie est détruite. Une facture copiée reste conservée ; les pages non relevées sont perdues.');
+  } else emit(s, 'objective', 'Le dépôt de carburant est détruit avant transfert. Aucun lot n’est ajouté.');
+  particles(s, part.x, part.y, 'smoke', 12);
+  refreshChannelFacts(s);
+}
+
+function updateChannelMission(s, dt) {
+  const p = s.player, site = s.channel, c = s.campaign, settings = s.mission.channel;
+  const previousPhase = channelTideAt(s.elapsed - dt).phase; site.tide = channelTideAt(s.elapsed);
+  if (previousPhase !== site.tide.phase) emit(s, 'radio', site.tide.phase === 'rising'
+    ? 'Tess : « Marée montante. Rejoins la rive ou le tablier. Les appuis nus vont travailler dans l’eau. »'
+    : site.tide.phase === 'high' ? 'Sami : « Pleine eau : le bateau peut passer si les câbles sont libres. »'
+      : site.tide.phase === 'falling' ? 'Tess : « L’eau redescend. Les bancs vont porter de nouveau. »'
+        : 'Tess : « Estran découvert. Les bancs sont praticables, avec moins de prise sur la vase. »');
+  const work = (item, x, seconds, done) => {
+    if (!item.working) return;
+    if (Math.abs(p.x - x) >= settings.interactionRadius) { item.working = false; item.progress = 0; emit(s, 'radio', 'Tess : « Liaison interrompue. Reviens à portée pour reprendre l’intervention. »'); return; }
+    item.progress = Math.min(1, item.progress + dt / seconds);
+    if (item.progress >= 1) { item.working = false; done(); }
+  };
+  for (const bank of site.banks) work(bank, bank.stationX, settings.bridgeTime, () => {
+    bank.bridgeRaised = true; emit(s, 'objective', 'Passerelle verrouillée sur les pieux. Le passage du marcheur reste praticable à toute marée.');
+  });
+  for (const winch of site.winches) {
+    winch.flash = Math.max(0, winch.flash - dt);
+    work(winch, winch.x, settings.winchTime, () => { winch.released = true; emit(s, 'objective', 'Câble détendu. Ce barrage ne retient plus le bateau.'); });
+  }
+  for (const barge of site.barges) {
+    barge.flash = Math.max(0, barge.flash - dt);
+    if (!barge.scanning) continue;
+    if (Math.abs(p.x - barge.x) >= settings.interactionRadius) { barge.scanning = false; barge.scanProgress = 0; continue; }
+    barge.scanProgress = Math.min(1, barge.scanProgress + dt / settings.inspectTime);
+    if (barge.scanProgress >= 1) {
+      barge.scanning = false; barge.inspected = true;
+      if (!barge.destroyed) {
+        if (barge.kind === 'trafficker') { c.traffickingVerified = true; emit(s, 'objective', 'Sami : « Des noms, un prix, un acheteur : ce capitaine vendait des réfugiés. Je garde la copie de la facture de Saisie. »'); }
+        else { c.smugglerVerified = true; emit(s, 'objective', 'Vann Ostre, Rive-Courte : « Je n’ai pas vendu leur passage à vos douaniers. Douze personnes attendent la pleine eau. Ouvre les câbles et laisse-les rejoindre le dock. Après, nous parlerons carburant et moteurs. »'); }
+      } else emit(s, 'objective', 'Ruines de la barge constatées. Aucun document ni témoignage nouveau n’est attribué.');
+    }
+  }
+  work(site.fuel, site.fuel.x, settings.fuelTime, () => { site.fuel.collected = true; emit(s, 'objective', 'Deux lots de carburant chargés au dock. Le dépôt ne peut être prélevé une seconde fois.'); });
+  refreshChannelFacts(s);
+  const boat = site.boat;
+  boat.moving = c.channelOpen && site.tide.navigable && !boat.arrived && !boat.destroyed;
+  if (boat.moving) { c.phase = 'passage'; boat.x = Math.min(settings.boatDockX, boat.x + boat.speed * dt); boat.y = terrainAt(boat.x, s.planetId) - 35; }
+  if (!boat.destroyed && !boat.arrived && boat.x >= settings.boatDockX) {
+    boat.arrived = true; boat.moving = false;
+    emit(s, 'objective', 'Sami : « Les douze sont au dock. La rampe est remontée ; les passagers ont quitté le bateau. Leur arrivée est confirmée. »');
+  }
+  for (const foot of p.feet) if (foot.contact && channelSurfaceAt(s, foot.x).submerged) {
+    const wear = dt * (s.walker.legs === 6 ? .55 : 1.25);
+    foot.health = Math.max(0, foot.health - wear);
+    if (!s.notified.submergedAppui) { s.notified.submergedAppui = true; emit(s, 'radio', 'Tess : « Un appui travaille sous l’eau. La vase freine la marche et use les articulations. Rejoins le tablier ou la rive. »'); }
+  }
+  refreshChannelFacts(s);
+}
+
+function channelInteraction(s) {
+  const p = s.player, site = s.channel, c = s.campaign, radius = s.mission.channel.interactionRadius;
+  const bank = site.banks.find(b => !b.bridgeRaised && Math.abs(p.x - b.stationX) < radius);
+  if (bank) return bank.working ? `Passerelle ${Math.round(bank.progress * 100)} % · restez à la commande` : 'E · Déployer la passerelle (4 s) · passage permanent';
+  const winch = site.winches.find(w => !w.released && Math.abs(p.x - w.x) < radius);
+  if (winch) return winch.working ? `Câble ${Math.round(winch.progress * 100)} % · restez à portée` : 'E · Détendre ce treuil (2,5 s) · coque distincte';
+  const barge = site.barges.find(b => !b.inspected && Math.abs(p.x - b.x) < radius);
+  if (barge) return barge.scanning ? `Vérification ${Math.round(barge.scanProgress * 100)} % · restez à portée` : barge.destroyed ? 'E · Constater les ruines de cette barge (3 s)' : barge.kind === 'trafficker' ? 'E · Relever le coffre de Saisie (3 s)' : 'E · Appeler Rive-Courte (3 s)';
+  if (Math.abs(p.x - site.fuel.x) < radius && !site.fuel.collected) return site.fuel.destroyed ? 'Dépôt détruit · aucun carburant à récupérer' : site.fuel.working ? `Transfert carburant ${Math.round(site.fuel.progress * 100)} %` : 'E · Charger deux lots de carburant (3 s, facultatif)';
+  if (Math.abs(p.x - s.evidence.x) < radius) {
+    if (!c.channelOpen || c.bargesInspected < 2) return 'Relevé incomplet · ouvrir les câbles et vérifier les deux barges';
+    if (!c.passageResolved) return site.tide.navigable ? 'Le bateau progresse vers le dock · couvrez son passage' : 'Le bateau attend assez d’eau · prochaine pleine eau annoncée';
+    if (!c.manifestRead) return s.evidence.scanning ? 'Réunion du relevé du chenal…' : 'E · Réunir le relevé du chenal';
+    if (!s.decision.resolved) return 'E · Établir le compte rendu des équipages';
+  }
+  return s.decision.resolved ? 'Rejoindre le hangar du dock · les faits de terrain sont conservés' : 'Ouvrir les deux câbles · vérifier les barges · protéger le passage';
+}
+
 function updateWorld(s, dt) {
   const p = s.player;
   const e = s.evidence;
@@ -1298,6 +1526,7 @@ function updateWorld(s, dt) {
   if (s.missionId === 'MI02') updateTrainMission(s, dt);
   if (s.missionId === 'MI03') updateNetworkMission(s, dt);
   if (s.missionId === 'MI04') updateIndustrialMission(s, dt);
+  if (s.missionId === 'MI05') updateChannelMission(s, dt);
   if (s.status !== 'playing') return;
   if (e.scanning && !e.collected) {
     if (Math.abs(p.x - e.x) > (s.missionId === 'MI04' ? s.mission.industrial.interactionRadius : 250)) { e.scanning = false; e.scanProgress = 0; emit(s, 'radio', 'Lecture interrompue : terminal hors de portée.'); }
@@ -1305,7 +1534,11 @@ function updateWorld(s, dt) {
       e.scanProgress = Math.min(1, e.scanProgress + dt / e.scanTime);
       if (e.scanProgress >= 1) {
         e.collected = true; e.scanning = false;
-        if (s.missionId === 'MI04') {
+        if (s.missionId === 'MI05') {
+          s.campaign.manifestRead = true; s.campaign.phase = 'report';
+          refreshChannelFacts(s);
+          emit(s, 'objective', 'Relevé du chenal réuni. Les faits copiés et les pertes restent distincts. — E : signer le compte rendu.');
+        } else if (s.missionId === 'MI04') {
           const c = s.campaign;
           c.maintenanceInspected = true; c.manifestRead = true; c.phase = 'report';
           c.logRecovered = !s.industrial.post.destroyed;
@@ -1370,6 +1603,7 @@ function updateWorld(s, dt) {
   if (s.missionId === 'MI02') s.interaction = trainInteraction(s);
   else if (s.missionId === 'MI03') s.interaction = networkInteraction(s);
   else if (s.missionId === 'MI04') s.interaction = industrialInteraction(s);
+  else if (s.missionId === 'MI05') s.interaction = channelInteraction(s);
   else if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     s.interaction = s.campaign.passageWorking ? `Déploiement des dalles ${Math.round(s.campaign.passageProgress * 100)} % · restez près du treuil` : 'E · Déployer les dalles de protection (4,5 s)';
   } else if (!e.collected && Math.abs(p.x - e.x) < 230) {
@@ -1380,6 +1614,12 @@ function updateWorld(s, dt) {
   if (p.hull <= 0) finish(s, false, 'Marcheur immobilisé. Votre équipage a déclenché la balise de secours.');
   else if (s.convoy && s.convoy.hp <= 0) finish(s, false, s.campaign ? s.campaign.filtersDelivered ? 'Le camion de Sami est perdu au poste. Les filtres ont été livrés, mais l’escorte a échoué. Reprenez le dernier point de contrôle pour retenter la mission.' : 'Le camion de Sami est perdu. Les filtres n’atteindront pas le poste des mineurs. Reprenez le dernier point de contrôle pour retenter l’escorte.' : 'Le transport est perdu. La route du bac se ferme.');
   else if (s.extraction.active && Math.abs(p.x - s.extraction.x) < s.extraction.radius) {
+    if (s.missionId === 'MI05') {
+      refreshChannelFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
+      finish(s, true, `Chenal ouvert. ${c.refugeesPassed} personnes arrivées, ${c.refugeesLost} perdues dans le bateau ; ${c.bargeCiviliansLost} pertes dans l’équipage de Rive-Courte. ${c.traffickingVerified ? 'Facture du trafic copiée.' : 'Aucune facture du trafic récupérée.'} ${c.smugglerVerified ? 'Le passage clandestin a été confirmé par une liaison réelle.' : 'Aucun contact du passeur confirmé.'} ${c.fuelRecovered ? 'Deux lots de carburant chargés au dock.' : 'Aucun carburant chargé.'}`);
+      return;
+    }
+
     if (s.missionId === 'MI04') {
       refreshIndustrialFacts(s); s.campaign.phase = 'complete';
       const c = s.campaign;
@@ -1411,6 +1651,18 @@ function updateWorld(s, dt) {
 
 function refreshObjectives(s) {
   const goals = [];
+  if (s.missionId === 'MI05') {
+    const c = s.campaign;
+    goals.push({ id: 'winches', label: 'Ouvrir les deux câbles du chenal', current: c.winchesReleased, target: 2, complete: c.channelOpen });
+    goals.push({ id: 'barges', label: 'Vérifier les deux barges ou constater leurs pertes', current: c.bargesInspected, target: 2, complete: c.bargesInspected === 2 });
+    goals.push({ id: 'passengers', label: c.refugeesLost ? 'Consigner la perte du bateau et de ses passagers' : 'Protéger le passage des douze réfugiés jusqu’au dock', current: c.refugeesPassed + c.refugeesLost, target: c.refugeesTotal, complete: c.passageResolved });
+    goals.push({ id: 'evidence', label: 'Réunir le relevé du chenal au dock', current: c.manifestRead ? 1 : 0, target: 1, complete: c.manifestRead });
+    goals.push({ id: 'order', label: 'Établir le compte rendu des équipages', current: s.decision.resolved ? 1 : 0, target: 1, complete: s.decision.resolved });
+    s.extraction.active = goals.every(goal => goal.complete);
+    goals.push({ id: 'extract', label: 'Rejoindre le hangar du dock', current: s.status === 'won' ? 1 : 0, target: 1, complete: s.status === 'won' });
+    s.objectives = goals; return;
+  }
+
   if (s.missionId === 'MI04') {
     const c = s.campaign;
     goals.push({ id: 'coolant', label: c.coolantRestored ? 'Liquide de refroidissement disponible' : 'Brancher la pompe portative : conduite interrompue', current: c.coolantRestored ? 1 : 0, target: 1, complete: c.coolantRestored });
@@ -1484,6 +1736,7 @@ export function updateGame(s, delta, input = {}) {
   const dt = clamp(finite(delta), 0, 0.05);
   if (dt === 0) return s;
   s.elapsed += dt;
+  if (s.channel) s.channel.tide = channelTideAt(s.elapsed);
   s.player.move = Math.sign(finite(input.move));
   s.player.braced = Boolean(input.brace);
   for (const action of ['stepA', 'stepB', 'interact', 'reload', 'repair']) {

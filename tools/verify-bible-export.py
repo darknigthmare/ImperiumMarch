@@ -3,7 +3,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 
 root=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else Path(__file__).resolve().parents[1]
-baseline=sys.argv[2] if len(sys.argv)>2 else 'c81a360'
+baseline=sys.argv[2] if len(sys.argv)>2 else 'd7d76b6'
 file=root/'docs/ORDRE_DE_CENDRE_Bible.xlsx'
 source=json.loads((root/'data/bible.json').read_text())
 ns={'s':'http://schemas.openxmlformats.org/spreadsheetml/2006/main','r':'http://schemas.openxmlformats.org/officeDocument/2006/relationships'}
@@ -24,14 +24,20 @@ def historical_ids(revision):
         raw=subprocess.check_output(['git','show',revision+':data/bible.json'],cwd=root,stderr=subprocess.PIPE)
     except (subprocess.CalledProcessError, FileNotFoundError) as error:
         # Published snapshots and source archives may not carry local Git history.
-        # This fixture is an explicit baseline for one historical revision only.
-        fixture_path=root/'tests/fixtures/bible-v04-ids.json'
-        if not fixture_path.is_file():
-            raise RuntimeError(f'Historical Git revision {revision!r} is unavailable and no frozen baseline exists.') from error
-        frozen=json.loads(fixture_path.read_text())
-        recorded=frozen.get('sourceRevision','')
-        if not (re.fullmatch(r'[0-9a-fA-F]{7,40}',revision) and re.fullmatch(r'[0-9a-f]{40}',recorded) and recorded.startswith(revision.lower())):
-            raise RuntimeError(f'Historical Git revision {revision!r} is unavailable; the frozen baseline only covers {recorded}.') from error
+        # Each frozen fixture is valid for its recorded historical revision only.
+        candidates=[]
+        for name in ['bible-v05-ids.json','bible-v04-ids.json']:
+            fixture_path=root/'tests/fixtures'/name
+            if fixture_path.is_file(): candidates.append(json.loads(fixture_path.read_text()))
+        matches=[candidate for candidate in candidates
+                 if re.fullmatch(r'[0-9a-fA-F]{7,40}',revision)
+                 and re.fullmatch(r'[0-9a-f]{40}',candidate.get('sourceRevision',''))
+                 and candidate['sourceRevision'].startswith(revision.lower())]
+        if len(matches)!=1:
+            available=', '.join(candidate.get('sourceRevision','invalid') for candidate in candidates) or 'none'
+            raise RuntimeError(f'Historical Git revision {revision!r} is unavailable; frozen baselines cover {available}.') from error
+        frozen=matches[0]
+        recorded=frozen['sourceRevision']
         assert frozen['format']=='ordre-de-cendre.bible-id-baseline' and frozen['version']==1
         assert frozen['sourcePath']=='data/bible.json'
         assert re.fullmatch(r'[0-9a-f]{40}',frozen['sourceBlob'])
