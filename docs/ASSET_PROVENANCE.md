@@ -75,3 +75,14 @@ Les quatre fichiers suivants sont les octets JPEG obtenus directement dans Chrom
 | `browser-v08-report.jpg` | Rapport obtenu après transfert, arrivées et extraction dans Chrome : quatre patients et deux membres d’équipe arrivés, aucune perte. |
 
 Le début de la mission provient d’un checkpoint atteint avec les commandes publiques de simulation dans Node, puis importé par le sélecteur de fichier. Les captures montrent la continuation native, pas une partie entière jouée depuis le départ dans Chrome. [v08-browser.json](validation/v08-browser.json) conserve les actions, la reprise exacte, les limites et les empreintes de chaque fichier. Les neuf PNG `mi07-*` restent des rendus Canvas séparés.
+
+
+## Champ chimique de Thyr — 0.11
+
+Les six composants de `src/chemical-assets.mjs` sont des formes vectorielles originales écrites pour le projet : cuves, jonctions de canal, préleveur, registre de lots, commandes de terrain et alimentation des habitats. Leur géométrie est partagée entre SVG et Canvas. `tools/build-chemical-assets.mjs` livre vingt-quatre SVG et deux planches PNG, soit 26 fichiers graphiques totalisant 270 194 octets. Le [manifeste du lot](../assets/chemical/manifest.json) conserve les dimensions, états, boîtes et empreintes exactes. Les planches illustrent ce kit ; elles ne sont pas des captures du navigateur.
+
+`src/chemical-renderer.mjs` emploie ces formes avec les positions et états de `chemical`. Les pontages suivent `chemicalSurfaceAt` et portent les vrais pieds. Les nappes visibles suivent leur masse, leur position et leur phase simulées. La matière retenue apparaît dans un bassin distinct ; aucune personne n’est ajoutée aux habitats par le dessin. Aucun recours à une image ou à un enregistrement tiers n’est ajouté dans ce lot.
+
+Les [vingt-deux scènes de MI10](previews/mi10-scenes.json) sont produites par `tools/render-mi10-previews.mjs` depuis la fixture native v9 conservée. Dix-sept sorties sont conduites par les commandes publiques du moteur : six châssis, deux conduites et des variantes de dégâts. Chaque état est copié profondément avant de continuer. Le [reçu Canvas](previews/mi10-canvas-validation.json) vérifie la lecture des sauvegardes, l’absence de mutation par le renderer et les empreintes des sources. Ces images n’exercent ni le HUD HTML, ni les dialogues système, ni une commande matérielle.
+
+La comparaison raster ajoute les vingt-quatre états de ce kit aux quarante cas antérieurs. L’audit de distribution rapproche leurs octets avec les sources et la copie web. Le runtime dessine ses formes en code ; il ne télécharge pas les exports SVG pour les afficher. Les limites des illustrations historiques et des sons synthétiques restent celles de leurs sections précédentes.

@@ -7,7 +7,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - `data/bible.json` est la source des fiches de conception et du classeur. Garder les IDs stables.
 - `docs/BIBLE_FR.md`, `docs/CAMPAIGN_FR.md` et `docs/ART_DIRECTION.md` développent le canon du projet.
 - `src/content.mjs` décrit uniquement les données actuellement utilisées par le prototype.
-- `src/campaign.mjs` gère les dossiers MI01–MI09, leur progression et la migration des sauvegardes v1/v2/v3/v4/v5/v6/v7/v8 vers v9 ; les opérations OP01–OP03 restent indépendantes.
+- `src/campaign.mjs` gère les dossiers MI01–MI10, leur progression et la migration des sauvegardes v1/v2/v3/v4/v5/v6/v7/v8/v9 vers v10 ; les opérations OP01–OP03 restent indépendantes.
 - L’onglet Prototype précise la différence entre le comportement actuel et le comportement final conçu.
 
 ## Développement
@@ -24,7 +24,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 
 - Ne pas marquer une fiche finie parce qu’une description existe. Conçu, Prototype et Vérifié décrivent des niveaux différents.
 - Les trois opérations de prototype ne sont pas les 32 missions de la campagne finale.
-- MI01–MI09 sont jouables au stade prototype depuis les 0.2 à 0.10 ; les 23 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
+- MI01–MI10 sont jouables au stade prototype depuis les 0.2 à 0.11 ; les 22 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
 - Ne pas présenter une image de concept comme une capture du jeu, un rendu Canvas comme une capture navigateur ou un test statique comme un clic exécuté.
 - Une nouvelle vérification navigateur doit préciser l’environnement réel et les parcours effectués.
 - Les références de gameplay servent la conception ; conserver les noms, assets, silhouettes et récits originaux du projet.
@@ -84,3 +84,17 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - La fixture v8 vient des deux exports natifs Chrome conservés de la 0.9 et du snapshot public attesté. La migration v9 ajoute seulement `world.thyr.route` vide et la version9 ; elle conserve aussi l’ancien champ `stage`, les huit rapports, le carburant et les scènes anciennes. La progression déduit MI09 du premier rapport manquant sans réécrire l’étape historique. Ne pas régénérer les fixtures v1–v8 depuis le code courant.
 - Le rendu Thyr partage la source SVG/Canvas de `src/thyr-assets.mjs` et suit les objets de `livingRoute`. Ses planches restent des bancs graphiques, pas des captures de jeu.
 - Quitter le canvas relâche les commandes. Quitter les surfaces de jeu ou la fenêtre suspend ; une répétition de touche ne réarme pas une commande vidée. Les boutons gardent leur activation native. Ne pas confondre ce contrôle DOM modélisé avec QA19 dans Chrome.
+
+
+## Champ chimique de Thyr — 0.11
+
+- MI10 suit le premier rapport MI09. `src/chemical-simulation.mjs` porte les opérations physiques de `chemical` ; le moteur fournit les commandes, les contacts, les projectiles et la même horloge simulée. Les six châssis gardent leurs vrais appuis.
+- Trois cuves distinctes demandent trois relevés. Un constat de ruines ne copie aucun marquage. Le registre matériel et le prélèvement sont des opérations séparées. PT02 exige un prélèvement achevé, les trois marquages et une copie du registre. Aucune TE01, aucune chaîne politique globale ni défection anticipée n’est attribuée.
+- Le prélèvement prend vingt secondes à portée de protection. La perte de sa source ou de l’appareil avant collecte reste un échec. Après collecte, la destruction des originaux ou de l’appareil ne supprime pas les pièces déjà conservées à bord.
+- La réponse au poste fixe `demolish` ou `secure`, sans détruire ni isoler les cuves. Chaque cuve encore intacte exige sa propre opération. Les pertes et les volumes ne sont pas réécrits par le choix, l’extraction ou une relecture.
+- Les trois forces privées ne peuvent agir, être visées ni être dessinées avant `chemical.alert.ready`, cinq secondes après l’événement de déclenchement. Le prélèvement, une démolition ou la perte matérielle de sa source produisent des événements distincts, pas une apparition gratuite au début de mission.
+- Les volumes quittent les cuves dans des nappes qui parcourent réellement le terrain. Le collecteur les dirige vers un bassin distinct ; les masses retenues y restent après réouverture ou destruction de la vanne. La destruction du bassin n’est pas simulée. Pollution cumulée, volumes retenus, volumes en transit et volumes livrés restent séparés et réconciliés.
+- Le pontage de chaque canal exige quatre secondes sous ancrage et porte les vrais pieds via `chemicalSurfaceAt`. Franchir un canal découvert peut le dégrader ; un pontage ne retire aucune contamination déjà acquise. Rétablir la circulation de l’eau ne la rend pas potable si les canaux sont compromis. Les deux habitats de MI10 n’inventent aucun effectif de population ni transfert depuis MI09.
+- Le rapport exige inspections ou constats, prélèvement ou perte actée, opérations de cuves résolues, trois forces arrivées puis neutralisées, fin de l’écoulement et disposition réelle de l’eau. Il précède une extraction physique.
+- La fixture `campaign-v9-mi09.json` vient des exports Chrome figés de la 0.10 publique, avec attestation `docs/validation/v011-historic-v9.json`. Ne régénérer aucune fixture v1–v9 depuis le code courant. La migration v10 ajoute seulement `world.thyr.chemical` vide et la version ; elle conserve stage, checkpoints, neuf rapports et ressources.
+- `src/chemical-assets.mjs` partage ses formes entre SVG et Canvas. Les planches d’assets, scènes Canvas, tests de DOM modélisé et observations natives restent quatre types de preuve distincts. Les preuves 0.9 et 0.10 sont historiques et ne doivent pas être réécrites pour les faire décrire la 0.11.

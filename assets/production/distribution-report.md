@@ -1,12 +1,12 @@
 # Rapprochement exhaustif des médias distribués
 
-Snapshot : 2026-11-11T17:08:10.239Z. Révision de repère : f2270608ea23e7b9589b8fc9a6f81a6a59341d02. Le relevé porte sur les fichiers courants, y compris les travaux non commités.
+Snapshot : 2026-11-11T18:23:06.250Z. Révision de repère : 073003075bf8921aab25b1a9200b9d360c1ab391. Le relevé porte sur les fichiers courants, y compris les travaux non commités.
 
 ## Résultat
 
-388 médias sources possèdent une entrée. Les artefacts actuellement observés contiennent 388 médias web et 5 occurrences inline (3 contenus distincts). **0 média non rapproché ou anomalie de provenance.** La source du jeu demande trois fichiers image : illustration du menu, panorama Vesper et emblème. Les formes de production sont du code Canvas ; le son est synthétisé. Aucun WAV de production n’est embarqué dans le HTML observé.
+414 médias sources possèdent une entrée. Les artefacts actuellement observés contiennent 414 médias web et 5 occurrences inline (3 contenus distincts). **0 média non rapproché ou anomalie de provenance.** La source du jeu demande trois fichiers image : illustration du menu, panorama Vesper et emblème. Les formes de production sont du code Canvas ; le son est synthétisé. Aucun WAV de production n’est embarqué dans le HTML observé.
 
-Éditions observées : source UI 0.10, HTML autonome 0.10, web 0.10. **Synchronisation des builds : oui.**
+Éditions observées : source UI 0.11, HTML autonome 0.11, web 0.11. **Synchronisation des builds : oui.**
 
 Les médias copiés et le graphe des modules sont synchronisés avec la source observée.
 
@@ -16,9 +16,11 @@ Les deux PNG historiques proviennent d’image_gen selon docs/ASSET_PROVENANCE.m
 
 Le lot de Thyr ajoute onze composants, trente-cinq SVG et deux planches PNG, issus de src/thyr-assets.mjs et employés par src/thyr-renderer.mjs. Les surfaces des racines suivent la simulation ; les décors ne recensent aucun habitant. Les membranes FL08 restent décoratives et FL09 n’apporte ici qu’une réaction visuelle.
 
+Le champ chimique de MI10 ajoute six composants, vingt-quatre SVG et deux planches PNG. Les formes de src/chemical-assets.mjs sont partagées avec src/chemical-renderer.mjs ; les nappes et pontages suivent les objets de la simulation. Aucun effectif d’habitants n’est déduit de ces dessins.
+
 Les nouveaux vecteurs et sons renvoient à leurs manifestes de production datés et versionnés, avec code source et hashes. Les WAV reproduisent la synthèse du runtime ; aucune voix humaine, aucun échantillon tiers ni validation humaine de mix n’est déclaré. Aucun fichier de police n’est distribué ; les noms de polices sont des fallbacks système.
 
-La page officielle Steam de **BE-A Walker** est enregistrée comme référence de conception non distribuée. Aucun fichier local de cette référence n’est documenté : il n’existe donc pas de hash local ou d’autorisation de redistribution à inventer. Tous les octets média effectivement observés sont rapprochés des fichiers originaux du projet. Les 288 médias de documentation sont recensés séparément et exclus des deux politiques de build.
+La page officielle Steam de **BE-A Walker** est enregistrée comme référence de conception non distribuée. Aucun fichier local de cette référence n’est documenté : il n’existe donc pas de hash local ou d’autorisation de redistribution à inventer. Tous les octets média effectivement observés sont rapprochés des fichiers originaux du projet. Les 354 médias de documentation sont recensés séparément et exclus des deux politiques de build.
 
 ## Médias réellement demandés par le jeu
 
@@ -36,6 +38,32 @@ La page officielle Steam de **BE-A Walker** est enregistrée comme référence d
 | --- | --- | --- | --- | --- | --- |
 | assets/art/key-art.png | 0.1.0 introduction | legacy-key-art | Main-menu illustration and background; also linked from README. Artistic target, not an articulated playable chassis. | oui | oui |
 | assets/art/vesper-panorama.png | 0.1.0 introduction | legacy-vesper-panorama | Distant parallax background of Vesper in the production Canvas renderer. | oui | oui |
+| assets/chemical/batch-ledger-copied.svg | 0.11.0 | chemical-vector | MI10 reusable vector: batch-ledger; copied | non | oui |
+| assets/chemical/batch-ledger-lost.svg | 0.11.0 | chemical-vector | MI10 reusable vector: batch-ledger; lost | non | oui |
+| assets/chemical/batch-ledger-unread.svg | 0.11.0 | chemical-vector | MI10 reusable vector: batch-ledger; unread | non | oui |
+| assets/chemical/canal-junction-contaminated.svg | 0.11.0 | chemical-vector | MI10 reusable vector: canal-junction; contaminated | non | oui |
+| assets/chemical/canal-junction-covered.svg | 0.11.0 | chemical-vector | MI10 reusable vector: canal-junction; covered | non | oui |
+| assets/chemical/canal-junction-covering.svg | 0.11.0 | chemical-vector | MI10 reusable vector: canal-junction; covering | non | oui |
+| assets/chemical/canal-junction-destroyed.svg | 0.11.0 | chemical-vector | MI10 reusable vector: canal-junction; destroyed | non | oui |
+| assets/chemical/canal-junction-open.svg | 0.11.0 | chemical-vector | MI10 reusable vector: canal-junction; open | non | oui |
+| assets/chemical/chemical-tank-destroyed.svg | 0.11.0 | chemical-vector | MI10 reusable vector: chemical-tank; destroyed | non | oui |
+| assets/chemical/chemical-tank-identified.svg | 0.11.0 | chemical-vector | MI10 reusable vector: chemical-tank; identified | non | oui |
+| assets/chemical/chemical-tank-leaking.svg | 0.11.0 | chemical-vector | MI10 reusable vector: chemical-tank; leaking | non | oui |
+| assets/chemical/chemical-tank-sealed.svg | 0.11.0 | chemical-vector | MI10 reusable vector: chemical-tank; sealed | non | oui |
+| assets/chemical/chemical-tank-unknown.svg | 0.11.0 | chemical-vector | MI10 reusable vector: chemical-tank; unknown | non | oui |
+| assets/chemical/field-valve-destroyed.svg | 0.11.0 | chemical-vector | MI10 reusable vector: field-valve; destroyed | non | oui |
+| assets/chemical/field-valve-normal.svg | 0.11.0 | chemical-vector | MI10 reusable vector: field-valve; normal | non | oui |
+| assets/chemical/field-valve-operated.svg | 0.11.0 | chemical-vector | MI10 reusable vector: field-valve; operated | non | oui |
+| assets/chemical/field-valve-working.svg | 0.11.0 | chemical-vector | MI10 reusable vector: field-valve; working | non | oui |
+| assets/chemical/previews/chemical-kit.png | 0.11.0 | chemical-vector | Authoring sheet; varied scales stated in its labels and nominal dimensions in manifest | non | oui |
+| assets/chemical/previews/chemical-states.png | 0.11.0 | chemical-vector | Authored states on a bench, not a browser or gameplay reception | non | oui |
+| assets/chemical/sampling-rig-idle.svg | 0.11.0 | chemical-vector | MI10 reusable vector: sampling-rig; idle | non | oui |
+| assets/chemical/sampling-rig-lost.svg | 0.11.0 | chemical-vector | MI10 reusable vector: sampling-rig; lost | non | oui |
+| assets/chemical/sampling-rig-secured.svg | 0.11.0 | chemical-vector | MI10 reusable vector: sampling-rig; secured | non | oui |
+| assets/chemical/sampling-rig-working.svg | 0.11.0 | chemical-vector | MI10 reusable vector: sampling-rig; working | non | oui |
+| assets/chemical/village-supply-contaminated.svg | 0.11.0 | chemical-vector | MI10 reusable vector: village-supply; contaminated | non | oui |
+| assets/chemical/village-supply-destroyed.svg | 0.11.0 | chemical-vector | MI10 reusable vector: village-supply; destroyed | non | oui |
+| assets/chemical/village-supply-habitable.svg | 0.11.0 | chemical-vector | MI10 reusable vector: village-supply; habitable | non | oui |
 | assets/emblem.svg | 0.1.0 introduction | legacy-emblem | Browser favicon and menu brand emblem. | oui | oui |
 | assets/production/audio/ambience-pl01.wav | 0.9.0 | production-audio | Vesper — Cendre, conduite et ateliers lointains | non | oui |
 | assets/production/audio/ambience-pl02.wav | 0.9.0 | production-audio | Nacre — Eau contre les palées, clapot et brume saline | non | oui |

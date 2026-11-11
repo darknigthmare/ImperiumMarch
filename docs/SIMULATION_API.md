@@ -1,6 +1,6 @@
-# Contrat de simulation — prototype 0.10
+# Contrat de simulation — prototype 0.11
 
-La simulation est un module JavaScript pur, sans DOM, exécuté en secondes et en pixels monde. `WALKERS` et `MISSIONS` sont des tableaux ; les IDs sont stables. Les six châssis disponibles sont WK01, WK02, WK05, WK06, WK09 et WK10. `MISSIONS` garde OP01–OP03 ; `CAMPAIGN_MISSIONS` contient les neuf missions MI01–MI09 ; `ALL_MISSIONS` sert à `createGame`. Les trois opérations restent indépendantes de la progression des missions de campagne. Le format de dossier courant est v9 ; les 23 missions MI10–MI32 restent conçues. Les sections v4 à v8 conservent les contrats de leur introduction historique, sans réduire cette portée actuelle.
+La simulation est un ensemble de modules JavaScript sans DOM, exécuté en secondes et en pixels monde. `WALKERS` et `MISSIONS` sont des tableaux ; les IDs sont stables. Les six châssis disponibles sont WK01, WK02, WK05, WK06, WK09 et WK10. `MISSIONS` garde OP01–OP03 ; `CAMPAIGN_MISSIONS` contient les dix missions MI01–MI10 ; `ALL_MISSIONS` sert à `createGame`. Les trois opérations restent indépendantes de la progression des missions de campagne. Le format de dossier courant est v10 ; les 22 missions MI11–MI32 restent conçues. Les sections v4 à v9 conservent les contrats de leur introduction historique, sans réduire cette portée actuelle.
 
 ```js
 import { WALKERS, MISSIONS, ENEMY_TYPES, DIFFICULTIES } from './content.mjs';
@@ -12,7 +12,7 @@ commandGame(game, 'choice', 'defy');
 
 ## Entrées
 
-`move` = −1, 0 ou 1 ; `aimX/aimY` sont des coordonnées monde. `fire`, `secondary`, `brace`, `vent`, `stepA`, `stepB`, `interact`, `reload`, `repair` sont des booléens. Les actions ponctuelles se déclenchent sur front montant, les tirs/ventilation sur maintien. `updateGame` borne chaque delta à 0,05 s et ne simule rien hors `status === 'playing'` ou pendant `decision.active`. En MI05, il synchronise la marée avec `elapsed` avant de traiter les nouvelles commandes ; une ouverture de décision conserve donc une horloge de sauvegarde cohérente.
+`move` = −1, 0 ou 1 ; `aimX/aimY` sont des coordonnées monde. `fire`, `secondary`, `brace`, `vent`, `stepA`, `stepB`, `interact`, `reload`, `repair` sont des booléens. Les actions ponctuelles se déclenchent sur front montant, les tirs/ventilation sur maintien. `updateGame` borne chaque delta à 0,05 s et ne simule rien hors `status === 'playing'` ou si `decision.active` est déjà vrai à l’entrée. En MI05, il synchronise la marée avec `elapsed` avant de traiter les nouvelles commandes. En MI10, si cette frame ouvre le dialogue, il aligne le domaine chimique et ses objectifs sur l’horloge déjà avancée, puis s’arrête. Les appels suivants pendant le dialogue ne modifient aucun état.
 
 `commandGame(state, action, payload)` accepte `stepA`, `stepB`, `interact`, `reload`, `repair`, `choice` (payload `obey` ou `defy`, plus `delay` uniquement dans MI08), `assist` (booléen). Retour booléen : action acceptée ou rejetée. La pause appartient à l’UI : ne pas appeler `updateGame` pendant la pause.
 
@@ -21,16 +21,16 @@ commandGame(game, 'choice', 'defy');
 - `mission`, `walker`, `difficulty` : références aux données ; `missionId`, `walkerId`, `planetId` ; `elapsed`, `status` (`playing`, `won`, `lost`), `outcome` (texte de résultat), `seed`.
 - `player` : `x/y` centre coque, `width/height` dimensions coque, `groundY`, `facing`, `aimAngle`, `hull/maxHull`, `armor`, `heat` (0–100), `energy` (0–100), `stability` (0–100), `ammo/maxAmmo`, `reserveAmmo/maxReserveAmmo`, `rockets/maxRockets`, `reloadTime`, `venting`, `braced`, `overheated`, `speed`, `stepCooldown`, `lastGroup`, `feet`, `radiator`.
 - `feet[]` : `id`, `index`, `group` (0 ou 1), `side` (`back` ou `front`), `homeOffset`, `x/y` centre contact, `phase` (`stance` ou `swing`), `progress` (0–1), `fromX/fromY`, `targetX/targetY`, `health/maxHealth`, `contact`. Les jambes partent de la coque vers ces contacts ; le rendu construit ses genoux et segments. Pieds endommagés = cadence et stabilité réduites.
-- `enemies[]` : `id`, `type`, `kind`, `name`, `x/y` centre, `w/h`, `hp/maxHp`, `active`, `dead`, `facing`, `telegraph` (0–1), `attackTarget` (`player`, `convoy`, `boat`, `technician`, `resident`, `ambulance`, `medical-staff`, `patient`, `departure-boat`, `departure-person` ou `logistics`), `spawnX`, `flash`, `phase`, `armor`. Une entité morte conserve sa place dans le tableau et ne participe plus aux collisions ni au comportement actif. Le rendu peut en conserver les effets de destruction.
+- `enemies[]` : `id`, `type`, `kind`, `name`, `x/y` centre, `w/h`, `hp/maxHp`, `active`, `dead`, `facing`, `telegraph` (0–1), `attackTarget` (`player`, `convoy`, `boat`, `technician`, `resident`, `ambulance`, `medical-staff`, `patient`, `departure-boat`, `departure-person`, `logistics` ou `chemical-sampler`), `spawnX`, `flash`, `phase`, `armor`. Une entité morte conserve sa place dans le tableau et ne participe plus aux collisions ni au comportement actif. Le rendu peut en conserver les effets de destruction.
 - `relays[]` : `id`, `x/y` centre, `w/h`, `hp/maxHp`, `destroyed`, `flash`.
 - `projectiles[]` : `id`, `x/y`, `prevX/prevY`, `vx/vy`, `team` (`player` ou `enemy`), `type` (`bullet` ou `rocket`), `damage`, `radius`, `life`, `trail`.
 - `particles[]` : `x/y`, `vx/vy`, `life/maxLife`, `size`, `color`, `type` (`spark`, `smoke`, `dust`).
 - `events[]` : file bornée de notifications avec `id`, `type`, `text`, `time`, `x/y` facultatifs. L’UI mémorise le dernier `id` consommé. Types utiles : `shot`, `rocket`, `step`, `hit`, `explosion`, `objective`, `radio`, `decision`, `reload`, `overheat`, `victory`, `defeat`.
 - `convoy` : `null` ou `{x,y,w,h,hp,maxHp,speed,moving,arrived}`. Position centre, roues au sol.
 - `civilians[]` : `{id,x,y,w,h,hp,alive,safe,fleeing}`. Ne sont jamais hostiles ni auto-ciblés ; dégâts et piétinement causent des pertes comptées.
-- `evidence` : `{id,x,y,collected,scanning,scanProgress,scanTime,label}`. La lecture commune des opérations dure 2,4 s à portée. Les domaines de mission décrits ci-dessous possèdent leurs préconditions et durées propres ; MI09 relève ses cartes en 3 s. Une lecture inachevée s’annule si le joueur quitte sa portée.
+- `evidence` : `{id,x,y,collected,scanning,scanProgress,scanTime,label}`. La lecture commune des opérations dure 2,4 s à portée. Les domaines de mission décrits ci-dessous possèdent leurs préconditions et durées propres ; MI09 relève ses cartes en 3 s. MI10 garde `scanning:false` : son préleveur distinct travaille vingt secondes et `evidence.collected` signifie seulement que les trois conditions de PT02 sont réunies. Une lecture inachevée s’annule si le joueur quitte sa portée.
 - `pickups[]` : `{id,x,y,type,collected}` (réparations à contact, stock limité).
-- `decision` : `{active,resolved,choice,title,body,options:[{id,label}]}`. `E` près du marqueur après scan ouvre la décision. Tant qu’elle est active, la simulation ne combat pas (pause de lecture). Le choix résout et reprend.
+- `decision` : `{active,resolved,choice,title,body,options:[{id,label}]}`. `E` au poste après les préconditions de la mission ouvre la décision. Tant qu’elle est active, la simulation ne combat pas (pause de lecture). Le choix résout et reprend.
 - `objectives[]` : `{id,label,current,target,complete}` ; `extraction` : `{x,y,active,radius}`.
 - `stats` : `kills`, `shots`, `hits`, `steps`, `collateral`, `damageTaken`, `evidence`, `ordersObeyed`, `ordersDefied`, `score`.
 - `interaction` : texte contextuel ou chaîne vide ; `cameraShake` (0–1), `assist`, `lastStepGroup`, `checkpointText`.
@@ -43,7 +43,7 @@ Tirs testés sur segments balayés pour éviter de traverser les cibles rapides.
 
 Chaque sortie commence avec un magasin chargé et une réserve de huit magasins, soit `maxReserveAmmo = walker.ammo * 8`. La fin d’un rechargement transfère `min(maxAmmo - ammo, reserveAmmo)` coups : elle conserve le total, peut donner un dernier magasin partiel, et ne crée pas de munitions lorsque la réserve est vide. Un dépôt récupéré ajoute au plus trois magasins en réserve, bornés par `maxReserveAmmo`, deux roquettes bornées par leur capacité, les réparations de coque existantes et trente points de santé par pied. Les conditions de contact incluent désormais une réserve incomplète. Le marqueur `collected` interdit toute seconde collecte. Les cinq tests de `tests/ammunition.test.mjs` couvrent le stock initial, le transfert partiel, l’épuisement, la dernière charge et l’absence de ravitaillement répétable.
 
-Le score mesure seulement la performance de combat ; aucun score moral unifié. La décision, les preuves récupérées, les pertes civiles et l’état du convoi restent séparés. Les opérations sont rejouables indépendamment ; la progression MI01–MI09 et l’atelier passent par `campaign.mjs`.
+Le score n’est pas un score moral unifié. La décision, les preuves récupérées, les pertes civiles et l’état du convoi restent séparés. Les opérations sont rejouables indépendamment ; la progression MI01–MI10 et l’atelier passent par `campaign.mjs`.
 
 ## MI01
 
@@ -192,31 +192,31 @@ La commande `repair` exige une santé inférieure au maximum, au moins un kit, d
 
 | Fonction | Résultat |
 | --- | --- |
-| `createCampaign()` | Dossier v9 initial, six lots d’atelier, zéro lot de carburant, six châssis intacts. |
-| `nextCampaignMissionId(dossier)` | Mission officielle active, sinon la prochaine mission MI01–MI09 ou `null` selon les rapports déjà classés. |
+| `createCampaign()` | Dossier v10 initial, six lots d’atelier, zéro lot de carburant, six châssis intacts. |
+| `nextCampaignMissionId(dossier)` | Mission officielle active, sinon la prochaine mission MI01–MI10 ou `null` selon les rapports déjà classés. |
 | `beginCampaignMission(dossier, options)` | `{ok,campaign,game,replay,message}`. `missionId` cible une mission; sinon la prochaine est choisie. Chaque nouvelle mission exige le rapport officiel précédent. Recommencer exige `restart:true`. |
-| `checkpointCampaign(dossier, game, options)` | Nouveau dossier avec l’état complet ; MI06–MI09 acceptent aussi une défaite terminale. Le débit d’auxiliaire est réglé avant sauvegarde. `beforeDecision:true` conserve le premier point avant choix. |
-| `restoreCampaignGame(dossier, options)` | État officiel validé, éventuellement `lost` pour MI06–MI09 ; `null` sans sortie ou si les règles de reprise de la mission interdisent le point demandé. En MI09, le point avant décision doit être exactement le checkpoint officiel courant. |
-| `finishCampaignMission(dossier, game, options)` | Rapport et dotation une seule fois ; règle aussi la consommation non encore capturée. Une défaite MI06–MI09 conserve le checkpoint terminal sans rapport. `replay:true` ne change pas la campagne. |
+| `checkpointCampaign(dossier, game, options)` | Nouveau dossier avec l’état complet ; MI06–MI10 acceptent aussi une défaite terminale. Le débit d’auxiliaire est réglé avant sauvegarde. `beforeDecision:true` conserve le premier point avant choix. |
+| `restoreCampaignGame(dossier, options)` | État officiel validé, éventuellement `lost` pour MI06–MI10 ; `null` sans sortie ou si les règles de reprise de la mission interdisent le point demandé. En MI09 et MI10, le point avant décision doit être exactement le checkpoint officiel courant. |
+| `finishCampaignMission(dossier, game, options)` | Rapport et dotation une seule fois ; règle aussi la consommation non encore capturée. Une défaite MI06–MI10 conserve le checkpoint terminal sans rapport. `replay:true` ne change pas la campagne. |
 | `campaignRepairCost(dossier, walkerId)` | Coût d’atelier de zéro à six lots. |
 | `serviceCampaignWalker(dossier, walkerId)` | Réparation de coque, appuis et radiateur, stock débité, action refusée en mission. |
 | `repairCampaignPipe(dossier)` | Réparation unique de deux lots, refusée en sortie, service rétabli et incident conservé. |
-| `serializeCampaign(dossier)` / `parseCampaign(text)` | JSON validé au format v9, migrations connues des formats v1–v8 vers v9, limite de taille et structures contrôlées. |
+| `serializeCampaign(dossier)` / `parseCampaign(text)` | JSON validé au format v10, migrations connues des formats v1–v9 vers v10, limite de taille et structures contrôlées. |
 | `readCampaign(storage)` | Dossier, origine, disponibilité, avertissement et indicateur `blocked`. |
 | `writeCampaign(storage, dossier, options)` | `{ok,warning}`. `replaceInvalid:true` réservé à un nouveau dossier ou import explicitement confirmé. |
 
 `storage` est une dépendance fournie avec `getItem` et `setItem`, pas un accès DOM implicite. Les tests comparent l’état complet après restauration et entrées identiques. Les versions futures sont refusées sans écrasement automatique. Le point avant décision d’une mission terminée ne peut pas réécrire le dossier officiel.
 
-Les rapports sont conservés dans `completed.MI01` à `completed.MI09`. `lastDebrief` reflète le dernier rapport officiel. `stage: 'complete'` marque le retour d’une sortie, avec une éventuelle mission suivante encore disponible. Le dossier ferroviaire de `world.vesper.rail` conserve la récupération du train, les nombres de sauvés et perdus, l’état du registre, le signalement et la première rencontre avec les Brisants. `world.vesper.communications` conserve les faits des émissions civiles, le bilan des habitants et la disponibilité du canal du dispensaire. `world.vesper.industrial` conserve le refroidissement, le journal technique, son éventuelle perte, le contact effectué et le mode de remise. `world.nacre.passage` conserve les faits du chenal et correspond au reçu `completed.MI05`. Les domaines `world.nacre.ambulance`, `world.nacre.departure` et `world.thyr.route` conservent les premiers bilans de MI07, MI08 et MI09, dont les registres physiques individuels d’Aval et de Thyr. Chaque première réussite attribue quatre lots d’atelier ; le maximum avant dépenses est **42**, soit les six lots initiaux et neuf dotations de quatre. `resources.fuel` est distinct : il vaut zéro avant le premier rapport MI05, puis zéro ou deux selon le transfert accompli. MI06 consomme éventuellement ces deux lots. `world.nacre.fuelSpent` conserve la dépense cumulée et `world.nacre.dike` le bilan de la première réussite ; le coût de cette sortie peut être nul après un échec antérieur ayant déjà consommé la réserve. Aucune conversion en pièces d’atelier ni achat n’est implémenté.
+Les rapports sont conservés dans `completed.MI01` à `completed.MI10`. `lastDebrief` reflète le dernier rapport officiel. `stage: 'complete'` marque le retour d’une sortie, avec une éventuelle mission suivante encore disponible. Le dossier ferroviaire de `world.vesper.rail` conserve la récupération du train, les nombres de sauvés et perdus, l’état du registre, le signalement et la première rencontre avec les Brisants. `world.vesper.communications` conserve les faits des émissions civiles, le bilan des habitants et la disponibilité du canal du dispensaire. `world.vesper.industrial` conserve le refroidissement, le journal technique, son éventuelle perte, le contact effectué et le mode de remise. `world.nacre.passage` conserve les faits du chenal et correspond au reçu `completed.MI05`. Les domaines `world.nacre.ambulance`, `world.nacre.departure`, `world.thyr.route` et `world.thyr.chemical` conservent les premiers bilans de MI07, MI08, MI09 et MI10, dont les registres physiques individuels. Chaque première réussite attribue quatre lots d’atelier ; le maximum avant dépenses est **46**, soit les six lots initiaux et dix dotations de quatre. `resources.fuel` est distinct : il vaut zéro avant le premier rapport MI05, puis zéro ou deux selon le transfert accompli. MI06 consomme éventuellement ces deux lots. `world.nacre.fuelSpent` conserve la dépense cumulée et `world.nacre.dike` le bilan de la première réussite ; le coût de cette sortie peut être nul après un échec antérieur ayant déjà consommé la réserve. Aucune conversion en pièces d’atelier ni achat n’est implémenté.
 
 Les migrations ajoutent les trois châssis de la 0.4 et une réserve initiale de huit magasins aux points vivants historiques, en conservant le magasin, les roquettes, les dommages, les rapports et les choix existants. Il s’agit d’une conversion déclarée depuis l’ancien rechargement illimité. La migration vers v4 ajoute un radiateur neuf et deux kits aux anciennes sorties, un radiateur neuf à chaque châssis et un dossier industriel encore vide. La migration v4→v5 ajoute seulement `world.nacre.passage` vierge, `resources.fuel: 0` et le nouveau numéro de format. Elle conserve exactement les checkpoints et reçus de Vesper, avec les munitions, radiateurs, kits et travaux en cours. Les fixtures historiques v1, v2, v3 et v4 sont conservées telles qu’exportées par leurs versions d’origine ; celle de v3 provient de `c81a360`, et `tests/fixtures/campaign-v4-mi04.json` provient du commit `d7d76b61ee9e97e27c611e06905f32f70633cb8e`. Cette fixture v4 contient les dossiers MI04 en cours et terminé. Les tests vérifient que retirer les seuls champs ajoutés et rétablir le numéro 4 reproduit exactement l’ancien dossier. Les formats v1 à v4 présentant déjà du carburant, un résultat de Nacre ou un checkpoint MI05 sont refusés.
 
 
 ## Périmètre de validation et suite
 
-[QA_V10.md](QA_V10.md) rassemble les résultats et limites courants de simulation, sauvegarde, interface et livraison. [QA_V08.md](QA_V08.md) et les autres rapports de tranche restent des références historiques. Les parcours MI06 utilisent les commandes publiques pour les six châssis, les deux circuits et les pertes ; les stimuli de collision unitaires sont identifiés comme tels. Les tests `campaign-v6.test.mjs` couvrent migration historique, bilan et consommation ; `test-ui-runtime.mjs` vérifie les gestionnaires du script autonome dans un DOM modélisé. Les rendus de `render-mi06-previews.mjs` ne sont pas des captures navigateur.
+[QA_V11.md](QA_V11.md) rassemble les résultats et limites courants de simulation, sauvegarde, interface et livraison. [QA_V10.md](QA_V10.md), [QA_V08.md](QA_V08.md) et les autres rapports de tranche restent des références historiques. Les parcours MI06 et MI10 utilisent les commandes publiques pour les six châssis, leurs deux conduites et les pertes ; les stimuli de collision unitaires des autres suites sont identifiés comme tels. `test-ui-runtime.mjs` vérifie les gestionnaires du script autonome dans un DOM modélisé. Les rendus Canvas de `render-mi06-previews.mjs` et `render-mi10-previews.mjs` restent distincts des captures navigateur.
 
-Les neuf missions MI01–MI09 sont jouables au stade prototype. `CAMPAIGN_MISSIONS` et le dossier v9 vont jusqu’à MI09 — **La route des vivants** ; terminer ces neuf missions ne termine pas les 32 missions de conception. Les 23 missions MI10–MI32 restent conçues.
+Les dix missions MI01–MI10 sont jouables au stade prototype. `CAMPAIGN_MISSIONS` et le dossier v10 vont jusqu’à MI10 — **Le champ que personne n’a semé** ; terminer ces dix missions ne termine pas les 32 missions de conception. Les 22 missions MI11–MI32 restent conçues.
 
 La migration v5→v6 ajoute uniquement le dossier `world.nacre.dike` non visité, le compteur `world.nacre.fuelSpent: 0` et le numéro 6. La fixture `campaign-v5-mi05.json` est issue de l’arbre public immuable `613c07307f2712c5fac28d9403016906e94da168`. Les états MI01–MI05 restent identiques, y compris la différence entre carburant prélevé pendant MI05 et réserve créditée seulement à son rapport.
 
@@ -334,3 +334,129 @@ La migration v8→v9 ajoute uniquement `world.thyr.route` non visité et la nouv
 Les sauvegardes conservent le travail exact, les contacts, les positions, la peur, le générateur, les munitions et les projectiles. Une reprise terminale reste terminale. Le point avant décision de MI09 n’est proposé que s’il est exactement le checkpoint officiel, sans retour possible après une décision ou une progression ultérieure. Les relectures restent séparées du premier reçu.
 
 `Renderer.render` et `thyr-renderer.mjs` consomment ces objets sans les modifier. Ils ne déclenchent ni arrivée, ni opération, ni réparation. `drawThyrAsset` utilise les dimensions physiques fournies et partage ses primitives avec les exports SVG. Les snapshots de `render-mi09-previews.mjs` sont profondément copiés et comparés après continuation ; chaque rendu est contrôlé par égalité de l’état avant/après. Cette vérification Canvas reste distincte des parcours natifs de navigateur et de la réception humaine.
+
+## MI10 — Le champ que personne n’a semé (0.11, dossier v10)
+
+`createGame({ missionId: 'MI10', campaignContext })` ajoute `state.chemical`. Le domaine est absent de toutes les autres missions, y compris de leurs checkpoints historiques. Les paramètres restent dans `state.mission.chemical` ; les faits dérivés restent dans `state.campaign`. Les entrées publiques sont toujours celles de `commandGame` et `updateGame` : aucune commande supplémentaire de hauteur, de prélèvement instantané ou de modification des volumes n’est ajoutée.
+
+`chemicalContextFor(dossier)` dérive les cinq champs suivants du premier rapport `completed.MI09`. `chemicalContext(previous)` les normalise sans lire le stockage :
+
+| Champ de contexte | Valeurs et origine |
+| --- | --- |
+| `routeRecorded` | Présence du premier rapport MI09. |
+| `routeChoice` | `none`, `obey` ou `defy`, selon le choix conservé. |
+| `routeApproach` | `unprepared`, `surveyed` ou `guided`, selon l’approche réellement préparée. |
+| `routePassagePreserved` | Fait de passage préservé de MI09. |
+| `routeHarvestFragile` | Fait de récolte fragilisée de MI09. |
+
+Seule l’approche `guided` réduit une durée : la fermeture du collecteur passe de cinq à trois secondes. Aucun humain, animal, stock ou dommage ancien n’est déplacé ou réécrit par ce contexte.
+
+### Objets et positions
+
+Les positions `x/y` sont des centres ; les corps fixes reposent sur `terrainAt(x, 'PL03')` avec `y = terrain - h/2`. Un corps destructible conserve `id,x,y,w,h,hp,maxHp,destroyed,destroyedAt,flash`. Un poste de travail conserve `working,progress,startedAt,completedAt`, avec une progression de zéro à un et des dates initialement `null`. Les dates d’opérations acquises restent historiques après dégâts.
+
+| Objet | Position et intégrité | Champs propres |
+| --- | --- | --- |
+| `chemical.tanks[0..2]` | `x = 800,1400,2000` ; `140×160` ; 500 HP chacune | IDs `chemical-tank-1..3`, `role: carrier/binder/active`, `initialVolume:100`, `volume`, `inspected`, `identified`, `secured`, `demolished`, `work:none/inspect/secure/demolish`, dates `inspectedAt/identifiedAt/securedAt/demolishedAt`, travail commun. |
+| `chemical.collector` | Corps à 2960 ; `72×84` ; 400 HP ; `controlX:540` | `closed`, `closedAt`, travail commun. La commande amont et la vanne physique sont deux positions du même mécanisme. |
+| `chemical.leak` | Commande à 2200 ; `42×50` | `sourceId:chemical-tank-3`, `contained`, `containedAt`, travail commun. Les dégâts de source portent sur la cuve, pas sur cette commande sans HP. |
+| `chemical.sampler` | 2480 ; `64×72` ; 420 HP | `sourceId`, `started`, `collected`, `lost`, `firstStartedAt`, `collectedAt`, `lostAt`, `volumeCollected`, travail commun. |
+| `chemical.record` | 2740 ; `68×76` ; 200 HP | `inspected`, `copied`, `copiedAt`, travail commun. |
+| `chemical.orders` | 3020 ; `60×70` | Poste du dialogue, sans travail chronométré ni HP. |
+| `chemical.canals[0..1]` | 3400 et 4140 ; `260×24` ; 320 HP chacune | `controlX:3210/3950`, `covered`, `coveredAt`, `contamination`, `lastStep`, travail commun. |
+| `chemical.homes[0..1]` | 4860 et 5060 ; `140×100` ; 300 HP chacun | `habitable`, dérivé de l’intégrité et des canaux. Aucun nombre d’occupants. |
+| `chemical.water` | 4600 ; `56×60` | `resolved`, `restored`, `resolvedAt`, travail commun. |
+| `chemical.report` | 5660 ; `58×72` | `transmitted`, `transmittedAt`, travail commun. |
+| `chemical.spill` | Inventaire de la fuite avant émission d’une plume | `pendingMass`, `emissionClock`, `totalReleased`, `nextPlumeId`. |
+| `chemical.plumes[]` | De la cuve d’origine au bassin 2960 ou à l’aval 4780 | `id,sourceId,x,y,w:32,h:10,mass,phase,passedCanals,deposits,releasedAt,arrivedAt`. `phase` vaut `flowing`, `retained` ou `delivered`. |
+| `chemical.alert` | Événement du site puis délai d’arrivée | `triggered`, `reason`, `elapsed`, `triggeredAt`, `ready`, `readyAt`. `reason` vaut `none`, `sample`, `demolition` ou `source-loss`. |
+
+Les trois adversaires restent dans `state.enemies`, avec les IDs `chemical-private-1..3`, types `drone`, `sniper`, `buggy` et positions initiales 3120, 3680, 4380. Ils restent sans présence physique ni visibilité tant que `chemical.alert.ready` est faux. Le déclenchement vient du premier prélèvement lancé, de la première cuve rompue ou de la perte empêchant le prélèvement ; l’arrivée survient après cinq secondes. Après arrivée, les trois unités sont actives et peuvent choisir `attackTarget:'chemical-sampler'` lorsque la collecte reste en attente et son appareil disponible. Leur tir reste soumis aux collisions du monde.
+
+### API exposée et frontières de modules
+
+| Export | Contrat |
+| --- | --- |
+| `simulation.mjs` — `chemicalContext(previous = {})` | Réexport du normaliseur des cinq champs de contexte. Ne copie ni monde, ni population, ni dossier entier. |
+| `simulation.mjs` — `chemicalDecisionBody(state)` | Réexport du texte calculé depuis les relevés, la provenance et le sort réel du prélèvement. Ne réalise aucune opération. |
+| `simulation.mjs` — `chemicalReceiptRoster(state)` | Réexport d’une copie profonde de `chemical`, complétée par `privateForces:[{id,type,hp,maxHp,dead}]`. Le checkpoint garde, lui, les ennemis complets et leurs positions. |
+| `simulation.mjs` — `chemicalSurfaceAt(state,x)` | Retourne `{groundY,canalId,rise,traction}`. Un canal couvert intact porte une surface dix unités au-dessus du terrain, avec traction de coque 0,88 ; ailleurs, relief normal et traction 1. |
+| `chemical-validation.mjs` — `createChemicalDossier()` | Domaine officiel non visité : conduite non sélectionnée, faits et compteurs vides, `roster:null`. |
+| `chemical-validation.mjs` — `chemicalContextFor(dossier)` | Héritage tiré du premier reçu MI09, contrôlé contre le contexte de sortie. |
+| `chemical-validation.mjs` — `chemicalDossierFromGame(game)` | Copie les faits officiels de MI10 et le registre matériel du jeu. |
+| `chemical-validation.mjs` — `validateChemicalFacts(facts,finished=false)` | Cohérence des comptes, masses, états de preuve et portes de progression ; ajoute les conditions de clôture si `finished`. |
+| `chemical-validation.mjs` — `validateChemicalMission(value,template)` | Réconcilie le checkpoint complet : géométrie, intégrité, travaux datés, volumes, plumes, exposition, alerte, copies, objectifs et état terminal. |
+| `chemical-validation.mjs` — `validateChemicalReceipt(receipt,context)` | Réconcilie le reçu final avec son roster et son contexte officiel. |
+| `chemical-validation.mjs` — `validateChemicalSortie(previous,current)` | Refuse le recul de sortie, les changements de choix acquis et l’annulation de dégâts, copies, pertes ou mouvements irréversibles. |
+
+Le moteur importe aussi les fonctions d’intégration de `chemical-simulation.mjs` : `createChemicalMission(state,previous,runtime)`, `interactChemicalMission(state,runtime)`, `chooseChemicalMission(state,choice,runtime)`, `updateChemicalMission(state,dt,runtime)`, `hitChemicalPart(state,part,damage,runtime)` et `chemicalFootfall(state,foot,runtime)`. `runtime` fournit `terrainAt` et `emit`. `chemicalSurface`, `chemicalSolids`, `refreshChemicalFacts`, `chemicalInteraction` et `chemicalObjectives` complètent ce raccordement. Ces fonctions font partie de l’implémentation du moteur ; les parcours de validation MI10 passent par les commandes publiques, sans les utiliser comme raccourcis de dégâts ou de progression.
+
+Le réexport nommé dans `simulation.mjs` conserve les mêmes fonctions dans les modules et dans le script autonome. `tools/build-offline.mjs` reconnaît explicitement cette forme et refuse les imports/exports résiduels qu’il ne sait pas regrouper.
+
+### Portée, durées et actions
+
+Une interaction commence à une distance horizontale d’au plus 150 unités du poste concerné. Le plus proche des travaux disponibles est retenu. Les travaux marqués « ancrage » demandent `player.braced`, `player.move === 0`, une vitesse absolue strictement inférieure à 3 et tous les pieds en contact. L’éloignement ou la perte d’une condition remet une progression inachevée à zéro ; une nouvelle action est nécessaire pour la relancer.
+
+| Action | Durée | Condition et résultat |
+| --- | --- | --- |
+| Fermer le collecteur | 5 s, ou 3 s avec approche MI09 guidée | Ancrage au poste 540, vanne intacte, circuit d’eau pas encore remis en service. Fermeture acquise à l’achèvement. |
+| Relever chaque cuve | 3 s | Inspection locale ; copie du marquage seulement si la cuve existe encore à l’achèvement. Les ruines donnent le constat sans marquage. |
+| Contenir la fuite | 6 s | Ancrage au poste 2200 et source encore intacte. Arrête les émissions ultérieures et conserve les volumes déjà libérés. |
+| Copier ou constater le registre | 3 s | Travail local à 2740 ; un registre détruit reste inspectable, sans copie. |
+| Lancer le prélèvement | 20 s | Les trois cuves et le registre doivent avoir été relevés. Démarrage à portée du poste, puis maintien à au plus 850 unités du préleveur ; source et appareil survivants, au moins cinq unités disponibles jusqu’à collecte. |
+| Choisir la conduite | Dialogue, sans travail instantané | Trois cuves et registre relevés, fuite arrêtée, proximité du poste 3020. `obey→demolish`, `defy→secure`. |
+| Isoler une cuve | 5 s | Ancrage, cuve inspectée et intacte, conduite `secure`. |
+| Démolir une cuve | 3 s | Ancrage, cuve inspectée et intacte, conduite `demolish`. Les tirs et explosions peuvent aussi la rompre. |
+| Couvrir un canal | 4 s | Ancrage à sa commande amont, canal intact. La couverture ne change ni ses HP déjà perdus ni sa contamination. |
+| Remettre l’eau en service | 4 s | Ancrage à 4600, opérations des cuves et écoulement résolus. Ouvre le collecteur et consigne la disposition de l’eau ; des canaux détruits ne sont pas réparés. |
+| Transmettre le rapport | 3 s | Poste 5660 ; relevés et choix acquis, opérations des cuves et prélèvement résolus, trois forces neutralisées, disposition de l’eau consignée et écoulement terminé. |
+
+Le confinement est une opération distincte du lancement de prélèvement : les relevés ouvrent ce dernier, tandis que l’arrêt de la fuite ouvre le dialogue. Le pilote peut collecter avant ou après son choix. Le choix ne neutralise aucun adversaire et ne réalise aucun travail sur les cuves, les canaux ou l’eau.
+
+`sampler.started` indique qu’un premier lancement a eu lieu ; il ne signifie pas que le travail continue. `working` porte cette activité. Une interruption hors zone conserve `firstStartedAt` mais remet la progression à zéro ; `startedAt` date l’essai repris. La collecte retire exactement cinq unités de la cuve source, inscrit `collectedAt`, `volumeCollected:5` et conserve la matière à bord. Une source détruite ou passée sous cinq unités, ou un appareil détruit avant collecte, inscrit `lostAt`, `lost:true`, `progress:0` et aucune matière conservée.
+
+### Faits dérivés, preuve et clôture
+
+`campaign.plan` vaut `unselected`, `demolish` ou `secure`. Les phases sont `survey`, `decision`, `operations`, `extraction` et `complete` ; elles ne remplacent pas les indicateurs de travail des objets. Les principaux faits exposés sont :
+
+| Groupe | Champs et distinction |
+| --- | --- |
+| Cuves | `tanksTotal`, `tanksInspected`, `copiedMarks`, `tanksDestroyed`, `tanksSecured`. Une cuve détruite reste inspectée si son relevé était acquis ; une copie survivante reste comptée. `tanksSecured` compte seulement les cuves isolées encore intactes. |
+| Fuite et volumes | `leakContained`, `leakStopped`, `sourceVolume`, `collectorClosed`, `collectorDestroyed`, `spillReleased`, `spillRetained`, `spillDelivered`, `spillInTransit`, `flowResolved`. |
+| Eau et habitats | `canalsIntact`, `canalsCovered`, `canalsPolluted`, `waterDispositionRecorded`, `waterRestored`, `homesHabitable`, `villageHabitable`. Une circulation rétablie ne certifie ni la propreté du produit reçu ni la survie des habitats. |
+| Registre et prélèvement | `orisonRecordInspected`, `orisonRecordCopied`, `orisonRecordLost`, `sampleStarted`, `sampleCollected`, `sampleLost`, `sampleResolved`, `pt02Acquired`. Un original peut être perdu avec sa copie toujours conservée. |
+| Progression | `privateTriggered`, `privateReady`, `privateNeutralized`, `operationsResolved`, `reportTransmitted`, `manifestRead`, plus `context` et `tutorial`. |
+
+`manifestRead` signifie trois cuves inspectées et registre inspecté, y compris leurs ruines. `sampleResolved` signifie collecte ou perte connue. `operationsResolved` exige une conduite choisie et soit trois cuves détruites, soit toutes les cuves intactes isolées avec les autres pertes constatées. Ce dernier fait ne transforme pas une cuve perdue en cuve sécurisée.
+
+`pt02Acquired = sampleCollected && copiedMarks === 3 && orisonRecordCopied`. `evidence.collected` et `stats.evidence` suivent cette condition ; ils ne suivent pas le seul prélèvement. Une acquisition n’est comptée qu’une fois. Des destructions ultérieures ne retirent ni matière ni copies déjà emportées. MI10 n’attribue aucun témoignage TE01 et ne résout pas la chaîne politique globale.
+
+L’extraction à 6060, de rayon 110, exige les huit premiers objectifs complets : relevés, fuite arrêtée, choix, prélèvement résolu, cuves résolues, trois forces neutralisées, écoulement et eau résolus, rapport transmis. La coque à zéro produit `lost`. Une perte de prélèvement peut être consignée dans une mission terminée, avec PT02 absente. Un déversement postérieur au rapport conserve sa transmission acquise mais remet `flowResolved` à faux et verrouille la sortie jusqu’à sa résolution réelle.
+
+### Conservation de matière et surfaces réelles
+
+La troisième cuve fuit à 0,5 unité par seconde. La fuite accumulée est émise par paquets d’une seconde, avec vidage du reste lors du confinement, de la rupture ou de l’épuisement. Une cuve rompue libère immédiatement tout son volume restant. Chaque plume conserve sa masse et avance à 90 unités monde par seconde, avec `y = terrainAt(x,'PL03') - 5`. Ses coordonnées, dates et identifiants restent dans la sauvegarde.
+
+Les invariants se lisent sans compter deux fois l’exposition des canaux :
+
+```text
+sum(tanks.volume) + sampler.volumeCollected + spill.pendingMass + sum(plumes.mass) = 300
+spill.totalReleased = spill.pendingMass + sum(plumes.mass)
+canals[i].contamination = sum(plumes[j].deposits[i])
+```
+
+La masse restante est aussi réconciliée séparément pour chaque cuve source. `passedCanals` vaut zéro, un ou deux selon les passages acquis ; `deposits:[0,0]` reçoit la masse de la plume lors du passage dans chaque canal. Ces mesures d’exposition ne retirent pas de matière supplémentaire du courant. À vingt unités reçues, le canal est déclaré pollué. La couverture, la mise en eau et la signature du rapport ne remettent jamais ce compteur à zéro.
+
+Un collecteur fermé et intact arrête une plume à 2960 et lui donne `phase:'retained'`. Cette matière est stockée dans un bassin séparé : rouvrir ou casser la vanne ne draine pas le volume déjà capté. Les nouveaux rejets passent alors vers l’aval. Sans rétention au passage, la plume traverse les canaux, atteint 4780 puis devient `delivered`. `flowResolved` exige une fuite arrêtée et aucun volume en attente ou en transit.
+
+Un canal couvert intact porte les pieds sur l’emprise `x ± w/2` à `terrainAt(x)-10`. Le rendu réutilise `chemicalSurfaceAt` pour son tablier. Sur un canal découvert, un contact réel inflige `max(2, walker.weight*0.04)` points, au plus une fois par valeur de `stats.steps` et par canal ; `lastStep` conserve cette trace. La couverture ne répare pas ces dommages. Le préleveur, les cuves, le collecteur, le registre, les canaux et les habitats reçoivent aussi les projectiles et explosions des deux camps.
+
+### Persistance et preuve de réception
+
+La migration v9→v10 ajoute seulement `world.thyr.chemical` non visité et la version 10. Les neuf rapports antérieurs, leurs mondes, la flotte, les stocks, les checkpoints et l’ancien `stage` sont conservés. La fixture v9 garde l’export natif historique avec sa provenance ; aucune scène ancienne n’est régénérée depuis le moteur courant. Le premier reçu MI10 conserve son registre physique et crédite quatre lots une seule fois. Pour dix premières réussites, le maximum théorique avant dépenses est **46 lots** ; la section MI09 ci-dessus conserve le plafond historique de 42 pour la 0.10.
+
+Les checkpoints conservent l’horloge, les contacts, les projectiles, le générateur, les travaux, les dates de copie/collecte/perte et toutes les plumes. La validation vérifie leurs relations au lieu d’accepter le seul résumé. Une sortie terminale reste terminale. Une reprise avant décision de MI10 exige l’identité exacte avec le checkpoint officiel ; une horloge majorée ne rend pas une perte effaçable. Les relectures ne changent ni le premier reçu ni sa dotation.
+
+`chemical-renderer.mjs`, `Renderer.render` et le HUD lisent les états sans les modifier. L’appareil détruit et la matière conservée à bord sont deux faits simultanément possibles ; les copies survivent à leurs originaux, une couverture peut porter au-dessus d’un canal pollué et une eau remise en circulation peut laisser le village inhabitable. Les indices de progression doivent donc lire les champs correspondants et non seulement le plan choisi.
+
+[mi10-simulation-validation.json](previews/mi10-simulation-validation.json) conserve la réception Node ciblée et ses sources ; [mi10-canvas-validation.json](previews/mi10-canvas-validation.json) et [mi10-scenes.json](previews/mi10-scenes.json) conservent le rendu de scènes atteintes par commandes publiques, les snapshots profonds et l’absence de mutation du renderer. Les exports préparés servent d’entrées à une réception native séparée ; ils ne prouvent pas qu’un utilisateur a accompli les opérations. Les gestes natifs et les essais humains restent décrits uniquement par leurs propres reçus. Voir [CAMPAIGN_MISSION_10.md](CAMPAIGN_MISSION_10.md) et [CAMPAIGN_SAVE_V10.md](CAMPAIGN_SAVE_V10.md).

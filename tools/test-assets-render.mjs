@@ -7,6 +7,7 @@ import {
   productionGeometrySVG, drawProductionGeometry,
 } from '../src/production-assets.mjs';
 import { THYR_ASSET_SPECS, thyrAssetGeometry, thyrAssetSVG } from '../src/thyr-assets.mjs';
+import { CHEMICAL_ASSET_SPECS, chemicalAssetGeometry, chemicalAssetSVG } from '../src/chemical-assets.mjs';
 
 const require = createRequire(import.meta.url);
 let canvas;
@@ -24,12 +25,13 @@ const cases = [
   { part: 'ambulance' },
   { part: 'beacon', state: 'lost' },
   ...Object.entries(THYR_ASSET_SPECS).flatMap(([part, spec]) => spec.states.map(state => ({ part, state, progress: .5, thyr: true }))),
+  ...Object.entries(CHEMICAL_ASSET_SPECS).flatMap(([part, spec]) => spec.states.map(state => ({ part, state, progress: .5, chemical: true }))),
 ];
 
 for (const options of cases) {
-  const geometry = options.thyr ? thyrAssetGeometry(options) : PRODUCTION_COMPONENT_NAMES.includes(options.part)
+  const geometry = options.chemical ? chemicalAssetGeometry(options) : options.thyr ? thyrAssetGeometry(options) : PRODUCTION_COMPONENT_NAMES.includes(options.part)
     ? productionComponentGeometry(options) : productionPartGeometry(options);
-  const svg = options.thyr ? thyrAssetSVG(geometry) : productionGeometrySVG(geometry), [x, y, width, height] = geometry.bounds, scale = 3;
+  const svg = options.chemical ? chemicalAssetSVG(geometry) : options.thyr ? thyrAssetSVG(geometry) : productionGeometrySVG(geometry), [x, y, width, height] = geometry.bounds, scale = 3;
   const direct = createCanvas(Math.ceil(width * scale), Math.ceil(height * scale));
   const directContext = direct.getContext('2d');
   directContext.scale(scale, scale); directContext.translate(-x, -y);

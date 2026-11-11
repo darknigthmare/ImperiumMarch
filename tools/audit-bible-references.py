@@ -39,14 +39,20 @@ with tempfile.TemporaryDirectory(prefix='imperium-bible-reference-probes-') as d
         results.append({'case':name,'expectedIssue':expected,'detectedIssues':report['issues'],'rejected':True})
 
 fallbacks=[]
-with tempfile.TemporaryDirectory(prefix='imperium-bible-no-git-v010-') as directory:
+with tempfile.TemporaryDirectory(prefix='imperium-bible-no-git-') as directory:
     work=pathlib.Path(directory)
     release='.'.join(original['meta']['version'].split('.')[:2])+suffix
     for path in ['data/bible.json','docs/ORDRE_DE_CENDRE_Bible.xlsx',f'docs/validation/workbook-v{release}-validation.json']:
         dest=work/path; dest.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(root/path,dest)
     (work/'tests/fixtures').mkdir(parents=True)
     for source in (root/'tests/fixtures').glob('bible-v*-ids.json'): shutil.copy2(source,work/'tests/fixtures'/source.name)
-    for rev,count in [(None,816),('03c69e7',769),('1e7eadb',705),('c598bad',643),('d7d76b6',581),('c81a360',526)]:
+    previous=original['meta'].get('previousRelease',{})
+    historical=[(None,previous.get('recordCount',816))]
+    for fixture in sorted((work/'tests/fixtures').glob('bible-v*-ids.json')):
+        frozen=json.loads(fixture.read_text())
+        if frozen['sourceRevision']!=previous.get('sourceRevision'):
+            historical.append((frozen['sourceRevision'],frozen['idCount']))
+    for rev,count in historical:
         command=[python,str(tool),str(work)]+([rev] if rev else [])
         run=subprocess.run(command,capture_output=True,text=True)
         assert run.returncode==0,(rev,run.stderr)
@@ -64,5 +70,6 @@ report={'date':datetime.datetime.now(datetime.timezone.utc).isoformat(),
         'verifierSha256':hashlib.sha256(tool.read_bytes()).hexdigest(),
         'scope':'Synthetic negative mutations in disposable source copies. Real source, workbook and historical reports are not modified.',
         'negativeReferenceProbes':results,'historicalFallbacks':fallbacks,'passed':True}
-(root/f'docs/validation/production-v010{suffix}-reference-probes.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+release_tag=''.join(original['meta']['version'].split('.')[:2])
+(root/f'docs/validation/production-v{release_tag}{suffix}-reference-probes.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps({'negativeProbes':len(results),'fallbacks':len(fallbacks),'passed':True},ensure_ascii=False))

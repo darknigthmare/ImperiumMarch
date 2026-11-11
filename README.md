@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.10.0 · Français**
+**Nom de code : ImperiumMarch · Version 0.11.0 · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -10,7 +10,7 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 **Ordre de Cendre** est un projet original de combat tactique en 2D, inspiré par le contrôle volontaire des appuis de BE-A Walker. Il développe ses propres mondes, machines, factions, personnages et récit. Sa proposition est de faire du pilotage une responsabilité matérielle : porter une machine, choisir une ligne de tir, vérifier une qualification hostile et retrouver les conséquences au retour.
 
-Cette livraison contient un **prototype de neuf missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant. La qualité de production visée, les huit mondes et la campagne complète restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
+Cette livraison contient un **prototype de dix missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant. La qualité de production visée, les huit mondes et la campagne complète restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
 
 ## Jouer à cette version
 
@@ -18,7 +18,7 @@ Cette livraison contient un **prototype de neuf missions de campagne**, six mach
 
 Ouvrir [**dist/Ordre_de_Cendre.html**](dist/Ordre_de_Cendre.html) dans un navigateur de bureau récent, après l’avoir téléchargé ou extrait du pack. Le code, les styles et les images sont intégrés. Aucun serveur ni téléchargement complémentaire n’est nécessaire pour cette édition. Le son démarre après une interaction.
 
-1. **Campagne** : ouvrir le dossier de Sera, jouer MI01, puis MI02, MI03, MI04, MI05, MI06, MI07, MI08 et MI09, débloquées par le premier rapport de la mission précédente.
+1. **Campagne** : ouvrir le dossier de Sera, jouer MI01, puis MI02, MI03, MI04, MI05, MI06, MI07, MI08, MI09 et MI10, débloquées par le premier rapport de la mission précédente.
 2. **Hangar** : choisir parmi six châssis. Au retour, lire les réactions de Tess et Sami et réparer avec les pièces disponibles.
 3. **Reprendre la mission** : retrouver le dernier point de liaison, ses appuis, projectiles, travaux et objectifs.
 4. **Simulations** : jouer les trois opérations indépendantes. Elles dévoilent des éléments ultérieurs du récit et ne modifient pas le dossier officiel.
@@ -48,7 +48,25 @@ npm run build:web
 
 `npm run test:browser` fournit un contrôle Chromium distinct, avec Playwright et un navigateur installés dans un environnement autorisé. Les outils de classeur et de rendu Canvas utilisent des dépendances de développement séparées ; elles ne sont pas requises pour jouer.
 
-## Nouveautés de la 0.10 — La route des vivants
+## Nouveautés de la 0.11 — Le champ que personne n’a semé
+
+**MI10 prolonge Thyr après le premier rapport de « La route des vivants ».** Holt ordonne de détruire une réserve chimique attribuée aux rebelles. Trois cuves bordent les canaux d’un village ; une fuite est déjà active. Le relevé matériel doit précéder toute conclusion sur le contenu du site.
+
+- **Trois identifications réelles.** Chaque cuve porte son propre marquage. Le registre des lots exige une copie séparée. Relever des ruines conserve un constat de perte, sans recréer les inscriptions détruites.
+- **Un prélèvement à défendre.** La collecte prend vingt secondes dans la zone du préleveur. Trois forces privées entrent après leur délai d’alerte. La source et l’appareil peuvent être perdus avant la collecte ; après celle-ci, les pièces conservées à bord survivent à la destruction des originaux.
+- **Deux conduites matérielles.** La démolition et la mise en sécurité demandent une opération sur chaque cuve encore debout. Une réponse au dialogue ne détruit ni n’isole les équipements.
+- **Des volumes traçables.** La fuite et les ruptures libèrent des nappes qui parcourent réellement le terrain. Le collecteur peut les dévier vers un bassin distinct. Les volumes retenus, livrés et encore en transit sont réconciliés. Le bassin n’est pas destructible dans ce prototype.
+- **L’eau du village.** Deux canaux peuvent être couverts avant le passage des pieds. Les tirs et les appuis peuvent dégrader les ouvrages. Le retour de l’eau ne supprime aucune contamination ; le bilan distingue circulation rétablie et village habitable.
+- **La pièce technique PT02.** Elle exige la matière prélevée, les trois marquages et le registre matériel d’Orison. Elle ne reconstitue pas toute la chaîne de financement et de commandement. TE01 reste prévue à MI11 et la défection à MI16.
+- **Un dossier v10 et un lot graphique original.** La migration du vrai dossier v9 conserve ses neuf rapports, son inventaire et ses scènes. Six nouveaux composants, vingt-quatre SVG et deux planches partagent les formes utilisées par le jeu. La Bible contient 873 fiches sur 21 onglets.
+
+![Prélèvement défendu sur le champ des basses terres](docs/previews/mi10-sampling-defense.png)
+
+*Rendu Canvas du jeu depuis un état atteint par les commandes publiques, avec état profondément copié et empreintes des sources. Cette image ne constitue pas une capture de navigateur.*
+
+Le [contrat MI10](docs/CAMPAIGN_MISSION_10.md), la [sauvegarde v10](docs/CAMPAIGN_SAVE_V10.md), le [lot graphique](assets/chemical/README.md), le [registre de production 0.11](docs/PRODUCTION_REGISTER_V11.md) et la [validation 0.11](docs/QA_V11.md) décrivent les opérations, les résultats et les limites de la tranche.
+
+## Livraison précédente — 0.10, la route des vivants
 
 **MI09 ouvre l’affectation sur Thyr après le rapport d’Aval.** La route déclarée sauvage traverse deux colonnes vivantes, leurs racines porteuses, deux habitats suspendus et la migration de quatre longues-dorses. Les cartes militaires omettent les maisons. Le poste des cultures peut expliquer le passage et guider une approche adaptée au châssis.
 
@@ -208,26 +226,26 @@ Les trois premières missions de Vesper établissent des faits locaux. MI04 ajou
 
 ## Dossier, atelier et migrations
 
-Le dossier de campagne s’enregistre toutes les **huit secondes de simulation**, à la pause, au retour, avant et après la décision et lors des événements de fermeture disponibles. Le raccordement de l’auxiliaire et une défaite de MI06 à MI09 déclenchent aussi une sauvegarde immédiate. Une fermeture brutale peut revenir au dernier point effectivement écrit. Les opérations indépendantes gardent leurs rapports réussis, sans sauvegarde de leur partie en cours après fermeture.
+Le dossier de campagne s’enregistre toutes les **huit secondes de simulation**, à la pause, au retour, avant et après la décision et lors des événements de fermeture disponibles. Le raccordement de l’auxiliaire et une défaite de MI06 à MI10 déclenchent aussi une sauvegarde immédiate. Une fermeture brutale peut revenir au dernier point effectivement écrit. Les opérations indépendantes gardent leurs rapports réussis, sans sauvegarde de leur partie en cours après fermeture.
 
-Le **format v9** accepte les vrais dossiers v1 à v8. La migration conserve rapports, décisions, pièces, dégâts, phase et temps de rechargement. Les anciennes versions reçoivent les champs manquants : trois châssis neufs et une réserve documentée de huit magasins pour v1/v2, puis un radiateur neuf et deux kits pour chaque ancien checkpoint. Le dossier industriel commence sans preuve ni contact inventés. Un dossier v4 gagne uniquement Nacre non visité et zéro carburant ; tous ses checkpoints et ses quatre rapports sont conservés tels quels. Un dossier v5 gagne seulement la digue non visitée et un compteur de dépense nul ; même un transfert de carburant effectué dans une MI05 encore en cours ne crédite pas prématurément la réserve. Un dossier v6 gagne seulement l’ambulance non visitée, sans réécriture des six rapports ni du registre de carburant. Un dossier v7 gagne uniquement le volet d’Aval vide et le numéro de version v8 : les sept rapports et les scènes sanitaires restent exacts. Un dossier v8 gagne uniquement le volet de Thyr vide et le numéro de version v9, sans modifier ses huit rapports, ses scènes, son ancien stage ou ses ressources. La lecture ne réécrit pas l’ancien fichier ; la première sauvegarde en conserve une copie de secours.
+Le **format v10** accepte les vrais dossiers v1 à v9. La migration conserve rapports, décisions, pièces, dégâts, phase et temps de rechargement. Les anciennes versions reçoivent les champs manquants : trois châssis neufs et une réserve documentée de huit magasins pour v1/v2, puis un radiateur neuf et deux kits pour chaque ancien checkpoint. Le dossier industriel commence sans preuve ni contact inventés. Un dossier v4 gagne uniquement Nacre non visité et zéro carburant ; tous ses checkpoints et ses quatre rapports sont conservés tels quels. Un dossier v5 gagne seulement la digue non visitée et un compteur de dépense nul ; même un transfert de carburant effectué dans une MI05 encore en cours ne crédite pas prématurément la réserve. Un dossier v6 gagne seulement l’ambulance non visitée, sans réécriture des six rapports ni du registre de carburant. Un dossier v7 gagne uniquement le volet d’Aval vide et le numéro de version v8 : les sept rapports et les scènes sanitaires restent exacts. Un dossier v8 gagne uniquement le volet de Thyr vide et le numéro de version v9, sans modifier ses huit rapports, ses scènes, son ancien stage ou ses ressources. Un dossier v9 gagne seulement `world.thyr.chemical` vide et la version v10 ; son ancien `stage`, ses neuf rapports, ses scènes et ses ressources restent exacts. La lecture ne réécrit pas l’ancien fichier ; la première sauvegarde en conserve une copie de secours.
 
 Une version future, un format étranger ou un fichier dépassant la taille admise reste protégé contre l’écrasement automatique, même avec une copie de secours lisible. L’import explicite ou la création d’un nouveau dossier est nécessaire pour le remplacer. Si le stockage refuse une écriture, la session reste jouable et l’interface indique l’échec.
 
-L’atelier commence avec **six lots de pièces**. Chaque première réussite de MI01 à MI09 ajoute **quatre lots**, une seule fois. Réparer coque, appuis et radiateur coûte de un à six lots ; réparer la conduite coûte deux lots. Aucune intervention d’atelier n’est possible pendant la sortie officielle.
+L’atelier commence avec **six lots de pièces**. Chaque première réussite de MI01 à MI10 ajoute **quatre lots**, une seule fois. Réparer coque, appuis et radiateur coûte de un à six lots ; réparer la conduite coûte deux lots. Aucune intervention d’atelier n’est possible pendant la sortie officielle.
 
 Une relecture ne remplace pas le premier rapport, ne redonne pas de dotation et n’efface pas la sortie officielle encore en cours. Réparer un service conserve l’incident dans l’histoire. Un rapport favorable ne restaure pas un bâtiment détruit après sa signature.
 
 ## Portée réelle et cible de production
 
-| Domaine | Livré dans la 0.10 | Cible encore à produire |
+| Domaine | Livré dans la 0.11 | Cible encore à produire |
 | --- | --- | --- |
-| Campagne | MI01–MI09, neuf rapports, Vesper, Nacre et la première route de Thyr. | 23 autres missions principales et 16 contrats. |
+| Campagne | MI01–MI10, dix rapports, Vesper, Nacre et les deux premières missions de Thyr. | 22 autres missions principales et 16 contrats. |
 | Opérations indépendantes | Vesper : relais ; Nacre : escorte ; Thyr : ordre et adversaire lourd. | Campagnes des autres mondes et leurs règles propres. |
 | Châssis | Six machines, deux profils par nombre d’appuis. | Six autres modèles, équipements et aptitudes spécialisées. |
 | Combat | Tirs balayés, roquettes, ancrage, chauffe, appuis, radiateur localisé, deux kits finis et réserves de munitions. | Familles d’armes complètes, composants ennemis, doctrines d’escouade. |
-| Monde et récit | Arcs de Vesper et de Nacre, première vallée de Thyr, équipage et faits de neuf missions. | Huit planètes complètes, neuf factions, coalition et quatre familles de fins. |
-| Conception | 845 fiches, 21 onglets, concept complet, contrats causaux de Vesper et Nacre, registre des 133 critères initiaux. | Assets, voix, animations, niveaux, réglages et tests humains de production. |
+| Monde et récit | Arcs de Vesper et de Nacre, route et champ chimique de Thyr, équipage et faits de dix missions. | Huit planètes complètes, neuf factions, coalition et quatre familles de fins. |
+| Conception | 873 fiches, 21 onglets, concept complet, contrats causaux de Vesper et Nacre, registre des 133 critères initiaux. | Assets, voix, animations, niveaux, réglages et tests humains de production. |
 
 Les statuts **Conçu**, **Prototype**, **À produire** et **Vérifié** restent distincts. Les fiches ne constituent pas un pourcentage d’achèvement. Les validations portent sur des scénarios et un environnement précis.
 
@@ -254,20 +272,26 @@ Onze actions clavier sont reconfigurables dans Réglages. Une manette standard p
 | --- | --- |
 | [Conséquences Vesper 0.5](docs/VESPER_CONSEQUENCES_V05.md) | Causalité, preuve, connaissance, composants, Nacre et critères de production. |
 | [Concept complet 0.4](docs/CONCEPT_COMPLET_V04.md) | Tous les domaines : règles, contenu, récit, économie, art, accessibilité et production. |
-| [Bible Excel](docs/ORDRE_DE_CENDRE_Bible.xlsx) | 21 onglets, 845 fiches, 20 tables filtrables et 126 formules. |
+| [Bible Excel](docs/ORDRE_DE_CENDRE_Bible.xlsx) | 21 onglets, 873 fiches, 20 tables filtrables et 126 formules. |
 | [Bible générale](docs/BIBLE_FR.md) | Vision et règles communes. |
 | [Campagne](docs/CAMPAIGN_FR.md) | Trente-deux missions, quatre actes et fins ; contient des révélations. |
-| [MI01](docs/CAMPAIGN_MISSION_01.md), [MI02](docs/CAMPAIGN_MISSION_02.md), [MI03](docs/CAMPAIGN_MISSION_03.md), [MI04](docs/CAMPAIGN_MISSION_04.md), [MI05](docs/CAMPAIGN_MISSION_05.md), [MI06](docs/CAMPAIGN_MISSION_06.md), [MI07](docs/CAMPAIGN_MISSION_07.md), [MI08](docs/CAMPAIGN_MISSION_08.md), [MI09](docs/CAMPAIGN_MISSION_09.md) | Contrats du contenu réellement exécuté. |
-| [Production 0.10](docs/PRODUCTION_V10.md), [registre des 133 critères](docs/PRODUCTION_REGISTER_V10.md) | Livrables reçus, preuves, dépendances et travail restant par ID. |
-| [Validation 0.10](docs/QA_V10.md) | Résultats exécutés et limites distinctes de simulation, interface, rendu, classeur et navigateur. |
-| [Sauvegarde v9](docs/CAMPAIGN_SAVE_V9.md), [Architecture](docs/ARCHITECTURE.md), [API simulation](docs/SIMULATION_API.md) | Contrats techniques et règles de migration. |
+| [MI01](docs/CAMPAIGN_MISSION_01.md), [MI02](docs/CAMPAIGN_MISSION_02.md), [MI03](docs/CAMPAIGN_MISSION_03.md), [MI04](docs/CAMPAIGN_MISSION_04.md), [MI05](docs/CAMPAIGN_MISSION_05.md), [MI06](docs/CAMPAIGN_MISSION_06.md), [MI07](docs/CAMPAIGN_MISSION_07.md), [MI08](docs/CAMPAIGN_MISSION_08.md), [MI09](docs/CAMPAIGN_MISSION_09.md), [MI10](docs/CAMPAIGN_MISSION_10.md) | Contrats du contenu réellement exécuté. |
+| [Production 0.11](docs/PRODUCTION_V11.md), [registre des 133 critères](docs/PRODUCTION_REGISTER_V11.md) | Livrables reçus, preuves, dépendances et travail restant par ID. |
+| [Validation 0.11](docs/QA_V11.md) | Résultats exécutés et limites distinctes de simulation, interface, rendu, classeur et navigateur. |
+| [Sauvegarde v10](docs/CAMPAIGN_SAVE_V10.md), [Architecture](docs/ARCHITECTURE.md), [API simulation](docs/SIMULATION_API.md) | Contrats techniques et règles de migration. |
 | [Conséquences de Nacre](docs/NACRE_CONSEQUENCES_V09.md), [commandes et son](docs/CONTROLS_AUDIO_V09.md) | Personnes, capacités, arrivées, héritages et commandes disponibles. |
-| [Lots graphiques et audio](assets/production/README.md), [Thyr](assets/thyr/README.md) | Les 354 exports précédents et 37 nouveaux fichiers Thyr, avec leurs sources et manifestes. |
+| [Lots graphiques et audio](assets/production/README.md), [Thyr](assets/thyr/README.md), [champ chimique](assets/chemical/README.md) | Les lots originaux, leurs variantes SVG, planches PNG et exports audio, avec sources et manifestes. |
 | [Direction artistique](docs/ART_DIRECTION.md), [provenance](docs/ASSET_PROVENANCE.md) | Art, animation, sons et origine des éléments. |
 | [Déploiement](docs/DEPLOYMENT.md) | Construction web, liaison distante et état réel de publication. |
-| [Données source](data/bible.json) | Les 845 fiches à identifiants stables, dont les 816 précédentes conservées. |
+| [Données source](data/bible.json) | Les 873 fiches à identifiants stables, dont les 845 précédentes conservées. |
 
 ## Vérification et prochaine étape
+
+La version **0.11 passe 440 tests Node, 71 parcours d’interface dans un DOM modélisé et 64 comparaisons raster SVG/Canvas**. Les 47 nouveaux tests du dossier v10 sont inclus dans le total ; ils complètent les reprises, migrations, pertes et rejets de sauvegardes incohérentes. Les vingt-deux scènes de MI10 proviennent de dix-sept sorties par commandes publiques. Le [reçu local](docs/validation/v11-local-validation.json) conserve les commandes, leurs sorties et les empreintes des sources gelées.
+
+Le classeur rassemble **873 fiches sur 21 onglets**. La réception rapproche ses 5 897 cellules source, recalcule 126 formules dans une copie indépendante et examine 43 vues. Les 845 identifiants précédents et les 133 critères initiaux restent conservés. La [validation 0.11](docs/QA_V11.md) distingue ces contrôles du navigateur et des essais humains. Le [suivi de publication](docs/DEPLOYMENT.md) identifie les résultats externes effectivement reçus.
+
+### Réceptions historiques conservées
 
 La version 0.10 passe **356 tests Node, 66 parcours d’interface dans un DOM modélisé et 40 comparaisons raster SVG/Canvas**. La matrice MI09 vérifie les six châssis et les deux routes ; les 34 tests de dossier v9 contrôlent migrations, reçus, dégâts, pertes, reprises et rejeux. Les 22 vues de Thyr viennent de 17 sorties pilotées par les commandes publiques. La [validation 0.10](docs/QA_V10.md) distingue chaque famille de preuve.
 

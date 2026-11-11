@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "release": "0.11.0",
+  "saveVersion": 10,
+  "scope": "Campaign v10 migration, physical MI10 saves and receipts, irreversible official-sortie history, and regression of prior campaign dossiers. Automated public simulation controls; no native-browser or human-playtest claim.",
+  "command": "node --test --test-reporter=tap tests/campaign-*.test.mjs tests/mi02-mission.test.mjs",
+  "runtime": "v24.22.1",
+  "tests": 193,
+  "passed": 193,
+  "failed": 0,
+  "skipped": 0,
+  "cancelled": 0,
+  "campaignV10Tests": 47,
+  "historicalRegressionTests": 146,
+  "historicMigration": {
+    "fixtureSaveVersion": 9,
+    "sourceRevision": "4846d0270b2976877f9b202848bfde6d2127fb1d",
+    "sourceTree": "ef7b912c27fa672f1930c980ee529c165e3f77ec",
+    "nativeVariants": [
+      "live",
+      "completed"
+    ],
+    "changes": [
+      "version: 9 -> 10",
+      "append empty world.thyr.chemical"
+    ],
+    "stageUnchanged": true,
+    "priorScenesAndReceiptsUnchanged": true,
+    "resourcesUnchanged": true,
+    "allHistoricalVariantsLoaded": 18,
+    "earliestMissingReportRespected": true,
+    "nativeStageCompleteWithEightReportsSelectsMI09": true,
+    "sourceFixtureGeneratedFromCurrentGameplay": false
+  },
+  "protectedHistory": {
+    "fixtures": {
+      "tests/fixtures/campaign-v1-mi01.json": {
+        "sha256": "c6bad07aede50fe980460dc67a307bf69804d170abeeb643477358d36c02a22b",
+        "bytes": 37769,
+        "gitBlob": "675555cc4c395a70f81da87b0f765f3bd860eb75"
+      },
+      "tests/fixtures/campaign-v2-mi02.json": {
+        "sha256": "9024310b7c33e39ed73ac30a03b7db5103be73ee472e95804c4214054ebe5cf2",
+        "bytes": 131152,
+        "gitBlob": "f9fc84263235dd8377133398aa31964cb66c2cca"
+      },
+      "tests/fixtures/campaign-v3-mi03.json": {
+        "sha256": "22793763d19477737abf7193590f00863ce32fd2fc14b1a0a49b273c81180288",
+        "bytes": 124642,
+        "gitBlob": "c68bbb8e26a270497d56fa34042fcc6da6babeda"
+      },
+      "tests/fixtures/campaign-v4-mi04.json": {
+        "sha256": "d34af557cc5cb280e803c289a193cbebfc1dd43146890c193a880b83381bbede",
+        "bytes": 123266,
+        "gitBlob": "35c865dadfd955e902d3ae1f1f5e8c7a8a718092"
+      },
+      "tests/fixtures/campaign-v5-mi05.json": {
+        "sha256": "7c79efb68911f1519cdae2d788e259c424c8750af9a99167ae100bcac4ecc7e3",
+        "bytes": 150965,
+        "gitBlob": "aa5f86ef4d78741dd4ec3ac0162b265d5ed0e137"
+      },
+      "tests/fixtures/campaign-v6-mi06.json": {
+        "sha256": "e7ea0548ce459ef3a7d378a1892b7bfde4c591630eaec1e67c99c8b75e95b12c",
+        "bytes": 231369,
+        "gitBlob": "9cb7a559c893122704f4a5bc65b4b77033aacfc1"
+      },
+      "tests/fixtures/campaign-v7-mi07.json": {
+        "sha256": "8ca58deb11f4048039cda3a54157f7eddb2dd6af6a34450a3d177b3bdfa67a5c",
+        "bytes": 416347,
+        "gitBlob": "c201530df41c1595896282f1045549211a43ba4e"
+      },
+      "tests/fixtures/campaign-v8-mi08.json": {
+        "sha256": "19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007",
+        "bytes": 182074,
+        "gitBlob": "a95310904da33f85b30303cce2f104e9930a590c"
+      }
+    },
+    "oldFixtureFilesUnchanged": 8,
+    "historicalValidationFilesUnchanged": 249,
+    "historicalValidationManifestSha256": "122c240f05cea292bcf1f55d5bf6102e625e138a2e68dc7b5ae2bba95950f710",
+    "manifestEncoding": "Sorted path entries {path,sha256,bytes}, JSON keys sorted, compact separators, UTF-8; compared byte-for-byte to publication-v10-final-reviewed.",
+    "historicSnapshotTree": "ef7b912c27fa672f1930c980ee529c165e3f77ec"
+  },
+  "materialValidation": {
+    "normalChassisChoiceMatrix": 12,
+    "privateForces": 3,
+    "tankInventory": 3,
+    "canalInventory": 2,
+    "homeInventory": 2,
+    "initialMaterial": 300,
+    "sampleMaterial": 5,
+    "sampleSeconds": 20,
+    "privateDelaySeconds": 5,
+    "maximumEffectiveFrameSeconds": 0.05,
+    "pt02Prerequisites": [
+      "collected material",
+      "three markings copied before originals lost",
+      "Orison material record copied before its loss"
+    ],
+    "newProofsOtherThanPT02": [],
+    "checks": [
+      "full object and receipt schemas",
+      "individual material conservation and physical leak rate",
+      "plume positions, arrival dates and collector crossing",
+      "historical canal deposits and habitat derivation",
+      "actual operation durations and prerequisites",
+      "copied evidence preserved after loss of originals",
+      "no evidence reconstructed from ruins",
+      "late damage after report can close extraction",
+      "retained basin matter survives diversion valve loss",
+      "exact mid-operation, sampling and flow continuation",
+      "official clocks, choices, material facts and terminal losses cannot rewind",
+      "replay never replaces first receipt or grants again",
+      "four workshop parts only on first success"
+    ]
+  },
+  "crossValidation": {
+    "path": "docs/validation/v011-chemical-state-crosscheck.json",
+    "sha256": "aa8c4b792d61c6aea30731f258b30ad52154b7fcc217aff5aeb4b266c8c799af",
+    "variants": 11,
+    "checkpoints": 1530,
+    "sourcesMatchThisReceipt": true,
+    "sourceChangesDuringCrossCheck": [],
+    "nativeBrowser": false,
+    "humanPlaytest": false,
+    "note": "Ten variants reach extraction; source exhaustion is intentionally observed at 202 simulated seconds while still playing. This is distinct from the 193 Node tests."
+  },
+  "sourceHashes": {
+    "src/campaign.mjs": {
+      "sha256": "2631d8c89255e0c8eecb01766644fdd85b4deb46265e6b9ea304fc64183704a2",
+      "bytes": 139587
+    },
+    "src/content.mjs": {
+      "sha256": "6448818cd6f0d23f226d4f29904fd63c5c9bcaa7d380427bffa1bccbcf87dca4",
+      "bytes": 35151
+    },
+    "src/chemical-validation.mjs": {
+      "sha256": "ed00e720b26e66b310707e589f90146bdd1309c5812a9449856dcd7980abb3ba",
+      "bytes": 42618
+    },
+    "src/chemical-simulation.mjs": {
+      "sha256": "778651c4accc7dd78189d5613d2e06896f16f0587651b7272b269d0d7a743f34",
+      "bytes": 23950
+    },
+    "src/simulation.mjs": {
+      "sha256": "7e83c1f3d21b8ecf6cfbd4f9458d01ebcaafea1456ba05140f9ddaddf6971aa7",
+      "bytes": 265918
+    },
+    "src/thyr-validation.mjs": {
+      "sha256": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+      "bytes": 28583
+    },
+    "src/departure-validation.mjs": {
+      "sha256": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b",
+      "bytes": 23208
+    },
+    "tests/campaign-v10.test.mjs": {
+      "sha256": "1df4966c116ff5a1831d6561855ac325237d66d78d16e839495fd36fbc5cc6cd",
+      "bytes": 29987
+    },
+    "tests/helpers/mi10-driver.mjs": {
+      "sha256": "0f032cad84030513bf9a2d543ef4018f1481ef58a207173ff031c2b71102303c",
+      "bytes": 7146
+    },
+    "tests/fixtures/campaign-v9-mi09.json": {
+      "sha256": "d5f6f49a02e8fb40f5bf830c7fcb40c5e2677dff3e2b0e0dbb7ea1a48ce42084",
+      "bytes": 246853
+    },
+    "docs/CAMPAIGN_MISSION_10.md": {
+      "sha256": "8fa29c738169b8eead0a5f642bb2548358050c00f1f1235a9d75a1fee7c160bb",
+      "bytes": 14249
+    },
+    "docs/CAMPAIGN_SAVE_V10.md": {
+      "sha256": "2405b2f3fc27d9f52fb284f7d74287e4935cc6c75d902f9162b92a13b65c7071",
+      "bytes": 11696
+    },
+    "docs/validation/v011-historic-v9.json": {
+      "sha256": "009dc4fe33edba50e232ba359dd6f047669078639bd23e0553cd3260099df3fe",
+      "bytes": 4886
+    },
+    "docs/validation/v011-chemical-state-crosscheck.json": {
+      "sha256": "aa8c4b792d61c6aea30731f258b30ad52154b7fcc217aff5aeb4b266c8c799af",
+      "bytes": 2550
+    },
+    "docs/validation/v011-campaign-tests.tap": {
+      "sha256": "6f38c50f9eb400155d7fbbf50afeb289d1273920a97a56948c995450cdf27670",
+      "bytes": 47531
+    }
+  },
+  "recordedAt": "2026-11-11T18:20:05.610891+00:00"
+}

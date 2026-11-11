@@ -13,9 +13,15 @@ function bundle(file) {
   let source = readFileSync(file, 'utf8').replace(/^import\s*\{([^}]+)\}\s*from\s*['"]([^'"]+)['"];?\s*$/gm, (_, names, path) => {
     const dependency = bundle(resolve(dirname(file), path));
     return `const { ${names.trim()} } = __modules[${JSON.stringify(dependency)}];`;
+  }).replace(/^export\s*\{([^}]+)\}\s*from\s*['"]([^'"]+)['"];?\s*$/gm, (_, names, path) => {
+    const dependency = bundle(resolve(dirname(file), path));
+    const bindings = names.split(',').map(name => name.trim()).filter(Boolean);
+    if (!bindings.every(name => /^[A-Za-z_$][\w$]*$/.test(name))) throw new Error(`Unsupported re-export binding in ${id}`);
+    exports.push(...bindings);
+    return `const { ${bindings.join(', ')} } = __modules[${JSON.stringify(dependency)}];`;
   }).replace(/\bexport\s+(const|let|function|class)\s+([\w$]+)/g, (_, kind, name) => { exports.push(name); return `${kind} ${name}`; });
   source = source.replace(/new URL\(['"]([^'"]+)['"],\s*import\.meta\.url\)\.href/g, (_, path) => JSON.stringify(dataURL(resolve(dirname(file), path))));
-  if (/^\s*import\s/m.test(source) || /\bimport\.meta\b/.test(source)) throw new Error(`Unsupported import in ${id}`);
+  if (/^\s*(?:import|export)\s/m.test(source) || /\bimport\.meta\b/.test(source)) throw new Error(`Unsupported module syntax in ${id}`);
   modules.push(`__modules[${JSON.stringify(id)}] = (() => {\n${source}\nreturn {${exports.join(',')}};\n})();`);
   return id;
 }

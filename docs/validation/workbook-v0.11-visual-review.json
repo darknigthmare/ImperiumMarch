@@ -1,0 +1,1063 @@
+{
+  "version": "0.11.0",
+  "reviewedAt": "2026-11-11T18:19:16.264483+00:00",
+  "sourceSha256": "0b8777525fd48d3ee2f4d092fc132f27e7785c8eeee518d053e81af3140e9724",
+  "workbookSha256": "21e5cac473dd41254700a873b70f73ea87f32a757e1dfdb15d817a2d1cdcb2d5",
+  "renderer": "@oai/artifact-tool workbook.render, PNG scale 1",
+  "method": "Assistant visual inspection through view_image of all 43 views in the first candidate export, followed by correction and visual re-inspection of two A3 scope/version labels. The final export newly rendered all 43 views; the other 41 images are byte-identical to their inspected images.",
+  "newlyRenderedViews": 43,
+  "retainedHistoricalViews": 0,
+  "visuallyInspectedViews": 43,
+  "sheetsRepresented": 21,
+  "rangeViews": 22,
+  "observations": [
+    "Summary reconciles 873 records: 281 Conçu, 351 Prototype, 86 À produire and 155 Vérifié; the scope shows ten prototype missions and 22 remaining missions.",
+    "All 21 sheet overview headers show version 0.11.0 and their current counts. The Campagne and Prototype A3 labels were corrected and re-inspected.",
+    "The 22 bounded views cover all changed or added data rows not visible in the overview, with the PL03 changed row visible in Planètes A1:H9.",
+    "Text wraps inside the assigned cells; no visible clipping, overlap, blank render, formula error or truncated status in the inspected ranges.",
+    "Prototype, partial and human-testing limits remain explicit, including AS18, PR18, PR88, QA178 and QA179."
+  ],
+  "changedDataRows": [
+    {
+      "sheet": "Planètes",
+      "row": 9,
+      "id": "PL03",
+      "fields": [
+        "terrain"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/06-Planetes.png"
+      ]
+    },
+    {
+      "sheet": "Campagne",
+      "row": 16,
+      "id": "MI10",
+      "fields": [
+        "play",
+        "truth",
+        "consequence",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-campagne-16-16.png"
+      ]
+    },
+    {
+      "sheet": "Narration",
+      "row": 80,
+      "id": "NA74",
+      "fields": [
+        "sources"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-narration-80-80.png"
+      ]
+    },
+    {
+      "sheet": "Assets",
+      "row": 24,
+      "id": "AS18",
+      "fields": [
+        "spec"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-assets-24-24.png"
+      ]
+    },
+    {
+      "sheet": "Production",
+      "row": 24,
+      "id": "PR18",
+      "fields": [
+        "deliverable"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-production-24-24.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 31,
+      "id": "QA25",
+      "fields": [
+        "expected"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-qa-31-31.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 28,
+      "id": "PX22",
+      "fields": [
+        "implemented"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-28-28.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 31,
+      "id": "PX25",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-31-31.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 33,
+      "id": "PX27",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-33-34.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 34,
+      "id": "PX28",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-33-34.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 36,
+      "id": "PX30",
+      "fields": [
+        "implemented",
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-36-37.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 37,
+      "id": "PX31",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-36-37.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 77,
+      "id": "PX71",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-77-77.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 94,
+      "id": "PX88",
+      "fields": [
+        "path"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-94-95.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 95,
+      "id": "PX89",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-94-95.png"
+      ]
+    },
+    {
+      "sheet": "Systèmes",
+      "row": 105,
+      "id": "SY99",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-systemes-105-107.png"
+      ]
+    },
+    {
+      "sheet": "Systèmes",
+      "row": 106,
+      "id": "SY100",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-systemes-105-107.png"
+      ]
+    },
+    {
+      "sheet": "Systèmes",
+      "row": 107,
+      "id": "SY101",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-systemes-105-107.png"
+      ]
+    },
+    {
+      "sheet": "Systèmes",
+      "row": 108,
+      "id": "SY102",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-systemes-108-110.png"
+      ]
+    },
+    {
+      "sheet": "Systèmes",
+      "row": 109,
+      "id": "SY103",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-systemes-108-110.png"
+      ]
+    },
+    {
+      "sheet": "Systèmes",
+      "row": 110,
+      "id": "SY104",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-systemes-108-110.png"
+      ]
+    },
+    {
+      "sheet": "Narration",
+      "row": 85,
+      "id": "NA79",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-narration-85-87.png"
+      ]
+    },
+    {
+      "sheet": "Narration",
+      "row": 86,
+      "id": "NA80",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-narration-85-87.png"
+      ]
+    },
+    {
+      "sheet": "Narration",
+      "row": 87,
+      "id": "NA81",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-narration-85-87.png"
+      ]
+    },
+    {
+      "sheet": "Narration",
+      "row": 88,
+      "id": "NA82",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-narration-88-88.png"
+      ]
+    },
+    {
+      "sheet": "Production",
+      "row": 92,
+      "id": "PR86",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-production-92-94.png"
+      ]
+    },
+    {
+      "sheet": "Production",
+      "row": 93,
+      "id": "PR87",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-production-92-94.png"
+      ]
+    },
+    {
+      "sheet": "Production",
+      "row": 94,
+      "id": "PR88",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-production-92-94.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 176,
+      "id": "QA170",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-qa-176-178.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 177,
+      "id": "QA171",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-qa-176-178.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 178,
+      "id": "QA172",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-qa-176-178.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 179,
+      "id": "QA173",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-qa-179-181.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 180,
+      "id": "QA174",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-qa-179-181.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 181,
+      "id": "QA175",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-qa-179-181.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 182,
+      "id": "QA176",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-qa-182-184.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 183,
+      "id": "QA177",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-qa-182-184.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 184,
+      "id": "QA178",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-qa-182-184.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 185,
+      "id": "QA179",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-qa-185-185.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 100,
+      "id": "PX94",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-100-102.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 101,
+      "id": "PX95",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-100-102.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 102,
+      "id": "PX96",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-100-102.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 103,
+      "id": "PX97",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-103-104.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 104,
+      "id": "PX98",
+      "fields": "new_record",
+      "reviewedViews": [
+        "docs/previews/bible-v011/bible-v011-prototype-103-104.png"
+      ]
+    }
+  ],
+  "changedDescriptions": [
+    {
+      "sheet": "Campagne",
+      "cell": "A3",
+      "before": "32 missions principales : MI01–MI09 jouables au stade prototype, 23 autres conçues. MI09 ouvre Thyr après le bilan de Nacre. OP01–OP03 restent autonomes.",
+      "after": "32 missions principales : MI01–MI10 jouables au stade prototype, 22 autres conçues. MI09 ouvre Thyr, MI10 y traite le terrain chimique. OP01–OP03 restent autonomes."
+    },
+    {
+      "sheet": "Prototype",
+      "cell": "A3",
+      "before": "Portée présente dans le code de la version 0.10.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "after": "Portée présente dans le code de la version 0.11.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert."
+    }
+  ],
+  "views": [
+    {
+      "sheet": "Synthèse",
+      "range": "A1:G32",
+      "path": "docs/previews/bible-v011/00-Synthese.png",
+      "sha256": "3645c24cc66faa39a8d03da0db0923ba9faa8f4de96411ebedc569114b7c443e",
+      "dimensions": [
+        1250,
+        999
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Vision",
+      "range": "A1:E9",
+      "path": "docs/previews/bible-v011/01-Vision.png",
+      "sha256": "5c1fe57e9429a7d98059758f03a906c2f095aedbc9505a5ed1f1d505ba5abdb8",
+      "dimensions": [
+        1740,
+        377
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Systèmes",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/02-Systemes.png",
+      "sha256": "3f33167e4c45106ca5245009c3e6d307a80d1014d06a61b674ab19ab4d281cca",
+      "dimensions": [
+        2500,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Marcheurs",
+      "range": "A1:J9",
+      "path": "docs/previews/bible-v011/03-Marcheurs.png",
+      "sha256": "c671d9802620e2a9377076d53858ae49ad83d6004d0e4e4430a8b0028a7363fc",
+      "dimensions": [
+        2830,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Armes",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/04-Armes.png",
+      "sha256": "a75adf161ec0bf3738bb0d21b28a30108c23f81ddaa2532a1ce901c583f057c0",
+      "dimensions": [
+        2500,
+        377
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Modules",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/05-Modules.png",
+      "sha256": "9930b51d77e210b04792ad88824ef95d377a2687a15151e387c70b680ff2d4a1",
+      "dimensions": [
+        2280,
+        332
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Planètes",
+      "range": "A1:H9",
+      "path": "docs/previews/bible-v011/06-Planetes.png",
+      "sha256": "39de41d06fcf5cbec64bf7de10d052f86e8cb98e381b9a1bf8729b0272ebf6f4",
+      "dimensions": [
+        2990,
+        471
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Factions",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/07-Factions.png",
+      "sha256": "09bd78d3237738605c895a071fb86a3c736ac0aa4f330fb257cc07fda0be999a",
+      "dimensions": [
+        2830,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Personnages",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/08-Personnages.png",
+      "sha256": "f0213638b8083c3c3164ecb39ac5e5f7031c8cd1912b5d8118b5365d24f1eee7",
+      "dimensions": [
+        2230,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Campagne",
+      "range": "A1:I9",
+      "path": "docs/previews/bible-v011/09-Campagne.png",
+      "sha256": "0a0c36246fe9077ef2bc4010ebba1087e272da6079653419fdb6803bd81e7a7d",
+      "dimensions": [
+        3330,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:19:16.264483+00:00",
+      "correctionReviewed": "Updated A3 scope/version label; no clipping or overlap."
+    },
+    {
+      "sheet": "Contrats",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/10-Contrats.png",
+      "sha256": "03ee85ca9e63933c6b26d4dad111c24c3437a0b0c2e66cf7f441f2cb1cc80f13",
+      "dimensions": [
+        2270,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Ennemis",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/11-Ennemis.png",
+      "sha256": "d66c241a9ee842df8b52b3f6a9d635cb2b4644da8f503f41c5574f28bc805d04",
+      "dimensions": [
+        2430,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Véhicules",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/12-Vehicules.png",
+      "sha256": "6678de4d701547da67ebef04eb2a425c9a174de70dae0565954f684abe73cccf",
+      "dimensions": [
+        2390,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Faune",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/13-Faune.png",
+      "sha256": "d7ebd6a94e7c8b14e9f2dab07e5dca1b93f88bff674d4e57de6be76fa6fa9d60",
+      "dimensions": [
+        2500,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Flore",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/14-Flore.png",
+      "sha256": "4f308ef23cfa5439bf77f5b7aa7fd3f189bf6fe232c1d6891764d5efe7e85de0",
+      "dimensions": [
+        2530,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Narration",
+      "range": "A1:F9",
+      "path": "docs/previews/bible-v011/15-Narration.png",
+      "sha256": "c5f9f20ff38c519c6b34f8f1691a4ce9128ca16818e8b40e705c6756a95a0a8b",
+      "dimensions": [
+        2040,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Assets",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/16-Assets.png",
+      "sha256": "f7ea15cc45c2fa89b0af53b92d26f90b862c16e6f3dcbfd5a8904fea9125ec80",
+      "dimensions": [
+        2380,
+        508
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Production",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/17-Production.png",
+      "sha256": "504e10f9e83aab038bbb714e358fc395d15f94eb6cc9e0054676c41faf98aedd",
+      "dimensions": [
+        2260,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "QA",
+      "range": "A1:F9",
+      "path": "docs/previews/bible-v011/18-QA.png",
+      "sha256": "275f462ba5357ec3405144634561491923873dedf05f5344796f3d250c13133f",
+      "dimensions": [
+        1910,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Sources",
+      "range": "A1:F9",
+      "path": "docs/previews/bible-v011/19-Sources.png",
+      "sha256": "d67ef310ec606c1ed58173dcfcdb3b8de4c12e806e8bf21c47680b6650ec5235",
+      "dimensions": [
+        2160,
+        396
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v011/20-Prototype.png",
+      "sha256": "f06818a82d3eab0bab9091b92eced33f24b0977c675f4358d5e1e491a424e18f",
+      "dimensions": [
+        2480,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:19:16.264483+00:00",
+      "correctionReviewed": "Updated A3 scope/version label; no clipping or overlap."
+    },
+    {
+      "sheet": "Systèmes",
+      "range": "A105:G107",
+      "path": "docs/previews/bible-v011/bible-v011-systemes-105-107.png",
+      "sha256": "d0a3aa06d8bd16dda8b7663f0b94d489d9da7a5003c0e7ae31204ebb50bacf59",
+      "dimensions": [
+        2500,
+        284
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Systèmes",
+      "range": "A108:G110",
+      "path": "docs/previews/bible-v011/bible-v011-systemes-108-110.png",
+      "sha256": "0e11e6453d2194d370559b5bad200bb3a3cbc0766df690ee728019cf3730aad7",
+      "dimensions": [
+        2500,
+        284
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Campagne",
+      "range": "A16:I16",
+      "path": "docs/previews/bible-v011/bible-v011-campagne-16-16.png",
+      "sha256": "1216fa2bb66ddd47356080bb3eb2534199bb059a68e6e84f07b82435db7ad245",
+      "dimensions": [
+        3330,
+        145
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Narration",
+      "range": "A80:F80",
+      "path": "docs/previews/bible-v011/bible-v011-narration-80-80.png",
+      "sha256": "233a5bc19e90862f6dedb0a4f0a3740deb90688e2badc50e3ae5498984b67dd5",
+      "dimensions": [
+        2040,
+        108
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Narration",
+      "range": "A85:F87",
+      "path": "docs/previews/bible-v011/bible-v011-narration-85-87.png",
+      "sha256": "e9979931fdecdc53dfdcf2bd5a9972e7b587ffe1cbb2f38f0b4e0686eda428f8",
+      "dimensions": [
+        2040,
+        321
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Narration",
+      "range": "A88:F88",
+      "path": "docs/previews/bible-v011/bible-v011-narration-88-88.png",
+      "sha256": "044425135833a85c0214bbbbeba0794612729d4ca536df6b7c521760ff6fdcb5",
+      "dimensions": [
+        2040,
+        127
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Assets",
+      "range": "A24:G24",
+      "path": "docs/previews/bible-v011/bible-v011-assets-24-24.png",
+      "sha256": "2c44932d279e926fb41d0ab673daaed7a5f2f28ab86082692e46b535901fe194",
+      "dimensions": [
+        2380,
+        220
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Production",
+      "range": "A24:G24",
+      "path": "docs/previews/bible-v011/bible-v011-production-24-24.png",
+      "sha256": "52034cbe1dcb134e4a9fdfe2680fdb0b541bdde9b99b8ac9c5c603a65b187ae4",
+      "dimensions": [
+        2260,
+        108
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Production",
+      "range": "A92:G94",
+      "path": "docs/previews/bible-v011/bible-v011-production-92-94.png",
+      "sha256": "249dab55e5b85c13880a2dc7d0a81f0c6501fbec1995cfeaae40c4f175ef955e",
+      "dimensions": [
+        2260,
+        247
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "QA",
+      "range": "A31:F31",
+      "path": "docs/previews/bible-v011/bible-v011-qa-31-31.png",
+      "sha256": "d937c83b2dd0c2a5139c14cff24cec60a01990acb7fbec273931706c9c4ca4f1",
+      "dimensions": [
+        1910,
+        201
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "QA",
+      "range": "A176:F178",
+      "path": "docs/previews/bible-v011/bible-v011-qa-176-178.png",
+      "sha256": "f2bdeaec30163523a3a6371441d1a8cbda5f02c6964f2cb34d97ba7644d4f965",
+      "dimensions": [
+        1910,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "QA",
+      "range": "A179:F181",
+      "path": "docs/previews/bible-v011/bible-v011-qa-179-181.png",
+      "sha256": "f544ad0565d245b581f2d8f165755167b869fe6cb357b600a317818e3d1a2721",
+      "dimensions": [
+        1910,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "QA",
+      "range": "A182:F184",
+      "path": "docs/previews/bible-v011/bible-v011-qa-182-184.png",
+      "sha256": "02c86686dc3c6c647913a3ab52b2042e4c85c58c44e113a66235533efaea80bd",
+      "dimensions": [
+        1910,
+        433
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "QA",
+      "range": "A185:F185",
+      "path": "docs/previews/bible-v011/bible-v011-qa-185-185.png",
+      "sha256": "e64da73f0e5e4a7c258f2d6e3051284e3526904548adb5d8c4319813d711c328",
+      "dimensions": [
+        1910,
+        145
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A28:G28",
+      "path": "docs/previews/bible-v011/bible-v011-prototype-28-28.png",
+      "sha256": "017c78a57e94f5dc78d02e21fee0800cf5a663cd3202e62225bf3da600803d6d",
+      "dimensions": [
+        2480,
+        127
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A31:G31",
+      "path": "docs/previews/bible-v011/bible-v011-prototype-31-31.png",
+      "sha256": "2ff506900fb8c25c060f10afdd585578014fc6f6370eaa3b92c3ead1be9419ca",
+      "dimensions": [
+        2480,
+        108
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A33:G34",
+      "path": "docs/previews/bible-v011/bible-v011-prototype-33-34.png",
+      "sha256": "e4a24f034195de57fd9eea067508067c6da01649ea015941620d9840aa39a59e",
+      "dimensions": [
+        2480,
+        196
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A36:G37",
+      "path": "docs/previews/bible-v011/bible-v011-prototype-36-37.png",
+      "sha256": "e95a3aaa1ac1dda2c48d84e1b39e600296e24234f7c47735c088cb3301ed4085",
+      "dimensions": [
+        2480,
+        215
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A77:G77",
+      "path": "docs/previews/bible-v011/bible-v011-prototype-77-77.png",
+      "sha256": "fa136625c6d92386c42c35f6c396bcbd3f09d98e9e13a63b94e4d29dfd7a46cc",
+      "dimensions": [
+        2480,
+        71
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A94:G95",
+      "path": "docs/previews/bible-v011/bible-v011-prototype-94-95.png",
+      "sha256": "0ad9a4819a29b6408f060310c5f6779f8405e4a96f82840272331b53d4385ba6",
+      "dimensions": [
+        2480,
+        196
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A100:G102",
+      "path": "docs/previews/bible-v011/bible-v011-prototype-100-102.png",
+      "sha256": "27b6808d912967cd23f5462642b75d02c0f69243d046bdb31d6612770cd68214",
+      "dimensions": [
+        2480,
+        247
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A103:G104",
+      "path": "docs/previews/bible-v011/bible-v011-prototype-103-104.png",
+      "sha256": "af9dacfee2de26c207f2723bc9b8492fa3ec8a5f283481082f4de214d097ba1f",
+      "dimensions": [
+        2480,
+        159
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T18:17:27.962007+00:00",
+      "samePixelsAsVisuallyReviewedFirstExport": true
+    }
+  ],
+  "scopeLimit": "Visual review of rendered workbook ranges and independent ZIP/XML preservation checks. No native GUI sorting, filtering, scrolling, editing, Excel desktop session, player test or hardware usability test is inferred. QA29 remains open.",
+  "passed": true
+}

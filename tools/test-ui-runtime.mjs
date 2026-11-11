@@ -20,6 +20,7 @@ import { pilotMI06 } from '../tests/helpers/mi06-driver.mjs';
 import { pilotMI07 } from '../tests/helpers/mi07-driver.mjs';
 import { pilotMI08 } from '../tests/helpers/mi08-driver.mjs';
 import { pilotMI09 } from '../tests/helpers/mi09-driver.mjs';
+import { pilotMI10 } from '../tests/helpers/mi10-driver.mjs';
 import { WALKERS } from '../src/content.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -330,7 +331,7 @@ for (const choice of ['obey', 'defy']) await check(`MI03 ${choice} decision, ext
   assert.equal(fresh.ids.get('workshop-network').hidden, false);
   await fresh.data('view', 'campaign');
   assert.match(fresh.ids.get('campaign-debrief').innerHTML, /MI03 \/ RAPPORT/);
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 9 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 10 RAPPORTS CLASSÉS');
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
   for (const id of ['MI01', 'MI02', 'MI03']) assert.match(fresh.ids.get('archive-content').innerHTML, new RegExp(`CAMPAGNE / ${id}`));
   await fresh.data('view', 'campaign'); await fresh.data('chapter', 'MI03'); await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
@@ -405,7 +406,7 @@ for (const choice of ['obey', 'defy']) await check(`MI04 ${choice} records the t
   assert.equal(fresh.ids.get('workshop-industrial').hidden, false);
   assert.match(fresh.ids.get('workshop-condition').textContent, /radiateur/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 9 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 10 RAPPORTS CLASSÉS');
   assert.equal(fresh.ids.get('campaign-transition').hidden, false);
   assert.match(fresh.ids.get('campaign-transition-text').textContent, /Nacre/);
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
@@ -526,7 +527,7 @@ await check('importing a genuine v4 Vesper dossier unlocks Nacre in the delivere
   assert.match(h.ids.get('campaign-import-summary').textContent, /MI04/);
   await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Le prix du passage');
-  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 9 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 10 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v4Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /journal de Vesper/);
@@ -587,7 +588,7 @@ for (const choice of ['obey', 'defy']) await check(`MI05 ${choice} debrief, arch
   assert.match(fresh.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI05/);
   assert.match(fresh.ids.get('archive-content').innerHTML, /Vann Ostre/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 9 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 10 RAPPORTS CLASSÉS');
   await fresh.data('chapter', 'MI05');
   await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
   assert.equal(fresh.snapshot().campaignReplay, true);
@@ -622,7 +623,7 @@ await check('a genuine v5 import unlocks MI06 with its actual stock and ten dist
   h.ids.get('campaign-file').files = [{ size: raw.length, text: async () => raw }];
   await h.ids.get('campaign-file').dispatch('change'); await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Les maisons sous la ligne');
-  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 9 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 10 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v5Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /dix habitants/);
@@ -738,7 +739,7 @@ for (const choice of ['obey', 'defy']) await check(`MI06 ${choice} requires the 
   await h.data('view', 'archives'); await h.data('archive', 'records');
   assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI06/);
   await h.data('view', 'campaign');
-  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 9 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 10 RAPPORTS CLASSÉS');
   await h.data('chapter', 'MI06'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().campaignReplay, true);
   assert.equal(h.snapshot().game.campaign.context.fuelAvailable, 2);
@@ -811,7 +812,7 @@ for (const [variant, route, routeText] of [['completed', 'main', 'PRINCIPALE'], 
   const h = harness(); await importAmbulanceDossier(h, v6Dossier[variant]);
   const prior = h.snapshot().campaign;
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Une ambulance sans escorte');
-  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 9 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 10 RAPPORTS CLASSÉS');
   await h.click('campaign-deploy');
   const briefing = h.ids.get('briefing-description').textContent;
   assert.match(briefing, /quatre patients et deux membres/);
@@ -946,7 +947,7 @@ for (const choice of ['obey', 'defy']) await check(`MI07 ${choice} selects a des
   await h.data('view', 'archives'); await h.data('archive', 'records');
   assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI07/);
   await h.data('view', 'campaign');
-  assert.equal(h.ids.get('campaign-progress').textContent, '7 / 9 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '7 / 10 RAPPORTS CLASSÉS');
   assert.match(h.ids.get('campaign-debrief').innerHTML, /À recouper/);
   await h.data('chapter', 'MI07'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().campaignReplay, true);
@@ -1056,7 +1057,7 @@ function departurePoint(kind, choice = 'delay') {
 await check('MI08 imports a genuine v7 dossier with seven unchanged reports and exposes its inherited briefing',async()=>{
   const h=harness();await importAmbulanceDossier(h,v7Dossier.completed);
   const s=h.snapshot();assert.equal(s.campaign.version,CAMPAIGN_SAVE_VERSION);assert.deepEqual(s.campaign.completed,v7Dossier.completed.completed);
-  assert.equal(h.ids.get('campaign-progress').textContent,'7 / 9 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent,'7 / 10 RAPPORTS CLASSÉS');
   await h.click('campaign-deploy');assert.match(h.ids.get('briefing-title').textContent,/marée compte/);
   assert.match(h.ids.get('briefing-description').textContent,/12 passagers.*10 habitants.*4 patients/);
   await h.click('launch');assert.equal(h.snapshot().game.missionId,'MI08');
@@ -1150,7 +1151,85 @@ for (const choice of ['obey', 'defy']) await check(`MI09 ${choice} UI keeps choi
   const official = JSON.stringify(finished.campaign); await h.click('result-menu'); await h.data('view', 'archives'); await h.data('archive', 'records');
   assert.match(h.ids.get('archive-content').innerHTML, /La route des vivants/); assert.match(h.ids.get('archive-content').innerHTML, /Registre des personnes d’Aval/);
   assert.match(h.ids.get('archive-content').innerHTML, /Longue-dorse 4 · jeune/);
-  await h.data('view', 'campaign'); await h.click('campaign-deploy'); await h.click('launch');
+  await h.data('view', 'campaign'); await h.data('chapter', 'MI09'); await h.click('campaign-deploy'); await h.click('launch');
+  assert.equal(h.snapshot().campaignReplay, true); assert.equal(JSON.stringify(h.snapshot().campaign), official);
+});
+
+const v9Dossier = JSON.parse(readFileSync(resolve(root, 'tests/fixtures/campaign-v9-mi09.json'), 'utf8'));
+const chemicalPoints = new Map();
+function chemicalPoint(stage, choice = 'defy') {
+  const key = `${stage}-${choice}`;
+  if (!chemicalPoints.has(key)) {
+    const started = beginCampaignMission(parseCampaign(JSON.stringify(v9Dossier.completed)), { missionId: 'MI10', walkerId: 'WK09', difficulty: 'story', seed: 1907 });
+    assert.equal(started.ok, true);
+    const stopAt = stage === 'decision' ? s => s.decision.active
+      : stage === 'sample' ? s => s.chemical.sampler.working && s.chemical.sampler.progress > .35
+        : stage === 'cover' ? s => s.chemical.canals[0].working && s.chemical.canals[0].progress > .35
+          : s => s.campaign.reportTransmitted && s.player.x > 5830;
+    pilotMI10(started.game, { choice, stopAt }); assert.ok(stopAt(started.game)); assert.equal(started.game.status, 'playing');
+    chemicalPoints.set(key, checkpointCampaign(started.campaign, started.game, { beforeDecision: stage === 'decision' }));
+  }
+  return structuredClone(chemicalPoints.get(key));
+}
+
+await check('MI10 migrates the authentic v9 dossier, retains nine reports and opens the chemical briefing', async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, JSON.stringify(v9Dossier.completed)]]));
+  assert.equal(h.snapshot().campaign.version, CAMPAIGN_SAVE_VERSION);
+  assert.deepEqual(h.snapshot().campaign.completed, v9Dossier.completed.completed);
+  assert.deepEqual(h.snapshot().campaign.resources, v9Dossier.completed.resources);
+  assert.equal(h.ids.get('campaign-order-title').textContent, 'Le champ que personne n’a semé');
+  assert.match(h.ids.get('campaign-progress').textContent, /9 \/ 10/);
+  await h.click('campaign-deploy'); assert.match(h.ids.get('briefing-description').textContent, /vingt secondes/);
+  await h.click('launch'); h.frames(2);
+  assert.equal(h.snapshot().game.missionId, 'MI10'); assert.equal(h.ids.get('chemical-instrument').hidden, false);
+  assert.match(h.ids.get('chemical-tanks').textContent, /0 \/ 3 CUVES RELEVÉES/);
+  assert.match(h.ids.get('chemical-leak').textContent, /FUITE ACTIVE/);
+  assert.equal((h.ids.get('hud-objectives').innerHTML.match(/<li /g) || []).length, 3);
+  assert.equal(h.ids.get('thyr-instrument').hidden, true); assert.equal(h.ids.get('departure-instrument').hidden, true);
+});
+
+await check('MI10 sampling resumes from real progress, pauses exactly and remains uncollected during pause', async () => {
+  const point = chemicalPoint('sample'), h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]]));
+  await h.click('campaign-resume'); assert.deepEqual(h.snapshot().game, point.checkpoint);
+  assert.equal(h.snapshot().game.campaign.sampleCollected, false);
+  h.frames(6); assert.ok(h.snapshot().game.chemical.sampler.progress > point.checkpoint.chemical.sampler.progress);
+  await h.click('pause-button'); const paused = h.snapshot(); h.frames(120);
+  assert.deepEqual(h.snapshot().game, paused.game); assert.equal(h.snapshot().game.campaign.pt02Acquired, false);
+  assert.equal(paused.campaignWarning, '');
+  const fresh = harness(h.values); await fresh.click('campaign-resume'); assert.deepEqual(fresh.snapshot().game, paused.game);
+});
+
+await check('MI10 imported canal work requires a newly held anchor rather than completing on resume', async () => {
+  const point = chemicalPoint('cover'), h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]]));
+  await h.click('campaign-resume'); assert.deepEqual(h.snapshot().game, point.checkpoint);
+  h.frames(8); assert.equal(h.snapshot().game.chemical.canals[0].working, false);
+  assert.equal(h.snapshot().game.chemical.canals[0].progress, 0); assert.equal(h.snapshot().game.chemical.canals[0].covered, false);
+  await h.click('pause-button'); assert.equal(h.snapshot().campaignWarning, '');
+});
+
+for (const choice of ['obey', 'defy']) await check(`MI10 ${choice} choice performs no tank work; final UI keeps PT02, water facts and a single reward`, async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(chemicalPoint('decision'))]]));
+  await h.click('campaign-resume'); h.frames(1); assert.equal(h.ids.get('decision-dialog').open, true);
+  const before = h.snapshot().game.chemical.tanks;
+  await h.data('choice', choice); assert.equal(h.snapshot().game.decision.choice, choice);
+  assert.deepEqual(h.snapshot().game.chemical.tanks, before); assert.equal(h.snapshot().campaignWarning, '');
+  await h.click('pause-button'); await h.click('to-menu');
+  await importAmbulanceDossier(h, chemicalPoint('extraction', choice)); await h.click('campaign-resume');
+  await h.key('KeyD'); for (let i = 0; i < 900 && h.snapshot().game.status === 'playing'; i++) h.frames(1); await h.key('KeyD', false);
+  const finished = h.snapshot(); assert.equal(finished.game.status, 'won'); assert.equal(finished.campaignWarning, '');
+  assert.equal(finished.campaign.resources.parts, v9Dossier.completed.resources.parts + 4);
+  assert.equal(finished.campaign.completed.MI10.choice, choice); assert.equal(finished.campaign.completed.MI10.pt02Acquired, true);
+  assert.equal(finished.campaign.completed.MI10.tanksDestroyed, choice === 'obey' ? 3 : 0);
+  assert.equal(finished.campaign.completed.MI10.tanksSecured, choice === 'defy' ? 3 : 0);
+  assert.equal(finished.campaign.completed.MI10.villageHabitable, true);
+  assert.deepEqual(Object.fromEntries(Object.entries(finished.campaign.completed).filter(([id]) => id !== 'MI10')), v9Dossier.completed.completed);
+  assert.match(h.ids.get('result-stats').innerHTML, /PT02/); assert.match(h.ids.get('result-stats').innerHTML, /CANAUX/);
+  const official = JSON.stringify(finished.campaign); await h.click('result-menu'); await h.data('view', 'archives'); await h.data('archive', 'records');
+  const archiveHTML = h.ids.get('archive-content').innerHTML;
+  assert.match(archiveHTML, /Dossier du champ de Thyr/); assert.match(archiveHTML, /Cuve 3/); assert.match(archiveHTML, /PT02 associe/);
+  assert.match(archiveHTML, /La route des vivants/); assert.match(archiveHTML, /Registre des personnes d’Aval/);
+  await h.data('view', 'hangar'); assert.match(h.ids.get('workshop-chemical').textContent, /PT02 est conservé/);
+  await h.data('view', 'campaign'); await h.data('chapter', 'MI10'); await h.click('campaign-deploy'); await h.click('launch');
   assert.equal(h.snapshot().campaignReplay, true); assert.equal(JSON.stringify(h.snapshot().campaign), official);
 });
 

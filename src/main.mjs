@@ -2,6 +2,7 @@ import { WALKERS, MISSIONS, CAMPAIGN_MISSIONS, DIFFICULTIES } from './content.mj
 import { createGame, updateGame, commandGame } from './simulation.mjs';
 import { Renderer } from './renderer.mjs';
 import { livingRouteSummary } from './thyr-renderer.mjs';
+import { chemicalSummary, chemicalTankRole } from './chemical-renderer.mjs';
 import { AudioEngine } from './audio.mjs';
 import { CONTROL_ACTIONS, normalizeBindings, bindingLabel, remapBinding, keyboardActions, GamepadInput, defaultBindings, formatControlText } from './controls.mjs';
 import { createCampaign, readCampaign, writeCampaign, beginCampaignMission, checkpointCampaign, restoreCampaignGame, finishCampaignMission, serviceCampaignWalker, repairCampaignPipe, campaignRepairCost, serializeCampaign, parseCampaign, nextCampaignMissionId } from './campaign.mjs';
@@ -43,6 +44,12 @@ const pointer = { x: 1100, y: 570, clientX: 0, clientY: 0, visible: false, fire:
 const selectedWalker = () => WALKERS.find(w => w.id === settings.walkerId);
 const selectedMission = () => MISSIONS.find(m => m.id === settings.missionId);
 const campaignOrders = {
+  MI10: {
+    status: 'Une réserve chimique est attribuée aux rebelles. Holt demande sa destruction.',
+    description: 'Trois cuves bordent les canaux des cultures. Une conduite fuit déjà. Tess demande de relever leurs marquages et de préserver un prélèvement avant de toucher au stock. Des forces privées surveillent le site.',
+    task: 'Identifier les trois cuves, contenir la fuite, défendre le prélèvement puis accomplir le traitement choisi.',
+    caution: 'Le collecteur permet d’isoler le rejet. Les canaux alimentent le village : leur contamination ne disparaît pas après une manœuvre.',
+  },
   MI09: {
     status: 'Première affectation sur Thyr. Holt veut une route logistique dégagée à travers la vallée.',
     description: 'Les colonnes vivantes portent des habitats absents de la carte. Un troupeau attend devant la barrière du couloir militaire. Le poste des cultures peut vous indiquer une approche adaptée aux racines et à votre châssis.',
@@ -123,7 +130,7 @@ function saveCampaign({ replaceInvalid = false } = {}) {
   return result.ok;
 }
 function captureCampaign(beforeDecision = false) {
-  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08', 'MI09'].includes(game.missionId) && game.status === 'lost'))) return;
+  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(game.missionId) && game.status === 'lost'))) return;
   try {
     campaign = checkpointCampaign(campaign, game, { beforeDecision });
     lastCampaignSaveAt = game.elapsed;
@@ -140,6 +147,17 @@ function renderCampaignStatus() {
   $('campaign-save-status').classList.toggle('save-warning', Boolean(campaignWarning || campaignBlocked));
 }
 function campaignReceiptFacts(receipt) {
+  if (receipt.missionId === 'MI10') return [
+    ['CUVES RELEVÉES', `${receipt.tanksInspected} / 3 · ${receipt.copiedMarks} marquages copiés`],
+    ['CONDUITE RETENUE', receipt.plan === 'demolish' ? 'Démolition de la réserve' : 'Mise en sécurité des cuves'],
+    ['ÉTAT DES CUVES', `${receipt.tanksSecured} isolées · ${receipt.tanksDestroyed} détruites`],
+    ['PRÉLÈVEMENT', receipt.sampleCollected ? 'Matière conservée à bord' : 'Perdu · aucune matière reconstituée'],
+    ['PROVENANCE MATÉRIELLE', receipt.orisonRecordCopied ? 'Registre des lots copié' : 'Registre perdu'],
+    ['PT02', receipt.pt02Acquired ? 'Prélèvement et provenance conservés' : 'Conditions matérielles non réunies'],
+    ['ÉCOULEMENT', `${receipt.spillRetained.toFixed(1)} unités retenues · ${receipt.spillDelivered.toFixed(1)} arrivées en aval`],
+    ['CANAUX', `${receipt.canalsIntact} intacts · ${receipt.canalsPolluted} contaminés`],
+    ['VILLAGE', receipt.villageHabitable ? 'Habitable' : 'Habitabilité compromise'],
+  ];
   if (receipt.missionId === 'MI09') return [
     ['LONGUES-DORSES', `${receipt.migratorsArrived} au verger · ${receipt.migratorsDisplaced} détournées · ${receipt.migratorsLost} perdues`],
     ['ROUTE ACCOMPLIE', receipt.route === 'migration' ? 'Passage migratoire' : 'Déviation impériale'],
@@ -252,7 +270,11 @@ function renderCampaignUI() {
   }
   if (campaign.completed.MI09) {
     const r = campaign.completed.MI09;
-    $('campaign-transition-text').textContent = `Le premier relevé de Thyr est classé : ${r.migratorsArrived} longues-dorses au verger, ${r.migratorsDisplaced} détournées et ${r.migratorsLost} perdues. ${r.homesHabitable} habitats restent habitables. ${r.harvestFragile ? 'Les récoltes sont fragilisées par ce passage.' : 'Les quatre migrateurs ont rejoint les cultures.'} La suite de l’enquête sur Thyr reste à produire ; les huit rapports antérieurs sont conservés.`;
+    $('campaign-transition-text').textContent = `Le premier relevé de Thyr est classé : ${r.migratorsArrived} longues-dorses au verger, ${r.migratorsDisplaced} détournées et ${r.migratorsLost} perdues. ${r.homesHabitable} habitats restent habitables. ${r.harvestFragile ? 'Les récoltes sont fragilisées par ce passage.' : 'Les quatre migrateurs ont rejoint les cultures.'} La réserve chimique est maintenant accessible dans « Le champ que personne n’a semé ». Tess demande un relevé des cuves avant leur destruction.`;
+  }
+  if (campaign.completed.MI10) {
+    const r = campaign.completed.MI10;
+    $('campaign-transition-text').textContent = `Le bilan du champ est classé. ${r.pt02Acquired ? 'Tess conserve PT02 : le prélèvement et les traces matérielles relient ce produit aux terraformes d’Orison. Cette pièce ne reconstitue pas toute la chaîne de commandement.' : 'Les conditions matérielles de PT02 ne sont pas réunies. Les relevés conservés et les pertes restent dans le journal.'} ${r.villageHabitable ? 'Les canaux permettent au village de rester habitable.' : 'L’habitabilité du village est compromise.'} Les neuf rapports précédents sont conservés. La mission suivante, « Une voix au ras du sol », reste à produire.`;
   }
   $('campaign-mission-list').innerHTML = CAMPAIGN_MISSIONS.map((m, index) => {
     const done = Boolean(campaign.completed[m.id]), active = campaign.activeMissionId === m.id;
@@ -322,6 +344,11 @@ function renderWorkshop() {
   if (campaign.completed.MI09) {
     const r = campaign.completed.MI09;
     $('workshop-thyr').textContent = `Thyr : ${r.migratorsArrived} longues-dorses au verger, ${r.migratorsDisplaced} détournées, ${r.migratorsLost} perdues ; ${r.homesHabitable} habitats habitables. ${r.localsHeard ? 'Les indications locales ont été écoutées.' : 'Aucun échange local accompli.'} Le journal conserve chaque animal, chaque support et l’arrivée du transport.`;
+  }
+  $('workshop-chemical').hidden = !campaign.completed.MI10;
+  if (campaign.completed.MI10) {
+    const r = campaign.completed.MI10;
+    $('workshop-chemical').textContent = `Champ des basses terres : ${r.tanksSecured} cuves isolées, ${r.tanksDestroyed} détruites ; ${r.canalsPolluted} canaux contaminés. ${r.pt02Acquired ? 'PT02 est conservé à bord.' : 'PT02 n’a pas été constitué.'} ${r.villageHabitable ? 'Le village reste habitable.' : 'L’habitabilité du village est compromise.'} Les pièces d’atelier ne réparent pas les canaux de cette sortie.`;
   }
   $('campaign-repair-pipe').textContent = 'Réparer la conduite · 2 lots';
   $('campaign-repair-pipe').disabled = active || campaign.resources.parts < 2 || campaignBlocked;
@@ -440,6 +467,14 @@ const factions = [
   ['09 / COHORTE VÉTÉRANE', 'Cohorte des Serments', 'Des équipages expérimentés disposent de machines et de ravitaillement prioritaires. Leur fidélité au commandement se mesure aussi à la peur de perdre ceux qui dépendent d’eux.'],
 ];
 all('[data-archive]').forEach(el => el.addEventListener('click', () => { archive = el.dataset.archive; renderArchive(); }));
+function chemicalArchive() {
+  const r = campaign.completed.MI10;
+  if (!r) return '';
+  const tanks = r.roster.tanks.map((t, i) => `<tr><th scope="row">Cuve ${i + 1}</th><td>${t.identified ? escapeHTML(chemicalTankRole(t.role)) : 'Composition non relevée'}</td><td>${t.destroyed ? 'Détruite' : t.secured ? 'Isolée' : 'Non isolée'} · ${t.identified ? 'marquage copié' : 'aucun marquage conservé'}</td></tr>`).join('');
+  const canals = r.roster.canals.map((c, i) => `<tr><th scope="row">Canal ${i + 1}</th><td>${c.destroyed ? 'Ouvrage rompu' : c.covered ? 'Pontage préservé' : 'Canal sans couverture'}</td><td>${c.contamination.toFixed(1)} unités reçues · ${c.contamination >= 20 ? 'contaminé' : 'sous le seuil de contamination'}</td></tr>`).join('');
+  return `<section class="nacre-dossiers chemical-dossiers" aria-label="Dossier du champ de Thyr"><p class="eyebrow">THYR / PRÉLÈVEMENT ET EAU DU VILLAGE</p><details class="dossier-detail"><summary>Le champ que personne n’a semé <span>${r.pt02Acquired ? 'PT02 conservé' : 'PT02 absent'} · ${r.canalsIntact} canaux intacts · ${r.homesHabitable} habitats préservés</span></summary><p>${r.sampleCollected ? 'Le prélèvement a été accompli et sa matière conservée à bord.' : 'Le prélèvement n’a pas pu être conservé ; le rapport ne le reconstitue pas.'} ${r.orisonRecordCopied ? 'Une copie du registre matériel relie les lots aux terraformes d’Orison.' : 'Aucune copie du registre matériel n’a été obtenue.'} ${r.pt02Acquired ? 'PT02 associe ce prélèvement aux trois marquages et au registre. La chaîne complète de fabrication, de financement et de commandement reste à établir.' : 'Les pièces réunies ne suffisent pas à constituer PT02.'}</p><div class="dossier-table-wrap"><table><caption>Relevés et états matériels à l’extraction</caption><thead><tr><th scope="col">Élément</th><th scope="col">Relevé</th><th scope="col">État conservé</th></tr></thead><tbody>${tanks}${canals}</tbody></table></div><p>${r.spillReleased.toFixed(1)} unités ont quitté les cuves : ${r.spillRetained.toFixed(1)} retenues au collecteur, ${r.spillDelivered.toFixed(1)} arrivées en aval. ${r.waterRestored ? 'La circulation de l’eau a été rétablie.' : 'L’alimentation n’a pas pu être rétablie.'} ${r.villageHabitable ? 'Les canaux préservés permettent au village de rester habitable.' : 'Les dommages ou la contamination compromettent l’habitabilité du village.'} Aucun effectif d’habitants n’est inventé par ce relevé.</p></details></section>`;
+}
+
 function thyrArchive() {
   const r = campaign.completed.MI09;
   if (!r) return '';
@@ -496,7 +531,7 @@ function renderArchive() {
       return `<article class="record-card"><div><p class="eyebrow">CAMPAGNE / ${r.missionId} / PREMIÈRE RÉUSSITE</p><h3>${escapeHTML(r.missionName)}</h3><p>${escapeHTML(r.walkerName)} · ${timeLabel(r.elapsed)}</p></div><div><p>${facts}<br>${escapeHTML(r.decisionLabel)}</p></div></article>`;
     }).join('');
     const simulations = finished.length ? finished.map(m => { const r = records[m.id]; return `<article class="record-card"><div><p class="eyebrow">SIMULATION / ${m.planet.toUpperCase()} / OPÉRATION ${m.number}</p><h3>${m.name}</h3><p>${escapeHTML(r.walker || 'Marcheur')} · ${timeLabel(Number(r.time) || 0)}</p></div><div><p>Preuves récupérées : ${Number(r.evidence) || 0}<br>Pertes civiles : ${Number(r.collateral) || 0}<br>Décision : ${r.choice === 'defy' ? 'Ordre contesté' : 'Ordre exécuté'}</p></div></article>`; }).join('') : '<p class="muted">Aucun rapport de simulation. Les exercices sont indépendants du dossier de campagne.</p>';
-    $('archive-content').innerHTML = thyrArchive() + nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
+    $('archive-content').innerHTML = chemicalArchive() + thyrArchive() + nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
   }
 }
 
@@ -579,6 +614,10 @@ function showBriefing() {
     const r = campaign.completed.MI08;
     $('briefing-description').textContent += ` ${r ? `Le rapport d’Aval conserve ${r.peopleArrived} arrivées au refuge et ${r.peopleLost} pertes ; Sami peut en parler par radio.` : 'Le bilan d’Aval est conservé dans votre dossier.'} Cette vallée a ses propres habitants et sa propre faune. Écoutez le poste local pour baliser une approche guidée, ou effectuez vous-même un relevé plus long. Les châssis hauts doivent reconnaître le passage avant de franchir la canopée.`;
   }
+  if (pendingMode === 'campaign' && m.id === 'MI10') {
+    const r = campaign.completed.MI09;
+    $('briefing-description').textContent += ` ${r?.approach === 'guided' ? 'Les indications recueillies sur la route des vivants permettent de reconnaître plus vite le collecteur amont.' : 'Le collecteur amont peut être identifié et fermé sans aide locale préalable.'} Le prélèvement exige vingt secondes de protection à proximité. Relever les marquages et copier le registre restent des opérations distinctes. Les habitats de ce site ont leur propre alimentation en eau ; le bilan de la vallée précédente reste conservé.`;
+  }
   $('briefing-walker').textContent = `${w.designation} ${w.name}`;
   $('briefing-assist').textContent = settings.assist ? 'Marche assistée' : 'Appuis manuels';
   $('briefing-difficulty').textContent = DIFFICULTIES[settings.difficulty].label;
@@ -616,7 +655,7 @@ function enterMission(nextGame) {
   $('intro-location').textContent = game.mission.intro; $('intro-title').textContent = game.mission.name;
   $('restart').textContent = activeMode === 'campaign' ? 'Recommencer la mission' : 'Recommencer l’opération';
   aimMode = 'pointer'; padAim.x = 1; padAim.y = 0;
-  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08', 'MI09'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
+  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
   audio.setPaused(false); audio.update(game);
   $('game-canvas').focus({ preventScroll: true }); audio.unlock(); updateHUD();
 }
@@ -671,7 +710,8 @@ function showResult() {
   const ambulanceMission = game.missionId === 'MI07';
   const departureMission = game.missionId === 'MI08';
   const livingRouteMission = game.missionId === 'MI09';
-  const missionStat = livingRouteMission ? ['LONGUES-DORSES AU VERGER', `${game.campaign.migratorsArrived} / 4`] : departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
+  const chemicalMission = game.missionId === 'MI10';
+  const missionStat = chemicalMission ? ['PIÈCE TECHNIQUE PT02', game.campaign.pt02Acquired ? 'CONSERVÉE' : 'ABSENTE'] : livingRouteMission ? ['LONGUES-DORSES AU VERGER', `${game.campaign.migratorsArrived} / 4`] : departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
     : industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
     : networkMission ? ['RÉSEAUX CIVILS ACTIFS', `${game.campaign.civilRelaysOnline} / 2`]
     : railMission ? ['OUVRIERS LIBÉRÉS', `${game.campaign.hostagesRescued} / ${game.campaign.hostagesTotal}`]
@@ -679,7 +719,11 @@ function showResult() {
     : ['PREUVES RÉCUPÉRÉES', game.stats.evidence];
   const stats = [['DURÉE', timeLabel(game.elapsed)], ['CIBLES NEUTRALISÉES', game.stats.kills], missionStat, ['PERTES CIVILES', game.stats.collateral]];
   let decisionText;
-  if (livingRouteMission) {
+  if (chemicalMission) {
+    const f = game.campaign;
+    stats.push(['CUVES', `${f.tanksSecured} isolées · ${f.tanksDestroyed} détruites`], ['MARQUAGES COPIÉS', `${f.copiedMarks} / 3`], ['CANAUX', `${f.canalsIntact} intacts · ${f.canalsPolluted} contaminés`], ['VILLAGE', f.villageHabitable ? 'HABITABLE' : 'HABITABILITÉ COMPROMISE']);
+    decisionText = `${f.plan === 'demolish' ? 'Démolition choisie.' : f.plan === 'secure' ? 'Mise en sécurité choisie.' : 'Aucune conduite choisie.'} ${f.operationsResolved ? 'Opérations des cuves accomplies ou pertes constatées.' : 'Opérations des cuves inachevées.'} ${f.sampleCollected ? 'Prélèvement conservé à bord.' : f.sampleLost ? 'Prélèvement perdu.' : 'Prélèvement non terminé.'} ${f.orisonRecordCopied ? 'Registre matériel copié.' : 'Registre non copié.'} ${f.pt02Acquired ? 'PT02 est conservé ; la chaîne complète de commandement reste à établir.' : 'PT02 n’est pas constitué.'} ${f.reportTransmitted ? 'Bilan transmis.' : 'Rapport non transmis.'}`;
+  } else if (livingRouteMission) {
     const f = game.campaign;
     stats.push(['DÉTOURNÉES', f.migratorsDisplaced], ['LONGUES-DORSES PERDUES', f.migratorsLost], ['HABITATS HABITABLES', `${f.homesHabitable} / 2`], ['ÉVENTAILS REVENUS', `${f.pollinatorsPresent} / 2`]);
     decisionText = `${f.route === 'migration' ? 'Passage migratoire choisi.' : f.route === 'imperial' ? 'Déviation impériale choisie.' : 'Aucune route choisie.'} ${f.gateOperated ? 'Manœuvre de barrière accomplie.' : 'Barrière non manœuvrée.'} ${f.migrationResolved ? `${f.migratorsArrived} au verger, ${f.migratorsDisplaced} détournées et ${f.migratorsLost} perdues.` : 'Trajet du troupeau non résolu.'} ${f.harvestFragile ? 'Récoltes fragilisées.' : f.migrationResolved ? 'Les quatre migrateurs ont rejoint les cultures.' : ''} ${f.logisticsArrived ? 'Logistique arrivée.' : f.logisticsDestroyed ? 'Transport logistique perdu.' : 'Transport encore à accompagner.'} ${f.reportTransmitted ? 'Bilan transmis.' : 'Rapport non transmis.'}`;
@@ -733,6 +777,16 @@ let lastObjectives = '';
 function updateHUD() {
   if (!game) return;
   const p = game.player;
+  $('chemical-instrument').hidden = !game.chemical;
+  if (game.chemical) {
+    const d = game.chemical, f = game.campaign, v = chemicalSummary(game);
+    $('chemical-stage').textContent = v.stage;
+    $('chemical-tanks').textContent = `${v.inspected} / 3 CUVES RELEVÉES · ${v.identified} MARQUAGES · ${v.secured} ISOLÉES`;
+    $('chemical-leak').textContent = `${f.leakStopped ? 'FUITE ARRÊTÉE' : 'FUITE ACTIVE'} · ${d.collector.destroyed ? 'COLLECTEUR ROMPU' : d.collector.closed ? 'COLLECTEUR FERMÉ' : 'COLLECTEUR OUVERT'} · ${f.spillInTransit.toFixed(1)} EN TRANSIT`;
+    $('chemical-sample').textContent = `${v.sample} · ${f.pt02Acquired ? 'PT02 CONSERVÉ' : f.orisonRecordCopied ? 'REGISTRE COPIÉ' : f.orisonRecordLost ? 'REGISTRE PERDU' : 'REGISTRE À RELEVER'}`;
+    $('chemical-water').textContent = `${v.clean} / 2 CANAUX PRÉSERVÉS · ${v.covered} COUVERTS · ${d.water.resolved ? f.villageHabitable ? 'VILLAGE HABITABLE' : 'HABITABILITÉ COMPROMISE' : 'EAU À RÉTABLIR'}`;
+    $('chemical-instrument').classList.toggle('chemical-warning', !f.leakStopped || f.canalsPolluted > 0 || f.canalsIntact < 2 || f.sampleLost);
+  }
   $('thyr-instrument').hidden = !game.livingRoute;
   if (game.livingRoute) {
     const r = game.livingRoute, f = game.campaign, v = livingRouteSummary(game);
@@ -797,7 +851,9 @@ function updateHUD() {
   $('rocket-value').textContent = p.reloadTime > 0 ? `RECHARGEMENT ${p.reloadTime.toFixed(1)} s` : `ROQUETTES  ${p.rockets.toString().padStart(2, '0')} / ${p.maxRockets}`;
   $('assist-hint').textContent = game.assist ? 'ASSISTANCE AUX APPUIS ACTIVE' : `${keyLabel('stepA')} / ${keyLabel('stepB')} — APPUIS MANUELS`;
   $('leg-status').innerHTML = p.feet.map(f => `<span class="leg ${f.phase === 'swing' ? 'swing' : ''} ${f.health < 40 ? 'damaged' : ''}" data-label="${f.group ? 'B' : 'A'}${f.index + 1}" title="Appui ${f.index + 1} : ${Math.round(f.health)} %"></span>`).join('');
-  const objectiveHTML = game.objectives.map(o => `<li class="${o.complete ? 'complete' : ''}"><span class="objective-symbol">${o.complete ? '✓' : '◇'}</span><span>${escapeHTML(o.label)}</span>${o.target > 1 ? `<span class="objective-progress">${o.id === "escort" ? Math.min(100, Math.round(o.current / o.target * 100)) + " %" : o.current + "/" + o.target}</span>` : ''}</li>`).join('');
+  const remainingObjectives = game.objectives.filter(o => !o.complete);
+  const hudObjectives = game.chemical ? remainingObjectives.length ? remainingObjectives.slice(0, 3) : game.objectives.slice(-3) : game.objectives;
+  const objectiveHTML = hudObjectives.map(o => `<li class="${o.complete ? 'complete' : ''}"><span class="objective-symbol">${o.complete ? '✓' : '◇'}</span><span>${escapeHTML(o.label)}</span>${o.target > 1 ? `<span class="objective-progress">${o.id === "escort" ? Math.min(100, Math.round(o.current / o.target * 100)) + " %" : o.current + "/" + o.target}</span>` : ''}</li>`).join('');
   if (lastObjectives !== objectiveHTML) { $('hud-objectives').innerHTML = objectiveHTML; lastObjectives = objectiveHTML; }
   $('convoy-status').hidden = !game.convoy;
   if (game.convoy) $('convoy-status').textContent = `CONVOI ${Math.ceil(game.convoy.hp / game.convoy.maxHp * 100)} % · ${game.convoy.arrived ? activeMode === 'campaign' ? 'AU POSTE DES MINEURS' : 'AU BAC' : game.convoy.moving ? 'EN MOUVEMENT' : 'VOUS ATTEND'}`;
@@ -942,7 +998,7 @@ function frame(now) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
       if (!paused && activeMode === 'campaign' && !campaignReplay) {
         const fuelChanged = game.missionId === 'MI06' && game.campaign.fuelSpent !== campaign.checkpoint?.campaign.fuelSpent;
-        const failedSortie = ['MI06', 'MI07', 'MI08', 'MI09'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
+        const failedSortie = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
         if (fuelChanged || failedSortie || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
       }
       renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, departureInstrument: false, interactionPrompt: false, pointer });

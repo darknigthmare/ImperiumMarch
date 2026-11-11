@@ -25,7 +25,7 @@ for (const legs of [2, 4, 6]) {
   assert.ok(Math.max(...family.map(w => w.height)) - Math.min(...family.map(w => w.height)) > 60);
 }
 assert.deepEqual(MISSIONS.map(m => m.planetId), ['PL01', 'PL02', 'PL03']);
-assert.deepEqual(CAMPAIGN_MISSIONS.map(m => m.id), ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08', 'MI09']);
+assert.deepEqual(CAMPAIGN_MISSIONS.map(m => m.id), ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08', 'MI09', 'MI10']);
 assert.equal(new Set(ALL_MISSIONS.map(m => m.id)).size, ALL_MISSIONS.length);
 for (const mission of CAMPAIGN_MISSIONS) {
   if (mission.id === 'MI01') {
@@ -51,6 +51,15 @@ for (const mission of CAMPAIGN_MISSIONS) {
     assert.deepEqual(mission.departure.stretcherCapacities, [2, 2]);
     assert.equal(mission.departure.refugeStretchers, 4);
     assert.ok(mission.decision.delay);
+  }
+  if (mission.id === 'MI10') {
+    const c = mission.chemical;
+    assert.equal(c.tankXs.length, 3); assert.equal(c.canalXs.length, 2); assert.equal(c.homeXs.length, 2);
+    assert.ok(c.collectorControlX < c.tankXs[0] && c.tankXs.at(-1) < c.samplerX);
+    assert.ok(c.samplerX < c.recordX && c.recordX < c.decisionX && c.decisionX < c.canalXs[0]);
+    assert.ok(c.canalXs.at(-1) < c.waterX && c.waterX < c.reportX && c.reportX < mission.extractionX);
+    assert.ok(c.sampleTime > c.privateDelay && c.privateDelay > 0);
+    assert.equal(c.sourceTankIndex, 2); assert.deepEqual(c.privateTypes, ['drone', 'sniper', 'buggy']);
   }
   assert.ok(mission.extractionX < mission.length);
   assert.equal(bible.sheets.flatMap(sheet => sheet.rows).find(row => row.id === mission.id)?.status, 'Prototype');

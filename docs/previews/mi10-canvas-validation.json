@@ -1,0 +1,190 @@
+{
+  "version": "0.11.0",
+  "scope": "MI10 Canvas validation only",
+  "generatedBy": "node tools/render-mi10-previews.mjs",
+  "manifest": "docs/previews/mi10-scenes.json",
+  "imageCount": 22,
+  "completedRuns": 17,
+  "campaignExports": 4,
+  "sourceHashes": {
+    "src/content.mjs": "6448818cd6f0d23f226d4f29904fd63c5c9bcaa7d380427bffa1bccbcf87dca4",
+    "src/simulation.mjs": "7e83c1f3d21b8ecf6cfbd4f9458d01ebcaafea1456ba05140f9ddaddf6971aa7",
+    "src/chemical-simulation.mjs": "778651c4accc7dd78189d5613d2e06896f16f0587651b7272b269d0d7a743f34",
+    "src/renderer.mjs": "d2b6265303223f8aad34a844307795d12cc6ad83ab9237fb7b7309303906f7a1",
+    "src/chemical-renderer.mjs": "51e1e6d497b58304f849c6dc1c145221f23ee975202aa30bb7d8cbea8cef78f2",
+    "src/chemical-assets.mjs": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753",
+    "src/campaign.mjs": "2631d8c89255e0c8eecb01766644fdd85b4deb46265e6b9ea304fc64183704a2",
+    "src/chemical-validation.mjs": "ed00e720b26e66b310707e589f90146bdd1309c5812a9449856dcd7980abb3ba",
+    "tests/helpers/mi10-driver.mjs": "0f032cad84030513bf9a2d543ef4018f1481ef58a207173ff031c2b71102303c",
+    "tools/render-mi10-previews.mjs": "c85bf9687280b57af50cf9cb5f215bb1013bba63e04b03fa3678a545273fd289",
+    "tests/fixtures/campaign-v9-mi09.json": "d5f6f49a02e8fb40f5bf830c7fcb40c5e2677dff3e2b0e0dbb7ea1a48ce42084"
+  },
+  "historicalFixture": "tests/fixtures/campaign-v9-mi09.json",
+  "checks": {
+    "publicControlsOnly": true,
+    "deepSnapshotsUnchangedAfterContinuation": true,
+    "rendererDoesNotMutateState": true,
+    "capturesAcceptedByCampaignValidator": true,
+    "completedReceiptsRoundTripExactly": true,
+    "sixChassisBothPlansComplete": true
+  },
+  "nativeBrowserExamined": false,
+  "humanPlaytestPerformed": false,
+  "images": [
+    {
+      "file": "mi10-arrival.png",
+      "title": "Début de mission : nouveau champ, cuves inconnues et fuite active",
+      "walkerId": "WK09",
+      "elapsed": 0,
+      "sha256": "8aba9ba243a29c8447048cb3c40a2e8e5d5e68ff4d85c129b310663c2059d118"
+    },
+    {
+      "file": "mi10-collector-work.png",
+      "title": "Fermeture réellement en cours au collecteur amont, sous ancrage",
+      "walkerId": "WK09",
+      "elapsed": 4.316666666666657,
+      "sha256": "e1ede10f9ea212d07a65b97be817952391b25d0e90e7b7cdb7193627932f0876"
+    },
+    {
+      "file": "mi10-tank-identification.png",
+      "title": "Relevé en cours : le marquage de la cuve n’est pas encore acquis",
+      "walkerId": "WK09",
+      "elapsed": 9.850000000000069,
+      "sha256": "9720ba9f839c673613636847134a7a3f5fa76578303e1257863039a9842602c2"
+    },
+    {
+      "file": "mi10-containment.png",
+      "title": "Confinement de la fuite en cours ; volumes déjà libérés conservés",
+      "walkerId": "WK09",
+      "elapsed": 37.24999999999917,
+      "sha256": "981ee24ecf363bf7118b8967793634d24bb58f5d24804d38fe7179b7804c6d14"
+    },
+    {
+      "file": "mi10-sampling-defense.png",
+      "title": "Prélèvement matériel progressif et arrivée réelle des forces privées",
+      "walkerId": "WK09",
+      "elapsed": 58.949999999997935,
+      "sha256": "69fab5fb0c849e4b31c5ae44db375759961735d1fc87de6c7430f681d1df4cfd"
+    },
+    {
+      "file": "mi10-decision.png",
+      "title": "Ordre à choisir ; aucune cuve n’est traitée par l’ouverture du dialogue",
+      "walkerId": "WK09",
+      "elapsed": 71.93333333333054,
+      "sha256": "d08cac371e289549d33f86ef721b7b7d1151643be2e9925686c25dee6a8c5d51"
+    },
+    {
+      "file": "mi10-tank-isolation.png",
+      "title": "Isolation d’une cuve réellement en cours après le choix",
+      "walkerId": "WK09",
+      "elapsed": 88.41666666666293,
+      "sha256": "1010092c44a7b436dafb2a255f7f59ba6e9d7395cd8e4df61c02c200affeb625"
+    },
+    {
+      "file": "mi10-canal-cover.png",
+      "title": "Pontage du premier canal en cours ; les appuis et dommages antérieurs restent consignés",
+      "walkerId": "WK09",
+      "elapsed": 147.58333333334292,
+      "sha256": "3e13e7e80cf25e0afaad76c00e0a0a738de7abbfce63720d8d5ea2d525734fc7"
+    },
+    {
+      "file": "mi10-water-restoration.png",
+      "title": "Remise en eau en cours après résolution physique des volumes",
+      "walkerId": "WK09",
+      "elapsed": 174.88333333336465,
+      "sha256": "f5753223a6ffc17101abe3212097a019ec05b6067b935e62a8d1564fccf9fd16"
+    },
+    {
+      "file": "mi10-report.png",
+      "title": "Transmission réelle du bilan, après défense et opérations",
+      "walkerId": "WK09",
+      "elapsed": 190.98333333337746,
+      "sha256": "50e789c94fe8532c405cbb0de505d63dd25cf86ffd7dafa39e5de852b2d3294b"
+    },
+    {
+      "file": "mi10-before-extraction.png",
+      "title": "Bilan transmis et preuves conservées ; rampe encore à rejoindre",
+      "walkerId": "WK09",
+      "elapsed": 195.53333333338108,
+      "sha256": "427561e58a5287fdc957607aae688713f35ed8dd08a2f23838dc06a9632b0608"
+    },
+    {
+      "file": "mi10-tank-demolition.png",
+      "title": "Opération de démolition en cours : le choix n’avait pas détruit les cuves",
+      "walkerId": "WK01",
+      "elapsed": 86.76666666666303,
+      "sha256": "ea210eaf5ee2a55ea24ba022bdb79fa8cfe6af361b0c363a8933bd367d8a1d50"
+    },
+    {
+      "file": "mi10-retained-demolition.png",
+      "title": "Volumes des cuves retenus physiquement au collecteur, prélèvement déjà conservé",
+      "walkerId": "WK01",
+      "elapsed": 133.03333333333134,
+      "sha256": "5c6e3e5957ab839ba267d6c027aeab3b41ee91809f14dfb12625ac6507f9fa64"
+    },
+    {
+      "file": "mi10-polluted-canals.png",
+      "title": "Démolition sans rétention : contamination des deux canaux acquise par un écoulement réel",
+      "walkerId": "WK01",
+      "elapsed": 141.90000000000506,
+      "sha256": "1ee925efffeb260c6080c5e451d3ed665bde328b058ca1ddb14f29afc8010d07"
+    },
+    {
+      "file": "mi10-sample-source-lost.png",
+      "title": "Source détruite par des tirs avant collecte : le prélèvement ne peut pas être reconstitué",
+      "walkerId": "WK01",
+      "elapsed": 30.61666666666621,
+      "sha256": "4d2be723d77018da7a2135cc16bda402ca821a7482123de34243ce701f28cccf"
+    },
+    {
+      "file": "mi10-evidence-after-destruction.png",
+      "title": "Originaux et préleveur détruits après collecte : PT02 demeure conservé à bord",
+      "walkerId": "WK01",
+      "elapsed": 83.63333333332987,
+      "sha256": "e767b7acbfb50413d84471ca4f1bcd3ba5eddef0a511763c72a36463eb698f8d"
+    },
+    {
+      "file": "mi10-chassis-wk01.png",
+      "title": "M-12 Vigie : vrais pieds sur le pontage du canal",
+      "walkerId": "WK01",
+      "elapsed": 147.08333333334252,
+      "sha256": "05dbe718679108b1a2dd71e3de56e69e7504a52e1b76ff17c8091213a8255d3d"
+    },
+    {
+      "file": "mi10-chassis-wk02.png",
+      "title": "C-5 Caracal : vrais pieds sur le pontage du canal",
+      "walkerId": "WK02",
+      "elapsed": 69.06666666666403,
+      "sha256": "3c7fe2b38c856a6f461fbaf63c94497188ec95e5f55429e31354cb51c68eab7e"
+    },
+    {
+      "file": "mi10-chassis-wk05.png",
+      "title": "Q-40 Bastion : vrais pieds sur le pontage du canal",
+      "walkerId": "WK05",
+      "elapsed": 170.95000000002818,
+      "sha256": "9487310acf5ad254452b5993a91eacaaef2c4bbf364873ecaa83d93b2f641cec"
+    },
+    {
+      "file": "mi10-chassis-wk06.png",
+      "title": "A-17 Arpenteur : vrais pieds sur le pontage du canal",
+      "walkerId": "WK06",
+      "elapsed": 160.11666666668623,
+      "sha256": "1e96d6fd6d43039c03363024c62f9fe7b3dcb585dea5540e459048c20d464c93"
+    },
+    {
+      "file": "mi10-chassis-wk09.png",
+      "title": "H-6 Pèlerin : vrais pieds sur le pontage du canal",
+      "walkerId": "WK09",
+      "elapsed": 149.95000000001147,
+      "sha256": "17471c7f3148e83302d7779e842332f61587875cb84864a4999d4db28100b3d0"
+    },
+    {
+      "file": "mi10-chassis-wk10.png",
+      "title": "CL-4 Cloporte : vrais pieds sur le pontage du canal",
+      "walkerId": "WK10",
+      "elapsed": 184.3166666667055,
+      "sha256": "7d5686716a96370fe6b5d5dbe1082d2588a496a14eba237354cda95908a94476"
+    }
+  ],
+  "limitations": "No browser, HTML HUD, CSS, native focus, human playtest, hardware controller, audio listening or performance certification."
+}

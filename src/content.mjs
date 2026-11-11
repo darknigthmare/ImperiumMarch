@@ -327,6 +327,32 @@ export const CAMPAIGN_MISSIONS = [
     intro: 'THYR // ROUTE DES VERGERS · 07:20',
   },
 
+  {
+    id: 'MI10', number: '10', campaign: true, act: 'II — Le coût du silence',
+    name: 'Le champ que personne n’a semé', planetId: 'PL03', planet: 'Thyr',
+    biome: 'CUVES ET CANAUX DES BASSES TERRES', length: 6400, difficulty: 'CONFINEMENT SOUS LE FEU', duration: '7–11 min',
+    faction: 'Forces privées / détachement impérial', accent: '#c4c981', sky: ['#1b3031', '#506b5b', '#c5bd85'],
+    description: 'Trois cuves dominent les canaux d’un village. Identifiez leurs marquages, isolez la fuite et défendez un prélèvement avant de décider du sort de la réserve. Les ruines ne reconstituent ni un échantillon ni un registre perdu ; l’eau doit encore rejoindre les habitats sans y porter le produit.',
+    briefing: '« Détruisez la réserve chimique attribuée aux rebelles. Relevez les cuves et transmettez le bilan de l’intervention. » — Major Holt',
+    hint: 'E au contrôle amont ferme le collecteur sous ancrage. Identifiez séparément les trois cuves et contenez la fuite avant de lancer le préleveur. Restez dans sa zone et protégez-le jusqu’à la collecte ; copiez aussi le registre matériel. Le choix au poste ne sécurise ni ne démolit les cuves à votre place. Préservez les deux canaux, accomplissez les opérations choisies, puis rétablissez l’eau et transmettez le bilan. Une preuve déjà recueillie reste conservée après la perte de sa source.',
+    type: 'chemical', evidenceX: 2480, decisionX: 3020, extractionX: 6060,
+    evidenceLabel: 'PRÉLÈVEMENT ET PROVENANCE DES CUVES', civilianPositions: [], supplyPositions: [650, 2580, 3940, 5380, 5860],
+    enemyPlan: [],
+    chemical: { interactionRadius: 150, inspectTime: 3, recordTime: 3, collectorTime: 5, guidedCollectorTime: 3,
+      containmentTime: 6, sampleTime: 20, privateDelay: 5, secureTime: 5, demolishTime: 3, coverTime: 4,
+      waterTime: 4, reportTime: 3, sampleRadius: 850, leakRate: .5, flowSpeed: 90, contaminationLimit: 20,
+      tankVolume: 100, sampleVolume: 5, tankXs: [800, 1400, 2000], sourceTankIndex: 2,
+      collectorX: 2960, collectorControlX: 540, leakControlX: 2200, samplerX: 2480, recordX: 2740,
+      decisionX: 3020, canalXs: [3400, 4140], canalControlOffset: 190, waterX: 4600,
+      homeXs: [4860, 5060], villageX: 4780, reportX: 5660,
+      privateXs: [3120, 3680, 4380], privateTypes: ['drone', 'sniper', 'buggy'] },
+    decision: { title: 'Le produit, le champ et le rapport',
+      body: 'Les cuves, le prélèvement et le registre matériel portent des traces distinctes. Choisir la démolition ou la mise en sécurité ne réalise aucune opération. Les canaux, l’eau du village et les pièces réellement conservées détermineront le bilan.',
+      obey: 'Exécuter la démolition de la réserve après les relevés',
+      defy: 'Mettre les cuves en sécurité et conserver les pièces recueillies' },
+    intro: 'THYR // CHAMP DES BASSES TERRES · 11:40',
+  },
+
 ];
 
 export const ALL_MISSIONS = [...MISSIONS, ...CAMPAIGN_MISSIONS];

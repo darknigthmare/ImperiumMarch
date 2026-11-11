@@ -1,0 +1,102 @@
+{
+  "version": "0.11.0",
+  "scope": "Réceptions additives sur les 133 critères initiaux. Les sources et preuves effectives sont contrôlées avant le gel; les reçus 0.9 et 0.10 restent conservés intégralement.",
+  "records": [
+    {
+      "id": "AS18",
+      "state": "partial_work_received",
+      "workPerformed": [
+        "Six composants du terrain chimique, vingt-quatre variantes SVG et deux planches PNG partagent leur géométrie avec le renderer. Cuves, canaux pontés, prélèvement, registre, vannes et maisons affichent les états matériels simulés."
+      ],
+      "deliverables": [
+        "src/chemical-assets.mjs",
+        "src/chemical-renderer.mjs",
+        "assets/chemical/manifest.json"
+      ],
+      "evidence": [
+        "docs/validation/v11-assets-render.txt",
+        "docs/previews/mi10-canvas-validation.json"
+      ],
+      "remainingWork": "Art final et lecture en mouvement de Thyr restent à recevoir. Ce lot local ne clôt pas le kit complet, les interactions écologiques finales ni l’essai humain."
+    },
+    {
+      "id": "PR18",
+      "state": "partial_work_received",
+      "workPerformed": [
+        "MI10 prolonge MI09 avec trois cuves, une fuite, un prélèvement défendu, des forces privées, deux canaux et deux maisons. Démolition et isolation exigent des opérations sur place; PT02 exige matière et provenance matérielle conservées.",
+        "Le dossier v10 migre l’export natif v9 de la 0.10 sans réécrire les neuf premiers rapports, les ressources ni les anciennes scènes. Reprise, reçus matériels et dotation unique disposent de contrôles distincts."
+      ],
+      "deliverables": [
+        "docs/CAMPAIGN_MISSION_10.md",
+        "docs/CAMPAIGN_SAVE_V10.md",
+        "src/chemical-simulation.mjs",
+        "src/chemical-validation.mjs",
+        "tests/mi10-simulation.test.mjs",
+        "tests/campaign-v10.test.mjs"
+      ],
+      "evidence": [
+        "docs/previews/mi10-simulation-validation.json",
+        "docs/validation/v011-historic-v9.json",
+        "docs/validation/v011-campaign-validation.json",
+        "docs/validation/v11-ui-runtime.txt",
+        "docs/validation/v011-chemical-state-crosscheck.json"
+      ],
+      "remainingWork": "MI11–MI16, CT05–CT08 et la défection de MI16 restent à produire. Les deux missions de Thyr reçues ne clôturent pas l’Acte II. Les essais humains de MI09 et MI10 restent ouverts."
+    },
+    {
+      "id": "PR02",
+      "state": "workbook_received_native_interaction_pending",
+      "workPerformed": [
+        "La Bible 0.11 porte le référentiel à 873 fiches : 845 identifiants historiques conservés et 28 fiches ajoutées pour MI10, le dossier v10 et leurs réceptions.",
+        "Le classeur conserve ses vingt et un onglets, vingt tables et cent vingt-six formules. Les cellules source, références, styles, volets, validations et plages modifiées sont contrôlés; un recalcul LibreOffice sans caches reste distinct de l’usage interactif."
+      ],
+      "deliverables": [
+        "data/bible.json",
+        "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+        "tests/fixtures/bible-v010-ids.json",
+        "tools/build-bible.mjs",
+        "tools/build-production-register.mjs",
+        "tools/verify-bible-baseline.py",
+        "tools/verify-bible-layout.py",
+        "data/bible-v011-previews.json"
+      ],
+      "evidence": [
+        "docs/validation/workbook-v0.11-export.json",
+        "docs/validation/workbook-v0.11-libreoffice.json",
+        "docs/validation/workbook-v0.11-visual-review.json",
+        "docs/validation/workbook-v0.11-layout.json",
+        "docs/validation/workbook-v0.11-baseline-check.json"
+      ],
+      "remainingWork": "QA29 reste ouverte pour tri, filtres, volets et édition dans une application bureautique interactive. Aucun essai Excel desktop ni résultat humain n’est déduit du recalcul headless."
+    },
+    {
+      "id": "QA25",
+      "state": "reference_audit_received",
+      "workPerformed": [
+        "Audit des références de la source 0.11 : identifiants, plages fermées et symboles canoniques résolus. Sept mutations incorrectes sont rejetées; sept baselines historiques fonctionnent sans Git et une révision inconnue reste refusée."
+      ],
+      "deliverables": [
+        "tools/verify-bible-export.py",
+        "tools/audit-bible-references.py",
+        "tests/fixtures/bible-v010-ids.json"
+      ],
+      "evidence": [
+        "docs/validation/production-v011-reference-audit.json",
+        "docs/validation/production-v011-reference-probes.json"
+      ],
+      "remainingWork": "Ce contrôle établit la cohérence documentaire de cette source. Aucun gameplay, art final ou essai humain ne découle de la résolution des références."
+    },
+    {
+      "id": "QA26",
+      "state": "scope_clarification_only",
+      "workPerformed": [
+        "Portée documentaire portée à dix missions jouables. Aucun nouveau contrôle des quatre fins n’est reçu."
+      ],
+      "deliverables": [
+        "docs/QA_V11.md"
+      ],
+      "evidence": [],
+      "remainingWork": "Produire et tester les combinaisons des fins et états contradictoires. MI01–MI10 ne couvrent pas FI01–FI04."
+    }
+  ]
+}

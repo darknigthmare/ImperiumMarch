@@ -23,7 +23,7 @@ const disk = text => {
 };
 
 test('v9 migration adds only unvisited Thyr to authentic native v8 exports', () => {
-  assert.equal(CAMPAIGN_SAVE_VERSION, 9);
+  assert.equal(CAMPAIGN_SAVE_VERSION, 10);
   assert.equal(hash(fixtureBytes), '19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007');
   assert.equal(history.provenance.sourceRevision, '2bb8d7a708e4fab5ab34b3cac10f2418b60fe037');
   assert.equal(history.provenance.verifiedHistoricBlobs, 889);
@@ -61,7 +61,7 @@ test('v8 read is nondestructive, first write backs up the original, future versi
   assert.equal(store.getItem(CAMPAIGN_SAVE_KEY), original);
   assert.equal(writeCampaign(store, loaded.campaign).ok, true);
   assert.equal(store.getItem(CAMPAIGN_BACKUP_KEY), original);
-  const future = JSON.stringify({ ...createCampaign(), version: 10 });
+  const future = JSON.stringify({ ...createCampaign(), version: CAMPAIGN_SAVE_VERSION + 1 });
   store.values.set(CAMPAIGN_SAVE_KEY, future);
   const blocked = readCampaign(store);
   assert.equal(blocked.blocked, true);
@@ -196,7 +196,7 @@ for (const choice of ['obey', 'defy']) test(`MI09 ${choice} reconciles its compl
   assert.deepEqual(Object.fromEntries(Object.entries(saved.completed).filter(([id]) => id !== 'MI09')), previous);
   assert.deepEqual(saved.world.vesper, world.vesper); assert.deepEqual(saved.world.nacre, world.nacre);
   assert.equal(saved.resources.parts, resources.parts + 4); assert.equal(saved.resources.fuel, resources.fuel);
-  assert.equal(nextCampaignMissionId(saved), null);
+  assert.equal(nextCampaignMissionId(saved), 'MI10');
   const before = serializeCampaign(saved);
   assert.equal(finishCampaignMission(saved, game).applied, false);
   assert.equal(serializeCampaign(saved), before);

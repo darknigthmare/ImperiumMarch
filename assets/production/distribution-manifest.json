@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "generatedAt": "2026-11-11T17:08:10.239Z",
+  "generatedAt": "2026-11-11T18:23:06.250Z",
   "scope": "Exhaustive media inventory of source assets/, actual media files under web-dist/, and all data:...;base64 media in the observed offline HTML. Code-generated media and excluded reference/documentation media are recorded separately.",
   "repository": {
-    "head": "f2270608ea23e7b9589b8fc9a6f81a6a59341d02",
-    "packageVersion": "0.10.0",
-    "sourceUIVersion": "0.10",
+    "head": "073003075bf8921aab25b1a9200b9d360c1ab391",
+    "packageVersion": "0.11.0",
+    "sourceUIVersion": "0.11",
     "workingTree": "Current files, including uncommitted work. HEAD is an identification point, not a claim that these files are committed."
   },
   "tool": "tools/audit-media-provenance.mjs",
@@ -19,20 +19,24 @@
     "offline": {
       "file": "dist/Ordre_de_Cendre.html",
       "present": true,
-      "bytes": 10276491,
-      "sha256": "a8a5f4929ebdcee0fd796875d344e48f3536fc612f07cbf853963305a5001063",
-      "uiVersion": "0.10",
+      "bytes": 10394368,
+      "sha256": "5617690ab88a55a522897aeee1e91b923ef3395074970e3b9b094037d192459b",
+      "uiVersion": "0.11",
       "modules": [
         "src/content.mjs",
+        "src/chemical-simulation.mjs",
         "src/simulation.mjs",
         "src/production-assets.mjs",
         "src/thyr-assets.mjs",
         "src/thyr-renderer.mjs",
+        "src/chemical-assets.mjs",
+        "src/chemical-renderer.mjs",
         "src/renderer.mjs",
         "src/audio.mjs",
         "src/controls.mjs",
         "src/departure-validation.mjs",
         "src/thyr-validation.mjs",
+        "src/chemical-validation.mjs",
         "src/campaign.mjs",
         "src/main.mjs"
       ],
@@ -93,8 +97,8 @@
     "web": {
       "entry": "web-dist/index.html",
       "present": true,
-      "indexSha256": "c1c246013a9563c341f0317d1e7f11118eef55d0d177d837a88c9a061e9c6dbf",
-      "uiVersion": "0.10",
+      "indexSha256": "8c6400db3ae01299edad2a9f8160acecd373331bb03de8e9d3b9465c82f15082",
+      "uiVersion": "0.11",
       "files": [
         {
           "file": "web-dist/assets/art/key-art.png",
@@ -109,6 +113,214 @@
           "source": "assets/art/vesper-panorama.png",
           "bytes": 1797938,
           "sha256": "837363413272bb4c8ed4fc38901d127465f3a30a830d6fd001b2d0c9106e6084",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/batch-ledger-copied.svg",
+          "source": "assets/chemical/batch-ledger-copied.svg",
+          "bytes": 1973,
+          "sha256": "b4612d63064ace47f61723032de2baf093134414e36ff9d33eccf1b3a3b2aa3e",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/batch-ledger-lost.svg",
+          "source": "assets/chemical/batch-ledger-lost.svg",
+          "bytes": 1071,
+          "sha256": "5e4f78801548ee9dff3c4f7c5c7e0c84ef9ce6ed30d7c269c59cc6d03797c026",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/batch-ledger-unread.svg",
+          "source": "assets/chemical/batch-ledger-unread.svg",
+          "bytes": 1455,
+          "sha256": "45fdb204f145d75ddfaeaa230d4c98030c842367ceba17a42793fb2b43a03814",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/canal-junction-contaminated.svg",
+          "source": "assets/chemical/canal-junction-contaminated.svg",
+          "bytes": 1708,
+          "sha256": "8cff4808e0d503d44cdd80cb04f58f43f6d47865c0401372b1ba56a2daaa3e9c",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/canal-junction-covered.svg",
+          "source": "assets/chemical/canal-junction-covered.svg",
+          "bytes": 2995,
+          "sha256": "c04ed950ee731335760f902294d16ff0e0a4808509c4597a308977bc04138009",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/canal-junction-covering.svg",
+          "source": "assets/chemical/canal-junction-covering.svg",
+          "bytes": 2410,
+          "sha256": "4b442346db155aaa5e0ef3a5631b48faa66ce15105bf77a808d801475dbfa722",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/canal-junction-destroyed.svg",
+          "source": "assets/chemical/canal-junction-destroyed.svg",
+          "bytes": 1917,
+          "sha256": "7cdb2c888583980246abf647342a0188bb2cd13843dc9024dca33bbab33208e8",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/canal-junction-open.svg",
+          "source": "assets/chemical/canal-junction-open.svg",
+          "bytes": 1684,
+          "sha256": "ffd3333eaeb6627b28315d987038801d0cbb62013aa07be98919c992407678c2",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/chemical-tank-destroyed.svg",
+          "source": "assets/chemical/chemical-tank-destroyed.svg",
+          "bytes": 1816,
+          "sha256": "9cbfdb3b1071a9e5ac338c3141c675f15528cbab1aaed19d061440d7606cea50",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/chemical-tank-identified.svg",
+          "source": "assets/chemical/chemical-tank-identified.svg",
+          "bytes": 4773,
+          "sha256": "21661cf9d6bd5c0225447309b4d04701aa674106a0d229177c44da2a3b2aaa55",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/chemical-tank-leaking.svg",
+          "source": "assets/chemical/chemical-tank-leaking.svg",
+          "bytes": 4982,
+          "sha256": "ac7c850800d8222c7dd2b998a04932b8b29f78dc29363e4ffc594d7a511ab684",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/chemical-tank-sealed.svg",
+          "source": "assets/chemical/chemical-tank-sealed.svg",
+          "bytes": 5073,
+          "sha256": "4e5f2ae3d407c04918d9819d9ff1c008584ace7915487aaf5acc969c0c90c4fa",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/chemical-tank-unknown.svg",
+          "source": "assets/chemical/chemical-tank-unknown.svg",
+          "bytes": 3874,
+          "sha256": "c855770f2b44f714a50553395426be0e7042f77604294b4e7e7258b67350fc9a",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/field-valve-destroyed.svg",
+          "source": "assets/chemical/field-valve-destroyed.svg",
+          "bytes": 1247,
+          "sha256": "3b91603d986c7a68ff78a35caa2f3a7ddc72d2788605719d3e28fc8f0fdf23ae",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/field-valve-normal.svg",
+          "source": "assets/chemical/field-valve-normal.svg",
+          "bytes": 1586,
+          "sha256": "68fed07471133862eee332ce4db254fe49b0675ece94b2e11ca3b03ea435ecc8",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/field-valve-operated.svg",
+          "source": "assets/chemical/field-valve-operated.svg",
+          "bytes": 1678,
+          "sha256": "01cbd1adc1259cec9e7db4505e021fe4f4b2ecfe3ea2840e4679032c7451f620",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/field-valve-working.svg",
+          "source": "assets/chemical/field-valve-working.svg",
+          "bytes": 1591,
+          "sha256": "a12ef3721ecd07b5efcc323d266bf1c13854f7565849eb919ba48f6f9561ffaa",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/previews/chemical-kit.png",
+          "source": "assets/chemical/previews/chemical-kit.png",
+          "bytes": 107912,
+          "sha256": "c353b504e4adc9180ca5434e3a183d2892f12ffae42fe0fa71eba74e41c4057e",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/previews/chemical-states.png",
+          "source": "assets/chemical/previews/chemical-states.png",
+          "bytes": 104669,
+          "sha256": "6bc8667164c3a2680edcea4c09c1b8374598c446727be705c9701fcc3b656c55",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/sampling-rig-idle.svg",
+          "source": "assets/chemical/sampling-rig-idle.svg",
+          "bytes": 2126,
+          "sha256": "b3b12ce53b0c8cab1c80c4e8e08d1928cef264fe020f1bbc053fdccb640e8cee",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/sampling-rig-lost.svg",
+          "source": "assets/chemical/sampling-rig-lost.svg",
+          "bytes": 1901,
+          "sha256": "08fc8f06e7a1a350e3812896440a78b65525575c988b2507d977771705c59130",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/sampling-rig-secured.svg",
+          "source": "assets/chemical/sampling-rig-secured.svg",
+          "bytes": 2353,
+          "sha256": "3efa891f7f173053b23983e25cbe06077f201e0164b41313b581fe8fdb4f5b7e",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/sampling-rig-working.svg",
+          "source": "assets/chemical/sampling-rig-working.svg",
+          "bytes": 2236,
+          "sha256": "1dda34350cf807140de545bba47cb9567b68add1d68615b000e4941e6841abef",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/village-supply-contaminated.svg",
+          "source": "assets/chemical/village-supply-contaminated.svg",
+          "bytes": 2856,
+          "sha256": "3d541d9d066c0c92c73f26730aa88a93ef44848e307cf4b1d3198ad693d26c39",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/village-supply-destroyed.svg",
+          "source": "assets/chemical/village-supply-destroyed.svg",
+          "bytes": 975,
+          "sha256": "5a7aa448670e02a956473e15ce688581c11425c6bc0eab8b508ea9c81233bf22",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/chemical/village-supply-habitable.svg",
+          "source": "assets/chemical/village-supply-habitable.svg",
+          "bytes": 3333,
+          "sha256": "f8d9edfa1cd8621b1b70ce05b908a6e0988e9fe24a1dd6e311be2c73ae08fc1b",
           "registered": true,
           "sourceHashMatches": true
         },
@@ -3207,7 +3419,7 @@
   "provenance": {
     "legacy-key-art": {
       "source": "docs/ASSET_PROVENANCE.md",
-      "sourceSha256": "d99c434d6b939dbc83c416152e924bb5cd61247e48eb389d71bb2ed3e5773763",
+      "sourceSha256": "869a172420e011456357b7c2ffad34c34b98d2d49d7db6f7872696c816117a5d",
       "method": "image_gen; no reference image; opaque background; PNG copied without retouching, as recorded in source document.",
       "authorOrGenerator": "image_gen (recorded in source document)",
       "prompt": "Use case: stylized-concept. Asset type: cinematic main menu key art for an original premium 2D science-fiction walker combat game, ORDRE DE CENDRE, codename ImperiumMarch. Widescreen 16:9, high resolution. No text, no logo, no UI. Hand-painted cinematic hard-surface science-fiction concept illustration, incredible thoughtful material detail, matte painted industrial war atmosphere, nuanced cinematic light, not photoreal render, not pixel art. On the right two thirds, one enormous original two-legged imperial walking combat vehicle strides across a devastated ash desert: squat angular olive-gray armored cabin, asymmetrical sensor brow with very thin amber slit, offset cannon and ammunition drums, visible articulated hydraulic knees and broad three-toed industrial feet, believable load-bearing geometry, subtle ivory identification stripe, heavily weathered steel. A smaller low quadruped support walker far behind, silhouettes of a ruined mining outpost on the horizon and tiny logistics crew at base for scale. Background: alien planet Vesper, gigantic pale ringed planet in dusty sky, chalk cliffs, distant vertical refinery stacks, dry basalt, burnt rust-orange sunlight cutting through smoke, muted ash teal shadows. Strong readable silhouette, dramatic scale and human vulnerability. Keep left third very dark and atmospheric with open smoky sky for later typography overlay. Ground line in lower quarter. No humanoid robots, no head shaped like an animal, no recognizable Star Wars AT-AT or AT-ST design, no branded franchise elements, no gore. A premium original military science-fiction game art cover, subtle grain and masterful painted textures.",
@@ -3224,7 +3436,7 @@
     },
     "legacy-vesper-panorama": {
       "source": "docs/ASSET_PROVENANCE.md",
-      "sourceSha256": "d99c434d6b939dbc83c416152e924bb5cd61247e48eb389d71bb2ed3e5773763",
+      "sourceSha256": "869a172420e011456357b7c2ffad34c34b98d2d49d7db6f7872696c816117a5d",
       "method": "image_gen; no reference image; opaque background; PNG copied without retouching, as recorded in source document.",
       "authorOrGenerator": "image_gen (recorded in source document)",
       "prompt": "Use case: stylized-concept. Asset type: side-scrolling 2D game distant background panorama for original science fiction game ORDRE DE CENDRE. Ultra wide 3:1 landscape panorama, painterly 2D premium game background, no UI, no text. Alien industrial ash desert planet Vesper at dawn: desaturated slate teal sky at top fading to dust peach at horizon, giant pale planet and a very thin ring diagonally at upper left, far distant refinery silhouettes with small warm orange glows, eroded mesa cliffs and volcanic spires, heavy atmospheric perspective. Horizon and distant ground at lower 70 percent, open sky above. Foreground is empty dusty terrain in lower 25 percent, no rocks blocking a player. The playable character will be drawn separately in front. Multi-layer matte painting quality with dramatic shape design, delicate haze and exquisite texture. Distant scenery only, no humans, absolutely no walker vehicles, no robots, no cars, no spaceships. Make visual composition read as a side-view scrolling battlefield background, long continuous panorama, everything small and far away with broad open middle ground. Steel gray, muted rust, ochre, very restrained orange, sophisticated contrast, no neon. Illustration not photograph.",
@@ -3241,7 +3453,7 @@
     },
     "legacy-emblem": {
       "source": "docs/ASSET_PROVENANCE.md",
-      "sourceSha256": "d99c434d6b939dbc83c416152e924bb5cd61247e48eb389d71bb2ed3e5773763",
+      "sourceSha256": "869a172420e011456357b7c2ffad34c34b98d2d49d7db6f7872696c816117a5d",
       "method": "Original geometric SVG, as recorded in source document.",
       "authorOrGenerator": "Original project vector code; named individual author not recorded.",
       "prompt": null,
@@ -3312,6 +3524,24 @@
         "FL09 blades react visually to nearby moving migrators, without a new sensory or stealth mechanic.",
         "Habitat drawings contain no occupants or invented census."
       ]
+    },
+    "chemical-vector": {
+      "source": "assets/chemical/manifest.json",
+      "sourceSha256": "d375e3a158990153a29482a720543d0b1f27eddd98d0b159147049104acd5b1b",
+      "code": "src/chemical-assets.mjs",
+      "codeSha256": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753",
+      "version": "0.11.0",
+      "date": "2026-11-11",
+      "authorOrGenerator": "Original code and geometry authored by OpenAI assistant for Darknigthmare",
+      "method": "Original code-native vector geometry shared by SVG exports and Canvas runtime; no generated, traced, stock or third-party artwork.",
+      "rightsDeclaration": "Original project vector code; no third-party artwork declared.",
+      "rightsStatus": "Project originality declaration, no separate license grant asserted.",
+      "limitations": [
+        "Authoring sheets use varied scales and are not gameplay captures or human art approval.",
+        "A displayed vial only illustrates the sampling state. PT02 is established by the simulation and validated campaign receipt.",
+        "Village drawings contain no invented occupants or population counts.",
+        "This lot does not finish the fauna, flora or all environments of Thyr."
+      ]
     }
   },
   "entries": [
@@ -3376,7 +3606,7 @@
       "sourceReferences": [
         {
           "source": "src/renderer.mjs",
-          "line": 102,
+          "line": 103,
           "kind": "module literal image URL"
         }
       ],
@@ -3395,6 +3625,1370 @@
           "sourceHashMatches": true,
           "expectedByBuildPolicy": true,
           "runtimeRequested": true
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/batch-ledger-copied.svg",
+      "extension": "svg",
+      "bytes": 1973,
+      "sha256": "b4612d63064ace47f61723032de2baf093134414e36ff9d33eccf1b3a3b2aa3e",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: batch-ledger; copied",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "nominalSize": [
+        100,
+        95
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "inspect": [
+          0,
+          -55
+        ]
+      },
+      "state": "copied",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/batch-ledger-copied.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/batch-ledger-lost.svg",
+      "extension": "svg",
+      "bytes": 1071,
+      "sha256": "5e4f78801548ee9dff3c4f7c5c7e0c84ef9ce6ed30d7c269c59cc6d03797c026",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: batch-ledger; lost",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "nominalSize": [
+        100,
+        95
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "inspect": [
+          0,
+          -55
+        ]
+      },
+      "state": "lost",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/batch-ledger-lost.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/batch-ledger-unread.svg",
+      "extension": "svg",
+      "bytes": 1455,
+      "sha256": "45fdb204f145d75ddfaeaa230d4c98030c842367ceba17a42793fb2b43a03814",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: batch-ledger; unread",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "nominalSize": [
+        100,
+        95
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "inspect": [
+          0,
+          -55
+        ]
+      },
+      "state": "unread",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/batch-ledger-unread.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/canal-junction-contaminated.svg",
+      "extension": "svg",
+      "bytes": 1708,
+      "sha256": "8cff4808e0d503d44cdd80cb04f58f43f6d47865c0401372b1ba56a2daaa3e9c",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: canal-junction; contaminated",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "nominalSize": [
+        200,
+        70
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "gate": [
+          0,
+          -31
+        ]
+      },
+      "state": "contaminated",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/canal-junction-contaminated.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/canal-junction-covered.svg",
+      "extension": "svg",
+      "bytes": 2995,
+      "sha256": "c04ed950ee731335760f902294d16ff0e0a4808509c4597a308977bc04138009",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: canal-junction; covered",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "nominalSize": [
+        200,
+        70
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "gate": [
+          0,
+          -31
+        ]
+      },
+      "state": "covered",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/canal-junction-covered.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/canal-junction-covering.svg",
+      "extension": "svg",
+      "bytes": 2410,
+      "sha256": "4b442346db155aaa5e0ef3a5631b48faa66ce15105bf77a808d801475dbfa722",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: canal-junction; covering",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "nominalSize": [
+        200,
+        70
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "gate": [
+          0,
+          -31
+        ]
+      },
+      "state": "covering",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/canal-junction-covering.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/canal-junction-destroyed.svg",
+      "extension": "svg",
+      "bytes": 1917,
+      "sha256": "7cdb2c888583980246abf647342a0188bb2cd13843dc9024dca33bbab33208e8",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: canal-junction; destroyed",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "nominalSize": [
+        200,
+        70
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "gate": [
+          0,
+          -31
+        ]
+      },
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/canal-junction-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/canal-junction-open.svg",
+      "extension": "svg",
+      "bytes": 1684,
+      "sha256": "ffd3333eaeb6627b28315d987038801d0cbb62013aa07be98919c992407678c2",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: canal-junction; open",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "nominalSize": [
+        200,
+        70
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "gate": [
+          0,
+          -31
+        ]
+      },
+      "state": "open",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/canal-junction-open.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/chemical-tank-destroyed.svg",
+      "extension": "svg",
+      "bytes": 1816,
+      "sha256": "9cbfdb3b1071a9e5ac338c3141c675f15528cbab1aaed19d061440d7606cea50",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: chemical-tank; destroyed",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "nominalSize": [
+        144,
+        194
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sample": [
+          73,
+          -49
+        ],
+        "plate": [
+          0,
+          -96
+        ]
+      },
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/chemical-tank-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/chemical-tank-identified.svg",
+      "extension": "svg",
+      "bytes": 4773,
+      "sha256": "21661cf9d6bd5c0225447309b4d04701aa674106a0d229177c44da2a3b2aaa55",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: chemical-tank; identified",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "nominalSize": [
+        144,
+        194
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sample": [
+          73,
+          -49
+        ],
+        "plate": [
+          0,
+          -96
+        ]
+      },
+      "state": "identified",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/chemical-tank-identified.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/chemical-tank-leaking.svg",
+      "extension": "svg",
+      "bytes": 4982,
+      "sha256": "ac7c850800d8222c7dd2b998a04932b8b29f78dc29363e4ffc594d7a511ab684",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: chemical-tank; leaking",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "nominalSize": [
+        144,
+        194
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sample": [
+          73,
+          -49
+        ],
+        "plate": [
+          0,
+          -96
+        ]
+      },
+      "state": "leaking",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/chemical-tank-leaking.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/chemical-tank-sealed.svg",
+      "extension": "svg",
+      "bytes": 5073,
+      "sha256": "4e5f2ae3d407c04918d9819d9ff1c008584ace7915487aaf5acc969c0c90c4fa",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: chemical-tank; sealed",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "nominalSize": [
+        144,
+        194
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sample": [
+          73,
+          -49
+        ],
+        "plate": [
+          0,
+          -96
+        ]
+      },
+      "state": "sealed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/chemical-tank-sealed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/chemical-tank-unknown.svg",
+      "extension": "svg",
+      "bytes": 3874,
+      "sha256": "c855770f2b44f714a50553395426be0e7042f77604294b4e7e7258b67350fc9a",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: chemical-tank; unknown",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "nominalSize": [
+        144,
+        194
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sample": [
+          73,
+          -49
+        ],
+        "plate": [
+          0,
+          -96
+        ]
+      },
+      "state": "unknown",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/chemical-tank-unknown.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/field-valve-destroyed.svg",
+      "extension": "svg",
+      "bytes": 1247,
+      "sha256": "3b91603d986c7a68ff78a35caa2f3a7ddc72d2788605719d3e28fc8f0fdf23ae",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: field-valve; destroyed",
+      "canonIds": [
+        "MI10"
+      ],
+      "nominalSize": [
+        90,
+        85
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -65
+        ]
+      },
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/field-valve-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/field-valve-normal.svg",
+      "extension": "svg",
+      "bytes": 1586,
+      "sha256": "68fed07471133862eee332ce4db254fe49b0675ece94b2e11ca3b03ea435ecc8",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: field-valve; normal",
+      "canonIds": [
+        "MI10"
+      ],
+      "nominalSize": [
+        90,
+        85
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -65
+        ]
+      },
+      "state": "normal",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/field-valve-normal.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/field-valve-operated.svg",
+      "extension": "svg",
+      "bytes": 1678,
+      "sha256": "01cbd1adc1259cec9e7db4505e021fe4f4b2ecfe3ea2840e4679032c7451f620",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: field-valve; operated",
+      "canonIds": [
+        "MI10"
+      ],
+      "nominalSize": [
+        90,
+        85
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -65
+        ]
+      },
+      "state": "operated",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/field-valve-operated.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/field-valve-working.svg",
+      "extension": "svg",
+      "bytes": 1591,
+      "sha256": "a12ef3721ecd07b5efcc323d266bf1c13854f7565849eb919ba48f6f9561ffaa",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: field-valve; working",
+      "canonIds": [
+        "MI10"
+      ],
+      "nominalSize": [
+        90,
+        85
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -65
+        ]
+      },
+      "state": "working",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/field-valve-working.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/previews/chemical-kit.png",
+      "extension": "png",
+      "bytes": 107912,
+      "sha256": "c353b504e4adc9180ca5434e3a183d2892f12ffae42fe0fa71eba74e41c4057e",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Authoring sheet; varied scales stated in its labels and nominal dimensions in manifest",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/previews/chemical-kit.png",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/previews/chemical-states.png",
+      "extension": "png",
+      "bytes": 104669,
+      "sha256": "6bc8667164c3a2680edcea4c09c1b8374598c446727be705c9701fcc3b656c55",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Authored states on a bench, not a browser or gameplay reception",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/previews/chemical-states.png",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/sampling-rig-idle.svg",
+      "extension": "svg",
+      "bytes": 2126,
+      "sha256": "b3b12ce53b0c8cab1c80c4e8e08d1928cef264fe020f1bbc053fdccb640e8cee",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: sampling-rig; idle",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "nominalSize": [
+        116,
+        118
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "vial": [
+          14,
+          -63
+        ],
+        "intake": [
+          -63,
+          -42
+        ]
+      },
+      "state": "idle",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/sampling-rig-idle.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/sampling-rig-lost.svg",
+      "extension": "svg",
+      "bytes": 1901,
+      "sha256": "08fc8f06e7a1a350e3812896440a78b65525575c988b2507d977771705c59130",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: sampling-rig; lost",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "nominalSize": [
+        116,
+        118
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "vial": [
+          14,
+          -63
+        ],
+        "intake": [
+          -63,
+          -42
+        ]
+      },
+      "state": "lost",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/sampling-rig-lost.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/sampling-rig-secured.svg",
+      "extension": "svg",
+      "bytes": 2353,
+      "sha256": "3efa891f7f173053b23983e25cbe06077f201e0164b41313b581fe8fdb4f5b7e",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: sampling-rig; secured",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "nominalSize": [
+        116,
+        118
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "vial": [
+          14,
+          -63
+        ],
+        "intake": [
+          -63,
+          -42
+        ]
+      },
+      "state": "secured",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/sampling-rig-secured.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/sampling-rig-working.svg",
+      "extension": "svg",
+      "bytes": 2236,
+      "sha256": "1dda34350cf807140de545bba47cb9567b68add1d68615b000e4941e6841abef",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: sampling-rig; working",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "nominalSize": [
+        116,
+        118
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "vial": [
+          14,
+          -63
+        ],
+        "intake": [
+          -63,
+          -42
+        ]
+      },
+      "state": "working",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/sampling-rig-working.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/village-supply-contaminated.svg",
+      "extension": "svg",
+      "bytes": 2856,
+      "sha256": "3d541d9d066c0c92c73f26730aa88a93ef44848e307cf4b1d3198ad693d26c39",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: village-supply; contaminated",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "nominalSize": [
+        220,
+        160
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "intake": [
+          -113,
+          -22
+        ]
+      },
+      "state": "contaminated",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/village-supply-contaminated.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/village-supply-destroyed.svg",
+      "extension": "svg",
+      "bytes": 975,
+      "sha256": "5a7aa448670e02a956473e15ce688581c11425c6bc0eab8b508ea9c81233bf22",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: village-supply; destroyed",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "nominalSize": [
+        220,
+        160
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "intake": [
+          -113,
+          -22
+        ]
+      },
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/village-supply-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/chemical/village-supply-habitable.svg",
+      "extension": "svg",
+      "bytes": 3333,
+      "sha256": "f8d9edfa1cd8621b1b70ce05b908a6e0988e9fe24a1dd6e311be2c73ae08fc1b",
+      "provenanceId": "chemical-vector",
+      "version": "0.11.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI10 reusable vector: village-supply; habitable",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "nominalSize": [
+        220,
+        160
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "intake": [
+          -113,
+          -22
+        ]
+      },
+      "state": "habitable",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/chemical/village-supply-habitable.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
         }
       }
     },
@@ -20934,6 +22528,22 @@
   ],
   "codeGeneratedMedia": [
     {
+      "file": "src/chemical-assets.mjs",
+      "sha256": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753",
+      "provenanceId": "chemical-vector",
+      "use": "Shared original MI10 geometry and scene drawing. SVG exports are not requested by runtime.",
+      "observedOfflineModule": true,
+      "observedWebCodeCopy": true
+    },
+    {
+      "file": "src/chemical-renderer.mjs",
+      "sha256": "51e1e6d497b58304f849c6dc1c145221f23ee975202aa30bb7d8cbea8cef78f2",
+      "provenanceId": "chemical-vector",
+      "use": "Shared original MI10 geometry and scene drawing. SVG exports are not requested by runtime.",
+      "observedOfflineModule": true,
+      "observedWebCodeCopy": true
+    },
+    {
       "file": "src/thyr-assets.mjs",
       "sha256": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
       "provenanceId": "thyr-vector",
@@ -20967,7 +22577,7 @@
     },
     {
       "file": "src/renderer.mjs",
-      "sha256": "b5f8ca4b0e20ac18bd3577c22e6361ce6d2905ab50ff8780162ece0f194f823a",
+      "sha256": "d2b6265303223f8aad34a844307795d12cc6ad83ab9237fb7b7309303906f7a1",
       "provenanceEvidence": "docs/ASSET_PROVENANCE.md",
       "use": "Original procedural drawing of world, particles, actors and remaining scenery.",
       "observedOfflineModule": true,
@@ -21353,6 +22963,350 @@
       "file": "docs/previews/bible-v010/bible-v010-systemes-99-101.png",
       "bytes": 84084,
       "sha256": "ddb1f7c341e2d3e7a3ed24eca75999b96649afd05e81145f24ac411691b7b9f6",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/00-Synthese.png",
+      "bytes": 129884,
+      "sha256": "3645c24cc66faa39a8d03da0db0923ba9faa8f4de96411ebedc569114b7c443e",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/01-Vision.png",
+      "bytes": 71762,
+      "sha256": "5c1fe57e9429a7d98059758f03a906c2f095aedbc9505a5ed1f1d505ba5abdb8",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/02-Systemes.png",
+      "bytes": 83017,
+      "sha256": "3f33167e4c45106ca5245009c3e6d307a80d1014d06a61b674ab19ab4d281cca",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/03-Marcheurs.png",
+      "bytes": 84689,
+      "sha256": "c671d9802620e2a9377076d53858ae49ad83d6004d0e4e4430a8b0028a7363fc",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/04-Armes.png",
+      "bytes": 84809,
+      "sha256": "a75adf161ec0bf3738bb0d21b28a30108c23f81ddaa2532a1ce901c583f057c0",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/05-Modules.png",
+      "bytes": 64012,
+      "sha256": "9930b51d77e210b04792ad88824ef95d377a2687a15151e387c70b680ff2d4a1",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/06-Planetes.png",
+      "bytes": 125804,
+      "sha256": "39de41d06fcf5cbec64bf7de10d052f86e8cb98e381b9a1bf8729b0272ebf6f4",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/07-Factions.png",
+      "bytes": 85502,
+      "sha256": "09bd78d3237738605c895a071fb86a3c736ac0aa4f330fb257cc07fda0be999a",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/08-Personnages.png",
+      "bytes": 80769,
+      "sha256": "f0213638b8083c3c3164ecb39ac5e5f7031c8cd1912b5d8118b5365d24f1eee7",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/09-Campagne.png",
+      "bytes": 106646,
+      "sha256": "0a0c36246fe9077ef2bc4010ebba1087e272da6079653419fdb6803bd81e7a7d",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/10-Contrats.png",
+      "bytes": 68914,
+      "sha256": "03ee85ca9e63933c6b26d4dad111c24c3437a0b0c2e66cf7f441f2cb1cc80f13",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/11-Ennemis.png",
+      "bytes": 69872,
+      "sha256": "d66c241a9ee842df8b52b3f6a9d635cb2b4644da8f503f41c5574f28bc805d04",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/12-Vehicules.png",
+      "bytes": 82613,
+      "sha256": "6678de4d701547da67ebef04eb2a425c9a174de70dae0565954f684abe73cccf",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/13-Faune.png",
+      "bytes": 69646,
+      "sha256": "d7ebd6a94e7c8b14e9f2dab07e5dca1b93f88bff674d4e57de6be76fa6fa9d60",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/14-Flore.png",
+      "bytes": 67526,
+      "sha256": "4f308ef23cfa5439bf77f5b7aa7fd3f189bf6fe232c1d6891764d5efe7e85de0",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/15-Narration.png",
+      "bytes": 71385,
+      "sha256": "c5f9f20ff38c519c6b34f8f1691a4ce9128ca16818e8b40e705c6756a95a0a8b",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/16-Assets.png",
+      "bytes": 112233,
+      "sha256": "f7ea15cc45c2fa89b0af53b92d26f90b862c16e6f3dcbfd5a8904fea9125ec80",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/17-Production.png",
+      "bytes": 71120,
+      "sha256": "504e10f9e83aab038bbb714e358fc395d15f94eb6cc9e0054676c41faf98aedd",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/18-QA.png",
+      "bytes": 63825,
+      "sha256": "275f462ba5357ec3405144634561491923873dedf05f5344796f3d250c13133f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/19-Sources.png",
+      "bytes": 93703,
+      "sha256": "d67ef310ec606c1ed58173dcfcdb3b8de4c12e806e8bf21c47680b6650ec5235",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/20-Prototype.png",
+      "bytes": 93606,
+      "sha256": "f06818a82d3eab0bab9091b92eced33f24b0977c675f4358d5e1e491a424e18f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-assets-24-24.png",
+      "bytes": 54555,
+      "sha256": "2c44932d279e926fb41d0ab673daaed7a5f2f28ab86082692e46b535901fe194",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-campagne-16-16.png",
+      "bytes": 52104,
+      "sha256": "1216fa2bb66ddd47356080bb3eb2534199bb059a68e6e84f07b82435db7ad245",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-narration-80-80.png",
+      "bytes": 30651,
+      "sha256": "233a5bc19e90862f6dedb0a4f0a3740deb90688e2badc50e3ae5498984b67dd5",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-narration-85-87.png",
+      "bytes": 82606,
+      "sha256": "e9979931fdecdc53dfdcf2bd5a9972e7b587ffe1cbb2f38f0b4e0686eda428f8",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-narration-88-88.png",
+      "bytes": 29998,
+      "sha256": "044425135833a85c0214bbbbeba0794612729d4ca536df6b7c521760ff6fdcb5",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-production-24-24.png",
+      "bytes": 27909,
+      "sha256": "52034cbe1dcb134e4a9fdfe2680fdb0b541bdde9b99b8ac9c5c603a65b187ae4",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-production-92-94.png",
+      "bytes": 77043,
+      "sha256": "249dab55e5b85c13880a2dc7d0a81f0c6501fbec1995cfeaae40c4f175ef955e",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-prototype-100-102.png",
+      "bytes": 88104,
+      "sha256": "27b6808d912967cd23f5462642b75d02c0f69243d046bdb31d6612770cd68214",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-prototype-103-104.png",
+      "bytes": 64776,
+      "sha256": "af9dacfee2de26c207f2723bc9b8492fa3ec8a5f283481082f4de214d097ba1f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-prototype-28-28.png",
+      "bytes": 36277,
+      "sha256": "017c78a57e94f5dc78d02e21fee0800cf5a663cd3202e62225bf3da600803d6d",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-prototype-31-31.png",
+      "bytes": 32053,
+      "sha256": "2ff506900fb8c25c060f10afdd585578014fc6f6370eaa3b92c3ead1be9419ca",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-prototype-33-34.png",
+      "bytes": 58155,
+      "sha256": "e4a24f034195de57fd9eea067508067c6da01649ea015941620d9840aa39a59e",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-prototype-36-37.png",
+      "bytes": 69534,
+      "sha256": "e95a3aaa1ac1dda2c48d84e1b39e600296e24234f7c47735c088cb3301ed4085",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-prototype-77-77.png",
+      "bytes": 23512,
+      "sha256": "fa136625c6d92386c42c35f6c396bcbd3f09d98e9e13a63b94e4d29dfd7a46cc",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-prototype-94-95.png",
+      "bytes": 69078,
+      "sha256": "0ad9a4819a29b6408f060310c5f6779f8405e4a96f82840272331b53d4385ba6",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-qa-176-178.png",
+      "bytes": 93807,
+      "sha256": "f2bdeaec30163523a3a6371441d1a8cbda5f02c6964f2cb34d97ba7644d4f965",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-qa-179-181.png",
+      "bytes": 96577,
+      "sha256": "f544ad0565d245b581f2d8f165755167b869fe6cb357b600a317818e3d1a2721",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-qa-182-184.png",
+      "bytes": 121645,
+      "sha256": "02c86686dc3c6c647913a3ab52b2042e4c85c58c44e113a66235533efaea80bd",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-qa-185-185.png",
+      "bytes": 37551,
+      "sha256": "e64da73f0e5e4a7c258f2d6e3051284e3526904548adb5d8c4319813d711c328",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-qa-31-31.png",
+      "bytes": 44513,
+      "sha256": "d937c83b2dd0c2a5139c14cff24cec60a01990acb7fbec273931706c9c4ca4f1",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-systemes-105-107.png",
+      "bytes": 97291,
+      "sha256": "d0a3aa06d8bd16dda8b7663f0b94d489d9da7a5003c0e7ae31204ebb50bacf59",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v011/bible-v011-systemes-108-110.png",
+      "bytes": 90928,
+      "sha256": "0e11e6453d2194d370559b5bad200bb3a3cbc0766df690ee728019cf3730aad7",
       "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
       "copiedInWeb": false,
       "embeddedInOffline": false
@@ -23134,6 +25088,182 @@
       "embeddedInOffline": false
     },
     {
+      "file": "docs/previews/mi10-arrival.png",
+      "bytes": 357259,
+      "sha256": "8aba9ba243a29c8447048cb3c40a2e8e5d5e68ff4d85c129b310663c2059d118",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-before-extraction.png",
+      "bytes": 356192,
+      "sha256": "427561e58a5287fdc957607aae688713f35ed8dd08a2f23838dc06a9632b0608",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-canal-cover.png",
+      "bytes": 364566,
+      "sha256": "3e13e7e80cf25e0afaad76c00e0a0a738de7abbfce63720d8d5ea2d525734fc7",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-chassis-wk01.png",
+      "bytes": 353658,
+      "sha256": "05dbe718679108b1a2dd71e3de56e69e7504a52e1b76ff17c8091213a8255d3d",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-chassis-wk02.png",
+      "bytes": 336965,
+      "sha256": "3c7fe2b38c856a6f461fbaf63c94497188ec95e5f55429e31354cb51c68eab7e",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-chassis-wk05.png",
+      "bytes": 348683,
+      "sha256": "9487310acf5ad254452b5993a91eacaaef2c4bbf364873ecaa83d93b2f641cec",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-chassis-wk06.png",
+      "bytes": 387445,
+      "sha256": "1e96d6fd6d43039c03363024c62f9fe7b3dcb585dea5540e459048c20d464c93",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-chassis-wk09.png",
+      "bytes": 367085,
+      "sha256": "17471c7f3148e83302d7779e842332f61587875cb84864a4999d4db28100b3d0",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-chassis-wk10.png",
+      "bytes": 333715,
+      "sha256": "7d5686716a96370fe6b5d5dbe1082d2588a496a14eba237354cda95908a94476",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-collector-work.png",
+      "bytes": 361669,
+      "sha256": "e1ede10f9ea212d07a65b97be817952391b25d0e90e7b7cdb7193627932f0876",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-containment.png",
+      "bytes": 371952,
+      "sha256": "981ee24ecf363bf7118b8967793634d24bb58f5d24804d38fe7179b7804c6d14",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-decision.png",
+      "bytes": 366206,
+      "sha256": "d08cac371e289549d33f86ef721b7b7d1151643be2e9925686c25dee6a8c5d51",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-evidence-after-destruction.png",
+      "bytes": 362724,
+      "sha256": "e767b7acbfb50413d84471ca4f1bcd3ba5eddef0a511763c72a36463eb698f8d",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-polluted-canals.png",
+      "bytes": 335404,
+      "sha256": "1ee925efffeb260c6080c5e451d3ed665bde328b058ca1ddb14f29afc8010d07",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-report.png",
+      "bytes": 357843,
+      "sha256": "50e789c94fe8532c405cbb0de505d63dd25cf86ffd7dafa39e5de852b2d3294b",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-retained-demolition.png",
+      "bytes": 351409,
+      "sha256": "5c6e3e5957ab839ba267d6c027aeab3b41ee91809f14dfb12625ac6507f9fa64",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-sample-source-lost.png",
+      "bytes": 361903,
+      "sha256": "4d2be723d77018da7a2135cc16bda402ca821a7482123de34243ce701f28cccf",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-sampling-defense.png",
+      "bytes": 365909,
+      "sha256": "69fab5fb0c849e4b31c5ae44db375759961735d1fc87de6c7430f681d1df4cfd",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-tank-demolition.png",
+      "bytes": 349812,
+      "sha256": "ea210eaf5ee2a55ea24ba022bdb79fa8cfe6af361b0c363a8933bd367d8a1d50",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-tank-identification.png",
+      "bytes": 363027,
+      "sha256": "9720ba9f839c673613636847134a7a3f5fa76578303e1257863039a9842602c2",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-tank-isolation.png",
+      "bytes": 367056,
+      "sha256": "1010092c44a7b436dafb2a255f7f59ba6e9d7395cd8e4df61c02c200affeb625",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi10-water-restoration.png",
+      "bytes": 365035,
+      "sha256": "f5753223a6ffc17101abe3212097a019ec05b6067b935e62a8d1564fccf9fd16",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
       "file": "docs/previews/scene-nacre-bastion.png",
       "bytes": 225745,
       "sha256": "312fcd1beb3b89de4116ce56d2f4022fa9787e56b034cbc7ac8b5a40f42f3810",
@@ -23292,6 +25422,14 @@
       "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
       "copiedInWeb": false,
       "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v11/before-migration.png",
+      "bytes": 114261,
+      "sha256": "21f0e9e6f49f68e4216a34abb144238883799ca3fc9b18cb847123f8558e0e6c",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
     }
   ],
   "fonts": {
@@ -23317,16 +25455,17 @@
     "note": "System font names are fallbacks, not distributed font binaries. Preview rendering uses installed fonts; that does not add a font file to the game."
   },
   "coverage": {
-    "registeredSourceMedia": 388,
-    "sourceMedia": 388,
+    "registeredSourceMedia": 414,
+    "sourceMedia": 414,
     "runtimeImageFiles": 3,
     "productionGraphicsMedia": 292,
     "productionAudioMedia": 56,
     "thyrGraphicsMedia": 37,
-    "observedWebMedia": 388,
+    "chemicalGraphicsMedia": 26,
+    "observedWebMedia": 414,
     "observedInlineOccurrences": 5,
     "observedInlineDistinctHashes": 3,
-    "excludedDocumentationMedia": 288,
+    "excludedDocumentationMedia": 354,
     "unregisteredSourceMedia": 0,
     "unregisteredWebMedia": 0,
     "unregisteredInlineMedia": 0,

@@ -4,17 +4,17 @@ import xml.etree.ElementTree as ET
 
 parser=argparse.ArgumentParser(description='Reconcile the Bible XLSX and audit its identifier references.')
 parser.add_argument('root',nargs='?',default=str(Path(__file__).resolve().parents[1]))
-parser.add_argument('baseline',nargs='?',default='2bb8d7a708e4fab5ab34b3cac10f2418b60fe037')
+parser.add_argument('baseline',nargs='?',help='Historical revision; defaults to the previous release declared in bible.json.')
 parser.add_argument('--references-only',action='store_true',help='Check source identifiers and references without touching the workbook or its existing reports.')
 parser.add_argument('--reference-report',type=Path,help='Write the complete reference audit to this path relative to the repository root.')
 args=parser.parse_args()
 root=Path(args.root).resolve()
 receipt_suffix=os.environ.get('BIBLE_RECEIPT_SUFFIX','')
 assert not receipt_suffix or re.fullmatch(r'[a-z0-9][a-z0-9-]*',receipt_suffix), 'Invalid BIBLE_RECEIPT_SUFFIX'
-baseline=args.baseline
 file=root/'docs/ORDRE_DE_CENDRE_Bible.xlsx'
 source_bytes=(root/'data/bible.json').read_bytes()
 source=json.loads(source_bytes)
+baseline=args.baseline or source['meta'].get('previousRelease',{}).get('sourceRevision','2bb8d7a708e4fab5ab34b3cac10f2418b60fe037')
 ns={'s':'http://schemas.openxmlformats.org/spreadsheetml/2006/main','r':'http://schemas.openxmlformats.org/officeDocument/2006/relationships'}
 N='{'+ns['s']+'}'
 def col(i):
@@ -35,7 +35,7 @@ def historical_ids(revision):
         # Published snapshots and source archives may not carry local Git history.
         # Each frozen fixture is valid for its recorded historical revision only.
         candidates=[]
-        for name in ['bible-v09-ids.json','bible-v08-ids.json','bible-v07-ids.json','bible-v06-ids.json','bible-v05-ids.json','bible-v04-ids.json']:
+        for name in ['bible-v010-ids.json','bible-v09-ids.json','bible-v08-ids.json','bible-v07-ids.json','bible-v06-ids.json','bible-v05-ids.json','bible-v04-ids.json']:
             fixture_path=root/'tests/fixtures'/name
             if fixture_path.is_file(): candidates.append(json.loads(fixture_path.read_text()))
         matches=[candidate for candidate in candidates

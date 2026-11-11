@@ -68,7 +68,7 @@ La sauvegarde reste locale au navigateur et à l'adresse du site. Utiliser l'adr
 - Vérifier que la page d'accueil, les modules, les styles et les images sont présents dans la sortie web.
 - Après déploiement, contrôler le commit servi, la disponibilité des ressources et le lancement de la campagne dans un navigateur réel.
 
-Les tests courants sont documentés dans [QA_V10.md](QA_V10.md). Les rapports précédents restent conservés comme historique. Un déploiement prêt ne remplace pas une validation navigateur.
+Les tests courants sont documentés dans [QA_V11.md](QA_V11.md). Les rapports précédents restent conservés comme historique. Un déploiement prêt ne remplace pas une validation navigateur.
 
 
 ## Publication 0.7
@@ -154,3 +154,16 @@ Les seuls changements applicatifs de ce lot final sont **quatre libellés statiq
 Le [reçu natif](validation/native-v10/browser-reception.json) distingue l’import réel du dossier v8 et sa migration exacte, puis l’extraction par l’interface depuis un checkpoint préparé et l’export/rechargement du dossier. Les 87 contrôles d’exports passent : neuf rapports, 42 lots et mêmes octets après recharge. Les actions préparées et les actions exécutées dans Chrome sont précisées dans [QA_V10.md](QA_V10.md). Cette portée ne constitue pas un parcours natif intégral depuis le début de MI09. **QA19, QA20 et QA29 restent ouvertes** : focus contradictoire selon l’instance et tir maintenu non reçu, petite fenêtre native non établie, manipulation bureautique interactive non exercée.
 
 Le lot final réunit ces libellés, les preuves natives et les mises à jour de la Bible et du registre. Les statuts restent inchangés. Le [contrôle final](validation/v10-release-checks-final.json) identifie les artefacts figés ; le parent public attendu est **`158a10f7e963f3f5effbb71fc3e8b4588d209d5a`**. L’attestation de publication est établie après la création du commit : elle rapproche le snapshot, l’arbre distant intégral, le CAS sans force, la CI sur le SHA exact, le déploiement de production READY et les ressources HTTP, avec Node `22.x` et les protections conservés. Ce reçu reste hors dépôt pour éviter de référencer son propre commit ; les résultats externes ne sont pas déduits des seules validations locales.
+
+
+## Lot applicatif 0.11 — validation locale
+
+La 0.11 ajoute **MI10 — Le champ que personne n’a semé**, le dossier v10, quatre modules chimiques et un lot original de vingt-quatre SVG et deux planches. Dix missions, six châssis et trois opérations indépendantes sont jouables au stade prototype. Le classeur rassemble 873 fiches sur 21 onglets.
+
+Les [gates locaux](validation/v11-local-validation.json) passent **440 tests Node, 71 parcours du script autonome dans un DOM modélisé, 64 comparaisons raster SVG/Canvas**, le catalogue, l’audit statique et les constructions autonome et web. Le runtime local enregistré est Node **24.22.1** ; la configuration publiée demeure **22.x** et devra être attestée séparément par sa CI. Les parcours UI et les scènes ont été reçus après le gel des sources ; l’agrégat réutilise ces résultats après vérification exacte de leurs entrées et du bundle reconstruit.
+
+L’audit strict rapproche **414 médias sources et 414 copies web**, sans fichier non identifié ni copie en attente. L’HTML autonome comprend les seize modules du graphe applicatif et ne demande aucune ressource externe. Le SHA-256 de l’HTML est `5617690ab88a55a522897aeee1e91b923ef3395074970e3b9b094037d192459b` ; celui du classeur est `21e5cac473dd41254700a873b70f73ea87f32a757e1dfdb15d817a2d1cdcb2d5`.
+
+Le parent public attendu pour cette tranche est `4846d0270b2976877f9b202848bfde6d2127fb1d`, arbre `ef7b912c27fa672f1930c980ee529c165e3f77ec`. Le reçu de publication est établi après la création du commit, pour rapprocher l’arbre complet, le CAS sans force, la CI sur le commit exact, le déploiement READY et vingt-trois ressources HTTP. Un contrôle local ne présume pas ces résultats distants.
+
+La réception native MI10 sera ajoutée après observation de ce code publié. Le vrai dossier v9 présent dans Chrome a déjà été préservé par export avant migration. Les checkpoints préparés par le pilote seront distingués des actions exécutées dans le navigateur ; QA19, QA20, QA29 et les essais humains conservent leurs critères ouverts.

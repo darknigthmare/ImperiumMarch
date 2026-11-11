@@ -1,4 +1,10 @@
 import { WALKERS, MISSIONS, ALL_MISSIONS, ENEMY_TYPES, DIFFICULTIES } from './content.mjs';
+import { createChemicalMission, chemicalSurface, chemicalSolids, refreshChemicalFacts, chemicalInteraction,
+  interactChemicalMission, chooseChemicalMission, chemicalFootfall, hitChemicalPart, updateChemicalMission,
+  chemicalObjectives } from './chemical-simulation.mjs';
+export { chemicalContext, chemicalDecisionBody, chemicalReceiptRoster } from './chemical-simulation.mjs';
+
+const chemicalRuntime = { terrainAt, emit };
 
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const dist = (ax, ay, bx, by) => Math.hypot(ax - bx, ay - by);
@@ -10,6 +16,8 @@ export function terrainAt(x, planetId = 'PL01') {
   if (planetId === 'PL03') return 680 + Math.sin(x / 260) * 19 + Math.sin(x / 79) * 5;
   return 681 + Math.sin(x / 320) * 12 + Math.sin(x / 105) * 4;
 }
+
+export function chemicalSurfaceAt(s, x) { return chemicalSurface(s, x, terrainAt(x, s.planetId)); }
 
 function random(s) {
   s.rng = (Math.imul(s.rng, 1664525) + 1013904223) >>> 0;
@@ -332,7 +340,15 @@ export function createGame(options = {}) {
   }
   if (mission.id === 'MI08') createDepartureMission(state, options.campaignContext || {});
   if (mission.id === 'MI09') createLivingRouteMission(state, options.campaignContext || {});
+  if (mission.id === 'MI10') createChemicalMission(state, options.campaignContext || {}, chemicalRuntime);
   state.enemies = spawnEnemies(state);
+  if (mission.id === 'MI10') {
+    for (const [i, x] of mission.chemical.privateXs.entries()) {
+      const unit = enemy(state, mission.chemical.privateTypes[i], x, state.enemies.length);
+      unit.id = `chemical-private-${i + 1}`; state.enemies.push(unit);
+    }
+    emit(state, 'radio', 'Tess : « Le collecteur se ferme depuis le poste amont. Trois cuves, une fuite et un préleveur : rien ne sera contenu par une simple décision. »');
+  }
   if (mission.id === 'MI09') {
     for (const [i, x] of mission.livingRoute.sniperXs.entries()) {
       const sniper = enemy(state, 'sniper', x, state.enemies.length);
@@ -679,6 +695,10 @@ function interactTrainMission(s) {
 
 function interact(s) {
   if (s.status !== 'playing' || s.decision.active) return false;
+  if (s.missionId === 'MI10') {
+    const changed = interactChemicalMission(s, chemicalRuntime);
+    refreshChemicalFacts(s); refreshObjectives(s); return changed;
+  }
   if (s.missionId === 'MI09') {
     const changed = interactLivingRouteMission(s);
     refreshLivingRouteFacts(s); refreshObjectives(s); return changed;
@@ -727,6 +747,9 @@ export function commandGame(s, action, payload) {
   if (action === 'choice') {
     if (!s.decision.active || s.decision.resolved || !(s.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : ['obey', 'defy']).includes(payload)) return false;
     s.decision.choice = payload; s.decision.resolved = true; s.decision.active = false;
+    if (s.missionId === 'MI10') {
+      chooseChemicalMission(s, payload, chemicalRuntime); refreshObjectives(s); return true;
+    }
     if (s.missionId === 'MI09') {
       s.campaign.route = payload === 'obey' ? 'imperial' : 'migration'; s.campaign.phase = 'routing';
       if (payload === 'obey') s.stats.ordersObeyed++; else s.stats.ordersDefied++;
@@ -867,6 +890,7 @@ function enemyPresent(s, e) {
   if (e.id.startsWith('seizure-drone-') && !s.ambulance?.raidTriggered) return false;
   if (e.id.startsWith('aval-control-drone-') && !s.departure?.alert.triggered) return false;
   if (e.id.startsWith('thyr-sniper-') && !s.livingRoute?.alert.triggered) return false;
+  if (e.id.startsWith('chemical-private-') && !s.chemical?.alert.ready) return false;
   if (e.id === 'private-hauler' && s.industrial?.retreatEscaped) return false;
   return e.id !== 'holt-observer' || Boolean(s.network?.scrutinyTriggered);
 }
@@ -980,6 +1004,7 @@ function stomp(s, f) {
   particles(s, f.x, f.y, 'dust', 9);
   emit(s, 'step', '', f.x, f.y);
   if (s.livingRoute) livingRouteFootfall(s, f);
+  if (s.chemical) chemicalFootfall(s, f, chemicalRuntime);
   // A pipe incident is caused by a real planted foot, never by camera/body position.
   if (s.missionId === 'MI01' && f.contact && !s.campaign.passageSecured && s.campaign.pipeIntact &&
       f.x >= s.mission.passage.pipeFrom && f.x <= s.mission.passage.pipeTo &&
@@ -1047,11 +1072,11 @@ function updateWalker(s, dt, input) {
       if (f.progress >= 1) { f.phase = 'stance'; f.contact = true; f.y = walkerGroundAt(s, f.x); stomp(s, f); }
     }
   }
-  if (s.livingRoute) for (const foot of p.feet) if (foot.contact) foot.y = walkerGroundAt(s, foot.x);
+  if (s.livingRoute || s.chemical) for (const foot of p.feet) if (foot.contact) foot.y = walkerGroundAt(s, foot.x);
   const anchor = p.feet.reduce((sum, f) => sum + f.x - f.homeOffset, 0) / p.feet.length;
   const lastX = p.x;
   p.anchorX = anchor;
-  const surfaceSpeed = s.channel ? channelSurfaceAt(s, p.x).traction : s.livingRoute ? livingRouteSurfaceAt(s, p.x).traction : 1;
+  const surfaceSpeed = s.channel ? channelSurfaceAt(s, p.x).traction : s.livingRoute ? livingRouteSurfaceAt(s, p.x).traction : s.chemical ? chemicalSurfaceAt(s, p.x).traction : 1;
   p.x += clamp((anchor - p.x) * 6 * dt, -s.walker.speed * surfaceSpeed * dt, s.walker.speed * surfaceSpeed * dt);
   p.x = clamp(p.x, 110, s.mission.length - 110);
   p.speed = (p.x - lastX) / Math.max(dt, 0.0001);
@@ -1115,6 +1140,7 @@ function updateEnemies(s, dt) {
     if (e.id.startsWith('seizure-drone-') && !s.ambulance?.raidTriggered) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id.startsWith('aval-control-drone-') && !s.departure?.alert.triggered) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id.startsWith('thyr-sniper-') && !s.livingRoute?.alert.triggered) { e.active = false; e.phase = 'idle'; continue; }
+    if (e.id.startsWith('chemical-private-') && !s.chemical?.alert.ready) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'holt-observer' && !s.campaign?.holtAlerted) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'private-hauler') {
       const site = s.industrial;
@@ -1136,7 +1162,7 @@ function updateEnemies(s, dt) {
     }
     const delta = Math.abs(e.x - p.x);
     if (s.missionId === 'MI01' && !s.notified.ambush) { e.active = false; e.phase = 'idle'; continue; }
-    e.active = delta < 1150 || Boolean(s.livingRoute && s.livingRoute.logistics.released && !s.livingRoute.logistics.arrived && !s.livingRoute.logistics.destroyed && Math.abs(e.x - s.livingRoute.logistics.x) < 1000) || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
+    e.active = delta < 1150 || Boolean(s.chemical?.alert.ready && e.id.startsWith('chemical-private-')) || Boolean(s.livingRoute && s.livingRoute.logistics.released && !s.livingRoute.logistics.arrived && !s.livingRoute.logistics.destroyed && Math.abs(e.x - s.livingRoute.logistics.x) < 1000) || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
       || Boolean(s.channel && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < 900)
       || Boolean(s.dike && [...s.dike.technicians.filter(t => t.called), ...s.dike.residents.filter(r => r.phase === 'evacuating')].some(person => person.alive && !person.safe && Math.abs(e.x - person.x) < 900))
       || Boolean(s.ambulance && (s.ambulance.vehicle.called && !s.ambulance.vehicle.destroyed && Math.abs(e.x - s.ambulance.vehicle.x) < 900
@@ -1169,7 +1195,8 @@ function updateEnemies(s, dt) {
       if (candidates.length) target = candidates[0];
     }
     if (s.livingRoute?.logistics.released && !s.livingRoute.logistics.arrived && !s.livingRoute.logistics.destroyed && Math.abs(e.x - s.livingRoute.logistics.x) < Math.abs(e.x - target.x)) target = s.livingRoute.logistics;
-    e.attackTarget = target === s.livingRoute?.logistics ? 'logistics' : target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : target === s.ambulance?.vehicle ? 'ambulance' : s.ambulance?.staff.includes(target) ? 'medical-staff' : s.ambulance?.patients.includes(target) ? 'patient' : s.departure?.boats.includes(target) ? 'departure-boat' : s.departure?.people.includes(target) ? 'departure-person' : 'convoy';
+    if (s.chemical?.sampler.started && !s.chemical.sampler.collected && !s.chemical.sampler.destroyed && !s.chemical.sampler.lost) target = s.chemical.sampler;
+    e.attackTarget = target === s.chemical?.sampler ? 'chemical-sampler' : target === s.livingRoute?.logistics ? 'logistics' : target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : target === s.ambulance?.vehicle ? 'ambulance' : s.ambulance?.staff.includes(target) ? 'medical-staff' : s.ambulance?.patients.includes(target) ? 'patient' : s.departure?.boats.includes(target) ? 'departure-boat' : s.departure?.people.includes(target) ? 'departure-person' : 'convoy';
     const td = Math.abs(e.x - target.x);
     if (e.phase === 'attack') {
       e.telegraph = Math.min(1, e.telegraph + dt / e.windup);
@@ -1265,6 +1292,11 @@ function explosion(s, shot, direct = null) {
     const distance = dist(part.x, part.y, shot.x, shot.y);
     if (distance < radius + part.w * .35) hitLivingRoutePart(s, part, shot.damage * .7 * (1 - distance / (radius + part.w * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1));
   }
+  if (s.chemical) for (const part of chemicalSolids(s)) {
+    if (part === direct || part.destroyed) continue;
+    const distance = dist(part.x, part.y, shot.x, shot.y);
+    if (distance < radius + part.w * .35) hitChemicalPart(s, part, shot.damage * .7 * (1 - distance / (radius + part.w * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1), chemicalRuntime);
+  }
   if (s.departure) for (const part of [...departureSolids(s), ...s.departure.people.filter(departureExposed)]) {
     if (part === direct || part.destroyed) continue;
     const bounds = s.departure.locks.includes(part) ? departureGateBounds(part) : part;
@@ -1332,6 +1364,7 @@ function updateProjectiles(s, dt) {
       for (const person of [...a.staff, ...a.patients]) if (person.alive && !person.safe && person.phase !== 'aboard') test(person, 'ambulance');
     }
     if (s.livingRoute) for (const part of livingRouteSolids(s)) if (!part.destroyed) test(part, 'living-route');
+    if (s.chemical) for (const part of chemicalSolids(s)) if (!part.destroyed) test(part, 'chemical');
     if (s.departure) {
       for (const part of departureSolids(s)) if (!part.destroyed) {
         const bounds = s.departure.locks.includes(part) ? departureGateBounds(part) : part;
@@ -1359,6 +1392,7 @@ function updateProjectiles(s, dt) {
       if (hit.kind === 'radiator') damageRadiator(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'ambulance') hitAmbulancePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'living-route') hitLivingRoutePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
+      if (hit.kind === 'chemical') hitChemicalPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1), chemicalRuntime);
       if (hit.kind === 'departure') hitDeparturePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'dike') hitDikePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'channel') hitChannelPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
@@ -2984,7 +3018,7 @@ export function livingRouteSurfaceAt(s, x) {
     clearance: x >= s.mission.livingRoute.canopyFrom && x <= s.mission.livingRoute.canopyTo ? route.approach.clearance : 1000 };
 }
 
-function walkerGroundAt(s, x) { return s.livingRoute ? livingRouteSurfaceAt(s, x).groundY : terrainAt(x, s.planetId); }
+function walkerGroundAt(s, x) { return s.livingRoute ? livingRouteSurfaceAt(s, x).groundY : s.chemical ? chemicalSurfaceAt(s, x).groundY : terrainAt(x, s.planetId); }
 function livingRouteTerminal(animal) { return ['arrived', 'displaced', 'lost'].includes(animal.phase); }
 function livingRouteSupported(s) { return s.player.braced && Math.abs(s.player.speed) <= 3 && !s.player.move && s.player.feet.every(foot => foot.contact); }
 function livingRouteSolids(s) {
@@ -3223,6 +3257,7 @@ function updateWorld(s, dt) {
   if (s.missionId === 'MI07') updateAmbulanceMission(s, dt);
   if (s.missionId === 'MI08') updateDepartureMission(s, dt);
   if (s.missionId === 'MI09') updateLivingRouteMission(s, dt);
+  if (s.missionId === 'MI10') updateChemicalMission(s, dt, chemicalRuntime);
   if (s.status !== 'playing') return;
   if (e.scanning && !e.collected) {
     if (Math.abs(p.x - e.x) > (s.missionId === 'MI04' ? s.mission.industrial.interactionRadius : 250)) { e.scanning = false; e.scanProgress = 0; emit(s, 'radio', 'Lecture interrompue : terminal hors de portée.'); }
@@ -3315,6 +3350,7 @@ function updateWorld(s, dt) {
   else if (s.missionId === 'MI07') s.interaction = ambulanceInteraction(s);
   else if (s.missionId === 'MI08') s.interaction = departureInteraction(s);
   else if (s.missionId === 'MI09') s.interaction = livingRouteInteraction(s);
+  else if (s.missionId === 'MI10') s.interaction = chemicalInteraction(s);
   else if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     s.interaction = s.campaign.passageWorking ? `Déploiement des dalles ${Math.round(s.campaign.passageProgress * 100)} % · restez près du treuil` : 'E · Déployer les dalles de protection (4,5 s)';
   } else if (!e.collected && Math.abs(p.x - e.x) < 230) {
@@ -3325,6 +3361,10 @@ function updateWorld(s, dt) {
   if (p.hull <= 0) finish(s, false, 'Marcheur immobilisé. Votre équipage a déclenché la balise de secours.');
   else if (s.convoy && s.convoy.hp <= 0) finish(s, false, s.campaign ? s.campaign.filtersDelivered ? 'Le camion de Sami est perdu au poste. Les filtres ont été livrés, mais l’escorte a échoué. Reprenez le dernier point de contrôle pour retenter la mission.' : 'Le camion de Sami est perdu. Les filtres n’atteindront pas le poste des mineurs. Reprenez le dernier point de contrôle pour retenter l’escorte.' : 'Le transport est perdu. La route du bac se ferme.');
   else if (s.extraction.active && Math.abs(p.x - s.extraction.x) < s.extraction.radius) {
+    if (s.missionId === 'MI10') {
+      refreshChemicalFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
+      finish(s, true, `Champ relevé : ${c.tanksSecured} cuves isolées, ${c.tanksDestroyed} détruites. ${c.sampleCollected ? 'Prélèvement matériel conservé.' : 'Prélèvement perdu avant collecte.'} ${c.pt02Acquired ? 'PT02 acquise avec ses trois marquages et le registre matériel d’Orison.' : 'Les pièces disponibles ne suffisent pas à établir PT02.'} ${c.canalsIntact} canaux intacts, ${c.canalsPolluted} contaminés ; ${c.homesHabitable} habitats utilisables. ${c.villageHabitable ? 'Le village conserve son circuit habitable.' : 'Le village reste compromis par les dommages ou le circuit.'}`); return;
+    }
     if (s.missionId === 'MI09') {
       refreshLivingRouteFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
       finish(s, true, `Transport arrivé au dépôt. ${c.migratorsArrived} longues-dorses au verger, ${c.migratorsDisplaced} déplacées, ${c.migratorsLost} perdues. ${c.homesHabitable} habitats habitables. ${c.passagePreserved ? 'Le passage traditionnel est préservé.' : 'Le passage traditionnel reste compromis.'} ${c.harvestFragile ? 'La récolte est fragilisée par les faits de cette sortie.' : 'La migration a nourri les cultures.'} ${c.localsHeard ? 'L’approche locale a été réellement transmise.' : 'Le poste local n’a pas été écouté.'}`); return;
@@ -3382,6 +3422,7 @@ function updateWorld(s, dt) {
 
 function refreshObjectives(s) {
   const goals = [];
+  if (s.missionId === 'MI10') { s.objectives = chemicalObjectives(s); return; }
   if (s.missionId === 'MI09') {
     const c = s.campaign;
     goals.push({ id: 'survey', label: 'Comparer la carte aux hameaux présents', current: Number(c.routeInspected), target: 1, complete: c.routeInspected });
@@ -3526,7 +3567,13 @@ export function updateGame(s, delta, input = {}) {
     if (input[action] && !s.inputHeld[action]) commandGame(s, action);
     s.inputHeld[action] = Boolean(input[action]);
   }
-  if (s.decision.active) return s;
+  if (s.decision.active) {
+    // The input frame has advanced elapsed before E opens the dialog. Keep
+    // MI10 material positions at that exact clock; subsequent paused calls exit
+    // at the guard above and advance neither the clock nor the physical scene.
+    if (s.chemical) { updateChemicalMission(s, dt, chemicalRuntime); refreshObjectives(s); }
+    return s;
+  }
   updateWalker(s, dt, input);
   updateEnemies(s, dt);
   updateProjectiles(s, dt);

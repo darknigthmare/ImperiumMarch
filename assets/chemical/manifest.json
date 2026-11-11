@@ -1,0 +1,945 @@
+{
+  "schema": 1,
+  "version": "0.11.0",
+  "created": "2026-11-11",
+  "title": "Thyr — cuves, canaux et prélèvement",
+  "source": "src/chemical-assets.mjs",
+  "generator": "tools/build-chemical-assets.mjs",
+  "runtime": "src/chemical-renderer.mjs",
+  "provenance": {
+    "author": "Original code and geometry authored by OpenAI assistant for Darknigthmare",
+    "method": "Original code-native vector geometry shared by SVG exports and Canvas runtime; no generated, traced, stock or third-party artwork.",
+    "references": [
+      "data/bible.json",
+      "docs/CAMPAIGN_FR.md",
+      "docs/ART_DIRECTION.md"
+    ]
+  },
+  "authority": "Positions, work progress, tank condition, pollution, habitats and retained evidence are supplied by simulation.mjs. Drawings do not perform operations or create people.",
+  "limitations": [
+    "Authoring sheets use varied scales and are not gameplay captures or human art approval.",
+    "A displayed vial only illustrates the sampling state. PT02 is established by the simulation and validated campaign receipt.",
+    "Village drawings contain no invented occupants or population counts.",
+    "This lot does not finish the fauna, flora or all environments of Thyr."
+  ],
+  "sourceSha256": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753",
+  "files": [
+    {
+      "file": "assets/chemical/chemical-tank-unknown.svg",
+      "bytes": 3874,
+      "sha256": "c855770f2b44f714a50553395426be0e7042f77604294b4e7e7258b67350fc9a",
+      "format": "svg",
+      "part": "chemical-tank",
+      "state": "unknown",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sample": [
+          73,
+          -49
+        ],
+        "plate": [
+          0,
+          -96
+        ]
+      },
+      "nominalSize": [
+        144,
+        194
+      ],
+      "inkBounds": [
+        -100,
+        -219,
+        224,
+        242
+      ]
+    },
+    {
+      "file": "assets/chemical/chemical-tank-identified.svg",
+      "bytes": 4773,
+      "sha256": "21661cf9d6bd5c0225447309b4d04701aa674106a0d229177c44da2a3b2aaa55",
+      "format": "svg",
+      "part": "chemical-tank",
+      "state": "identified",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sample": [
+          73,
+          -49
+        ],
+        "plate": [
+          0,
+          -96
+        ]
+      },
+      "nominalSize": [
+        144,
+        194
+      ],
+      "inkBounds": [
+        -100,
+        -219,
+        224,
+        242
+      ]
+    },
+    {
+      "file": "assets/chemical/chemical-tank-leaking.svg",
+      "bytes": 4982,
+      "sha256": "ac7c850800d8222c7dd2b998a04932b8b29f78dc29363e4ffc594d7a511ab684",
+      "format": "svg",
+      "part": "chemical-tank",
+      "state": "leaking",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sample": [
+          73,
+          -49
+        ],
+        "plate": [
+          0,
+          -96
+        ]
+      },
+      "nominalSize": [
+        144,
+        194
+      ],
+      "inkBounds": [
+        -100,
+        -219,
+        224,
+        242
+      ]
+    },
+    {
+      "file": "assets/chemical/chemical-tank-sealed.svg",
+      "bytes": 5073,
+      "sha256": "4e5f2ae3d407c04918d9819d9ff1c008584ace7915487aaf5acc969c0c90c4fa",
+      "format": "svg",
+      "part": "chemical-tank",
+      "state": "sealed",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sample": [
+          73,
+          -49
+        ],
+        "plate": [
+          0,
+          -96
+        ]
+      },
+      "nominalSize": [
+        144,
+        194
+      ],
+      "inkBounds": [
+        -100,
+        -219,
+        224,
+        242
+      ]
+    },
+    {
+      "file": "assets/chemical/chemical-tank-destroyed.svg",
+      "bytes": 1816,
+      "sha256": "9cbfdb3b1071a9e5ac338c3141c675f15528cbab1aaed19d061440d7606cea50",
+      "format": "svg",
+      "part": "chemical-tank",
+      "state": "destroyed",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sample": [
+          73,
+          -49
+        ],
+        "plate": [
+          0,
+          -96
+        ]
+      },
+      "nominalSize": [
+        144,
+        194
+      ],
+      "inkBounds": [
+        -100,
+        -219,
+        224,
+        242
+      ]
+    },
+    {
+      "file": "assets/chemical/canal-junction-open.svg",
+      "bytes": 1684,
+      "sha256": "ffd3333eaeb6627b28315d987038801d0cbb62013aa07be98919c992407678c2",
+      "format": "svg",
+      "part": "canal-junction",
+      "state": "open",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "gate": [
+          0,
+          -31
+        ]
+      },
+      "nominalSize": [
+        200,
+        70
+      ],
+      "inkBounds": [
+        -117,
+        -81,
+        236,
+        106
+      ]
+    },
+    {
+      "file": "assets/chemical/canal-junction-covering.svg",
+      "bytes": 2410,
+      "sha256": "4b442346db155aaa5e0ef3a5631b48faa66ce15105bf77a808d801475dbfa722",
+      "format": "svg",
+      "part": "canal-junction",
+      "state": "covering",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "gate": [
+          0,
+          -31
+        ]
+      },
+      "nominalSize": [
+        200,
+        70
+      ],
+      "inkBounds": [
+        -117,
+        -81,
+        236,
+        106
+      ]
+    },
+    {
+      "file": "assets/chemical/canal-junction-covered.svg",
+      "bytes": 2995,
+      "sha256": "c04ed950ee731335760f902294d16ff0e0a4808509c4597a308977bc04138009",
+      "format": "svg",
+      "part": "canal-junction",
+      "state": "covered",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "gate": [
+          0,
+          -31
+        ]
+      },
+      "nominalSize": [
+        200,
+        70
+      ],
+      "inkBounds": [
+        -117,
+        -81,
+        236,
+        106
+      ]
+    },
+    {
+      "file": "assets/chemical/canal-junction-contaminated.svg",
+      "bytes": 1708,
+      "sha256": "8cff4808e0d503d44cdd80cb04f58f43f6d47865c0401372b1ba56a2daaa3e9c",
+      "format": "svg",
+      "part": "canal-junction",
+      "state": "contaminated",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "gate": [
+          0,
+          -31
+        ]
+      },
+      "nominalSize": [
+        200,
+        70
+      ],
+      "inkBounds": [
+        -117,
+        -81,
+        236,
+        106
+      ]
+    },
+    {
+      "file": "assets/chemical/canal-junction-destroyed.svg",
+      "bytes": 1917,
+      "sha256": "7cdb2c888583980246abf647342a0188bb2cd13843dc9024dca33bbab33208e8",
+      "format": "svg",
+      "part": "canal-junction",
+      "state": "destroyed",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "gate": [
+          0,
+          -31
+        ]
+      },
+      "nominalSize": [
+        200,
+        70
+      ],
+      "inkBounds": [
+        -117,
+        -81,
+        236,
+        106
+      ]
+    },
+    {
+      "file": "assets/chemical/sampling-rig-idle.svg",
+      "bytes": 2126,
+      "sha256": "b3b12ce53b0c8cab1c80c4e8e08d1928cef264fe020f1bbc053fdccb640e8cee",
+      "format": "svg",
+      "part": "sampling-rig",
+      "state": "idle",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "vial": [
+          14,
+          -63
+        ],
+        "intake": [
+          -63,
+          -42
+        ]
+      },
+      "nominalSize": [
+        116,
+        118
+      ],
+      "inkBounds": [
+        -74,
+        -137,
+        162,
+        157
+      ]
+    },
+    {
+      "file": "assets/chemical/sampling-rig-working.svg",
+      "bytes": 2236,
+      "sha256": "1dda34350cf807140de545bba47cb9567b68add1d68615b000e4941e6841abef",
+      "format": "svg",
+      "part": "sampling-rig",
+      "state": "working",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "vial": [
+          14,
+          -63
+        ],
+        "intake": [
+          -63,
+          -42
+        ]
+      },
+      "nominalSize": [
+        116,
+        118
+      ],
+      "inkBounds": [
+        -74,
+        -137,
+        162,
+        157
+      ]
+    },
+    {
+      "file": "assets/chemical/sampling-rig-secured.svg",
+      "bytes": 2353,
+      "sha256": "3efa891f7f173053b23983e25cbe06077f201e0164b41313b581fe8fdb4f5b7e",
+      "format": "svg",
+      "part": "sampling-rig",
+      "state": "secured",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "vial": [
+          14,
+          -63
+        ],
+        "intake": [
+          -63,
+          -42
+        ]
+      },
+      "nominalSize": [
+        116,
+        118
+      ],
+      "inkBounds": [
+        -74,
+        -137,
+        162,
+        157
+      ]
+    },
+    {
+      "file": "assets/chemical/sampling-rig-lost.svg",
+      "bytes": 1901,
+      "sha256": "08fc8f06e7a1a350e3812896440a78b65525575c988b2507d977771705c59130",
+      "format": "svg",
+      "part": "sampling-rig",
+      "state": "lost",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "vial": [
+          14,
+          -63
+        ],
+        "intake": [
+          -63,
+          -42
+        ]
+      },
+      "nominalSize": [
+        116,
+        118
+      ],
+      "inkBounds": [
+        -74,
+        -137,
+        162,
+        157
+      ]
+    },
+    {
+      "file": "assets/chemical/batch-ledger-unread.svg",
+      "bytes": 1455,
+      "sha256": "45fdb204f145d75ddfaeaa230d4c98030c842367ceba17a42793fb2b43a03814",
+      "format": "svg",
+      "part": "batch-ledger",
+      "state": "unread",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "inspect": [
+          0,
+          -55
+        ]
+      },
+      "nominalSize": [
+        100,
+        95
+      ],
+      "inkBounds": [
+        -63,
+        -111,
+        131,
+        130
+      ]
+    },
+    {
+      "file": "assets/chemical/batch-ledger-copied.svg",
+      "bytes": 1973,
+      "sha256": "b4612d63064ace47f61723032de2baf093134414e36ff9d33eccf1b3a3b2aa3e",
+      "format": "svg",
+      "part": "batch-ledger",
+      "state": "copied",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "inspect": [
+          0,
+          -55
+        ]
+      },
+      "nominalSize": [
+        100,
+        95
+      ],
+      "inkBounds": [
+        -63,
+        -111,
+        131,
+        130
+      ]
+    },
+    {
+      "file": "assets/chemical/batch-ledger-lost.svg",
+      "bytes": 1071,
+      "sha256": "5e4f78801548ee9dff3c4f7c5c7e0c84ef9ce6ed30d7c269c59cc6d03797c026",
+      "format": "svg",
+      "part": "batch-ledger",
+      "state": "lost",
+      "canonIds": [
+        "MI10",
+        "PT02"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "inspect": [
+          0,
+          -55
+        ]
+      },
+      "nominalSize": [
+        100,
+        95
+      ],
+      "inkBounds": [
+        -63,
+        -111,
+        131,
+        130
+      ]
+    },
+    {
+      "file": "assets/chemical/field-valve-normal.svg",
+      "bytes": 1586,
+      "sha256": "68fed07471133862eee332ce4db254fe49b0675ece94b2e11ca3b03ea435ecc8",
+      "format": "svg",
+      "part": "field-valve",
+      "state": "normal",
+      "canonIds": [
+        "MI10"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -65
+        ]
+      },
+      "nominalSize": [
+        90,
+        85
+      ],
+      "inkBounds": [
+        -69,
+        -108,
+        144,
+        127
+      ]
+    },
+    {
+      "file": "assets/chemical/field-valve-working.svg",
+      "bytes": 1591,
+      "sha256": "a12ef3721ecd07b5efcc323d266bf1c13854f7565849eb919ba48f6f9561ffaa",
+      "format": "svg",
+      "part": "field-valve",
+      "state": "working",
+      "canonIds": [
+        "MI10"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -65
+        ]
+      },
+      "nominalSize": [
+        90,
+        85
+      ],
+      "inkBounds": [
+        -69,
+        -108,
+        144,
+        127
+      ]
+    },
+    {
+      "file": "assets/chemical/field-valve-operated.svg",
+      "bytes": 1678,
+      "sha256": "01cbd1adc1259cec9e7db4505e021fe4f4b2ecfe3ea2840e4679032c7451f620",
+      "format": "svg",
+      "part": "field-valve",
+      "state": "operated",
+      "canonIds": [
+        "MI10"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -65
+        ]
+      },
+      "nominalSize": [
+        90,
+        85
+      ],
+      "inkBounds": [
+        -69,
+        -108,
+        144,
+        127
+      ]
+    },
+    {
+      "file": "assets/chemical/field-valve-destroyed.svg",
+      "bytes": 1247,
+      "sha256": "3b91603d986c7a68ff78a35caa2f3a7ddc72d2788605719d3e28fc8f0fdf23ae",
+      "format": "svg",
+      "part": "field-valve",
+      "state": "destroyed",
+      "canonIds": [
+        "MI10"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -65
+        ]
+      },
+      "nominalSize": [
+        90,
+        85
+      ],
+      "inkBounds": [
+        -69,
+        -108,
+        144,
+        127
+      ]
+    },
+    {
+      "file": "assets/chemical/village-supply-habitable.svg",
+      "bytes": 3333,
+      "sha256": "f8d9edfa1cd8621b1b70ce05b908a6e0988e9fe24a1dd6e311be2c73ae08fc1b",
+      "format": "svg",
+      "part": "village-supply",
+      "state": "habitable",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "intake": [
+          -113,
+          -22
+        ]
+      },
+      "nominalSize": [
+        220,
+        160
+      ],
+      "inkBounds": [
+        -133,
+        -188,
+        269,
+        208
+      ]
+    },
+    {
+      "file": "assets/chemical/village-supply-contaminated.svg",
+      "bytes": 2856,
+      "sha256": "3d541d9d066c0c92c73f26730aa88a93ef44848e307cf4b1d3198ad693d26c39",
+      "format": "svg",
+      "part": "village-supply",
+      "state": "contaminated",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "intake": [
+          -113,
+          -22
+        ]
+      },
+      "nominalSize": [
+        220,
+        160
+      ],
+      "inkBounds": [
+        -133,
+        -188,
+        269,
+        208
+      ]
+    },
+    {
+      "file": "assets/chemical/village-supply-destroyed.svg",
+      "bytes": 975,
+      "sha256": "5a7aa448670e02a956473e15ce688581c11425c6bc0eab8b508ea9c81233bf22",
+      "format": "svg",
+      "part": "village-supply",
+      "state": "destroyed",
+      "canonIds": [
+        "MI10",
+        "PL03"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "intake": [
+          -113,
+          -22
+        ]
+      },
+      "nominalSize": [
+        220,
+        160
+      ],
+      "inkBounds": [
+        -133,
+        -188,
+        269,
+        208
+      ]
+    },
+    {
+      "file": "assets/chemical/previews/chemical-kit.png",
+      "bytes": 107912,
+      "sha256": "c353b504e4adc9180ca5434e3a183d2892f12ffae42fe0fa71eba74e41c4057e",
+      "format": "png",
+      "kind": "Authoring sheet; varied scales stated in its labels and nominal dimensions in manifest"
+    },
+    {
+      "file": "assets/chemical/previews/chemical-states.png",
+      "bytes": 104669,
+      "sha256": "6bc8667164c3a2680edcea4c09c1b8374598c446727be705c9701fcc3b656c55",
+      "format": "png",
+      "kind": "Authored states on a bench, not a browser or gameplay reception"
+    }
+  ],
+  "counts": {
+    "files": 26,
+    "svg": 24,
+    "png": 2,
+    "components": 6,
+    "bytes": 270194
+  }
+}

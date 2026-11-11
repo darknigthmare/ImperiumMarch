@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "release": "0.11.0",
+  "fixture": {
+    "path": "tests/fixtures/campaign-v9-mi09.json",
+    "sha256": "d5f6f49a02e8fb40f5bf830c7fcb40c5e2677dff3e2b0e0dbb7ea1a48ce42084",
+    "bytes": 246853,
+    "variantsDeepEqualNativeExports": true
+  },
+  "provenance": {
+    "sourceRevision": "4846d0270b2976877f9b202848bfde6d2127fb1d",
+    "testedSourceRevision": "158a10f7e963f3f5effbb71fc3e8b4588d209d5a",
+    "localSourceRevision": "073003075bf8921aab25b1a9200b9d360c1ab391",
+    "sourceTree": "ef7b912c27fa672f1930c980ee529c165e3f77ec",
+    "sourceVersion": "0.10.0",
+    "saveVersion": 9,
+    "verifiedHistoricBlobs": 1099,
+    "source": "Exact native Chrome UI exports archived in the immutable publication-v10-final-reviewed snapshot. Every tracked Git blob was verified against the published tree before copying; no current or historical gameplay module was executed. The live focus checkpoint does not establish QA19 completion.",
+    "nativeVariants": {
+      "live": {
+        "path": "docs/validation/native-v10/native-v9-focus-export.json",
+        "description": "Native MI09 focus export; live mission with eight completed reports. Its focus reception remains open."
+      },
+      "completed": {
+        "path": "docs/validation/native-v10/native-v9-after-reload.json",
+        "description": "Native completed MI09 after actual reload; nine reports. The receipt distinguishes prepared simulation input from native extraction and export/reload."
+      }
+    },
+    "sourceHashes": {
+      "docs/validation/native-v10/native-v9-focus-export.json": {
+        "sha256": "f311ad5573804ebc1a2c2db2ba77b7e025d4e8285ab2ef6469502eff243983a9",
+        "bytes": 63596,
+        "gitBlob": "aa7098ce5a6db85a5b0f20bc9fb44c1a34cad2c1"
+      },
+      "docs/validation/native-v10/native-v9-after-reload.json": {
+        "sha256": "de5ece01c690b27435878c0f84f7dfd7f86723500a23a3703e3f8ffce28e6898",
+        "bytes": 73582,
+        "gitBlob": "3af11a6203093528197dbc9ee6978a722361fe9b"
+      }
+    },
+    "moduleHashes": {
+      "src/campaign.mjs": "b3ea42fb30869f79b84a7555caa637facf1398626a4ffaefe0ed78c1bad8dbfa",
+      "src/simulation.mjs": "236f3c7f06bec8a32525b652b5612502a2e415466224445397cd0bf85849c617",
+      "src/content.mjs": "ae0d137afbb364a317292df0e11917fd00c8bdcf16a614edfb354c963cec907c",
+      "src/thyr-validation.mjs": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+      "src/departure-validation.mjs": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b",
+      "tests/helpers/mi09-driver.mjs": "9a5fc59291594f13491128f77b6cf15fd6768ec87308d7239ce723f4df5ab1a4"
+    },
+    "publicationReceipt": {
+      "sha256": "13a522b1071eec313a8e18509f559f9fcd68cd0eb510e7b1fff4749a027c21eb",
+      "bytes": 21333,
+      "sourceTreeMatchesPublishedTree": true
+    },
+    "protectedHistoricalFixtures": {
+      "tests/fixtures/campaign-v1-mi01.json": {
+        "sha256": "c6bad07aede50fe980460dc67a307bf69804d170abeeb643477358d36c02a22b",
+        "bytes": 37769,
+        "gitBlob": "675555cc4c395a70f81da87b0f765f3bd860eb75"
+      },
+      "tests/fixtures/campaign-v2-mi02.json": {
+        "sha256": "9024310b7c33e39ed73ac30a03b7db5103be73ee472e95804c4214054ebe5cf2",
+        "bytes": 131152,
+        "gitBlob": "f9fc84263235dd8377133398aa31964cb66c2cca"
+      },
+      "tests/fixtures/campaign-v3-mi03.json": {
+        "sha256": "22793763d19477737abf7193590f00863ce32fd2fc14b1a0a49b273c81180288",
+        "bytes": 124642,
+        "gitBlob": "c68bbb8e26a270497d56fa34042fcc6da6babeda"
+      },
+      "tests/fixtures/campaign-v4-mi04.json": {
+        "sha256": "d34af557cc5cb280e803c289a193cbebfc1dd43146890c193a880b83381bbede",
+        "bytes": 123266,
+        "gitBlob": "35c865dadfd955e902d3ae1f1f5e8c7a8a718092"
+      },
+      "tests/fixtures/campaign-v5-mi05.json": {
+        "sha256": "7c79efb68911f1519cdae2d788e259c424c8750af9a99167ae100bcac4ecc7e3",
+        "bytes": 150965,
+        "gitBlob": "aa5f86ef4d78741dd4ec3ac0162b265d5ed0e137"
+      },
+      "tests/fixtures/campaign-v6-mi06.json": {
+        "sha256": "e7ea0548ce459ef3a7d378a1892b7bfde4c591630eaec1e67c99c8b75e95b12c",
+        "bytes": 231369,
+        "gitBlob": "9cb7a559c893122704f4a5bc65b4b77033aacfc1"
+      },
+      "tests/fixtures/campaign-v7-mi07.json": {
+        "sha256": "8ca58deb11f4048039cda3a54157f7eddb2dd6af6a34450a3d177b3bdfa67a5c",
+        "bytes": 416347,
+        "gitBlob": "c201530df41c1595896282f1045549211a43ba4e"
+      },
+      "tests/fixtures/campaign-v8-mi08.json": {
+        "sha256": "19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007",
+        "bytes": 182074,
+        "gitBlob": "a95310904da33f85b30303cce2f104e9930a590c"
+      }
+    }
+  },
+  "verification": {
+    "allPublishedSnapshotBlobsMatched": 1099,
+    "historicalFixturesUnchanged": 8,
+    "gameplayModulesExecuted": false,
+    "nativeSourcesUnmodified": true
+  }
+}

@@ -36,3 +36,9 @@
 .dike-instrument{margin-top:14px;padding:10px 12px;border-left:2px solid #b5cdb5;background:#10282ee8;color:#d5dfc7;font:clamp(8px,.65vw,11px)/1.6 var(--mono);text-shadow:none}.dike-instrument strong{font-weight:500;color:#ebd2a6}.dike-instrument p{margin:5px 0 0}.dike-instrument p:last-child{color:#a5d6ca}
 
 .ambulance-instrument{margin-top:14px;padding:10px 12px;border-left:2px solid #dabba0;background:#202c32ed;color:#dce1d6;font:clamp(8px,.65vw,11px)/1.6 var(--mono);text-shadow:none}.ambulance-instrument strong{font-weight:500;color:#f1d3b6}.ambulance-instrument p{margin:5px 0 0}.ambulance-instrument p:last-child{color:#a5d6ca}
+
+/* MI10: operations, retained sample and water supply stay distinct. */
+.chemical-instrument{margin-top:12px;padding:10px 12px;border-left:2px solid #bdc38c;background:#142f2aee;color:#d3dfc0;font:clamp(8px,.65vw,11px)/1.55 var(--mono);text-shadow:none}
+.chemical-instrument strong{font-weight:500;color:#e3d8aa}.chemical-instrument p{margin:5px 0 0}.chemical-instrument p:last-child{color:#a9d3c3}
+.chemical-instrument.chemical-warning{border-left-color:#dfa477}.chemical-warning #chemical-leak,.chemical-warning #chemical-water{color:#e6be91}
+@media(max-width:760px){.chemical-instrument{padding:6px;margin-top:7px;font-size:7px;line-height:1.45}.chemical-instrument p{margin-top:3px}}

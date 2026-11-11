@@ -1,8 +1,8 @@
 # ORDRE DE CENDRE — Campagne et continuité
 
-**Version de conception 0.9.0 · 11 novembre 2026**
+**Version de conception 0.11.0 · 11 novembre 2026**
 
-Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI08 sont jouables au stade prototype, avec progression, dossier v8 et reprise. Les 24 missions MI09–MI32 et les seize contrats restent conçus. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.9](NACRE_CONSEQUENCES_V09.md) précise les quatre sorties jouables, leurs populations et leurs arrivées distinctes.
+Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI10 sont jouables au stade prototype, avec progression, dossier v10 et reprise. Les 22 missions MI11–MI32 et les seize contrats restent conçus. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.9](NACRE_CONSEQUENCES_V09.md) précise les quatre sorties jouables, leurs populations et leurs arrivées distinctes. Les contrats de [MI09](CAMPAIGN_MISSION_09.md) et [MI10](CAMPAIGN_MISSION_10.md) décrivent les deux sorties locales de Thyr.
 
 La campagne suit Sera Vey depuis ses premières opérations d’occupation jusqu’à une confrontation avec l’autorité qui les ordonnait. La défection est l’axe du récit. Les décisions déterminent qui part avec elle, ce qu’elle peut prouver, ce qu’elle laisse derrière elle et la forme du pouvoir après la bataille.
 
@@ -179,27 +179,27 @@ Le [contrat MI07](CAMPAIGN_MISSION_07.md) décrit les interactions, les pertes e
 
 #### MI09 — La route des vivants
 
-**Lieu :** Thyr (PL03) · **État :** Conçu
+**Lieu :** Thyr (PL03) · **État :** Prototype jouable depuis la 0.10
 
 **Ordre reçu.** Dégager une route logistique à travers une zone déclarée sauvage.
 
-**Déroulement jouable.** Adapter hauteur et cadence aux colonnes vivantes; détourner des migrateurs puis repousser des tireurs d’élite.
+**Déroulement jouable.** Écouter le poste local, préparer une approche adaptée à la hauteur réelle du châssis, relever la carte et régler les projecteurs. Une coque haute emprunte un contournement reconnu; la cadence règle les vrais appuis, sans commande fictive de hauteur. Après le choix, manœuvrer la barrière, attendre le trajet des quatre migrateurs, neutraliser les deux tireurs puis libérer et escorter la logistique. La transmission vient après l’arrivée réelle du véhicule.
 
-**Ce que la mission révèle.** La route coupe la migration dont dépendent les cultures; les cartes militaires omettent les hameaux.
+**Ce que la mission révèle.** Le relevé constate deux habitats absents de la carte logistique. La route coupe une migration dont dépendent les cultures. Cette carte locale ne donne ni PT02, ni TE01, ni preuve du mécanisme global de PALINODE.
 
-**Ce qui reste après la mission.** Passages préservés ou récoltes fragilisées; meilleure approche offerte par les habitants si écoutés.
+**Ce qui reste après la mission.** Quatre longues-dorses gardent leur destination ou leur perte. Arrivée au verger, exclusion vivante et décès restent distincts. Deux habitats, deux colonies et le transport ont leurs propres états; aucun nombre d’habitants n’est inventé. L’échange puis le balisage donnent une approche guidée. Les dommages acquis persistent dans le [rapport de MI09](CAMPAIGN_MISSION_09.md).
 
 #### MI10 — Le champ que personne n’a semé
 
-**Lieu :** Thyr (PL03) · **État :** Conçu
+**Lieu :** Thyr (PL03) · **État :** Prototype jouable en 0.11
 
 **Ordre reçu.** Détruire une réserve chimique attribuée aux rebelles.
 
-**Déroulement jouable.** Identifier trois cuves, contenir une fuite et défendre un prélèvement pendant l’arrivée des forces privées.
+**Déroulement jouable.** Relever les trois cuves et copier le registre matériel. Fermer le collecteur et contenir la fuite sont deux manœuvres. Un prélèvement progressif de vingt secondes expose sa source et son appareil. Son lancement, la destruction d’une première cuve ou sa perte irrécupérable déclenche l’arrivée des forces privées après cinq secondes. Le choix impérial exige la démolition physique des cuves; le refus local exige l’isolation de celles qui tiennent. Les canaux peuvent être pontés, puis l’état de remise en eau doit être consigné avant le rapport et l’extraction.
 
-**Ce que la mission révèle.** Le produit provient des terraformes d’Orison, utilisé pour fabriquer des sols officiellement irrécupérables.
+**Ce que la mission révèle.** Le produit de terraformation est employé pour rendre des sols officiellement irrécupérables. PT02 exige une matière effectivement collectée, les trois marquages conservés et la copie du registre des lots d’Orison. Une inspection de ruines ne reconstitue pas une source perdue. Cette provenance locale ne suffit pas à établir toute la chaîne de commandement ou de financement; TE01 reste liée à MI11 et la défection à MI16.
 
-**Ce qui reste après la mission.** Échantillon PT02; préserver les canaux maintient un village habitable.
+**Ce qui reste après la mission.** Le reçu conserve trois cuves, deux canaux, deux maisons, les copies, le prélèvement et l’écoulement réel. Matière retenue, en transit ou déjà livrée restent séparées. La vanne dérive la matière vers un bassin distinct : rouvrir ou détruire cette vanne ne vide pas le bassin, dont la destruction n’est pas simulée. Rouvrir l’eau ne nettoie pas une pollution acquise et ne répare pas un canal détruit. Une matière ou une copie obtenue avant la perte de son original demeure conservée. Le village habitable n’est pas un recensement humain. Le [contrat MI10](CAMPAIGN_MISSION_10.md) et le [dossier v10](CAMPAIGN_SAVE_V10.md) précisent les opérations, les dégâts et la reprise.
 
 #### MI11 — Une voix au ras du sol
 

@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.10.0",
+    "version": "0.11.0",
     "date": "2026-11-11",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "Bible de conception et registre de production. MI01–MI04 forment Vesper, MI05–MI08 couvrent Nacre et MI09 ouvre la route des vivants sur Thyr. Neuf missions, six châssis, trois opérations indépendantes et dossier v9 sont disponibles au stade prototype. MI10–MI32 et les seize contrats restent conçus. Les 133 critères À produire de la 0.8 et les 816 IDs de la 0.9 restent conservés. Réception partielle, contrôle automatique, navigateur et essai humain gardent des portées distinctes.",
+    "scope": "Bible de conception et registre de production. MI01–MI04 forment Vesper, MI05–MI08 couvrent Nacre et MI09–MI10 ouvrent Thyr avec la route des vivants puis le terrain chimique. Dix missions, six châssis, trois opérations indépendantes et dossier v10 sont disponibles au stade prototype. MI11–MI32 et les seize contrats restent conçus. Les 133 critères À produire de la 0.8 et les 845 IDs de la 0.10 restent conservés. Réception partielle, contrôle automatique, navigateur et essai humain gardent des portées distinctes.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Livrable partiel disponible. L’onglet Prototype et les reçus de production précisent son intégration, sa portée et les critères encore ouverts.",
@@ -17,7 +17,7 @@
     "balanceDisclaimer": "Dimensions, charges et valeurs de gameplay décrites ici sont des hypothèses à calibrer.",
     "qualityDisclaimer": "AAA est une ambition de qualité, pas une description du niveau de finition du prototype.",
     "sheetCount": 20,
-    "recordCount": 845,
+    "recordCount": 873,
     "release": {
       "playableCampaignMissions": [
         "MI01",
@@ -28,7 +28,8 @@
         "MI06",
         "MI07",
         "MI08",
-        "MI09"
+        "MI09",
+        "MI10"
       ],
       "standaloneOperations": [
         "OP01",
@@ -36,8 +37,8 @@
         "OP03"
       ],
       "campaignMissionDesigns": 32,
-      "remainingCampaignMissionDesigns": 23,
-      "saveFormatVersion": 9,
+      "remainingCampaignMissionDesigns": 22,
+      "saveFormatVersion": 10,
       "playableWalkerIds": [
         "WK01",
         "WK02",
@@ -65,14 +66,14 @@
         "QA": 39
       },
       "path": "docs/validation/production-v09-baseline.json",
-      "registry": "docs/validation/production-v010-registry.json",
+      "registry": "docs/validation/production-v011-registry.json",
       "rule": "Le statut Prototype atteste une réception partielle. Le critère original et le reste sont conservés; seul un contrôle exécuté reçoit Vérifié."
     },
     "previousRelease": {
-      "version": "0.9.0",
-      "recordCount": 816,
-      "sourceRevision": "2bb8d7a708e4fab5ab34b3cac10f2418b60fe037",
-      "ids": "tests/fixtures/bible-v09-ids.json"
+      "version": "0.10.0",
+      "recordCount": 845,
+      "sourceRevision": "4846d0270b2976877f9b202848bfde6d2127fb1d",
+      "ids": "tests/fixtures/bible-v010-ids.json"
     }
   },
   "sheets": [
@@ -1227,6 +1228,60 @@
           "acceptance": "Séparer preuve DOM modélisée, répétition du problème natif QA19 et essai matériel. Aucun succès automatique ne vaut réception native.",
           "priority": "P0",
           "status": "Prototype"
+        },
+        {
+          "id": "SY99",
+          "system": "Trois cuves identifiées",
+          "design": "Chaque cuve garde son rôle, son volume, son intégrité et le résultat d’un relevé de trois secondes. Le registre matériel possède sa propre copie de trois secondes.",
+          "counterplay": "Un constat de ruines termine l’inspection sans recréer un marquage perdu. Une copie acquise résiste à la destruction ultérieure de son original.",
+          "acceptance": "Distinguer inspection, marquage copié et contenu matériel disponible. Trois cuves observées ne suffisent pas seules à recevoir PT02.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY100",
+          "system": "Fuite, collecteur et canaux",
+          "design": "La matière libérée se déplace sous forme de nappes. La vanne du collecteur la dérive vers un bassin de rétention distinct. Matière retenue, écoulement en transit et pollution livrée restent séparés.",
+          "counterplay": "Ouvrir ou détruire la vanne ne vide pas le bassin retenu; la destruction du bassin n’est pas simulée. Fuite et collecteur exigent deux opérations. Les deux canaux peuvent être pontés; pollution ou destruction compromettent les deux maisons sans réparation automatique.",
+          "acceptance": "Conserver les masses et les dégâts. Un collecteur fermé ne vaut pas village alimenté; aucune population humaine n’est inventée.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY101",
+          "system": "Prélèvement et provenance PT02",
+          "design": "Le prélèvement prend vingt secondes et expose une source ainsi qu’un appareil destructibles. PT02 exige la collecte terminée, les trois marquages copiés et le registre matériel d’Orison conservé.",
+          "counterplay": "Une source ou un appareil perdu avant collecte fait perdre le prélèvement. La matière déjà recueillie et les copies obtenues ne sont pas effacées par la destruction de leur source.",
+          "acceptance": "Rejeter preuve sans collecte, marquages ou registre. Un échantillon isolé ne devient ni TE01 ni preuve de la chaîne politique entière.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY102",
+          "system": "Arrivée des forces privées",
+          "design": "Le lancement du prélèvement, la destruction d’une première cuve ou la perte irrécupérable du prélèvement déclenche une alerte. Les forces privées arrivent cinq secondes après cet événement matériel.",
+          "counterplay": "Les unités ne figurent pas dans le monde actif avant leur arrivée. Leur neutralisation et la protection des sources restent des faits distincts.",
+          "acceptance": "Tester attente, événement déclencheur, délai puis combat. Aucun ennemi absent ne doit subir de dégâts ou apparaître dans le rendu.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY103",
+          "system": "Ordre chimique exécuté sur place",
+          "design": "Le choix impérial ordonne la démolition; le refus local ordonne l’isolation. Chaque cuve demande encore son opération. Le traitement de l’eau et le rapport sont des étapes séparées.",
+          "counterplay": "Une cuve déjà détruite ne redevient pas isolable. Le choix ne ferme pas une fuite, ne collecte pas un échantillon, ne nettoie pas un canal et ne transmet pas le rapport.",
+          "acceptance": "Les deux conduites doivent être atteignables avec les six châssis. Les dégâts après décision persistent jusqu’à l’extraction.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY104",
+          "system": "Dossier chimique de Thyr",
+          "design": "Le format v10 ajoute world.thyr.chemical vide aux dossiers v9. Les rapports, scènes, ressources et marqueurs d’étape anciens restent inchangés; MI10 vient du premier rapport manquant.",
+          "counterplay": "Le reçu distingue trois cuves, deux canaux, deux maisons, le prélèvement, les copies, la matière et le contrôle privé. Une relecture conserve le premier rapport et ne redonne pas sa dotation.",
+          "acceptance": "Migration sur export natif v9 authentique, reprise exacte, reçus contradictoires refusés et ancienne perte terminale conservée.",
+          "priority": "P0",
+          "status": "Prototype"
         }
       ]
     },
@@ -1895,7 +1950,7 @@
           "name": "Thyr",
           "biome": "Forêts de colonnes vivantes, vallées cultivées, maisons suspendues et pistes sous canopée.",
           "society": "Communautés humaines et Khelt entretiennent des sols symbiotiques; les récoltes se synchronisent avec la faune.",
-          "terrain": "Racines porteuses, clairières et branches basses. MI09 applique la hauteur réelle des coques, le contournement et la cadence des appuis; le feu de forêt et l’écologie globale restent conçus.",
+          "terrain": "Racines porteuses, clairières et branches basses. MI09 applique hauteur réelle des coques, contournement et cadence des appuis. MI10 ajoute cuves, écoulement chimique, collecteur et canaux endommageables. Feu de forêt et écologie globale restent conçus.",
           "reveal": "Les relevés de stérilité sont fabriqués pour justifier l’expulsion et la destruction des mémoires de culture.",
           "missions": "MI09–MI12",
           "status": "Prototype"
@@ -2247,7 +2302,7 @@
     },
     {
       "name": "Campagne",
-      "description": "32 missions principales : MI01–MI09 jouables au stade prototype, 23 autres conçues. MI09 ouvre Thyr après le bilan de Nacre. OP01–OP03 restent autonomes.",
+      "description": "32 missions principales : MI01–MI10 jouables au stade prototype, 22 autres conçues. MI09 ouvre Thyr, MI10 y traite le terrain chimique. OP01–OP03 restent autonomes.",
       "columns": [
         {
           "key": "id",
@@ -2401,10 +2456,10 @@
           "planet": "PL03",
           "title": "Le champ que personne n’a semé",
           "order": "Détruire une réserve chimique attribuée aux rebelles.",
-          "play": "Identifier trois cuves, contenir une fuite et défendre un prélèvement pendant l’arrivée des forces privées.",
-          "truth": "Le produit provient des terraformes d’Orison, utilisé pour fabriquer des sols officiellement irrécupérables.",
-          "consequence": "Échantillon PT02; préserver les canaux maintient un village habitable.",
-          "status": "Conçu"
+          "play": "Prototype : relever trois cuves et leur registre matériel, fermer le collecteur et contenir la fuite. Défendre un prélèvement réel, puis démolir les trois cuves ou isoler celles qui tiennent. Protéger les canaux, traiter les forces privées et consigner la remise en eau avant rapport et extraction.",
+          "truth": "Un échantillon PT02 exige matière collectée, trois marquages conservés et copie du registre matériel des terraformes d’Orison. Cette provenance locale ne révèle pas la chaîne politique entière de PALINODE. Une source perdue ne se reconstitue pas dans le rapport.",
+          "consequence": "Trois cuves, deux canaux, deux maisons et le prélèvement gardent leurs états. L’eau remise en circulation ne nettoie pas une pollution acquise. Un village habitable ne constitue pas un recensement humain; aucune TE01 ou défection anticipée.",
+          "status": "Prototype"
         },
         {
           "id": "MI11",
@@ -4552,7 +4607,7 @@
           "type": "État",
           "name": "Ceux qui restent à Aval",
           "rule": "Accueil local et refuge en aval sont deux destinations réelles. Les deux techniciens terminent leur service dans une niche distincte. Le bilan ne présente pas toute personne non embarquée comme morte ou disparue.",
-          "sources": "MI08; recensement individuel, arrivées et replis. MI09 ouvre une scène locale sur Thyr sans déplacer ce recensement. MI10–MI32 et CT03/CT04 restent conçus.",
+          "sources": "MI08; recensement individuel, arrivées et replis. MI09 ouvre une scène locale sur Thyr sans déplacer ce recensement. MI11–MI32 et CT03/CT04 restent conçus.",
           "status": "Prototype"
         },
         {
@@ -4585,6 +4640,38 @@
           "name": "Route, cultures et ouvrages",
           "rule": "Le rapport distingue intention choisie, barrière manœuvrée, migrateurs arrivés ou exclus, pertes, colonies et habitat. Un véhicule arrivé ne prouve pas la conservation des cultures; une exclusion vivante n’est pas une mort.",
           "sources": "MI09; SY94–SY97. Source locale sans révélation globale de PALINODE ni prime de relecture.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA79",
+          "type": "Preuve matérielle",
+          "name": "PT02 — matière et provenance",
+          "rule": "Une matière collectée ne prouve son origine qu’avec les trois marquages et le registre des lots copiés. La réception décrit l’emploi du produit de terraformation à Thyr sans établir toute la chaîne de commandement ou de financement.",
+          "sources": "MI10; SY99; SY101; PT02. TE01 reste liée à MI11, la défection à MI16.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA80",
+          "type": "État local",
+          "name": "Eau disponible, village habitable",
+          "rule": "Deux maisons dépendent de deux canaux, de leur intégrité, de la pollution acquise et d’un collecteur rouvert. Une maison debout ne suffit pas à attester un village habitable; aucun effectif de résidents ou de morts n’est déduit.",
+          "sources": "MI10; SY100; état de l’eau et bâtiments distincts du recensement de Nacre.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA81",
+          "type": "Rapport",
+          "name": "Destruction attribuée aux rebelles",
+          "rule": "L’ordre accuse une réserve rebelle. Le rapport conserve les opérations observées et la provenance réellement copiée. Une absence de source reste une absence; ni l’obéissance ni le refus ne fabriquent la vérité manquante.",
+          "sources": "MI10; SY99–SY103; ordre, intention, cuves et pièces conservées sont consignés séparément.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA82",
+          "type": "Continuité locale",
+          "name": "Thyr après la route",
+          "rule": "MI10 reprend seulement les faits de MI09 : conduite, approche, passage préservé et récoltes fragilisées. Un guidage effectivement reçu peut accélérer le collecteur; aucun animal, habitant de Nacre ou témoin n’est transféré artificiellement.",
+          "sources": "MI09; MI10; SY97; SY104. Le contexte local ne crée ni alliance globale ni rencontre non jouée.",
           "status": "Prototype"
         }
       ]
@@ -4787,7 +4874,7 @@
           "id": "AS18",
           "category": "Décors",
           "deliverable": "Kit Thyr",
-          "spec": "Canopée, colonnes-mères, hameaux suspendus, racines et pistes modulaires. Réception 0.10 : onze composants partagés SVG/Canvas, trente-cinq SVG et deux planches PNG. Supports, habitats, migrateurs, colonies, barrière, carte et jalons ont des variantes explicites. FL08 est décorative et FL09 seulement réactive visuellement; matières finales et lecture humaine restent ouvertes.",
+          "spec": "Canopée, colonnes-mères, hameaux suspendus, racines et pistes modulaires. Réception 0.10 : onze composants partagés SVG/Canvas, trente-cinq SVG et deux planches PNG. Supports, habitats, migrateurs, colonies, barrière, carte et jalons ont des variantes explicites. FL08 est décorative et FL09 seulement réactive visuellement; matières finales et lecture humaine restent ouvertes. Réception 0.11 : six composants chimiques et vingt-quatre états SVG partagés avec le Canvas, pour cuves, canaux, prélèvement, registre, vannes et maisons.",
           "acceptance": "Arbres porteurs raccordés aux bâtiments; aucune porte flottante.",
           "priority": "P0",
           "status": "Prototype"
@@ -5387,7 +5474,7 @@
         {
           "id": "PR18",
           "workstream": "Acte II",
-          "deliverable": "MI09–MI16 et CT05–CT08, départ de l’Empire. Réception 0.10 : MI09 ouvre Thyr au stade prototype. MI10–MI16, les quatre contrats et la défection de MI16 restent à produire.",
+          "deliverable": "MI09–MI16 et CT05–CT08, départ de l’Empire. Réceptions 0.10–0.11 : MI09 et MI10 ouvrent Thyr au stade prototype. MI11–MI16, les quatre contrats et la défection de MI16 restent à produire.",
           "depends": "PR17; AS18; AS19",
           "acceptance": "Défection cohérente avec équipage, stocks et sources conservées.",
           "priority": "P1",
@@ -5995,6 +6082,33 @@
           "acceptance": "La personne distingue décoration, support réel, perte d’habitat, exclusion vivante et arrivée au verger; observations et aides consignées.",
           "priority": "P1",
           "status": "À produire"
+        },
+        {
+          "id": "PR86",
+          "workstream": "MI10 — terrain chimique",
+          "deliverable": "Trois cuves, copies matérielles, fuite, prélèvement défendu, forces privées, collecteur, canaux et rapport.",
+          "depends": "MI10; AS18; SY99–SY103; NA79–NA82",
+          "acceptance": "Deux conduites par opérations physiques sur six châssis. PT02 conditionnée par matière et provenance; pollution et destruction persistent.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR87",
+          "workstream": "Thyr — dossier chimique",
+          "deliverable": "Dossier v10, migration depuis export natif v9, reçu matériel strict et relecture indépendante.",
+          "depends": "PR84; PR86; SY104; QA170; QA176",
+          "acceptance": "Neuf rapports et anciennes scènes conservés. Aucun saut matériel ni gain de dotation supplémentaire par relecture.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR88",
+          "workstream": "Essai humain — terrain chimique",
+          "deliverable": "Sessions sans guidage sur matériel déclaré pour cuves, fuite, prélèvement, choix et eau finale. Protocole docs/PLAYTEST_CHEMICAL_V11.md et fiche vierge préparés; aucune session reçue.",
+          "depends": "PR86; AS18; QA179",
+          "acceptance": "La personne distingue intention, opération accomplie, copie de provenance, échantillon et pollution persistante; hésitations et aides sont consignées.",
+          "priority": "P1",
+          "status": "À produire"
         }
       ]
     },
@@ -6230,7 +6344,7 @@
           "id": "QA25",
           "area": "Intégrité bible",
           "scenario": "Vérifier IDs et références de tous onglets.",
-          "expected": "Aucun ID dupliqué et chaque référence de contenu pointe vers une entrée existante ou une plage explicitée. Réception 0.10 : 845 IDs uniques, références et symboles résolus; sept mutations incorrectes rejetées et six baselines authentiques contrôlées sans Git. Preuves : docs/validation/production-v010-final-reference-audit.json et docs/validation/production-v010-final-reference-probes.json. La réception 0.9 reste archivée. Résoudre un lien ne certifie ni gameplay ni finition.",
+          "expected": "Aucun ID dupliqué et chaque référence pointe vers une entrée existante ou une plage explicitée. Réception 0.11 : 873 IDs uniques, références et symboles résolus; sept mutations incorrectes rejetées et sept baselines authentiques contrôlées sans Git. Preuves : docs/validation/production-v011-reference-audit.json et production-v011-reference-probes.json. Les réceptions 0.9–0.10 restent archivées. Résoudre un lien ne certifie ni gameplay ni finition.",
           "priority": "P0",
           "status": "Vérifié"
         },
@@ -7385,6 +7499,86 @@
           "expected": "Distinguer support physique et décor, habitat et personne, exclusion vivante et décès, choix et résultat. Consigner hésitations, aides et observations contradictoires sans les déduire des scripts.",
           "priority": "P1",
           "status": "À produire"
+        },
+        {
+          "id": "QA170",
+          "area": "MI10 — migration authentique",
+          "scenario": "Importer le dossier v9 natif terminé, proposer MI10 après MI09 et comparer neuf rapports, ressources et anciennes scènes.",
+          "expected": "Seuls version10 et world.thyr.chemical vide sont ajoutés. Le marqueur stage:complete demeure; le premier rapport manquant gouverne la suite. Fixture authentique et migrations contrôlées dans docs/validation/v011-historic-v9.json et v011-campaign-validation.json.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA171",
+          "area": "MI10 — six châssis",
+          "scenario": "Accomplir démolition et isolation avec les six châssis par commandes publiques.",
+          "expected": "Les opérations, le contrôle privé, le sort du prélèvement, l’eau et le rapport précèdent l’extraction. Douze parcours six châssis × deux conduites reçus au sein de 34 tests MI10, avec 828 contrôles de matière en trajet : docs/previews/mi10-simulation-validation.json. Aucun essai humain ou navigateur déduit.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA172",
+          "area": "MI10 — relevés et ruines",
+          "scenario": "Comparer relevé de cuve intacte, constat de ruine et destruction d’une source avant ou après sa copie.",
+          "expected": "Les trois inspections restent distinctes des marquages copiés. Un registre détruit sans copie est perdu; une copie déjà acquise demeure. Scénarios exécutés dans docs/previews/mi10-simulation-validation.json.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA173",
+          "area": "MI10 — flux et canaux",
+          "scenario": "Fermer le collecteur, contenir une fuite, laisser passer la matière et endommager les canaux avant remise en eau.",
+          "expected": "Émission, rétention, transit et livraison se réconcilient. La masse retenue demeure dans le bassin distinct après ouverture ou destruction de la vanne. Pollution et dégâts restent acquis; aucun effectif humain déduit. Scénarios exécutés dans docs/previews/mi10-simulation-validation.json.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA174",
+          "area": "MI10 — prélèvement et PT02",
+          "scenario": "Interrompre le prélèvement, perdre sa source ou son appareil, et comparer les combinaisons de matière et de copies.",
+          "expected": "PT02 exige collecte accomplie, trois marquages et registre copié. Une matière déjà collectée survit à son original détruit. Aucune TE01 ni preuve politique globale. Contrôles dans docs/previews/mi10-simulation-validation.json et docs/validation/v011-campaign-validation.json.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA175",
+          "area": "MI10 — arrivée privée",
+          "scenario": "Attendre sans événement puis lancer un prélèvement, détruire une première cuve ou perdre sa source ou son appareil.",
+          "expected": "Alerte et délai de cinq secondes précèdent l’arrivée. Aucune présence, cible ou collision de forces absentes. Neutralisation et dégâts matériels restent distincts. Scénarios exécutés dans docs/previews/mi10-simulation-validation.json.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA176",
+          "area": "MI10 — actes et reprise",
+          "scenario": "Tenter de sauter les opérations après choix, reprendre un chantier ou une perte terminale et rejouer après premier bilan.",
+          "expected": "Le choix ne réalise aucune manœuvre. Reprise identique, reçu matériel cohérent, pertes persistantes et dotation unique; anciens checkpoints conservés. Preuves : docs/previews/mi10-simulation-validation.json et docs/validation/v011-campaign-validation.json.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA177",
+          "area": "MI10 — rendu et interface",
+          "scenario": "Comparer les états graphiques partagés, les scènes issues de commandes publiques et les transitions de briefing, décision, bilan et archives.",
+          "expected": "Six composants et vingt-quatre états partagent la géométrie SVG/Canvas. Réception : 64 comparaisons raster, 22 scènes Canvas issues de 17 parcours et 71 parcours DOM modélisés. Preuves : docs/validation/v11-assets-render.txt, v11-ui-runtime.txt et docs/previews/mi10-canvas-validation.json. Ces contrôles ne certifient pas un navigateur ni un essai humain.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA178",
+          "area": "Bible — réception 0.11",
+          "scenario": "Régénérer, recalculer et comparer les données, références, 845 IDs historiques, formules, styles et plages modifiées.",
+          "expected": "873 fiches et 5 897 cellules source réconciliées; 845 IDs historiques conservés et 28 ajoutés. Les 133 critères initiaux restent intégraux. Les 126 formules sont recalculées sans cache dans une copie LibreOffice. Preuves : docs/validation/workbook-v0.11-export.json, workbook-v0.11-libreoffice.json, workbook-v0.11-visual-review.json et workbook-v0.11-baseline-check.json. QA29 interactive et essais humains restent ouverts.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA179",
+          "area": "Essai humain — terrain chimique",
+          "scenario": "Faire parcourir MI10 sans guidage sur matériel déclaré en observant relevés, fuite, protection du prélèvement et eau finale.",
+          "expected": "Distinguer inspection et copie, choix et opération, échantillon et provenance, village habitable et effectif humain. Protocole docs/PLAYTEST_CHEMICAL_V11.md et fiche human-mi10-session-template-v11.json vierge. Consigner hésitations, aides et contradictions; aucune session déduite des scripts.",
+          "priority": "P1",
+          "status": "À produire"
         }
       ]
     },
@@ -7468,7 +7662,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.10.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "description": "Portée présente dans le code de la version 0.11.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -7700,7 +7894,7 @@
           "id": "PX22",
           "link": "SY26",
           "name": "Résultats et réglages locaux",
-          "implemented": "Réglages et rapports des opérations autonomes conservés séparément. MI01–MI09 possèdent un dossier de campagne v9 et des reprises. Le dossier d’Aval garde ses personnes et bateaux; le nouveau dossier de Thyr décrit des animaux, ouvrages et trajets locaux distincts.",
+          "implemented": "Réglages et rapports des opérations autonomes conservés séparément. MI01–MI10 possèdent un dossier de campagne v10 et des reprises. Le dossier d’Aval garde ses personnes et bateaux; les dossiers de Thyr décrivent route vivante et terrain chimique locaux distincts.",
           "limits": "Les rapports OP01–OP03 ne deviennent pas des réussites de campagne. Une relecture ne réécrit pas les résultats et ressources officiels.",
           "path": "src/main.mjs; src/campaign.mjs",
           "status": "Prototype"
@@ -7728,7 +7922,7 @@
           "link": "MI01; PN02; PN14; PR29",
           "name": "MI01 — Le couloir quarante-deux",
           "implemented": "Escorte de filtres sur Vesper, apprentissage des appuis, embuscade antichar, livraison au poste des mineurs, lecture du manifeste puis choix du bordereau.",
-          "limits": "MI01 est complétée par MI02–MI09. MI10–MI32, mise en scène finale, doublage et performance cible restent à produire ou valider. Aucun dossier PALINODE révélé dans MI01.",
+          "limits": "MI01 est complétée par MI02–MI10. MI11–MI32, mise en scène finale, doublage et performance cible restent à produire ou valider. Aucun dossier PALINODE révélé dans MI01.",
           "path": "src/content.mjs; src/simulation.mjs",
           "status": "Prototype"
         },
@@ -7746,7 +7940,7 @@
           "link": "SY24; PN02; PN14; PR31",
           "name": "Retour d’équipage et dossier de Vesper",
           "implemented": "Livraison de 24 caisses si le transport arrive, état de la conduite, pertes civiles, notice de Sami et répliques contextuelles de Tess/Sami conservés. Une réussite reçoit une seule dotation.",
-          "limits": "Dossier étendu à MI01–MI09. Les pactes, mondes suivants et quatre fins restent conçus. Rejouer ne réécrit ni premier dossier ni ressources.",
+          "limits": "Dossier étendu à MI01–MI10. Les pactes, mondes suivants et quatre fins restent conçus. Rejouer ne réécrit ni premier dossier ni ressources.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -7755,7 +7949,7 @@
           "link": "SY26; PR30",
           "name": "Reprise de mission et décision",
           "implemented": "État de mission versionné, sauvegarde de la simulation en cours et point de reprise conservé avant le choix du bordereau. Restauration explicite du même monde et des objectifs.",
-          "limits": "Portée de sauvegarde : MI01–MI09. Compatibilité suivie version par version. Le changement de fichier ou de navigateur peut changer l’emplacement du stockage local.",
+          "limits": "Portée de sauvegarde : MI01–MI10. Compatibilité suivie version par version. Le changement de fichier ou de navigateur peut changer l’emplacement du stockage local.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -7772,8 +7966,8 @@
           "id": "PX30",
           "link": "SY25; PR21; PR31",
           "name": "Atelier et réparation locale",
-          "implemented": "Six lots initiaux et quatre par première réussite de MI01–MI09. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
-          "limits": "Neuf dotations de première réussite; aucune en relecture. Une nouvelle sortie renouvelle munitions et deux kits. Le carburant de MI05 consommé à MI06 ne revient pas. Modules, pièces rares et économie complète restent à produire.",
+          "implemented": "Six lots initiaux et quatre par première réussite de MI01–MI10. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
+          "limits": "Dix dotations de première réussite; aucune en relecture. Une nouvelle sortie renouvelle munitions et deux kits. Le carburant de MI05 consommé à MI06 ne revient pas. Modules, pièces rares et économie complète restent à produire.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -7782,7 +7976,7 @@
           "link": "MI02; VE17; PR33",
           "name": "MI02 — La dette sous la poussière",
           "implemented": "Reprise du train détourné sur le viaduc : deux harpons à libérer, poursuite, freinage, ouverture du wagon, lecture et choix de rapport avant extraction.",
-          "limits": "Seconde mission sur 32, complétée par MI03–MI09. Itinéraire latéral unique, assaut de prototype et retour textuel. MI10–MI32, mise en scène et finition du niveau restent à produire.",
+          "limits": "Seconde mission sur 32, complétée par MI03–MI10. Itinéraire latéral unique, assaut de prototype et retour textuel. MI11–MI32, mise en scène et finition du niveau restent à produire.",
           "path": "src/content.mjs; src/simulation.mjs; docs/CAMPAIGN_MISSION_02.md",
           "status": "Prototype"
         },
@@ -8142,7 +8336,7 @@
           "link": "MI07; PR61",
           "name": "MI07 — Une ambulance sans escorte",
           "implemented": "Septième mission après MI06 : arrêt, accord, examens, balise, rampe héritée et transfert sanitaire.",
-          "limits": "MI08 et MI09 prolongent la campagne. MI10–MI32, contrats locaux, navigation amphibie et finition restent conçus.",
+          "limits": "MI08–MI10 prolongent la campagne. MI11–MI32, contrats locaux, navigation amphibie et finition restent conçus.",
           "path": "src/content.mjs; src/simulation.mjs; src/campaign.mjs",
           "status": "Prototype"
         },
@@ -8296,7 +8490,7 @@
           "name": "Registre de réception",
           "implemented": "Les 133 critères initiaux disposent d’une baseline immuable, d’un audit par ID, de preuves et d’un reste. Les références symboliques sont résolues explicitement.",
           "limits": "Une réception partielle ne clôt pas un critère d’art final ou d’essai humain; les compteurs ne mesurent pas le pourcentage du jeu fini.",
-          "path": "docs/validation/production-v010-registry.json; docs/validation/production-v09-baseline.json; tools/verify-bible-export.py",
+          "path": "docs/validation/production-v011-registry.json; docs/validation/production-v09-baseline.json; tools/verify-bible-export.py",
           "status": "Prototype"
         },
         {
@@ -8304,7 +8498,7 @@
           "link": "MI09; PR83; SY93–SY96",
           "name": "MI09 — La route des vivants",
           "implemented": "Neuvième mission après MI08 : écoute, approche adaptée, relevé, projecteurs, deux conduites de migration, tireurs puis trajet logistique et rapport.",
-          "limits": "MI10–MI32 et contrats restent conçus. Pas de réglage libre de hauteur, forêt générale, effectif humain local, PT02, TE01 ou défection.",
+          "limits": "MI10 prolonge Thyr. MI11–MI32 et contrats restent conçus. MI09 ne fournit pas de réglage libre de hauteur, de forêt générale, d’effectif humain local, de PT02, de TE01 ou de défection.",
           "path": "src/content.mjs; src/simulation.mjs; docs/CAMPAIGN_MISSION_09.md",
           "status": "Prototype"
         },
@@ -8342,6 +8536,51 @@
           "implemented": "Navigation, boutons HUD, répétitions clavier et perte de capture du pointeur ont des gardes et des parcours du script réel dans un DOM modélisé.",
           "limits": "La réception Chrome 0.10 observe des pauses avec D dans une instance dupliquée, mais conserve un résultat contradictoire dans l’autre instance. Cause indéterminée, tir maintenu non exercé et QA19 ouverte. La preuve DOM reste distincte; manette physique non essayée.",
           "path": "src/main.mjs; tools/test-ui-runtime.mjs; docs/validation/v10-focus-modeled.json; docs/validation/native-v10/browser-reception.json",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX94",
+          "link": "MI10; PR86; SY99–SY103",
+          "name": "MI10 — Le champ que personne n’a semé",
+          "implemented": "Dixième mission : trois relevés, registre, fuite, prélèvement défendu, démolition ou isolation, canaux, remise en eau et rapport.",
+          "limits": "MI11–MI32 et seize contrats restent conçus. Le refus local ne vaut pas défection; TE01 et la chaîne politique complète ne sont pas révélées.",
+          "path": "src/content.mjs; src/chemical-simulation.mjs; docs/CAMPAIGN_MISSION_10.md",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX95",
+          "link": "SY100; NA80; QA173",
+          "name": "Écoulement chimique local",
+          "implemented": "Matière émise, retenue, en transit et livrée séparées. Deux canaux et deux maisons gardent pollution, dégâts et habitabilité.",
+          "limits": "Modèle local déterministe; aucune hydrologie générale ou population déduite. Rouvrir l’eau ne retire pas une pollution déjà acquise.",
+          "path": "src/chemical-simulation.mjs; src/chemical-renderer.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX96",
+          "link": "SY99; SY101; NA79; PT02",
+          "name": "Échantillon, copies et preuve",
+          "implemented": "Le prélèvement progresse vingt secondes; PT02 exige collecte, trois marquages et copie du registre. Une copie ou matière déjà acquise survit à la perte de son original.",
+          "limits": "Un constat de ruines ne recrée pas les sources. Cette pièce matérielle locale ne certifie ni auteur politique unique ni chaîne financière entière.",
+          "path": "src/chemical-simulation.mjs; src/chemical-validation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX97",
+          "link": "AS18; QA177",
+          "name": "Six pièces du terrain chimique",
+          "implemented": "Six composants et vingt-quatre états SVG partagent leur géométrie avec le renderer Canvas : cuves, canaux pontés, prélèvement, registre, vannes et maisons.",
+          "limits": "Le kit et les scènes Canvas ne certifient pas un parcours navigateur ni la lecture humaine en mouvement. Art final et essais humains restent ouverts.",
+          "path": "src/chemical-assets.mjs; src/chemical-renderer.mjs; assets/chemical/manifest.json",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX98",
+          "link": "SY104; PR87; QA170; QA176",
+          "name": "Sauvegarde v10 et reçu matériel",
+          "implemented": "Migration v9 additive, dix premiers rapports possibles, reprise du terrain chimique et validation des opérations, masses, copies et issues.",
+          "limits": "Les anciennes scènes et le carburant restent conservés. Une relecture ne remplace pas le premier rapport; stockage local toujours lié au navigateur.",
+          "path": "src/campaign.mjs; src/chemical-validation.mjs; docs/CAMPAIGN_SAVE_V10.md; tests/fixtures/campaign-v9-mi09.json",
           "status": "Prototype"
         }
       ]

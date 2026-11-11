@@ -1,0 +1,8 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> imperium-march@0.11.0 check:ui
+> node tools/test-ui.mjs
+
+STATIC UI AUDIT PASSED: 181 unique HTML IDs; 170 literal JS ID references; 5 views; 4 archive tabs; 6 dialogs.
+OFFLINE BUNDLE AUDIT PASSED: one inline script compiled by vm.Script without executing; all HTML/CSS/Canvas assets embedded; no unresolved imports or resource requests.
+LIMIT: this audit does not use a DOM emulator. Clicks, focus, CSS layout, native dialogs, audio, touch, and browser execution were NOT exercised.

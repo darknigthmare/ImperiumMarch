@@ -1,0 +1,94 @@
+{
+  "startedAt": "2026-11-11T18:15:26.626Z",
+  "endedAt": "2026-11-11T18:15:30.125Z",
+  "scope": "Read-only cross-validation of public simulation states against strengthened MI10 save validation",
+  "nativeBrowser": false,
+  "humanPlaytest": false,
+  "sources": {
+    "src/simulation.mjs": "7e83c1f3d21b8ecf6cfbd4f9458d01ebcaafea1456ba05140f9ddaddf6971aa7",
+    "src/chemical-simulation.mjs": "778651c4accc7dd78189d5613d2e06896f16f0587651b7272b269d0d7a743f34",
+    "src/chemical-validation.mjs": "ed00e720b26e66b310707e589f90146bdd1309c5812a9449856dcd7980abb3ba",
+    "src/content.mjs": "6448818cd6f0d23f226d4f29904fd63c5c9bcaa7d380427bffa1bccbcf87dca4",
+    "tests/helpers/mi10-driver.mjs": "0f032cad84030513bf9a2d543ef4018f1481ef58a207173ff031c2b71102303c"
+  },
+  "changedSources": [],
+  "results": [
+    {
+      "label": "sampler-lost-during-work",
+      "status": "won",
+      "elapsed": 187.83333333337495,
+      "checks": 127,
+      "result": "passed"
+    },
+    {
+      "label": "source-lost-before-sample",
+      "status": "won",
+      "elapsed": 169.1166666666934,
+      "checks": 114,
+      "result": "passed"
+    },
+    {
+      "label": "record-ruins",
+      "status": "won",
+      "elapsed": 192.23333333337845,
+      "checks": 130,
+      "result": "passed"
+    },
+    {
+      "label": "originals-lost-after-collection",
+      "status": "won",
+      "elapsed": 204.43333333338816,
+      "checks": 138,
+      "result": "passed"
+    },
+    {
+      "label": "canal-lost",
+      "status": "won",
+      "elapsed": 188.716666666709,
+      "checks": 127,
+      "result": "passed"
+    },
+    {
+      "label": "collector-lost",
+      "status": "won",
+      "elapsed": 232.9666666667442,
+      "checks": 157,
+      "result": "passed"
+    },
+    {
+      "label": "demolished-unretained",
+      "status": "won",
+      "elapsed": 182.20000000003714,
+      "checks": 123,
+      "result": "passed"
+    },
+    {
+      "label": "three-unidentified-ruins",
+      "status": "won",
+      "elapsed": 149.2500000000109,
+      "checks": 103,
+      "result": "passed"
+    },
+    {
+      "label": "source-exhaustion",
+      "status": "playing",
+      "elapsed": 202.0000000000529,
+      "checks": 136,
+      "result": "passed"
+    },
+    {
+      "label": "post-report-new-flow",
+      "status": "won",
+      "elapsed": 321.0166666667034,
+      "checks": 218,
+      "result": "passed"
+    },
+    {
+      "label": "collector-lost-after-retention",
+      "status": "won",
+      "elapsed": 231.4000000000763,
+      "checks": 157,
+      "result": "passed"
+    }
+  ]
+}
