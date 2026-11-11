@@ -1,0 +1,600 @@
+{
+  "version": "0.5.0",
+  "type": "Canvas-only production renderer",
+  "renderer": "@napi-rs/canvas (Skia)",
+  "limitations": "No browser, HTML HUD, CSS, native input, audio, performance or human playability certification.",
+  "provenance": "All mission states reached through public gameplay controls. MI04 inherits the authentic completed v3 campaign fixture, migrated by production code. Radiator example uses actual hostile fire and repair input, not assigned health.",
+  "sourceFixture": "tests/fixtures/campaign-v3-mi03.json",
+  "files": [
+    {
+      "file": "mi04-coolant-pump.png",
+      "title": "Conduite civile interrompue : remettre la pompe locale en pression",
+      "missionId": "MI04",
+      "walkerId": "WK06",
+      "elapsed": 8.566666666666672,
+      "playerX": 785.1218274509447,
+      "campaign": {
+        "missionId": "MI04",
+        "phase": "cooling",
+        "coolantRestored": false,
+        "coolingAssistance": true,
+        "turbinesCooled": 0,
+        "maintenanceInspected": false,
+        "manifestRead": false,
+        "logRecovered": false,
+        "technicalEvidence": false,
+        "evidenceSource": "none",
+        "alternativeSourceNeeded": false,
+        "witnessContacted": false,
+        "reportFiled": false,
+        "maintenanceIntact": true,
+        "context": {
+          "pipeIntact": false,
+          "pipeRepaired": false,
+          "noticeFiled": true,
+          "servicesInterrupted": true,
+          "railRecordFiled": true,
+          "railHostagesRescued": 8,
+          "railHostagesLost": 0,
+          "dispensaryIntact": true,
+          "witnessAvailable": true,
+          "civilRelaysOnline": 2
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "radiator": {
+        "health": 100,
+        "maxHealth": 100,
+        "repairKits": 2,
+        "maxRepairKits": 2,
+        "repairProgress": 0,
+        "repairing": false
+      },
+      "decisionActive": false,
+      "decisionChoice": null,
+      "industrial": {
+        "pump": {
+          "id": "coolant-pump",
+          "x": 900,
+          "y": 662.8921609937548,
+          "w": 72,
+          "h": 50,
+          "connected": false,
+          "working": true,
+          "progress": 0.5000000000000012
+        },
+        "turbines": [
+          {
+            "id": "turbine-1",
+            "x": 1550,
+            "y": 609.3478514785425,
+            "w": 90,
+            "h": 126,
+            "temperature": 90,
+            "cooled": false,
+            "working": false,
+            "progress": 0
+          },
+          {
+            "id": "turbine-2",
+            "x": 2720,
+            "y": 630.3721832767867,
+            "w": 90,
+            "h": 126,
+            "temperature": 90,
+            "cooled": false,
+            "working": false,
+            "progress": 0
+          }
+        ],
+        "contact": {
+          "id": "dispensary-contact",
+          "x": 3320,
+          "y": 640.0443732154736,
+          "w": 44,
+          "h": 64,
+          "available": true,
+          "working": false,
+          "progress": 0,
+          "contacted": false
+        },
+        "post": {
+          "id": "maintenance-post",
+          "x": 4050,
+          "y": 605.140384158002,
+          "w": 152,
+          "h": 160,
+          "hp": 480,
+          "maxHp": 480,
+          "destroyed": false,
+          "flash": 0
+        },
+        "retreatTriggered": false,
+        "retreatEscaped": false
+      }
+    },
+    {
+      "file": "mi04-turbine-cooling.png",
+      "title": "Les ouvriers du train guident la première vanne",
+      "missionId": "MI04",
+      "walkerId": "WK06",
+      "elapsed": 21.433333333333398,
+      "playerX": 1440.982826835981,
+      "campaign": {
+        "missionId": "MI04",
+        "phase": "cooling",
+        "coolantRestored": true,
+        "coolingAssistance": true,
+        "turbinesCooled": 0,
+        "maintenanceInspected": false,
+        "manifestRead": false,
+        "logRecovered": false,
+        "technicalEvidence": false,
+        "evidenceSource": "none",
+        "alternativeSourceNeeded": false,
+        "witnessContacted": false,
+        "reportFiled": false,
+        "maintenanceIntact": true,
+        "context": {
+          "pipeIntact": false,
+          "pipeRepaired": false,
+          "noticeFiled": true,
+          "servicesInterrupted": true,
+          "railRecordFiled": true,
+          "railHostagesRescued": 8,
+          "railHostagesLost": 0,
+          "dispensaryIntact": true,
+          "witnessAvailable": true,
+          "civilRelaysOnline": 2
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "radiator": {
+        "health": 100,
+        "maxHealth": 100,
+        "repairKits": 2,
+        "maxRepairKits": 2,
+        "repairProgress": 0,
+        "repairing": false
+      },
+      "decisionActive": false,
+      "decisionChoice": null,
+      "industrial": {
+        "pump": {
+          "id": "coolant-pump",
+          "x": 900,
+          "y": 662.8921609937548,
+          "w": 72,
+          "h": 50,
+          "connected": true,
+          "working": false,
+          "progress": 1
+        },
+        "turbines": [
+          {
+            "id": "turbine-1",
+            "x": 1550,
+            "y": 609.3478514785425,
+            "w": 90,
+            "h": 126,
+            "temperature": 57.22916666666671,
+            "cooled": false,
+            "working": true,
+            "progress": 0.5041666666666661
+          },
+          {
+            "id": "turbine-2",
+            "x": 2720,
+            "y": 630.3721832767867,
+            "w": 90,
+            "h": 126,
+            "temperature": 90,
+            "cooled": false,
+            "working": false,
+            "progress": 0
+          }
+        ],
+        "contact": {
+          "id": "dispensary-contact",
+          "x": 3320,
+          "y": 640.0443732154736,
+          "w": 44,
+          "h": 64,
+          "available": true,
+          "working": false,
+          "progress": 0,
+          "contacted": false
+        },
+        "post": {
+          "id": "maintenance-post",
+          "x": 4050,
+          "y": 605.140384158002,
+          "w": 152,
+          "h": 160,
+          "hp": 480,
+          "maxHp": 480,
+          "destroyed": false,
+          "flash": 0
+        },
+        "retreatTriggered": true,
+        "retreatEscaped": false
+      }
+    },
+    {
+      "file": "mi04-dispensary-contact.png",
+      "title": "Appeler le dispensaire par le canal préservé dans MI03",
+      "missionId": "MI04",
+      "walkerId": "WK06",
+      "elapsed": 52.099999999998325,
+      "playerX": 3203.867135081586,
+      "campaign": {
+        "missionId": "MI04",
+        "phase": "cooling",
+        "coolantRestored": true,
+        "coolingAssistance": true,
+        "turbinesCooled": 2,
+        "maintenanceInspected": false,
+        "manifestRead": false,
+        "logRecovered": false,
+        "technicalEvidence": false,
+        "evidenceSource": "none",
+        "alternativeSourceNeeded": false,
+        "witnessContacted": false,
+        "reportFiled": false,
+        "maintenanceIntact": true,
+        "context": {
+          "pipeIntact": false,
+          "pipeRepaired": false,
+          "noticeFiled": true,
+          "servicesInterrupted": true,
+          "railRecordFiled": true,
+          "railHostagesRescued": 8,
+          "railHostagesLost": 0,
+          "dispensaryIntact": true,
+          "witnessAvailable": true,
+          "civilRelaysOnline": 2
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "radiator": {
+        "health": 100,
+        "maxHealth": 100,
+        "repairKits": 2,
+        "maxRepairKits": 2,
+        "repairProgress": 0,
+        "repairing": false
+      },
+      "decisionActive": false,
+      "decisionChoice": null,
+      "industrial": {
+        "pump": {
+          "id": "coolant-pump",
+          "x": 900,
+          "y": 662.8921609937548,
+          "w": 72,
+          "h": 50,
+          "connected": true,
+          "working": false,
+          "progress": 1
+        },
+        "turbines": [
+          {
+            "id": "turbine-1",
+            "x": 1550,
+            "y": 609.3478514785425,
+            "w": 90,
+            "h": 126,
+            "temperature": 25,
+            "cooled": true,
+            "working": false,
+            "progress": 1
+          },
+          {
+            "id": "turbine-2",
+            "x": 2720,
+            "y": 630.3721832767867,
+            "w": 90,
+            "h": 126,
+            "temperature": 25,
+            "cooled": true,
+            "working": false,
+            "progress": 1
+          }
+        ],
+        "contact": {
+          "id": "dispensary-contact",
+          "x": 3320,
+          "y": 640.0443732154736,
+          "w": 44,
+          "h": 64,
+          "available": true,
+          "working": true,
+          "progress": 0.5055555555555548,
+          "contacted": false
+        },
+        "post": {
+          "id": "maintenance-post",
+          "x": 4050,
+          "y": 605.140384158002,
+          "w": 152,
+          "h": 160,
+          "hp": 480,
+          "maxHp": 480,
+          "destroyed": false,
+          "flash": 0
+        },
+        "retreatTriggered": true,
+        "retreatEscaped": false
+      }
+    },
+    {
+      "file": "mi04-maintenance-journal.png",
+      "title": "PT01 : journal copié, deux turbines refroidies et contact radio recueilli",
+      "missionId": "MI04",
+      "walkerId": "WK06",
+      "elapsed": 65.54999999999757,
+      "playerX": 3926.381158096947,
+      "campaign": {
+        "missionId": "MI04",
+        "phase": "report",
+        "coolantRestored": true,
+        "coolingAssistance": true,
+        "turbinesCooled": 2,
+        "maintenanceInspected": true,
+        "manifestRead": true,
+        "logRecovered": true,
+        "technicalEvidence": true,
+        "evidenceSource": "PT01",
+        "alternativeSourceNeeded": false,
+        "witnessContacted": true,
+        "reportFiled": false,
+        "maintenanceIntact": true,
+        "context": {
+          "pipeIntact": false,
+          "pipeRepaired": false,
+          "noticeFiled": true,
+          "servicesInterrupted": true,
+          "railRecordFiled": true,
+          "railHostagesRescued": 8,
+          "railHostagesLost": 0,
+          "dispensaryIntact": true,
+          "witnessAvailable": true,
+          "civilRelaysOnline": 2
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "radiator": {
+        "health": 100,
+        "maxHealth": 100,
+        "repairKits": 2,
+        "maxRepairKits": 2,
+        "repairProgress": 0,
+        "repairing": false
+      },
+      "decisionActive": true,
+      "decisionChoice": null,
+      "industrial": {
+        "pump": {
+          "id": "coolant-pump",
+          "x": 900,
+          "y": 662.8921609937548,
+          "w": 72,
+          "h": 50,
+          "connected": true,
+          "working": false,
+          "progress": 1
+        },
+        "turbines": [
+          {
+            "id": "turbine-1",
+            "x": 1550,
+            "y": 609.3478514785425,
+            "w": 90,
+            "h": 126,
+            "temperature": 25,
+            "cooled": true,
+            "working": false,
+            "progress": 1
+          },
+          {
+            "id": "turbine-2",
+            "x": 2720,
+            "y": 630.3721832767867,
+            "w": 90,
+            "h": 126,
+            "temperature": 25,
+            "cooled": true,
+            "working": false,
+            "progress": 1
+          }
+        ],
+        "contact": {
+          "id": "dispensary-contact",
+          "x": 3320,
+          "y": 640.0443732154736,
+          "w": 44,
+          "h": 64,
+          "available": true,
+          "working": false,
+          "progress": 1,
+          "contacted": true
+        },
+        "post": {
+          "id": "maintenance-post",
+          "x": 4050,
+          "y": 605.140384158002,
+          "w": 152,
+          "h": 160,
+          "hp": 480,
+          "maxHp": 480,
+          "destroyed": false,
+          "flash": 0
+        },
+        "retreatTriggered": true,
+        "retreatEscaped": false
+      }
+    },
+    {
+      "file": "mi04-post-destroyed.png",
+      "title": "Poste détruit par de vrais tirs avant lecture : aucune preuve technique inventée",
+      "missionId": "MI04",
+      "walkerId": "WK05",
+      "elapsed": 73.09999999999714,
+      "playerX": 3936.3239199192635,
+      "campaign": {
+        "missionId": "MI04",
+        "phase": "report",
+        "coolantRestored": true,
+        "coolingAssistance": true,
+        "turbinesCooled": 2,
+        "maintenanceInspected": true,
+        "manifestRead": true,
+        "logRecovered": false,
+        "technicalEvidence": false,
+        "evidenceSource": "none",
+        "alternativeSourceNeeded": true,
+        "witnessContacted": true,
+        "reportFiled": false,
+        "maintenanceIntact": false,
+        "context": {
+          "pipeIntact": false,
+          "pipeRepaired": false,
+          "noticeFiled": true,
+          "servicesInterrupted": true,
+          "railRecordFiled": true,
+          "railHostagesRescued": 8,
+          "railHostagesLost": 0,
+          "dispensaryIntact": true,
+          "witnessAvailable": true,
+          "civilRelaysOnline": 2
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "radiator": {
+        "health": 100,
+        "maxHealth": 100,
+        "repairKits": 2,
+        "maxRepairKits": 2,
+        "repairProgress": 0,
+        "repairing": false
+      },
+      "decisionActive": true,
+      "decisionChoice": null,
+      "industrial": {
+        "pump": {
+          "id": "coolant-pump",
+          "x": 900,
+          "y": 662.8921609937548,
+          "w": 72,
+          "h": 50,
+          "connected": true,
+          "working": false,
+          "progress": 1
+        },
+        "turbines": [
+          {
+            "id": "turbine-1",
+            "x": 1550,
+            "y": 609.3478514785425,
+            "w": 90,
+            "h": 126,
+            "temperature": 25,
+            "cooled": true,
+            "working": false,
+            "progress": 1
+          },
+          {
+            "id": "turbine-2",
+            "x": 2720,
+            "y": 630.3721832767867,
+            "w": 90,
+            "h": 126,
+            "temperature": 25,
+            "cooled": true,
+            "working": false,
+            "progress": 1
+          }
+        ],
+        "contact": {
+          "id": "dispensary-contact",
+          "x": 3320,
+          "y": 640.0443732154736,
+          "w": 44,
+          "h": 64,
+          "available": true,
+          "working": false,
+          "progress": 1,
+          "contacted": true
+        },
+        "post": {
+          "id": "maintenance-post",
+          "x": 4050,
+          "y": 605.140384158002,
+          "w": 152,
+          "h": 160,
+          "hp": 0,
+          "maxHp": 480,
+          "destroyed": true,
+          "flash": 0
+        },
+        "retreatTriggered": true,
+        "retreatEscaped": false
+      }
+    },
+    {
+      "file": "v05-radiator-field-repair.png",
+      "title": "Radiateur atteint par un ennemi réel : réparation à mi-parcours, kit encore disponible",
+      "missionId": "MI01",
+      "walkerId": "WK01",
+      "elapsed": 28.733333333332983,
+      "playerX": 1631.025647035021,
+      "campaign": {
+        "missionId": "MI01",
+        "phase": "escort",
+        "route": "direct",
+        "pipeIntact": false,
+        "pipeDamage": 100,
+        "passageSecured": false,
+        "passageProgress": 0,
+        "passageWorking": false,
+        "filtersDelivered": false,
+        "filtersDeliveredCount": 0,
+        "manifestRead": false,
+        "noticeFiled": false,
+        "repairCost": 2,
+        "deliveryTime": null,
+        "convoyIntegrity": 1,
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "radiator": {
+        "health": 55.900000000000006,
+        "maxHealth": 100,
+        "repairKits": 2,
+        "maxRepairKits": 2,
+        "repairProgress": 0.49999999999999944,
+        "repairing": true
+      },
+      "decisionActive": false,
+      "decisionChoice": null,
+      "industrial": null
+    }
+  ]
+}

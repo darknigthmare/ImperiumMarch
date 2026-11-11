@@ -1,0 +1,28 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> imperium-march@0.5.0 check:ui-runtime
+> node tools/test-ui-runtime.mjs
+
+PASS cold start, five views, six selectable chassis and independent simulation launch
+PASS pause writes an exact campaign checkpoint; a new script context resumes it
+PASS switching to a simulation preserves the campaign and its resume button
+PASS decision, debrief, pipe repair and replay leave one official dossier
+PASS MI02 is locked initially; a real v1 MI01 dossier unlocks it and resumes its own train
+PASS MI02 decision uses its own wording and a reload preserves the signed report before extraction
+PASS MI02 extraction records both missions, displays its own debrief and keeps separate archive entries
+PASS MI03 unlocks only after MI02, migrates a historical v2 dossier and resumes a new chassis exactly
+PASS MI03 identification work survives pause and reload without becoming a filter or train objective
+PASS MI03 obey decision, extraction, world facts and three archive reports stay consistent
+PASS MI03 defy decision, extraction, world facts and three archive reports stay consistent
+PASS MI04 requires MI03 and the migrated historical dossier exposes concrete inherited briefing conditions
+PASS MI04 a partly opened valve survives pause and exact reload, then visibly completes
+PASS MI04 obey records the technical copy, contact and four reports without replay rewards
+PASS MI04 defy records the technical copy, contact and four reports without replay rewards
+PASS MI04 lost-journal UI keeps a neutral decision and records a loss without granting PT01
+PASS radiator controls show damage, pause repair, preserve finite kits and cancel on movement
+PASS an exhausted finite reserve remains empty after UI reload and displays an explicit resupply hint
+PASS unsupported saves remain untouched until an explicit new dossier
+PASS storage refusal is visible during play; session progression remains usable
+PASS an asynchronous import returns an active mission to the menu safely
+UI STATE INTEGRATION PASSED: 21 flows against the actual offline application script in a modeled DOM.
+LIMIT: no browser, CSS layout, native focus/dialog behavior, real download, audio or physical touch validation.

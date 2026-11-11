@@ -1,0 +1,109 @@
+{
+  "version": "0.5.0",
+  "generatedAt": "2026-11-10T23:23:13.041552+00:00",
+  "sourceBaseline": "c81a360c262e63ba01cc6037d0874740d67e3ef6",
+  "saveVersion": 4,
+  "files": {
+    "src/content.mjs": {
+      "bytes": 18086,
+      "sha256": "2d96298e652c76b9f838b7004b45508b8dcd5d6d69f39dd6628222e22542a8ef"
+    },
+    "src/simulation.mjs": {
+      "bytes": 91244,
+      "sha256": "58d140487ae7bad3c7b03e34fa72751c2df2171105168ee052878943447ba07b"
+    },
+    "src/campaign.mjs": {
+      "bytes": 71506,
+      "sha256": "de6a6553842a600faadfe141d6820f893e10217631f4e5abed41e9c918ba5088"
+    },
+    "src/main.mjs": {
+      "bytes": 58229,
+      "sha256": "28e4b91ac54d40d41a8c7dec570340d29280dc5f9eb8eb8700a01c0aa24993b0"
+    },
+    "src/renderer.mjs": {
+      "bytes": 75621,
+      "sha256": "e8c8e200a8a021d2c566655b9ffc02e26c5e606d6843a061a5190e2a2f05f618"
+    },
+    "src/style.css": {
+      "bytes": 20859,
+      "sha256": "828f33665f890d57ad3b684853ca2b3875122e5aaf4ff1fb7ef03c43a2125245"
+    },
+    "src/ui.css": {
+      "bytes": 12212,
+      "sha256": "38dc6d9f00c21e4244272d9e143fb756e2e2dccfabf6e28877bf54f2c20b92fd"
+    },
+    "index.html": {
+      "bytes": 19092,
+      "sha256": "4a24a07f58161a06868d53578dd58db249a8b8b3f465333e778d3a859f3851ab"
+    },
+    "data/bible.json": {
+      "bytes": 286010,
+      "sha256": "7ab1eac561db3ca770e494f1f2c96a3c3b6f421a7d0f1f37477e7e95b495d15c"
+    },
+    "docs/ORDRE_DE_CENDRE_Bible.xlsx": {
+      "bytes": 137295,
+      "sha256": "c6b948033d4b4b8fe33652dfc85417babfaa43dd7b93eaa4fa816d5c21624541"
+    },
+    "dist/Ordre_de_Cendre.html": {
+      "bytes": 9759951,
+      "sha256": "a2c6424b0112130e5dcfb28603d72cf744603043b10d40527d47e050198e751a"
+    }
+  },
+  "gates": {
+    "nodeTests": {
+      "passed": 122,
+      "failed": 0,
+      "skipped": 0
+    },
+    "publicRouteMatrix": {
+      "combinations": 78,
+      "campaign": 60,
+      "independentOperations": 18
+    },
+    "uiModeledDOM": {
+      "flows": 21,
+      "passed": true,
+      "realBrowser": false
+    },
+    "staticUI": {
+      "ids": 128,
+      "literalReferences": 116,
+      "views": 5,
+      "archiveTabs": 4,
+      "dialogs": 6
+    },
+    "offlineBuild": true,
+    "webBuild": true,
+    "projectCheck": true,
+    "bible": {
+      "rows": 581,
+      "sourceCells": 4004,
+      "previousIdsPreserved": 526,
+      "sheetsIncludingSummary": 21,
+      "formulaCells": 126,
+      "statusCounts": {
+        "Conçu": 287,
+        "Prototype": 147,
+        "À produire": 103,
+        "Vérifié": 44
+      }
+    },
+    "renderPreviews": {
+      "count": 6,
+      "type": "production Canvas via Skia",
+      "publicGameplayInputs": true,
+      "snapshotsDeepCloned": true
+    },
+    "realBrowser": {
+      "completed": false,
+      "reason": "Chromium socket() failed: Operation not permitted (1), before page navigation"
+    }
+  },
+  "publication": {
+    "intent": "GitHub main then linked Vercel production, per existing user request",
+    "stateAtLocalValidation": "prepared; remote publication and deployment not yet verified",
+    "repository": "https://github.com/darknigthmare/ImperiumMarch",
+    "branch": "main",
+    "vercelProject": "imperium-march"
+  }
+}

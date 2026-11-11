@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101617">
+  <meta name="description" content="Ordre de Cendre : pilotez des marcheurs de guerre, traversez les mondes d’un empire et découvrez le prix de votre obéissance. Prototype jouable 2D.">
+  <title>ORDRE DE CENDRE — ImperiumMarch</title>
+  <link rel="icon" href="assets/emblem.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <div id="boot" role="status"><span class="boot-mark">III</span><p>ÉTABLISSEMENT DE LA LIAISON</p><small>Corps expéditionnaire d’Orthe</small></div>
+  <main id="menu" class="menu-screen" hidden>
+    <div class="menu-backdrop" aria-hidden="true"></div>
+    <div class="menu-grain" aria-hidden="true"></div>
+    <header class="menu-header">
+      <a class="brand" href="#campaign" aria-label="Accueil, Ordre de Cendre"><img src="assets/emblem.svg" alt=""><span>EMPIRE D’ORTHE<small>VII<sup>e</sup> CORPS EXPÉDITIONNAIRE</small></span></a>
+      <nav aria-label="Navigation principale">
+        <button class="nav-item active" data-view="campaign">Campagne</button>
+        <button class="nav-item" data-view="operations">Simulations</button>
+        <button class="nav-item" data-view="hangar">Hangar</button>
+        <button class="nav-item" data-view="archives">Archives</button>
+        <button class="nav-item" data-view="settings">Réglages</button>
+      </nav>
+      <button id="fullscreen-menu" class="icon-button" title="Plein écran" aria-label="Plein écran">⛶</button>
+    </header>
+
+    <section id="view-campaign" class="view campaign-view" aria-label="Campagne de Sera Vey">
+      <div class="campaign-intro">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> ACTE I / LE POIDS DE L’ORDRE</p>
+          <h1>ORDRE<span>DE CENDRE</span></h1>
+          <p class="tagline">Chaque pas laisse une trace.</p>
+          <p class="hero-description">Des routes à ouvrir. Des hommes à ramener.<br>Et des noms qui manquent sur les bordereaux.</p>
+          <div class="hero-actions"><button id="campaign-deploy" class="primary-button">COMMENCER LA CAMPAGNE <span aria-hidden="true">↗</span></button><button id="campaign-resume" class="secondary-button" hidden>Reprendre la mission</button></div>
+          <button class="selected-rig" data-view="hangar"><span class="small-caps">MARCHEUR ASSIGNÉ</span><strong id="campaign-assigned-walker">M-12 VIGIE</strong><span class="rig-link">Préparer le départ ↗</span></button>
+        </div>
+        <aside class="campaign-dossier" aria-label="Prochain ordre">
+          <p class="eyebrow" id="campaign-order-index">VESPER / MISSION 01</p><span class="dossier-index" id="campaign-order-number" aria-hidden="true">01</span>
+          <h2 id="campaign-order-title">Le couloir quarante-deux</h2>
+          <p id="campaign-order-description">Le poste des mineurs attend ses filtres depuis trois jours. Sami connaît la route. Tess connaît les limites de votre machine.</p>
+          <dl class="campaign-orders"><div><dt>MISSION</dt><dd id="campaign-order-task">Ouvrir le passage et escorter les filtres.</dd></div><div><dt>VIGILANCE</dt><dd id="campaign-order-caution">Conduite fissurée. Équipe antichar signalée.</dd></div></dl>
+          <p id="campaign-status" class="campaign-state" role="status">Affectation reçue. Le hangar vous attend.</p>
+        </aside>
+      </div>
+      <section class="campaign-chapters" aria-label="Ordres de Vesper"><div class="section-label"><span>ORDRES DE VESPER</span><span id="campaign-progress">0 / 4 RAPPORTS CLASSÉS</span></div><div id="campaign-mission-list" class="chapter-list"></div></section>
+      <section id="campaign-debrief" class="campaign-debrief" aria-label="Retour de mission" hidden></section>
+      <section id="campaign-transition" class="campaign-transition" aria-label="Fin de l’affectation Vesper" hidden><p class="eyebrow">VESPER / AFFECTATION TERMINÉE</p><h3>Ce que vous emportez.</h3><p id="campaign-transition-text"></p></section>
+      <button class="text-button" id="campaign-open-workshop" hidden>Rejoindre l’équipage au hangar →</button>
+      <div class="campaign-file-actions"><div><p class="small-caps">DOSSIER DE VOL</p><p id="campaign-save-status" class="muted" role="status">La progression est conservée sur cet appareil.</p></div><div class="campaign-file-buttons"><button id="campaign-export" class="text-button">Exporter le dossier</button><button id="campaign-import" class="text-button">Importer un dossier</button><button id="campaign-new" class="text-button">Nouveau dossier</button></div></div>
+      <input id="campaign-file" type="file" accept="application/json,.json" hidden>
+    </section>
+
+    <section id="view-operations" class="view operations-view" aria-label="Simulations indépendantes" hidden>
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> FRONTIÈRE EXTÉRIEURE / SECTEUR 07</p>
+        <h2 class="simulation-title">THÉÂTRES<br><span>D’OPÉRATIONS</span></h2>
+        <p class="tagline">Trois situations. Trois façons de tenir.</p>
+        <p class="hero-description">Simulations indépendantes du dossier de campagne.<br>Ces scénarios dévoilent des éléments du récit.</p>
+        <div class="hero-actions"><button id="deploy" class="primary-button"><span>REJOINDRE L’OPÉRATION</span><span aria-hidden="true">↗</span></button><button id="resume" class="text-button" hidden>Reprendre la mission <span>→</span></button></div>
+        <button class="selected-rig" data-view="hangar"><span class="small-caps">MARCHEUR ASSIGNÉ</span><strong id="assigned-walker">M-12 VIGIE</strong><span class="rig-link">Changer de châssis ↗</span></button>
+      </div>
+      <div class="hero-coordinate" aria-hidden="true"><span>VESPER</span><small>06° 14′ N — 112° 08′ E</small><i></i><small>ORDRE DE MISSION : PACIFICATION</small></div>
+      <div class="mission-selector"><div class="section-label"><span>THÉÂTRES D’OPÉRATIONS</span><span>03 SIGNAUX DISPONIBLES</span></div><div id="mission-cards" class="mission-cards"></div></div>
+    </section>
+
+    <section id="view-hangar" class="view hangar-view" aria-label="Hangar des marcheurs" hidden>
+      <div class="view-heading"><p class="eyebrow">PONT 04 / ATELIER DES APPUIS</p><h2>La machine.<br><em>Votre responsabilité.</em></h2></div>
+      <div class="hangar-layout">
+        <div class="hangar-display"><canvas id="hangar-canvas" width="1600" height="900" aria-label="Vue animée du marcheur sélectionné"></canvas><div class="hangar-caption"><span>CONFIGURATION DE DÉPLOIEMENT</span><span id="rig-class"></span></div></div>
+        <div class="rig-details"><p class="eyebrow" id="rig-role"></p><h3 id="rig-name"></h3><p id="rig-description"></p><div id="rig-stats"></div><dl class="weapon-details"><dt>ARMEMENT PRINCIPAL</dt><dd id="rig-weapon"></dd><dt>ARMEMENT SECONDAIRE</dt><dd id="rig-secondary"></dd></dl><p class="rig-note" id="rig-strength"></p><button id="confirm-rig" class="primary-button">ASSIGNER CE MARCHEUR <span>→</span></button></div>
+      </div>
+      <div id="walker-cards" class="walker-cards"></div>
+      <section class="workshop-panel" aria-label="Atelier et équipage"><div class="workshop-heading"><div><p class="eyebrow">TESS ARDAN / ÉTAT AU RETOUR</p><h3>Avant la prochaine marche.</h3></div><span id="workshop-parts" class="workshop-parts"></span></div><div class="workshop-grid"><article><p id="workshop-condition"></p><p id="workshop-repair-note" class="muted"></p><button id="campaign-repair" class="secondary-button">Réparer le marcheur</button></article><article><p id="workshop-pipe"></p><p id="workshop-sami" class="muted"></p><p id="workshop-network" class="muted" hidden></p><p id="workshop-industrial" class="muted" hidden></p><button id="campaign-repair-pipe" class="secondary-button" hidden>Envoyer une équipe de réparation</button></article></div><p id="workshop-active-note" class="muted" hidden>Une mission est en cours. Reprenez-la pour retrouver le châssis déjà déployé. L’atelier sera disponible au retour.</p></section>
+    </section>
+
+    <section id="view-archives" class="view archives-view" aria-label="Archives de bord" hidden>
+      <div class="view-heading"><p class="eyebrow">DOSSIERS DU CORPS / ACCÈS PILOTE</p><h2>Ce qu’on vous a dit.<br><em>Ce qu’il reste à voir.</em></h2></div>
+      <div class="archive-tabs" role="tablist" aria-label="Dossiers"><button class="active" role="tab" aria-selected="true" data-archive="doctrine">Doctrine</button><button role="tab" aria-selected="false" data-archive="worlds">Les huit mondes</button><button role="tab" aria-selected="false" data-archive="factions">Forces en présence</button><button role="tab" aria-selected="false" data-archive="records">Journal de vol</button></div>
+      <div id="archive-content" class="archive-content"></div>
+    </section>
+
+    <section id="view-settings" class="view settings-view" aria-label="Réglages" hidden>
+      <div class="view-heading"><p class="eyebrow">POSTE DE PILOTAGE / PRÉFÉRENCES</p><h2>À votre mesure.</h2></div>
+      <div class="settings-layout">
+        <div class="settings-group"><h3>Pilotage et confort</h3>
+          <label class="setting-row" for="difficulty"><span><strong>Difficulté</strong><small>Prend effet au prochain déploiement.</small></span><select id="difficulty"><option value="story">Récit</option><option value="normal">Pilote</option><option value="veteran">Vétéran</option></select></label>
+          <label class="setting-row" for="assist"><span><strong>Assistance à la marche</strong><small>Maintenir une direction alterne les appuis.<br>Désactivée : utilisez J et L pour chaque groupe.</small></span><input id="assist" type="checkbox" checked></label>
+          <label class="setting-row" for="shake"><span><strong>Secousses de caméra</strong><small>Impacts, recul et poids des appuis.</small></span><input id="shake" type="checkbox" checked></label>
+          <label class="setting-row" for="motion"><span><strong>Mouvements réduits</strong><small>Atténue la parallaxe et les effets d’interface.</small></span><input id="motion" type="checkbox"></label>
+          <label class="setting-row" for="contrast"><span><strong>Repères renforcés</strong><small>Renforce la lisibilité des instruments et des objectifs.</small></span><input id="contrast" type="checkbox"></label>
+          <label class="setting-row" for="volume"><span><strong>Volume</strong><small>Ambiance et effets sonores de la machine.</small></span><input id="volume" type="range" min="0" max="100" value="55" aria-label="Volume général"></label>
+        </div>
+        <div class="controls-panel"><h3>Prendre les commandes</h3><div class="controls-grid"><kbd>Q / A</kbd><span>Reculer</span><kbd>D</kbd><span>Avancer</span><kbd>J · L</kbd><span>Appuis A · B</span><kbd>Souris</kbd><span>Orienter la tourelle</span><kbd>Clic gauche</kbd><span>Tir principal</span><kbd>Clic droit</kbd><span>Roquette</span><kbd>Espace</kbd><span>Ancrer le châssis</span><kbd>V</kbd><span>Purger la chaleur</span><kbd>R</kbd><span>Recharger</span><kbd>T</kbd><span>Réparer le radiateur à l’arrêt</span><kbd>E</kbd><span>Scanner / interagir</span><kbd>Échap</kbd><span>Pause</span><kbd>F</kbd><span>Plein écran</span></div><p class="muted">En marche manuelle, maintenez la direction puis alternez J et L. Les quadrupèdes déplacent leurs diagonales ; les hexapodes leurs tripodes.</p></div>
+      </div>
+    </section>
+    <footer class="menu-footer"><span>IMPERIUM MARCH <i>/</i> VERSION 0.5</span><span id="local-status"><span class="status-dot"></span> POSTE PRÊT</span><span>CHAQUE PAS LAISSE UNE TRACE.</span></footer>
+  </main>
+
+  <section id="game-screen" hidden aria-label="Mission en cours">
+    <div id="playfield">
+      <canvas id="game-canvas" width="1600" height="900" tabindex="0" aria-label="Champ de bataille. Q ou A et D pour marcher, souris pour viser, clic pour tirer. T pour réparer le radiateur à l’arrêt. Échap pour la pause."></canvas>
+      <div id="hud">
+        <div class="hud-top"><div class="hud-mission"><span class="hud-insignia">VII</span><div><span class="small-caps" id="hud-planet"></span><h2 id="hud-title"></h2></div></div><div class="hud-top-right"><span id="hud-timer">00:00</span><button id="pause-button" class="icon-button" aria-label="Mettre en pause" title="Pause (Échap)">Ⅱ</button></div></div>
+        <div class="objectives-panel"><span class="small-caps">ORDRES DE MISSION</span><ul id="hud-objectives"></ul><div id="convoy-status" hidden></div></div>
+        <div id="radio" class="radio-panel" role="status"><div class="radio-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div><span class="small-caps">CANAL DE BORD</span><p id="radio-text"></p></div></div>
+        <div id="mission-intro" class="mission-intro"><p id="intro-location"></p><h2 id="intro-title"></h2><span>LIAISON ÉTABLIE</span></div>
+        <div class="hud-bottom"><div class="hull-panel"><span class="small-caps" id="hud-walker"></span><div class="hull-numbers"><strong id="hull-value"></strong><span>INTÉGRITÉ COQUE</span></div><div class="meter"><i id="hull-bar"></i></div><div class="leg-status" id="leg-status"></div></div><div class="heat-panel"><div class="instrument"><span class="small-caps">TEMPÉRATURE</span><b id="heat-value"></b><div class="meter heat"><i id="heat-bar"></i></div></div><div class="instrument"><span class="small-caps">STABILITÉ</span><b id="stability-value"></b><div class="meter stability"><i id="stability-bar"></i></div></div><div class="instrument radiator-instrument"><div><span class="small-caps">RADIATEUR</span><b id="radiator-value"></b><div class="meter radiator"><i id="radiator-bar"></i></div><small id="radiator-condition"></small></div><button id="radiator-repair" data-action="repair" title="Répare 60 points en 4 secondes sans marcher ni tirer ; consomme un kit à la fin.">T · RÉPARER À L’ARRÊT</button></div></div><div class="ammo-panel"><span class="small-caps" id="hud-weapon"></span><div><strong id="ammo-value"></strong><span id="ammo-total"></span></div><small id="ammo-reserve"></small><small id="rocket-value"></small></div></div>
+        <div class="keyboard-hints"><span><kbd>Q D</kbd> MARCHE</span><span><kbd>ESPACE</kbd> ANCRAGE</span><span><kbd>V</kbd> PURGE</span><span><kbd>T</kbd> RADIATEUR</span><span><kbd>E</kbd> INTERACTION</span><span id="assist-hint"></span></div>
+      </div>
+      <div id="touch-controls" aria-label="Commandes tactiles"><div><button data-hold="left" aria-label="Reculer">◀</button><button data-hold="right" aria-label="Avancer">▶</button><button class="touch-manual" data-action="stepA" aria-label="Déplacer le groupe d’appuis A">A</button><button class="touch-manual" data-action="stepB" aria-label="Déplacer le groupe d’appuis B">B</button></div><div><button data-hold="brace" aria-label="Ancrer le marcheur">⊓</button><button data-hold="vent" aria-label="Ventiler">V</button><button data-action="repair" aria-label="Réparer le radiateur à l’arrêt">T</button><button data-action="interact" aria-label="Interagir">E</button><button data-hold="secondary" aria-label="Roquette">◎</button><button data-hold="fire" aria-label="Tirer">FEU</button></div></div>
+    </div>
+  </section>
+
+  <dialog id="briefing-dialog" class="briefing-dialog"><div class="dialog-eyebrow"><span class="eyebrow">ORDRE DE DÉPLOIEMENT</span><button class="dialog-close" data-close="briefing-dialog" aria-label="Fermer le briefing">×</button></div><p class="briefing-index" id="briefing-planet"></p><h2 id="briefing-title"></h2><blockquote id="briefing-quote"></blockquote><p id="briefing-description"></p><div class="briefing-parameters"><span>CHÂSSIS<strong id="briefing-walker"></strong></span><span>PILOTAGE<strong id="briefing-assist"></strong></span><span>DIFFICULTÉ<strong id="briefing-difficulty"></strong></span></div><p class="briefing-tip" id="briefing-tip"></p><div class="briefing-control-note"><kbd>Q / D</kbd> Marcher <kbd>Souris</kbd> Viser / tirer <kbd>E</kbd> Interagir</div><button id="launch" class="primary-button">DÉPLOYER LE MARCHEUR <span>→</span></button></dialog>
+
+  <dialog id="pause-dialog"><p class="eyebrow">LIAISON EN ATTENTE</p><h2>Un instant de silence.</h2><p>La simulation est suspendue.</p><div class="dialog-actions"><button id="unpause" class="primary-button">REPRENDRE <span>→</span></button><button id="restart" class="secondary-button">Recommencer l’opération</button><button id="to-menu" class="text-button">Retour au pont de commandement</button></div><div class="pause-help"><kbd>Espace</kbd> Ancrage · <kbd>V</kbd> Purge · <kbd>R</kbd> Recharger<br><kbd>E</kbd> Scanner et prendre les décisions</div></dialog>
+
+  <dialog id="decision-dialog"><p class="eyebrow">CANAL PRIORITAIRE / CONFIRMATION REQUISE</p><h2 id="decision-title"></h2><p id="decision-body"></p><div id="decision-options" class="decision-options"></div><p class="muted">Votre réponse sera inscrite au rapport de mission.</p></dialog>
+
+  <dialog id="result-dialog"><p class="eyebrow" id="result-eyebrow"></p><h2 id="result-title"></h2><p id="result-outcome"></p><div id="result-stats" class="result-stats"></div><div class="dialog-actions"><button id="next-operation" class="primary-button">OPÉRATION SUIVANTE <span>→</span></button><button id="replay" class="secondary-button">Rejouer l’opération</button><button id="result-menu" class="text-button">Retour au pont de commandement</button></div></dialog>
+
+  <dialog id="campaign-reset-dialog"><p class="eyebrow">DOSSIER DE VOL</p><h2>Recommencer la campagne ?</h2><p>Le dossier de campagne sera remplacé : mission en cours, choix et état de l’atelier. Exportez-le d’abord pour le conserver. Les réglages et les rapports des simulations restent séparés.</p><div class="dialog-actions"><button id="campaign-confirm-new" class="primary-button">CRÉER UN NOUVEAU DOSSIER</button><button class="secondary-button" data-close="campaign-reset-dialog">Conserver le dossier actuel</button></div></dialog>
+  <dialog id="campaign-import-dialog"><p class="eyebrow">DOSSIER DE VOL</p><h2>Reprendre ce dossier ?</h2><p id="campaign-import-summary"></p><p>Il remplacera votre dossier de campagne actuel. Vous pouvez annuler et exporter le dossier actuel avant de continuer.</p><div class="dialog-actions"><button id="campaign-confirm-import" class="primary-button">UTILISER CE DOSSIER</button><button class="secondary-button" data-close="campaign-import-dialog">Annuler</button></div></dialog>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <noscript><div class="noscript">Ce jeu nécessite JavaScript. Le code source et la bible de conception restent disponibles dans le dépôt ImperiumMarch.</div></noscript>
+  <script type="module" src="src/main.mjs"></script>
+</body>
+</html>

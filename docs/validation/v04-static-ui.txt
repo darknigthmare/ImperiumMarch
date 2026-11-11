@@ -1,0 +1,7 @@
+
+> imperium-march@0.4.0 check:ui
+> node tools/test-ui.mjs
+
+STATIC UI AUDIT PASSED: 121 unique HTML IDs; 109 literal JS ID references; 5 views; 4 archive tabs; 6 dialogs.
+OFFLINE BUNDLE AUDIT PASSED: one inline script compiled by vm.Script without executing; all HTML/CSS/Canvas assets embedded; no unresolved imports or resource requests.
+LIMIT: this audit does not use a DOM emulator. Clicks, focus, CSS layout, native dialogs, audio, touch, and browser execution were NOT exercised.

@@ -1,0 +1,21 @@
+name: Validate prototype and design data
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+      - run: npm run check
+      - run: npm run build
+      - run: npm run check:ui
+      - run: npm run check:ui-runtime
+      - run: npm run build:web

@@ -1,0 +1,85 @@
+{
+  "version": "0.4.0",
+  "type": "Canvas-only production renderer",
+  "renderer": "@napi-rs/canvas (Skia)",
+  "limitations": "No browser, HTML HUD, CSS, native input, audio, performance or human playability certification.",
+  "provenance": "Mission states reached by public createGame/updateGame/commandGame, never by editing state. Fleet panel uses production hangar render at a common scale.",
+  "previewFonts": {
+    "labels": "Liberation Mono, Courier-compatible fallback",
+    "panel": "DejaVu Sans"
+  },
+  "files": [
+    {
+      "file": "v04-six-chassis.png",
+      "type": "production hangar panels",
+      "walkerIds": [
+        "WK01",
+        "WK02",
+        "WK05",
+        "WK06",
+        "WK09",
+        "WK10"
+      ],
+      "commonScale": true
+    },
+    {
+      "file": "mi03-dispensary.png",
+      "title": "Identifier le dispensaire avant de franchir sa gaine",
+      "missionId": "MI03",
+      "walkerId": "WK06",
+      "elapsed": 36.03333333333257,
+      "playerX": 2461.3879176773944,
+      "phase": "inspection",
+      "signalsIdentified": 1,
+      "verifiedBuildings": 0,
+      "civilRelaysOnline": 2,
+      "holtAlerted": false,
+      "residentsLost": 0,
+      "decisionResolved": false
+    },
+    {
+      "file": "mi03-oversight.png",
+      "title": "Contrôle de Holt pendant la vérification des maisons",
+      "missionId": "MI03",
+      "walkerId": "WK06",
+      "elapsed": 55.81666666666478,
+      "playerX": 3614.492059188314,
+      "phase": "inspection",
+      "signalsIdentified": 2,
+      "verifiedBuildings": 1,
+      "civilRelaysOnline": 2,
+      "holtAlerted": true,
+      "residentsLost": 0,
+      "decisionResolved": false
+    },
+    {
+      "file": "mi03-network-verified.png",
+      "title": "Deux émissions civiles vérifiées et toujours actives, avant le choix final",
+      "missionId": "MI03",
+      "walkerId": "WK06",
+      "elapsed": 57.83333333333133,
+      "playerX": 3614.493057955086,
+      "phase": "report",
+      "signalsIdentified": 3,
+      "verifiedBuildings": 2,
+      "civilRelaysOnline": 2,
+      "holtAlerted": true,
+      "residentsLost": 0,
+      "decisionResolved": false
+    },
+    {
+      "file": "mi03-damaged-dispensary.png",
+      "title": "Constat d’un dispensaire détruit par trois tirs réels de roquettes",
+      "missionId": "MI03",
+      "walkerId": "WK01",
+      "elapsed": 33.28333333333273,
+      "playerX": 2434.5161363061707,
+      "clinicIdentified": true,
+      "clinicVerified": false,
+      "clinicDestroyed": true,
+      "civilRelaysOnline": 1,
+      "residentsLost": 8,
+      "decisionResolved": false
+    }
+  ]
+}

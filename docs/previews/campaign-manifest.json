@@ -1,0 +1,221 @@
+{
+  "title": "ORDRE DE CENDRE",
+  "version": "0.2.0",
+  "missionId": "MI01",
+  "type": "Canvas-only production renderer captures from public-control simulation runs",
+  "engine": "@napi-rs/canvas (Skia)",
+  "simulationSeed": 1847,
+  "timeStep": 0.016666666666666666,
+  "limitations": "No browser was launched. These captures do not include the HTML HUD, menus, CSS, dialogs, input events, audio, fullscreen or browser performance.",
+  "stateMethod": "createGame + commandGame + updateGame only; no positions, feet, objectives, damage or outcomes manufactured for captures.",
+  "artwork": "assets/art/vesper-panorama.png",
+  "files": [
+    {
+      "file": "mi01-secured.png",
+      "kind": "Canvas simulation capture",
+      "description": "Vigie traversant la conduite sur des dalles déployées, avec un contact réel de pied sur le passage protégé.",
+      "width": 1600,
+      "height": 900,
+      "bytes": 950365,
+      "sha256": "aac53b4a77481020641e6df4c1a6f01960127d59076ecc4442a5b1731d886c9b",
+      "walkerId": "WK01",
+      "frames": 876,
+      "elapsed": 14.600000000000305,
+      "playerX": 1119.5087965282535,
+      "campaign": {
+        "missionId": "MI01",
+        "phase": "approach",
+        "route": "secured",
+        "pipeIntact": true,
+        "pipeDamage": 0,
+        "passageSecured": true,
+        "passageProgress": 1,
+        "passageWorking": false,
+        "filtersDelivered": false,
+        "filtersDeliveredCount": 0,
+        "manifestRead": false,
+        "noticeFiled": false,
+        "repairCost": 0,
+        "deliveryTime": null,
+        "convoyIntegrity": 1,
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "convoy": {
+        "x": 750.7000000000074,
+        "hp": 640,
+        "maxHp": 640,
+        "arrived": false,
+        "waitTime": 0
+      },
+      "feet": [
+        {
+          "id": "foot-0",
+          "x": 1081.9756553915477,
+          "y": 675.0701258809469,
+          "contact": true,
+          "phase": "stance"
+        },
+        {
+          "id": "foot-1",
+          "x": 1230.3772124139994,
+          "y": 670.2376731796651,
+          "contact": true,
+          "phase": "stance"
+        }
+      ],
+      "stats": {
+        "kills": 0,
+        "shots": 0,
+        "hits": 0,
+        "steps": 14,
+        "collateral": 0,
+        "damageTaken": 0,
+        "evidence": 0,
+        "ordersObeyed": 0,
+        "ordersDefied": 0,
+        "score": 0
+      }
+    },
+    {
+      "file": "mi01-direct.png",
+      "kind": "Canvas simulation capture",
+      "description": "Premier contact réel rompant la conduite exposée ; fuite et arrêt du convoi enregistrés dans la simulation.",
+      "width": 1600,
+      "height": 900,
+      "bytes": 953315,
+      "sha256": "2b0be7929a0ddf1fcd22d9d25c09e9e96ffd1264a901a90c279623a6258371a3",
+      "walkerId": "WK01",
+      "frames": 532,
+      "elapsed": 8.866666666666687,
+      "playerX": 1050.0589803683358,
+      "campaign": {
+        "missionId": "MI01",
+        "phase": "approach",
+        "route": "direct",
+        "pipeIntact": false,
+        "pipeDamage": 100,
+        "passageSecured": false,
+        "passageProgress": 0,
+        "passageWorking": false,
+        "filtersDelivered": false,
+        "filtersDeliveredCount": 0,
+        "manifestRead": false,
+        "noticeFiled": false,
+        "repairCost": 2,
+        "deliveryTime": null,
+        "convoyIntegrity": 1,
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "convoy": {
+        "x": 679.450000000004,
+        "hp": 640,
+        "maxHp": 640,
+        "arrived": false,
+        "waitTime": 7.983333333333333
+      },
+      "feet": [
+        {
+          "id": "foot-0",
+          "x": 1021.1256470350044,
+          "y": 679.2241886908644,
+          "contact": true,
+          "phase": "stance"
+        },
+        {
+          "id": "foot-1",
+          "x": 1151.592313701669,
+          "y": 671.7050399251766,
+          "contact": true,
+          "phase": "stance"
+        }
+      ],
+      "stats": {
+        "kills": 0,
+        "shots": 0,
+        "hits": 0,
+        "steps": 14,
+        "collateral": 0,
+        "damageTaken": 0,
+        "evidence": 0,
+        "ordersObeyed": 0,
+        "ordersDefied": 0,
+        "score": 0
+      }
+    },
+    {
+      "file": "mi01-delivery.png",
+      "kind": "Canvas simulation capture",
+      "description": "Camion arrivé vivant au poste 42 ; les vingt-quatre caisses sont livrées, avant la lecture du manifeste.",
+      "width": 1600,
+      "height": 900,
+      "bytes": 904458,
+      "sha256": "9434adbd797c73b9cc050e4312f54f9231c8b243836b431490e9052416811a82",
+      "walkerId": "WK01",
+      "frames": 4802,
+      "elapsed": 80.03333333333008,
+      "playerX": 4629.114572921564,
+      "campaign": {
+        "missionId": "MI01",
+        "phase": "delivery",
+        "route": "secured",
+        "pipeIntact": true,
+        "pipeDamage": 0,
+        "passageSecured": true,
+        "passageProgress": 1,
+        "passageWorking": false,
+        "filtersDelivered": true,
+        "filtersDeliveredCount": 24,
+        "manifestRead": false,
+        "noticeFiled": false,
+        "repairCost": 0,
+        "deliveryTime": 80.03333333333008,
+        "convoyIntegrity": 1,
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "convoy": {
+        "x": 4480,
+        "hp": 640,
+        "maxHp": 640,
+        "arrived": true,
+        "waitTime": 0
+      },
+      "feet": [
+        {
+          "id": "foot-0",
+          "x": 4630.231567345407,
+          "y": 692.8030765355552,
+          "contact": true,
+          "phase": "stance"
+        },
+        {
+          "id": "foot-1",
+          "x": 4627.997578497795,
+          "y": 692.7454907922746,
+          "contact": true,
+          "phase": "stance"
+        }
+      ],
+      "stats": {
+        "kills": 7,
+        "shots": 49,
+        "hits": 26,
+        "steps": 59,
+        "collateral": 1,
+        "damageTaken": 0,
+        "evidence": 0,
+        "ordersObeyed": 0,
+        "ordersDefied": 0,
+        "score": 820
+      }
+    }
+  ]
+}

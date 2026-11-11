@@ -1,0 +1,1380 @@
+{
+  "source": "c7de24a (v0.2.0): original content, simulation and campaign modules, seed 1942, public-control direct route, defy report",
+  "live": {
+    "format": "ordre-de-cendre.campaign",
+    "version": 1,
+    "revision": 2,
+    "stage": "mission",
+    "activeMissionId": "MI01",
+    "completed": {},
+    "resources": {
+      "parts": 6
+    },
+    "crew": {
+      "tess": {
+        "trust": 50
+      },
+      "sami": {
+        "trust": 25
+      }
+    },
+    "authority": {
+      "reportFiled": false,
+      "suspicion": 0
+    },
+    "world": {
+      "vesper": {
+        "pipeIntact": true,
+        "pipeRepaired": false,
+        "servicesInterrupted": false,
+        "filtersDelivered": false,
+        "filtersDeliveredCount": 0,
+        "calesBassesExcluded": false,
+        "noticeFiled": false
+      }
+    },
+    "fleet": {
+      "WK01": {
+        "hull": 520,
+        "feet": [
+          100,
+          100
+        ]
+      },
+      "WK05": {
+        "hull": 730,
+        "feet": [
+          100,
+          100,
+          100,
+          100
+        ]
+      },
+      "WK09": {
+        "hull": 600,
+        "feet": [
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ]
+      }
+    },
+    "checkpoint": {
+      "version": 1,
+      "mission": {
+        "id": "MI01",
+        "number": "01",
+        "campaign": true,
+        "act": "I — Le poids de l’ordre",
+        "name": "Le couloir quarante-deux",
+        "planetId": "PL01",
+        "planet": "Vesper",
+        "biome": "ROUTE DES MINEURS",
+        "length": 5200,
+        "difficulty": "PREMIÈRE AFFECTATION",
+        "duration": "3–6 min",
+        "faction": "Pillards du couloir",
+        "accent": "#e9ad67",
+        "sky": [
+          "#1c2a37",
+          "#8e6b5e",
+          "#dab38b"
+        ],
+        "description": "Ouvrez la route du camion de Sami Pell. Ses vingt-quatre caisses de filtres sont attendues au poste des mineurs. Une conduite fragile traverse le passage ; les dalles du génie permettent de la protéger avant l’embuscade.",
+        "briefing": "« Couloir quarante-deux, vous tenez l’accès. Le poste attend ces filtres depuis trois jours. » — Major Holt",
+        "hint": "D : avancer ; Q/A : reculer. Près du treuil des dalles, arrêtez-vous et appuyez sur E pour sécuriser la conduite. Le camion suit derrière vous. Après la livraison, lisez le manifeste au poste avec E.",
+        "type": "escort",
+        "evidenceX": 4660,
+        "extractionX": 4930,
+        "decisionX": 4660,
+        "deliveryX": 4480,
+        "convoyLabel": "SAMI · FILTRES",
+        "cargoCount": 24,
+        "evidenceLabel": "MANIFESTE DES FILTRES",
+        "civilianPositions": [
+          2760,
+          2910,
+          4540
+        ],
+        "supplyPositions": [
+          2430,
+          3650
+        ],
+        "enemyPlan": [
+          [
+            1810,
+            "rocket"
+          ],
+          [
+            2150,
+            "rifle"
+          ],
+          [
+            2590,
+            "buggy"
+          ],
+          [
+            3070,
+            "rifle"
+          ],
+          [
+            3360,
+            "rocket"
+          ],
+          [
+            3810,
+            "drone"
+          ],
+          [
+            4140,
+            "rifle"
+          ]
+        ],
+        "ambushTriggerX": 1390,
+        "passage": {
+          "stationX": 840,
+          "radius": 165,
+          "pipeFrom": 1110,
+          "pipeTo": 1300,
+          "workTime": 4.5,
+          "incidentDelay": 8,
+          "repairCost": 2
+        },
+        "decision": {
+          "title": "Une rue absente du manifeste",
+          "body": "Les vingt-quatre caisses sont déchargées au poste. Sami relève un nom absent : « Les Cales-Basses n’ont rien sur la feuille. Ils ont pourtant le même air que nous. » Holt répond : « Votre secteur s’arrête à la borne quarante-deux. Restez dans votre ordre. » Vous pouvez clore la livraison prévue ou joindre le signalement au compte rendu. Aucun filtre supplémentaire n’est disponible aujourd’hui.",
+          "obey": "Clore le bordereau prévu",
+          "defy": "Joindre le signalement de Sami"
+        },
+        "intro": "VESPER // COULOIR QUARANTE-DEUX · 06:14"
+      },
+      "walker": {
+        "id": "WK01",
+        "name": "Vigie",
+        "designation": "M-12",
+        "role": "ÉCLAIREUR D’ASSAUT",
+        "legs": 2,
+        "profile": "Bipède haut",
+        "height": 180,
+        "width": 126,
+        "hull": 520,
+        "stride": 118,
+        "stepTime": 0.62,
+        "speed": 86,
+        "cooling": 16,
+        "armor": 0.12,
+        "damage": 22,
+        "fireRate": 0.18,
+        "shotHeat": 8,
+        "ammo": 12,
+        "rockets": 10,
+        "color": "#e5b16c",
+        "silhouette": "biped",
+        "weight": 34,
+        "description": "Un poste de tir élevé, une foulée longue. Ses deux genoux restent son point faible.",
+        "weapon": "Autocanon V-22",
+        "secondary": "Roquettes à charge creuse",
+        "strength": "Vue dégagée · tir précis",
+        "weakness": "Appuis exposés"
+      },
+      "missionId": "MI01",
+      "walkerId": "WK01",
+      "planetId": "PL01",
+      "difficultyId": "normal",
+      "difficulty": {
+        "label": "Pilote",
+        "damage": 0.75,
+        "enemyHealth": 1,
+        "repair": 1
+      },
+      "seed": 1942,
+      "rng": 3057100878,
+      "assist": true,
+      "elapsed": 25.016666666666527,
+      "status": "playing",
+      "outcome": "",
+      "player": {
+        "x": 1500.3488470774157,
+        "y": 495.58647703876,
+        "width": 126,
+        "height": 70,
+        "groundY": 672.9573579292453,
+        "facing": 1,
+        "aimAngle": 0.270221379961413,
+        "hull": 520,
+        "maxHull": 520,
+        "armor": 0.12,
+        "heat": 54.79999999999991,
+        "energy": 100,
+        "stability": 71.50673734557577,
+        "ammo": 2,
+        "maxAmmo": 12,
+        "rockets": 10,
+        "maxRockets": 10,
+        "reloadTime": 0,
+        "venting": false,
+        "braced": false,
+        "overheated": false,
+        "speed": 86.00000000000364,
+        "feet": [
+          {
+            "id": "foot-0",
+            "index": 0,
+            "group": 0,
+            "side": "back",
+            "homeOffset": -38,
+            "x": 1476.0363839616907,
+            "y": 673.0469907894668,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 1319.7658261329734,
+            "fromY": 671.0274940298495,
+            "targetX": 1476.0363839616907,
+            "targetY": 673.0469907894668,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-1",
+            "index": 1,
+            "group": 1,
+            "side": "front",
+            "homeOffset": 38,
+            "x": 1595.14489136757,
+            "y": 621.8644141783453,
+            "phase": "swing",
+            "progress": 0.7258064516129028,
+            "contact": false,
+            "fromX": 1472.3549582562248,
+            "fromY": 673.0479213417436,
+            "targetX": 1622.8913737838002,
+            "targetY": 670.7624377306064,
+            "health": 100,
+            "maxHealth": 100
+          }
+        ],
+        "stepCooldown": 0.18666666666666637,
+        "lastGroup": 1,
+        "fireCooldown": 0,
+        "rocketCooldown": 0,
+        "flash": 0,
+        "aimX": 2110.03333333332,
+        "aimY": 670.4592090444639,
+        "move": 1,
+        "anchorX": 1535.5906376646303
+      },
+      "enemies": [
+        {
+          "name": "Lancier antichar",
+          "kind": "infantry",
+          "w": 26,
+          "h": 38,
+          "hp": 0,
+          "speed": 14,
+          "range": 790,
+          "cooldown": 4.4,
+          "damage": 43,
+          "projectileSpeed": 255,
+          "windup": 1.2,
+          "score": 130,
+          "type": "rocket",
+          "id": "enemy-0",
+          "x": 1810,
+          "spawnX": 1810,
+          "y": 650.9633190561867,
+          "maxHp": 80,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 1.9107229059872557,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 2.672105856254494
+        },
+        {
+          "name": "Fusilier",
+          "kind": "infantry",
+          "w": 24,
+          "h": 36,
+          "hp": 0,
+          "speed": 22,
+          "range": 650,
+          "cooldown": 1.65,
+          "damage": 10,
+          "projectileSpeed": 430,
+          "windup": 0.42,
+          "score": 70,
+          "type": "rifle",
+          "id": "enemy-1",
+          "x": 2109.6666666666533,
+          "spawnX": 2150,
+          "y": 670.4416342613846,
+          "maxHp": 65,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 0.012663954279076621,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 3.4786823716210242
+        },
+        {
+          "name": "Buggy de raid",
+          "kind": "vehicle",
+          "w": 85,
+          "h": 44,
+          "hp": 220,
+          "speed": 35,
+          "range": 740,
+          "cooldown": 2.8,
+          "damage": 21,
+          "projectileSpeed": 400,
+          "windup": 0.7,
+          "score": 230,
+          "type": "buggy",
+          "id": "enemy-2",
+          "x": 2561.9999999999927,
+          "spawnX": 2590,
+          "y": 668.1855153663932,
+          "maxHp": 220,
+          "active": true,
+          "dead": false,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 1.323099911678585,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0.14,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 4.2493896571187255
+        },
+        {
+          "name": "Fusilier",
+          "kind": "infantry",
+          "w": 24,
+          "h": 36,
+          "hp": 65,
+          "speed": 22,
+          "range": 650,
+          "cooldown": 1.65,
+          "damage": 10,
+          "projectileSpeed": 430,
+          "windup": 0.42,
+          "score": 70,
+          "type": "rifle",
+          "id": "enemy-3",
+          "x": 3070,
+          "spawnX": 3070,
+          "y": 657.6965986671647,
+          "maxHp": 65,
+          "active": false,
+          "dead": false,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 1.6352852291427553,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 5.083646033759725
+        },
+        {
+          "name": "Lancier antichar",
+          "kind": "infantry",
+          "w": 26,
+          "h": 38,
+          "hp": 80,
+          "speed": 14,
+          "range": 790,
+          "cooldown": 4.4,
+          "damage": 43,
+          "projectileSpeed": 255,
+          "windup": 1.2,
+          "score": 130,
+          "type": "rocket",
+          "id": "enemy-4",
+          "x": 3360,
+          "spawnX": 3360,
+          "y": 653.6493576053067,
+          "maxHp": 80,
+          "active": false,
+          "dead": false,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 1.6651343905366958,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 0.9221957968365453
+        },
+        {
+          "name": "Drone de veille",
+          "kind": "air",
+          "w": 48,
+          "h": 26,
+          "hp": 90,
+          "speed": 24,
+          "range": 710,
+          "cooldown": 2.25,
+          "damage": 13,
+          "projectileSpeed": 340,
+          "windup": 0.65,
+          "score": 120,
+          "type": "drone",
+          "id": "enemy-5",
+          "x": 3810,
+          "spawnX": 3810,
+          "y": 466.6909009517108,
+          "maxHp": 90,
+          "active": false,
+          "dead": false,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 2.6638691599480806,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 4.038826881122498
+        },
+        {
+          "name": "Fusilier",
+          "kind": "infantry",
+          "w": 24,
+          "h": 36,
+          "hp": 65,
+          "speed": 22,
+          "range": 650,
+          "cooldown": 1.65,
+          "damage": 10,
+          "projectileSpeed": 430,
+          "windup": 0.42,
+          "score": 70,
+          "type": "rifle",
+          "id": "enemy-6",
+          "x": 4140,
+          "spawnX": 4140,
+          "y": 671.3017753728735,
+          "maxHp": 65,
+          "active": false,
+          "dead": false,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 2.1567054611630736,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 1.978821388870792
+        }
+      ],
+      "projectiles": [],
+      "particles": [
+        {
+          "x": 1904.1738450473342,
+          "y": 447.3570236244596,
+          "vx": 19.923437963976934,
+          "vy": -171.05090378957667,
+          "life": 0.015920411671201392,
+          "maxLife": 1.4492537450045346,
+          "size": 22.389574690023437,
+          "type": "smoke",
+          "color": "#6d7478"
+        },
+        {
+          "x": 1765.559693150955,
+          "y": 293.1335929295101,
+          "vx": -9.401800427305442,
+          "vy": -278.64864613489095,
+          "life": 0.019887857946256856,
+          "maxLife": 1.45322119127959,
+          "size": 21.092239489080384,
+          "type": "smoke",
+          "color": "#6d7478"
+        },
+        {
+          "x": 2092.588317506912,
+          "y": 751.5068498048497,
+          "vx": -19.99293476685219,
+          "vy": 176.47385229736898,
+          "life": 0.004657864800343574,
+          "maxLife": 0.6379911981336772,
+          "size": 5.336859564296901,
+          "type": "spark",
+          "color": "#ffd09a"
+        },
+        {
+          "x": 2132.968475178932,
+          "y": 593.6806352450737,
+          "vx": 34.820553143829635,
+          "vy": -128.23785503495253,
+          "life": 0.14615677323968435,
+          "maxLife": 0.6128234399063512,
+          "size": 2.434752846136689,
+          "type": "spark",
+          "color": "#ffd09a"
+        },
+        {
+          "x": 2040.269928030638,
+          "y": 678.5462420012683,
+          "vx": -103.70151417262446,
+          "vy": 53.617016585466196,
+          "life": 0.17603676467047347,
+          "maxLife": 0.6427034313371405,
+          "size": 2.3766435217112303,
+          "type": "spark",
+          "color": "#ffd09a"
+        },
+        {
+          "x": 2065.1290220711453,
+          "y": 727.2579644102303,
+          "vx": -66.55386510973067,
+          "vy": 157.9992788903828,
+          "life": 0.15394866586507577,
+          "maxLife": 0.6206153325317427,
+          "size": 4.8353310842067,
+          "type": "spark",
+          "color": "#ffd09a"
+        },
+        {
+          "x": 2165.583261223352,
+          "y": 725.5806234115489,
+          "vx": 83.55775266789394,
+          "vy": 154.40497675035198,
+          "life": 0.06433530690924577,
+          "maxLife": 0.5310019735759124,
+          "size": 3.4248034562915564,
+          "type": "spark",
+          "color": "#ffd09a"
+        },
+        {
+          "x": 2037.8718118920103,
+          "y": 680.1848753507265,
+          "vx": -107.28508711316306,
+          "vy": 57.128373762876414,
+          "life": 0.04541950140924511,
+          "maxLife": 0.5120861680759117,
+          "size": 4.775604346767068,
+          "type": "blast",
+          "color": "#f4a56d"
+        },
+        {
+          "x": 2184.777460568193,
+          "y": 629.1122392914372,
+          "vx": 112.24018896841011,
+          "vy": -52.31298922131495,
+          "life": 0.09162714219496887,
+          "maxLife": 0.5582938088616356,
+          "size": 2.961835203692317,
+          "type": "blast",
+          "color": "#f4a56d"
+        },
+        {
+          "x": 2121.1478839781093,
+          "y": 653.795836846222,
+          "vx": 17.156708559285498,
+          "vy": 0.5804341103652035,
+          "life": 0.035775773030084945,
+          "maxLife": 0.5024424396967515,
+          "size": 2.9597617741674185,
+          "type": "blast",
+          "color": "#f4a56d"
+        },
+        {
+          "x": 2076.060836076803,
+          "y": 703.2179663686211,
+          "vx": -50.21814548771348,
+          "vy": 106.4849973726503,
+          "life": 0.12877678199515968,
+          "maxLife": 0.5954434486618265,
+          "size": 2.995342506095767,
+          "type": "blast",
+          "color": "#f4a56d"
+        },
+        {
+          "x": 2060.630513027875,
+          "y": 750.4015857778777,
+          "vx": -73.27611472081068,
+          "vy": 207.59275324962803,
+          "life": 0.24023795620383015,
+          "maxLife": 0.7069046228704974,
+          "size": 2.283340008929372,
+          "type": "blast",
+          "color": "#f4a56d"
+        },
+        {
+          "x": 2127.049252772388,
+          "y": 641.9360962910373,
+          "vx": 25.975291272049482,
+          "vy": -24.833295650744347,
+          "life": 0.08898439424888532,
+          "maxLife": 0.555651060915552,
+          "size": 3.601635565981269,
+          "type": "blast",
+          "color": "#f4a56d"
+        },
+        {
+          "x": 2116.324045539413,
+          "y": 634.5530756349987,
+          "vx": 9.948310008444386,
+          "vy": -86.5707208660653,
+          "life": 1.0138683630929655,
+          "maxLife": 1.4805350297596305,
+          "size": 14.597179328557104,
+          "type": "smoke",
+          "color": "#6d7478"
+        },
+        {
+          "x": 2058.0158482330585,
+          "y": 617.8047347774474,
+          "vx": -77.18328245816812,
+          "vy": -122.46002270367502,
+          "life": 1.295842746722824,
+          "maxLife": 1.762509413389489,
+          "size": 20.760851681698114,
+          "type": "smoke",
+          "color": "#6d7478"
+        },
+        {
+          "x": 2167.3184818742147,
+          "y": 653.67055295859,
+          "vx": 86.15074208576517,
+          "vy": -45.60469802979793,
+          "life": 0.5427772435204421,
+          "maxLife": 1.0094439101871102,
+          "size": 15.410082589369267,
+          "type": "smoke",
+          "color": "#6d7478"
+        },
+        {
+          "x": 2129.7465155554714,
+          "y": 663.4325253919898,
+          "vx": 30.00588752519928,
+          "vy": -24.686185672512703,
+          "life": 0.5833445009620227,
+          "maxLife": 1.0500111676286905,
+          "size": 18.62297678599134,
+          "type": "smoke",
+          "color": "#6d7478"
+        },
+        {
+          "x": 2093.294760506175,
+          "y": 631.8497884198262,
+          "vx": -24.46500357370791,
+          "vy": -92.36347918429209,
+          "life": 0.7263845554397749,
+          "maxLife": 1.1930512221064418,
+          "size": 14.823170469608158,
+          "type": "smoke",
+          "color": "#6d7478"
+        },
+        {
+          "x": 2072.5540730961243,
+          "y": 673.3296299198055,
+          "vx": -55.45840083816096,
+          "vy": -3.4781045414790097,
+          "life": 1.3337197736681765,
+          "maxLife": 1.8003864403348415,
+          "size": 24.63499487610534,
+          "type": "smoke",
+          "color": "#6d7478"
+        },
+        {
+          "x": 2119.475072573225,
+          "y": 734.071321707067,
+          "vx": 14.6569790471872,
+          "vy": 126.68266357408169,
+          "life": 0.8626963565902169,
+          "maxLife": 1.329363023256883,
+          "size": 20.83531954092905,
+          "type": "smoke",
+          "color": "#6d7478"
+        },
+        {
+          "x": 2051.7374483218127,
+          "y": 600.1937584139193,
+          "vx": -86.5652734591043,
+          "vy": -160.1978291969492,
+          "life": 0.7690774057836582,
+          "maxLife": 1.2357440724503248,
+          "size": 19.573950248304754,
+          "type": "smoke",
+          "color": "#6d7478"
+        },
+        {
+          "x": 2141.1503224388857,
+          "y": 685.7472190573167,
+          "vx": -29.577038740952965,
+          "vy": -12.909774433802028,
+          "life": 0.20878960951697084,
+          "maxLife": 0.4587896095169708,
+          "size": 5.142521778121591,
+          "type": "dust",
+          "color": "#bea58c"
+        },
+        {
+          "x": 2150.3193839508112,
+          "y": 667.9598874500265,
+          "vx": 0.6293419835311304,
+          "vy": -84.05910086296117,
+          "life": 0.4253379075368861,
+          "maxLife": 0.6753379075368866,
+          "size": 5.588614581152797,
+          "type": "dust",
+          "color": "#bea58c"
+        },
+        {
+          "x": 2157.9363307201675,
+          "y": 682.3297113187009,
+          "vx": 25.722465611736375,
+          "vy": -26.57980538826351,
+          "life": 0.07814834374468776,
+          "maxLife": 0.3281483437446877,
+          "size": 3.9192449022084475,
+          "type": "dust",
+          "color": "#bea58c"
+        },
+        {
+          "x": 2224.779099621816,
+          "y": 694.7297343121126,
+          "vx": 84.25230885526882,
+          "vy": -28.644952877302913,
+          "life": 0.579188060563368,
+          "maxLife": 0.5958547272300347,
+          "size": 3.66301248036325,
+          "type": "dust",
+          "color": "#bea58c"
+        },
+        {
+          "x": 2222.9655211183376,
+          "y": 693.4664778973091,
+          "vx": -22.023391448552307,
+          "vy": -104.44033776550667,
+          "life": 0.4354395354989295,
+          "maxLife": 0.45210620216559616,
+          "size": 3.5535494033247232,
+          "type": "dust",
+          "color": "#bea58c"
+        },
+        {
+          "x": 2222.7823662966116,
+          "y": 693.1383454170059,
+          "vx": -32.756264001695385,
+          "vy": -124.12828658370177,
+          "life": 0.28296430184350657,
+          "maxLife": 0.29963096851017323,
+          "size": 4.8471470605582,
+          "type": "dust",
+          "color": "#bea58c"
+        }
+      ],
+      "events": [
+        {
+          "id": 1,
+          "type": "radio",
+          "text": "Tess : « Gauche posé. Maintenant le droit. Ne poursuis pas le sol, Sera. Laisse-le te porter. » — D : avancer ; Q/A : reculer ; J/L : appuis manuels.",
+          "time": 0
+        },
+        {
+          "id": 2,
+          "type": "step",
+          "text": "",
+          "time": 0.6333333333333336,
+          "x": 380,
+          "y": 690.2911620096431
+        },
+        {
+          "id": 3,
+          "type": "step",
+          "text": "",
+          "time": 1.266666666666667,
+          "x": 497.99231370168644,
+          "y": 689.0005738174511
+        },
+        {
+          "id": 4,
+          "type": "step",
+          "text": "",
+          "time": 1.8999999999999981,
+          "x": 476.45898036835325,
+          "y": 689.0206883643402
+        },
+        {
+          "id": 5,
+          "type": "radio",
+          "text": "Sami : « Je passe dans tes traces. Si tu t’arrêtes, préviens-moi avant. »",
+          "time": 2.4833333333333294
+        },
+        {
+          "id": 6,
+          "type": "step",
+          "text": "",
+          "time": 2.533333333333329,
+          "x": 606.9256470350201,
+          "y": 690.4405438936978
+        },
+        {
+          "id": 7,
+          "type": "step",
+          "text": "",
+          "time": 3.1666666666666603,
+          "x": 585.3923137016868,
+          "y": 689.9998014574028
+        },
+        {
+          "id": 8,
+          "type": "step",
+          "text": "",
+          "time": 3.7999999999999914,
+          "x": 715.8589803683518,
+          "y": 692.4713515283598
+        },
+        {
+          "id": 9,
+          "type": "radio",
+          "text": "Tess : « La conduite traverse la chaussée. Le treuil à gauche déploie les dalles : arrête-toi près du repère et appuie sur E. »",
+          "time": 4.216666666666657
+        },
+        {
+          "id": 10,
+          "type": "step",
+          "text": "",
+          "time": 4.433333333333323,
+          "x": 694.3256470350165,
+          "y": 692.2050445805513
+        },
+        {
+          "id": 11,
+          "type": "step",
+          "text": "",
+          "time": 5.066666666666654,
+          "x": 824.7923137016811,
+          "y": 691.4160319142784
+        },
+        {
+          "id": 12,
+          "type": "step",
+          "text": "",
+          "time": 5.699999999999985,
+          "x": 803.2589803683458,
+          "y": 692.000526226096
+        },
+        {
+          "id": 13,
+          "type": "step",
+          "text": "",
+          "time": 6.333333333333316,
+          "x": 933.7256470350104,
+          "y": 685.6916256850769
+        },
+        {
+          "id": 14,
+          "type": "step",
+          "text": "",
+          "time": 6.966666666666647,
+          "x": 912.1923137016751,
+          "y": 687.1317935342191
+        },
+        {
+          "id": 15,
+          "type": "step",
+          "text": "",
+          "time": 7.599999999999978,
+          "x": 1042.6589803683396,
+          "y": 677.6662715570942
+        },
+        {
+          "id": 16,
+          "type": "step",
+          "text": "",
+          "time": 8.233333333333322,
+          "x": 1021.1256470350044,
+          "y": 679.2241886908644
+        },
+        {
+          "id": 17,
+          "type": "step",
+          "text": "",
+          "time": 8.866666666666687,
+          "x": 1151.592313701669,
+          "y": 671.7050399251766
+        },
+        {
+          "id": 18,
+          "type": "radio",
+          "text": "Tess : « Le raccord a cédé sous l’appui. Sami, attends que la pression retombe. Il faudra deux lots de pièces pour réparer. »",
+          "time": 8.866666666666687
+        },
+        {
+          "id": 19,
+          "type": "step",
+          "text": "",
+          "time": 18.316666666666908,
+          "x": 1166.3589803683358,
+          "y": 671.2377253766628
+        },
+        {
+          "id": 20,
+          "type": "step",
+          "text": "",
+          "time": 19.566666666666837,
+          "x": 1314.1313701298534,
+          "y": 670.9317017515947
+        },
+        {
+          "id": 21,
+          "type": "step",
+          "text": "",
+          "time": 21.00000000000009,
+          "x": 1319.7658261329734,
+          "y": 671.0274940298495
+        },
+        {
+          "id": 22,
+          "type": "step",
+          "text": "",
+          "time": 22.350000000000012,
+          "x": 1472.3549582562248,
+          "y": 673.0479213417436
+        },
+        {
+          "id": 23,
+          "type": "radio",
+          "text": "Sami : « Lanceur dans le dépôt ! Il nous vise ! » — Espace : ancrage. Tir court à la souris ; V : ventilation.",
+          "time": 22.733333333333324
+        },
+        {
+          "id": 24,
+          "type": "shot",
+          "text": "",
+          "time": 22.766666666666655,
+          "x": 1486.851998433234,
+          "y": 531.7384220063777
+        },
+        {
+          "id": 25,
+          "type": "shot",
+          "text": "",
+          "time": 22.949999999999978,
+          "x": 1489.7980111833122,
+          "y": 532.5018786351658
+        },
+        {
+          "id": 26,
+          "type": "shot",
+          "text": "",
+          "time": 23.1333333333333,
+          "x": 1490.7926050759672,
+          "y": 532.5525259202218
+        },
+        {
+          "id": 27,
+          "type": "shot",
+          "text": "",
+          "time": 23.316666666666624,
+          "x": 1491.1824911591732,
+          "y": 532.3594290282988
+        },
+        {
+          "id": 28,
+          "type": "shot",
+          "text": "",
+          "time": 23.499999999999947,
+          "x": 1491.220631346524,
+          "y": 532.5253515733399
+        },
+        {
+          "id": 29,
+          "type": "explosion",
+          "text": "",
+          "time": 23.59999999999994,
+          "x": 1810,
+          "y": 650.9633190561867
+        },
+        {
+          "id": 30,
+          "type": "shot",
+          "text": "",
+          "time": 23.68333333333327,
+          "x": 1495.422731714101,
+          "y": 521.8926218774194
+        },
+        {
+          "id": 31,
+          "type": "shot",
+          "text": "",
+          "time": 23.866666666666593,
+          "x": 1507.1121998577212,
+          "y": 525.2247890087207
+        },
+        {
+          "id": 32,
+          "type": "shot",
+          "text": "",
+          "time": 24.049999999999915,
+          "x": 1523.288025294114,
+          "y": 523.8798599223018
+        },
+        {
+          "id": 33,
+          "type": "step",
+          "text": "",
+          "time": 24.23333333333324,
+          "x": 1476.0363839616907,
+          "y": 673.0469907894668
+        },
+        {
+          "id": 34,
+          "type": "shot",
+          "text": "",
+          "time": 24.23333333333324,
+          "x": 1538.102686126181,
+          "y": 525.9676217471094
+        },
+        {
+          "id": 35,
+          "type": "shot",
+          "text": "",
+          "time": 24.41666666666656,
+          "x": 1554.2741920032204,
+          "y": 523.8732448899387
+        },
+        {
+          "id": 36,
+          "type": "explosion",
+          "text": "",
+          "time": 24.566666666666553,
+          "x": 2109.6666666666533,
+          "y": 670.4416342613846
+        }
+      ],
+      "eventId": 36,
+      "entityId": 10,
+      "relays": [],
+      "convoy": {
+        "x": 1144.9500000000262,
+        "y": 639.9447603246214,
+        "w": 112,
+        "h": 64,
+        "hp": 640,
+        "maxHp": 640,
+        "speed": 57,
+        "moving": true,
+        "arrived": false,
+        "label": "SAMI · FILTRES",
+        "cargo": 24,
+        "waitTime": 0
+      },
+      "civilians": [
+        {
+          "id": "civilian-1",
+          "x": 2760,
+          "y": 676.2623139676571,
+          "w": 18,
+          "h": 34,
+          "hp": 50,
+          "alive": true,
+          "safe": false,
+          "fleeing": false
+        },
+        {
+          "id": "civilian-2",
+          "x": 2910,
+          "y": 670.0250922487944,
+          "w": 18,
+          "h": 34,
+          "hp": 50,
+          "alive": true,
+          "safe": false,
+          "fleeing": false
+        },
+        {
+          "id": "civilian-3",
+          "x": 4540,
+          "y": 673.2752629884005,
+          "w": 18,
+          "h": 34,
+          "hp": 50,
+          "alive": true,
+          "safe": false,
+          "fleeing": false
+        }
+      ],
+      "evidence": {
+        "id": "MI01-evidence",
+        "x": 4660,
+        "y": 645.4835337681812,
+        "collected": false,
+        "scanning": false,
+        "scanProgress": 0,
+        "scanTime": 2.4,
+        "label": "MANIFESTE DES FILTRES"
+      },
+      "pickups": [
+        {
+          "id": "supply-0",
+          "x": 2430,
+          "y": 668.9421226990013,
+          "type": "repair",
+          "collected": false
+        },
+        {
+          "id": "supply-1",
+          "x": 3650,
+          "y": 649.1859225440164,
+          "type": "repair",
+          "collected": false
+        }
+      ],
+      "decision": {
+        "active": false,
+        "resolved": false,
+        "choice": null,
+        "title": "Une rue absente du manifeste",
+        "body": "Les vingt-quatre caisses sont déchargées au poste. Sami relève un nom absent : « Les Cales-Basses n’ont rien sur la feuille. Ils ont pourtant le même air que nous. » Holt répond : « Votre secteur s’arrête à la borne quarante-deux. Restez dans votre ordre. » Vous pouvez clore la livraison prévue ou joindre le signalement au compte rendu. Aucun filtre supplémentaire n’est disponible aujourd’hui.",
+        "options": [
+          {
+            "id": "obey",
+            "label": "Clore le bordereau prévu"
+          },
+          {
+            "id": "defy",
+            "label": "Joindre le signalement de Sami"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "passage",
+          "label": "Conduite rompue · réparation inscrite au retour",
+          "current": 1,
+          "target": 1,
+          "complete": true
+        },
+        {
+          "id": "escort",
+          "label": "Livrer les 24 caisses de filtres au poste",
+          "current": 1144,
+          "target": 4480,
+          "complete": false
+        },
+        {
+          "id": "evidence",
+          "label": "Après livraison, lire le manifeste avec Sami",
+          "current": 0,
+          "target": 1,
+          "complete": false
+        },
+        {
+          "id": "order",
+          "label": "Classer le compte rendu de livraison",
+          "current": 0,
+          "target": 1,
+          "complete": false
+        },
+        {
+          "id": "extract",
+          "label": "Rejoindre la rampe de retour au hangar",
+          "current": 0,
+          "target": 1,
+          "complete": false
+        }
+      ],
+      "extraction": {
+        "x": 4930,
+        "y": 685.2485552621168,
+        "active": false,
+        "radius": 110
+      },
+      "stats": {
+        "kills": 2,
+        "shots": 10,
+        "hits": 7,
+        "steps": 20,
+        "collateral": 0,
+        "damageTaken": 0,
+        "evidence": 0,
+        "ordersObeyed": 0,
+        "ordersDefied": 0,
+        "score": 200
+      },
+      "interaction": "",
+      "cameraShake": 0,
+      "lastStepGroup": 1,
+      "checkpointText": "Ordre reçu. Appuis au sol.",
+      "inputHeld": {
+        "stepA": false,
+        "stepB": false,
+        "interact": false,
+        "reload": false
+      },
+      "notified": {
+        "sami": true,
+        "pipe": true,
+        "ambush": true
+      },
+      "nextStep": 0,
+      "bossReleased": false,
+      "campaign": {
+        "missionId": "MI01",
+        "phase": "escort",
+        "route": "direct",
+        "pipeIntact": false,
+        "pipeDamage": 100,
+        "passageSecured": false,
+        "passageProgress": 0,
+        "passageWorking": false,
+        "filtersDelivered": false,
+        "filtersDeliveredCount": 0,
+        "manifestRead": false,
+        "noticeFiled": false,
+        "repairCost": 2,
+        "deliveryTime": null,
+        "convoyIntegrity": 1,
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      }
+    },
+    "preDecisionCheckpoint": null,
+    "lastDebrief": null,
+    "maintenanceLog": []
+  },
+  "completed": {
+    "format": "ordre-de-cendre.campaign",
+    "version": 1,
+    "revision": 2,
+    "stage": "complete",
+    "activeMissionId": null,
+    "completed": {
+      "MI01": {
+        "missionId": "MI01",
+        "missionName": "Le couloir quarante-deux",
+        "walkerId": "WK01",
+        "walkerName": "M-12 Vigie",
+        "hull": 520,
+        "integrity": 1,
+        "convoyIntegrity": 1,
+        "elapsed": 87.71666666666297,
+        "collateral": 2,
+        "kills": 7,
+        "route": "direct",
+        "pipeIntact": false,
+        "noticeFiled": true,
+        "choice": "defy",
+        "decisionLabel": "Signalement des Cales-Basses joint au bordereau",
+        "filtersDeliveredCount": 24,
+        "partsGranted": 4,
+        "pipeRepairCost": 2,
+        "tessLine": "La conduite a cédé sous un appui. Deux lots de raccords et une équipe : sans ça, les maisons en aval restent coupées. Les pertes civiles restent au rapport ; des raccords ne les effacent pas.",
+        "samiLine": "Tu as joint les Cales-Basses au bordereau. Ce n’est pas encore une livraison, mais leur nom est enfin sur une feuille signée."
+      }
+    },
+    "resources": {
+      "parts": 10
+    },
+    "crew": {
+      "tess": {
+        "trust": 44
+      },
+      "sami": {
+        "trust": 25
+      }
+    },
+    "authority": {
+      "reportFiled": true,
+      "suspicion": 1
+    },
+    "world": {
+      "vesper": {
+        "pipeIntact": false,
+        "pipeRepaired": false,
+        "servicesInterrupted": true,
+        "filtersDelivered": true,
+        "filtersDeliveredCount": 24,
+        "calesBassesExcluded": true,
+        "noticeFiled": true
+      }
+    },
+    "fleet": {
+      "WK01": {
+        "hull": 520,
+        "feet": [
+          100,
+          100
+        ]
+      },
+      "WK05": {
+        "hull": 730,
+        "feet": [
+          100,
+          100,
+          100,
+          100
+        ]
+      },
+      "WK09": {
+        "hull": 600,
+        "feet": [
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ]
+      }
+    },
+    "checkpoint": null,
+    "preDecisionCheckpoint": null,
+    "lastDebrief": {
+      "missionId": "MI01",
+      "missionName": "Le couloir quarante-deux",
+      "walkerId": "WK01",
+      "walkerName": "M-12 Vigie",
+      "hull": 520,
+      "integrity": 1,
+      "convoyIntegrity": 1,
+      "elapsed": 87.71666666666297,
+      "collateral": 2,
+      "kills": 7,
+      "route": "direct",
+      "pipeIntact": false,
+      "noticeFiled": true,
+      "choice": "defy",
+      "decisionLabel": "Signalement des Cales-Basses joint au bordereau",
+      "filtersDeliveredCount": 24,
+      "partsGranted": 4,
+      "pipeRepairCost": 2,
+      "tessLine": "La conduite a cédé sous un appui. Deux lots de raccords et une équipe : sans ça, les maisons en aval restent coupées. Les pertes civiles restent au rapport ; des raccords ne les effacent pas.",
+      "samiLine": "Tu as joint les Cales-Basses au bordereau. Ce n’est pas encore une livraison, mais leur nom est enfin sur une feuille signée."
+    },
+    "maintenanceLog": []
+  }
+}

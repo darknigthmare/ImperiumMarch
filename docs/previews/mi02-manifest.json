@@ -1,0 +1,45 @@
+{
+  "version": "0.3.0",
+  "type": "Canvas-only production renderer",
+  "renderer": "@napi-rs/canvas (Skia)",
+  "limitations": "No browser, HTML HUD, CSS, native input, audio, frame rate or human playability certification.",
+  "provenance": "Every state reached by createGame/updateGame/commandGame, without simulation state edits.",
+  "files": [
+    {
+      "file": "mi02-harpoons.png",
+      "title": "Libération du second harpon",
+      "missionId": "MI02",
+      "walkerId": "WK01",
+      "elapsed": 17.083333333333645,
+      "trainX": 2280,
+      "phase": "release",
+      "hostagesRescued": 0,
+      "hostagesLost": 0,
+      "evidencePreserved": true
+    },
+    {
+      "file": "mi02-braking.png",
+      "title": "Liaison de freinage du train",
+      "missionId": "MI02",
+      "walkerId": "WK01",
+      "elapsed": 30.483333333332883,
+      "trainX": 2542.53333333342,
+      "phase": "pursuit",
+      "hostagesRescued": 0,
+      "hostagesLost": 0,
+      "evidencePreserved": true
+    },
+    {
+      "file": "mi02-rescue.png",
+      "title": "Wagon ouvert et registre inspecté",
+      "missionId": "MI02",
+      "walkerId": "WK01",
+      "elapsed": 40.616666666665644,
+      "trainX": 2595.3333333334376,
+      "phase": "report",
+      "hostagesRescued": 8,
+      "hostagesLost": 0,
+      "evidencePreserved": true
+    }
+  ]
+}
