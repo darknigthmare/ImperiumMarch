@@ -11,6 +11,7 @@ La 0.8 ajoute MI07, **Une ambulance sans escorte**, aux six missions précédent
 | Contrôle | Résultat |
 | --- | --- |
 | Suite Node locale | **212 tests réussis**, zéro échec, zéro ignoré ; Node **v24.22.1**. |
+| CI du correctif publié | **212 tests et 45 parcours UI réussis**, Node **v22.23.4**, commit `816a02aec27c5286e20b705fbf234caa269968fb`. |
 | Nouveaux tests MI07 | **22 tests**, dont six châssis × deux destinations et repli par remorquage. |
 | Nouveaux tests de dossier v7 | **14 tests** : migrations, cohérence, reprises, classement unique et échec terminal. |
 | Interface du script autonome | **45 parcours réussis** dans le DOM modélisé, dont onze nouveaux flux MI07. |
@@ -57,11 +58,28 @@ Les contrôles du véritable XLSX réconcilient ses fiches et cellules avec `dat
 
 ## Publication et navigateur
 
-La publication doit comparer le snapshot figé à l’arbre distant complet, confirmer la CI et le SHA exact du déploiement Vercel, puis vérifier les octets des ressources servies. Les observations réalisées dans Chrome partagé sont consignées séparément dans `docs/validation/v08-browser.json`, avec les points préparés, les actions réellement effectuées et les limites du parcours.
+Les [reçus de publication](validation/v08-publication.json) comparent le snapshot figé à l’arbre distant complet, confirment la CI et le SHA exact du déploiement Vercel, puis vérifient les octets des dix ressources servies. Les observations réalisées dans Chrome partagé sont consignées séparément dans [v08-browser.json](validation/v08-browser.json), avec les points préparés, les actions réellement effectuées et les limites du parcours.
 
 Le [contrôle natif initial](validation/v08-browser-initial.json), sur le commit publié `d79dd2fe832920794d1265271a4bf9cedaca9637`, a confirmé la migration v6 vers v7 : l’ensemble du dossier historique est inchangé après rétablissement du numéro v6 et retrait du nouveau dossier sanitaire. Les six rapports, les ressources et le registre de carburant restent identiques. MI07 a été lancée par l’interface, puis un point de transfert atteint par commandes publiques dans Node a été importé par le sélecteur de fichier.
 
-Les exports réels avant et après rechargement conservent exactement le checkpoint complet, avec un travail de chariots à 36,664 %. Seul le compteur de captures passe de 117 à 119. La progression visible reprend ensuite avec les frames réellement exécutées. Cette première observation a aussi révélé deux cartes Canvas superposées au HUD gauche ; la [capture avant correction](previews/browser-v08-transfer-before-fix.jpg) conserve ce défaut. Sa correction et le contrôle final sont suivis séparément.
+Les exports réels avant et après rechargement conservent exactement le checkpoint complet, avec un travail de chariots à 36,664 %. Seul le compteur de captures passe de 117 à 119. La progression visible reprend ensuite avec les frames réellement exécutées. Cette première observation a aussi révélé deux cartes Canvas superposées au HUD gauche ; la [capture avant correction](previews/browser-v08-transfer-before-fix.jpg) conserve ce défaut.
+
+Le correctif déplace les cartes sanitaires dans une colonne centrale. Les neuf états complets et leurs métadonnées de scène restent strictement identiques ; les PNG sont régénérés et relus. Les constructions et contrôles requis sont repassés, puis la CI du commit corrigé a réexécuté les 212 tests et les 45 parcours UI. Simulation, campagne, contenu, gestionnaires d’interface et classeur restent inchangés.
+
+### Parcours natif final
+
+Chrome partagé a ouvert le correctif publié `816a02aec27c5286e20b705fbf234caa269968fb`, au viewport **1363 × 936**. La [capture corrigée](previews/browser-v08-transfer.jpg) montre les deux cartes hors des objectifs, de la radio et des jauges. La mesure du Canvas et le placement du renderer donnent environ 219 px de séparation horizontale avec le HUD gauche et 150 px avec la zone radio ; le prompt garde 14 px au-dessus des instruments inférieurs. Ces constats portent sur ce viewport de bureau.
+
+| Étape exécutée dans Chrome | Résultat conservé |
+| --- | --- |
+| Rechargement sur le déploiement corrigé | Checkpoint entier inchangé, chariots à **74,332 %** ; seul le compteur de captures passe de 124 à 126. |
+| Reprise du travail des chariots | Travail terminé à portée ; les personnes passent ensuite en transfert. |
+| Arrivées individuelles | Observation intermédiaire de deux patients et deux membres d’équipe arrivés, puis **quatre patients et deux membres d’équipe**, sans perte. |
+| Extraction au clavier | Rapport MI07 obtenu après progression par la touche D ; choix civil, ambulance conservée, pièce, attaches et journal de balise conservés. |
+| Hangar et export final | **7 rapports**, les six précédents inchangés ; conséquences du chenal et de la digue inchangées ; **34 pièces, stock carburant 0, dépense cumulée 2**. |
+| Dernier rechargement et export | **Dossier complet strictement identique**, sans dotation supplémentaire. Le parseur de production et le passage par sérialisation conservent cet export exactement. |
+
+La [capture du rapport](previews/browser-v08-report.jpg) et les exports complets accompagnent la preuve. Le parcours natif a repris un checkpoint préparé par le pilote public dans Node : l’interception, les combats, les examens, les contacts, le choix, la rampe et le trajet initial du véhicule n’ont pas été rejoués depuis le départ dans Chrome. La continuation native couvre le transfert, les arrivées, l’extraction et la persistance avec WK09 vers l’accueil civil. Les autres châssis, destinations et pertes relèvent des tests de simulation séparés.
 
 ## Limites maintenues
 

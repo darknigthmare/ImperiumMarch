@@ -1,0 +1,367 @@
+{
+  "applicationVersion": "0.8.0",
+  "saveVersion": 7,
+  "observedAt": "2026-11-11T09:26:39.199Z",
+  "url": "https://imperium-march.vercel.app/",
+  "publishedSourceCommit": "816a02aec27c5286e20b705fbf234caa269968fb",
+  "deploymentId": "dpl_7iu5U9tiadVKz7NHrWPbYANYkew7",
+  "initialApplicationCommit": "d79dd2fe832920794d1265271a4bf9cedaca9637",
+  "initialObservation": "docs/validation/v08-browser-initial.json",
+  "environment": {
+    "browser": "Chrome shared cloud browser",
+    "viewport": {
+      "height": 936,
+      "width": 1363
+    },
+    "browserNativeUi": true,
+    "inPageStateInjection": false,
+    "controls": "Page controls, native file chooser and downloads, held D input, read-only DOM text and geometry."
+  },
+  "migration": {
+    "formatBefore": 6,
+    "formatAfter": 7,
+    "wholeHistoricalDossierUnchanged": true,
+    "onlyChanges": [
+      "version: 6 to 7",
+      "world.nacre.ambulance: unvisited default dossier"
+    ],
+    "reportsPreserved": [
+      "MI01",
+      "MI02",
+      "MI03",
+      "MI04",
+      "MI05",
+      "MI06"
+    ],
+    "resourcesUnchanged": true,
+    "resources": {
+      "parts": 30,
+      "fuel": 0
+    },
+    "cumulativeFuelSpent": 2,
+    "revisionBefore": 23,
+    "revisionAfter": 23,
+    "sourceCommit": "d79dd2fe832920794d1265271a4bf9cedaca9637"
+  },
+  "freshLaunch": {
+    "missionId": "MI07",
+    "walkerId": "WK09",
+    "elapsed": 0.3667000000000007,
+    "playerX": 319.583912354909,
+    "steps": 1,
+    "scope": "MI07 briefing opened, deployed via page button, D held for 1500 ms, paused and exported through UI.",
+    "sourceCommit": "d79dd2fe832920794d1265271a4bf9cedaca9637"
+  },
+  "checkpointImport": {
+    "source": "docs/validation/v08-browser-transfer-input.json",
+    "preparation": "Authentic native v6 completed dossier migrated with production campaign code. MI07 WK09 seed1847 normal assist; public pilot until handover progress >=0.35, repeated checkpoint capture, serialization and exact restoration verified.",
+    "elapsed": 174.38333333336425,
+    "handoverProgress": 0.3500000000000003,
+    "scope": "Interception, combat, inspection, beacon removal, witnesses, destination choice, ramp, reception and vehicle journey were prepared by public Node controls; they were not replayed from spawn in Chrome."
+  },
+  "pauseReload": {
+    "exactCheckpointUnchanged": true,
+    "entireDossierUnchangedExceptRevision": true,
+    "changedTopLevelFields": [
+      "revision"
+    ],
+    "revisionBefore": 117,
+    "revisionAfter": 119,
+    "handoverProgressBefore": 0.36664000000000047,
+    "handoverProgressAfter": 0.36664000000000047,
+    "comparison": "Real UI exports before and after page reload, before resuming simulation.",
+    "hudBefore": {
+      "ambulance-beacon": "BALISE RÉCUPÉRÉE · ORIGINE À RECOUPER",
+      "ambulance-cargo": "CARGAISON SANITAIRE VÉRIFIÉE",
+      "ambulance-people": "0 / 4 PATIENTS ARRIVÉS · 0 PERDUS · ÉQUIPE 2 / 2",
+      "ambulance-route": "RAMPE PRINCIPALE · PRÊTE · ACCUEIL CIVIL",
+      "ambulance-stage": "TRANSFERT SANITAIRE EN COURS",
+      "hud-interaction": "Chariots et constat 35 %",
+      "hud-timer": "02:54",
+      "hull-value": "100%"
+    },
+    "hudAfterResumingAndPausing": {
+      "ambulance-beacon": "BALISE RÉCUPÉRÉE · ORIGINE À RECOUPER",
+      "ambulance-cargo": "CARGAISON SANITAIRE VÉRIFIÉE",
+      "ambulance-people": "0 / 4 PATIENTS ARRIVÉS · 0 PERDUS · ÉQUIPE 2 / 2",
+      "ambulance-route": "RAMPE PRINCIPALE · PRÊTE · ACCUEIL CIVIL",
+      "ambulance-stage": "TRANSFERT SANITAIRE EN COURS",
+      "hud-interaction": "Chariots et constat 37 %",
+      "hud-timer": "02:54",
+      "hull-value": "100%"
+    },
+    "hudNote": "The displayed percentage advances from 35 to37 after actual frames around resume/pause. It is not claimed identical; exported checkpoints before resume are exactly identical."
+  },
+  "visualCorrection": {
+    "reason": "Ambulance progress and cargo/beacon Canvas cards overlapped the left HTML objectives in the initial Chrome observation.",
+    "initialImage": "docs/previews/browser-v08-transfer-before-fix.jpg",
+    "correctedImage": "docs/previews/browser-v08-transfer.jpg",
+    "correctedSourceCommit": "816a02aec27c5286e20b705fbf234caa269968fb",
+    "observedClear": true,
+    "actualDomGeometry": {
+      "ambulance": {
+        "bottom": 532.6875,
+        "height": 110.859375,
+        "right": 380.875,
+        "width": 335.90625,
+        "x": 44.96875,
+        "y": 421.828125
+      },
+      "canvas": {
+        "bottom": 851.34375,
+        "height": 766.6875,
+        "right": 1363,
+        "width": 1363,
+        "x": 0,
+        "y": 84.65625
+      },
+      "instruments": {
+        "bottom": 793.84375,
+        "height": 119.3125,
+        "right": 1318.03125,
+        "width": 1273.0625,
+        "x": 44.96875,
+        "y": 674.53125
+      },
+      "objectives": {
+        "bottom": 532.6875,
+        "height": 325.375,
+        "right": 380.875,
+        "width": 335.90625,
+        "x": 44.96875,
+        "y": 207.3125
+      },
+      "prompt": {
+        "bottom": 660.53125,
+        "height": 36.359375,
+        "right": 780.8828125,
+        "width": 198.765625,
+        "x": 582.1171875,
+        "y": 624.171875
+      },
+      "radio": {
+        "bottom": 260.828125,
+        "height": 45.84375,
+        "right": 1318.03125,
+        "width": 268.84375,
+        "x": 1049.1875,
+        "y": 214.984375
+      },
+      "viewport": {
+        "height": 936,
+        "width": 1363
+      }
+    },
+    "projectedCanvasCardBounds": {
+      "x": 599.72,
+      "right": 899.58,
+      "y": 324.03312500000004,
+      "bottom": 441.591875,
+      "scope": "Projection of the two Canvas cards from the corrected production renderer and measured CSS canvas rectangle, visually checked in the native screenshot; these are not DOM element bounds."
+    },
+    "horizontalGapToLeftHudPx": 218.84500000000003,
+    "horizontalGapToRightRadioPx": 149.60749999999996,
+    "verticalGapToLowerGaugesPx": 232.93937499999998,
+    "promptToLowerGaugesGapPx": 14.0,
+    "unchangedSimulationState": "All nine source-pilot preview states and scene metadata were compared exactly with the initial release; renderer calls remain non-mutating.",
+    "nativeScope": "Desktop1363x936; corrected two-card transfer scene inspected with actual HTML HUD. Other nine Canvas scenes inspected separately."
+  },
+  "correctedDeploymentReload": {
+    "checkpointExactlyUnchanged": true,
+    "entireDossierUnchangedExceptRevision": true,
+    "revisionBefore": 124,
+    "revisionAfter": 126,
+    "handoverProgress": 0.743320000000001,
+    "resourcesUnchanged": true,
+    "previousSixReportsUnchanged": true,
+    "files": [
+      "docs/validation/v08-browser-before-visual-fix.json",
+      "docs/validation/v08-browser-after-visual-fix.json"
+    ]
+  },
+  "nativeContinuation": {
+    "initialHandoverProgress": 0.743320000000001,
+    "inputs": [
+      {
+        "key": "space",
+        "durationMs": 30000
+      },
+      {
+        "key": "d",
+        "durationMs": 30000
+      },
+      {
+        "key": "d",
+        "durationMs": 30000
+      },
+      {
+        "key": "d",
+        "durationMs": 30000
+      },
+      {
+        "key": "d",
+        "durationMs": 30000
+      }
+    ],
+    "handoverCompleted": true,
+    "individualArrivalObserved": {
+      "afterFirstD": "2 patients arrived, 0 lost; 2 staff arrived, 0 lost;4/6",
+      "afterSecondD": "4 patients arrived,0 lost;2 staff arrived,0 lost;6/6"
+    },
+    "extractionReachedByKeyboard": true,
+    "scope": "Actual page resume, held Space, held D, result dialog, workshop, campaign menu, exports and final page reload. No page-state injection; no direct hidden-state access. The earlier interception and evidence collection came from the documented Node checkpoint."
+  },
+  "completion": {
+    "finalProgress": "7 / 7 RAPPORTS CLASSÉS",
+    "report": {
+      "missionId": "MI07",
+      "missionName": "Une ambulance sans escorte",
+      "walkerId": "WK09",
+      "walkerName": "H-6 Pèlerin",
+      "hull": 600,
+      "integrity": 1,
+      "elapsed": 199.74753333336736,
+      "collateral": 0,
+      "kills": 7,
+      "choice": "defy",
+      "partsGranted": 4,
+      "tessLine": "4 patients sont arrivés à l’accueil, 0 sont morts. 2 membres de l’équipe sanitaire ont survécu ; 2 ont rejoint l’accueil. La balise, ses attaches et son journal sont conservés. Leur origine matérielle n’établit pas encore qui a ordonné la pose.",
+      "samiLine": "Le transfert a été dirigé vers l’accueil civil. Le véhicule est conservé pour les soins. L’accord à témoigner a été recueilli pendant la sortie. Cette personne est encore vivante. Mara a effectivement reçu le relevé par radio.",
+      "stopCalled": true,
+      "stopCleared": true,
+      "vehicleStopped": true,
+      "consentObtained": true,
+      "cargoInspected": true,
+      "medicalCargoVerified": true,
+      "beaconResolved": true,
+      "beaconRecovered": true,
+      "beaconDestroyed": false,
+      "fixingsPreserved": true,
+      "beaconLogCopied": true,
+      "provenanceVerified": false,
+      "witnessConsent": true,
+      "witnessAvailable": true,
+      "maraContacted": true,
+      "technicalHelpRequested": true,
+      "rampPrepared": true,
+      "receptionReady": true,
+      "transferOrdered": true,
+      "transferResolved": true,
+      "vehicleDestroyed": false,
+      "vehicleRecovered": true,
+      "vehicleSeized": false,
+      "manifestRead": true,
+      "reportFiled": true,
+      "patientsTotal": 4,
+      "patientsArrived": 4,
+      "patientsLost": 0,
+      "staffTotal": 2,
+      "staffAlive": 2,
+      "staffLost": 0,
+      "staffArrived": 2,
+      "destination": "clinic",
+      "route": "main",
+      "witnessId": "ambulance-driver",
+      "decisionLabel": "Transfert civil et constat sanitaire joints au rapport"
+    },
+    "previousSixReportsComparedAndUnchanged": true,
+    "nacrePassageAndDikeComparedAndUnchanged": true,
+    "resources": {
+      "parts": 34,
+      "fuel": 0
+    },
+    "cumulativeFuelSpent": 2,
+    "partsGrantedExactlyOnce": 4,
+    "finalExportParsedAndReserializedExactly": true,
+    "finalExportCompletelyUnchangedAfterReload": true,
+    "workshopText": {
+      "workshop-ambulance": "Salines : 4 patients arrivés, 0 perdus ; 2 membres de l’équipe vivants. Accueil civil. Balise, attaches et journal conservés ; origine de la pose à recouper. Un accord à témoigner a été recueilli.",
+      "workshop-dike": "Trois-Vannes : 10 habitants à l’abri, 0 perdus ; 0 logements inhabitables. 2 techniciens vivants. La dérivation a été accomplie. Cette dernière sortie a utilisé 2 lots de carburant.",
+      "workshop-fuel": "0 LOT DE CARBURANT EN RÉSERVE",
+      "workshop-fuel-used": "2 LOTS DÉJÀ UTILISÉS AUX TROIS-VANNES",
+      "workshop-parts": "34 LOTS D’ATELIER"
+    }
+  },
+  "evidenceFiles": {
+    "docs/validation/v08-browser-migration-before.json": {
+      "bytes": 9260,
+      "sha256": "6e4033f0e9b7de79b76562ccaa2f101fd763d737919c4c6edd0ab7ad73ede7a8"
+    },
+    "docs/validation/v08-browser-migration-after.json": {
+      "bytes": 10047,
+      "sha256": "cfafcba2c5ecd699ba719528ee75f7d846170dd76ef3e354043c438c6ed41bb4"
+    },
+    "docs/validation/v08-browser-launch.json": {
+      "bytes": 26274,
+      "sha256": "c729aab3652b3fcd3e841fd0a365ba84827a27931f4a896fc362aecff2e14c44"
+    },
+    "docs/validation/v08-browser-transfer-input.json": {
+      "bytes": 67739,
+      "sha256": "3f8e855811cf5e789feb649dd192fcf428fc228e04141bb15ef40a2c19ec2806"
+    },
+    "docs/validation/v08-browser-transfer-paused.json": {
+      "bytes": 67336,
+      "sha256": "92152351e5e799ea1cadf0a3ae1fffc7dd9c067f826397842465e9a84d3410a9"
+    },
+    "docs/validation/v08-browser-transfer-reloaded.json": {
+      "bytes": 67336,
+      "sha256": "9b01a198efd794b55881bc27355ac82eca4ea69fc6ce0a9f11cf9297f6357444"
+    },
+    "docs/validation/v08-browser-before-visual-fix.json": {
+      "bytes": 62168,
+      "sha256": "73fdaac2f48bd880e688c9e25bbf40226773c54a272d5c262043937eda642321"
+    },
+    "docs/previews/browser-v08-transfer-before-fix.jpg": {
+      "bytes": 98183,
+      "sha256": "7fe04b2758f25e514302edc5d346278a0c69d83fd3bd09287fa01964cb3153b7",
+      "mimeType": "image/jpeg",
+      "width": 1363,
+      "height": 936
+    },
+    "docs/validation/v08-browser-after-visual-fix.json": {
+      "bytes": 62168,
+      "sha256": "beb024fc64e9735eb457c79e5eaf9082e10140296ce29d65c84eed65f43180a6"
+    },
+    "docs/validation/v08-browser-completed.json": {
+      "bytes": 38351,
+      "sha256": "8eeae36f338aac4ed5916330443fb7fd77c36f8b960d1c0f76fa1febd5c71252"
+    },
+    "docs/validation/v08-browser-completed-reloaded.json": {
+      "bytes": 38351,
+      "sha256": "8eeae36f338aac4ed5916330443fb7fd77c36f8b960d1c0f76fa1febd5c71252"
+    },
+    "docs/previews/browser-v08-transfer.jpg": {
+      "bytes": 101649,
+      "sha256": "50fc9e9007c31fcb720ed8529a0bd3fb7193d7f5a5bd3a670d03212fd1403ed1",
+      "mimeType": "image/jpeg",
+      "width": 1363,
+      "height": 936
+    },
+    "docs/previews/browser-v08-patients-moving.jpg": {
+      "bytes": 104954,
+      "sha256": "3b7a60cfcf979db2e60a64febfceaad634641693a437d2de5356340e7c47af78",
+      "mimeType": "image/jpeg",
+      "width": 1363,
+      "height": 936
+    },
+    "docs/previews/browser-v08-report.jpg": {
+      "bytes": 85699,
+      "sha256": "062078e61b021d07a012736725c96a1138a99ab43e3e13e2f7bc95abebfd5a96",
+      "mimeType": "image/jpeg",
+      "width": 1363,
+      "height": 936
+    },
+    "docs/validation/v08-publication.json": {
+      "bytes": 12673,
+      "sha256": "53415c2df857ca7a6a2af4c8b700174616b494cb3416bde5db3a782ece835ab8"
+    }
+  },
+  "limits": [
+    "Only one WK09 civil-destination continuation was finished in native Chrome. The six-chassis/two-destination and degraded scenarios belong to separate simulation tests.",
+    "Most of MI07 before handover was prepared by the public Node pilot, then imported through the real file chooser. This is not a full mission played from spawn in Chrome.",
+    "Held keyboard wall times reflect this cloud browser, not target-device frame rate, performance or human difficulty.",
+    "Audio, touch hardware, broad responsive-layout coverage and human usability remain unvalidated.",
+    "Native JPEG screenshots are separate from the nine Canvas PNG scenes; the before-fix JPEG intentionally records the corrected defect."
+  ],
+  "finalBrowserState": "Campaign menu, MI07 report retained after reload and export. Tab marked as deliverable."
+}

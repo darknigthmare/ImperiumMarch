@@ -58,9 +58,9 @@ npm run build:web
 - **Un transfert après le choix.** Le poste médical impérial et l'accueil civil sont des destinations distinctes. Choisir n'accorde aucune arrivée : le véhicule et son équipe doivent parcourir la route. Patients arrivés, pertes, personnel, véhicule saisi ou conservé et accord à témoigner gardent leurs propres faits.
 - **Une sauvegarde v7.** Les vrais dossiers v1 à v6 restent importables. La nouvelle migration conserve intégralement la scène de MI06, ses rapports et son carburant. Aucun lot n'est ajouté par le passage à MI07.
 
-![MI07 : examen de la caisse sanitaire](docs/previews/mi07-consent-examination.png)
+![MI07 dans Chrome : les patients rejoignent l’accueil civil](docs/previews/browser-v08-patients-moving.jpg)
 
-*Rendu Canvas de production atteint par commandes publiques. Ce n’est pas une capture du navigateur ; les instruments HTML sont absents de cette image.*
+*Capture réelle du site publié dans Chrome. Le parcours reprend un point de transfert préparé par les commandes publiques de simulation ; les patients rejoignent ensuite l’accueil dans le navigateur. Le [rapport navigateur](docs/validation/v08-browser.json) distingue précisément la préparation et les actions natives.*
 
 Le [contrat MI07](docs/CAMPAIGN_MISSION_07.md), le [dossier v7](docs/CAMPAIGN_SAVE_V7.md) et les [conséquences de Nacre](docs/NACRE_CONSEQUENCES_V08.md) précisent les interactions, les variantes et leurs limites.
 
@@ -233,6 +233,8 @@ Les boutons tactiles sont présents. Leur ergonomie sur matériel réel reste à
 ## Vérification et prochaine étape
 
 La version passe **212 tests Node** et **45 parcours d’interface** dans le DOM modélisé. L’audit indépendant couvre **18 variantes**, **3 054 sauvegardes suivies de réimportation** et **1 878 restaurations exactes**. La [validation 0.8](docs/QA_V08.md) distingue les contrôles de simulation, les migrations historiques, les parcours d’interface dans un DOM modélisé, les rendus Canvas, le classeur recalculé et le navigateur réel. Les parcours MI07 couvrent les six châssis, les deux destinations, les interruptions, les pertes et les solutions de constat ou de remorquage. Une source perdue ne crée pas de preuve ; une relecture ne modifie pas le premier dossier.
+
+**Chrome a également achevé une continuation MI07 avec le Pèlerin vers l’accueil civil** : quatre patients et deux membres du personnel arrivés, zéro perte, balise conservée et sept rapports classés. Les six anciens rapports et les conséquences de MI05–MI06 restent identiques. Le dossier final, avec 34 pièces d’atelier, zéro carburant en réserve et deux lots consommés, reste entièrement identique après rechargement. Ce parcours a permis de corriger le chevauchement des cartes Canvas avec les objectifs ; la capture ci-dessus montre la disposition corrigée. Il ne remplace pas un essai humain ni la matrice de simulation des six châssis.
 
 Le site de jeu est [imperium-march.vercel.app](https://imperium-march.vercel.app/). Le [suivi de publication](docs/DEPLOYMENT.md) identifie le commit distant, le déploiement exact, la CI et les observations de navigateur effectivement réalisées. Les captures Canvas restent distinctes de ces observations.
 

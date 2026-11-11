@@ -59,6 +59,19 @@ Les neuf rendus MI07 sont reproductibles avec `tools/render-mi07-previews.mjs` :
 
 Ils partent des deux dossiers de digue de la fixture historique v6 authentique, puis utilisent les seules commandes publiques du pilote MI07. Les dégâts des variantes destructives proviennent des tirs, sans affectation directe d’une santé, d’une arrivée ou d’un résultat. Le manifeste conserve neuf snapshots complets copiés profondément ; le générateur vérifie leur indépendance et l’absence de mutation par le renderer.
 
-Le véhicule, la caisse, la balise, les deux membres d’équipe, les quatre chariots, les barrières, les radios, la rampe et les postes d’accueil sont dessinés par le code original du projet. Les volumes visibles suivent la simulation. La troisième ligne du panneau distingue arrivés, en route, à bord et perdus. Le libellé de rampe est porté au-dessus des grandes jambes pour conserver sa lisibilité, sans déplacer l’objet physique.
+Le véhicule, la caisse, la balise, les deux membres d’équipe, les quatre chariots, les barrières, les radios, la rampe et les postes d’accueil sont dessinés par le code original du projet. Les volumes visibles suivent la simulation. La troisième ligne du panneau distingue arrivés, en route, à bord et perdus. Après le contrôle natif, les cartes sanitaires, de rampe et d’annonce des drones occupent une colonne centrale du viewport, pour dégager les objectifs HTML à gauche. Ce placement ne déplace aucun objet physique et les neuf états de scène sont restés identiques.
 
 Ces images sont des rendus Canvas avec le prompt intégré par défaut. Elles ne comprennent pas les instruments HTML et ne certifient ni CSS, ni navigateur, ni performance. Aucun nouvel asset généré par image, aucune police embarquée et aucun élément extrait d’un autre jeu n’ont été ajoutés pour MI07.
+
+## Captures natives de la 0.8
+
+Les quatre fichiers suivants sont les octets JPEG obtenus directement dans Chrome sur le site publié, au viewport **1363 × 936**, sans recomposition ni retouche.
+
+| Fichier dans `docs/previews/` | Observation |
+| --- | --- |
+| `browser-v08-transfer-before-fix.jpg` | Ancien placement recouvrant les objectifs, commit initial `d79dd2fe832920794d1265271a4bf9cedaca9637`. |
+| `browser-v08-transfer.jpg` | Cartes déplacées au centre, chariots encore en préparation, correctif `816a02aec27c5286e20b705fbf234caa269968fb`. |
+| `browser-v08-patients-moving.jpg` | Chariots sortis du véhicule, quatre patients encore en route vers l’accueil. |
+| `browser-v08-report.jpg` | Rapport obtenu après transfert, arrivées et extraction dans Chrome : quatre patients et deux membres d’équipe arrivés, aucune perte. |
+
+Le début de la mission provient d’un checkpoint atteint avec les commandes publiques de simulation dans Node, puis importé par le sélecteur de fichier. Les captures montrent la continuation native, pas une partie entière jouée depuis le départ dans Chrome. [v08-browser.json](validation/v08-browser.json) conserve les actions, la reprise exacte, les limites et les empreintes de chaque fichier. Les neuf PNG `mi07-*` restent des rendus Canvas séparés.

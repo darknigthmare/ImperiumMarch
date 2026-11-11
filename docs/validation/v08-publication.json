@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 1,
+  "gameVersion": "0.8.0",
+  "saveVersion": 7,
+  "publicationStage": "visual correction after initial Chrome observation",
+  "repository": "https://github.com/darknigthmare/ImperiumMarch",
+  "branch": "main",
+  "publishedCommit": "816a02aec27c5286e20b705fbf234caa269968fb",
+  "commitUrl": "https://github.com/darknigthmare/ImperiumMarch/commit/816a02aec27c5286e20b705fbf234caa269968fb",
+  "publishedTree": "3eaa42c603ee552036f2fe0dd1a804804667d8eb",
+  "parent": "d79dd2fe832920794d1265271a4bf9cedaca9637",
+  "localSourceCommit": "be087371f9342968e41f5e72cae649c971af5a3e",
+  "localSourceTree": "3eaa42c603ee552036f2fe0dd1a804804667d8eb",
+  "snapshot": {
+    "path": "/workspace/scratch/47882a75de66/publication-v08-corrected",
+    "files": 324,
+    "bytes": 56243357,
+    "createdFromCleanPinnedCommit": true
+  },
+  "manifest": {
+    "path": "/workspace/scratch/47882a75de66/publication-v08-corrected-manifest.json",
+    "sha256": "46fd38845c55fcd33fb4efcc10a7d68b09bed7df48f07f1528eefcc6b09e394d"
+  },
+  "releaseVerification": {
+    "path": "docs/validation/v08-release-checks.json",
+    "fingerprintsVerified": 36,
+    "changedFingerprintCount": 13,
+    "changedFingerprints": [
+      "src/renderer.mjs",
+      "dist/Ordre_de_Cendre.html",
+      "tools/render-mi07-previews.mjs",
+      "docs/previews/mi07-render-manifest.json",
+      "docs/previews/mi07-ambulance-wreck.png",
+      "docs/previews/mi07-beacon-removal.png",
+      "docs/previews/mi07-consent-examination.png",
+      "docs/previews/mi07-imperial-arrival.png",
+      "docs/previews/mi07-manual-tow.png",
+      "docs/previews/mi07-patient-transfer.png",
+      "docs/previews/mi07-secondary-ramp.png",
+      "docs/previews/mi07-seizure-arrival.png",
+      "docs/previews/mi07-stop-arrival.png"
+    ],
+    "allSizesAndSha256Match": true
+  },
+  "preservedFromInitialPublication": {
+    "referenceCommit": "d79dd2fe832920794d1265271a4bf9cedaca9637",
+    "unchangedFiles": [
+      {
+        "path": "src/simulation.mjs",
+        "bytes": 177338,
+        "sha256": "aa86fec4b762d8bfd14675fb731fbc19252ccfbca2b3af1586e1ff858d5a32a2"
+      },
+      {
+        "path": "src/campaign.mjs",
+        "bytes": 124006,
+        "sha256": "a352c886a39bb80afaee37a53fbe917af8222a4a5c35642995212e79dba8df60"
+      },
+      {
+        "path": "src/content.mjs",
+        "bytes": 26145,
+        "sha256": "211b06c1ad103095b4609cac1b01ba4c8d1e9d5484444f1cdf0603982d7c5424"
+      },
+      {
+        "path": "src/main.mjs",
+        "bytes": 75155,
+        "sha256": "75ddf1a76f70d6f9061ef725ee12380f44b442858a12cf53087b9738aa0a75a5"
+      },
+      {
+        "path": "src/audio.mjs",
+        "bytes": 3760,
+        "sha256": "3184994081dc55329e23ee016a6eba8cbc2e40641c274df6cb443e23295efd92"
+      },
+      {
+        "path": "src/style.css",
+        "bytes": 21664,
+        "sha256": "8090bbab3b4d0b9c920625a94b023e7197065ae742e959827b2c0b35876e5c35"
+      },
+      {
+        "path": "src/ui.css",
+        "bytes": 14365,
+        "sha256": "177533d784ada32fecdacb8bd987d0aada274364e6f3f9685c6cb44eed040d12"
+      },
+      {
+        "path": "index.html",
+        "bytes": 20253,
+        "sha256": "d817b30a6a0645504b7aa858136b1b3d3b8aea231daf15825c3961b47dc77a28"
+      },
+      {
+        "path": "data/bible.json",
+        "bytes": 392418,
+        "sha256": "91c50ed7bd1dcf4fa267de68a1708535848af8fb48901b9e18f043d048c7b8ef"
+      },
+      {
+        "path": "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+        "bytes": 168792,
+        "sha256": "726c2d8a3464af1cd934574942da5c2ccc0cbfc0dcf12d5874fa26deb30835cb"
+      },
+      {
+        "path": "docs/validation/v08-campaign-audit.json",
+        "bytes": 26014,
+        "sha256": "5b36656ab2ad0160bdf256fbc48be565f30376785a7d42f7a0e0d18f2b54d465"
+      },
+      {
+        "path": "tests/helpers/mi07-driver.mjs",
+        "bytes": 6702,
+        "sha256": "2d465771f34b997e8681e74730b0249a34c184fd3370ec7418cfc5839695120c"
+      },
+      {
+        "path": "tests/fixtures/campaign-v6-mi06.json",
+        "bytes": 231369,
+        "sha256": "e7ea0548ce459ef3a7d378a1892b7bfde4c591630eaec1e67c99c8b75e95b12c"
+      }
+    ],
+    "sceneComparison": [
+      {
+        "file": "mi07-stop-arrival.png",
+        "stateUnchanged": true,
+        "elapsed": 45.949999999998674
+      },
+      {
+        "file": "mi07-consent-examination.png",
+        "stateUnchanged": true,
+        "elapsed": 50.7999999999984
+      },
+      {
+        "file": "mi07-beacon-removal.png",
+        "stateUnchanged": true,
+        "elapsed": 54.64999999999818
+      },
+      {
+        "file": "mi07-seizure-arrival.png",
+        "stateUnchanged": true,
+        "elapsed": 67.14999999999748
+      },
+      {
+        "file": "mi07-patient-transfer.png",
+        "stateUnchanged": true,
+        "elapsed": 179.9000000000353
+      },
+      {
+        "file": "mi07-secondary-ramp.png",
+        "stateUnchanged": true,
+        "elapsed": 100.29999999999559
+      },
+      {
+        "file": "mi07-imperial-arrival.png",
+        "stateUnchanged": true,
+        "elapsed": 177.96666666670043
+      },
+      {
+        "file": "mi07-ambulance-wreck.png",
+        "stateUnchanged": true,
+        "elapsed": 60.349999999997856
+      },
+      {
+        "file": "mi07-manual-tow.png",
+        "stateUnchanged": true,
+        "elapsed": 177.11666666669976
+      }
+    ],
+    "allNineSceneStatesIdentical": true,
+    "xlsxSha256": "726c2d8a3464af1cd934574942da5c2ccc0cbfc0dcf12d5874fa26deb30835cb"
+  },
+  "transfer": {
+    "changedFiles": 26,
+    "newUniqueBlobs": 25,
+    "newBlobBytes": 13367917,
+    "deletedFiles": 0,
+    "changedPaths": [
+      "README.md",
+      "dist/Ordre_de_Cendre.html",
+      "docs/DEPLOYMENT.md",
+      "docs/QA_V08.md",
+      "docs/previews/browser-v08-transfer-before-fix.jpg",
+      "docs/previews/mi07-ambulance-wreck.png",
+      "docs/previews/mi07-beacon-removal.png",
+      "docs/previews/mi07-consent-examination.png",
+      "docs/previews/mi07-imperial-arrival.png",
+      "docs/previews/mi07-manual-tow.png",
+      "docs/previews/mi07-patient-transfer.png",
+      "docs/previews/mi07-render-manifest.json",
+      "docs/previews/mi07-secondary-ramp.png",
+      "docs/previews/mi07-seizure-arrival.png",
+      "docs/previews/mi07-stop-arrival.png",
+      "docs/validation/v08-browser-before-visual-fix.json",
+      "docs/validation/v08-browser-initial.json",
+      "docs/validation/v08-browser-launch.json",
+      "docs/validation/v08-browser-migration-after.json",
+      "docs/validation/v08-browser-transfer-paused.json",
+      "docs/validation/v08-browser-transfer-reloaded.json",
+      "docs/validation/v08-publication-initial.json",
+      "docs/validation/v08-release-checks-initial.json",
+      "docs/validation/v08-release-checks.json",
+      "src/renderer.mjs",
+      "tools/render-mi07-previews.mjs"
+    ]
+  },
+  "referenceUpdate": {
+    "success": true,
+    "expected": "d79dd2fe832920794d1265271a4bf9cedaca9637",
+    "sha": "816a02aec27c5286e20b705fbf234caa269968fb",
+    "force": false,
+    "updatedAt": "2026-11-11T09:21:15.444Z"
+  },
+  "remoteComparison": {
+    "tree": "3eaa42c603ee552036f2fe0dd1a804804667d8eb",
+    "truncated": false,
+    "expectedFiles": 324,
+    "remoteFiles": 324,
+    "mismatches": [],
+    "extraPaths": [],
+    "verified": true
+  },
+  "vercel": {
+    "projectId": "prj_ggDB98oddkTTzVPiGQrtxnj7frcr",
+    "teamId": "team_VrIjq2UWV6VaHZr7DdQFwvfu",
+    "stableUrl": "https://imperium-march.vercel.app/",
+    "id": "dpl_7iu5U9tiadVKz7NHrWPbYANYkew7",
+    "url": "https://imperium-march-olghs6lvu-darknigthmares-projects.vercel.app",
+    "state": "READY",
+    "target": "production",
+    "sha": "816a02aec27c5286e20b705fbf234caa269968fb",
+    "aliases": [
+      "imperium-march.vercel.app",
+      "imperium-march-darknigthmares-projects.vercel.app",
+      "imperium-march-git-main-darknigthmares-projects.vercel.app"
+    ],
+    "createdAt": 1794388877144,
+    "readyAt": 1794388887138,
+    "verifiedAt": "2026-11-11T09:21:40.410Z",
+    "nodeVersion": "22.x",
+    "buildCommand": "npm run build:web",
+    "outputDirectory": "web-dist",
+    "trigger": "Existing GitHub integration after main update",
+    "protectionConfigurationChanged": false
+  },
+  "ci": {
+    "runId": 42994464977,
+    "jobId": 130434965703,
+    "url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/42994464977",
+    "sha": "816a02aec27c5286e20b705fbf234caa269968fb",
+    "status": "completed",
+    "conclusion": "success",
+    "nodeVersion": "v22.23.4",
+    "tests": 212,
+    "passed": 212,
+    "failed": 0,
+    "modeledDomFlows": 45,
+    "steps": [
+      {
+        "name": "Set up job",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run actions/setup-node@v4",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run npm test",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run npm run check",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run npm run build",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run npm run check:ui",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run npm run check:ui-runtime",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run npm run build:web",
+        "conclusion": "success"
+      },
+      {
+        "name": "Post Run actions/setup-node@v4",
+        "conclusion": "success"
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "conclusion": "success"
+      },
+      {
+        "name": "Complete job",
+        "conclusion": "success"
+      }
+    ],
+    "logEvidence": [
+      "node: v22.23.4",
+      "# tests 212",
+      "# pass 212",
+      "# fail 0",
+      "Project checks passed: 20 design sheets, 769 source rows, 6 playable chassis, 3 independent operations, 7 campaign missions.",
+      "UI STATE INTEGRATION PASSED: 45 flows against the actual offline application script in a modeled DOM."
+    ]
+  },
+  "http": {
+    "baseUrl": "https://imperium-march.vercel.app/",
+    "resources": [
+      {
+        "path": "/",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "responseChars": 20026,
+        "matchesSnapshot": true
+      },
+      {
+        "path": "src/main.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "responseChars": 74243,
+        "matchesSnapshot": true
+      },
+      {
+        "path": "src/content.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "responseChars": 25629,
+        "matchesSnapshot": true
+      },
+      {
+        "path": "src/simulation.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "responseChars": 175378,
+        "matchesSnapshot": true
+      },
+      {
+        "path": "src/campaign.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "responseChars": 123223,
+        "matchesSnapshot": true
+      },
+      {
+        "path": "src/renderer.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "responseChars": 119836,
+        "matchesSnapshot": true
+      },
+      {
+        "path": "src/style.css",
+        "status": 200,
+        "contentType": "text/css; charset=utf-8",
+        "responseChars": 21664,
+        "matchesSnapshot": true
+      },
+      {
+        "path": "src/ui.css",
+        "status": 200,
+        "contentType": "text/css; charset=utf-8",
+        "responseChars": 14365,
+        "matchesSnapshot": true
+      },
+      {
+        "path": "src/audio.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "responseChars": 3760,
+        "matchesSnapshot": true
+      },
+      {
+        "path": "assets/emblem.svg",
+        "status": 200,
+        "contentType": "image/svg+xml",
+        "responseChars": 301,
+        "matchesSnapshot": true
+      }
+    ],
+    "allStatus200": true,
+    "allTextMatchesSnapshot": true,
+    "comparison": "Exact decoded UTF-8 resource contents, including the corrected renderer, against the immutable corrected snapshot after deployment READY confirmation."
+  },
+  "browserEvidence": {
+    "status": "Initial Chrome migration/reload evidence is included. Verification of the visual correction and native MI07 completion are separate parent-agent work, not claimed complete here.",
+    "finalDocumentationPublicationRequiresSeparateGo": true
+  },
+  "noSourceRepositoryFilesChangedByPublisher": true,
+  "discrepancies": [],
+  "completedAt": "2026-11-11T09:23:13.779Z"
+}

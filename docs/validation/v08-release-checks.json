@@ -69,7 +69,15 @@
     "manifest": "docs/previews/mi07-render-manifest.json",
     "scope": "Production Canvas renderer from public-control states, not browser screenshots."
   },
-  "publication": "Initial release verified in v08-publication-initial.json. Corrective release and final native proof follow in v08-publication.json and v08-browser.json.",
+  "publication": {
+    "initialReceipt": "docs/validation/v08-publication-initial.json",
+    "correctedReceipt": "docs/validation/v08-publication.json",
+    "correctedPublicCommit": "816a02aec27c5286e20b705fbf234caa269968fb",
+    "correctedDeploymentId": "dpl_7iu5U9tiadVKz7NHrWPbYANYkew7",
+    "browserEvidence": "docs/validation/v08-browser.json",
+    "browserCompleted": true,
+    "documentationFollowup": "Final documentation-only publication will preserve all36 application fingerprints."
+  },
   "fingerprints": {
     "package.json": {
       "bytes": 662,
@@ -256,7 +264,7 @@
       "npm run build:web"
     ],
     "allRequiredLocalGatesPassed": true,
-    "nodeAndUIEvidence": "Initial local212/45 and first publication CI212/45 remain unchanged. No gameplay or UI transition changed; corrected publication CI will execute the full suite again.",
-    "browserConfirmation": "Pending corrected publication; current native checkpoint preserved at74.332% handover."
+    "nodeAndUIEvidence": "Corrected commit816a02aec27c5286e20b705fbf234caa269968fb CI42994464977 passed under Node22.23.4:212 tests,45 UI flows, project/build/staticUI/web gates. Initial local logs remain separately attributed to Node24.22.1.",
+    "browserConfirmation": "Passed in native Chrome1363x936: cards clear of HTML HUD; exact saved checkpoint retained across deployment, MI07 completed and final dossier preserved after reload. See v08-browser.json."
   }
 }
