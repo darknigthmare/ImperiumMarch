@@ -516,6 +516,8 @@ function updateHUD() {
   if (!game) return;
   const p = game.player;
   $('hud-timer').textContent = timeLabel(game.elapsed);
+  $('hud-interaction').hidden = !game.interaction;
+  $('hud-interaction').textContent = game.interaction;
   const hull = Math.ceil(p.hull / p.maxHull * 100);
   $('hull-value').textContent = `${hull.toString().padStart(3, '0')}%`;
   $('hull-bar').style.width = `${hull}%`; $('hull-bar').style.background = hull < 25 ? '#e07c65' : '#c0c6aa';
@@ -637,7 +639,7 @@ function frame(now) {
     if (inGame && game) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
       if (!paused && activeMode === 'campaign' && !campaignReplay && game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8) captureCampaign();
-      renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, pointer });
+      renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, interactionPrompt: false, pointer });
       if (!paused) events();
       hudTick += dt; if (hudTick > .1) { updateHUD(); hudTick = 0; }
       $('mission-intro').classList.toggle('visible', game.elapsed > .4 && game.elapsed < 4.6);

@@ -257,7 +257,7 @@ export class Renderer {
     this.drawMarkers(s);
     if (s.channel && options.tideInstrument !== false) this.drawChannelTide(s);
     if (options.pointer?.visible) this.drawReticle(options.pointer, s);
-    if (s.interaction) this.drawInteraction(s);
+    if (s.interaction && options.interactionPrompt !== false) this.drawInteraction(s);
   }
 
   drawChannel(s, t) {

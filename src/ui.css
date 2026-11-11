@@ -29,3 +29,6 @@
 .tide-instrument.tide-warning{border-left-color:#e8af7e;background:#30281de8}
 .tide-warning strong,.tide-warning p{color:#f0c393}.tide-warning .meter i{background:#e8af7e}
 @media(max-width:760px){.tide-instrument{margin-top:7px;padding:6px;max-width:240px}.tide-instrument>div:first-child{gap:5px}.tide-instrument strong{font-size:7px}.tide-instrument span,.tide-instrument p{font-size:6px}.tide-instrument .meter{margin-top:4px}.tide-instrument p{margin-top:4px}}
+
+/* Keep contextual actions above the actual instrument panel at every viewport size. */
+.hud-interaction{position:absolute;bottom:calc(100% + 14px);left:50%;transform:translateX(-50%);width:max-content;max-width:94%;margin:0;padding:9px 16px;border-top:1px solid #c0a16a;background:#10282ef2;color:#ead3a6;font:clamp(9px,.85vw,13px)/1.5 var(--mono);text-align:center;box-shadow:0 4px 15px #0003}

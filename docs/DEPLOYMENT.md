@@ -49,7 +49,7 @@ La racine, les six modules, les deux feuilles de style et l'emblème ont répond
 
 La 0.6 ajoute MI05 et le dossier v5, avec un classeur de 643 fiches. `package.json` fixe maintenant `engines.node` à `22.x` : l'ancienne plage ouverte avait laissé Vercel choisir Node 26 malgré le réglage de projet. La CI utilise également Node 22.
 
-Les contrôles et livrables sont consignés dans [QA_V06.md](QA_V06.md). La publication du snapshot final et le contrôle navigateur de MI05 suivent ces vérifications locales. Le reçu de publication doit préciser la tête GitHub, le déploiement correspondant, son état, la CI et les ressources servies.
+Le commit `9e4a9671cd978c8f097ec3436d783d22587c1957` a publié 202 fichiers, tous comparés à l'arbre distant. Le déploiement `dpl_2P9vnQYqGNupCCiznGiz9rLo2ve5` est passé READY pour ce SHA exact. La [CI 42974893958](https://github.com/darknigthmare/ImperiumMarch/actions/runs/42974893958) a réussi sous Node 22.23.4 : 145 tests, builds et contrôles UI compris. Les dix ressources contrôlées répondent HTTP 200. Chrome a importé le dossier historique v4, conservé ses quatre rapports et lancé MI05. Le contrôle visuel a conduit à placer la consigne contextuelle au-dessus des instruments HTML ; la correction et la vérification de reprise sont suivies dans [QA_V06.md](QA_V06.md).
 
 ## Dossier du joueur
 

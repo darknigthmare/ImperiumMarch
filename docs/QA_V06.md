@@ -10,7 +10,7 @@ La cinquième mission ouvre Nacre après les quatre rapports de Vesper. La valid
 | --- | --- | --- |
 | Simulation et dossiers | **145 tests réussis**, zéro échec et zéro ignoré | [v06-node-tests.txt](validation/v06-node-tests.txt) |
 | Interface exécutée dans un DOM modélisé | **26 parcours réussis**, script autonome réel | [v06-ui-runtime.txt](validation/v06-ui-runtime.txt) |
-| Cohérence statique de l'interface | 135 IDs uniques, 124 références littérales, 5 vues, 4 onglets d'archives, 6 dialogues | [v06-static-ui.txt](validation/v06-static-ui.txt) |
+| Cohérence statique de l'interface | 136 IDs uniques, 125 références littérales, 5 vues, 4 onglets d'archives, 6 dialogues | [v06-static-ui.txt](validation/v06-static-ui.txt) |
 | Construction autonome | HTML avec six modules intégrés et ressources embarquées | [v06-build.txt](validation/v06-build.txt) |
 | Construction web | Page, modules, styles et assets dans `web-dist` | [v06-web-build.txt](validation/v06-web-build.txt) |
 | Catalogue | 643 fiches, six châssis, trois opérations, cinq missions de campagne | [v06-project-check.txt](validation/v06-project-check.txt) |
@@ -47,7 +47,7 @@ Une relecture indépendante a sérialisé régulièrement huit routes : passage 
 
 Les cinq parcours ajoutés au DOM modélisé suivent l'import d'un véritable dossier v4, le déblocage de Nacre, son briefing, la marée et une passerelle partielle figées à la pause puis reprises, les deux décisions jusqu'au débrief et aux archives, ainsi que la perte du bateau sans carburant. Les parcours précédents gardent la navigation, l'atelier, les migrations et les relectures.
 
-Ces tests exécutent les gestionnaires de l'application, mais neutralisent Canvas et modélisent stockage et temps. Ils ne valident ni CSS, ni dialogue de fichier natif, ni son. Le HUD HTML affiche l'instrument de marée dans le navigateur. Le renderer y reçoit `tideInstrument:false` pour ne pas superposer un second instrument aux munitions ; les rendus Canvas seuls conservent leur instrument par défaut.
+Ces tests exécutent les gestionnaires de l'application, mais neutralisent Canvas et modélisent stockage et temps. Ils ne valident ni CSS, ni dialogue de fichier natif, ni son. Le HUD HTML affiche l'instrument de marée dans le navigateur. Le renderer y reçoit `tideInstrument:false` pour ne pas superposer un second instrument aux munitions. Le prompt contextuel est affiché par le HUD HTML, juste au-dessus de la hauteur réelle des instruments, et le renderer reçoit `interactionPrompt:false`. Cette disposition corrige un chevauchement de la consigne Canvas avec la jauge de coque constaté dans Chrome. Les rendus Canvas seuls conservent leurs deux indications par défaut.
 
 Les cinq scènes livrées montrent une passerelle, une facture, la liaison avec le passeur, les réfugiés et une épave. Elles sont calculées par le renderer de production. Elles ne constituent pas des captures de navigateur.
 
@@ -55,7 +55,7 @@ Les cinq scènes livrées montrent une passerelle, une facture, la liaison avec 
 
 Le 11 novembre 2026, Chrome partagé a ouvert le domaine de production `https://imperium-march.vercel.app/` avec la première publication complète, **c8f1a4d / application 0.5.0**. Le contrôle a sélectionné Pèlerin dans le hangar, lancé MI01, envoyé une commande de marche, mis la sortie en pause, rechargé la page et repris le point conservé. La scène et le HUD ont été inspectés. Ce parcours prouve l'ouverture du jeu et sa reprise dans cet environnement ; il ne valide pas encore MI05.
 
-Le Chromium local échoue avant toute navigation sur `socket() Operation not permitted`. Le navigateur partagé autorisé fournit un environnement distinct. La vérification de la publication 0.6 et du HUD MI05 est à compléter après déploiement ; ses observations seront consignées ici sans confondre le résultat de la 0.5 avec celui de la 0.6.
+Le Chromium local échoue avant toute navigation sur `socket() Operation not permitted`. Le navigateur partagé autorisé fournit un environnement distinct. Sur la publication 0.6 `9e4a9671`, Chrome a affiché les cinq missions et VERSION 0.6, importé via le sélecteur de fichier le véritable dossier v4 terminé, confirmé les quatre rapports préservés, puis débloqué et lancé MI05. Le briefing reprend le journal conservé et les survivants du train. La scène Nacre, les six appuis du Pèlerin, le bateau, les objectifs et l'instrument HTML de marée sont présents. Une commande de marche puis la pause ont été exécutées. Un prompt Canvas chevauchait la jauge de coque ; sa correction de placement dans le HUD HTML fait l'objet du contrôle de reprise suivant.
 
 Le [suivi du déploiement](DEPLOYMENT.md) relie publication GitHub, SHA déployé, construction Vercel et contrôles de ressources. Un état READY ne suffit pas à démontrer un parcours jouable.
 

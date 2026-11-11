@@ -113,3 +113,5 @@ Les opérations restent indépendantes. Une défaite ne valide pas une sortie. L
 ## Prochaine tranche
 
 MI06 — **Les maisons sous la ligne** reste **Conçu** : maintien de digue, panneaux soutenus par l’ancrage, techniciens et pompes doivent encore être produits. La campagne jouable s’arrête après MI05 ; MI06–MI32 ne sont pas des missions exécutables. La suite doit aussi compléter les essais dans un navigateur autorisé et auprès de joueurs, le premier composant ennemi, les doctrines d’escouade, les animations définitives, l’inventaire détaillé et la consommation des ressources entre missions. Aucun port vers un moteur natif n’est présumé terminé.
+
+Le navigateur place le prompt contextuel dans le HUD HTML, au-dessus de la hauteur effective du panneau inférieur. Il transmet `interactionPrompt:false` au renderer pour éviter un chevauchement avec les jauges. Les rendus Canvas autonomes gardent leur prompt par défaut.

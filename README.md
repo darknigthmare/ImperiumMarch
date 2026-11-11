@@ -203,7 +203,7 @@ Les boutons tactiles sont présents. Leur ergonomie sur matériel réel reste à
 | [MI01](docs/CAMPAIGN_MISSION_01.md), [MI02](docs/CAMPAIGN_MISSION_02.md), [MI03](docs/CAMPAIGN_MISSION_03.md), [MI04](docs/CAMPAIGN_MISSION_04.md), [MI05](docs/CAMPAIGN_MISSION_05.md) | Contrats du contenu réellement exécuté. |
 | [Production 0.6](docs/PRODUCTION_V06.md) | Fiches, dépendances, prochaines étapes et critères. |
 | [Validation 0.6](docs/QA_V06.md) | Preuves de tests et limites constatées. |
-| [Architecture](docs/ARCHITECTURE.md), [API simulation](docs/SIMULATION_API.md) | Contrats techniques et règles de migration. |
+| [Sauvegarde v5](docs/CAMPAIGN_SAVE_V5.md), [Architecture](docs/ARCHITECTURE.md), [API simulation](docs/SIMULATION_API.md) | Contrats techniques et règles de migration. |
 | [Direction artistique](docs/ART_DIRECTION.md), [provenance](docs/ASSET_PROVENANCE.md) | Art, animation, sons et origine des éléments. |
 | [Déploiement](docs/DEPLOYMENT.md) | Construction web, liaison distante et état réel de publication. |
 | [Données source](data/bible.json) | Les 643 fiches à identifiants stables, dont les 581 précédentes conservées. |
