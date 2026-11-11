@@ -16,6 +16,7 @@ import { pilotMI02 } from '../tests/helpers/mi02-driver.mjs';
 import { pilotMI03 } from '../tests/helpers/mi03-driver.mjs';
 import { pilotMI04 } from '../tests/helpers/mi04-driver.mjs';
 import { pilotMI05 } from '../tests/helpers/mi05-driver.mjs';
+import { pilotMI06 } from '../tests/helpers/mi06-driver.mjs';
 import { WALKERS } from '../src/content.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -127,7 +128,8 @@ function nearDecisionDossier() {
 }
 
 let checks = 0;
-async function check(name, fn) { await fn(); checks++; console.log(`PASS ${name}`); }
+const flowFilter = process.env.IMPERIUM_UI_FILTER ? new RegExp(process.env.IMPERIUM_UI_FILTER) : null;
+async function check(name, fn) { if (flowFilter && !flowFilter.test(name)) return; await fn(); checks++; console.log(`PASS ${name}`); }
 
 await check('cold start, five views, six selectable chassis and independent simulation launch', async () => {
   const h = harness(); assert.equal(h.snapshot().view, 'campaign'); assert.equal(h.ids.get('menu').hidden, false);
@@ -309,7 +311,7 @@ for (const choice of ['obey', 'defy']) await check(`MI03 ${choice} decision, ext
   assert.equal(fresh.ids.get('workshop-network').hidden, false);
   await fresh.data('view', 'campaign');
   assert.match(fresh.ids.get('campaign-debrief').innerHTML, /MI03 \/ RAPPORT/);
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 5 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 6 RAPPORTS CLASSÉS');
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
   for (const id of ['MI01', 'MI02', 'MI03']) assert.match(fresh.ids.get('archive-content').innerHTML, new RegExp(`CAMPAGNE / ${id}`));
   await fresh.data('view', 'campaign'); await fresh.data('chapter', 'MI03'); await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
@@ -384,7 +386,7 @@ for (const choice of ['obey', 'defy']) await check(`MI04 ${choice} records the t
   assert.equal(fresh.ids.get('workshop-industrial').hidden, false);
   assert.match(fresh.ids.get('workshop-condition').textContent, /radiateur/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 5 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 6 RAPPORTS CLASSÉS');
   assert.equal(fresh.ids.get('campaign-transition').hidden, false);
   assert.match(fresh.ids.get('campaign-transition-text').textContent, /Nacre/);
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
@@ -499,7 +501,7 @@ await check('importing a genuine v4 Vesper dossier unlocks Nacre in the delivere
   assert.match(h.ids.get('campaign-import-summary').textContent, /MI04/);
   await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Le prix du passage');
-  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 5 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 6 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v4Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /journal de Vesper/);
@@ -560,7 +562,8 @@ for (const choice of ['obey', 'defy']) await check(`MI05 ${choice} debrief, arch
   assert.match(fresh.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI05/);
   assert.match(fresh.ids.get('archive-content').innerHTML, /Vann Ostre/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 5 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 6 RAPPORTS CLASSÉS');
+  await fresh.data('chapter', 'MI05');
   await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
   assert.equal(fresh.snapshot().campaignReplay, true);
   assert.deepEqual(fresh.snapshot().campaign.completed, completed.completed);
@@ -584,6 +587,167 @@ await check('the UI records a lost civil boat and skipped fuel without granting 
   assert.match(h.ids.get('result-stats').innerHTML, /0 passagers au quai ; 12 perdus/);
   await h.click('next-operation');
   assert.equal(h.ids.get('workshop-fuel').textContent, '0 LOT DE CARBURANT EN RÉSERVE');
+});
+
+const v5Dossier = JSON.parse(readFileSync(resolve(root, 'tests/fixtures/campaign-v5-mi05.json'), 'utf8'));
+const dikeStart = () => beginCampaignMission(parseCampaign(JSON.stringify(v5Dossier.completed)), { missionId: 'MI06', walkerId: 'WK09', seed: 1847 });
+
+await check('a genuine v5 import unlocks MI06 with its actual stock and ten distinct local residents', async () => {
+  const h = harness(), raw = JSON.stringify(v5Dossier.completed);
+  h.ids.get('campaign-file').files = [{ size: raw.length, text: async () => raw }];
+  await h.ids.get('campaign-file').dispatch('change'); await h.click('campaign-confirm-import');
+  assert.equal(h.ids.get('campaign-order-title').textContent, 'Les maisons sous la ligne');
+  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 6 RAPPORTS CLASSÉS');
+  assert.deepEqual(h.snapshot().campaign.completed, v5Dossier.completed.completed);
+  await h.click('campaign-deploy');
+  assert.match(h.ids.get('briefing-description').textContent, /dix habitants/);
+  assert.match(h.ids.get('briefing-description').textContent, /Deux lots/);
+  await h.click('launch'); h.frames(2);
+  assert.equal(h.snapshot().game.missionId, 'MI06');
+  assert.equal(h.snapshot().game.campaign.context.refugeesPassed, 12);
+  assert.equal(h.snapshot().game.campaign.residentsTotal, 10);
+  assert.equal(h.ids.get('dike-instrument').hidden, false);
+  assert.equal(h.ids.get('tide-instrument').hidden, true);
+  assert.match(h.ids.get('dike-fuel').textContent, /2 LOTS À BRANCHER/);
+});
+
+await check('auxiliary work freezes on pause, resumes exactly and saves its debit before the eight-second interval', async () => {
+  const start = dikeStart();
+  pilotMI06(start.game, { stopAt: s => s.dike.auxiliary.working && s.dike.auxiliary.progress > 0.4 });
+  const dossier = checkpointCampaign(start.campaign, start.game);
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(dossier)]]));
+  await h.click('campaign-resume'); await h.click('pause-button');
+  const paused = h.snapshot().game;
+  h.frames(180); assert.deepEqual(h.snapshot().game, paused);
+  assert.equal(h.snapshot().campaign.resources.fuel, 2);
+  const fresh = harness(h.values); await fresh.click('campaign-resume');
+  assert.deepEqual(fresh.snapshot().game, paused);
+  fresh.frames(180);
+  assert.equal(fresh.snapshot().game.campaign.fuelSpent, 2);
+  assert.equal(fresh.snapshot().campaign.resources.fuel, 0);
+  const saved = parseCampaign(fresh.values.get(CAMPAIGN_SAVE_KEY));
+  assert.equal(saved.world.nacre.fuelSpent, 2);
+  assert.equal(saved.checkpoint.campaign.fuelSpent, 2);
+  assert.ok(saved.checkpoint.elapsed - paused.elapsed < 8);
+  assert.match(fresh.ids.get('dike-fuel').textContent, /ACTIVE · 2 LOTS UTILISÉS/);
+  await fresh.click('pause-button'); await fresh.click('to-menu'); await fresh.data('view', 'hangar');
+  assert.equal(fresh.ids.get('workshop-fuel').textContent, '0 LOT DE CARBURANT EN RÉSERVE');
+  assert.match(fresh.ids.get('workshop-fuel-used').textContent, /2 LOTS DÉJÀ UTILISÉS/);
+});
+
+await check('partial panel locking pauses exactly and needs renewed keyboard anchoring on resume', async () => {
+  const start = dikeStart();
+  pilotMI06(start.game, { stopAt: s => s.dike.panel.latchProgress > 0.35 && !s.dike.panel.locked });
+  assert.ok(start.game.dike.panel.latchProgress > 0.35);
+  const dossier = checkpointCampaign(start.campaign, start.game);
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(dossier)]]));
+  await h.click('campaign-resume'); await h.click('pause-button');
+  const paused = h.snapshot().game; h.frames(180); assert.deepEqual(h.snapshot().game, paused);
+  const fresh = harness(h.values); await fresh.click('campaign-resume');
+  assert.deepEqual(fresh.snapshot().game, paused);
+  await fresh.key('Space'); fresh.frames(300); await fresh.key('Space', false);
+  assert.equal(fresh.snapshot().game.dike.panel.locked, true);
+  assert.match(fresh.ids.get('dike-support').textContent, /PANNEAU VERROUILLÉ/);
+});
+
+await check('a refused immediate auxiliary save keeps the session debit and a visible storage warning', async () => {
+  const start = dikeStart();
+  pilotMI06(start.game, { stopAt: s => s.dike.auxiliary.working && s.dike.auxiliary.progress > 0.4 });
+  const dossier = checkpointCampaign(start.campaign, start.game), bytes = serializeCampaign(dossier);
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, bytes]]), { denyWrites: true });
+  await h.click('campaign-resume'); h.frames(180);
+  assert.equal(h.snapshot().campaign.resources.fuel, 0);
+  assert.equal(h.snapshot().campaign.world.nacre.fuelSpent, 2);
+  assert.equal(h.values.get(CAMPAIGN_SAVE_KEY), bytes);
+  assert.match(h.ids.get('toast').textContent, /refusée|indisponible|insuffisant/);
+  assert.equal(h.ids.get('toast').hidden, false);
+});
+
+await check('an auxiliary destroyed before connection is shown as lost while its two lots remain in reserve', async () => {
+  const start = dikeStart();
+  pilotMI06(start.game, { useAuxiliary: false, stopAt: s => s.player.x >= s.dike.auxiliary.x + 260 });
+  const auxiliary = start.game.dike.auxiliary;
+  for (let frame = 0; frame < 3600 && start.game.status === 'playing' && !auxiliary.destroyed; frame++) {
+    const vent = start.game.player.heat > 75 || start.game.player.overheated;
+    const flying = start.game.projectiles.some(p => p.team === 'player');
+    updateGame(start.game, 1 / 60, { brace: true, vent, fire: !vent && !flying, aimX: auxiliary.x, aimY: auxiliary.y });
+  }
+  assert.equal(auxiliary.destroyed, true);
+  assert.equal(auxiliary.connected, false);
+  assert.equal(start.game.campaign.fuelSpent, 0);
+  const dossier = checkpointCampaign(start.campaign, start.game);
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(dossier)]]));
+  await h.click('campaign-resume'); h.frames(2);
+  assert.equal(h.snapshot().campaign.resources.fuel, 2);
+  assert.equal(h.snapshot().campaign.world.nacre.fuelSpent, 0);
+  assert.equal(h.ids.get('dike-fuel').textContent, 'AUXILIAIRE PERDUE · 2 LOTS CONSERVÉS');
+  assert.doesNotMatch(h.ids.get('dike-fuel').textContent, /DISPONIBLE/);
+});
+
+for (const choice of ['obey', 'defy']) await check(`MI06 ${choice} requires the actual valve operation, then persists housing, people, fuel and a pure replay`, async () => {
+  const start = dikeStart();
+  pilotMI06(start.game, { stopAt: s => s.decision.active });
+  const dossier = checkpointCampaign(start.campaign, start.game, { beforeDecision: true });
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(dossier)]]));
+  await h.click('campaign-resume'); h.frames(2);
+  assert.equal(h.ids.get('decision-title').textContent, 'La ligne sur les maisons');
+  await h.data('choice', choice);
+  assert.equal(h.snapshot().game.campaign.pumpsOnline, false);
+  h.frames(60); assert.equal(h.snapshot().game.dike.valve.progress, 0);
+  await h.key('KeyE'); h.frames(2); await h.key('KeyE', false); h.frames(1200);
+  assert.equal(h.snapshot().game.campaign.pumpsOnline, true);
+  assert.equal(h.snapshot().game.campaign.homesUninhabitable, choice === 'obey' ? 2 : 0);
+  await h.key('KeyD');
+  for (let frame = 0; frame < 1800 && h.snapshot().game.status === 'playing'; frame++) h.frames(1);
+  await h.key('KeyD', false);
+  assert.equal(h.snapshot().game.status, 'won');
+  const completed = h.snapshot().campaign;
+  assert.equal(completed.completed.MI06.residentsSafe, 10);
+  assert.equal(completed.completed.MI06.fuelSpent, 2);
+  assert.equal(completed.world.nacre.fuelSpent, 2);
+  assert.equal(completed.resources.fuel, 0);
+  assert.match(h.ids.get('result-stats').innerHTML, /HABITANTS À L’ABRI/);
+  assert.match(h.ids.get('result-stats').innerHTML, /manœuvre de vanne est achevée/);
+  await h.click('next-operation');
+  assert.match(h.ids.get('workshop-dike').textContent, /10 habitants à l’abri/);
+  await h.data('view', 'archives'); await h.data('archive', 'records');
+  assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI06/);
+  await h.data('view', 'campaign');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 6 RAPPORTS CLASSÉS');
+  await h.data('chapter', 'MI06'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
+  assert.equal(h.snapshot().campaignReplay, true);
+  assert.equal(h.snapshot().game.campaign.context.fuelAvailable, 2);
+  assert.deepEqual(h.snapshot().campaign, completed);
+});
+
+await check('the UI immediately persists a terminal MI06 loss and restarts without refunding its consumed auxiliary', async () => {
+  const start = dikeStart();
+  pilotMI06(start.game, { stopAt: s => s.campaign.fuelSpent === 2 });
+  const p = start.game.player, x = p.x, y = p.y - p.height / 2 - 80;
+  // A collision calibration fixture; this is not a claimed natural combat loss.
+  start.game.projectiles.push({ id: `ui-terminal-${start.game.entityId++}`, team: 'enemy', type: 'bullet',
+    x, y, prevX: x, prevY: y, vx: 0, vy: 6000, damage: 5000, radius: 2, life: 1, trail: [] });
+  const live = checkpointCampaign(start.campaign, start.game);
+  const first = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(live)]]));
+  await first.click('campaign-resume'); first.frames(60);
+  assert.equal(first.snapshot().game.status, 'lost');
+  const failed = parseCampaign(first.values.get(CAMPAIGN_SAVE_KEY));
+  assert.equal(failed.checkpoint.status, 'lost');
+  assert.equal(failed.resources.fuel, 0);
+  assert.equal(failed.world.nacre.fuelSpent, 2);
+  assert.ok(failed.checkpoint.elapsed - live.checkpoint.elapsed < 8);
+  const h = harness(first.values);
+  assert.equal(h.ids.get('campaign-resume').textContent, 'Voir le bilan de MI06');
+  await h.click('campaign-resume'); h.frames(2);
+  assert.equal(h.ids.get('result-dialog').open, true);
+  assert.equal(h.ids.get('result-title').textContent, 'Liaison perdue.');
+  assert.equal(h.snapshot().game.status, 'lost');
+  await h.click('replay'); h.frames(2);
+  assert.equal(h.snapshot().game.status, 'playing');
+  assert.equal(h.snapshot().campaignReplay, false);
+  assert.equal(h.snapshot().game.campaign.context.fuelAvailable, 0);
+  assert.equal(h.snapshot().campaign.world.nacre.fuelSpent, 2);
+  assert.match(h.ids.get('dike-fuel').textContent, /SANS CARBURANT/);
 });
 
 console.log(`UI STATE INTEGRATION PASSED: ${checks} flows against the actual offline application script in a modeled DOM.`);

@@ -140,7 +140,7 @@ test('all chassis and both decisions add one Nacre report and grant only the col
     assert.equal(result.completed.MI05.fuelLots, 2);
     assert.equal(result.resources.fuel, 2);
     assert.equal(result.resources.parts, source.resources.parts + 4);
-    assert.equal(nextCampaignMissionId(result), null);
+    assert.equal(nextCampaignMissionId(result), 'MI06');
     assert.deepEqual(Object.fromEntries(Object.keys(earlier).map(id => [id, result.completed[id]])), earlier);
     assert.deepEqual(result.world.vesper, source.world.vesper);
     assert.equal(resumed.stats.evidence, 0);

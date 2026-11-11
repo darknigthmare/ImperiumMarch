@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "release": "0.7.0",
+  "missionId": "MI06",
+  "saveVersion": 6,
+  "startedAt": "2026-11-11T07:51:09.547Z",
+  "completedAt": "2026-11-11T07:51:12.013Z",
+  "nodeVersion": "v24.22.1",
+  "result": "passed",
+  "sourceState": "Frozen application working tree before publication; exact SHA-256 fingerprints below.",
+  "fingerprints": {
+    "algorithm": "sha256",
+    "before": {
+      "src/content.mjs": "5fb531e4549d624350d72838ba20b67b81f9055f509cfc0e68f47c515711574a",
+      "src/simulation.mjs": "ee69bc396258617d326868b1c02eb024315995c07a335b14da53d746aba4bf82",
+      "src/renderer.mjs": "cdc81a1bbec94544a694d52eda234e7dce584029a6ab8edf122988ca13699ada",
+      "src/campaign.mjs": "7055bc7e1f2ca109e43a13034dd6a8ec4a92f536539801401247909ae7db5a00",
+      "src/main.mjs": "dcf6e80a2c64a57c7dde46d29807536b3288ae79a62b4c739e22623222aa1b7d",
+      "tests/helpers/mi06-driver.mjs": "c77171a3e903de9843168e7bf40c1e67cb1e46311876e448300e4137fe6edb99",
+      "tests/fixtures/campaign-v5-mi05.json": "7c79efb68911f1519cdae2d788e259c424c8750af9a99167ae100bcac4ecc7e3"
+    },
+    "after": {
+      "src/content.mjs": "5fb531e4549d624350d72838ba20b67b81f9055f509cfc0e68f47c515711574a",
+      "src/simulation.mjs": "ee69bc396258617d326868b1c02eb024315995c07a335b14da53d746aba4bf82",
+      "src/renderer.mjs": "cdc81a1bbec94544a694d52eda234e7dce584029a6ab8edf122988ca13699ada",
+      "src/campaign.mjs": "7055bc7e1f2ca109e43a13034dd6a8ec4a92f536539801401247909ae7db5a00",
+      "src/main.mjs": "dcf6e80a2c64a57c7dde46d29807536b3288ae79a62b4c739e22623222aa1b7d",
+      "tests/helpers/mi06-driver.mjs": "c77171a3e903de9843168e7bf40c1e67cb1e46311876e448300e4137fe6edb99",
+      "tests/fixtures/campaign-v5-mi05.json": "7c79efb68911f1519cdae2d788e259c424c8750af9a99167ae100bcac4ecc7e3"
+    },
+    "unchangedDuringAudit": true
+  },
+  "publicControls": {
+    "driver": "tests/helpers/mi06-driver.mjs",
+    "fixedStepSeconds": 0.016666666666666666,
+    "seed": 1847,
+    "difficulty": "normal",
+    "assist": true,
+    "directGameStateAssignments": false,
+    "controls": [
+      "move",
+      "brace",
+      "vent",
+      "fire",
+      "secondary",
+      "interact",
+      "choice"
+    ],
+    "checkpoints": "Serialize and parse at least every 120 public-control frames, also on fuel changes and first decision; restore the parsed official checkpoint exactly between chunks.",
+    "invariantNames": {
+      "A": "MI05.fuelLots",
+      "F": "resources.fuel",
+      "L": "world.nacre.fuelSpent",
+      "B": "game.campaign.context.fuelAvailable",
+      "C": "game.campaign.fuelSpent"
+    },
+    "invariants": [
+      "F + L = A",
+      "B = F + C",
+      "C <= L"
+    ]
+  },
+  "summary": {
+    "passedRoutes": 8,
+    "failedRoutes": 0,
+    "checkpointRoundTrips": 589,
+    "exactRestorations": 460
+  },
+  "routes": [
+    {
+      "scenario": "auxiliary-diversion",
+      "walkerId": "WK09",
+      "options": {
+        "useAuxiliary": true,
+        "choice": "defy"
+      },
+      "status": "won",
+      "elapsedSeconds": 111.29999999999497,
+      "checkpointRoundTrips": 72,
+      "exactRestorations": 55,
+      "observedUpdates": 6679,
+      "initialFuelBudget": 2,
+      "sortieFuelSpent": 2,
+      "remainingFuel": 0,
+      "cumulativeFuelSpent": 2,
+      "residentsSafe": 10,
+      "residentsLost": 0,
+      "homesUninhabitable": 0,
+      "techniciansAlive": 2,
+      "emergencyShoring": false,
+      "previousReportsUnchanged": true,
+      "replayBoundaryPure": true,
+      "passed": true
+    },
+    {
+      "scenario": "manual-no-auxiliary",
+      "walkerId": "WK01",
+      "options": {
+        "useAuxiliary": false,
+        "choice": "defy"
+      },
+      "status": "won",
+      "elapsedSeconds": 104.31666666666203,
+      "checkpointRoundTrips": 68,
+      "exactRestorations": 52,
+      "observedUpdates": 6260,
+      "initialFuelBudget": 2,
+      "sortieFuelSpent": 0,
+      "remainingFuel": 2,
+      "cumulativeFuelSpent": 0,
+      "residentsSafe": 10,
+      "residentsLost": 0,
+      "homesUninhabitable": 0,
+      "techniciansAlive": 2,
+      "emergencyShoring": false,
+      "previousReportsUnchanged": true,
+      "replayBoundaryPure": true,
+      "passed": true
+    },
+    {
+      "scenario": "imperial-no-evacuation",
+      "walkerId": "WK05",
+      "options": {
+        "skipEvacuation": true,
+        "choice": "obey"
+      },
+      "status": "won",
+      "elapsedSeconds": 115.53333333332806,
+      "checkpointRoundTrips": 71,
+      "exactRestorations": 57,
+      "observedUpdates": 6933,
+      "initialFuelBudget": 2,
+      "sortieFuelSpent": 2,
+      "remainingFuel": 0,
+      "cumulativeFuelSpent": 2,
+      "residentsSafe": 0,
+      "residentsLost": 10,
+      "homesUninhabitable": 2,
+      "techniciansAlive": 2,
+      "emergencyShoring": false,
+      "previousReportsUnchanged": true,
+      "replayBoundaryPure": true,
+      "passed": true
+    },
+    {
+      "scenario": "manual-shoring",
+      "walkerId": "WK06",
+      "options": {
+        "skipAuxiliary": true,
+        "manualShoring": true,
+        "choice": "defy"
+      },
+      "status": "won",
+      "elapsedSeconds": 109.86666666666171,
+      "checkpointRoundTrips": 70,
+      "exactRestorations": 54,
+      "observedUpdates": 6593,
+      "initialFuelBudget": 2,
+      "sortieFuelSpent": 0,
+      "remainingFuel": 2,
+      "cumulativeFuelSpent": 0,
+      "residentsSafe": 10,
+      "residentsLost": 0,
+      "homesUninhabitable": 0,
+      "techniciansAlive": 2,
+      "emergencyShoring": true,
+      "previousReportsUnchanged": true,
+      "replayBoundaryPure": true,
+      "passed": true
+    },
+    {
+      "scenario": "technicians-lost",
+      "walkerId": "WK09",
+      "options": {
+        "killTechnicians": true,
+        "choice": "defy"
+      },
+      "status": "won",
+      "elapsedSeconds": 114.86666666666143,
+      "checkpointRoundTrips": 74,
+      "exactRestorations": 57,
+      "observedUpdates": 6893,
+      "initialFuelBudget": 2,
+      "sortieFuelSpent": 2,
+      "remainingFuel": 0,
+      "cumulativeFuelSpent": 2,
+      "residentsSafe": 10,
+      "residentsLost": 0,
+      "homesUninhabitable": 0,
+      "techniciansAlive": 0,
+      "emergencyShoring": true,
+      "previousReportsUnchanged": true,
+      "replayBoundaryPure": true,
+      "passed": true
+    },
+    {
+      "scenario": "panel-destroyed",
+      "walkerId": "WK05",
+      "options": {
+        "destroyPanel": true,
+        "choice": "defy"
+      },
+      "status": "won",
+      "elapsedSeconds": 125.9666666666608,
+      "checkpointRoundTrips": 80,
+      "exactRestorations": 62,
+      "observedUpdates": 7559,
+      "initialFuelBudget": 2,
+      "sortieFuelSpent": 2,
+      "remainingFuel": 0,
+      "cumulativeFuelSpent": 2,
+      "residentsSafe": 10,
+      "residentsLost": 0,
+      "homesUninhabitable": 0,
+      "techniciansAlive": 2,
+      "emergencyShoring": true,
+      "previousReportsUnchanged": true,
+      "replayBoundaryPure": true,
+      "passed": true
+    },
+    {
+      "scenario": "auxiliary-destroyed-after-cost",
+      "walkerId": "WK10",
+      "options": {
+        "destroyAuxiliary": true,
+        "choice": "defy"
+      },
+      "status": "won",
+      "elapsedSeconds": 134.18333333333226,
+      "checkpointRoundTrips": 86,
+      "exactRestorations": 67,
+      "observedUpdates": 8052,
+      "initialFuelBudget": 2,
+      "sortieFuelSpent": 2,
+      "remainingFuel": 0,
+      "cumulativeFuelSpent": 2,
+      "residentsSafe": 10,
+      "residentsLost": 0,
+      "homesUninhabitable": 0,
+      "techniciansAlive": 2,
+      "emergencyShoring": false,
+      "previousReportsUnchanged": true,
+      "replayBoundaryPure": true,
+      "passed": true
+    },
+    {
+      "scenario": "houses-destroyed",
+      "walkerId": "WK02",
+      "options": {
+        "destroyHouse": true,
+        "choice": "obey"
+      },
+      "status": "won",
+      "elapsedSeconds": 112.5499999999949,
+      "checkpointRoundTrips": 68,
+      "exactRestorations": 56,
+      "observedUpdates": 6754,
+      "initialFuelBudget": 2,
+      "sortieFuelSpent": 2,
+      "remainingFuel": 0,
+      "cumulativeFuelSpent": 2,
+      "residentsSafe": 0,
+      "residentsLost": 10,
+      "homesUninhabitable": 2,
+      "techniciansAlive": 2,
+      "emergencyShoring": false,
+      "previousReportsUnchanged": true,
+      "replayBoundaryPure": true,
+      "passed": true
+    }
+  ],
+  "corrections": {
+    "destroyedAuxiliaryBeforeConnection": {
+      "passed": true,
+      "elapsedSeconds": 37.966666666665795,
+      "destroyed": true,
+      "connected": false,
+      "sortieFuelSpent": 0,
+      "remainingFuel": 2,
+      "cumulativeFuelSpent": 0,
+      "hudText": "AUXILIAIRE PERDUE · 2 LOTS CONSERVÉS",
+      "method": "Public movement and shots; evaluate the actual main.mjs HUD assignment expression on the resulting validated state. No DOM or browser assertion."
+    },
+    "earlierDecisionCheckpointSameCost": {
+      "passed": true,
+      "earlierElapsedSeconds": 81.63333333332999,
+      "currentElapsedSeconds": 86.64999999999637,
+      "earlierFuelSpent": 2,
+      "currentFuelSpent": 2,
+      "beforeDecisionRestore": null,
+      "normalRestoreExact": true
+    }
+  },
+  "historicalMigration": {
+    "passed": true,
+    "fixture": "tests/fixtures/campaign-v5-mi05.json",
+    "fixtureSha256": "7c79efb68911f1519cdae2d788e259c424c8750af9a99167ae100bcac4ecc7e3",
+    "publicSourceRevision": "613c07307f2712c5fac28d9403016906e94da168",
+    "localSourceRevision": "c598badad94f81aaaf16f2b13d9e7c11b8508995",
+    "liveAndCompletedOriginalFieldsPreserved": true,
+    "inFlightMI05FuelNotCredited": true,
+    "fixtureRegenerated": false
+  },
+  "limitations": [
+    "Node simulation and campaign API audit; no browser, DOM, CSS, native dialog, download, audio, touch or localStorage validation.",
+    "Eight selected routes at one seed, normal difficulty and assisted gait; this is not exhaustive gameplay coverage.",
+    "The eight routes end in victory. Terminal defeat and restart are covered by the separate campaign-v6 test suite, not claimed as public-control paths here.",
+    "Replay checks cover mutation boundaries at begin, checkpoint and finish; no complete alternate replay is claimed by this audit.",
+    "HUD correction is checked by evaluating its actual source expression on a publicly reached state, not by a rendered browser inspection.",
+    "Fingerprints identify tested application sources; later source changes require a new audit. No deployment or CI result is implied."
+  ]
+}

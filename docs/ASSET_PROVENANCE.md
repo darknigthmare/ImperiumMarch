@@ -38,3 +38,11 @@ Les rendus Skia utilisent Liberation Mono comme remplacement métrique de Courie
 ## Référence de conception
 
 La [page officielle de BE-A Walker sur Steam](https://store.steampowered.com/app/864160/BEA_Walker/) a servi à vérifier le principe de contrôle volontaire des jambes et l’usage tactique des pas. Le projet n’incorpore pas de contenu extrait de ce jeu. Les noms, mondes, factions, personnages et missions décrits ici appartiennent à la fiction proposée pour ImperiumMarch.
+
+## Scènes du chantier — version 0.7
+
+Les sept rendus MI06 sont reproductibles avec `tools/render-mi06-previews.mjs` : `mi06-threshold-inspection.png`, `mi06-evacuation-route.png`, `mi06-panel-support.png`, `mi06-auxiliary-connected.png`, `mi06-valve-diversion.png`, `mi06-imperial-flood.png` et `mi06-emergency-shoring.png`. Ils suivent les commandes publiques du pilote de mission. Le panneau soutenu, les pieds en contact, les personnes, leurs trajets, le niveau d’eau et les destructions proviennent de la simulation.
+
+`docs/previews/mi06-render-manifest.json` conserve des snapshots complets copiés profondément. Le générateur compare l’état avant/après rendu et après poursuite pour détecter une mutation. Les maisons, seuils, abri, techniciens, couverts, panneau, auxiliaire, vanne et conduites sont dessinés par le code original du projet. Aucun nouvel asset image généré ni contenu extrait d’un jeu tiers n’est utilisé pour cette mission.
+
+La pompe et la vanne sont placées dans une couche devant les pattes pour rester visibles pendant l’interaction ; leur géométrie et leurs collisions ne changent pas. Ces fichiers sont des rendus Canvas de développement et ne comprennent pas les instruments HTML. Ils ne constituent pas des captures navigateur.

@@ -7,7 +7,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - `data/bible.json` est la source des fiches de conception et du classeur. Garder les IDs stables.
 - `docs/BIBLE_FR.md`, `docs/CAMPAIGN_FR.md` et `docs/ART_DIRECTION.md` développent le canon du projet.
 - `src/content.mjs` décrit uniquement les données actuellement utilisées par le prototype.
-- `src/campaign.mjs` gère les dossiers MI01–MI05, leur progression et la migration des sauvegardes v1/v2/v3/v4 vers v5 ; les opérations OP01–OP03 restent indépendantes.
+- `src/campaign.mjs` gère les dossiers MI01–MI06, leur progression et la migration des sauvegardes v1/v2/v3/v4/v5 vers v6 ; les opérations OP01–OP03 restent indépendantes.
 - L’onglet Prototype précise la différence entre le comportement actuel et le comportement final conçu.
 
 ## Développement
@@ -24,7 +24,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 
 - Ne pas marquer une fiche finie parce qu’une description existe. Conçu, Prototype et Vérifié décrivent des niveaux différents.
 - Les trois opérations de prototype ne sont pas les 32 missions de la campagne finale.
-- MI01–MI05 sont jouables au stade prototype depuis les 0.2 à 0.6 ; les 27 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
+- MI01–MI06 sont jouables au stade prototype depuis les 0.2 à 0.7 ; les 26 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
 - Ne pas présenter une image de concept comme une capture du jeu, un rendu Canvas comme une capture navigateur ou un test statique comme un clic exécuté.
 - Une nouvelle vérification navigateur doit préciser l’environnement réel et les parcours effectués.
 - Les références de gameplay servent la conception ; conserver les noms, assets, silhouettes et récits originaux du projet.
@@ -48,6 +48,13 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - La 0.6 ouvre Nacre avec MI05 après le rapport MI04, avec ou sans PT01. La facture locale de trafic et la liaison Vann Ostre ne sont pas des preuves PALINODE. Vann demeure le passeur PN08 ; le trafiquant de Saisie n'est pas identifié comme lui.
 - La marée, les bancs, les passerelles, les treuils, les barges, le bateau et le dépôt de MI05 appartiennent à `channel`, présent seulement dans cette mission. L'horloge simulée détermine la marée, y compris au moment d'une décision ; une pause ne la fait pas avancer.
 - Une arrivée du bateau implique douze passagers débarqués et interdit des dégâts ultérieurs sur le bateau. Une perte avant arrivée compte douze décès et zéro passage. Le rapport conserve les faits, quel que soit le choix administratif.
-- Le carburant de MI05 est facultatif, destructible, distinct des occupants et des preuves, et ne se récupère qu'une fois. Deux lots sont attribués seulement après prélèvement effectif ; leur consommation dans MI06 reste conçue.
+- Le carburant de MI05 est facultatif, destructible, distinct des occupants et des preuves, et ne se récupère qu'une fois. Deux lots sont attribués seulement après prélèvement effectif ; MI06 peut ensuite les consommer au raccordement effectif de son auxiliaire.
 - La fixture `campaign-v4-mi04.json` provient du code historique d7d76b6. Comme les v1/v2/v3, ne pas la régénérer depuis le code courant. La migration v4 ajoute seulement Nacre non visité et zéro carburant ; elle ne change pas les checkpoints historiques.
 - Le HUD HTML fournit l'instrument de marée dans le navigateur et demande `tideInstrument:false` au renderer. Les rendus Canvas seuls gardent leur instrument intégré par défaut. Le prompt d'interaction suit la hauteur des instruments HTML ; `interactionPrompt:false` évite son doublon Canvas dans le navigateur.
+
+- La 0.7 ajoute MI06 après MI05. Ses dix habitants locaux ne sont pas les douze passagers du chenal ; leur arrivée à l’abri et l’état des deux logements sont des faits séparés. Mara intervient par radio.
+- Le soutien du panneau exige une coque ancrée et immobile, tous les pieds en contact dans la zone. Les techniciens doivent réellement arriver ; un étai manuel permet de poursuivre sans eux ou après destruction du panneau. Un étai ne reconstruit pas un panneau détruit.
+- Le choix de circuit exige ensuite une manœuvre de vanne. La hausse d’eau impériale rend les logements inhabitables et tue seulement les occupants restés dedans. La dérivation ne répare pas des maisons déjà détruites. Aucune preuve PALINODE n’est créée par MI06.
+- En v6, `resources.fuel` est le stock disponible, `world.nacre.fuelSpent` la dépense cumulée et `campaign.fuelSpent` le coût de la sortie. Le stock plus la dépense cumulée égale les lots acquis en MI05. Le raccordement consomme exactement deux lots après quatre secondes, jamais avant ; destruction, défaite et redémarrage ne les restituent pas.
+- MI06 peut conserver un checkpoint terminal `lost`, qui ne se restaure jamais en partie vivante. Une relecture reste indépendante. Un point avant décision antérieur à l’horloge officielle de MI06 n’est pas offert comme reprise jouable, même si son coût est identique ; il ne peut jamais restituer les lots consommés.
+- La fixture `campaign-v5-mi05.json` provient de l’arbre public immuable `613c07307f2712c5fac28d9403016906e94da168` de la 0.6. Ne pas la régénérer depuis le code courant. La migration ajoute uniquement la digue non visitée et le compteur de dépense nul, sans modifier MI01–MI05.

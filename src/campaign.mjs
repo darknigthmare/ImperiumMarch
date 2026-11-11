@@ -4,17 +4,17 @@
  * Every campaign transition returns a new value; gameplay remains in simulation.mjs.
  */
 import { WALKERS, DIFFICULTIES, ENEMY_TYPES } from './content.mjs';
-import { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt } from './simulation.mjs';
+import { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt, dikeDecisionBody, dikeSupportReady } from './simulation.mjs';
 
 export const CAMPAIGN_SAVE_KEY = 'imperium.campaign.v1';
 export const CAMPAIGN_BACKUP_KEY = 'imperium.campaign.v1.backup';
-export const CAMPAIGN_SAVE_VERSION = 5;
+export const CAMPAIGN_SAVE_VERSION = 6;
 const FORMAT = 'ordre-de-cendre.campaign';
 const MAX_BYTES = 2_000_000;
 const INITIAL_PARTS = 6;
 const DELIVERY_PARTS = 4;
 const PIPE_PARTS = 2;
-const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'];
+const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06'];
 const LEGACY_WALKER_IDS = ['WK01', 'WK05', 'WK09'];
 const clone = value => JSON.parse(JSON.stringify(value));
 const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
@@ -152,7 +152,7 @@ function validateGame(value, finished = false) {
   } else requireValue(value.convoy === null, 'convoi inattendu');
   requireValue(value.decision.choice === null || ['obey', 'defy'].includes(value.decision.choice), 'décision inconnue');
   for (const key of ['title', 'body', 'options']) {
-    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : null;
+    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : null;
     const expected = key === 'body' && dynamicBody && (value.decision.active || value.decision.resolved)
       ? dynamicBody(value) : template.decision[key];
     requireValue(JSON.stringify(value.decision[key]) === JSON.stringify(expected), 'texte de décision incompatible');
@@ -167,6 +167,10 @@ function validateGame(value, finished = false) {
     number(objective.target, 1, 100000, 'cible d’objectif');
   }
   const mission = value.campaign;
+  if (value.missionId === 'MI06') {
+    validateDikeMission(value, template);
+    return value;
+  }
   if (value.missionId === 'MI05') {
     validateChannelMission(value, template);
     return value;
@@ -371,7 +375,7 @@ export function createCampaign() {
     world: { vesper: { pipeIntact: true, pipeRepaired: false, servicesInterrupted: false, filtersDelivered: false,
       filtersDeliveredCount: 0, calesBassesExcluded: false, noticeFiled: false,
       rail: createRailDossier(), communications: createCommunicationsDossier(), industrial: createIndustrialDossier() },
-      nacre: { passage: createChannelDossier() } },
+      nacre: { passage: createChannelDossier(), dike: createDikeDossier(), fuelSpent: 0 } },
     fleet: Object.fromEntries(WALKERS.map(walker => [walker.id, { hull: walker.hull, feet: Array(walker.legs).fill(100), radiator: 100 }])),
     checkpoint: null, preDecisionCheckpoint: null, lastDebrief: null, maintenanceLog: [],
   };
@@ -484,8 +488,110 @@ function createChannelDossier() {
     manifestRead: false, reportFiled: false };
 }
 
+function createDikeDossier() {
+  return { thresholdsInspected: 0, evacuationOrdered: false, residentsTotal: 0, residentsSafe: 0, residentsLost: 0,
+    homesTotal: 0, homesUninhabitable: 0, techniciansTotal: 0, techniciansAlive: 0, techniciansLost: 0,
+    panelSecured: false, panelsLocked: 0, emergencyShoring: false, dikeFatigue: 0,
+    pumpsOnline: false, circuit: 'unselected', auxiliaryUsed: false, fuelSpent: 0,
+    manualIntervention: false, manifestRead: false, reportFiled: false };
+}
+
+function validateDikeFacts(facts, finished = false) {
+  for (const key of ['evacuationOrdered', 'panelSecured', 'emergencyShoring', 'pumpsOnline', 'auxiliaryUsed', 'manualIntervention', 'manifestRead', 'reportFiled']) boolean(facts[key], `digue ${key}`);
+  requireValue(facts.residentsTotal === 10 && facts.homesTotal === 2 && facts.techniciansTotal === 2, 'effectifs de la digue');
+  for (const [key, max] of [['thresholdsInspected', 2], ['residentsSafe', 10], ['residentsLost', 10], ['homesUninhabitable', 2], ['techniciansAlive', 2], ['techniciansLost', 2], ['panelsLocked', 1]]) number(facts[key], 0, max, `digue ${key}`, true);
+  requireValue(facts.residentsSafe + facts.residentsLost <= facts.residentsTotal, 'bilan des habitants impossible');
+  requireValue(facts.techniciansAlive + facts.techniciansLost === facts.techniciansTotal, 'bilan des techniciens contradictoire');
+  requireValue(facts.panelSecured === (facts.panelsLocked === 1 || facts.emergencyShoring), 'panneau sécurisé sans verrou ni étai');
+  number(facts.dikeFatigue, 0, 100, 'fatigue de digue');
+  requireValue(['unselected', 'imperial', 'diversion'].includes(facts.circuit), 'circuit de pompage');
+  requireValue(facts.fuelSpent === (facts.auxiliaryUsed ? 2 : 0), 'consommation sans branchement auxiliaire');
+  requireValue(!facts.pumpsOnline || facts.circuit !== 'unselected', 'pompe sans circuit choisi');
+  if (finished) requireValue(facts.thresholdsInspected === 2 && facts.panelSecured && facts.pumpsOnline && facts.manifestRead && facts.residentsSafe + facts.residentsLost === facts.residentsTotal, 'dossier de digue incomplet');
+}
+
+function validateDikeMission(value, template) {
+  const facts = value.campaign, site = value.dike, initial = template.dike;
+  requireValue(isObject(facts) && facts.missionId === 'MI06' && isObject(site), 'chantier de digue absent');
+  requireValue(['approach', 'inspection', 'support', 'routing', 'operation', 'report', 'complete'].includes(facts.phase), 'phase de digue');
+  validateDikeFacts(facts, value.status === 'won');
+  for (const key of ['channelOpen', 'smugglerVerified']) boolean(facts.context[key], `héritage de la digue ${key}`);
+  for (const key of ['refugeesPassed', 'refugeesLost']) number(facts.context[key], 0, 12, `héritage de la digue ${key}`, true);
+  number(facts.context.bargeCiviliansLost, 0, 4, 'équipage hérité', true);
+  requireValue([0, 2].includes(facts.context.fuelAvailable) && facts.fuelSpent <= facts.context.fuelAvailable, 'budget de carburant de la sortie');
+  requireValue(facts.context.refugeesPassed + facts.context.refugeesLost === 12, 'traversée héritée incomplète');
+  for (const group of ['houses', 'residents', 'technicians', 'covers']) {
+    requireValue(Array.isArray(site[group]) && site[group].length === initial[group].length, `${group} de digue incomplet`);
+    for (let index = 0; index < site[group].length; index++) {
+      const item = site[group][index], original = initial[group][index];
+      matchesShape(item, original, `${group}[${index}]`);
+      for (const key of ['id', 'homeId', 'w', 'h', 'maxHp', 'population', 'route']) if (own(original, key)) requireValue(item[key] === original[key], `identité ${group} ${key}`);
+      if (['houses', 'covers'].includes(group)) for (const key of ['x', 'y']) requireValue(item[key] === original[key], `position ${group} ${key}`);
+      else { number(item.x, 0, value.mission.length, `position ${group}`); number(item.y, -1000, 2000, `hauteur ${group}`); }
+    }
+  }
+  for (const key of ['panel', 'auxiliary', 'valve']) {
+    matchesShape(site[key], initial[key], `digue ${key}`);
+    for (const field of ['id', 'x', 'y', 'w', 'h', 'maxHp', 'supportX', 'workX']) if (own(initial[key], field)) requireValue(site[key][field] === initial[key][field], `identité ${key} ${field}`);
+  }
+  for (const item of [...site.houses, ...site.covers, site.panel, site.auxiliary]) {
+    number(item.hp, 0, item.maxHp, 'intégrité du chantier'); boolean(item.destroyed, 'destruction du chantier');
+    requireValue(item.destroyed === (item.hp === 0), 'destruction du chantier contradictoire');
+    number(item.flash, 0, 10, 'impact du chantier');
+  }
+  for (const house of site.houses) {
+    for (const key of ['inspected', 'scanning', 'flooded']) boolean(house[key], `maison ${key}`);
+    number(house.scanProgress, 0, 1, 'inspection des seuils');
+    requireValue(!house.inspected || (house.scanProgress === 1 && !house.scanning), 'seuil relevé sans inspection');
+  }
+  for (const resident of site.residents) {
+    number(resident.hp, 0, resident.maxHp, 'santé habitant');
+    for (const key of ['alive', 'safe']) boolean(resident[key], `habitant ${key}`);
+    requireValue(['home', 'evacuating', 'sheltered', 'lost'].includes(resident.phase), 'phase habitant');
+    requireValue(resident.alive === (resident.hp > 0), 'survie habitant contradictoire');
+    requireValue(resident.safe === (resident.phase === 'sheltered') && (!resident.safe || resident.alive), 'abri habitant contradictoire');
+    requireValue((resident.phase === 'lost') === !resident.alive, 'décès habitant contradictoire');
+  }
+  for (const tech of site.technicians) {
+    number(tech.hp, 0, tech.maxHp, 'santé technicien');
+    for (const key of ['alive', 'called', 'arrived', 'covering']) boolean(tech[key], `technicien ${key}`);
+    requireValue(['waiting', 'moving', 'cover', 'locking', 'onsite', 'lost'].includes(tech.phase), 'phase technicien');
+    requireValue(tech.alive === (tech.hp > 0) && (tech.phase === 'lost') === !tech.alive, 'survie technicien contradictoire');
+  }
+  const { panel, auxiliary, valve } = site;
+  for (const key of ['supported', 'locked', 'manualWorking', 'emergencyShoring', 'loaded']) boolean(panel[key], `panneau ${key}`);
+  for (const key of ['latchProgress', 'manualProgress']) number(panel[key], 0, 1, `panneau ${key}`);
+  number(panel.fatigue, 0, 100, 'fatigue du panneau');
+  for (const key of ['connected', 'active', 'working']) boolean(auxiliary[key], `auxiliaire ${key}`);
+  number(auxiliary.progress, 0, 1, 'branchement auxiliaire');
+  requireValue(!auxiliary.connected || auxiliary.progress === 1, 'branchement auxiliaire incomplet');
+  requireValue(!auxiliary.active || (auxiliary.connected && !auxiliary.destroyed), 'pompe auxiliaire inactive matériellement');
+  for (const key of ['working', 'completed']) boolean(valve[key], `vanne ${key}`);
+  number(valve.progress, 0, 1, 'travail de vanne');
+  requireValue(!valve.completed || (valve.progress === 1 && !valve.working), 'vanne inachevée');
+  number(site.pressure, 0, 100, 'pression de digue'); number(site.waterLevel, 0, 1, 'niveau des maisons'); number(site.floodingElapsed, 0, value.elapsed, 'temps d’inondation');
+  requireValue(facts.thresholdsInspected === site.houses.filter(item => item.inspected).length, 'décompte des seuils');
+  requireValue(facts.residentsSafe === site.residents.filter(item => item.safe).length && facts.residentsLost === site.residents.filter(item => !item.alive).length, 'bilan des habitants contradictoire');
+  requireValue(facts.techniciansAlive === site.technicians.filter(item => item.alive).length && facts.techniciansLost === site.technicians.filter(item => !item.alive).length, 'bilan des techniciens contradictoire');
+  requireValue(facts.homesUninhabitable === site.houses.filter(item => item.destroyed || item.flooded).length, 'bilan des logements contradictoire');
+  requireValue(facts.panelsLocked === Number(panel.locked) && facts.emergencyShoring === panel.emergencyShoring && facts.dikeFatigue === panel.fatigue, 'bilan du panneau contradictoire');
+  requireValue(facts.auxiliaryUsed === auxiliary.connected, 'carburant sans branchement réel');
+  requireValue(auxiliary.active === (auxiliary.connected && !auxiliary.destroyed), 'activité auxiliaire contradictoire');
+  requireValue(facts.pumpsOnline === valve.completed, 'pompes sans opération de vanne');
+  requireValue(panel.supported === (dikeSupportReady(value) && !panel.destroyed && !panel.locked && !panel.emergencyShoring), 'soutien sans appuis ancrés');
+  requireValue(facts.manifestRead === value.evidence.collected, 'constat des seuils contradictoire');
+  requireValue(facts.reportFiled === (value.decision.choice === 'defy'), 'rapport de digue contradictoire');
+  requireValue(facts.circuit === (value.decision.choice === 'defy' ? 'diversion' : value.decision.choice === 'obey' ? 'imperial' : 'unselected'), 'circuit contraire à la décision');
+  requireValue(value.stats.evidence === 0, 'le chantier ne fournit aucune nouvelle preuve PALINODE');
+  if (value.status === 'won') requireValue(facts.phase === 'complete' && value.decision.resolved && value.objectives.every(item => item.complete), 'victoire de digue sans objectifs accomplis');
+}
+
 function campaignContextFor(campaign, missionId) {
   const world = campaign.world.vesper;
+  if (missionId === 'MI06') {
+    const passage = campaign.world.nacre.passage;
+    return { fuelAvailable: campaign.resources.fuel, ...Object.fromEntries(['channelOpen', 'refugeesPassed', 'refugeesLost', 'smugglerVerified', 'bargeCiviliansLost'].map(key => [key, passage[key]])) };
+  }
   if (missionId === 'MI05') return { technicalEvidence: world.industrial.technicalEvidence,
     railHostagesRescued: world.rail.hostagesRescued, railRecordFiled: world.rail.recordFiled };
   const context = Object.fromEntries(['pipeIntact', 'pipeRepaired', 'noticeFiled', 'servicesInterrupted'].map(key => [key, world[key]]));
@@ -494,6 +600,38 @@ function campaignContextFor(campaign, missionId) {
   if (missionId === 'MI04') Object.assign(context, { dispensaryIntact: world.communications.dispensaryIntact,
     witnessAvailable: world.communications.witnessAvailable, civilRelaysOnline: world.communications.civilRelaysOnline });
   return context;
+}
+
+function validateDikeContext(campaign, snapshot, beforeDecision = false) {
+  const current = campaign.checkpoint?.missionId === 'MI06' ? campaign.checkpoint : null;
+  const reference = current?.campaign || campaign.completed.MI06;
+  requireValue(Boolean(reference), 'point de digue sans sortie de référence');
+  const expected = campaignContextFor(campaign, 'MI06');
+  expected.fuelAvailable += reference.fuelSpent;
+  requireValue([0, 2].includes(expected.fuelAvailable) && expected.fuelAvailable <= campaign.world.nacre.passage.fuelLots, 'budget initial de digue contradictoire');
+  requireValue(Object.keys(expected).every(key => snapshot.campaign.context[key] === expected[key]), 'héritage de la digue contradictoire');
+  requireValue(snapshot.campaign.fuelSpent <= campaign.world.nacre.fuelSpent, 'carburant du point non débité');
+  if (beforeDecision) {
+    requireValue(snapshot.campaign.fuelSpent <= reference.fuelSpent, 'point antérieur dépensant davantage que la sortie');
+    requireValue(snapshot.elapsed <= (current?.elapsed ?? campaign.completed.MI06.elapsed), 'point de décision postérieur au bilan');
+    if (current) requireValue(snapshot.walkerId === current.walkerId && snapshot.seed === current.seed && snapshot.difficultyId === current.difficultyId, 'point de décision d’une autre sortie');
+  }
+}
+
+// Fuel is debited when the physical connection completes, including the last
+// frame of a failed sortie. A restart receives the remaining stock, never a refund.
+function applyDikeFuel(next, previous, game) {
+  if (game.missionId !== 'MI06') return;
+  const old = previous.checkpoint;
+  requireValue(old?.missionId === 'MI06', 'consommation hors sortie officielle');
+  requireValue(game.walkerId === old.walkerId && game.seed === old.seed && game.difficultyId === old.difficultyId && game.elapsed >= old.elapsed, 'recul ou changement de sortie de digue');
+  requireValue(JSON.stringify(game.campaign.context) === JSON.stringify(old.campaign.context), 'budget ou héritage modifié pendant la sortie');
+  requireValue(old.status === 'playing' || JSON.stringify(game) === JSON.stringify(old), 'sortie perdue à recommencer explicitement');
+  const delta = game.campaign.fuelSpent - old.campaign.fuelSpent;
+  requireValue([0, 2].includes(delta) && delta <= next.resources.fuel, 'consommation répétée ou recul du carburant');
+  next.resources.fuel -= delta;
+  next.world.nacre.fuelSpent += delta;
+  requireValue(next.world.nacre.fuelSpent <= 2, 'dépense de carburant supérieure à la collecte');
 }
 
 /** A finished sortie returns to the hangar; completion is tracked per mission. */
@@ -508,7 +646,7 @@ function validateReceipt(receipt) {
   const specificKeys = receipt.missionId === 'MI01' ? ['convoyIntegrity', 'route', 'pipeIntact', 'noticeFiled', 'filtersDeliveredCount', 'pipeRepairCost']
     : receipt.missionId === 'MI02' ? ['trainIntegrity', 'trainStopped', 'harpoonsReleased', 'hostagesTotal', 'hostagesRescued', 'hostagesLost', 'evidencePreserved', 'recordFiled']
       : receipt.missionId === 'MI03' ? ['signalsIdentified', 'militaryRelayDisabled', 'verifiedBuildings', 'networkPreserved', 'civilRelaysOnline', 'dispensaryIntact', 'witnessAvailable', 'residentsLost', 'holtAlerted', 'reportFiled']
-        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : Object.keys(createChannelDossier());
+        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : receipt.missionId === 'MI05' ? Object.keys(createChannelDossier()) : Object.keys(createDikeDossier());
   const expectedKeys = [...commonKeys, ...specificKeys];
   requireValue(Object.keys(receipt).length === expectedKeys.length && expectedKeys.every(key => own(receipt, key)), 'champs du rapport incompatibles');
   for (const key of ['walkerName', 'missionName', 'decisionLabel', 'tessLine', 'samiLine']) requireValue(typeof receipt[key] === 'string', `rapport ${key}`);
@@ -521,6 +659,11 @@ function validateReceipt(receipt) {
   number(receipt.collateral, 0, 1000, 'pertes civiles', true);
   number(receipt.kills, 0, 1000, 'adversaires neutralisés', true);
   requireValue(receipt.partsGranted === DELIVERY_PARTS, 'dotation du rapport');
+  if (receipt.missionId === 'MI06') {
+    validateDikeFacts(receipt, true);
+    requireValue(receipt.reportFiled === (receipt.choice === 'defy') && receipt.circuit === (receipt.choice === 'defy' ? 'diversion' : 'imperial'), 'rapport de digue contradictoire');
+    return;
+  }
   if (receipt.missionId === 'MI05') {
     validateChannelFacts(receipt, true);
     requireValue(receipt.reportFiled === (receipt.choice === 'defy'), 'rapport du chenal contradictoire');
@@ -576,7 +719,9 @@ function validateCampaign(campaign) {
   requireValue(Object.keys(campaign.completed).every(id => MISSION_IDS.includes(id)), 'mission validée inconnue');
   for (let index = 1; index < MISSION_IDS.length; index++) requireValue(!own(campaign.completed, MISSION_IDS[index]) || own(campaign.completed, MISSION_IDS[index - 1]), `${MISSION_IDS[index]} sans dossier ${MISSION_IDS[index - 1]}`);
   number(campaign.resources.parts, 0, INITIAL_PARTS + Object.keys(campaign.completed).length * DELIVERY_PARTS, 'lots d’atelier', true);
-  number(campaign.resources.fuel, 0, 2, 'lots de carburant', true);
+  requireValue([0, 2].includes(campaign.resources.fuel), 'lots de carburant');
+  requireValue([0, 2].includes(campaign.world.nacre.fuelSpent), 'consommation cumulée de Nacre');
+  requireValue(campaign.world.nacre.fuelSpent === 0 || campaign.activeMissionId === 'MI06' || own(campaign.completed, 'MI06'), 'dépense avant le chantier de digue');
   number(campaign.crew.tess.trust, 0, 100, 'relation Tess', true);
   number(campaign.crew.sami.trust, 0, 100, 'relation Sami', true);
   boolean(campaign.authority.reportFiled, 'rapport administratif');
@@ -607,7 +752,8 @@ function validateCampaign(campaign) {
     number(log.cost, 1, 6, 'coût intervention', true);
   }
   if (campaign.checkpoint !== null) {
-    validateGame(campaign.checkpoint);
+    validateGame(campaign.checkpoint, campaign.checkpoint.missionId === 'MI06' && campaign.checkpoint.status === 'lost');
+    if (campaign.checkpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.checkpoint);
     requireValue(campaign.checkpoint.missionId === campaign.activeMissionId, 'checkpoint d’une autre mission');
     if (['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.checkpoint.missionId)) {
       requireValue(JSON.stringify(campaign.checkpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.checkpoint.missionId)), 'héritage des missions précédentes contradictoire');
@@ -615,6 +761,7 @@ function validateCampaign(campaign) {
   }
   if (campaign.preDecisionCheckpoint !== null) {
     validateGame(campaign.preDecisionCheckpoint);
+    if (campaign.preDecisionCheckpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.preDecisionCheckpoint, true);
     requireValue(campaign.preDecisionCheckpoint.decision.active && !campaign.preDecisionCheckpoint.decision.resolved, 'checkpoint avant décision incompatible');
     if (campaign.stage === 'mission' && ['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.preDecisionCheckpoint.missionId)) requireValue(JSON.stringify(campaign.preDecisionCheckpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.preDecisionCheckpoint.missionId)), 'héritage du point de décision contradictoire');
   }
@@ -650,11 +797,16 @@ function validateCampaign(campaign) {
   const passage = campaign.world.nacre.passage;
   if (campaign.completed.MI05) {
     for (const key of Object.keys(createChannelDossier())) requireValue(passage[key] === campaign.completed.MI05[key], `dossier de Nacre ${key}`);
-    requireValue(campaign.resources.fuel === passage.fuelLots, 'carburant sans collecte correspondante');
+    requireValue(campaign.resources.fuel + campaign.world.nacre.fuelSpent === passage.fuelLots, 'bilan de carburant sans collecte ou consommation correspondante');
   } else {
     requireValue(JSON.stringify(passage) === JSON.stringify(createChannelDossier()), 'résultat de Nacre sans dossier MI05');
-    requireValue(campaign.resources.fuel === 0, 'carburant obtenu avant Nacre');
+    requireValue(campaign.resources.fuel === 0 && campaign.world.nacre.fuelSpent === 0, 'carburant obtenu ou dépensé avant Nacre');
   }
+  if (campaign.completed.MI06) {
+    const report = campaign.completed.MI06;
+    for (const key of Object.keys(createDikeDossier())) requireValue(campaign.world.nacre.dike[key] === report[key], `dossier de digue ${key}`);
+    requireValue(report.fuelSpent <= campaign.world.nacre.fuelSpent, 'dépense du rapport supérieure au registre');
+  } else requireValue(JSON.stringify(campaign.world.nacre.dike) === JSON.stringify(createDikeDossier()), 'résultat de digue sans dossier MI06');
   if (campaign.stage === 'mission') {
     requireValue(campaign.checkpoint !== null && MISSION_IDS.includes(campaign.activeMissionId) && !own(campaign.completed, campaign.activeMissionId), 'mission sans checkpoint ou déjà achevée');
     const previousId = MISSION_IDS[MISSION_IDS.indexOf(campaign.activeMissionId) - 1];
@@ -685,7 +837,7 @@ export function parseCampaign(text) {
 
 /** Add only documented fields to historical saves; completed receipts stay intact. */
 function migrateCampaign(value) {
-  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4].includes(value.version)) return value;
+  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4, 5].includes(value.version)) return value;
   walkJSON(value);
   requireValue(isObject(value.world) && isObject(value.world.vesper), 'Vesper absent du dossier historique');
   if (value.version === 1) {
@@ -734,18 +886,30 @@ function migrateCampaign(value) {
     value.world.vesper.industrial = createIndustrialDossier();
     value.version = 4;
   }
-  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01', 'MI02', 'MI03', 'MI04'].includes(id)), 'dossier v4 contient une mission inconnue');
-  requireValue(value.activeMissionId === null || ['MI01', 'MI02', 'MI03', 'MI04'].includes(value.activeMissionId), 'mission active v4 inconnue');
-  requireValue(!own(value.world, 'nacre'), 'dossier historique contient déjà des résultats de Nacre');
-  requireValue(isObject(value.resources) && !own(value.resources, 'fuel'), 'carburant inattendu dans le dossier historique');
-  for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
-    requireValue(isObject(checkpoint) && ['MI01', 'MI02', 'MI03', 'MI04'].includes(checkpoint.missionId), 'checkpoint v4 inconnu');
-    requireValue(!own(checkpoint, 'channel'), 'chenal inattendu dans un checkpoint de Vesper');
+  if (value.version === 4) {
+    requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01', 'MI02', 'MI03', 'MI04'].includes(id)), 'dossier v4 contient une mission inconnue');
+    requireValue(value.activeMissionId === null || ['MI01', 'MI02', 'MI03', 'MI04'].includes(value.activeMissionId), 'mission active v4 inconnue');
+    requireValue(!own(value.world, 'nacre'), 'dossier historique contient déjà des résultats de Nacre');
+    requireValue(isObject(value.resources) && !own(value.resources, 'fuel'), 'carburant inattendu dans le dossier historique');
+    for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
+      requireValue(isObject(checkpoint) && ['MI01', 'MI02', 'MI03', 'MI04'].includes(checkpoint.missionId), 'checkpoint v4 inconnu');
+      requireValue(!own(checkpoint, 'channel'), 'chenal inattendu dans un checkpoint de Vesper');
+    }
+    // No mission state, receipt or workshop condition is rewritten. Vesper v4
+    // already contains its exact radiator/ammunition state; Nacre starts unvisited.
+    value.world.nacre = { passage: createChannelDossier() };
+    value.resources.fuel = 0;
+    value.version = 5;
   }
-  // No mission state, receipt or workshop condition is rewritten. Vesper v4
-  // already contains its exact radiator/ammunition state; Nacre starts unvisited.
-  value.world.nacre = { passage: createChannelDossier() };
-  value.resources.fuel = 0;
+  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(id)), 'dossier v5 contient une mission inconnue');
+  requireValue(value.activeMissionId === null || ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(value.activeMissionId), 'mission active v5 inconnue');
+  requireValue(isObject(value.world.nacre) && !own(value.world.nacre, 'dike') && !own(value.world.nacre, 'fuelSpent'), 'digue ou dépense inattendue dans le dossier historique');
+  for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
+    requireValue(isObject(checkpoint) && ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(checkpoint.missionId), 'checkpoint v5 inconnu');
+    requireValue(!own(checkpoint, 'dike'), 'chantier inattendu dans un checkpoint historique');
+  }
+  value.world.nacre.dike = createDikeDossier();
+  value.world.nacre.fuelSpent = 0;
   value.version = CAMPAIGN_SAVE_VERSION;
   return value;
 }
@@ -763,7 +927,7 @@ function unsupportedDossier(text) {
   try {
     const value = JSON.parse(text);
     return isObject(value) && ((typeof value.format === 'string' && value.format !== FORMAT) ||
-      (value.format === FORMAT && ![1, 2, 3, 4, CAMPAIGN_SAVE_VERSION].includes(value.version)));
+      (value.format === FORMAT && ![1, 2, 3, 4, 5, CAMPAIGN_SAVE_VERSION].includes(value.version)));
   } catch { return false; }
 }
 
@@ -813,10 +977,12 @@ export function beginCampaignMission(campaign, options = {}) {
   if (missionId === 'MI03' && !campaign.completed.MI02) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le dossier du train avant de rejoindre les émetteurs de Vesper.' };
   if (missionId === 'MI04' && !campaign.completed.MI03) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le constat des émetteurs avant de rejoindre la station industrielle.' };
   if (missionId === 'MI05' && !campaign.completed.MI04) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le dossier de Vesper avant de rejoindre le chenal de Nacre.' };
+  if (missionId === 'MI06' && !campaign.completed.MI05) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le rapport du chenal avant de rejoindre les maisons des Trois-Vannes.' };
   const walkerId = WALKERS.some(walker => walker.id === options.walkerId) ? options.walkerId : WALKERS[0].id;
   const replay = Boolean(options.replay || own(campaign.completed, missionId));
   if (!replay && campaign.stage === 'mission' && !options.restart) return { ok: false, campaign, game: null, replay: false, message: 'Une sortie est déjà en cours. Reprenez-la ou recommencez-la explicitement.' };
   const campaignContext = campaignContextFor(campaign, missionId);
+  if (replay && missionId === 'MI06') campaignContext.fuelAvailable = campaign.completed.MI06 ? campaign.resources.fuel + campaign.completed.MI06.fuelSpent : campaign.checkpoint?.missionId === 'MI06' ? campaign.checkpoint.campaign.context.fuelAvailable : campaign.resources.fuel;
   const game = createGame({ missionId, walkerId, difficulty: options.difficulty, assist: options.assist, seed: options.seed, campaignContext });
   requireValue(game.missionId === missionId, 'mission de campagne indisponible');
   if (replay) return { ok: true, campaign, game, replay: true, message: 'Rejeu d’entraînement : le dossier de campagne reste inchangé.' };
@@ -832,17 +998,20 @@ export function beginCampaignMission(campaign, options = {}) {
     : missionId === 'MI02' ? 'Le dossier du viaduc est ouvert. Retrouvez le train et ceux qu’il transporte.'
       : missionId === 'MI03' ? 'Les émetteurs de Vesper sont accessibles. Identifiez chaque signal avant de rendre votre compte rendu.'
         : missionId === 'MI04' ? 'La station industrielle est accessible. Refroidissez les turbines et relevez ce qui reste du journal de maintenance.'
-          : 'L’affectation de Nacre est ouverte. Libérez le chenal et vérifiez les deux équipages avant de signer votre rapport.';
+          : missionId === 'MI05' ? 'L’affectation de Nacre est ouverte. Libérez le chenal et vérifiez les deux équipages avant de signer votre rapport.'
+            : 'La digue des Trois-Vannes vous attend. Relevez les seuils et soutenez le chantier avant de choisir le circuit.';
   return { ok: true, campaign: next, game, replay: false, message };
 }
 
 export function checkpointCampaign(campaign, game, options = {}) {
   validateCampaign(campaign);
-  if (options.replay || own(campaign.completed, game?.missionId) || game?.status !== 'playing') return campaign;
+  const terminalDike = game?.missionId === 'MI06' && game.status === 'lost';
+  if (options.replay || own(campaign.completed, game?.missionId) || (game?.status !== 'playing' && !terminalDike)) return campaign;
   requireValue(campaign.stage === 'mission' && campaign.activeMissionId === game.missionId, 'aucune campagne active pour cette mission');
   const snapshot = clone(game);
-  validateGame(snapshot);
+  validateGame(snapshot, terminalDike);
   const next = clone(campaign);
+  applyDikeFuel(next, campaign, snapshot);
   next.checkpoint = snapshot; next.revision++;
   if ((options.beforeDecision || snapshot.decision.active) && snapshot.decision.active && !next.preDecisionCheckpoint) next.preDecisionCheckpoint = clone(snapshot);
   validateCampaign(next);
@@ -853,11 +1022,19 @@ export function restoreCampaignGame(campaign, options = {}) {
   validateCampaign(campaign);
   if (campaign.stage !== 'mission' || own(campaign.completed, campaign.activeMissionId)) return null;
   const snapshot = options.beforeDecision ? campaign.preDecisionCheckpoint : campaign.checkpoint;
-  return snapshot ? clone(validateGame(snapshot)) : null;
+  if (options.beforeDecision && campaign.activeMissionId === 'MI06' && (campaign.checkpoint.status === 'lost' || (snapshot && (snapshot.elapsed < campaign.checkpoint.elapsed || snapshot.campaign.fuelSpent < campaign.checkpoint.campaign.fuelSpent)))) return null;
+  return snapshot ? clone(validateGame(snapshot, snapshot.missionId === 'MI06' && snapshot.status === 'lost')) : null;
 }
 
 function crewLines(game) {
   const mission = game.campaign;
+  if (game.missionId === 'MI06') {
+    const shelter = `${mission.residentsSafe} habitants ont rejoint l’abri. ${mission.residentsLost} sont morts ; leur bilan reste distinct des douze passagers du chenal.`;
+    const homes = mission.homesUninhabitable ? `${mission.homesUninhabitable} logement${mission.homesUninhabitable > 1 ? 's sont inhabitables' : ' est inhabitable'}. Évacuer les familles n’a pas rendu leurs maisons utilisables.` : 'Les deux maisons sont restées habitables au départ.';
+    const workers = `${mission.techniciansAlive} technicien${mission.techniciansAlive > 1 ? 's ont survécu' : ' a survécu'} au chantier ; ${mission.techniciansLost} décès sont consignés.`;
+    const support = mission.emergencyShoring ? 'Le maintien a exigé un étai manuel de secours.' : 'Le panneau a été verrouillé pendant le soutien du marcheur.';
+    return { tessLine: `${shelter} ${homes} ${support}`, samiLine: `${workers} ${mission.circuit === 'diversion' ? 'La dérivation vers les maisons est consignée au rapport.' : 'Le réglage impérial a remis le quai privé en service.'} ${mission.fuelSpent ? 'Deux lots ont alimenté la pompe auxiliaire pendant cette sortie.' : 'Cette sortie n’a consommé aucun lot de carburant.'}` };
+  }
   if (game.missionId === 'MI05') {
     const passage = mission.refugeesLost === 0
       ? 'Les douze passagers ont atteint le quai. Ils sont descendus par leurs propres moyens ; le chenal est resté ouvert assez longtemps.'
@@ -929,17 +1106,24 @@ function crewLines(game) {
 export function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(campaign);
   if (options.replay || own(campaign.completed, game?.missionId)) return { ok: true, campaign, receipt: campaign.completed[game?.missionId] || campaign.lastDebrief, applied: false, message: 'Rejeu terminé. Le rapport de campagne et les lots restent inchangés.' };
-  if (game?.status !== 'won') return { ok: true, campaign, receipt: null, applied: false, message: 'Aucune sortie validée. Le dernier checkpoint reste disponible.' };
+  if (game?.status !== 'won') {
+    const failed = game?.missionId === 'MI06' && game.status === 'lost' ? checkpointCampaign(campaign, game) : campaign;
+    return { ok: true, campaign: failed, receipt: null, applied: false, message: game?.missionId === 'MI06' && game.status === 'lost' ? 'Sortie perdue. La consommation déjà effectuée reste inscrite ; recommencez la mission avec le stock restant.' : 'Aucune sortie validée. Le dernier checkpoint reste disponible.' };
+  }
   requireValue(campaign.stage === 'mission' && campaign.activeMissionId === game.missionId, 'aucune sortie officielle en cours pour cette mission');
   validateGame(clone(game), true);
   const next = clone(campaign), mission = game.campaign;
+  applyDikeFuel(next, campaign, game);
   const commonReceipt = {
     missionId: game.missionId, missionName: game.mission.name, walkerId: game.walkerId, walkerName: `${game.walker.designation} ${game.walker.name}`,
     hull: game.player.hull, integrity: game.player.hull / game.player.maxHull,
     elapsed: game.elapsed, collateral: game.stats.collateral, kills: game.stats.kills, choice: game.decision.choice,
     partsGranted: DELIVERY_PARTS, ...crewLines(game),
   };
-  const receipt = game.missionId === 'MI05' ? {
+  const receipt = game.missionId === 'MI06' ? {
+    ...commonReceipt, ...Object.fromEntries(Object.keys(createDikeDossier()).map(key => [key, mission[key]])),
+    decisionLabel: mission.reportFiled ? 'Dérivation des maisons accomplie et constat joint' : 'Circuit impérial accompli au quai privé',
+  } : game.missionId === 'MI05' ? {
     ...commonReceipt, ...Object.fromEntries(Object.keys(createChannelDossier()).map(key => [key, mission[key]])),
     decisionLabel: mission.reportFiled ? 'Sort des passagers et constat des deux équipages joints au rapport' : 'Passage confirmé au bordereau impérial',
   } : game.missionId === 'MI04' ? {
@@ -969,7 +1153,12 @@ export function finishCampaignMission(campaign, game, options = {}) {
   next.stage = 'complete'; next.activeMissionId = null; next.checkpoint = null; next.revision++;
   next.resources.parts += DELIVERY_PARTS;
   next.fleet[game.walkerId] = { hull: game.player.hull, feet: game.player.feet.map(foot => foot.health), radiator: game.player.radiator.health };
-  if (game.missionId === 'MI05') {
+  if (game.missionId === 'MI06') {
+    next.world.nacre.dike = Object.fromEntries(Object.keys(createDikeDossier()).map(key => [key, mission[key]]));
+    next.authority.suspicion = clamp(next.authority.suspicion + (mission.reportFiled ? 3 : 0), 0, 100);
+    next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.residentsLost ? -mission.residentsLost : 2) - mission.techniciansLost, 0, 100);
+    next.crew.sami.trust = clamp(next.crew.sami.trust + (mission.reportFiled ? 2 : 0) - mission.residentsLost - mission.techniciansLost, 0, 100);
+  } else if (game.missionId === 'MI05') {
     next.world.nacre.passage = Object.fromEntries(Object.keys(createChannelDossier()).map(key => [key, mission[key]]));
     next.resources.fuel += mission.fuelLots;
     next.authority.suspicion = clamp(next.authority.suspicion + (mission.reportFiled ? 2 : 0), 0, 100);
@@ -1003,7 +1192,7 @@ export function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(next);
   const action = game.missionId === 'MI01' ? 'Livraison inscrite au dossier.'
     : game.missionId === 'MI02' ? 'Récupération du train inscrite au dossier.' : game.missionId === 'MI03' ? 'Constat des émetteurs inscrit au dossier.'
-      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.';
+      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : game.missionId === 'MI05' ? 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.' : 'Le bilan des Trois-Vannes est inscrit au dossier : personnes, logements, chantier et carburant.';
   return { ok: true, campaign: next, receipt, applied: true, message: `${action} Quatre lots d’atelier ont été affectés au retour.` };
 }
 

@@ -60,6 +60,12 @@ const campaignOrders = {
     task: 'Rétablir le circuit, refroidir les deux turbines et inspecter le poste de maintenance.',
     caution: 'Préservez le journal. Les conduites, les ouvriers du train et le dispensaire changent vos moyens sur place.',
   },
+  MI06: {
+    status: 'Les marques de niveau traversent les fenêtres des Trois-Vannes. Mara demande du temps pour sortir les habitants.',
+    description: 'Deux techniciens attendent devant un panneau déformé. Votre marcheur peut porter la charge pendant leur travail. Le circuit prescrit protège le quai privé et met les maisons sous l’eau.',
+    task: 'Relever les seuils, tenir le panneau, couvrir les techniciens et achever le circuit choisi.',
+    caution: 'Ancrez tous les appuis pour soutenir la digue. Les personnes évacuées et les logements préservés ont des bilans distincts.',
+  },
   MI05: {
     status: 'Le chenal de Nacre est bloqué. Deux barges portent le même pavillon ; leurs équipages ne font pas le même travail.',
     description: 'Le bateau civil attend une fenêtre de marée devant les câbles du blocus. Depuis la digue, deux équipages vous appellent. Vérifiez ce qu’ils transportent avant de décider qui couvrir.',
@@ -84,7 +90,7 @@ function saveCampaign({ replaceInvalid = false } = {}) {
   return result.ok;
 }
 function captureCampaign(beforeDecision = false) {
-  if (activeMode !== 'campaign' || campaignReplay || !game || game.status !== 'playing') return;
+  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(game.missionId === 'MI06' && game.status === 'lost'))) return;
   try {
     campaign = checkpointCampaign(campaign, game, { beforeDecision });
     lastCampaignSaveAt = game.elapsed;
@@ -97,10 +103,20 @@ function captureCampaign(beforeDecision = false) {
 function renderCampaignStatus() {
   $('campaign-save-status').textContent = campaignBlocked
     ? 'Ce dossier ne peut pas être lu. Le fichier existant est conservé. Importez une copie valide ou créez un nouveau dossier.'
-    : campaignWarning || (campaign.checkpoint ? `Reprise enregistrée au dernier point de liaison. Exportez le dossier pour le transférer sur un autre appareil.` : 'La progression est conservée sur cet appareil. Exportez le dossier pour le transférer.');
+    : campaignWarning || (campaign.checkpoint?.status === 'lost' ? 'La sortie a échoué. Consultez le bilan ou recommencez ; le carburant déjà utilisé reste dépensé.' : campaign.checkpoint ? `Reprise enregistrée au dernier point de liaison. Exportez le dossier pour le transférer sur un autre appareil.` : 'La progression est conservée sur cet appareil. Exportez le dossier pour le transférer.');
   $('campaign-save-status').classList.toggle('save-warning', Boolean(campaignWarning || campaignBlocked));
 }
 function campaignReceiptFacts(receipt) {
+  if (receipt.missionId === 'MI06') return [
+    ['HABITANTS À L’ABRI', `${receipt.residentsSafe} / ${receipt.residentsTotal}`],
+    ['HABITANTS PERDUS', receipt.residentsLost],
+    ['LOGEMENTS INHABITABLES', `${receipt.homesUninhabitable} / ${receipt.homesTotal}`],
+    ['TECHNICIENS VIVANTS', `${receipt.techniciansAlive} / ${receipt.techniciansTotal}`],
+    ['SOUTIEN DU PANNEAU', receipt.emergencyShoring ? 'Étai manuel de secours' : 'Verrou posé par le technicien'],
+    ['CIRCUIT ACCOMPLI', receipt.circuit === 'diversion' ? 'Dérivation des maisons' : 'Réglage impérial du quai'],
+    ['CARBURANT DE CETTE SORTIE', `${receipt.fuelSpent} lot${receipt.fuelSpent > 1 ? 's' : ''} consommé${receipt.fuelSpent > 1 ? 's' : ''}`],
+    ['POMPES', receipt.pumpsOnline ? 'Remise en service accomplie' : 'À l’arrêt'],
+  ];
   if (receipt.missionId === 'MI05') return [
     ['PASSAGERS AU QUAI', `${receipt.refugeesPassed} / ${receipt.refugeesTotal}`],
     ['PASSAGERS PERDUS', receipt.refugeesLost],
@@ -147,7 +163,7 @@ function renderCampaignUI() {
   $('campaign-deploy').disabled = campaignBlocked;
   $('campaign-resume').hidden = !hasCheckpoint;
   $('campaign-resume').disabled = campaignBlocked;
-  $('campaign-resume').textContent = hasCheckpoint ? `Reprendre ${campaign.activeMissionId}` : 'Reprendre la mission';
+  $('campaign-resume').textContent = hasCheckpoint ? campaign.checkpoint.status === 'lost' ? `Voir le bilan de ${campaign.activeMissionId}` : `Reprendre ${campaign.activeMissionId}` : 'Reprendre la mission';
   $('campaign-export').disabled = campaignBlocked;
   $('campaign-status').textContent = completed ? 'Rapport classé. Une relecture conserve vos premiers choix et ne donne aucune dotation supplémentaire.' : continuing ? 'Sortie en cours. Votre dernière liaison permet de reprendre la mission et son état exact.' : order.status;
   $('campaign-order-index').textContent = `${mission.planet.toUpperCase()} / MISSION ${mission.number}`;
@@ -165,7 +181,7 @@ function renderCampaignUI() {
       : 'Le journal du poste a été perdu. Le bilan de Vesper conserve cette absence ; une autre source technique reste à trouver.';
     const passage = campaign.completed.MI05;
     $('campaign-transition-text').textContent = `${inherited} ${passage
-      ? `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai et ${passage.fuelLots} lots de carburant ont été chargés. La suite de l’affectation, aux pompes et aux digues, reste en préparation.`
+      ? campaign.completed.MI06 ? `Aux Trois-Vannes, ${campaign.completed.MI06.residentsSafe} habitants sont à l’abri et ${campaign.completed.MI06.homesUninhabitable} logements sont inhabitables. Le dossier garde ces deux bilans. La prochaine affectation sur la chaussée des Salines reste en préparation.` : `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai. La digue des Trois-Vannes est maintenant accessible dans « Les maisons sous la ligne ». ${campaign.resources.fuel} lots de carburant restent disponibles ; une solution manuelle existe sans réserve.`
       : 'Votre nouvelle affectation est ouverte : rejoignez le chenal de Nacre dans « Le prix du passage ». Le départ reste possible avec ou sans le journal.'}`;
   }
   $('campaign-mission-list').innerHTML = CAMPAIGN_MISSIONS.map((m, index) => {
@@ -192,6 +208,8 @@ function renderWorkshop() {
   $('workshop-parts').textContent = `${campaign.resources.parts} LOTS D’ATELIER`;
   $('workshop-fuel').textContent = `${campaign.resources.fuel} LOT${campaign.resources.fuel > 1 ? 'S' : ''} DE CARBURANT EN RÉSERVE`;
   $('workshop-fuel').hidden = !campaign.completed.MI05;
+  $('workshop-fuel-used').hidden = !campaign.world.nacre.fuelSpent;
+  $('workshop-fuel-used').textContent = `${campaign.world.nacre.fuelSpent} LOTS DÉJÀ UTILISÉS AUX TROIS-VANNES`;
   $('workshop-condition').textContent = `${w.designation} ${w.name} — coque ${Math.round(condition.hull / w.hull * 100)} % · appuis ${feet.join(' / ')} % · radiateur ${Math.round(condition.radiator)} %`;
   $('workshop-repair-note').textContent = cost ? `Tess demande ${cost} lot${cost > 1 ? 's' : ''} pour remettre la coque, les articulations et le radiateur en état.` : '« Coque, appuis, refroidissement : tout tient. Deux kits de radiateur seront chargés au départ. » — Tess';
   $('campaign-repair').textContent = cost ? `Réparer · ${cost} lot${cost > 1 ? 's' : ''}` : 'Marcheur prêt';
@@ -212,7 +230,12 @@ function renderWorkshop() {
   $('workshop-nacre').hidden = !campaign.completed.MI05;
   if (campaign.completed.MI05) {
     const report = campaign.completed.MI05;
-    $('workshop-nacre').textContent = `Nacre : ${report.refugeesPassed} passagers au quai, ${report.refugeesLost} perdus. ${report.smugglerVerified ? 'Vann Ostre a répondu depuis Rive-Courte ; ce contact est conservé.' : 'Aucun contact établi avec Rive-Courte.'} ${report.fuelRecovered ? 'Le carburant chargé attend la prochaine affectation.' : 'Le dépôt n’a fourni aucun carburant à cette sortie.'}`;
+    $('workshop-nacre').textContent = `Nacre : ${report.refugeesPassed} passagers au quai, ${report.refugeesLost} perdus. ${report.smugglerVerified ? 'Vann Ostre a répondu depuis Rive-Courte ; ce contact est conservé.' : 'Aucun contact établi avec Rive-Courte.'} ${campaign.world.nacre.fuelSpent ? 'Les deux lots chargés ont été consommés au chantier, y compris si la sortie a dû recommencer.' : report.fuelRecovered ? 'Les deux lots chargés sont encore disponibles.' : 'Le dépôt n’a fourni aucun carburant à cette sortie.'}`;
+  }
+  $('workshop-dike').hidden = !campaign.completed.MI06;
+  if (campaign.completed.MI06) {
+    const report = campaign.completed.MI06;
+    $('workshop-dike').textContent = `Trois-Vannes : ${report.residentsSafe} habitants à l’abri, ${report.residentsLost} perdus ; ${report.homesUninhabitable} logements inhabitables. ${report.techniciansAlive} techniciens vivants. ${report.circuit === 'diversion' ? 'La dérivation a été accomplie.' : 'Le circuit impérial du quai a été accompli.'} Cette dernière sortie a utilisé ${report.fuelSpent} lots de carburant.`;
   }
   $('campaign-repair-pipe').hidden = !campaign.completed?.MI01 || world.pipeIntact || world.pipeRepaired;
   $('campaign-repair-pipe').textContent = 'Réparer la conduite · 2 lots';
@@ -383,6 +406,11 @@ function showBriefing() {
     const vesper = campaign.world.vesper;
     $('briefing-description').textContent += ` ${vesper.industrial.technicalEvidence ? 'Tess a rangé la copie du journal de Vesper. Le travail sur le chenal ne permet pas encore d’en expliquer les références militaires.' : 'Le journal de Vesper manque au dossier. Holt maintient pourtant votre nouvelle affectation : rouvrir le chenal.'} ${vesper.rail.hostagesRescued ? 'Sami se souvient du wagon et de ses survivants. Il veut regarder ce que transportent ces barges.' : 'Sami n’a pas oublié les ouvriers morts dans le train. Il demande de vérifier les personnes à bord avant le premier tir.'}`;
   }
+  if (pendingMode === 'campaign' && m.id === 'MI06') {
+    const passage = campaign.world.nacre.passage;
+    const fuel = pendingReplay && campaign.completed.MI06 ? campaign.resources.fuel + campaign.completed.MI06.fuelSpent : campaign.resources.fuel;
+    $('briefing-description').textContent += ` ${passage.channelOpen && passage.refugeesPassed === 12 ? 'Le passage accompli permet aux techniciens d’arriver par le quai.' : 'Le passage du chenal n’a pas été sûr : les techniciens prennent la passerelle haute.'} ${fuel === 2 ? 'Deux lots peuvent alimenter une pompe auxiliaire après branchement. Ils seront réellement dépensés à l’achèvement, même si la sortie échoue ensuite.' : 'Aucun lot n’est disponible. La dérivation manuelle reste praticable.'} Les dix habitants de ce chantier ne sont pas les douze passagers du chenal.`;
+  }
   $('briefing-walker').textContent = `${w.designation} ${w.name}`;
   $('briefing-assist').textContent = settings.assist ? 'Marche assistée' : 'Appuis manuels';
   $('briefing-difficulty').textContent = DIFFICULTIES[settings.difficulty].label;
@@ -467,7 +495,8 @@ function showResult() {
   const networkMission = game.missionId === 'MI03';
   const industrialMission = game.missionId === 'MI04';
   const channelMission = game.missionId === 'MI05';
-  const missionStat = channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
+  const dikeMission = game.missionId === 'MI06';
+  const missionStat = dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
     : industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
     : networkMission ? ['RÉSEAUX CIVILS ACTIFS', `${game.campaign.civilRelaysOnline} / 2`]
     : railMission ? ['OUVRIERS LIBÉRÉS', `${game.campaign.hostagesRescued} / ${game.campaign.hostagesTotal}`]
@@ -475,7 +504,10 @@ function showResult() {
     : ['PREUVES RÉCUPÉRÉES', game.stats.evidence];
   const stats = [['DURÉE', timeLabel(game.elapsed)], ['CIBLES NEUTRALISÉES', game.stats.kills], missionStat, ['PERTES CIVILES', game.stats.collateral]];
   let decisionText;
-  if (channelMission) {
+  if (dikeMission) {
+    const facts = game.campaign;
+    decisionText = `${facts.circuit === 'diversion' ? 'Dérivation des maisons choisie.' : facts.circuit === 'imperial' ? 'Réglage impérial du quai choisi.' : 'Circuit encore indéterminé.'} ${facts.pumpsOnline ? 'La manœuvre de vanne est achevée.' : 'La remise en service n’est pas achevée.'} ${facts.residentsSafe} habitants à l’abri, ${facts.residentsLost} perdus ; ${facts.homesUninhabitable} logements inhabitables. ${facts.fuelSpent} lots utilisés pendant cette sortie.`;
+  } else if (channelMission) {
     const facts = game.campaign;
     decisionText = `${facts.reportFiled ? 'Les constatations sur les deux équipages sont jointes au rapport.' : game.decision.resolved ? 'Le bordereau confirme le passage ; vos constatations restent au dossier.' : 'Le rapport du chenal reste ouvert.'} ${facts.refugeesPassed} passagers au quai ; ${facts.refugeesLost} perdus. ${facts.fuelLots} lots de carburant réellement chargés.`;
   } else if (industrialMission) {
@@ -515,6 +547,14 @@ let lastObjectives = '';
 function updateHUD() {
   if (!game) return;
   const p = game.player;
+  $('dike-instrument').hidden = !game.dike;
+  if (game.dike) {
+    const site = game.dike, facts = game.campaign;
+    $('dike-support').textContent = site.panel.emergencyShoring ? 'ÉTAI MANUEL EN PLACE' : site.panel.locked ? 'PANNEAU VERROUILLÉ' : site.panel.supported ? `SOUTIEN ANCRÉ · VERROU ${Math.round(site.panel.latchProgress * 100)} %` : site.panel.destroyed ? 'PANNEAU PERDU · ÉTAI À POSER' : 'PANNEAU À SOUTENIR · ANCREZ LES APPUIS';
+    $('dike-pressure').textContent = `PRESSION ${Math.round(site.pressure)} % · FATIGUE ${Math.round(site.panel.fatigue)} %`;
+    $('dike-residents').textContent = `${facts.residentsSafe} / 10 À L’ABRI · ${facts.residentsLost} PERDUS · ${facts.techniciansAlive} TECHNICIENS`;
+    $('dike-fuel').textContent = site.auxiliary.active ? 'POMPE AUXILIAIRE ACTIVE · 2 LOTS UTILISÉS' : site.auxiliary.connected ? 'AUXILIAIRE PERDUE · CARBURANT DÉJÀ UTILISÉ' : site.auxiliary.destroyed ? `AUXILIAIRE PERDUE · ${facts.context.fuelAvailable === 2 ? '2 LOTS CONSERVÉS' : 'INTERVENTION MANUELLE'}` : facts.context.fuelAvailable === 2 ? 'AUXILIAIRE DISPONIBLE · 2 LOTS À BRANCHER' : 'SANS CARBURANT · INTERVENTION MANUELLE';
+  }
   $('hud-timer').textContent = timeLabel(game.elapsed);
   $('hud-interaction').hidden = !game.interaction;
   $('hud-interaction').textContent = game.interaction;
@@ -638,7 +678,11 @@ function frame(now) {
   try {
     if (inGame && game) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
-      if (!paused && activeMode === 'campaign' && !campaignReplay && game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8) captureCampaign();
+      if (!paused && activeMode === 'campaign' && !campaignReplay) {
+        const fuelChanged = game.missionId === 'MI06' && game.campaign.fuelSpent !== campaign.checkpoint?.campaign.fuelSpent;
+        const failedDike = game.missionId === 'MI06' && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
+        if (fuelChanged || failedDike || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
+      }
       renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, interactionPrompt: false, pointer });
       if (!paused) events();
       hudTick += dt; if (hudTick > .1) { updateHUD(); hudTick = 0; }

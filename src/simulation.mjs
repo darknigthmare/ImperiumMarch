@@ -232,6 +232,46 @@ export function createGame(options = {}) {
         w: 65, h: 72, hp: 240, maxHp: 240, destroyed: false, collected: false, working: false, progress: 0 },
     };
   }
+  if (mission.id === 'MI06') {
+    const previous = options.campaignContext || {}, settings = mission.dike;
+    const context = { fuelAvailable: previous.fuelAvailable === 2 ? 2 : 0, channelOpen: previous.channelOpen === true,
+      refugeesPassed: Number.isInteger(previous.refugeesPassed) ? clamp(previous.refugeesPassed, 0, 12) : 0,
+      refugeesLost: Number.isInteger(previous.refugeesLost) ? clamp(previous.refugeesLost, 0, 12) : 0,
+      smugglerVerified: previous.smugglerVerified === true,
+      bargeCiviliansLost: Number.isInteger(previous.bargeCiviliansLost) ? clamp(previous.bargeCiviliansLost, 0, 4) : 0 };
+    state.campaign = { missionId: 'MI06', phase: 'approach', thresholdsInspected: 0, evacuationOrdered: false,
+      residentsTotal: 10, residentsSafe: 0, residentsLost: 0, homesTotal: 2, homesUninhabitable: 0,
+      techniciansTotal: 2, techniciansAlive: 2, techniciansLost: 0, panelSecured: false, panelsLocked: 0,
+      emergencyShoring: false, dikeFatigue: 0, pumpsOnline: false, circuit: 'unselected', auxiliaryUsed: false,
+      fuelSpent: 0, manualIntervention: false, manifestRead: false, reportFiled: false, context,
+      tutorial: { stepped: false, braced: false } };
+    const route = context.channelOpen && context.refugeesPassed > 0 ? 'quay' : 'upper';
+    const solid = (id, x, w, h, hp) => ({ id, x, y: terrainAt(x, mission.planetId) - h / 2,
+      w, h, hp, maxHp: hp, destroyed: false, flash: 0 });
+    state.dike = {
+      houses: settings.houses.map(def => ({ ...solid(def.id, def.x, def.w, def.h, 620),
+        population: def.population, inspected: false, scanning: false, scanProgress: 0, flooded: false })),
+      residents: settings.houses.flatMap(def => Array.from({ length: def.population }, (_, i) => ({
+        id: `${def.id}-resident-${i + 1}`, homeId: def.id, x: def.x + (i - (def.population - 1) / 2) * 24,
+        y: terrainAt(def.x, mission.planetId) - 16, w: 17, h: 32, hp: 55, maxHp: 55,
+        alive: true, safe: false, phase: 'home' }))),
+      technicians: settings.technicianXs.map((baseX, i) => {
+        const x = baseX - (route === 'upper' ? 210 : 0);
+        return { id: `dike-technician-${i + 1}`, x, y: terrainAt(x, mission.planetId) - 17,
+          w: 20, h: 34, hp: 90, maxHp: 90, alive: true, called: false, arrived: false,
+          covering: false, phase: 'waiting', route };
+      }),
+      covers: settings.coverXs.map((x, i) => solid(`work-cover-${i + 1}`, x, 64, 63, 620)),
+      panel: { ...solid('dike-panel', settings.panelX, 78, 144, 680), supportX: settings.supportX,
+        workX: settings.panelWorkX, supported: false, locked: false, latchProgress: 0,
+        manualWorking: false, manualProgress: 0, emergencyShoring: false, fatigue: 0, loaded: false },
+      auxiliary: { ...solid('dike-auxiliary', settings.auxiliaryX, 72, 68, 280),
+        connected: false, active: false, working: false, progress: 0 },
+      valve: { id: 'dike-routing-valve', x: settings.valveX, y: terrainAt(settings.valveX, mission.planetId) - 40,
+        w: 68, h: 80, working: false, progress: 0, completed: false },
+      pressure: 0, waterLevel: .1, floodingElapsed: 0,
+    };
+  }
   state.enemies = spawnEnemies(state);
   if (mission.id === 'MI03') {
     const observer = enemy(state, 'drone', 3200, state.enemies.length);
@@ -276,6 +316,10 @@ export function createGame(options = {}) {
     emit(state, 'radio', 'Tess : « Les bancs portent à marée basse. Avant chacun, la commande du génie déploie une passerelle. Tu peux attendre l’estran ou prendre ce temps pour ne plus dépendre de l’eau. »');
     emit(state, 'radio', 'Sami : « Douze personnes attendent dans le bateau à l’ouest. Coupe les deux câbles ; ils partiront quand il y aura assez d’eau. Ne confonds pas les treuils et les coques. »');
     if (state.campaign.context.technicalEvidence) emit(state, 'radio', 'Tess : « Le journal de Vesper est à l’abri. Ce chenal ne nous dira pas pourquoi cette pièce a été changée. Ici, on ouvre une route. »');
+  }
+  if (mission.id === 'MI06') {
+    emit(state, 'radio', 'Mara, poste médical des Trois-Vannes : « Avant les pompes, regarde la marque blanche sur les portes. La fenêtre en dessous, c’est une cuisine. Dix personnes vivent encore dans ces deux maisons. »');
+    emit(state, 'radio', state.campaign.context.fuelAvailable === 2 ? 'Tess : « Les deux lots chargés au dock peuvent tenir la pompe auxiliaire. Ils seront consommés au branchement achevé. On garde aussi la commande manuelle. »' : 'Tess : « Pas de carburant en réserve. Le panneau et les vannes restent accessibles à la commande manuelle ; il faudra tenir plus longtemps. »');
   }
   return state;
 }
@@ -547,6 +591,7 @@ function interact(s) {
   if (s.missionId === 'MI03') return interactNetworkMission(s);
   if (s.missionId === 'MI04') return interactIndustrialMission(s);
   if (s.missionId === 'MI05') return interactChannelMission(s);
+  if (s.missionId === 'MI06') return interactDikeMission(s);
   const p = s.player;
   if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     if (!s.campaign.passageWorking) {
@@ -578,6 +623,14 @@ export function commandGame(s, action, payload) {
   if (action === 'choice') {
     if (!s.decision.active || s.decision.resolved || !['obey', 'defy'].includes(payload)) return false;
     s.decision.choice = payload; s.decision.resolved = true; s.decision.active = false;
+    if (s.missionId === 'MI06') {
+      s.campaign.circuit = payload === 'defy' ? 'diversion' : 'imperial';
+      s.campaign.reportFiled = payload === 'defy'; s.campaign.phase = 'operation';
+      if (payload === 'obey') s.stats.ordersObeyed++; else s.stats.ordersDefied++;
+      refreshDikeFacts(s);
+      emit(s, 'radio', payload === 'defy' ? 'Tess : « Dérivation choisie. Rien n’est encore ouvert : reste à la vanne pour manœuvrer le circuit. »' : 'Mara : « Ce seuil va prendre les deux maisons. Vérifie que leurs habitants sont sortis avant de mettre les pompes en service. »');
+      refreshObjectives(s); return true;
+    }
     if (s.missionId === 'MI05') {
       s.campaign.reportFiled = payload === 'defy';
       if (payload === 'obey') s.stats.ordersObeyed++; else s.stats.ordersDefied++;
@@ -931,7 +984,8 @@ function updateEnemies(s, dt) {
     const delta = Math.abs(e.x - p.x);
     if (s.missionId === 'MI01' && !s.notified.ambush) { e.active = false; e.phase = 'idle'; continue; }
     e.active = delta < 1150 || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
-      || Boolean(s.channel && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < 900);
+      || Boolean(s.channel && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < 900)
+      || Boolean(s.dike && [...s.dike.technicians.filter(t => t.called), ...s.dike.residents.filter(r => r.phase === 'evacuating')].some(person => person.alive && !person.safe && Math.abs(e.x - person.x) < 900));
     if (!e.active) { e.phase = 'idle'; continue; }
     if (e.type === 'boss' && !s.bossReleased) { e.phase = 'guard'; continue; }
     if (e.type === 'boss' && s.decision.choice === 'obey') { e.active = false; e.phase = 'standdown'; e.telegraph = 0; continue; }
@@ -939,7 +993,13 @@ function updateEnemies(s, dt) {
     let target = p;
     if (s.convoy && Math.abs(e.x - s.convoy.x) < delta && e.kind !== 'air') target = s.convoy;
     if (s.channel?.boat && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < delta && e.kind !== 'air') target = s.channel.boat;
-    e.attackTarget = target === p ? 'player' : target === s.channel?.boat ? 'boat' : 'convoy';
+    if (s.dike) {
+      const person = [...s.dike.technicians.filter(t => t.called), ...s.dike.residents.filter(r => r.phase === 'evacuating')]
+        .filter(person => person.alive && !person.safe && Math.abs(e.x - person.x) < Math.abs(e.x - target.x))
+        .sort((a, b) => Math.abs(e.x - a.x) - Math.abs(e.x - b.x))[0];
+      if (person) target = person;
+    }
+    e.attackTarget = target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : 'convoy';
     const td = Math.abs(e.x - target.x);
     if (e.phase === 'attack') {
       e.telegraph = Math.min(1, e.telegraph + dt / e.windup);
@@ -949,7 +1009,19 @@ function updateEnemies(s, dt) {
     } else {
       e.timer -= dt;
       const desiredDistance = e.type === 'fauna' ? 55 : e.type === 'buggy' ? 480 : e.range * 0.72;
-      if (td > desiredDistance && e.speed > 0) e.x += Math.sign(target.x - e.x) * e.speed * dt;
+      if (td > desiredDistance && e.speed > 0) {
+        const direction = Math.sign(target.x - e.x);
+        let nextX = e.x + direction * e.speed * dt;
+        // Low raiders cannot drive through the chantier's actual volumes. A
+        // walker straddles the worksite; infantry and skimmers must fire across
+        // cover or wait at the panel until that obstruction is destroyed.
+        if (s.dike && e.kind !== 'air') for (const part of [...s.dike.houses, ...s.dike.covers, s.dike.panel, s.dike.auxiliary]) {
+          if (part.destroyed) continue;
+          if (direction < 0 && e.x > part.x) nextX = Math.max(nextX, part.x + part.w / 2 + e.w / 2 + 4);
+          else if (direction > 0 && e.x < part.x) nextX = Math.min(nextX, part.x - part.w / 2 - e.w / 2 - 4);
+        }
+        e.x = nextX;
+      }
       if (e.timer <= 0 && td < e.range) {
         e.phase = 'attack'; e.telegraph = 0;
         e.targetX = target.x + (target === p ? p.speed * 0.18 : 0);
@@ -1005,6 +1077,12 @@ function explosion(s, shot, direct = null) {
     if (d < radius + post.w / 2) hitMaintenancePost(s,
       shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1) * 0.55 * Math.max(0.25, 1 - d / (radius + post.w / 2)));
   }
+  if (s.dike) for (const part of [...s.dike.houses, ...s.dike.covers, s.dike.panel, s.dike.auxiliary,
+    ...s.dike.technicians, ...s.dike.residents.filter(r => r.phase !== 'home')]) {
+    if (part === direct || part.destroyed || part.alive === false || part.safe) continue;
+    const distance = dist(shot.x, shot.y, part.x, part.y);
+    if (distance < radius + part.w / 2) hitDikePart(s, part, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1) * .55 * Math.max(.25, 1 - distance / (radius + part.w / 2)));
+  }
   if (s.channel) for (const part of [...s.channel.winches.filter(w => !w.released), ...s.channel.barges, s.channel.boat, s.channel.fuel]) {
     if (part === direct || part.destroyed || part.arrived || part.collected) continue;
     const d = dist(shot.x, shot.y, part.x, part.y);
@@ -1054,6 +1132,11 @@ function updateProjectiles(s, dt) {
     if (s.train) for (const part of [s.train, ...s.train.wagons]) if (!part.destroyed) test(part, 'train');
     if (s.network) for (const station of s.network.stations) if (!station.destroyed) test(station, 'network');
     if (s.industrial && !s.industrial.post.destroyed) test(s.industrial.post, 'maintenance');
+    if (s.dike) {
+      for (const item of [...s.dike.houses, ...s.dike.covers, s.dike.panel, s.dike.auxiliary]) if (!item.destroyed) test(item, 'dike');
+      for (const person of [...s.dike.technicians, ...s.dike.residents]) if (person.alive && !person.safe && person.phase !== 'home') test(person, 'dike');
+    }
+
     if (s.channel) for (const part of [...s.channel.winches.filter(w => !w.released), ...s.channel.barges, s.channel.boat, s.channel.fuel]) {
       if (!part.destroyed && !part.arrived && !part.collected) test(part, 'channel');
     }
@@ -1067,6 +1150,7 @@ function updateProjectiles(s, dt) {
       if (hit.kind === 'civilian') hitCivilian(s, hit.entity, shot.damage);
       if (hit.kind === 'player') damagePlayer(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'radiator') damageRadiator(s, shot.damage, shot.x, shot.y);
+      if (hit.kind === 'dike') hitDikePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'channel') hitChannelPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'maintenance') hitMaintenancePost(s, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'convoy') { s.convoy.hp = Math.max(0, s.convoy.hp - shot.damage * s.difficulty.damage); particles(s, shot.x, shot.y, 'spark', 7); }
@@ -1519,6 +1603,243 @@ function channelInteraction(s) {
   return s.decision.resolved ? 'Rejoindre le hangar du dock · les faits de terrain sont conservés' : 'Ouvrir les deux câbles · vérifier les barges · protéger le passage';
 }
 
+/** Support uses planted simulation contacts, never the rendered knees or hull alone. */
+export function dikeSupportReady(s) {
+  if (!s.dike) return false;
+  const p = s.player, panel = s.dike.panel;
+  return p.braced && !p.move && Math.abs(p.speed) <= 3 && Math.abs(p.x - panel.supportX) <= 60
+    && p.feet.every(f => f.contact && f.phase === 'stance' && Math.abs(f.x - panel.supportX) <= 230);
+}
+
+export function dikeDecisionBody(s) {
+  const c = s.campaign;
+  const remaining = c.residentsTotal - c.residentsSafe - c.residentsLost;
+  const observation = c.thresholdsInspected === 2 ? 'Les deux relevés placent le niveau prescrit au-dessus des fenêtres des deux maisons.' : `${c.thresholdsInspected} seuil${c.thresholdsInspected > 1 ? 's' : ''} sur deux effectivement relevé${c.thresholdsInspected > 1 ? 's' : ''}. Le constat des deux maisons reste à terminer.`;
+  return `${observation} ${c.residentsSafe} habitants ont rejoint l’abri, ${c.residentsLost} sont perdus ; ${remaining} n’ont pas encore rejoint l’abri. ${c.homesUninhabitable} logement${c.homesUninhabitable > 1 ? 's' : ''} ${c.homesUninhabitable > 1 ? 'sont déjà inhabitables' : 'est déjà inhabitable'}. Le seuil impérial assèche le quai privé puis inonde les deux maisons après la mise en service. La dérivation locale demande une manœuvre plus longue et conserve les logements encore debout. Le choix seul ne met aucune pompe en marche et ne déplace aucun habitant. ${c.techniciansAlive} technicien${c.techniciansAlive > 1 ? 's restent' : ' reste'} en vie. ${c.emergencyShoring ? 'Un étai de secours tient le passage.' : c.panelSecured ? 'Le panneau a été verrouillé.' : 'Le panneau n’est plus sécurisé.'} ${c.auxiliaryUsed ? 'Les deux lots de carburant ont été consommés au branchement.' : 'Aucun carburant n’a été consommé.'} ${c.circuit === 'unselected' ? 'Choisissez le circuit, puis actionnez la vanne.' : c.pumpsOnline ? 'La vanne a été manœuvrée et les pompes sont en service.' : 'Circuit choisi ; la manœuvre de vanne reste à terminer.'}`;
+}
+
+function refreshDikeFacts(s) {
+  const d = s.dike, c = s.campaign;
+  d.panel.supported = dikeSupportReady(s) && !d.panel.destroyed && !d.panel.locked && !d.panel.emergencyShoring;
+  d.auxiliary.active = d.auxiliary.connected && !d.auxiliary.destroyed;
+  c.thresholdsInspected = d.houses.filter(h => h.inspected).length;
+  c.residentsSafe = d.residents.filter(r => r.safe).length;
+  c.residentsLost = d.residents.filter(r => !r.alive).length;
+  c.homesUninhabitable = d.houses.filter(h => h.destroyed || h.flooded).length;
+  c.techniciansAlive = d.technicians.filter(t => t.alive).length;
+  c.techniciansLost = c.techniciansTotal - c.techniciansAlive;
+  c.panelSecured = d.panel.locked || d.panel.emergencyShoring;
+  c.panelsLocked = d.panel.locked ? 1 : 0; c.emergencyShoring = d.panel.emergencyShoring;
+  c.dikeFatigue = d.panel.fatigue; c.pumpsOnline = d.valve.completed;
+  c.auxiliaryUsed = d.auxiliary.connected; c.fuelSpent = c.auxiliaryUsed ? 2 : 0;
+  s.stats.evidence = 0;
+  if (s.decision.active || s.decision.resolved) s.decision.body = dikeDecisionBody(s);
+}
+
+function orderDikeEvacuation(s) {
+  if (s.campaign.evacuationOrdered) return false;
+  s.campaign.evacuationOrdered = true;
+  for (const resident of s.dike.residents) if (resident.alive && !resident.safe) resident.phase = 'evacuating';
+  emit(s, 'radio', 'Mara, poste médical : « Je les appelle vers l’abri du quai ouest. Ils ne sont pas encore arrivés. Garde leur trajet dégagé ; je les compterai au passage de la porte. »');
+  return true;
+}
+
+function interactDikeMission(s) {
+  const p = s.player, d = s.dike, c = s.campaign, settings = s.mission.dike;
+  const house = d.houses.find(h => !h.inspected && Math.abs(p.x - h.x) < settings.interactionRadius);
+  if (house) {
+    if (!house.scanning) { house.scanning = true; c.phase = 'inspection'; emit(s, 'radio', house.destroyed ? 'Tess : « Les murs sont tombés. Je relève la graduation restée sur le seuil ; on consigne les occupants qui n’en sont pas sortis. »' : 'Mara, radio locale : « La marque blanche, c’est leur nouveau niveau. La fenêtre en dessous, c’est une cuisine. Regarde où la conduite débouche. »'); }
+    return true;
+  }
+  if (!c.evacuationOrdered && d.houses.some(h => h.inspected && Math.abs(p.x - h.x) < settings.interactionRadius)) return orderDikeEvacuation(s);
+  if (Math.abs(p.x - settings.callX) < settings.interactionRadius && d.technicians.some(t => t.alive && !t.called)) {
+    for (const technician of d.technicians) if (technician.alive) technician.called = true;
+    d.panel.loaded = true;
+    emit(s, 'radio', d.technicians[0].route === 'quay'
+      ? 'Équipe du génie : « Nous arrivons par le quai ouvert au chenal. Deux intervenants, du matériel de verrouillage. Couvre le chemin jusqu’au panneau. »'
+      : 'Équipe du génie : « Le passage n’est pas sûr. Nous prenons la passerelle haute, plus longue. Deux intervenants ; laisse-nous rejoindre le panneau à couvert. »');
+    return true;
+  }
+  if (!d.auxiliary.connected && !d.auxiliary.destroyed && Math.abs(p.x - d.auxiliary.x) < settings.interactionRadius) {
+    if (c.context.fuelAvailable < 2) { emit(s, 'radio', 'Tess : « Réserve vide. L’auxiliaire reste arrêtée ; les appuis et l’étai manuel suffisent encore pour le chantier. »'); return false; }
+    if (!d.auxiliary.working) { d.auxiliary.working = true; emit(s, 'radio', 'Tess : « Branchement en cours. Quatre secondes à portée ; les deux lots restent en réserve jusqu’au raccord final. »'); }
+    return true;
+  }
+  if (!c.panelSecured && Math.abs(p.x - d.panel.supportX) <= 90) {
+    if (!dikeSupportReady(s)) { emit(s, 'radio', 'Tess : « Place la coque sur le repère, pose tous les appuis et maintiens l’ancrage. Le panneau ne tient pas sur une patte en l’air. »'); return false; }
+    if (!d.panel.manualWorking) {
+      d.panel.manualWorking = true; d.panel.loaded = true; c.phase = 'support';
+      emit(s, 'radio', d.panel.destroyed ? 'Tess : « Le panneau est perdu. Le treuil pose un étai de secours sur le passage ; il ne reconstruira pas la digue. Garde les appuis ancrés. »' : 'Tess : « Je pose l’étai au treuil du marcheur. Cela fonctionne sans technicien, mais tu dois tenir l’ancrage jusqu’au verrouillage. »');
+    }
+    return true;
+  }
+  if (Math.abs(p.x - d.valve.x) < settings.interactionRadius) {
+    if (!c.panelSecured || c.thresholdsInspected < 2) { emit(s, 'radio', 'Tess : « Il faut relever les deux seuils et sécuriser le passage avant de choisir le circuit. »'); return false; }
+    if (!c.manifestRead) { s.evidence.scanning = true; return true; }
+    if (!s.decision.resolved) { s.decision.body = dikeDecisionBody(s); s.decision.active = true; emit(s, 'decision', s.decision.title); return true; }
+    if (!d.valve.completed) { d.valve.working = true; c.phase = 'operation'; return true; }
+    if (!c.evacuationOrdered && c.residentsSafe + c.residentsLost < c.residentsTotal) return orderDikeEvacuation(s);
+  }
+  return false;
+}
+
+function hitDikePerson(s, person, damage) {
+  if (!person.alive || person.safe) return;
+  person.hp = Math.max(0, person.hp - damage);
+  if (person.hp > 0) return;
+  person.alive = false; person.phase = 'lost';
+  if ('safe' in person) person.safe = false;
+  if ('arrived' in person) { person.arrived = false; person.covering = false; }
+  s.stats.collateral++;
+  emit(s, 'radio', person.homeId ? 'Mara : « Une personne ne rejoindra pas l’abri. Note sa perte ; ne l’ajoute pas aux arrivées. »' : 'Tess : « Un technicien est tombé. Nous avons encore l’étai et la commande manuelle ; rien ne remplacera cette personne. »');
+}
+
+function hitDikePart(s, part, damage) {
+  const d = s.dike;
+  if ('alive' in part) { hitDikePerson(s, part, damage); refreshDikeFacts(s); return; }
+  if (part.destroyed) return;
+  part.hp = Math.max(0, part.hp - damage); part.flash = .1;
+  particles(s, part.x, part.y, 'spark', 4);
+  if (part.hp > 0) return;
+  part.destroyed = true;
+  if (d.houses.includes(part)) {
+    part.scanning = false; part.scanProgress = part.inspected ? 1 : 0;
+    for (const r of d.residents) if (r.homeId === part.id && r.phase === 'home') hitDikePerson(s, r, r.hp);
+    emit(s, 'objective', 'Maison détruite. Les personnes déjà sorties ne sont pas réinscrites parmi ses occupants.');
+  } else if (part === d.panel) {
+    part.locked = false; part.supported = false; part.latchProgress = 0;
+    part.manualWorking = false; part.manualProgress = 0;
+    emit(s, 'objective', 'Panneau détruit. Le verrou ne porte plus rien ; posez un étai de secours avant de reprendre les vannes.');
+  } else if (part === d.auxiliary) {
+    part.working = false; part.progress = part.connected ? 1 : 0; part.active = false;
+    emit(s, 'objective', part.connected ? 'Pompe auxiliaire perdue. Le carburant consommé ne revient pas ; poursuivez avec le maintien manuel.' : 'Pompe auxiliaire détruite avant branchement. Aucun carburant consommé.');
+  }
+  particles(s, part.x, part.y, 'smoke', 10); refreshDikeFacts(s);
+}
+
+function dikeThreatsNear(s, person, distance = 450) {
+  return s.enemies.some(e => !e.dead && enemyPresent(s, e) && Math.abs(e.x - person.x) < distance);
+}
+
+function updateDikeMission(s, dt) {
+  const d = s.dike, c = s.campaign, p = s.player, settings = s.mission.dike;
+  refreshDikeFacts(s);
+  for (const item of [...d.houses, ...d.covers, d.panel, d.auxiliary]) item.flash = Math.max(0, item.flash - dt);
+  for (const h of d.houses) if (h.scanning) {
+    if (Math.abs(p.x - h.x) >= settings.interactionRadius) { h.scanning = false; h.scanProgress = 0; continue; }
+    h.scanProgress = Math.min(1, h.scanProgress + dt / settings.inspectTime);
+    if (h.scanProgress >= 1) { h.scanning = false; h.inspected = true; emit(s, 'objective', h.destroyed ? 'Seuil relevé dans les ruines. Les logements sont perdus ; le bilan humain reste séparé.' : 'Graduation relevée : le seuil impérial dépasse les fenêtres basses. — E : demander à Mara l’évacuation vers le quai ouest.'); }
+  }
+  if (d.auxiliary.working) {
+    if (Math.abs(p.x - d.auxiliary.x) >= settings.interactionRadius) { d.auxiliary.working = false; d.auxiliary.progress = 0; emit(s, 'radio', 'Tess : « Branchement interrompu. Aucun lot n’a été consommé. »'); }
+    else {
+      d.auxiliary.progress = Math.min(1, d.auxiliary.progress + dt / settings.auxiliaryTime);
+      if (d.auxiliary.progress >= 1) {
+        d.auxiliary.working = false; d.auxiliary.connected = true; d.auxiliary.active = true;
+        emit(s, 'objective', 'Pompe auxiliaire raccordée. Deux lots consommés une fois ; sa pression soulage le chantier.');
+      }
+    }
+  }
+  if (p.x > d.panel.supportX - 360) d.panel.loaded = true;
+  for (const technician of d.technicians) {
+    if (!technician.alive || !technician.called) continue;
+    const destination = c.panelSecured ? d.valve.x - 65 - (technician.id.endsWith('2') ? 30 : 0) : d.panel.workX - (technician.id.endsWith('2') && d.technicians[0].alive ? 28 : 0);
+    const threat = dikeThreatsNear(s, technician, technician.covering ? 700 : 550);
+    technician.covering = threat && !technician.arrived;
+    if (technician.covering) {
+      technician.phase = 'cover';
+      const cover = d.covers.filter(item => !item.destroyed && Math.abs(item.x - technician.x) < 240).sort((a, b) => Math.abs(a.x - technician.x) - Math.abs(b.x - technician.x))[0];
+      if (cover) {
+        const threatX = s.enemies.filter(e => !e.dead && Math.abs(e.x - technician.x) < 700).sort((a, b) => Math.abs(a.x - technician.x) - Math.abs(b.x - technician.x))[0]?.x ?? technician.x + 1;
+        const offset = technician.id.endsWith('2') ? 81 : 53;
+        const shelterX = cover.x + (threatX > cover.x ? -offset : offset);
+        technician.x += clamp(shelterX - technician.x, -dt * 30, dt * 30);
+      }
+    } else if (Math.abs(destination - technician.x) > 5) {
+      technician.phase = 'moving'; technician.arrived = false;
+      technician.x += clamp(destination - technician.x, -dt * (technician.route === 'upper' ? 27 : 34), dt * (technician.route === 'upper' ? 27 : 34));
+    } else if (c.panelSecured) { technician.arrived = true; technician.phase = 'onsite'; }
+    else technician.phase = d.panel.supported ? 'locking' : 'waiting';
+    technician.y = terrainAt(technician.x, s.planetId) - technician.h / 2;
+  }
+  const locker = d.technicians.find(t => t.alive && t.called && !t.covering && Math.abs(t.x - d.panel.workX) <= 8);
+  if (!c.panelSecured && !d.panel.destroyed && locker && d.panel.supported) {
+    c.phase = 'support'; d.panel.latchProgress = Math.min(1, d.panel.latchProgress + dt / settings.latchTime);
+    if (d.panel.latchProgress >= 1) { d.panel.locked = true; d.panel.manualWorking = false; d.panel.manualProgress = 0; emit(s, 'objective', 'Équipe du génie : « Verrou passé ! Le panneau tient sur ses ferrures. Tu peux quitter l’ancrage et nous couvrir jusqu’aux vannes. »'); }
+  } else if (!d.panel.locked) d.panel.latchProgress = 0;
+  if (d.panel.manualWorking) {
+    if (!dikeSupportReady(s)) { d.panel.manualWorking = false; d.panel.manualProgress = 0; emit(s, 'radio', 'Tess : « L’appui s’est levé. Étai interrompu ; replace les pieds et maintiens l’ancrage. »'); }
+    else {
+      c.manualIntervention = true;
+      d.panel.manualProgress = Math.min(1, d.panel.manualProgress + dt / (d.auxiliary.active ? settings.assistedShoringTime : settings.shoringTime));
+      if (d.panel.manualProgress >= 1) { d.panel.manualWorking = false; d.panel.emergencyShoring = true; emit(s, 'objective', 'Étai de secours verrouillé. Il tient le passage ; l’état du panneau d’origine reste consigné séparément.'); }
+    }
+  }
+  refreshDikeFacts(s);
+  d.pressure = d.panel.loaded ? c.panelSecured ? 30 : d.auxiliary.active ? 45 : d.panel.supported ? 65 : 92 : 0;
+  if (d.panel.loaded && !c.panelSecured && !d.panel.destroyed) {
+    d.panel.fatigue = clamp(d.panel.fatigue + dt * (d.panel.supported ? -.25 : d.auxiliary.active ? .13 : .55), 0, 100);
+    if (d.panel.fatigue >= 65 && !s.notified.dikeFatigue) {
+      s.notified.dikeFatigue = true; emit(s, 'radio', 'Tess : « La fatigue du panneau dépasse soixante-cinq pour cent. Place les appuis sur le repère et tiens l’ancrage : une rupture peut tuer l’équipe près de la serrure. »');
+    }
+    if (d.panel.fatigue >= 100) {
+      hitDikePart(s, d.panel, d.panel.hp);
+      for (const technician of d.technicians) if (technician.alive && Math.abs(technician.x - d.panel.x) < 120) hitDikePerson(s, technician, technician.hp);
+    }
+  }
+  if (d.valve.working) {
+    if (Math.abs(p.x - d.valve.x) >= settings.interactionRadius || !c.panelSecured || c.circuit === 'unselected') { d.valve.working = false; d.valve.progress = 0; }
+    else {
+      const staffed = d.technicians.some(t => t.alive && t.arrived);
+      if (!staffed) c.manualIntervention = true;
+      const duration = (staffed ? settings.valveTime : settings.manualValveTime)[c.circuit];
+      d.valve.progress = Math.min(1, d.valve.progress + dt / duration);
+      if (d.valve.progress >= 1) {
+        d.valve.working = false; d.valve.completed = true; c.phase = 'report';
+        emit(s, 'objective', c.circuit === 'imperial' ? 'Pompes en service au seuil impérial. L’eau monte derrière les maisons : environ huit secondes avant leurs seuils.' : 'Dérivation ouverte. Le niveau reste sous les fenêtres des maisons encore debout. Les personnes doivent toujours rejoindre l’abri.');
+      }
+    }
+  }
+  if (d.valve.completed && c.circuit === 'imperial') {
+    d.floodingElapsed += dt; d.waterLevel = Math.min(1, .1 + d.floodingElapsed * .07);
+    if (d.waterLevel >= .65) for (const house of d.houses) if (!house.flooded) {
+      house.flooded = true;
+      for (const resident of d.residents) if (resident.homeId === house.id && resident.phase === 'home') hitDikePerson(s, resident, resident.hp);
+      emit(s, 'objective', 'Le niveau prescrit atteint une maison. Elle est inhabitable même si ses occupants ont été évacués.');
+    }
+  } else if (d.valve.completed) d.waterLevel = Math.min(.2, d.waterLevel + dt * .02);
+  for (const resident of d.residents) {
+    if (!resident.alive || resident.safe || resident.phase !== 'evacuating') continue;
+    if (!dikeThreatsNear(s, resident, 330)) resident.x = Math.max(settings.shelterX, resident.x - dt * 28);
+    resident.y = terrainAt(resident.x, s.planetId) - resident.h / 2;
+    if (resident.x <= settings.shelterX) { resident.safe = true; resident.phase = 'sheltered'; emit(s, 'objective', 'Mara : « Une personne vient de passer la porte de l’abri. Je l’inscris parmi les arrivées. »'); }
+  }
+  refreshDikeFacts(s);
+}
+
+function dikeInteraction(s) {
+  const d = s.dike, c = s.campaign, p = s.player, settings = s.mission.dike, near = x => Math.abs(p.x - x) < settings.interactionRadius;
+  const house = d.houses.find(h => !h.inspected && near(h.x));
+  if (house) return house.scanning ? `Relevé du seuil ${Math.round(house.scanProgress * 100)} % · rester à portée` : house.destroyed ? 'E · Relever le seuil dans les ruines (3 s)' : 'E · Inspecter la marque de niveau (3 s)';
+  if (!c.evacuationOrdered && d.houses.some(h => h.inspected && near(h.x))) return 'E · Appeler Mara pour évacuer les habitants';
+  if (near(settings.callX) && d.technicians.some(t => t.alive && !t.called)) return 'E · Appeler les deux techniciens du génie';
+  if (!d.auxiliary.connected && !d.auxiliary.destroyed && near(d.auxiliary.x)) return c.context.fuelAvailable < 2 ? 'Pompe auxiliaire sans carburant · voie manuelle disponible' : d.auxiliary.working ? `Branchement ${Math.round(d.auxiliary.progress * 100)} % · deux lots débités seulement à la fin` : 'E · Brancher la pompe auxiliaire (4 s, 2 lots, facultatif)';
+  if (!c.panelSecured && Math.abs(p.x - d.panel.supportX) <= 190) {
+    if (!dikeSupportReady(s)) return 'REPÈRE DU PANNEAU · poser tous les appuis et maintenir Espace';
+    if (d.panel.manualWorking) return `Étai manuel ${Math.round(d.panel.manualProgress * 100)} % · maintenir l’ancrage`;
+    if (d.panel.latchProgress > 0) return `Verrouillage du technicien ${Math.round(d.panel.latchProgress * 100)} % · maintenir l’ancrage`;
+    return c.techniciansAlive ? 'PANNEAU SOUTENU · attendre le technicien, ou E pour l’étai de secours' : 'E · Poser l’étai de secours sans technicien · maintenir Espace';
+  }
+  if (near(d.valve.x)) {
+    if (c.thresholdsInspected < 2 || !c.panelSecured) return 'Avant les vannes · relever les deux seuils et sécuriser le panneau';
+    if (!c.manifestRead) return s.evidence.scanning ? 'Compilation des relevés…' : 'E · Lire le relevé des seuils et du chantier';
+    if (!s.decision.resolved) return 'E · Choisir le circuit hydraulique';
+    if (!d.valve.completed) return d.valve.working ? `Manœuvre de vanne ${Math.round(d.valve.progress * 100)} % · rester à portée` : 'E · Manœuvrer la vanne du circuit choisi';
+    if (!c.evacuationOrdered && c.residentsSafe + c.residentsLost < c.residentsTotal) return 'E · Appeler Mara : habitants encore aux maisons';
+  }
+  return c.pumpsOnline ? `${c.residentsSafe} habitants à l’abri · ${c.residentsLost} perdus · ${c.homesUninhabitable} logements inhabitables` : 'Relever les seuils · couvrir les techniciens · tenir le panneau';
+}
+
 function updateWorld(s, dt) {
   const p = s.player;
   const e = s.evidence;
@@ -1527,6 +1848,7 @@ function updateWorld(s, dt) {
   if (s.missionId === 'MI03') updateNetworkMission(s, dt);
   if (s.missionId === 'MI04') updateIndustrialMission(s, dt);
   if (s.missionId === 'MI05') updateChannelMission(s, dt);
+  if (s.missionId === 'MI06') updateDikeMission(s, dt);
   if (s.status !== 'playing') return;
   if (e.scanning && !e.collected) {
     if (Math.abs(p.x - e.x) > (s.missionId === 'MI04' ? s.mission.industrial.interactionRadius : 250)) { e.scanning = false; e.scanProgress = 0; emit(s, 'radio', 'Lecture interrompue : terminal hors de portée.'); }
@@ -1534,7 +1856,11 @@ function updateWorld(s, dt) {
       e.scanProgress = Math.min(1, e.scanProgress + dt / e.scanTime);
       if (e.scanProgress >= 1) {
         e.collected = true; e.scanning = false;
-        if (s.missionId === 'MI05') {
+        if (s.missionId === 'MI06') {
+          s.campaign.manifestRead = true; s.campaign.phase = 'routing';
+          refreshDikeFacts(s);
+          emit(s, 'objective', 'Niveaux relevés et panneau sécurisé. — E : choisir le circuit, puis actionner réellement la vanne.');
+        } else if (s.missionId === 'MI05') {
           s.campaign.manifestRead = true; s.campaign.phase = 'report';
           refreshChannelFacts(s);
           emit(s, 'objective', 'Relevé du chenal réuni. Les faits copiés et les pertes restent distincts. — E : signer le compte rendu.');
@@ -1604,6 +1930,7 @@ function updateWorld(s, dt) {
   else if (s.missionId === 'MI03') s.interaction = networkInteraction(s);
   else if (s.missionId === 'MI04') s.interaction = industrialInteraction(s);
   else if (s.missionId === 'MI05') s.interaction = channelInteraction(s);
+  else if (s.missionId === 'MI06') s.interaction = dikeInteraction(s);
   else if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     s.interaction = s.campaign.passageWorking ? `Déploiement des dalles ${Math.round(s.campaign.passageProgress * 100)} % · restez près du treuil` : 'E · Déployer les dalles de protection (4,5 s)';
   } else if (!e.collected && Math.abs(p.x - e.x) < 230) {
@@ -1614,6 +1941,12 @@ function updateWorld(s, dt) {
   if (p.hull <= 0) finish(s, false, 'Marcheur immobilisé. Votre équipage a déclenché la balise de secours.');
   else if (s.convoy && s.convoy.hp <= 0) finish(s, false, s.campaign ? s.campaign.filtersDelivered ? 'Le camion de Sami est perdu au poste. Les filtres ont été livrés, mais l’escorte a échoué. Reprenez le dernier point de contrôle pour retenter la mission.' : 'Le camion de Sami est perdu. Les filtres n’atteindront pas le poste des mineurs. Reprenez le dernier point de contrôle pour retenter l’escorte.' : 'Le transport est perdu. La route du bac se ferme.');
   else if (s.extraction.active && Math.abs(p.x - s.extraction.x) < s.extraction.radius) {
+    if (s.missionId === 'MI06') {
+      refreshDikeFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
+      finish(s, true, `Pompes en service : ${c.circuit === 'imperial' ? 'seuil impérial appliqué' : 'dérivation locale ouverte'}. ${c.residentsSafe} habitants à l’abri, ${c.residentsLost} perdu${c.residentsLost > 1 ? 's' : ''}. ${c.homesUninhabitable} logement${c.homesUninhabitable > 1 ? 's' : ''} inhabitable${c.homesUninhabitable > 1 ? 's' : ''}. ${c.techniciansAlive} technicien${c.techniciansAlive > 1 ? 's' : ''} vivant${c.techniciansAlive > 1 ? 's' : ''}. ${c.emergencyShoring ? 'Passage assuré par un étai de secours.' : 'Panneau verrouillé.'} ${c.fuelSpent} lots de carburant dépensés.`);
+      return;
+    }
+
     if (s.missionId === 'MI05') {
       refreshChannelFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
       finish(s, true, `Chenal ouvert. ${c.refugeesPassed} personnes arrivées, ${c.refugeesLost} perdues dans le bateau ; ${c.bargeCiviliansLost} pertes dans l’équipage de Rive-Courte. ${c.traffickingVerified ? 'Facture du trafic copiée.' : 'Aucune facture du trafic récupérée.'} ${c.smugglerVerified ? 'Le passage clandestin a été confirmé par une liaison réelle.' : 'Aucun contact du passeur confirmé.'} ${c.fuelRecovered ? 'Deux lots de carburant chargés au dock.' : 'Aucun carburant chargé.'}`);
@@ -1651,6 +1984,19 @@ function updateWorld(s, dt) {
 
 function refreshObjectives(s) {
   const goals = [];
+  if (s.missionId === 'MI06') {
+    const c = s.campaign;
+    goals.push({ id: 'thresholds', label: 'Relever les seuils des deux maisons ou leurs ruines', current: c.thresholdsInspected, target: 2, complete: c.thresholdsInspected === 2 });
+    goals.push({ id: 'panel', label: c.emergencyShoring ? 'Étai de secours verrouillé' : 'Soutenir le panneau jusqu’au verrouillage', current: c.panelSecured ? 1 : 0, target: 1, complete: c.panelSecured });
+    goals.push({ id: 'routing', label: 'Lire le relevé et choisir le circuit hydraulique', current: s.decision.resolved ? 1 : 0, target: 1, complete: s.decision.resolved });
+    goals.push({ id: 'pump', label: 'Manœuvrer la vanne et remettre les pompes en service', current: c.pumpsOnline ? 1 : 0, target: 1, complete: c.pumpsOnline });
+    goals.push({ id: 'residents', label: c.residentsLost ? `Habitants : ${c.residentsSafe} à l’abri, ${c.residentsLost} perdus` : 'Mettre les dix habitants à l’abri', current: c.residentsSafe + c.residentsLost, target: c.residentsTotal, complete: c.residentsSafe + c.residentsLost === c.residentsTotal });
+    const levelSettled = c.circuit !== 'imperial' || s.dike.waterLevel >= .65;
+    s.extraction.active = goals.every(goal => goal.complete) && levelSettled;
+    goals.push({ id: 'extract', label: levelSettled ? 'Rejoindre la rampe de retour' : 'Attendre la stabilisation du niveau prescrit', current: s.status === 'won' ? 1 : 0, target: 1, complete: s.status === 'won' });
+    s.objectives = goals; return;
+  }
+
   if (s.missionId === 'MI05') {
     const c = s.campaign;
     goals.push({ id: 'winches', label: 'Ouvrir les deux câbles du chenal', current: c.winchesReleased, target: 2, complete: c.channelOpen });

@@ -1,0 +1,47 @@
+{
+  "version": "0.7.0",
+  "date": "2026-11-11",
+  "workbookSha256": "0362f8cbe9bef55bc739ff8a82c3c98fb6504836b0309123b530b1e90a88aaf4",
+  "sourceSha256": "48a8abcc2da43032be74d9e09ead62982c2721eacdd189efaa5c649652a218f5",
+  "authenticV06": {
+    "sourceRevision": "c598badad94f81aaaf16f2b13d9e7c11b8508995",
+    "sourceBlob": "2fb66031d94a3049c1bf39bd7b0f755b5ced56ba",
+    "sourceSha256": "b4abe89f6fb7be25201983c21ca9689e54e483cd39e4eb15579f79431e5e7d7e",
+    "idCount": 643
+  },
+  "authenticV06VerifiedAgainstGit": true,
+  "checks": [
+    {
+      "revision": "c598badad94f81aaaf16f2b13d9e7c11b8508995",
+      "argument": "default",
+      "historicalIdsPreserved": 643,
+      "addedIds": 62,
+      "withoutGit": true,
+      "passed": true
+    },
+    {
+      "revision": "d7d76b61ee9e97e27c611e06905f32f70633cb8e",
+      "argument": "d7d76b6",
+      "historicalIdsPreserved": 581,
+      "addedIds": 124,
+      "withoutGit": true,
+      "passed": true
+    },
+    {
+      "revision": "c81a360c262e63ba01cc6037d0874740d67e3ef6",
+      "argument": "c81a360",
+      "historicalIdsPreserved": 526,
+      "addedIds": 179,
+      "withoutGit": true,
+      "passed": true
+    },
+    {
+      "revision": "abcdef0",
+      "withoutGit": true,
+      "expected": "unavailable revision rejected",
+      "passed": true
+    }
+  ],
+  "scope": "XML export reconciliation in a temporary snapshot outside any Git repository; each fallback applies only to its recorded revision. Unknown revision rejected. The authentic v0.6 fixture is independently compared to its historical Git blob.",
+  "passed": true
+}

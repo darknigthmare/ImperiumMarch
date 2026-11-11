@@ -231,8 +231,9 @@ export class Renderer {
     this.drawTerrain(s, t);
     if (s.campaign) this.drawCampaignLandmarks(s, t);
     if (s.channel) this.drawChannel(s, t);
+    if (s.dike) this.drawDike(s, t);
     for (const r of s.relays) if (this.visible(r.x, 150)) this.drawRelay(r, s);
-    if (!s.train && !s.industrial) this.drawEvidence(s, t);
+    if (!s.train && !s.industrial && !s.dike) this.drawEvidence(s, t);
     this.drawExtraction(s, t);
     for (const item of s.pickups) if (!item.collected && this.visible(item.x, 100)) this.drawSupply(item, t);
     const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped));
@@ -244,6 +245,7 @@ export class Renderer {
     this.drawShadow(s.player.x, s.player.groundY, s.walker.width * 0.75, 15);
     drawWalker(c, s.player, s.walker, t);
     this.drawRadiator(s, t);
+    if (s.dike) { this.drawDikeControls(s, t); this.drawDikePeople(s, t); }
     for (const e of visibleEnemies) if (e.kind === 'air') this.drawEnemy(e, s, t);
     this.drawShots(s);
     this.drawParticles(s);
@@ -252,12 +254,245 @@ export class Renderer {
     if (s.network) this.drawNetworkLabels(s);
     if (s.industrial) this.drawIndustrialLabels(s);
     if (s.channel) this.drawChannelLabels(s);
+    if (s.dike) this.drawDikeLabels(s);
     c.restore();
     this.drawAtmosphere(s, t);
     this.drawMarkers(s);
     if (s.channel && options.tideInstrument !== false) this.drawChannelTide(s);
     if (options.pointer?.visible) this.drawReticle(options.pointer, s);
     if (s.interaction && options.interactionPrompt !== false) this.drawInteraction(s);
+  }
+
+  drawDike(s, t) {
+    const c = this.ctx, site = s.dike, facts = s.campaign, settings = s.mission.dike;
+    const mint = '#aad8c2', ochre = '#e7c48c';
+    const shelterX = settings.shelterX, shelterGround = terrainAt(shelterX, s.planetId);
+    if (this.visible(shelterX, 170)) {
+      // Arrivals disappear through this doorway; sheltered people are no longer exposed actors.
+      plate(c, [[shelterX - 71, shelterGround], [shelterX - 71, shelterGround - 102], [shelterX + 71, shelterGround - 102], [shelterX + 71, shelterGround]], '#6e8c80', '#24484d');
+      plate(c, [[shelterX - 80, shelterGround - 100], [shelterX - 62, shelterGround - 118], [shelterX + 65, shelterGround - 118], [shelterX + 80, shelterGround - 100]], '#adbaa2', '#4c716c');
+      c.fillStyle = '#132c35'; c.fillRect(shelterX - 23, shelterGround - 74, 46, 74);
+      line(c, shelterX - 24, shelterGround - 74, shelterX - 24, shelterGround, mint, 3);
+      c.fillStyle = mint; c.fillRect(shelterX + 36, shelterGround - 86, 8, 24); c.fillRect(shelterX + 28, shelterGround - 78, 24, 8);
+      label(c, 'ABRI DU QUAI OUEST', shelterX, shelterGround - 138, 11, '#c5e1ce', 'center');
+      label(c, `${facts.residentsSafe} / ${facts.residentsTotal} ARRIVÉS`, shelterX, shelterGround - 122, 10, mint, 'center');
+      label(c, 'MARA · RADIO', shelterX - 47, shelterGround - 18, 7, '#b3cabc', 'center');
+    }
+    for (const house of site.houses) {
+      if (!this.visible(house.x, 230)) continue;
+      const half = house.w / 2, ground = house.y + house.h / 2, top = ground - house.h;
+      c.save();
+      if (house.destroyed) {
+        poly(c, [[house.x - half, ground], [house.x - half, ground - 33], [house.x - 48, ground - 16], [house.x - 21, ground - 61], [house.x + 5, ground - 24], [house.x + 43, ground - 44], [house.x + half, ground - 21], [house.x + half, ground]], '#3d5251', '#889a86', 2);
+        for (let i = 0; i < 5; i++) line(c, house.x - 66 + i * 29, ground - 5, house.x - 59 + i * 29, ground - 27 - hash(house.x + i) * 25, '#b0ab8a', 3);
+      } else {
+        plate(c, [[house.x - half, ground], [house.x - half, top], [house.x + half, top], [house.x + half, ground]], '#a3ac90', '#456665');
+        c.fillStyle = '#394f50'; c.fillRect(house.x - half + 4, top + 5, house.w - 8, 17);
+        label(c, house.id === 'house-white-mark' ? 'MAISON 01' : 'MAISON 02', house.x, top + 17, 10, '#d4d7b6', 'center');
+        for (const side of [-1, 1]) {
+          const wx = house.x + side * 47 - 16, wy = ground - 67;
+          c.fillStyle = '#17313a'; c.fillRect(wx - 3, wy - 3, 38, 44);
+          c.fillStyle = house.flooded ? '#416f72' : '#d2c191'; c.fillRect(wx, wy, 32, 37);
+          line(c, wx + 15, wy, wx + 15, wy + 37, '#4a6663', 2);
+          line(c, wx, wy + 19, wx + 32, wy + 19, '#4a6663', 2);
+        }
+        c.fillStyle = '#1f3b43'; c.fillRect(house.x - 14, ground - 57, 28, 57);
+        line(c, house.x + 8, ground - 52, house.x + 8, ground - 6, '#8fa58d', 2);
+        if (house.hp < house.maxHp * .75) {
+          line(c, house.x - 10, top + 26, house.x + 6, ground - 76, '#273e42', 3);
+          line(c, house.x + 6, ground - 76, house.x - 2, ground - 40, '#273e42', 3);
+        }
+      }
+      // The painted prescription and basin surface share the simulated flood threshold (.65).
+      const markY = ground - 126 * .65, waterY = ground - 126 * site.waterLevel;
+      if (house.destroyed) {
+        line(c, house.x - half + 3, ground, house.x - half + 3, markY - 10, '#718c7b', 9);
+        line(c, house.x - half - 8, markY, house.x - half + 14, markY, '#eef0d8', 4);
+      } else line(c, house.x - half - 8, markY, house.x + half + 8, markY, '#eef0d8', 4);
+      line(c, house.x - half - 11, markY - 6, house.x - half - 11, markY + 6, '#eef0d8', 2);
+      c.fillStyle = '#33748399'; c.fillRect(house.x - half - 8, waterY, house.w + 16, Math.max(0, ground - waterY));
+      line(c, house.x - half - 8, waterY, house.x + half + 8, waterY, '#aad9d2bb', 2);
+      for (let x = house.x - half + 5; x < house.x + half; x += 39) line(c, x, waterY + 6, x + 19, waterY + 6, '#b4ded54d', 1);
+      // The service lane remains on its actual terrain contact line in front of the basin.
+      line(c, house.x - half - 18, ground + 2, house.x + half + 18, ground + 2, '#c8c9ab', 5);
+      if (house.flash) { c.fillStyle = '#ffdcb966'; c.fillRect(house.x - half, top, house.w, house.h); }
+      c.restore();
+    }
+    for (const cover of site.covers) {
+      if (!this.visible(cover.x, 100)) continue;
+      const half = cover.w / 2, ground = cover.y + cover.h / 2, top = cover.y - cover.h / 2;
+      if (cover.destroyed) {
+        poly(c, [[cover.x - half, ground], [cover.x - half + 8, ground - 15], [cover.x, ground - 7], [cover.x + 11, ground - 21], [cover.x + half, ground]], '#3e5655', '#7e9581', 2);
+      } else {
+        plate(c, [[cover.x - half, ground], [cover.x - half, top], [cover.x + half, top], [cover.x + half, ground]], '#8f9e85', '#385755');
+        for (let y = top + 12; y < ground - 6; y += 15) line(c, cover.x - half + 5, y, cover.x + half - 5, y, '#344f50', 4);
+        line(c, cover.x - half + 4, top + 5, cover.x + half - 4, top + 5, ochre, 3);
+        if (cover.flash) glow(c, cover.x, cover.y, cover.w, '#ffdeb54d');
+      }
+    }
+    const panel = site.panel, ground = panel.y + panel.h / 2;
+    if (this.visible(panel.supportX, 450)) {
+      // This pad is an instruction mark; only panel.supported draws the load-bearing brace.
+      for (let x = panel.supportX - 230; x <= panel.supportX + 230; x += 38) {
+        const y = terrainAt(x, s.planetId);
+        line(c, x - 11, y + 8, x + 8, y + 2, panel.supported ? mint : '#d8bc81', 4);
+      }
+      const supportGround = terrainAt(panel.supportX, s.planetId);
+      label(c, 'ZONE D’APPUI', panel.supportX, supportGround + 35, 10, panel.supported ? mint : '#cabb8d', 'center');
+      if (!panel.destroyed) {
+        const half = panel.w / 2, top = panel.y - panel.h / 2;
+        plate(c, [[panel.x - half, ground], [panel.x - half, top], [panel.x + half, top], [panel.x + half, ground]], '#9ca98c', '#345552');
+        for (let y = top + 18; y < ground - 8; y += 27) {
+          line(c, panel.x - half + 7, y, panel.x + half - 7, y, '#244549', 11);
+          line(c, panel.x - half + 8, y - 3, panel.x + half - 8, y - 3, '#adc1a4', 2);
+        }
+        for (const yy of [top + 8, ground - 9]) for (const side of [-1, 1]) bolt(c, panel.x + side * (half - 8), yy, 3);
+        circle(c, panel.x - half + 5, panel.y - 8, 10, '#203d43', panel.locked ? mint : ochre, 2);
+        line(c, panel.x - half - 4, panel.y - 8, panel.x - half + (panel.locked ? 16 : 4), panel.y - (panel.locked ? 8 : 22), panel.locked ? mint : ochre, 4);
+        if (panel.hp < panel.maxHp * .7) line(c, panel.x + 7, top + 12, panel.x - 2, ground - 20, '#1a3339', 4);
+        if (panel.flash) glow(c, panel.x, panel.y, 100, '#ffd8ac55');
+      } else {
+        poly(c, [[panel.x - 45, ground], [panel.x - 37, ground - 24], [panel.x - 9, ground - 8], [panel.x + 13, ground - 41], [panel.x + 43, ground - 12], [panel.x + 45, ground]], '#3b5351', '#9e9d7f', 3);
+        line(c, panel.x - 27, ground - 9, panel.x + 24, ground - 54, '#647d70', 8);
+      }
+      if (panel.supported) {
+        const attachmentX = s.player.x + s.player.width * .38, attachmentY = s.player.y + 32;
+        strut(c, attachmentX, attachmentY, panel.x - panel.w / 2, panel.y + 16, 10, true);
+        circle(c, attachmentX, attachmentY, 6, '#9bc7b0', '#1b343b', 2);
+      }
+      if (panel.emergencyShoring || panel.manualWorking) {
+        c.save(); c.globalAlpha = panel.emergencyShoring ? 1 : .35 + panel.manualProgress * .55;
+        strut(c, panel.supportX + 55, supportGround - 1, panel.x + 19, ground - 99, 13, true);
+        line(c, panel.supportX + 48, supportGround + 1, panel.supportX + 79, supportGround + 1, '#d4c59a', 7);
+        plate(c, [[panel.x + 8, ground - 102], [panel.x + 35, ground - 102], [panel.x + 35, ground - 87], [panel.x + 8, ground - 87]], '#b1c1a1', '#3f625b');
+        c.restore();
+      }
+    }
+
+  }
+
+  // Interactive controls occupy the foreground service lane. Their fixed
+  // collision coordinates remain visible when a wide walker straddles them.
+  drawDikeControls(s, t) {
+    const c = this.ctx, site = s.dike, facts = s.campaign;
+    const mint = '#aad8c2', ochre = '#e7c48c';
+    const auxiliary = site.auxiliary;
+    if (this.visible(auxiliary.x, 120)) {
+      const x = auxiliary.x, y = auxiliary.y, half = auxiliary.w / 2;
+      plate(c, [[x - half, y + auxiliary.h / 2], [x - half, y - auxiliary.h / 2], [x + half, y - auxiliary.h / 2], [x + half, y + auxiliary.h / 2]], auxiliary.destroyed ? '#53635c' : '#88977d', '#2f4c4b');
+      circle(c, x - 6, y - 2, 23, '#1b353c', auxiliary.active ? mint : '#9b9f7d', 3);
+      c.save(); c.translate(x - 6, y - 2); c.rotate(auxiliary.active ? t * 3.4 : .4);
+      for (let i = 0; i < 4; i++) { c.rotate(TAU / 4); poly(c, [[3, -4], [17, -8], [20, -1], [5, 7]], auxiliary.destroyed ? '#414a44' : '#afae86', '#203a3e', 1); }
+      c.restore(); circle(c, x - 6, y - 2, 6, '#809c88');
+      line(c, x + 18, y + 8, x + 30, y + 8, '#1e363b', 9);
+      line(c, x + 30, y + 8, x + 37, y + 31, '#1e363b', 7);
+      c.fillStyle = auxiliary.connected ? '#adceb0' : '#9a8661'; c.fillRect(x - 30, y - 29, 13, 7);
+      if (auxiliary.destroyed) { line(c, x - half + 8, y - 24, x + 18, y + 22, '#1b2f33', 6); }
+      if (auxiliary.flash) glow(c, x, y, 60, '#ffdbad44');
+    }
+    const valve = site.valve;
+    if (this.visible(valve.x, 190)) {
+      const half = valve.w / 2, top = valve.y - valve.h / 2, bottom = valve.y + valve.h / 2;
+      for (const side of [-1, 1]) {
+        const active = valve.completed && (side < 0 ? facts.circuit === 'diversion' : facts.circuit === 'imperial');
+        line(c, valve.x + side * 18, bottom - 15, valve.x + side * 114, bottom - 15, '#19363e', 14);
+        line(c, valve.x + side * 18, bottom - 18, valve.x + side * 114, bottom - 18, active ? mint : '#758e7c', 5);
+        const arrowX = valve.x + side * 88;
+        poly(c, [[arrowX, bottom - 20], [arrowX + side * 11, bottom - 15], [arrowX, bottom - 10]], active ? mint : '#8eaa92');
+        label(c, side < 0 ? 'DÉRIVATION' : 'QUAI PRIVÉ', valve.x + side * 93, bottom + 17, 8, active ? mint : '#b0c2ab', 'center');
+      }
+      plate(c, [[valve.x - half, bottom], [valve.x - half, top], [valve.x + half, top], [valve.x + half, bottom]], '#809d88', '#294a4d');
+      c.fillStyle = '#172f39'; c.fillRect(valve.x - 22, top + 8, 44, 17);
+      for (let i = 0; i < 4; i++) line(c, valve.x - 17, top + 12 + i * 3, valve.x + 15, top + 12 + i * 3, facts.manifestRead ? mint : ochre, 1);
+      circle(c, valve.x, valve.y + 11, 19, '#233f45', valve.completed ? mint : ochre, 3);
+      const angle = valve.working ? t * 2.2 : valve.completed ? Math.PI / 4 : 0;
+      for (let i = 0; i < 3; i++) {
+        const a = angle + i * TAU / 3;
+        line(c, valve.x, valve.y + 11, valve.x + Math.cos(a) * 16, valve.y + 11 + Math.sin(a) * 16, valve.completed ? mint : ochre, 3);
+      }
+    }
+  }
+
+  drawDikePeople(s, t) {
+    // People keep their simulated positions but draw in the service lane, in front of walker legs.
+    for (const person of [...s.dike.residents, ...s.dike.technicians]) {
+      if (!this.visible(person.x, 60) || person.safe || person.phase === 'home') continue;
+      const technician = !person.homeId;
+      if (!person.alive) {
+        const groundY = person.y + person.h / 2;
+        line(this.ctx, person.x - 10, groundY - 3, person.x + 9, groundY - 3, technician ? '#b6a779' : '#7fa79b', 5);
+        circle(this.ctx, person.x + 12, groundY - 5, 4, '#a69678');
+        continue;
+      }
+      this.drawDikePerson(person, t, technician);
+    }
+  }
+
+  drawDikePerson(person, t, technician) {
+    const c = this.ctx, moving = person.phase === 'moving' || person.phase === 'evacuating';
+    const pace = moving ? Math.sin(t * 8 + person.x * .2) * 4 : 0;
+    const bottom = person.y + person.h / 2, top = person.y - person.h / 2;
+    this.drawShadow(person.x, bottom, 11, 3);
+    c.save(); c.translate(person.x, bottom);
+    line(c, -3, -12, -4 - pace, -1, '#1b3035', 4); line(c, 3, -12, 4 + pace, -1, '#243c3e', 4);
+    poly(c, [[-7, -26], [6, -26], [8, -11], [-7, -11]], technician ? '#bdad79' : '#83bab0', '#254247', 1);
+    line(c, -6, -22, -9, -13, '#b8c4a3', 3); line(c, 6, -22, 10, -16, '#b8c4a3', 3);
+    if (technician) {
+      c.fillStyle = '#314e50'; c.fillRect(-5, -24, 10, 6);
+      line(c, 9, -16, 14, -19, '#d6cba2', 2);
+    }
+    circle(c, 0, -30, 4, '#c7b996');
+    if (technician) { poly(c, [[-6, -31], [-4, -36], [4, -36], [6, -31]], '#ded0a3', '#48615c', 1); }
+    else line(c, -5, -33, 4, -33, '#c8cdb1', 3);
+    c.restore();
+    if (technician) {
+      const state = person.covering ? 'À COUVERT' : person.phase === 'locking' ? 'VERROUILLE' : person.arrived ? 'AUX VANNES' : person.called ? 'EN ROUTE' : 'EN ATTENTE';
+      const y = top - (person.id.endsWith('2') ? 38 : 22);
+      label(c, `G${person.id.endsWith('2') ? '2' : '1'} · ${state}`, person.x, y, 8, person.covering ? '#e6c48b' : '#c2dec8', 'center');
+      if (person.hp < person.maxHp) {
+        c.fillStyle = '#173139'; c.fillRect(person.x - 13, y + 5, 26, 3);
+        c.fillStyle = '#e1b486'; c.fillRect(person.x - 13, y + 5, 26 * person.hp / person.maxHp, 3);
+      }
+    }
+  }
+
+  drawDikeLabels(s) {
+    const c = this.ctx, site = s.dike, facts = s.campaign;
+    const mint = '#b0dec7', ochre = '#e9c68d', danger = '#e7a389';
+    const entries = site.houses.map((house, index) => {
+      const people = site.residents.filter(r => r.homeId === house.id);
+      const inside = people.filter(r => r.alive && r.phase === 'home').length, moving = people.filter(r => r.phase === 'evacuating').length, safe = people.filter(r => r.safe).length, lost = people.filter(r => !r.alive).length;
+      const detail = house.scanning ? `RELEVÉ ${Math.round(house.scanProgress * 100)} %` : house.inspected ? 'MARQUE IMPÉRIALE RELEVÉE' : 'E · INSPECTER LA MARQUE BLANCHE';
+      return { x: house.x, y: house.y - house.h / 2 - 83, title: `MAISON ${index + 1} · ${house.destroyed ? 'DÉTRUITE' : house.flooded ? 'INONDÉE' : 'HABITABLE'}`,
+        detail, sub: `${inside} dedans · ${moving} en route · ${safe} abri · ${lost} perdus`, color: house.destroyed || house.flooded ? danger : house.inspected ? mint : ochre, progress: house.scanning ? house.scanProgress : null, width: 282 };
+    });
+    const panel = site.panel, auxiliary = site.auxiliary, valve = site.valve;
+    entries.push({ x: auxiliary.x, y: auxiliary.y - auxiliary.h / 2 - 111, title: 'POMPE AUXILIAIRE · FACULTATIVE',
+      detail: auxiliary.destroyed ? 'MACHINE DÉTRUITE' : auxiliary.active ? 'PRESSION ASSISTÉE' : auxiliary.working ? `RACCORDEMENT ${Math.round(auxiliary.progress * 100)} %` : facts.context.fuelAvailable >= 2 ? 'E · BRANCHER · 4 s' : 'SANS CARBURANT · VOIE MANUELLE',
+      sub: facts.fuelSpent ? '2 lots consommés au raccordement' : '0 lot consommé · coût final : 2', color: auxiliary.destroyed ? danger : auxiliary.active ? mint : ochre, progress: auxiliary.working ? auxiliary.progress : null, width: 276 });
+    entries.push({ x: panel.x, y: panel.y - panel.h / 2 - 110, title: `PANNEAU · ${panel.emergencyShoring ? 'ÉTAI POSÉ' : panel.destroyed ? 'DÉTRUIT' : panel.locked ? 'VERROUILLÉ' : panel.supported ? 'SOUTENU' : 'À SOUTENIR'}`,
+      detail: panel.manualWorking ? `ÉTAI ${Math.round(panel.manualProgress * 100)} % · ANCRAGE REQUIS` : panel.latchProgress > 0 && !panel.locked ? `VERROU ${Math.round(panel.latchProgress * 100)} % · TENIR L’APPUI` : facts.panelSecured ? 'LE MARCHEUR PEUT QUITTER LE REPÈRE' : 'TOUS LES APPUIS POSÉS + ESPACE',
+      sub: `Pression ${Math.round(site.pressure)} % · fatigue ${Math.round(panel.fatigue)} %`, color: facts.panelSecured || panel.supported ? mint : panel.destroyed ? danger : ochre,
+      progress: panel.manualWorking ? panel.manualProgress : !panel.locked && panel.latchProgress > 0 ? panel.latchProgress : null, width: 306 });
+    entries.push({ x: valve.x, y: valve.y - valve.h / 2 - 111, title: 'COMMANDE DES TROIS-VANNES',
+      detail: valve.completed ? 'POMPES EN SERVICE' : valve.working ? `MANŒUVRE ${Math.round(valve.progress * 100)} %` : !facts.manifestRead ? 'E · COMPILER LES DEUX RELEVÉS' : !s.decision.resolved ? 'E · CHOISIR LE CIRCUIT' : 'E · ACTIONNER LA VANNE',
+      sub: facts.circuit === 'imperial' ? `Quai privé · niveau ${Math.round(site.waterLevel * 100)} %` : facts.circuit === 'diversion' ? `Dérivation · niveau ${Math.round(site.waterLevel * 100)} %` : 'Le choix devra être suivi de travaux',
+      color: valve.completed ? mint : ochre, progress: valve.working ? valve.progress : s.evidence.scanning ? s.evidence.scanProgress : null, width: 306 });
+    for (const entry of entries) {
+      if (!this.visible(entry.x, 0)) continue;
+      const half = entry.width / 2, x = clamp(entry.x, this.cameraX + half + 12, this.cameraX + W - half - 12);
+      const nearWalker = Math.abs(s.player.x - entry.x) < s.walker.width + 115;
+      const y = Math.max(290, Math.min(entry.y, nearWalker ? s.player.y - 132 : entry.y));
+      c.fillStyle = '#112e35ed'; c.fillRect(x - half, y, entry.width, 65);
+      line(c, x - half, y, x + half, y, entry.color, 1.5);
+      label(c, entry.title, x, y + 18, 11, entry.color, 'center');
+      label(c, entry.detail, x, y + 36, 9, '#d1d9be', 'center');
+      label(c, entry.sub, x, y + 53, 9, '#9ebeb0', 'center');
+      if (entry.progress !== null) {
+        c.fillStyle = '#35564f'; c.fillRect(x - half, y + 62, entry.width, 3);
+        c.fillStyle = entry.color; c.fillRect(x - half, y + 62, entry.width * clamp(entry.progress, 0, 1), 3);
+      }
+    }
   }
 
   drawChannel(s, t) {
@@ -573,6 +808,25 @@ export class Renderer {
   drawEnemy(e, s, t) {
     const c = this.ctx;
     if (e.kind === 'infantry') this.drawHuman(e, t);
+    else if (e.type === 'skimmer') {
+      this.drawShadow(e.x, e.y + e.h / 2, e.w * .56, 6);
+      c.save(); c.translate(e.x, e.y); c.scale(e.facing || -1, 1);
+      // Shallow hull and long runners distinguish the channel raider from wheeled buggies.
+      for (const yy of [13, 21]) {
+        poly(c, [[-48, yy - 6], [37, yy - 6], [49, yy - 13], [46, yy], [-43, yy]], '#536d65', '#172f37', 2);
+        line(c, -39, yy - 5, 37, yy - 5, '#c0b88c', 2);
+      }
+      plate(c, [[-43, -10], [-26, -20], [24, -20], [44, -10], [37, 7], [-37, 7]], '#9a9f81', '#365852');
+      plate(c, [[-19, -20], [-11, -31], [16, -31], [27, -19]], '#b2b28d', '#4d6c5d');
+      poly(c, [[-9, -27], [13, -27], [20, -20], [-14, -20]], '#203e45', '#b6c6a6', 1.5);
+      line(c, 16, -29, 52, -29, '#203941', 6);
+      line(c, 19, -32, 50, -32, '#c2c7a6', 1.5);
+      for (let i = 0; i < 4; i++) line(c, -33 + i * 7, -9, -30 + i * 7, 2, '#1f3e43', 3);
+      bolt(c, -34, -5, 2); bolt(c, 31, -5, 2);
+      c.fillStyle = '#d4b47d'; c.fillRect(34, -8, 5, 3);
+      if (e.active && e.phase !== 'attack') for (let i = 0; i < 3; i++) line(c, -51 - i * 7, 17 - i * 3, -42 - i * 7, 17 - i * 3, '#b3d5c277', 1.5);
+      c.restore();
+    }
     else if (e.kind === 'vehicle') {
       this.drawShadow(e.x, e.y + e.h / 2, 53, 7);
       c.save(); c.translate(e.x, e.y);
@@ -705,7 +959,7 @@ export class Renderer {
   }
 
   drawCampaignLandmarks(s, t) {
-    if (s.channel) return;
+    if (s.channel || s.dike) return;
     if (s.train) { this.drawRailHarpoons(s, t); return; }
     if (s.network) { this.drawNetworkStations(s, t); return; }
     if (s.industrial) { this.drawIndustrialStation(s, t); return; }
@@ -1265,6 +1519,16 @@ export class Renderer {
       for (const bank of s.channel.banks) line(c, toX(bank.from), by + 6, toX(bank.to), by + 6, bank.bridgeRaised ? '#a9d6bf' : s.channel.tide.walkable ? '#ccb483' : '#85d2d2', 3);
       for (const w of s.channel.winches) circle(c, toX(w.x), by, 3, w.released ? '#9fd5bd' : '#e3b476');
       const boat = s.channel.boat; c.fillStyle = boat.destroyed ? '#d58c73' : '#9cd9ce'; c.fillRect(toX(boat.x) - 4, by - 4, 8, 7);
+    }
+    if (s.dike) {
+      for (const house of s.dike.houses) {
+        c.fillStyle = house.destroyed || house.flooded ? '#dc997b' : house.inspected ? '#a2d3bb' : '#e3c184';
+        c.fillRect(toX(house.x) - 3, by - 4, 6, 8);
+      }
+      circle(c, toX(s.dike.panel.x), by, 4, s.campaign.panelSecured ? '#a2d3bb' : '#e3c184');
+      circle(c, toX(s.dike.auxiliary.x), by + 7, 3, s.dike.auxiliary.destroyed ? '#dc997b' : s.dike.auxiliary.active ? '#a2d3bb' : '#708d7c');
+      for (const person of s.dike.technicians) if (person.alive) circle(c, toX(person.x), by - 7, 2, '#cce3cb');
+      line(c, toX(s.mission.dike.shelterX), by - 5, toX(s.mission.dike.shelterX), by + 5, '#9fd7c6', 3);
     }
     const px = toX(s.player.x); poly(c, [[px, by - 8], [px + 5, by - 15], [px - 5, by - 15]], '#e2c893');
     const exitX = toX(s.extraction.x); line(c, exitX, by - 7, exitX, by + 7, s.extraction.active ? '#c6dfb1' : '#657b73', 2);

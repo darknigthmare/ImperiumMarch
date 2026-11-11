@@ -2,7 +2,7 @@
 
 ## Chaque pas laisse une trace.
 
-**Nom de code :** ImperiumMarch · **Version de conception :** 0.6.0 · **Date :** 11 novembre 2026
+**Nom de code :** ImperiumMarch · **Version de conception :** 0.7.0 · **Date :** 11 novembre 2026
 
 **ORDRE DE CENDRE** est un jeu d’action tactique en 2D dans lequel le joueur pilote les machines d’occupation de l’Empire d’Orthe. D’abord chargé de « pacifier » ses mondes périphériques, il découvre que les catastrophes justifiant ces interventions sont en partie organisées par ceux qui prétendent les réparer. Sa machine ne change pas soudainement de nature lorsqu’il refuse un ordre : elle reste lourde, dangereuse et dépendante de pièces fabriquées par l’Empire. Il doit apprendre à s’en servir pour autre chose que contraindre.
 
@@ -10,7 +10,7 @@ La signature du jeu est le rapport entre **appui, puissance et responsabilité**
 
 La qualité AAA est une **ambition de direction et de finition**. Cette version constitue une fondation de production, avec un prototype jouable et une bible étendue. Elle ne représente pas une campagne finale ni un jeu commercial terminé. La source structurée est [data/bible.json](../data/bible.json). L’onglet **Prototype** du classeur décrit précisément les éléments présents et leurs limites; les autres onglets comprennent aussi les règles prévues pour la suite.
 
-**Portée exécutée en 0.6 :** MI01, « Le couloir quarante-deux », MI02, « La dette sous la poussière », MI03, « Une fenêtre encore allumée », et MI04, « Ce qui reste dans les filtres », constituent le premier arc jouable de Vesper. MI05, « Le prix du passage », ouvre Nacre avec une marée simulée, deux passerelles, deux treuils, deux barges inspectables, douze réfugiés et un dépôt de carburant facultatif. La conduite, les ouvriers sauvés et le canal du dispensaire modifient des actions de MI04. Son poste de maintenance peut fournir la première anomalie technique PT01 ; sa perte reste une issue possible et ne bloque pas MI05. Six châssis, leurs réserves finies et un radiateur réparable sont disponibles. Les 27 autres missions principales restent conçues. La [production 0.6](PRODUCTION_V06.md) définit cette portée et la [QA 0.6](QA_V06.md) ses contrôles. Le [concept complet](CONCEPT_COMPLET_V04.md) présente l'ensemble du jeu, tandis que [Vesper](VESPER_CONSEQUENCES_V05.md) et [Nacre](NACRE_CONSEQUENCES_V06.md) précisent les conséquences et la suite.
+**Portée exécutée en 0.7 :** MI01–MI04 constituent le premier arc jouable de Vesper. MI05, « Le prix du passage », ouvre Nacre avec marée, passerelles, barges, douze réfugiés et carburant facultatif. MI06, « Les maisons sous la ligne », poursuit la digue : soutien du panneau avec les appuis, deux techniciens, dix nouveaux habitants marchant vers un abri, deux maisons et un circuit hydraulique à réaliser après la décision. Le carburant de MI05 peut y être consommé; sa dépense officielle survit à une défaite ou un recommencement. Six châssis, leurs réserves finies et un radiateur réparable restent disponibles. Les 26 autres missions principales sont conçues. La [production 0.7](PRODUCTION_V07.md) définit cette portée. Le [concept complet](CONCEPT_COMPLET_V04.md) présente l’ensemble du jeu; [Vesper](VESPER_CONSEQUENCES_V05.md) et [Nacre 0.7](NACRE_CONSEQUENCES_V07.md) précisent les conséquences. Les bilans antérieurs conservent leur portée historique.
 
 ## 1. Le contrat avec le joueur
 
@@ -53,6 +53,14 @@ Le prototype distingue déjà deux groupes d’appui, avec alternance manuelle o
 Un petit pas conserve davantage de stabilité mais allonge l’exposition. Une grande enjambée franchit plus vite un espace battu, au prix d’une articulation vulnérable. Reculer permet de sortir d’une ligne de tir sans offrir immédiatement le dos. S’ancrer améliore la précision et l’absorption du recul, mais rend prévisible la prochaine position.
 
 Le sol doit fournir des informations utiles. Une passerelle possède une charge admissible. La vase exige une grande surface de pied. Une croûte de scories peut cacher une galerie. La glace transmet les vibrations à un prédateur. La mise en scène doit annoncer ces propriétés par matière, son, fissure, instrumentation ou observation locale.
+
+### Soutenir un chantier
+
+MI06 donne une fonction matérielle à l’ancrage. La machine doit être immobile au repère, tous les pieds posés dans la bande de soutien. Cette posture maintient un panneau pendant qu’un technicien achève son verrou. La proximité seule ne suffit pas. Lever un groupe ou repartir retire le soutien; un verrou achevé permet de quitter le poste.
+
+Les deux techniciens se déplacent réellement et peuvent être perdus. Des abris destructibles interceptent les projectiles. Sans intervenant, un étai manuel conserve une issue plus longue, y compris après la destruction du panneau. L’étai sécurise un passage sans rendre intacte la structure détruite. Le [contrat MI06](CAMPAIGN_MISSION_06.md) fixe les durées et conditions locales.
+
+Le même niveau distingue un appel de secours et une arrivée. Dix habitants nouveaux, répartis dans deux maisons, rejoignent un abri sous le risque des tirs. Une personne arrivée sort des collisions; sa maison peut ensuite être perdue. Le choix du circuit ne déplace pas ces personnes. Cette séparation rend possible un bilan où tous les habitants sont sauvés et où leurs deux logements restent inhabitables.
 
 ### Les avaries
 
@@ -148,6 +156,8 @@ Le major Daren Holt croit à la chaîne de commandement parce qu’il l’a vue 
 
 Ilan Rusk veut rentrer avec un nom honorable auprès de sa famille. Mara Eren veut des lits, des routes et des personnes vivantes. Nima Sol exige une preuve recoupable. Leth demande que sa culture ne devienne pas seulement une pièce dans une histoire humaine. Chacun doit pouvoir remercier Sera pour un acte et lui en reprocher un autre sans contradiction artificielle.
 
+Dans la 0.7, Mara intervient à la radio après l’inspection des seuils de MI06. Le prototype ne simule pas un personnage physique Mara exposé aux tirs et ne la recrute pas. Sa voix établit un constat local; les relations, la confiance complète et ses engagements futurs restent à construire par des scènes et des actes.
+
 ## 12. Choix, confiance et fins
 
 Il n’existe pas de barre universelle du bien. Le jeu suit la qualité des preuves, la confiance de personnes précises, les services maintenus, les personnes évacuées, l’état de l’équipage, les pactes tenus et la portée de la diffusion. La confiance de Mara ne rachète pas une archive détruite aux yeux de Leth. Une victoire militaire ne répare pas une pompe détruite.
@@ -155,6 +165,12 @@ Il n’existe pas de barre universelle du bien. Le jeu suit la qualité des preu
 La campagne raconte une défection. La liberté du joueur détermine sa préparation, ses coûts, ses alliés et son issue; elle ne promet pas un arbre infini où toutes les allégeances resteraient disponibles jusqu’à la dernière seconde. Les variantes doivent rester vérifiables et assez profondes pour se voir dans les missions suivantes.
 
 Les quatre familles de fins sont **Les communes debout**, **La vérité sous les décombres**, **Un autre uniforme** et **Ceux qui ont traversé**. Elles combinent résultat militaire, vérité publique, continuité matérielle et autonomie des communautés. Des épilogues locaux montrent le quai, le verger, l’atelier ou la rue déjà connus. Les pertes ne disparaissent pas derrière une médaille finale.
+
+### Une dépense qui reste une dépense
+
+La réserve de MI05 apporte deux lots seulement si elle a été collectée. Dans MI06, un branchement auxiliaire achevé les consomme. La campagne inscrit ce coût immédiatement, même si la sortie se termine ensuite par une défaite. Le prochain départ garde le stock restant et une voie manuelle sans carburant. Une relecture simule ses ressources dans un état isolé et ne modifie pas le dossier officiel.
+
+Le stock actuel, la dépense cumulée et la consommation d’une sortie ont des sens différents. Un rapport victorieux peut indiquer zéro lot utilisé alors qu’une tentative précédente en a dépensé deux. L’atelier conserve cette histoire sans réécrire le rapport. Ce premier usage local ne livre pas une économie commerciale complète.
 
 ## 13. Une production contrôlable
 
@@ -168,7 +184,7 @@ L’estimation de calendrier et de financement doit être fondée sur la vitesse
 
 ## 14. Utilisation de la bible Excel
 
-Le classeur dispose d’un suivi transversal et de vingt feuilles de contenu source. Les IDs permettent de relier une mission à sa planète, un système à une validation ou un châssis à son armement. Les textes sont volontairement concrets : une ligne de production possède un livrable et un critère de clôture.
+La version 0.7 du classeur contient 705 fiches dans vingt feuilles de contenu source, plus une synthèse. Les 643 identifiants de la 0.6 restent présents. Les IDs permettent de relier une mission à sa planète, un système à une validation ou un châssis à son armement. Les textes sont volontairement concrets : une ligne de production possède un livrable et un critère de clôture.
 
 **Conçu** signifie spécifié; **Prototype** signifie présent dans la portée détaillée de l’onglet éponyme; **À produire** désigne le travail identifié mais non livré; **Vérifié** doit toujours se rapporter à un contrôle réellement exécuté. Un test prévu dans QA ne devient pas vérifié parce que le code existe. Un asset illustré ne devient pas une animation intégrée parce qu’il est beau.
 

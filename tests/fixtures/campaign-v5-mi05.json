@@ -1,0 +1,4507 @@
+{
+  "provenance": {
+    "sourceRevision": "613c07307f2712c5fac28d9403016906e94da168",
+    "publicRevision": "613c07307f2712c5fac28d9403016906e94da168",
+    "localSourceRevision": "c598badad94f81aaaf16f2b13d9e7c11b8508995",
+    "sourceVersion": "0.6.0",
+    "saveVersion": 5,
+    "source": "Immutable publication-v06-final snapshot, verified against the complete 205-file manifest published at the public revision.",
+    "generatedBy": "Historical parse/begin/update/command/checkpoint/restore/finish APIs and the historical public-control pilotMI05 driver. No mission state was fabricated or edited; no current development modules were imported.",
+    "scenario": "MI05 from authentic v4 completed Vesper dossier, WK09, normal, assisted, seed 1847. Both bridges, two winches and both barges completed; 12 refugees arrived and fuel loaded. Live capture immediately before the report decision; continued from its restored copy with defy through extraction.",
+    "mission": "MI05",
+    "walkerId": "WK09",
+    "difficulty": "normal",
+    "assist": true,
+    "seed": 1847,
+    "liveCapturePoint": "Decision active after two fuel lots were physically loaded; campaign reserve remains zero until the first successful debrief.",
+    "sourceHashes": {
+      "campaign": "eee954e0b058da1b8e4e1d94c3502c6b22a4936b72f75f5e3fe1f290b14c3cd7",
+      "simulation": "ea67e816a395f54ab0fd009f0ae2687369a31b55bc0800add9c1f2961e655962",
+      "content": "a53e8d813c31aaefa641a2bd6e1bc0d7db8d2afade7d7942bdb4da2551b3fbbc",
+      "driver": "ec4f6edfba77046bb6c4137f09540c370787fef4ff4ca9ae68f2ab34216117fe",
+      "historicalInput": "d34af557cc5cb280e803c289a193cbebfc1dd43146890c193a880b83381bbede"
+    },
+    "sourceGitBlobs": {
+      "src/campaign.mjs": "29ca34a8983623fcddda4409a2d35fb7bd1508f1",
+      "src/simulation.mjs": "0246a45e0b55b93e394a27ce1bd882c1bb973976",
+      "src/content.mjs": "da14fd10423eca2e7009b5f064d4188d987cdb67",
+      "tests/helpers/mi05-driver.mjs": "dc6ed844d7b0030355b468d23f359748900e959d",
+      "tests/fixtures/campaign-v4-mi04.json": "35c865dadfd955e902d3ae1f1f5e8c7a8a718092"
+    }
+  },
+  "live": {
+    "format": "ordre-de-cendre.campaign",
+    "version": 5,
+    "revision": 13,
+    "stage": "mission",
+    "activeMissionId": "MI05",
+    "completed": {
+      "MI01": {
+        "missionId": "MI01",
+        "missionName": "Le couloir quarante-deux",
+        "walkerId": "WK01",
+        "walkerName": "M-12 Vigie",
+        "hull": 520,
+        "integrity": 1,
+        "convoyIntegrity": 1,
+        "elapsed": 87.71666666666297,
+        "collateral": 2,
+        "kills": 7,
+        "route": "direct",
+        "pipeIntact": false,
+        "noticeFiled": true,
+        "choice": "defy",
+        "decisionLabel": "Signalement des Cales-Basses joint au bordereau",
+        "filtersDeliveredCount": 24,
+        "partsGranted": 4,
+        "pipeRepairCost": 2,
+        "tessLine": "La conduite a cédé sous un appui. Deux lots de raccords et une équipe : sans ça, les maisons en aval restent coupées. Les pertes civiles restent au rapport ; des raccords ne les effacent pas.",
+        "samiLine": "Tu as joint les Cales-Basses au bordereau. Ce n’est pas encore une livraison, mais leur nom est enfin sur une feuille signée."
+      },
+      "MI02": {
+        "missionId": "MI02",
+        "missionName": "La dette sous la poussière",
+        "walkerId": "WK05",
+        "walkerName": "Q-40 Bastion",
+        "hull": 730,
+        "integrity": 1,
+        "elapsed": 90.74999999999613,
+        "collateral": 0,
+        "kills": 6,
+        "choice": "defy",
+        "partsGranted": 4,
+        "tessLine": "Les huit ouvriers sont descendus du wagon. Les freins ont tenu ; on a pu ouvrir les portes sans tirer dans les tôles.",
+        "samiLine": "Les noms et le prix sont encore lisibles sur le registre. Tu as joint leur séquestration au rapport signé. Cette fois, personne ne pourra dire que le train ne transportait que du minerai.",
+        "trainIntegrity": 1,
+        "trainStopped": true,
+        "harpoonsReleased": 2,
+        "hostagesTotal": 8,
+        "hostagesRescued": 8,
+        "hostagesLost": 0,
+        "evidencePreserved": true,
+        "recordFiled": true,
+        "decisionLabel": "Séquestration des ouvriers jointe au rapport signé"
+      },
+      "MI03": {
+        "missionId": "MI03",
+        "missionName": "Une fenêtre encore allumée",
+        "walkerId": "WK06",
+        "walkerName": "A-17 Arpenteur",
+        "hull": 680,
+        "integrity": 1,
+        "elapsed": 76.33333333333029,
+        "collateral": 0,
+        "kills": 6,
+        "choice": "defy",
+        "partsGranted": 4,
+        "tessLine": "Les deux relais civils répondent encore. Les habitants sont restés à l’abri.",
+        "samiLine": "Le dispensaire peut encore être contacté. Cela nous laisse un accès possible pour une rencontre ultérieure, pas un témoignage déjà recueilli. Tu as joint les constatations au rapport signé. Le contrôle de Holt a relevé la durée des vérifications.",
+        "signalsIdentified": 3,
+        "militaryRelayDisabled": true,
+        "verifiedBuildings": 2,
+        "networkPreserved": true,
+        "civilRelaysOnline": 2,
+        "dispensaryIntact": true,
+        "witnessAvailable": true,
+        "residentsLost": 0,
+        "holtAlerted": true,
+        "reportFiled": true,
+        "decisionLabel": "Constat des bâtiments joint au rapport signé"
+      },
+      "MI04": {
+        "missionId": "MI04",
+        "missionName": "Ce qui reste dans les filtres",
+        "walkerId": "WK06",
+        "walkerName": "A-17 Arpenteur",
+        "hull": 674.54,
+        "integrity": 0.991970588235294,
+        "elapsed": 80.04999999999674,
+        "collateral": 0,
+        "kills": 5,
+        "choice": "defy",
+        "partsGranted": 4,
+        "tessLine": "Le journal copié date le remplacement de la pièce avant le rejet. La demande porte une référence militaire. Cette anomalie technique ne suffit pas encore à expliquer l’ensemble des incidents. Les consignes des ouvriers secourus ont raccourci le refroidissement.",
+        "samiLine": "Le contact du dispensaire a répondu pendant cette sortie. Cet échange est désormais consigné. Le constat technique a été joint au rapport signé.",
+        "coolantRestored": true,
+        "coolingAssistance": true,
+        "turbinesCooled": 2,
+        "maintenanceInspected": true,
+        "logRecovered": true,
+        "technicalEvidence": true,
+        "evidenceSource": "PT01",
+        "alternativeSourceNeeded": false,
+        "witnessContacted": true,
+        "reportFiled": true,
+        "maintenanceIntact": true,
+        "decisionLabel": "Constat de maintenance joint au rapport signé"
+      }
+    },
+    "resources": {
+      "parts": 22,
+      "fuel": 0
+    },
+    "crew": {
+      "tess": {
+        "trust": 52
+      },
+      "sami": {
+        "trust": 36
+      }
+    },
+    "authority": {
+      "reportFiled": true,
+      "suspicion": 8
+    },
+    "world": {
+      "vesper": {
+        "pipeIntact": false,
+        "pipeRepaired": false,
+        "servicesInterrupted": true,
+        "filtersDelivered": true,
+        "filtersDeliveredCount": 24,
+        "calesBassesExcluded": true,
+        "noticeFiled": true,
+        "rail": {
+          "trainRecovered": true,
+          "hostagesRescued": 8,
+          "hostagesLost": 0,
+          "evidencePreserved": true,
+          "recordFiled": true,
+          "brisantsEncountered": true
+        },
+        "communications": {
+          "militaryRelayDisabled": true,
+          "verifiedBuildings": 2,
+          "networkPreserved": true,
+          "civilRelaysOnline": 2,
+          "dispensaryIntact": true,
+          "witnessAvailable": true,
+          "residentsLost": 0,
+          "holtAlerted": true,
+          "reportFiled": true
+        },
+        "industrial": {
+          "coolantRestored": true,
+          "coolingAssistance": true,
+          "turbinesCooled": 2,
+          "maintenanceInspected": true,
+          "logRecovered": true,
+          "technicalEvidence": true,
+          "evidenceSource": "PT01",
+          "alternativeSourceNeeded": false,
+          "witnessContacted": true,
+          "reportFiled": true,
+          "maintenanceIntact": true
+        }
+      },
+      "nacre": {
+        "passage": {
+          "winchesReleased": 0,
+          "bargesInspected": 0,
+          "traffickingVerified": false,
+          "smugglerVerified": false,
+          "refugeesTotal": 0,
+          "refugeesPassed": 0,
+          "refugeesLost": 0,
+          "bargeCiviliansLost": 0,
+          "passageResolved": false,
+          "channelOpen": false,
+          "fuelRecovered": false,
+          "fuelLots": 0,
+          "manifestRead": false,
+          "reportFiled": false
+        }
+      }
+    },
+    "fleet": {
+      "WK01": {
+        "hull": 520,
+        "feet": [
+          100,
+          100
+        ],
+        "radiator": 100
+      },
+      "WK05": {
+        "hull": 730,
+        "feet": [
+          100,
+          100,
+          100,
+          100
+        ],
+        "radiator": 100
+      },
+      "WK09": {
+        "hull": 600,
+        "feet": [
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "radiator": 100
+      },
+      "WK02": {
+        "hull": 410,
+        "feet": [
+          100,
+          100
+        ],
+        "radiator": 100
+      },
+      "WK06": {
+        "hull": 674.54,
+        "feet": [
+          100,
+          100,
+          100,
+          100
+        ],
+        "radiator": 100
+      },
+      "WK10": {
+        "hull": 700,
+        "feet": [
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "radiator": 100
+      }
+    },
+    "checkpoint": {
+      "version": 1,
+      "mission": {
+        "id": "MI05",
+        "number": "05",
+        "campaign": true,
+        "act": "I — Le poids de l’ordre",
+        "name": "Le prix du passage",
+        "planetId": "PL02",
+        "planet": "Nacre",
+        "biome": "CHENAL DES DEUX RIVES",
+        "length": 4950,
+        "difficulty": "OUVERTURE DU CHENAL",
+        "duration": "5–8 min",
+        "faction": "Brisants · équipages distincts",
+        "accent": "#87cecb",
+        "sky": [
+          "#142d3c",
+          "#497e87",
+          "#c5d8cd"
+        ],
+        "description": "Deux câbles ferment le chenal. Détachez leurs treuils, identifiez les deux barges et couvrez le passage de douze réfugiés. Sur les bancs, la marée commande les appuis ; les passerelles du génie offrent une traversée permanente.",
+        "briefing": "« Deux barrages sur le chenal d’approvisionnement. Ouvrez le passage et relevez les équipages présents. » — Major Holt",
+        "hint": "E près des commandes avant chaque banc déploie une passerelle (4 s). À marée haute, les appuis nus s’enfoncent et s’abîment. E détend chaque treuil (2,5 s), ou visez sa tête sans tirer sur les barges. Inspectez les deux équipages (3 s). Le bateau attend un chenal libre et assez d’eau. Le dépôt du dock donne deux lots de carburant après 3 s, si préservé.",
+        "type": "channel",
+        "evidenceX": 4520,
+        "extractionX": 4710,
+        "decisionX": 4520,
+        "evidenceLabel": "RELEVÉ DU CHENAL",
+        "civilianPositions": [],
+        "supplyPositions": [
+          1370,
+          2250,
+          3920
+        ],
+        "enemyPlan": [
+          [
+            650,
+            "rifle"
+          ],
+          [
+            1460,
+            "rocket"
+          ],
+          [
+            2360,
+            "drone"
+          ],
+          [
+            3020,
+            "rifle"
+          ],
+          [
+            3980,
+            "buggy"
+          ]
+        ],
+        "channel": {
+          "interactionRadius": 175,
+          "bridgeTime": 4,
+          "winchTime": 2.5,
+          "inspectTime": 3,
+          "fuelTime": 3,
+          "banks": [
+            {
+              "id": "bank-west",
+              "from": 980,
+              "to": 1280,
+              "stationX": 780
+            },
+            {
+              "id": "bank-east",
+              "from": 2660,
+              "to": 2960,
+              "stationX": 2460
+            }
+          ],
+          "winchXs": [
+            1730,
+            3530
+          ],
+          "barges": [
+            {
+              "id": "barge-seizure",
+              "kind": "trafficker",
+              "name": "Saisie",
+              "x": 2010,
+              "civilians": 0
+            },
+            {
+              "id": "barge-shortbank",
+              "kind": "smuggler",
+              "name": "Rive-Courte",
+              "x": 3280,
+              "civilians": 4
+            }
+          ],
+          "boatStartX": 1480,
+          "boatDockX": 4100,
+          "boatSpeed": 92,
+          "passengers": 12,
+          "fuelX": 4280
+        },
+        "decision": {
+          "title": "Deux pavillons, deux équipages",
+          "body": "Le relevé doit distinguer ce qui a été vu sur chaque barge, les personnes effectivement passées et les pertes. Un pavillon ne suffit pas à prouver les actes de tout un équipage.",
+          "obey": "Remettre le relevé sous scellés",
+          "defy": "Joindre les faits propres à chaque équipage"
+        },
+        "intro": "NACRE // CHENAL DES DEUX RIVES · 07:20"
+      },
+      "walker": {
+        "id": "WK09",
+        "name": "Pèlerin",
+        "designation": "H-6",
+        "role": "TRAVERSEUR DE FRONTIÈRE",
+        "legs": 6,
+        "profile": "Hexapode médian",
+        "height": 145,
+        "width": 188,
+        "hull": 600,
+        "stride": 112,
+        "stepTime": 0.58,
+        "speed": 80,
+        "cooling": 20,
+        "armor": 0.18,
+        "damage": 17,
+        "fireRate": 0.13,
+        "shotHeat": 6.5,
+        "ammo": 18,
+        "rockets": 8,
+        "color": "#c8c6a8",
+        "silhouette": "hexapod",
+        "weight": 57,
+        "description": "Deux tripodes alternés maintiennent la coque à niveau, même sur les racines et les berges.",
+        "weapon": "Double canon P-17",
+        "secondary": "Roquettes légères",
+        "strength": "Stabilité · refroidissement",
+        "weakness": "Large empreinte au sol"
+      },
+      "missionId": "MI05",
+      "walkerId": "WK09",
+      "planetId": "PL02",
+      "difficultyId": "normal",
+      "difficulty": {
+        "label": "Pilote",
+        "damage": 0.75,
+        "enemyHealth": 1,
+        "repair": 1
+      },
+      "seed": 1847,
+      "rng": 1683932708,
+      "assist": true,
+      "elapsed": 123.08333333332763,
+      "status": "playing",
+      "outcome": "",
+      "player": {
+        "x": 4407.915858900853,
+        "y": 536.9442421480729,
+        "width": 188,
+        "height": 62,
+        "groundY": 681.9442421480727,
+        "facing": 1,
+        "aimAngle": 2.9543396144172878,
+        "hull": 590.9595,
+        "maxHull": 600,
+        "armor": 0.18,
+        "heat": 0,
+        "energy": 100,
+        "stability": 99.99999999999982,
+        "ammo": 8,
+        "maxAmmo": 18,
+        "reserveAmmo": 144,
+        "maxReserveAmmo": 144,
+        "radiator": {
+          "health": 100,
+          "maxHealth": 100,
+          "repairKits": 2,
+          "maxRepairKits": 2,
+          "repairProgress": 0,
+          "repairing": false
+        },
+        "rockets": 7,
+        "maxRockets": 8,
+        "reloadTime": 0,
+        "venting": false,
+        "braced": true,
+        "overheated": false,
+        "speed": 0,
+        "feet": [
+          {
+            "id": "foot-0",
+            "index": 0,
+            "group": 0,
+            "side": "back",
+            "homeOffset": -88,
+            "x": 4296.582525567529,
+            "y": 684.4485757306047,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4212.362359797577,
+            "fromY": 686.653169409514,
+            "targetX": 4296.582525567529,
+            "targetY": 684.4485757306047,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-1",
+            "index": 1,
+            "group": 1,
+            "side": "back",
+            "homeOffset": 0,
+            "x": 4431.249192234185,
+            "y": 681.7002857135492,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4337.915858900873,
+            "fromY": 683.3133363389958,
+            "targetX": 4431.249192234185,
+            "targetY": 681.7002857135492,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-2",
+            "index": 2,
+            "group": 0,
+            "side": "back",
+            "homeOffset": 88,
+            "x": 4472.582525567529,
+            "y": 681.5095982052392,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4388.362359797577,
+            "fromY": 682.2334189788413,
+            "targetX": 4472.582525567529,
+            "targetY": 681.5095982052392,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-3",
+            "index": 3,
+            "group": 1,
+            "side": "front",
+            "homeOffset": -105,
+            "x": 4326.249192234185,
+            "y": 683.6185818107627,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4232.915858900873,
+            "fromY": 686.1956450947772,
+            "targetX": 4326.249192234185,
+            "targetY": 683.6185818107627,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-4",
+            "index": 4,
+            "group": 0,
+            "side": "front",
+            "homeOffset": 5,
+            "x": 4389.582525567529,
+            "y": 682.2131069069738,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4305.362359797577,
+            "fromY": 684.1975078531353,
+            "targetX": 4389.582525567529,
+            "targetY": 682.2131069069738,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-5",
+            "index": 5,
+            "group": 1,
+            "side": "front",
+            "homeOffset": 105,
+            "x": 4536.249192234185,
+            "y": 681.5591375900977,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4442.915858900873,
+            "fromY": 681.6176545611665,
+            "targetX": 4536.249192234185,
+            "targetY": 681.5591375900977,
+            "health": 100,
+            "maxHealth": 100
+          }
+        ],
+        "stepCooldown": 0,
+        "lastGroup": 1,
+        "fireCooldown": 0,
+        "rocketCooldown": 0,
+        "flash": 0,
+        "aimX": 3804.416666666621,
+        "aimY": 660.996161971311,
+        "move": 0,
+        "anchorX": 4407.9158589008575
+      },
+      "enemies": [
+        {
+          "name": "Fusilier",
+          "kind": "infantry",
+          "w": 24,
+          "h": 36,
+          "hp": 0,
+          "speed": 22,
+          "range": 650,
+          "cooldown": 1.65,
+          "damage": 10,
+          "projectileSpeed": 430,
+          "windup": 0.42,
+          "score": 70,
+          "type": "rifle",
+          "id": "enemy-0",
+          "x": 650,
+          "spawnX": 650,
+          "y": 668.3625456900844,
+          "maxHp": 65,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 1.8537546114996104,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 5.079459985839741
+        },
+        {
+          "name": "Lancier antichar",
+          "kind": "infantry",
+          "w": 26,
+          "h": 38,
+          "hp": 0,
+          "speed": 14,
+          "range": 790,
+          "cooldown": 4.4,
+          "damage": 43,
+          "projectileSpeed": 255,
+          "windup": 1.2,
+          "score": 130,
+          "type": "rocket",
+          "id": "enemy-1",
+          "x": 1400.9666666666628,
+          "spawnX": 1460,
+          "y": 655.5757277099141,
+          "maxHp": 80,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 4.150000000000001,
+          "flash": 0,
+          "phase": "recover",
+          "armor": 0,
+          "targetX": 630.2707127065613,
+          "targetY": 636.7369154129743,
+          "dronePhase": 0.23307308415520275
+        },
+        {
+          "name": "Drone de veille",
+          "kind": "air",
+          "w": 48,
+          "h": 26,
+          "hp": 0,
+          "speed": 24,
+          "range": 710,
+          "cooldown": 2.25,
+          "damage": 13,
+          "projectileSpeed": 340,
+          "windup": 0.65,
+          "score": 120,
+          "type": "drone",
+          "id": "enemy-2",
+          "x": 2154.7999999999533,
+          "spawnX": 2360,
+          "y": 474.0573180432353,
+          "maxHp": 90,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0.743589743589744,
+          "attackTarget": "player",
+          "timer": -0.016666666666663676,
+          "flash": 0,
+          "phase": "attack",
+          "armor": 0,
+          "targetX": 1643.9282635163863,
+          "targetY": 534.6049683987243,
+          "dronePhase": 4.044982727755362
+        },
+        {
+          "name": "Fusilier",
+          "kind": "infantry",
+          "w": 24,
+          "h": 36,
+          "hp": 0,
+          "speed": 22,
+          "range": 650,
+          "cooldown": 1.65,
+          "damage": 10,
+          "projectileSpeed": 430,
+          "windup": 0.42,
+          "score": 70,
+          "type": "rifle",
+          "id": "enemy-3",
+          "x": 2881.0333333332874,
+          "spawnX": 3020,
+          "y": 659.0698770002633,
+          "maxHp": 65,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": -4.578417570392278,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 4.866679039824971
+        },
+        {
+          "name": "Buggy de raid",
+          "kind": "vehicle",
+          "w": 85,
+          "h": 44,
+          "hp": 0,
+          "speed": 35,
+          "range": 740,
+          "cooldown": 2.8,
+          "damage": 21,
+          "projectileSpeed": 400,
+          "windup": 0.7,
+          "score": 230,
+          "type": "buggy",
+          "id": "enemy-4",
+          "x": 3803.8333333332876,
+          "spawnX": 3980,
+          "y": 660.9975469578849,
+          "maxHp": 220,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 1.350000000000005,
+          "flash": 0,
+          "phase": "recover",
+          "armor": 0.14,
+          "targetX": 3130.988735670046,
+          "targetY": 534.5740128793606,
+          "dronePhase": 4.330152233821361
+        }
+      ],
+      "projectiles": [],
+      "particles": [],
+      "events": [
+        {
+          "id": 3186,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.21666666666118
+        },
+        {
+          "id": 3187,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.23333333332785
+        },
+        {
+          "id": 3188,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.24999999999451
+        },
+        {
+          "id": 3189,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.26666666666118
+        },
+        {
+          "id": 3190,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.28333333332785
+        },
+        {
+          "id": 3191,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.29999999999451
+        },
+        {
+          "id": 3192,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.31666666666118
+        },
+        {
+          "id": 3193,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.33333333332784
+        },
+        {
+          "id": 3194,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.34999999999451
+        },
+        {
+          "id": 3195,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.36666666666117
+        },
+        {
+          "id": 3196,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.38333333332784
+        },
+        {
+          "id": 3197,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.3999999999945
+        },
+        {
+          "id": 3198,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.41666666666117
+        },
+        {
+          "id": 3199,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.43333333332784
+        },
+        {
+          "id": 3200,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.4499999999945
+        },
+        {
+          "id": 3201,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.46666666666117
+        },
+        {
+          "id": 3202,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.48333333332783
+        },
+        {
+          "id": 3203,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.4999999999945
+        },
+        {
+          "id": 3204,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.51666666666117
+        },
+        {
+          "id": 3205,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.53333333332783
+        },
+        {
+          "id": 3206,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.5499999999945
+        },
+        {
+          "id": 3207,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.56666666666116
+        },
+        {
+          "id": 3208,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.58333333332783
+        },
+        {
+          "id": 3209,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.5999999999945
+        },
+        {
+          "id": 3210,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.61666666666116
+        },
+        {
+          "id": 3211,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.63333333332783
+        },
+        {
+          "id": 3212,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.64999999999449
+        },
+        {
+          "id": 3213,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.66666666666116
+        },
+        {
+          "id": 3214,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.68333333332782
+        },
+        {
+          "id": 3215,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.69999999999449
+        },
+        {
+          "id": 3216,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.71666666666115
+        },
+        {
+          "id": 3217,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.73333333332782
+        },
+        {
+          "id": 3218,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.74999999999449
+        },
+        {
+          "id": 3219,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.76666666666115
+        },
+        {
+          "id": 3220,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.78333333332782
+        },
+        {
+          "id": 3221,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.79999999999448
+        },
+        {
+          "id": 3222,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.81666666666115
+        },
+        {
+          "id": 3223,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.83333333332781
+        },
+        {
+          "id": 3224,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.84999999999448
+        },
+        {
+          "id": 3225,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.86666666666115
+        },
+        {
+          "id": 3226,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.88333333332781
+        },
+        {
+          "id": 3227,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.89999999999448
+        },
+        {
+          "id": 3228,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.91666666666114
+        },
+        {
+          "id": 3229,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.93333333332781
+        },
+        {
+          "id": 3230,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.94999999999447
+        },
+        {
+          "id": 3231,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.96666666666114
+        },
+        {
+          "id": 3232,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.9833333333278
+        },
+        {
+          "id": 3233,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.99999999999447
+        },
+        {
+          "id": 3234,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.01666666666114
+        },
+        {
+          "id": 3235,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.0333333333278
+        },
+        {
+          "id": 3236,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.04999999999447
+        },
+        {
+          "id": 3237,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.06666666666113
+        },
+        {
+          "id": 3238,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.0833333333278
+        },
+        {
+          "id": 3239,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.09999999999447
+        },
+        {
+          "id": 3240,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.11666666666113
+        },
+        {
+          "id": 3241,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.1333333333278
+        },
+        {
+          "id": 3242,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.14999999999446
+        },
+        {
+          "id": 3243,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.16666666666113
+        },
+        {
+          "id": 3244,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.1833333333278
+        },
+        {
+          "id": 3245,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.19999999999446
+        },
+        {
+          "id": 3246,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.21666666666113
+        },
+        {
+          "id": 3247,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.23333333332779
+        },
+        {
+          "id": 3248,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.24999999999446
+        },
+        {
+          "id": 3249,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.26666666666112
+        },
+        {
+          "id": 3250,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.28333333332779
+        },
+        {
+          "id": 3251,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.29999999999445
+        },
+        {
+          "id": 3252,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.31666666666112
+        },
+        {
+          "id": 3253,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.33333333332779
+        },
+        {
+          "id": 3254,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.34999999999445
+        },
+        {
+          "id": 3255,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.36666666666112
+        },
+        {
+          "id": 3256,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.38333333332778
+        },
+        {
+          "id": 3257,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.39999999999445
+        },
+        {
+          "id": 3258,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.41666666666111
+        },
+        {
+          "id": 3259,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.43333333332778
+        },
+        {
+          "id": 3260,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.44999999999445
+        },
+        {
+          "id": 3261,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.46666666666111
+        },
+        {
+          "id": 3262,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.48333333332778
+        },
+        {
+          "id": 3263,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.49999999999444
+        },
+        {
+          "id": 3264,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.51666666666111
+        },
+        {
+          "id": 3265,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.53333333332777
+        },
+        {
+          "id": 3266,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.54999999999444
+        },
+        {
+          "id": 3267,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.5666666666611
+        },
+        {
+          "id": 3268,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.58333333332777
+        },
+        {
+          "id": 3269,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.59999999999444
+        },
+        {
+          "id": 3270,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.6166666666611
+        },
+        {
+          "id": 3271,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.63333333332777
+        },
+        {
+          "id": 3272,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.64999999999444
+        },
+        {
+          "id": 3273,
+          "type": "objective",
+          "text": "Sami : « Les douze sont au dock. La rampe est remontée ; les passagers ont quitté le bateau. Leur arrivée est confirmée. »",
+          "time": 120.6666666666611
+        },
+        {
+          "id": 3274,
+          "type": "objective",
+          "text": "Relevé du chenal réuni. Les faits copiés et les pertes restent distincts. — E : signer le compte rendu.",
+          "time": 123.08333333332763
+        },
+        {
+          "id": 3275,
+          "type": "decision",
+          "text": "Deux pavillons, deux équipages",
+          "time": 123.08333333332763
+        }
+      ],
+      "eventId": 3275,
+      "entityId": 33,
+      "relays": [],
+      "convoy": null,
+      "civilians": [],
+      "evidence": {
+        "id": "MI05-evidence",
+        "x": 4520,
+        "y": 633.5343059798716,
+        "collected": true,
+        "scanning": false,
+        "scanProgress": 1,
+        "scanTime": 2.4,
+        "label": "RELEVÉ DU CHENAL"
+      },
+      "pickups": [
+        {
+          "id": "supply-0",
+          "x": 1370,
+          "y": 654.5180416938358,
+          "type": "repair",
+          "collected": true
+        },
+        {
+          "id": "supply-1",
+          "x": 2250,
+          "y": 666.2004521409561,
+          "type": "repair",
+          "collected": true
+        },
+        {
+          "id": "supply-2",
+          "x": 3920,
+          "y": 663.6389795488293,
+          "type": "repair",
+          "collected": false
+        }
+      ],
+      "decision": {
+        "active": true,
+        "resolved": false,
+        "choice": null,
+        "title": "Deux pavillons, deux équipages",
+        "body": "La facture copiée sur Saisie atteste une vente de réfugiés par son capitaine. Elle n’attribue pas ce trafic à tous les Brisants. Vann Ostre, joint depuis Rive-Courte, a confirmé que son équipage fait passer des familles hors des contrôles. Cette liaison a eu lieu ; elle ne vaut pas une alliance de sa flotte. 12 réfugiés ont atteint le dock, 0 ont péri dans le bateau. 0 pertes sont constatées parmi les quatre membres de Rive-Courte. Deux lots de carburant ont été chargés au dépôt. Holt demande une remise sous scellés ; Sami propose de joindre les faits propres à chaque équipage.",
+        "options": [
+          {
+            "id": "obey",
+            "label": "Remettre le relevé sous scellés"
+          },
+          {
+            "id": "defy",
+            "label": "Joindre les faits propres à chaque équipage"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "winches",
+          "label": "Ouvrir les deux câbles du chenal",
+          "current": 2,
+          "target": 2,
+          "complete": true
+        },
+        {
+          "id": "barges",
+          "label": "Vérifier les deux barges ou constater leurs pertes",
+          "current": 2,
+          "target": 2,
+          "complete": true
+        },
+        {
+          "id": "passengers",
+          "label": "Protéger le passage des douze réfugiés jusqu’au dock",
+          "current": 12,
+          "target": 12,
+          "complete": true
+        },
+        {
+          "id": "evidence",
+          "label": "Réunir le relevé du chenal au dock",
+          "current": 1,
+          "target": 1,
+          "complete": true
+        },
+        {
+          "id": "order",
+          "label": "Établir le compte rendu des équipages",
+          "current": 0,
+          "target": 1,
+          "complete": false
+        },
+        {
+          "id": "extract",
+          "label": "Rejoindre le hangar du dock",
+          "current": 0,
+          "target": 1,
+          "complete": false
+        }
+      ],
+      "extraction": {
+        "x": 4710,
+        "y": 679.5494674228764,
+        "active": false,
+        "radius": 110
+      },
+      "stats": {
+        "kills": 5,
+        "shots": 29,
+        "hits": 24,
+        "steps": 82,
+        "collateral": 0,
+        "damageTaken": 38.745,
+        "evidence": 0,
+        "ordersObeyed": 0,
+        "ordersDefied": 0,
+        "score": 620
+      },
+      "interaction": "E · Établir le compte rendu des équipages",
+      "cameraShake": 0,
+      "lastStepGroup": 1,
+      "checkpointText": "Ordre reçu. Appuis au sol.",
+      "inputHeld": {
+        "stepA": false,
+        "stepB": false,
+        "interact": false,
+        "reload": false,
+        "repair": false
+      },
+      "notified": {},
+      "nextStep": 0,
+      "bossReleased": false,
+      "campaign": {
+        "missionId": "MI05",
+        "phase": "report",
+        "winchesReleased": 2,
+        "bargesInspected": 2,
+        "traffickingVerified": true,
+        "smugglerVerified": true,
+        "refugeesTotal": 12,
+        "refugeesPassed": 12,
+        "refugeesLost": 0,
+        "bargeCiviliansLost": 0,
+        "passageResolved": true,
+        "channelOpen": true,
+        "fuelRecovered": true,
+        "fuelLots": 2,
+        "manifestRead": true,
+        "reportFiled": false,
+        "context": {
+          "technicalEvidence": true,
+          "railHostagesRescued": 8,
+          "railRecordFiled": true
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "channel": {
+        "tide": {
+          "phase": "high",
+          "level": 1,
+          "secondsToChange": 10.91666666667237,
+          "waterY": 668,
+          "walkable": false,
+          "navigable": true
+        },
+        "banks": [
+          {
+            "id": "bank-west",
+            "from": 980,
+            "to": 1280,
+            "stationX": 780,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          },
+          {
+            "id": "bank-east",
+            "from": 2660,
+            "to": 2960,
+            "stationX": 2460,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          }
+        ],
+        "winches": [
+          {
+            "id": "channel-winch-1",
+            "x": 1730,
+            "y": 559.9752721911967,
+            "w": 44,
+            "h": 44,
+            "hp": 39,
+            "maxHp": 90,
+            "released": true,
+            "working": false,
+            "progress": 1,
+            "destroyed": false,
+            "flash": 0
+          },
+          {
+            "id": "channel-winch-2",
+            "x": 3530,
+            "y": 559.2941028640538,
+            "w": 44,
+            "h": 44,
+            "hp": 90,
+            "maxHp": 90,
+            "released": true,
+            "working": false,
+            "progress": 1,
+            "destroyed": false,
+            "flash": 0
+          }
+        ],
+        "barges": [
+          {
+            "id": "barge-seizure",
+            "kind": "trafficker",
+            "x": 2010,
+            "y": 639.005752126757,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 0,
+            "casualties": 0
+          },
+          {
+            "id": "barge-shortbank",
+            "kind": "smuggler",
+            "x": 3280,
+            "y": 631.0077287749754,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 4,
+            "casualties": 0
+          }
+        ],
+        "boat": {
+          "id": "channel-refugee-boat",
+          "x": 4100,
+          "y": 652.2495064312085,
+          "w": 134,
+          "h": 58,
+          "hp": 420,
+          "maxHp": 420,
+          "speed": 92,
+          "arrived": true,
+          "destroyed": false,
+          "moving": false,
+          "passengers": 12
+        },
+        "fuel": {
+          "id": "dock-fuel",
+          "x": 4280,
+          "y": 648.9259777721007,
+          "w": 65,
+          "h": 72,
+          "hp": 240,
+          "maxHp": 240,
+          "destroyed": false,
+          "collected": true,
+          "working": false,
+          "progress": 1
+        }
+      }
+    },
+    "preDecisionCheckpoint": {
+      "version": 1,
+      "mission": {
+        "id": "MI05",
+        "number": "05",
+        "campaign": true,
+        "act": "I — Le poids de l’ordre",
+        "name": "Le prix du passage",
+        "planetId": "PL02",
+        "planet": "Nacre",
+        "biome": "CHENAL DES DEUX RIVES",
+        "length": 4950,
+        "difficulty": "OUVERTURE DU CHENAL",
+        "duration": "5–8 min",
+        "faction": "Brisants · équipages distincts",
+        "accent": "#87cecb",
+        "sky": [
+          "#142d3c",
+          "#497e87",
+          "#c5d8cd"
+        ],
+        "description": "Deux câbles ferment le chenal. Détachez leurs treuils, identifiez les deux barges et couvrez le passage de douze réfugiés. Sur les bancs, la marée commande les appuis ; les passerelles du génie offrent une traversée permanente.",
+        "briefing": "« Deux barrages sur le chenal d’approvisionnement. Ouvrez le passage et relevez les équipages présents. » — Major Holt",
+        "hint": "E près des commandes avant chaque banc déploie une passerelle (4 s). À marée haute, les appuis nus s’enfoncent et s’abîment. E détend chaque treuil (2,5 s), ou visez sa tête sans tirer sur les barges. Inspectez les deux équipages (3 s). Le bateau attend un chenal libre et assez d’eau. Le dépôt du dock donne deux lots de carburant après 3 s, si préservé.",
+        "type": "channel",
+        "evidenceX": 4520,
+        "extractionX": 4710,
+        "decisionX": 4520,
+        "evidenceLabel": "RELEVÉ DU CHENAL",
+        "civilianPositions": [],
+        "supplyPositions": [
+          1370,
+          2250,
+          3920
+        ],
+        "enemyPlan": [
+          [
+            650,
+            "rifle"
+          ],
+          [
+            1460,
+            "rocket"
+          ],
+          [
+            2360,
+            "drone"
+          ],
+          [
+            3020,
+            "rifle"
+          ],
+          [
+            3980,
+            "buggy"
+          ]
+        ],
+        "channel": {
+          "interactionRadius": 175,
+          "bridgeTime": 4,
+          "winchTime": 2.5,
+          "inspectTime": 3,
+          "fuelTime": 3,
+          "banks": [
+            {
+              "id": "bank-west",
+              "from": 980,
+              "to": 1280,
+              "stationX": 780
+            },
+            {
+              "id": "bank-east",
+              "from": 2660,
+              "to": 2960,
+              "stationX": 2460
+            }
+          ],
+          "winchXs": [
+            1730,
+            3530
+          ],
+          "barges": [
+            {
+              "id": "barge-seizure",
+              "kind": "trafficker",
+              "name": "Saisie",
+              "x": 2010,
+              "civilians": 0
+            },
+            {
+              "id": "barge-shortbank",
+              "kind": "smuggler",
+              "name": "Rive-Courte",
+              "x": 3280,
+              "civilians": 4
+            }
+          ],
+          "boatStartX": 1480,
+          "boatDockX": 4100,
+          "boatSpeed": 92,
+          "passengers": 12,
+          "fuelX": 4280
+        },
+        "decision": {
+          "title": "Deux pavillons, deux équipages",
+          "body": "Le relevé doit distinguer ce qui a été vu sur chaque barge, les personnes effectivement passées et les pertes. Un pavillon ne suffit pas à prouver les actes de tout un équipage.",
+          "obey": "Remettre le relevé sous scellés",
+          "defy": "Joindre les faits propres à chaque équipage"
+        },
+        "intro": "NACRE // CHENAL DES DEUX RIVES · 07:20"
+      },
+      "walker": {
+        "id": "WK09",
+        "name": "Pèlerin",
+        "designation": "H-6",
+        "role": "TRAVERSEUR DE FRONTIÈRE",
+        "legs": 6,
+        "profile": "Hexapode médian",
+        "height": 145,
+        "width": 188,
+        "hull": 600,
+        "stride": 112,
+        "stepTime": 0.58,
+        "speed": 80,
+        "cooling": 20,
+        "armor": 0.18,
+        "damage": 17,
+        "fireRate": 0.13,
+        "shotHeat": 6.5,
+        "ammo": 18,
+        "rockets": 8,
+        "color": "#c8c6a8",
+        "silhouette": "hexapod",
+        "weight": 57,
+        "description": "Deux tripodes alternés maintiennent la coque à niveau, même sur les racines et les berges.",
+        "weapon": "Double canon P-17",
+        "secondary": "Roquettes légères",
+        "strength": "Stabilité · refroidissement",
+        "weakness": "Large empreinte au sol"
+      },
+      "missionId": "MI05",
+      "walkerId": "WK09",
+      "planetId": "PL02",
+      "difficultyId": "normal",
+      "difficulty": {
+        "label": "Pilote",
+        "damage": 0.75,
+        "enemyHealth": 1,
+        "repair": 1
+      },
+      "seed": 1847,
+      "rng": 1683932708,
+      "assist": true,
+      "elapsed": 123.08333333332763,
+      "status": "playing",
+      "outcome": "",
+      "player": {
+        "x": 4407.915858900853,
+        "y": 536.9442421480729,
+        "width": 188,
+        "height": 62,
+        "groundY": 681.9442421480727,
+        "facing": 1,
+        "aimAngle": 2.9543396144172878,
+        "hull": 590.9595,
+        "maxHull": 600,
+        "armor": 0.18,
+        "heat": 0,
+        "energy": 100,
+        "stability": 99.99999999999982,
+        "ammo": 8,
+        "maxAmmo": 18,
+        "reserveAmmo": 144,
+        "maxReserveAmmo": 144,
+        "radiator": {
+          "health": 100,
+          "maxHealth": 100,
+          "repairKits": 2,
+          "maxRepairKits": 2,
+          "repairProgress": 0,
+          "repairing": false
+        },
+        "rockets": 7,
+        "maxRockets": 8,
+        "reloadTime": 0,
+        "venting": false,
+        "braced": true,
+        "overheated": false,
+        "speed": 0,
+        "feet": [
+          {
+            "id": "foot-0",
+            "index": 0,
+            "group": 0,
+            "side": "back",
+            "homeOffset": -88,
+            "x": 4296.582525567529,
+            "y": 684.4485757306047,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4212.362359797577,
+            "fromY": 686.653169409514,
+            "targetX": 4296.582525567529,
+            "targetY": 684.4485757306047,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-1",
+            "index": 1,
+            "group": 1,
+            "side": "back",
+            "homeOffset": 0,
+            "x": 4431.249192234185,
+            "y": 681.7002857135492,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4337.915858900873,
+            "fromY": 683.3133363389958,
+            "targetX": 4431.249192234185,
+            "targetY": 681.7002857135492,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-2",
+            "index": 2,
+            "group": 0,
+            "side": "back",
+            "homeOffset": 88,
+            "x": 4472.582525567529,
+            "y": 681.5095982052392,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4388.362359797577,
+            "fromY": 682.2334189788413,
+            "targetX": 4472.582525567529,
+            "targetY": 681.5095982052392,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-3",
+            "index": 3,
+            "group": 1,
+            "side": "front",
+            "homeOffset": -105,
+            "x": 4326.249192234185,
+            "y": 683.6185818107627,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4232.915858900873,
+            "fromY": 686.1956450947772,
+            "targetX": 4326.249192234185,
+            "targetY": 683.6185818107627,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-4",
+            "index": 4,
+            "group": 0,
+            "side": "front",
+            "homeOffset": 5,
+            "x": 4389.582525567529,
+            "y": 682.2131069069738,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4305.362359797577,
+            "fromY": 684.1975078531353,
+            "targetX": 4389.582525567529,
+            "targetY": 682.2131069069738,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-5",
+            "index": 5,
+            "group": 1,
+            "side": "front",
+            "homeOffset": 105,
+            "x": 4536.249192234185,
+            "y": 681.5591375900977,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4442.915858900873,
+            "fromY": 681.6176545611665,
+            "targetX": 4536.249192234185,
+            "targetY": 681.5591375900977,
+            "health": 100,
+            "maxHealth": 100
+          }
+        ],
+        "stepCooldown": 0,
+        "lastGroup": 1,
+        "fireCooldown": 0,
+        "rocketCooldown": 0,
+        "flash": 0,
+        "aimX": 3804.416666666621,
+        "aimY": 660.996161971311,
+        "move": 0,
+        "anchorX": 4407.9158589008575
+      },
+      "enemies": [
+        {
+          "name": "Fusilier",
+          "kind": "infantry",
+          "w": 24,
+          "h": 36,
+          "hp": 0,
+          "speed": 22,
+          "range": 650,
+          "cooldown": 1.65,
+          "damage": 10,
+          "projectileSpeed": 430,
+          "windup": 0.42,
+          "score": 70,
+          "type": "rifle",
+          "id": "enemy-0",
+          "x": 650,
+          "spawnX": 650,
+          "y": 668.3625456900844,
+          "maxHp": 65,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 1.8537546114996104,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 5.079459985839741
+        },
+        {
+          "name": "Lancier antichar",
+          "kind": "infantry",
+          "w": 26,
+          "h": 38,
+          "hp": 0,
+          "speed": 14,
+          "range": 790,
+          "cooldown": 4.4,
+          "damage": 43,
+          "projectileSpeed": 255,
+          "windup": 1.2,
+          "score": 130,
+          "type": "rocket",
+          "id": "enemy-1",
+          "x": 1400.9666666666628,
+          "spawnX": 1460,
+          "y": 655.5757277099141,
+          "maxHp": 80,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 4.150000000000001,
+          "flash": 0,
+          "phase": "recover",
+          "armor": 0,
+          "targetX": 630.2707127065613,
+          "targetY": 636.7369154129743,
+          "dronePhase": 0.23307308415520275
+        },
+        {
+          "name": "Drone de veille",
+          "kind": "air",
+          "w": 48,
+          "h": 26,
+          "hp": 0,
+          "speed": 24,
+          "range": 710,
+          "cooldown": 2.25,
+          "damage": 13,
+          "projectileSpeed": 340,
+          "windup": 0.65,
+          "score": 120,
+          "type": "drone",
+          "id": "enemy-2",
+          "x": 2154.7999999999533,
+          "spawnX": 2360,
+          "y": 474.0573180432353,
+          "maxHp": 90,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0.743589743589744,
+          "attackTarget": "player",
+          "timer": -0.016666666666663676,
+          "flash": 0,
+          "phase": "attack",
+          "armor": 0,
+          "targetX": 1643.9282635163863,
+          "targetY": 534.6049683987243,
+          "dronePhase": 4.044982727755362
+        },
+        {
+          "name": "Fusilier",
+          "kind": "infantry",
+          "w": 24,
+          "h": 36,
+          "hp": 0,
+          "speed": 22,
+          "range": 650,
+          "cooldown": 1.65,
+          "damage": 10,
+          "projectileSpeed": 430,
+          "windup": 0.42,
+          "score": 70,
+          "type": "rifle",
+          "id": "enemy-3",
+          "x": 2881.0333333332874,
+          "spawnX": 3020,
+          "y": 659.0698770002633,
+          "maxHp": 65,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": -4.578417570392278,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 4.866679039824971
+        },
+        {
+          "name": "Buggy de raid",
+          "kind": "vehicle",
+          "w": 85,
+          "h": 44,
+          "hp": 0,
+          "speed": 35,
+          "range": 740,
+          "cooldown": 2.8,
+          "damage": 21,
+          "projectileSpeed": 400,
+          "windup": 0.7,
+          "score": 230,
+          "type": "buggy",
+          "id": "enemy-4",
+          "x": 3803.8333333332876,
+          "spawnX": 3980,
+          "y": 660.9975469578849,
+          "maxHp": 220,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 1.350000000000005,
+          "flash": 0,
+          "phase": "recover",
+          "armor": 0.14,
+          "targetX": 3130.988735670046,
+          "targetY": 534.5740128793606,
+          "dronePhase": 4.330152233821361
+        }
+      ],
+      "projectiles": [],
+      "particles": [],
+      "events": [
+        {
+          "id": 3186,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.21666666666118
+        },
+        {
+          "id": 3187,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.23333333332785
+        },
+        {
+          "id": 3188,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.24999999999451
+        },
+        {
+          "id": 3189,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.26666666666118
+        },
+        {
+          "id": 3190,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.28333333332785
+        },
+        {
+          "id": 3191,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.29999999999451
+        },
+        {
+          "id": 3192,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.31666666666118
+        },
+        {
+          "id": 3193,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.33333333332784
+        },
+        {
+          "id": 3194,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.34999999999451
+        },
+        {
+          "id": 3195,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.36666666666117
+        },
+        {
+          "id": 3196,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.38333333332784
+        },
+        {
+          "id": 3197,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.3999999999945
+        },
+        {
+          "id": 3198,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.41666666666117
+        },
+        {
+          "id": 3199,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.43333333332784
+        },
+        {
+          "id": 3200,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.4499999999945
+        },
+        {
+          "id": 3201,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.46666666666117
+        },
+        {
+          "id": 3202,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.48333333332783
+        },
+        {
+          "id": 3203,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.4999999999945
+        },
+        {
+          "id": 3204,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.51666666666117
+        },
+        {
+          "id": 3205,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.53333333332783
+        },
+        {
+          "id": 3206,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.5499999999945
+        },
+        {
+          "id": 3207,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.56666666666116
+        },
+        {
+          "id": 3208,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.58333333332783
+        },
+        {
+          "id": 3209,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.5999999999945
+        },
+        {
+          "id": 3210,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.61666666666116
+        },
+        {
+          "id": 3211,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.63333333332783
+        },
+        {
+          "id": 3212,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.64999999999449
+        },
+        {
+          "id": 3213,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.66666666666116
+        },
+        {
+          "id": 3214,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.68333333332782
+        },
+        {
+          "id": 3215,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.69999999999449
+        },
+        {
+          "id": 3216,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.71666666666115
+        },
+        {
+          "id": 3217,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.73333333332782
+        },
+        {
+          "id": 3218,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.74999999999449
+        },
+        {
+          "id": 3219,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.76666666666115
+        },
+        {
+          "id": 3220,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.78333333332782
+        },
+        {
+          "id": 3221,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.79999999999448
+        },
+        {
+          "id": 3222,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.81666666666115
+        },
+        {
+          "id": 3223,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.83333333332781
+        },
+        {
+          "id": 3224,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.84999999999448
+        },
+        {
+          "id": 3225,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.86666666666115
+        },
+        {
+          "id": 3226,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.88333333332781
+        },
+        {
+          "id": 3227,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.89999999999448
+        },
+        {
+          "id": 3228,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.91666666666114
+        },
+        {
+          "id": 3229,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.93333333332781
+        },
+        {
+          "id": 3230,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.94999999999447
+        },
+        {
+          "id": 3231,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.96666666666114
+        },
+        {
+          "id": 3232,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.9833333333278
+        },
+        {
+          "id": 3233,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.99999999999447
+        },
+        {
+          "id": 3234,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.01666666666114
+        },
+        {
+          "id": 3235,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.0333333333278
+        },
+        {
+          "id": 3236,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.04999999999447
+        },
+        {
+          "id": 3237,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.06666666666113
+        },
+        {
+          "id": 3238,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.0833333333278
+        },
+        {
+          "id": 3239,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.09999999999447
+        },
+        {
+          "id": 3240,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.11666666666113
+        },
+        {
+          "id": 3241,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.1333333333278
+        },
+        {
+          "id": 3242,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.14999999999446
+        },
+        {
+          "id": 3243,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.16666666666113
+        },
+        {
+          "id": 3244,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.1833333333278
+        },
+        {
+          "id": 3245,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.19999999999446
+        },
+        {
+          "id": 3246,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.21666666666113
+        },
+        {
+          "id": 3247,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.23333333332779
+        },
+        {
+          "id": 3248,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.24999999999446
+        },
+        {
+          "id": 3249,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.26666666666112
+        },
+        {
+          "id": 3250,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.28333333332779
+        },
+        {
+          "id": 3251,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.29999999999445
+        },
+        {
+          "id": 3252,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.31666666666112
+        },
+        {
+          "id": 3253,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.33333333332779
+        },
+        {
+          "id": 3254,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.34999999999445
+        },
+        {
+          "id": 3255,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.36666666666112
+        },
+        {
+          "id": 3256,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.38333333332778
+        },
+        {
+          "id": 3257,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.39999999999445
+        },
+        {
+          "id": 3258,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.41666666666111
+        },
+        {
+          "id": 3259,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.43333333332778
+        },
+        {
+          "id": 3260,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.44999999999445
+        },
+        {
+          "id": 3261,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.46666666666111
+        },
+        {
+          "id": 3262,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.48333333332778
+        },
+        {
+          "id": 3263,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.49999999999444
+        },
+        {
+          "id": 3264,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.51666666666111
+        },
+        {
+          "id": 3265,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.53333333332777
+        },
+        {
+          "id": 3266,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.54999999999444
+        },
+        {
+          "id": 3267,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.5666666666611
+        },
+        {
+          "id": 3268,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.58333333332777
+        },
+        {
+          "id": 3269,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.59999999999444
+        },
+        {
+          "id": 3270,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.6166666666611
+        },
+        {
+          "id": 3271,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.63333333332777
+        },
+        {
+          "id": 3272,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.64999999999444
+        },
+        {
+          "id": 3273,
+          "type": "objective",
+          "text": "Sami : « Les douze sont au dock. La rampe est remontée ; les passagers ont quitté le bateau. Leur arrivée est confirmée. »",
+          "time": 120.6666666666611
+        },
+        {
+          "id": 3274,
+          "type": "objective",
+          "text": "Relevé du chenal réuni. Les faits copiés et les pertes restent distincts. — E : signer le compte rendu.",
+          "time": 123.08333333332763
+        },
+        {
+          "id": 3275,
+          "type": "decision",
+          "text": "Deux pavillons, deux équipages",
+          "time": 123.08333333332763
+        }
+      ],
+      "eventId": 3275,
+      "entityId": 33,
+      "relays": [],
+      "convoy": null,
+      "civilians": [],
+      "evidence": {
+        "id": "MI05-evidence",
+        "x": 4520,
+        "y": 633.5343059798716,
+        "collected": true,
+        "scanning": false,
+        "scanProgress": 1,
+        "scanTime": 2.4,
+        "label": "RELEVÉ DU CHENAL"
+      },
+      "pickups": [
+        {
+          "id": "supply-0",
+          "x": 1370,
+          "y": 654.5180416938358,
+          "type": "repair",
+          "collected": true
+        },
+        {
+          "id": "supply-1",
+          "x": 2250,
+          "y": 666.2004521409561,
+          "type": "repair",
+          "collected": true
+        },
+        {
+          "id": "supply-2",
+          "x": 3920,
+          "y": 663.6389795488293,
+          "type": "repair",
+          "collected": false
+        }
+      ],
+      "decision": {
+        "active": true,
+        "resolved": false,
+        "choice": null,
+        "title": "Deux pavillons, deux équipages",
+        "body": "La facture copiée sur Saisie atteste une vente de réfugiés par son capitaine. Elle n’attribue pas ce trafic à tous les Brisants. Vann Ostre, joint depuis Rive-Courte, a confirmé que son équipage fait passer des familles hors des contrôles. Cette liaison a eu lieu ; elle ne vaut pas une alliance de sa flotte. 12 réfugiés ont atteint le dock, 0 ont péri dans le bateau. 0 pertes sont constatées parmi les quatre membres de Rive-Courte. Deux lots de carburant ont été chargés au dépôt. Holt demande une remise sous scellés ; Sami propose de joindre les faits propres à chaque équipage.",
+        "options": [
+          {
+            "id": "obey",
+            "label": "Remettre le relevé sous scellés"
+          },
+          {
+            "id": "defy",
+            "label": "Joindre les faits propres à chaque équipage"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "winches",
+          "label": "Ouvrir les deux câbles du chenal",
+          "current": 2,
+          "target": 2,
+          "complete": true
+        },
+        {
+          "id": "barges",
+          "label": "Vérifier les deux barges ou constater leurs pertes",
+          "current": 2,
+          "target": 2,
+          "complete": true
+        },
+        {
+          "id": "passengers",
+          "label": "Protéger le passage des douze réfugiés jusqu’au dock",
+          "current": 12,
+          "target": 12,
+          "complete": true
+        },
+        {
+          "id": "evidence",
+          "label": "Réunir le relevé du chenal au dock",
+          "current": 1,
+          "target": 1,
+          "complete": true
+        },
+        {
+          "id": "order",
+          "label": "Établir le compte rendu des équipages",
+          "current": 0,
+          "target": 1,
+          "complete": false
+        },
+        {
+          "id": "extract",
+          "label": "Rejoindre le hangar du dock",
+          "current": 0,
+          "target": 1,
+          "complete": false
+        }
+      ],
+      "extraction": {
+        "x": 4710,
+        "y": 679.5494674228764,
+        "active": false,
+        "radius": 110
+      },
+      "stats": {
+        "kills": 5,
+        "shots": 29,
+        "hits": 24,
+        "steps": 82,
+        "collateral": 0,
+        "damageTaken": 38.745,
+        "evidence": 0,
+        "ordersObeyed": 0,
+        "ordersDefied": 0,
+        "score": 620
+      },
+      "interaction": "E · Établir le compte rendu des équipages",
+      "cameraShake": 0,
+      "lastStepGroup": 1,
+      "checkpointText": "Ordre reçu. Appuis au sol.",
+      "inputHeld": {
+        "stepA": false,
+        "stepB": false,
+        "interact": false,
+        "reload": false,
+        "repair": false
+      },
+      "notified": {},
+      "nextStep": 0,
+      "bossReleased": false,
+      "campaign": {
+        "missionId": "MI05",
+        "phase": "report",
+        "winchesReleased": 2,
+        "bargesInspected": 2,
+        "traffickingVerified": true,
+        "smugglerVerified": true,
+        "refugeesTotal": 12,
+        "refugeesPassed": 12,
+        "refugeesLost": 0,
+        "bargeCiviliansLost": 0,
+        "passageResolved": true,
+        "channelOpen": true,
+        "fuelRecovered": true,
+        "fuelLots": 2,
+        "manifestRead": true,
+        "reportFiled": false,
+        "context": {
+          "technicalEvidence": true,
+          "railHostagesRescued": 8,
+          "railRecordFiled": true
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "channel": {
+        "tide": {
+          "phase": "high",
+          "level": 1,
+          "secondsToChange": 10.91666666667237,
+          "waterY": 668,
+          "walkable": false,
+          "navigable": true
+        },
+        "banks": [
+          {
+            "id": "bank-west",
+            "from": 980,
+            "to": 1280,
+            "stationX": 780,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          },
+          {
+            "id": "bank-east",
+            "from": 2660,
+            "to": 2960,
+            "stationX": 2460,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          }
+        ],
+        "winches": [
+          {
+            "id": "channel-winch-1",
+            "x": 1730,
+            "y": 559.9752721911967,
+            "w": 44,
+            "h": 44,
+            "hp": 39,
+            "maxHp": 90,
+            "released": true,
+            "working": false,
+            "progress": 1,
+            "destroyed": false,
+            "flash": 0
+          },
+          {
+            "id": "channel-winch-2",
+            "x": 3530,
+            "y": 559.2941028640538,
+            "w": 44,
+            "h": 44,
+            "hp": 90,
+            "maxHp": 90,
+            "released": true,
+            "working": false,
+            "progress": 1,
+            "destroyed": false,
+            "flash": 0
+          }
+        ],
+        "barges": [
+          {
+            "id": "barge-seizure",
+            "kind": "trafficker",
+            "x": 2010,
+            "y": 639.005752126757,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 0,
+            "casualties": 0
+          },
+          {
+            "id": "barge-shortbank",
+            "kind": "smuggler",
+            "x": 3280,
+            "y": 631.0077287749754,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 4,
+            "casualties": 0
+          }
+        ],
+        "boat": {
+          "id": "channel-refugee-boat",
+          "x": 4100,
+          "y": 652.2495064312085,
+          "w": 134,
+          "h": 58,
+          "hp": 420,
+          "maxHp": 420,
+          "speed": 92,
+          "arrived": true,
+          "destroyed": false,
+          "moving": false,
+          "passengers": 12
+        },
+        "fuel": {
+          "id": "dock-fuel",
+          "x": 4280,
+          "y": 648.9259777721007,
+          "w": 65,
+          "h": 72,
+          "hp": 240,
+          "maxHp": 240,
+          "destroyed": false,
+          "collected": true,
+          "working": false,
+          "progress": 1
+        }
+      }
+    },
+    "lastDebrief": {
+      "missionId": "MI04",
+      "missionName": "Ce qui reste dans les filtres",
+      "walkerId": "WK06",
+      "walkerName": "A-17 Arpenteur",
+      "hull": 674.54,
+      "integrity": 0.991970588235294,
+      "elapsed": 80.04999999999674,
+      "collateral": 0,
+      "kills": 5,
+      "choice": "defy",
+      "partsGranted": 4,
+      "tessLine": "Le journal copié date le remplacement de la pièce avant le rejet. La demande porte une référence militaire. Cette anomalie technique ne suffit pas encore à expliquer l’ensemble des incidents. Les consignes des ouvriers secourus ont raccourci le refroidissement.",
+      "samiLine": "Le contact du dispensaire a répondu pendant cette sortie. Cet échange est désormais consigné. Le constat technique a été joint au rapport signé.",
+      "coolantRestored": true,
+      "coolingAssistance": true,
+      "turbinesCooled": 2,
+      "maintenanceInspected": true,
+      "logRecovered": true,
+      "technicalEvidence": true,
+      "evidenceSource": "PT01",
+      "alternativeSourceNeeded": false,
+      "witnessContacted": true,
+      "reportFiled": true,
+      "maintenanceIntact": true,
+      "decisionLabel": "Constat de maintenance joint au rapport signé"
+    },
+    "maintenanceLog": []
+  },
+  "completed": {
+    "format": "ordre-de-cendre.campaign",
+    "version": 5,
+    "revision": 14,
+    "stage": "complete",
+    "activeMissionId": null,
+    "completed": {
+      "MI01": {
+        "missionId": "MI01",
+        "missionName": "Le couloir quarante-deux",
+        "walkerId": "WK01",
+        "walkerName": "M-12 Vigie",
+        "hull": 520,
+        "integrity": 1,
+        "convoyIntegrity": 1,
+        "elapsed": 87.71666666666297,
+        "collateral": 2,
+        "kills": 7,
+        "route": "direct",
+        "pipeIntact": false,
+        "noticeFiled": true,
+        "choice": "defy",
+        "decisionLabel": "Signalement des Cales-Basses joint au bordereau",
+        "filtersDeliveredCount": 24,
+        "partsGranted": 4,
+        "pipeRepairCost": 2,
+        "tessLine": "La conduite a cédé sous un appui. Deux lots de raccords et une équipe : sans ça, les maisons en aval restent coupées. Les pertes civiles restent au rapport ; des raccords ne les effacent pas.",
+        "samiLine": "Tu as joint les Cales-Basses au bordereau. Ce n’est pas encore une livraison, mais leur nom est enfin sur une feuille signée."
+      },
+      "MI02": {
+        "missionId": "MI02",
+        "missionName": "La dette sous la poussière",
+        "walkerId": "WK05",
+        "walkerName": "Q-40 Bastion",
+        "hull": 730,
+        "integrity": 1,
+        "elapsed": 90.74999999999613,
+        "collateral": 0,
+        "kills": 6,
+        "choice": "defy",
+        "partsGranted": 4,
+        "tessLine": "Les huit ouvriers sont descendus du wagon. Les freins ont tenu ; on a pu ouvrir les portes sans tirer dans les tôles.",
+        "samiLine": "Les noms et le prix sont encore lisibles sur le registre. Tu as joint leur séquestration au rapport signé. Cette fois, personne ne pourra dire que le train ne transportait que du minerai.",
+        "trainIntegrity": 1,
+        "trainStopped": true,
+        "harpoonsReleased": 2,
+        "hostagesTotal": 8,
+        "hostagesRescued": 8,
+        "hostagesLost": 0,
+        "evidencePreserved": true,
+        "recordFiled": true,
+        "decisionLabel": "Séquestration des ouvriers jointe au rapport signé"
+      },
+      "MI03": {
+        "missionId": "MI03",
+        "missionName": "Une fenêtre encore allumée",
+        "walkerId": "WK06",
+        "walkerName": "A-17 Arpenteur",
+        "hull": 680,
+        "integrity": 1,
+        "elapsed": 76.33333333333029,
+        "collateral": 0,
+        "kills": 6,
+        "choice": "defy",
+        "partsGranted": 4,
+        "tessLine": "Les deux relais civils répondent encore. Les habitants sont restés à l’abri.",
+        "samiLine": "Le dispensaire peut encore être contacté. Cela nous laisse un accès possible pour une rencontre ultérieure, pas un témoignage déjà recueilli. Tu as joint les constatations au rapport signé. Le contrôle de Holt a relevé la durée des vérifications.",
+        "signalsIdentified": 3,
+        "militaryRelayDisabled": true,
+        "verifiedBuildings": 2,
+        "networkPreserved": true,
+        "civilRelaysOnline": 2,
+        "dispensaryIntact": true,
+        "witnessAvailable": true,
+        "residentsLost": 0,
+        "holtAlerted": true,
+        "reportFiled": true,
+        "decisionLabel": "Constat des bâtiments joint au rapport signé"
+      },
+      "MI04": {
+        "missionId": "MI04",
+        "missionName": "Ce qui reste dans les filtres",
+        "walkerId": "WK06",
+        "walkerName": "A-17 Arpenteur",
+        "hull": 674.54,
+        "integrity": 0.991970588235294,
+        "elapsed": 80.04999999999674,
+        "collateral": 0,
+        "kills": 5,
+        "choice": "defy",
+        "partsGranted": 4,
+        "tessLine": "Le journal copié date le remplacement de la pièce avant le rejet. La demande porte une référence militaire. Cette anomalie technique ne suffit pas encore à expliquer l’ensemble des incidents. Les consignes des ouvriers secourus ont raccourci le refroidissement.",
+        "samiLine": "Le contact du dispensaire a répondu pendant cette sortie. Cet échange est désormais consigné. Le constat technique a été joint au rapport signé.",
+        "coolantRestored": true,
+        "coolingAssistance": true,
+        "turbinesCooled": 2,
+        "maintenanceInspected": true,
+        "logRecovered": true,
+        "technicalEvidence": true,
+        "evidenceSource": "PT01",
+        "alternativeSourceNeeded": false,
+        "witnessContacted": true,
+        "reportFiled": true,
+        "maintenanceIntact": true,
+        "decisionLabel": "Constat de maintenance joint au rapport signé"
+      },
+      "MI05": {
+        "missionId": "MI05",
+        "missionName": "Le prix du passage",
+        "walkerId": "WK09",
+        "walkerName": "H-6 Pèlerin",
+        "hull": 590.9595,
+        "integrity": 0.9849325000000001,
+        "elapsed": 125.59999999999415,
+        "collateral": 0,
+        "kills": 5,
+        "choice": "defy",
+        "partsGranted": 4,
+        "tessLine": "Les douze passagers ont atteint le quai. Ils sont descendus par leurs propres moyens ; le chenal est resté ouvert assez longtemps. Deux lots de carburant ont été chargés au dépôt.",
+        "samiLine": "La facture de la barge Saisie porte un prix par personne. Nous en avons conservé le relevé. Vann Ostre a répondu depuis Rive-Courte : son équipage faisait sortir des familles. Ce contact appartient à cet équipage, pas à toute la flotte des Brisants. Tu as joint ces constatations au rapport signé.",
+        "winchesReleased": 2,
+        "bargesInspected": 2,
+        "traffickingVerified": true,
+        "smugglerVerified": true,
+        "refugeesTotal": 12,
+        "refugeesPassed": 12,
+        "refugeesLost": 0,
+        "bargeCiviliansLost": 0,
+        "passageResolved": true,
+        "channelOpen": true,
+        "fuelRecovered": true,
+        "fuelLots": 2,
+        "manifestRead": true,
+        "reportFiled": true,
+        "decisionLabel": "Sort des passagers et constat des deux équipages joints au rapport"
+      }
+    },
+    "resources": {
+      "parts": 26,
+      "fuel": 2
+    },
+    "crew": {
+      "tess": {
+        "trust": 54
+      },
+      "sami": {
+        "trust": 39
+      }
+    },
+    "authority": {
+      "reportFiled": true,
+      "suspicion": 10
+    },
+    "world": {
+      "vesper": {
+        "pipeIntact": false,
+        "pipeRepaired": false,
+        "servicesInterrupted": true,
+        "filtersDelivered": true,
+        "filtersDeliveredCount": 24,
+        "calesBassesExcluded": true,
+        "noticeFiled": true,
+        "rail": {
+          "trainRecovered": true,
+          "hostagesRescued": 8,
+          "hostagesLost": 0,
+          "evidencePreserved": true,
+          "recordFiled": true,
+          "brisantsEncountered": true
+        },
+        "communications": {
+          "militaryRelayDisabled": true,
+          "verifiedBuildings": 2,
+          "networkPreserved": true,
+          "civilRelaysOnline": 2,
+          "dispensaryIntact": true,
+          "witnessAvailable": true,
+          "residentsLost": 0,
+          "holtAlerted": true,
+          "reportFiled": true
+        },
+        "industrial": {
+          "coolantRestored": true,
+          "coolingAssistance": true,
+          "turbinesCooled": 2,
+          "maintenanceInspected": true,
+          "logRecovered": true,
+          "technicalEvidence": true,
+          "evidenceSource": "PT01",
+          "alternativeSourceNeeded": false,
+          "witnessContacted": true,
+          "reportFiled": true,
+          "maintenanceIntact": true
+        }
+      },
+      "nacre": {
+        "passage": {
+          "winchesReleased": 2,
+          "bargesInspected": 2,
+          "traffickingVerified": true,
+          "smugglerVerified": true,
+          "refugeesTotal": 12,
+          "refugeesPassed": 12,
+          "refugeesLost": 0,
+          "bargeCiviliansLost": 0,
+          "passageResolved": true,
+          "channelOpen": true,
+          "fuelRecovered": true,
+          "fuelLots": 2,
+          "manifestRead": true,
+          "reportFiled": true
+        }
+      }
+    },
+    "fleet": {
+      "WK01": {
+        "hull": 520,
+        "feet": [
+          100,
+          100
+        ],
+        "radiator": 100
+      },
+      "WK05": {
+        "hull": 730,
+        "feet": [
+          100,
+          100,
+          100,
+          100
+        ],
+        "radiator": 100
+      },
+      "WK09": {
+        "hull": 590.9595,
+        "feet": [
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "radiator": 100
+      },
+      "WK02": {
+        "hull": 410,
+        "feet": [
+          100,
+          100
+        ],
+        "radiator": 100
+      },
+      "WK06": {
+        "hull": 674.54,
+        "feet": [
+          100,
+          100,
+          100,
+          100
+        ],
+        "radiator": 100
+      },
+      "WK10": {
+        "hull": 700,
+        "feet": [
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "radiator": 100
+      }
+    },
+    "checkpoint": null,
+    "preDecisionCheckpoint": {
+      "version": 1,
+      "mission": {
+        "id": "MI05",
+        "number": "05",
+        "campaign": true,
+        "act": "I — Le poids de l’ordre",
+        "name": "Le prix du passage",
+        "planetId": "PL02",
+        "planet": "Nacre",
+        "biome": "CHENAL DES DEUX RIVES",
+        "length": 4950,
+        "difficulty": "OUVERTURE DU CHENAL",
+        "duration": "5–8 min",
+        "faction": "Brisants · équipages distincts",
+        "accent": "#87cecb",
+        "sky": [
+          "#142d3c",
+          "#497e87",
+          "#c5d8cd"
+        ],
+        "description": "Deux câbles ferment le chenal. Détachez leurs treuils, identifiez les deux barges et couvrez le passage de douze réfugiés. Sur les bancs, la marée commande les appuis ; les passerelles du génie offrent une traversée permanente.",
+        "briefing": "« Deux barrages sur le chenal d’approvisionnement. Ouvrez le passage et relevez les équipages présents. » — Major Holt",
+        "hint": "E près des commandes avant chaque banc déploie une passerelle (4 s). À marée haute, les appuis nus s’enfoncent et s’abîment. E détend chaque treuil (2,5 s), ou visez sa tête sans tirer sur les barges. Inspectez les deux équipages (3 s). Le bateau attend un chenal libre et assez d’eau. Le dépôt du dock donne deux lots de carburant après 3 s, si préservé.",
+        "type": "channel",
+        "evidenceX": 4520,
+        "extractionX": 4710,
+        "decisionX": 4520,
+        "evidenceLabel": "RELEVÉ DU CHENAL",
+        "civilianPositions": [],
+        "supplyPositions": [
+          1370,
+          2250,
+          3920
+        ],
+        "enemyPlan": [
+          [
+            650,
+            "rifle"
+          ],
+          [
+            1460,
+            "rocket"
+          ],
+          [
+            2360,
+            "drone"
+          ],
+          [
+            3020,
+            "rifle"
+          ],
+          [
+            3980,
+            "buggy"
+          ]
+        ],
+        "channel": {
+          "interactionRadius": 175,
+          "bridgeTime": 4,
+          "winchTime": 2.5,
+          "inspectTime": 3,
+          "fuelTime": 3,
+          "banks": [
+            {
+              "id": "bank-west",
+              "from": 980,
+              "to": 1280,
+              "stationX": 780
+            },
+            {
+              "id": "bank-east",
+              "from": 2660,
+              "to": 2960,
+              "stationX": 2460
+            }
+          ],
+          "winchXs": [
+            1730,
+            3530
+          ],
+          "barges": [
+            {
+              "id": "barge-seizure",
+              "kind": "trafficker",
+              "name": "Saisie",
+              "x": 2010,
+              "civilians": 0
+            },
+            {
+              "id": "barge-shortbank",
+              "kind": "smuggler",
+              "name": "Rive-Courte",
+              "x": 3280,
+              "civilians": 4
+            }
+          ],
+          "boatStartX": 1480,
+          "boatDockX": 4100,
+          "boatSpeed": 92,
+          "passengers": 12,
+          "fuelX": 4280
+        },
+        "decision": {
+          "title": "Deux pavillons, deux équipages",
+          "body": "Le relevé doit distinguer ce qui a été vu sur chaque barge, les personnes effectivement passées et les pertes. Un pavillon ne suffit pas à prouver les actes de tout un équipage.",
+          "obey": "Remettre le relevé sous scellés",
+          "defy": "Joindre les faits propres à chaque équipage"
+        },
+        "intro": "NACRE // CHENAL DES DEUX RIVES · 07:20"
+      },
+      "walker": {
+        "id": "WK09",
+        "name": "Pèlerin",
+        "designation": "H-6",
+        "role": "TRAVERSEUR DE FRONTIÈRE",
+        "legs": 6,
+        "profile": "Hexapode médian",
+        "height": 145,
+        "width": 188,
+        "hull": 600,
+        "stride": 112,
+        "stepTime": 0.58,
+        "speed": 80,
+        "cooling": 20,
+        "armor": 0.18,
+        "damage": 17,
+        "fireRate": 0.13,
+        "shotHeat": 6.5,
+        "ammo": 18,
+        "rockets": 8,
+        "color": "#c8c6a8",
+        "silhouette": "hexapod",
+        "weight": 57,
+        "description": "Deux tripodes alternés maintiennent la coque à niveau, même sur les racines et les berges.",
+        "weapon": "Double canon P-17",
+        "secondary": "Roquettes légères",
+        "strength": "Stabilité · refroidissement",
+        "weakness": "Large empreinte au sol"
+      },
+      "missionId": "MI05",
+      "walkerId": "WK09",
+      "planetId": "PL02",
+      "difficultyId": "normal",
+      "difficulty": {
+        "label": "Pilote",
+        "damage": 0.75,
+        "enemyHealth": 1,
+        "repair": 1
+      },
+      "seed": 1847,
+      "rng": 1683932708,
+      "assist": true,
+      "elapsed": 123.08333333332763,
+      "status": "playing",
+      "outcome": "",
+      "player": {
+        "x": 4407.915858900853,
+        "y": 536.9442421480729,
+        "width": 188,
+        "height": 62,
+        "groundY": 681.9442421480727,
+        "facing": 1,
+        "aimAngle": 2.9543396144172878,
+        "hull": 590.9595,
+        "maxHull": 600,
+        "armor": 0.18,
+        "heat": 0,
+        "energy": 100,
+        "stability": 99.99999999999982,
+        "ammo": 8,
+        "maxAmmo": 18,
+        "reserveAmmo": 144,
+        "maxReserveAmmo": 144,
+        "radiator": {
+          "health": 100,
+          "maxHealth": 100,
+          "repairKits": 2,
+          "maxRepairKits": 2,
+          "repairProgress": 0,
+          "repairing": false
+        },
+        "rockets": 7,
+        "maxRockets": 8,
+        "reloadTime": 0,
+        "venting": false,
+        "braced": true,
+        "overheated": false,
+        "speed": 0,
+        "feet": [
+          {
+            "id": "foot-0",
+            "index": 0,
+            "group": 0,
+            "side": "back",
+            "homeOffset": -88,
+            "x": 4296.582525567529,
+            "y": 684.4485757306047,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4212.362359797577,
+            "fromY": 686.653169409514,
+            "targetX": 4296.582525567529,
+            "targetY": 684.4485757306047,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-1",
+            "index": 1,
+            "group": 1,
+            "side": "back",
+            "homeOffset": 0,
+            "x": 4431.249192234185,
+            "y": 681.7002857135492,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4337.915858900873,
+            "fromY": 683.3133363389958,
+            "targetX": 4431.249192234185,
+            "targetY": 681.7002857135492,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-2",
+            "index": 2,
+            "group": 0,
+            "side": "back",
+            "homeOffset": 88,
+            "x": 4472.582525567529,
+            "y": 681.5095982052392,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4388.362359797577,
+            "fromY": 682.2334189788413,
+            "targetX": 4472.582525567529,
+            "targetY": 681.5095982052392,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-3",
+            "index": 3,
+            "group": 1,
+            "side": "front",
+            "homeOffset": -105,
+            "x": 4326.249192234185,
+            "y": 683.6185818107627,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4232.915858900873,
+            "fromY": 686.1956450947772,
+            "targetX": 4326.249192234185,
+            "targetY": 683.6185818107627,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-4",
+            "index": 4,
+            "group": 0,
+            "side": "front",
+            "homeOffset": 5,
+            "x": 4389.582525567529,
+            "y": 682.2131069069738,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4305.362359797577,
+            "fromY": 684.1975078531353,
+            "targetX": 4389.582525567529,
+            "targetY": 682.2131069069738,
+            "health": 100,
+            "maxHealth": 100
+          },
+          {
+            "id": "foot-5",
+            "index": 5,
+            "group": 1,
+            "side": "front",
+            "homeOffset": 105,
+            "x": 4536.249192234185,
+            "y": 681.5591375900977,
+            "phase": "stance",
+            "progress": 1,
+            "contact": true,
+            "fromX": 4442.915858900873,
+            "fromY": 681.6176545611665,
+            "targetX": 4536.249192234185,
+            "targetY": 681.5591375900977,
+            "health": 100,
+            "maxHealth": 100
+          }
+        ],
+        "stepCooldown": 0,
+        "lastGroup": 1,
+        "fireCooldown": 0,
+        "rocketCooldown": 0,
+        "flash": 0,
+        "aimX": 3804.416666666621,
+        "aimY": 660.996161971311,
+        "move": 0,
+        "anchorX": 4407.9158589008575
+      },
+      "enemies": [
+        {
+          "name": "Fusilier",
+          "kind": "infantry",
+          "w": 24,
+          "h": 36,
+          "hp": 0,
+          "speed": 22,
+          "range": 650,
+          "cooldown": 1.65,
+          "damage": 10,
+          "projectileSpeed": 430,
+          "windup": 0.42,
+          "score": 70,
+          "type": "rifle",
+          "id": "enemy-0",
+          "x": 650,
+          "spawnX": 650,
+          "y": 668.3625456900844,
+          "maxHp": 65,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 1.8537546114996104,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 5.079459985839741
+        },
+        {
+          "name": "Lancier antichar",
+          "kind": "infantry",
+          "w": 26,
+          "h": 38,
+          "hp": 0,
+          "speed": 14,
+          "range": 790,
+          "cooldown": 4.4,
+          "damage": 43,
+          "projectileSpeed": 255,
+          "windup": 1.2,
+          "score": 130,
+          "type": "rocket",
+          "id": "enemy-1",
+          "x": 1400.9666666666628,
+          "spawnX": 1460,
+          "y": 655.5757277099141,
+          "maxHp": 80,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 4.150000000000001,
+          "flash": 0,
+          "phase": "recover",
+          "armor": 0,
+          "targetX": 630.2707127065613,
+          "targetY": 636.7369154129743,
+          "dronePhase": 0.23307308415520275
+        },
+        {
+          "name": "Drone de veille",
+          "kind": "air",
+          "w": 48,
+          "h": 26,
+          "hp": 0,
+          "speed": 24,
+          "range": 710,
+          "cooldown": 2.25,
+          "damage": 13,
+          "projectileSpeed": 340,
+          "windup": 0.65,
+          "score": 120,
+          "type": "drone",
+          "id": "enemy-2",
+          "x": 2154.7999999999533,
+          "spawnX": 2360,
+          "y": 474.0573180432353,
+          "maxHp": 90,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0.743589743589744,
+          "attackTarget": "player",
+          "timer": -0.016666666666663676,
+          "flash": 0,
+          "phase": "attack",
+          "armor": 0,
+          "targetX": 1643.9282635163863,
+          "targetY": 534.6049683987243,
+          "dronePhase": 4.044982727755362
+        },
+        {
+          "name": "Fusilier",
+          "kind": "infantry",
+          "w": 24,
+          "h": 36,
+          "hp": 0,
+          "speed": 22,
+          "range": 650,
+          "cooldown": 1.65,
+          "damage": 10,
+          "projectileSpeed": 430,
+          "windup": 0.42,
+          "score": 70,
+          "type": "rifle",
+          "id": "enemy-3",
+          "x": 2881.0333333332874,
+          "spawnX": 3020,
+          "y": 659.0698770002633,
+          "maxHp": 65,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": -4.578417570392278,
+          "flash": 0,
+          "phase": "idle",
+          "armor": 0,
+          "targetX": 0,
+          "targetY": 0,
+          "dronePhase": 4.866679039824971
+        },
+        {
+          "name": "Buggy de raid",
+          "kind": "vehicle",
+          "w": 85,
+          "h": 44,
+          "hp": 0,
+          "speed": 35,
+          "range": 740,
+          "cooldown": 2.8,
+          "damage": 21,
+          "projectileSpeed": 400,
+          "windup": 0.7,
+          "score": 230,
+          "type": "buggy",
+          "id": "enemy-4",
+          "x": 3803.8333333332876,
+          "spawnX": 3980,
+          "y": 660.9975469578849,
+          "maxHp": 220,
+          "active": true,
+          "dead": true,
+          "facing": -1,
+          "telegraph": 0,
+          "attackTarget": "player",
+          "timer": 1.350000000000005,
+          "flash": 0,
+          "phase": "recover",
+          "armor": 0.14,
+          "targetX": 3130.988735670046,
+          "targetY": 534.5740128793606,
+          "dronePhase": 4.330152233821361
+        }
+      ],
+      "projectiles": [],
+      "particles": [],
+      "events": [
+        {
+          "id": 3186,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.21666666666118
+        },
+        {
+          "id": 3187,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.23333333332785
+        },
+        {
+          "id": 3188,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.24999999999451
+        },
+        {
+          "id": 3189,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.26666666666118
+        },
+        {
+          "id": 3190,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.28333333332785
+        },
+        {
+          "id": 3191,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.29999999999451
+        },
+        {
+          "id": 3192,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.31666666666118
+        },
+        {
+          "id": 3193,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.33333333332784
+        },
+        {
+          "id": 3194,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.34999999999451
+        },
+        {
+          "id": 3195,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.36666666666117
+        },
+        {
+          "id": 3196,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.38333333332784
+        },
+        {
+          "id": 3197,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.3999999999945
+        },
+        {
+          "id": 3198,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.41666666666117
+        },
+        {
+          "id": 3199,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.43333333332784
+        },
+        {
+          "id": 3200,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.4499999999945
+        },
+        {
+          "id": 3201,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.46666666666117
+        },
+        {
+          "id": 3202,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.48333333332783
+        },
+        {
+          "id": 3203,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.4999999999945
+        },
+        {
+          "id": 3204,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.51666666666117
+        },
+        {
+          "id": 3205,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.53333333332783
+        },
+        {
+          "id": 3206,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.5499999999945
+        },
+        {
+          "id": 3207,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.56666666666116
+        },
+        {
+          "id": 3208,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.58333333332783
+        },
+        {
+          "id": 3209,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.5999999999945
+        },
+        {
+          "id": 3210,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.61666666666116
+        },
+        {
+          "id": 3211,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.63333333332783
+        },
+        {
+          "id": 3212,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.64999999999449
+        },
+        {
+          "id": 3213,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.66666666666116
+        },
+        {
+          "id": 3214,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.68333333332782
+        },
+        {
+          "id": 3215,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.69999999999449
+        },
+        {
+          "id": 3216,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.71666666666115
+        },
+        {
+          "id": 3217,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.73333333332782
+        },
+        {
+          "id": 3218,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.74999999999449
+        },
+        {
+          "id": 3219,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.76666666666115
+        },
+        {
+          "id": 3220,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.78333333332782
+        },
+        {
+          "id": 3221,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.79999999999448
+        },
+        {
+          "id": 3222,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.81666666666115
+        },
+        {
+          "id": 3223,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.83333333332781
+        },
+        {
+          "id": 3224,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.84999999999448
+        },
+        {
+          "id": 3225,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.86666666666115
+        },
+        {
+          "id": 3226,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.88333333332781
+        },
+        {
+          "id": 3227,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.89999999999448
+        },
+        {
+          "id": 3228,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.91666666666114
+        },
+        {
+          "id": 3229,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.93333333332781
+        },
+        {
+          "id": 3230,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.94999999999447
+        },
+        {
+          "id": 3231,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.96666666666114
+        },
+        {
+          "id": 3232,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.9833333333278
+        },
+        {
+          "id": 3233,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 119.99999999999447
+        },
+        {
+          "id": 3234,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.01666666666114
+        },
+        {
+          "id": 3235,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.0333333333278
+        },
+        {
+          "id": 3236,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.04999999999447
+        },
+        {
+          "id": 3237,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.06666666666113
+        },
+        {
+          "id": 3238,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.0833333333278
+        },
+        {
+          "id": 3239,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.09999999999447
+        },
+        {
+          "id": 3240,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.11666666666113
+        },
+        {
+          "id": 3241,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.1333333333278
+        },
+        {
+          "id": 3242,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.14999999999446
+        },
+        {
+          "id": 3243,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.16666666666113
+        },
+        {
+          "id": 3244,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.1833333333278
+        },
+        {
+          "id": 3245,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.19999999999446
+        },
+        {
+          "id": 3246,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.21666666666113
+        },
+        {
+          "id": 3247,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.23333333332779
+        },
+        {
+          "id": 3248,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.24999999999446
+        },
+        {
+          "id": 3249,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.26666666666112
+        },
+        {
+          "id": 3250,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.28333333332779
+        },
+        {
+          "id": 3251,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.29999999999445
+        },
+        {
+          "id": 3252,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.31666666666112
+        },
+        {
+          "id": 3253,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.33333333332779
+        },
+        {
+          "id": 3254,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.34999999999445
+        },
+        {
+          "id": 3255,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.36666666666112
+        },
+        {
+          "id": 3256,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.38333333332778
+        },
+        {
+          "id": 3257,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.39999999999445
+        },
+        {
+          "id": 3258,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.41666666666111
+        },
+        {
+          "id": 3259,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.43333333332778
+        },
+        {
+          "id": 3260,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.44999999999445
+        },
+        {
+          "id": 3261,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.46666666666111
+        },
+        {
+          "id": 3262,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.48333333332778
+        },
+        {
+          "id": 3263,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.49999999999444
+        },
+        {
+          "id": 3264,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.51666666666111
+        },
+        {
+          "id": 3265,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.53333333332777
+        },
+        {
+          "id": 3266,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.54999999999444
+        },
+        {
+          "id": 3267,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.5666666666611
+        },
+        {
+          "id": 3268,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.58333333332777
+        },
+        {
+          "id": 3269,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.59999999999444
+        },
+        {
+          "id": 3270,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.6166666666611
+        },
+        {
+          "id": 3271,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.63333333332777
+        },
+        {
+          "id": 3272,
+          "type": "radio",
+          "text": "Sami : « Ouvre les deux câbles, vérifie chaque barge et attends le sort du bateau avant de fermer le relevé. »",
+          "time": 120.64999999999444
+        },
+        {
+          "id": 3273,
+          "type": "objective",
+          "text": "Sami : « Les douze sont au dock. La rampe est remontée ; les passagers ont quitté le bateau. Leur arrivée est confirmée. »",
+          "time": 120.6666666666611
+        },
+        {
+          "id": 3274,
+          "type": "objective",
+          "text": "Relevé du chenal réuni. Les faits copiés et les pertes restent distincts. — E : signer le compte rendu.",
+          "time": 123.08333333332763
+        },
+        {
+          "id": 3275,
+          "type": "decision",
+          "text": "Deux pavillons, deux équipages",
+          "time": 123.08333333332763
+        }
+      ],
+      "eventId": 3275,
+      "entityId": 33,
+      "relays": [],
+      "convoy": null,
+      "civilians": [],
+      "evidence": {
+        "id": "MI05-evidence",
+        "x": 4520,
+        "y": 633.5343059798716,
+        "collected": true,
+        "scanning": false,
+        "scanProgress": 1,
+        "scanTime": 2.4,
+        "label": "RELEVÉ DU CHENAL"
+      },
+      "pickups": [
+        {
+          "id": "supply-0",
+          "x": 1370,
+          "y": 654.5180416938358,
+          "type": "repair",
+          "collected": true
+        },
+        {
+          "id": "supply-1",
+          "x": 2250,
+          "y": 666.2004521409561,
+          "type": "repair",
+          "collected": true
+        },
+        {
+          "id": "supply-2",
+          "x": 3920,
+          "y": 663.6389795488293,
+          "type": "repair",
+          "collected": false
+        }
+      ],
+      "decision": {
+        "active": true,
+        "resolved": false,
+        "choice": null,
+        "title": "Deux pavillons, deux équipages",
+        "body": "La facture copiée sur Saisie atteste une vente de réfugiés par son capitaine. Elle n’attribue pas ce trafic à tous les Brisants. Vann Ostre, joint depuis Rive-Courte, a confirmé que son équipage fait passer des familles hors des contrôles. Cette liaison a eu lieu ; elle ne vaut pas une alliance de sa flotte. 12 réfugiés ont atteint le dock, 0 ont péri dans le bateau. 0 pertes sont constatées parmi les quatre membres de Rive-Courte. Deux lots de carburant ont été chargés au dépôt. Holt demande une remise sous scellés ; Sami propose de joindre les faits propres à chaque équipage.",
+        "options": [
+          {
+            "id": "obey",
+            "label": "Remettre le relevé sous scellés"
+          },
+          {
+            "id": "defy",
+            "label": "Joindre les faits propres à chaque équipage"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "winches",
+          "label": "Ouvrir les deux câbles du chenal",
+          "current": 2,
+          "target": 2,
+          "complete": true
+        },
+        {
+          "id": "barges",
+          "label": "Vérifier les deux barges ou constater leurs pertes",
+          "current": 2,
+          "target": 2,
+          "complete": true
+        },
+        {
+          "id": "passengers",
+          "label": "Protéger le passage des douze réfugiés jusqu’au dock",
+          "current": 12,
+          "target": 12,
+          "complete": true
+        },
+        {
+          "id": "evidence",
+          "label": "Réunir le relevé du chenal au dock",
+          "current": 1,
+          "target": 1,
+          "complete": true
+        },
+        {
+          "id": "order",
+          "label": "Établir le compte rendu des équipages",
+          "current": 0,
+          "target": 1,
+          "complete": false
+        },
+        {
+          "id": "extract",
+          "label": "Rejoindre le hangar du dock",
+          "current": 0,
+          "target": 1,
+          "complete": false
+        }
+      ],
+      "extraction": {
+        "x": 4710,
+        "y": 679.5494674228764,
+        "active": false,
+        "radius": 110
+      },
+      "stats": {
+        "kills": 5,
+        "shots": 29,
+        "hits": 24,
+        "steps": 82,
+        "collateral": 0,
+        "damageTaken": 38.745,
+        "evidence": 0,
+        "ordersObeyed": 0,
+        "ordersDefied": 0,
+        "score": 620
+      },
+      "interaction": "E · Établir le compte rendu des équipages",
+      "cameraShake": 0,
+      "lastStepGroup": 1,
+      "checkpointText": "Ordre reçu. Appuis au sol.",
+      "inputHeld": {
+        "stepA": false,
+        "stepB": false,
+        "interact": false,
+        "reload": false,
+        "repair": false
+      },
+      "notified": {},
+      "nextStep": 0,
+      "bossReleased": false,
+      "campaign": {
+        "missionId": "MI05",
+        "phase": "report",
+        "winchesReleased": 2,
+        "bargesInspected": 2,
+        "traffickingVerified": true,
+        "smugglerVerified": true,
+        "refugeesTotal": 12,
+        "refugeesPassed": 12,
+        "refugeesLost": 0,
+        "bargeCiviliansLost": 0,
+        "passageResolved": true,
+        "channelOpen": true,
+        "fuelRecovered": true,
+        "fuelLots": 2,
+        "manifestRead": true,
+        "reportFiled": false,
+        "context": {
+          "technicalEvidence": true,
+          "railHostagesRescued": 8,
+          "railRecordFiled": true
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        }
+      },
+      "channel": {
+        "tide": {
+          "phase": "high",
+          "level": 1,
+          "secondsToChange": 10.91666666667237,
+          "waterY": 668,
+          "walkable": false,
+          "navigable": true
+        },
+        "banks": [
+          {
+            "id": "bank-west",
+            "from": 980,
+            "to": 1280,
+            "stationX": 780,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          },
+          {
+            "id": "bank-east",
+            "from": 2660,
+            "to": 2960,
+            "stationX": 2460,
+            "bridgeRaised": true,
+            "working": false,
+            "progress": 1
+          }
+        ],
+        "winches": [
+          {
+            "id": "channel-winch-1",
+            "x": 1730,
+            "y": 559.9752721911967,
+            "w": 44,
+            "h": 44,
+            "hp": 39,
+            "maxHp": 90,
+            "released": true,
+            "working": false,
+            "progress": 1,
+            "destroyed": false,
+            "flash": 0
+          },
+          {
+            "id": "channel-winch-2",
+            "x": 3530,
+            "y": 559.2941028640538,
+            "w": 44,
+            "h": 44,
+            "hp": 90,
+            "maxHp": 90,
+            "released": true,
+            "working": false,
+            "progress": 1,
+            "destroyed": false,
+            "flash": 0
+          }
+        ],
+        "barges": [
+          {
+            "id": "barge-seizure",
+            "kind": "trafficker",
+            "x": 2010,
+            "y": 639.005752126757,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 0,
+            "casualties": 0
+          },
+          {
+            "id": "barge-shortbank",
+            "kind": "smuggler",
+            "x": 3280,
+            "y": 631.0077287749754,
+            "w": 172,
+            "h": 78,
+            "hp": 540,
+            "maxHp": 540,
+            "destroyed": false,
+            "flash": 0,
+            "inspected": true,
+            "scanning": false,
+            "scanProgress": 1,
+            "civilians": 4,
+            "casualties": 0
+          }
+        ],
+        "boat": {
+          "id": "channel-refugee-boat",
+          "x": 4100,
+          "y": 652.2495064312085,
+          "w": 134,
+          "h": 58,
+          "hp": 420,
+          "maxHp": 420,
+          "speed": 92,
+          "arrived": true,
+          "destroyed": false,
+          "moving": false,
+          "passengers": 12
+        },
+        "fuel": {
+          "id": "dock-fuel",
+          "x": 4280,
+          "y": 648.9259777721007,
+          "w": 65,
+          "h": 72,
+          "hp": 240,
+          "maxHp": 240,
+          "destroyed": false,
+          "collected": true,
+          "working": false,
+          "progress": 1
+        }
+      }
+    },
+    "lastDebrief": {
+      "missionId": "MI05",
+      "missionName": "Le prix du passage",
+      "walkerId": "WK09",
+      "walkerName": "H-6 Pèlerin",
+      "hull": 590.9595,
+      "integrity": 0.9849325000000001,
+      "elapsed": 125.59999999999415,
+      "collateral": 0,
+      "kills": 5,
+      "choice": "defy",
+      "partsGranted": 4,
+      "tessLine": "Les douze passagers ont atteint le quai. Ils sont descendus par leurs propres moyens ; le chenal est resté ouvert assez longtemps. Deux lots de carburant ont été chargés au dépôt.",
+      "samiLine": "La facture de la barge Saisie porte un prix par personne. Nous en avons conservé le relevé. Vann Ostre a répondu depuis Rive-Courte : son équipage faisait sortir des familles. Ce contact appartient à cet équipage, pas à toute la flotte des Brisants. Tu as joint ces constatations au rapport signé.",
+      "winchesReleased": 2,
+      "bargesInspected": 2,
+      "traffickingVerified": true,
+      "smugglerVerified": true,
+      "refugeesTotal": 12,
+      "refugeesPassed": 12,
+      "refugeesLost": 0,
+      "bargeCiviliansLost": 0,
+      "passageResolved": true,
+      "channelOpen": true,
+      "fuelRecovered": true,
+      "fuelLots": 2,
+      "manifestRead": true,
+      "reportFiled": true,
+      "decisionLabel": "Sort des passagers et constat des deux équipages joints au rapport"
+    },
+    "maintenanceLog": []
+  }
+}

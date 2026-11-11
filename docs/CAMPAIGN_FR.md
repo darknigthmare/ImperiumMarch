@@ -1,8 +1,8 @@
 # ORDRE DE CENDRE — Campagne et continuité
 
-**Version de conception 0.6.0 · 11 novembre 2026**
+**Version de conception 0.7.0 · 11 novembre 2026**
 
-Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI05 sont jouables au stade prototype, avec progression, dossier et reprise. Les missions MI06–MI32 restent conçues. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre](NACRE_CONSEQUENCES_V06.md) précise MI05 jouable et la production encore ouverte de MI06–MI08.
+Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI06 sont jouables au stade prototype, avec progression, dossier et reprise. Les 26 missions MI07–MI32 restent conçues. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.7](NACRE_CONSEQUENCES_V07.md) précise MI05–MI06 jouables et la production encore ouverte de MI07–MI08.
 
 La campagne suit Sera Vey depuis ses premières opérations d’occupation jusqu’à une confrontation avec l’autorité qui les ordonnait. La défection est l’axe du récit. Les décisions déterminent qui part avec elle, ce qu’elle peut prouver, ce qu’elle laisse derrière elle et la forme du pouvoir après la bataille.
 
@@ -127,21 +127,25 @@ Après les turbines, le poste de maintenance peut être inspecté en 2,4 seconde
 
 **Ce que la mission révèle.** La facture de Saisie documente une vente locale de personnes si elle a été lue. Le contact avec Vann Ostre sur Rive-Courte montre un autre usage du pavillon des Brisants. Vann reste un navigateur intéressé, sans alliance globale ni absolution. Un support détruit avant inspection ne révèle pas son contenu.
 
-**Ce qui reste après la mission.** Bilan des passagers et des quatre membres de Rive-Courte, état du chenal, facture copiée, contact effectué, compte rendu et carburant effectivement collecté. La réserve est conservée; son usage dans MI06 reste à produire.
+**Ce qui reste après la mission.** Bilan des passagers et des quatre membres de Rive-Courte, état du chenal, facture copiée, contact effectué, compte rendu et carburant effectivement collecté. La réserve conservée peut alimenter la pompe auxiliaire de MI06; le débit intervient seulement après branchement achevé.
 
 **Portée jouable de la 0.6.** Marée simulée, pénalités d’appui, passerelles de quatre secondes, treuils par interaction ou tir, inspections de trois secondes, déplacement réel du bateau et deux décisions de rapport. MI05 est accessible après MI04 avec ou sans PT01. Les pertes produisent un constat final sans secours inventé. Le [contrat MI05](CAMPAIGN_MISSION_05.md) distingue cette tranche des capacités finales du biome.
 
 #### MI06 — Les maisons sous la ligne
 
-**Lieu :** Nacre (PL02), digue des Trois-Vannes · **État :** Conçu
+**Lieu :** Nacre (PL02), digue des Trois-Vannes · **État :** Prototype
 
 **Ordre reçu.** Tenir la digue pendant la remise en pression des pompes d’Orison.
 
-**Déroulement à produire.** Lire les seuils aux maisons, soutenir un panneau par ancrage réel et couvrir deux techniciens jusqu’aux vannes. Un technicien verrouille le panneau avant le départ du marcheur. Le réglage officiel assèche un quai privé en faisant monter l’eau derrière les logements. Une dérivation locale maintient les maisons au prix d’un chantier plus long. Une vanne manuelle garde une solution minimale.
+**Déroulement jouable.** Inspecter deux maisons, appeler les dix habitants et protéger leur marche vers l’abri. Faire venir deux techniciens, soutenir le panneau par position, appuis et ancrage, puis attendre son verrouillage ou réaliser un étai de secours. Choisir le circuit impérial ou la dérivation et accomplir ensuite la manœuvre réelle de vanne.
 
-**Ce que la mission révèle.** Le nouveau seuil sacrifie un quartier dont les habitants ne disposent pas de titre reconnu. Mara montre les personnes encore présentes et les marques sur leurs murs. Elle peut accepter une évacuation sans considérer que la perte du quartier a été réparée.
+**Ce que la mission révèle.** Le seuil prescrit protège le quai privé en exposant des logements occupés. Mara intervient par radio après le constat des seuils. Cette participation locale ne constitue ni présence physique sous les tirs, ni recrutement, ni preuve politique complète. Les habitants mis à l’abri peuvent conserver un quartier perdu.
 
-**Ce qui reste après la mission.** Personnes sorties, pertes, logements inhabitables, fatigue de digue, pompes et carburant consommé ont des états distincts. La réserve de MI05 pourra alimenter une pompe auxiliaire; l’absence de réserve ne devra pas rendre la mission impossible. Les parcours avec technicien perdu et panneau abîmé doivent exister avant validation.
+**Ce qui reste après la mission.** Dix habitants nouveaux répartis six et quatre, deux maisons et deux techniciens possèdent des bilans séparés. Le verrou ou l’étai, la fatigue, le circuit, les pompes et la consommation sont conservés. Les douze réfugiés de MI05 ne sont pas recomptés dans cette population.
+
+**Portée jouable de la 0.7.** Les techniciens ont un trajet, une santé et deux abris qui arrêtent les projectiles. Le soutien du panneau demande l’immobilité, l’ancrage et tous les pieds posés dans la bande prévue. Leur perte conserve une voie manuelle. Les habitants sont sauvés à leur arrivée effective, restent vulnérables pendant le trajet et ne retournent pas dans leur maison après le choix. Le circuit impérial fait monter l’eau; la dérivation préserve les logements encore debout de cette inondation. La décision ne termine pas les travaux.
+
+La pompe auxiliaire consomme deux lots au branchement accompli. Son aide est facultative; une voie sans carburant reste disponible. Le registre de campagne conserve la dépense immédiatement, même après défaite, retour menu ou recommencement. Le rapport décrit la consommation de sa sortie; l’atelier montre aussi le cumul officiel. Une relecture reste isolée. Le [contrat MI06](CAMPAIGN_MISSION_06.md) précise actions, durées, reprise et limites.
 
 #### MI07 — Une ambulance sans escorte
 
@@ -149,7 +153,7 @@ Après les turbines, le poste de maintenance peut être inspecté en 2,4 seconde
 
 **Ordre reçu.** Intercepter un transport désigné comme dépôt mobile de munitions.
 
-**Déroulement à produire.** Rejoindre l’ambulance, dégager une aire d’arrêt, obtenir l’accord à l’examen et inspecter la caisse ainsi que le boîtier ajouté sous le châssis. Protéger le démontage de la balise et le transfert sanitaire contre des drones de saisie. Une voie secondaire au dock doit rester possible si un accès a été perdu à MI06.
+**Déroulement à produire.** Rejoindre l’ambulance, dégager une aire d’arrêt, obtenir l’accord à l’examen et inspecter la caisse ainsi que le boîtier ajouté sous le châssis. Protéger le démontage de la balise et le transfert sanitaire contre des drones de saisie. La rampe et son repli doivent consommer l’état réel du panneau de MI06 : verrou, étai et fatigue. L’ambulance introduit sa propre population, distincte des habitants de la digue.
 
 **Ce que la mission révèle.** La signature hostile provient d’une balise impériale ajoutée au transport. Sa récupération et ses attaches donnent une provenance locale à vérifier. La pièce seule ne révèle ni l’auteur de sa pose ni les décideurs de PALINODE.
 
@@ -165,7 +169,7 @@ Après les turbines, le poste de maintenance peut être inspecté en 2,4 seconde
 
 **Ce que la mission révèle.** Les registres de relogement consultés imposent des contrats forcés. Sera peut couvrir le départ de Mara et des familles présentes. L’ordre, son exécution et le rapport à Holt restent trois actes distincts.
 
-**Ce qui reste après la mission.** Personnes arrivées, restées ou perdues, maisons, pompes, portes, refuge et documents alimentent des suites séparées. La désobéissance locale de Nacre ne remplace pas la défection opérationnelle prévue à MI16. Le [contrat de Nacre](NACRE_CONSEQUENCES_V06.md) détaille scènes, héritages, interruptions et limites de ces trois missions encore conçues.
+**Ce qui reste après la mission.** Personnes arrivées, restées ou perdues, maisons, pompes, portes, refuge et documents alimentent des suites séparées. La désobéissance locale de Nacre ne remplace pas la défection opérationnelle prévue à MI16. Le [contrat de Nacre 0.7](NACRE_CONSEQUENCES_V07.md) détaille les héritages jouables de MI05–MI06 et les scènes, interruptions et limites de MI07–MI08, qui restent conçues.
 
 ### Acte II — Le coût du silence
 

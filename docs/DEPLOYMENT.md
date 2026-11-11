@@ -69,3 +69,10 @@ La sauvegarde reste locale au navigateur et à l'adresse du site. Utiliser l'adr
 - Après déploiement, contrôler le commit servi, la disponibilité des ressources et le lancement de la campagne dans un navigateur réel.
 
 Les tests courants sont documentés dans [QA_V06.md](QA_V06.md). Les rapports précédents restent conservés comme historique. Un déploiement prêt ne remplace pas une validation navigateur.
+
+
+## Publication 0.7
+
+La 0.7 ajoute MI06, le dossier v6 et la consommation réelle de carburant. La construction locale livre six missions de campagne, trois opérations, six châssis et un classeur de 705 fiches. Les contrôles locaux passent 176 tests Node et 34 parcours du script autonome dans un DOM modélisé. Les [preuves 0.7](QA_V07.md) séparent ces contrôles des observations du navigateur et du déploiement.
+
+Le snapshot de publication est en préparation après gel des sources et du classeur. Le SHA distant, le déploiement Vercel, la CI Node 22 et le contrôle Chrome seront inscrits après observation ; les reçus 0.6 ne certifient pas la 0.7.

@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.6.0",
+    "version": "0.7.0",
     "date": "2026-11-11",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "Bible de conception et suivi de production. MI01–MI04 forment le premier arc jouable de Vesper. MI05 ouvre Nacre avec marée, passerelles, treuils séparés des barges, passage civil et carburant conservé. Six châssis, munitions finies, radiateur réparable et dossier v5 sont disponibles. Les 27 autres missions principales restent conçues, dont MI06–MI08 développées dans le contrat de Nacre. OP01–OP03 gardent leurs rapports indépendants. Consulter Prototype pour la portée implémentée.",
+    "scope": "Bible de conception et suivi de production. MI01–MI04 forment le premier arc jouable de Vesper. MI05 ouvre Nacre avec chenal et passage civil. MI06 met en jeu une digue, deux techniciens, dix habitants et deux maisons distincts, un circuit hydraulique et une réserve de carburant réellement consommable. Six châssis, munitions finies, radiateur réparable et dossier v6 sont disponibles. Les 26 autres missions principales restent conçues, dont MI07–MI08 détaillées dans le contrat de Nacre. OP01–OP03 gardent leurs rapports indépendants. Consulter Prototype pour la portée implémentée.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Présent en partie dans une version jouable; l’onglet Prototype précise la portée et les règles cibles encore absentes.",
@@ -17,14 +17,15 @@
     "balanceDisclaimer": "Dimensions, charges et valeurs de gameplay décrites ici sont des hypothèses à calibrer.",
     "qualityDisclaimer": "AAA est une ambition de qualité, pas une description du niveau de finition du prototype.",
     "sheetCount": 20,
-    "recordCount": 643,
+    "recordCount": 705,
     "release": {
       "playableCampaignMissions": [
         "MI01",
         "MI02",
         "MI03",
         "MI04",
-        "MI05"
+        "MI05",
+        "MI06"
       ],
       "standaloneOperations": [
         "OP01",
@@ -32,8 +33,8 @@
         "OP03"
       ],
       "campaignMissionDesigns": 32,
-      "remainingCampaignMissionDesigns": 27,
-      "saveFormatVersion": 5,
+      "remainingCampaignMissionDesigns": 26,
+      "saveFormatVersion": 6,
       "playableWalkerIds": [
         "WK01",
         "WK02",
@@ -251,6 +252,20 @@
           "decision": "Une intervention militaire peut être utile sans donner à Sera autorité sur les personnes sauvées. Chaque coopération garde un interlocuteur et une limite.",
           "acceptance": "Vann, Mara et les techniciens savent ce qu’ils ont vécu; survie, confiance, service et consentement restent distincts.",
           "status": "Conçu"
+        },
+        {
+          "id": "VI25",
+          "theme": "Tenir est une action",
+          "decision": "Soutenir une infrastructure demande une posture maintenue et un travail à terminer. Le pilote doit savoir pourquoi il attend et à quel moment il peut repartir.",
+          "acceptance": "Le panneau indique soutien, intervention et verrouillage. Quitter la position avant le verrou produit un effet lisible; le travail terminé libère réellement la machine.",
+          "status": "Conçu"
+        },
+        {
+          "id": "VI26",
+          "theme": "Le coût survit à l’échec",
+          "decision": "Une dépense effectivement engagée reste engagée même quand la mission échoue. L’archive d’une sortie et le stock actuel répondent à deux questions différentes.",
+          "acceptance": "Le joueur comprend le coût avant branchement, retrouve le stock après recommencement et peut continuer sans la réserve. La relecture demeure isolée du dossier officiel.",
+          "status": "Conçu"
         }
       ]
     },
@@ -334,9 +349,9 @@
         {
           "id": "SY05",
           "system": "Ancrage",
-          "design": "Bloquer les pieds au sol pour encaisser le recul et concentrer le refroidissement.",
-          "counterplay": "Le tir lourd révèle la position; le désancrage prend un temps signalé.",
-          "acceptance": "Recul, dispersion et mobilité changent immédiatement et de façon explicable.",
+          "design": "Ancrer la machine change ses propriétés de tir et lui permet de soutenir le panneau de MI06 quand les appuis requis sont réellement posés.",
+          "counterplay": "Se poser limite la mobilité et expose la position. Se déplacer ou perdre les conditions d’appui interrompt le soutien du panneau.",
+          "acceptance": "Le soutien provient de la simulation, pas de la proximité ni de l’animation. Un verrou mécanique achevé permet ensuite de libérer le marcheur.",
           "priority": "P0",
           "status": "Prototype"
         },
@@ -822,18 +837,18 @@
           "system": "Réserve locale de carburant",
           "design": "Une réserve distincte du bateau apporte deux lots uniquement après collecte complète. Le dossier conserve cette réserve, séparée des lots d’atelier.",
           "counterplay": "La réserve peut être perdue avant collecte. Une relecture ne crédite pas à nouveau le dossier officiel.",
-          "acceptance": "Zéro lot sans collecte, deux lots collectés une fois. Consommation dans MI06, achats et économie de carburant globale restent à produire.",
+          "acceptance": "Zéro lot sans collecte, deux lots collectés une fois. MI06 peut les consommer dans une pompe auxiliaire; achats et économie globale de carburant restent à produire.",
           "priority": "P0",
           "status": "Prototype"
         },
         {
           "id": "SY60",
           "system": "Soutien de panneau",
-          "design": "Cible MI06 : tous les appuis nécessaires posés et machine ancrée soutiennent un panneau sous pression. La charge reprend quand le marcheur se retire.",
-          "counterplay": "Un technicien doit verrouiller le panneau avant le départ; un tir reçu peut perturber la stabilité sans annuler magiquement le travail.",
-          "acceptance": "Tester charge appliquée, interruption, verrouillage et voie secondaire. Aucun soutien attribué à une simple proximité.",
-          "priority": "P1",
-          "status": "Conçu"
+          "design": "Dans MI06, la position de travail, l’ancrage et les appuis posés soutiennent un panneau endommagé. Le soutien cesse lorsque ces conditions disparaissent.",
+          "counterplay": "Les techniciens peuvent terminer le verrouillage. La perte d’un intervenant conserve un repli manuel, plus lent. Le soutien ne répare pas automatiquement le panneau.",
+          "acceptance": "Soutien, verrouillage et intégrité possèdent des états séparés. Les six châssis disposent d’une position de travail réalisable.",
+          "priority": "P0",
+          "status": "Prototype"
         },
         {
           "id": "SY61",
@@ -852,6 +867,96 @@
           "acceptance": "Les bateaux déjà sortis restent sortis, ceux encore en attente ne sont pas comptés au refuge. Chaque dommage reste localisé.",
           "priority": "P1",
           "status": "Conçu"
+        },
+        {
+          "id": "SY63",
+          "system": "Techniciens du chantier",
+          "design": "Deux intervenants ont une progression de chantier et un état de survie distincts. Leur travail sert le panneau et ne se résout pas par la seule élimination des ennemis.",
+          "counterplay": "Protéger leur accès, tenir le soutien et conserver une route manuelle si l’aide disparaît. Les habitants ne remplacent pas automatiquement ces spécialistes.",
+          "acceptance": "Un technicien perdu ne revient pas au prochain échange. Le bilan distingue les deux personnes et leur contribution accomplie.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY64",
+          "system": "Maisons et habitants",
+          "design": "Deux maisons abritent six et quatre habitants nouveaux. État des murs, eau, personnes présentes, évacuées et perdues ne partagent pas une seule jauge.",
+          "counterplay": "Évacuer avant les dommages; préserver le circuit et éviter les explosions sur les façades. Une maison vide peut rester matériellement perdue.",
+          "acceptance": "Les dix habitants de MI06 sont distincts des douze réfugiés de MI05. Conservation des personnes et destruction du logement peuvent coexister.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY65",
+          "system": "Évacuation réalisée",
+          "design": "La commande de secours lance le déplacement des habitants encore présents vers l’abri. Chacun est compté sauvé uniquement à son arrivée; choisir le circuit ne les déplace pas.",
+          "counterplay": "Protéger le trajet : les menaces peuvent arrêter la marche et les projectiles atteindre les personnes dehors. La perte d’une maison ne tue que ses occupants encore à l’intérieur.",
+          "acceptance": "Personnes à la maison, en trajet, à l’abri ou perdues conservées séparément. Une personne arrivée sort des collisions et ne retourne pas dans sa maison après le choix.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY66",
+          "system": "Circuit de remise en pression",
+          "design": "Le choix de réglage prépare un circuit impérial ou une dérivation. Des travaux de pompe accomplissent ensuite l’effet matériel, qui conserve ses propres conditions.",
+          "counterplay": "Lire les maisons exposées et préparer leur évacuation. La dérivation demande un travail plus long ou une aide réellement disponible.",
+          "acceptance": "Choisir ne termine pas l’opération. Pompe, niveau d’eau et logements reflètent les interventions réellement terminées.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY67",
+          "system": "Pompe auxiliaire locale",
+          "design": "Le branchement complet engage deux lots de carburant disponibles et apporte une aide locale au chantier. Une action commencée ne consomme pas le stock.",
+          "counterplay": "Comparer le gain de temps et le coût avant d’achever. Sans réserve, les commandes manuelles restent accessibles.",
+          "acceptance": "Deux lots au plus pour la tentative; aucune duplication par reprise, répétition d’interaction ou double validation. La pompe ne ressuscite pas les habitants.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY68",
+          "system": "Repli manuel du chantier",
+          "design": "Une voie explicite permet d’achever le travail sans carburant et malgré la perte des techniciens. Elle conserve une durée et des limites propres.",
+          "counterplay": "Prendre le temps de se protéger, préserver la machine et accepter un résultat moins favorable si des maisons ont déjà été perdues.",
+          "acceptance": "Toutes les pertes locales déclarées ont une issue de mission. Le repli ne reconstitue ni spécialiste, ni carburant, ni source disparue.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY69",
+          "system": "Dépense hors rapport",
+          "design": "La campagne inscrit immédiatement la dépense de carburant d’une sortie officielle dans un registre persistant, séparé du résultat final de la tentative.",
+          "counterplay": "Un recommencement conserve la dépense et démarre avec le stock restant. La relecture simule ses ressources sans toucher à celles du dossier officiel.",
+          "acceptance": "Défaite, retour menu, rechargement et nouveau départ ne remboursent pas le carburant. L’atelier montre la dépense cumulée; chaque rapport garde celle de sa sortie.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY70",
+          "system": "Choix avant exécution",
+          "design": "MI06 sépare l’autorisation du circuit et le travail nécessaire à son activation. La décision suspend momentanément le monde, puis l’opération reprend.",
+          "counterplay": "Le joueur peut protéger les occupants avant de réaliser le réglage choisi. Un texte favorable ne masque pas une conduite détruite ou un chantier abandonné.",
+          "acceptance": "Le résultat se construit après le choix; extraction et archives exigent les états matériels attendus.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY71",
+          "system": "Dégâts du chantier",
+          "design": "Panneau, pompe auxiliaire, maisons et deux abris de chantier gardent leurs dommages. Les abris interceptent les tirs réels et protègent les techniciens tant qu’ils tiennent.",
+          "counterplay": "Viser les menaces, protéger les organes de service et utiliser une commande de repli lorsqu’une installation est perdue.",
+          "acceptance": "Les tirs et explosions suivent les zones simulées. Une réparation ou une dérivation ne remonte pas silencieusement la santé d’un autre objet.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY72",
+          "system": "Bilan de quartier",
+          "design": "Le premier résultat conserve circuit choisi, travaux, occupants, logements, intervenants et carburant de la sortie. Les ressources actuelles restent séparées de cette archive.",
+          "counterplay": "Comparer constat de fin et dépense cumulée, notamment après une tentative perdue puis un succès sans carburant.",
+          "acceptance": "L’archive peut indiquer zéro lot pour la sortie victorieuse alors que le registre officiel garde deux lots dépensés auparavant. Aucun double crédit ni effet de rapport sur les morts.",
+          "priority": "P0",
+          "status": "Prototype"
         }
       ]
     },
@@ -1510,7 +1615,7 @@
           "name": "Nacre",
           "biome": "Archipels, récifs lumineux, digues habitées, plateformes et docks de récupération.",
           "society": "Les communes de marée dépendent des pompes; pirates prédateurs et capitaines de secours se disputent les routes.",
-          "terrain": "La 0.6 simule une marée, deux bancs et des passerelles, avec pénalité des appuis en vase ou sous l’eau. Charges admissibles des quais, fatigue de digue et réseau de pompes restent conçus.",
+          "terrain": "La 0.7 ajoute au chenal une digue, un panneau soutenu par les appuis, des pompes et deux maisons exposées à l’eau. Les dégâts et travaux restent locaux; résistance générale des quais, fluides volumétriques et marées de tout l’archipel restent conçus.",
           "reveal": "Les inondations servent à transformer des habitants sans titre en main-d’œuvre sous contrat.",
           "missions": "MI05–MI08",
           "status": "Prototype"
@@ -1801,9 +1906,9 @@
           "name": "Mara Eren",
           "role": "Médecin de Nacre",
           "desire": "Défend le maintien des soins, même à ceux qui ont détruit son dispensaire.",
-          "arc": "Accorde une confiance concrète par évacuations réussies; ne donne pas d’absolution à Sera.",
+          "arc": "À MI06, Mara intervient par radio après un constat réel sur les maisons. Elle n’est pas un personnage vulnérable physiquement présent. Secours et logements perdus restent distincts; aucun recrutement, témoignage politique complet ou lien général de confiance n’est attribué.",
           "faction": "FA08",
-          "status": "Conçu"
+          "status": "Prototype"
         },
         {
           "id": "PN08",
@@ -1872,7 +1977,7 @@
     },
     {
       "name": "Campagne",
-      "description": "32 missions principales : MI01–MI05 jouables au stade prototype, 27 autres conçues. MI06–MI08 possèdent un contrat de production détaillé. OP01–OP03 restent autonomes.",
+      "description": "32 missions principales : MI01–MI06 jouables au stade prototype, 26 autres conçues. MI07–MI08 possèdent un contrat de production détaillé. OP01–OP03 restent autonomes.",
       "columns": [
         {
           "key": "id",
@@ -1982,10 +2087,10 @@
           "planet": "PL02",
           "title": "Les maisons sous la ligne",
           "order": "Tenir la digue des Trois-Vannes pendant la remise en pression des pompes d’Orison.",
-          "play": "Cible conçue : lire les niveaux aux maisons, soutenir un panneau avec les appuis ancrés, couvrir deux techniciens jusqu’aux vannes, puis choisir entre le seuil officiel et un dérivation locale coûteuse. Le soutien cesse si la machine se déplace.",
-          "truth": "Le seuil prescrit protège les installations privées en inondant les maisons sans titre reconnu. Mara demande un délai pour sortir les personnes; elle ne confond pas leur départ et le maintien de leur quartier.",
-          "consequence": "Conserver séparément habitants sortis, logements devenus inhabitables, état des pompes, fatigue de digue et participation des techniciens. Le carburant de MI05 doit offrir un moyen supplémentaire, sans rendre l’absence de réserve bloquante.",
-          "status": "Conçu"
+          "play": "Relever les seuils et les occupants, soutenir le panneau par position, appuis et ancrage, couvrir deux techniciens ou préparer le repli manuel. Évacuer les habitants, choisir le circuit impérial ou la dérivation, puis accomplir les travaux qui en réalisent l’effet.",
+          "truth": "Le seuil prescrit protège les installations privées en exposant des maisons occupées. Mara demande des secours concrets. L’état local des pompes et des façades établit ce constat sans attribuer un dossier complet de PALINODE.",
+          "consequence": "Distinguer dix habitants nouveaux (six et quatre), deux maisons, deux techniciens, panneau, pompes et circuit. Deux lots de MI05 peuvent faciliter le travail; leur dépense officielle est conservée dès le branchement achevé, même après une tentative perdue. Une voie sans réserve reste disponible.",
+          "status": "Prototype"
         },
         {
           "id": "MI07",
@@ -1995,7 +2100,7 @@
           "order": "Intercepter à la chaussée des Salines un transport classé comme dépôt mobile de munitions.",
           "play": "Cible conçue : rejoindre une ambulance, lui ménager une zone d’arrêt sans collision, obtenir l’accord à l’examen, observer la balise ajoutée et protéger le transfert au dock contre des drones de saisie. Extraire la balise préserve les fils et sa provenance.",
           "truth": "Le marquage hostile vient d’un équipement impérial posé sur un véhicule sanitaire. Sa présence établit une fausse désignation locale, sans identifier seule son auteur ni la chaîne de PALINODE.",
-          "consequence": "Patient arrivé, personnel vivant, balise récupérée, provenance vérifiée et accord à témoigner sont distincts. Une perte de véhicule ne livre pas automatiquement ses passagers ou son dossier.",
+          "consequence": "Patient arrivé, personnel vivant, balise récupérée, provenance vérifiée et consentement à témoigner restent distincts. Cible conçue : MI06 détermine le service et la voie d’accueil utilisables; les habitants évacués de la digue ne deviennent pas spontanément les passagers de l’ambulance.",
           "status": "Conçu"
         },
         {
@@ -2006,7 +2111,7 @@
           "order": "Fermer les portes de la digue d’Aval pour l’opération impériale de contrôle de l’archipel.",
           "play": "Cible conçue : surveiller une pression montante, manœuvrer deux portes, couvrir les bateaux réellement prêts et choisir l’instant de fermeture. Fermer une porte ne détruit pas l’autre; chaque embarcation garde une destination et une place au refuge.",
           "truth": "Les documents consultés lient le relogement à des contrats forcés. Sera peut laisser partir Mara et les familles présentes; une fermeture administrative ne rend pas le courant ni les habitants abstraits.",
-          "consequence": "Bateaux sortis, personnes restées, pertes, porte endommagée, refuge encore accessible et ordre déclaré déterminent des suites séparées. La désobéissance locale précède la défection militaire de MI16.",
+          "consequence": "Bateaux sortis, personnes restées, pertes, porte endommagée et refuge accessible forment des faits distincts. Cible conçue : personnes et capacités d’accueil héritées de MI06–MI07 gardent leur identité. La désobéissance locale précède toujours la défection militaire de MI16.",
           "status": "Conçu"
         },
         {
@@ -3777,7 +3882,7 @@
           "type": "Structure",
           "name": "Actes, constats et rapport",
           "rule": "Suivre séparément ce que Sera fait, ce qu’elle observe et ce qu’elle déclare. Aucun texte de bilan ne dépasse les informations disponibles.",
-          "sources": "MI01–MI04; contrats de mission; archive de campagne.",
+          "sources": "MI01–MI06; contrats de mission; archive de campagne.",
           "status": "Conçu"
         },
         {
@@ -3849,7 +3954,7 @@
           "type": "Fin",
           "name": "Résolution et priorité",
           "rule": "Vérifier d’abord une issue jouable valide, puis dossier/diffusion, services/pactes et voie de retrait pour départager FI01–FI04.",
-          "sources": "Finale MI32; aucune fin implémentée dans la 0.6.",
+          "sources": "Finale MI32; aucune fin implémentée dans la 0.7.",
           "status": "Conçu"
         },
         {
@@ -3937,7 +4042,7 @@
           "type": "Structure",
           "name": "Mémoire d’une relecture",
           "rule": "Un ancien chapitre rejoué conserve son horizon de connaissance. Les faits du dossier officiel avancé n’autorisent pas une révélation prématurée dans cette scène.",
-          "sources": "Relectures MI01–MI04; futurs chapitres; archives distinctes.",
+          "sources": "Relectures MI01–MI06; dossiers historiques et ressources officiels isolés de la simulation rejouée.",
           "status": "Conçu"
         },
         {
@@ -3974,11 +4079,11 @@
         },
         {
           "id": "NA45",
-          "type": "Scène conçue",
+          "type": "Scène",
           "name": "Mara sous la ligne",
-          "rule": "Mara montre un seuil d’eau et un logement encore occupé. Elle peut accepter une évacuation tout en refusant que son quartier soit déclaré vide. Sa confiance porte sur les secours accomplis.",
-          "sources": "MI06; pompes, maisons et personnes séparées; NACRE_CONSEQUENCES_V06.md.",
-          "status": "Conçu"
+          "rule": "Mara intervient à la radio après observation des logements. Les habitants peuvent atteindre l’abri et leurs maisons être perdues. Cette voix locale ne livre ni présence physique sous les tirs, ni recrutement, ni témoignage politique complet.",
+          "sources": "MI06; PN07; voix radio après constat, maisons et habitants distincts; NACRE_CONSEQUENCES_V07.md.",
+          "status": "Prototype"
         },
         {
           "id": "NA46",
@@ -4002,6 +4107,70 @@
           "name": "Quitter Nacre",
           "rule": "Le transfert vers Thyr garde les services de Nacre, ses personnes et les documents dans leurs états propres. Mara ne rejoint l’équipage que si une scène et sa décision l’établissent.",
           "sources": "Fin MI08 vers MI09; défection globale maintenue à MI16.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA49",
+          "type": "Structure",
+          "name": "Arriver aux Trois-Vannes",
+          "rule": "Le résultat du chenal ouvre MI06 sans exiger carburant, passagers sauvés, facture ou contact. Les conséquences connues modifient l’aide ou le trajet prévu, jamais l’existence rétroactive des personnes.",
+          "sources": "MI05 vers MI06; NACRE_CONSEQUENCES_V07.md.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA50",
+          "type": "Constat",
+          "name": "Six ici, quatre derrière",
+          "rule": "La mission compte dix habitants du quartier de digue. Les six occupants de la première maison et les quatre de la seconde ne sont ni les réfugiés de MI05 ni les techniciens du chantier.",
+          "sources": "MI06; deux maisons et deux intervenants suivis séparément.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA51",
+          "type": "Relation",
+          "name": "Mara reste médecin",
+          "rule": "La voix radio de Mara suit une inspection réelle. Elle parle des maisons et habitants qu’elle peut connaître. Ni personnage vulnérable Mara, ni recrutement, ni témoignage politique, ni confiance universelle n’est attribué.",
+          "sources": "PN07; MI06; les relations complètes de MI07–MI08 restent conçues.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA52",
+          "type": "Dialogue conçu",
+          "name": "Tant que le verrou est ouvert",
+          "rule": "Les techniciens doivent annoncer le besoin de soutien puis l’achèvement mécanique. Une réplique d’alarme suit une interruption réelle et ne prétend pas qu’un intervenant perdu répond encore.",
+          "sources": "MI06; soutien et verrouillage. Voix, personnages détaillés et mise en scène finale à produire.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA53",
+          "type": "Rapport",
+          "name": "Sortis de chez eux",
+          "rule": "Un quartier peut avoir ses habitants évacués et ses maisons inhabitables. Le bilan conserve les deux faits; le secours ne requalifie pas l’inondation en restauration réussie des logements.",
+          "sources": "MI06; habitants, maisons et réglage de pompe.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA54",
+          "type": "État",
+          "name": "Le carburant déjà engagé",
+          "rule": "Une tentative perdue peut avoir consommé la réserve. Tess et l’atelier parlent du stock présent; le rapport de la tentative suivante décrit son propre travail. Aucun personnage ne prétend avoir récupéré les lots en quittant le niveau.",
+          "sources": "Dossier v6; registre de dépense et sorties officielles séparés.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA55",
+          "type": "Transition conçue",
+          "name": "Une place pour le brancard",
+          "rule": "MI07 doit identifier une aire d’accueil à partir du verrou ou de l’étai, de la fatigue et des techniciens survivants de MI06. Une voie secondaire reste possible lorsque la route principale ne supporte pas le transport. Les dix habitants de la digue ne deviennent pas la cargaison de l’ambulance.",
+          "sources": "MI06 vers MI07; service, présence et consentement séparés.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA56",
+          "type": "Écriture conçue",
+          "name": "Des personnes derrière le bilan",
+          "rule": "La première version simule dix personnes distinctes marchant jusqu’à un abri, puis agrège leur bilan. La finition doit leur donner noms, accueil incarné et vie ultérieure sans modifier les faits déjà inscrits.",
+          "sources": "MI06 puis épilogues de Nacre; silhouettes finales et accueil individuel à produire.",
           "status": "Conçu"
         }
       ]
@@ -4494,6 +4663,60 @@
           "deliverable": "Portes d’Aval et départ de MI08",
           "spec": "Deux portes, indicateurs de pression, niches de refuge, bateaux en file et silhouettes locales dans des états de départ distincts.",
           "acceptance": "Les portes, personnes et bateaux visibles correspondent à leurs états persistants. Aucune foule générique ne remplace le bilan.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS51",
+          "category": "Nacre",
+          "deliverable": "Lecture procédurale du chantier",
+          "spec": "Panneau, zone d’appui, intervenants, pompes et deux maisons montrés selon leur état de simulation.",
+          "acceptance": "Les états pris pour aperçu sont copiés au moment du rendu. Une vue Canvas est identifiée comme telle; elle ne vaut pas capture du HUD HTML.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "AS52",
+          "category": "Nacre",
+          "deliverable": "Maisons des Trois-Vannes",
+          "spec": "Deux façades originales, seuils visibles, variantes sèche, exposée, inondée et détruite; accès au secours séparé de la silhouette de tir.",
+          "acceptance": "La maison vide ne paraît pas encore habitée après une évacuation. Logement perdu et personnes perdues ne partagent pas la même animation.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS53",
+          "category": "Personnages",
+          "deliverable": "Techniciens au panneau",
+          "spec": "Deux silhouettes lisibles, marche, arrêt, intervention, mise à couvert et perte; outils liés au verrou et à la pompe.",
+          "acceptance": "Les mains atteignent le point de travail. Aucun personnage vivant rendu pour un intervenant perdu; les silhouettes ne masquent pas les zones de visée.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS54",
+          "category": "Audio",
+          "deliverable": "Charge, eau et verrou",
+          "spec": "Variation du bruit de charge, verrou achevé, pompe en route et alerte d’eau attachées aux événements simulés.",
+          "acceptance": "Une alerte possède une version textuelle; l’écoute permet de distinguer maintien nécessaire et travail terminé. Voix et effets restent à produire.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS55",
+          "category": "Personnages",
+          "deliverable": "Mara au chantier",
+          "spec": "Portrait et mise en scène de médecin liés à une présence ou une liaison explicitement établie; variantes de constat selon maisons et habitants.",
+          "acceptance": "Aucune image ne suggère un recrutement ou une présence sous les tirs si le prototype ne simule qu’un contact à distance.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS56",
+          "category": "Interface",
+          "deliverable": "Archives de Nacre",
+          "spec": "Présentation finale rapprochant personnes, logements, service et dépense de la sortie, avec accès séparé au stock courant et au cumul officiel.",
+          "acceptance": "Le joueur distingue zéro carburant utilisé dans cette sortie et deux lots déjà dépensés auparavant. Couleur et icône ne sont pas les seuls supports de sens.",
           "priority": "P1",
           "status": "À produire"
         }
@@ -5067,18 +5290,18 @@
           "workstream": "Interface de Nacre",
           "deliverable": "Ordre, état de marée, interaction, archive de passage et réserve conservée au hangar.",
           "depends": "PR57; PR58; PX55–PX62",
-          "acceptance": "Le joueur voit le prochain travail et le résultat réel. Une réserve stockée n’est pas présentée comme une économie déjà consommable.",
+          "acceptance": "Le joueur voit le travail en cours et le résultat réel. L’atelier distingue stock actuel et dépense cumulée; l’archive garde le carburant engagé pendant la sortie correspondante.",
           "priority": "P0",
           "status": "Prototype"
         },
         {
           "id": "PR60",
           "workstream": "MI06 — digue",
-          "deliverable": "Soutien du panneau, escorte des techniciens, vannes et résultat distinct maisons/personnes.",
+          "deliverable": "Soutien du panneau, deux techniciens, circuit de pompage et dix habitants répartis dans deux maisons.",
           "depends": "SY60; AS48; MI05",
-          "acceptance": "Parcours avec et sans carburant de MI05, avec technicien perdu et panneau endommagé, tous explicitement écrits et testés.",
-          "priority": "P1",
-          "status": "À produire"
+          "acceptance": "Terminer avec et sans carburant, avec intervenants vivants ou perdus, puis retrouver habitants, maisons et travaux dans des états distincts.",
+          "priority": "P0",
+          "status": "Prototype"
         },
         {
           "id": "PR61",
@@ -5127,10 +5350,82 @@
         },
         {
           "id": "PR66",
-          "workstream": "Usage futur du carburant",
-          "deliverable": "Consommation des deux lots dans une pompe auxiliaire de MI06 avec voie minimale garantie sans réserve.",
+          "workstream": "Usage local du carburant",
+          "deliverable": "Branchement d’une pompe auxiliaire de MI06 pour deux lots, avec dépense immédiate du dossier officiel et voie manuelle sans réserve.",
           "depends": "SY59; SY60; PR60",
-          "acceptance": "Dépense atomique, avantage concret, annonce du coût et absence de duplication. Aucun achat ou économie générale implicite.",
+          "acceptance": "Débit à l’achèvement, interruption préalable sans dépense, aucune restitution après défaite ou nouveau départ. Relecture isolée du stock officiel. Achats et économie générale restent ouverts.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR67",
+          "workstream": "Dossier v6 et dépense",
+          "deliverable": "Migration du dossier v5, sixième rapport et registre de carburant engagé au branchement officiel.",
+          "depends": "PR58; PR66; SY69; SY72",
+          "acceptance": "Fixture v5 authentique, reprise et historique préservés; dépense sans remboursement après défaite, absence de débit officiel en relecture.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR68",
+          "workstream": "Interface du chantier",
+          "deliverable": "Ordre, état de soutien, travail des techniciens, circuit, maisons et carburant lisibles pendant MI06 puis au retour.",
+          "depends": "PR60; PR67; PX63–PX70",
+          "acceptance": "Le prochain geste et la cause d’une interruption sont visibles. Le bilan sépare habitants, maisons, intervenants et réserve.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR69",
+          "workstream": "Validation du résultat",
+          "deliverable": "Parcours publics avec six châssis, deux circuits, réserve absente, pertes, reprise et séparation des relectures.",
+          "depends": "QA96–QA114; PR60; PR67",
+          "acceptance": "Preuves nommées et portée distincte entre simulation, DOM modélisé, Canvas et navigateur réel. Un statut Vérifié exige un contrôle exécuté.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR70",
+          "workstream": "Mara — mise en scène",
+          "deliverable": "Scène de constat, voix et variantes locales, avec source de connaissance et lieu de parole explicites.",
+          "depends": "PN07; NA45; NA51; AS55",
+          "acceptance": "Mara ne promet pas une alliance en remerciant une évacuation; une maison perdue conserve une réplique adaptée même sans mort.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "PR71",
+          "workstream": "Secours visibles",
+          "deliverable": "Mise en scène finale des trajets déjà simulés, gestes d’accueil à l’abri, animations de secours et travail détaillé des techniciens.",
+          "depends": "AS52; AS53; NA56",
+          "acceptance": "La foule visible et le compte sauvegardé correspondent. Un habitant évacué n’est pas dessiné dans la maison ensuite détruite.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "PR72",
+          "workstream": "Héritage vers MI07",
+          "deliverable": "Choix d’une aire d’arrêt et d’accueil sanitaire à partir du verrou, de l’étai et de la fatigue de la digue, avec voie secondaire praticable.",
+          "depends": "SY61; NA55; MI06; PR61",
+          "acceptance": "Deux dossiers différant par le seul état du panneau produisent un changement concret. Aucun habitant de MI06 transformé implicitement en patient de MI07; les techniciens n’aident que si une scène établit leur accord.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "PR73",
+          "workstream": "Essai humain de la digue",
+          "deliverable": "Sessions sans guidage extérieur sur appuis, soutien, travaux après décision, évacuation et carburant dépensé.",
+          "depends": "PR60; PR68; QA115",
+          "acceptance": "Matériel, consignes et observations documentés. Corriger les confusions avant d’annoncer la lisibilité finale du dispositif.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "PR74",
+          "workstream": "Finition hydraulique",
+          "deliverable": "Art, mouvement, son et feedback de pression cohérents sur le panneau, les conduites et les maisons.",
+          "depends": "AS48; AS52–AS54; PR46",
+          "acceptance": "Les ruptures sont annoncées et localisées. Aucun fluide général ou modèle de résistance de quai déclaré livré par les seuls états locaux.",
           "priority": "P1",
           "status": "À produire"
         }
@@ -5931,6 +6226,166 @@
           "expected": "Elles anticipent la marée, distinguent treuil et coque, expliquent les deux équipages et retrouvent le résultat de leur sortie. Essai humain distinct des tests automatisés.",
           "priority": "P1",
           "status": "À produire"
+        },
+        {
+          "id": "QA96",
+          "area": "Progression — digue",
+          "scenario": "Ouvrir MI06 après MI05 avec carburant, sans carburant et avec passage civil perdu.",
+          "expected": "Accès conditionné au seul rapport MI05, stock absent accepté et héritages conservés. Les contextes de quai/passerelle sont distincts et les dix habitants ne viennent pas du bateau. Preuves : tests/campaign-v6.test.mjs et tests/mi06-mission.test.mjs; journal v07-node-tests.txt.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA97",
+          "area": "MI06 — six châssis",
+          "scenario": "Finir les deux circuits avec chacun des six châssis par commandes publiques.",
+          "expected": "Douze parcours complets par commandes publiques : six châssis, deux circuits, dix habitants à l’abri, deux techniciens vivants. Deux logements perdus sous le seuil impérial, zéro sous dérivation. Aucun état de victoire injecté. Preuve : tests/mi06-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA98",
+          "area": "Soutien du panneau",
+          "scenario": "Comparer proximité seule, machine ancrée, appuis en mouvement et posture de travail valide.",
+          "expected": "Posture valide obtenue par pilotage public avec les six châssis. Ancrage et contacts réels nécessaires; lever un appui retire le soutien, sans verrou fictif. Contrôle dans la simulation Node. Preuve : tests/mi06-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA99",
+          "area": "Soutien interrompu",
+          "scenario": "Quitter le chantier, lever un groupe ou perdre une condition pendant le travail.",
+          "expected": "La levée d’appui annule le soutien et remet le verrou incomplet à zéro. Reprise du travail possible; un verrou achevé survit au départ. L’étai manuel est aussi interrompu et repris de manière déterministe. Preuve : tests/mi06-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA100",
+          "area": "Techniciens — travail",
+          "scenario": "Observer deux intervenants vivants puis la contribution d’un seul.",
+          "expected": "Trajet et attente à couvert contrôlés. Le second technicien rejoint réellement la serrure après la perte du premier et termine le verrou seul. La perte après arrivée retire l’aide et actualise le bilan. Preuve : tests/mi06-mission.test.mjs; impacts de calibration déclarés pour les pertes ciblées.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA101",
+          "area": "Techniciens — perte",
+          "scenario": "Perdre les deux intervenants et atteindre une issue par la voie de repli.",
+          "expected": "Les six châssis terminent sans carburant et sans techniciens par l’étai puis la vanne manuelle. Les deux pertes proviennent de collisions de projectiles de calibration; aucune santé ni issue n’est attribuée directement. Preuve : tests/mi06-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA102",
+          "area": "Habitants et logements",
+          "scenario": "Évacuer une maison puis la perdre; comparer avec maison détruite occupée.",
+          "expected": "Dix habitants sauvés peuvent coexister avec deux maisons inondées. Une maison détruite occupée donne six pertes et quatre arrivées; la dérivation ne la reconstruit pas. Les douze réfugiés MI05 restent distincts. Preuve : tests/mi06-mission.test.mjs et tests/campaign-v6.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA103",
+          "area": "Trajet de secours",
+          "scenario": "Appeler les habitants, observer le trajet et les menaces, puis atteindre l’abri.",
+          "expected": "L’appel ne crédite aucune arrivée. Le trajet de 28 unités/s est observé; une personne touchée en route est perdue, les neuf autres arrivent. Une personne à l’abri ne prend plus les tirs. Preuve : tests/mi06-mission.test.mjs; impact négatif isolé, collision de production.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA104",
+          "area": "Décision puis exécution",
+          "scenario": "Choisir chacun des circuits et observer l’état avant puis après son intervention matérielle.",
+          "expected": "La décision seule ne termine pas la vanne. Interruption et reprise du travail vérifiées; le seuil impérial atteint les maisons après activation. Sans appel, dix pertes et deux logements inhabitables restent une issue terminable. Preuve : tests/mi06-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA105",
+          "area": "Dégâts et abris",
+          "scenario": "Toucher panneau, pompe, maison et abri séparément, puis chercher l’issue restante.",
+          "expected": "Projectiles des deux équipes contre maisons, abris, panneau, auxiliaire et techniciens contrôlés. Panneau verrouillé puis détruit, repli par étai, fatigue à 100 et alerte à 65 vérifiés. Les pertes proches restent au bilan. Preuve : tests/mi06-mission.test.mjs; stimuli négatifs isolés déclarés.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA106",
+          "area": "Carburant — branchement",
+          "scenario": "Achever un branchement avec deux lots, puis répéter l’interaction.",
+          "expected": "Branchement complet : deux lots une seule fois. Auxiliaire détruite avant branchement : zéro dépense; après : coût conservé et aide perdue. L’étai demande huit secondes avec aide, douze sans, durées mesurées. Preuve : tests/mi06-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA107",
+          "area": "Carburant — interruption",
+          "scenario": "Quitter le branchement avant la fin puis reprendre depuis une sauvegarde partielle.",
+          "expected": "Sortie de portée : progression annulée et zéro lot dépensé. La sauvegarde partielle reprend exactement; l’achèvement débite deux lots et les captures répétées ne débitent plus. Preuves : tests/mi06-mission.test.mjs et tests/campaign-v6.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA108",
+          "area": "Carburant — échec et reprise",
+          "scenario": "Dépenser dans une sortie officielle, perdre ou quitter, puis recommencer.",
+          "expected": "Défaite avant capture périodique : dépense conservée, reprise terminale et nouveau départ sans réserve. L’ancien point de décision ne revient pas derrière l’horloge officielle, même à coût égal. Preuves : tests/campaign-v6.test.mjs et v07-ui-runtime.txt.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA109",
+          "area": "Relecture isolée",
+          "scenario": "Rejouer MI06 avec consommation et terminer ou abandonner.",
+          "expected": "La relecture consomme seulement dans sa simulation : stock, registre, rapports et dotations officiels restent identiques. Terminer deux fois ne donne aucun nouveau crédit. Preuves : tests/campaign-v6.test.mjs et v07-ui-runtime.txt, portée Node et DOM modélisé.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA110",
+          "area": "Mara et constat",
+          "scenario": "Interrompre une inspection, achever le premier relevé puis appeler les habitants; vérifier la portée du constat et de la radio.",
+          "expected": "Inspection interrompue sans constat acquis; premier relevé puis appel radio global sans seconde inspection fictive. Le constat ne donne aucun point PALINODE. Mara passe par des événements radio, sans entité physique. Preuves : tests/mi06-mission.test.mjs et relecture de src/simulation.mjs; voix finale à produire.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA111",
+          "area": "MI06 — reprise",
+          "scenario": "Reprendre branchement, étai et vanne; vérifier la pause du verrou et l’indépendance profonde des captures de personnes.",
+          "expected": "Reprises déterministes de branchement, étai et vanne vérifiées; pause de verrou contrôlée dans le DOM modélisé. Les captures copient profondément pieds, habitants et travaux et restent inchangées après la suite. Preuves : tests/mi06-mission.test.mjs, tests/campaign-v6.test.mjs et v07-ui-runtime.txt.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA112",
+          "area": "Migration — dossier v5",
+          "scenario": "Charger une fixture v5 authentique avec Nacre, carburant et checkpoint MI05.",
+          "expected": "Fixture v5 publique authentique 613c073, en cours et terminée : champs historiques identiques après retrait des seuls ajouts v6. Carburant en cours non crédité, aucune digue ni dépense inventée; import falsifié et format futur refusés. Preuve : tests/campaign-v6.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA113",
+          "area": "Interface — digue",
+          "scenario": "Exécuter lancement, pause, reprise, deux circuits, archive, atelier et relecture par l’interface.",
+          "expected": "34 parcours dans le DOM modélisé, dont huit MI06 : import v5, pauses/reprises, deux circuits, archives, relecture, débit immédiat, refus d’écriture visible et défaite capturée. Preuve : docs/validation/v07-ui-runtime.txt. Pas de session Chrome réelle ni d’essai humain.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA114",
+          "area": "Bible — continuité 0.7",
+          "scenario": "Comparer JSON, Excel, formules, identifiants de la 0.6 et vues des lignes modifiées.",
+          "expected": "705 fiches et 4 811 cellules réconciliées; 643 IDs de la 0.6 préservés. 126 formules sans erreur, statut modifié puis restauré; 20 tables/validations/volets et 80 règles conditionnelles. Preuves : docs/validation/workbook-v0.7-export.json et workbook-v0.7-visual-review.json. Baselines sans Git contrôlées; aucune exécution native Excel.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA115",
+          "area": "Essai humain — digue",
+          "scenario": "Faire jouer sans consigne extérieure sur un matériel déclaré.",
+          "expected": "Les personnes distinguent soutien et verrou, décision et travaux, habitants et logements, dépense immédiate et rapport. Essai humain séparé des scripts.",
+          "priority": "P1",
+          "status": "À produire"
         }
       ]
     },
@@ -6014,7 +6469,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.6.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "description": "Portée présente dans le code de la version 0.7.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -6085,7 +6540,7 @@
           "link": "NA17",
           "name": "OP01 — Les voix sous la cendre",
           "implemented": "Relais destructibles, registre à scanner à proximité, décision sur une bande puis extraction.",
-          "limits": "Extrait autonome de validation; ne remplace pas MI01–MI05 ni leurs civils, dialogues et variantes finales.",
+          "limits": "Extrait autonome de validation; ne remplace pas MI01–MI06 ni leurs civils, dialogues et variantes finales.",
           "path": "src/content.mjs; src/simulation.mjs",
           "status": "Prototype"
         },
@@ -6246,8 +6701,8 @@
           "id": "PX22",
           "link": "SY26",
           "name": "Résultats et réglages locaux",
-          "implemented": "Réglages et derniers rapports des opérations autonomes conservés séparément. La campagne MI01 dispose de son propre dossier et de ses points de reprise.",
-          "limits": "Les anciens rapports OP01–OP03 ne deviennent pas des réussites de campagne. La sauvegarde MI01 est détaillée dans PX28–PX29.",
+          "implemented": "Réglages et derniers rapports des opérations autonomes conservés séparément. MI01–MI06 disposent d’un dossier de campagne et de points de reprise.",
+          "limits": "Les rapports OP01–OP03 ne deviennent pas des réussites de campagne. Une relecture ne réécrit pas les résultats et ressources officiels.",
           "path": "src/main.mjs; src/campaign.mjs",
           "status": "Prototype"
         },
@@ -6274,7 +6729,7 @@
           "link": "MI01; PN02; PN14; PR29",
           "name": "MI01 — Le couloir quarante-deux",
           "implemented": "Escorte de filtres sur Vesper, apprentissage des appuis, embuscade antichar, livraison au poste des mineurs, lecture du manifeste puis choix du bordereau.",
-          "limits": "MI01 est complétée par MI02–MI05. MI06–MI32, mise en scène finale, doublage et performance cible restent à produire ou valider. Aucun dossier PALINODE révélé dans MI01.",
+          "limits": "MI01 est complétée par MI02–MI06. MI07–MI32, mise en scène finale, doublage et performance cible restent à produire ou valider. Aucun dossier PALINODE révélé dans MI01.",
           "path": "src/content.mjs; src/simulation.mjs",
           "status": "Prototype"
         },
@@ -6292,7 +6747,7 @@
           "link": "SY24; PN02; PN14; PR31",
           "name": "Retour d’équipage et dossier de Vesper",
           "implemented": "Livraison de 24 caisses si le transport arrive, état de la conduite, pertes civiles, notice de Sami et répliques contextuelles de Tess/Sami conservés. Une réussite reçoit une seule dotation.",
-          "limits": "Dossier étendu à MI01–MI05. Les pactes, autres mondes et quatre fins restent conçus. Rejouer ne réécrit ni premier dossier ni ressources.",
+          "limits": "Dossier étendu à MI01–MI06. Les pactes, autres mondes et quatre fins restent conçus. Rejouer ne réécrit ni premier dossier ni ressources.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -6301,7 +6756,7 @@
           "link": "SY26; PR30",
           "name": "Reprise de mission et décision",
           "implemented": "État de mission versionné, sauvegarde de la simulation en cours et point de reprise conservé avant le choix du bordereau. Restauration explicite du même monde et des objectifs.",
-          "limits": "Portée de sauvegarde : MI01–MI05. Compatibilité suivie version par version. Le changement de fichier ou de navigateur peut changer l’emplacement du stockage local.",
+          "limits": "Portée de sauvegarde : MI01–MI06. Compatibilité suivie version par version. Le changement de fichier ou de navigateur peut changer l’emplacement du stockage local.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -6309,7 +6764,7 @@
           "id": "PX29",
           "link": "SY26; PR30",
           "name": "Sauvegarde portable et récupération",
-          "implemented": "Copie principale et copie de secours valide. Import/export JSON contrôlé. Les formats historiques v1, v2, v3 et v4 sont migrés vers v5 avec conservation des acquis. Erreurs de stockage, corruption et format inconnu signalés.",
+          "implemented": "Copie principale et secours valide. Import/export JSON contrôlé. Les formats historiques v1 à v5 sont migrés vers v6 avec conservation des acquis. Erreurs de stockage, corruption et format inconnu signalés.",
           "limits": "Migration définie pour les seuls formats connus. Un format futur ou étranger reste protégé contre l’écrasement automatique. Pas de synchronisation en ligne; transfert par export manuel.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
@@ -6318,8 +6773,8 @@
           "id": "PX30",
           "link": "SY25; PR21; PR31",
           "name": "Atelier et réparation locale",
-          "implemented": "Six lots initiaux, quatre pour chaque première réussite de MI01–MI05. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
-          "limits": "Économie de prototype pour quatre missions : vingt-deux lots théoriques avant dépenses. Chaque nouvelle sortie renouvelle munitions et deux kits. Modules, pièces rares et économie de campagne complète à produire.",
+          "implemented": "Six lots initiaux, quatre pour chaque première réussite de MI01–MI06. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
+          "limits": "Dotations limitées aux six missions principales jouables; une relecture ne verse aucun lot supplémentaire. Chaque nouvelle sortie renouvelle munitions et deux kits. Modules, pièces rares et économie de campagne complète à produire.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -6328,7 +6783,7 @@
           "link": "MI02; VE17; PR33",
           "name": "MI02 — La dette sous la poussière",
           "implemented": "Reprise du train détourné sur le viaduc : deux harpons à libérer, poursuite, freinage, ouverture du wagon, lecture et choix de rapport avant extraction.",
-          "limits": "Seconde mission sur 32, complétée par MI03 et MI04. Itinéraire latéral unique, assaut de prototype et retour textuel. MI06–MI32, mise en scène et finition du niveau restent à produire.",
+          "limits": "Seconde mission sur 32, complétée par MI03–MI06. Itinéraire latéral unique, assaut de prototype et retour textuel. MI07–MI32, mise en scène et finition du niveau restent à produire.",
           "path": "src/content.mjs; src/simulation.mjs; docs/CAMPAIGN_MISSION_02.md",
           "status": "Prototype"
         },
@@ -6363,9 +6818,9 @@
           "id": "PX35",
           "link": "SY26; PR28; PR34",
           "name": "Migrations historiques et reprise de campagne",
-          "implemented": "Dossier v5 sous les mêmes clés de stockage. Les formats v1/v2/v3/v4 conservent rapports, lots, usure et checkpoints. Les migrations complètent uniquement les champs absents de leur version source.",
+          "implemented": "Dossier v6 sous les mêmes clés de stockage. Les formats v1 à v5 conservent rapports, ressources, usure et checkpoints. Les migrations ajoutent les champs absents de leur version source sans jouer MI06 rétroactivement.",
           "limits": "Versions historiques connues seulement. Magasin, roquettes, rechargement et résultats existants conservés. Les champs inexistants reçoivent des valeurs initiales documentées; transfert entre appareils par export/import.",
-          "path": "src/campaign.mjs; tests/campaign-v5.test.mjs",
+          "path": "src/campaign.mjs; tests/campaign-v6.test.mjs",
           "status": "Prototype"
         },
         {
@@ -6463,7 +6918,7 @@
           "link": "SY26; PR40",
           "name": "Héritage du format v3",
           "implemented": "La 0.4 a introduit MI03 et le format v3. La 0.5 lit ce véritable format via un fixture historique, puis préserve ses rapports et ressources en v4.",
-          "limits": "Le format courant est v5, détaillé dans PX61. Les 27 missions suivantes et les fins restent conçues.",
+          "limits": "Le format courant est v6, détaillé dans PX69. Les 26 missions suivantes et les fins restent conçues.",
           "path": "src/campaign.mjs; tests/fixtures/campaign-v3-mi03.json",
           "status": "Prototype"
         },
@@ -6534,7 +6989,7 @@
           "id": "PX54",
           "link": "SY26; PR51",
           "name": "Héritage du format v4",
-          "implemented": "La 0.5 a ajouté MI04, le composant, les kits et le résultat industriel. La 0.6 préserve ces champs et migre le dossier vers v5. Premier rapport et dotation restent uniques.",
+          "implemented": "La 0.5 a ajouté MI04, le composant, les kits et le résultat industriel. Les versions suivantes préservent ces champs dans le dossier courant. Premier rapport et dotation restent uniques.",
           "limits": "La compatibilité v4 repose sur la fixture historique de la 0.5. Les formats futurs ou trop volumineux ne sont pas automatiquement remplacés.",
           "path": "src/campaign.mjs; tests/campaign-v4.test.mjs",
           "status": "Prototype"
@@ -6544,7 +6999,7 @@
           "link": "MI05; PR57",
           "name": "MI05 — Le prix du passage",
           "implemented": "Cinquième mission après MI04, deux treuils, inspections séparées, issue du bateau, décision et extraction. Disponible avec ou sans PT01.",
-          "limits": "Premier niveau de Nacre; MI06–MI08, contrats locaux et transfert spatial mis en scène restent conçus.",
+          "limits": "MI05 est le premier niveau de Nacre; MI06 poursuit la digue. MI07–MI08, contrats locaux et transfert spatial mis en scène restent conçus.",
           "path": "src/content.mjs; src/simulation.mjs; src/campaign.mjs",
           "status": "Prototype"
         },
@@ -6589,16 +7044,16 @@
           "link": "SY59; PR66",
           "name": "Deux lots de carburant conservés",
           "implemented": "Collecte d’une réserve locale distincte pendant trois secondes; deux lots ajoutés une seule fois au premier dossier officiel.",
-          "limits": "Aucune consommation dans les missions déjà jouables. Pompe auxiliaire MI06, achats et économie de campagne restent à produire.",
+          "limits": "MI06 consomme cette réserve dans sa pompe auxiliaire. Aucun achat, réapprovisionnement commercial ou économie générale de carburant n’est livré.",
           "path": "src/simulation.mjs; src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX61",
           "link": "SY26; PR58",
-          "name": "Format v5 et Nacre persistant",
-          "implemented": "Cinquième rapport, carburant et état local de Nacre. Migrations v1/v2/v3/v4, reprise et premier résultat protégés.",
-          "limits": "La migration ne joue pas rétroactivement MI05 et n’invente aucun carburant. Synchronisation serveur et formats futurs absents.",
+          "name": "Héritage du format v5",
+          "implemented": "La 0.6 a ajouté le cinquième rapport, le carburant et l’état du passage de Nacre. La 0.7 conserve ces champs en v6, sans réécrire les faits de MI05.",
+          "limits": "La migration ne joue pas MI06 et n’invente aucune dépense antérieure. Synchronisation serveur et formats futurs absents.",
           "path": "src/campaign.mjs; tests/campaign-v5.test.mjs",
           "status": "Prototype"
         },
@@ -6608,6 +7063,78 @@
           "name": "Lecture du chenal",
           "implemented": "Eau, bancs, tabliers, treuils, barges et bateau suivent leur état simulé. Ordre, interactions et bilan exposent les faits disponibles.",
           "limits": "Rendu procédural et UI de prototype. Art final AS44–AS47 et compréhension humaine QA95 restent ouverts.",
+          "path": "src/renderer.mjs; src/main.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX63",
+          "link": "MI06; PR60",
+          "name": "MI06 — Les maisons sous la ligne",
+          "implemented": "Sixième mission après MI05, chantier de digue, deux maisons, deux techniciens, choix de circuit puis opérations matérielles et extraction.",
+          "limits": "MI07–MI08 et contrats locaux restent conçus. Ce chantier ne constitue pas une simulation hydraulique générale de Nacre.",
+          "path": "src/content.mjs; src/simulation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX64",
+          "link": "SY05; SY60",
+          "name": "Soutien et verrouillage",
+          "implemented": "Une posture de travail avec appuis et ancrage maintient le panneau pendant son intervention. Le verrouillage accompli reste distinct du soutien temporaire.",
+          "limits": "Dispositif local et positions écrites pour MI06. Pas de manipulation libre d’objets ni de génie universel par points d’attache.",
+          "path": "src/simulation.mjs; src/renderer.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX65",
+          "link": "SY63; SY68",
+          "name": "Intervenants et repli",
+          "implemented": "Deux techniciens se déplacent, attendent face aux menaces et travaillent selon leur état. Deux abris arrêtent les projectiles. Leur perte conserve un repli manuel plus long.",
+          "limits": "Comportement local de trajet, attente à couvert et travail. Aucune commande générale d’escouade; animations détaillées, abris libres et dialogues finaux restent à produire.",
+          "path": "src/simulation.mjs; src/renderer.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX66",
+          "link": "SY64; SY65; NA50",
+          "name": "Dix habitants, deux logements",
+          "implemented": "Dix personnes distinctes, six et quatre par maison, marchent vers l’abri après appel. Arrivée, pertes et état des logements sont suivis séparément.",
+          "limits": "Bilan agrégé à partir des personnes simulées. Noms, familles, gestes d’accueil et réinstallation durable restent à produire.",
+          "path": "src/simulation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX67",
+          "link": "SY66; SY70; SY71",
+          "name": "Circuit réellement exécuté",
+          "implemented": "Le réglage impérial et la dérivation commandent les travaux disponibles. La mission se poursuit après décision; les pompes et le quartier gardent leur état réel.",
+          "limits": "Un réseau local de référence. Pas de pression distribuée à toute la planète, de fluides volumétriques ni de modèle général de rupture.",
+          "path": "src/simulation.mjs; src/content.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX68",
+          "link": "SY67; SY68; PR66",
+          "name": "Aide auxiliaire ou voie manuelle",
+          "implemented": "Le branchement achevé engage deux lots disponibles pour une aide de pompe locale. La mission conserve une solution sans carburant.",
+          "limits": "Usage unique défini pour MI06. Aucun achat, négoce, réapprovisionnement ou équipement de pompe interchangeable.",
+          "path": "src/simulation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX69",
+          "link": "SY26; SY69; SY72; PR67",
+          "name": "Format v6 et dépense persistante",
+          "implemented": "Sixième rapport et état de digue; registre de carburant dépensé dès l’action officielle, séparé du bilan de sortie. Anciennes versions migrées; relectures isolées.",
+          "limits": "Reprise au point courant; le point avant décision reste archivé mais n’est pas restaurable s’il précède l’horloge officielle MI06, même à coût égal. La synchronisation en ligne et les formats futurs restent absents.",
+          "path": "src/campaign.mjs; src/main.mjs; tests/campaign-v6.test.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX70",
+          "link": "SY27; PR68; AS51",
+          "name": "Lire le chantier",
+          "implemented": "Rendu et interface exposent soutien, intervenants, pompes, maisons et réserve; le retour distingue personnes, logements, dépense de sortie et cumul officiel.",
+          "limits": "Art procédural et interface de prototype. Finition AS48/AS52–AS56 et compréhension humaine QA115 restent ouvertes.",
           "path": "src/renderer.mjs; src/main.mjs",
           "status": "Prototype"
         }

@@ -43,6 +43,8 @@
 /* Keep contextual actions above the actual instrument panel at every viewport size. */
 .hud-interaction{position:absolute;bottom:calc(100% + 14px);left:50%;transform:translateX(-50%);width:max-content;max-width:94%;margin:0;padding:9px 16px;border-top:1px solid #c0a16a;background:#10282ef2;color:#ead3a6;font:clamp(9px,.85vw,13px)/1.5 var(--mono);text-align:center;box-shadow:0 4px 15px #0003}
 
+.dike-instrument{margin-top:14px;padding:10px 12px;border-left:2px solid #b5cdb5;background:#10282ee8;color:#d5dfc7;font:clamp(8px,.65vw,11px)/1.6 var(--mono);text-shadow:none}.dike-instrument strong{font-weight:500;color:#ebd2a6}.dike-instrument p{margin:5px 0 0}.dike-instrument p:last-child{color:#a5d6ca}
+
 
 /* Campaign, crew and field dossier. The same palette as the command deck. */
 .campaign-view{flex:1;padding-bottom:12px}.campaign-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:70px;align-items:center;min-height:570px}.campaign-intro .hero-copy{padding-top:46px;padding-bottom:32px}.campaign-dossier{position:relative;margin-top:44px;padding:32px;border:1px solid var(--line);background:linear-gradient(135deg,#152225ec,#172123de);max-width:440px;justify-self:end;overflow:hidden}.campaign-dossier h2{font-size:32px;line-height:1.1;font-weight:400;letter-spacing:-.8px;margin:32px 0 20px;position:relative}.campaign-dossier>p:not(.eyebrow){font-size:13px;color:#b4bdb1;line-height:1.8}.dossier-index{position:absolute;right:22px;top:20px;font:88px var(--display);line-height:1;color:#d2ae8718;pointer-events:none}.campaign-orders{margin:26px 0 18px;border-top:1px solid var(--line)}.campaign-orders>div{padding:15px 0;border-bottom:1px solid var(--line)}.campaign-orders dt{font:8px var(--mono);letter-spacing:1.5px;color:var(--copper);margin-bottom:7px}.campaign-orders dd{margin:0;color:#c1cabb;font-size:12px;line-height:1.6}.campaign-state{padding-left:12px;border-left:2px solid var(--cyan);font-size:11px!important;margin:20px 0 0}.campaign-file-actions{display:flex;align-items:center;justify-content:space-between;gap:25px;border-top:1px solid var(--line);padding-top:22px;margin-top:28px}.campaign-file-actions .small-caps{color:var(--copper);margin-bottom:7px}.campaign-file-actions .muted{font-size:11px;max-width:600px;margin-bottom:0}.campaign-file-buttons{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;flex-shrink:0}.campaign-file-buttons button{font-size:11px}.save-warning{color:#edbb8e!important}.campaign-debrief{border:1px solid var(--line);background:#152123de;padding:28px;margin-top:18px}.debrief-heading h3{font-size:22px;font-weight:400;margin-bottom:25px}.debrief-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;border-block:1px solid var(--line);padding:20px 0}.debrief-facts>span{font:8px var(--mono);letter-spacing:1px;color:#91a798}.debrief-facts strong{display:block;font:13px var(--body);color:var(--paper);margin-top:10px;letter-spacing:0;line-height:1.5}.crew-lines{display:grid;grid-template-columns:1fr 1fr;gap:35px}.crew-lines blockquote{margin:24px 0 8px;font:14px var(--body);line-height:1.8;color:#c8c9b7}.crew-lines blockquote>span{display:block;font:8px var(--mono);color:var(--copper);letter-spacing:1.4px;margin-bottom:9px}.workshop-panel{margin-top:32px;padding:28px;border:1px solid var(--line);background:#132021cc}.workshop-heading{display:flex;align-items:center;justify-content:space-between;gap:20px}.workshop-heading h3{font-weight:400;font-size:23px;margin-bottom:18px}.workshop-parts{font:12px var(--mono);color:var(--copper);white-space:nowrap}.workshop-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}.workshop-grid article>p:first-child{font-size:13px;line-height:1.7;color:#cbd0be}.workshop-grid article{padding-top:18px;border-top:1px solid var(--line)}.workshop-grid .muted{font-size:12px}.workshop-grid .secondary-button{font-size:11px;line-height:1.6}.workshop-panel>#workshop-active-note{margin:20px 0 0;color:var(--copper)}.simulation-title{font:clamp(52px,5.5vw,88px)/.95 var(--display);letter-spacing:1px;margin-bottom:28px}.simulation-title span{color:#d2ae87}
@@ -72,6 +74,8 @@
 .workshop-stocks{display:flex;flex-direction:column;gap:9px;align-items:flex-end}
 .workshop-fuel{font:9px/1.6 var(--mono);color:#94c9c4;letter-spacing:.6px}
 @media(max-width:760px){.workshop-stocks{align-items:flex-start}.workshop-fuel{font-size:8px}}
+
+.chapter-card[data-chapter="MI06"]{background:linear-gradient(115deg,#253e3ad9,#183134dc)}.chapter-card[data-chapter="MI06"].active{border-color:#abc5a3;background:linear-gradient(115deg,#455243b8,#284b45d9)}
 
 </style>
 </head>
@@ -110,7 +114,7 @@
           <p id="campaign-status" class="campaign-state" role="status">Affectation reçue. Le hangar vous attend.</p>
         </aside>
       </div>
-      <section class="campaign-chapters" aria-label="Ordres de Vesper et Nacre"><div class="section-label"><span>VESPER → NACRE / ORDRES DE CAMPAGNE</span><span id="campaign-progress">0 / 5 RAPPORTS CLASSÉS</span></div><div id="campaign-mission-list" class="chapter-list"></div></section>
+      <section class="campaign-chapters" aria-label="Ordres de Vesper et Nacre"><div class="section-label"><span>VESPER → NACRE / ORDRES DE CAMPAGNE</span><span id="campaign-progress">0 / 6 RAPPORTS CLASSÉS</span></div><div id="campaign-mission-list" class="chapter-list"></div></section>
       <section id="campaign-debrief" class="campaign-debrief" aria-label="Retour de mission" hidden></section>
       <section id="campaign-transition" class="campaign-transition" aria-label="Fin de l’affectation Vesper" hidden><p class="eyebrow">VESPER / AFFECTATION TERMINÉE</p><h3>Ce que vous emportez.</h3><p id="campaign-transition-text"></p></section>
       <button class="text-button" id="campaign-open-workshop" hidden>Rejoindre l’équipage au hangar →</button>
@@ -138,7 +142,7 @@
         <div class="rig-details"><p class="eyebrow" id="rig-role"></p><h3 id="rig-name"></h3><p id="rig-description"></p><div id="rig-stats"></div><dl class="weapon-details"><dt>ARMEMENT PRINCIPAL</dt><dd id="rig-weapon"></dd><dt>ARMEMENT SECONDAIRE</dt><dd id="rig-secondary"></dd></dl><p class="rig-note" id="rig-strength"></p><button id="confirm-rig" class="primary-button">ASSIGNER CE MARCHEUR <span>→</span></button></div>
       </div>
       <div id="walker-cards" class="walker-cards"></div>
-      <section class="workshop-panel" aria-label="Atelier et équipage"><div class="workshop-heading"><div><p class="eyebrow">TESS ARDAN / ÉTAT AU RETOUR</p><h3>Avant la prochaine marche.</h3></div><div class="workshop-stocks"><span id="workshop-parts" class="workshop-parts"></span><span id="workshop-fuel" class="workshop-fuel" hidden></span></div></div><div class="workshop-grid"><article><p id="workshop-condition"></p><p id="workshop-repair-note" class="muted"></p><button id="campaign-repair" class="secondary-button">Réparer le marcheur</button></article><article><p id="workshop-pipe"></p><p id="workshop-sami" class="muted"></p><p id="workshop-network" class="muted" hidden></p><p id="workshop-industrial" class="muted" hidden></p><p id="workshop-nacre" class="muted" hidden></p><button id="campaign-repair-pipe" class="secondary-button" hidden>Envoyer une équipe de réparation</button></article></div><p id="workshop-active-note" class="muted" hidden>Une mission est en cours. Reprenez-la pour retrouver le châssis déjà déployé. L’atelier sera disponible au retour.</p></section>
+      <section class="workshop-panel" aria-label="Atelier et équipage"><div class="workshop-heading"><div><p class="eyebrow">TESS ARDAN / ÉTAT AU RETOUR</p><h3>Avant la prochaine marche.</h3></div><div class="workshop-stocks"><span id="workshop-parts" class="workshop-parts"></span><span id="workshop-fuel" class="workshop-fuel" hidden></span><span id="workshop-fuel-used" class="workshop-fuel" hidden></span></div></div><div class="workshop-grid"><article><p id="workshop-condition"></p><p id="workshop-repair-note" class="muted"></p><button id="campaign-repair" class="secondary-button">Réparer le marcheur</button></article><article><p id="workshop-pipe"></p><p id="workshop-sami" class="muted"></p><p id="workshop-network" class="muted" hidden></p><p id="workshop-industrial" class="muted" hidden></p><p id="workshop-nacre" class="muted" hidden></p><p id="workshop-dike" class="muted" hidden></p><button id="campaign-repair-pipe" class="secondary-button" hidden>Envoyer une équipe de réparation</button></article></div><p id="workshop-active-note" class="muted" hidden>Une mission est en cours. Reprenez-la pour retrouver le châssis déjà déployé. L’atelier sera disponible au retour.</p></section>
     </section>
 
     <section id="view-archives" class="view archives-view" aria-label="Archives de bord" hidden>
@@ -161,7 +165,7 @@
         <div class="controls-panel"><h3>Prendre les commandes</h3><div class="controls-grid"><kbd>Q / A</kbd><span>Reculer</span><kbd>D</kbd><span>Avancer</span><kbd>J · L</kbd><span>Appuis A · B</span><kbd>Souris</kbd><span>Orienter la tourelle</span><kbd>Clic gauche</kbd><span>Tir principal</span><kbd>Clic droit</kbd><span>Roquette</span><kbd>Espace</kbd><span>Ancrer le châssis</span><kbd>V</kbd><span>Purger la chaleur</span><kbd>R</kbd><span>Recharger</span><kbd>T</kbd><span>Réparer le radiateur à l’arrêt</span><kbd>E</kbd><span>Scanner / interagir</span><kbd>Échap</kbd><span>Pause</span><kbd>F</kbd><span>Plein écran</span></div><p class="muted">En marche manuelle, maintenez la direction puis alternez J et L. Les quadrupèdes déplacent leurs diagonales ; les hexapodes leurs tripodes.</p></div>
       </div>
     </section>
-    <footer class="menu-footer"><span>IMPERIUM MARCH <i>/</i> VERSION 0.6</span><span id="local-status"><span class="status-dot"></span> POSTE PRÊT</span><span>CHAQUE PAS LAISSE UNE TRACE.</span></footer>
+    <footer class="menu-footer"><span>IMPERIUM MARCH <i>/</i> VERSION 0.7</span><span id="local-status"><span class="status-dot"></span> POSTE PRÊT</span><span>CHAQUE PAS LAISSE UNE TRACE.</span></footer>
   </main>
 
   <section id="game-screen" hidden aria-label="Mission en cours">
@@ -169,7 +173,7 @@
       <canvas id="game-canvas" width="1600" height="900" tabindex="0" aria-label="Champ de bataille. Q ou A et D pour marcher, souris pour viser, clic pour tirer. T pour réparer le radiateur à l’arrêt. Échap pour la pause."></canvas>
       <div id="hud">
         <div class="hud-top"><div class="hud-mission"><span class="hud-insignia">VII</span><div><span class="small-caps" id="hud-planet"></span><h2 id="hud-title"></h2></div></div><div class="hud-top-right"><span id="hud-timer">00:00</span><button id="pause-button" class="icon-button" aria-label="Mettre en pause" title="Pause (Échap)">Ⅱ</button></div></div>
-        <div class="objectives-panel"><span class="small-caps">ORDRES DE MISSION</span><ul id="hud-objectives"></ul><div id="convoy-status" hidden></div><section id="tide-instrument" class="tide-instrument" aria-label="État de la marée" hidden><div><strong id="tide-phase"></strong><span id="tide-window"></span></div><div class="meter" aria-hidden="true"><i id="tide-level"></i></div><p id="tide-route"></p></section></div>
+        <div class="objectives-panel"><span class="small-caps">ORDRES DE MISSION</span><ul id="hud-objectives"></ul><div id="convoy-status" hidden></div><section id="tide-instrument" class="tide-instrument" aria-label="État de la marée" hidden><div><strong id="tide-phase"></strong><span id="tide-window"></span></div><div class="meter" aria-hidden="true"><i id="tide-level"></i></div><p id="tide-route"></p></section><section id="dike-instrument" class="dike-instrument" aria-label="État du chantier de digue" hidden><strong id="dike-support"></strong><p id="dike-pressure"></p><p id="dike-residents"></p><p id="dike-fuel"></p></section></div>
         <div id="radio" class="radio-panel" role="status"><div class="radio-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div><span class="small-caps">CANAL DE BORD</span><p id="radio-text"></p></div></div>
         <div id="mission-intro" class="mission-intro"><p id="intro-location"></p><h2 id="intro-title"></h2><span>LIAISON ÉTABLIE</span></div>
         <div class="hud-bottom"><p id="hud-interaction" class="hud-interaction" hidden></p><div class="hull-panel"><span class="small-caps" id="hud-walker"></span><div class="hull-numbers"><strong id="hull-value"></strong><span>INTÉGRITÉ COQUE</span></div><div class="meter"><i id="hull-bar"></i></div><div class="leg-status" id="leg-status"></div></div><div class="heat-panel"><div class="instrument"><span class="small-caps">TEMPÉRATURE</span><b id="heat-value"></b><div class="meter heat"><i id="heat-bar"></i></div></div><div class="instrument"><span class="small-caps">STABILITÉ</span><b id="stability-value"></b><div class="meter stability"><i id="stability-bar"></i></div></div><div class="instrument radiator-instrument"><div><span class="small-caps">RADIATEUR</span><b id="radiator-value"></b><div class="meter radiator"><i id="radiator-bar"></i></div><small id="radiator-condition"></small></div><button id="radiator-repair" data-action="repair" title="Répare 60 points en 4 secondes sans marcher ni tirer ; consomme un kit à la fin.">T · RÉPARER À L’ARRÊT</button></div></div><div class="ammo-panel"><span class="small-caps" id="hud-weapon"></span><div><strong id="ammo-value"></strong><span id="ammo-total"></span></div><small id="ammo-reserve"></small><small id="rocket-value"></small></div></div>
@@ -419,6 +423,30 @@ const CAMPAIGN_MISSIONS = [
     intro: 'NACRE // CHENAL DES DEUX RIVES · 07:20',
   },
 
+  {
+    id: 'MI06', number: '06', campaign: true, act: 'I — Le poids de l’ordre',
+    name: 'Les maisons sous la ligne', planetId: 'PL02', planet: 'Nacre',
+    biome: 'DIGUE DES TROIS-VANNES', length: 5350, difficulty: 'SOUTIEN DU CHANTIER', duration: '5–9 min',
+    faction: 'Pillards du chenal / régie d’Orison', accent: '#9bcdbe', sky: ['#152c3a', '#567b82', '#ccd3ba'],
+    description: 'Relevez les niveaux prescrits sur deux maisons occupées, mettez leurs dix habitants à l’abri et couvrez les deux techniciens. Posez les appuis sur le chantier et ancrez-vous pour soutenir le panneau jusqu’à son verrouillage. Le circuit choisi déterminera ensuite le sort des logements.',
+    briefing: '« Digue des Trois-Vannes. Soutenez le chantier d’Orison et remettez les pompes en pression. Le quai doit rouvrir à la relève. » — Major Holt',
+    hint: 'E inspecte chaque maison (3 s), puis appelle l’évacuation. E appelle les techniciens au poste du génie. Au repère du panneau, relâchez D/Q, posez tous les pieds et maintenez Espace pour soutenir. Attendez le verrouillage. Sans technicien, E sous ancrage pose un étai manuel. La pompe auxiliaire consomme deux lots après 4 s, jamais avant. Le choix de circuit exige ensuite une vraie manœuvre de vanne.',
+    type: 'dike', evidenceX: 4140, extractionX: 5050, decisionX: 4140,
+    evidenceLabel: 'RELEVÉ DES TROIS-VANNES', civilianPositions: [], supplyPositions: [890, 2280, 3470, 4610],
+    enemyPlan: [[650, 'rifle'], [870, 'drone'], [2260, 'rocket'], [2920, 'skimmer'], [3540, 'rifle'], [4710, 'drone']],
+    dike: { interactionRadius: 175, inspectTime: 3, auxiliaryTime: 4, latchTime: 6,
+      shoringTime: 12, assistedShoringTime: 8, shelterX: 760, callX: 1850,
+      supportX: 2480, panelX: 2640, panelWorkX: 2580, auxiliaryX: 2190, valveX: 4140,
+      houses: [{ id: 'house-white-mark', x: 1200, w: 170, h: 144, population: 6 },
+        { id: 'house-kitchen-window', x: 1660, w: 170, h: 128, population: 4 }],
+      coverXs: [2020, 2380], technicianXs: [1850, 1910],
+      valveTime: { imperial: 6, diversion: 10 }, manualValveTime: { imperial: 10, diversion: 18 } },
+    decision: { title: 'La ligne sur les maisons',
+      body: 'Le circuit impérial libère le quai privé mais fait monter l’eau derrière les maisons. La dérivation locale demande davantage de travail et préserve les logements encore debout. Les habitants ne sont à l’abri que lorsqu’ils y sont réellement arrivés.',
+      obey: 'Appliquer le seuil impérial au quai privé', defy: 'Ouvrir la dérivation et joindre le constat' },
+    intro: 'NACRE // DIGUE DES TROIS-VANNES · 13:40',
+  },
+
 ];
 
 const ALL_MISSIONS = [...MISSIONS, ...CAMPAIGN_MISSIONS];
@@ -427,6 +455,7 @@ const ENEMY_TYPES = {
   rifle: { name: 'Fusilier', kind: 'infantry', w: 24, h: 36, hp: 65, speed: 22, range: 650, cooldown: 1.65, damage: 10, projectileSpeed: 430, windup: 0.42, score: 70 },
   rocket: { name: 'Lancier antichar', kind: 'infantry', w: 26, h: 38, hp: 80, speed: 14, range: 790, cooldown: 4.4, damage: 43, projectileSpeed: 255, windup: 1.2, score: 130 },
   buggy: { name: 'Buggy de raid', kind: 'vehicle', w: 85, h: 44, hp: 220, speed: 35, range: 740, cooldown: 2.8, damage: 21, projectileSpeed: 400, windup: 0.7, score: 230 },
+  skimmer: { name: 'Patin de raid', kind: 'vehicle', w: 96, h: 42, hp: 240, speed: 42, range: 720, cooldown: 2.8, damage: 19, projectileSpeed: 400, windup: .85, score: 230 },
   drone: { name: 'Drone de veille', kind: 'air', w: 48, h: 26, hp: 90, speed: 24, range: 710, cooldown: 2.25, damage: 13, projectileSpeed: 340, windup: 0.65, score: 120 },
   fauna: { name: 'Guetteur-racine', kind: 'fauna', w: 58, h: 35, hp: 130, speed: 64, range: 85, cooldown: 2.2, damage: 23, projectileSpeed: 0, windup: 0.7, score: 90 },
   turret: { name: 'Tourelle de contrôle', kind: 'turret', w: 58, h: 70, hp: 230, speed: 0, range: 820, cooldown: 2.4, damage: 22, projectileSpeed: 370, windup: 0.85, score: 220 },
@@ -675,6 +704,46 @@ function createGame(options = {}) {
         w: 65, h: 72, hp: 240, maxHp: 240, destroyed: false, collected: false, working: false, progress: 0 },
     };
   }
+  if (mission.id === 'MI06') {
+    const previous = options.campaignContext || {}, settings = mission.dike;
+    const context = { fuelAvailable: previous.fuelAvailable === 2 ? 2 : 0, channelOpen: previous.channelOpen === true,
+      refugeesPassed: Number.isInteger(previous.refugeesPassed) ? clamp(previous.refugeesPassed, 0, 12) : 0,
+      refugeesLost: Number.isInteger(previous.refugeesLost) ? clamp(previous.refugeesLost, 0, 12) : 0,
+      smugglerVerified: previous.smugglerVerified === true,
+      bargeCiviliansLost: Number.isInteger(previous.bargeCiviliansLost) ? clamp(previous.bargeCiviliansLost, 0, 4) : 0 };
+    state.campaign = { missionId: 'MI06', phase: 'approach', thresholdsInspected: 0, evacuationOrdered: false,
+      residentsTotal: 10, residentsSafe: 0, residentsLost: 0, homesTotal: 2, homesUninhabitable: 0,
+      techniciansTotal: 2, techniciansAlive: 2, techniciansLost: 0, panelSecured: false, panelsLocked: 0,
+      emergencyShoring: false, dikeFatigue: 0, pumpsOnline: false, circuit: 'unselected', auxiliaryUsed: false,
+      fuelSpent: 0, manualIntervention: false, manifestRead: false, reportFiled: false, context,
+      tutorial: { stepped: false, braced: false } };
+    const route = context.channelOpen && context.refugeesPassed > 0 ? 'quay' : 'upper';
+    const solid = (id, x, w, h, hp) => ({ id, x, y: terrainAt(x, mission.planetId) - h / 2,
+      w, h, hp, maxHp: hp, destroyed: false, flash: 0 });
+    state.dike = {
+      houses: settings.houses.map(def => ({ ...solid(def.id, def.x, def.w, def.h, 620),
+        population: def.population, inspected: false, scanning: false, scanProgress: 0, flooded: false })),
+      residents: settings.houses.flatMap(def => Array.from({ length: def.population }, (_, i) => ({
+        id: `${def.id}-resident-${i + 1}`, homeId: def.id, x: def.x + (i - (def.population - 1) / 2) * 24,
+        y: terrainAt(def.x, mission.planetId) - 16, w: 17, h: 32, hp: 55, maxHp: 55,
+        alive: true, safe: false, phase: 'home' }))),
+      technicians: settings.technicianXs.map((baseX, i) => {
+        const x = baseX - (route === 'upper' ? 210 : 0);
+        return { id: `dike-technician-${i + 1}`, x, y: terrainAt(x, mission.planetId) - 17,
+          w: 20, h: 34, hp: 90, maxHp: 90, alive: true, called: false, arrived: false,
+          covering: false, phase: 'waiting', route };
+      }),
+      covers: settings.coverXs.map((x, i) => solid(`work-cover-${i + 1}`, x, 64, 63, 620)),
+      panel: { ...solid('dike-panel', settings.panelX, 78, 144, 680), supportX: settings.supportX,
+        workX: settings.panelWorkX, supported: false, locked: false, latchProgress: 0,
+        manualWorking: false, manualProgress: 0, emergencyShoring: false, fatigue: 0, loaded: false },
+      auxiliary: { ...solid('dike-auxiliary', settings.auxiliaryX, 72, 68, 280),
+        connected: false, active: false, working: false, progress: 0 },
+      valve: { id: 'dike-routing-valve', x: settings.valveX, y: terrainAt(settings.valveX, mission.planetId) - 40,
+        w: 68, h: 80, working: false, progress: 0, completed: false },
+      pressure: 0, waterLevel: .1, floodingElapsed: 0,
+    };
+  }
   state.enemies = spawnEnemies(state);
   if (mission.id === 'MI03') {
     const observer = enemy(state, 'drone', 3200, state.enemies.length);
@@ -719,6 +788,10 @@ function createGame(options = {}) {
     emit(state, 'radio', 'Tess : « Les bancs portent à marée basse. Avant chacun, la commande du génie déploie une passerelle. Tu peux attendre l’estran ou prendre ce temps pour ne plus dépendre de l’eau. »');
     emit(state, 'radio', 'Sami : « Douze personnes attendent dans le bateau à l’ouest. Coupe les deux câbles ; ils partiront quand il y aura assez d’eau. Ne confonds pas les treuils et les coques. »');
     if (state.campaign.context.technicalEvidence) emit(state, 'radio', 'Tess : « Le journal de Vesper est à l’abri. Ce chenal ne nous dira pas pourquoi cette pièce a été changée. Ici, on ouvre une route. »');
+  }
+  if (mission.id === 'MI06') {
+    emit(state, 'radio', 'Mara, poste médical des Trois-Vannes : « Avant les pompes, regarde la marque blanche sur les portes. La fenêtre en dessous, c’est une cuisine. Dix personnes vivent encore dans ces deux maisons. »');
+    emit(state, 'radio', state.campaign.context.fuelAvailable === 2 ? 'Tess : « Les deux lots chargés au dock peuvent tenir la pompe auxiliaire. Ils seront consommés au branchement achevé. On garde aussi la commande manuelle. »' : 'Tess : « Pas de carburant en réserve. Le panneau et les vannes restent accessibles à la commande manuelle ; il faudra tenir plus longtemps. »');
   }
   return state;
 }
@@ -990,6 +1063,7 @@ function interact(s) {
   if (s.missionId === 'MI03') return interactNetworkMission(s);
   if (s.missionId === 'MI04') return interactIndustrialMission(s);
   if (s.missionId === 'MI05') return interactChannelMission(s);
+  if (s.missionId === 'MI06') return interactDikeMission(s);
   const p = s.player;
   if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     if (!s.campaign.passageWorking) {
@@ -1021,6 +1095,14 @@ function commandGame(s, action, payload) {
   if (action === 'choice') {
     if (!s.decision.active || s.decision.resolved || !['obey', 'defy'].includes(payload)) return false;
     s.decision.choice = payload; s.decision.resolved = true; s.decision.active = false;
+    if (s.missionId === 'MI06') {
+      s.campaign.circuit = payload === 'defy' ? 'diversion' : 'imperial';
+      s.campaign.reportFiled = payload === 'defy'; s.campaign.phase = 'operation';
+      if (payload === 'obey') s.stats.ordersObeyed++; else s.stats.ordersDefied++;
+      refreshDikeFacts(s);
+      emit(s, 'radio', payload === 'defy' ? 'Tess : « Dérivation choisie. Rien n’est encore ouvert : reste à la vanne pour manœuvrer le circuit. »' : 'Mara : « Ce seuil va prendre les deux maisons. Vérifie que leurs habitants sont sortis avant de mettre les pompes en service. »');
+      refreshObjectives(s); return true;
+    }
     if (s.missionId === 'MI05') {
       s.campaign.reportFiled = payload === 'defy';
       if (payload === 'obey') s.stats.ordersObeyed++; else s.stats.ordersDefied++;
@@ -1374,7 +1456,8 @@ function updateEnemies(s, dt) {
     const delta = Math.abs(e.x - p.x);
     if (s.missionId === 'MI01' && !s.notified.ambush) { e.active = false; e.phase = 'idle'; continue; }
     e.active = delta < 1150 || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
-      || Boolean(s.channel && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < 900);
+      || Boolean(s.channel && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < 900)
+      || Boolean(s.dike && [...s.dike.technicians.filter(t => t.called), ...s.dike.residents.filter(r => r.phase === 'evacuating')].some(person => person.alive && !person.safe && Math.abs(e.x - person.x) < 900));
     if (!e.active) { e.phase = 'idle'; continue; }
     if (e.type === 'boss' && !s.bossReleased) { e.phase = 'guard'; continue; }
     if (e.type === 'boss' && s.decision.choice === 'obey') { e.active = false; e.phase = 'standdown'; e.telegraph = 0; continue; }
@@ -1382,7 +1465,13 @@ function updateEnemies(s, dt) {
     let target = p;
     if (s.convoy && Math.abs(e.x - s.convoy.x) < delta && e.kind !== 'air') target = s.convoy;
     if (s.channel?.boat && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < delta && e.kind !== 'air') target = s.channel.boat;
-    e.attackTarget = target === p ? 'player' : target === s.channel?.boat ? 'boat' : 'convoy';
+    if (s.dike) {
+      const person = [...s.dike.technicians.filter(t => t.called), ...s.dike.residents.filter(r => r.phase === 'evacuating')]
+        .filter(person => person.alive && !person.safe && Math.abs(e.x - person.x) < Math.abs(e.x - target.x))
+        .sort((a, b) => Math.abs(e.x - a.x) - Math.abs(e.x - b.x))[0];
+      if (person) target = person;
+    }
+    e.attackTarget = target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : 'convoy';
     const td = Math.abs(e.x - target.x);
     if (e.phase === 'attack') {
       e.telegraph = Math.min(1, e.telegraph + dt / e.windup);
@@ -1392,7 +1481,19 @@ function updateEnemies(s, dt) {
     } else {
       e.timer -= dt;
       const desiredDistance = e.type === 'fauna' ? 55 : e.type === 'buggy' ? 480 : e.range * 0.72;
-      if (td > desiredDistance && e.speed > 0) e.x += Math.sign(target.x - e.x) * e.speed * dt;
+      if (td > desiredDistance && e.speed > 0) {
+        const direction = Math.sign(target.x - e.x);
+        let nextX = e.x + direction * e.speed * dt;
+        // Low raiders cannot drive through the chantier's actual volumes. A
+        // walker straddles the worksite; infantry and skimmers must fire across
+        // cover or wait at the panel until that obstruction is destroyed.
+        if (s.dike && e.kind !== 'air') for (const part of [...s.dike.houses, ...s.dike.covers, s.dike.panel, s.dike.auxiliary]) {
+          if (part.destroyed) continue;
+          if (direction < 0 && e.x > part.x) nextX = Math.max(nextX, part.x + part.w / 2 + e.w / 2 + 4);
+          else if (direction > 0 && e.x < part.x) nextX = Math.min(nextX, part.x - part.w / 2 - e.w / 2 - 4);
+        }
+        e.x = nextX;
+      }
       if (e.timer <= 0 && td < e.range) {
         e.phase = 'attack'; e.telegraph = 0;
         e.targetX = target.x + (target === p ? p.speed * 0.18 : 0);
@@ -1448,6 +1549,12 @@ function explosion(s, shot, direct = null) {
     if (d < radius + post.w / 2) hitMaintenancePost(s,
       shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1) * 0.55 * Math.max(0.25, 1 - d / (radius + post.w / 2)));
   }
+  if (s.dike) for (const part of [...s.dike.houses, ...s.dike.covers, s.dike.panel, s.dike.auxiliary,
+    ...s.dike.technicians, ...s.dike.residents.filter(r => r.phase !== 'home')]) {
+    if (part === direct || part.destroyed || part.alive === false || part.safe) continue;
+    const distance = dist(shot.x, shot.y, part.x, part.y);
+    if (distance < radius + part.w / 2) hitDikePart(s, part, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1) * .55 * Math.max(.25, 1 - distance / (radius + part.w / 2)));
+  }
   if (s.channel) for (const part of [...s.channel.winches.filter(w => !w.released), ...s.channel.barges, s.channel.boat, s.channel.fuel]) {
     if (part === direct || part.destroyed || part.arrived || part.collected) continue;
     const d = dist(shot.x, shot.y, part.x, part.y);
@@ -1497,6 +1604,11 @@ function updateProjectiles(s, dt) {
     if (s.train) for (const part of [s.train, ...s.train.wagons]) if (!part.destroyed) test(part, 'train');
     if (s.network) for (const station of s.network.stations) if (!station.destroyed) test(station, 'network');
     if (s.industrial && !s.industrial.post.destroyed) test(s.industrial.post, 'maintenance');
+    if (s.dike) {
+      for (const item of [...s.dike.houses, ...s.dike.covers, s.dike.panel, s.dike.auxiliary]) if (!item.destroyed) test(item, 'dike');
+      for (const person of [...s.dike.technicians, ...s.dike.residents]) if (person.alive && !person.safe && person.phase !== 'home') test(person, 'dike');
+    }
+
     if (s.channel) for (const part of [...s.channel.winches.filter(w => !w.released), ...s.channel.barges, s.channel.boat, s.channel.fuel]) {
       if (!part.destroyed && !part.arrived && !part.collected) test(part, 'channel');
     }
@@ -1510,6 +1622,7 @@ function updateProjectiles(s, dt) {
       if (hit.kind === 'civilian') hitCivilian(s, hit.entity, shot.damage);
       if (hit.kind === 'player') damagePlayer(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'radiator') damageRadiator(s, shot.damage, shot.x, shot.y);
+      if (hit.kind === 'dike') hitDikePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'channel') hitChannelPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'maintenance') hitMaintenancePost(s, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'convoy') { s.convoy.hp = Math.max(0, s.convoy.hp - shot.damage * s.difficulty.damage); particles(s, shot.x, shot.y, 'spark', 7); }
@@ -1962,6 +2075,243 @@ function channelInteraction(s) {
   return s.decision.resolved ? 'Rejoindre le hangar du dock · les faits de terrain sont conservés' : 'Ouvrir les deux câbles · vérifier les barges · protéger le passage';
 }
 
+/** Support uses planted simulation contacts, never the rendered knees or hull alone. */
+function dikeSupportReady(s) {
+  if (!s.dike) return false;
+  const p = s.player, panel = s.dike.panel;
+  return p.braced && !p.move && Math.abs(p.speed) <= 3 && Math.abs(p.x - panel.supportX) <= 60
+    && p.feet.every(f => f.contact && f.phase === 'stance' && Math.abs(f.x - panel.supportX) <= 230);
+}
+
+function dikeDecisionBody(s) {
+  const c = s.campaign;
+  const remaining = c.residentsTotal - c.residentsSafe - c.residentsLost;
+  const observation = c.thresholdsInspected === 2 ? 'Les deux relevés placent le niveau prescrit au-dessus des fenêtres des deux maisons.' : `${c.thresholdsInspected} seuil${c.thresholdsInspected > 1 ? 's' : ''} sur deux effectivement relevé${c.thresholdsInspected > 1 ? 's' : ''}. Le constat des deux maisons reste à terminer.`;
+  return `${observation} ${c.residentsSafe} habitants ont rejoint l’abri, ${c.residentsLost} sont perdus ; ${remaining} n’ont pas encore rejoint l’abri. ${c.homesUninhabitable} logement${c.homesUninhabitable > 1 ? 's' : ''} ${c.homesUninhabitable > 1 ? 'sont déjà inhabitables' : 'est déjà inhabitable'}. Le seuil impérial assèche le quai privé puis inonde les deux maisons après la mise en service. La dérivation locale demande une manœuvre plus longue et conserve les logements encore debout. Le choix seul ne met aucune pompe en marche et ne déplace aucun habitant. ${c.techniciansAlive} technicien${c.techniciansAlive > 1 ? 's restent' : ' reste'} en vie. ${c.emergencyShoring ? 'Un étai de secours tient le passage.' : c.panelSecured ? 'Le panneau a été verrouillé.' : 'Le panneau n’est plus sécurisé.'} ${c.auxiliaryUsed ? 'Les deux lots de carburant ont été consommés au branchement.' : 'Aucun carburant n’a été consommé.'} ${c.circuit === 'unselected' ? 'Choisissez le circuit, puis actionnez la vanne.' : c.pumpsOnline ? 'La vanne a été manœuvrée et les pompes sont en service.' : 'Circuit choisi ; la manœuvre de vanne reste à terminer.'}`;
+}
+
+function refreshDikeFacts(s) {
+  const d = s.dike, c = s.campaign;
+  d.panel.supported = dikeSupportReady(s) && !d.panel.destroyed && !d.panel.locked && !d.panel.emergencyShoring;
+  d.auxiliary.active = d.auxiliary.connected && !d.auxiliary.destroyed;
+  c.thresholdsInspected = d.houses.filter(h => h.inspected).length;
+  c.residentsSafe = d.residents.filter(r => r.safe).length;
+  c.residentsLost = d.residents.filter(r => !r.alive).length;
+  c.homesUninhabitable = d.houses.filter(h => h.destroyed || h.flooded).length;
+  c.techniciansAlive = d.technicians.filter(t => t.alive).length;
+  c.techniciansLost = c.techniciansTotal - c.techniciansAlive;
+  c.panelSecured = d.panel.locked || d.panel.emergencyShoring;
+  c.panelsLocked = d.panel.locked ? 1 : 0; c.emergencyShoring = d.panel.emergencyShoring;
+  c.dikeFatigue = d.panel.fatigue; c.pumpsOnline = d.valve.completed;
+  c.auxiliaryUsed = d.auxiliary.connected; c.fuelSpent = c.auxiliaryUsed ? 2 : 0;
+  s.stats.evidence = 0;
+  if (s.decision.active || s.decision.resolved) s.decision.body = dikeDecisionBody(s);
+}
+
+function orderDikeEvacuation(s) {
+  if (s.campaign.evacuationOrdered) return false;
+  s.campaign.evacuationOrdered = true;
+  for (const resident of s.dike.residents) if (resident.alive && !resident.safe) resident.phase = 'evacuating';
+  emit(s, 'radio', 'Mara, poste médical : « Je les appelle vers l’abri du quai ouest. Ils ne sont pas encore arrivés. Garde leur trajet dégagé ; je les compterai au passage de la porte. »');
+  return true;
+}
+
+function interactDikeMission(s) {
+  const p = s.player, d = s.dike, c = s.campaign, settings = s.mission.dike;
+  const house = d.houses.find(h => !h.inspected && Math.abs(p.x - h.x) < settings.interactionRadius);
+  if (house) {
+    if (!house.scanning) { house.scanning = true; c.phase = 'inspection'; emit(s, 'radio', house.destroyed ? 'Tess : « Les murs sont tombés. Je relève la graduation restée sur le seuil ; on consigne les occupants qui n’en sont pas sortis. »' : 'Mara, radio locale : « La marque blanche, c’est leur nouveau niveau. La fenêtre en dessous, c’est une cuisine. Regarde où la conduite débouche. »'); }
+    return true;
+  }
+  if (!c.evacuationOrdered && d.houses.some(h => h.inspected && Math.abs(p.x - h.x) < settings.interactionRadius)) return orderDikeEvacuation(s);
+  if (Math.abs(p.x - settings.callX) < settings.interactionRadius && d.technicians.some(t => t.alive && !t.called)) {
+    for (const technician of d.technicians) if (technician.alive) technician.called = true;
+    d.panel.loaded = true;
+    emit(s, 'radio', d.technicians[0].route === 'quay'
+      ? 'Équipe du génie : « Nous arrivons par le quai ouvert au chenal. Deux intervenants, du matériel de verrouillage. Couvre le chemin jusqu’au panneau. »'
+      : 'Équipe du génie : « Le passage n’est pas sûr. Nous prenons la passerelle haute, plus longue. Deux intervenants ; laisse-nous rejoindre le panneau à couvert. »');
+    return true;
+  }
+  if (!d.auxiliary.connected && !d.auxiliary.destroyed && Math.abs(p.x - d.auxiliary.x) < settings.interactionRadius) {
+    if (c.context.fuelAvailable < 2) { emit(s, 'radio', 'Tess : « Réserve vide. L’auxiliaire reste arrêtée ; les appuis et l’étai manuel suffisent encore pour le chantier. »'); return false; }
+    if (!d.auxiliary.working) { d.auxiliary.working = true; emit(s, 'radio', 'Tess : « Branchement en cours. Quatre secondes à portée ; les deux lots restent en réserve jusqu’au raccord final. »'); }
+    return true;
+  }
+  if (!c.panelSecured && Math.abs(p.x - d.panel.supportX) <= 90) {
+    if (!dikeSupportReady(s)) { emit(s, 'radio', 'Tess : « Place la coque sur le repère, pose tous les appuis et maintiens l’ancrage. Le panneau ne tient pas sur une patte en l’air. »'); return false; }
+    if (!d.panel.manualWorking) {
+      d.panel.manualWorking = true; d.panel.loaded = true; c.phase = 'support';
+      emit(s, 'radio', d.panel.destroyed ? 'Tess : « Le panneau est perdu. Le treuil pose un étai de secours sur le passage ; il ne reconstruira pas la digue. Garde les appuis ancrés. »' : 'Tess : « Je pose l’étai au treuil du marcheur. Cela fonctionne sans technicien, mais tu dois tenir l’ancrage jusqu’au verrouillage. »');
+    }
+    return true;
+  }
+  if (Math.abs(p.x - d.valve.x) < settings.interactionRadius) {
+    if (!c.panelSecured || c.thresholdsInspected < 2) { emit(s, 'radio', 'Tess : « Il faut relever les deux seuils et sécuriser le passage avant de choisir le circuit. »'); return false; }
+    if (!c.manifestRead) { s.evidence.scanning = true; return true; }
+    if (!s.decision.resolved) { s.decision.body = dikeDecisionBody(s); s.decision.active = true; emit(s, 'decision', s.decision.title); return true; }
+    if (!d.valve.completed) { d.valve.working = true; c.phase = 'operation'; return true; }
+    if (!c.evacuationOrdered && c.residentsSafe + c.residentsLost < c.residentsTotal) return orderDikeEvacuation(s);
+  }
+  return false;
+}
+
+function hitDikePerson(s, person, damage) {
+  if (!person.alive || person.safe) return;
+  person.hp = Math.max(0, person.hp - damage);
+  if (person.hp > 0) return;
+  person.alive = false; person.phase = 'lost';
+  if ('safe' in person) person.safe = false;
+  if ('arrived' in person) { person.arrived = false; person.covering = false; }
+  s.stats.collateral++;
+  emit(s, 'radio', person.homeId ? 'Mara : « Une personne ne rejoindra pas l’abri. Note sa perte ; ne l’ajoute pas aux arrivées. »' : 'Tess : « Un technicien est tombé. Nous avons encore l’étai et la commande manuelle ; rien ne remplacera cette personne. »');
+}
+
+function hitDikePart(s, part, damage) {
+  const d = s.dike;
+  if ('alive' in part) { hitDikePerson(s, part, damage); refreshDikeFacts(s); return; }
+  if (part.destroyed) return;
+  part.hp = Math.max(0, part.hp - damage); part.flash = .1;
+  particles(s, part.x, part.y, 'spark', 4);
+  if (part.hp > 0) return;
+  part.destroyed = true;
+  if (d.houses.includes(part)) {
+    part.scanning = false; part.scanProgress = part.inspected ? 1 : 0;
+    for (const r of d.residents) if (r.homeId === part.id && r.phase === 'home') hitDikePerson(s, r, r.hp);
+    emit(s, 'objective', 'Maison détruite. Les personnes déjà sorties ne sont pas réinscrites parmi ses occupants.');
+  } else if (part === d.panel) {
+    part.locked = false; part.supported = false; part.latchProgress = 0;
+    part.manualWorking = false; part.manualProgress = 0;
+    emit(s, 'objective', 'Panneau détruit. Le verrou ne porte plus rien ; posez un étai de secours avant de reprendre les vannes.');
+  } else if (part === d.auxiliary) {
+    part.working = false; part.progress = part.connected ? 1 : 0; part.active = false;
+    emit(s, 'objective', part.connected ? 'Pompe auxiliaire perdue. Le carburant consommé ne revient pas ; poursuivez avec le maintien manuel.' : 'Pompe auxiliaire détruite avant branchement. Aucun carburant consommé.');
+  }
+  particles(s, part.x, part.y, 'smoke', 10); refreshDikeFacts(s);
+}
+
+function dikeThreatsNear(s, person, distance = 450) {
+  return s.enemies.some(e => !e.dead && enemyPresent(s, e) && Math.abs(e.x - person.x) < distance);
+}
+
+function updateDikeMission(s, dt) {
+  const d = s.dike, c = s.campaign, p = s.player, settings = s.mission.dike;
+  refreshDikeFacts(s);
+  for (const item of [...d.houses, ...d.covers, d.panel, d.auxiliary]) item.flash = Math.max(0, item.flash - dt);
+  for (const h of d.houses) if (h.scanning) {
+    if (Math.abs(p.x - h.x) >= settings.interactionRadius) { h.scanning = false; h.scanProgress = 0; continue; }
+    h.scanProgress = Math.min(1, h.scanProgress + dt / settings.inspectTime);
+    if (h.scanProgress >= 1) { h.scanning = false; h.inspected = true; emit(s, 'objective', h.destroyed ? 'Seuil relevé dans les ruines. Les logements sont perdus ; le bilan humain reste séparé.' : 'Graduation relevée : le seuil impérial dépasse les fenêtres basses. — E : demander à Mara l’évacuation vers le quai ouest.'); }
+  }
+  if (d.auxiliary.working) {
+    if (Math.abs(p.x - d.auxiliary.x) >= settings.interactionRadius) { d.auxiliary.working = false; d.auxiliary.progress = 0; emit(s, 'radio', 'Tess : « Branchement interrompu. Aucun lot n’a été consommé. »'); }
+    else {
+      d.auxiliary.progress = Math.min(1, d.auxiliary.progress + dt / settings.auxiliaryTime);
+      if (d.auxiliary.progress >= 1) {
+        d.auxiliary.working = false; d.auxiliary.connected = true; d.auxiliary.active = true;
+        emit(s, 'objective', 'Pompe auxiliaire raccordée. Deux lots consommés une fois ; sa pression soulage le chantier.');
+      }
+    }
+  }
+  if (p.x > d.panel.supportX - 360) d.panel.loaded = true;
+  for (const technician of d.technicians) {
+    if (!technician.alive || !technician.called) continue;
+    const destination = c.panelSecured ? d.valve.x - 65 - (technician.id.endsWith('2') ? 30 : 0) : d.panel.workX - (technician.id.endsWith('2') && d.technicians[0].alive ? 28 : 0);
+    const threat = dikeThreatsNear(s, technician, technician.covering ? 700 : 550);
+    technician.covering = threat && !technician.arrived;
+    if (technician.covering) {
+      technician.phase = 'cover';
+      const cover = d.covers.filter(item => !item.destroyed && Math.abs(item.x - technician.x) < 240).sort((a, b) => Math.abs(a.x - technician.x) - Math.abs(b.x - technician.x))[0];
+      if (cover) {
+        const threatX = s.enemies.filter(e => !e.dead && Math.abs(e.x - technician.x) < 700).sort((a, b) => Math.abs(a.x - technician.x) - Math.abs(b.x - technician.x))[0]?.x ?? technician.x + 1;
+        const offset = technician.id.endsWith('2') ? 81 : 53;
+        const shelterX = cover.x + (threatX > cover.x ? -offset : offset);
+        technician.x += clamp(shelterX - technician.x, -dt * 30, dt * 30);
+      }
+    } else if (Math.abs(destination - technician.x) > 5) {
+      technician.phase = 'moving'; technician.arrived = false;
+      technician.x += clamp(destination - technician.x, -dt * (technician.route === 'upper' ? 27 : 34), dt * (technician.route === 'upper' ? 27 : 34));
+    } else if (c.panelSecured) { technician.arrived = true; technician.phase = 'onsite'; }
+    else technician.phase = d.panel.supported ? 'locking' : 'waiting';
+    technician.y = terrainAt(technician.x, s.planetId) - technician.h / 2;
+  }
+  const locker = d.technicians.find(t => t.alive && t.called && !t.covering && Math.abs(t.x - d.panel.workX) <= 8);
+  if (!c.panelSecured && !d.panel.destroyed && locker && d.panel.supported) {
+    c.phase = 'support'; d.panel.latchProgress = Math.min(1, d.panel.latchProgress + dt / settings.latchTime);
+    if (d.panel.latchProgress >= 1) { d.panel.locked = true; d.panel.manualWorking = false; d.panel.manualProgress = 0; emit(s, 'objective', 'Équipe du génie : « Verrou passé ! Le panneau tient sur ses ferrures. Tu peux quitter l’ancrage et nous couvrir jusqu’aux vannes. »'); }
+  } else if (!d.panel.locked) d.panel.latchProgress = 0;
+  if (d.panel.manualWorking) {
+    if (!dikeSupportReady(s)) { d.panel.manualWorking = false; d.panel.manualProgress = 0; emit(s, 'radio', 'Tess : « L’appui s’est levé. Étai interrompu ; replace les pieds et maintiens l’ancrage. »'); }
+    else {
+      c.manualIntervention = true;
+      d.panel.manualProgress = Math.min(1, d.panel.manualProgress + dt / (d.auxiliary.active ? settings.assistedShoringTime : settings.shoringTime));
+      if (d.panel.manualProgress >= 1) { d.panel.manualWorking = false; d.panel.emergencyShoring = true; emit(s, 'objective', 'Étai de secours verrouillé. Il tient le passage ; l’état du panneau d’origine reste consigné séparément.'); }
+    }
+  }
+  refreshDikeFacts(s);
+  d.pressure = d.panel.loaded ? c.panelSecured ? 30 : d.auxiliary.active ? 45 : d.panel.supported ? 65 : 92 : 0;
+  if (d.panel.loaded && !c.panelSecured && !d.panel.destroyed) {
+    d.panel.fatigue = clamp(d.panel.fatigue + dt * (d.panel.supported ? -.25 : d.auxiliary.active ? .13 : .55), 0, 100);
+    if (d.panel.fatigue >= 65 && !s.notified.dikeFatigue) {
+      s.notified.dikeFatigue = true; emit(s, 'radio', 'Tess : « La fatigue du panneau dépasse soixante-cinq pour cent. Place les appuis sur le repère et tiens l’ancrage : une rupture peut tuer l’équipe près de la serrure. »');
+    }
+    if (d.panel.fatigue >= 100) {
+      hitDikePart(s, d.panel, d.panel.hp);
+      for (const technician of d.technicians) if (technician.alive && Math.abs(technician.x - d.panel.x) < 120) hitDikePerson(s, technician, technician.hp);
+    }
+  }
+  if (d.valve.working) {
+    if (Math.abs(p.x - d.valve.x) >= settings.interactionRadius || !c.panelSecured || c.circuit === 'unselected') { d.valve.working = false; d.valve.progress = 0; }
+    else {
+      const staffed = d.technicians.some(t => t.alive && t.arrived);
+      if (!staffed) c.manualIntervention = true;
+      const duration = (staffed ? settings.valveTime : settings.manualValveTime)[c.circuit];
+      d.valve.progress = Math.min(1, d.valve.progress + dt / duration);
+      if (d.valve.progress >= 1) {
+        d.valve.working = false; d.valve.completed = true; c.phase = 'report';
+        emit(s, 'objective', c.circuit === 'imperial' ? 'Pompes en service au seuil impérial. L’eau monte derrière les maisons : environ huit secondes avant leurs seuils.' : 'Dérivation ouverte. Le niveau reste sous les fenêtres des maisons encore debout. Les personnes doivent toujours rejoindre l’abri.');
+      }
+    }
+  }
+  if (d.valve.completed && c.circuit === 'imperial') {
+    d.floodingElapsed += dt; d.waterLevel = Math.min(1, .1 + d.floodingElapsed * .07);
+    if (d.waterLevel >= .65) for (const house of d.houses) if (!house.flooded) {
+      house.flooded = true;
+      for (const resident of d.residents) if (resident.homeId === house.id && resident.phase === 'home') hitDikePerson(s, resident, resident.hp);
+      emit(s, 'objective', 'Le niveau prescrit atteint une maison. Elle est inhabitable même si ses occupants ont été évacués.');
+    }
+  } else if (d.valve.completed) d.waterLevel = Math.min(.2, d.waterLevel + dt * .02);
+  for (const resident of d.residents) {
+    if (!resident.alive || resident.safe || resident.phase !== 'evacuating') continue;
+    if (!dikeThreatsNear(s, resident, 330)) resident.x = Math.max(settings.shelterX, resident.x - dt * 28);
+    resident.y = terrainAt(resident.x, s.planetId) - resident.h / 2;
+    if (resident.x <= settings.shelterX) { resident.safe = true; resident.phase = 'sheltered'; emit(s, 'objective', 'Mara : « Une personne vient de passer la porte de l’abri. Je l’inscris parmi les arrivées. »'); }
+  }
+  refreshDikeFacts(s);
+}
+
+function dikeInteraction(s) {
+  const d = s.dike, c = s.campaign, p = s.player, settings = s.mission.dike, near = x => Math.abs(p.x - x) < settings.interactionRadius;
+  const house = d.houses.find(h => !h.inspected && near(h.x));
+  if (house) return house.scanning ? `Relevé du seuil ${Math.round(house.scanProgress * 100)} % · rester à portée` : house.destroyed ? 'E · Relever le seuil dans les ruines (3 s)' : 'E · Inspecter la marque de niveau (3 s)';
+  if (!c.evacuationOrdered && d.houses.some(h => h.inspected && near(h.x))) return 'E · Appeler Mara pour évacuer les habitants';
+  if (near(settings.callX) && d.technicians.some(t => t.alive && !t.called)) return 'E · Appeler les deux techniciens du génie';
+  if (!d.auxiliary.connected && !d.auxiliary.destroyed && near(d.auxiliary.x)) return c.context.fuelAvailable < 2 ? 'Pompe auxiliaire sans carburant · voie manuelle disponible' : d.auxiliary.working ? `Branchement ${Math.round(d.auxiliary.progress * 100)} % · deux lots débités seulement à la fin` : 'E · Brancher la pompe auxiliaire (4 s, 2 lots, facultatif)';
+  if (!c.panelSecured && Math.abs(p.x - d.panel.supportX) <= 190) {
+    if (!dikeSupportReady(s)) return 'REPÈRE DU PANNEAU · poser tous les appuis et maintenir Espace';
+    if (d.panel.manualWorking) return `Étai manuel ${Math.round(d.panel.manualProgress * 100)} % · maintenir l’ancrage`;
+    if (d.panel.latchProgress > 0) return `Verrouillage du technicien ${Math.round(d.panel.latchProgress * 100)} % · maintenir l’ancrage`;
+    return c.techniciansAlive ? 'PANNEAU SOUTENU · attendre le technicien, ou E pour l’étai de secours' : 'E · Poser l’étai de secours sans technicien · maintenir Espace';
+  }
+  if (near(d.valve.x)) {
+    if (c.thresholdsInspected < 2 || !c.panelSecured) return 'Avant les vannes · relever les deux seuils et sécuriser le panneau';
+    if (!c.manifestRead) return s.evidence.scanning ? 'Compilation des relevés…' : 'E · Lire le relevé des seuils et du chantier';
+    if (!s.decision.resolved) return 'E · Choisir le circuit hydraulique';
+    if (!d.valve.completed) return d.valve.working ? `Manœuvre de vanne ${Math.round(d.valve.progress * 100)} % · rester à portée` : 'E · Manœuvrer la vanne du circuit choisi';
+    if (!c.evacuationOrdered && c.residentsSafe + c.residentsLost < c.residentsTotal) return 'E · Appeler Mara : habitants encore aux maisons';
+  }
+  return c.pumpsOnline ? `${c.residentsSafe} habitants à l’abri · ${c.residentsLost} perdus · ${c.homesUninhabitable} logements inhabitables` : 'Relever les seuils · couvrir les techniciens · tenir le panneau';
+}
+
 function updateWorld(s, dt) {
   const p = s.player;
   const e = s.evidence;
@@ -1970,6 +2320,7 @@ function updateWorld(s, dt) {
   if (s.missionId === 'MI03') updateNetworkMission(s, dt);
   if (s.missionId === 'MI04') updateIndustrialMission(s, dt);
   if (s.missionId === 'MI05') updateChannelMission(s, dt);
+  if (s.missionId === 'MI06') updateDikeMission(s, dt);
   if (s.status !== 'playing') return;
   if (e.scanning && !e.collected) {
     if (Math.abs(p.x - e.x) > (s.missionId === 'MI04' ? s.mission.industrial.interactionRadius : 250)) { e.scanning = false; e.scanProgress = 0; emit(s, 'radio', 'Lecture interrompue : terminal hors de portée.'); }
@@ -1977,7 +2328,11 @@ function updateWorld(s, dt) {
       e.scanProgress = Math.min(1, e.scanProgress + dt / e.scanTime);
       if (e.scanProgress >= 1) {
         e.collected = true; e.scanning = false;
-        if (s.missionId === 'MI05') {
+        if (s.missionId === 'MI06') {
+          s.campaign.manifestRead = true; s.campaign.phase = 'routing';
+          refreshDikeFacts(s);
+          emit(s, 'objective', 'Niveaux relevés et panneau sécurisé. — E : choisir le circuit, puis actionner réellement la vanne.');
+        } else if (s.missionId === 'MI05') {
           s.campaign.manifestRead = true; s.campaign.phase = 'report';
           refreshChannelFacts(s);
           emit(s, 'objective', 'Relevé du chenal réuni. Les faits copiés et les pertes restent distincts. — E : signer le compte rendu.');
@@ -2047,6 +2402,7 @@ function updateWorld(s, dt) {
   else if (s.missionId === 'MI03') s.interaction = networkInteraction(s);
   else if (s.missionId === 'MI04') s.interaction = industrialInteraction(s);
   else if (s.missionId === 'MI05') s.interaction = channelInteraction(s);
+  else if (s.missionId === 'MI06') s.interaction = dikeInteraction(s);
   else if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     s.interaction = s.campaign.passageWorking ? `Déploiement des dalles ${Math.round(s.campaign.passageProgress * 100)} % · restez près du treuil` : 'E · Déployer les dalles de protection (4,5 s)';
   } else if (!e.collected && Math.abs(p.x - e.x) < 230) {
@@ -2057,6 +2413,12 @@ function updateWorld(s, dt) {
   if (p.hull <= 0) finish(s, false, 'Marcheur immobilisé. Votre équipage a déclenché la balise de secours.');
   else if (s.convoy && s.convoy.hp <= 0) finish(s, false, s.campaign ? s.campaign.filtersDelivered ? 'Le camion de Sami est perdu au poste. Les filtres ont été livrés, mais l’escorte a échoué. Reprenez le dernier point de contrôle pour retenter la mission.' : 'Le camion de Sami est perdu. Les filtres n’atteindront pas le poste des mineurs. Reprenez le dernier point de contrôle pour retenter l’escorte.' : 'Le transport est perdu. La route du bac se ferme.');
   else if (s.extraction.active && Math.abs(p.x - s.extraction.x) < s.extraction.radius) {
+    if (s.missionId === 'MI06') {
+      refreshDikeFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
+      finish(s, true, `Pompes en service : ${c.circuit === 'imperial' ? 'seuil impérial appliqué' : 'dérivation locale ouverte'}. ${c.residentsSafe} habitants à l’abri, ${c.residentsLost} perdu${c.residentsLost > 1 ? 's' : ''}. ${c.homesUninhabitable} logement${c.homesUninhabitable > 1 ? 's' : ''} inhabitable${c.homesUninhabitable > 1 ? 's' : ''}. ${c.techniciansAlive} technicien${c.techniciansAlive > 1 ? 's' : ''} vivant${c.techniciansAlive > 1 ? 's' : ''}. ${c.emergencyShoring ? 'Passage assuré par un étai de secours.' : 'Panneau verrouillé.'} ${c.fuelSpent} lots de carburant dépensés.`);
+      return;
+    }
+
     if (s.missionId === 'MI05') {
       refreshChannelFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
       finish(s, true, `Chenal ouvert. ${c.refugeesPassed} personnes arrivées, ${c.refugeesLost} perdues dans le bateau ; ${c.bargeCiviliansLost} pertes dans l’équipage de Rive-Courte. ${c.traffickingVerified ? 'Facture du trafic copiée.' : 'Aucune facture du trafic récupérée.'} ${c.smugglerVerified ? 'Le passage clandestin a été confirmé par une liaison réelle.' : 'Aucun contact du passeur confirmé.'} ${c.fuelRecovered ? 'Deux lots de carburant chargés au dock.' : 'Aucun carburant chargé.'}`);
@@ -2094,6 +2456,19 @@ function updateWorld(s, dt) {
 
 function refreshObjectives(s) {
   const goals = [];
+  if (s.missionId === 'MI06') {
+    const c = s.campaign;
+    goals.push({ id: 'thresholds', label: 'Relever les seuils des deux maisons ou leurs ruines', current: c.thresholdsInspected, target: 2, complete: c.thresholdsInspected === 2 });
+    goals.push({ id: 'panel', label: c.emergencyShoring ? 'Étai de secours verrouillé' : 'Soutenir le panneau jusqu’au verrouillage', current: c.panelSecured ? 1 : 0, target: 1, complete: c.panelSecured });
+    goals.push({ id: 'routing', label: 'Lire le relevé et choisir le circuit hydraulique', current: s.decision.resolved ? 1 : 0, target: 1, complete: s.decision.resolved });
+    goals.push({ id: 'pump', label: 'Manœuvrer la vanne et remettre les pompes en service', current: c.pumpsOnline ? 1 : 0, target: 1, complete: c.pumpsOnline });
+    goals.push({ id: 'residents', label: c.residentsLost ? `Habitants : ${c.residentsSafe} à l’abri, ${c.residentsLost} perdus` : 'Mettre les dix habitants à l’abri', current: c.residentsSafe + c.residentsLost, target: c.residentsTotal, complete: c.residentsSafe + c.residentsLost === c.residentsTotal });
+    const levelSettled = c.circuit !== 'imperial' || s.dike.waterLevel >= .65;
+    s.extraction.active = goals.every(goal => goal.complete) && levelSettled;
+    goals.push({ id: 'extract', label: levelSettled ? 'Rejoindre la rampe de retour' : 'Attendre la stabilisation du niveau prescrit', current: s.status === 'won' ? 1 : 0, target: 1, complete: s.status === 'won' });
+    s.objectives = goals; return;
+  }
+
   if (s.missionId === 'MI05') {
     const c = s.campaign;
     goals.push({ id: 'winches', label: 'Ouvrir les deux câbles du chenal', current: c.winchesReleased, target: 2, complete: c.channelOpen });
@@ -2202,7 +2577,7 @@ function updateGame(s, delta, input = {}) {
   return s;
 }
 
-return {terrainAt,createGame,radiatorBounds,radiatorCoolingFactor,trainDecisionBody,networkDecisionBody,industrialDecisionBody,commandGame,channelTideAt,channelSurfaceAt,channelDecisionBody,updateGame};
+return {terrainAt,createGame,radiatorBounds,radiatorCoolingFactor,trainDecisionBody,networkDecisionBody,industrialDecisionBody,commandGame,channelTideAt,channelSurfaceAt,channelDecisionBody,dikeSupportReady,dikeDecisionBody,updateGame};
 })();
 __modules["src/renderer.mjs"] = (() => {
 const { terrainAt, radiatorBounds, channelSurfaceAt } = __modules["src/simulation.mjs"];
@@ -2437,8 +2812,9 @@ class Renderer {
     this.drawTerrain(s, t);
     if (s.campaign) this.drawCampaignLandmarks(s, t);
     if (s.channel) this.drawChannel(s, t);
+    if (s.dike) this.drawDike(s, t);
     for (const r of s.relays) if (this.visible(r.x, 150)) this.drawRelay(r, s);
-    if (!s.train && !s.industrial) this.drawEvidence(s, t);
+    if (!s.train && !s.industrial && !s.dike) this.drawEvidence(s, t);
     this.drawExtraction(s, t);
     for (const item of s.pickups) if (!item.collected && this.visible(item.x, 100)) this.drawSupply(item, t);
     const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped));
@@ -2450,6 +2826,7 @@ class Renderer {
     this.drawShadow(s.player.x, s.player.groundY, s.walker.width * 0.75, 15);
     drawWalker(c, s.player, s.walker, t);
     this.drawRadiator(s, t);
+    if (s.dike) { this.drawDikeControls(s, t); this.drawDikePeople(s, t); }
     for (const e of visibleEnemies) if (e.kind === 'air') this.drawEnemy(e, s, t);
     this.drawShots(s);
     this.drawParticles(s);
@@ -2458,12 +2835,245 @@ class Renderer {
     if (s.network) this.drawNetworkLabels(s);
     if (s.industrial) this.drawIndustrialLabels(s);
     if (s.channel) this.drawChannelLabels(s);
+    if (s.dike) this.drawDikeLabels(s);
     c.restore();
     this.drawAtmosphere(s, t);
     this.drawMarkers(s);
     if (s.channel && options.tideInstrument !== false) this.drawChannelTide(s);
     if (options.pointer?.visible) this.drawReticle(options.pointer, s);
     if (s.interaction && options.interactionPrompt !== false) this.drawInteraction(s);
+  }
+
+  drawDike(s, t) {
+    const c = this.ctx, site = s.dike, facts = s.campaign, settings = s.mission.dike;
+    const mint = '#aad8c2', ochre = '#e7c48c';
+    const shelterX = settings.shelterX, shelterGround = terrainAt(shelterX, s.planetId);
+    if (this.visible(shelterX, 170)) {
+      // Arrivals disappear through this doorway; sheltered people are no longer exposed actors.
+      plate(c, [[shelterX - 71, shelterGround], [shelterX - 71, shelterGround - 102], [shelterX + 71, shelterGround - 102], [shelterX + 71, shelterGround]], '#6e8c80', '#24484d');
+      plate(c, [[shelterX - 80, shelterGround - 100], [shelterX - 62, shelterGround - 118], [shelterX + 65, shelterGround - 118], [shelterX + 80, shelterGround - 100]], '#adbaa2', '#4c716c');
+      c.fillStyle = '#132c35'; c.fillRect(shelterX - 23, shelterGround - 74, 46, 74);
+      line(c, shelterX - 24, shelterGround - 74, shelterX - 24, shelterGround, mint, 3);
+      c.fillStyle = mint; c.fillRect(shelterX + 36, shelterGround - 86, 8, 24); c.fillRect(shelterX + 28, shelterGround - 78, 24, 8);
+      label(c, 'ABRI DU QUAI OUEST', shelterX, shelterGround - 138, 11, '#c5e1ce', 'center');
+      label(c, `${facts.residentsSafe} / ${facts.residentsTotal} ARRIVÉS`, shelterX, shelterGround - 122, 10, mint, 'center');
+      label(c, 'MARA · RADIO', shelterX - 47, shelterGround - 18, 7, '#b3cabc', 'center');
+    }
+    for (const house of site.houses) {
+      if (!this.visible(house.x, 230)) continue;
+      const half = house.w / 2, ground = house.y + house.h / 2, top = ground - house.h;
+      c.save();
+      if (house.destroyed) {
+        poly(c, [[house.x - half, ground], [house.x - half, ground - 33], [house.x - 48, ground - 16], [house.x - 21, ground - 61], [house.x + 5, ground - 24], [house.x + 43, ground - 44], [house.x + half, ground - 21], [house.x + half, ground]], '#3d5251', '#889a86', 2);
+        for (let i = 0; i < 5; i++) line(c, house.x - 66 + i * 29, ground - 5, house.x - 59 + i * 29, ground - 27 - hash(house.x + i) * 25, '#b0ab8a', 3);
+      } else {
+        plate(c, [[house.x - half, ground], [house.x - half, top], [house.x + half, top], [house.x + half, ground]], '#a3ac90', '#456665');
+        c.fillStyle = '#394f50'; c.fillRect(house.x - half + 4, top + 5, house.w - 8, 17);
+        label(c, house.id === 'house-white-mark' ? 'MAISON 01' : 'MAISON 02', house.x, top + 17, 10, '#d4d7b6', 'center');
+        for (const side of [-1, 1]) {
+          const wx = house.x + side * 47 - 16, wy = ground - 67;
+          c.fillStyle = '#17313a'; c.fillRect(wx - 3, wy - 3, 38, 44);
+          c.fillStyle = house.flooded ? '#416f72' : '#d2c191'; c.fillRect(wx, wy, 32, 37);
+          line(c, wx + 15, wy, wx + 15, wy + 37, '#4a6663', 2);
+          line(c, wx, wy + 19, wx + 32, wy + 19, '#4a6663', 2);
+        }
+        c.fillStyle = '#1f3b43'; c.fillRect(house.x - 14, ground - 57, 28, 57);
+        line(c, house.x + 8, ground - 52, house.x + 8, ground - 6, '#8fa58d', 2);
+        if (house.hp < house.maxHp * .75) {
+          line(c, house.x - 10, top + 26, house.x + 6, ground - 76, '#273e42', 3);
+          line(c, house.x + 6, ground - 76, house.x - 2, ground - 40, '#273e42', 3);
+        }
+      }
+      // The painted prescription and basin surface share the simulated flood threshold (.65).
+      const markY = ground - 126 * .65, waterY = ground - 126 * site.waterLevel;
+      if (house.destroyed) {
+        line(c, house.x - half + 3, ground, house.x - half + 3, markY - 10, '#718c7b', 9);
+        line(c, house.x - half - 8, markY, house.x - half + 14, markY, '#eef0d8', 4);
+      } else line(c, house.x - half - 8, markY, house.x + half + 8, markY, '#eef0d8', 4);
+      line(c, house.x - half - 11, markY - 6, house.x - half - 11, markY + 6, '#eef0d8', 2);
+      c.fillStyle = '#33748399'; c.fillRect(house.x - half - 8, waterY, house.w + 16, Math.max(0, ground - waterY));
+      line(c, house.x - half - 8, waterY, house.x + half + 8, waterY, '#aad9d2bb', 2);
+      for (let x = house.x - half + 5; x < house.x + half; x += 39) line(c, x, waterY + 6, x + 19, waterY + 6, '#b4ded54d', 1);
+      // The service lane remains on its actual terrain contact line in front of the basin.
+      line(c, house.x - half - 18, ground + 2, house.x + half + 18, ground + 2, '#c8c9ab', 5);
+      if (house.flash) { c.fillStyle = '#ffdcb966'; c.fillRect(house.x - half, top, house.w, house.h); }
+      c.restore();
+    }
+    for (const cover of site.covers) {
+      if (!this.visible(cover.x, 100)) continue;
+      const half = cover.w / 2, ground = cover.y + cover.h / 2, top = cover.y - cover.h / 2;
+      if (cover.destroyed) {
+        poly(c, [[cover.x - half, ground], [cover.x - half + 8, ground - 15], [cover.x, ground - 7], [cover.x + 11, ground - 21], [cover.x + half, ground]], '#3e5655', '#7e9581', 2);
+      } else {
+        plate(c, [[cover.x - half, ground], [cover.x - half, top], [cover.x + half, top], [cover.x + half, ground]], '#8f9e85', '#385755');
+        for (let y = top + 12; y < ground - 6; y += 15) line(c, cover.x - half + 5, y, cover.x + half - 5, y, '#344f50', 4);
+        line(c, cover.x - half + 4, top + 5, cover.x + half - 4, top + 5, ochre, 3);
+        if (cover.flash) glow(c, cover.x, cover.y, cover.w, '#ffdeb54d');
+      }
+    }
+    const panel = site.panel, ground = panel.y + panel.h / 2;
+    if (this.visible(panel.supportX, 450)) {
+      // This pad is an instruction mark; only panel.supported draws the load-bearing brace.
+      for (let x = panel.supportX - 230; x <= panel.supportX + 230; x += 38) {
+        const y = terrainAt(x, s.planetId);
+        line(c, x - 11, y + 8, x + 8, y + 2, panel.supported ? mint : '#d8bc81', 4);
+      }
+      const supportGround = terrainAt(panel.supportX, s.planetId);
+      label(c, 'ZONE D’APPUI', panel.supportX, supportGround + 35, 10, panel.supported ? mint : '#cabb8d', 'center');
+      if (!panel.destroyed) {
+        const half = panel.w / 2, top = panel.y - panel.h / 2;
+        plate(c, [[panel.x - half, ground], [panel.x - half, top], [panel.x + half, top], [panel.x + half, ground]], '#9ca98c', '#345552');
+        for (let y = top + 18; y < ground - 8; y += 27) {
+          line(c, panel.x - half + 7, y, panel.x + half - 7, y, '#244549', 11);
+          line(c, panel.x - half + 8, y - 3, panel.x + half - 8, y - 3, '#adc1a4', 2);
+        }
+        for (const yy of [top + 8, ground - 9]) for (const side of [-1, 1]) bolt(c, panel.x + side * (half - 8), yy, 3);
+        circle(c, panel.x - half + 5, panel.y - 8, 10, '#203d43', panel.locked ? mint : ochre, 2);
+        line(c, panel.x - half - 4, panel.y - 8, panel.x - half + (panel.locked ? 16 : 4), panel.y - (panel.locked ? 8 : 22), panel.locked ? mint : ochre, 4);
+        if (panel.hp < panel.maxHp * .7) line(c, panel.x + 7, top + 12, panel.x - 2, ground - 20, '#1a3339', 4);
+        if (panel.flash) glow(c, panel.x, panel.y, 100, '#ffd8ac55');
+      } else {
+        poly(c, [[panel.x - 45, ground], [panel.x - 37, ground - 24], [panel.x - 9, ground - 8], [panel.x + 13, ground - 41], [panel.x + 43, ground - 12], [panel.x + 45, ground]], '#3b5351', '#9e9d7f', 3);
+        line(c, panel.x - 27, ground - 9, panel.x + 24, ground - 54, '#647d70', 8);
+      }
+      if (panel.supported) {
+        const attachmentX = s.player.x + s.player.width * .38, attachmentY = s.player.y + 32;
+        strut(c, attachmentX, attachmentY, panel.x - panel.w / 2, panel.y + 16, 10, true);
+        circle(c, attachmentX, attachmentY, 6, '#9bc7b0', '#1b343b', 2);
+      }
+      if (panel.emergencyShoring || panel.manualWorking) {
+        c.save(); c.globalAlpha = panel.emergencyShoring ? 1 : .35 + panel.manualProgress * .55;
+        strut(c, panel.supportX + 55, supportGround - 1, panel.x + 19, ground - 99, 13, true);
+        line(c, panel.supportX + 48, supportGround + 1, panel.supportX + 79, supportGround + 1, '#d4c59a', 7);
+        plate(c, [[panel.x + 8, ground - 102], [panel.x + 35, ground - 102], [panel.x + 35, ground - 87], [panel.x + 8, ground - 87]], '#b1c1a1', '#3f625b');
+        c.restore();
+      }
+    }
+
+  }
+
+  // Interactive controls occupy the foreground service lane. Their fixed
+  // collision coordinates remain visible when a wide walker straddles them.
+  drawDikeControls(s, t) {
+    const c = this.ctx, site = s.dike, facts = s.campaign;
+    const mint = '#aad8c2', ochre = '#e7c48c';
+    const auxiliary = site.auxiliary;
+    if (this.visible(auxiliary.x, 120)) {
+      const x = auxiliary.x, y = auxiliary.y, half = auxiliary.w / 2;
+      plate(c, [[x - half, y + auxiliary.h / 2], [x - half, y - auxiliary.h / 2], [x + half, y - auxiliary.h / 2], [x + half, y + auxiliary.h / 2]], auxiliary.destroyed ? '#53635c' : '#88977d', '#2f4c4b');
+      circle(c, x - 6, y - 2, 23, '#1b353c', auxiliary.active ? mint : '#9b9f7d', 3);
+      c.save(); c.translate(x - 6, y - 2); c.rotate(auxiliary.active ? t * 3.4 : .4);
+      for (let i = 0; i < 4; i++) { c.rotate(TAU / 4); poly(c, [[3, -4], [17, -8], [20, -1], [5, 7]], auxiliary.destroyed ? '#414a44' : '#afae86', '#203a3e', 1); }
+      c.restore(); circle(c, x - 6, y - 2, 6, '#809c88');
+      line(c, x + 18, y + 8, x + 30, y + 8, '#1e363b', 9);
+      line(c, x + 30, y + 8, x + 37, y + 31, '#1e363b', 7);
+      c.fillStyle = auxiliary.connected ? '#adceb0' : '#9a8661'; c.fillRect(x - 30, y - 29, 13, 7);
+      if (auxiliary.destroyed) { line(c, x - half + 8, y - 24, x + 18, y + 22, '#1b2f33', 6); }
+      if (auxiliary.flash) glow(c, x, y, 60, '#ffdbad44');
+    }
+    const valve = site.valve;
+    if (this.visible(valve.x, 190)) {
+      const half = valve.w / 2, top = valve.y - valve.h / 2, bottom = valve.y + valve.h / 2;
+      for (const side of [-1, 1]) {
+        const active = valve.completed && (side < 0 ? facts.circuit === 'diversion' : facts.circuit === 'imperial');
+        line(c, valve.x + side * 18, bottom - 15, valve.x + side * 114, bottom - 15, '#19363e', 14);
+        line(c, valve.x + side * 18, bottom - 18, valve.x + side * 114, bottom - 18, active ? mint : '#758e7c', 5);
+        const arrowX = valve.x + side * 88;
+        poly(c, [[arrowX, bottom - 20], [arrowX + side * 11, bottom - 15], [arrowX, bottom - 10]], active ? mint : '#8eaa92');
+        label(c, side < 0 ? 'DÉRIVATION' : 'QUAI PRIVÉ', valve.x + side * 93, bottom + 17, 8, active ? mint : '#b0c2ab', 'center');
+      }
+      plate(c, [[valve.x - half, bottom], [valve.x - half, top], [valve.x + half, top], [valve.x + half, bottom]], '#809d88', '#294a4d');
+      c.fillStyle = '#172f39'; c.fillRect(valve.x - 22, top + 8, 44, 17);
+      for (let i = 0; i < 4; i++) line(c, valve.x - 17, top + 12 + i * 3, valve.x + 15, top + 12 + i * 3, facts.manifestRead ? mint : ochre, 1);
+      circle(c, valve.x, valve.y + 11, 19, '#233f45', valve.completed ? mint : ochre, 3);
+      const angle = valve.working ? t * 2.2 : valve.completed ? Math.PI / 4 : 0;
+      for (let i = 0; i < 3; i++) {
+        const a = angle + i * TAU / 3;
+        line(c, valve.x, valve.y + 11, valve.x + Math.cos(a) * 16, valve.y + 11 + Math.sin(a) * 16, valve.completed ? mint : ochre, 3);
+      }
+    }
+  }
+
+  drawDikePeople(s, t) {
+    // People keep their simulated positions but draw in the service lane, in front of walker legs.
+    for (const person of [...s.dike.residents, ...s.dike.technicians]) {
+      if (!this.visible(person.x, 60) || person.safe || person.phase === 'home') continue;
+      const technician = !person.homeId;
+      if (!person.alive) {
+        const groundY = person.y + person.h / 2;
+        line(this.ctx, person.x - 10, groundY - 3, person.x + 9, groundY - 3, technician ? '#b6a779' : '#7fa79b', 5);
+        circle(this.ctx, person.x + 12, groundY - 5, 4, '#a69678');
+        continue;
+      }
+      this.drawDikePerson(person, t, technician);
+    }
+  }
+
+  drawDikePerson(person, t, technician) {
+    const c = this.ctx, moving = person.phase === 'moving' || person.phase === 'evacuating';
+    const pace = moving ? Math.sin(t * 8 + person.x * .2) * 4 : 0;
+    const bottom = person.y + person.h / 2, top = person.y - person.h / 2;
+    this.drawShadow(person.x, bottom, 11, 3);
+    c.save(); c.translate(person.x, bottom);
+    line(c, -3, -12, -4 - pace, -1, '#1b3035', 4); line(c, 3, -12, 4 + pace, -1, '#243c3e', 4);
+    poly(c, [[-7, -26], [6, -26], [8, -11], [-7, -11]], technician ? '#bdad79' : '#83bab0', '#254247', 1);
+    line(c, -6, -22, -9, -13, '#b8c4a3', 3); line(c, 6, -22, 10, -16, '#b8c4a3', 3);
+    if (technician) {
+      c.fillStyle = '#314e50'; c.fillRect(-5, -24, 10, 6);
+      line(c, 9, -16, 14, -19, '#d6cba2', 2);
+    }
+    circle(c, 0, -30, 4, '#c7b996');
+    if (technician) { poly(c, [[-6, -31], [-4, -36], [4, -36], [6, -31]], '#ded0a3', '#48615c', 1); }
+    else line(c, -5, -33, 4, -33, '#c8cdb1', 3);
+    c.restore();
+    if (technician) {
+      const state = person.covering ? 'À COUVERT' : person.phase === 'locking' ? 'VERROUILLE' : person.arrived ? 'AUX VANNES' : person.called ? 'EN ROUTE' : 'EN ATTENTE';
+      const y = top - (person.id.endsWith('2') ? 38 : 22);
+      label(c, `G${person.id.endsWith('2') ? '2' : '1'} · ${state}`, person.x, y, 8, person.covering ? '#e6c48b' : '#c2dec8', 'center');
+      if (person.hp < person.maxHp) {
+        c.fillStyle = '#173139'; c.fillRect(person.x - 13, y + 5, 26, 3);
+        c.fillStyle = '#e1b486'; c.fillRect(person.x - 13, y + 5, 26 * person.hp / person.maxHp, 3);
+      }
+    }
+  }
+
+  drawDikeLabels(s) {
+    const c = this.ctx, site = s.dike, facts = s.campaign;
+    const mint = '#b0dec7', ochre = '#e9c68d', danger = '#e7a389';
+    const entries = site.houses.map((house, index) => {
+      const people = site.residents.filter(r => r.homeId === house.id);
+      const inside = people.filter(r => r.alive && r.phase === 'home').length, moving = people.filter(r => r.phase === 'evacuating').length, safe = people.filter(r => r.safe).length, lost = people.filter(r => !r.alive).length;
+      const detail = house.scanning ? `RELEVÉ ${Math.round(house.scanProgress * 100)} %` : house.inspected ? 'MARQUE IMPÉRIALE RELEVÉE' : 'E · INSPECTER LA MARQUE BLANCHE';
+      return { x: house.x, y: house.y - house.h / 2 - 83, title: `MAISON ${index + 1} · ${house.destroyed ? 'DÉTRUITE' : house.flooded ? 'INONDÉE' : 'HABITABLE'}`,
+        detail, sub: `${inside} dedans · ${moving} en route · ${safe} abri · ${lost} perdus`, color: house.destroyed || house.flooded ? danger : house.inspected ? mint : ochre, progress: house.scanning ? house.scanProgress : null, width: 282 };
+    });
+    const panel = site.panel, auxiliary = site.auxiliary, valve = site.valve;
+    entries.push({ x: auxiliary.x, y: auxiliary.y - auxiliary.h / 2 - 111, title: 'POMPE AUXILIAIRE · FACULTATIVE',
+      detail: auxiliary.destroyed ? 'MACHINE DÉTRUITE' : auxiliary.active ? 'PRESSION ASSISTÉE' : auxiliary.working ? `RACCORDEMENT ${Math.round(auxiliary.progress * 100)} %` : facts.context.fuelAvailable >= 2 ? 'E · BRANCHER · 4 s' : 'SANS CARBURANT · VOIE MANUELLE',
+      sub: facts.fuelSpent ? '2 lots consommés au raccordement' : '0 lot consommé · coût final : 2', color: auxiliary.destroyed ? danger : auxiliary.active ? mint : ochre, progress: auxiliary.working ? auxiliary.progress : null, width: 276 });
+    entries.push({ x: panel.x, y: panel.y - panel.h / 2 - 110, title: `PANNEAU · ${panel.emergencyShoring ? 'ÉTAI POSÉ' : panel.destroyed ? 'DÉTRUIT' : panel.locked ? 'VERROUILLÉ' : panel.supported ? 'SOUTENU' : 'À SOUTENIR'}`,
+      detail: panel.manualWorking ? `ÉTAI ${Math.round(panel.manualProgress * 100)} % · ANCRAGE REQUIS` : panel.latchProgress > 0 && !panel.locked ? `VERROU ${Math.round(panel.latchProgress * 100)} % · TENIR L’APPUI` : facts.panelSecured ? 'LE MARCHEUR PEUT QUITTER LE REPÈRE' : 'TOUS LES APPUIS POSÉS + ESPACE',
+      sub: `Pression ${Math.round(site.pressure)} % · fatigue ${Math.round(panel.fatigue)} %`, color: facts.panelSecured || panel.supported ? mint : panel.destroyed ? danger : ochre,
+      progress: panel.manualWorking ? panel.manualProgress : !panel.locked && panel.latchProgress > 0 ? panel.latchProgress : null, width: 306 });
+    entries.push({ x: valve.x, y: valve.y - valve.h / 2 - 111, title: 'COMMANDE DES TROIS-VANNES',
+      detail: valve.completed ? 'POMPES EN SERVICE' : valve.working ? `MANŒUVRE ${Math.round(valve.progress * 100)} %` : !facts.manifestRead ? 'E · COMPILER LES DEUX RELEVÉS' : !s.decision.resolved ? 'E · CHOISIR LE CIRCUIT' : 'E · ACTIONNER LA VANNE',
+      sub: facts.circuit === 'imperial' ? `Quai privé · niveau ${Math.round(site.waterLevel * 100)} %` : facts.circuit === 'diversion' ? `Dérivation · niveau ${Math.round(site.waterLevel * 100)} %` : 'Le choix devra être suivi de travaux',
+      color: valve.completed ? mint : ochre, progress: valve.working ? valve.progress : s.evidence.scanning ? s.evidence.scanProgress : null, width: 306 });
+    for (const entry of entries) {
+      if (!this.visible(entry.x, 0)) continue;
+      const half = entry.width / 2, x = clamp(entry.x, this.cameraX + half + 12, this.cameraX + W - half - 12);
+      const nearWalker = Math.abs(s.player.x - entry.x) < s.walker.width + 115;
+      const y = Math.max(290, Math.min(entry.y, nearWalker ? s.player.y - 132 : entry.y));
+      c.fillStyle = '#112e35ed'; c.fillRect(x - half, y, entry.width, 65);
+      line(c, x - half, y, x + half, y, entry.color, 1.5);
+      label(c, entry.title, x, y + 18, 11, entry.color, 'center');
+      label(c, entry.detail, x, y + 36, 9, '#d1d9be', 'center');
+      label(c, entry.sub, x, y + 53, 9, '#9ebeb0', 'center');
+      if (entry.progress !== null) {
+        c.fillStyle = '#35564f'; c.fillRect(x - half, y + 62, entry.width, 3);
+        c.fillStyle = entry.color; c.fillRect(x - half, y + 62, entry.width * clamp(entry.progress, 0, 1), 3);
+      }
+    }
   }
 
   drawChannel(s, t) {
@@ -2779,6 +3389,25 @@ class Renderer {
   drawEnemy(e, s, t) {
     const c = this.ctx;
     if (e.kind === 'infantry') this.drawHuman(e, t);
+    else if (e.type === 'skimmer') {
+      this.drawShadow(e.x, e.y + e.h / 2, e.w * .56, 6);
+      c.save(); c.translate(e.x, e.y); c.scale(e.facing || -1, 1);
+      // Shallow hull and long runners distinguish the channel raider from wheeled buggies.
+      for (const yy of [13, 21]) {
+        poly(c, [[-48, yy - 6], [37, yy - 6], [49, yy - 13], [46, yy], [-43, yy]], '#536d65', '#172f37', 2);
+        line(c, -39, yy - 5, 37, yy - 5, '#c0b88c', 2);
+      }
+      plate(c, [[-43, -10], [-26, -20], [24, -20], [44, -10], [37, 7], [-37, 7]], '#9a9f81', '#365852');
+      plate(c, [[-19, -20], [-11, -31], [16, -31], [27, -19]], '#b2b28d', '#4d6c5d');
+      poly(c, [[-9, -27], [13, -27], [20, -20], [-14, -20]], '#203e45', '#b6c6a6', 1.5);
+      line(c, 16, -29, 52, -29, '#203941', 6);
+      line(c, 19, -32, 50, -32, '#c2c7a6', 1.5);
+      for (let i = 0; i < 4; i++) line(c, -33 + i * 7, -9, -30 + i * 7, 2, '#1f3e43', 3);
+      bolt(c, -34, -5, 2); bolt(c, 31, -5, 2);
+      c.fillStyle = '#d4b47d'; c.fillRect(34, -8, 5, 3);
+      if (e.active && e.phase !== 'attack') for (let i = 0; i < 3; i++) line(c, -51 - i * 7, 17 - i * 3, -42 - i * 7, 17 - i * 3, '#b3d5c277', 1.5);
+      c.restore();
+    }
     else if (e.kind === 'vehicle') {
       this.drawShadow(e.x, e.y + e.h / 2, 53, 7);
       c.save(); c.translate(e.x, e.y);
@@ -2911,7 +3540,7 @@ class Renderer {
   }
 
   drawCampaignLandmarks(s, t) {
-    if (s.channel) return;
+    if (s.channel || s.dike) return;
     if (s.train) { this.drawRailHarpoons(s, t); return; }
     if (s.network) { this.drawNetworkStations(s, t); return; }
     if (s.industrial) { this.drawIndustrialStation(s, t); return; }
@@ -3472,6 +4101,16 @@ class Renderer {
       for (const w of s.channel.winches) circle(c, toX(w.x), by, 3, w.released ? '#9fd5bd' : '#e3b476');
       const boat = s.channel.boat; c.fillStyle = boat.destroyed ? '#d58c73' : '#9cd9ce'; c.fillRect(toX(boat.x) - 4, by - 4, 8, 7);
     }
+    if (s.dike) {
+      for (const house of s.dike.houses) {
+        c.fillStyle = house.destroyed || house.flooded ? '#dc997b' : house.inspected ? '#a2d3bb' : '#e3c184';
+        c.fillRect(toX(house.x) - 3, by - 4, 6, 8);
+      }
+      circle(c, toX(s.dike.panel.x), by, 4, s.campaign.panelSecured ? '#a2d3bb' : '#e3c184');
+      circle(c, toX(s.dike.auxiliary.x), by + 7, 3, s.dike.auxiliary.destroyed ? '#dc997b' : s.dike.auxiliary.active ? '#a2d3bb' : '#708d7c');
+      for (const person of s.dike.technicians) if (person.alive) circle(c, toX(person.x), by - 7, 2, '#cce3cb');
+      line(c, toX(s.mission.dike.shelterX), by - 5, toX(s.mission.dike.shelterX), by + 5, '#9fd7c6', 3);
+    }
     const px = toX(s.player.x); poly(c, [[px, by - 8], [px + 5, by - 15], [px - 5, by - 15]], '#e2c893');
     const exitX = toX(s.extraction.x); line(c, exitX, by - 7, exitX, by + 7, s.extraction.active ? '#c6dfb1' : '#657b73', 2);
     label(c, 'ROUTE OPÉRATIONNELLE', bx, by + 24, 9, '#899b92');
@@ -3620,16 +4259,16 @@ __modules["src/campaign.mjs"] = (() => {
  * Every campaign transition returns a new value; gameplay remains in simulation.mjs.
  */
 const { WALKERS, DIFFICULTIES, ENEMY_TYPES } = __modules["src/content.mjs"];
-const { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt } = __modules["src/simulation.mjs"];
+const { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt, dikeDecisionBody, dikeSupportReady } = __modules["src/simulation.mjs"];
 const CAMPAIGN_SAVE_KEY = 'imperium.campaign.v1';
 const CAMPAIGN_BACKUP_KEY = 'imperium.campaign.v1.backup';
-const CAMPAIGN_SAVE_VERSION = 5;
+const CAMPAIGN_SAVE_VERSION = 6;
 const FORMAT = 'ordre-de-cendre.campaign';
 const MAX_BYTES = 2_000_000;
 const INITIAL_PARTS = 6;
 const DELIVERY_PARTS = 4;
 const PIPE_PARTS = 2;
-const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'];
+const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06'];
 const LEGACY_WALKER_IDS = ['WK01', 'WK05', 'WK09'];
 const clone = value => JSON.parse(JSON.stringify(value));
 const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
@@ -3767,7 +4406,7 @@ function validateGame(value, finished = false) {
   } else requireValue(value.convoy === null, 'convoi inattendu');
   requireValue(value.decision.choice === null || ['obey', 'defy'].includes(value.decision.choice), 'décision inconnue');
   for (const key of ['title', 'body', 'options']) {
-    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : null;
+    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : null;
     const expected = key === 'body' && dynamicBody && (value.decision.active || value.decision.resolved)
       ? dynamicBody(value) : template.decision[key];
     requireValue(JSON.stringify(value.decision[key]) === JSON.stringify(expected), 'texte de décision incompatible');
@@ -3782,6 +4421,10 @@ function validateGame(value, finished = false) {
     number(objective.target, 1, 100000, 'cible d’objectif');
   }
   const mission = value.campaign;
+  if (value.missionId === 'MI06') {
+    validateDikeMission(value, template);
+    return value;
+  }
   if (value.missionId === 'MI05') {
     validateChannelMission(value, template);
     return value;
@@ -3986,7 +4629,7 @@ function createCampaign() {
     world: { vesper: { pipeIntact: true, pipeRepaired: false, servicesInterrupted: false, filtersDelivered: false,
       filtersDeliveredCount: 0, calesBassesExcluded: false, noticeFiled: false,
       rail: createRailDossier(), communications: createCommunicationsDossier(), industrial: createIndustrialDossier() },
-      nacre: { passage: createChannelDossier() } },
+      nacre: { passage: createChannelDossier(), dike: createDikeDossier(), fuelSpent: 0 } },
     fleet: Object.fromEntries(WALKERS.map(walker => [walker.id, { hull: walker.hull, feet: Array(walker.legs).fill(100), radiator: 100 }])),
     checkpoint: null, preDecisionCheckpoint: null, lastDebrief: null, maintenanceLog: [],
   };
@@ -4099,8 +4742,110 @@ function createChannelDossier() {
     manifestRead: false, reportFiled: false };
 }
 
+function createDikeDossier() {
+  return { thresholdsInspected: 0, evacuationOrdered: false, residentsTotal: 0, residentsSafe: 0, residentsLost: 0,
+    homesTotal: 0, homesUninhabitable: 0, techniciansTotal: 0, techniciansAlive: 0, techniciansLost: 0,
+    panelSecured: false, panelsLocked: 0, emergencyShoring: false, dikeFatigue: 0,
+    pumpsOnline: false, circuit: 'unselected', auxiliaryUsed: false, fuelSpent: 0,
+    manualIntervention: false, manifestRead: false, reportFiled: false };
+}
+
+function validateDikeFacts(facts, finished = false) {
+  for (const key of ['evacuationOrdered', 'panelSecured', 'emergencyShoring', 'pumpsOnline', 'auxiliaryUsed', 'manualIntervention', 'manifestRead', 'reportFiled']) boolean(facts[key], `digue ${key}`);
+  requireValue(facts.residentsTotal === 10 && facts.homesTotal === 2 && facts.techniciansTotal === 2, 'effectifs de la digue');
+  for (const [key, max] of [['thresholdsInspected', 2], ['residentsSafe', 10], ['residentsLost', 10], ['homesUninhabitable', 2], ['techniciansAlive', 2], ['techniciansLost', 2], ['panelsLocked', 1]]) number(facts[key], 0, max, `digue ${key}`, true);
+  requireValue(facts.residentsSafe + facts.residentsLost <= facts.residentsTotal, 'bilan des habitants impossible');
+  requireValue(facts.techniciansAlive + facts.techniciansLost === facts.techniciansTotal, 'bilan des techniciens contradictoire');
+  requireValue(facts.panelSecured === (facts.panelsLocked === 1 || facts.emergencyShoring), 'panneau sécurisé sans verrou ni étai');
+  number(facts.dikeFatigue, 0, 100, 'fatigue de digue');
+  requireValue(['unselected', 'imperial', 'diversion'].includes(facts.circuit), 'circuit de pompage');
+  requireValue(facts.fuelSpent === (facts.auxiliaryUsed ? 2 : 0), 'consommation sans branchement auxiliaire');
+  requireValue(!facts.pumpsOnline || facts.circuit !== 'unselected', 'pompe sans circuit choisi');
+  if (finished) requireValue(facts.thresholdsInspected === 2 && facts.panelSecured && facts.pumpsOnline && facts.manifestRead && facts.residentsSafe + facts.residentsLost === facts.residentsTotal, 'dossier de digue incomplet');
+}
+
+function validateDikeMission(value, template) {
+  const facts = value.campaign, site = value.dike, initial = template.dike;
+  requireValue(isObject(facts) && facts.missionId === 'MI06' && isObject(site), 'chantier de digue absent');
+  requireValue(['approach', 'inspection', 'support', 'routing', 'operation', 'report', 'complete'].includes(facts.phase), 'phase de digue');
+  validateDikeFacts(facts, value.status === 'won');
+  for (const key of ['channelOpen', 'smugglerVerified']) boolean(facts.context[key], `héritage de la digue ${key}`);
+  for (const key of ['refugeesPassed', 'refugeesLost']) number(facts.context[key], 0, 12, `héritage de la digue ${key}`, true);
+  number(facts.context.bargeCiviliansLost, 0, 4, 'équipage hérité', true);
+  requireValue([0, 2].includes(facts.context.fuelAvailable) && facts.fuelSpent <= facts.context.fuelAvailable, 'budget de carburant de la sortie');
+  requireValue(facts.context.refugeesPassed + facts.context.refugeesLost === 12, 'traversée héritée incomplète');
+  for (const group of ['houses', 'residents', 'technicians', 'covers']) {
+    requireValue(Array.isArray(site[group]) && site[group].length === initial[group].length, `${group} de digue incomplet`);
+    for (let index = 0; index < site[group].length; index++) {
+      const item = site[group][index], original = initial[group][index];
+      matchesShape(item, original, `${group}[${index}]`);
+      for (const key of ['id', 'homeId', 'w', 'h', 'maxHp', 'population', 'route']) if (own(original, key)) requireValue(item[key] === original[key], `identité ${group} ${key}`);
+      if (['houses', 'covers'].includes(group)) for (const key of ['x', 'y']) requireValue(item[key] === original[key], `position ${group} ${key}`);
+      else { number(item.x, 0, value.mission.length, `position ${group}`); number(item.y, -1000, 2000, `hauteur ${group}`); }
+    }
+  }
+  for (const key of ['panel', 'auxiliary', 'valve']) {
+    matchesShape(site[key], initial[key], `digue ${key}`);
+    for (const field of ['id', 'x', 'y', 'w', 'h', 'maxHp', 'supportX', 'workX']) if (own(initial[key], field)) requireValue(site[key][field] === initial[key][field], `identité ${key} ${field}`);
+  }
+  for (const item of [...site.houses, ...site.covers, site.panel, site.auxiliary]) {
+    number(item.hp, 0, item.maxHp, 'intégrité du chantier'); boolean(item.destroyed, 'destruction du chantier');
+    requireValue(item.destroyed === (item.hp === 0), 'destruction du chantier contradictoire');
+    number(item.flash, 0, 10, 'impact du chantier');
+  }
+  for (const house of site.houses) {
+    for (const key of ['inspected', 'scanning', 'flooded']) boolean(house[key], `maison ${key}`);
+    number(house.scanProgress, 0, 1, 'inspection des seuils');
+    requireValue(!house.inspected || (house.scanProgress === 1 && !house.scanning), 'seuil relevé sans inspection');
+  }
+  for (const resident of site.residents) {
+    number(resident.hp, 0, resident.maxHp, 'santé habitant');
+    for (const key of ['alive', 'safe']) boolean(resident[key], `habitant ${key}`);
+    requireValue(['home', 'evacuating', 'sheltered', 'lost'].includes(resident.phase), 'phase habitant');
+    requireValue(resident.alive === (resident.hp > 0), 'survie habitant contradictoire');
+    requireValue(resident.safe === (resident.phase === 'sheltered') && (!resident.safe || resident.alive), 'abri habitant contradictoire');
+    requireValue((resident.phase === 'lost') === !resident.alive, 'décès habitant contradictoire');
+  }
+  for (const tech of site.technicians) {
+    number(tech.hp, 0, tech.maxHp, 'santé technicien');
+    for (const key of ['alive', 'called', 'arrived', 'covering']) boolean(tech[key], `technicien ${key}`);
+    requireValue(['waiting', 'moving', 'cover', 'locking', 'onsite', 'lost'].includes(tech.phase), 'phase technicien');
+    requireValue(tech.alive === (tech.hp > 0) && (tech.phase === 'lost') === !tech.alive, 'survie technicien contradictoire');
+  }
+  const { panel, auxiliary, valve } = site;
+  for (const key of ['supported', 'locked', 'manualWorking', 'emergencyShoring', 'loaded']) boolean(panel[key], `panneau ${key}`);
+  for (const key of ['latchProgress', 'manualProgress']) number(panel[key], 0, 1, `panneau ${key}`);
+  number(panel.fatigue, 0, 100, 'fatigue du panneau');
+  for (const key of ['connected', 'active', 'working']) boolean(auxiliary[key], `auxiliaire ${key}`);
+  number(auxiliary.progress, 0, 1, 'branchement auxiliaire');
+  requireValue(!auxiliary.connected || auxiliary.progress === 1, 'branchement auxiliaire incomplet');
+  requireValue(!auxiliary.active || (auxiliary.connected && !auxiliary.destroyed), 'pompe auxiliaire inactive matériellement');
+  for (const key of ['working', 'completed']) boolean(valve[key], `vanne ${key}`);
+  number(valve.progress, 0, 1, 'travail de vanne');
+  requireValue(!valve.completed || (valve.progress === 1 && !valve.working), 'vanne inachevée');
+  number(site.pressure, 0, 100, 'pression de digue'); number(site.waterLevel, 0, 1, 'niveau des maisons'); number(site.floodingElapsed, 0, value.elapsed, 'temps d’inondation');
+  requireValue(facts.thresholdsInspected === site.houses.filter(item => item.inspected).length, 'décompte des seuils');
+  requireValue(facts.residentsSafe === site.residents.filter(item => item.safe).length && facts.residentsLost === site.residents.filter(item => !item.alive).length, 'bilan des habitants contradictoire');
+  requireValue(facts.techniciansAlive === site.technicians.filter(item => item.alive).length && facts.techniciansLost === site.technicians.filter(item => !item.alive).length, 'bilan des techniciens contradictoire');
+  requireValue(facts.homesUninhabitable === site.houses.filter(item => item.destroyed || item.flooded).length, 'bilan des logements contradictoire');
+  requireValue(facts.panelsLocked === Number(panel.locked) && facts.emergencyShoring === panel.emergencyShoring && facts.dikeFatigue === panel.fatigue, 'bilan du panneau contradictoire');
+  requireValue(facts.auxiliaryUsed === auxiliary.connected, 'carburant sans branchement réel');
+  requireValue(auxiliary.active === (auxiliary.connected && !auxiliary.destroyed), 'activité auxiliaire contradictoire');
+  requireValue(facts.pumpsOnline === valve.completed, 'pompes sans opération de vanne');
+  requireValue(panel.supported === (dikeSupportReady(value) && !panel.destroyed && !panel.locked && !panel.emergencyShoring), 'soutien sans appuis ancrés');
+  requireValue(facts.manifestRead === value.evidence.collected, 'constat des seuils contradictoire');
+  requireValue(facts.reportFiled === (value.decision.choice === 'defy'), 'rapport de digue contradictoire');
+  requireValue(facts.circuit === (value.decision.choice === 'defy' ? 'diversion' : value.decision.choice === 'obey' ? 'imperial' : 'unselected'), 'circuit contraire à la décision');
+  requireValue(value.stats.evidence === 0, 'le chantier ne fournit aucune nouvelle preuve PALINODE');
+  if (value.status === 'won') requireValue(facts.phase === 'complete' && value.decision.resolved && value.objectives.every(item => item.complete), 'victoire de digue sans objectifs accomplis');
+}
+
 function campaignContextFor(campaign, missionId) {
   const world = campaign.world.vesper;
+  if (missionId === 'MI06') {
+    const passage = campaign.world.nacre.passage;
+    return { fuelAvailable: campaign.resources.fuel, ...Object.fromEntries(['channelOpen', 'refugeesPassed', 'refugeesLost', 'smugglerVerified', 'bargeCiviliansLost'].map(key => [key, passage[key]])) };
+  }
   if (missionId === 'MI05') return { technicalEvidence: world.industrial.technicalEvidence,
     railHostagesRescued: world.rail.hostagesRescued, railRecordFiled: world.rail.recordFiled };
   const context = Object.fromEntries(['pipeIntact', 'pipeRepaired', 'noticeFiled', 'servicesInterrupted'].map(key => [key, world[key]]));
@@ -4109,6 +4854,38 @@ function campaignContextFor(campaign, missionId) {
   if (missionId === 'MI04') Object.assign(context, { dispensaryIntact: world.communications.dispensaryIntact,
     witnessAvailable: world.communications.witnessAvailable, civilRelaysOnline: world.communications.civilRelaysOnline });
   return context;
+}
+
+function validateDikeContext(campaign, snapshot, beforeDecision = false) {
+  const current = campaign.checkpoint?.missionId === 'MI06' ? campaign.checkpoint : null;
+  const reference = current?.campaign || campaign.completed.MI06;
+  requireValue(Boolean(reference), 'point de digue sans sortie de référence');
+  const expected = campaignContextFor(campaign, 'MI06');
+  expected.fuelAvailable += reference.fuelSpent;
+  requireValue([0, 2].includes(expected.fuelAvailable) && expected.fuelAvailable <= campaign.world.nacre.passage.fuelLots, 'budget initial de digue contradictoire');
+  requireValue(Object.keys(expected).every(key => snapshot.campaign.context[key] === expected[key]), 'héritage de la digue contradictoire');
+  requireValue(snapshot.campaign.fuelSpent <= campaign.world.nacre.fuelSpent, 'carburant du point non débité');
+  if (beforeDecision) {
+    requireValue(snapshot.campaign.fuelSpent <= reference.fuelSpent, 'point antérieur dépensant davantage que la sortie');
+    requireValue(snapshot.elapsed <= (current?.elapsed ?? campaign.completed.MI06.elapsed), 'point de décision postérieur au bilan');
+    if (current) requireValue(snapshot.walkerId === current.walkerId && snapshot.seed === current.seed && snapshot.difficultyId === current.difficultyId, 'point de décision d’une autre sortie');
+  }
+}
+
+// Fuel is debited when the physical connection completes, including the last
+// frame of a failed sortie. A restart receives the remaining stock, never a refund.
+function applyDikeFuel(next, previous, game) {
+  if (game.missionId !== 'MI06') return;
+  const old = previous.checkpoint;
+  requireValue(old?.missionId === 'MI06', 'consommation hors sortie officielle');
+  requireValue(game.walkerId === old.walkerId && game.seed === old.seed && game.difficultyId === old.difficultyId && game.elapsed >= old.elapsed, 'recul ou changement de sortie de digue');
+  requireValue(JSON.stringify(game.campaign.context) === JSON.stringify(old.campaign.context), 'budget ou héritage modifié pendant la sortie');
+  requireValue(old.status === 'playing' || JSON.stringify(game) === JSON.stringify(old), 'sortie perdue à recommencer explicitement');
+  const delta = game.campaign.fuelSpent - old.campaign.fuelSpent;
+  requireValue([0, 2].includes(delta) && delta <= next.resources.fuel, 'consommation répétée ou recul du carburant');
+  next.resources.fuel -= delta;
+  next.world.nacre.fuelSpent += delta;
+  requireValue(next.world.nacre.fuelSpent <= 2, 'dépense de carburant supérieure à la collecte');
 }
 
 /** A finished sortie returns to the hangar; completion is tracked per mission. */
@@ -4123,7 +4900,7 @@ function validateReceipt(receipt) {
   const specificKeys = receipt.missionId === 'MI01' ? ['convoyIntegrity', 'route', 'pipeIntact', 'noticeFiled', 'filtersDeliveredCount', 'pipeRepairCost']
     : receipt.missionId === 'MI02' ? ['trainIntegrity', 'trainStopped', 'harpoonsReleased', 'hostagesTotal', 'hostagesRescued', 'hostagesLost', 'evidencePreserved', 'recordFiled']
       : receipt.missionId === 'MI03' ? ['signalsIdentified', 'militaryRelayDisabled', 'verifiedBuildings', 'networkPreserved', 'civilRelaysOnline', 'dispensaryIntact', 'witnessAvailable', 'residentsLost', 'holtAlerted', 'reportFiled']
-        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : Object.keys(createChannelDossier());
+        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : receipt.missionId === 'MI05' ? Object.keys(createChannelDossier()) : Object.keys(createDikeDossier());
   const expectedKeys = [...commonKeys, ...specificKeys];
   requireValue(Object.keys(receipt).length === expectedKeys.length && expectedKeys.every(key => own(receipt, key)), 'champs du rapport incompatibles');
   for (const key of ['walkerName', 'missionName', 'decisionLabel', 'tessLine', 'samiLine']) requireValue(typeof receipt[key] === 'string', `rapport ${key}`);
@@ -4136,6 +4913,11 @@ function validateReceipt(receipt) {
   number(receipt.collateral, 0, 1000, 'pertes civiles', true);
   number(receipt.kills, 0, 1000, 'adversaires neutralisés', true);
   requireValue(receipt.partsGranted === DELIVERY_PARTS, 'dotation du rapport');
+  if (receipt.missionId === 'MI06') {
+    validateDikeFacts(receipt, true);
+    requireValue(receipt.reportFiled === (receipt.choice === 'defy') && receipt.circuit === (receipt.choice === 'defy' ? 'diversion' : 'imperial'), 'rapport de digue contradictoire');
+    return;
+  }
   if (receipt.missionId === 'MI05') {
     validateChannelFacts(receipt, true);
     requireValue(receipt.reportFiled === (receipt.choice === 'defy'), 'rapport du chenal contradictoire');
@@ -4191,7 +4973,9 @@ function validateCampaign(campaign) {
   requireValue(Object.keys(campaign.completed).every(id => MISSION_IDS.includes(id)), 'mission validée inconnue');
   for (let index = 1; index < MISSION_IDS.length; index++) requireValue(!own(campaign.completed, MISSION_IDS[index]) || own(campaign.completed, MISSION_IDS[index - 1]), `${MISSION_IDS[index]} sans dossier ${MISSION_IDS[index - 1]}`);
   number(campaign.resources.parts, 0, INITIAL_PARTS + Object.keys(campaign.completed).length * DELIVERY_PARTS, 'lots d’atelier', true);
-  number(campaign.resources.fuel, 0, 2, 'lots de carburant', true);
+  requireValue([0, 2].includes(campaign.resources.fuel), 'lots de carburant');
+  requireValue([0, 2].includes(campaign.world.nacre.fuelSpent), 'consommation cumulée de Nacre');
+  requireValue(campaign.world.nacre.fuelSpent === 0 || campaign.activeMissionId === 'MI06' || own(campaign.completed, 'MI06'), 'dépense avant le chantier de digue');
   number(campaign.crew.tess.trust, 0, 100, 'relation Tess', true);
   number(campaign.crew.sami.trust, 0, 100, 'relation Sami', true);
   boolean(campaign.authority.reportFiled, 'rapport administratif');
@@ -4222,7 +5006,8 @@ function validateCampaign(campaign) {
     number(log.cost, 1, 6, 'coût intervention', true);
   }
   if (campaign.checkpoint !== null) {
-    validateGame(campaign.checkpoint);
+    validateGame(campaign.checkpoint, campaign.checkpoint.missionId === 'MI06' && campaign.checkpoint.status === 'lost');
+    if (campaign.checkpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.checkpoint);
     requireValue(campaign.checkpoint.missionId === campaign.activeMissionId, 'checkpoint d’une autre mission');
     if (['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.checkpoint.missionId)) {
       requireValue(JSON.stringify(campaign.checkpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.checkpoint.missionId)), 'héritage des missions précédentes contradictoire');
@@ -4230,6 +5015,7 @@ function validateCampaign(campaign) {
   }
   if (campaign.preDecisionCheckpoint !== null) {
     validateGame(campaign.preDecisionCheckpoint);
+    if (campaign.preDecisionCheckpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.preDecisionCheckpoint, true);
     requireValue(campaign.preDecisionCheckpoint.decision.active && !campaign.preDecisionCheckpoint.decision.resolved, 'checkpoint avant décision incompatible');
     if (campaign.stage === 'mission' && ['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.preDecisionCheckpoint.missionId)) requireValue(JSON.stringify(campaign.preDecisionCheckpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.preDecisionCheckpoint.missionId)), 'héritage du point de décision contradictoire');
   }
@@ -4265,11 +5051,16 @@ function validateCampaign(campaign) {
   const passage = campaign.world.nacre.passage;
   if (campaign.completed.MI05) {
     for (const key of Object.keys(createChannelDossier())) requireValue(passage[key] === campaign.completed.MI05[key], `dossier de Nacre ${key}`);
-    requireValue(campaign.resources.fuel === passage.fuelLots, 'carburant sans collecte correspondante');
+    requireValue(campaign.resources.fuel + campaign.world.nacre.fuelSpent === passage.fuelLots, 'bilan de carburant sans collecte ou consommation correspondante');
   } else {
     requireValue(JSON.stringify(passage) === JSON.stringify(createChannelDossier()), 'résultat de Nacre sans dossier MI05');
-    requireValue(campaign.resources.fuel === 0, 'carburant obtenu avant Nacre');
+    requireValue(campaign.resources.fuel === 0 && campaign.world.nacre.fuelSpent === 0, 'carburant obtenu ou dépensé avant Nacre');
   }
+  if (campaign.completed.MI06) {
+    const report = campaign.completed.MI06;
+    for (const key of Object.keys(createDikeDossier())) requireValue(campaign.world.nacre.dike[key] === report[key], `dossier de digue ${key}`);
+    requireValue(report.fuelSpent <= campaign.world.nacre.fuelSpent, 'dépense du rapport supérieure au registre');
+  } else requireValue(JSON.stringify(campaign.world.nacre.dike) === JSON.stringify(createDikeDossier()), 'résultat de digue sans dossier MI06');
   if (campaign.stage === 'mission') {
     requireValue(campaign.checkpoint !== null && MISSION_IDS.includes(campaign.activeMissionId) && !own(campaign.completed, campaign.activeMissionId), 'mission sans checkpoint ou déjà achevée');
     const previousId = MISSION_IDS[MISSION_IDS.indexOf(campaign.activeMissionId) - 1];
@@ -4300,7 +5091,7 @@ function parseCampaign(text) {
 
 /** Add only documented fields to historical saves; completed receipts stay intact. */
 function migrateCampaign(value) {
-  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4].includes(value.version)) return value;
+  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4, 5].includes(value.version)) return value;
   walkJSON(value);
   requireValue(isObject(value.world) && isObject(value.world.vesper), 'Vesper absent du dossier historique');
   if (value.version === 1) {
@@ -4349,18 +5140,30 @@ function migrateCampaign(value) {
     value.world.vesper.industrial = createIndustrialDossier();
     value.version = 4;
   }
-  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01', 'MI02', 'MI03', 'MI04'].includes(id)), 'dossier v4 contient une mission inconnue');
-  requireValue(value.activeMissionId === null || ['MI01', 'MI02', 'MI03', 'MI04'].includes(value.activeMissionId), 'mission active v4 inconnue');
-  requireValue(!own(value.world, 'nacre'), 'dossier historique contient déjà des résultats de Nacre');
-  requireValue(isObject(value.resources) && !own(value.resources, 'fuel'), 'carburant inattendu dans le dossier historique');
-  for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
-    requireValue(isObject(checkpoint) && ['MI01', 'MI02', 'MI03', 'MI04'].includes(checkpoint.missionId), 'checkpoint v4 inconnu');
-    requireValue(!own(checkpoint, 'channel'), 'chenal inattendu dans un checkpoint de Vesper');
+  if (value.version === 4) {
+    requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01', 'MI02', 'MI03', 'MI04'].includes(id)), 'dossier v4 contient une mission inconnue');
+    requireValue(value.activeMissionId === null || ['MI01', 'MI02', 'MI03', 'MI04'].includes(value.activeMissionId), 'mission active v4 inconnue');
+    requireValue(!own(value.world, 'nacre'), 'dossier historique contient déjà des résultats de Nacre');
+    requireValue(isObject(value.resources) && !own(value.resources, 'fuel'), 'carburant inattendu dans le dossier historique');
+    for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
+      requireValue(isObject(checkpoint) && ['MI01', 'MI02', 'MI03', 'MI04'].includes(checkpoint.missionId), 'checkpoint v4 inconnu');
+      requireValue(!own(checkpoint, 'channel'), 'chenal inattendu dans un checkpoint de Vesper');
+    }
+    // No mission state, receipt or workshop condition is rewritten. Vesper v4
+    // already contains its exact radiator/ammunition state; Nacre starts unvisited.
+    value.world.nacre = { passage: createChannelDossier() };
+    value.resources.fuel = 0;
+    value.version = 5;
   }
-  // No mission state, receipt or workshop condition is rewritten. Vesper v4
-  // already contains its exact radiator/ammunition state; Nacre starts unvisited.
-  value.world.nacre = { passage: createChannelDossier() };
-  value.resources.fuel = 0;
+  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(id)), 'dossier v5 contient une mission inconnue');
+  requireValue(value.activeMissionId === null || ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(value.activeMissionId), 'mission active v5 inconnue');
+  requireValue(isObject(value.world.nacre) && !own(value.world.nacre, 'dike') && !own(value.world.nacre, 'fuelSpent'), 'digue ou dépense inattendue dans le dossier historique');
+  for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
+    requireValue(isObject(checkpoint) && ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(checkpoint.missionId), 'checkpoint v5 inconnu');
+    requireValue(!own(checkpoint, 'dike'), 'chantier inattendu dans un checkpoint historique');
+  }
+  value.world.nacre.dike = createDikeDossier();
+  value.world.nacre.fuelSpent = 0;
   value.version = CAMPAIGN_SAVE_VERSION;
   return value;
 }
@@ -4378,7 +5181,7 @@ function unsupportedDossier(text) {
   try {
     const value = JSON.parse(text);
     return isObject(value) && ((typeof value.format === 'string' && value.format !== FORMAT) ||
-      (value.format === FORMAT && ![1, 2, 3, 4, CAMPAIGN_SAVE_VERSION].includes(value.version)));
+      (value.format === FORMAT && ![1, 2, 3, 4, 5, CAMPAIGN_SAVE_VERSION].includes(value.version)));
   } catch { return false; }
 }
 
@@ -4428,10 +5231,12 @@ function beginCampaignMission(campaign, options = {}) {
   if (missionId === 'MI03' && !campaign.completed.MI02) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le dossier du train avant de rejoindre les émetteurs de Vesper.' };
   if (missionId === 'MI04' && !campaign.completed.MI03) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le constat des émetteurs avant de rejoindre la station industrielle.' };
   if (missionId === 'MI05' && !campaign.completed.MI04) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le dossier de Vesper avant de rejoindre le chenal de Nacre.' };
+  if (missionId === 'MI06' && !campaign.completed.MI05) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le rapport du chenal avant de rejoindre les maisons des Trois-Vannes.' };
   const walkerId = WALKERS.some(walker => walker.id === options.walkerId) ? options.walkerId : WALKERS[0].id;
   const replay = Boolean(options.replay || own(campaign.completed, missionId));
   if (!replay && campaign.stage === 'mission' && !options.restart) return { ok: false, campaign, game: null, replay: false, message: 'Une sortie est déjà en cours. Reprenez-la ou recommencez-la explicitement.' };
   const campaignContext = campaignContextFor(campaign, missionId);
+  if (replay && missionId === 'MI06') campaignContext.fuelAvailable = campaign.completed.MI06 ? campaign.resources.fuel + campaign.completed.MI06.fuelSpent : campaign.checkpoint?.missionId === 'MI06' ? campaign.checkpoint.campaign.context.fuelAvailable : campaign.resources.fuel;
   const game = createGame({ missionId, walkerId, difficulty: options.difficulty, assist: options.assist, seed: options.seed, campaignContext });
   requireValue(game.missionId === missionId, 'mission de campagne indisponible');
   if (replay) return { ok: true, campaign, game, replay: true, message: 'Rejeu d’entraînement : le dossier de campagne reste inchangé.' };
@@ -4447,17 +5252,20 @@ function beginCampaignMission(campaign, options = {}) {
     : missionId === 'MI02' ? 'Le dossier du viaduc est ouvert. Retrouvez le train et ceux qu’il transporte.'
       : missionId === 'MI03' ? 'Les émetteurs de Vesper sont accessibles. Identifiez chaque signal avant de rendre votre compte rendu.'
         : missionId === 'MI04' ? 'La station industrielle est accessible. Refroidissez les turbines et relevez ce qui reste du journal de maintenance.'
-          : 'L’affectation de Nacre est ouverte. Libérez le chenal et vérifiez les deux équipages avant de signer votre rapport.';
+          : missionId === 'MI05' ? 'L’affectation de Nacre est ouverte. Libérez le chenal et vérifiez les deux équipages avant de signer votre rapport.'
+            : 'La digue des Trois-Vannes vous attend. Relevez les seuils et soutenez le chantier avant de choisir le circuit.';
   return { ok: true, campaign: next, game, replay: false, message };
 }
 
 function checkpointCampaign(campaign, game, options = {}) {
   validateCampaign(campaign);
-  if (options.replay || own(campaign.completed, game?.missionId) || game?.status !== 'playing') return campaign;
+  const terminalDike = game?.missionId === 'MI06' && game.status === 'lost';
+  if (options.replay || own(campaign.completed, game?.missionId) || (game?.status !== 'playing' && !terminalDike)) return campaign;
   requireValue(campaign.stage === 'mission' && campaign.activeMissionId === game.missionId, 'aucune campagne active pour cette mission');
   const snapshot = clone(game);
-  validateGame(snapshot);
+  validateGame(snapshot, terminalDike);
   const next = clone(campaign);
+  applyDikeFuel(next, campaign, snapshot);
   next.checkpoint = snapshot; next.revision++;
   if ((options.beforeDecision || snapshot.decision.active) && snapshot.decision.active && !next.preDecisionCheckpoint) next.preDecisionCheckpoint = clone(snapshot);
   validateCampaign(next);
@@ -4468,11 +5276,19 @@ function restoreCampaignGame(campaign, options = {}) {
   validateCampaign(campaign);
   if (campaign.stage !== 'mission' || own(campaign.completed, campaign.activeMissionId)) return null;
   const snapshot = options.beforeDecision ? campaign.preDecisionCheckpoint : campaign.checkpoint;
-  return snapshot ? clone(validateGame(snapshot)) : null;
+  if (options.beforeDecision && campaign.activeMissionId === 'MI06' && (campaign.checkpoint.status === 'lost' || (snapshot && (snapshot.elapsed < campaign.checkpoint.elapsed || snapshot.campaign.fuelSpent < campaign.checkpoint.campaign.fuelSpent)))) return null;
+  return snapshot ? clone(validateGame(snapshot, snapshot.missionId === 'MI06' && snapshot.status === 'lost')) : null;
 }
 
 function crewLines(game) {
   const mission = game.campaign;
+  if (game.missionId === 'MI06') {
+    const shelter = `${mission.residentsSafe} habitants ont rejoint l’abri. ${mission.residentsLost} sont morts ; leur bilan reste distinct des douze passagers du chenal.`;
+    const homes = mission.homesUninhabitable ? `${mission.homesUninhabitable} logement${mission.homesUninhabitable > 1 ? 's sont inhabitables' : ' est inhabitable'}. Évacuer les familles n’a pas rendu leurs maisons utilisables.` : 'Les deux maisons sont restées habitables au départ.';
+    const workers = `${mission.techniciansAlive} technicien${mission.techniciansAlive > 1 ? 's ont survécu' : ' a survécu'} au chantier ; ${mission.techniciansLost} décès sont consignés.`;
+    const support = mission.emergencyShoring ? 'Le maintien a exigé un étai manuel de secours.' : 'Le panneau a été verrouillé pendant le soutien du marcheur.';
+    return { tessLine: `${shelter} ${homes} ${support}`, samiLine: `${workers} ${mission.circuit === 'diversion' ? 'La dérivation vers les maisons est consignée au rapport.' : 'Le réglage impérial a remis le quai privé en service.'} ${mission.fuelSpent ? 'Deux lots ont alimenté la pompe auxiliaire pendant cette sortie.' : 'Cette sortie n’a consommé aucun lot de carburant.'}` };
+  }
   if (game.missionId === 'MI05') {
     const passage = mission.refugeesLost === 0
       ? 'Les douze passagers ont atteint le quai. Ils sont descendus par leurs propres moyens ; le chenal est resté ouvert assez longtemps.'
@@ -4544,17 +5360,24 @@ function crewLines(game) {
 function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(campaign);
   if (options.replay || own(campaign.completed, game?.missionId)) return { ok: true, campaign, receipt: campaign.completed[game?.missionId] || campaign.lastDebrief, applied: false, message: 'Rejeu terminé. Le rapport de campagne et les lots restent inchangés.' };
-  if (game?.status !== 'won') return { ok: true, campaign, receipt: null, applied: false, message: 'Aucune sortie validée. Le dernier checkpoint reste disponible.' };
+  if (game?.status !== 'won') {
+    const failed = game?.missionId === 'MI06' && game.status === 'lost' ? checkpointCampaign(campaign, game) : campaign;
+    return { ok: true, campaign: failed, receipt: null, applied: false, message: game?.missionId === 'MI06' && game.status === 'lost' ? 'Sortie perdue. La consommation déjà effectuée reste inscrite ; recommencez la mission avec le stock restant.' : 'Aucune sortie validée. Le dernier checkpoint reste disponible.' };
+  }
   requireValue(campaign.stage === 'mission' && campaign.activeMissionId === game.missionId, 'aucune sortie officielle en cours pour cette mission');
   validateGame(clone(game), true);
   const next = clone(campaign), mission = game.campaign;
+  applyDikeFuel(next, campaign, game);
   const commonReceipt = {
     missionId: game.missionId, missionName: game.mission.name, walkerId: game.walkerId, walkerName: `${game.walker.designation} ${game.walker.name}`,
     hull: game.player.hull, integrity: game.player.hull / game.player.maxHull,
     elapsed: game.elapsed, collateral: game.stats.collateral, kills: game.stats.kills, choice: game.decision.choice,
     partsGranted: DELIVERY_PARTS, ...crewLines(game),
   };
-  const receipt = game.missionId === 'MI05' ? {
+  const receipt = game.missionId === 'MI06' ? {
+    ...commonReceipt, ...Object.fromEntries(Object.keys(createDikeDossier()).map(key => [key, mission[key]])),
+    decisionLabel: mission.reportFiled ? 'Dérivation des maisons accomplie et constat joint' : 'Circuit impérial accompli au quai privé',
+  } : game.missionId === 'MI05' ? {
     ...commonReceipt, ...Object.fromEntries(Object.keys(createChannelDossier()).map(key => [key, mission[key]])),
     decisionLabel: mission.reportFiled ? 'Sort des passagers et constat des deux équipages joints au rapport' : 'Passage confirmé au bordereau impérial',
   } : game.missionId === 'MI04' ? {
@@ -4584,7 +5407,12 @@ function finishCampaignMission(campaign, game, options = {}) {
   next.stage = 'complete'; next.activeMissionId = null; next.checkpoint = null; next.revision++;
   next.resources.parts += DELIVERY_PARTS;
   next.fleet[game.walkerId] = { hull: game.player.hull, feet: game.player.feet.map(foot => foot.health), radiator: game.player.radiator.health };
-  if (game.missionId === 'MI05') {
+  if (game.missionId === 'MI06') {
+    next.world.nacre.dike = Object.fromEntries(Object.keys(createDikeDossier()).map(key => [key, mission[key]]));
+    next.authority.suspicion = clamp(next.authority.suspicion + (mission.reportFiled ? 3 : 0), 0, 100);
+    next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.residentsLost ? -mission.residentsLost : 2) - mission.techniciansLost, 0, 100);
+    next.crew.sami.trust = clamp(next.crew.sami.trust + (mission.reportFiled ? 2 : 0) - mission.residentsLost - mission.techniciansLost, 0, 100);
+  } else if (game.missionId === 'MI05') {
     next.world.nacre.passage = Object.fromEntries(Object.keys(createChannelDossier()).map(key => [key, mission[key]]));
     next.resources.fuel += mission.fuelLots;
     next.authority.suspicion = clamp(next.authority.suspicion + (mission.reportFiled ? 2 : 0), 0, 100);
@@ -4618,7 +5446,7 @@ function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(next);
   const action = game.missionId === 'MI01' ? 'Livraison inscrite au dossier.'
     : game.missionId === 'MI02' ? 'Récupération du train inscrite au dossier.' : game.missionId === 'MI03' ? 'Constat des émetteurs inscrit au dossier.'
-      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.';
+      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : game.missionId === 'MI05' ? 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.' : 'Le bilan des Trois-Vannes est inscrit au dossier : personnes, logements, chantier et carburant.';
   return { ok: true, campaign: next, receipt, applied: true, message: `${action} Quatre lots d’atelier ont été affectés au retour.` };
 }
 
@@ -4727,6 +5555,12 @@ const campaignOrders = {
     task: 'Rétablir le circuit, refroidir les deux turbines et inspecter le poste de maintenance.',
     caution: 'Préservez le journal. Les conduites, les ouvriers du train et le dispensaire changent vos moyens sur place.',
   },
+  MI06: {
+    status: 'Les marques de niveau traversent les fenêtres des Trois-Vannes. Mara demande du temps pour sortir les habitants.',
+    description: 'Deux techniciens attendent devant un panneau déformé. Votre marcheur peut porter la charge pendant leur travail. Le circuit prescrit protège le quai privé et met les maisons sous l’eau.',
+    task: 'Relever les seuils, tenir le panneau, couvrir les techniciens et achever le circuit choisi.',
+    caution: 'Ancrez tous les appuis pour soutenir la digue. Les personnes évacuées et les logements préservés ont des bilans distincts.',
+  },
   MI05: {
     status: 'Le chenal de Nacre est bloqué. Deux barges portent le même pavillon ; leurs équipages ne font pas le même travail.',
     description: 'Le bateau civil attend une fenêtre de marée devant les câbles du blocus. Depuis la digue, deux équipages vous appellent. Vérifiez ce qu’ils transportent avant de décider qui couvrir.',
@@ -4751,7 +5585,7 @@ function saveCampaign({ replaceInvalid = false } = {}) {
   return result.ok;
 }
 function captureCampaign(beforeDecision = false) {
-  if (activeMode !== 'campaign' || campaignReplay || !game || game.status !== 'playing') return;
+  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(game.missionId === 'MI06' && game.status === 'lost'))) return;
   try {
     campaign = checkpointCampaign(campaign, game, { beforeDecision });
     lastCampaignSaveAt = game.elapsed;
@@ -4764,10 +5598,20 @@ function captureCampaign(beforeDecision = false) {
 function renderCampaignStatus() {
   $('campaign-save-status').textContent = campaignBlocked
     ? 'Ce dossier ne peut pas être lu. Le fichier existant est conservé. Importez une copie valide ou créez un nouveau dossier.'
-    : campaignWarning || (campaign.checkpoint ? `Reprise enregistrée au dernier point de liaison. Exportez le dossier pour le transférer sur un autre appareil.` : 'La progression est conservée sur cet appareil. Exportez le dossier pour le transférer.');
+    : campaignWarning || (campaign.checkpoint?.status === 'lost' ? 'La sortie a échoué. Consultez le bilan ou recommencez ; le carburant déjà utilisé reste dépensé.' : campaign.checkpoint ? `Reprise enregistrée au dernier point de liaison. Exportez le dossier pour le transférer sur un autre appareil.` : 'La progression est conservée sur cet appareil. Exportez le dossier pour le transférer.');
   $('campaign-save-status').classList.toggle('save-warning', Boolean(campaignWarning || campaignBlocked));
 }
 function campaignReceiptFacts(receipt) {
+  if (receipt.missionId === 'MI06') return [
+    ['HABITANTS À L’ABRI', `${receipt.residentsSafe} / ${receipt.residentsTotal}`],
+    ['HABITANTS PERDUS', receipt.residentsLost],
+    ['LOGEMENTS INHABITABLES', `${receipt.homesUninhabitable} / ${receipt.homesTotal}`],
+    ['TECHNICIENS VIVANTS', `${receipt.techniciansAlive} / ${receipt.techniciansTotal}`],
+    ['SOUTIEN DU PANNEAU', receipt.emergencyShoring ? 'Étai manuel de secours' : 'Verrou posé par le technicien'],
+    ['CIRCUIT ACCOMPLI', receipt.circuit === 'diversion' ? 'Dérivation des maisons' : 'Réglage impérial du quai'],
+    ['CARBURANT DE CETTE SORTIE', `${receipt.fuelSpent} lot${receipt.fuelSpent > 1 ? 's' : ''} consommé${receipt.fuelSpent > 1 ? 's' : ''}`],
+    ['POMPES', receipt.pumpsOnline ? 'Remise en service accomplie' : 'À l’arrêt'],
+  ];
   if (receipt.missionId === 'MI05') return [
     ['PASSAGERS AU QUAI', `${receipt.refugeesPassed} / ${receipt.refugeesTotal}`],
     ['PASSAGERS PERDUS', receipt.refugeesLost],
@@ -4814,7 +5658,7 @@ function renderCampaignUI() {
   $('campaign-deploy').disabled = campaignBlocked;
   $('campaign-resume').hidden = !hasCheckpoint;
   $('campaign-resume').disabled = campaignBlocked;
-  $('campaign-resume').textContent = hasCheckpoint ? `Reprendre ${campaign.activeMissionId}` : 'Reprendre la mission';
+  $('campaign-resume').textContent = hasCheckpoint ? campaign.checkpoint.status === 'lost' ? `Voir le bilan de ${campaign.activeMissionId}` : `Reprendre ${campaign.activeMissionId}` : 'Reprendre la mission';
   $('campaign-export').disabled = campaignBlocked;
   $('campaign-status').textContent = completed ? 'Rapport classé. Une relecture conserve vos premiers choix et ne donne aucune dotation supplémentaire.' : continuing ? 'Sortie en cours. Votre dernière liaison permet de reprendre la mission et son état exact.' : order.status;
   $('campaign-order-index').textContent = `${mission.planet.toUpperCase()} / MISSION ${mission.number}`;
@@ -4832,7 +5676,7 @@ function renderCampaignUI() {
       : 'Le journal du poste a été perdu. Le bilan de Vesper conserve cette absence ; une autre source technique reste à trouver.';
     const passage = campaign.completed.MI05;
     $('campaign-transition-text').textContent = `${inherited} ${passage
-      ? `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai et ${passage.fuelLots} lots de carburant ont été chargés. La suite de l’affectation, aux pompes et aux digues, reste en préparation.`
+      ? campaign.completed.MI06 ? `Aux Trois-Vannes, ${campaign.completed.MI06.residentsSafe} habitants sont à l’abri et ${campaign.completed.MI06.homesUninhabitable} logements sont inhabitables. Le dossier garde ces deux bilans. La prochaine affectation sur la chaussée des Salines reste en préparation.` : `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai. La digue des Trois-Vannes est maintenant accessible dans « Les maisons sous la ligne ». ${campaign.resources.fuel} lots de carburant restent disponibles ; une solution manuelle existe sans réserve.`
       : 'Votre nouvelle affectation est ouverte : rejoignez le chenal de Nacre dans « Le prix du passage ». Le départ reste possible avec ou sans le journal.'}`;
   }
   $('campaign-mission-list').innerHTML = CAMPAIGN_MISSIONS.map((m, index) => {
@@ -4859,6 +5703,8 @@ function renderWorkshop() {
   $('workshop-parts').textContent = `${campaign.resources.parts} LOTS D’ATELIER`;
   $('workshop-fuel').textContent = `${campaign.resources.fuel} LOT${campaign.resources.fuel > 1 ? 'S' : ''} DE CARBURANT EN RÉSERVE`;
   $('workshop-fuel').hidden = !campaign.completed.MI05;
+  $('workshop-fuel-used').hidden = !campaign.world.nacre.fuelSpent;
+  $('workshop-fuel-used').textContent = `${campaign.world.nacre.fuelSpent} LOTS DÉJÀ UTILISÉS AUX TROIS-VANNES`;
   $('workshop-condition').textContent = `${w.designation} ${w.name} — coque ${Math.round(condition.hull / w.hull * 100)} % · appuis ${feet.join(' / ')} % · radiateur ${Math.round(condition.radiator)} %`;
   $('workshop-repair-note').textContent = cost ? `Tess demande ${cost} lot${cost > 1 ? 's' : ''} pour remettre la coque, les articulations et le radiateur en état.` : '« Coque, appuis, refroidissement : tout tient. Deux kits de radiateur seront chargés au départ. » — Tess';
   $('campaign-repair').textContent = cost ? `Réparer · ${cost} lot${cost > 1 ? 's' : ''}` : 'Marcheur prêt';
@@ -4879,7 +5725,12 @@ function renderWorkshop() {
   $('workshop-nacre').hidden = !campaign.completed.MI05;
   if (campaign.completed.MI05) {
     const report = campaign.completed.MI05;
-    $('workshop-nacre').textContent = `Nacre : ${report.refugeesPassed} passagers au quai, ${report.refugeesLost} perdus. ${report.smugglerVerified ? 'Vann Ostre a répondu depuis Rive-Courte ; ce contact est conservé.' : 'Aucun contact établi avec Rive-Courte.'} ${report.fuelRecovered ? 'Le carburant chargé attend la prochaine affectation.' : 'Le dépôt n’a fourni aucun carburant à cette sortie.'}`;
+    $('workshop-nacre').textContent = `Nacre : ${report.refugeesPassed} passagers au quai, ${report.refugeesLost} perdus. ${report.smugglerVerified ? 'Vann Ostre a répondu depuis Rive-Courte ; ce contact est conservé.' : 'Aucun contact établi avec Rive-Courte.'} ${campaign.world.nacre.fuelSpent ? 'Les deux lots chargés ont été consommés au chantier, y compris si la sortie a dû recommencer.' : report.fuelRecovered ? 'Les deux lots chargés sont encore disponibles.' : 'Le dépôt n’a fourni aucun carburant à cette sortie.'}`;
+  }
+  $('workshop-dike').hidden = !campaign.completed.MI06;
+  if (campaign.completed.MI06) {
+    const report = campaign.completed.MI06;
+    $('workshop-dike').textContent = `Trois-Vannes : ${report.residentsSafe} habitants à l’abri, ${report.residentsLost} perdus ; ${report.homesUninhabitable} logements inhabitables. ${report.techniciansAlive} techniciens vivants. ${report.circuit === 'diversion' ? 'La dérivation a été accomplie.' : 'Le circuit impérial du quai a été accompli.'} Cette dernière sortie a utilisé ${report.fuelSpent} lots de carburant.`;
   }
   $('campaign-repair-pipe').hidden = !campaign.completed?.MI01 || world.pipeIntact || world.pipeRepaired;
   $('campaign-repair-pipe').textContent = 'Réparer la conduite · 2 lots';
@@ -5050,6 +5901,11 @@ function showBriefing() {
     const vesper = campaign.world.vesper;
     $('briefing-description').textContent += ` ${vesper.industrial.technicalEvidence ? 'Tess a rangé la copie du journal de Vesper. Le travail sur le chenal ne permet pas encore d’en expliquer les références militaires.' : 'Le journal de Vesper manque au dossier. Holt maintient pourtant votre nouvelle affectation : rouvrir le chenal.'} ${vesper.rail.hostagesRescued ? 'Sami se souvient du wagon et de ses survivants. Il veut regarder ce que transportent ces barges.' : 'Sami n’a pas oublié les ouvriers morts dans le train. Il demande de vérifier les personnes à bord avant le premier tir.'}`;
   }
+  if (pendingMode === 'campaign' && m.id === 'MI06') {
+    const passage = campaign.world.nacre.passage;
+    const fuel = pendingReplay && campaign.completed.MI06 ? campaign.resources.fuel + campaign.completed.MI06.fuelSpent : campaign.resources.fuel;
+    $('briefing-description').textContent += ` ${passage.channelOpen && passage.refugeesPassed === 12 ? 'Le passage accompli permet aux techniciens d’arriver par le quai.' : 'Le passage du chenal n’a pas été sûr : les techniciens prennent la passerelle haute.'} ${fuel === 2 ? 'Deux lots peuvent alimenter une pompe auxiliaire après branchement. Ils seront réellement dépensés à l’achèvement, même si la sortie échoue ensuite.' : 'Aucun lot n’est disponible. La dérivation manuelle reste praticable.'} Les dix habitants de ce chantier ne sont pas les douze passagers du chenal.`;
+  }
   $('briefing-walker').textContent = `${w.designation} ${w.name}`;
   $('briefing-assist').textContent = settings.assist ? 'Marche assistée' : 'Appuis manuels';
   $('briefing-difficulty').textContent = DIFFICULTIES[settings.difficulty].label;
@@ -5134,7 +5990,8 @@ function showResult() {
   const networkMission = game.missionId === 'MI03';
   const industrialMission = game.missionId === 'MI04';
   const channelMission = game.missionId === 'MI05';
-  const missionStat = channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
+  const dikeMission = game.missionId === 'MI06';
+  const missionStat = dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
     : industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
     : networkMission ? ['RÉSEAUX CIVILS ACTIFS', `${game.campaign.civilRelaysOnline} / 2`]
     : railMission ? ['OUVRIERS LIBÉRÉS', `${game.campaign.hostagesRescued} / ${game.campaign.hostagesTotal}`]
@@ -5142,7 +5999,10 @@ function showResult() {
     : ['PREUVES RÉCUPÉRÉES', game.stats.evidence];
   const stats = [['DURÉE', timeLabel(game.elapsed)], ['CIBLES NEUTRALISÉES', game.stats.kills], missionStat, ['PERTES CIVILES', game.stats.collateral]];
   let decisionText;
-  if (channelMission) {
+  if (dikeMission) {
+    const facts = game.campaign;
+    decisionText = `${facts.circuit === 'diversion' ? 'Dérivation des maisons choisie.' : facts.circuit === 'imperial' ? 'Réglage impérial du quai choisi.' : 'Circuit encore indéterminé.'} ${facts.pumpsOnline ? 'La manœuvre de vanne est achevée.' : 'La remise en service n’est pas achevée.'} ${facts.residentsSafe} habitants à l’abri, ${facts.residentsLost} perdus ; ${facts.homesUninhabitable} logements inhabitables. ${facts.fuelSpent} lots utilisés pendant cette sortie.`;
+  } else if (channelMission) {
     const facts = game.campaign;
     decisionText = `${facts.reportFiled ? 'Les constatations sur les deux équipages sont jointes au rapport.' : game.decision.resolved ? 'Le bordereau confirme le passage ; vos constatations restent au dossier.' : 'Le rapport du chenal reste ouvert.'} ${facts.refugeesPassed} passagers au quai ; ${facts.refugeesLost} perdus. ${facts.fuelLots} lots de carburant réellement chargés.`;
   } else if (industrialMission) {
@@ -5182,6 +6042,14 @@ let lastObjectives = '';
 function updateHUD() {
   if (!game) return;
   const p = game.player;
+  $('dike-instrument').hidden = !game.dike;
+  if (game.dike) {
+    const site = game.dike, facts = game.campaign;
+    $('dike-support').textContent = site.panel.emergencyShoring ? 'ÉTAI MANUEL EN PLACE' : site.panel.locked ? 'PANNEAU VERROUILLÉ' : site.panel.supported ? `SOUTIEN ANCRÉ · VERROU ${Math.round(site.panel.latchProgress * 100)} %` : site.panel.destroyed ? 'PANNEAU PERDU · ÉTAI À POSER' : 'PANNEAU À SOUTENIR · ANCREZ LES APPUIS';
+    $('dike-pressure').textContent = `PRESSION ${Math.round(site.pressure)} % · FATIGUE ${Math.round(site.panel.fatigue)} %`;
+    $('dike-residents').textContent = `${facts.residentsSafe} / 10 À L’ABRI · ${facts.residentsLost} PERDUS · ${facts.techniciansAlive} TECHNICIENS`;
+    $('dike-fuel').textContent = site.auxiliary.active ? 'POMPE AUXILIAIRE ACTIVE · 2 LOTS UTILISÉS' : site.auxiliary.connected ? 'AUXILIAIRE PERDUE · CARBURANT DÉJÀ UTILISÉ' : site.auxiliary.destroyed ? `AUXILIAIRE PERDUE · ${facts.context.fuelAvailable === 2 ? '2 LOTS CONSERVÉS' : 'INTERVENTION MANUELLE'}` : facts.context.fuelAvailable === 2 ? 'AUXILIAIRE DISPONIBLE · 2 LOTS À BRANCHER' : 'SANS CARBURANT · INTERVENTION MANUELLE';
+  }
   $('hud-timer').textContent = timeLabel(game.elapsed);
   $('hud-interaction').hidden = !game.interaction;
   $('hud-interaction').textContent = game.interaction;
@@ -5305,7 +6173,11 @@ function frame(now) {
   try {
     if (inGame && game) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
-      if (!paused && activeMode === 'campaign' && !campaignReplay && game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8) captureCampaign();
+      if (!paused && activeMode === 'campaign' && !campaignReplay) {
+        const fuelChanged = game.missionId === 'MI06' && game.campaign.fuelSpent !== campaign.checkpoint?.campaign.fuelSpent;
+        const failedDike = game.missionId === 'MI06' && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
+        if (fuelChanged || failedDike || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
+      }
       renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, interactionPrompt: false, pointer });
       if (!paused) events();
       hudTick += dt; if (hudTick > .1) { updateHUD(); hudTick = 0; }

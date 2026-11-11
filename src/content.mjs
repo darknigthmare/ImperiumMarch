@@ -222,6 +222,30 @@ export const CAMPAIGN_MISSIONS = [
     intro: 'NACRE // CHENAL DES DEUX RIVES · 07:20',
   },
 
+  {
+    id: 'MI06', number: '06', campaign: true, act: 'I — Le poids de l’ordre',
+    name: 'Les maisons sous la ligne', planetId: 'PL02', planet: 'Nacre',
+    biome: 'DIGUE DES TROIS-VANNES', length: 5350, difficulty: 'SOUTIEN DU CHANTIER', duration: '5–9 min',
+    faction: 'Pillards du chenal / régie d’Orison', accent: '#9bcdbe', sky: ['#152c3a', '#567b82', '#ccd3ba'],
+    description: 'Relevez les niveaux prescrits sur deux maisons occupées, mettez leurs dix habitants à l’abri et couvrez les deux techniciens. Posez les appuis sur le chantier et ancrez-vous pour soutenir le panneau jusqu’à son verrouillage. Le circuit choisi déterminera ensuite le sort des logements.',
+    briefing: '« Digue des Trois-Vannes. Soutenez le chantier d’Orison et remettez les pompes en pression. Le quai doit rouvrir à la relève. » — Major Holt',
+    hint: 'E inspecte chaque maison (3 s), puis appelle l’évacuation. E appelle les techniciens au poste du génie. Au repère du panneau, relâchez D/Q, posez tous les pieds et maintenez Espace pour soutenir. Attendez le verrouillage. Sans technicien, E sous ancrage pose un étai manuel. La pompe auxiliaire consomme deux lots après 4 s, jamais avant. Le choix de circuit exige ensuite une vraie manœuvre de vanne.',
+    type: 'dike', evidenceX: 4140, extractionX: 5050, decisionX: 4140,
+    evidenceLabel: 'RELEVÉ DES TROIS-VANNES', civilianPositions: [], supplyPositions: [890, 2280, 3470, 4610],
+    enemyPlan: [[650, 'rifle'], [870, 'drone'], [2260, 'rocket'], [2920, 'skimmer'], [3540, 'rifle'], [4710, 'drone']],
+    dike: { interactionRadius: 175, inspectTime: 3, auxiliaryTime: 4, latchTime: 6,
+      shoringTime: 12, assistedShoringTime: 8, shelterX: 760, callX: 1850,
+      supportX: 2480, panelX: 2640, panelWorkX: 2580, auxiliaryX: 2190, valveX: 4140,
+      houses: [{ id: 'house-white-mark', x: 1200, w: 170, h: 144, population: 6 },
+        { id: 'house-kitchen-window', x: 1660, w: 170, h: 128, population: 4 }],
+      coverXs: [2020, 2380], technicianXs: [1850, 1910],
+      valveTime: { imperial: 6, diversion: 10 }, manualValveTime: { imperial: 10, diversion: 18 } },
+    decision: { title: 'La ligne sur les maisons',
+      body: 'Le circuit impérial libère le quai privé mais fait monter l’eau derrière les maisons. La dérivation locale demande davantage de travail et préserve les logements encore debout. Les habitants ne sont à l’abri que lorsqu’ils y sont réellement arrivés.',
+      obey: 'Appliquer le seuil impérial au quai privé', defy: 'Ouvrir la dérivation et joindre le constat' },
+    intro: 'NACRE // DIGUE DES TROIS-VANNES · 13:40',
+  },
+
 ];
 
 export const ALL_MISSIONS = [...MISSIONS, ...CAMPAIGN_MISSIONS];
@@ -230,6 +254,7 @@ export const ENEMY_TYPES = {
   rifle: { name: 'Fusilier', kind: 'infantry', w: 24, h: 36, hp: 65, speed: 22, range: 650, cooldown: 1.65, damage: 10, projectileSpeed: 430, windup: 0.42, score: 70 },
   rocket: { name: 'Lancier antichar', kind: 'infantry', w: 26, h: 38, hp: 80, speed: 14, range: 790, cooldown: 4.4, damage: 43, projectileSpeed: 255, windup: 1.2, score: 130 },
   buggy: { name: 'Buggy de raid', kind: 'vehicle', w: 85, h: 44, hp: 220, speed: 35, range: 740, cooldown: 2.8, damage: 21, projectileSpeed: 400, windup: 0.7, score: 230 },
+  skimmer: { name: 'Patin de raid', kind: 'vehicle', w: 96, h: 42, hp: 240, speed: 42, range: 720, cooldown: 2.8, damage: 19, projectileSpeed: 400, windup: .85, score: 230 },
   drone: { name: 'Drone de veille', kind: 'air', w: 48, h: 26, hp: 90, speed: 24, range: 710, cooldown: 2.25, damage: 13, projectileSpeed: 340, windup: 0.65, score: 120 },
   fauna: { name: 'Guetteur-racine', kind: 'fauna', w: 58, h: 35, hp: 130, speed: 64, range: 85, cooldown: 2.2, damage: 23, projectileSpeed: 0, windup: 0.7, score: 90 },
   turret: { name: 'Tourelle de contrôle', kind: 'turret', w: 58, h: 70, hp: 230, speed: 0, range: 820, cooldown: 2.4, damage: 22, projectileSpeed: 370, windup: 0.85, score: 220 },

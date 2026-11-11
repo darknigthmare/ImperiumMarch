@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.6.0 · Français**
+**Nom de code : ImperiumMarch · Version 0.7.0 · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -10,13 +10,13 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 **Ordre de Cendre** est un projet original de combat tactique en 2D, inspiré par le contrôle volontaire des appuis de BE-A Walker. Il développe ses propres mondes, machines, factions, personnages et récit. Sa proposition est de faire du pilotage une responsabilité matérielle : porter une machine, choisir une ligne de tir, vérifier une qualification hostile et retrouver les conséquences au retour.
 
-Cette livraison contient un **prototype de cinq missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant. La qualité de production visée, les huit mondes et la campagne complète restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V06.md) relient leur conception à la tranche réellement jouable.
+Cette livraison contient un **prototype de six missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant. La qualité de production visée, les huit mondes et la campagne complète restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V07.md) relient leur conception à la tranche réellement jouable.
 
 ## Jouer à cette version
 
 Ouvrir [**dist/Ordre_de_Cendre.html**](dist/Ordre_de_Cendre.html) dans un navigateur de bureau récent, après l’avoir téléchargé ou extrait du pack. Le code, les styles et les images sont intégrés. Aucun serveur ni téléchargement complémentaire n’est nécessaire pour cette édition. Le son démarre après une interaction.
 
-1. **Campagne** : ouvrir le dossier de Sera, jouer MI01, puis MI02, MI03, MI04 et MI05, débloquées par le premier rapport de la mission précédente.
+1. **Campagne** : ouvrir le dossier de Sera, jouer MI01, puis MI02, MI03, MI04, MI05 et MI06, débloquées par le premier rapport de la mission précédente.
 2. **Hangar** : choisir parmi six châssis. Au retour, lire les réactions de Tess et Sami et réparer avec les pièces disponibles.
 3. **Reprendre la mission** : retrouver le dernier point de liaison, ses appuis, projectiles, travaux et objectifs.
 4. **Simulations** : jouer les trois opérations indépendantes. Elles dévoilent des éléments ultérieurs du récit et ne modifient pas le dossier officiel.
@@ -46,22 +46,26 @@ npm run build:web
 
 `npm run test:browser` fournit un contrôle Chromium distinct, avec Playwright et un navigateur installés dans un environnement autorisé. Les outils de classeur et de rendu Canvas utilisent des dépendances de développement séparées ; elles ne sont pas requises pour jouer.
 
-## Nouveautés de la 0.6 — Le prix du passage
+## Nouveautés de la 0.7 — Les maisons sous la ligne
 
-**MI05 ouvre Nacre après le quatrième rapport de Vesper.** Le départ ne demande pas PT01 : le journal perdu reste une question ouverte. Les six châssis sont disponibles, et leurs appuis rencontrent pour la première fois une surface dont le risque change au cours de la mission.
+**MI06 prolonge Nacre après le rapport du chenal.** Les six châssis peuvent rejoindre le chantier des Trois-Vannes. Deux maisons abritent dix habitants locaux ; ce sont d’autres personnes que les douze passagers de MI05. Leur arrivée à l’abri et l’état de leurs logements restent deux faits distincts.
 
-- **Marée lisible.** Le cycle de 72 secondes comprend basse mer, montée, pleine mer et descente. Le HUD annonce la phase et le prochain changement. Le bateau exige un tirant d’eau suffisant ; les bancs deviennent dangereux lorsque l’eau les recouvre.
-- **Passerelles à construire.** Chaque commande prend quatre secondes à portée. Le tablier donne ensuite un passage permanent. Sur la vase nue, les six appuis répartissent mieux la charge ; ils ne rendent pas la machine amphibie. Une exposition sous l’eau use réellement les appuis.
-- **Treuils et coques distincts.** Détendre un treuil demande 2,5 secondes. Un tir précis peut aussi le détruire sans détruire sa barge. Balles et explosions peuvent toutefois toucher l’équipage et les passagers.
-- **Deux équipages à vérifier.** Sur Saisie, un relevé de trois secondes peut conserver la facture d’un trafic. Sur Rive-Courte, un appel de trois secondes établit le contact avec Vann Ostre, passeur intéressé. Détruire une barge avant cette action laisse des ruines à constater, sans connaissance inventée. Une copie ou un échange déjà obtenu reste au dossier après une destruction ultérieure.
-- **Douze passagers à couvrir.** Leur bateau avance lorsque les deux câbles sont libérés et la marée suffisante. Seule une arrivée effective compte au bilan. Une perte permet encore de classer le constat et de rentrer, sans transformer un échec de protection en sauvetage.
-- **Carburant facultatif.** Le dépôt préservé fournit deux lots après trois secondes de transfert. Les laisser ou perdre le dépôt donne zéro lot. Le stock reste au hangar et une relecture ne le duplique pas ; sa consommation dans MI06 reste à produire.
+- **Inspections et évacuation réelles.** E relève chaque seuil en trois secondes. Après une inspection, E peut demander l’évacuation par la radio de Mara. Les habitants marchent vers l’abri ouest, restent exposés sur le trajet et ne sont comptés sauvés qu’à l’arrivée.
+- **Deux techniciens à couvrir.** Leur route dépend du passage accompli en MI05. Ils se déplacent, utilisent les couverts et peuvent subir les tirs. Une disponibilité héritée ne leur accorde pas une arrivée instantanée.
+- **Soutien par les appuis.** Au repère du panneau, la coque doit être immobile et ancrée, tous les pieds posés dans la zone de soutien. Un technicien présent verrouille le panneau en six secondes. Quitter l’ancrage interrompt ce travail. Si le panneau ou les techniciens sont perdus, un étai manuel fournit une autre solution.
+- **Un choix exécuté sur le terrain.** Le circuit impérial remet le quai privé en service et inonde les deux logements. La dérivation prend davantage de temps et préserve les maisons encore debout. Dans les deux cas, il faut ensuite manœuvrer la vanne à portée ; cliquer sur la décision ne termine pas le travail.
+- **Carburant réellement consommé.** Les deux lots récupérés dans MI05 peuvent alimenter une auxiliaire après quatre secondes de raccordement. Une interruption avant la fin ne coûte rien. Après raccordement, les lots restent dépensés même si la pompe est détruite ou la sortie perdue. Sans carburant, la mission reste réalisable.
+- **Un dossier v6 et un HUD de chantier.** Le hangar distingue réserve actuelle, dépense cumulée et coût de la dernière sortie. Le jeu affiche soutien, pression, fatigue, habitants et techniciens. Les vrais dossiers v1 à v5 restent importables.
 
-![MI05 : contact avec Rive-Courte](docs/previews/mi05-smuggler-contact.png)
+![MI06 : soutien du panneau par les appuis](docs/previews/mi06-panel-support.png)
 
-*Rendu du Canvas de production, atteint par les commandes publiques ; sans HUD HTML. Ce n’est pas une capture navigateur.*
+*Rendu Canvas de production, obtenu par commandes publiques ; les instruments HTML ne sont pas inclus. Ce n’est pas une capture navigateur.*
 
-Le [contrat MI05](docs/CAMPAIGN_MISSION_05.md) donne les règles exécutées. Le [contrat de Nacre](docs/NACRE_CONSEQUENCES_V06.md) approfondit MI06–MI08 : soutien d’une digue, interception d’une ambulance et évacuation sous pression. Ces trois missions restent conçues.
+Le [contrat MI06](docs/CAMPAIGN_MISSION_06.md), le [dossier v6](docs/CAMPAIGN_SAVE_V6.md) et les [conséquences de Nacre](docs/NACRE_CONSEQUENCES_V07.md) décrivent les règles et leurs limites. MI07 et MI08 restent conçues.
+
+### Le chenal de MI05, conservé
+
+La première mission de Nacre conserve la marée à quatre phases, les passerelles, les treuils, les deux barges à vérifier, le bateau de douze passagers et le dépôt facultatif de carburant. Elle distingue facture copiée, liaison avec Vann Ostre, arrivées et pertes. Aucun de ces constats locaux ne devient une preuve PALINODE. Son [contrat](docs/CAMPAIGN_MISSION_05.md) reste disponible.
 
 ## Vesper, conservé depuis la 0.5
 
@@ -131,7 +135,7 @@ Chaque départ donne un magasin chargé, **huit magasins en réserve** et le sto
 
 Une caisse ajoute au plus **trois magasins de réserve**, deux roquettes et une réparation, dans les plafonds prévus. Elle ne se collecte qu’une fois et garde cet état après sauvegarde. La chauffe et les pauses de rechargement conservent leur rôle : une réserve abondante n’autorise pas un tir continu sans ventilation. Le HUD distingue magasin, réserve et roquettes et signale l’épuisement.
 
-Les réserves de munitions sont propres à chaque sortie. MI05 ajoute deux lots de carburant persistants lorsque le dépôt est réellement prélevé. Leur consommation future, les achats, livraisons et choix d’armement restent conçus pour la campagne complète.
+Les réserves de munitions sont propres à chaque sortie. MI05 ajoute deux lots de carburant persistants lorsque le dépôt est réellement prélevé. MI06 peut consommer ces deux lots pour sa pompe auxiliaire ; les achats, livraisons et choix d’armement restent conçus pour la campagne complète.
 
 ## Les deux premières missions conservées
 
@@ -151,26 +155,26 @@ Les trois premières missions de Vesper établissent des faits locaux. MI04 ajou
 
 ## Dossier, atelier et migrations
 
-Le dossier de campagne s’enregistre toutes les **huit secondes de simulation**, à la pause, au retour, avant et après la décision et lors des événements de fermeture disponibles. Une fermeture brutale peut revenir au dernier point enregistré. Les opérations indépendantes gardent leurs rapports réussis, sans sauvegarde de leur partie en cours après fermeture.
+Le dossier de campagne s’enregistre toutes les **huit secondes de simulation**, à la pause, au retour, avant et après la décision et lors des événements de fermeture disponibles. Le raccordement de l’auxiliaire et une défaite de MI06 déclenchent aussi une sauvegarde immédiate. Une fermeture brutale peut revenir au dernier point effectivement écrit. Les opérations indépendantes gardent leurs rapports réussis, sans sauvegarde de leur partie en cours après fermeture.
 
-Le **format v5** accepte les vrais dossiers v1, v2, v3 et v4. La migration conserve rapports, décisions, pièces, dégâts, phase et temps de rechargement. Les anciennes versions reçoivent les champs manquants : trois châssis neufs et une réserve documentée de huit magasins pour v1/v2, puis un radiateur neuf et deux kits pour chaque ancien checkpoint. Le dossier industriel commence sans preuve ni contact inventés. Un dossier v4 gagne uniquement Nacre non visité et zéro carburant ; tous ses checkpoints et ses quatre rapports sont conservés tels quels. La lecture ne réécrit pas l’ancien fichier ; la première sauvegarde en conserve une copie de secours.
+Le **format v6** accepte les vrais dossiers v1, v2, v3, v4 et v5. La migration conserve rapports, décisions, pièces, dégâts, phase et temps de rechargement. Les anciennes versions reçoivent les champs manquants : trois châssis neufs et une réserve documentée de huit magasins pour v1/v2, puis un radiateur neuf et deux kits pour chaque ancien checkpoint. Le dossier industriel commence sans preuve ni contact inventés. Un dossier v4 gagne uniquement Nacre non visité et zéro carburant ; tous ses checkpoints et ses quatre rapports sont conservés tels quels. Un dossier v5 gagne seulement la digue non visitée et un compteur de dépense nul ; même un transfert de carburant effectué dans une MI05 encore en cours ne crédite pas prématurément la réserve. La lecture ne réécrit pas l’ancien fichier ; la première sauvegarde en conserve une copie de secours.
 
 Une version future, un format étranger ou un fichier dépassant la taille admise reste protégé contre l’écrasement automatique, même avec une copie de secours lisible. L’import explicite ou la création d’un nouveau dossier est nécessaire pour le remplacer. Si le stockage refuse une écriture, la session reste jouable et l’interface indique l’échec.
 
-L’atelier commence avec **six lots de pièces**. Chaque première réussite de MI01 à MI05 ajoute **quatre lots**, une seule fois. Réparer coque, appuis et radiateur coûte de un à six lots ; réparer la conduite coûte deux lots. Aucune intervention d’atelier n’est possible pendant la sortie officielle.
+L’atelier commence avec **six lots de pièces**. Chaque première réussite de MI01 à MI06 ajoute **quatre lots**, une seule fois. Réparer coque, appuis et radiateur coûte de un à six lots ; réparer la conduite coûte deux lots. Aucune intervention d’atelier n’est possible pendant la sortie officielle.
 
 Une relecture ne remplace pas le premier rapport, ne redonne pas de dotation et n’efface pas la sortie officielle encore en cours. Réparer un service conserve l’incident dans l’histoire. Un rapport favorable ne restaure pas un bâtiment détruit après sa signature.
 
 ## Portée réelle et cible de production
 
-| Domaine | Livré dans la 0.6 | Cible encore à produire |
+| Domaine | Livré dans la 0.7 | Cible encore à produire |
 | --- | --- | --- |
-| Campagne | MI01–MI05, cinq rapports, conséquences de Vesper et passage de Nacre. | 27 autres missions principales et 16 contrats. |
+| Campagne | MI01–MI06, six rapports, conséquences de Vesper, chenal et digue de Nacre. | 26 autres missions principales et 16 contrats. |
 | Opérations indépendantes | Vesper : relais ; Nacre : escorte ; Thyr : ordre et adversaire lourd. | Campagnes des autres mondes et leurs règles propres. |
 | Châssis | Six machines, deux profils par nombre d’appuis. | Six autres modèles, équipements et aptitudes spécialisées. |
 | Combat | Tirs balayés, roquettes, ancrage, chauffe, appuis, radiateur localisé, deux kits finis et réserves de munitions. | Familles d’armes complètes, composants ennemis, doctrines d’escouade. |
-| Monde et récit | Arc de Vesper, ouverture de Nacre, équipage et faits de cinq missions. | Huit planètes complètes, neuf factions, coalition et quatre familles de fins. |
-| Conception | 643 fiches, 21 onglets, concept complet, contrat causal de Vesper et trois suites de Nacre détaillées. | Assets, voix, animations, niveaux, réglages et tests humains de production. |
+| Monde et récit | Arc de Vesper, ouverture de Nacre, équipage et faits de six missions. | Huit planètes complètes, neuf factions, coalition et quatre familles de fins. |
+| Conception | 705 fiches, 21 onglets, concept complet, contrat causal de Vesper et suite de Nacre détaillée. | Assets, voix, animations, niveaux, réglages et tests humains de production. |
 
 Les statuts **Conçu**, **Prototype**, **À produire** et **Vérifié** restent distincts. Les fiches ne constituent pas un pourcentage d’achèvement. Les validations portent sur des scénarios et un environnement précis.
 
@@ -197,21 +201,21 @@ Les boutons tactiles sont présents. Leur ergonomie sur matériel réel reste à
 | --- | --- |
 | [Conséquences Vesper 0.5](docs/VESPER_CONSEQUENCES_V05.md) | Causalité, preuve, connaissance, composants, Nacre et critères de production. |
 | [Concept complet 0.4](docs/CONCEPT_COMPLET_V04.md) | Tous les domaines : règles, contenu, récit, économie, art, accessibilité et production. |
-| [Bible Excel](docs/ORDRE_DE_CENDRE_Bible.xlsx) | 21 onglets, 643 fiches, 20 tables filtrables et 126 formules. |
+| [Bible Excel](docs/ORDRE_DE_CENDRE_Bible.xlsx) | 21 onglets, 705 fiches, 20 tables filtrables et 126 formules. |
 | [Bible générale](docs/BIBLE_FR.md) | Vision et règles communes. |
 | [Campagne](docs/CAMPAIGN_FR.md) | Trente-deux missions, quatre actes et fins ; contient des révélations. |
-| [MI01](docs/CAMPAIGN_MISSION_01.md), [MI02](docs/CAMPAIGN_MISSION_02.md), [MI03](docs/CAMPAIGN_MISSION_03.md), [MI04](docs/CAMPAIGN_MISSION_04.md), [MI05](docs/CAMPAIGN_MISSION_05.md) | Contrats du contenu réellement exécuté. |
-| [Production 0.6](docs/PRODUCTION_V06.md) | Fiches, dépendances, prochaines étapes et critères. |
-| [Validation 0.6](docs/QA_V06.md) | Preuves de tests et limites constatées. |
-| [Sauvegarde v5](docs/CAMPAIGN_SAVE_V5.md), [Architecture](docs/ARCHITECTURE.md), [API simulation](docs/SIMULATION_API.md) | Contrats techniques et règles de migration. |
+| [MI01](docs/CAMPAIGN_MISSION_01.md), [MI02](docs/CAMPAIGN_MISSION_02.md), [MI03](docs/CAMPAIGN_MISSION_03.md), [MI04](docs/CAMPAIGN_MISSION_04.md), [MI05](docs/CAMPAIGN_MISSION_05.md), [MI06](docs/CAMPAIGN_MISSION_06.md) | Contrats du contenu réellement exécuté. |
+| [Production 0.7](docs/PRODUCTION_V07.md) | Fiches, dépendances, prochaines étapes et critères. |
+| [Validation 0.7](docs/QA_V07.md) | Preuves de tests et limites constatées. |
+| [Sauvegarde v6](docs/CAMPAIGN_SAVE_V6.md), [Architecture](docs/ARCHITECTURE.md), [API simulation](docs/SIMULATION_API.md) | Contrats techniques et règles de migration. |
 | [Direction artistique](docs/ART_DIRECTION.md), [provenance](docs/ASSET_PROVENANCE.md) | Art, animation, sons et origine des éléments. |
 | [Déploiement](docs/DEPLOYMENT.md) | Construction web, liaison distante et état réel de publication. |
-| [Données source](data/bible.json) | Les 643 fiches à identifiants stables, dont les 581 précédentes conservées. |
+| [Données source](data/bible.json) | Les 705 fiches à identifiants stables, dont les 643 précédentes conservées. |
 
 ## Vérification et prochaine étape
 
-La version passe **145 tests de simulation et campagne** et **26 parcours d’interface** dans un modèle de DOM exécutant le vrai script autonome. Les migrations utilisent les vrais dossiers historiques v1 à v4. Les parcours MI05 couvrent les six châssis, les deux décisions, le tir sur les treuils, les sources perdues, les passagers perdus, le carburant facultatif et la reprise exacte de la marée.
+La version passe **176 tests de simulation et de sauvegarde** ainsi que **34 parcours d’interface** dans un DOM modélisé. La [validation 0.7](docs/QA_V07.md) distingue ces contrôles, les migrations historiques, les rendus Canvas, le classeur recalculé et le navigateur réel. Les parcours MI06 couvrent les six châssis, les deux circuits, les interruptions, les pertes et les solutions sans carburant. Les états d’échec ne créditent ni sauvetage, ni récompense, ni restitution de carburant.
 
-Le site est déployé sur [imperium-march.vercel.app](https://imperium-march.vercel.app). Chrome partagé a importé un véritable dossier v4, conservé les quatre rapports, débloqué et lancé MI05, reçu une commande de marche puis repris la mission après pause et rechargement. Le contrôle visuel a permis de corriger le chevauchement de la consigne avec les jauges. La [capture navigateur](docs/previews/browser-v06-nacre.jpg), le [rapport QA 0.6](docs/QA_V06.md) et le [reçu de publication](docs/validation/v06-publication.json) précisent ce qui a été observé. La CI distante passe également les 145 tests sous Node 22.23.4. Le lancement Chromium local reste bloqué par `socket() Operation not permitted` ; le contrôle réel utilise le navigateur partagé autorisé.
+Le site est accessible sur [imperium-march.vercel.app](https://imperium-march.vercel.app). Le [suivi de publication](docs/DEPLOYMENT.md) rattache chaque livraison vérifiée à son commit et précise les contrôles réellement effectués. Les contrôles locaux de DOM ne remplacent pas un essai navigateur et les rendus Canvas ne sont pas des captures de celui-ci.
 
-La prochaine mission à produire est **MI06 — Les maisons sous la ligne**. Son contrat prévoit un panneau de digue réellement soutenu par l’ancrage, un technicien qui le verrouille et une solution viable sans carburant hérité. L’animation, l’audio, les essais humains, les performances mesurées et une mission de référence aboutie restent des chantiers ouverts.
+La prochaine mission à produire est **MI07 — Une ambulance sans escorte**, sur les Salines. Elle doit consommer les faits désormais joués aux Trois-Vannes, notamment le soutien de la digue, les techniciens et le bilan des logements. L’animation, l’audio, les essais humains, les performances mesurées et une mission de référence aboutie restent des chantiers ouverts.
