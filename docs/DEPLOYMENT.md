@@ -68,7 +68,7 @@ La sauvegarde reste locale au navigateur et à l'adresse du site. Utiliser l'adr
 - Vérifier que la page d'accueil, les modules, les styles et les images sont présents dans la sortie web.
 - Après déploiement, contrôler le commit servi, la disponibilité des ressources et le lancement de la campagne dans un navigateur réel.
 
-Les tests courants sont documentés dans [QA_V09.md](QA_V09.md). Les rapports précédents restent conservés comme historique. Un déploiement prêt ne remplace pas une validation navigateur.
+Les tests courants sont documentés dans [QA_V10.md](QA_V10.md). Les rapports précédents restent conservés comme historique. Un déploiement prêt ne remplace pas une validation navigateur.
 
 
 ## Publication 0.7
@@ -130,3 +130,27 @@ Le classeur de réception conserve **816 fiches**, réparties dans **21 onglets*
 Depuis l’export natif au point de porte partielle, Chrome a poursuivi jusqu’au résultat à 05:45 : 34 personnes au refuge, deux accueillies localement, aucune perte, les quatre patients arrivés, deux bateaux arrivés et huit rapports. Les exports de dossier avant et après rechargement sont identiques octet par octet. Ce parcours reste distinct de l’audit Node et des tests dans le DOM modélisé.
 
 Le reçu applicatif complet est conservé hors dépôt. Le dernier suivi documentaire ajoutera les captures, exports et rapports de ces confirmations, sans changer le code, la source de conception ni le XLSX ; son reçu ultime restera également hors dépôt pour éviter qu’un reçu doive référencer son propre commit.
+
+## Publication initiale de la 0.10 — vérifiée
+
+La 0.10 ajoute MI09 sur Thyr et le dossier de sauvegarde v9. Le commit public **[158a10f7e963f3f5effbb71fc3e8b4588d209d5a](https://github.com/darknigthmare/ImperiumMarch/commit/158a10f7e963f3f5effbb71fc3e8b4588d209d5a)**, enfant de `2bb8d7a708e4fab5ab34b3cac10f2418b60fe037`, publie le snapshot du commit local `f2270608ea23e7b9589b8fc9a6f81a6a59341d02`. Ses **1 041 fichiers**, leurs modes, tailles et SHA Git correspondent intégralement à l’arbre distant `977ea7f0af6d1f404feb3b92b688ebd14baccd0f`. Les **63 empreintes** du [contrôle initial](validation/v10-release-checks-initial.json) concordent. Le delta comprend **152 ajouts et 35 changements**, sans suppression ; **185 nouveaux blobs** ont été transférés puis vérifiés. Les **402 chemins historiques protégés** restent inchangés. Le CAS de `main` a conservé le parent attendu avec `force:false`.
+
+La **[CI 43059331362](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43059331362)** a réussi sur ce SHA exact sous **Node 22.23.4** : **356 tests**, **40 cas raster SVG/Canvas** avec `@napi-rs/canvas@0.1.100`, **66 parcours du DOM modélisé**, contrôles projet et UI, constructions autonome et web. Le contrôle de catalogue porte sur **20 feuilles de conception, 845 fiches, six châssis jouables, trois opérations indépendantes et neuf missions de campagne**. Ces résultats décrivent les essais automatisés, sans leur attribuer une portée de réception native.
+
+Le déploiement **dpl_DttZE4zB9fKdFErbMBr7t7hkLRBf** est **READY**, cible production, pour ce même commit. Il dessert le [domaine stable](https://imperium-march.vercel.app/) et son [adresse de déploiement](https://imperium-march-l4w1ym34w-darknigthmares-projects.vercel.app/). Les **18 ressources HTTP contrôlées** — index, douze modules, deux feuilles de style et trois manifestes de production/Thyr — répondent **200** ; leurs nombres d’octets et SHA-256 sont identiques au snapshot. Le projet conserve Node `22.x`, ses domaines et sa protection `all_except_custom_domains`.
+
+Les trois preuves ci-dessous sont des copies **octet pour octet** des reçus produits après publication. Leurs éventuels chemins absolus désignent l’environnement d’exécution d’origine ; les fichiers conservés ici portent les mêmes empreintes. Le reçu initial ne revendique aucun parcours navigateur natif.
+
+| Preuve conservée | Octets | SHA-256 |
+| --- | ---: | --- |
+| [Publication initiale](validation/v10-publication-initial.json) | 15 904 | `f11e587266559cb068d197f9e950453b560d0dcb8d0d897c52ceae912c6f8a3c` |
+| [Comparaisons HTTP](validation/v10-http-initial.json) | 8 333 | `784312400d1c2845f3aee65347b2e58079a61bcf9faf5e8bee96303f1f91719c` |
+| [Journal CI décodé](validation/v10-ci-initial.log) | 189 095 | `056fb2c9a26cdbe27beb647ee4fde96e8be49cf23f1130582099175c6bcc1111` |
+
+## Lot final 0.10 — contenu et preuves
+
+Les seuls changements applicatifs de ce lot final sont **quatre libellés statiques dans `index.html`** : l’accueil devient « CAMPAGNE / ORDRES DE MARCHE », la liste nomme Vesper, Nacre et Thyr dans son intitulé accessible et son bandeau, et le compteur de secours indique `0 / 9`. Les IDs et les comportements restent identiques ; aucun module de `src/` n’est modifié. L’édition autonome a été reconstruite ; les 174 IDs, 163 références et 66 parcours DOM modélisés ont été contrôlés sur ce nouvel artefact dans le [reçu UI final](validation/v10-ui-validation-final.json).
+
+Le [reçu natif](validation/native-v10/browser-reception.json) distingue l’import réel du dossier v8 et sa migration exacte, puis l’extraction par l’interface depuis un checkpoint préparé et l’export/rechargement du dossier. Les 87 contrôles d’exports passent : neuf rapports, 42 lots et mêmes octets après recharge. Les actions préparées et les actions exécutées dans Chrome sont précisées dans [QA_V10.md](QA_V10.md). Cette portée ne constitue pas un parcours natif intégral depuis le début de MI09. **QA19, QA20 et QA29 restent ouvertes** : focus contradictoire selon l’instance et tir maintenu non reçu, petite fenêtre native non établie, manipulation bureautique interactive non exercée.
+
+Le lot final réunit ces libellés, les preuves natives et les mises à jour de la Bible et du registre. Les statuts restent inchangés. Le [contrôle final](validation/v10-release-checks-final.json) identifie les artefacts figés ; le parent public attendu est **`158a10f7e963f3f5effbb71fc3e8b4588d209d5a`**. L’attestation de publication est établie après la création du commit : elle rapproche le snapshot, l’arbre distant intégral, le CAS sans force, la CI sur le SHA exact, le déploiement de production READY et les ressources HTTP, avec Node `22.x` et les protections conservés. Ce reçu reste hors dépôt pour éviter de référencer son propre commit ; les résultats externes ne sont pas déduits des seules validations locales.

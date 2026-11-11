@@ -1,6 +1,6 @@
 # Rapprochement exhaustif des médias distribués
 
-Snapshot : 2026-11-11T16:19:58.339Z. Révision de repère : e0026cb3fcd342309f2201a9288f10b78b8cff84. Le relevé porte sur les fichiers courants, y compris les travaux non commités.
+Snapshot : 2026-11-11T17:08:10.239Z. Révision de repère : f2270608ea23e7b9589b8fc9a6f81a6a59341d02. Le relevé porte sur les fichiers courants, y compris les travaux non commités.
 
 ## Résultat
 
@@ -18,7 +18,7 @@ Le lot de Thyr ajoute onze composants, trente-cinq SVG et deux planches PNG, iss
 
 Les nouveaux vecteurs et sons renvoient à leurs manifestes de production datés et versionnés, avec code source et hashes. Les WAV reproduisent la synthèse du runtime ; aucune voix humaine, aucun échantillon tiers ni validation humaine de mix n’est déclaré. Aucun fichier de police n’est distribué ; les noms de polices sont des fallbacks système.
 
-La page officielle Steam de **BE-A Walker** est enregistrée comme référence de conception non distribuée. Aucun fichier local de cette référence n’est documenté : il n’existe donc pas de hash local ou d’autorisation de redistribution à inventer. Tous les octets média effectivement observés sont rapprochés des fichiers originaux du projet. Les 268 médias de documentation sont recensés séparément et exclus des deux politiques de build.
+La page officielle Steam de **BE-A Walker** est enregistrée comme référence de conception non distribuée. Aucun fichier local de cette référence n’est documenté : il n’existe donc pas de hash local ou d’autorisation de redistribution à inventer. Tous les octets média effectivement observés sont rapprochés des fichiers originaux du projet. Les 288 médias de documentation sont recensés séparément et exclus des deux politiques de build.
 
 ## Médias réellement demandés par le jeu
 

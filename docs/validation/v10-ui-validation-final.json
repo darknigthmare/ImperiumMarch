@@ -1,0 +1,46 @@
+{
+  "version": "0.10.0",
+  "type": "Modeled DOM executing the final offline application after four navigation-label corrections",
+  "command": "npm run check:ui-runtime",
+  "log": "docs/validation/v10-ui-runtime-final.log",
+  "logSha256": "0767534ff617beb92b9808c6720394f56b209601eb04b107a00359821a68928e",
+  "flows": 66,
+  "result": "passed",
+  "sourceHashes": {
+    "src/main.mjs": "8b0e76a9890f00f7401b33204108978620b12b9d93d7773060d846207e0499b7",
+    "src/controls.mjs": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32",
+    "src/campaign.mjs": "b3ea42fb30869f79b84a7555caa637facf1398626a4ffaefe0ed78c1bad8dbfa",
+    "src/content.mjs": "ae0d137afbb364a317292df0e11917fd00c8bdcf16a614edfb354c963cec907c",
+    "src/simulation.mjs": "236f3c7f06bec8a32525b652b5612502a2e415466224445397cd0bf85849c617",
+    "src/thyr-validation.mjs": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+    "src/thyr-renderer.mjs": "4b887111c090a90e2084699acf6e43ed0d2613ab73afdb1e4b6fe5eed0a01580",
+    "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+    "src/renderer.mjs": "b5f8ca4b0e20ac18bd3577c22e6361ce6d2905ab50ff8780162ece0f194f823a",
+    "index.html": "c1c246013a9563c341f0317d1e7f11118eef55d0d177d837a88c9a061e9c6dbf",
+    "src/style.css": "38c454a6edd05c26fc258ca95082037ebfa00753c28fe8c9aeccf25b56e6e2af",
+    "src/ui.css": "177533d784ada32fecdacb8bd987d0aada274364e6f3f9685c6cb44eed040d12",
+    "tools/test-ui-runtime.mjs": "c6bcee3f43404e630e20c98f21f3e6fc837d9ed51b6ec8dcf076e9cfb885f3ef",
+    "dist/Ordre_de_Cendre.html": "a8a5f4929ebdcee0fd796875d344e48f3536fc612f07cbf853963305a5001063"
+  },
+  "limitations": [
+    "DOM model only; native scope and unresolved QA19/QA20 are recorded separately.",
+    "The application src/ modules and runtime test script are byte-identical to the initial 0.10 publication; only four static labels and the rebuilt offline container differ.",
+    "Does not certify physical gamepad, audio listening or a human playtest."
+  ],
+  "recordedAtUtc": "2026-11-11T17:05:16.874508+00:00",
+  "initialReceipt": "docs/validation/v10-ui-validation.json",
+  "nativeReceipt": "docs/validation/native-v10/browser-reception.json",
+  "staticUi": {
+    "command": "npm run check:ui",
+    "result": "passed",
+    "uniqueIds": 174,
+    "literalReferences": 163,
+    "views": 5,
+    "archiveTabs": 4,
+    "dialogs": 6
+  },
+  "build": {
+    "modules": 12,
+    "bytes": 10276491
+  }
+}

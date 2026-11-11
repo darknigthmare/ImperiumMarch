@@ -1,9 +1,12 @@
-import copy, datetime, hashlib, json, os, pathlib, shutil, subprocess, tempfile
+import copy, datetime, hashlib, json, os, pathlib, shutil, subprocess, tempfile, re
 
 root=pathlib.Path(__file__).resolve().parents[1]
 tool=root/'tools/verify-bible-export.py'
 python=os.environ['CODEX_PRIMARY_RUNTIME_PYTHON']
 original=json.loads((root/'data/bible.json').read_bytes())
+receipt_suffix=os.environ.get('BIBLE_RECEIPT_SUFFIX','')
+assert not receipt_suffix or re.fullmatch(r'[a-z0-9][a-z0-9-]*',receipt_suffix), 'Invalid BIBLE_RECEIPT_SUFFIX'
+suffix='-'+receipt_suffix if receipt_suffix else ''
 by_id=lambda d: {r['id']:r for s in d['sheets'] for r in s['rows']}
 
 def unknown(d): d['sheets'][0]['rows'][0]['acceptance'] += ' QA999'
@@ -38,7 +41,7 @@ with tempfile.TemporaryDirectory(prefix='imperium-bible-reference-probes-') as d
 fallbacks=[]
 with tempfile.TemporaryDirectory(prefix='imperium-bible-no-git-v010-') as directory:
     work=pathlib.Path(directory)
-    release='.'.join(original['meta']['version'].split('.')[:2])
+    release='.'.join(original['meta']['version'].split('.')[:2])+suffix
     for path in ['data/bible.json','docs/ORDRE_DE_CENDRE_Bible.xlsx',f'docs/validation/workbook-v{release}-validation.json']:
         dest=work/path; dest.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(root/path,dest)
     (work/'tests/fixtures').mkdir(parents=True)
@@ -61,5 +64,5 @@ report={'date':datetime.datetime.now(datetime.timezone.utc).isoformat(),
         'verifierSha256':hashlib.sha256(tool.read_bytes()).hexdigest(),
         'scope':'Synthetic negative mutations in disposable source copies. Real source, workbook and historical reports are not modified.',
         'negativeReferenceProbes':results,'historicalFallbacks':fallbacks,'passed':True}
-(root/'docs/validation/production-v010-reference-probes.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+(root/f'docs/validation/production-v010{suffix}-reference-probes.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps({'negativeProbes':len(results),'fallbacks':len(fallbacks),'passed':True},ensure_ascii=False))

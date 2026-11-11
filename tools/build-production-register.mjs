@@ -100,7 +100,7 @@ for (const sheet of ['Assets', 'Production', 'QA']) {
   lines.push('');
 }
 lines.push('## Limites de réception', '',
-  'QA19 conserve ses deux observations natives contradictoires de la 0.9 tant qu’un nouveau contrôle documenté ne les résout pas. Les parcours de focus modélisés n’y substituent aucun résultat navigateur. QA29 garde son besoin de tri, filtres, volets et édition dans un logiciel bureautique interactif. Les essais humains de Thyr et les critères matériels restent ouverts.', '',
+  'QA19 conserve les deux observations natives 0.9 et la réception partielle 0.10 : des pauses sont visibles dans une instance dupliquée, un autre contexte demeure contradictoire et le tir maintenu n’est pas reçu. Les gestes sont natifs dans les deux contextes; leur différence ne démontre aucune cause liée à l’acquisition du DOM. QA20 garde la petite fenêtre réelle à contrôler malgré ses zooms reçus. QA29 garde son besoin de tri, filtres, volets et édition dans un logiciel bureautique interactif. Les essais humains de Thyr et les critères matériels restent ouverts.', '',
   'La progression de MI09, la migration v9 et le kit Thyr constituent des livrables de prototype. MI10–MI32, la défection de MI16 et les seize contrats restent conçus. Les variantes visuelles de FL08 et FL09 n’ajoutent aucun effet écologique absent.', '');
 fs.writeFileSync(path.join(root, 'docs/PRODUCTION_REGISTER_V10.md'), lines.join('\n'));
 const report = { version: receipt.version, baselineRecords: 133, originalRowsUnchanged: true, originalCriteriaUnchanged: true, v09ReceiptsPreserved: true,

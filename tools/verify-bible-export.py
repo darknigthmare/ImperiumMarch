@@ -1,4 +1,4 @@
-import argparse, collections, json, re, zipfile, hashlib, subprocess, sys
+import argparse, collections, json, re, zipfile, hashlib, subprocess, sys, os
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
@@ -9,6 +9,8 @@ parser.add_argument('--references-only',action='store_true',help='Check source i
 parser.add_argument('--reference-report',type=Path,help='Write the complete reference audit to this path relative to the repository root.')
 args=parser.parse_args()
 root=Path(args.root).resolve()
+receipt_suffix=os.environ.get('BIBLE_RECEIPT_SUFFIX','')
+assert not receipt_suffix or re.fullmatch(r'[a-z0-9][a-z0-9-]*',receipt_suffix), 'Invalid BIBLE_RECEIPT_SUFFIX'
 baseline=args.baseline
 file=root/'docs/ORDRE_DE_CENDRE_Bible.xlsx'
 source_bytes=(root/'data/bible.json').read_bytes()
@@ -234,7 +236,7 @@ with zipfile.ZipFile(file) as z:
         tables=[ET.fromstring(z.read(f)) for f in table_files]
         table=next(t for t in tables if t.attrib['name']==f'Bible_{i:02}')
         assert table.attrib['ref']==f'A6:{col(len(spec["columns"]))}{6+len(spec["rows"])}'
-    release='.'.join(source['meta']['version'].split('.')[:2])
+    release='.'.join(source['meta']['version'].split('.')[:2])+('-'+receipt_suffix if receipt_suffix else '')
     state=root/f'docs/validation/workbook-v{release}-validation.json'
     # Legacy generic reports remain immutable evidence of their original release.
     generation_state=state if state.exists() else root/'docs/validation/workbook-validation.json'

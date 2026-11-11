@@ -6182,7 +6182,7 @@
           "id": "QA19",
           "area": "Entrées",
           "scenario": "Perdre le focus en maintenant déplacement ou tir puis revenir.",
-          "expected": "Entrées réinitialisées; aucune action maintenue sans intention du joueur. Observation 0.9 : Deux essais natifs avec D maintenu, changement d’onglet puis barre d’adresse, ont laissé la marche et l’horloge continuer. Aucun retour en pause n’a été observé. Cause application ou entrées gérées indéterminée; non validé, observation à caractériser. Preuve : docs/validation/v09-browser.json. Correctif 0.10 : quatre lacunes reproduites puis corrigées dans le DOM modélisé (bouton HUD, répétition de touche, navigation, capture du pointeur). Protocole et preuve : docs/validation/v10-focus-modeled.json. Cela ne détermine pas la cause des deux observations natives 0.9 et ne clôt pas leur répétition.",
+          "expected": "Entrées réinitialisées; aucune action maintenue sans intention du joueur. Les deux échecs natifs 0.9 restent archivés dans docs/validation/v09-browser.json. La 0.10 corrige quatre lacunes modélisées; D+Tab puis Espace sur Pause ont aussi été observés dans Chrome. Un onglet déjà référencé reste sans pause après D + clic autre onglet; une copie créée par le menu Chrome affiche une pause après les clics avec D vers un autre onglet et la barre d’adresse. Cause de l’écart indéterminée; tir maintenu non exercé. Réception partielle, sans fermeture : docs/validation/native-v10/browser-reception.json et native-observations.json.",
           "priority": "P0",
           "status": "À produire"
         },
@@ -6190,7 +6190,7 @@
           "id": "QA20",
           "area": "Affichage",
           "scenario": "Vérifier écran large, petite fenêtre et zoom de texte.",
-          "expected": "Contrôles non tronqués, boutons atteignables, indicateurs lisibles et canvas proportionnel. Réception partielle 0.9 : grand écran et zooms 125/150 % observés; véritable petite fenêtre native non établie. Preuve : docs/validation/v09-browser.json.",
+          "expected": "Contrôles non tronqués, boutons atteignables, indicateurs lisibles et canvas proportionnel. Réception partielle 0.10 : fenêtre Chrome 1363 × 1023, HUD à 100 %, briefing défilé à 125 %, décision à 125/150 % avec choix réel et bilan défilé à 150 %. Les tentatives de réduction native n’ont pas changé la géométrie mesurée; véritable petite fenêtre non établie. Preuve : docs/validation/native-v10/browser-reception.json. Les précontrôles réalisés sur un autre onglet ne reçoivent pas ce critère. QA20 reste ouverte.",
           "priority": "P0",
           "status": "À produire"
         },
@@ -6230,7 +6230,7 @@
           "id": "QA25",
           "area": "Intégrité bible",
           "scenario": "Vérifier IDs et références de tous onglets.",
-          "expected": "Aucun ID dupliqué et chaque référence de contenu pointe vers une entrée existante ou une plage explicitée. Réception 0.10 : 845 IDs uniques, références et symboles résolus; sept mutations incorrectes rejetées et six baselines authentiques contrôlées sans Git. Preuves : docs/validation/production-v010-reference-audit.json et docs/validation/production-v010-reference-probes.json. La réception 0.9 reste archivée. Résoudre un lien ne certifie ni gameplay ni finition.",
+          "expected": "Aucun ID dupliqué et chaque référence de contenu pointe vers une entrée existante ou une plage explicitée. Réception 0.10 : 845 IDs uniques, références et symboles résolus; sept mutations incorrectes rejetées et six baselines authentiques contrôlées sans Git. Preuves : docs/validation/production-v010-final-reference-audit.json et docs/validation/production-v010-final-reference-probes.json. La réception 0.9 reste archivée. Résoudre un lien ne certifie ni gameplay ni finition.",
           "priority": "P0",
           "status": "Vérifié"
         },
@@ -7374,7 +7374,7 @@
           "id": "QA168",
           "area": "Bible — réception 0.10",
           "scenario": "Régénérer, recalculer et réconcilier les données, références, 816 IDs historiques, formules et vues modifiées.",
-          "expected": "Réception exécutée : 845 fiches et 5 715 cellules source réconciliées; 816 IDs historiques conservés et 29 ajoutés. Les 133 critères initiaux restent intégraux. Les 126 formules sont recalculées sans cache dans une copie LibreOffice; 40 vues de onze feuilles relues. Preuves : docs/validation/workbook-v0.10-export.json, workbook-v0.10-libreoffice.json, workbook-v0.10-visual-review.json et workbook-v0.10-baseline-check.json. Usage interactif natif QA29 et essais humains restent ouverts.",
+          "expected": "Réception exécutée : 845 fiches et 5 715 cellules source réconciliées; 816 IDs historiques conservés et 29 ajoutés. Les 133 critères initiaux restent intégraux. Les 126 formules sont recalculées sans cache dans une copie LibreOffice; 40 vues de onze feuilles reçues : cinq vues modifiées relues et trente-cinq plages inchangées comparées. Preuves : docs/validation/workbook-v0.10-final-export.json, workbook-v0.10-final-libreoffice.json, workbook-v0.10-final-visual-review.json et workbook-v0.10-baseline-check.json. Usage interactif natif QA29 et essais humains restent ouverts.",
           "priority": "P0",
           "status": "Vérifié"
         },
@@ -8268,7 +8268,7 @@
           "link": "SY89; SY90; PR24",
           "name": "Clavier et manette de mission",
           "implemented": "Onze actions reconfigurables; entrées standard de manette, zone morte, neutre, déconnexion et pause contrôlés par tests synthétiques et DOM. Reconfiguration clavier également reçue dans Chrome.",
-          "limits": "Pas de menus à la manette ni d’essai matériel ou utilisateur concerné. Le correctif de focus 0.10 possède une preuve modélisée distincte. Les deux observations natives 0.9 de QA19 restent ouvertes tant que leur répétition n’est pas reçue.",
+          "limits": "Pas de menus à la manette ni d’essai matériel ou utilisateur concerné. Le correctif de focus 0.10 possède une preuve modélisée distincte et une réception Chrome partielle : résultats différents entre deux instances, cause indéterminée et tir maintenu non exercé. QA19 reste ouverte.",
           "path": "src/controls.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -8340,8 +8340,8 @@
           "link": "SY98; QA19; QA167",
           "name": "Entrées après changement de focus",
           "implemented": "Navigation, boutons HUD, répétitions clavier et perte de capture du pointeur ont des gardes et des parcours du script réel dans un DOM modélisé.",
-          "limits": "La preuve modélisée ne clôt pas les deux observations natives contradictoires de 0.9. Retour de focus sans reprise automatique; manette physique non essayée.",
-          "path": "src/main.mjs; tools/test-ui-runtime.mjs; docs/validation/v10-focus-modeled.json",
+          "limits": "La réception Chrome 0.10 observe des pauses avec D dans une instance dupliquée, mais conserve un résultat contradictoire dans l’autre instance. Cause indéterminée, tir maintenu non exercé et QA19 ouverte. La preuve DOM reste distincte; manette physique non essayée.",
+          "path": "src/main.mjs; tools/test-ui-runtime.mjs; docs/validation/v10-focus-modeled.json; docs/validation/native-v10/browser-reception.json",
           "status": "Prototype"
         }
       ]

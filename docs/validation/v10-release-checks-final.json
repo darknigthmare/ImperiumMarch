@@ -1,0 +1,787 @@
+{
+  "schema": 1,
+  "release": "0.10.0",
+  "saveVersion": 9,
+  "phase": "Final local candidate after native reception and four static label corrections. Exact final remote commit, CI and deployment are attested separately after publication.",
+  "checkedAt": "2026-11-11T17:13:20.304648+00:00",
+  "localBaseRevision": "1fd2dc28374cf26224193eefb225046b651e7886",
+  "publicBaseRevision": "158a10f7e963f3f5effbb71fc3e8b4588d209d5a",
+  "initialReleaseReceipt": "docs/validation/v10-release-checks-initial.json",
+  "initialPublication": "docs/validation/v10-publication-initial.json",
+  "initialHttpVerification": "docs/validation/v10-http-initial.json",
+  "nodeTests": {
+    "passed": 356,
+    "failed": 0,
+    "scope": "Initial exact-commit CI; all runtime sources and tests/fixtures remain byte-identical in this candidate. The final exact-commit CI follows publication.",
+    "runId": 43059331362,
+    "commit": "158a10f7e963f3f5effbb71fc3e8b4588d209d5a",
+    "log": "docs/validation/v10-ci-initial.log"
+  },
+  "sourceIntegrity": {
+    "unchangedRuntimePaths": [
+      "src/audio.mjs",
+      "src/campaign.mjs",
+      "src/content.mjs",
+      "src/controls.mjs",
+      "src/departure-validation.mjs",
+      "src/main.mjs",
+      "src/production-assets.mjs",
+      "src/renderer.mjs",
+      "src/simulation.mjs",
+      "src/style.css",
+      "src/thyr-assets.mjs",
+      "src/thyr-renderer.mjs",
+      "src/thyr-validation.mjs",
+      "src/ui.css"
+    ],
+    "testsAndFixturesUnchanged": true,
+    "staticIndexLabelChanges": 4
+  },
+  "uiModel": {
+    "version": "0.10.0",
+    "type": "Modeled DOM executing the final offline application after four navigation-label corrections",
+    "command": "npm run check:ui-runtime",
+    "log": "docs/validation/v10-ui-runtime-final.log",
+    "logSha256": "0767534ff617beb92b9808c6720394f56b209601eb04b107a00359821a68928e",
+    "flows": 66,
+    "result": "passed",
+    "sourceHashes": {
+      "src/main.mjs": "8b0e76a9890f00f7401b33204108978620b12b9d93d7773060d846207e0499b7",
+      "src/controls.mjs": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32",
+      "src/campaign.mjs": "b3ea42fb30869f79b84a7555caa637facf1398626a4ffaefe0ed78c1bad8dbfa",
+      "src/content.mjs": "ae0d137afbb364a317292df0e11917fd00c8bdcf16a614edfb354c963cec907c",
+      "src/simulation.mjs": "236f3c7f06bec8a32525b652b5612502a2e415466224445397cd0bf85849c617",
+      "src/thyr-validation.mjs": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+      "src/thyr-renderer.mjs": "4b887111c090a90e2084699acf6e43ed0d2613ab73afdb1e4b6fe5eed0a01580",
+      "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+      "src/renderer.mjs": "b5f8ca4b0e20ac18bd3577c22e6361ce6d2905ab50ff8780162ece0f194f823a",
+      "index.html": "c1c246013a9563c341f0317d1e7f11118eef55d0d177d837a88c9a061e9c6dbf",
+      "src/style.css": "38c454a6edd05c26fc258ca95082037ebfa00753c28fe8c9aeccf25b56e6e2af",
+      "src/ui.css": "177533d784ada32fecdacb8bd987d0aada274364e6f3f9685c6cb44eed040d12",
+      "tools/test-ui-runtime.mjs": "c6bcee3f43404e630e20c98f21f3e6fc837d9ed51b6ec8dcf076e9cfb885f3ef",
+      "dist/Ordre_de_Cendre.html": "a8a5f4929ebdcee0fd796875d344e48f3536fc612f07cbf853963305a5001063"
+    },
+    "limitations": [
+      "DOM model only; native scope and unresolved QA19/QA20 are recorded separately.",
+      "The application src/ modules and runtime test script are byte-identical to the initial 0.10 publication; only four static labels and the rebuilt offline container differ.",
+      "Does not certify physical gamepad, audio listening or a human playtest."
+    ],
+    "recordedAtUtc": "2026-11-11T17:05:16.874508+00:00",
+    "initialReceipt": "docs/validation/v10-ui-validation.json",
+    "nativeReceipt": "docs/validation/native-v10/browser-reception.json",
+    "staticUi": {
+      "command": "npm run check:ui",
+      "result": "passed",
+      "uniqueIds": 174,
+      "literalReferences": 163,
+      "views": 5,
+      "archiveTabs": 4,
+      "dialogs": 6
+    },
+    "build": {
+      "modules": 12,
+      "bytes": 10276491
+    }
+  },
+  "projectCheck": {
+    "command": "npm run check",
+    "passed": true,
+    "designSheets": 20,
+    "sourceRecords": 845,
+    "playableChassis": 6,
+    "independentOperations": 3,
+    "campaignMissions": 9
+  },
+  "whitespaceCheck": {
+    "scope": "All changed source and documentation, with three raw evidence transcripts excluded from trailing-whitespace formatting. Their bytes and fingerprints are preserved exactly.",
+    "rawEvidenceWithOriginalTrailingWhitespace": [
+      "docs/validation/v10-ci-initial.log",
+      "docs/validation/native-v10/v10-journal-after-reload.txt",
+      "docs/validation/native-v10/v10-thyr-archive-expanded.txt"
+    ]
+  },
+  "raster": {
+    "version": "0.10.0",
+    "type": "Same-resolution SVG and Canvas raster comparison",
+    "command": "npm run check:assets-render",
+    "log": "docs/validation/v10-raster-tests.log",
+    "logSha256": "542ecbc2cc0d31fd4a945f96112b5459a6333aca70b77e8dfd489af4a95e04e1",
+    "library": "@napi-rs/canvas 0.1.100",
+    "cases": 40,
+    "threshold": 0.92,
+    "minimumObservedPercent": 99.57,
+    "maximumObservedPercent": 100.0,
+    "result": "passed",
+    "sourceHashes": {
+      "src/production-assets.mjs": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0",
+      "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+      "tools/test-assets-render.mjs": "7484e2a227bd57122a080641131ccb93e59d4223194e0f60e316407a610fa5ea"
+    },
+    "limitations": [
+      "Pixel coverage proof, not browser gameplay, human art reception or animation assessment."
+    ]
+  },
+  "catalogue": {
+    "records": 845,
+    "domains": 20,
+    "walkers": 6,
+    "operations": 3,
+    "campaignMissions": 9,
+    "remainingCampaignMissions": 23
+  },
+  "thyrAssets": {
+    "files": 37,
+    "svg": 35,
+    "png": 2,
+    "components": 11,
+    "bytes": 388834
+  },
+  "media": {
+    "path": "assets/production/distribution-manifest.json",
+    "coverage": {
+      "registeredSourceMedia": 388,
+      "sourceMedia": 388,
+      "runtimeImageFiles": 3,
+      "productionGraphicsMedia": 292,
+      "productionAudioMedia": 56,
+      "thyrGraphicsMedia": 37,
+      "observedWebMedia": 388,
+      "observedInlineOccurrences": 5,
+      "observedInlineDistinctHashes": 3,
+      "excludedDocumentationMedia": 288,
+      "unregisteredSourceMedia": 0,
+      "unregisteredWebMedia": 0,
+      "unregisteredInlineMedia": 0,
+      "productionWavsEmbedded": 0
+    },
+    "strictPassed": true
+  },
+  "workbook": {
+    "workbook": "ORDRE_DE_CENDRE_Bible.xlsx",
+    "version": "0.10.0",
+    "sha256": "7bd75161f5d10026d5e0101d9d052c439d1ff342bfba1a72a9b2329fc001cd60",
+    "sourceRecords": 845,
+    "sourceCellsCompared": 5715,
+    "historicalRevision": "2bb8d7a708e4fab5ab34b3cac10f2418b60fe037",
+    "historicalIdsPreserved": 816,
+    "addedIds": 29,
+    "sheets": 21,
+    "namedTables": 20,
+    "calculatedFormulaCells": 126,
+    "errorCells": 0,
+    "summaryCachesReconciled": true,
+    "statusValidationRanges": 20,
+    "conditionalFormatRules": 80,
+    "frozenDataSheets": 20,
+    "referenceAudit": {
+      "source": "data/bible.json",
+      "version": "0.10.0",
+      "sourceSha256": "8e2647a4b601ab2b454496b8b5ede38afbd87f3db8c6422ea57e2fceb57dc771",
+      "scope": "All explicit two-letter/two-or-three-digit identifiers in row fields and metadata, closed ranges and abbreviated pairs such as PT03/04. Symbols resolve to canonical declaration rows. Existence of a reference does not certify gameplay, art, narrative truth or human usability.",
+      "sourceSheets": 20,
+      "sourceRows": 845,
+      "uniqueIds": 845,
+      "textFieldsScanned": 4915,
+      "referenceOccurrences": 1236,
+      "closedRanges": 101,
+      "abbreviatedPairs": 1,
+      "expandedReferences": 1908,
+      "resolvedByKind": {
+        "standalone_operation": 29,
+        "row": 1818,
+        "technical_evidence": 45,
+        "witness_evidence": 10,
+        "political_evidence": 6
+      },
+      "issues": [],
+      "passed": true
+    },
+    "engineScope": "Recalcul et test de modification de statut exécutés dans @oai/artifact-tool. Ce contrôle lit le ZIP/XML exporté; une éventuelle exécution native est consignée séparément et ne se déduit pas de ce rapport.",
+    "renderedPreviewCount": 40,
+    "generatedPreviewCountThisExport": 5,
+    "retainedPreviewCount": 35,
+    "visualScope": "40 vues associées à la réception : 5 générées par cet export et 35 conservées sur des plages source inchangées. Leur relecture effective et leurs empreintes sont consignées séparément; le nombre de vues ne certifie ni navigateur ni usage natif du classeur."
+  },
+  "workbookVisual": {
+    "path": "docs/validation/workbook-v0.10-final-visual-review.json",
+    "passed": true
+  },
+  "workbookRecalculation": {
+    "path": "docs/validation/workbook-v0.10-final-libreoffice.json",
+    "passed": true,
+    "originalUnchanged": true,
+    "scope": "Disposable copy, cleared caches, headless LibreOffice; no interactive Calc or Excel certification."
+  },
+  "productionRegister": {
+    "path": "docs/validation/production-v010-registry.json",
+    "counts": {
+      "baselineRecords": 133,
+      "bySheet": {
+        "Assets": {
+          "baseline": 56,
+          "Conçu": 0,
+          "Prototype": 30,
+          "À produire": 26,
+          "Vérifié": 0
+        },
+        "Production": {
+          "baseline": 38,
+          "Conçu": 0,
+          "Prototype": 6,
+          "À produire": 32,
+          "Vérifié": 0
+        },
+        "QA": {
+          "baseline": 39,
+          "Conçu": 0,
+          "Prototype": 0,
+          "À produire": 23,
+          "Vérifié": 16
+        }
+      },
+      "recordsWithV010Work": 9,
+      "statusChangesSinceV09": 1,
+      "currentBaselineStatuses": {
+        "Conçu": 0,
+        "Prototype": 36,
+        "À produire": 81,
+        "Vérifié": 16
+      }
+    }
+  },
+  "browser": {
+    "version010Tested": true,
+    "testedPublicCommit": "158a10f7e963f3f5effbb71fc3e8b4588d209d5a",
+    "receipt": "docs/validation/native-v10/browser-reception.json",
+    "exports": {
+      "path": "docs/validation/native-v10/native-export-verification.json",
+      "checksPassed": 87,
+      "checksFailed": 0
+    },
+    "scope": "Native migration, selected UI controls and zooms, extraction from prepared simulation checkpoints, export and actual reload. Not a complete human playthrough.",
+    "openCriteria": [
+      "QA19",
+      "QA20",
+      "QA29"
+    ]
+  },
+  "historicalEvidence": "All 402 protected 0.9 paths, all historical fixtures and the initial 0.10 release receipt must remain byte-identical; the final publisher independently enforces this.",
+  "fingerprints": {
+    "AGENTS.md": {
+      "bytes": 13712,
+      "sha256": "bf0cece739b5ee39b6f163a5e7ae73a1bc860cb012635eb3287f601d57494b41"
+    },
+    "README.md": {
+      "bytes": 35776,
+      "sha256": "28671d5add6603c4675d62d5014ca361980c36c9db32c46af104bfa0490b3ac7"
+    },
+    "assets/production/distribution-manifest.json": {
+      "bytes": 700929,
+      "sha256": "ad6c23cce7af17dc1356b700aa52be05890c31d5e4b2b0b7be81f5ef717bda28"
+    },
+    "assets/production/distribution-report.md": {
+      "bytes": 55991,
+      "sha256": "7be55d5802dede58379b9d2cf11c715c0a1d9d185fc7cab22828f75ad58e734a"
+    },
+    "assets/thyr/manifest.json": {
+      "bytes": 23658,
+      "sha256": "be3109e516cafd525cfcaa0862e2c9209c119a20365f64ffe484e90d05311a02"
+    },
+    "data/bible-v010-final-previews.json": {
+      "bytes": 860,
+      "sha256": "58ce583596cdb083d0930b5a2c108636a6d2b28e59b2e5abe871adf960127bd6"
+    },
+    "data/bible-v010-previews.json": {
+      "bytes": 3537,
+      "sha256": "9edda1ed32eebef117a165c7339d49003460481cd4d82bdad3596a31a4cd0376"
+    },
+    "data/bible.json": {
+      "bytes": 458289,
+      "sha256": "8e2647a4b601ab2b454496b8b5ede38afbd87f3db8c6422ea57e2fceb57dc771"
+    },
+    "data/production-v010-receipts.json": {
+      "bytes": 10661,
+      "sha256": "b3a1148041c225b68176a4747ab932ec413eca3c9bb6cd4bdbac614063130ffc"
+    },
+    "dist/Ordre_de_Cendre.html": {
+      "bytes": 10276491,
+      "sha256": "a8a5f4929ebdcee0fd796875d344e48f3536fc612f07cbf853963305a5001063"
+    },
+    "docs/ARCHITECTURE.md": {
+      "bytes": 32550,
+      "sha256": "11e71b2c9ef646239cdf7761c39c9055f7851121fd74b51436562a70fa41c844"
+    },
+    "docs/BIBLE_FR.md": {
+      "bytes": 36452,
+      "sha256": "f38fd87dee06d6b3e492590755edf035e18f06419a8e1ed3ffbb268fbd09662a"
+    },
+    "docs/BIBLE_README.md": {
+      "bytes": 12250,
+      "sha256": "6d6a2a583d3367909cfa3515793bf64ffd56c6f5ef938b65ad161fbf16b37830"
+    },
+    "docs/BIBLE_REFERENCES.md": {
+      "bytes": 5650,
+      "sha256": "b911f88d2cdc461874cf12e0771beaf100198607901d7f2d5c40e5acd94e981a"
+    },
+    "docs/CAMPAIGN_MISSION_09.md": {
+      "bytes": 13258,
+      "sha256": "5219f994ac5264093856a1e2c577d1c69d7f34f6e3d49f114e7e88f8beb40d41"
+    },
+    "docs/CAMPAIGN_SAVE_V9.md": {
+      "bytes": 7454,
+      "sha256": "0ab71cec0e21d5b59b0714215e266b012a24ba5939ee90796b59cf447ec07f71"
+    },
+    "docs/DEPLOYMENT.md": {
+      "bytes": 23446,
+      "sha256": "c8405e337da2d0070bc4209a9019543284992bb5d398308b39179f215a8bc24c"
+    },
+    "docs/ORDRE_DE_CENDRE_Bible.xlsx": {
+      "bytes": 188816,
+      "sha256": "7bd75161f5d10026d5e0101d9d052c439d1ff342bfba1a72a9b2329fc001cd60"
+    },
+    "docs/PRODUCTION_REGISTER_V10.md": {
+      "bytes": 83565,
+      "sha256": "c15dfde2dfe855480b25666c5b88888892fe73fa1d249360e5c5147804d212f8"
+    },
+    "docs/PRODUCTION_V10.md": {
+      "bytes": 8260,
+      "sha256": "813882bd0bf57af803e46f261d644ce79dd40819c8c9d5bb0a69004362a05b9a"
+    },
+    "docs/QA_V10.md": {
+      "bytes": 11856,
+      "sha256": "9f5190b36f0234fb6498126fb57ee130a991250dcea19031acf30d935acc366f"
+    },
+    "docs/SIMULATION_API.md": {
+      "bytes": 49465,
+      "sha256": "82f280c518637ff0c89383cfb1a7daae7f40dddf4ace74e8f479a425da9ad437"
+    },
+    "docs/previews/bible-v010-final/bible-v010-final-prototype-91-91.png": {
+      "bytes": 40966,
+      "sha256": "84c33993d93eb55afefca943b488ae1c3ead806871a4d07d08d91c3ef2fb6c24"
+    },
+    "docs/previews/bible-v010-final/bible-v010-final-prototype-97-99.png": {
+      "bytes": 113014,
+      "sha256": "ba3eee6501a4a8ee0c4b5dd8de289be8a975d0dea65ddf780d613410cc929eb6"
+    },
+    "docs/previews/bible-v010-final/bible-v010-final-qa-174-175.png": {
+      "bytes": 83654,
+      "sha256": "bb2d7c3a2b74d1350ce3703c99e757a4138466d7372e857171095ed9a221bd1f"
+    },
+    "docs/previews/bible-v010-final/bible-v010-final-qa-25-26.png": {
+      "bytes": 108223,
+      "sha256": "76275b869efc70412eed6f345d619ec6224c1041e3585e793203e3f7601b2677"
+    },
+    "docs/previews/bible-v010-final/bible-v010-final-qa-31-31.png": {
+      "bytes": 47566,
+      "sha256": "02704ce4dd5fd0fe31b5ccaef98fa644bda0655691dda9edc739b4d30de6f0a4"
+    },
+    "docs/previews/mi09-before-extraction-checkpoint.json": {
+      "bytes": 96502,
+      "sha256": "f8c6d322507975e7339d4b28263c29718b3c58d8619fc161487451ffed82ddb7"
+    },
+    "docs/previews/mi09-canvas-validation.json": {
+      "bytes": 8410,
+      "sha256": "a2d8d1250d1049e18e1df251aa074bf8215210387a43c024bf53fb14ca9500a1"
+    },
+    "docs/previews/mi09-completed-campaign.json": {
+      "bytes": 73635,
+      "sha256": "ee7e116ea5246ca9807db33e21ec47abb6936e5b1c289bc95bdb65330c339a98"
+    },
+    "docs/previews/mi09-decision-checkpoint.json": {
+      "bytes": 96420,
+      "sha256": "b82dc2449da912321fc9469fe5c43b2bfd473ca5ca0de7053bbc5802f7a06b50"
+    },
+    "docs/previews/mi09-render-manifest.json": {
+      "bytes": 1104531,
+      "sha256": "7ff20aa8335589923a45b5b6719b6c0452951c497ec6f22ec60164892462afb7"
+    },
+    "docs/validation/native-v10/browser-reception.json": {
+      "bytes": 15613,
+      "sha256": "46cdf5feac5b2599845d3e79ec9949a203cac148f8697d9e44741fbb3630db72"
+    },
+    "docs/validation/native-v10/native-download-provenance.json": {
+      "bytes": 4110,
+      "sha256": "e1bc81aec7c4bda7304d2afad2b05d5ced47fba2c137adab996332c6a6d8ee68"
+    },
+    "docs/validation/native-v10/native-evidence-manifest.json": {
+      "bytes": 19630,
+      "sha256": "db285a352b7480c8ba0a195496dd128fb86682769f87e24c3b824bd5a164820a"
+    },
+    "docs/validation/native-v10/native-export-verification.json": {
+      "bytes": 15247,
+      "sha256": "6a5066a757521fe8f7a200c42f4dea23e35de53bf65b0f30b9dfed415c61e501"
+    },
+    "docs/validation/native-v10/native-migration-verification.json": {
+      "bytes": 3504,
+      "sha256": "69ce09cba6c2c600f86b929f3e2ae2b1cc363dba8fae95bf168cdc71c3971056"
+    },
+    "docs/validation/native-v10/native-observations.json": {
+      "bytes": 44288,
+      "sha256": "06638c962319218e7ea3d26b10bbc81882d2ca75e87e568b9afcb18c8905a409"
+    },
+    "docs/validation/native-v10/native-v8-before-upgrade.json": {
+      "bytes": 48326,
+      "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f"
+    },
+    "docs/validation/native-v10/native-v9-after-reload.json": {
+      "bytes": 73582,
+      "sha256": "de5ece01c690b27435878c0f84f7dfd7f86723500a23a3703e3f8ffce28e6898"
+    },
+    "docs/validation/native-v10/native-v9-after-upgrade.json": {
+      "bytes": 48996,
+      "sha256": "54f53b98e031e040845761feb263114a80d6573607b5ba070481f56ba425d18e"
+    },
+    "docs/validation/native-v10/native-v9-completed.json": {
+      "bytes": 73582,
+      "sha256": "de5ece01c690b27435878c0f84f7dfd7f86723500a23a3703e3f8ffce28e6898"
+    },
+    "docs/validation/native-v10/native-v9-focus-export.json": {
+      "bytes": 63596,
+      "sha256": "f311ad5573804ebc1a2c2db2ba77b7e025d4e8285ab2ef6469502eff243983a9"
+    },
+    "docs/validation/native-v10/v10-before-extraction-100.png": {
+      "bytes": 104444,
+      "sha256": "faf63adfb52e4a98c449f81b8da5bf20f1873e0e4f6bee44317443e10e3602d4"
+    },
+    "docs/validation/native-v10/v10-before-extraction-100.txt": {
+      "bytes": 3501,
+      "sha256": "88965f6ec7c605457c6a21cec20883fbce0220319150fcc1615d6a953171eb3f"
+    },
+    "docs/validation/native-v10/v10-briefing-125-received.png": {
+      "bytes": 75267,
+      "sha256": "81de789ba47d07e93d32b3defb3e681e24698c583ad3f62075109b8c08391f49"
+    },
+    "docs/validation/native-v10/v10-briefing-125-received.txt": {
+      "bytes": 2306,
+      "sha256": "f4e5577391ab3f1b70eadddcf47fa73063eaa58fb345627fde5f3124c30132a9"
+    },
+    "docs/validation/native-v10/v10-briefing125-scrolled-received.png": {
+      "bytes": 73865,
+      "sha256": "6f58b5354486a2a9e6e8b34457363db3386b4b8940aaaa6e843ddbf693b96282"
+    },
+    "docs/validation/native-v10/v10-briefing125-scrolled-received.txt": {
+      "bytes": 2306,
+      "sha256": "f4e5577391ab3f1b70eadddcf47fa73063eaa58fb345627fde5f3124c30132a9"
+    },
+    "docs/validation/native-v10/v10-decision-125-current.jpg": {
+      "bytes": 115505,
+      "sha256": "9ad58c104134cf8b49f5cfb22446548edce87a992016f615e27975acf1e8d179"
+    },
+    "docs/validation/native-v10/v10-decision-150-received.png": {
+      "bytes": 44118,
+      "sha256": "cb1389e33a4607d9227c28c31477e315e1bd24fb6144492e5ef7f4b2c1df9337"
+    },
+    "docs/validation/native-v10/v10-decision-150-received.txt": {
+      "bytes": 1349,
+      "sha256": "6cb22b77c103cf408d986e442aa03db0100f6146ae6826f6415c5e05b815a7c7"
+    },
+    "docs/validation/native-v10/v10-extraction-or-result-150.jpg": {
+      "bytes": 150906,
+      "sha256": "7f22d3767bcb0ef93a312aa3ef9f0743d7722cac7a01490c401dbda2a6aae4ff"
+    },
+    "docs/validation/native-v10/v10-hud-100-before-resize.jpg": {
+      "bytes": 161957,
+      "sha256": "e14a129a6c3f54311fde3a05c4cc1f5bfe91513c50186c63123ea5fff1f471a4"
+    },
+    "docs/validation/native-v10/v10-hud-150-extraction.jpg": {
+      "bytes": 163290,
+      "sha256": "a799dc6ae993309deae9d4cfc995c8bb044cfbeb528b2f40818cd39459d94fc2"
+    },
+    "docs/validation/native-v10/v10-journal-after-reload.png": {
+      "bytes": 74514,
+      "sha256": "e3779dc1ce7d601f58b388fbdc931766c0afe72002149ce0bff88fc806385a41"
+    },
+    "docs/validation/native-v10/v10-journal-after-reload.txt": {
+      "bytes": 7717,
+      "sha256": "06b4d52ea0731a1a671af8b2269b9636ba9aefd1a9022a0f3107f579195fdadc"
+    },
+    "docs/validation/native-v10/v10-result-150-actions.png": {
+      "bytes": 51482,
+      "sha256": "4101aa642b5e5f0802f60ba99c5b5230da7c3316b6473a25c59717507c14906d"
+    },
+    "docs/validation/native-v10/v10-result-150-actions.txt": {
+      "bytes": 2075,
+      "sha256": "157c505e96ed43bdd24e1c399b088c56113f70609db25e28b5677769c19fb268"
+    },
+    "docs/validation/native-v10/v10-result-150-top.jpg": {
+      "bytes": 113711,
+      "sha256": "a113d9f935f06a34b6834f14b703bda9bc80040aaf4458e4414731239bdac7c2"
+    },
+    "docs/validation/native-v10/v10-thyr-archive-expanded.png": {
+      "bytes": 82168,
+      "sha256": "27bea5f429fcd6e603385e9e726e27446b727900516eeb36cb9e370ffbf1e08c"
+    },
+    "docs/validation/native-v10/v10-thyr-archive-expanded.txt": {
+      "bytes": 9596,
+      "sha256": "83241fc8115f2a1602267e565426c8cf74c75200e55c90d135fef8a8cc455ee1"
+    },
+    "docs/validation/native-v10/v10-workshop-after-reload.png": {
+      "bytes": 93881,
+      "sha256": "80df6d831a794d11a94953740c81343168ff8452ac04639b77591b290bc99d09"
+    },
+    "docs/validation/native-v10/v10-workshop-after-reload.txt": {
+      "bytes": 5334,
+      "sha256": "299b440a1a63544fbd21500e3c5461832dba4a56e229068553cf9644017d12d9"
+    },
+    "docs/validation/native-v10/v10-zoom125-received.jpg": {
+      "bytes": 183466,
+      "sha256": "4b10c042054b699abd2e7b54bb0818a04382d7ca95eacbc3a3dfa215cecc8a41"
+    },
+    "docs/validation/native-v10/v10-zoom150-native.jpg": {
+      "bytes": 153866,
+      "sha256": "940d45d804f2213034ad1991803e888f5999282501a368092b1449a654441435"
+    },
+    "docs/validation/native-v10/verify-native-exports.py": {
+      "bytes": 13840,
+      "sha256": "30aa3141273ec99b7fdf0c86fc80277df4c548bc0dce65c6b85f3a544da631e4"
+    },
+    "docs/validation/production-v010-final-reference-audit.json": {
+      "bytes": 373333,
+      "sha256": "9856c49b2144f7b3b1c821d79d321310675b9bfff275a48a258d5446c76791c5"
+    },
+    "docs/validation/production-v010-final-reference-probes.json": {
+      "bytes": 8758,
+      "sha256": "0167bdc886d7881044e687cf356ed47b15220930677d36009f73dad98667d9b6"
+    },
+    "docs/validation/production-v010-reference-audit.json": {
+      "bytes": 372870,
+      "sha256": "89d7d4082af58e4898a302f96b63e812ee192b526dea417064f5d3b6c4bba858"
+    },
+    "docs/validation/production-v010-reference-probes.json": {
+      "bytes": 8758,
+      "sha256": "9cd382dc6f151fea75ef50de20e82afbc01ab692f01d3005cd7e35da76e3e2b1"
+    },
+    "docs/validation/production-v010-registry-check.json": {
+      "bytes": 1031,
+      "sha256": "78a5965ee6ba5e9bc5341f322ef8b0c0d779a896f20c832b9b1212e08915a037"
+    },
+    "docs/validation/production-v010-registry.json": {
+      "bytes": 432483,
+      "sha256": "41723eccbf4f697d258d4263f1359ac5bf29d4001e855b7dd3eb7bb9fadd1761"
+    },
+    "docs/validation/v010-campaign-tests.tap": {
+      "bytes": 36578,
+      "sha256": "9dabc2c66c605c4d7900b6e1c2bc605f7520093bb57cf78b3cf49696bccfd6f9"
+    },
+    "docs/validation/v010-campaign-validation.json": {
+      "bytes": 1638,
+      "sha256": "3224773285513dc9bb47503497ca6eaf9a580cdfc79015401b8b4051450d0a0b"
+    },
+    "docs/validation/v010-historic-v8.json": {
+      "bytes": 3434,
+      "sha256": "67b04cb76a7473323cac7328dda4373fc70f559f94a100348c6bf2a6e5dd19ad"
+    },
+    "docs/validation/v10-ci-initial.log": {
+      "bytes": 189095,
+      "sha256": "056fb2c9a26cdbe27beb647ee4fde96e8be49cf23f1130582099175c6bcc1111"
+    },
+    "docs/validation/v10-focus-modeled.json": {
+      "bytes": 6533,
+      "sha256": "74d894523427d9fa2541780931606a02e0c4130522133c6bcbba75802b8d2cb6"
+    },
+    "docs/validation/v10-http-initial.json": {
+      "bytes": 8333,
+      "sha256": "784312400d1c2845f3aee65347b2e58079a61bcf9faf5e8bee96303f1f91719c"
+    },
+    "docs/validation/v10-node-tests.json": {
+      "bytes": 7184,
+      "sha256": "c05d72bfe8688ae25c235d42fedaaca4c40debeca38937266adeead46663d4a6"
+    },
+    "docs/validation/v10-node-tests.log": {
+      "bytes": 46927,
+      "sha256": "a9a60ec7309038f68d0612a5b6667c094e8e51d9fa2bd675adf5097e184f205a"
+    },
+    "docs/validation/v10-publication-initial.json": {
+      "bytes": 15904,
+      "sha256": "f11e587266559cb068d197f9e950453b560d0dcb8d0d897c52ceae912c6f8a3c"
+    },
+    "docs/validation/v10-raster-tests.log": {
+      "bytes": 2264,
+      "sha256": "542ecbc2cc0d31fd4a945f96112b5459a6333aca70b77e8dfd489af4a95e04e1"
+    },
+    "docs/validation/v10-raster-validation.json": {
+      "bytes": 875,
+      "sha256": "d8de784c68613a104b9c2d30cb8d3f58823124b18531f09ffc7d630ef6001996"
+    },
+    "docs/validation/v10-release-checks-initial.json": {
+      "bytes": 24905,
+      "sha256": "03247e35ebba4d56015b6a4c86081e8e2588405ad708c328af439eb272952618"
+    },
+    "docs/validation/v10-ui-runtime-final.log": {
+      "bytes": 6659,
+      "sha256": "0767534ff617beb92b9808c6720394f56b209601eb04b107a00359821a68928e"
+    },
+    "docs/validation/v10-ui-runtime.log": {
+      "bytes": 6758,
+      "sha256": "074eea62ec0d85b4b9dc81f1f1c7f1d53c3dd2b41dd372303e6014bd4b8f3c50"
+    },
+    "docs/validation/v10-ui-validation-final.json": {
+      "bytes": 2473,
+      "sha256": "beded5b4eee13668f98290c6ac211b94cdedb2c3d37e8d22abc891e3cfb6516b"
+    },
+    "docs/validation/v10-ui-validation.json": {
+      "bytes": 1888,
+      "sha256": "a3a87c1a882e576c56216f27152bd946648782114b186fda0b320a7b4af99384"
+    },
+    "docs/validation/workbook-v0.10-baseline-check.json": {
+      "bytes": 19902,
+      "sha256": "9d0987f483034dcf5d574cca2ec92ae6c207c2b1cb2f6688aa675d709acf6fb3"
+    },
+    "docs/validation/workbook-v0.10-export.json": {
+      "bytes": 2057,
+      "sha256": "3d134a9f71421a7e4dfc3cc3a654673abe30559b17a43e0d21b2c793a9beec85"
+    },
+    "docs/validation/workbook-v0.10-final-export.json": {
+      "bytes": 2057,
+      "sha256": "b2dd6341742e4226391d82109aef37c29675fef8ec4b2bdfcf09fb810d5aa134"
+    },
+    "docs/validation/workbook-v0.10-final-formula-check.ndjson": {
+      "bytes": 60,
+      "sha256": "acc0111e19cf44d2753fc9ecd164bf1b27fbd65597463a25cf48bd1c65e90146"
+    },
+    "docs/validation/workbook-v0.10-final-inspection.ndjson": {
+      "bytes": 740,
+      "sha256": "98129001f984d9709aed096fc7f65eea6b39562411926d1a7f2752fbbc36b85a"
+    },
+    "docs/validation/workbook-v0.10-final-libreoffice.json": {
+      "bytes": 14919,
+      "sha256": "87cb1361c1be337e6624c2afef5837b49a029f9cc56ed786435a343ef5691a4d"
+    },
+    "docs/validation/workbook-v0.10-final-libreoffice.txt": {
+      "bytes": 518,
+      "sha256": "4c40095ff65221ded0f2458cde8046445d9736b5c24e17fe666a97536d2bd305"
+    },
+    "docs/validation/workbook-v0.10-final-preview-integrity.json": {
+      "bytes": 15952,
+      "sha256": "534c0a27e5584007b21e5166de93755aa92e05e35741f151becff50d13b53d46"
+    },
+    "docs/validation/workbook-v0.10-final-validation.json": {
+      "bytes": 9757,
+      "sha256": "d51be25b417dfa2dbfa40f80af019e5bfff96d6667b21c8f7514be6c1ec30cb4"
+    },
+    "docs/validation/workbook-v0.10-final-visual-review.json": {
+      "bytes": 22852,
+      "sha256": "15c7eb797baf71de7b8b2232d72f6fc7128f3adf2afb0525a435b1c24ad56765"
+    },
+    "docs/validation/workbook-v0.10-formula-check.ndjson": {
+      "bytes": 60,
+      "sha256": "acc0111e19cf44d2753fc9ecd164bf1b27fbd65597463a25cf48bd1c65e90146"
+    },
+    "docs/validation/workbook-v0.10-inspection.ndjson": {
+      "bytes": 740,
+      "sha256": "98129001f984d9709aed096fc7f65eea6b39562411926d1a7f2752fbbc36b85a"
+    },
+    "docs/validation/workbook-v0.10-libreoffice.json": {
+      "bytes": 14919,
+      "sha256": "863dcfd258d698b3d4b8d1f162cf7fe6fa360f05f64bea064d7f5925ac97f28d"
+    },
+    "docs/validation/workbook-v0.10-libreoffice.txt": {
+      "bytes": 518,
+      "sha256": "618de962c486f0fed2209be476ccbbbca3c9bee3377e418dbb80b2a2dfcffa3f"
+    },
+    "docs/validation/workbook-v0.10-validation.json": {
+      "bytes": 8502,
+      "sha256": "fc48659d5fdfbf04535d0ddfbb6be50581c73243082787a83a933b560a69a00f"
+    },
+    "docs/validation/workbook-v0.10-visual-review.json": {
+      "bytes": 21958,
+      "sha256": "76a2c0724c064aab3abaf47a471293a95260b59939e68f1135f197ed501f21d6"
+    },
+    "index.html": {
+      "bytes": 21569,
+      "sha256": "c1c246013a9563c341f0317d1e7f11118eef55d0d177d837a88c9a061e9c6dbf"
+    },
+    "package.json": {
+      "bytes": 727,
+      "sha256": "efd50a52936e9f5d94205043e890e6a882847270c9c37f6e591d871aa84b0bd2"
+    },
+    "src/campaign.mjs": {
+      "bytes": 134692,
+      "sha256": "b3ea42fb30869f79b84a7555caa637facf1398626a4ffaefe0ed78c1bad8dbfa"
+    },
+    "src/content.mjs": {
+      "bytes": 32222,
+      "sha256": "ae0d137afbb364a317292df0e11917fd00c8bdcf16a614edfb354c963cec907c"
+    },
+    "src/controls.mjs": {
+      "bytes": 6981,
+      "sha256": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32"
+    },
+    "src/main.mjs": {
+      "bytes": 101595,
+      "sha256": "8b0e76a9890f00f7401b33204108978620b12b9d93d7773060d846207e0499b7"
+    },
+    "src/production-assets.mjs": {
+      "bytes": 45583,
+      "sha256": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0"
+    },
+    "src/renderer.mjs": {
+      "bytes": 135408,
+      "sha256": "b5f8ca4b0e20ac18bd3577c22e6361ce6d2905ab50ff8780162ece0f194f823a"
+    },
+    "src/simulation.mjs": {
+      "bytes": 261930,
+      "sha256": "236f3c7f06bec8a32525b652b5612502a2e415466224445397cd0bf85849c617"
+    },
+    "src/style.css": {
+      "bytes": 25092,
+      "sha256": "38c454a6edd05c26fc258ca95082037ebfa00753c28fe8c9aeccf25b56e6e2af"
+    },
+    "src/thyr-assets.mjs": {
+      "bytes": 16284,
+      "sha256": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83"
+    },
+    "src/thyr-renderer.mjs": {
+      "bytes": 13888,
+      "sha256": "4b887111c090a90e2084699acf6e43ed0d2613ab73afdb1e4b6fe5eed0a01580"
+    },
+    "src/thyr-validation.mjs": {
+      "bytes": 28583,
+      "sha256": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a"
+    },
+    "src/ui.css": {
+      "bytes": 14365,
+      "sha256": "177533d784ada32fecdacb8bd987d0aada274364e6f3f9685c6cb44eed040d12"
+    },
+    "tests/fixtures/campaign-v8-mi08.json": {
+      "bytes": 182074,
+      "sha256": "19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007"
+    },
+    "tools/audit-bible-references.py": {
+      "bytes": 4721,
+      "sha256": "f25e6163668bdfca8c39ff1ff1030192f253416ac317d1a6eacaad429b7dc249"
+    },
+    "tools/build-bible.mjs": {
+      "bytes": 18218,
+      "sha256": "d79d01e8cb9f1661a60bf075257244fca484049bc4aabbe0f032dc0213c827f9"
+    },
+    "tools/build-production-register.mjs": {
+      "bytes": 9911,
+      "sha256": "beb7cdf76f845ad5c762e87f41f97d616c5c1a6f2e0c78c5f80e14a260126094"
+    },
+    "tools/recalculate-bible-libreoffice.py": {
+      "bytes": 7857,
+      "sha256": "abbc889dd586c3829670cd5b3d54ef0146a8d1b1cbb458df85b8c151cb596215"
+    },
+    "tools/receive-bible-previews.py": {
+      "bytes": 6757,
+      "sha256": "4deb9b344548d8a81b48b1b0c1a2a884b2d92543c7389ddfe270937ef05c0bd0"
+    },
+    "tools/test-assets-render.mjs": {
+      "bytes": 3467,
+      "sha256": "7484e2a227bd57122a080641131ccb93e59d4223194e0f60e316407a610fa5ea"
+    },
+    "tools/test-ui-runtime.mjs": {
+      "bytes": 96221,
+      "sha256": "c6bcee3f43404e630e20c98f21f3e6fc837d9ed51b6ec8dcf076e9cfb885f3ef"
+    },
+    "tools/verify-bible-export.py": {
+      "bytes": 16729,
+      "sha256": "8bdb2696b78aa974abfe22e50271fbd13f00a6cb7ed0f7b148209d7f94da4dcf"
+    },
+    "vercel.json": {
+      "bytes": 174,
+      "sha256": "b5136729e3187422d3e1113a8c82f973bd3a95649789c745522d0a6a952949cd"
+    }
+  }
+}

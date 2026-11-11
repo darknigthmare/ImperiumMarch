@@ -35,7 +35,7 @@ Le contrôle peut être exécuté sans ouvrir ni réécrire le classeur :
 ```bash
 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-export.py . \
   --references-only \
-  --reference-report docs/validation/production-v010-reference-audit.json
+  --reference-report docs/validation/production-v010-final-reference-audit.json
 ```
 
 L’export complet exécute le même contrôle avant la comparaison ZIP/XML. Sa baseline par défaut est la publication authentique `2bb8d7a708e4fab5ab34b3cac10f2418b60fe037`, version 0.9. La fixture `tests/fixtures/bible-v09-ids.json` conserve les 816 IDs dans leur ordre de feuille, le blob Git et le SHA-256 de la source publiée. Cette source est identique à la base locale `e0026cb3fcd342309f2201a9288f10b78b8cff84`; l’arbre commun est `e8e278cc5c35f0ef0995ff78c8d499961b96cae9`.
@@ -44,12 +44,12 @@ Les baselines 0.8, 0.7, 0.6, 0.5 et 0.4 restent disponibles pour leurs révision
 
 ## Réception des références 0.10
 
-Sur la source finale de 845 fiches, le contrôle a parcouru **4 915 champs textuels**, trouvé **1 234 occurrences**, développé **101 plages fermées** et **une paire abrégée**, puis résolu **1 906 références** sans anomalie. Les 845 IDs sont uniques et les treize déclarations symboliques sont présentes. Le [rapport détaillé](validation/production-v010-reference-audit.json) conserve les emplacements, les cibles et l’empreinte de la source auditée.
+Sur la source finale de 845 fiches, le contrôle a parcouru **4 915 champs textuels**, trouvé **1 236 occurrences**, développé **101 plages fermées** et **une paire abrégée**, puis résolu **1 908 références** sans anomalie. Les 845 IDs sont uniques et les treize déclarations symboliques sont présentes. Le [rapport final détaillé](validation/production-v010-final-reference-audit.json) conserve les emplacements, les cibles et l’empreinte de la source auditée. Les deux occurrences ajoutées par les notes de réception ne créent aucune fiche et ne modifient aucun statut.
 
 ```bash
-"$CODEX_PRIMARY_RUNTIME_PYTHON" tools/audit-bible-references.py
+BIBLE_RECEIPT_SUFFIX=final "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/audit-bible-references.py
 ```
 
-Les [sondes négatives](validation/production-v010-reference-probes.json) utilisent des copies temporaires : ID inconnu à trois chiffres, trou au milieu d’une plage, plage descendante, préfixes mélangés, ID dupliqué, déclaration symbolique supprimée et partenaire abrégé inconnu. Les sept copies incorrectes sont rejetées. Les six baselines historiques fonctionnent sans Git et une révision inconnue est rejetée. Ces mutations de test ne touchent ni la source réelle, ni le classeur, ni les rapports historiques.
+Les [sondes négatives finales](validation/production-v010-final-reference-probes.json) utilisent des copies temporaires : ID inconnu à trois chiffres, trou au milieu d’une plage, plage descendante, préfixes mélangés, ID dupliqué, déclaration symbolique supprimée et partenaire abrégé inconnu. Les sept copies incorrectes sont rejetées. Les six baselines historiques fonctionnent sans Git et une révision inconnue est rejetée. Ces mutations de test ne touchent ni la source réelle, ni le classeur, ni les rapports historiques.
 
-Les [références de la 0.9](validation/production-v09-reference-audit.json) et leurs [sondes historiques](validation/production-v09-reference-probes.json) restent conservées avec leur propre source. Elles ne sont pas présentées comme des exécutions sur les données nouvelles. Les rapports courants de génération et d’export portent un nom versionné; le rapport générique 0.9 demeure inchangé.
+Les [références de la 0.9](validation/production-v09-reference-audit.json) et leurs [sondes historiques](validation/production-v09-reference-probes.json) restent conservées avec leur propre source. Le [premier audit 0.10](validation/production-v010-reference-audit.json) et ses [sondes](validation/production-v010-reference-probes.json) sont également préservés. Ces reçus historiques ne sont pas présentés comme des exécutions sur les nouveaux octets. Les rapports finaux portent le suffixe `final`; le rapport générique 0.9 demeure inchangé.

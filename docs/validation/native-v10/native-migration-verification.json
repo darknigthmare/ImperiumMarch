@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "version": "0.10.0",
+  "checkedAtUtc": "2026-11-11T17:06:17.472845+00:00",
+  "method": "Independent Python standard-library comparison; no game module, simulation or browser execution.",
+  "scope": "Exact v8 to v9 migration, orchard completion receipt, conserved prior facts and no reward duplication after reload/export.",
+  "originLimit": "Exports are supplied by the operator following UI actions. JSON inspection alone does not establish browser gestures or a complete human playthrough.",
+  "mode": "migration",
+  "pathsRelativeTo": "directory containing this report and verifier",
+  "verifierSha256": "30aa3141273ec99b7fdf0c86fc80277df4c548bc0dce65c6b85f3a544da631e4",
+  "inputs": {
+    "baseline": {
+      "file": "native-v8-before-upgrade.json",
+      "bytes": 48326,
+      "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f",
+      "status": "read",
+      "observed": {
+        "format": "ordre-de-cendre.campaign",
+        "version": 8,
+        "revision": 148,
+        "stage": "complete",
+        "activeMissionId": null,
+        "resources": {
+          "parts": 38,
+          "fuel": 0
+        },
+        "completedMissions": [
+          "MI01",
+          "MI02",
+          "MI03",
+          "MI04",
+          "MI05",
+          "MI06",
+          "MI07",
+          "MI08"
+        ]
+      }
+    },
+    "migration": {
+      "file": "native-v9-after-upgrade.json",
+      "bytes": 48996,
+      "sha256": "54f53b98e031e040845761feb263114a80d6573607b5ba070481f56ba425d18e",
+      "status": "read",
+      "observed": {
+        "format": "ordre-de-cendre.campaign",
+        "version": 9,
+        "revision": 148,
+        "stage": "complete",
+        "activeMissionId": null,
+        "resources": {
+          "parts": 38,
+          "fuel": 0
+        },
+        "completedMissions": [
+          "MI01",
+          "MI02",
+          "MI03",
+          "MI04",
+          "MI05",
+          "MI06",
+          "MI07",
+          "MI08"
+        ]
+      }
+    }
+  },
+  "checks": [
+    {
+      "id": "baseline.authentic_v8_bytes",
+      "status": "passed",
+      "expectedSha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f"
+    },
+    {
+      "id": "baseline.format",
+      "status": "passed",
+      "differences": [],
+      "differencesLimit": 30
+    },
+    {
+      "id": "baseline.version",
+      "status": "passed",
+      "differences": [],
+      "differencesLimit": 30
+    },
+    {
+      "id": "baseline.eight_reports",
+      "status": "passed",
+      "differences": [],
+      "differencesLimit": 30
+    },
+    {
+      "id": "baseline.resources",
+      "status": "passed",
+      "differences": [],
+      "differencesLimit": 30
+    },
+    {
+      "id": "baseline.no_thyr",
+      "status": "passed"
+    },
+    {
+      "id": "migration.only_version_and_empty_thyr_added",
+      "status": "passed",
+      "differences": [],
+      "differencesLimit": 30
+    },
+    {
+      "id": "migration.stage_preserved",
+      "status": "passed",
+      "differences": [],
+      "differencesLimit": 30
+    },
+    {
+      "id": "migration.eight_reports_exact",
+      "status": "passed",
+      "differences": [],
+      "differencesLimit": 30
+    },
+    {
+      "id": "migration.resources_38_unchanged",
+      "status": "passed",
+      "differences": [],
+      "differencesLimit": 30
+    }
+  ],
+  "browserOperatedByVerifier": false,
+  "campaignInputsModified": false,
+  "totals": {
+    "passed": 10,
+    "failed": 0,
+    "pending": 0
+  },
+  "status": "passed"
+}

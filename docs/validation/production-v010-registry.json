@@ -39,7 +39,7 @@
         "Vérifié": 16
       }
     },
-    "recordsWithV010Work": 8,
+    "recordsWithV010Work": 9,
     "statusChangesSinceV09": 1,
     "currentBaselineStatuses": {
       "Conçu": 0,
@@ -4658,7 +4658,8 @@
         "state": "workbook_received_native_interaction_pending",
         "workPerformed": [
           "Source Bible portée à 845 fiches, avec 816 identifiants historiques conservés et 29 fiches nouvelles pour Thyr, sauvegarde v9, focus et réception.",
-          "Classeur de 21 onglets reçu : 5 715 cellules source, 126 formules recalculées dans le moteur puis dans une copie LibreOffice sans caches, 40 vues de onze feuilles relues, tableaux et statuts réconciliés."
+          "Classeur de 21 onglets reçu : 5 715 cellules source, 126 formules recalculées dans le moteur puis dans une copie LibreOffice sans caches, 40 vues de onze feuilles relues, tableaux et statuts réconciliés.",
+          "Réception documentaire finale après observations Chrome partielles : statuts inchangés, cinq vues actualisées et trente-cinq plages visuelles conservées seulement après comparaison des valeurs, formules et géométrie du classeur. Les reçus de la première publication 0.10 restent disponibles."
         ],
         "deliverables": [
           "data/bible.json",
@@ -4666,14 +4667,21 @@
           "tools/verify-bible-export.py",
           "tools/build-production-register.mjs",
           "docs/ORDRE_DE_CENDRE_Bible.xlsx",
-          "tools/recalculate-bible-libreoffice.py"
+          "tools/recalculate-bible-libreoffice.py",
+          "tools/receive-bible-previews.py",
+          "data/bible-v010-final-previews.json"
         ],
         "evidence": [
           "docs/validation/production-v010-reference-audit.json",
           "docs/validation/workbook-v0.10-export.json",
           "docs/validation/workbook-v0.10-libreoffice.json",
           "docs/validation/workbook-v0.10-visual-review.json",
-          "docs/validation/workbook-v0.10-baseline-check.json"
+          "docs/validation/workbook-v0.10-baseline-check.json",
+          "docs/validation/workbook-v0.10-final-export.json",
+          "docs/validation/workbook-v0.10-final-libreoffice.json",
+          "docs/validation/workbook-v0.10-final-visual-review.json",
+          "docs/validation/workbook-v0.10-final-preview-integrity.json",
+          "docs/validation/production-v010-final-reference-audit.json"
         ],
         "remainingWork": "Le critère conserve sa portée de prototype documentaire. QA29 reste ouverte pour tri, filtres, volets et édition dans une application bureautique interactive; aucun essai Excel desktop ou résultat humain n’est déduit du recalcul headless.",
         "statusChange": null
@@ -4913,7 +4921,8 @@
       "v010": {
         "state": "partial_work_received",
         "workPerformed": [
-          "MI09 ouvre Thyr après le rapport MI08 avec ses actes physiques, résultats locaux et premier rapport de campagne."
+          "MI09 ouvre Thyr après le rapport MI08 avec ses actes physiques, résultats locaux et premier rapport de campagne.",
+          "Fin native de MI09 reçue depuis un checkpoint préparé : quatre migrateurs arrivés au verger, aucun perdu ou exclu, deux habitats, deux colonies et transport arrivé. Bilan à 150 %, journal Thyr et hangar observés après rechargement. Les 87 contrôles des exports conservent neuf rapports, 42 lots et les anciens faits de Vesper/Nacre; ce parcours partiel ne vaut pas mission entière ni essai humain sans guidage."
         ],
         "deliverables": [
           "docs/CAMPAIGN_MISSION_09.md",
@@ -4923,7 +4932,9 @@
         "evidence": [
           "docs/previews/mi09-simulation-validation.json",
           "docs/validation/v010-campaign-validation.json",
-          "docs/validation/v10-ui-validation.json"
+          "docs/validation/v10-ui-validation.json",
+          "docs/validation/native-v10/browser-reception.json",
+          "docs/validation/v10-ui-validation-final.json"
         ],
         "remainingWork": "MI10–MI16, CT05–CT08 et la défection de MI16 restent à produire. Aucun début de l’Acte II ne clôt le critère de l’Acte II complet.",
         "statusChange": null
@@ -5248,7 +5259,8 @@
       "v010": {
         "state": "partial_work_received",
         "workPerformed": [
-          "Focus des surfaces de jeu, boutons HUD, répétition des touches et perte de capture du pointeur corrigés sur quatre lacunes déterministes. Les commandes de mission conservent la neutralité manette et la reprise explicite."
+          "Focus des surfaces de jeu, boutons HUD, répétition des touches et perte de capture du pointeur corrigés sur quatre lacunes déterministes. Les commandes de mission conservent la neutralité manette et la reprise explicite.",
+          "Réception Chrome partielle de la navigation HUD et du focus externe : certaines pauses sont observées, mais les deux instances testées donnent des résultats différents; aucune cause interne n’est attribuée."
         ],
         "deliverables": [
           "src/main.mjs",
@@ -5256,9 +5268,12 @@
         ],
         "evidence": [
           "docs/validation/v10-focus-modeled.json",
-          "docs/validation/v10-ui-validation.json"
+          "docs/validation/v10-ui-validation.json",
+          "docs/validation/native-v10/browser-reception.json",
+          "docs/validation/native-v10/native-observations.json",
+          "docs/validation/v10-ui-validation-final.json"
         ],
-        "remainingWork": "La preuve modélisée ne détermine pas la cause des deux observations natives 0.9. QA19, navigation des menus à la manette, matériel physique et essais d’utilisateurs concernés restent ouverts.",
+        "remainingWork": "QA19 reste ouverte : résultat contradictoire entre instances et tir maintenu non exercé. Navigation des menus à la manette, matériel physique et essais d’utilisateurs concernés restent ouverts.",
         "statusChange": null
       }
     },
@@ -8335,9 +8350,10 @@
       "criterionState": "partial",
       "previousReleaseStatus": "À produire",
       "v010": {
-        "state": "model_correction_received_native_pending",
+        "state": "partial_native_observations_unresolved",
         "workPerformed": [
-          "Quatre échecs de focus/entrées reproduits sur la 0.9, puis corrigés et vérifiés dans l’application réelle exécutée en DOM modélisé. Un protocole distingue Tab vers le HUD, clic autre onglet et clic barre d’adresse."
+          "Quatre échecs de focus/entrées reproduits sur la 0.9, puis corrigés et vérifiés dans l’application réelle exécutée en DOM modélisé. Un protocole distingue Tab vers le HUD, clic autre onglet et clic barre d’adresse.",
+          "Dans Chrome, D+Tab puis Espace activent Pause. Un onglet déjà référencé demeure sans pause après D + clic autre onglet; une copie créée par le menu Chrome affiche une pause après les clics avec D vers autre onglet et barre d’adresse. Les gestes des deux contextes sont natifs; la différence ne prouve aucune cause liée à l’acquisition du DOM. Les premières captures temporaires ont disparu et leurs observations restent dans la trace de session, avec indisponibilité déclarée."
         ],
         "deliverables": [
           "src/main.mjs",
@@ -8345,9 +8361,12 @@
         ],
         "evidence": [
           "docs/validation/v10-focus-modeled.json",
-          "docs/validation/v10-ui-validation.json"
+          "docs/validation/v10-ui-validation.json",
+          "docs/validation/native-v10/browser-reception.json",
+          "docs/validation/native-v10/native-observations.json",
+          "docs/validation/v10-ui-validation-final.json"
         ],
-        "remainingWork": "Répéter et recevoir les deux scénarios natifs contradictoires de la 0.9 avec déplacement et tir maintenus. Ni une garde présente ni un test synthétique réussi ne clôt ce critère natif.",
+        "remainingWork": "Expliquer ou circonscrire les résultats contradictoires, répéter le cycle perte/retour/reprise avec déplacement et tir maintenus. Le tir n’a pas été exercé de manière établie; les pauses positives ne clôturent pas le critère entier. Les deux observations natives 0.9 restent conservées.",
         "statusChange": null
       }
     },
@@ -8407,11 +8426,16 @@
       "criterionState": "partial",
       "previousReleaseStatus": "À produire",
       "v010": {
-        "state": "no_new_receipt",
-        "workPerformed": [],
+        "state": "partial_native_display_received",
+        "workPerformed": [
+          "Fenêtre Chrome 1363 × 1023 observée : HUD à 100 %, briefing défilé à 125 %, décision à 125/150 % avec choix effectif et bilan défilé à 150 %. Les boutons atteints ont été actionnés; les captures antérieures à l’activation de l’onglet du jeu sont explicitement exclues de la réception."
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Une véritable petite fenêtre native redimensionnée indépendamment n’a pas été établie; le critère complet reste ouvert.",
+        "evidence": [
+          "docs/validation/native-v10/browser-reception.json",
+          "docs/validation/native-v10/native-observations.json"
+        ],
+        "remainingWork": "Une vraie petite fenêtre native reste à établir. Les essais de réduction n’ont pas changé la géométrie mesurée; les zooms ne sont pas présentés comme un redimensionnement de fenêtre. Le critère et le statut À produire sont conservés.",
         "statusChange": null
       }
     },
@@ -8774,7 +8798,9 @@
         ],
         "evidence": [
           "docs/validation/production-v010-reference-audit.json",
-          "docs/validation/production-v010-reference-probes.json"
+          "docs/validation/production-v010-reference-probes.json",
+          "docs/validation/production-v010-final-reference-audit.json",
+          "docs/validation/production-v010-final-reference-probes.json"
         ],
         "remainingWork": "Le contrôle établit la cohérence documentaire de cette source. Aucun gameplay, art final ou résultat humain ne découle de la résolution des références.",
         "statusChange": null
@@ -9780,6 +9806,26 @@
       "sha256": "bf7d347a4681e30d00101fd9a3e0c0f0a7a731e3fb7475a17b7a8de097e55af5"
     },
     {
+      "path": "docs/validation/native-v10/browser-reception.json",
+      "bytes": 15613,
+      "sha256": "46cdf5feac5b2599845d3e79ec9949a203cac148f8697d9e44741fbb3630db72"
+    },
+    {
+      "path": "docs/validation/native-v10/native-observations.json",
+      "bytes": 44288,
+      "sha256": "06638c962319218e7ea3d26b10bbc81882d2ca75e87e568b9afcb18c8905a409"
+    },
+    {
+      "path": "docs/validation/production-v010-final-reference-audit.json",
+      "bytes": 373333,
+      "sha256": "9856c49b2144f7b3b1c821d79d321310675b9bfff275a48a258d5446c76791c5"
+    },
+    {
+      "path": "docs/validation/production-v010-final-reference-probes.json",
+      "bytes": 8758,
+      "sha256": "0167bdc886d7881044e687cf356ed47b15220930677d36009f73dad98667d9b6"
+    },
+    {
       "path": "docs/validation/production-v010-reference-audit.json",
       "bytes": 372870,
       "sha256": "89d7d4082af58e4898a302f96b63e812ee192b526dea417064f5d3b6c4bba858"
@@ -9810,6 +9856,11 @@
       "sha256": "d8de784c68613a104b9c2d30cb8d3f58823124b18531f09ffc7d630ef6001996"
     },
     {
+      "path": "docs/validation/v10-ui-validation-final.json",
+      "bytes": 2473,
+      "sha256": "beded5b4eee13668f98290c6ac211b94cdedb2c3d37e8d22abc891e3cfb6516b"
+    },
+    {
       "path": "docs/validation/v10-ui-validation.json",
       "bytes": 1888,
       "sha256": "a3a87c1a882e576c56216f27152bd946648782114b186fda0b320a7b4af99384"
@@ -9825,6 +9876,26 @@
       "sha256": "3d134a9f71421a7e4dfc3cc3a654673abe30559b17a43e0d21b2c793a9beec85"
     },
     {
+      "path": "docs/validation/workbook-v0.10-final-export.json",
+      "bytes": 2057,
+      "sha256": "b2dd6341742e4226391d82109aef37c29675fef8ec4b2bdfcf09fb810d5aa134"
+    },
+    {
+      "path": "docs/validation/workbook-v0.10-final-libreoffice.json",
+      "bytes": 14919,
+      "sha256": "87cb1361c1be337e6624c2afef5837b49a029f9cc56ed786435a343ef5691a4d"
+    },
+    {
+      "path": "docs/validation/workbook-v0.10-final-preview-integrity.json",
+      "bytes": 15952,
+      "sha256": "534c0a27e5584007b21e5166de93755aa92e05e35741f151becff50d13b53d46"
+    },
+    {
+      "path": "docs/validation/workbook-v0.10-final-visual-review.json",
+      "bytes": 22852,
+      "sha256": "15c7eb797baf71de7b8b2232d72f6fc7128f3adf2afb0525a435b1c24ad56765"
+    },
+    {
       "path": "docs/validation/workbook-v0.10-libreoffice.json",
       "bytes": 14919,
       "sha256": "863dcfd258d698b3d4b8d1f162cf7fe6fa360f05f64bea064d7f5925ac97f28d"
@@ -9836,8 +9907,8 @@
     }
   ],
   "sourceFreeze": {
-    "recordedAt": "2026-11-11T16:20:55.862Z",
-    "bibleSha256": "9cea476b966a95074655007df71470a2aaf9e99177366ecfd7fc374dd620478a",
-    "receiptSha256": "eb27eb870549123ab513ea1caf858a8c0ff5fccfda47d407fca1366cdab0c1d8"
+    "recordedAt": "2026-11-11T17:09:43.648Z",
+    "bibleSha256": "8e2647a4b601ab2b454496b8b5ede38afbd87f3db8c6422ea57e2fceb57dc771",
+    "receiptSha256": "b3a1148041c225b68176a4747ab932ec413eca3c9bb6cd4bdbac614063130ffc"
   }
 }

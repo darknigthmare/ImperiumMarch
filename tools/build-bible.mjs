@@ -14,6 +14,8 @@ import { createRequire } from 'node:module';
 
 const repoRoot = path.resolve(process.argv[2] || path.join(path.dirname(fileURLToPath(import.meta.url)), '..'));
 const outputDir = path.resolve(process.argv[3] || path.join(repoRoot, '..', 'outputs', 'imperium-march'));
+const receiptSuffix = process.env.BIBLE_RECEIPT_SUFFIX || '';
+if (receiptSuffix && !/^[a-z0-9][a-z0-9-]*$/.test(receiptSuffix)) throw new Error('Invalid BIBLE_RECEIPT_SUFFIX');
 const runtimeModules = process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES;
 if (!runtimeModules) throw new Error('CODEX_PRIMARY_RUNTIME_NODE_MODULES is required. Use the Codex primary runtime.');
 const workingDir = await fs.mkdtemp(path.join(os.tmpdir(), 'imperium-bible-'));
@@ -242,6 +244,6 @@ await fs.copyFile(outputFile, path.join(repoRoot, 'docs', 'ORDRE_DE_CENDRE_Bible
 const report = { workbook: 'ORDRE_DE_CENDRE_Bible.xlsx', version: source.meta.version, sheets: catalog.length + 1, designRows: independentTotal, statusCounts: Object.fromEntries(statuses.map((s, i) => [s, expectedStatusTotals[i]])), catalog, previews, tests: ['Total des fiches réconcilié avec le JSON', 'Statuts réconciliés avec le JSON', 'Modification temporaire de statut et recalcul vérifiés, valeur restaurée'], scope: source.meta.scope };
 await fs.writeFile(path.join(outputDir, 'workbook-validation.json'), JSON.stringify(report, null, 2) + '\n');
 await fs.mkdir(path.join(repoRoot, 'docs', 'validation'), { recursive: true });
-const reportRelease = source.meta.version.split('.').slice(0, 2).join('.');
+const reportRelease = source.meta.version.split('.').slice(0, 2).join('.') + (receiptSuffix ? `-${receiptSuffix}` : '');
 await fs.copyFile(path.join(outputDir, 'workbook-validation.json'), path.join(repoRoot, 'docs', 'validation', `workbook-v${reportRelease}-validation.json`));
 console.log(JSON.stringify({ outputFile, sheets: report.sheets, designRows: report.designRows, statusCounts: report.statusCounts, previews: previews.length }));

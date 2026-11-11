@@ -1,0 +1,597 @@
+{
+  "version": "0.10.0",
+  "method": "LibreOffice headless Calc XLSX import and export, disposable copy with all 126 formula caches removed; no interactive GUI test.",
+  "nativeApplication": "LibreOfficeDev 26.8.0.0.alpha0 2c87e51eeaa2b413ff4ae097b2705eea1995d8e5",
+  "command": [
+    "soffice",
+    "-env:UserInstallation=file:///tmp/ordre-bible-native-f15kmhmz/profile",
+    "--headless",
+    "--convert-to",
+    "xlsx:Calc MS Excel 2007 XML",
+    "--outdir",
+    "/tmp/ordre-bible-native-f15kmhmz/output",
+    "/tmp/ordre-bible-native-f15kmhmz/input/ORDRE_DE_CENDRE_Bible.xlsx"
+  ],
+  "exitCode": 0,
+  "stdout": "convert /tmp/ordre-bible-native-f15kmhmz/input/ORDRE_DE_CENDRE_Bible.xlsx as a Calc document -> /tmp/ordre-bible-native-f15kmhmz/output/ORDRE_DE_CENDRE_Bible.xlsx using filter : Calc MS Excel 2007 XML\n",
+  "stderr": "",
+  "originalSha256Before": "7bd75161f5d10026d5e0101d9d052c439d1ff342bfba1a72a9b2329fc001cd60",
+  "originalSha256After": "7bd75161f5d10026d5e0101d9d052c439d1ff342bfba1a72a9b2329fc001cd60",
+  "sourceJsonSha256": "8e2647a4b601ab2b454496b8b5ede38afbd87f3db8c6422ea57e2fceb57dc771",
+  "formulaCachesClearedInTestCopy": 126,
+  "testInputSha256": "b056f2323777db1514af651a2cf42b44e37345bf0528b0183a31ed385c41580e",
+  "originalUnchanged": true,
+  "scopeLimit": "Does not certify native GUI sorting/filtering, freeze-pane use, user editing, Excel desktop, game UI, human usability or hardware.",
+  "outputSha256": "d09d3079dae60d9c839412973cf4029591e3373b7e77b234f3be915114eba186",
+  "sheetCount": 21,
+  "formulaCells": 126,
+  "populatedFormulaCaches": 126,
+  "errorCells": [],
+  "sourceCellsCompared": 5715,
+  "sourceCellDifferences": [],
+  "allCellValueDifferences": [],
+  "formulaResultDifferences": [],
+  "formulaExpressionsChanged": [
+    "Synthèse!B12",
+    "Synthèse!C12",
+    "Synthèse!D12",
+    "Synthèse!E12",
+    "Synthèse!F12",
+    "Synthèse!B13",
+    "Synthèse!C13",
+    "Synthèse!D13",
+    "Synthèse!E13",
+    "Synthèse!F13",
+    "Synthèse!B14",
+    "Synthèse!C14",
+    "Synthèse!D14",
+    "Synthèse!E14",
+    "Synthèse!F14",
+    "Synthèse!B15",
+    "Synthèse!C15",
+    "Synthèse!D15",
+    "Synthèse!E15",
+    "Synthèse!F15",
+    "Synthèse!B16",
+    "Synthèse!C16",
+    "Synthèse!D16",
+    "Synthèse!E16",
+    "Synthèse!F16",
+    "Synthèse!B17",
+    "Synthèse!C17",
+    "Synthèse!D17",
+    "Synthèse!E17",
+    "Synthèse!F17",
+    "Synthèse!B18",
+    "Synthèse!C18",
+    "Synthèse!D18",
+    "Synthèse!E18",
+    "Synthèse!F18",
+    "Synthèse!B19",
+    "Synthèse!C19",
+    "Synthèse!D19",
+    "Synthèse!E19",
+    "Synthèse!F19",
+    "Synthèse!B20",
+    "Synthèse!C20",
+    "Synthèse!D20",
+    "Synthèse!E20",
+    "Synthèse!F20",
+    "Synthèse!B21",
+    "Synthèse!C21",
+    "Synthèse!D21",
+    "Synthèse!E21",
+    "Synthèse!F21",
+    "Synthèse!B22",
+    "Synthèse!C22",
+    "Synthèse!D22",
+    "Synthèse!E22",
+    "Synthèse!F22",
+    "Synthèse!B23",
+    "Synthèse!C23",
+    "Synthèse!D23",
+    "Synthèse!E23",
+    "Synthèse!F23",
+    "Synthèse!B24",
+    "Synthèse!C24",
+    "Synthèse!D24",
+    "Synthèse!E24",
+    "Synthèse!F24",
+    "Synthèse!B25",
+    "Synthèse!C25",
+    "Synthèse!D25",
+    "Synthèse!E25",
+    "Synthèse!F25",
+    "Synthèse!B26",
+    "Synthèse!C26",
+    "Synthèse!D26",
+    "Synthèse!E26",
+    "Synthèse!F26",
+    "Synthèse!B27",
+    "Synthèse!C27",
+    "Synthèse!D27",
+    "Synthèse!E27",
+    "Synthèse!F27",
+    "Synthèse!B28",
+    "Synthèse!C28",
+    "Synthèse!D28",
+    "Synthèse!E28",
+    "Synthèse!F28",
+    "Synthèse!B29",
+    "Synthèse!C29",
+    "Synthèse!D29",
+    "Synthèse!E29",
+    "Synthèse!F29",
+    "Synthèse!B30",
+    "Synthèse!C30",
+    "Synthèse!D30",
+    "Synthèse!E30",
+    "Synthèse!F30",
+    "Synthèse!B31",
+    "Synthèse!C31",
+    "Synthèse!D31",
+    "Synthèse!E31",
+    "Synthèse!F31"
+  ],
+  "structuralBefore": {
+    "tableFiles": 20,
+    "sheets": {
+      "Synthèse": {
+        "validationRanges": 0,
+        "conditionalRules": 0,
+        "pane": null
+      },
+      "Vision": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Systèmes": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Marcheurs": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Armes": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Modules": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Planètes": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Factions": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Personnages": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Campagne": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Contrats": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Ennemis": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Véhicules": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Faune": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Flore": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Narration": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Assets": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Production": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "QA": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Sources": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Prototype": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      }
+    }
+  },
+  "structuralAfter": {
+    "tableFiles": 20,
+    "sheets": {
+      "Synthèse": {
+        "validationRanges": 0,
+        "conditionalRules": 0,
+        "pane": null
+      },
+      "Vision": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Systèmes": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Marcheurs": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Armes": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Modules": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Planètes": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Factions": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Personnages": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Campagne": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Contrats": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Ennemis": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Véhicules": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Faune": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Flore": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Narration": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Assets": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Production": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "QA": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Sources": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      },
+      "Prototype": {
+        "validationRanges": 1,
+        "conditionalRules": 4,
+        "pane": {
+          "xSplit": "2",
+          "ySplit": "6",
+          "topLeftCell": "C7",
+          "activePane": "bottomRight",
+          "state": "frozen"
+        }
+      }
+    }
+  },
+  "passed": true
+}

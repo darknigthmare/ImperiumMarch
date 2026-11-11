@@ -1,4 +1,4 @@
-import json, hashlib, shutil, subprocess, tempfile, zipfile, posixpath, os, signal
+import json, hashlib, shutil, subprocess, tempfile, zipfile, posixpath, os, signal, re
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
@@ -6,7 +6,9 @@ root=Path(__file__).resolve().parents[1]
 original=root/'docs/ORDRE_DE_CENDRE_Bible.xlsx'
 outdir=root/'docs/validation'
 source=json.loads((root/'data/bible.json').read_text())
-release='.'.join(source['meta']['version'].split('.')[:2])
+receipt_suffix=os.environ.get('BIBLE_RECEIPT_SUFFIX','')
+assert not receipt_suffix or re.fullmatch(r'[a-z0-9][a-z0-9-]*',receipt_suffix), 'Invalid BIBLE_RECEIPT_SUFFIX'
+release='.'.join(source['meta']['version'].split('.')[:2])+('-'+receipt_suffix if receipt_suffix else '')
 N='http://schemas.openxmlformats.org/spreadsheetml/2006/main'; R='http://schemas.openxmlformats.org/officeDocument/2006/relationships'
 ns={'s':N}; tag=lambda x:'{'+N+'}'+x
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()

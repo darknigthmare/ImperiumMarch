@@ -1,0 +1,2484 @@
+﻿2026-11-11T16:32:40.0285142Z Current runner version: '2.338.2'
+2026-11-11T16:32:40.0306856Z ##[group]Runner Image Provisioner
+2026-11-11T16:32:40.0307553Z Hosted Compute Agent
+2026-11-11T16:32:40.0308162Z Version: 20261028.624
+2026-11-11T16:32:40.0308703Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-11T16:32:40.0309307Z Build Date: 2026-10-28T21:51:42Z
+2026-11-11T16:32:40.0309910Z Worker ID: {64d88734-6947-4e16-a2e5-b2f813cd4549}
+2026-11-11T16:32:40.0310503Z Region: westcentralus
+2026-11-11T16:32:40.0310994Z Cloud: Azure
+2026-11-11T16:32:40.0311500Z ##[endgroup]
+2026-11-11T16:32:40.0312811Z ##[group]Operating System
+2026-11-11T16:32:40.0313391Z Ubuntu
+2026-11-11T16:32:40.0313843Z 26.04.1
+2026-11-11T16:32:40.0314320Z LTS
+2026-11-11T16:32:40.0314859Z ##[endgroup]
+2026-11-11T16:32:40.0315324Z ##[group]Runner Image
+2026-11-11T16:32:40.0315849Z Image: ubuntu-26.04
+2026-11-11T16:32:40.0316334Z Version: 20261101.186.1
+2026-11-11T16:32:40.0317454Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-11T16:32:40.0318697Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+2026-11-11T16:32:40.0319527Z ##[endgroup]
+2026-11-11T16:32:40.0320486Z ##[group]GITHUB_TOKEN Permissions
+2026-11-11T16:32:40.0322747Z Contents: read
+2026-11-11T16:32:40.0323262Z Metadata: read
+2026-11-11T16:32:40.0323726Z ##[endgroup]
+2026-11-11T16:32:40.0325522Z Secret source: Actions
+2026-11-11T16:32:40.0326338Z Cache mode: write
+2026-11-11T16:32:40.0326972Z Prepare workflow directory
+2026-11-11T16:32:40.0686865Z Prepare all required actions
+2026-11-11T16:32:40.0726106Z Getting action download info
+2026-11-11T16:32:40.3608584Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-11T16:32:40.5162656Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-11-11T16:32:40.6997845Z Complete job name: validate
+2026-11-11T16:32:40.7845579Z ##[group]Run actions/checkout@v4
+2026-11-11T16:32:40.7846278Z with:
+2026-11-11T16:32:40.7846658Z   repository: darknigthmare/ImperiumMarch
+2026-11-11T16:32:40.7849930Z   token: ***
+2026-11-11T16:32:40.7850294Z   ssh-strict: true
+2026-11-11T16:32:40.7850657Z   ssh-user: git
+2026-11-11T16:32:40.7851019Z   persist-credentials: true
+2026-11-11T16:32:40.7851407Z   clean: true
+2026-11-11T16:32:40.7851914Z   sparse-checkout-cone-mode: true
+2026-11-11T16:32:40.7852329Z   fetch-depth: 1
+2026-11-11T16:32:40.7852682Z   fetch-tags: false
+2026-11-11T16:32:40.7853035Z   show-progress: true
+2026-11-11T16:32:40.7853400Z   lfs: false
+2026-11-11T16:32:40.7853729Z   submodules: false
+2026-11-11T16:32:40.7854097Z   set-safe-directory: true
+2026-11-11T16:32:40.7854517Z   allow-unsafe-pr-checkout: false
+2026-11-11T16:32:40.7855141Z ##[endgroup]
+2026-11-11T16:32:41.0380137Z Syncing repository: darknigthmare/ImperiumMarch
+2026-11-11T16:32:41.0382578Z ##[group]Getting Git version info
+2026-11-11T16:32:41.0383637Z Working directory is '/home/runner/work/ImperiumMarch/ImperiumMarch'
+2026-11-11T16:32:41.0384971Z [command]/usr/bin/git version
+2026-11-11T16:32:41.0490149Z git version 2.56.0
+2026-11-11T16:32:41.0512869Z ##[endgroup]
+2026-11-11T16:32:41.0524210Z Temporarily overriding HOME='/home/runner/work/_temp/cbd7dd61-c881-4be2-90f1-a9b2b47f1148' before making global git config changes
+2026-11-11T16:32:41.0526020Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-11T16:32:41.0527524Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ImperiumMarch/ImperiumMarch
+2026-11-11T16:32:41.0590280Z Deleting the contents of '/home/runner/work/ImperiumMarch/ImperiumMarch'
+2026-11-11T16:32:41.0593845Z ##[group]Initializing the repository
+2026-11-11T16:32:41.0598259Z [command]/usr/bin/git init /home/runner/work/ImperiumMarch/ImperiumMarch
+2026-11-11T16:32:41.0736911Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-11T16:32:41.0738534Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-11T16:32:41.0740310Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-11T16:32:41.0741169Z hint: call:
+2026-11-11T16:32:41.0742033Z hint:
+2026-11-11T16:32:41.0742691Z hint: 	git config --global init.defaultBranch <name>
+2026-11-11T16:32:41.0743733Z hint:
+2026-11-11T16:32:41.0744519Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-11T16:32:41.0745273Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-11T16:32:41.0745841Z hint:
+2026-11-11T16:32:41.0746184Z hint: 	git branch -m <name>
+2026-11-11T16:32:41.0746565Z hint:
+2026-11-11T16:32:41.0747062Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-11T16:32:41.0752301Z Initialized empty Git repository in /home/runner/work/ImperiumMarch/ImperiumMarch/.git/
+2026-11-11T16:32:41.0765695Z [command]/usr/bin/git remote add origin https://github.com/darknigthmare/ImperiumMarch
+2026-11-11T16:32:41.0825792Z ##[endgroup]
+2026-11-11T16:32:41.0826785Z ##[group]Disabling automatic garbage collection
+2026-11-11T16:32:41.0827735Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-11T16:32:41.0851397Z ##[endgroup]
+2026-11-11T16:32:41.0852889Z ##[group]Setting up auth
+2026-11-11T16:32:41.0859227Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-11T16:32:41.0893579Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-11T16:32:41.1358707Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-11T16:32:41.1388383Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-11T16:32:41.1624656Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-11T16:32:41.1654630Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-11T16:32:41.1894318Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-11T16:32:41.1929281Z ##[endgroup]
+2026-11-11T16:32:41.1936070Z ##[group]Fetching the repository
+2026-11-11T16:32:41.1937350Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +158a10f7e963f3f5effbb71fc3e8b4588d209d5a:refs/remotes/origin/main
+2026-11-11T16:32:49.8125165Z From https://github.com/darknigthmare/ImperiumMarch
+2026-11-11T16:32:49.8126285Z  * [new ref]         158a10f7e963f3f5effbb71fc3e8b4588d209d5a -> origin/main
+2026-11-11T16:32:49.8143563Z ##[endgroup]
+2026-11-11T16:32:49.8144609Z ##[group]Determining the checkout info
+2026-11-11T16:32:49.8145704Z ##[endgroup]
+2026-11-11T16:32:49.8146431Z [command]/usr/bin/git sparse-checkout disable
+2026-11-11T16:32:49.8189670Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-11T16:32:49.8217141Z ##[group]Checking out the ref
+2026-11-11T16:32:49.8219814Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-11T16:32:50.1482594Z Switched to a new branch 'main'
+2026-11-11T16:32:50.1485047Z branch 'main' set up to track 'origin/main'.
+2026-11-11T16:32:50.1507368Z ##[endgroup]
+2026-11-11T16:32:50.1547644Z [command]/usr/bin/git log -1 --format=%H
+2026-11-11T16:32:50.1568915Z 158a10f7e963f3f5effbb71fc3e8b4588d209d5a
+2026-11-11T16:32:50.1885031Z ##[group]Run actions/setup-node@v4
+2026-11-11T16:32:50.1886004Z with:
+2026-11-11T16:32:50.1886674Z   node-version: 22
+2026-11-11T16:32:50.1887414Z   always-auth: false
+2026-11-11T16:32:50.1888177Z   check-latest: false
+2026-11-11T16:32:50.1896761Z   token: ***
+2026-11-11T16:32:50.1897464Z ##[endgroup]
+2026-11-11T16:32:50.3183750Z (node:2275) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-11T16:32:50.3187296Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-11T16:32:50.3214214Z Found in cache @ /opt/hostedtoolcache/node/22.23.4/x64
+2026-11-11T16:32:50.3216656Z ##[group]Environment details
+2026-11-11T16:32:50.6243642Z node: v22.23.4
+2026-11-11T16:32:50.6244088Z npm: 10.9.9
+2026-11-11T16:32:50.6244463Z yarn: 1.22.22
+2026-11-11T16:32:50.6245424Z ##[endgroup]
+2026-11-11T16:32:50.6372760Z ##[group]Run npm test
+2026-11-11T16:32:50.6373116Z [36;1mnpm test[0m
+2026-11-11T16:32:50.6427913Z shell: /usr/bin/bash -e {0}
+2026-11-11T16:32:50.6428197Z ##[endgroup]
+2026-11-11T16:32:50.9351577Z 
+2026-11-11T16:32:50.9360813Z > imperium-march@0.10.0 test
+2026-11-11T16:32:50.9361242Z > node --test tests/*.test.mjs
+2026-11-11T16:32:50.9361445Z 
+2026-11-11T16:32:51.0092835Z TAP version 13
+2026-11-11T16:32:51.4593636Z # Subtest: every chassis starts with one loaded magazine and eight finite reserve magazines
+2026-11-11T16:32:51.4683151Z ok 1 - every chassis starts with one loaded magazine and eight finite reserve magazines
+2026-11-11T16:32:51.4698905Z   ---
+2026-11-11T16:32:51.4743677Z   duration_ms: 2.941438
+2026-11-11T16:32:51.4772515Z   type: 'test'
+2026-11-11T16:32:51.4831069Z   ...
+2026-11-11T16:32:51.4862712Z # Subtest: partial tactical reload transfers only missing rounds and conserves total ammunition
+2026-11-11T16:32:51.4892761Z ok 2 - partial tactical reload transfers only missing rounds and conserves total ammunition
+2026-11-11T16:32:51.4915828Z   ---
+2026-11-11T16:32:51.4942266Z   duration_ms: 11.819293
+2026-11-11T16:32:51.4948277Z   type: 'test'
+2026-11-11T16:32:51.4948955Z   ...
+2026-11-11T16:32:51.4949885Z # Subtest: public firing can exhaust all primary ammunition and neither reload nor holding fire creates free rounds
+2026-11-11T16:32:51.4951111Z ok 3 - public firing can exhaust all primary ammunition and neither reload nor holding fire creates free rounds
+2026-11-11T16:32:51.4952009Z   ---
+2026-11-11T16:32:51.4952368Z   duration_ms: 177.758825
+2026-11-11T16:32:51.4952802Z   type: 'test'
+2026-11-11T16:32:51.4953149Z   ...
+2026-11-11T16:32:51.4953847Z # Subtest: last tactical reload can fill a partial magazine without making reserve negative
+2026-11-11T16:32:51.4954818Z ok 4 - last tactical reload can fill a partial magazine without making reserve negative
+2026-11-11T16:32:51.4955432Z   ---
+2026-11-11T16:32:51.4955780Z   duration_ms: 60.547459
+2026-11-11T16:32:51.4956178Z   type: 'test'
+2026-11-11T16:32:51.4956542Z   ...
+2026-11-11T16:32:51.4957336Z # Subtest: a real supply contact adds at most three magazines and returning to the same cache cannot refill again
+2026-11-11T16:32:51.4958593Z ok 5 - a real supply contact adds at most three magazines and returning to the same cache cannot refill again
+2026-11-11T16:32:51.4959380Z   ---
+2026-11-11T16:32:51.4959762Z   duration_ms: 153.765516
+2026-11-11T16:32:51.4960159Z   type: 'test'
+2026-11-11T16:32:51.4960897Z   ...
+2026-11-11T16:32:52.1833290Z # Subtest: MI01 is a separate campaign mission and does not replace the three operations
+2026-11-11T16:32:52.1872248Z ok 6 - MI01 is a separate campaign mission and does not replace the three operations
+2026-11-11T16:32:52.1909083Z   ---
+2026-11-11T16:32:52.1932304Z   duration_ms: 4.024087
+2026-11-11T16:32:52.1946858Z   type: 'test'
+2026-11-11T16:32:52.1948593Z   ...
+2026-11-11T16:32:52.1949519Z # Subtest: the opening lets the player learn real appuis without an enemy attack or an overtaking convoy
+2026-11-11T16:32:52.1950742Z ok 7 - the opening lets the player learn real appuis without an enemy attack or an overtaking convoy
+2026-11-11T16:32:52.1951469Z   ---
+2026-11-11T16:32:52.1952069Z   duration_ms: 68.562843
+2026-11-11T16:32:52.1952517Z   type: 'test'
+2026-11-11T16:32:52.1952900Z   ...
+2026-11-11T16:32:52.1953583Z # Subtest: plate deployment takes time, requires proximity, and stops the convoy
+2026-11-11T16:32:52.1954521Z ok 8 - plate deployment takes time, requires proximity, and stops the convoy
+2026-11-11T16:32:52.1955778Z   ---
+2026-11-11T16:32:52.1956178Z   duration_ms: 18.646631
+2026-11-11T16:32:52.1956608Z   type: 'test'
+2026-11-11T16:32:52.1956994Z   ...
+2026-11-11T16:32:52.1957925Z # Subtest: leaving a partial deployment cancels it; an airborne foot alone does not damage the pipe
+2026-11-11T16:32:52.1959033Z ok 9 - leaving a partial deployment cancels it; an airborne foot alone does not damage the pipe
+2026-11-11T16:32:52.1959741Z   ---
+2026-11-11T16:32:52.1960414Z   duration_ms: 8.885076
+2026-11-11T16:32:52.1960848Z   type: 'test'
+2026-11-11T16:32:52.1961233Z   ...
+2026-11-11T16:32:52.1962107Z # Subtest: all six walkers complete both routes and both report choices through public controls
+2026-11-11T16:32:52.1963216Z ok 10 - all six walkers complete both routes and both report choices through public controls
+2026-11-11T16:32:52.1963914Z   ---
+2026-11-11T16:32:52.1964311Z   duration_ms: 745.368609
+2026-11-11T16:32:52.1964762Z   type: 'test'
+2026-11-11T16:32:52.1965337Z   ...
+2026-11-11T16:32:52.1966032Z # Subtest: a manifest and decision cannot be obtained at spawn or before delivery
+2026-11-11T16:32:52.1966966Z ok 11 - a manifest and decision cannot be obtained at spawn or before delivery
+2026-11-11T16:32:52.1967599Z   ---
+2026-11-11T16:32:52.1967991Z   duration_ms: 69.544448
+2026-11-11T16:32:52.1968418Z   type: 'test'
+2026-11-11T16:32:52.1968809Z   ...
+2026-11-11T16:32:52.1969581Z # Subtest: reaching the manifest ahead of Sami does not grant the delivery, document, or decision
+2026-11-11T16:32:52.1970677Z ok 12 - reaching the manifest ahead of Sami does not grant the delivery, document, or decision
+2026-11-11T16:32:52.1971361Z   ---
+2026-11-11T16:32:52.1972013Z   duration_ms: 98.87314
+2026-11-11T16:32:52.1972469Z   type: 'test'
+2026-11-11T16:32:52.1972853Z   ...
+2026-11-11T16:32:52.1973559Z # Subtest: a destroyed transport ends the campaign attempt without delivering filters
+2026-11-11T16:32:52.1974554Z ok 13 - a destroyed transport ends the campaign attempt without delivering filters
+2026-11-11T16:32:52.1975241Z   ---
+2026-11-11T16:32:52.1975625Z   duration_ms: 0.425171
+2026-11-11T16:32:52.1976059Z   type: 'test'
+2026-11-11T16:32:52.1976443Z   ...
+2026-11-11T16:32:52.1977181Z # Subtest: campaign state round-trips without changing the next deterministic public actions
+2026-11-11T16:32:52.1978288Z ok 14 - campaign state round-trips without changing the next deterministic public actions
+2026-11-11T16:32:52.1978975Z   ---
+2026-11-11T16:32:52.1979372Z   duration_ms: 113.724661
+2026-11-11T16:32:52.1979826Z   type: 'test'
+2026-11-11T16:32:52.1980214Z   ...
+2026-11-11T16:32:52.2693371Z # Subtest: the real v0.2 checkpoint preserves old state and resumes public actions with its documented finite reserve
+2026-11-11T16:32:52.2726309Z ok 15 - the real v0.2 checkpoint preserves old state and resumes public actions with its documented finite reserve
+2026-11-11T16:32:52.2751851Z   ---
+2026-11-11T16:32:52.2752413Z   duration_ms: 63.197886
+2026-11-11T16:32:52.2752820Z   type: 'test'
+2026-11-11T16:32:52.2753206Z   ...
+2026-11-11T16:32:52.2753977Z # Subtest: the real v0.2 completed dossier unlocks MI02 without rewriting MI01 or its maintenance debt
+2026-11-11T16:32:52.2755072Z ok 16 - the real v0.2 completed dossier unlocks MI02 without rewriting MI01 or its maintenance debt
+2026-11-11T16:32:52.2755734Z   ---
+2026-11-11T16:32:52.2756075Z   duration_ms: 3.515899
+2026-11-11T16:32:52.2756447Z   type: 'test'
+2026-11-11T16:32:52.2756826Z   ...
+2026-11-11T16:32:52.2757841Z # Subtest: migration reads without writes and preserves the original v1 primary during failed and successful commits
+2026-11-11T16:32:52.2759083Z ok 17 - migration reads without writes and preserves the original v1 primary during failed and successful commits
+2026-11-11T16:32:52.2759823Z   ---
+2026-11-11T16:32:52.2760160Z   duration_ms: 4.053762
+2026-11-11T16:32:52.2760529Z   type: 'test'
+2026-11-11T16:32:52.2760863Z   ...
+2026-11-11T16:32:52.2761598Z # Subtest: a future primary remains protected even when its backup is a valid migratable v1 dossier
+2026-11-11T16:32:52.2763307Z ok 18 - a future primary remains protected even when its backup is a valid migratable v1 dossier
+2026-11-11T16:32:52.2763976Z   ---
+2026-11-11T16:32:52.2764315Z   duration_ms: 1.860521
+2026-11-11T16:32:52.2764701Z   type: 'test'
+2026-11-11T16:32:52.2765035Z   ...
+2026-11-11T16:32:52.2765726Z # Subtest: v1 migration rejects invented MI02 data rather than laundering an unknown schema
+2026-11-11T16:32:52.2766916Z ok 19 - v1 migration rejects invented MI02 data rather than laundering an unknown schema
+2026-11-11T16:32:52.2767563Z   ---
+2026-11-11T16:32:52.2767897Z   duration_ms: 3.871704
+2026-11-11T16:32:52.2768264Z   type: 'test'
+2026-11-11T16:32:52.2768606Z   ...
+2026-11-11T16:32:52.2769466Z # Subtest: MI02 is locked before MI01, inherits its concrete consequences and excludes workshop interventions in flight
+2026-11-11T16:32:52.2770891Z ok 20 - MI02 is locked before MI01, inherits its concrete consequences and excludes workshop interventions in flight
+2026-11-11T16:32:52.2771800Z   ---
+2026-11-11T16:32:52.2772159Z   duration_ms: 31.582921
+2026-11-11T16:32:52.2772554Z   type: 'test'
+2026-11-11T16:32:52.2772883Z   ...
+2026-11-11T16:32:52.2773705Z # Subtest: MI02 live saves retain the train, harpoons, physics, input and inherited dossier deterministically
+2026-11-11T16:32:52.2774884Z ok 21 - MI02 live saves retain the train, harpoons, physics, input and inherited dossier deterministically
+2026-11-11T16:32:52.2775596Z   ---
+2026-11-11T16:32:52.2775937Z   duration_ms: 341.745675
+2026-11-11T16:32:52.2776326Z   type: 'test'
+2026-11-11T16:32:52.2776659Z   ...
+2026-11-11T16:32:52.2777476Z # Subtest: MI02 import rejects cross-mission checkpoints, contradictory inherited facts and forged train parts
+2026-11-11T16:32:52.2783556Z ok 22 - MI02 import rejects cross-mission checkpoints, contradictory inherited facts and forged train parts
+2026-11-11T16:32:52.2784363Z   ---
+2026-11-11T16:32:52.2784709Z   duration_ms: 36.745723
+2026-11-11T16:32:52.2785119Z   type: 'test'
+2026-11-11T16:32:52.2785475Z   ...
+2026-11-11T16:32:52.2786423Z # Subtest: the migrated MI01 sortie continues into MI02 and persists both reports, a unique reward and an immutable completed choice
+2026-11-11T16:32:52.2787850Z ok 23 - the migrated MI01 sortie continues into MI02 and persists both reports, a unique reward and an immutable completed choice
+2026-11-11T16:32:52.2788655Z   ---
+2026-11-11T16:32:52.2788992Z   duration_ms: 357.884596
+2026-11-11T16:32:52.2789365Z   type: 'test'
+2026-11-11T16:32:52.2789714Z   ...
+2026-11-11T16:32:52.2790461Z # Subtest: a failed MI02 sortie retains its live checkpoint and cannot grant a reward or erase MI01
+2026-11-11T16:32:52.2791481Z ok 24 - a failed MI02 sortie retains its live checkpoint and cannot grant a reward or erase MI01
+2026-11-11T16:32:52.2792322Z   ---
+2026-11-11T16:32:52.2792728Z   duration_ms: 155.754206
+2026-11-11T16:32:52.2793104Z   type: 'test'
+2026-11-11T16:32:52.2793432Z   ...
+2026-11-11T16:32:52.2794252Z # Subtest: a recovered train with lost workers and a destroyed register persists those losses and the selected report
+2026-11-11T16:32:52.2795486Z ok 25 - a recovered train with lost workers and a destroyed register persists those losses and the selected report
+2026-11-11T16:32:52.2796205Z   ---
+2026-11-11T16:32:52.2796533Z   duration_ms: 203.077967
+2026-11-11T16:32:52.2796903Z   type: 'test'
+2026-11-11T16:32:52.2797234Z   ...
+2026-11-11T16:32:52.5833379Z # Subtest: fresh dossier roundtrips without granting campaign results or knowledge
+2026-11-11T16:32:52.5847886Z ok 26 - fresh dossier roundtrips without granting campaign results or knowledge
+2026-11-11T16:32:52.5886267Z   ---
+2026-11-11T16:32:52.5886592Z   duration_ms: 7.721594
+2026-11-11T16:32:52.5886914Z   type: 'test'
+2026-11-11T16:32:52.5887147Z   ...
+2026-11-11T16:32:52.5887850Z # Subtest: public commands produce a save that resumes identical motion, RNG, projectiles and objectives
+2026-11-11T16:32:52.5888873Z ok 27 - public commands produce a save that resumes identical motion, RNG, projectiles and objectives
+2026-11-11T16:32:52.5889988Z   ---
+2026-11-11T16:32:52.5890242Z   duration_ms: 466.995006
+2026-11-11T16:32:52.5890537Z   type: 'test'
+2026-11-11T16:32:52.5890787Z   ...
+2026-11-11T16:32:52.5891516Z # Subtest: before-decision checkpoint survives later autosaves and restores the unresolved administrative choice
+2026-11-11T16:32:52.5892924Z ok 28 - before-decision checkpoint survives later autosaves and restores the unresolved administrative choice
+2026-11-11T16:32:52.5893534Z   ---
+2026-11-11T16:32:52.5894045Z   duration_ms: 201.97896
+2026-11-11T16:32:52.5894368Z   type: 'test'
+2026-11-11T16:32:52.5894619Z   ...
+2026-11-11T16:32:52.5895353Z # Subtest: real completion posts one delivery and preserves choice, pipe damage, crew responses and workshop costs
+2026-11-11T16:32:52.5896475Z ok 29 - real completion posts one delivery and preserves choice, pipe damage, crew responses and workshop costs
+2026-11-11T16:32:52.5897103Z   ---
+2026-11-11T16:32:52.5897357Z   duration_ms: 232.689487
+2026-11-11T16:32:52.5897653Z   type: 'test'
+2026-11-11T16:32:52.5897891Z   ...
+2026-11-11T16:32:52.5898539Z # Subtest: workshop repair uses finite stock, restores hull and joints, and cannot be repeated for profit
+2026-11-11T16:32:52.5899551Z ok 30 - workshop repair uses finite stock, restores hull and joints, and cannot be repeated for profit
+2026-11-11T16:32:52.5900089Z   ---
+2026-11-11T16:32:52.5900323Z   duration_ms: 2.31841
+2026-11-11T16:32:52.5900586Z   type: 'test'
+2026-11-11T16:32:52.5900824Z   ...
+2026-11-11T16:32:52.5901357Z # Subtest: intact route and standard manifest preserve different concrete dossier facts
+2026-11-11T16:32:52.5902481Z ok 31 - intact route and standard manifest preserve different concrete dossier facts
+2026-11-11T16:32:52.5902938Z   ---
+2026-11-11T16:32:52.5903151Z   duration_ms: 65.805728
+2026-11-11T16:32:52.5985022Z   type: 'test'
+2026-11-11T16:32:52.6001898Z   ...
+2026-11-11T16:32:52.6002741Z # Subtest: defeat neither gives supplies nor erases the last live checkpoint
+2026-11-11T16:32:52.6003870Z ok 32 - defeat neither gives supplies nor erases the last live checkpoint
+2026-11-11T16:32:52.6004529Z   ---
+2026-11-11T16:32:52.6004965Z   duration_ms: 6.212519
+2026-11-11T16:32:52.6005409Z   type: 'test'
+2026-11-11T16:32:52.6005795Z   ...
+2026-11-11T16:32:52.6006549Z # Subtest: starting over requires an explicit restart and never repairs an in-flight walker
+2026-11-11T16:32:52.6007592Z ok 33 - starting over requires an explicit restart and never repairs an in-flight walker
+2026-11-11T16:32:52.6008316Z   ---
+2026-11-11T16:32:52.6008740Z   duration_ms: 4.039054
+2026-11-11T16:32:52.6009179Z   type: 'test'
+2026-11-11T16:32:52.6009581Z   ...
+2026-11-11T16:32:52.6010406Z # Subtest: atomic primary writes retain the last valid dossier across quota failures and corruption
+2026-11-11T16:32:52.6011568Z ok 34 - atomic primary writes retain the last valid dossier across quota failures and corruption
+2026-11-11T16:32:52.6012407Z   ---
+2026-11-11T16:32:52.6012819Z   duration_ms: 5.282539
+2026-11-11T16:32:52.6013255Z   type: 'test'
+2026-11-11T16:32:52.6013664Z   ...
+2026-11-11T16:32:52.6014450Z # Subtest: a failed backup write preserves the valid primary; denied storage stays explicit
+2026-11-11T16:32:52.6015527Z ok 35 - a failed backup write preserves the valid primary; denied storage stays explicit
+2026-11-11T16:32:52.6016240Z   ---
+2026-11-11T16:32:52.6016632Z   duration_ms: 2.923158
+2026-11-11T16:32:52.6017107Z   type: 'test'
+2026-11-11T16:32:52.6017513Z   ...
+2026-11-11T16:32:52.6018307Z # Subtest: unsupported or damaged dossiers are not silently overwritten; explicit replacement is possible
+2026-11-11T16:32:52.6019454Z ok 36 - unsupported or damaged dossiers are not silently overwritten; explicit replacement is possible
+2026-11-11T16:32:52.6020138Z   ---
+2026-11-11T16:32:52.6021977Z   duration_ms: 1.216315
+2026-11-11T16:32:52.6023077Z   type: 'test'
+2026-11-11T16:32:52.6023323Z   ...
+2026-11-11T16:32:52.6023867Z # Subtest: an older valid backup cannot authorize overwriting a newer primary dossier
+2026-11-11T16:32:52.6032603Z ok 37 - an older valid backup cannot authorize overwriting a newer primary dossier
+2026-11-11T16:32:52.6033080Z   ---
+2026-11-11T16:32:52.6033314Z   duration_ms: 3.227569
+2026-11-11T16:32:52.6033578Z   type: 'test'
+2026-11-11T16:32:52.6034293Z   ...
+2026-11-11T16:32:52.6034929Z # Subtest: import rejects future versions, foreign IDs, missing arrays, invalid numbers and prototype keys
+2026-11-11T16:32:52.6035941Z ok 38 - import rejects future versions, foreign IDs, missing arrays, invalid numbers and prototype keys
+2026-11-11T16:32:52.6036758Z   ---
+2026-11-11T16:32:52.6036991Z   duration_ms: 14.308784
+2026-11-11T16:32:52.6037258Z   type: 'test'
+2026-11-11T16:32:52.6037488Z   ...
+2026-11-11T16:32:52.6038012Z # Subtest: prototype operations cannot become campaign checkpoints or campaign victories
+2026-11-11T16:32:52.6038808Z ok 39 - prototype operations cannot become campaign checkpoints or campaign victories
+2026-11-11T16:32:52.6039294Z   ---
+2026-11-11T16:32:52.6039517Z   duration_ms: 4.160644
+2026-11-11T16:32:52.6039802Z   type: 'test'
+2026-11-11T16:32:52.6040032Z   ...
+2026-11-11T16:32:53.9782476Z # Subtest: genuine v0.3 fixtures migrate without rewriting train, timing, decisions, reports, wear or inventory
+2026-11-11T16:32:53.9812945Z ok 40 - genuine v0.3 fixtures migrate without rewriting train, timing, decisions, reports, wear or inventory
+2026-11-11T16:32:53.9813853Z   ---
+2026-11-11T16:32:53.9842292Z   duration_ms: 33.778276
+2026-11-11T16:32:53.9872276Z   type: 'test'
+2026-11-11T16:32:53.9882307Z   ...
+2026-11-11T16:32:53.9908622Z # Subtest: v2 reads are nonmutating, migration is idempotent and a failed v3 write keeps the original primary
+2026-11-11T16:32:53.9909969Z ok 41 - v2 reads are nonmutating, migration is idempotent and a failed v3 write keeps the original primary
+2026-11-11T16:32:53.9910794Z   ---
+2026-11-11T16:32:53.9911316Z   duration_ms: 21.441218
+2026-11-11T16:32:53.9911899Z   type: 'test'
+2026-11-11T16:32:53.9912313Z   ...
+2026-11-11T16:32:53.9913131Z # Subtest: historical formats reject fabricated v3 fields instead of laundering an unknown schema
+2026-11-11T16:32:53.9914279Z ok 42 - historical formats reject fabricated v3 fields instead of laundering an unknown schema
+2026-11-11T16:32:53.9915019Z   ---
+2026-11-11T16:32:53.9915422Z   duration_ms: 13.225326
+2026-11-11T16:32:53.9915873Z   type: 'test'
+2026-11-11T16:32:53.9916271Z   ...
+2026-11-11T16:32:53.9917101Z # Subtest: v3 import enforces finite reserve bounds and protects future data despite a readable v2 backup
+2026-11-11T16:32:53.9918296Z ok 43 - v3 import enforces finite reserve bounds and protects future data despite a readable v2 backup
+2026-11-11T16:32:53.9919042Z   ---
+2026-11-11T16:32:53.9919433Z   duration_ms: 22.187075
+2026-11-11T16:32:53.9919784Z   type: 'test'
+2026-11-11T16:32:53.9920074Z   ...
+2026-11-11T16:32:53.9920631Z # Subtest: an oversized future primary stays protected despite a valid backup until explicit replacement
+2026-11-11T16:32:53.9921373Z ok 44 - an oversized future primary stays protected despite a valid backup until explicit replacement
+2026-11-11T16:32:53.9924937Z   ---
+2026-11-11T16:32:53.9925499Z   duration_ms: 18.080832
+2026-11-11T16:32:53.9925938Z   type: 'test'
+2026-11-11T16:32:53.9926333Z   ...
+2026-11-11T16:32:53.9926993Z # Subtest: MI03 requires both earlier reports and inherits the actual pipes and recovered train for all six chassis
+2026-11-11T16:32:53.9927920Z ok 45 - MI03 requires both earlier reports and inherits the actual pipes and recovered train for all six chassis
+2026-11-11T16:32:53.9928461Z   ---
+2026-11-11T16:32:53.9928692Z   duration_ms: 169.440673
+2026-11-11T16:32:53.9928944Z   type: 'test'
+2026-11-11T16:32:53.9929163Z   ...
+2026-11-11T16:32:53.9929752Z # Subtest: an official MI03 checkpoint survives prior-mission replays, a declined restart and malformed imports
+2026-11-11T16:32:53.9930762Z ok 46 - an official MI03 checkpoint survives prior-mission replays, a declined restart and malformed imports
+2026-11-11T16:32:53.9931369Z   ---
+2026-11-11T16:32:53.9931609Z   duration_ms: 22.120787
+2026-11-11T16:32:53.9932702Z   type: 'test'
+2026-11-11T16:32:53.9932949Z   ...
+2026-11-11T16:32:53.9933648Z # Subtest: six chassis and both MI03 choices preserve three immutable reports, one reward and actual civil access
+2026-11-11T16:32:53.9934731Z ok 47 - six chassis and both MI03 choices preserve three immutable reports, one reward and actual civil access
+2026-11-11T16:32:53.9935342Z   ---
+2026-11-11T16:32:53.9935591Z   duration_ms: 1201.362584
+2026-11-11T16:32:53.9935879Z   type: 'test'
+2026-11-11T16:32:53.9936122Z   ...
+2026-11-11T16:32:53.9937130Z # Subtest: damage after the MI03 decision persists a partial network, lost dispensary access and the real casualties
+2026-11-11T16:32:53.9938288Z ok 48 - damage after the MI03 decision persists a partial network, lost dispensary access and the real casualties
+2026-11-11T16:32:53.9938921Z   ---
+2026-11-11T16:32:53.9939166Z   duration_ms: 113.500956
+2026-11-11T16:32:53.9939461Z   type: 'test'
+2026-11-11T16:32:53.9939708Z   ...
+2026-11-11T16:32:54.0012696Z # Subtest: a real MI03 defeat leaves its live checkpoint and earlier reports without a mission reward
+2026-11-11T16:32:54.0072646Z ok 49 - a real MI03 defeat leaves its live checkpoint and earlier reports without a mission reward
+2026-11-11T16:32:54.0073270Z   ---
+2026-11-11T16:32:54.0073529Z   duration_ms: 66.579276
+2026-11-11T16:32:54.0073825Z   type: 'test'
+2026-11-11T16:32:54.0074080Z   ...
+2026-11-11T16:32:54.7549284Z # Subtest: authentic c81a360 v3 dossiers gain only documented v4 fields and preserve every historical fact
+2026-11-11T16:32:54.7550836Z ok 50 - authentic c81a360 v3 dossiers gain only documented v4 fields and preserve every historical fact
+2026-11-11T16:32:54.7551606Z   ---
+2026-11-11T16:32:54.7553027Z   duration_ms: 27.557024
+2026-11-11T16:32:54.7553457Z   type: 'test'
+2026-11-11T16:32:54.7553800Z   ...
+2026-11-11T16:32:54.7554647Z # Subtest: v3 reads never write and failed v4 commits preserve both original bytes and recoverable backup
+2026-11-11T16:32:54.7555794Z ok 51 - v3 reads never write and failed v4 commits preserve both original bytes and recoverable backup
+2026-11-11T16:32:54.7556498Z   ---
+2026-11-11T16:32:54.7556884Z   duration_ms: 19.951447
+2026-11-11T16:32:54.7557271Z   type: 'test'
+2026-11-11T16:32:54.7557646Z   ...
+2026-11-11T16:32:54.7558484Z # Subtest: old-format imports reject fabricated components and industrial results rather than laundering them
+2026-11-11T16:32:54.7559704Z ok 52 - old-format imports reject fabricated components and industrial results rather than laundering them
+2026-11-11T16:32:54.7560480Z   ---
+2026-11-11T16:32:54.7560805Z   duration_ms: 14.157389
+2026-11-11T16:32:54.7561174Z   type: 'test'
+2026-11-11T16:32:54.7561547Z   ...
+2026-11-11T16:32:54.7642804Z # Subtest: v4 imports enforce component health, stock, repair state and exact field schemas
+2026-11-11T16:32:54.7703528Z ok 53 - v4 imports enforce component health, stock, repair state and exact field schemas
+2026-11-11T16:32:54.7704615Z   ---
+2026-11-11T16:32:54.7705070Z   duration_ms: 31.659311
+2026-11-11T16:32:54.7705584Z   type: 'test'
+2026-11-11T16:32:54.7706011Z   ...
+2026-11-11T16:32:54.7706923Z # Subtest: genuine v3 active MI03 resumes through public controls and unlocks MI04 without changing its first reports
+2026-11-11T16:32:54.7708232Z ok 54 - genuine v3 active MI03 resumes through public controls and unlocks MI04 without changing its first reports
+2026-11-11T16:32:54.7709131Z   ---
+2026-11-11T16:32:54.7709558Z   duration_ms: 22.446109
+2026-11-11T16:32:54.7710011Z   type: 'test'
+2026-11-11T16:32:54.7710424Z   ...
+2026-11-11T16:32:54.7711408Z # Subtest: MI04 is gated by all three reports and consumes real pipe, train and dispensary context for every chassis
+2026-11-11T16:32:54.7712890Z ok 55 - MI04 is gated by all three reports and consumes real pipe, train and dispensary context for every chassis
+2026-11-11T16:32:54.7713679Z   ---
+2026-11-11T16:32:54.7714092Z   duration_ms: 57.258049
+2026-11-11T16:32:54.7714546Z   type: 'test'
+2026-11-11T16:32:54.7714948Z   ...
+2026-11-11T16:32:54.7715836Z # Subtest: field-repair checkpoints retain exact work and kit stock while workshop repairs charge for component wear
+2026-11-11T16:32:54.7717622Z ok 56 - field-repair checkpoints retain exact work and kit stock while workshop repairs charge for component wear
+2026-11-11T16:32:54.7718430Z   ---
+2026-11-11T16:32:54.7718849Z   duration_ms: 36.562262
+2026-11-11T16:32:54.7719300Z   type: 'test'
+2026-11-11T16:32:54.7719711Z   ...
+2026-11-11T16:32:54.7720867Z # Subtest: six chassis and both MI04 decisions complete Vesper with four immutable reports and one technical source
+2026-11-11T16:32:54.7722296Z ok 57 - six chassis and both MI04 decisions complete Vesper with four immutable reports and one technical source
+2026-11-11T16:32:54.7723135Z   ---
+2026-11-11T16:32:54.7723554Z   duration_ms: 1231.126673
+2026-11-11T16:32:54.7724026Z   type: 'test'
+2026-11-11T16:32:54.7724430Z   ...
+2026-11-11T16:32:54.7725288Z # Subtest: an active MI04 dossier survives earlier replays and rejects invented industrial progress or heritage
+2026-11-11T16:32:54.7726544Z ok 58 - an active MI04 dossier survives earlier replays and rejects invented industrial progress or heritage
+2026-11-11T16:32:54.7727323Z   ---
+2026-11-11T16:32:54.7727743Z   duration_ms: 73.130478
+2026-11-11T16:32:54.7728191Z   type: 'test'
+2026-11-11T16:32:54.7728728Z   ...
+2026-11-11T16:32:54.7729639Z # Subtest: a post destroyed by real fire before copying yields a completed mission without PT01 and needs another source
+2026-11-11T16:32:54.7731012Z ok 59 - a post destroyed by real fire before copying yields a completed mission without PT01 and needs another source
+2026-11-11T16:32:54.7733256Z   ---
+2026-11-11T16:32:54.7741938Z   duration_ms: 112.588817
+2026-11-11T16:32:54.7742408Z   type: 'test'
+2026-11-11T16:32:54.7742830Z   ...
+2026-11-11T16:32:54.7743663Z # Subtest: a copied journal keeps PT01 after later post destruction, save/resume and the sealed-report choice
+2026-11-11T16:32:54.7744795Z ok 60 - a copied journal keeps PT01 after later post destruction, save/resume and the sealed-report choice
+2026-11-11T16:32:54.7745514Z   ---
+2026-11-11T16:32:54.7745895Z   duration_ms: 57.109007
+2026-11-11T16:32:54.7746308Z   type: 'test'
+2026-11-11T16:32:54.7746686Z   ...
+2026-11-11T16:32:54.7747450Z # Subtest: an available dispensary channel is not counted as an actual contact when the public pilot skips it
+2026-11-11T16:32:54.7748531Z ok 61 - an available dispensary channel is not counted as an actual contact when the public pilot skips it
+2026-11-11T16:32:54.7749251Z   ---
+2026-11-11T16:32:54.7749648Z   duration_ms: 50.958981
+2026-11-11T16:32:54.7750061Z   type: 'test'
+2026-11-11T16:32:54.7750426Z   ...
+2026-11-11T16:32:54.7751205Z # Subtest: a genuine MI03 cut blocks the later contact without blocking MI04 or granting a witness retrospectively
+2026-11-11T16:32:54.7752522Z ok 62 - a genuine MI03 cut blocks the later contact without blocking MI04 or granting a witness retrospectively
+2026-11-11T16:32:54.7753317Z   ---
+2026-11-11T16:32:54.7753710Z   duration_ms: 161.772278
+2026-11-11T16:32:54.7763526Z   type: 'test'
+2026-11-11T16:32:54.7763992Z   ...
+2026-11-11T16:32:54.7764847Z # Subtest: a real MI04 defeat preserves its earlier live checkpoint and gives no fourth mission reward
+2026-11-11T16:32:54.7766029Z ok 63 - a real MI04 defeat preserves its earlier live checkpoint and gives no fourth mission reward
+2026-11-11T16:32:54.7766767Z   ---
+2026-11-11T16:32:54.7767177Z   duration_ms: 69.399356
+2026-11-11T16:32:54.7767627Z   type: 'test'
+2026-11-11T16:32:54.7768038Z   ...
+2026-11-11T16:32:54.7769057Z # Subtest: real train losses propagate through MI03 into the full cooling procedure and portable coolant never repairs the village pipe
+2026-11-11T16:32:54.7770764Z ok 64 - real train losses propagate through MI03 into the full cooling procedure and portable coolant never repairs the village pipe
+2026-11-11T16:32:54.7773156Z   ---
+2026-11-11T16:32:54.7773655Z   duration_ms: 389.743309
+2026-11-11T16:32:54.7774116Z   type: 'test'
+2026-11-11T16:32:54.7774516Z   ...
+2026-11-11T16:32:54.7863112Z # Subtest: authentic d7d76b6 v4 live and completed dossiers gain only an unvisited Nacre and zero fuel
+2026-11-11T16:32:54.7882806Z ok 65 - authentic d7d76b6 v4 live and completed dossiers gain only an unvisited Nacre and zero fuel
+2026-11-11T16:32:54.7912216Z   ---
+2026-11-11T16:32:54.7934289Z   duration_ms: 62.711531
+2026-11-11T16:32:54.7934839Z   type: 'test'
+2026-11-11T16:32:54.7935259Z   ...
+2026-11-11T16:32:54.7936226Z # Subtest: v4 migration leaves stored bytes untouched until a successful save and protects a future primary
+2026-11-11T16:32:54.7937746Z ok 66 - v4 migration leaves stored bytes untouched until a successful save and protects a future primary
+2026-11-11T16:32:54.7938494Z   ---
+2026-11-11T16:32:54.7938894Z   duration_ms: 31.838316
+2026-11-11T16:32:54.7939320Z   type: 'test'
+2026-11-11T16:32:54.7939708Z   ...
+2026-11-11T16:32:54.7940394Z # Subtest: old versions cannot import invented Nacre results, fuel or MI05 checkpoints
+2026-11-11T16:32:54.7941386Z ok 67 - old versions cannot import invented Nacre results, fuel or MI05 checkpoints
+2026-11-11T16:32:54.7942193Z   ---
+2026-11-11T16:32:54.7942580Z   duration_ms: 11.409161
+2026-11-11T16:32:54.7942999Z   type: 'test'
+2026-11-11T16:32:54.7943386Z   ...
+2026-11-11T16:32:54.7944145Z # Subtest: MI05 requires all four reports but no technical proof, and preserves each inherited fact
+2026-11-11T16:32:54.7945203Z ok 68 - MI05 requires all four reports but no technical proof, and preserves each inherited fact
+2026-11-11T16:32:54.7945879Z   ---
+2026-11-11T16:32:54.7946282Z   duration_ms: 358.657723
+2026-11-11T16:32:54.7946707Z   type: 'test'
+2026-11-11T16:32:54.7947086Z   ...
+2026-11-11T16:32:54.7947859Z # Subtest: a mid-work MI05 save retains tide, footholds, damage and work, then resumes deterministically
+2026-11-11T16:32:54.7948993Z ok 69 - a mid-work MI05 save retains tide, footholds, damage and work, then resumes deterministically
+2026-11-11T16:32:54.7949712Z   ---
+2026-11-11T16:32:54.7950099Z   duration_ms: 46.969912
+2026-11-11T16:32:54.7950511Z   type: 'test'
+2026-11-11T16:32:54.7950903Z   ...
+2026-11-11T16:32:54.7951828Z # Subtest: all chassis and both decisions add one Nacre report and grant only the collected fuel once
+2026-11-11T16:32:54.7952944Z ok 70 - all chassis and both decisions add one Nacre report and grant only the collected fuel once
+2026-11-11T16:32:54.7953730Z   ---
+2026-11-11T16:32:54.7954133Z   duration_ms: 1495.243
+2026-11-11T16:32:54.7954569Z   type: 'test'
+2026-11-11T16:32:54.7954957Z   ...
+2026-11-11T16:32:54.7955754Z # Subtest: MI05 imports reject contradictory tide, identity, results, inheritance and resource claims
+2026-11-11T16:32:54.7956883Z ok 71 - MI05 imports reject contradictory tide, identity, results, inheritance and resource claims
+2026-11-11T16:32:54.7957755Z   ---
+2026-11-11T16:32:54.7958397Z   duration_ms: 26.120923
+2026-11-11T16:32:54.7959042Z   type: 'test'
+2026-11-11T16:32:54.7959292Z   ...
+2026-11-11T16:32:57.1666401Z # Subtest: authentic public v5 dossiers migrate without rewriting MI01–MI05 or crediting in-flight fuel
+2026-11-11T16:32:57.1695097Z ok 72 - authentic public v5 dossiers migrate without rewriting MI01–MI05 or crediting in-flight fuel
+2026-11-11T16:32:57.1722259Z   ---
+2026-11-11T16:32:57.1752270Z   duration_ms: 49.948131
+2026-11-11T16:32:57.1772594Z   type: 'test'
+2026-11-11T16:32:57.1783421Z   ...
+2026-11-11T16:32:57.1803777Z # Subtest: v5 migration is read-only until writing, keeps the original backup and protects future primaries
+2026-11-11T16:32:57.1832829Z ok 73 - v5 migration is read-only until writing, keeps the original backup and protects future primaries
+2026-11-11T16:32:57.1862120Z   ---
+2026-11-11T16:32:57.1872057Z   duration_ms: 16.249203
+2026-11-11T16:32:57.1892240Z   type: 'test'
+2026-11-11T16:32:57.1922256Z   ...
+2026-11-11T16:32:57.1952607Z # Subtest: historic v5 imports reject a pre-existing dike, fuel ledger or forged MI06 mission
+2026-11-11T16:32:57.1953781Z ok 74 - historic v5 imports reject a pre-existing dike, fuel ledger or forged MI06 mission
+2026-11-11T16:32:57.1982250Z   ---
+2026-11-11T16:32:57.2012211Z   duration_ms: 9.241464
+2026-11-11T16:32:57.2042124Z   type: 'test'
+2026-11-11T16:32:57.2042654Z   ...
+2026-11-11T16:32:57.2062901Z # Subtest: MI06 requires MI05 and inherits the passage facts and current stock without relocating its passengers
+2026-11-11T16:32:57.2064205Z ok 75 - MI06 requires MI05 and inherits the passage facts and current stock without relocating its passengers
+2026-11-11T16:32:57.2064954Z   ---
+2026-11-11T16:32:57.2065389Z   duration_ms: 456.102688
+2026-11-11T16:32:57.2065819Z   type: 'test'
+2026-11-11T16:32:57.2066547Z   ...
+2026-11-11T16:32:57.2067389Z # Subtest: partly connected auxiliary resumes deterministically, debits only at completion and never twice
+2026-11-11T16:32:57.2068578Z ok 76 - partly connected auxiliary resumes deterministically, debits only at completion and never twice
+2026-11-11T16:32:57.2069330Z   ---
+2026-11-11T16:32:57.2069767Z   duration_ms: 205.484
+2026-11-11T16:32:57.2070172Z   type: 'test'
+2026-11-11T16:32:57.2070552Z   ...
+2026-11-11T16:32:57.2071441Z # Subtest: fuel consumed before an unsaved defeat is retained in a real terminal checkpoint and is not refunded on restart
+2026-11-11T16:32:57.2072864Z ok 77 - fuel consumed before an unsaved defeat is retained in a real terminal checkpoint and is not refunded on restart
+2026-11-11T16:32:57.2073640Z   ---
+2026-11-11T16:32:57.2074023Z   duration_ms: 342.796156
+2026-11-11T16:32:57.2074434Z   type: 'test'
+2026-11-11T16:32:57.2074795Z   ...
+2026-11-11T16:32:57.2075615Z # Subtest: all six campaign chassis finish both circuits with one report, one grant and unchanged earlier facts
+2026-11-11T16:32:57.2076809Z ok 78 - all six campaign chassis finish both circuits with one report, one grant and unchanged earlier facts
+2026-11-11T16:32:57.2077548Z   ---
+2026-11-11T16:32:57.2077910Z   duration_ms: 1569.246424
+2026-11-11T16:32:57.2078322Z   type: 'test'
+2026-11-11T16:32:57.2078687Z   ...
+2026-11-11T16:32:57.2079609Z # Subtest: direct successful finish settles fuel without intermediate capture and replays cannot debit the official stock
+2026-11-11T16:32:57.2081004Z ok 79 - direct successful finish settles fuel without intermediate capture and replays cannot debit the official stock
+2026-11-11T16:32:57.2082011Z   ---
+2026-11-11T16:32:57.2082367Z   duration_ms: 151.207265
+2026-11-11T16:32:57.2082768Z   type: 'test'
+2026-11-11T16:32:57.2083133Z   ...
+2026-11-11T16:32:57.2083891Z # Subtest: a decision checkpoint cannot restore fuel spent later in the same official sortie
+2026-11-11T16:32:57.2084838Z ok 80 - a decision checkpoint cannot restore fuel spent later in the same official sortie
+2026-11-11T16:32:57.2085454Z   ---
+2026-11-11T16:32:57.2085812Z   duration_ms: 123.497395
+2026-11-11T16:32:57.2086201Z   type: 'test'
+2026-11-11T16:32:57.2086579Z   ...
+2026-11-11T16:32:57.2087373Z # Subtest: an earlier MI06 decision point is not offered as a playable restore after the official clock advances
+2026-11-11T16:32:57.2088434Z ok 81 - an earlier MI06 decision point is not offered as a playable restore after the official clock advances
+2026-11-11T16:32:57.2089124Z   ---
+2026-11-11T16:32:57.2089485Z   duration_ms: 106.329433
+2026-11-11T16:32:57.2089896Z   type: 'test'
+2026-11-11T16:32:57.2090264Z   ...
+2026-11-11T16:32:57.2091015Z # Subtest: imports reject inconsistent dike objects, physical results, fuel balance and changed inheritance
+2026-11-11T16:32:57.2092321Z ok 82 - imports reject inconsistent dike objects, physical results, fuel balance and changed inheritance
+2026-11-11T16:32:57.2093105Z   ---
+2026-11-11T16:32:57.2093482Z   duration_ms: 20.837713
+2026-11-11T16:32:57.2093920Z   type: 'test'
+2026-11-11T16:32:57.2094286Z   ...
+2026-11-11T16:32:58.9009655Z # Subtest: authentic v6 migration adds only unvisited ambulance and departure dossiers and preserves a paid live valve exactly
+2026-11-11T16:32:58.9032047Z ok 83 - authentic v6 migration adds only unvisited ambulance and departure dossiers and preserves a paid live valve exactly
+2026-11-11T16:32:58.9082637Z   ---
+2026-11-11T16:32:58.9132784Z   duration_ms: 163.748175
+2026-11-11T16:32:58.9172242Z   type: 'test'
+2026-11-11T16:32:58.9172909Z   ...
+2026-11-11T16:32:58.9203122Z # Subtest: v6 read is nonmutating, first write preserves original bytes and an unsupported primary blocks autosave
+2026-11-11T16:32:58.9218886Z ok 84 - v6 read is nonmutating, first write preserves original bytes and an unsupported primary blocks autosave
+2026-11-11T16:32:58.9219814Z   ---
+2026-11-11T16:32:58.9220240Z   duration_ms: 17.330908
+2026-11-11T16:32:58.9246628Z   type: 'test'
+2026-11-11T16:32:58.9247069Z   ...
+2026-11-11T16:32:58.9251343Z # Subtest: v6 imports reject fabricated ambulance dossiers, scene objects and MI07 reports
+2026-11-11T16:32:58.9252709Z ok 85 - v6 imports reject fabricated ambulance dossiers, scene objects and MI07 reports
+2026-11-11T16:32:58.9253417Z   ---
+2026-11-11T16:32:58.9253848Z   duration_ms: 11.261933
+2026-11-11T16:32:58.9254328Z   type: 'test'
+2026-11-11T16:32:58.9254747Z   ...
+2026-11-11T16:32:58.9255703Z # Subtest: MI07 requires MI06 and derives its ramp from authentic support without crediting or spending fuel
+2026-11-11T16:32:58.9257020Z ok 86 - MI07 requires MI06 and derives its ramp from authentic support without crediting or spending fuel
+2026-11-11T16:32:58.9257858Z   ---
+2026-11-11T16:32:58.9258300Z   duration_ms: 65.76328
+2026-11-11T16:32:58.9258794Z   type: 'test'
+2026-11-11T16:32:58.9259243Z   ...
+2026-11-11T16:32:58.9260189Z # Subtest: MI07 completed/obey classifies physical results once and replay preserves every official fact
+2026-11-11T16:32:58.9261539Z ok 87 - MI07 completed/obey classifies physical results once and replay preserves every official fact
+2026-11-11T16:32:58.9262466Z   ---
+2026-11-11T16:32:58.9262873Z   duration_ms: 1329.959909
+2026-11-11T16:32:58.9263334Z   type: 'test'
+2026-11-11T16:32:58.9263723Z   ...
+2026-11-11T16:32:58.9264542Z # Subtest: MI07 completed/defy classifies physical results once and replay preserves every official fact
+2026-11-11T16:32:58.9265692Z ok 88 - MI07 completed/defy classifies physical results once and replay preserves every official fact
+2026-11-11T16:32:58.9266462Z   ---
+2026-11-11T16:32:58.9266879Z   duration_ms: 449.821151
+2026-11-11T16:32:58.9267330Z   type: 'test'
+2026-11-11T16:32:58.9267731Z   ...
+2026-11-11T16:32:58.9268615Z # Subtest: MI07 manualCompleted/obey classifies physical results once and replay preserves every official fact
+2026-11-11T16:32:58.9269891Z ok 89 - MI07 manualCompleted/obey classifies physical results once and replay preserves every official fact
+2026-11-11T16:32:58.9270671Z   ---
+2026-11-11T16:32:58.9271090Z   duration_ms: 348.744479
+2026-11-11T16:32:58.9271539Z   type: 'test'
+2026-11-11T16:32:58.9272104Z   ...
+2026-11-11T16:32:58.9272992Z # Subtest: MI07 manualCompleted/defy classifies physical results once and replay preserves every official fact
+2026-11-11T16:32:58.9274248Z ok 90 - MI07 manualCompleted/defy classifies physical results once and replay preserves every official fact
+2026-11-11T16:32:58.9275029Z   ---
+2026-11-11T16:32:58.9275437Z   duration_ms: 154.399074
+2026-11-11T16:32:58.9275901Z   type: 'test'
+2026-11-11T16:32:58.9276319Z   ...
+2026-11-11T16:32:58.9277199Z # Subtest: MI07 rejects contradictory facts, changed inherited support, invented provenance and duplicate rewards
+2026-11-11T16:32:58.9302716Z ok 91 - MI07 rejects contradictory facts, changed inherited support, invented provenance and duplicate rewards
+2026-11-11T16:32:58.9319975Z   ---
+2026-11-11T16:32:58.9320367Z   duration_ms: 236.097922
+2026-11-11T16:32:58.9320739Z   type: 'test'
+2026-11-11T16:32:58.9321062Z   ...
+2026-11-11T16:32:58.9321811Z # Subtest: a partially completed agreement survives JSON and resumes with the exact physical scene
+2026-11-11T16:32:58.9322962Z ok 92 - a partially completed agreement survives JSON and resumes with the exact physical scene
+2026-11-11T16:32:58.9323513Z   ---
+2026-11-11T16:32:58.9323782Z   duration_ms: 459.37293
+2026-11-11T16:32:58.9324055Z   type: 'test'
+2026-11-11T16:32:58.9324311Z   ...
+2026-11-11T16:32:58.9324906Z # Subtest: a partially completed cargo survives JSON and resumes with the exact physical scene
+2026-11-11T16:32:58.9326131Z ok 93 - a partially completed cargo survives JSON and resumes with the exact physical scene
+2026-11-11T16:32:58.9326666Z   ---
+2026-11-11T16:32:58.9326948Z   duration_ms: 226.836753
+2026-11-11T16:32:58.9327216Z   type: 'test'
+2026-11-11T16:32:58.9327474Z   ...
+2026-11-11T16:32:58.9328092Z # Subtest: a partially completed beacon survives JSON and resumes with the exact physical scene
+2026-11-11T16:32:58.9329279Z ok 94 - a partially completed beacon survives JSON and resumes with the exact physical scene
+2026-11-11T16:32:58.9329848Z   ---
+2026-11-11T16:32:58.9330134Z   duration_ms: 172.827725
+2026-11-11T16:32:58.9330463Z   type: 'test'
+2026-11-11T16:32:58.9330732Z   ...
+2026-11-11T16:32:58.9331371Z # Subtest: a partially completed ramp survives JSON and resumes with the exact physical scene
+2026-11-11T16:32:58.9332414Z ok 95 - a partially completed ramp survives JSON and resumes with the exact physical scene
+2026-11-11T16:32:58.9333001Z   ---
+2026-11-11T16:32:58.9333274Z   duration_ms: 210.119632
+2026-11-11T16:32:58.9333585Z   type: 'test'
+2026-11-11T16:32:58.9333833Z   ...
+2026-11-11T16:32:58.9334620Z # Subtest: terminal MI07 hull loss persists as lost, cannot resume a living sortie and restarts without changing fuel
+2026-11-11T16:32:58.9335801Z ok 96 - terminal MI07 hull loss persists as lost, cannot resume a living sortie and restarts without changing fuel
+2026-11-11T16:32:58.9336482Z   ---
+2026-11-11T16:32:58.9336733Z   duration_ms: 188.938148
+2026-11-11T16:32:58.9337054Z   type: 'test'
+2026-11-11T16:32:58.9337318Z   ...
+2026-11-11T16:33:00.1610159Z # Subtest: authentic v7 capture is immutable and migration preserves prior data while adding empty future dossiers
+2026-11-11T16:33:00.1674435Z ok 97 - authentic v7 capture is immutable and migration preserves prior data while adding empty future dossiers
+2026-11-11T16:33:00.1702654Z   ---
+2026-11-11T16:33:00.1732322Z   duration_ms: 103.522077
+2026-11-11T16:33:00.1742208Z   type: 'test'
+2026-11-11T16:33:00.1757363Z   ...
+2026-11-11T16:33:00.1758300Z # Subtest: v7 storage is read without writing, original bytes are backed up and future dossiers stay protected
+2026-11-11T16:33:00.1759640Z ok 98 - v7 storage is read without writing, original bytes are backed up and future dossiers stay protected
+2026-11-11T16:33:00.1760296Z   ---
+2026-11-11T16:33:00.1760576Z   duration_ms: 12.781312
+2026-11-11T16:33:00.1760902Z   type: 'test'
+2026-11-11T16:33:00.1761179Z   ...
+2026-11-11T16:33:00.1762014Z # Subtest: historical v7 cannot smuggle future mission, physical scene, dossier or third decisions
+2026-11-11T16:33:00.1763046Z ok 99 - historical v7 cannot smuggle future mission, physical scene, dossier or third decisions
+2026-11-11T16:33:00.1763614Z   ---
+2026-11-11T16:33:00.1763870Z   duration_ms: 12.408304
+2026-11-11T16:33:00.1764204Z   type: 'test'
+2026-11-11T16:33:00.1764454Z   ...
+2026-11-11T16:33:00.1765239Z # Subtest: MI08 requires the completed sanitary report and starts from actual counted survivors without fuel creation
+2026-11-11T16:33:00.1773757Z ok 100 - MI08 requires the completed sanitary report and starts from actual counted survivors without fuel creation
+2026-11-11T16:33:00.1775091Z   ---
+2026-11-11T16:33:00.1775433Z   duration_ms: 109.538922
+2026-11-11T16:33:00.1784637Z   type: 'test'
+2026-11-11T16:33:00.1785001Z   ...
+2026-11-11T16:33:00.1785929Z # Subtest: new census distinguishes aggregate origins from a surviving identified witness and creates no historical identity
+2026-11-11T16:33:00.1787467Z ok 101 - new census distinguishes aggregate origins from a surviving identified witness and creates no historical identity
+2026-11-11T16:33:00.1788271Z   ---
+2026-11-11T16:33:00.1788609Z   duration_ms: 6.749877
+2026-11-11T16:33:00.1788986Z   type: 'test'
+2026-11-11T16:33:00.1789313Z   ...
+2026-11-11T16:33:00.1790047Z # Subtest: MI08 exact live snapshots preserve tide, people, ammunition, gates and previous reports
+2026-11-11T16:33:00.1791103Z ok 102 - MI08 exact live snapshots preserve tide, people, ammunition, gates and previous reports
+2026-11-11T16:33:00.1793768Z   ---
+2026-11-11T16:33:00.1794133Z   duration_ms: 93.623614
+2026-11-11T16:33:00.1794490Z   type: 'test'
+2026-11-11T16:33:00.1794810Z   ...
+2026-11-11T16:33:00.1795531Z # Subtest: MI08 imports reject forged people, capacities, positions, provenance, facts and inherited supply
+2026-11-11T16:33:00.1796624Z ok 103 - MI08 imports reject forged people, capacities, positions, provenance, facts and inherited supply
+2026-11-11T16:33:00.1797257Z   ---
+2026-11-11T16:33:00.1797726Z   duration_ms: 120.477253
+2026-11-11T16:33:00.1798083Z   type: 'test'
+2026-11-11T16:33:00.1798376Z   ...
+2026-11-11T16:33:00.1799085Z # Subtest: MI08 obey stores individual outcomes, grants once and leaves all previous reports and fuel exact
+2026-11-11T16:33:00.1800141Z ok 104 - MI08 obey stores individual outcomes, grants once and leaves all previous reports and fuel exact
+2026-11-11T16:33:00.1800798Z   ---
+2026-11-11T16:33:00.1801107Z   duration_ms: 3014.793105
+2026-11-11T16:33:00.1801458Z   type: 'test'
+2026-11-11T16:33:00.1801928Z   ...
+2026-11-11T16:33:00.1802748Z # Subtest: MI08 delay stores individual outcomes, grants once and leaves all previous reports and fuel exact
+2026-11-11T16:33:00.1803830Z ok 105 - MI08 delay stores individual outcomes, grants once and leaves all previous reports and fuel exact
+2026-11-11T16:33:00.1804547Z   ---
+2026-11-11T16:33:00.1804847Z   duration_ms: 879.668091
+2026-11-11T16:33:00.1805188Z   type: 'test'
+2026-11-11T16:33:00.1805482Z   ...
+2026-11-11T16:33:00.1806207Z # Subtest: MI08 defy stores individual outcomes, grants once and leaves all previous reports and fuel exact
+2026-11-11T16:33:00.1807240Z ok 106 - MI08 defy stores individual outcomes, grants once and leaves all previous reports and fuel exact
+2026-11-11T16:33:00.1807887Z   ---
+2026-11-11T16:33:00.1808191Z   duration_ms: 698.121475
+2026-11-11T16:33:00.1808547Z   type: 'test'
+2026-11-11T16:33:00.1808844Z   ...
+2026-11-11T16:33:00.1809502Z # Subtest: MI08 terminal loss is retained exactly and cannot resume an older living scene
+2026-11-11T16:33:00.1810435Z ok 107 - MI08 terminal loss is retained exactly and cannot resume an older living scene
+2026-11-11T16:33:00.1811013Z   ---
+2026-11-11T16:33:00.1811341Z   duration_ms: 227.29613
+2026-11-11T16:33:00.1812534Z   type: 'test'
+2026-11-11T16:33:00.1812839Z   ...
+2026-11-11T16:33:05.1813313Z # Subtest: v9 migration adds only unvisited Thyr to authentic native v8 exports
+2026-11-11T16:33:05.1943290Z ok 108 - v9 migration adds only unvisited Thyr to authentic native v8 exports
+2026-11-11T16:33:05.1972304Z   ---
+2026-11-11T16:33:05.2022906Z   duration_ms: 62.259406
+2026-11-11T16:33:05.2052826Z   type: 'test'
+2026-11-11T16:33:05.2053265Z   ...
+2026-11-11T16:33:05.2053978Z # Subtest: all seven earlier fixture files retain their historical bytes
+2026-11-11T16:33:05.2054815Z ok 109 - all seven earlier fixture files retain their historical bytes
+2026-11-11T16:33:05.2055397Z   ---
+2026-11-11T16:33:05.2055767Z   duration_ms: 2.074203
+2026-11-11T16:33:05.2056174Z   type: 'test'
+2026-11-11T16:33:05.2056569Z   ...
+2026-11-11T16:33:05.2057357Z # Subtest: v8 read is nondestructive, first write backs up the original, future versions remain protected
+2026-11-11T16:33:05.2058494Z ok 110 - v8 read is nondestructive, first write backs up the original, future versions remain protected
+2026-11-11T16:33:05.2059217Z   ---
+2026-11-11T16:33:05.2059587Z   duration_ms: 18.201378
+2026-11-11T16:33:05.2059994Z   type: 'test'
+2026-11-11T16:33:05.2060361Z   ...
+2026-11-11T16:33:05.2060996Z # Subtest: historical v8 cannot import future Thyr state, mission or result
+2026-11-11T16:33:05.2061994Z ok 111 - historical v8 cannot import future Thyr state, mission or result
+2026-11-11T16:33:05.2062591Z   ---
+2026-11-11T16:33:05.2062958Z   duration_ms: 8.327086
+2026-11-11T16:33:05.2063361Z   type: 'test'
+2026-11-11T16:33:05.2063786Z   ...
+2026-11-11T16:33:05.2064481Z # Subtest: MI09 requires the first MI08 report and inherits only its sourced radio context
+2026-11-11T16:33:05.2065437Z ok 112 - MI09 requires the first MI08 report and inherits only its sourced radio context
+2026-11-11T16:33:05.2066508Z   ---
+2026-11-11T16:33:05.2066868Z   duration_ms: 26.694012
+2026-11-11T16:33:05.2067281Z   type: 'test'
+2026-11-11T16:33:05.2067643Z   ...
+2026-11-11T16:33:05.2068816Z # Subtest: Thyr in-progress export preserves exact simulation and detached restore without altering MI01–MI08
+2026-11-11T16:33:05.2070115Z ok 113 - Thyr in-progress export preserves exact simulation and detached restore without altering MI01–MI08
+2026-11-11T16:33:05.2071030Z   ---
+2026-11-11T16:33:05.2071409Z   duration_ms: 33.551866
+2026-11-11T16:33:05.2071942Z   type: 'test'
+2026-11-11T16:33:05.2072305Z   ...
+2026-11-11T16:33:05.2073089Z # Subtest: MI09 import rejects invented objects, aggregate outcomes, geometry, contacts, evidence and supply
+2026-11-11T16:33:05.2074241Z ok 114 - MI09 import rejects invented objects, aggregate outcomes, geometry, contacts, evidence and supply
+2026-11-11T16:33:05.2074965Z   ---
+2026-11-11T16:33:05.2075324Z   duration_ms: 83.448115
+2026-11-11T16:33:05.2075761Z   type: 'test'
+2026-11-11T16:33:05.2076125Z   ...
+2026-11-11T16:33:05.2076831Z # Subtest: matching declared facts do not permit instant work or an abandoned partial operation
+2026-11-11T16:33:05.2077877Z ok 115 - matching declared facts do not permit instant work or an abandoned partial operation
+2026-11-11T16:33:05.2078538Z   ---
+2026-11-11T16:33:05.2078912Z   duration_ms: 11.90732
+2026-11-11T16:33:05.2079325Z   type: 'test'
+2026-11-11T16:33:05.2079712Z   ...
+2026-11-11T16:33:05.2080468Z # Subtest: MI09 obey reconciles its complete physical roster, grants once and isolates replays
+2026-11-11T16:33:05.2081538Z ok 116 - MI09 obey reconciles its complete physical roster, grants once and isolates replays
+2026-11-11T16:33:05.2082352Z   ---
+2026-11-11T16:33:05.2082762Z   duration_ms: 1731.283406
+2026-11-11T16:33:05.2083207Z   type: 'test'
+2026-11-11T16:33:05.2083593Z   ...
+2026-11-11T16:33:05.2084333Z # Subtest: MI09 defy reconciles its complete physical roster, grants once and isolates replays
+2026-11-11T16:33:05.2086806Z ok 117 - MI09 defy reconciles its complete physical roster, grants once and isolates replays
+2026-11-11T16:33:05.2087523Z   ---
+2026-11-11T16:33:05.2087931Z   duration_ms: 1029.704398
+2026-11-11T16:33:05.2088369Z   type: 'test'
+2026-11-11T16:33:05.2088759Z   ...
+2026-11-11T16:33:05.2089416Z # Subtest: MI09 receipt accepts actual WK01 obey public-control completion
+2026-11-11T16:33:05.2090300Z ok 118 - MI09 receipt accepts actual WK01 obey public-control completion
+2026-11-11T16:33:05.2090927Z   ---
+2026-11-11T16:33:05.2091317Z   duration_ms: 109.525092
+2026-11-11T16:33:05.2091908Z   type: 'test'
+2026-11-11T16:33:05.2092307Z   ...
+2026-11-11T16:33:05.2092938Z # Subtest: MI09 receipt accepts actual WK01 defy public-control completion
+2026-11-11T16:33:05.2093817Z ok 119 - MI09 receipt accepts actual WK01 defy public-control completion
+2026-11-11T16:33:05.2094419Z   ---
+2026-11-11T16:33:05.2094810Z   duration_ms: 204.524988
+2026-11-11T16:33:05.2095241Z   type: 'test'
+2026-11-11T16:33:05.2095639Z   ...
+2026-11-11T16:33:05.2096359Z # Subtest: MI09 receipt accepts actual WK02 obey public-control completion
+2026-11-11T16:33:05.2097256Z ok 120 - MI09 receipt accepts actual WK02 obey public-control completion
+2026-11-11T16:33:05.2097939Z   ---
+2026-11-11T16:33:05.2098358Z   duration_ms: 128.678094
+2026-11-11T16:33:05.2098817Z   type: 'test'
+2026-11-11T16:33:05.2099266Z   ...
+2026-11-11T16:33:05.2099931Z # Subtest: MI09 receipt accepts actual WK02 defy public-control completion
+2026-11-11T16:33:05.2100864Z ok 121 - MI09 receipt accepts actual WK02 defy public-control completion
+2026-11-11T16:33:05.2101519Z   ---
+2026-11-11T16:33:05.2102064Z   duration_ms: 73.377269
+2026-11-11T16:33:05.2102531Z   type: 'test'
+2026-11-11T16:33:05.2102948Z   ...
+2026-11-11T16:33:05.2103627Z # Subtest: MI09 receipt accepts actual WK05 obey public-control completion
+2026-11-11T16:33:05.2104568Z ok 122 - MI09 receipt accepts actual WK05 obey public-control completion
+2026-11-11T16:33:05.2105472Z   ---
+2026-11-11T16:33:05.2105915Z   duration_ms: 91.851014
+2026-11-11T16:33:05.2106361Z   type: 'test'
+2026-11-11T16:33:05.2106760Z   ...
+2026-11-11T16:33:05.2107378Z # Subtest: MI09 receipt accepts actual WK05 defy public-control completion
+2026-11-11T16:33:05.2108224Z ok 123 - MI09 receipt accepts actual WK05 defy public-control completion
+2026-11-11T16:33:05.2108829Z   ---
+2026-11-11T16:33:05.2109219Z   duration_ms: 102.595809
+2026-11-11T16:33:05.2109654Z   type: 'test'
+2026-11-11T16:33:05.2110031Z   ...
+2026-11-11T16:33:05.2110812Z # Subtest: MI09 receipt accepts actual WK06 obey public-control completion
+2026-11-11T16:33:05.2111849Z ok 124 - MI09 receipt accepts actual WK06 obey public-control completion
+2026-11-11T16:33:05.2112438Z   ---
+2026-11-11T16:33:05.2112801Z   duration_ms: 73.929699
+2026-11-11T16:33:05.2113219Z   type: 'test'
+2026-11-11T16:33:05.2113587Z   ...
+2026-11-11T16:33:05.2114194Z # Subtest: MI09 receipt accepts actual WK06 defy public-control completion
+2026-11-11T16:33:05.2115019Z ok 125 - MI09 receipt accepts actual WK06 defy public-control completion
+2026-11-11T16:33:05.2115618Z   ---
+2026-11-11T16:33:05.2116002Z   duration_ms: 80.80372
+2026-11-11T16:33:05.2116421Z   type: 'test'
+2026-11-11T16:33:05.2116796Z   ...
+2026-11-11T16:33:05.2117416Z # Subtest: MI09 receipt accepts actual WK09 obey public-control completion
+2026-11-11T16:33:05.2118783Z ok 126 - MI09 receipt accepts actual WK09 obey public-control completion
+2026-11-11T16:33:05.2119366Z   ---
+2026-11-11T16:33:05.2119734Z   duration_ms: 71.145387
+2026-11-11T16:33:05.2120147Z   type: 'test'
+2026-11-11T16:33:05.2120504Z   ...
+2026-11-11T16:33:05.2121092Z # Subtest: MI09 receipt accepts actual WK09 defy public-control completion
+2026-11-11T16:33:05.2122093Z ok 127 - MI09 receipt accepts actual WK09 defy public-control completion
+2026-11-11T16:33:05.2122679Z   ---
+2026-11-11T16:33:05.2123053Z   duration_ms: 78.609143
+2026-11-11T16:33:05.2123464Z   type: 'test'
+2026-11-11T16:33:05.2123835Z   ...
+2026-11-11T16:33:05.2124458Z # Subtest: MI09 receipt accepts actual WK10 obey public-control completion
+2026-11-11T16:33:05.2125303Z ok 128 - MI09 receipt accepts actual WK10 obey public-control completion
+2026-11-11T16:33:05.2125890Z   ---
+2026-11-11T16:33:05.2126261Z   duration_ms: 88.997099
+2026-11-11T16:33:05.2126676Z   type: 'test'
+2026-11-11T16:33:05.2127055Z   ...
+2026-11-11T16:33:05.2127670Z # Subtest: MI09 receipt accepts actual WK10 defy public-control completion
+2026-11-11T16:33:05.2128509Z ok 129 - MI09 receipt accepts actual WK10 defy public-control completion
+2026-11-11T16:33:05.2129091Z   ---
+2026-11-11T16:33:05.2129458Z   duration_ms: 93.716782
+2026-11-11T16:33:05.2129873Z   type: 'test'
+2026-11-11T16:33:05.2130242Z   ...
+2026-11-11T16:33:05.2131035Z # Subtest: changing the receipt, matching world copy and debrief together cannot bypass physical validation
+2026-11-11T16:33:05.2132353Z ok 130 - changing the receipt, matching world copy and debrief together cannot bypass physical validation
+2026-11-11T16:33:05.2133141Z   ---
+2026-11-11T16:33:05.2133556Z   duration_ms: 149.170314
+2026-11-11T16:33:05.2134006Z   type: 'test'
+2026-11-11T16:33:05.2134413Z   ...
+2026-11-11T16:33:05.2135029Z # Subtest: MI09 preserves adverse physical facts {"skipLocals":true}
+2026-11-11T16:33:05.2135917Z ok 131 - MI09 preserves adverse physical facts {"skipLocals":true}
+2026-11-11T16:33:05.2136541Z   ---
+2026-11-11T16:33:05.2136949Z   duration_ms: 420.698373
+2026-11-11T16:33:05.2137394Z   type: 'test'
+2026-11-11T16:33:05.2137797Z   ...
+2026-11-11T16:33:05.2138443Z # Subtest: MI09 preserves adverse physical facts {"leaveLightsOn":true}
+2026-11-11T16:33:05.2139336Z ok 132 - MI09 preserves adverse physical facts {"leaveLightsOn":true}
+2026-11-11T16:33:05.2139942Z   ---
+2026-11-11T16:33:05.2140345Z   duration_ms: 374.43546
+2026-11-11T16:33:05.2140793Z   type: 'test'
+2026-11-11T16:33:05.2141216Z   ...
+2026-11-11T16:33:05.2141990Z # Subtest: MI09 preserves adverse physical facts {"destroyColumn":1}
+2026-11-11T16:33:05.2142894Z ok 133 - MI09 preserves adverse physical facts {"destroyColumn":1}
+2026-11-11T16:33:05.2143753Z   ---
+2026-11-11T16:33:05.2144192Z   duration_ms: 411.903772
+2026-11-11T16:33:05.2144660Z   type: 'test'
+2026-11-11T16:33:05.2145074Z   ...
+2026-11-11T16:33:05.2145699Z # Subtest: MI09 preserves adverse physical facts {"destroyRoot":1}
+2026-11-11T16:33:05.2146567Z ok 134 - MI09 preserves adverse physical facts {"destroyRoot":1}
+2026-11-11T16:33:05.2147210Z   ---
+2026-11-11T16:33:05.2147632Z   duration_ms: 355.577716
+2026-11-11T16:33:05.2148089Z   type: 'test'
+2026-11-11T16:33:05.2148699Z   ...
+2026-11-11T16:33:05.2149358Z # Subtest: MI09 preserves adverse physical facts {"destroyHome":1}
+2026-11-11T16:33:05.2150246Z ok 135 - MI09 preserves adverse physical facts {"destroyHome":1}
+2026-11-11T16:33:05.2150854Z   ---
+2026-11-11T16:33:05.2151280Z   duration_ms: 407.137899
+2026-11-11T16:33:05.2151877Z   type: 'test'
+2026-11-11T16:33:05.2152427Z   ...
+2026-11-11T16:33:05.2153133Z # Subtest: MI09 preserves adverse physical facts {"destroyBarrier":true}
+2026-11-11T16:33:05.2154068Z ok 136 - MI09 preserves adverse physical facts {"destroyBarrier":true}
+2026-11-11T16:33:05.2154715Z   ---
+2026-11-11T16:33:05.2155161Z   duration_ms: 535.082412
+2026-11-11T16:33:05.2155642Z   type: 'test'
+2026-11-11T16:33:05.2156072Z   ...
+2026-11-11T16:33:05.2156719Z # Subtest: MI09 preserves adverse physical facts {"killMigrators":1}
+2026-11-11T16:33:05.2157570Z ok 137 - MI09 preserves adverse physical facts {"killMigrators":1}
+2026-11-11T16:33:05.2158210Z   ---
+2026-11-11T16:33:05.2158664Z   duration_ms: 441.017732
+2026-11-11T16:33:05.2159143Z   type: 'test'
+2026-11-11T16:33:05.2159549Z   ...
+2026-11-11T16:33:05.2160214Z # Subtest: MI09 preserves adverse physical facts {"killMigrators":4}
+2026-11-11T16:33:05.2161076Z ok 138 - MI09 preserves adverse physical facts {"killMigrators":4}
+2026-11-11T16:33:05.2161833Z   ---
+2026-11-11T16:33:05.2162262Z   duration_ms: 264.236533
+2026-11-11T16:33:05.2162690Z   type: 'test'
+2026-11-11T16:33:05.2163070Z   ...
+2026-11-11T16:33:05.2163938Z # Subtest: MI09 terminal transport loss is exact, receives no reward and cannot revive an older checkpoint
+2026-11-11T16:33:05.2165131Z ok 139 - MI09 terminal transport loss is exact, receives no reward and cannot revive an older checkpoint
+2026-11-11T16:33:05.2165865Z   ---
+2026-11-11T16:33:05.2166247Z   duration_ms: 219.951047
+2026-11-11T16:33:05.2166680Z   type: 'test'
+2026-11-11T16:33:05.2167058Z   ...
+2026-11-11T16:33:05.2167814Z # Subtest: MI09 prechoice restore cannot undo even an instantaneous official choice
+2026-11-11T16:33:05.2168779Z ok 140 - MI09 prechoice restore cannot undo even an instantaneous official choice
+2026-11-11T16:33:05.2169413Z   ---
+2026-11-11T16:33:05.2169798Z   duration_ms: 72.863396
+2026-11-11T16:33:05.2170094Z   type: 'test'
+2026-11-11T16:33:05.2170340Z   ...
+2026-11-11T16:33:05.2170867Z # Subtest: raising the clock cannot restore an already destroyed structural column
+2026-11-11T16:33:05.2171628Z ok 141 - raising the clock cannot restore an already destroyed structural column
+2026-11-11T16:33:05.2172241Z   ---
+2026-11-11T16:33:05.2172505Z   duration_ms: 55.289247
+2026-11-11T16:33:05.2172808Z   type: 'test'
+2026-11-11T16:33:05.2173080Z   ...
+2026-11-11T16:33:05.2425086Z # Subtest: keyboard preferences retain AZERTY/QWERTY defaults and own independent arrays
+2026-11-11T16:33:05.2462930Z ok 142 - keyboard preferences retain AZERTY/QWERTY defaults and own independent arrays
+2026-11-11T16:33:05.2515361Z   ---
+2026-11-11T16:33:05.2545498Z   duration_ms: 1.776266
+2026-11-11T16:33:05.2572191Z   type: 'test'
+2026-11-11T16:33:05.2602176Z   ...
+2026-11-11T16:33:05.2612625Z # Subtest: rebinding preserves a complete map, rejects conflicts and keeps emergency Escape
+2026-11-11T16:33:05.2632444Z ok 143 - rebinding preserves a complete map, rejects conflicts and keeps emergency Escape
+2026-11-11T16:33:05.2662033Z   ---
+2026-11-11T16:33:05.2679013Z   duration_ms: 2.332802
+2026-11-11T16:33:05.2692181Z   type: 'test'
+2026-11-11T16:33:05.2722134Z   ...
+2026-11-11T16:33:05.2743332Z # Subtest: damaged or conflicting preferences fall back safely without partial action loss
+2026-11-11T16:33:05.2744900Z ok 144 - damaged or conflicting preferences fall back safely without partial action loss
+2026-11-11T16:33:05.2745624Z   ---
+2026-11-11T16:33:05.2746156Z   duration_ms: 0.705647
+2026-11-11T16:33:05.2746612Z   type: 'test'
+2026-11-11T16:33:05.2747004Z   ...
+2026-11-11T16:33:05.2747693Z # Subtest: gamepad requires neutral input after connection, focus reset or replacement
+2026-11-11T16:33:05.2748859Z ok 145 - gamepad requires neutral input after connection, focus reset or replacement
+2026-11-11T16:33:05.2749499Z   ---
+2026-11-11T16:33:05.2749875Z   duration_ms: 0.710735
+2026-11-11T16:33:05.2750297Z   type: 'test'
+2026-11-11T16:33:05.2750671Z   ...
+2026-11-11T16:33:05.2751367Z # Subtest: gamepad deadzone, twin-stick aim and standard buttons produce bounded controls
+2026-11-11T16:33:05.2752541Z ok 146 - gamepad deadzone, twin-stick aim and standard buttons produce bounded controls
+2026-11-11T16:33:05.2753203Z   ---
+2026-11-11T16:33:05.2760651Z   duration_ms: 0.49217
+2026-11-11T16:33:05.2782168Z   type: 'test'
+2026-11-11T16:33:05.2812214Z   ...
+2026-11-11T16:33:05.2822918Z # Subtest: gamepad pause is edge-triggered and unsupported or disconnected devices release all input
+2026-11-11T16:33:05.2842580Z ok 147 - gamepad pause is edge-triggered and unsupported or disconnected devices release all input
+2026-11-11T16:33:05.2843214Z   ---
+2026-11-11T16:33:05.2843467Z   duration_ms: 0.282049
+2026-11-11T16:33:05.2843750Z   type: 'test'
+2026-11-11T16:33:05.2844026Z   ...
+2026-11-11T16:33:05.2844661Z # Subtest: displayed instructions replace original physical keys once without recursive remapping
+2026-11-11T16:33:05.2845598Z ok 148 - displayed instructions replace original physical keys once without recursive remapping
+2026-11-11T16:33:05.2846139Z   ---
+2026-11-11T16:33:05.2846373Z   duration_ms: 3.644268
+2026-11-11T16:33:05.2846646Z   type: 'test'
+2026-11-11T16:33:05.2846884Z   ...
+2026-11-11T16:33:05.2847506Z # Subtest: key hints respect accented letters, combining marks and apostrophes in French radio text
+2026-11-11T16:33:05.2848453Z ok 149 - key hints respect accented letters, combining marks and apostrophes in French radio text
+2026-11-11T16:33:05.2848898Z   ---
+2026-11-11T16:33:05.2849065Z   duration_ms: 0.534272
+2026-11-11T16:33:05.2849249Z   type: 'test'
+2026-11-11T16:33:05.2849413Z   ...
+2026-11-11T16:33:05.2849860Z # Subtest: MI02 declares a separate moving train and carries the actual Vesper dossier without PALINODE knowledge
+2026-11-11T16:33:05.2850505Z ok 150 - MI02 declares a separate moving train and carries the actual Vesper dossier without PALINODE knowledge
+2026-11-11T16:33:05.2850874Z   ---
+2026-11-11T16:33:05.2851037Z   duration_ms: 5.084896
+2026-11-11T16:33:05.2851221Z   type: 'test'
+2026-11-11T16:33:05.2851412Z   ...
+2026-11-11T16:33:05.2852072Z # Subtest: all six walkers complete both MI02 report choices through public commands with every hostage alive
+2026-11-11T16:33:05.2853047Z ok 151 - all six walkers complete both MI02 report choices through public commands with every hostage alive
+2026-11-11T16:33:05.2853666Z   ---
+2026-11-11T16:33:05.2853890Z   duration_ms: 573.389967
+2026-11-11T16:33:05.2854145Z   type: 'test'
+2026-11-11T16:33:05.2854375Z   ...
+2026-11-11T16:33:05.2854937Z # Subtest: harpoons require proximity and time; a partial release cancels when the pilot leaves
+2026-11-11T16:33:05.2855755Z ok 152 - harpoons require proximity and time; a partial release cancels when the pilot leaves
+2026-11-11T16:33:05.2856252Z   ---
+2026-11-11T16:33:05.2856489Z   duration_ms: 7.027008
+2026-11-11T16:33:05.2856748Z   type: 'test'
+2026-11-11T16:33:05.2856959Z   ...
+2026-11-11T16:33:05.2857518Z # Subtest: MI02 cannot open the wagon, read the manifest, or approve a report while the train runs
+2026-11-11T16:33:05.2858352Z ok 153 - MI02 cannot open the wagon, read the manifest, or approve a report while the train runs
+2026-11-11T16:33:05.2858849Z   ---
+2026-11-11T16:33:05.2859084Z   duration_ms: 21.581346
+2026-11-11T16:33:05.2859833Z   type: 'test'
+2026-11-11T16:33:05.2860093Z   ...
+2026-11-11T16:33:05.2860715Z # Subtest: a train that reaches the broken rail ends the attempt without granting a campaign result
+2026-11-11T16:33:05.2861872Z ok 154 - a train that reaches the broken rail ends the attempt without granting a campaign result
+2026-11-11T16:33:05.2862441Z   ---
+2026-11-11T16:33:05.2862692Z   duration_ms: 51.767491
+2026-11-11T16:33:05.2862984Z   type: 'test'
+2026-11-11T16:33:05.2863253Z   ...
+2026-11-11T16:33:05.2864291Z # Subtest: running-train save state resumes with identical physics, passengers, RNG and objective progress
+2026-11-11T16:33:05.2865390Z ok 155 - running-train save state resumes with identical physics, passengers, RNG and objective progress
+2026-11-11T16:33:05.2865980Z   ---
+2026-11-11T16:33:05.2866222Z   duration_ms: 138.10901
+2026-11-11T16:33:05.2866504Z   type: 'test'
+2026-11-11T16:33:05.2866769Z   ...
+2026-11-11T16:33:05.2867448Z # Subtest: MI01 consequences distinguish intact, repaired and interrupted services and the signed notice
+2026-11-11T16:33:05.2868505Z ok 156 - MI01 consequences distinguish intact, repaired and interrupted services and the signed notice
+2026-11-11T16:33:05.2869106Z   ---
+2026-11-11T16:33:05.2869356Z   duration_ms: 105.987152
+2026-11-11T16:33:05.2869647Z   type: 'test'
+2026-11-11T16:33:05.2869906Z   ...
+2026-11-11T16:33:05.2870571Z # Subtest: two real rockets into the hostage wagon cause irreversible deaths and destroy the sale record
+2026-11-11T16:33:05.2871596Z ok 157 - two real rockets into the hostage wagon cause irreversible deaths and destroy the sale record
+2026-11-11T16:33:05.2872365Z   ---
+2026-11-11T16:33:05.2872619Z   duration_ms: 33.797955
+2026-11-11T16:33:05.2872912Z   type: 'test'
+2026-11-11T16:33:05.2873178Z   ...
+2026-11-11T16:33:05.2873865Z # Subtest: a ground explosion can damage the wagon without a direct hit, while rescued workers stay sheltered
+2026-11-11T16:33:05.2874932Z ok 158 - a ground explosion can damage the wagon without a direct hit, while rescued workers stay sheltered
+2026-11-11T16:33:05.2875551Z   ---
+2026-11-11T16:33:05.2875797Z   duration_ms: 30.967304
+2026-11-11T16:33:05.2876097Z   type: 'test'
+2026-11-11T16:33:05.2876356Z   ...
+2026-11-11T16:33:05.2877040Z # Subtest: a destroyed hostage wagon remains a documented loss and never invents survivors or identities
+2026-11-11T16:33:05.2878072Z ok 159 - a destroyed hostage wagon remains a documented loss and never invents survivors or identities
+2026-11-11T16:33:05.2878670Z   ---
+2026-11-11T16:33:05.2878928Z   duration_ms: 42.719404
+2026-11-11T16:33:05.2879246Z   type: 'test'
+2026-11-11T16:33:05.2879504Z   ...
+2026-11-11T16:33:05.2880233Z # Subtest: MI03 has three real stations, occupied buildings and a dormant fixed observer without PALINODE knowledge
+2026-11-11T16:33:05.2881386Z ok 160 - MI03 has three real stations, occupied buildings and a dormant fixed observer without PALINODE knowledge
+2026-11-11T16:33:05.2882162Z   ---
+2026-11-11T16:33:05.2882411Z   duration_ms: 4.539537
+2026-11-11T16:33:05.2882710Z   type: 'test'
+2026-11-11T16:33:05.2882966Z   ...
+2026-11-11T16:33:05.2883721Z # Subtest: all six chassis can finish both MI03 choices on normal difficulty without civilian loss through public controls
+2026-11-11T16:33:05.2884908Z ok 161 - all six chassis can finish both MI03 choices on normal difficulty without civilian loss through public controls
+2026-11-11T16:33:05.2885497Z   ---
+2026-11-11T16:33:05.2885731Z   duration_ms: 507.646766
+2026-11-11T16:33:05.2886028Z   type: 'test'
+2026-11-11T16:33:05.2886271Z   ...
+2026-11-11T16:33:05.2886946Z # Subtest: inspection and military isolation require separate proximity timers and cannot be completed from spawn
+2026-11-11T16:33:05.2888041Z ok 162 - inspection and military isolation require separate proximity timers and cannot be completed from spawn
+2026-11-11T16:33:05.2888660Z   ---
+2026-11-11T16:33:05.2888919Z   duration_ms: 21.066061
+2026-11-11T16:33:05.2889212Z   type: 'test'
+2026-11-11T16:33:05.2889454Z   ...
+2026-11-11T16:33:05.2890185Z # Subtest: Holt scrutiny counts actual live civilian verification time and activates a pre-existing drone once
+2026-11-11T16:33:05.2891638Z ok 163 - Holt scrutiny counts actual live civilian verification time and activates a pre-existing drone once
+2026-11-11T16:33:05.2892438Z   ---
+2026-11-11T16:33:05.2892703Z   duration_ms: 43.052038
+2026-11-11T16:33:05.2892999Z   type: 'test'
+2026-11-11T16:33:05.2893249Z   ...
+2026-11-11T16:33:05.2893942Z # Subtest: the observer save slot cannot intercept bullets or receive blast damage before its actual arrival
+2026-11-11T16:33:05.2895204Z ok 164 - the observer save slot cannot intercept bullets or receive blast damage before its actual arrival
+2026-11-11T16:33:05.2895824Z   ---
+2026-11-11T16:33:05.2896086Z   duration_ms: 9.833963
+2026-11-11T16:33:05.2896368Z   type: 'test'
+2026-11-11T16:33:05.2896618Z   ...
+2026-11-11T16:33:05.2897343Z # Subtest: real rockets destroy an unverified dispensary; ruins remain inspectable without inventing testimony
+2026-11-11T16:33:05.2898438Z ok 165 - real rockets destroy an unverified dispensary; ruins remain inspectable without inventing testimony
+2026-11-11T16:33:05.2899083Z   ---
+2026-11-11T16:33:05.2899345Z   duration_ms: 57.013822
+2026-11-11T16:33:05.2899631Z   type: 'test'
+2026-11-11T16:33:05.2899882Z   ...
+2026-11-11T16:33:05.2900593Z # Subtest: verification protects the ground terminal only; later bullets still cause irreversible human losses
+2026-11-11T16:33:05.2901815Z ok 166 - verification protects the ground terminal only; later bullets still cause irreversible human losses
+2026-11-11T16:33:05.2902460Z   ---
+2026-11-11T16:33:05.2902705Z   duration_ms: 35.893565
+2026-11-11T16:33:05.2902997Z   type: 'test'
+2026-11-11T16:33:05.2903245Z   ...
+2026-11-11T16:33:05.2903934Z # Subtest: destroyed civilian sources can be documented without a living voice or an invented control delay
+2026-11-11T16:33:05.2904992Z ok 167 - destroyed civilian sources can be documented without a living voice or an invented control delay
+2026-11-11T16:33:05.2905611Z   ---
+2026-11-11T16:33:05.2905862Z   duration_ms: 24.549761
+2026-11-11T16:33:05.2906154Z   type: 'test'
+2026-11-11T16:33:05.2906400Z   ...
+2026-11-11T16:33:05.2907099Z # Subtest: destruction after the signed decision still changes the extraction facts and future witness access
+2026-11-11T16:33:05.2908175Z ok 168 - destruction after the signed decision still changes the extraction facts and future witness access
+2026-11-11T16:33:05.2908811Z   ---
+2026-11-11T16:33:05.2909056Z   duration_ms: 31.208923
+2026-11-11T16:33:05.2909347Z   type: 'test'
+2026-11-11T16:33:05.2909603Z   ...
+2026-11-11T16:33:05.2910211Z # Subtest: unsecured terminal damage coincides with a real planted foot, not body proximity
+2026-11-11T16:33:05.2911116Z ok 169 - unsecured terminal damage coincides with a real planted foot, not body proximity
+2026-11-11T16:33:05.2911792Z   ---
+2026-11-11T16:33:05.2912053Z   duration_ms: 8.476068
+2026-11-11T16:33:05.2912337Z   type: 'test'
+2026-11-11T16:33:05.2912581Z   ...
+2026-11-11T16:33:05.2913250Z # Subtest: decision freezes inspection, ammunition, enemy timers and world state until a valid response
+2026-11-11T16:33:05.2914283Z ok 170 - decision freezes inspection, ammunition, enemy timers and world state until a valid response
+2026-11-11T16:33:05.2914892Z   ---
+2026-11-11T16:33:05.2915145Z   duration_ms: 12.416555
+2026-11-11T16:33:05.2915434Z   type: 'test'
+2026-11-11T16:33:05.2915686Z   ...
+2026-11-11T16:33:05.2916388Z # Subtest: a mid-inspection snapshot resumes with identical inputs, physics, ammunition and consequence facts
+2026-11-11T16:33:05.2917489Z ok 171 - a mid-inspection snapshot resumes with identical inputs, physics, ammunition and consequence facts
+2026-11-11T16:33:05.2918122Z   ---
+2026-11-11T16:33:05.2918370Z   duration_ms: 30.113538
+2026-11-11T16:33:05.2918659Z   type: 'test'
+2026-11-11T16:33:05.2918913Z   ...
+2026-11-11T16:33:05.2919549Z # Subtest: MI04 six chassis finish both decisions with two cooled turbines, a real contact and PT01
+2026-11-11T16:33:05.2920517Z ok 172 - MI04 six chassis finish both decisions with two cooled turbines, a real contact and PT01
+2026-11-11T16:33:05.2928155Z   ---
+2026-11-11T16:33:05.2928424Z   duration_ms: 560.639811
+2026-11-11T16:33:05.2928733Z   type: 'test'
+2026-11-11T16:33:05.2928992Z   ...
+2026-11-11T16:33:05.2929579Z # Subtest: MI04 starts without acquired evidence, an actual testimony or a free decision
+2026-11-11T16:33:05.2930464Z ok 173 - MI04 starts without acquired evidence, an actual testimony or a free decision
+2026-11-11T16:33:05.2931009Z   ---
+2026-11-11T16:33:05.2931433Z   duration_ms: 0.260577
+2026-11-11T16:33:05.2931929Z   type: 'test'
+2026-11-11T16:33:05.2932182Z   ...
+2026-11-11T16:33:05.2932920Z # Subtest: an unrepaired MI01 pipe requires a real five-second portable pump without repairing the inherited world
+2026-11-11T16:33:05.2934052Z ok 174 - an unrepaired MI01 pipe requires a real five-second portable pump without repairing the inherited world
+2026-11-11T16:33:05.2934687Z   ---
+2026-11-11T16:33:05.2934938Z   duration_ms: 30.301701
+2026-11-11T16:33:05.2935226Z   type: 'test'
+2026-11-11T16:33:05.2935495Z   ...
+2026-11-11T16:33:05.2936167Z # Subtest: repairing the earlier pipe restores supply at departure and avoids the portable pump action
+2026-11-11T16:33:05.2937190Z ok 175 - repairing the earlier pipe restores supply at departure and avoids the portable pump action
+2026-11-11T16:33:05.2937784Z   ---
+2026-11-11T16:33:05.2938034Z   duration_ms: 0.28313
+2026-11-11T16:33:05.2938322Z   type: 'test'
+2026-11-11T16:33:05.2938570Z   ...
+2026-11-11T16:33:05.2939124Z # Subtest: MI02 rescued workers reduce actual valve time from seven to four seconds
+2026-11-11T16:33:05.2939902Z ok 176 - MI02 rescued workers reduce actual valve time from seven to four seconds
+2026-11-11T16:33:05.2940400Z   ---
+2026-11-11T16:33:05.2940649Z   duration_ms: 28.846673
+2026-11-11T16:33:05.2940942Z   type: 'test'
+2026-11-11T16:33:05.2941189Z   ...
+2026-11-11T16:33:05.2941834Z # Subtest: leaving the valve resets incomplete cooling and leaves the turbine hot
+2026-11-11T16:33:05.2942633Z ok 177 - leaving the valve resets incomplete cooling and leaves the turbine hot
+2026-11-11T16:33:05.2943132Z   ---
+2026-11-11T16:33:05.2943376Z   duration_ms: 67.022955
+2026-11-11T16:33:05.2943657Z   type: 'test'
+2026-11-11T16:33:05.2943928Z   ...
+2026-11-11T16:33:05.2944618Z # Subtest: a surviving channel is only an opportunity: deliberately skipping the call records no testimony
+2026-11-11T16:33:05.2945665Z ok 178 - a surviving channel is only an opportunity: deliberately skipping the call records no testimony
+2026-11-11T16:33:05.2946267Z   ---
+2026-11-11T16:33:05.2946497Z   duration_ms: 18.595455
+2026-11-11T16:33:05.2946774Z   type: 'test'
+2026-11-11T16:33:05.2946999Z   ...
+2026-11-11T16:33:05.2947606Z # Subtest: a lost or cut dispensary channel stays unavailable and does not block the industrial mission
+2026-11-11T16:33:05.2948562Z ok 179 - a lost or cut dispensary channel stays unavailable and does not block the industrial mission
+2026-11-11T16:33:05.2949116Z   ---
+2026-11-11T16:33:05.2949356Z   duration_ms: 28.933506
+2026-11-11T16:33:05.2949650Z   type: 'test'
+2026-11-11T16:33:05.2949894Z   ...
+2026-11-11T16:33:05.2950552Z # Subtest: real projectiles can destroy the unscanned post; both choices finish without invented PT01
+2026-11-11T16:33:05.2951532Z ok 180 - real projectiles can destroy the unscanned post; both choices finish without invented PT01
+2026-11-11T16:33:05.2952396Z   ---
+2026-11-11T16:33:05.2952653Z   duration_ms: 78.881513
+2026-11-11T16:33:05.2953040Z   type: 'test'
+2026-11-11T16:33:05.2953297Z   ...
+2026-11-11T16:33:05.2953937Z # Subtest: copying the journal preserves PT01 when the post is destroyed before the final decision
+2026-11-11T16:33:05.2954907Z ok 181 - copying the journal preserves PT01 when the post is destroyed before the final decision
+2026-11-11T16:33:05.2955482Z   ---
+2026-11-11T16:33:05.2955727Z   duration_ms: 21.838758
+2026-11-11T16:33:05.2956015Z   type: 'test'
+2026-11-11T16:33:05.2956279Z   ...
+2026-11-11T16:33:05.2956903Z # Subtest: the industrial sequence is deterministic at identical seed and public pilot inputs
+2026-11-11T16:33:05.2958068Z ok 182 - the industrial sequence is deterministic at identical seed and public pilot inputs
+2026-11-11T16:33:05.2958633Z   ---
+2026-11-11T16:33:05.2958891Z   duration_ms: 32.364268
+2026-11-11T16:33:05.2959191Z   type: 'test'
+2026-11-11T16:33:05.2959458Z   ...
+2026-11-11T16:33:05.2960198Z # Subtest: the private hauler can actually withdraw; escape does not award a destruction or remain an active target
+2026-11-11T16:33:05.2961494Z ok 183 - the private hauler can actually withdraw; escape does not award a destruction or remain an active target
+2026-11-11T16:33:05.2962282Z   ---
+2026-11-11T16:33:05.2962536Z   duration_ms: 32.924439
+2026-11-11T16:33:05.2962832Z   type: 'test'
+2026-11-11T16:33:05.2963089Z   ...
+2026-11-11T16:33:05.2963932Z # Subtest: hot turbines add measurable heat, cooled turbines stop radiating, and radiator damage reverses the thermal margin
+2026-11-11T16:33:05.2965165Z ok 184 - hot turbines add measurable heat, cooled turbines stop radiating, and radiator damage reverses the thermal margin
+2026-11-11T16:33:05.2965856Z   ---
+2026-11-11T16:33:05.2966106Z   duration_ms: 33.549827
+2026-11-11T16:33:05.2966407Z   type: 'test'
+2026-11-11T16:33:05.2966656Z   ...
+2026-11-11T16:33:05.2967391Z # Subtest: MI05 six chassis complete both reports through public controls, protecting twelve refugees and four crew
+2026-11-11T16:33:05.2968531Z ok 185 - MI05 six chassis complete both reports through public controls, protecting twelve refugees and four crew
+2026-11-11T16:33:05.2969185Z   ---
+2026-11-11T16:33:05.2969438Z   duration_ms: 1281.404152
+2026-11-11T16:33:05.2969746Z   type: 'test'
+2026-11-11T16:33:05.2969999Z   ...
+2026-11-11T16:33:05.2970598Z # Subtest: Nacre starts with no inferred testimony or trafficking proof, with and without PT01
+2026-11-11T16:33:05.2971522Z ok 186 - Nacre starts with no inferred testimony or trafficking proof, with and without PT01
+2026-11-11T16:33:05.2972201Z   ---
+2026-11-11T16:33:05.2972451Z   duration_ms: 5.238824
+2026-11-11T16:33:05.2972764Z   type: 'test'
+2026-11-11T16:33:05.2973013Z   ...
+2026-11-11T16:33:05.2973792Z # Subtest: tide has announced rising/falling phases, a repeatable period, and separate walking and navigation thresholds
+2026-11-11T16:33:05.2974998Z ok 187 - tide has announced rising/falling phases, a repeatable period, and separate walking and navigation thresholds
+2026-11-11T16:33:05.2975665Z   ---
+2026-11-11T16:33:05.2975910Z   duration_ms: 80.812664
+2026-11-11T16:33:05.2976210Z   type: 'test'
+2026-11-11T16:33:05.2976455Z   ...
+2026-11-11T16:33:05.2977327Z # Subtest: a bridge takes four seconds; leaving its command cancels work, and exact snapshots retain partial progress
+2026-11-11T16:33:05.2978616Z ok 188 - a bridge takes four seconds; leaving its command cancels work, and exact snapshots retain partial progress
+2026-11-11T16:33:05.2979395Z   ---
+2026-11-11T16:33:05.2980004Z   duration_ms: 64.396712
+2026-11-11T16:33:05.2980422Z   type: 'test'
+2026-11-11T16:33:05.2980838Z   ...
+2026-11-11T16:33:05.2981873Z # Subtest: real planted feet on an uncovered bank wear in high water, while a raised bridge protects them
+2026-11-11T16:33:05.2995714Z ok 189 - real planted feet on an uncovered bank wear in high water, while a raised bridge protects them
+2026-11-11T16:33:05.2996351Z   ---
+2026-11-11T16:33:05.2996632Z   duration_ms: 13.622035
+2026-11-11T16:33:05.2996942Z   type: 'test'
+2026-11-11T16:33:05.2997209Z   ...
+2026-11-11T16:33:05.2997903Z # Subtest: six feet distribute load on uncovered mud and submerged banks; all chassis remain equal on a bridge
+2026-11-11T16:33:05.2998898Z ok 190 - six feet distribute load on uncovered mud and submerged banks; all chassis remain equal on a bridge
+2026-11-11T16:33:05.2999476Z   ---
+2026-11-11T16:33:05.2999735Z   duration_ms: 167.864956
+2026-11-11T16:33:05.3000029Z   type: 'test'
+2026-11-11T16:33:05.3000288Z   ...
+2026-11-11T16:33:05.3000944Z # Subtest: aimed projectiles can destroy both winch heads without destroying or injuring the barges
+2026-11-11T16:33:05.3002111Z ok 191 - aimed projectiles can destroy both winch heads without destroying or injuring the barges
+2026-11-11T16:33:05.3002973Z   ---
+2026-11-11T16:33:05.3003242Z   duration_ms: 128.325506
+2026-11-11T16:33:05.3003546Z   type: 'test'
+2026-11-11T16:33:05.3003799Z   ...
+2026-11-11T16:33:05.3004524Z # Subtest: destruction before inspection loses the actual invoice or contact but still permits a factual report
+2026-11-11T16:33:05.3005643Z ok 192 - destruction before inspection loses the actual invoice or contact but still permits a factual report
+2026-11-11T16:33:05.3006459Z   ---
+2026-11-11T16:33:05.3006713Z   duration_ms: 209.430368
+2026-11-11T16:33:05.3007009Z   type: 'test'
+2026-11-11T16:33:05.3007261Z   ...
+2026-11-11T16:33:05.3007967Z # Subtest: a copied invoice survives destruction of its source, and an uninspected second crew is not identified
+2026-11-11T16:33:05.3009067Z ok 193 - a copied invoice survives destruction of its source, and an uninspected second crew is not identified
+2026-11-11T16:33:05.3009705Z   ---
+2026-11-11T16:33:05.3009970Z   duration_ms: 77.95307
+2026-11-11T16:33:05.3010261Z   type: 'test'
+2026-11-11T16:33:05.3010516Z   ...
+2026-11-11T16:33:05.3011143Z # Subtest: a barge radio contact is retained after later losses without treating its crew as alive
+2026-11-11T16:33:05.3012227Z ok 194 - a barge radio contact is retained after later losses without treating its crew as alive
+2026-11-11T16:33:05.3012803Z   ---
+2026-11-11T16:33:05.3013062Z   duration_ms: 38.342569
+2026-11-11T16:33:05.3013361Z   type: 'test'
+2026-11-11T16:33:05.3013626Z   ...
+2026-11-11T16:33:05.3014350Z # Subtest: the civilian boat stays behind the closed cables, waits at low water, and physically reaches its dock
+2026-11-11T16:33:05.3015445Z ok 195 - the civilian boat stays behind the closed cables, waits at low water, and physically reaches its dock
+2026-11-11T16:33:05.3016079Z   ---
+2026-11-11T16:33:05.3016336Z   duration_ms: 102.44461
+2026-11-11T16:33:05.3016640Z   type: 'test'
+2026-11-11T16:33:05.3016898Z   ...
+2026-11-11T16:33:05.3017693Z # Subtest: losing the boat records twelve losses without invented arrivals, and leaves a truthful way to end the mission
+2026-11-11T16:33:05.3018876Z ok 196 - losing the boat records twelve losses without invented arrivals, and leaves a truthful way to end the mission
+2026-11-11T16:33:05.3019558Z   ---
+2026-11-11T16:33:05.3019819Z   duration_ms: 84.58416
+2026-11-11T16:33:05.3020113Z   type: 'test'
+2026-11-11T16:33:05.3020366Z   ...
+2026-11-11T16:33:05.3021018Z # Subtest: dock fuel is optional, finite and destructible independently of the boat and the two crews
+2026-11-11T16:33:05.3022134Z ok 197 - dock fuel is optional, finite and destructible independently of the boat and the two crews
+2026-11-11T16:33:05.3022719Z   ---
+2026-11-11T16:33:05.3022972Z   duration_ms: 187.375925
+2026-11-11T16:33:05.3023272Z   type: 'test'
+2026-11-11T16:33:05.3023517Z   ...
+2026-11-11T16:33:05.3024163Z # Subtest: an in-progress boat and tide resume deterministically with identical future public input
+2026-11-11T16:33:05.3025154Z ok 198 - an in-progress boat and tide resume deterministically with identical future public input
+2026-11-11T16:33:05.3025733Z   ---
+2026-11-11T16:33:05.3025985Z   duration_ms: 151.128704
+2026-11-11T16:33:05.3026273Z   type: 'test'
+2026-11-11T16:33:05.3026520Z   ...
+2026-11-11T16:33:05.3027146Z # Subtest: opening the report keeps the tide clock synchronized and freezes all time until a choice
+2026-11-11T16:33:05.3028045Z ok 199 - opening the report keeps the tide clock synchronized and freezes all time until a choice
+2026-11-11T16:33:05.3028619Z   ---
+2026-11-11T16:33:05.3028864Z   duration_ms: 164.968139
+2026-11-11T16:33:05.3029157Z   type: 'test'
+2026-11-11T16:33:05.3029406Z   ...
+2026-11-11T16:33:05.3030153Z # Subtest: an actual leg impact cannot heal a foot worn below fifteen by water, while the historical combat floor remains
+2026-11-11T16:33:05.3031319Z ok 200 - an actual leg impact cannot heal a foot worn below fifteen by water, while the historical combat floor remains
+2026-11-11T16:33:05.3032332Z   ---
+2026-11-11T16:33:05.3032581Z   duration_ms: 32.907272
+2026-11-11T16:33:05.3032876Z   type: 'test'
+2026-11-11T16:33:05.3033126Z   ...
+2026-11-11T16:33:05.4000200Z # Subtest: MI06 six chassis finish both physical circuits through public controls and separate people from homes
+2026-11-11T16:33:05.4009598Z ok 201 - MI06 six chassis finish both physical circuits through public controls and separate people from homes
+2026-11-11T16:33:05.4052272Z   ---
+2026-11-11T16:33:05.4060275Z   duration_ms: 1394.300788
+2026-11-11T16:33:05.4113002Z   type: 'test'
+2026-11-11T16:33:05.4153874Z   ...
+2026-11-11T16:33:05.4162831Z # Subtest: Nacre dike has its own ten residents, two technicians and facts; historical missions gain no dike field
+2026-11-11T16:33:05.4186706Z ok 202 - Nacre dike has its own ten residents, two technicians and facts; historical missions gain no dike field
+2026-11-11T16:33:05.4187494Z   ---
+2026-11-11T16:33:05.4212270Z   duration_ms: 9.188095
+2026-11-11T16:33:05.4242193Z   type: 'test'
+2026-11-11T16:33:05.4252261Z   ...
+2026-11-11T16:33:05.4283198Z # Subtest: inspections are local timed work; interruption resets the reading and a global radio call does not imply a second inspection
+2026-11-11T16:33:05.4297345Z ok 203 - inspections are local timed work; interruption resets the reading and a global radio call does not imply a second inspection
+2026-11-11T16:33:05.4322285Z   ---
+2026-11-11T16:33:05.4352291Z   duration_ms: 64.040314
+2026-11-11T16:33:05.4374079Z   type: 'test'
+2026-11-11T16:33:05.4382185Z   ...
+2026-11-11T16:33:05.4412980Z # Subtest: the panel requires the actual support band, all planted feet and bracing; lifting an appui cancels the incomplete latch
+2026-11-11T16:33:05.4414792Z ok 204 - the panel requires the actual support band, all planted feet and bracing; lifting an appui cancels the incomplete latch
+2026-11-11T16:33:05.4442257Z   ---
+2026-11-11T16:33:05.4456637Z   duration_ms: 120.78816
+2026-11-11T16:33:05.4472301Z   type: 'test'
+2026-11-11T16:33:05.4488952Z   ...
+2026-11-11T16:33:05.4490188Z # Subtest: technicians physically approach, use surviving cover under threat and remain distinct at the lock
+2026-11-11T16:33:05.4495132Z ok 205 - technicians physically approach, use surviving cover under threat and remain distinct at the lock
+2026-11-11T16:33:05.4495967Z   ---
+2026-11-11T16:33:05.4496380Z   duration_ms: 77.574213
+2026-11-11T16:33:05.4496829Z   type: 'test'
+2026-11-11T16:33:05.4497234Z   ...
+2026-11-11T16:33:05.4498021Z # Subtest: the second technician alone takes the actual lock position and can secure the panel
+2026-11-11T16:33:05.4499104Z ok 206 - the second technician alone takes the actual lock position and can secure the panel
+2026-11-11T16:33:05.4499865Z   ---
+2026-11-11T16:33:05.4500281Z   duration_ms: 184.042683
+2026-11-11T16:33:05.4500718Z   type: 'test'
+2026-11-11T16:33:05.4501107Z   ...
+2026-11-11T16:33:05.4502089Z # Subtest: all six chassis retain a manual route without fuel or technicians after real projectile losses
+2026-11-11T16:33:05.4503242Z ok 207 - all six chassis retain a manual route without fuel or technicians after real projectile losses
+2026-11-11T16:33:05.4503986Z   ---
+2026-11-11T16:33:05.4504351Z   duration_ms: 452.555418
+2026-11-11T16:33:05.4504761Z   type: 'test'
+2026-11-11T16:33:05.4505126Z   ...
+2026-11-11T16:33:05.4505970Z # Subtest: auxiliary connection pauses with the game, cancels out of range without expense and spends exactly two once
+2026-11-11T16:33:05.4507215Z ok 208 - auxiliary connection pauses with the game, cancels out of range without expense and spends exactly two once
+2026-11-11T16:33:05.4507976Z   ---
+2026-11-11T16:33:05.4508339Z   duration_ms: 114.288031
+2026-11-11T16:33:05.4508747Z   type: 'test'
+2026-11-11T16:33:05.4509123Z   ...
+2026-11-11T16:33:05.4510062Z # Subtest: destroying auxiliary before connection costs nothing; destruction afterward preserves spent fuel without an active pump
+2026-11-11T16:33:05.4511498Z ok 209 - destroying auxiliary before connection costs nothing; destruction afterward preserves spent fuel without an active pump
+2026-11-11T16:33:05.4512943Z   ---
+2026-11-11T16:33:05.4513320Z   duration_ms: 302.806123
+2026-11-11T16:33:05.4513749Z   type: 'test'
+2026-11-11T16:33:05.4514113Z   ...
+2026-11-11T16:33:05.4514994Z # Subtest: the manual shoring job resets when the support is released and survives a deterministic partial-work restart
+2026-11-11T16:33:05.4516251Z ok 210 - the manual shoring job resets when the support is released and survives a deterministic partial-work restart
+2026-11-11T16:33:05.4517025Z   ---
+2026-11-11T16:33:05.4517576Z   duration_ms: 142.272195
+2026-11-11T16:33:05.4518012Z   type: 'test'
+2026-11-11T16:33:05.4518375Z   ...
+2026-11-11T16:33:05.4519300Z # Subtest: a locked panel can really be destroyed; its lost lock cannot secure extraction and the independent shoring restores a route
+2026-11-11T16:33:05.4520787Z ok 211 - a locked panel can really be destroyed; its lost lock cannot secure extraction and the independent shoring restores a route
+2026-11-11T16:33:05.4521641Z   ---
+2026-11-11T16:33:05.4522178Z   duration_ms: 149.627265
+2026-11-11T16:33:05.4522610Z   type: 'test'
+2026-11-11T16:33:05.4522987Z   ...
+2026-11-11T16:33:05.4523922Z # Subtest: unsupported load produces an announced structural failure and truthful nearby casualties without a mission lock
+2026-11-11T16:33:05.4525299Z ok 212 - unsupported load produces an announced structural failure and truthful nearby casualties without a mission lock
+2026-11-11T16:33:05.4526122Z   ---
+2026-11-11T16:33:05.4526499Z   duration_ms: 187.757232
+2026-11-11T16:33:05.4526926Z   type: 'test'
+2026-11-11T16:33:05.4527309Z   ...
+2026-11-11T16:33:05.4528189Z # Subtest: evacuees walk to the shelter; a death in transit is not an arrival and sheltered residents remain out of fire
+2026-11-11T16:33:05.4529609Z ok 213 - evacuees walk to the shelter; a death in transit is not an arrival and sheltered residents remain out of fire
+2026-11-11T16:33:05.4530393Z   ---
+2026-11-11T16:33:05.4530769Z   duration_ms: 221.597131
+2026-11-11T16:33:05.4531192Z   type: 'test'
+2026-11-11T16:33:05.4531569Z   ...
+2026-11-11T16:33:05.4532661Z # Subtest: the imperial circuit physically floods occupied houses when no evacuation is ordered and still yields a factual ending
+2026-11-11T16:33:05.4534112Z ok 214 - the imperial circuit physically floods occupied houses when no evacuation is ordered and still yields a factual ending
+2026-11-11T16:33:05.4534978Z   ---
+2026-11-11T16:33:05.4535375Z   duration_ms: 96.556753
+2026-11-11T16:33:05.4535811Z   type: 'test'
+2026-11-11T16:33:05.4536198Z   ...
+2026-11-11T16:33:05.4537147Z # Subtest: destroyed homes retain inspectable thresholds, losses are counted once, and choosing diversion cannot rebuild them
+2026-11-11T16:33:05.4538529Z ok 215 - destroyed homes retain inspectable thresholds, losses are counted once, and choosing diversion cannot rebuild them
+2026-11-11T16:33:05.4539322Z   ---
+2026-11-11T16:33:05.4539708Z   duration_ms: 249.7325
+2026-11-11T16:33:05.4540135Z   type: 'test'
+2026-11-11T16:33:05.4540597Z   ...
+2026-11-11T16:33:05.4541545Z # Subtest: choosing a circuit does not perform valve work; interruption and restart preserve deterministic concrete operations
+2026-11-11T16:33:05.4543148Z ok 216 - choosing a circuit does not perform valve work; interruption and restart preserve deterministic concrete operations
+2026-11-11T16:33:05.4543987Z   ---
+2026-11-11T16:33:05.4544373Z   duration_ms: 144.139138
+2026-11-11T16:33:05.4544817Z   type: 'test'
+2026-11-11T16:33:05.4545198Z   ...
+2026-11-11T16:33:05.4546140Z # Subtest: technicians remain vulnerable after arrival and their later deaths clear arrival and refresh the final factual body
+2026-11-11T16:33:05.4547541Z ok 217 - technicians remain vulnerable after arrival and their later deaths clear arrival and refresh the final factual body
+2026-11-11T16:33:05.4548388Z   ---
+2026-11-11T16:33:05.4548784Z   duration_ms: 87.021618
+2026-11-11T16:33:05.4549221Z   type: 'test'
+2026-11-11T16:33:05.4549608Z   ...
+2026-11-11T16:33:05.4550483Z # Subtest: both projectile teams collide with real worksite objects and ground raiders stop outside the tall panel
+2026-11-11T16:33:05.4552190Z ok 218 - both projectile teams collide with real worksite objects and ground raiders stop outside the tall panel
+2026-11-11T16:33:05.4553018Z   ---
+2026-11-11T16:33:05.4553411Z   duration_ms: 19.435394
+2026-11-11T16:33:05.4553848Z   type: 'test'
+2026-11-11T16:33:05.4554235Z   ...
+2026-11-11T16:33:05.4555076Z # Subtest: an active auxiliary gives its real eight-second shoring benefit while an unfuelled job needs twelve
+2026-11-11T16:33:05.4556498Z ok 219 - an active auxiliary gives its real eight-second shoring benefit while an unfuelled job needs twelve
+2026-11-11T16:33:05.4557303Z   ---
+2026-11-11T16:33:05.4557694Z   duration_ms: 37.128996
+2026-11-11T16:33:05.4558120Z   type: 'test'
+2026-11-11T16:33:05.4558514Z   ...
+2026-11-11T16:33:05.4559385Z # Subtest: captured scene states are independent deep copies of feet, residents, work progress and later decisions
+2026-11-11T16:33:05.4560680Z ok 220 - captured scene states are independent deep copies of feet, residents, work progress and later decisions
+2026-11-11T16:33:05.4561494Z   ---
+2026-11-11T16:33:05.4562036Z   duration_ms: 48.481229
+2026-11-11T16:33:05.4562466Z   type: 'test'
+2026-11-11T16:33:05.4562835Z   ...
+2026-11-11T16:33:10.5933790Z # Subtest: MI07 six chassis complete both destinations through public commands, with real arrivals and distinct vehicle custody
+2026-11-11T16:33:10.6001316Z ok 221 - MI07 six chassis complete both destinations through public commands, with real arrivals and distinct vehicle custody
+2026-11-11T16:33:10.6032657Z   ---
+2026-11-11T16:33:10.6033284Z   duration_ms: 1962.797395
+2026-11-11T16:33:10.6033767Z   type: 'test'
+2026-11-11T16:33:10.6034201Z   ...
+2026-11-11T16:33:10.6035141Z # Subtest: route and reception consume real MI06 support without turning its residents into the new medical population
+2026-11-11T16:33:10.6036521Z ok 222 - route and reception consume real MI06 support without turning its residents into the new medical population
+2026-11-11T16:33:10.6037397Z   ---
+2026-11-11T16:33:10.6037803Z   duration_ms: 9.672587
+2026-11-11T16:33:10.6038259Z   type: 'test'
+2026-11-11T16:33:10.6038652Z   ...
+2026-11-11T16:33:10.6039616Z # Subtest: a direct interact call can be checkpointed before another frame, with immediately consistent physical and campaign facts
+2026-11-11T16:33:10.6042759Z ok 223 - a direct interact call can be checkpointed before another frame, with immediately consistent physical and campaign facts
+2026-11-11T16:33:10.6043590Z   ---
+2026-11-11T16:33:10.6044035Z   duration_ms: 108.816898
+2026-11-11T16:33:10.6044449Z   type: 'test'
+2026-11-11T16:33:10.6044820Z   ...
+2026-11-11T16:33:10.6045661Z # Subtest: the ambulance needs an actual call and a cleared stop; barriers require local work and reset when abandoned
+2026-11-11T16:33:10.6046907Z ok 224 - the ambulance needs an actual call and a cleared stop; barriers require local work and reset when abandoned
+2026-11-11T16:33:10.6047658Z   ---
+2026-11-11T16:33:10.6048022Z   duration_ms: 163.622796
+2026-11-11T16:33:10.6048471Z   type: 'test'
+2026-11-11T16:33:10.6048844Z   ...
+2026-11-11T16:33:10.6049606Z # Subtest: permission is an actual timed exchange, separate from medical examination and permission to testify
+2026-11-11T16:33:10.6050818Z ok 225 - permission is an actual timed exchange, separate from medical examination and permission to testify
+2026-11-11T16:33:10.6051638Z   ---
+2026-11-11T16:33:10.6052227Z   duration_ms: 105.380279
+2026-11-11T16:33:10.6052656Z   type: 'test'
+2026-11-11T16:33:10.6053049Z   ...
+2026-11-11T16:33:10.6054068Z # Subtest: cargo and beacon are separate sources: damage cannot invent cargo, attachments or a log, and prior inspection survives later loss
+2026-11-11T16:33:10.6057124Z ok 226 - cargo and beacon are separate sources: damage cannot invent cargo, attachments or a log, and prior inspection survives later loss
+2026-11-11T16:33:10.6058777Z   ---
+2026-11-11T16:33:10.6059205Z   duration_ms: 633.109819
+2026-11-11T16:33:10.6059657Z   type: 'test'
+2026-11-11T16:33:10.6060057Z   ...
+2026-11-11T16:33:10.6061563Z # Subtest: beacon removal requires stable planted support, resets on interruption and preserves its real parts only on completion
+2026-11-11T16:33:10.6063203Z ok 227 - beacon removal requires stable planted support, resets on interruption and preserves its real parts only on completion
+2026-11-11T16:33:10.6064096Z   ---
+2026-11-11T16:33:10.6064523Z   duration_ms: 37.002296
+2026-11-11T16:33:10.6064972Z   type: 'test'
+2026-11-11T16:33:10.6065353Z   ...
+2026-11-11T16:33:10.6066450Z # Subtest: announced seizure drones remain absent from damage and rendering before their ten-second arrival
+2026-11-11T16:33:10.6093756Z ok 228 - announced seizure drones remain absent from damage and rendering before their ten-second arrival
+2026-11-11T16:33:10.6122263Z   ---
+2026-11-11T16:33:10.6137162Z   duration_ms: 132.158883
+2026-11-11T16:33:10.6137933Z   type: 'test'
+2026-11-11T16:33:10.6138330Z   ...
+2026-11-11T16:33:10.6139324Z # Subtest: publicly destroying the exposed beacon leaves a completed factual route without recovered attachments, log or provenance
+2026-11-11T16:33:10.6140903Z ok 229 - publicly destroying the exposed beacon leaves a completed factual route without recovered attachments, log or provenance
+2026-11-11T16:33:10.6172185Z   ---
+2026-11-11T16:33:10.6192387Z   duration_ms: 215.941422
+2026-11-11T16:33:10.6193150Z   type: 'test'
+2026-11-11T16:33:10.6193621Z   ...
+2026-11-11T16:33:10.6194716Z # Subtest: vehicle destruction before arrival counts only its six actual occupants and leaves a truthful ending for either destination
+2026-11-11T16:33:10.6196174Z ok 230 - vehicle destruction before arrival counts only its six actual occupants and leaves a truthful ending for either destination
+2026-11-11T16:33:10.6197055Z   ---
+2026-11-11T16:33:10.6197458Z   duration_ms: 407.467772
+2026-11-11T16:33:10.6197910Z   type: 'test'
+2026-11-11T16:33:10.6198301Z   ...
+2026-11-11T16:33:10.6199099Z # Subtest: all six chassis can tow four patients without driver, medic, technical help or any new fuel
+2026-11-11T16:33:10.6208608Z ok 231 - all six chassis can tow four patients without driver, medic, technical help or any new fuel
+2026-11-11T16:33:10.6209418Z   ---
+2026-11-11T16:33:10.6209922Z   duration_ms: 1450.497457
+2026-11-11T16:33:10.6210394Z   type: 'test'
+2026-11-11T16:33:10.6210811Z   ...
+2026-11-11T16:33:10.6211924Z # Subtest: a driver lost outside does not cause automatic driving; the manual tow is local, interruptible and proximity-bound
+2026-11-11T16:33:10.6213408Z ok 232 - a driver lost outside does not cause automatic driving; the manual tow is local, interruptible and proximity-bound
+2026-11-11T16:33:10.6214305Z   ---
+2026-11-11T16:33:10.6214719Z   duration_ms: 188.791234
+2026-11-11T16:33:10.6215185Z   type: 'test'
+2026-11-11T16:33:10.6215598Z   ...
+2026-11-11T16:33:10.6216549Z # Subtest: a deceased witness keeps their recorded consent but cannot transfer that consent to the surviving colleague
+2026-11-11T16:33:10.6217931Z ok 233 - a deceased witness keeps their recorded consent but cannot transfer that consent to the surviving colleague
+2026-11-11T16:33:10.6218800Z   ---
+2026-11-11T16:33:10.6219217Z   duration_ms: 106.636433
+2026-11-11T16:33:10.6219672Z   type: 'test'
+2026-11-11T16:33:10.6220088Z   ...
+2026-11-11T16:33:10.6221031Z # Subtest: witness, Mara and technical contacts remain individually optional and are never inferred from availability
+2026-11-11T16:33:10.6222548Z ok 234 - witness, Mara and technical contacts remain individually optional and are never inferred from availability
+2026-11-11T16:33:10.6223382Z   ---
+2026-11-11T16:33:10.6223795Z   duration_ms: 373.232447
+2026-11-11T16:33:10.6224254Z   type: 'test'
+2026-11-11T16:33:10.6224657Z   ...
+2026-11-11T16:33:10.6225600Z # Subtest: technical help changes the real ramp duration only after a completed exchange, not from inherited survivors alone
+2026-11-11T16:33:10.6227000Z ok 235 - technical help changes the real ramp duration only after a completed exchange, not from inherited survivors alone
+2026-11-11T16:33:10.6227853Z   ---
+2026-11-11T16:33:10.6228579Z   duration_ms: 54.675701
+2026-11-11T16:33:10.6228999Z   type: 'test'
+2026-11-11T16:33:10.6229376Z   ...
+2026-11-11T16:33:10.6230237Z # Subtest: ramp work resets outside its range and restores identical partial progress, physics and future public actions
+2026-11-11T16:33:10.6231477Z ok 236 - ramp work resets outside its range and restores identical partial progress, physics and future public actions
+2026-11-11T16:33:10.6232488Z   ---
+2026-11-11T16:33:10.6232868Z   duration_ms: 234.553605
+2026-11-11T16:33:10.6233462Z   type: 'test'
+2026-11-11T16:33:10.6233855Z   ...
+2026-11-11T16:33:10.6234758Z # Subtest: the decision freezes time and selects a destination without deploying a ramp, preparing reception or moving patients
+2026-11-11T16:33:10.6236030Z ok 237 - the decision freezes time and selects a destination without deploying a ramp, preparing reception or moving patients
+2026-11-11T16:33:10.6236812Z   ---
+2026-11-11T16:33:10.6237190Z   duration_ms: 73.271105
+2026-11-11T16:33:10.6237612Z   type: 'test'
+2026-11-11T16:33:10.6238027Z   ...
+2026-11-11T16:33:10.6238802Z # Subtest: arrival at the quay precedes unloading and each individual arrival at the medical doorway
+2026-11-11T16:33:10.6239884Z ok 238 - arrival at the quay precedes unloading and each individual arrival at the medical doorway
+2026-11-11T16:33:10.6240619Z   ---
+2026-11-11T16:33:10.6240998Z   duration_ms: 49.624834
+2026-11-11T16:33:10.6241410Z   type: 'test'
+2026-11-11T16:33:10.6244459Z   ...
+2026-11-11T16:33:10.6245390Z # Subtest: a patient lost during the actual transfer is never counted as arrived, while admitted patients leave the firing world
+2026-11-11T16:33:10.6246703Z ok 239 - a patient lost during the actual transfer is never counted as arrived, while admitted patients leave the firing world
+2026-11-11T16:33:10.6247488Z   ---
+2026-11-11T16:33:10.6247856Z   duration_ms: 49.281825
+2026-11-11T16:33:10.6248264Z   type: 'test'
+2026-11-11T16:33:10.6248642Z   ...
+2026-11-11T16:33:10.6249461Z # Subtest: destroying the vehicle after unloading cannot recall transferred people or destroy a recovered beacon
+2026-11-11T16:33:10.6250676Z ok 240 - destroying the vehicle after unloading cannot recall transferred people or destroy a recovered beacon
+2026-11-11T16:33:10.6251484Z   ---
+2026-11-11T16:33:10.6251999Z   duration_ms: 71.007795
+2026-11-11T16:33:10.6252606Z   type: 'test'
+2026-11-11T16:33:10.6253035Z   ...
+2026-11-11T16:33:10.6253859Z # Subtest: both teams hit real exposed components and staff while aboard people are protected by the hull
+2026-11-11T16:33:10.6255032Z ok 241 - both teams hit real exposed components and staff while aboard people are protected by the hull
+2026-11-11T16:33:10.6255769Z   ---
+2026-11-11T16:33:10.6256150Z   duration_ms: 43.977321
+2026-11-11T16:33:10.6256575Z   type: 'test'
+2026-11-11T16:33:10.6256962Z   ...
+2026-11-11T16:33:10.6257802Z # Subtest: all preview scene states are deep copies that remain frozen across later decisions, losses and transfers
+2026-11-11T16:33:10.6259080Z ok 242 - all preview scene states are deep copies that remain frozen across later decisions, losses and transfers
+2026-11-11T16:33:10.6259875Z   ---
+2026-11-11T16:33:10.6260269Z   duration_ms: 76.73094
+2026-11-11T16:33:10.6260708Z   type: 'test'
+2026-11-11T16:33:10.6261109Z   ...
+2026-11-11T16:33:26.1566645Z # Subtest: MI08 six chassis complete all three material plans through public controls, preserving every identity and actual arrival
+2026-11-11T16:33:26.1583830Z ok 243 - MI08 six chassis complete all three material plans through public controls, preserving every identity and actual arrival
+2026-11-11T16:33:26.1584816Z   ---
+2026-11-11T16:33:26.1585129Z   duration_ms: 8214.613827
+2026-11-11T16:33:26.1585448Z   type: 'test'
+2026-11-11T16:33:26.1585705Z   ...
+2026-11-11T16:33:26.1586363Z # Subtest: historical source totals remain separate and a known witness is not assigned to an uncertain survivor
+2026-11-11T16:33:26.1587045Z ok 244 - historical source totals remain separate and a known witness is not assigned to an uncertain survivor
+2026-11-11T16:33:26.1587975Z   ---
+2026-11-11T16:33:26.1588157Z   duration_ms: 2.376314
+2026-11-11T16:33:26.1588347Z   type: 'test'
+2026-11-11T16:33:26.1588507Z   ...
+2026-11-11T16:33:26.1589021Z # Subtest: authentic clinic, imperial, shored, no-staff and lost-ambulance histories produce only their real survivors and no new fuel
+2026-11-11T16:33:26.1589781Z ok 245 - authentic clinic, imperial, shored, no-staff and lost-ambulance histories produce only their real survivors and no new fuel
+2026-11-11T16:33:26.1590205Z   ---
+2026-11-11T16:33:26.1590504Z   duration_ms: 909.588473
+2026-11-11T16:33:26.1590698Z   type: 'test'
+2026-11-11T16:33:26.1590864Z   ...
+2026-11-11T16:33:26.1591283Z # Subtest: tide belongs to the simulation clock and basin changes continuously after an anchored intake closure
+2026-11-11T16:33:26.1592145Z ok 246 - tide belongs to the simulation clock and basin changes continuously after an anchored intake closure
+2026-11-11T16:33:26.1592537Z   ---
+2026-11-11T16:33:26.1592699Z   duration_ms: 238.423668
+2026-11-11T16:33:26.1592888Z   type: 'test'
+2026-11-11T16:33:26.1593050Z   ...
+2026-11-11T16:33:26.1593536Z # Subtest: technical assistance requires accepted service and a living person at the intake; no survivor means the full manual duration
+2026-11-11T16:33:26.1594287Z ok 247 - technical assistance requires accepted service and a living person at the intake; no survivor means the full manual duration
+2026-11-11T16:33:26.1594905Z   ---
+2026-11-11T16:33:26.1595077Z   duration_ms: 388.67615
+2026-11-11T16:33:26.1595296Z   type: 'test'
+2026-11-11T16:33:26.1595462Z   ...
+2026-11-11T16:33:26.1595885Z # Subtest: origin contacts and Mara travel precede presence at the quay and never grant a destination consent
+2026-11-11T16:33:26.1596615Z ok 248 - origin contacts and Mara travel precede presence at the quay and never grant a destination consent
+2026-11-11T16:33:26.1596978Z   ---
+2026-11-11T16:33:26.1597145Z   duration_ms: 112.240194
+2026-11-11T16:33:26.1597335Z   type: 'test'
+2026-11-11T16:33:26.1597488Z   ...
+2026-11-11T16:33:26.1597896Z # Subtest: all three choices leave physical gates, capacities and people unchanged until later operations
+2026-11-11T16:33:26.1598577Z ok 249 - all three choices leave physical gates, capacities and people unchanged until later operations
+2026-11-11T16:33:26.1598925Z   ---
+2026-11-11T16:33:26.1599085Z   duration_ms: 126.01166
+2026-11-11T16:33:26.1599262Z   type: 'test'
+2026-11-11T16:33:26.1599420Z   ...
+2026-11-11T16:33:26.1599916Z # Subtest: destination agreements are interruptible, reserve actual seats and stretchers, and load neither people nor boats instantly
+2026-11-11T16:33:26.1600690Z ok 250 - destination agreements are interruptible, reserve actual seats and stretchers, and load neither people nor boats instantly
+2026-11-11T16:33:26.1601115Z   ---
+2026-11-11T16:33:26.1601273Z   duration_ms: 227.675449
+2026-11-11T16:33:26.1601455Z   type: 'test'
+2026-11-11T16:33:26.1601608Z   ...
+2026-11-11T16:33:26.1609423Z # Subtest: boarding, movement, departure, docking and individual arrival are distinct and the passage waits for a real current window
+2026-11-11T16:33:26.1611047Z ok 251 - boarding, movement, departure, docking and individual arrival are distinct and the passage waits for a real current window
+2026-11-11T16:33:26.1612246Z   ---
+2026-11-11T16:33:26.1612846Z   duration_ms: 285.375697
+2026-11-11T16:33:26.1613399Z   type: 'test'
+2026-11-11T16:33:26.1613848Z   ...
+2026-11-11T16:33:26.1614902Z # Subtest: mechanism damage freezes a partially reached opening; separate emergency work reduces inflow without repairing the gate
+2026-11-11T16:33:26.1618538Z ok 252 - mechanism damage freezes a partially reached opening; separate emergency work reduces inflow without repairing the gate
+2026-11-11T16:33:26.1619503Z   ---
+2026-11-11T16:33:26.1619950Z   duration_ms: 451.849712
+2026-11-11T16:33:26.1640123Z   type: 'test'
+2026-11-11T16:33:26.1640406Z   ...
+2026-11-11T16:33:26.1641115Z # Subtest: a passage blocked partway returns loaded boats and living people physically to the local reception
+2026-11-11T16:33:26.1642529Z ok 253 - a passage blocked partway returns loaded boats and living people physically to the local reception
+2026-11-11T16:33:26.1643114Z   ---
+2026-11-11T16:33:26.1643376Z   duration_ms: 286.653222
+2026-11-11T16:33:26.1643678Z   type: 'test'
+2026-11-11T16:33:26.1643922Z   ...
+2026-11-11T16:33:26.1644639Z # Subtest: both real gate bodies can be destroyed without an impossible objective or a fictitious repaired leaf
+2026-11-11T16:33:26.1645886Z ok 254 - both real gate bodies can be destroyed without an impossible objective or a fictitious repaired leaf
+2026-11-11T16:33:26.1646525Z   ---
+2026-11-11T16:33:26.1646783Z   duration_ms: 420.440075
+2026-11-11T16:33:26.1647076Z   type: 'test'
+2026-11-11T16:33:26.1647317Z   ...
+2026-11-11T16:33:26.1647749Z # Subtest: public destructive variants keep capacities, operators, local refuge and copied sources truthful
+2026-11-11T16:33:26.1648367Z ok 255 - public destructive variants keep capacities, operators, local refuge and copied sources truthful
+2026-11-11T16:33:26.1648737Z   ---
+2026-11-11T16:33:26.1648903Z   duration_ms: 2327.334806
+2026-11-11T16:33:26.1649092Z   type: 'test'
+2026-11-11T16:33:26.1649251Z   ...
+2026-11-11T16:33:26.1649714Z # Subtest: a hull lost during boarding counts only actual occupants; survivors on the ramp have a living route of withdrawal
+2026-11-11T16:33:26.1650548Z ok 256 - a hull lost during boarding counts only actual occupants; survivors on the ramp have a living route of withdrawal
+2026-11-11T16:33:26.1651139Z   ---
+2026-11-11T16:33:26.1651342Z   duration_ms: 167.208382
+2026-11-11T16:33:26.1651584Z   type: 'test'
+2026-11-11T16:33:26.1651930Z   ...
+2026-11-11T16:33:26.1652579Z # Subtest: late local damage cannot cancel acquired departures, kill offshore people or erase a copied register
+2026-11-11T16:33:26.1653628Z ok 257 - late local damage cannot cancel acquired departures, kill offshore people or erase a copied register
+2026-11-11T16:33:26.1654247Z   ---
+2026-11-11T16:33:26.1654484Z   duration_ms: 180.067837
+2026-11-11T16:33:26.1654774Z   type: 'test'
+2026-11-11T16:33:26.1655013Z   ...
+2026-11-11T16:33:26.1655726Z # Subtest: a refuge confirmation survives later radio loss, whereas an unconfirmed broken radio never invents distant places
+2026-11-11T16:33:26.1656854Z ok 258 - a refuge confirmation survives later radio loss, whereas an unconfirmed broken radio never invents distant places
+2026-11-11T16:33:26.1657500Z   ---
+2026-11-11T16:33:26.1657735Z   duration_ms: 348.674966
+2026-11-11T16:33:26.1658014Z   type: 'test'
+2026-11-11T16:33:26.1658265Z   ...
+2026-11-11T16:33:26.1658946Z # Subtest: destroying an accepted service member preserves the historical agreement without replacing that person
+2026-11-11T16:33:26.1660002Z ok 259 - destroying an accepted service member preserves the historical agreement without replacing that person
+2026-11-11T16:33:26.1660597Z   ---
+2026-11-11T16:33:26.1660822Z   duration_ms: 185.139105
+2026-11-11T16:33:26.1661090Z   type: 'test'
+2026-11-11T16:33:26.1661323Z   ...
+2026-11-11T16:33:26.1672397Z # Subtest: absence of all historical passengers and services remains a playable manual scene with only its two new people
+2026-11-11T16:33:26.1673584Z ok 260 - absence of all historical passengers and services remains a playable manual scene with only its two new people
+2026-11-11T16:33:26.1674230Z   ---
+2026-11-11T16:33:26.1674465Z   duration_ms: 74.211724
+2026-11-11T16:33:26.1674738Z   type: 'test'
+2026-11-11T16:33:26.1674973Z   ...
+2026-11-11T16:33:26.1675758Z # Subtest: direct tactile-equivalent interactions have consistent facts before another frame and exact snapshots survive JSON
+2026-11-11T16:33:26.1676964Z ok 261 - direct tactile-equivalent interactions have consistent facts before another frame and exact snapshots survive JSON
+2026-11-11T16:33:26.1677612Z   ---
+2026-11-11T16:33:26.1677854Z   duration_ms: 403.961871
+2026-11-11T16:33:26.1678134Z   type: 'test'
+2026-11-11T16:33:26.1678364Z   ...
+2026-11-11T16:33:26.1705738Z # Subtest: partial intake, invitation, ramp, allocation, passage and report work resumes with identical public futures
+2026-11-11T16:33:26.1707524Z ok 262 - partial intake, invitation, ramp, allocation, passage and report work resumes with identical public futures
+2026-11-11T16:33:26.1708349Z   ---
+2026-11-11T16:33:26.1708683Z   duration_ms: 2664.445048
+2026-11-11T16:33:26.1709074Z   type: 'test'
+2026-11-11T16:33:26.1709407Z   ...
+2026-11-11T16:33:26.1710431Z # Subtest: every material plan requires a timed report and actual extraction; prompts distinguish waiting, ready, transmitting and transmitted
+2026-11-11T16:33:26.1712236Z ok 263 - every material plan requires a timed report and actual extraction; prompts distinguish waiting, ready, transmitting and transmitted
+2026-11-11T16:33:26.1714734Z   ---
+2026-11-11T16:33:26.1715207Z   duration_ms: 957.684559
+2026-11-11T16:33:26.1715514Z   type: 'test'
+2026-11-11T16:33:26.1715756Z   ...
+2026-11-11T16:33:26.1716569Z # Subtest: enemy projectiles use the same physical objects and exposed people, without reaching people still inside origin shelters
+2026-11-11T16:33:26.1717802Z ok 264 - enemy projectiles use the same physical objects and exposed people, without reaching people still inside origin shelters
+2026-11-11T16:33:26.1718447Z   ---
+2026-11-11T16:33:26.1718683Z   duration_ms: 204.675724
+2026-11-11T16:33:26.1718965Z   type: 'test'
+2026-11-11T16:33:26.1719230Z   ...
+2026-11-11T16:33:26.1720037Z # Subtest: sustained measured pressure announces real mechanism wear, and an ordinary public death keeps the terminal scene immutable
+2026-11-11T16:33:26.1721318Z ok 265 - sustained measured pressure announces real mechanism wear, and an ordinary public death keeps the terminal scene immutable
+2026-11-11T16:33:26.1722145Z   ---
+2026-11-11T16:33:26.1722387Z   duration_ms: 697.733795
+2026-11-11T16:33:26.1722649Z   type: 'test'
+2026-11-11T16:33:26.1722877Z   ...
+2026-11-11T16:33:26.1723588Z # Subtest: the new receipt and captured scenes are deep copies preserving origins, people and individual boat outcomes
+2026-11-11T16:33:26.1724699Z ok 266 - the new receipt and captured scenes are deep copies preserving origins, people and individual boat outcomes
+2026-11-11T16:33:26.1725329Z   ---
+2026-11-11T16:33:26.1725567Z   duration_ms: 265.360109
+2026-11-11T16:33:26.1725861Z   type: 'test'
+2026-11-11T16:33:26.1726121Z   ...
+2026-11-11T16:33:26.1726826Z # Subtest: announced controls are absent from collisions and drawing until their twelve simulated seconds elapse
+2026-11-11T16:33:26.1727948Z ok 267 - announced controls are absent from collisions and drawing until their twelve simulated seconds elapse
+2026-11-11T16:33:26.1728620Z   ---
+2026-11-11T16:33:26.1728853Z   duration_ms: 152.343094
+2026-11-11T16:33:26.1729176Z   type: 'test'
+2026-11-11T16:33:26.1729437Z   ...
+2026-11-11T16:33:26.1730322Z # Subtest: production drawing reads gate, boat, people and foot authority without mutating captured scenes or duplicating the HTML instrument
+2026-11-11T16:33:26.1731876Z ok 268 - production drawing reads gate, boat, people and foot authority without mutating captured scenes or duplicating the HTML instrument
+2026-11-11T16:33:26.1732678Z   ---
+2026-11-11T16:33:26.1732909Z   duration_ms: 491.073196
+2026-11-11T16:33:26.1733249Z   type: 'test'
+2026-11-11T16:33:26.1733501Z   ...
+2026-11-11T16:33:26.1950808Z # Subtest: MI09 WK01 / obey: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1952816Z ok 269 - MI09 WK01 / obey: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1953339Z   ---
+2026-11-11T16:33:26.1953604Z   duration_ms: 487.853168
+2026-11-11T16:33:26.1953896Z   type: 'test'
+2026-11-11T16:33:26.1954129Z   ...
+2026-11-11T16:33:26.1954685Z # Subtest: MI09 WK01 / defy: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1955517Z ok 270 - MI09 WK01 / defy: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1956019Z   ---
+2026-11-11T16:33:26.1956261Z   duration_ms: 402.752067
+2026-11-11T16:33:26.1956535Z   type: 'test'
+2026-11-11T16:33:26.1957042Z   ...
+2026-11-11T16:33:26.1957576Z # Subtest: MI09 WK02 / obey: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1958383Z ok 271 - MI09 WK02 / obey: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1958869Z   ---
+2026-11-11T16:33:26.1959096Z   duration_ms: 151.898911
+2026-11-11T16:33:26.1959359Z   type: 'test'
+2026-11-11T16:33:26.1959585Z   ...
+2026-11-11T16:33:26.1960290Z # Subtest: MI09 WK02 / defy: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1961120Z ok 272 - MI09 WK02 / defy: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1961608Z   ---
+2026-11-11T16:33:26.1961984Z   duration_ms: 156.422864
+2026-11-11T16:33:26.1962260Z   type: 'test'
+2026-11-11T16:33:26.1962492Z   ...
+2026-11-11T16:33:26.1963038Z # Subtest: MI09 WK05 / obey: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1963844Z ok 273 - MI09 WK05 / obey: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1964333Z   ---
+2026-11-11T16:33:26.1964571Z   duration_ms: 69.491526
+2026-11-11T16:33:26.1964839Z   type: 'test'
+2026-11-11T16:33:26.1965068Z   ...
+2026-11-11T16:33:26.1965602Z # Subtest: MI09 WK05 / defy: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1966404Z ok 274 - MI09 WK05 / defy: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1966917Z   ---
+2026-11-11T16:33:26.1967145Z   duration_ms: 107.97078
+2026-11-11T16:33:26.1967408Z   type: 'test'
+2026-11-11T16:33:26.1967633Z   ...
+2026-11-11T16:33:26.1968159Z # Subtest: MI09 WK06 / obey: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1968963Z ok 275 - MI09 WK06 / obey: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1969440Z   ---
+2026-11-11T16:33:26.1969666Z   duration_ms: 125.892202
+2026-11-11T16:33:26.1969937Z   type: 'test'
+2026-11-11T16:33:26.1970171Z   ...
+2026-11-11T16:33:26.1970706Z # Subtest: MI09 WK06 / defy: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1971531Z ok 276 - MI09 WK06 / defy: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1972130Z   ---
+2026-11-11T16:33:26.1972360Z   duration_ms: 59.510547
+2026-11-11T16:33:26.1972630Z   type: 'test'
+2026-11-11T16:33:26.1972832Z   ...
+2026-11-11T16:33:26.1973179Z # Subtest: MI09 WK09 / obey: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1973693Z ok 277 - MI09 WK09 / obey: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1974005Z   ---
+2026-11-11T16:33:26.1974163Z   duration_ms: 55.747842
+2026-11-11T16:33:26.1974338Z   type: 'test'
+2026-11-11T16:33:26.1974494Z   ...
+2026-11-11T16:33:26.1974828Z # Subtest: MI09 WK09 / defy: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1975330Z ok 278 - MI09 WK09 / defy: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1975642Z   ---
+2026-11-11T16:33:26.1975805Z   duration_ms: 98.46963
+2026-11-11T16:33:26.1975985Z   type: 'test'
+2026-11-11T16:33:26.1976144Z   ...
+2026-11-11T16:33:26.1976481Z # Subtest: MI09 WK10 / obey: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1976983Z ok 279 - MI09 WK10 / obey: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1977306Z   ---
+2026-11-11T16:33:26.1977476Z   duration_ms: 66.614834
+2026-11-11T16:33:26.1977662Z   type: 'test'
+2026-11-11T16:33:26.1977923Z   ...
+2026-11-11T16:33:26.1978469Z # Subtest: MI09 WK10 / defy: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1979291Z ok 280 - MI09 WK10 / defy: real routes, herd, snipers and logistics through public controls
+2026-11-11T16:33:26.1979780Z   ---
+2026-11-11T16:33:26.1980011Z   duration_ms: 121.107579
+2026-11-11T16:33:26.1980291Z   type: 'test'
+2026-11-11T16:33:26.1980677Z   ...
+2026-11-11T16:33:26.1981284Z # Subtest: MI09 only introduces its domain on MI09 and observes Thyr independently of the Nacre census
+2026-11-11T16:33:26.1982870Z ok 281 - MI09 only introduces its domain on MI09 and observes Thyr independently of the Nacre census
+2026-11-11T16:33:26.1983414Z   ---
+2026-11-11T16:33:26.1983697Z   duration_ms: 3.072992
+2026-11-11T16:33:26.1983960Z   type: 'test'
+2026-11-11T16:33:26.1984214Z   ...
+2026-11-11T16:33:26.1985066Z # Subtest: MI09 physical hull clearance blocks a tall unprepared chassis and the actual anchored approach opens it
+2026-11-11T16:33:26.1986137Z ok 282 - MI09 physical hull clearance blocks a tall unprepared chassis and the actual anchored approach opens it
+2026-11-11T16:33:26.1986742Z   ---
+2026-11-11T16:33:26.1986974Z   duration_ms: 134.431737
+2026-11-11T16:33:26.1987241Z   type: 'test'
+2026-11-11T16:33:26.1987471Z   ...
+2026-11-11T16:33:26.1988191Z # Subtest: MI09 listening changes a completed approach; the unassisted survey is slower and stresses fast root contacts
+2026-11-11T16:33:26.1989221Z ok 283 - MI09 listening changes a completed approach; the unassisted survey is slower and stresses fast root contacts
+2026-11-11T16:33:26.1989844Z   ---
+2026-11-11T16:33:26.1990075Z   duration_ms: 77.718882
+2026-11-11T16:33:26.1990347Z   type: 'test'
+2026-11-11T16:33:26.1990575Z   ...
+2026-11-11T16:33:26.1991231Z # Subtest: MI09 projectors and local muzzle flash disperse FU08; quiet returns them without a global alarm
+2026-11-11T16:33:26.1992338Z ok 284 - MI09 projectors and local muzzle flash disperse FU08; quiet returns them without a global alarm
+2026-11-11T16:33:26.1992898Z   ---
+2026-11-11T16:33:26.1993139Z   duration_ms: 45.417779
+2026-11-11T16:33:26.1993413Z   type: 'test'
+2026-11-11T16:33:26.1993647Z   ...
+2026-11-11T16:33:26.1994345Z # Subtest: MI09 decision pauses exactly and selects intent without remotely operating the barrier or moving the herd
+2026-11-11T16:33:26.1995419Z ok 285 - MI09 decision pauses exactly and selects intent without remotely operating the barrier or moving the herd
+2026-11-11T16:33:26.1996027Z   ---
+2026-11-11T16:33:26.1996253Z   duration_ms: 49.63958
+2026-11-11T16:33:26.1996517Z   type: 'test'
+2026-11-11T16:33:26.1996756Z   ...
+2026-11-11T16:33:26.1997374Z # Subtest: MI09 clone/save continuation is exact in an anchored operation and during physical migration
+2026-11-11T16:33:26.1998332Z ok 286 - MI09 clone/save continuation is exact in an anchored operation and during physical migration
+2026-11-11T16:33:26.1998881Z   ---
+2026-11-11T16:33:26.1999124Z   duration_ms: 811.289031
+2026-11-11T16:33:26.1999418Z   type: 'test'
+2026-11-11T16:33:26.1999623Z   ...
+2026-11-11T16:33:26.2000106Z # Subtest: MI09 snipers cannot become targets or attack before the herd has actually resolved
+2026-11-11T16:33:26.2000666Z ok 287 - MI09 snipers cannot become targets or attack before the herd has actually resolved
+2026-11-11T16:33:26.2001172Z   ---
+2026-11-11T16:33:26.2001415Z   duration_ms: 166.268292
+2026-11-11T16:33:26.2001855Z   type: 'test'
+2026-11-11T16:33:26.2002084Z   ...
+2026-11-11T16:33:26.2002597Z # Subtest: MI09 damage remains physical and persistent: {"destroyColumn":1}
+2026-11-11T16:33:26.2003045Z ok 288 - MI09 damage remains physical and persistent: {"destroyColumn":1}
+2026-11-11T16:33:26.2003335Z   ---
+2026-11-11T16:33:26.2003501Z   duration_ms: 203.980201
+2026-11-11T16:33:26.2003777Z   type: 'test'
+2026-11-11T16:33:26.2004031Z   ...
+2026-11-11T16:33:26.2004431Z # Subtest: MI09 damage remains physical and persistent: {"destroyRoot":1}
+2026-11-11T16:33:26.2005049Z ok 289 - MI09 damage remains physical and persistent: {"destroyRoot":1}
+2026-11-11T16:33:26.2005479Z   ---
+2026-11-11T16:33:26.2005692Z   duration_ms: 133.411027
+2026-11-11T16:33:26.2006018Z   type: 'test'
+2026-11-11T16:33:26.2006200Z   ...
+2026-11-11T16:33:26.2006647Z # Subtest: MI09 damage remains physical and persistent: {"destroyHome":1}
+2026-11-11T16:33:26.2007251Z ok 290 - MI09 damage remains physical and persistent: {"destroyHome":1}
+2026-11-11T16:33:26.2007933Z   ---
+2026-11-11T16:33:26.2008271Z   duration_ms: 101.566087
+2026-11-11T16:33:26.2008856Z   type: 'test'
+2026-11-11T16:33:26.2009221Z   ...
+2026-11-11T16:33:26.2009791Z # Subtest: MI09 damage remains physical and persistent: {"killMigrators":1}
+2026-11-11T16:33:26.2019396Z ok 291 - MI09 damage remains physical and persistent: {"killMigrators":1}
+2026-11-11T16:33:26.2019884Z   ---
+2026-11-11T16:33:26.2020125Z   duration_ms: 85.412067
+2026-11-11T16:33:26.2020412Z   type: 'test'
+2026-11-11T16:33:26.2020659Z   ...
+2026-11-11T16:33:26.2021349Z # Subtest: MI09 damage remains physical and persistent: {"killMigrators":4}
+2026-11-11T16:33:26.2022176Z ok 292 - MI09 damage remains physical and persistent: {"killMigrators":4}
+2026-11-11T16:33:26.2022629Z   ---
+2026-11-11T16:33:26.2022868Z   duration_ms: 56.854436
+2026-11-11T16:33:26.2023137Z   type: 'test'
+2026-11-11T16:33:26.2023372Z   ...
+2026-11-11T16:33:26.2024055Z # Subtest: MI09 a destroyed barrier still needs an anchored guide operation and keeps its damage under either order
+2026-11-11T16:33:26.2025128Z ok 293 - MI09 a destroyed barrier still needs an anchored guide operation and keeps its damage under either order
+2026-11-11T16:33:26.2025768Z   ---
+2026-11-11T16:33:26.2026019Z   duration_ms: 250.612784
+2026-11-11T16:33:26.2026317Z   type: 'test'
+2026-11-11T16:33:26.2026562Z   ...
+2026-11-11T16:33:26.2027191Z # Subtest: MI09 terminal destinations and an arrived transport cannot be damaged retrospectively
+2026-11-11T16:33:26.2028152Z ok 294 - MI09 terminal destinations and an arrived transport cannot be damaged retrospectively
+2026-11-11T16:33:26.2028739Z   ---
+2026-11-11T16:33:26.2028989Z   duration_ms: 43.464299
+2026-11-11T16:33:26.2029283Z   type: 'test'
+2026-11-11T16:33:26.2029536Z   ...
+2026-11-11T16:33:26.2030137Z # Subtest: MI09 logistics destruction ends the sortie and a clone/reload cannot resurrect it
+2026-11-11T16:33:26.2031040Z ok 295 - MI09 logistics destruction ends the sortie and a clone/reload cannot resurrect it
+2026-11-11T16:33:26.2031603Z   ---
+2026-11-11T16:33:26.2032062Z   duration_ms: 158.593148
+2026-11-11T16:33:26.2032367Z   type: 'test'
+2026-11-11T16:33:26.2032621Z   ...
+2026-11-11T16:33:26.2033152Z # Subtest: MI09 a player who leaves the two real snipers firing can lose the walker
+2026-11-11T16:33:26.2033939Z ok 296 - MI09 a player who leaves the two real snipers firing can lose the walker
+2026-11-11T16:33:26.2034438Z   ---
+2026-11-11T16:33:26.2034680Z   duration_ms: 259.090458
+2026-11-11T16:33:26.2034962Z   type: 'test'
+2026-11-11T16:33:26.2035192Z   ...
+2026-11-11T16:33:26.2035923Z # Subtest: production assets: six playable rigs retain the canonical dimensions and individually identified contact chains
+2026-11-11T16:33:26.2036635Z ok 297 - production assets: six playable rigs retain the canonical dimensions and individually identified contact chains
+2026-11-11T16:33:26.2037034Z   ---
+2026-11-11T16:33:26.2037196Z   duration_ms: 7.479132
+2026-11-11T16:33:26.2037376Z   type: 'test'
+2026-11-11T16:33:26.2037534Z   ...
+2026-11-11T16:33:26.2037940Z # Subtest: production assets: near/far parts, damage and repair states are distinct finite vector geometry
+2026-11-11T16:33:26.2038537Z ok 298 - production assets: near/far parts, damage and repair states are distinct finite vector geometry
+2026-11-11T16:33:26.2038885Z   ---
+2026-11-11T16:33:26.2039047Z   duration_ms: 32.96236
+2026-11-11T16:33:26.2039231Z   type: 'test'
+2026-11-11T16:33:26.2039433Z   ...
+2026-11-11T16:33:26.2039907Z # Subtest: production assets: twelve silhouettes are structurally distinct and six remain explicitly non-playable
+2026-11-11T16:33:26.2040979Z ok 299 - production assets: twelve silhouettes are structurally distinct and six remain explicitly non-playable
+2026-11-11T16:33:26.2041538Z   ---
+2026-11-11T16:33:26.2042024Z   duration_ms: 11.037514
+2026-11-11T16:33:26.2042304Z   type: 'test'
+2026-11-11T16:33:26.2042561Z   ...
+2026-11-11T16:33:26.2043222Z # Subtest: production assets: Nacre components expose distinct factual states and independent mechanism coordinates
+2026-11-11T16:33:26.2044543Z ok 300 - production assets: Nacre components expose distinct factual states and independent mechanism coordinates
+2026-11-11T16:33:26.2045221Z   ---
+2026-11-11T16:33:26.2045481Z   duration_ms: 15.138833
+2026-11-11T16:33:26.2045804Z   type: 'test'
+2026-11-11T16:33:26.2046102Z   ...
+2026-11-11T16:33:26.2046830Z # Subtest: production assets: manifest checksums cover every delivered part and SVG has unique local IDs
+2026-11-11T16:33:26.2048137Z ok 301 - production assets: manifest checksums cover every delivered part and SVG has unique local IDs
+2026-11-11T16:33:26.2048711Z   ---
+2026-11-11T16:33:26.2048916Z   duration_ms: 52.10857
+2026-11-11T16:33:26.2049140Z   type: 'test'
+2026-11-11T16:33:26.2049344Z   ...
+2026-11-11T16:33:26.2049833Z # Subtest: production assets: public movement and brace keep every foot on the same authoritative contact
+2026-11-11T16:33:26.2050573Z ok 302 - production assets: public movement and brace keep every foot on the same authoritative contact
+2026-11-11T16:33:26.2051016Z   ---
+2026-11-11T16:33:26.2051211Z   duration_ms: 70.635152
+2026-11-11T16:33:26.2051425Z   type: 'test'
+2026-11-11T16:33:26.2051611Z   ...
+2026-11-11T16:33:26.2052460Z # Subtest: production audio: every authored cue is deterministic finite PCM with usable headroom
+2026-11-11T16:33:26.2053422Z ok 303 - production audio: every authored cue is deterministic finite PCM with usable headroom
+2026-11-11T16:33:26.2053973Z   ---
+2026-11-11T16:33:26.2054260Z   duration_ms: 562.412023
+2026-11-11T16:33:26.2054542Z   type: 'test'
+2026-11-11T16:33:26.2054785Z   ...
+2026-11-11T16:33:26.2055384Z # Subtest: production audio: eight distinct planet loops join continuously and use no random global state
+2026-11-11T16:33:26.2056006Z ok 304 - production audio: eight distinct planet loops join continuously and use no random global state
+2026-11-11T16:33:26.2056377Z   ---
+2026-11-11T16:33:26.2056553Z   duration_ms: 835.954833
+2026-11-11T16:33:26.2056746Z   type: 'test'
+2026-11-11T16:33:26.2056911Z   ...
+2026-11-11T16:33:26.2057344Z # Subtest: production audio: three original motifs retain written timing and an explicit story-safe selection
+2026-11-11T16:33:26.2057974Z ok 305 - production audio: three original motifs retain written timing and an explicit story-safe selection
+2026-11-11T16:33:26.2058336Z   ---
+2026-11-11T16:33:26.2058499Z   duration_ms: 283.00499
+2026-11-11T16:33:26.2058693Z   type: 'test'
+2026-11-11T16:33:26.2058852Z   ...
+2026-11-11T16:33:26.2059235Z # Subtest: production audio: exported WAVs match the runtime synthesis at the documented sample rate
+2026-11-11T16:33:26.2059813Z ok 306 - production audio: exported WAVs match the runtime synthesis at the documented sample rate
+2026-11-11T16:33:26.2060158Z   ---
+2026-11-11T16:33:26.2060321Z   duration_ms: 17.228385
+2026-11-11T16:33:26.2060503Z   type: 'test'
+2026-11-11T16:33:26.2060664Z   ...
+2026-11-11T16:33:26.2061079Z # Subtest: production audio: pause/mute/scene switches cancel loops and scheduled effects without node leaks
+2026-11-11T16:33:26.2061877Z ok 307 - production audio: pause/mute/scene switches cancel loops and scheduled effects without node leaks
+2026-11-11T16:33:26.2062308Z   ---
+2026-11-11T16:33:26.2062613Z   duration_ms: 164.732837
+2026-11-11T16:33:26.2062920Z   type: 'test'
+2026-11-11T16:33:26.2063203Z   ...
+2026-11-11T16:33:26.2063769Z # Subtest: production audio: rapid combat is capped and active threats displace ordinary sounds
+2026-11-11T16:33:26.2064604Z ok 308 - production audio: rapid combat is capped and active threats displace ordinary sounds
+2026-11-11T16:33:26.2065103Z   ---
+2026-11-11T16:33:26.2065326Z   duration_ms: 52.043643
+2026-11-11T16:33:26.2065602Z   type: 'test'
+2026-11-11T16:33:26.2065829Z   ...
+2026-11-11T16:33:26.2066405Z # Subtest: production audio: denial or absence of Web Audio never blocks optional audio calls
+2026-11-11T16:33:26.2067284Z ok 309 - production audio: denial or absence of Web Audio never blocks optional audio calls
+2026-11-11T16:33:26.2067800Z   ---
+2026-11-11T16:33:26.2068045Z   duration_ms: 0.746567
+2026-11-11T16:33:26.2068503Z   type: 'test'
+2026-11-11T16:33:26.2068734Z   ...
+2026-11-11T16:33:26.2069340Z # Subtest: production audio: state observation is pure and does not replay a checkpoint or muted history
+2026-11-11T16:33:26.2070281Z ok 310 - production audio: state observation is pure and does not replay a checkpoint or muted history
+2026-11-11T16:33:26.2070823Z   ---
+2026-11-11T16:33:26.2071074Z   duration_ms: 24.028452
+2026-11-11T16:33:26.2071335Z   type: 'test'
+2026-11-11T16:33:26.2071570Z   ...
+2026-11-11T16:33:26.2072441Z # Subtest: production audio: repair interruption and kit expenditure are mutually exclusive transitions
+2026-11-11T16:33:26.2073443Z ok 311 - production audio: repair interruption and kit expenditure are mutually exclusive transitions
+2026-11-11T16:33:26.2074016Z   ---
+2026-11-11T16:33:26.2074253Z   duration_ms: 0.626069
+2026-11-11T16:33:26.2074528Z   type: 'test'
+2026-11-11T16:33:26.2074770Z   ...
+2026-11-11T16:33:26.2075578Z # Subtest: production audio: real MI07 public traversal separates consent, seizure, handover and individual arrivals
+2026-11-11T16:33:26.2076731Z ok 312 - production audio: real MI07 public traversal separates consent, seizure, handover and individual arrivals
+2026-11-11T16:33:26.2077344Z   ---
+2026-11-11T16:33:26.2077581Z   duration_ms: 795.04568
+2026-11-11T16:33:26.2077853Z   type: 'test'
+2026-11-11T16:33:26.2078077Z   ...
+2026-11-11T16:33:26.2078707Z # Subtest: production audio: rapid scene/mute changes retain a bounded node set during short fades
+2026-11-11T16:33:26.2079865Z ok 313 - production audio: rapid scene/mute changes retain a bounded node set during short fades
+2026-11-11T16:33:26.2080480Z   ---
+2026-11-11T16:33:26.2080720Z   duration_ms: 94.473291
+2026-11-11T16:33:26.2080996Z   type: 'test'
+2026-11-11T16:33:26.2081233Z   ...
+2026-11-11T16:33:26.2082145Z # Subtest: production audio: MI08 observation distinguishes gate opening, boarding, departure and safe arrival
+2026-11-11T16:33:26.2083262Z ok 314 - production audio: MI08 observation distinguishes gate opening, boarding, departure and safe arrival
+2026-11-11T16:33:26.2083945Z   ---
+2026-11-11T16:33:26.2084190Z   duration_ms: 4.033253
+2026-11-11T16:33:26.2084465Z   type: 'test'
+2026-11-11T16:33:26.2084701Z   ...
+2026-11-11T16:33:26.2085487Z # Subtest: QA05: changing a campaign selection cannot refill an active sortie, including a reload checkpoint (public APIs)
+2026-11-11T16:33:26.2086672Z ok 315 - QA05: changing a campaign selection cannot refill an active sortie, including a reload checkpoint (public APIs)
+2026-11-11T16:33:26.2087347Z   ---
+2026-11-11T16:33:26.2087591Z   duration_ms: 113.46585
+2026-11-11T16:33:26.2087882Z   type: 'test'
+2026-11-11T16:33:26.2088131Z   ...
+2026-11-11T16:33:26.2090129Z # QA_EVIDENCE {"qa":["QA05"],"kind":"public-api-checkpoint","cases":[{"walkerId":"WK01","ammo":12,"reserve":93},{"walkerId":"WK02","ammo":20,"reserve":157},{"walkerId":"WK05","ammo":10,"reserve":77},{"walkerId":"WK06","ammo":12,"reserve":93},{"walkerId":"WK09","ammo":18,"reserve":141},{"walkerId":"WK10","ammo":14,"reserve":109}],"selectionAttempts":36,"menuClicksExercised":false}
+2026-11-11T16:33:26.2091598Z # Subtest: QA08: an actual landing hurts its footprint once, leaves a nearby target intact and does not hurt while hovering (geometric unit fixture)
+2026-11-11T16:33:26.2092877Z ok 316 - QA08: an actual landing hurts its footprint once, leaves a nearby target intact and does not hurt while hovering (geometric unit fixture)
+2026-11-11T16:33:26.2093592Z   ---
+2026-11-11T16:33:26.2093844Z   duration_ms: 1.85276
+2026-11-11T16:33:26.2094121Z   type: 'test'
+2026-11-11T16:33:26.2094363Z   ...
+2026-11-11T16:33:26.2095240Z # QA_EVIDENCE {"qa":["QA08"],"kind":"geometric-unit","landingX":380,"outsideDistance":48,"footprintHalfExtent":47,"kills":1,"repeatedProximityDamage":0}
+2026-11-11T16:33:26.2096459Z # Subtest: QA11: OP01 scan rejects remote use, resets on leaving range, then awards one copy (public controls)
+2026-11-11T16:33:26.2097474Z ok 317 - QA11: OP01 scan rejects remote use, resets on leaving range, then awards one copy (public controls)
+2026-11-11T16:33:26.2098274Z   ---
+2026-11-11T16:33:26.2098518Z   duration_ms: 167.085314
+2026-11-11T16:33:26.2098804Z   type: 'test'
+2026-11-11T16:33:26.2099052Z   ...
+2026-11-11T16:33:26.2100072Z # QA_EVIDENCE {"qa":["QA11"],"kind":"public-controls","partialProgress":0.08333333333333336,"cancellationRange":250,"completionProgress":1,"copiesAfterFiveRetries":1}
+2026-11-11T16:33:26.2101624Z # Subtest: QA12: OP01 relay order 0→1→2 reaches a gated extraction (public controls)
+2026-11-11T16:33:26.2103005Z ok 318 - QA12: OP01 relay order 0→1→2 reaches a gated extraction (public controls)
+2026-11-11T16:33:26.2103528Z   ---
+2026-11-11T16:33:26.2103788Z   duration_ms: 107.39582
+2026-11-11T16:33:26.2104092Z   type: 'test'
+2026-11-11T16:33:26.2104358Z   ...
+2026-11-11T16:33:26.2105428Z # QA_EVIDENCE {"qa":["QA12"],"kind":"public-controls","requestedOrder":[0,1,2],"actualOrder":[0,1,2],"status":"won","extractionDistance":108.9223810110825,"elapsed":69.68333333333067}
+2026-11-11T16:33:26.2106655Z # Subtest: QA12: OP01 relay order 2→1→0 reaches a gated extraction (public controls)
+2026-11-11T16:33:26.2107585Z ok 319 - QA12: OP01 relay order 2→1→0 reaches a gated extraction (public controls)
+2026-11-11T16:33:26.2108084Z   ---
+2026-11-11T16:33:26.2108363Z   duration_ms: 140.702721
+2026-11-11T16:33:26.2108663Z   type: 'test'
+2026-11-11T16:33:26.2108919Z   ...
+2026-11-11T16:33:26.2109966Z # QA_EVIDENCE {"qa":["QA12"],"kind":"public-controls","requestedOrder":[2,1,0],"actualOrder":[2,1,0],"status":"won","extractionDistance":109.3273511955449,"elapsed":92.58333333332936}
+2026-11-11T16:33:26.2111211Z # Subtest: QA12: OP01 relay order 1→0→2 reaches a gated extraction (public controls)
+2026-11-11T16:33:26.2112237Z ok 320 - QA12: OP01 relay order 1→0→2 reaches a gated extraction (public controls)
+2026-11-11T16:33:26.2112735Z   ---
+2026-11-11T16:33:26.2112980Z   duration_ms: 22.986191
+2026-11-11T16:33:26.2113267Z   type: 'test'
+2026-11-11T16:33:26.2113509Z   ...
+2026-11-11T16:33:26.2114542Z # QA_EVIDENCE {"qa":["QA12"],"kind":"public-controls","requestedOrder":[1,0,2],"actualOrder":[1,0,2],"status":"won","extractionDistance":109.66667278061595,"elapsed":72.83333333333049}
+2026-11-11T16:33:26.2115912Z # Subtest: QA13: OP02 protected escort and unattended destruction have distinct terminal outcomes (public controls)
+2026-11-11T16:33:26.2117023Z ok 321 - QA13: OP02 protected escort and unattended destruction have distinct terminal outcomes (public controls)
+2026-11-11T16:33:26.2117650Z   ---
+2026-11-11T16:33:26.2117904Z   duration_ms: 261.045961
+2026-11-11T16:33:26.2118185Z   type: 'test'
+2026-11-11T16:33:26.2118426Z   ...
+2026-11-11T16:33:26.2120299Z # QA_EVIDENCE {"qa":["QA13"],"kind":"public-controls-and-isolated-report","protected":{"status":"won","arrived":true,"hp":640,"collateral":2},"abandoned":{"status":"lost","arrived":false,"hp":0,"walkerHp":415.86900000000014,"collateral":0},"occupantRosterExists":false,"familiesInNarrative":47,"peopleInferredFromFamilies":null}
+2026-11-11T16:33:26.2122452Z # Subtest: QA14: OP03 obey locks the choice and writes its own operation report (public controls plus isolated report)
+2026-11-11T16:33:26.2123503Z ok 322 - QA14: OP03 obey locks the choice and writes its own operation report (public controls plus isolated report)
+2026-11-11T16:33:26.2124095Z   ---
+2026-11-11T16:33:26.2124264Z   duration_ms: 79.710443
+2026-11-11T16:33:26.2124547Z   type: 'test'
+2026-11-11T16:33:26.2124793Z   ...
+2026-11-11T16:33:26.2127033Z # QA_EVIDENCE {"qa":["QA14"],"kind":"public-controls-and-isolated-report","choice":"obey","bossDead":false,"status":"won","savedRecord":{"completed":true,"walker":"Pèlerin","time":72.08333333333053,"evidence":1,"collateral":2,"choice":"obey","kills":9},"reportFunctionOnly":true,"browserStorageExercised":false}
+2026-11-11T16:33:26.2128282Z # Subtest: QA14: OP03 defy locks the choice and writes its own operation report (public controls plus isolated report)
+2026-11-11T16:33:26.2128953Z ok 323 - QA14: OP03 defy locks the choice and writes its own operation report (public controls plus isolated report)
+2026-11-11T16:33:26.2129489Z   ---
+2026-11-11T16:33:26.2129654Z   duration_ms: 33.273562
+2026-11-11T16:33:26.2129843Z   type: 'test'
+2026-11-11T16:33:26.2130004Z   ...
+2026-11-11T16:33:26.2131240Z # QA_EVIDENCE {"qa":["QA14"],"kind":"public-controls-and-isolated-report","choice":"defy","bossDead":true,"status":"won","savedRecord":{"completed":true,"walker":"Pèlerin","time":78.78333333333015,"evidence":1,"collateral":2,"choice":"defy","kills":10},"reportFunctionOnly":true,"browserStorageExercised":false}
+2026-11-11T16:33:26.2132958Z # Subtest: QA28: MI01 and OP02 transports receive real player bullets and direct rockets once (public controls)
+2026-11-11T16:33:26.2133597Z ok 324 - QA28: MI01 and OP02 transports receive real player bullets and direct rockets once (public controls)
+2026-11-11T16:33:26.2133951Z   ---
+2026-11-11T16:33:26.2134110Z   duration_ms: 6.472448
+2026-11-11T16:33:26.2134300Z   type: 'test'
+2026-11-11T16:33:26.2134464Z   ...
+2026-11-11T16:33:26.2136451Z # QA_EVIDENCE {"qa":["QA28"],"kind":"public-controls","cases":[{"missionId":"MI01","weapon":"bullet","damage":22},{"missionId":"MI01","weapon":"rocket","damage":165},{"missionId":"op02","weapon":"bullet","damage":22},{"missionId":"op02","weapon":"rocket","damage":165}],"consequence":"finite convoy HP and escort failure at zero; one explicit friendly-damage warning"}
+2026-11-11T16:33:26.2138547Z # Subtest: QA28: both teams hit the same swept transport volume and splash has a finite radius (geometric unit fixtures)
+2026-11-11T16:33:26.2139680Z ok 325 - QA28: both teams hit the same swept transport volume and splash has a finite radius (geometric unit fixtures)
+2026-11-11T16:33:26.2140318Z   ---
+2026-11-11T16:33:26.2140561Z   duration_ms: 1.352597
+2026-11-11T16:33:26.2140834Z   type: 'test'
+2026-11-11T16:33:26.2141072Z   ...
+2026-11-11T16:33:26.2147178Z # QA_EVIDENCE {"qa":["QA28"],"kind":"geometric-unit","cases":[{"missionId":"MI01","kind":"swept-direct","team":"player","damage":100},{"missionId":"MI01","kind":"swept-direct","team":"enemy","damage":50},{"missionId":"MI01","kind":"ground-splash","team":"player","offset":70,"damage":40.56467016347335},{"missionId":"MI01","kind":"ground-splash","team":"player","offset":200,"damage":0},{"missionId":"MI01","kind":"ground-splash","team":"enemy","offset":70,"damage":20.28233508173662},{"missionId":"MI01","kind":"ground-splash","team":"enemy","offset":200,"damage":0},{"missionId":"op02","kind":"swept-direct","team":"player","damage":100},{"missionId":"op02","kind":"swept-direct","team":"enemy","damage":50},{"missionId":"op02","kind":"ground-splash","team":"player","offset":70,"damage":41.30834712097658},{"missionId":"op02","kind":"ground-splash","team":"player","offset":200,"damage":0},{"missionId":"op02","kind":"ground-splash","team":"enemy","offset":70,"damage":20.65417356048829},{"missionId":"op02","kind":"ground-splash","team":"enemy","offset":200,"damage":0}],"baseBlastRadius":90,"transportRadiusAllowance":56}
+2026-11-11T16:33:26.2152479Z # Subtest: QA08/QA28: a voluntary backwards landing damages the transport once; body proximity alone does not (public controls)
+2026-11-11T16:33:26.2153680Z ok 326 - QA08/QA28: a voluntary backwards landing damages the transport once; body proximity alone does not (public controls)
+2026-11-11T16:33:26.2154326Z   ---
+2026-11-11T16:33:26.2154557Z   duration_ms: 2.10165
+2026-11-11T16:33:26.2154821Z   type: 'test'
+2026-11-11T16:33:26.2155065Z   ...
+2026-11-11T16:33:26.2156500Z # QA_EVIDENCE {"qa":["QA08","QA28"],"kind":"public-controls","cases":[{"missionId":"MI01","landingX":144,"convoyX":175.95,"damage":65},{"missionId":"op02","landingX":144,"convoyX":194.94999999999976,"damage":65}],"airborneDamage":0,"repeatedProximityDamage":0}
+2026-11-11T16:33:26.2158113Z # Subtest: QA28: convoy footprint edges distinguish contact from a close miss (geometric unit fixtures)
+2026-11-11T16:33:26.2159107Z ok 327 - QA28: convoy footprint edges distinguish contact from a close miss (geometric unit fixtures)
+2026-11-11T16:33:26.2159691Z   ---
+2026-11-11T16:33:26.2160081Z   duration_ms: 2.567752
+2026-11-11T16:33:26.2160357Z   type: 'test'
+2026-11-11T16:33:26.2160601Z   ...
+2026-11-11T16:33:26.2162633Z # QA_EVIDENCE {"qa":["QA28"],"kind":"geometric-unit","cases":[{"missionId":"MI01","offset":0,"damage":65},{"missionId":"MI01","offset":90.99,"damage":65},{"missionId":"MI01","offset":91.01,"damage":0},{"missionId":"op02","offset":0,"damage":65},{"missionId":"op02","offset":90.99,"damage":65},{"missionId":"op02","offset":91.01,"damage":0}],"footprintHalfExtent":91}
+2026-11-11T16:33:26.2164594Z # Subtest: QA28: the normal escort waits behind descending feet for all six chassis, including WK10 (public controls)
+2026-11-11T16:33:26.2165273Z ok 328 - QA28: the normal escort waits behind descending feet for all six chassis, including WK10 (public controls)
+2026-11-11T16:33:26.2165670Z   ---
+2026-11-11T16:33:26.2165840Z   duration_ms: 77.980794
+2026-11-11T16:33:26.2166029Z   type: 'test'
+2026-11-11T16:33:26.2166194Z   ...
+2026-11-11T16:33:26.2170279Z # QA_EVIDENCE {"qa":["QA28"],"kind":"public-controls","cases":[{"missionId":"MI01","walkerId":"WK01","stepGroups":7,"convoyHp":640},{"missionId":"MI01","walkerId":"WK02","stepGroups":9,"convoyHp":640},{"missionId":"MI01","walkerId":"WK05","stepGroups":6,"convoyHp":640},{"missionId":"MI01","walkerId":"WK06","stepGroups":6,"convoyHp":640},{"missionId":"MI01","walkerId":"WK09","stepGroups":7,"convoyHp":640},{"missionId":"MI01","walkerId":"WK10","stepGroups":8,"convoyHp":640},{"missionId":"op02","walkerId":"WK01","stepGroups":7,"convoyHp":640},{"missionId":"op02","walkerId":"WK02","stepGroups":9,"convoyHp":640},{"missionId":"op02","walkerId":"WK05","stepGroups":6,"convoyHp":640},{"missionId":"op02","walkerId":"WK06","stepGroups":6,"convoyHp":640},{"missionId":"op02","walkerId":"WK09","stepGroups":7,"convoyHp":640},{"missionId":"op02","walkerId":"WK10","stepGroups":8,"convoyHp":640}],"immunityAdded":false,"healthRestored":false}
+2026-11-11T16:33:26.2172895Z # Subtest: QA24: the same timed public combat sequence has equal collision results at 30, 60 and 120 Hz (documented tolerance)
+2026-11-11T16:33:26.2173602Z ok 329 - QA24: the same timed public combat sequence has equal collision results at 30, 60 and 120 Hz (documented tolerance)
+2026-11-11T16:33:26.2173999Z   ---
+2026-11-11T16:33:26.2174164Z   duration_ms: 38.317034
+2026-11-11T16:33:26.2174359Z   type: 'test'
+2026-11-11T16:33:26.2174529Z   ...
+2026-11-11T16:33:26.2176841Z # QA_EVIDENCE {"qa":["QA24"],"kind":"public-controls-at-emulated-frame-cadences","cases":[{"hz":30,"elapsed":9.999999999999975,"x":745.6721581623092,"hull":564.289,"heat":0,"shots":4,"hits":3,"kills":1,"steps":8,"ammo":14,"reserve":144},{"hz":60,"elapsed":10.000000000000076,"x":738.4089497394709,"hull":564.289,"heat":0,"shots":4,"hits":3,"kills":1,"steps":8,"ammo":14,"reserve":144},{"hz":120,"elapsed":10.000000000000073,"x":737.4937851303297,"hull":564.289,"heat":0,"shots":4,"hits":3,"kills":1,"steps":8,"ammo":14,"reserve":144}],"positionSpread":8.178373031979504,"tolerances":{"durationSeconds":1e-9,"positionWorldUnits":10,"shotsHitsKillsStepsAmmoHullHeat":0},"realBrowserFramePacingMeasured":false,"coversBelow20HzOrBackgroundTab":false}
+2026-11-11T16:33:26.2178889Z # Subtest: QA11/QA24: one authentic public scan progresses and completes equivalently at 30, 60 and 120 Hz
+2026-11-11T16:33:26.2179491Z ok 330 - QA11/QA24: one authentic public scan progresses and completes equivalently at 30, 60 and 120 Hz
+2026-11-11T16:33:26.2179849Z   ---
+2026-11-11T16:33:26.2180021Z   duration_ms: 2.612452
+2026-11-11T16:33:26.2180204Z   type: 'test'
+2026-11-11T16:33:26.2180371Z   ...
+2026-11-11T16:33:26.2182749Z # QA_EVIDENCE {"qa":["QA11","QA24"],"kind":"public-controls-at-emulated-frame-cadences","cases":[{"hz":30,"progressAtTwoSeconds":0.8333333333333323,"completionSeconds":2.433333333333195,"copies":1},{"hz":60,"progressAtTwoSeconds":0.8333333333333314,"completionSeconds":2.4166666666665293,"copies":1},{"hz":120,"progressAtTwoSeconds":0.8333333333333309,"completionSeconds":2.4083333333331964,"copies":1}],"tolerances":{"progressFraction":1e-10,"completionSeconds":"one update quantum at the selected cadence (maximum 1/30 s)","copies":0},"sourceCheckpoint":"deep copy of a journey obtained entirely through pilotOperation public controls"}
+2026-11-11T16:33:26.2184789Z # Subtest: six real hulls expose a rear radiator and front impacts cannot damage the component through the hull
+2026-11-11T16:33:26.2185408Z ok 331 - six real hulls expose a rear radiator and front impacts cannot damage the component through the hull
+2026-11-11T16:33:26.2185766Z   ---
+2026-11-11T16:33:26.2186020Z   duration_ms: 15.334235
+2026-11-11T16:33:26.2186207Z   type: 'test'
+2026-11-11T16:33:26.2186370Z   ...
+2026-11-11T16:33:26.2186737Z # Subtest: local damage reduces measured cooling while preserving a minimum usable cooling rate
+2026-11-11T16:33:26.2187275Z ok 332 - local damage reduces measured cooling while preserving a minimum usable cooling rate
+2026-11-11T16:33:26.2187601Z   ---
+2026-11-11T16:33:26.2187757Z   duration_ms: 2.195381
+2026-11-11T16:33:26.2187944Z   type: 'test'
+2026-11-11T16:33:26.2188122Z   ...
+2026-11-11T16:33:26.2188529Z # Subtest: a four-second stationary repair restores at most sixty points and consumes a kit only on completion
+2026-11-11T16:33:26.2189149Z ok 333 - a four-second stationary repair restores at most sixty points and consumes a kit only on completion
+2026-11-11T16:33:26.2189504Z   ---
+2026-11-11T16:33:26.2189657Z   duration_ms: 7.193311
+2026-11-11T16:33:26.2189827Z   type: 'test'
+2026-11-11T16:33:26.2189988Z   ...
+2026-11-11T16:33:26.2190383Z # Subtest: movement, firing and a new actual projectile impact cancel a repair without consuming the kit
+2026-11-11T16:33:26.2190963Z ok 334 - movement, firing and a new actual projectile impact cancel a repair without consuming the kit
+2026-11-11T16:33:26.2191305Z   ---
+2026-11-11T16:33:26.2191459Z   duration_ms: 4.486792
+2026-11-11T16:33:26.2191802Z   type: 'test'
+2026-11-11T16:33:26.2191976Z   ...
+2026-11-11T16:33:26.2192332Z # Subtest: a healthy radiator cannot spend a kit and an in-progress gait cannot begin a repair
+2026-11-11T16:33:26.2192857Z ok 335 - a healthy radiator cannot spend a kit and an in-progress gait cannot begin a repair
+2026-11-11T16:33:26.2193172Z   ---
+2026-11-11T16:33:26.2193329Z   duration_ms: 3.7374
+2026-11-11T16:33:26.2193512Z   type: 'test'
+2026-11-11T16:33:26.2193667Z   ...
+2026-11-11T16:33:26.2194043Z # Subtest: six original chassis create the correct number of contact feet and alternate support groups
+2026-11-11T16:33:26.2194607Z ok 336 - six original chassis create the correct number of contact feet and alternate support groups
+2026-11-11T16:33:26.2194943Z   ---
+2026-11-11T16:33:26.2195099Z   duration_ms: 3.456953
+2026-11-11T16:33:26.2195285Z   type: 'test'
+2026-11-11T16:33:26.2195444Z   ...
+2026-11-11T16:33:26.2195800Z # Subtest: uncommanded planted feet never slide and manual controls require alternating groups
+2026-11-11T16:33:26.2196324Z ok 337 - uncommanded planted feet never slide and manual controls require alternating groups
+2026-11-11T16:33:26.2196644Z   ---
+2026-11-11T16:33:26.2196802Z   duration_ms: 5.955798
+2026-11-11T16:33:26.2196982Z   type: 'test'
+2026-11-11T16:33:26.2197138Z   ...
+2026-11-11T16:33:26.2197473Z # Subtest: assisted locomotion traverses terrain for every leg layout, with a distinct speed
+2026-11-11T16:33:26.2197991Z ok 338 - assisted locomotion traverses terrain for every leg layout, with a distinct speed
+2026-11-11T16:33:26.2198313Z   ---
+2026-11-11T16:33:26.2198465Z   duration_ms: 36.808724
+2026-11-11T16:33:26.2198643Z   type: 'test'
+2026-11-11T16:33:26.2198795Z   ...
+2026-11-11T16:33:26.2199066Z # Subtest: brace plants the walker and prevents new step commands
+2026-11-11T16:33:26.2199440Z ok 339 - brace plants the walker and prevents new step commands
+2026-11-11T16:33:26.2199699Z   ---
+2026-11-11T16:33:26.2199852Z   duration_ms: 0.97887
+2026-11-11T16:33:26.2200025Z   type: 'test'
+2026-11-11T16:33:26.2200178Z   ...
+2026-11-11T16:33:26.2200499Z # Subtest: rounds consume a magazine and reload; rocket stock cannot become negative
+2026-11-11T16:33:26.2200968Z ok 340 - rounds consume a magazine and reload; rocket stock cannot become negative
+2026-11-11T16:33:26.2201401Z   ---
+2026-11-11T16:33:26.2201560Z   duration_ms: 11.58187
+2026-11-11T16:33:26.2201930Z   type: 'test'
+2026-11-11T16:33:26.2202161Z   ...
+2026-11-11T16:33:26.2202559Z # Subtest: overheat locks weapons and active ventilation restores them
+2026-11-11T16:33:26.2202975Z ok 341 - overheat locks weapons and active ventilation restores them
+2026-11-11T16:33:26.2203254Z   ---
+2026-11-11T16:33:26.2203416Z   duration_ms: 18.014012
+2026-11-11T16:33:26.2203716Z   type: 'test'
+2026-11-11T16:33:26.2203878Z   ...
+2026-11-11T16:33:26.2204194Z # Subtest: a swept projectile damages a real target without tunnelling through it
+2026-11-11T16:33:26.2204653Z ok 342 - a swept projectile damages a real target without tunnelling through it
+2026-11-11T16:33:26.2204951Z   ---
+2026-11-11T16:33:26.2205103Z   duration_ms: 1.322607
+2026-11-11T16:33:26.2205277Z   type: 'test'
+2026-11-11T16:33:26.2205434Z   ...
+2026-11-11T16:33:26.2205718Z # Subtest: evidence cannot be acquired remotely or by idling at spawn
+2026-11-11T16:33:26.2206111Z ok 343 - evidence cannot be acquired remotely or by idling at spawn
+2026-11-11T16:33:26.2206377Z   ---
+2026-11-11T16:33:26.2206530Z   duration_ms: 12.456768
+2026-11-11T16:33:26.2206707Z   type: 'test'
+2026-11-11T16:33:26.2206863Z   ...
+2026-11-11T16:33:26.2207229Z # Subtest: scan requires proximity and decision choices only work while the authored choice is open
+2026-11-11T16:33:26.2207784Z ok 344 - scan requires proximity and decision choices only work while the authored choice is open
+2026-11-11T16:33:26.2208125Z   ---
+2026-11-11T16:33:26.2208282Z   duration_ms: 32.069317
+2026-11-11T16:33:26.2208457Z   type: 'test'
+2026-11-11T16:33:26.2208612Z   ...
+2026-11-11T16:33:26.2208934Z # Subtest: enemy attacks are telegraphed before damage and hull zero produces a loss
+2026-11-11T16:33:26.2209411Z ok 345 - enemy attacks are telegraphed before damage and hull zero produces a loss
+2026-11-11T16:33:26.2209725Z   ---
+2026-11-11T16:33:26.2209890Z   duration_ms: 3.335933
+2026-11-11T16:33:26.2210064Z   type: 'test'
+2026-11-11T16:33:26.2210219Z   ...
+2026-11-11T16:33:26.2210513Z # Subtest: civilian damage is counted independently from combat kills
+2026-11-11T16:33:26.2210903Z ok 346 - civilian damage is counted independently from combat kills
+2026-11-11T16:33:26.2211170Z   ---
+2026-11-11T16:33:26.2211323Z   duration_ms: 0.425856
+2026-11-11T16:33:26.2211493Z   type: 'test'
+2026-11-11T16:33:26.2211767Z   ...
+2026-11-11T16:33:26.2212093Z # Subtest: relay mission cannot be won by simply walking to the exit
+2026-11-11T16:33:26.2212478Z ok 347 - relay mission cannot be won by simply walking to the exit
+2026-11-11T16:33:26.2212746Z   ---
+2026-11-11T16:33:26.2212909Z   duration_ms: 50.836857
+2026-11-11T16:33:26.2213095Z   type: 'test'
+2026-11-11T16:33:26.2213258Z   ...
+2026-11-11T16:33:26.2213592Z # Subtest: mission gate requires relay destruction, evidence, decision and extraction
+2026-11-11T16:33:26.2214078Z ok 348 - mission gate requires relay destruction, evidence, decision and extraction
+2026-11-11T16:33:26.2214394Z   ---
+2026-11-11T16:33:26.2214550Z   duration_ms: 41.862622
+2026-11-11T16:33:26.2214729Z   type: 'test'
+2026-11-11T16:33:26.2214883Z   ...
+2026-11-11T16:33:26.2215190Z # Subtest: escort waits for its walker and mission fails if the transport is lost
+2026-11-11T16:33:26.2215642Z ok 349 - escort waits for its walker and mission fails if the transport is lost
+2026-11-11T16:33:26.2215933Z   ---
+2026-11-11T16:33:26.2216094Z   duration_ms: 2.791723
+2026-11-11T16:33:26.2216276Z   type: 'test'
+2026-11-11T16:33:26.2216434Z   ...
+2026-11-11T16:33:26.2216783Z # Subtest: obeying and defying the boss order produce distinct objective and hostility states
+2026-11-11T16:33:26.2217301Z ok 350 - obeying and defying the boss order produce distinct objective and hostility states
+2026-11-11T16:33:26.2217626Z   ---
+2026-11-11T16:33:26.2217779Z   duration_ms: 33.239737
+2026-11-11T16:33:26.2217956Z   type: 'test'
+2026-11-11T16:33:26.2218114Z   ...
+2026-11-11T16:33:26.2218577Z # Subtest: same seed and inputs generate the same combat state; invalid delta does not advance
+2026-11-11T16:33:26.2219090Z ok 351 - same seed and inputs generate the same combat state; invalid delta does not advance
+2026-11-11T16:33:26.2219409Z   ---
+2026-11-11T16:33:26.2219565Z   duration_ms: 30.608525
+2026-11-11T16:33:26.2219741Z   type: 'test'
+2026-11-11T16:33:26.2219894Z   ...
+2026-11-11T16:33:26.2220347Z # Subtest: content declares all required operations with unique IDs and finite extraction points
+2026-11-11T16:33:26.2220899Z ok 352 - content declares all required operations with unique IDs and finite extraction points
+2026-11-11T16:33:26.2221235Z   ---
+2026-11-11T16:33:26.2221391Z   duration_ms: 0.391361
+2026-11-11T16:33:26.2221570Z   type: 'test'
+2026-11-11T16:33:26.2221881Z   ...
+2026-11-11T16:33:26.2222282Z # Subtest: all three operations can be completed with each chassis using public controls, without state edits
+2026-11-11T16:33:26.2222890Z ok 353 - all three operations can be completed with each chassis using public controls, without state edits
+2026-11-11T16:33:26.2223257Z   ---
+2026-11-11T16:33:26.2223414Z   duration_ms: 876.589842
+2026-11-11T16:33:26.2223596Z   type: 'test'
+2026-11-11T16:33:26.2223750Z   ...
+2026-11-11T16:33:26.2224115Z # Subtest: Thyr pack exports every authored state with authentic hashes and independent provenance
+2026-11-11T16:33:26.2224683Z ok 354 - Thyr pack exports every authored state with authentic hashes and independent provenance
+2026-11-11T16:33:26.2225036Z   ---
+2026-11-11T16:33:26.2225195Z   duration_ms: 6.762458
+2026-11-11T16:33:26.2225373Z   type: 'test'
+2026-11-11T16:33:26.2225528Z   ...
+2026-11-11T16:33:26.2225907Z # Subtest: Thyr geometry is finite through animation phases and cannot silently invent asset states
+2026-11-11T16:33:26.2226474Z ok 355 - Thyr geometry is finite through animation phases and cannot silently invent asset states
+2026-11-11T16:33:26.2226811Z   ---
+2026-11-11T16:33:26.2226971Z   duration_ms: 49.003111
+2026-11-11T16:33:26.2227155Z   type: 'test'
+2026-11-11T16:33:26.2227311Z   ...
+2026-11-11T16:33:26.2227614Z # Subtest: Thyr Canvas drawing preserves authoritative positions and inputs
+2026-11-11T16:33:26.2228043Z ok 356 - Thyr Canvas drawing preserves authoritative positions and inputs
+2026-11-11T16:33:26.2228331Z   ---
+2026-11-11T16:33:26.2228487Z   duration_ms: 3.227013
+2026-11-11T16:33:26.2228666Z   type: 'test'
+2026-11-11T16:33:26.2228821Z   ...
+2026-11-11T16:33:26.2228966Z 1..356
+2026-11-11T16:33:26.2229119Z # tests 356
+2026-11-11T16:33:26.2229284Z # suites 0
+2026-11-11T16:33:26.2229441Z # pass 356
+2026-11-11T16:33:26.2229590Z # fail 0
+2026-11-11T16:33:26.2229744Z # cancelled 0
+2026-11-11T16:33:26.2229904Z # skipped 0
+2026-11-11T16:33:26.2230053Z # todo 0
+2026-11-11T16:33:26.2230227Z # duration_ms 35210.224111
+2026-11-11T16:33:26.2263800Z ##[group]Run npm install --no-save --no-package-lock --ignore-scripts @napi-rs/canvas@0.1.100
+2026-11-11T16:33:26.2264317Z [36;1mnpm install --no-save --no-package-lock --ignore-scripts @napi-rs/canvas@0.1.100[0m
+2026-11-11T16:33:26.2310312Z shell: /usr/bin/bash -e {0}
+2026-11-11T16:33:26.2310524Z ##[endgroup]
+2026-11-11T16:33:28.2319737Z 
+2026-11-11T16:33:28.2320450Z added 2 packages, and audited 3 packages in 2s
+2026-11-11T16:33:28.2320807Z 
+2026-11-11T16:33:28.2321013Z 2 packages are looking for funding
+2026-11-11T16:33:28.2321382Z   run `npm fund` for details
+2026-11-11T16:33:28.2326207Z 
+2026-11-11T16:33:28.2326404Z found 0 vulnerabilities
+2026-11-11T16:33:28.2698145Z ##[group]Run npm run check:assets-render
+2026-11-11T16:33:28.2698434Z [36;1mnpm run check:assets-render[0m
+2026-11-11T16:33:28.2743730Z shell: /usr/bin/bash -e {0}
+2026-11-11T16:33:28.2743948Z ##[endgroup]
+2026-11-11T16:33:28.3547892Z 
+2026-11-11T16:33:28.3548551Z > imperium-march@0.10.0 check:assets-render
+2026-11-11T16:33:28.3549016Z > node tools/test-assets-render.mjs
+2026-11-11T16:33:28.3549179Z 
+2026-11-11T16:33:28.5302449Z WK06-hull-near-normal: 99.82% shared coverage
+2026-11-11T16:33:28.5328782Z WK10-upper-near-normal: 99.98% shared coverage
+2026-11-11T16:33:28.5346349Z WK01-radiator-near-damaged: 99.61% shared coverage
+2026-11-11T16:33:28.5525111Z nacre-ambulance-normal: 99.99% shared coverage
+2026-11-11T16:33:28.5542460Z nacre-beacon-lost: 100.00% shared coverage
+2026-11-11T16:33:28.6036553Z thyr-column-normal: 99.99% shared coverage
+2026-11-11T16:33:28.6561058Z thyr-column-damaged: 99.99% shared coverage
+2026-11-11T16:33:28.6791495Z thyr-column-destroyed: 99.87% shared coverage
+2026-11-11T16:33:28.6888636Z thyr-root-normal: 99.91% shared coverage
+2026-11-11T16:33:28.7013027Z thyr-root-damaged: 99.91% shared coverage
+2026-11-11T16:33:28.7037110Z thyr-root-destroyed: 99.89% shared coverage
+2026-11-11T16:33:28.7095698Z thyr-suspended-home-normal: 99.92% shared coverage
+2026-11-11T16:33:28.7153981Z thyr-suspended-home-damaged: 99.92% shared coverage
+2026-11-11T16:33:28.7209397Z thyr-suspended-home-destroyed: 99.90% shared coverage
+2026-11-11T16:33:28.7257846Z thyr-longuedorse-adult-waiting: 99.91% shared coverage
+2026-11-11T16:33:28.7298420Z thyr-longuedorse-adult-moving: 99.91% shared coverage
+2026-11-11T16:33:28.7338808Z thyr-longuedorse-adult-arrived: 99.91% shared coverage
+2026-11-11T16:33:28.7380538Z thyr-longuedorse-adult-diverted: 99.91% shared coverage
+2026-11-11T16:33:28.7408197Z thyr-longuedorse-adult-dead: 99.94% shared coverage
+2026-11-11T16:33:28.7434232Z thyr-longuedorse-young-waiting: 99.88% shared coverage
+2026-11-11T16:33:28.7459551Z thyr-longuedorse-young-moving: 99.88% shared coverage
+2026-11-11T16:33:28.7484419Z thyr-longuedorse-young-arrived: 99.88% shared coverage
+2026-11-11T16:33:28.7510059Z thyr-longuedorse-young-diverted: 99.88% shared coverage
+2026-11-11T16:33:28.7525344Z thyr-longuedorse-young-dead: 99.91% shared coverage
+2026-11-11T16:33:28.7573237Z thyr-fan-colony-settled: 99.98% shared coverage
+2026-11-11T16:33:28.7622807Z thyr-fan-colony-dispersed: 99.99% shared coverage
+2026-11-11T16:33:28.7659340Z thyr-fan-colony-lost: 100.00% shared coverage
+2026-11-11T16:33:28.7705876Z thyr-breathing-vine-normal: 100.00% shared coverage
+2026-11-11T16:33:28.7746935Z thyr-breathing-vine-wilted: 99.57% shared coverage
+2026-11-11T16:33:28.7788491Z thyr-breathing-vine-burnt: 99.99% shared coverage
+2026-11-11T16:33:28.7811877Z thyr-echo-grass-calm: 100.00% shared coverage
+2026-11-11T16:33:28.7835484Z thyr-echo-grass-moving: 100.00% shared coverage
+2026-11-11T16:33:28.7945410Z thyr-migration-barrier-closed: 99.97% shared coverage
+2026-11-11T16:33:28.8053311Z thyr-migration-barrier-working: 99.90% shared coverage
+2026-11-11T16:33:28.8156740Z thyr-migration-barrier-open: 99.89% shared coverage
+2026-11-11T16:33:28.8243101Z thyr-migration-barrier-broken: 99.80% shared coverage
+2026-11-11T16:33:28.8278880Z thyr-route-map-concealed: 99.96% shared coverage
+2026-11-11T16:33:28.8310930Z thyr-route-map-surveyed: 99.97% shared coverage
+2026-11-11T16:33:28.8325128Z thyr-route-marker-imperial: 99.93% shared coverage
+2026-11-11T16:33:28.8340186Z thyr-route-marker-local: 99.86% shared coverage
+2026-11-11T16:33:28.8340916Z Production SVG/Canvas raster validation passed: 40/40 cases, @napi-rs/canvas 0.1.100.
+2026-11-11T16:33:28.8626487Z ##[group]Run npm run check
+2026-11-11T16:33:28.8626722Z [36;1mnpm run check[0m
+2026-11-11T16:33:28.8670792Z shell: /usr/bin/bash -e {0}
+2026-11-11T16:33:28.8671010Z ##[endgroup]
+2026-11-11T16:33:28.9444968Z 
+2026-11-11T16:33:28.9445577Z > imperium-march@0.10.0 check
+2026-11-11T16:33:28.9446095Z > node tools/check-project.mjs
+2026-11-11T16:33:28.9446357Z 
+2026-11-11T16:33:28.9813180Z Project checks passed: 20 design sheets, 845 source rows, 6 playable chassis, 3 independent operations, 9 campaign missions.
+2026-11-11T16:33:28.9957129Z ##[group]Run npm run build
+2026-11-11T16:33:28.9957499Z [36;1mnpm run build[0m
+2026-11-11T16:33:29.0019510Z shell: /usr/bin/bash -e {0}
+2026-11-11T16:33:29.0019839Z ##[endgroup]
+2026-11-11T16:33:29.0821297Z 
+2026-11-11T16:33:29.0821820Z > imperium-march@0.10.0 build
+2026-11-11T16:33:29.0822262Z > node tools/build-offline.mjs
+2026-11-11T16:33:29.0822628Z 
+2026-11-11T16:33:29.1959436Z Offline game built: dist/Ordre_de_Cendre.html (9.80 MiB), 12 modules, no remote dependencies.
+2026-11-11T16:33:29.2168778Z ##[group]Run npm run check:ui
+2026-11-11T16:33:29.2169019Z [36;1mnpm run check:ui[0m
+2026-11-11T16:33:29.2212040Z shell: /usr/bin/bash -e {0}
+2026-11-11T16:33:29.2212255Z ##[endgroup]
+2026-11-11T16:33:29.3028276Z 
+2026-11-11T16:33:29.3028788Z > imperium-march@0.10.0 check:ui
+2026-11-11T16:33:29.3029213Z > node tools/test-ui.mjs
+2026-11-11T16:33:29.3029411Z 
+2026-11-11T16:33:29.4126745Z STATIC UI AUDIT PASSED: 174 unique HTML IDs; 163 literal JS ID references; 5 views; 4 archive tabs; 6 dialogs.
+2026-11-11T16:33:29.4128116Z OFFLINE BUNDLE AUDIT PASSED: one inline script compiled by vm.Script without executing; all HTML/CSS/Canvas assets embedded; no unresolved imports or resource requests.
+2026-11-11T16:33:29.4129008Z LIMIT: this audit does not use a DOM emulator. Clicks, focus, CSS layout, native dialogs, audio, touch, and browser execution were NOT exercised.
+2026-11-11T16:33:29.4263818Z ##[group]Run npm run check:ui-runtime
+2026-11-11T16:33:29.4264092Z [36;1mnpm run check:ui-runtime[0m
+2026-11-11T16:33:29.4307005Z shell: /usr/bin/bash -e {0}
+2026-11-11T16:33:29.4307224Z ##[endgroup]
+2026-11-11T16:33:29.5099046Z 
+2026-11-11T16:33:29.5099679Z > imperium-march@0.10.0 check:ui-runtime
+2026-11-11T16:33:29.5100209Z > node tools/test-ui-runtime.mjs
+2026-11-11T16:33:29.5100454Z 
+2026-11-11T16:33:29.6518456Z PASS cold start, five views, six selectable chassis and independent simulation launch
+2026-11-11T16:33:29.8354009Z PASS pause writes an exact campaign checkpoint; a new script context resumes it
+2026-11-11T16:33:29.9372923Z PASS switching to a simulation preserves the campaign and its resume button
+2026-11-11T16:33:30.3024850Z PASS decision, debrief, pipe repair and replay leave one official dossier
+2026-11-11T16:33:30.4790759Z PASS MI02 is locked initially; a real v1 MI01 dossier unlocks it and resumes its own train
+2026-11-11T16:33:30.6154160Z PASS MI02 decision uses its own wording and a reload preserves the signed report before extraction
+2026-11-11T16:33:30.7470531Z PASS MI02 extraction records both missions, displays its own debrief and keeps separate archive entries
+2026-11-11T16:33:30.8781960Z PASS MI03 unlocks only after MI02, migrates a historical v2 dossier and resumes a new chassis exactly
+2026-11-11T16:33:31.0972391Z PASS MI03 identification work survives pause and reload without becoming a filter or train objective
+2026-11-11T16:33:32.3212624Z PASS MI03 obey decision, extraction, world facts and three archive reports stay consistent
+2026-11-11T16:33:33.5136655Z PASS MI03 defy decision, extraction, world facts and three archive reports stay consistent
+2026-11-11T16:33:33.5446961Z PASS MI04 requires MI03 and the migrated historical dossier exposes concrete inherited briefing conditions
+2026-11-11T16:33:33.7798635Z PASS MI04 a partly opened valve survives pause and exact reload, then visibly completes
+2026-11-11T16:33:35.2350663Z PASS MI04 obey records the technical copy, contact and four reports without replay rewards
+2026-11-11T16:33:36.6831599Z PASS MI04 defy records the technical copy, contact and four reports without replay rewards
+2026-11-11T16:33:38.5561413Z PASS MI04 lost-journal UI keeps a neutral decision and records a loss without granting PT01
+2026-11-11T16:33:39.0427368Z PASS radiator controls show damage, pause repair, preserve finite kits and cancel on movement
+2026-11-11T16:33:39.2585344Z PASS an exhausted finite reserve remains empty after UI reload and displays an explicit resupply hint
+2026-11-11T16:33:39.2646833Z PASS unsupported saves remain untouched until an explicit new dossier
+2026-11-11T16:33:39.3005664Z PASS storage refusal is visible during play; session progression remains usable
+2026-11-11T16:33:39.3267339Z PASS an asynchronous import returns an active mission to the menu safely
+2026-11-11T16:33:39.3546218Z PASS importing a genuine v4 Vesper dossier unlocks Nacre in the delivered interface
+2026-11-11T16:33:39.7529312Z PASS Nacre tide and bridge work freeze on pause and restore through the delivered save wiring
+2026-11-11T16:33:40.2418294Z PASS MI05 obey debrief, archives, workshop fuel and replay keep the first report
+2026-11-11T16:33:40.6937998Z PASS MI05 defy debrief, archives, workshop fuel and replay keep the first report
+2026-11-11T16:33:41.0495952Z PASS the UI records a lost civil boat and skipped fuel without granting either arrival or stock
+2026-11-11T16:33:41.0779882Z PASS a genuine v5 import unlocks MI06 with its actual stock and ten distinct local residents
+2026-11-11T16:33:41.5814155Z PASS auxiliary work freezes on pause, resumes exactly and saves its debit before the eight-second interval
+2026-11-11T16:33:42.1876497Z PASS partial panel locking pauses exactly and needs renewed keyboard anchoring on resume
+2026-11-11T16:33:42.4621080Z PASS a refused immediate auxiliary save keeps the session debit and a visible storage warning
+2026-11-11T16:33:42.5102595Z PASS an auxiliary destroyed before connection is shown as lost while its two lots remain in reserve
+2026-11-11T16:33:45.5199374Z PASS MI06 obey requires the actual valve operation, then persists housing, people, fuel and a pure replay
+2026-11-11T16:33:48.5258315Z PASS MI06 defy requires the actual valve operation, then persists housing, people, fuel and a pure replay
+2026-11-11T16:33:48.6925057Z PASS the UI immediately persists a terminal MI06 loss and restarts without refunding its consumed auxiliary
+2026-11-11T16:33:48.8947674Z PASS MI07 migration imports an authentic paid v6 valve without rewriting its scene or earlier reports
+2026-11-11T16:33:48.9253177Z PASS MI07 main briefing uses authentic dike support and introduces four new patients without altering fuel
+2026-11-11T16:33:48.9533890Z PASS MI07 secondary briefing uses authentic dike support and introduces four new patients without altering fuel
+2026-11-11T16:33:49.4284933Z PASS MI07 partial cargo examination freezes on pause and resumes its exact physical progress after reload
+2026-11-11T16:33:49.9394061Z PASS MI07 partial beacon dismantling freezes on pause and resumes its exact physical progress after reload
+2026-11-11T16:33:50.4893775Z PASS MI07 partial ramp preparation freezes on pause and resumes its exact physical progress after reload
+2026-11-11T16:33:58.1689497Z PASS MI07 obey selects a destination without arrivals, then transfers physically through UI and preserves the first report on replay
+2026-11-11T16:34:06.5311618Z PASS MI07 defy selects a destination without arrivals, then transfers physically through UI and preserves the first report on replay
+2026-11-11T16:34:06.7693137Z PASS MI07 report keeps an obtained witness agreement while identifying that witness as deceased
+2026-11-11T16:34:06.9021121Z PASS MI07 terminal loss persists immediately, reopens as a report and requires an explicit fresh sortie
+2026-11-11T16:34:06.9712182Z PASS MI07 a touch interaction can be paused and saved before the next animation frame
+2026-11-11T16:34:07.0083124Z PASS MI08 imports a genuine v7 dossier with seven unchanged reports and exposes its inherited briefing
+2026-11-11T16:34:07.8855350Z PASS MI08 gate work pauses, imports and restores exactly without continuing absent keyboard anchoring
+2026-11-11T16:34:08.6479570Z PASS MI08 obey UI selects a plan without arrivals, records the physical result and preserves it during replay
+2026-11-11T16:34:09.3234452Z PASS MI08 delay UI selects a plan without arrivals, records the physical result and preserves it during replay
+2026-11-11T16:34:10.1190646Z PASS MI08 defy UI selects a plan without arrivals, records the physical result and preserves it during replay
+2026-11-11T16:34:10.1555860Z PASS MI09 migrates the native v8 dossier, preserves eight reports and presents the Thyr briefing and instrument
+2026-11-11T16:34:10.3643048Z PASS MI09 imported partial work releases absent anchoring and remains exactly resumable
+2026-11-11T16:34:11.0337486Z PASS MI09 obey UI keeps choice separate from physical travel, files the roster and preserves replay
+2026-11-11T16:34:11.6338584Z PASS MI09 defy UI keeps choice separate from physical travel, files the roster and preserves replay
+2026-11-11T16:34:11.6445388Z PASS Enter assigned to fullscreen leaves button activation available and operates from the Canvas
+2026-11-11T16:34:11.6556833Z PASS key rebinding reports conflicts, persists valid keys and keeps Escape cancellation
+2026-11-11T16:34:11.7924719Z PASS rebound movement drives the real simulation; old keys release and navigation cancels capture
+2026-11-11T16:34:12.1539321Z PASS focus navigation releases movement while HUD repair and button activation stay available
+2026-11-11T16:34:12.8802002Z PASS focus exits suspend held movement and fire until an explicit resume and fresh inputs
+2026-11-11T16:34:12.9048375Z PASS Tab and browser modifier shortcuts release commands without consuming native navigation
+2026-11-11T16:34:12.9360158Z PASS a remapped pause reacts once per press and cannot resume a background document
+2026-11-11T16:34:13.0296720Z PASS lost pointer capture stops fire while a separate held movement key stays active
+2026-11-11T16:34:13.2363879Z PASS synthetic standard-gamepad input drives the actual application and releases after pause or disconnect
+2026-11-11T16:34:13.3914085Z PASS QA05 menu selections preserve ammunition and partial reload until its real completion
+2026-11-11T16:34:18.5542308Z PASS QA14/QA16 OP03 obey traverses UI decision, report, persisted archive and a fresh operation
+2026-11-11T16:34:24.0813505Z PASS QA14/QA16 OP03 defy traverses UI decision, report, persisted archive and a fresh operation
+2026-11-11T16:34:24.0814515Z UI STATE INTEGRATION PASSED: 66 flows against the actual offline application script in a modeled DOM.
+2026-11-11T16:34:24.0815495Z LIMIT: no browser, CSS layout, native focus/dialog behavior, real download, audio or physical touch validation.
+2026-11-11T16:34:24.1206816Z ##[group]Run npm run build:web
+2026-11-11T16:34:24.1207067Z [36;1mnpm run build:web[0m
+2026-11-11T16:34:24.1250624Z shell: /usr/bin/bash -e {0}
+2026-11-11T16:34:24.1250841Z ##[endgroup]
+2026-11-11T16:34:24.2039330Z 
+2026-11-11T16:34:24.2039802Z > imperium-march@0.10.0 build:web
+2026-11-11T16:34:24.2040220Z > node tools/build-web.mjs
+2026-11-11T16:34:24.2040414Z 
+2026-11-11T16:34:24.2478666Z Web game built: web-dist/index.html, src/ and assets/. No runtime dependencies.
+2026-11-11T16:34:24.2646956Z Post job cleanup.
+2026-11-11T16:34:24.3620694Z (node:2666) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-11T16:34:24.3621873Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-11T16:34:24.3782512Z Post job cleanup.
+2026-11-11T16:34:24.4482834Z [command]/usr/bin/git version
+2026-11-11T16:34:24.4519450Z git version 2.56.0
+2026-11-11T16:34:24.4560996Z Temporarily overriding HOME='/home/runner/work/_temp/3faee8c7-56bc-4739-9fd1-e1f7b334a00a' before making global git config changes
+2026-11-11T16:34:24.4562430Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-11T16:34:24.4564752Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ImperiumMarch/ImperiumMarch
+2026-11-11T16:34:24.4600712Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-11T16:34:24.4635057Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-11T16:34:24.4889784Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-11T16:34:24.4916647Z http.https://github.com/.extraheader
+2026-11-11T16:34:24.4929092Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-11T16:34:24.4959378Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-11T16:34:24.5229500Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-11T16:34:24.5259304Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-11T16:34:24.5640969Z Cleaning up orphan processes
+2026-11-11T16:34:24.5956104Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

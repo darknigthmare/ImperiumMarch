@@ -1,0 +1,430 @@
+{
+  "schema": 1,
+  "version": "0.10.0",
+  "receiptStatus": "native_reception_with_explicit_limits",
+  "assembledAtUtc": "2026-11-11T17:09:31.271709+00:00",
+  "testedPublication": {
+    "url": "https://imperium-march.vercel.app/",
+    "commit": "158a10f7e963f3f5effbb71fc3e8b4588d209d5a",
+    "version": "0.10.0",
+    "scope": "Initial 0.10 publication. This receipt does not retroactively certify later source changes."
+  },
+  "historicalPublication": {
+    "commit": "2bb8d7a708e4fab5ab34b3cac10f2418b60fe037",
+    "version": "0.9",
+    "exportVersion": 8
+  },
+  "observationProvenance": "Native UI actions and observations recorded by the parent agent; export comparisons and packaging performed independently. No human participant is invented.",
+  "observationSource": {
+    "file": "docs/validation/native-v10/native-observations.json",
+    "bytes": 44288,
+    "sha256": "06638c962319218e7ea3d26b10bbc81882d2ca75e87e568b9afcb18c8905a409"
+  },
+  "sessionRangeUtc": {
+    "firstRecord": "2026-11-11T16:33:05.635Z",
+    "lastRecord": "2026-11-11T17:00:15.392Z"
+  },
+  "environment": {
+    "browser": "Chromium native desktop window as recorded in the observations",
+    "recordedWindowGeometry": {
+      "width": 1363,
+      "height": 1023,
+      "units": "native window pixels; not asserted to be the CSS viewport"
+    },
+    "zoomPercentObserved": [
+      100,
+      125,
+      150
+    ],
+    "nativeSmallWindowReceived": false,
+    "nativeWindowReductionObserved": false
+  },
+  "migration": {
+    "before": {
+      "file": "docs/validation/native-v10/native-v8-before-upgrade.json",
+      "bytes": 48326,
+      "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f"
+    },
+    "after": {
+      "file": "docs/validation/native-v10/native-v9-after-upgrade.json",
+      "bytes": 48996,
+      "sha256": "54f53b98e031e040845761feb263114a80d6573607b5ba070481f56ba425d18e"
+    },
+    "comparison": {
+      "file": "docs/validation/native-v10/native-migration-verification.json",
+      "bytes": 3504,
+      "sha256": "69ce09cba6c2c600f86b929f3e2ae2b1cc363dba8fae95bf168cdc71c3971056"
+    },
+    "checks": 10,
+    "includedInTotalChecks": 87,
+    "observedDelta": {
+      "version": [
+        8,
+        9
+      ],
+      "addedWorldDomain": "world.thyr.route, unvisited",
+      "revision": [
+        148,
+        148
+      ],
+      "stage": [
+        "complete",
+        "complete"
+      ],
+      "completedReports": [
+        8,
+        8
+      ],
+      "parts": [
+        38,
+        38
+      ],
+      "fuel": [
+        0,
+        0
+      ]
+    },
+    "allOtherJsonValuesExact": true,
+    "nativeObservationReferences": [
+      {
+        "label": "v10-migration-baseline-v8",
+        "evidenceClass": "session_record_without_persisted_capture",
+        "observedAt": "2026-11-11T16:33:05.635Z"
+      },
+      {
+        "label": "v10-native-after-upgrade",
+        "evidenceClass": "session_record_without_persisted_capture",
+        "observedAt": "2026-11-11T16:36:02.004Z"
+      }
+    ],
+    "limit": "The downloaded exports remain available and the JSON migration is exact. The original migration screenshots are absent; UI observations survive as session records."
+  },
+  "preparedInputs": {
+    "checkpoints": [
+      {
+        "file": "docs/previews/mi09-decision-checkpoint.json",
+        "bytes": 96420,
+        "sha256": "b82dc2449da912321fc9469fe5c43b2bfd473ca5ca0de7053bbc5802f7a06b50",
+        "role": "decision",
+        "origin": "Public simulation commands from the authentic historical v8 dossier; not native playthrough.",
+        "campaignVersion": 9,
+        "parts": 38,
+        "completedReports": 8,
+        "walkerId": "WK09",
+        "playerX": 2622.6293053239583,
+        "elapsed": 41.61666666666559,
+        "decisionActive": true,
+        "reportTransmitted": false
+      },
+      {
+        "file": "docs/previews/mi09-before-extraction-checkpoint.json",
+        "bytes": 96502,
+        "sha256": "f8c6d322507975e7339d4b28263c29718b3c58d8619fc161487451ffed82ddb7",
+        "role": "before_extraction",
+        "origin": "Public simulation commands from the authentic historical v8 dossier; not native playthrough.",
+        "campaignVersion": 9,
+        "parts": 38,
+        "completedReports": 8,
+        "walkerId": "WK09",
+        "playerX": 5755.487062303622,
+        "elapsed": 161.26666666668714,
+        "decisionActive": false,
+        "reportTransmitted": true
+      }
+    ],
+    "simulationManifest": {
+      "file": "docs/previews/mi09-render-manifest.json",
+      "bytes": 1104531,
+      "sha256": "7ff20aa8335589923a45b5b6719b6c0452951c497ec6f22ec60164892462afb7"
+    },
+    "canvasValidation": {
+      "file": "docs/previews/mi09-canvas-validation.json",
+      "bytes": 8410,
+      "sha256": "a2d8d1250d1049e18e1df251aa074bf8215210387a43c024bf53fb14ca9500a1"
+    },
+    "limit": "Migration, habitat preservation, combat, logistics arrival and report transmission already acquired in the before-extraction checkpoint were produced by public simulation commands. They are not claimed as newly executed native gameplay."
+  },
+  "nativeUi": {
+    "initialMissionStartAndFocus": "The observations include a fresh MI09 deployment for input/focus trials. That departure is distinct from the later prepared-checkpoint continuation.",
+    "decisionAndDisplay": [
+      {
+        "label": "v10-briefing-125-received",
+        "evidenceClass": "persisted_screenshot",
+        "observedAt": "2026-11-11T16:53:29.428Z"
+      },
+      {
+        "label": "v10-zoom125-received",
+        "evidenceClass": "persisted_screenshot",
+        "observedAt": "2026-11-11T16:53:35.773Z"
+      },
+      {
+        "label": "v10-briefing125-scrolled-received",
+        "evidenceClass": "persisted_screenshot",
+        "observedAt": "2026-11-11T16:53:37.005Z"
+      },
+      {
+        "label": "v10-decision-125-current",
+        "evidenceClass": "persisted_screenshot",
+        "observedAt": "2026-11-11T16:56:52.972Z"
+      },
+      {
+        "label": "v10-decision-150-received",
+        "evidenceClass": "persisted_screenshot",
+        "observedAt": "2026-11-11T16:57:06.328Z"
+      },
+      {
+        "label": "v10-zoom150-native",
+        "evidenceClass": "persisted_screenshot",
+        "observedAt": "2026-11-11T16:57:10.403Z"
+      },
+      {
+        "label": "v10-hud-100-before-resize",
+        "evidenceClass": "persisted_screenshot",
+        "observedAt": "2026-11-11T16:57:23.573Z"
+      }
+    ],
+    "extraction": {
+      "preparedInputSha256": "f8c6d322507975e7339d4b28263c29718b3c58d8619fc161487451ffed82ddb7",
+      "operatorReportedKeyHolds": [
+        {
+          "key": "D",
+          "seconds": 2.4
+        },
+        {
+          "key": "D",
+          "seconds": 2.6
+        }
+      ],
+      "observationReferences": [
+        {
+          "label": "v10-before-extraction-100",
+          "evidenceClass": "persisted_screenshot",
+          "observedAt": "2026-11-11T16:58:36.317Z"
+        },
+        {
+          "label": "v10-hud-150-extraction",
+          "evidenceClass": "persisted_screenshot",
+          "observedAt": "2026-11-11T16:58:41.603Z"
+        },
+        {
+          "label": "v10-extraction-or-result-150",
+          "evidenceClass": "persisted_screenshot",
+          "observedAt": "2026-11-11T16:58:53.755Z"
+        }
+      ],
+      "scope": "Native resume and final extraction from a prepared checkpoint; not a complete native MI09 playthrough."
+    },
+    "resultAndNavigation": {
+      "actions": "Result panel scrolled to top and bottom at 150%, return to the bridge, real page reload, direct menu export, journal and expanded Thyr archive, workshop. These are operator-recorded actions.",
+      "observationReferences": [
+        {
+          "label": "v10-result-150-top",
+          "evidenceClass": "persisted_screenshot",
+          "observedAt": "2026-11-11T16:59:01.922Z"
+        },
+        {
+          "label": "v10-result-150-actions",
+          "evidenceClass": "persisted_screenshot",
+          "observedAt": "2026-11-11T16:59:23.873Z"
+        },
+        {
+          "label": "v10-journal-after-reload",
+          "evidenceClass": "persisted_screenshot",
+          "observedAt": "2026-11-11T16:59:55.899Z"
+        },
+        {
+          "label": "v10-thyr-archive-expanded",
+          "evidenceClass": "persisted_screenshot",
+          "observedAt": "2026-11-11T17:00:14.746Z"
+        },
+        {
+          "label": "v10-workshop-after-reload",
+          "evidenceClass": "persisted_screenshot",
+          "observedAt": "2026-11-11T17:00:15.392Z"
+        }
+      ]
+    }
+  },
+  "completedReceipt": {
+    "export": {
+      "file": "docs/validation/native-v10/native-v9-completed.json",
+      "bytes": 73582,
+      "sha256": "de5ece01c690b27435878c0f84f7dfd7f86723500a23a3703e3f8ffce28e6898"
+    },
+    "version": 9,
+    "revision": 165,
+    "stage": "complete",
+    "completedReports": 9,
+    "resources": {
+      "parts": 42,
+      "fuel": 0
+    },
+    "mi09": {
+      "walkerId": "WK09",
+      "elapsed": 172.86466666669008,
+      "choice": "defy",
+      "partsGranted": 4,
+      "route": "migration",
+      "migratorsTotal": 4,
+      "migratorsArrived": 4,
+      "migratorsDisplaced": 0,
+      "migratorsLost": 0,
+      "columnsIntact": 2,
+      "homesHabitable": 2,
+      "pollinatorsPresent": 2,
+      "logisticsArrived": true,
+      "logisticsDestroyed": false,
+      "logisticsIntegrity": 1,
+      "reportTransmitted": true
+    },
+    "elapsedIncludesPreparedSimulation": true,
+    "eightPriorReportsExact": true,
+    "vesperAndNacreWorldsExact": true,
+    "workshopGrantDelta": 4,
+    "newHumanPopulationInferred": false
+  },
+  "reloadAndReward": {
+    "export": {
+      "file": "docs/validation/native-v10/native-v9-after-reload.json",
+      "bytes": 73582,
+      "sha256": "de5ece01c690b27435878c0f84f7dfd7f86723500a23a3703e3f8ffce28e6898"
+    },
+    "entireJsonExact": true,
+    "entireFileByteIdentical": true,
+    "partsBeforeMI09": 38,
+    "partsAfterCompletion": 42,
+    "partsAfterReload": 42,
+    "secondRewardGranted": false,
+    "completedReportsAfterReload": 9
+  },
+  "automatedExportComparison": {
+    "report": {
+      "file": "docs/validation/native-v10/native-export-verification.json",
+      "bytes": 15247,
+      "sha256": "6a5066a757521fe8f7a200c42f4dea23e35de53bf65b0f30b9dfed415c61e501"
+    },
+    "verifier": {
+      "file": "docs/validation/native-v10/verify-native-exports.py",
+      "bytes": 13840,
+      "sha256": "30aa3141273ec99b7fdf0c86fc80277df4c548bc0dce65c6b85f3a544da631e4"
+    },
+    "totals": {
+      "passed": 87,
+      "failed": 0,
+      "pending": 0
+    },
+    "migrationChecksIncluded": 10,
+    "scope": "87 independent export assertions, not 87 additional Node-suite tests or native UI actions.",
+    "portableCommand": "python docs/validation/native-v10/verify-native-exports.py --mode all"
+  },
+  "focus": {
+    "status": "open",
+    "conclusion": "No QA19 closure. Managed-tab and native-only-copy observations differ; causality is not established. Failed and contradictory observations are retained.",
+    "focusExport": {
+      "file": "docs/validation/native-v10/native-v9-focus-export.json",
+      "bytes": 63596,
+      "sha256": "f311ad5573804ebc1a2c2db2ba77b7e025d4e8285ab2ef6469502eff243983a9"
+    },
+    "observationReferences": [
+      {
+        "label": "v10-focus-d-tab",
+        "evidenceClass": "session_record_without_persisted_capture",
+        "observedAt": "2026-11-11T16:39:28.293Z"
+      },
+      {
+        "label": "v10-focus-hud-space-pauses",
+        "evidenceClass": "session_record_without_persisted_capture",
+        "observedAt": "2026-11-11T16:39:47.695Z"
+      },
+      {
+        "label": "v10-focus-d-other-tab-return",
+        "evidenceClass": "session_record_without_persisted_capture",
+        "observedAt": "2026-11-11T16:40:06.476Z"
+      },
+      {
+        "label": "v10-focus-other-tab-manual-stop",
+        "evidenceClass": "session_record_without_persisted_capture",
+        "observedAt": "2026-11-11T16:41:30.680Z"
+      },
+      {
+        "label": "v10-native-only-return",
+        "evidenceClass": "session_record_without_persisted_capture",
+        "observedAt": "2026-11-11T16:43:51.213Z"
+      },
+      {
+        "label": "v10-native-only-address-away",
+        "evidenceClass": "session_record_without_persisted_capture",
+        "observedAt": "2026-11-11T16:44:58.113Z"
+      },
+      {
+        "label": "v10-managed-address-away",
+        "evidenceClass": "session_record_without_persisted_capture",
+        "observedAt": "2026-11-11T16:46:09.885Z"
+      }
+    ],
+    "limit": "These original focus captures are absent from the packaged files. Their notes remain session observations; a single exported checkpoint cannot establish the full input sequence.",
+    "heldFireReceived": false,
+    "heldFireScope": "Held fire was not exercised in this native reception.",
+    "explicitResumeAndFreshPress": {
+      "explicitResumeReceived": true,
+      "freshPressReceived": true,
+      "context": "Duplicated tab controlled through native input without DOM acquisition.",
+      "limitedToDuplicatedContext": true,
+      "extrapolatedToManagedTabOrOtherContexts": false,
+      "basis": "Scope explicitly confirmed by the parent agent while reviewing this receipt.",
+      "observationReferences": [
+        {
+          "label": "v10-native-only-after-resume",
+          "observedAt": "2026-11-11T16:44:43.164Z",
+          "evidenceClass": "session_record_without_persisted_capture"
+        },
+        {
+          "label": "v10-native-only-address-away",
+          "observedAt": "2026-11-11T16:44:58.113Z",
+          "evidenceClass": "session_record_without_persisted_capture"
+        }
+      ]
+    }
+  },
+  "qaStatus": {
+    "QA19": {
+      "status": "À produire",
+      "open": true,
+      "reason": "Native focus observations remain contradictory; held fire was not exercised. Explicit resume and a fresh press were received only in the duplicated native-only context. No general closure or proven cause."
+    },
+    "QA20": {
+      "status": "À produire",
+      "open": true,
+      "reason": "100%, 125% and 150% observed in a 1363×1023 native window. No actual smaller native window or native resize received."
+    },
+    "QA29": {
+      "status": "À produire",
+      "open": true,
+      "inScope": false,
+      "reason": "Interactive spreadsheet sorting, filtering, panes and editing are outside this browser receipt."
+    }
+  },
+  "evidenceAvailability": {
+    "observationRecords": 38,
+    "persistedScreenshotFiles": 15,
+    "persistedAxFiles": 8,
+    "sessionRecordsWithoutPersistedCapture": 23,
+    "missingScreenshotReferences": 23,
+    "missingAxReferences": 8,
+    "missingFilesNotCountedAsCaptures": true,
+    "pathNormalization": "Existing capture paths are relative to the repository. Absent capture paths, SHA256 and sizes are null; original locations remain provenance only."
+  },
+  "downloadProvenance": {
+    "file": "docs/validation/native-v10/native-download-provenance.json",
+    "bytes": 4110,
+    "sha256": "e1bc81aec7c4bda7304d2afad2b05d5ced47fba2c137adab996332c6a6d8ee68"
+  },
+  "integrityManifest": "docs/validation/native-v10/native-evidence-manifest.json",
+  "limitations": [
+    "No complete native MI09 mission claimed; prepared simulation acts remain identified.",
+    "No human playtest, hardware gamepad, audio listening or target performance received by this receipt.",
+    "No interactive spreadsheet reception.",
+    "No restoration or invented hash of the 23 missing screenshots.",
+    "This receipt adds evidence and preserves open criteria; it does not replace historical 0.9 observations."
+  ]
+}
