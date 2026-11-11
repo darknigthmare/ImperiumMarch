@@ -14,7 +14,7 @@ Cette livraison contient un **prototype de dix missions de campagne**, six machi
 
 ## Jouer à cette version
 
-**[Jouer en ligne — imperium-march.vercel.app](https://imperium-march.vercel.app/)**. La version publiée utilise la même sauvegarde locale à cette adresse ; les dossiers précédents restent importables.
+**La version 0.11 est disponible dans le fichier autonome ci-dessous et sur la branche `main` de GitHub.** Le [site en ligne](https://imperium-march.vercel.app/) sert encore la **0.10** : Vercel a refusé le déploiement 0.11 le 11 novembre 2026, avec un quota quotidien atteint et un délai de nouvelle tentative annoncé de 24 heures. Le [reçu de publication](docs/validation/v11-publication-initial.json) et le [constat HTTP](docs/validation/v11-http-initial.json) distinguent le code publié du site réellement servi.
 
 Ouvrir [**dist/Ordre_de_Cendre.html**](dist/Ordre_de_Cendre.html) dans un navigateur de bureau récent, après l’avoir téléchargé ou extrait du pack. Le code, les styles et les images sont intégrés. Aucun serveur ni téléchargement complémentaire n’est nécessaire pour cette édition. Le son démarre après une interaction.
 
@@ -290,6 +290,8 @@ Onze actions clavier sont reconfigurables dans Réglages. Une manette standard p
 La version **0.11 passe 440 tests Node, 71 parcours d’interface dans un DOM modélisé et 64 comparaisons raster SVG/Canvas**. Les 47 nouveaux tests du dossier v10 sont inclus dans le total ; ils complètent les reprises, migrations, pertes et rejets de sauvegardes incohérentes. Les vingt-deux scènes de MI10 proviennent de dix-sept sorties par commandes publiques. Le [reçu local](docs/validation/v11-local-validation.json) conserve les commandes, leurs sorties et les empreintes des sources gelées.
 
 Le classeur rassemble **873 fiches sur 21 onglets**. La réception rapproche ses 5 897 cellules source, recalcule 126 formules dans une copie indépendante et examine 43 vues. Les 845 identifiants précédents et les 133 critères initiaux restent conservés. La [validation 0.11](docs/QA_V11.md) distingue ces contrôles du navigateur et des essais humains. Le [suivi de publication](docs/DEPLOYMENT.md) identifie les résultats externes effectivement reçus.
+
+La [CI GitHub du commit applicatif](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43080098248) confirme ces résultats sous **Node 22.23.4**. La [réception native 0.11 reste bloquée](docs/validation/native-v11/browser-reception.json) : le site n’a pas reçu le déploiement et la politique du navigateur de contrôle refuse les URL locales `file://`. Aucun résultat de migration, de pause ou d’extraction native 0.11 n’est déduit des tests automatisés.
 
 ### Réceptions historiques conservées
 

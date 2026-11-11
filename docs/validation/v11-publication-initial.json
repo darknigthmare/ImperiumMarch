@@ -1,0 +1,312 @@
+{
+  "schema": 1,
+  "release": "0.11.0",
+  "phase": "initial",
+  "status": "github_and_ci_complete_vercel_blocked",
+  "source": {
+    "snapshot": "/workspace/scratch/47882a75de66/publication-v11-reviewed",
+    "localCommit": "ce56e044f311d5e39a1647672940dd0db3674f8b",
+    "localTree": "a1c40fc9e0946fe29a417ccd494b415b8653861a",
+    "files": 1259,
+    "bytes": 123329295,
+    "parent": "4846d0270b2976877f9b202848bfde6d2127fb1d",
+    "parentTree": "ef7b912c27fa672f1930c980ee529c165e3f77ec",
+    "added": 160,
+    "changed": 35,
+    "deleted": [],
+    "releaseCheck": "docs/validation/v11-release-checks-initial.json",
+    "fingerprints": 202,
+    "releaseCheckSha256": "4b3cf27b0494aed0e2fd938f67f565fa4487bb2affcc331bd5f23e5b9c8eb90f",
+    "mediaManifestSha256": "3aad2e5bc19c058117e394c2393745def1e79a14a7c3da21c033342cd6a03250",
+    "excludedDocumentationMedia": 354,
+    "manifestSha256": "6a143cfca5964aa3a2ff8af3ee54484957589dcf5872507eb677d50d24465a42",
+    "httpResources": 23,
+    "protectedPriorPathsUnchanged": 263,
+    "historicalValidationFilesUnchanged": 249,
+    "knownBlobsBefore": 1077,
+    "additionalBlobs": 192,
+    "additionalBytes": 29020954,
+    "sourceHeadAfter": "ce56e044f311d5e39a1647672940dd0db3674f8b",
+    "sourceStatusAfter": ""
+  },
+  "github": {
+    "repository": "darknigthmare/ImperiumMarch",
+    "branch": "main",
+    "parent": "4846d0270b2976877f9b202848bfde6d2127fb1d",
+    "commit": "47677e93dae9f214b763564cf8a357dd196c2b28",
+    "tree": "a1c40fc9e0946fe29a417ccd494b415b8653861a",
+    "url": "https://github.com/darknigthmare/ImperiumMarch/commit/47677e93dae9f214b763564cf8a357dd196c2b28",
+    "cas": {
+      "expectedSha": "4846d0270b2976877f9b202848bfde6d2127fb1d",
+      "force": false,
+      "success": true
+    },
+    "wholeTree": {
+      "sha": "a1c40fc9e0946fe29a417ccd494b415b8653861a",
+      "files": 1259,
+      "matches": true,
+      "truncated": false
+    },
+    "additionalBlobsConfirmed": 192,
+    "additionalBytesConfirmed": 29020954,
+    "uploadsRemaining": 0,
+    "confirmedMain": "47677e93dae9f214b763564cf8a357dd196c2b28",
+    "ci": {
+      "schema": 1,
+      "release": "0.11.0",
+      "scope": "Read-only independent GitHub Actions reception for the exact published initial 0.11 commit. No workflow dispatch, rerun, cancellation, repository mutation or native-browser claim.",
+      "repository": "darknigthmare/ImperiumMarch",
+      "branch": "main",
+      "headSha": "47677e93dae9f214b763564cf8a357dd196c2b28",
+      "treeSha": "a1c40fc9e0946fe29a417ccd494b415b8653861a",
+      "workflow": {
+        "path": ".github/workflows/ci.yml",
+        "name": "Validate prototype and design data",
+        "frozenFileSha256": "4d5f0d9d7f747093d609a0223cb926ca127bd949b4fa9c13bf4332029da3f9a3",
+        "frozenFileBytes": 717
+      },
+      "runId": 43080098248,
+      "runUrl": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43080098248",
+      "event": "push",
+      "runAttempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "createdAt": "2026-11-11T18:41:05Z",
+      "runStartedAt": "2026-11-11T18:41:05Z",
+      "updatedAt": "2026-11-11T18:42:45Z",
+      "jobId": 130730090563,
+      "jobName": "validate",
+      "nodeVersion": "v22.23.4",
+      "tests": {
+        "total": 440,
+        "passed": 440,
+        "failed": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "raster": {
+        "passed": 64,
+        "total": 64,
+        "validator": "@napi-rs/canvas@0.1.100"
+      },
+      "modeledDomFlows": 71,
+      "projectCheck": {
+        "designSheets": 20,
+        "sourceRows": 873,
+        "playableChassis": 6,
+        "independentOperations": 3,
+        "campaignMissions": 10
+      },
+      "offlineBuild": {
+        "reportedMiB": 9.91,
+        "modules": 16,
+        "noRemoteDependencies": true
+      },
+      "staticUiAudit": {
+        "uniqueHtmlIds": 181,
+        "literalJsIdReferences": 170,
+        "views": 5,
+        "archiveTabs": 4,
+        "dialogs": 6
+      },
+      "offlineBundleAuditPassed": true,
+      "webBuildPassed": true,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Install pinned development-only raster validator",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Validate shared SVG and Canvas rendering",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npm run check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run npm run check:ui",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run npm run check:ui-runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run npm run build:web",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23
+        }
+      ],
+      "log": {
+        "path": "/workspace/scratch/47882a75de66/v11-ci-initial-job-130730090563.log",
+        "bytes": 242540,
+        "sha256": "de56b6f2f75488e7c7bed41bd695e090c78c9a07f7efb63b8d296d6517acb0e5",
+        "exactDecodedToolText": true,
+        "utf8BomPreserved": true,
+        "lineEndingsAndTrailingWhitespacePreserved": true
+      },
+      "evidence": [
+        "2026-11-11T18:41:21.5094769Z node: v22.23.4",
+        "2026-11-11T18:41:57.7719548Z # tests 440",
+        "2026-11-11T18:41:57.7719781Z # pass 440",
+        "2026-11-11T18:41:57.7719895Z # fail 0",
+        "2026-11-11T18:42:00.1222820Z Production SVG/Canvas raster validation passed: 64/64 cases, @napi-rs/canvas 0.1.100.",
+        "2026-11-11T18:42:00.2596165Z Project checks passed: 20 design sheets, 873 source rows, 6 playable chassis, 3 independent operations, 10 campaign missions.",
+        "2026-11-11T18:42:00.4415509Z Offline game built: dist/Ordre_de_Cendre.html (9.91 MiB), 16 modules, no remote dependencies.",
+        "2026-11-11T18:42:00.6248203Z STATIC UI AUDIT PASSED: 181 unique HTML IDs; 170 literal JS ID references; 5 views; 4 archive tabs; 6 dialogs.",
+        "2026-11-11T18:42:00.6249254Z OFFLINE BUNDLE AUDIT PASSED: one inline script compiled by vm.Script without executing; all HTML/CSS/Canvas assets embedded; no unresolved imports or resource requests.",
+        "2026-11-11T18:42:42.2964084Z UI STATE INTEGRATION PASSED: 71 flows against the actual offline application script in a modeled DOM.",
+        "2026-11-11T18:42:42.4555896Z Web game built: web-dist/index.html, src/ and assets/. No runtime dependencies."
+      ],
+      "nativeBrowser": false,
+      "humanPlaytest": false,
+      "observedAt": "2026-11-11T18:43:41.891Z"
+    },
+    "ciReceipt": {
+      "path": "/workspace/scratch/47882a75de66/v11-ci-initial-verification.json",
+      "bytes": 5280,
+      "sha256": "b2d26601e0dadabc97bd8512d69ea9d84d6c564f5782678b43b327765f2cf7ba"
+    }
+  },
+  "vercel": {
+    "projectId": "prj_ggDB98oddkTTzVPiGQrtxnj7frcr",
+    "teamId": "team_VrIjq2UWV6VaHZr7DdQFwvfu",
+    "productionUrl": "https://imperium-march.vercel.app/",
+    "target": "production",
+    "requestedCommit": "47677e93dae9f214b763564cf8a357dd196c2b28",
+    "requestedDeploymentCreated": false,
+    "requestedDeploymentReady": false,
+    "blocker": {
+      "message": "Vercel API request failed (402: payment_required). Resource is limited - try again in 24 hours (more than 100, code: \"api-deployments-free-per-day\").",
+      "recovery": "Try an available mapped CLI fallback first for the same authorized action, with the same explicit team/project and the CLI's own credentials. If it succeeds, use its result. If it fails or no CLI fallback is available, Ask the user to resolve the billing, plan, or team security requirement reported by Vercel. Do not change these settings automatically. For SSO, check both the team session and the connection team access.",
+      "remediation": {
+        "actor": "user",
+        "action": "user_action_required"
+      },
+      "status": 402,
+      "code": "payment_required",
+      "operation": "POST /v13/deployments",
+      "resource": "api-deployments-free-per-day",
+      "requestId": "iad1:fra1:iad1:sfo1::jbgxc-1794422520701-4c1ff43b58e8",
+      "retryAfter": "86400"
+    },
+    "blockerReceipt": {
+      "path": "/workspace/scratch/47882a75de66/v11-vercel-initial-blocked.json",
+      "bytes": 1938,
+      "sha256": "1a458eecdea407ded3600a8f98ee2196effd8ac90d907d172227c355f9b71ecf"
+    },
+    "nodeVersion": "22.x",
+    "protection": {
+      "enabled": true,
+      "deploymentType": "all_except_custom_domains"
+    },
+    "protectionUnchanged": true,
+    "billingChanged": false,
+    "observedPreviousDeployment": {
+      "id": "dpl_DtEwQsxmwa9a816U6zDTK1aq5A4n",
+      "state": "READY",
+      "commit": "4846d0270b2976877f9b202848bfde6d2127fb1d",
+      "release": "0.10.0"
+    },
+    "noFurtherDeploymentAttemptAfterQuotaRejection": true
+  },
+  "http": {
+    "verificationFile": {
+      "path": "/workspace/scratch/47882a75de66/v11-http-initial-verification.json",
+      "bytes": 16858,
+      "sha256": "76075e4d1a2066f93c8d899d490863feda44696f7f5f096ed5ddbc5fedec67a4"
+    },
+    "resourcesChecked": 23,
+    "matchingRequestedSnapshot": 9,
+    "matchingPreviousSnapshot": 18,
+    "statusCounts": {
+      "200": 18,
+      "404": 5
+    },
+    "requestedReleaseVerified": false,
+    "observedRelease": "0.10.0"
+  },
+  "nativeReception": {
+    "publishedReleaseObserved": false,
+    "localOfflineEditionObserved": false,
+    "note": "No native 0.11 reception is claimed by this publication receipt. The parent agent reports that the separate file URL attempt was refused by browser URL policy; its exact reception/blocker record belongs to the documentation follow-up."
+  },
+  "scope": {
+    "applicationSourceFrozen": true,
+    "oldEvidencePreserved": true,
+    "paidPlanChangeAuthorizedOrPerformed": false,
+    "nativePlaytestClaim": false,
+    "humanPlaytestClaim": false
+  },
+  "completion": {
+    "githubPublished": true,
+    "ciSucceeded": true,
+    "sourceTreeExact": true,
+    "vercelProductionPublished": false,
+    "httpRequestedSnapshotVerified": false,
+    "partial": true,
+    "blockedBy": "Vercel daily deployment limit (HTTP402, api-deployments-free-per-day, Retry-After86400 seconds). No bypass or configuration change attempted."
+  },
+  "completedAt": "2026-11-11T18:47:26.707568+00:00"
+}

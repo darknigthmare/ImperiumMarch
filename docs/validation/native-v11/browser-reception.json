@@ -1,0 +1,84 @@
+{
+  "release": "0.11.0",
+  "status": "blocked",
+  "recordedAt": "2026-11-11T18:49:39.651856+00:00",
+  "nativeMI10Received": false,
+  "nativeOffline011Received": false,
+  "humanPlaytest": false,
+  "source": {
+    "localCommit": "ce56e044f311d5e39a1647672940dd0db3674f8b",
+    "publicCommit": "47677e93dae9f214b763564cf8a357dd196c2b28",
+    "tree": "a1c40fc9e0946fe29a417ccd494b415b8653861a",
+    "offlineHtml": {
+      "file": "dist/Ordre_de_Cendre.html",
+      "bytes": 10394368,
+      "sha256": "5617690ab88a55a522897aeee1e91b923ef3395074970e3b9b094037d192459b"
+    }
+  },
+  "historicalNativeBaseline": {
+    "file": "docs/validation/native-v11/native-v9-baseline.json",
+    "sha256": "de5ece01c690b27435878c0f84f7dfd7f86723500a23a3703e3f8ffce28e6898",
+    "saveVersion": 9,
+    "reports": 9,
+    "resources": {
+      "parts": 42,
+      "fuel": 0
+    },
+    "observation": "Exported from the existing public 0.10 Chrome page before any migration attempt; this is not a native 0.11 result."
+  },
+  "blockers": [
+    {
+      "kind": "deployment",
+      "evidence": "docs/validation/v11-vercel-initial-blocked.json",
+      "httpStatus": 402,
+      "resource": "api-deployments-free-per-day",
+      "retryAfterSeconds": 86400,
+      "publicSiteStillVersion": "0.10"
+    },
+    {
+      "kind": "browser_url_policy",
+      "tool": "mcp__cua_repl.js",
+      "operation": "cua.createBrowserTab",
+      "requestedUrl": "file:///workspace/shared/native-v11/Ordre_de_Cendre.html",
+      "allowedProtocols": [
+        "http:",
+        "https:"
+      ],
+      "requestRejected": true,
+      "observedError": "Browser Use rejected this action due to browser security policy. The requested URL protocol is not allowed. The URL policy gate did not grant access.",
+      "workaroundAttempted": false,
+      "note": "No 0.11 page was observed; the request was rejected by the browser tool before a playable page could be inspected."
+    }
+  ],
+  "unperformed": [
+    "Native v9 to v10 UI import and export",
+    "Native MI10 briefing and HTML HUD reception",
+    "Native sampling pause and reload",
+    "Native decision and tank-operation distinction",
+    "Native extraction and tenth report",
+    "Native final export and reload equality"
+  ],
+  "preparedOnly": {
+    "checkpointFiles": [
+      "docs/previews/mi10-sampling-checkpoint.json",
+      "docs/previews/mi10-decision-checkpoint.json",
+      "docs/previews/mi10-before-extraction-checkpoint.json"
+    ],
+    "verifier": "tools/verify-native-v11.mjs",
+    "note": "These inputs and this read-only verifier prepare future reception; they are not evidence that native gestures occurred."
+  },
+  "existingOpenCriteria": [
+    "QA19",
+    "QA20",
+    "QA29",
+    "PR85",
+    "QA169",
+    "PR88",
+    "QA179"
+  ],
+  "limitations": [
+    "No native 0.11 outcome is inferred from automated UI tests, Canvas scenes, GitHub publication or CI success.",
+    "The public 0.10 browser dossier was not replaced by a prepared MI10 checkpoint.",
+    "No billing, plan, team, security, hostname, alternate surface or indirect server change was used to bypass either blocker."
+  ]
+}

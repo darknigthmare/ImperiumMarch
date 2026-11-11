@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "release": "0.11.0",
+  "scope": "Read-only independent GitHub Actions reception for the exact published initial 0.11 commit. No workflow dispatch, rerun, cancellation, repository mutation or native-browser claim.",
+  "repository": "darknigthmare/ImperiumMarch",
+  "branch": "main",
+  "headSha": "47677e93dae9f214b763564cf8a357dd196c2b28",
+  "treeSha": "a1c40fc9e0946fe29a417ccd494b415b8653861a",
+  "workflow": {
+    "path": ".github/workflows/ci.yml",
+    "name": "Validate prototype and design data",
+    "frozenFileSha256": "4d5f0d9d7f747093d609a0223cb926ca127bd949b4fa9c13bf4332029da3f9a3",
+    "frozenFileBytes": 717
+  },
+  "runId": 43080098248,
+  "runUrl": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43080098248",
+  "event": "push",
+  "runAttempt": 1,
+  "status": "completed",
+  "conclusion": "success",
+  "createdAt": "2026-11-11T18:41:05Z",
+  "runStartedAt": "2026-11-11T18:41:05Z",
+  "updatedAt": "2026-11-11T18:42:45Z",
+  "jobId": 130730090563,
+  "jobName": "validate",
+  "nodeVersion": "v22.23.4",
+  "tests": {
+    "total": 440,
+    "passed": 440,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "raster": {
+    "passed": 64,
+    "total": 64,
+    "validator": "@napi-rs/canvas@0.1.100"
+  },
+  "modeledDomFlows": 71,
+  "projectCheck": {
+    "designSheets": 20,
+    "sourceRows": 873,
+    "playableChassis": 6,
+    "independentOperations": 3,
+    "campaignMissions": 10
+  },
+  "offlineBuild": {
+    "reportedMiB": 9.91,
+    "modules": 16,
+    "noRemoteDependencies": true
+  },
+  "staticUiAudit": {
+    "uniqueHtmlIds": 181,
+    "literalJsIdReferences": 170,
+    "views": 5,
+    "archiveTabs": 4,
+    "dialogs": 6
+  },
+  "offlineBundleAuditPassed": true,
+  "webBuildPassed": true,
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 1
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 2
+    },
+    {
+      "name": "Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 3
+    },
+    {
+      "name": "Run npm test",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 4
+    },
+    {
+      "name": "Install pinned development-only raster validator",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 5
+    },
+    {
+      "name": "Validate shared SVG and Canvas rendering",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 6
+    },
+    {
+      "name": "Run npm run check",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 7
+    },
+    {
+      "name": "Run npm run build",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 8
+    },
+    {
+      "name": "Run npm run check:ui",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 9
+    },
+    {
+      "name": "Run npm run check:ui-runtime",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 10
+    },
+    {
+      "name": "Run npm run build:web",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 11
+    },
+    {
+      "name": "Post Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 21
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 22
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 23
+    }
+  ],
+  "log": {
+    "path": "/workspace/scratch/47882a75de66/v11-ci-initial-job-130730090563.log",
+    "bytes": 242540,
+    "sha256": "de56b6f2f75488e7c7bed41bd695e090c78c9a07f7efb63b8d296d6517acb0e5",
+    "exactDecodedToolText": true,
+    "utf8BomPreserved": true,
+    "lineEndingsAndTrailingWhitespacePreserved": true
+  },
+  "evidence": [
+    "2026-11-11T18:41:21.5094769Z node: v22.23.4",
+    "2026-11-11T18:41:57.7719548Z # tests 440",
+    "2026-11-11T18:41:57.7719781Z # pass 440",
+    "2026-11-11T18:41:57.7719895Z # fail 0",
+    "2026-11-11T18:42:00.1222820Z Production SVG/Canvas raster validation passed: 64/64 cases, @napi-rs/canvas 0.1.100.",
+    "2026-11-11T18:42:00.2596165Z Project checks passed: 20 design sheets, 873 source rows, 6 playable chassis, 3 independent operations, 10 campaign missions.",
+    "2026-11-11T18:42:00.4415509Z Offline game built: dist/Ordre_de_Cendre.html (9.91 MiB), 16 modules, no remote dependencies.",
+    "2026-11-11T18:42:00.6248203Z STATIC UI AUDIT PASSED: 181 unique HTML IDs; 170 literal JS ID references; 5 views; 4 archive tabs; 6 dialogs.",
+    "2026-11-11T18:42:00.6249254Z OFFLINE BUNDLE AUDIT PASSED: one inline script compiled by vm.Script without executing; all HTML/CSS/Canvas assets embedded; no unresolved imports or resource requests.",
+    "2026-11-11T18:42:42.2964084Z UI STATE INTEGRATION PASSED: 71 flows against the actual offline application script in a modeled DOM.",
+    "2026-11-11T18:42:42.4555896Z Web game built: web-dist/index.html, src/ and assets/. No runtime dependencies."
+  ],
+  "nativeBrowser": false,
+  "humanPlaytest": false,
+  "observedAt": "2026-11-11T18:43:41.891Z"
+}

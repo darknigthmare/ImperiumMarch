@@ -4,7 +4,7 @@ La réception porte sur le prototype MI01–MI10, les six châssis et les trois 
 
 ## État des contrôles
 
-Les [contrôles locaux finaux](validation/v11-local-validation.json) passent sur les sources gelées, sans modification d’un fichier d’entrée pendant leur exécution. Le runtime local est Node **24.22.1** ; la configuration du projet et de la CI reste **22.x**. Le résultat de la CI distante est suivi séparément dans [DEPLOYMENT.md](DEPLOYMENT.md). La réception native de MI10 reste à consigner après publication de ce snapshot.
+Les [contrôles locaux finaux](validation/v11-local-validation.json) passent sur les sources gelées, sans modification d’un fichier d’entrée pendant leur exécution. Le runtime local est Node **24.22.1** ; la [CI distante reçue](validation/v11-ci-initial-verification.json) confirme les mêmes 440 tests, 71 parcours UI et 64 comparaisons raster sous **Node 22.23.4**, sur le commit public exact `47677e93dae9f214b763564cf8a357dd196c2b28`. La réception native 0.11 demeure **bloquée et non effectuée**, pour les motifs détaillés ci-dessous.
 
 | Famille | Résultat déjà exécuté | Portée |
 | --- | --- | --- |
@@ -61,7 +61,13 @@ La [préservation](validation/workbook-v0.11-baseline-check.json) compare 6 520 
 
 Avant toute migration, le dossier présent dans Chrome a été exporté par l’interface réelle. Le fichier [native-v9-baseline.json](validation/native-v11/native-v9-baseline.json) contient neuf rapports et 42 lots ; il est conservé avec la [capture](validation/native-v11/before-migration.png) et l’[état accessible](validation/native-v11/before-migration.txt). Cette préservation ne vaut pas réception de MI10.
 
-La vérification native de la 0.11 reste à consigner après publication du snapshot validé. Les checkpoints préparés par le pilote Node seront identifiés séparément des gestes exécutés dans Chrome. Aucun parcours humain complet, aucune manette physique et aucune écoute audio ne sont revendiqués par les preuves automatiques ci-dessus.
+Le [constat de réception native](validation/native-v11/browser-reception.json) conserve deux blocages distincts. Vercel a refusé la création du déploiement par **HTTP 402**, ressource `api-deployments-free-per-day`, avec `Retry-After: 86400`. Le site sert toujours la 0.10 ; le [contrôle HTTP](validation/v11-http-initial.json) trouve les dix-huit ressources existantes identiques à cette ancienne version et les cinq nouvelles ressources chimiques absentes.
+
+Le fichier autonome exact a ensuite été copié dans l’espace de fichiers partagé pour une réception locale. L’ouverture de son URL `file://` a été refusée par la **politique URL du navigateur**, qui n’autorise que HTTP et HTTPS et interdit un contournement de cette restriction. Aucune page jouable 0.11 n’a pu être observée par ce chemin. Aucun serveur indirect, autre surface ou changement de sécurité n’a été employé pour contourner ce refus.
+
+Il n’existe donc **aucun export natif 0.11** de migration, pause, choix ou extraction dans cette livraison. Le vrai dossier public 0.10 n’a pas été remplacé par un checkpoint préparé. Les trois points de reprise disponibles sont des résultats du pilote de simulation et restent étiquetés ainsi. L’outil [verify-native-v11.mjs](../tools/verify-native-v11.mjs) prépare leur rapprochement avec de futurs exports ; en leur absence, ses cinq phases restent `pending` et sa sortie est 2. Le [reçu de cette attente](validation/native-v11/export-verification-pending.json) conserve ce résultat. Ses vérifications de sources préparées ne constituent pas une réception native.
+
+La publication GitHub et sa CI réussie sont attestées dans [DEPLOYMENT.md](DEPLOYMENT.md). Aucun parcours humain complet, aucune manette physique et aucune écoute audio ne sont revendiqués par les preuves automatiques ci-dessus.
 
 ## Critères ouverts
 

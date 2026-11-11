@@ -36,6 +36,8 @@ Les [scènes Canvas](previews/mi10-scenes.json) proviennent de dix-sept sorties 
 
 Le [registre 0.11](PRODUCTION_REGISTER_V11.md) relie les livrables aux critères et aux preuves. La [réception du classeur](BIBLE_README.md) distingue la correspondance des cellules, les formules recalculées, la revue visuelle des pages et l’usage interactif dans Excel ou Calc. Le [suivi de publication](DEPLOYMENT.md) identifie séparément le snapshot, le commit public, la CI, le déploiement et les ressources réellement servies.
 
+La tranche applicative est **publiée sur GitHub**, avec une CI réussie sous Node 22.23.4. **La mise en ligne Vercel est bloquée par son quota quotidien** ; le domaine stable sert encore la 0.10. L’édition autonome 0.11 et le classeur sont livrés dans le dépôt. La tentative de réception locale a également rencontré une restriction du navigateur sur les URL `file://` ; aucune réception native 0.11 n’est annoncée. Les [preuves de ces limites](validation/native-v11/browser-reception.json) sont distinctes des résultats automatiques.
+
 ## Travail restant inscrit
 
 AS18 conserve sa portée de prototype. AS21 n’est pas achevé par les seuls éléments végétaux et animaux de Thyr. PR18 exige encore les missions MI11–MI16 et les contrats de l’acte II ; PR17 garde notamment les quatre contrats de l’acte I. Les six autres châssis, les composants ennemis, les voix, l’animation finale, les performances sur matériel déclaré et les essais humains restent suivis dans leurs fiches.

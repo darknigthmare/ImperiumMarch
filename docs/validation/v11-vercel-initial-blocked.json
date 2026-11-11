@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "release": "0.11.0",
+  "phase": "initial",
+  "status": "blocked_by_vercel_daily_quota",
+  "repository": "darknigthmare/ImperiumMarch",
+  "commit": "47677e93dae9f214b763564cf8a357dd196c2b28",
+  "tree": "a1c40fc9e0946fe29a417ccd494b415b8653861a",
+  "projectId": "prj_ggDB98oddkTTzVPiGQrtxnj7frcr",
+  "teamId": "team_VrIjq2UWV6VaHZr7DdQFwvfu",
+  "target": "production",
+  "request": {
+    "name": "imperium-march",
+    "project": "prj_ggDB98oddkTTzVPiGQrtxnj7frcr",
+    "target": "production",
+    "gitSource": {
+      "type": "github",
+      "repoId": "1453177984",
+      "ref": "main",
+      "sha": "47677e93dae9f214b763564cf8a357dd196c2b28"
+    },
+    "withLatestCommit": false
+  },
+  "error": {
+    "message": "Vercel API request failed (402: payment_required). Resource is limited - try again in 24 hours (more than 100, code: \"api-deployments-free-per-day\").",
+    "recovery": "Try an available mapped CLI fallback first for the same authorized action, with the same explicit team/project and the CLI's own credentials. If it succeeds, use its result. If it fails or no CLI fallback is available, Ask the user to resolve the billing, plan, or team security requirement reported by Vercel. Do not change these settings automatically. For SSO, check both the team session and the connection team access.",
+    "remediation": {
+      "actor": "user",
+      "action": "user_action_required"
+    },
+    "status": 402,
+    "code": "payment_required",
+    "operation": "POST /v13/deployments",
+    "resource": "api-deployments-free-per-day",
+    "requestId": "iad1:fra1:iad1:sfo1::jbgxc-1794422520701-4c1ff43b58e8",
+    "retryAfter": "86400"
+  },
+  "automaticDeploymentForExactShaObserved": false,
+  "nodeVersion": "22.x",
+  "protection": {
+    "enabled": true,
+    "deploymentType": "all_except_custom_domains"
+  },
+  "configurationChanged": false,
+  "billingChanged": false,
+  "checkedAt": "2026-11-11T18:42:59.577Z"
+}

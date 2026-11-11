@@ -1,0 +1,521 @@
+{
+  "schema": "imperium.native-export-verification.v11.1",
+  "productVersion": "0.11.0",
+  "checkedAtUtc": "2026-11-11T18:49:41.517Z",
+  "mode": "all",
+  "method": "Read-only Node comparison plus the pinned campaign parser and chemical validators. No simulation update, gameplay command, browser interaction or input repair.",
+  "scope": "Exact v9-to-v10 migration, persistence of an unfinished sample, decision without tank operations, completion from a prepared extraction checkpoint, and unchanged final reload/export.",
+  "limits": [
+    "Filenames and JSON alone do not establish browser provenance; download records and native observations remain separate evidence.",
+    "The sampling, decision and extraction inputs were prepared by the deterministic simulation. Their earlier operations are not a native playthrough.",
+    "Pause controls, focus, visuals, accessibility, audio, viewport size and hardware gamepad behavior are not certified by this comparison.",
+    "No full MI10 mission played natively and no QA status is inferred by this verifier.",
+    "Exact comparisons do not ignore revision, elapsed time, physical damage, inventory or historical receipts."
+  ],
+  "browserOperatedByVerifier": false,
+  "simulationAdvancedByVerifier": false,
+  "inputsModified": false,
+  "verifier": {
+    "file": "verify-native-v11.mjs",
+    "sha256": "5a447136f3d3f5c47f95a7b59b1591e6d30ece740f5f97376d508a2e0e06682b"
+  },
+  "sourceSnapshot": {
+    "expectedCommit": "ce56e044f311d5e39a1647672940dd0db3674f8b",
+    "expectedTree": "a1c40fc9e0946fe29a417ccd494b415b8653861a",
+    "modules": {
+      "src/campaign.mjs": {
+        "expectedSha256": "2631d8c89255e0c8eecb01766644fdd85b4deb46265e6b9ea304fc64183704a2",
+        "sha256": "2631d8c89255e0c8eecb01766644fdd85b4deb46265e6b9ea304fc64183704a2"
+      },
+      "src/chemical-validation.mjs": {
+        "expectedSha256": "ed00e720b26e66b310707e589f90146bdd1309c5812a9449856dcd7980abb3ba",
+        "sha256": "ed00e720b26e66b310707e589f90146bdd1309c5812a9449856dcd7980abb3ba"
+      },
+      "src/chemical-simulation.mjs": {
+        "expectedSha256": "778651c4accc7dd78189d5613d2e06896f16f0587651b7272b269d0d7a743f34",
+        "sha256": "778651c4accc7dd78189d5613d2e06896f16f0587651b7272b269d0d7a743f34"
+      },
+      "src/simulation.mjs": {
+        "expectedSha256": "7e83c1f3d21b8ecf6cfbd4f9458d01ebcaafea1456ba05140f9ddaddf6971aa7",
+        "sha256": "7e83c1f3d21b8ecf6cfbd4f9458d01ebcaafea1456ba05140f9ddaddf6971aa7"
+      },
+      "src/content.mjs": {
+        "expectedSha256": "6448818cd6f0d23f226d4f29904fd63c5c9bcaa7d380427bffa1bccbcf87dca4",
+        "sha256": "6448818cd6f0d23f226d4f29904fd63c5c9bcaa7d380427bffa1bccbcf87dca4"
+      },
+      "src/thyr-validation.mjs": {
+        "expectedSha256": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+        "sha256": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a"
+      },
+      "src/departure-validation.mjs": {
+        "expectedSha256": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b",
+        "sha256": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b"
+      }
+    },
+    "observedCommit": "ce56e044f311d5e39a1647672940dd0db3674f8b",
+    "observedTree": "a1c40fc9e0946fe29a417ccd494b415b8653861a"
+  },
+  "repository": "/workspace/scratch/47882a75de66/ImperiumMarch",
+  "evidenceDirectory": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v11",
+  "inputs": {
+    "baseline": {
+      "file": "docs/validation/native-v11/native-v9-baseline.json",
+      "kind": "historical_native_export",
+      "status": "parsed",
+      "bytes": 73582,
+      "sha256": "de5ece01c690b27435878c0f84f7dfd7f86723500a23a3703e3f8ffce28e6898",
+      "observed": {
+        "version": 9,
+        "revision": 165,
+        "stage": "complete",
+        "activeMissionId": null,
+        "completedMissions": [
+          "MI01",
+          "MI02",
+          "MI03",
+          "MI04",
+          "MI05",
+          "MI06",
+          "MI07",
+          "MI08",
+          "MI09"
+        ],
+        "resources": {
+          "parts": 42,
+          "fuel": 0
+        }
+      }
+    },
+    "migrated": {
+      "file": "docs/validation/native-v11/native-v10-migrated.json",
+      "kind": "supplied_native_export",
+      "status": "pending"
+    },
+    "samplingInput": {
+      "file": "docs/previews/mi10-sampling-checkpoint.json",
+      "kind": "prepared_simulation_checkpoint",
+      "status": "parsed",
+      "bytes": 91731,
+      "sha256": "2addf5888b70fe1f1cfd5a0efda8082e4eca3b6ab625dbdf4dc85038076daea1",
+      "observed": {
+        "version": 10,
+        "revision": 172,
+        "stage": "mission",
+        "activeMissionId": "MI10",
+        "completedMissions": [
+          "MI01",
+          "MI02",
+          "MI03",
+          "MI04",
+          "MI05",
+          "MI06",
+          "MI07",
+          "MI08",
+          "MI09"
+        ],
+        "resources": {
+          "parts": 42,
+          "fuel": 0
+        },
+        "mission": "MI10",
+        "elapsed": 58.949999999997935,
+        "sample": {
+          "started": true,
+          "working": true,
+          "progress": 0.4500000000000036,
+          "collected": false,
+          "lost": false
+        },
+        "choice": null
+      }
+    },
+    "paused": {
+      "file": "docs/validation/native-v11/native-sampling-paused.json",
+      "kind": "supplied_native_export",
+      "status": "pending"
+    },
+    "samplingReloaded": {
+      "file": "docs/validation/native-v11/native-sampling-reloaded.json",
+      "kind": "supplied_native_export",
+      "status": "pending"
+    },
+    "decisionInput": {
+      "file": "docs/previews/mi10-decision-checkpoint.json",
+      "kind": "prepared_simulation_checkpoint",
+      "status": "parsed",
+      "bytes": 128441,
+      "sha256": "096cec3487aedd5a010875cd2325604e0d41bd467b3b5fbdf964710ec5eb5329",
+      "observed": {
+        "version": 10,
+        "revision": 174,
+        "stage": "mission",
+        "activeMissionId": "MI10",
+        "completedMissions": [
+          "MI01",
+          "MI02",
+          "MI03",
+          "MI04",
+          "MI05",
+          "MI06",
+          "MI07",
+          "MI08",
+          "MI09"
+        ],
+        "resources": {
+          "parts": 42,
+          "fuel": 0
+        },
+        "mission": "MI10",
+        "elapsed": 71.93333333333054,
+        "sample": {
+          "started": true,
+          "working": false,
+          "progress": 1,
+          "collected": true,
+          "lost": false
+        },
+        "choice": null
+      }
+    },
+    "choice": {
+      "file": "docs/validation/native-v11/native-choice-defy.json",
+      "kind": "supplied_native_export",
+      "status": "pending"
+    },
+    "extractionInput": {
+      "file": "docs/previews/mi10-before-extraction-checkpoint.json",
+      "kind": "prepared_simulation_checkpoint",
+      "status": "parsed",
+      "bytes": 129576,
+      "sha256": "cfb5b4235138de03077fa671a60643f9c846b93d08bb44e30e49fcfa585cdb0d",
+      "observed": {
+        "version": 10,
+        "revision": 180,
+        "stage": "mission",
+        "activeMissionId": "MI10",
+        "completedMissions": [
+          "MI01",
+          "MI02",
+          "MI03",
+          "MI04",
+          "MI05",
+          "MI06",
+          "MI07",
+          "MI08",
+          "MI09"
+        ],
+        "resources": {
+          "parts": 42,
+          "fuel": 0
+        },
+        "mission": "MI10",
+        "elapsed": 195.53333333338108,
+        "sample": {
+          "started": true,
+          "working": false,
+          "progress": 1,
+          "collected": true,
+          "lost": false
+        },
+        "choice": "defy"
+      }
+    },
+    "completed": {
+      "file": "docs/validation/native-v11/native-mi10-completed.json",
+      "kind": "supplied_native_export",
+      "status": "pending"
+    },
+    "reloaded": {
+      "file": "docs/validation/native-v11/native-mi10-reloaded.json",
+      "kind": "supplied_native_export",
+      "status": "pending"
+    }
+  },
+  "phases": {
+    "migration": {
+      "status": "pending",
+      "requiredInputs": [
+        "baseline",
+        "migrated"
+      ],
+      "unavailableInputs": [
+        "migrated"
+      ]
+    },
+    "sampling": {
+      "status": "pending",
+      "requiredInputs": [
+        "baseline",
+        "samplingInput",
+        "paused",
+        "samplingReloaded"
+      ],
+      "unavailableInputs": [
+        "paused",
+        "samplingReloaded"
+      ]
+    },
+    "choice": {
+      "status": "pending",
+      "requiredInputs": [
+        "baseline",
+        "decisionInput",
+        "choice"
+      ],
+      "unavailableInputs": [
+        "choice"
+      ]
+    },
+    "completion": {
+      "status": "pending",
+      "requiredInputs": [
+        "baseline",
+        "extractionInput",
+        "completed"
+      ],
+      "unavailableInputs": [
+        "completed"
+      ]
+    },
+    "reload": {
+      "status": "pending",
+      "requiredInputs": [
+        "baseline",
+        "completed",
+        "reloaded"
+      ],
+      "unavailableInputs": [
+        "completed",
+        "reloaded"
+      ]
+    }
+  },
+  "checks": [
+    {
+      "id": "source.src/campaign.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "source.src/chemical-validation.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "source.src/chemical-simulation.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "source.src/simulation.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "source.src/content.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "source.src/thyr-validation.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "source.src/departure-validation.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "input.baseline.pinned_bytes",
+      "status": "passed"
+    },
+    {
+      "id": "input.baseline.version",
+      "status": "passed"
+    },
+    {
+      "id": "input.baseline.strict_parse",
+      "status": "passed"
+    },
+    {
+      "id": "input.baseline.strict_round_trip",
+      "status": "passed"
+    },
+    {
+      "id": "input.migrated",
+      "status": "pending",
+      "reason": "File absent; no result or provenance inferred."
+    },
+    {
+      "id": "input.samplingInput.pinned_bytes",
+      "status": "passed"
+    },
+    {
+      "id": "input.samplingInput.version",
+      "status": "passed"
+    },
+    {
+      "id": "input.samplingInput.strict_parse",
+      "status": "passed"
+    },
+    {
+      "id": "input.samplingInput.parser_no_changes",
+      "status": "passed"
+    },
+    {
+      "id": "input.samplingInput.strict_round_trip",
+      "status": "passed"
+    },
+    {
+      "id": "input.paused",
+      "status": "pending",
+      "reason": "File absent; no result or provenance inferred."
+    },
+    {
+      "id": "input.samplingReloaded",
+      "status": "pending",
+      "reason": "File absent; no result or provenance inferred."
+    },
+    {
+      "id": "input.decisionInput.pinned_bytes",
+      "status": "passed"
+    },
+    {
+      "id": "input.decisionInput.version",
+      "status": "passed"
+    },
+    {
+      "id": "input.decisionInput.strict_parse",
+      "status": "passed"
+    },
+    {
+      "id": "input.decisionInput.parser_no_changes",
+      "status": "passed"
+    },
+    {
+      "id": "input.decisionInput.strict_round_trip",
+      "status": "passed"
+    },
+    {
+      "id": "input.choice",
+      "status": "pending",
+      "reason": "File absent; no result or provenance inferred."
+    },
+    {
+      "id": "input.extractionInput.pinned_bytes",
+      "status": "passed"
+    },
+    {
+      "id": "input.extractionInput.version",
+      "status": "passed"
+    },
+    {
+      "id": "input.extractionInput.strict_parse",
+      "status": "passed"
+    },
+    {
+      "id": "input.extractionInput.parser_no_changes",
+      "status": "passed"
+    },
+    {
+      "id": "input.extractionInput.strict_round_trip",
+      "status": "passed"
+    },
+    {
+      "id": "input.completed",
+      "status": "pending",
+      "reason": "File absent; no result or provenance inferred."
+    },
+    {
+      "id": "input.reloaded",
+      "status": "pending",
+      "reason": "File absent; no result or provenance inferred."
+    },
+    {
+      "id": "baseline.nine_reports",
+      "status": "passed"
+    },
+    {
+      "id": "baseline.resources",
+      "status": "passed"
+    },
+    {
+      "id": "baseline.no_chemical_dossier",
+      "status": "passed"
+    },
+    {
+      "id": "migration.comparison",
+      "status": "pending",
+      "reason": "Unavailable or invalid inputs: migrated"
+    },
+    {
+      "id": "sampling.pause.comparison",
+      "status": "pending",
+      "reason": "Unavailable or invalid inputs: paused"
+    },
+    {
+      "id": "sampling.reload.comparison",
+      "status": "pending",
+      "reason": "Unavailable or invalid inputs: paused, samplingReloaded"
+    },
+    {
+      "id": "choice.comparison",
+      "status": "pending",
+      "reason": "Unavailable or invalid inputs: choice"
+    },
+    {
+      "id": "completion.comparison",
+      "status": "pending",
+      "reason": "Unavailable or invalid inputs: completed"
+    },
+    {
+      "id": "reload.comparison",
+      "status": "pending",
+      "reason": "Unavailable or invalid inputs: completed, reloaded"
+    },
+    {
+      "id": "integrity.input.baseline",
+      "status": "passed"
+    },
+    {
+      "id": "integrity.input.samplingInput",
+      "status": "passed"
+    },
+    {
+      "id": "integrity.input.decisionInput",
+      "status": "passed"
+    },
+    {
+      "id": "integrity.input.extractionInput",
+      "status": "passed"
+    },
+    {
+      "id": "integrity.source.src/campaign.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "integrity.source.src/chemical-validation.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "integrity.source.src/chemical-simulation.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "integrity.source.src/simulation.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "integrity.source.src/content.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "integrity.source.src/thyr-validation.mjs",
+      "status": "passed"
+    },
+    {
+      "id": "integrity.source.src/departure-validation.mjs",
+      "status": "passed"
+    }
+  ],
+  "counts": {
+    "passed": 40,
+    "failed": 0,
+    "pending": 12
+  },
+  "status": "pending"
+}
