@@ -6,7 +6,7 @@
 npm run build:web
 ```
 
-Cette commande produit `web-dist/` avec `index.html`, les modules et styles de `src/`, ainsi que les images de `assets/`. La racine du site ouvre le jeu. Aucune dépendance à installer, fonction serveur, base de données ou variable secrète n'est nécessaire.
+Cette commande produit `web-dist/` avec `index.html`, les modules et styles de `src/`, ainsi que tous les fichiers de `assets/`. La racine du site ouvre le jeu. Aucune dépendance à installer, fonction serveur, base de données ou variable secrète n'est nécessaire.
 
 `vercel.json` sélectionne le préréglage **Other**, ignore l'installation de dépendances, exécute `npm run build:web` et publie `web-dist`. La navigation entre campagne, simulations, hangar, archives et réglages reste dans la page : aucune réécriture de routes n'est nécessaire.
 
@@ -68,7 +68,7 @@ La sauvegarde reste locale au navigateur et à l'adresse du site. Utiliser l'adr
 - Vérifier que la page d'accueil, les modules, les styles et les images sont présents dans la sortie web.
 - Après déploiement, contrôler le commit servi, la disponibilité des ressources et le lancement de la campagne dans un navigateur réel.
 
-Les tests courants sont documentés dans [QA_V08.md](QA_V08.md). Les rapports précédents restent conservés comme historique. Un déploiement prêt ne remplace pas une validation navigateur.
+Les tests courants sont documentés dans [QA_V09.md](QA_V09.md). Les rapports précédents restent conservés comme historique. Un déploiement prêt ne remplace pas une validation navigateur.
 
 
 ## Publication 0.7
@@ -102,3 +102,15 @@ Le déploiement **dpl_7iu5U9tiadVKz7NHrWPbYANYkew7** est **READY** pour ce SHA e
 Chrome a repris le checkpoint sanitaire à 74,332 % après ce déploiement, sans changement d’état. Les cartes sont désormais séparées du HUD. Le transfert physique, les arrivées des quatre patients et des deux membres de l’équipe, l’extraction et le septième rapport ont été achevés dans le navigateur. Le dossier final reste intégralement identique après rechargement ; les six anciens rapports et les bilans de MI05–MI06 sont conservés. Le [rapport navigateur final](validation/v08-browser.json) précise le point préparé dans Node, les actions natives et les limites.
 
 Les captures, exports, rapports de validation et cette documentation sont publiés dans un suivi documentaire. Ce suivi conserve les **36 empreintes applicatives** du correctif, y compris le HTML autonome et le XLSX. Les vérifications de la publication finale portent de nouveau sur son arbre, sa CI, son déploiement exact et les dix ressources servies.
+
+## Publication applicative initiale de la 0.9
+
+La 0.9 ajoute MI08, le dossier v8 et 354 fichiers de production : 287 SVG, six rigs, cinq planches PNG et 56 WAV. Le classeur initial rassemble 816 fiches. Les résultats de réception humaine et les parcours natifs sont suivis séparément dans [QA_V09.md](QA_V09.md) ; cette publication initiale ne les anticipe pas.
+
+Le commit **c044fbe32a28e2f83f8d8088d46b43034af49d48**, enfant de `0ae303a7b04d45472dc17154039ddc73760dc97a`, publie les **781 fichiers** du commit local figé `01c4aed07788c574eeed421222c2de5fe3d25bdf`. L’arbre distant `ab7ef12b4e70f58661414d871aedde26831be688` correspond intégralement au snapshot, et les **387 empreintes** du [contrôle initial](validation/v09-release-checks-initial.json) concordent. Le delta comprend 449 ajouts et 29 changements, sans suppression. La mise à jour de `main` a vérifié son parent attendu avec `force:false`.
+
+Le déploiement **dpl_HymTJVXhHHzcn2NUrYtno5sSgTgM** est **READY** pour ce SHA exact. Il dessert [l’adresse stable](https://imperium-march.vercel.app/) et dispose de son [adresse immuable](https://imperium-march-cj5zkplcz-darknigthmares-projects.vercel.app). La [CI 43008297207](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43008297207) a réussi sous **Node 22.23.4** : 290 tests, 57 parcours UI dans le DOM modélisé, cinq cas de comparaison SVG/Canvas avec `@napi-rs/canvas@0.1.100`, catalogue de 816 fiches, contrôles UI et constructions autonome et web. Les gates locaux du snapshot ont été exécutés sous Node 24.22.1 ; le résultat distant atteste séparément Node 22.
+
+Les **treize ressources HTTP** contrôlées — index, neuf modules, deux feuilles de style et emblème — répondent 200 et leur contenu UTF-8 est strictement identique au snapshot. Le runtime Node `22.x`, le projet, les domaines et la protection Vercel restent inchangés. Le [reçu initial](validation/v09-publication-initial.json) conserve les SHA, l’arbre, la CI, le déploiement, les empreintes HTTP et les limites de ces contrôles.
+
+Le XLSX de cette publication initiale a pour SHA-256 `866b7ec16d491c4ece870a9689356bb8c90a08b01630bf4dc42f6310ecb86524`. Les observations Chrome et la réception finale du classeur feront l’objet du suivi documentaire ; elles ne sont pas déduites du seul état READY.

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "version": "0.9.0",
+  "receivedAt": "2026-11-11T11:28:14.119318+00:00",
+  "scope": "Réception des preuves Chrome fournies par l’opérateur root, avec rapprochement indépendant des exports. Cette réception ne constitue pas une nouvelle exécution navigateur.",
+  "publication": {
+    "commit": "c044fbe32a28e2f83f8d8088d46b43034af49d48",
+    "tree": "ab7ef12b4e70f58661414d871aedde26831be688",
+    "url": "https://imperium-march.vercel.app/"
+  },
+  "proofs": [
+    {
+      "path": "docs/validation/v09-browser.json",
+      "sha256": "be671a9f82e6b3de2706f0bb51da7b809b8728d57ce9c0910fee984c74e6646d"
+    },
+    {
+      "path": "docs/validation/v09-browser-export-audit.json",
+      "sha256": "577574820c1dd95ab6bd889bce9f030a3c4f859b2f8dd346119a2d866c379518"
+    },
+    {
+      "path": "docs/validation/v09-browser-sanitary-panel.json",
+      "sha256": "c03c05f48b285d8cc4b95ec6e13af931297ac2e42d47e11e4e165311dacf028e"
+    }
+  ],
+  "artifactFilesRechecked": 54,
+  "nativePngCaptures": 19,
+  "environment": {
+    "browser": "Managed native Chrome on Linux",
+    "desktopPixels": [
+      1363,
+      1023
+    ],
+    "pageViewportPixels": [
+      1363,
+      936
+    ],
+    "scrollableDocumentCSSPixels": [
+      1348,
+      936
+    ],
+    "zoom125CSSPixels": [
+      1078,
+      749
+    ],
+    "zoom150CSSPixels": [
+      899,
+      624
+    ],
+    "hardwareGamepad": false,
+    "humanAudioReview": false,
+    "nativeOfficeGUI": false
+  },
+  "verifiedQa": [
+    "QA21",
+    "QA37",
+    "QA38",
+    "QA45",
+    "QA60"
+  ],
+  "partialAssetLots": [
+    "AS56",
+    "AS61"
+  ],
+  "partialProductionLots": [
+    "PR32"
+  ],
+  "openQa": {
+    "QA19": "Not validated. Two native focus-with-held-D attempts (another tab, then address bar) did not visibly pause and movement continued. Existing blur/visibility/focus guards are present; cause between app and managed input environment is not established. Do not call this passed or silently classify it as an environment-only failure.",
+    "QA20": "Large viewport and Chrome zoom125/150 inspected. An independently resized small native window was not established, so the whole original criterion remains open.",
+    "QA29": "No native graphical Calc/Excel application was available. Headless workbook recalculation is separate."
+  },
+  "mi08": {
+    "start": "Prepared authentic gate checkpoint imported explicitly; subsequent gate-to-completion journey uses native public controls.",
+    "peopleAtRefuge": 34,
+    "peopleLocal": 2,
+    "peopleLost": 0,
+    "patientsAtRefuge": 4,
+    "boatsArrived": 2,
+    "oldReportsPreserved": 7,
+    "partsBefore": 34,
+    "partsAfter": 38,
+    "fuel": 0,
+    "cumulativeFuelSpent": 2,
+    "completedReloadBytesExactlyEqual": true
+  },
+  "comparisonBoundary": "MI01, MI02 and partial-gate reloads preserve checkpoints exactly; top-level revision changes where documented. The final completed MI08 export is byte-identical after reload. Prepared reports are not native full completions.",
+  "postPublicationTextConfirmation": "Pending separate root receipt for Unicode command-label boundaries and registry prompt after transmission; these changes are covered automatically but were not observed fixed in the initial Chrome session.",
+  "humanOrHardwareValidation": false,
+  "initialArtifactFilesRechecked": 52,
+  "supplementaryArtifactFilesRechecked": 2,
+  "supplementarySanitaryPanel": {
+    "rows": 7,
+    "developedNativePanelObserved": true,
+    "initialReportUnchanged": true,
+    "scope": "Displayed UI facts from the preserved first MI07 report. No claim of human comprehension, consent by every patient, final commercial presentation or new historical identity."
+  }
+}

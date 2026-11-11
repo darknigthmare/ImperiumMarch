@@ -1,0 +1,422 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-11T11:19:42.927265+00:00",
+  "status": "received_with_open_items",
+  "site": "https://imperium-march.vercel.app/",
+  "testedCommit": "c044fbe32a28e2f83f8d8088d46b43034af49d48",
+  "testedTree": "ab7ef12b4e70f58661414d871aedde26831be688",
+  "environment": {
+    "browser": "Managed native Chrome on Linux",
+    "desktopPixels": [
+      1363,
+      1023
+    ],
+    "pageViewportPixels": [
+      1363,
+      936
+    ],
+    "scrollableDocumentCSSPixels": [
+      1348,
+      936
+    ],
+    "zoom125CSSPixels": [
+      1078,
+      749
+    ],
+    "zoom150CSSPixels": [
+      899,
+      624
+    ],
+    "hardwareGamepad": false,
+    "humanAudioReview": false,
+    "nativeOfficeGUI": false
+  },
+  "method": "Public interface only: normal DOM locators, physical keyboard/mouse through the supported browser and desktop APIs, native file chooser, real exported downloads, visible DOM and screenshots. No injected application state or hidden runtime inspection.",
+  "qaVerified": [
+    "QA21",
+    "QA37",
+    "QA38",
+    "QA45",
+    "QA60"
+  ],
+  "qaOpen": {
+    "QA19": "Not validated. Two native focus-with-held-D attempts (another tab, then address bar) did not visibly pause and movement continued. Existing blur/visibility/focus guards are present; cause between app and managed input environment is not established. Do not call this passed or silently classify it as an environment-only failure.",
+    "QA20": "Large viewport and Chrome zoom125/150 inspected. An independently resized small native window was not established, so the whole original criterion remains open.",
+    "QA29": "No native graphical Calc/Excel application was available. Headless workbook recalculation is separate."
+  },
+  "flows": [
+    {
+      "id": "migration",
+      "result": "Exact v7-to-v8 migration, preserving all seven reports, resources and prior fields; adds only the empty departure object and version8. Native export matches expected JSON."
+    },
+    {
+      "id": "MI01",
+      "actions": [
+        "Create disposable test dossier after preserving original export",
+        "Open briefing; Tab focus visible; Enter deploys",
+        "Walk right2.2s and fire three cannon rounds",
+        "Escape pause; return to command deck; export; reload; export; resume",
+        "Inspect imported completed MI01 consequences in hangar, crew and archives"
+      ],
+      "scope": "Native movement/pause/reload/reprise verified. Completed MI01 report used for UI review is an authentic prepared earlier dossier, not a new full native playthrough."
+    },
+    {
+      "id": "portable-save",
+      "actions": [
+        "Import prepared valid MI01 dossier with explicit in-product confirmation",
+        "Export from Chrome",
+        "Reject invalid JSON through native file chooser",
+        "Export preserved dossier",
+        "Reimport the actual Chrome export with confirmation and export again"
+      ],
+      "result": "Byte equality and absence of extra rewards are checked in v09-browser-export-audit.json."
+    },
+    {
+      "id": "MI02",
+      "actions": [
+        "Unlock MI02 from imported MI01 report",
+        "Open briefing, deploy and walk",
+        "Import the explicitly prepared chase checkpoint",
+        "Resume and walk1.6s during pursuit; screenshot; pause",
+        "Export; reload; export; resume",
+        "Interact with E and remain anchored4.5s; export stopped train",
+        "Import authentic prepared two-report dossier; inspect both reports and both replay briefings"
+      ],
+      "scope": "Native chase, reload and braking verified from prepared public-simulation checkpoint. This is not a full MI02 native campaign completion."
+    },
+    {
+      "id": "controls",
+      "actions": [
+        "Attempt to assign E to Avancer: conflict message shown",
+        "Escape cancels capture",
+        "Assign K, reload, confirm K persists",
+        "Restore default bindings",
+        "Tab and Shift+Tab display visible focus; Escape closes briefing and restores opener focus",
+        "Native Chrome zoom125 and150; Tab scrolls deployment button into view; restore100"
+      ]
+    },
+    {
+      "id": "MI08",
+      "preparedInput": "docs/validation/v09-browser-native-gate-input.json",
+      "actions": [
+        "Import prepared descendant of actual historical seven-report dossier at partial passage gate",
+        "Resume; anchor; save partial gate position; reload and compare exact checkpoint",
+        "E plus anchor opens passage",
+        "Wait for real departures:34 departed,0 arrived",
+        "E plus anchor closes passage after both boats exit",
+        "Walk toward registry; observe27 arrivals then34",
+        "Interact and transmit only after every person reaches terminal destination",
+        "Finish extraction and inspect result",
+        "Export completed dossier and reload/export again",
+        "Expand Aval roster and inspect36 individual rows including4patients,2local technicians and Mara Eren"
+      ],
+      "result": {
+        "census": 36,
+        "departed": 34,
+        "refuge": 34,
+        "local": 2,
+        "lost": 0,
+        "patientsRefuge": 4,
+        "boatsDeparted": 2,
+        "boatsArrived": 2,
+        "boatsLost": 0,
+        "locks": "both closed",
+        "reportTransmitted": true
+      },
+      "scope": "Preparatory MI08 play before the partial gate was done by the public simulation driver. Gate-to-result was exercised natively with no further checkpoint imports; the first extraction included the unresolved focus/input observation in QA19. A later address-bar retry restored the actual native transmitted export, not the Node completed reference."
+    }
+  ],
+  "defectsFound": [
+    {
+      "id": "unicode-key-hints",
+      "observed": "The radio word Départ became D / →épart.",
+      "resolution": "Unicode word boundaries corrected in src/controls.mjs; regression test added. Final publication verification pending."
+    },
+    {
+      "id": "transmitted-registry-hint",
+      "observed": "After actual transmission the nearby registry hint still said the report was waiting for operations.",
+      "resolution": "The transmitted branch now takes precedence; existing test covers four report states for three decisions. Final publication verification pending."
+    },
+    {
+      "id": "focus-held-input",
+      "observed": "Held D persisted during the native tab/address-bar focus attempts.",
+      "resolution": "Open; QA19 is not validated. No speculative runtime patch."
+    }
+  ],
+  "console": {
+    "capturedLimit": 5000,
+    "capturedWarningsAndErrors": 272,
+    "applicationEntries": 0,
+    "extensionEntries": 272,
+    "source": "docs/validation/v09-browser-console.json",
+    "note": "All captured entries originate from the browser extension metadata script; no application warning/error was captured."
+  },
+  "limitations": [
+    "No claim of physical gamepad testing, human audio/mix validation or full MI01/MI02/MI08 playthrough starting from each chapter beginning.",
+    "CLI Chromium could not start under this environment; it is not counted as browser verification.",
+    "Browser file: navigation was blocked by policy; the already-authorized published HTTPS site was used.",
+    "The protected read-only DOM facade does not expose document.hasFocus; its tool TypeError is not treated as an application error or proof of focus."
+  ],
+  "artifacts": [
+    {
+      "path": "docs/previews/browser-v09-aval-roster.png",
+      "bytes": 104024,
+      "sha256": "7e8d5bdbc5f519094ee8f2c9c85e7a22d4334d0bdde487cbf3a88f17c36f50d4"
+    },
+    {
+      "path": "docs/previews/browser-v09-briefing-keyboard.png",
+      "bytes": 61606,
+      "sha256": "0ab27da6e38059b8d28248bcc3733ff19fe2b32e6479dfc36d2ba12a28100752"
+    },
+    {
+      "path": "docs/previews/browser-v09-briefing-zoom150-focus.png",
+      "bytes": 52695,
+      "sha256": "00ff337eb0189cfac05e4df386052eb24bb80115507b3a04222d9ebe2c41152e"
+    },
+    {
+      "path": "docs/previews/browser-v09-briefing-zoom150.png",
+      "bytes": 49138,
+      "sha256": "cd55784ffbebd2991514e55dac18ef2772e849aadd9809a690400b550788f1f2"
+    },
+    {
+      "path": "docs/previews/browser-v09-focus-return-running.png",
+      "bytes": 117286,
+      "sha256": "ca798d40281c7834749adb4ac0469af720245686583b45cf863522065ca105a1"
+    },
+    {
+      "path": "docs/previews/browser-v09-hangar.png",
+      "bytes": 94179,
+      "sha256": "144ae6162a9706d9e27986a6156c4d178e993ad4246371997a41c16d13de1f36"
+    },
+    {
+      "path": "docs/previews/browser-v09-mi01-moving.png",
+      "bytes": 98171,
+      "sha256": "20cf504e79a6edc44b464c07378837e27510734b4ece8dfe554943171a138456"
+    },
+    {
+      "path": "docs/previews/browser-v09-mi02-chase.png",
+      "bytes": 109625,
+      "sha256": "aa68fd827dea4d1edeeb37dc3f5d0e2094ded35a8c122e24c1f803eb6752452f"
+    },
+    {
+      "path": "docs/previews/browser-v09-mi08-arrivals-report.png",
+      "bytes": 119011,
+      "sha256": "580d7ee2554aa0f539bfbdeec620054fe68939b8c83ed52ef3df3e9a8dddacd0"
+    },
+    {
+      "path": "docs/previews/browser-v09-mi08-departed.png",
+      "bytes": 111497,
+      "sha256": "9d789958e20ceba016288b46f1a8216d34e99c21bf0a972a40e086177b3221e1"
+    },
+    {
+      "path": "docs/previews/browser-v09-mi08-gate.png",
+      "bytes": 112674,
+      "sha256": "d1f271ed441a561d7d17483115c3f6d2e5d617ff9db2e4f4866ad55880d41fb4"
+    },
+    {
+      "path": "docs/previews/browser-v09-mi08-opening.png",
+      "bytes": 111281,
+      "sha256": "7b5bbee92728a84d9120d30e52375e68b4cc1c9c25c0807b292f0c38e2afb25a"
+    },
+    {
+      "path": "docs/previews/browser-v09-mi08-result.png",
+      "bytes": 81391,
+      "sha256": "61ab5758c6667911cda48d4fe18905f42a67428ec5146daa1ab186e24ff537e4"
+    },
+    {
+      "path": "docs/previews/browser-v09-mi08-transmitted.png",
+      "bytes": 120198,
+      "sha256": "f1b059d0e3678168163fc6130e58f6c63c4bc97c642b6415b247b7c6a0aaaac9"
+    },
+    {
+      "path": "docs/previews/browser-v09-mi08-window-closed.png",
+      "bytes": 111620,
+      "sha256": "cef53eedd163600e59b5828f7508acf8b48cdbc255b8c96898311e95301fda04"
+    },
+    {
+      "path": "docs/previews/browser-v09-settings-keyboard.png",
+      "bytes": 60120,
+      "sha256": "96dca40241808bc88ba6f4fb5ffb0a24a295374bdd6e3f5857ab06ee1bb457a2"
+    },
+    {
+      "path": "docs/previews/browser-v09-settings-zoom125.png",
+      "bytes": 59943,
+      "sha256": "e4547af2ae1620156baa255baf28a8fe25a568c47ba3626248955c218c558ae9"
+    },
+    {
+      "path": "docs/previews/browser-v09-two-reports.png",
+      "bytes": 71636,
+      "sha256": "227d29222bd3075ff8c04b5bcb443a078f418de6e7c675aaeb06b243aeb4da22"
+    },
+    {
+      "path": "docs/validation/v09-browser-archives.txt",
+      "bytes": 17443,
+      "sha256": "c16915666d031db2254bc076b9422ce68bbec38d27092e1903249092e4bd5730"
+    },
+    {
+      "path": "docs/validation/v09-browser-console.json",
+      "bytes": 64194,
+      "sha256": "54ada89ffe8e90632e02864aea2efdba9e55d33d272954da2362cacce7623b4a"
+    },
+    {
+      "path": "docs/validation/v09-browser-departed-input.json",
+      "bytes": 99218,
+      "sha256": "685104638fedff15e8009bedd20e958ea70d5a00456db1e53d4bdd699f6557a4"
+    },
+    {
+      "path": "docs/validation/v09-browser-gate-input.json",
+      "bytes": 98897,
+      "sha256": "986165c2c8bb82063c5fc1e5d2ee4913ba78beb480d4ecc3a7f5d1e81c487d5a"
+    },
+    {
+      "path": "docs/validation/v09-browser-input-manifest.json",
+      "bytes": 5109,
+      "sha256": "f89b53b3a1d153da72f9eb23a13b3c21d6b3d779d6e1c12b0ad430560be46e23"
+    },
+    {
+      "path": "docs/validation/v09-browser-invalid-import-preserved.json",
+      "bytes": 5484,
+      "sha256": "c19b793cdc37d054843fa5252f2ee5306431b846bd450a87f0fe396878e4ae8a"
+    },
+    {
+      "path": "docs/validation/v09-browser-invalid-input.json",
+      "bytes": 29,
+      "sha256": "69014a5bac1a88796a4d79e07a208a8be0337db0cb877ee2690be3689cd30524"
+    },
+    {
+      "path": "docs/validation/v09-browser-landing-input.json",
+      "bytes": 99383,
+      "sha256": "3af6d4d7fea94eb749441774358d0cfd5aec4effe1095d39daa070641c92bc61"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi01-after-reload.json",
+      "bytes": 20226,
+      "sha256": "eb29887251fc470f26832335aea905941845a48e31a6e6d84725540a2c10f9f9"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi01-before-reload.json",
+      "bytes": 20225,
+      "sha256": "3cbcf15b0ca9c85874bbeae2b11bf54b937b36cc9dac399c6a1c9207b40b946e"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi01-completed-input.json",
+      "bytes": 5484,
+      "sha256": "c19b793cdc37d054843fa5252f2ee5306431b846bd450a87f0fe396878e4ae8a"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi01-valid-import.json",
+      "bytes": 5484,
+      "sha256": "c19b793cdc37d054843fa5252f2ee5306431b846bd450a87f0fe396878e4ae8a"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi02-after-reload.json",
+      "bytes": 33120,
+      "sha256": "ff6fbcc6ab8928bc46b47d6c4e0182d6d0a91ce0df4c45c2abe442504d7c00fd"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi02-before-reload.json",
+      "bytes": 33120,
+      "sha256": "07b0746750c67d0b3ba423aebeeae0663d64461cc23d9d1257be3e78a065d750"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi02-brake.json",
+      "bytes": 26979,
+      "sha256": "4a3e666870f3abf034dc61ba61e7fe85734dab1a663f44fa9d2190fafd68f218"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi02-chase-input.json",
+      "bytes": 35227,
+      "sha256": "0442aa7f34a8819e320217af40d88a8bc003de74762227a550ba3f9395f0e6c7"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi02-completed-input.json",
+      "bytes": 34188,
+      "sha256": "a5cc7cef069c69ce9247c783bfde18a7c5f37829570f10a5ae2cca816bc74950"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi08-completed-after-reload.json",
+      "bytes": 48326,
+      "sha256": "fdcc6d1aee92cfd8f1ee11a386f93bcd02442fcc4d55153f7968d648556d3315"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi08-completed.json",
+      "bytes": 48326,
+      "sha256": "fdcc6d1aee92cfd8f1ee11a386f93bcd02442fcc4d55153f7968d648556d3315"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi08-gate-after-reload.json",
+      "bytes": 55916,
+      "sha256": "cb5befc445bb25cc254acc45468189f145c71105b2294352bb97637964f227ac"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi08-gate-before-reload.json",
+      "bytes": 55916,
+      "sha256": "1aa45450cfd7b36864f3e1a5bf2ba6683a9da4b1d8e5c865ee5ef28dd850a669"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi08-start.json",
+      "bytes": 45278,
+      "sha256": "cb6f5b0722a8f2de91bdb19c14a00bb484b4b92b049310a33ecb6ec297e2c754"
+    },
+    {
+      "path": "docs/validation/v09-browser-mi08-transmitted.json",
+      "bytes": 57646,
+      "sha256": "d640bb040e9c7c00955d228ac17c3ec126533038c1eac30411ddcd08af8820dc"
+    },
+    {
+      "path": "docs/validation/v09-browser-migration-after.json",
+      "bytes": 39223,
+      "sha256": "1cc6728c1632e5cd11faefcd2cc4981f71857ab4c2bfd7eb5fa4537006fd7af9"
+    },
+    {
+      "path": "docs/validation/v09-browser-migration-before.json",
+      "bytes": 38351,
+      "sha256": "8eeae36f338aac4ed5916330443fb7fd77c36f8b960d1c0f76fa1febd5c71252"
+    },
+    {
+      "path": "docs/validation/v09-browser-migration-expected.json",
+      "bytes": 39223,
+      "sha256": "1cc6728c1632e5cd11faefcd2cc4981f71857ab4c2bfd7eb5fa4537006fd7af9"
+    },
+    {
+      "path": "docs/validation/v09-browser-native-completed-reference.json",
+      "bytes": 48326,
+      "sha256": "aa896deb5a3fd0ebd708494e308e09248820eeac58c72840aea039a4b0463e9c"
+    },
+    {
+      "path": "docs/validation/v09-browser-native-departed-input.json",
+      "bytes": 56256,
+      "sha256": "575cf40eac079789c1c30cdbd1c5224a2e31864b7766e28945bdfdd08803b292"
+    },
+    {
+      "path": "docs/validation/v09-browser-native-extraction-input.json",
+      "bytes": 61217,
+      "sha256": "77f8c6a3c68837ccbf8e03ad2fe9888d389bc2d79f240f873c4f24c99a911854"
+    },
+    {
+      "path": "docs/validation/v09-browser-native-gate-input.json",
+      "bytes": 55937,
+      "sha256": "52cca3cf799c73a1d12e7996339c9aa9f5fe71563890f609b920e94645500473"
+    },
+    {
+      "path": "docs/validation/v09-browser-native-landing-input.json",
+      "bytes": 56121,
+      "sha256": "a56f53a9b51fcf3c4e4cb5598c06fb42dd7f083eec995f735be0cfa74108ff04"
+    },
+    {
+      "path": "docs/validation/v09-browser-native-report-input.json",
+      "bytes": 63081,
+      "sha256": "6156ddf89ef90a9b6fefd25aee9ac1b6686be600f1c01617d46d9dec22bf2ec1"
+    },
+    {
+      "path": "docs/validation/v09-browser-report-input.json",
+      "bytes": 105664,
+      "sha256": "216aea42cbe9fb87f1e34825c221fee6db95ce9020be4e9ed64ebbe8c5c462b7"
+    },
+    {
+      "path": "docs/validation/v09-browser-roundtrip-valid.json",
+      "bytes": 5484,
+      "sha256": "c19b793cdc37d054843fa5252f2ee5306431b846bd450a87f0fe396878e4ae8a"
+    }
+  ]
+}

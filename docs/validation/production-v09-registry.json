@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "version": "0.9.0",
-  "auditStage": "partial_receipts_applied_final_quality_gates_pending",
+  "auditStage": "final_receipts",
   "createdAt": "2026-11-11T09:54:21.084830+00:00",
   "baseline": {
     "path": "docs/validation/production-v09-baseline.json",
@@ -9,7 +9,7 @@
     "sourceRevision": "03c69e73175d6e2d61f59f6f9ba8ee80da827103"
   },
   "scope": "Les 133 lignes À produire de la baseline demeurent dans ce registre, même si leur statut évolue ensuite. La baseline et ses critères restent inchangés.",
-  "statusRule": "Aucun statut du référentiel n’est changé par cet audit. Une promesse, une spécification, un test source ou un rendu seul ne clôt pas les critères absents.",
+  "statusRule": "La baseline et l’audit initial n’altèrent aucun critère. Les réceptions appliquent ensuite un statut documenté : Prototype pour un livrable partiel, Vérifié pour une preuve exécutée dans sa portée; les exigences non satisfaites restent explicites.",
   "counts": {
     "baselineRecords": 133,
     "bySheet": {
@@ -23,8 +23,13 @@
       "couvert": 2,
       "candidat_verification": 2
     },
-    "appliedStatusChanges": 31,
-    "recordsWithV09Work": 51
+    "appliedStatusChanges": 51,
+    "recordsWithV09Work": 75,
+    "currentBaselineStatuses": {
+      "Prototype": 35,
+      "À produire": 82,
+      "Vérifié": 16
+    }
   },
   "evidenceCatalog": {
     "SIM": {
@@ -1746,12 +1751,17 @@
           "assets_audio",
           "bible_production"
         ],
-        "state": "partial_artifacts_received",
+        "state": "partial_work_received",
         "workPerformed": [
           {
             "receiptId": "assets-audio-package",
             "description": "Deux manifestes avec origine, méthode, date, version, droits déclarés, chemins et SHA-256 des 354 fichiers du lot.",
             "limits": "Réconcilier le lot avec tous les médias embarqués de la livraison finale; les droits déclarés ne constituent pas la revue commerciale PR26."
+          },
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Le manifeste de distribution rapproche tous les médias des sources, du web et du HTML, en plus des nouveaux exports; les références non distribuées sont déclarées.",
+            "limits": "Champs historiques de génération/droits inconnus explicitement conservés; revue commerciale et juridique PR26 non exécutée."
           }
         ],
         "deliverables": [
@@ -1761,9 +1771,11 @@
         ],
         "evidence": [
           "docs/validation/production-v09-assets-audio-tests.txt",
-          "docs/validation/production-v09-assets-receipt.json"
+          "docs/validation/production-v09-assets-receipt.json",
+          "assets/production/distribution-manifest.json",
+          "docs/validation/v09-media-audit.txt"
         ],
-        "remainingWork": "Réconcilier le lot avec tous les médias embarqués de la livraison finale; les droits déclarés ne constituent pas la revue commerciale PR26."
+        "remainingWork": "Champs historiques de génération/droits inconnus explicitement conservés; revue commerciale et juridique PR26 non exécutée."
       },
       "reconciliationProposal": {
         "status": "Prototype",
@@ -3029,6 +3041,11 @@
             "receiptId": "assets-audio-package",
             "description": "Porte, mécanisme indépendant, Veille d’Aval, Rive-Courte et refuge vectoriels.",
             "limits": "MI08 et son renderer sont en intégration; aucune arrivée ou personne n’est certifiée par ces dessins seuls."
+          },
+          {
+            "receiptId": "workbook-final-reception-v09",
+            "description": "L’intégration du kit MI08 est reçue sur dix-sept scènes Canvas et la continuation Chrome explicitement bornée.",
+            "limits": "Gestes, finition et compréhension humaine restent ouverts; les dessins seuls ne certifient pas une arrivée."
           }
         ],
         "deliverables": [
@@ -3038,9 +3055,11 @@
         ],
         "evidence": [
           "docs/validation/production-v09-assets-audio-tests.txt",
-          "docs/validation/production-v09-assets-receipt.json"
+          "docs/validation/production-v09-assets-receipt.json",
+          "docs/previews/mi08-render-manifest.json",
+          "docs/validation/v09-browser.json"
         ],
-        "remainingWork": "MI08 et son renderer sont en intégration; aucune arrivée ou personne n’est certifiée par ces dessins seuls."
+        "remainingWork": "Gestes finaux, finition visuelle et compréhension humaine des états restent ouverts; kit et intégration au renderer reçus dans la portée documentée."
       },
       "reconciliationProposal": {
         "status": "Prototype",
@@ -3331,18 +3350,39 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
-        "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Finir présentation comparée, iconographie et navigation; vérifier distinction coût de sortie/cumul sans seule couleur."
+        "state": "partial_work_received",
+        "workPerformed": [
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "Archives de Nacre et état courant exposent personnes, logements, service, stock et dépense; journal et registre d’Aval parcourus dans Chrome, reçus JSON conservés.",
+            "limits": "Présentation encore au stade prototype. La capture montre deux lots consommés dans la sortie; le cas zéro dans cette sortie après deux lots dépensés auparavant reste à observer dans Chrome, ainsi que sa compréhension spontanée."
+          }
+        ],
+        "deliverables": [
+          "src/main.mjs",
+          "index.html",
+          "src/style.css"
+        ],
+        "evidence": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-archives.txt"
+        ],
+        "remainingWork": "Présentation encore au stade prototype. La capture montre deux lots consommés dans la sortie; le cas zéro dans cette sortie après deux lots dépensés auparavant reste à observer dans Chrome, ainsi que sa compréhension spontanée."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Prototype",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Prototype",
+        "basis": "Archives de Nacre et état courant exposent personnes, logements, service, stock et dépense; journal et registre d’Aval parcourus dans Chrome, reçus JSON conservés.",
+        "proofs": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-archives.txt"
+        ]
+      },
+      "currentStatus": "Prototype",
       "criterionState": "partial"
     },
     {
@@ -3547,18 +3587,46 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
-        "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Finir présentation sanitaire et vérifier confidentialité narrative et compréhension des états inconnus."
+        "state": "partial_work_received",
+        "workPerformed": [
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "Dossier sanitaire, états des personnes, cargaison, balise et destination présentés séparément. Le rapport Chrome garde « origine de la pose : à recouper » et un accord à témoigner distinct du recensement.",
+            "limits": "Présentation finale et compréhension humaine à produire. Le panneau détaillé sanitaire est replié dans la preuve native; son contenu développé est étayé par code et tests. Le registre d’Aval n’attribue pas un accord de témoignage à tous les patients."
+          },
+          {
+            "receiptId": "native-sanitary-panel-v09",
+            "description": "Panneau sanitaire développé dans Chrome : sept lignes séparent examen, cargaison, balise et attaches, journal, origine à recouper, témoin et transmission à Mara.",
+            "limits": "Présentation finale, compréhension humaine et consentement de tous les patients ne sont pas revendiqués."
+          }
+        ],
+        "deliverables": [
+          "src/main.mjs",
+          "index.html",
+          "src/style.css"
+        ],
+        "evidence": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-archives.txt",
+          "docs/validation/v09-browser-sanitary-panel.json",
+          "docs/validation/v09-browser-sanitary-panel.txt"
+        ],
+        "remainingWork": "Présentation finale et compréhension humaine à produire; aucun accord de témoignage général des patients ne peut être déduit du registre ou du consentement d’un membre de l’équipe."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Prototype",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Prototype",
+        "basis": "Dossier sanitaire, états des personnes, cargaison, balise et destination présentés séparément. Le rapport Chrome garde « origine de la pose : à recouper » et un accord à témoigner distinct du recensement.",
+        "proofs": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-archives.txt"
+        ]
+      },
+      "currentStatus": "Prototype",
       "criterionState": "partial"
     },
     {
@@ -3671,12 +3739,22 @@
         "owners": [
           "bible_production"
         ],
-        "state": "verified_on_initial_source",
+        "state": "partial_work_received",
         "workPerformed": [
           {
             "receiptId": "reference-audit-initial",
             "description": "Audit exhaustif des références et déclarations symboliques; sept mutations négatives rejetées, cinq baselines historiques contrôlées sans Git et révision inconnue rejetée.",
             "limits": "Contrôle sur la Bible 0.8 initiale, à rafraîchir après modifications 0.9. Aucun export 0.9 ni comportement natif Excel encore contrôlé."
+          },
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Bible, source, registre, références et premier export 816 fiches/5527 cellules réconciliés; 769 IDs conservés.",
+            "limits": "Réception visuelle finale des lignes modifiées et recalcul natif sur copie en cours; la bible ne certifie pas la finition du jeu."
+          },
+          {
+            "receiptId": "workbook-final-reception-v09",
+            "description": "816 fiches et 5 527 cellules réconciliées, 769 IDs conservés, 37 vues relues et 126 formules réellement recalculées dans le moteur de génération puis dans LibreOffice headless sur copie.",
+            "limits": "Bible de conception et de suivi reçue; la finition du jeu et l’usage bureautique interactif QA29 ne sont pas certifiés par ce livrable."
           }
         ],
         "deliverables": [
@@ -3686,16 +3764,30 @@
         ],
         "evidence": [
           "docs/validation/production-v09-reference-audit.json",
-          "docs/validation/production-v09-reference-probes.json"
+          "docs/validation/production-v09-reference-probes.json",
+          "docs/validation/workbook-v0.9-initial-export.json",
+          "docs/validation/workbook-v0.9-initial-reference-probes.json",
+          "docs/validation/workbook-v0.9-export.json",
+          "docs/validation/workbook-v0.9-baseline-check.json",
+          "docs/validation/workbook-v0.9-visual-review.json",
+          "docs/validation/workbook-v0.9-libreoffice.json"
         ],
-        "remainingWork": "Régénérer après les changements v0.9; conserver le contrôle natif Excel séparé de cette livraison de conception."
+        "remainingWork": "Bible de conception et de suivi reçue; la finition du jeu et l’usage bureautique interactif QA29 ne sont pas certifiés par ce livrable."
       },
       "reconciliationProposal": {
         "status": "Prototype",
-        "condition": "Livrable déjà présent dans la baseline; rattacher la portée aux preuves historiques puis rafraîchir après livraison v0.9."
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Prototype",
+        "basis": "Bible, source, registre, références et premier export 816 fiches/5527 cellules réconciliés; 769 IDs conservés.",
+        "proofs": [
+          "docs/validation/workbook-v0.9-initial-export.json",
+          "docs/validation/workbook-v0.9-initial-reference-probes.json"
+        ]
+      },
+      "currentStatus": "Prototype",
       "criterionState": "partial"
     },
     {
@@ -3833,11 +3925,20 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "partial_work_received",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Les huit missions principales de l’acte I possèdent désormais leurs parcours de prototype et leurs conséquences persistantes.",
+            "limits": "CT01–CT04 restent conçus; le critère du parcours complet missions + contrats n’est pas satisfait."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Livrer MI08 puis CT01–CT04, leurs retours et toutes les variantes de l’acte I; huit missions seules ne ferment pas les contrats."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-campaign-audit.json"
+        ],
+        "remainingWork": "CT01–CT04 restent conçus; le critère du parcours complet missions + contrats n’est pas satisfait."
       },
       "reconciliationProposal": {
         "status": "À produire",
@@ -4121,7 +4222,7 @@
           "root",
           "bible_production"
         ],
-        "state": "partial_runtime_received",
+        "state": "partial_work_received",
         "workPerformed": [
           {
             "receiptId": "human-protocol-prepared",
@@ -4132,6 +4233,16 @@
             "receiptId": "mi08-controls-runtime",
             "description": "Onze actions clavier reconfigurables et contrôles standard de manette en mission; préférences et relâchement des entrées.",
             "limits": "Manette physique, navigation des menus à la manette et essais avec utilisateurs concernés; critère humain initial conservé."
+          },
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Six tests de commandes et les parcours DOM contrôlent reconfiguration, conflits, persistance, neutre et libération des entrées.",
+            "limits": "Manette physique, menus à la manette et essais avec utilisateurs concernés restent ouverts."
+          },
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "Clavier reconfiguré dans Chrome : conflit refusé, annulation par Échap, touche K conservée après rechargement puis valeurs par défaut restaurées. Huit tests purs de commandes et 57 flux DOM reçus sur les sources finales.",
+            "limits": "Menus manette absents, périphérique physique et utilisateurs concernés non testés. Deux essais natifs de perte de focus restent non validés sous QA19."
           }
         ],
         "deliverables": [
@@ -4140,8 +4251,12 @@
           "docs/CONTROLS_AUDIO_V09.md",
           "src/controls.mjs"
         ],
-        "evidence": [],
-        "remainingWork": "Manette physique, navigation des menus à la manette et essais avec utilisateurs concernés; critère humain initial conservé."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-ui-runtime.txt",
+          "docs/validation/v09-browser.json"
+        ],
+        "remainingWork": "Menus manette absents, périphérique physique et utilisateurs concernés non testés. Deux essais natifs de perte de focus restent non validés sous QA19."
       },
       "reconciliationProposal": {
         "status": "À produire",
@@ -4362,18 +4477,35 @@
         "owners": [
           "root"
         ],
-        "state": "announced_no_delivery",
-        "workPerformed": [],
+        "state": "partial_work_received",
+        "workPerformed": [
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "Les parcours Chrome réels MI01, MI02, import/export, clavier et MI08 sont documentés avec dimensions, fichiers, captures et frontières de préparation.",
+            "limits": "Réception du prototype et des actions nommées; QA19 non validée, QA20 partielle. Aucun essai humain autonome ou autre navigateur revendiqué."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Actualiser le parcours sur v0.9; conserver séparément les trous spécifiques MI02, fichiers invalides et essais humains."
+        "evidence": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ],
+        "remainingWork": "Réception du prototype et des actions nommées; QA19 non validée, QA20 partielle. Aucun essai humain autonome ou autre navigateur revendiqué."
       },
       "reconciliationProposal": {
         "status": "Prototype",
-        "condition": "Livrable déjà présent dans la baseline; rattacher la portée aux preuves historiques puis rafraîchir après livraison v0.9."
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Prototype",
+        "basis": "Les parcours Chrome réels MI01, MI02, import/export, clavier et MI08 sont documentés avec dimensions, fichiers, captures et frontières de préparation.",
+        "proofs": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ]
+      },
+      "currentStatus": "Prototype",
       "criterionState": "partial"
     },
     {
@@ -4459,11 +4591,20 @@
         "owners": [
           "root"
         ],
-        "state": "announced_no_delivery",
-        "workPerformed": [],
+        "state": "partial_work_received",
+        "workPerformed": [
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "Reprise native en poursuite MI02, freinage, rapports et briefings de relecture constatés après préparation authentique explicitée.",
+            "limits": "Parcours natif intégral MI01→MI02 et import v1 dans cette session non exécutés; ne pas clore le critère complet."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Exécuter le parcours MI02 complet demandé dans Chrome, avec poursuite/rechargement, deux archives, relecture et import historique."
+        "evidence": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ],
+        "remainingWork": "Parcours natif intégral MI01→MI02 et import v1 dans cette session non exécutés; ne pas clore le critère complet."
       },
       "reconciliationProposal": {
         "status": "À produire",
@@ -5056,12 +5197,17 @@
         "owners": [
           "nacre_gameplay"
         ],
-        "state": "partial_runtime_received",
+        "state": "partial_work_received",
         "workPerformed": [
           {
             "receiptId": "mi08-controls-runtime",
             "description": "MI08 jouable avec deux portes, courant progressif, trois conduites, trajets et bilan réel.",
             "limits": "Finition visuelle et sonore, essai humain QA158; les contrats de Nacre restent conçus."
+          },
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "26 tests de mission, 11 tests de dossier v8 et audit de 32 variantes contrôlent les parcours, avaries, capacités, identités et reprises.",
+            "limits": "Tranche de prototype reçue; art/gestes finaux et compréhension humaine QA158 restent ouverts."
           }
         ],
         "deliverables": [
@@ -5070,8 +5216,11 @@
           "src/simulation.mjs",
           "src/departure-validation.mjs"
         ],
-        "evidence": [],
-        "remainingWork": "Finition visuelle et sonore, essai humain QA158; les contrats de Nacre restent conçus."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-campaign-audit.json"
+        ],
+        "remainingWork": "Tranche de prototype reçue; art/gestes finaux et compréhension humaine QA158 restent ouverts."
       },
       "reconciliationProposal": {
         "status": "À produire",
@@ -5615,12 +5764,17 @@
         "owners": [
           "nacre_gameplay"
         ],
-        "state": "partial_runtime_received",
+        "state": "partial_work_received",
         "workPerformed": [
           {
             "receiptId": "mi08-controls-runtime",
             "description": "Deux commandes indépendantes, mécanismes/vantaux endommageables, obturation de secours et constats.",
             "limits": "Validation finale de la tranche et finition des gestes/interventions; aucune hydraulique générale revendiquée."
+          },
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "26 tests de mission, 11 tests de dossier v8 et audit de 32 variantes contrôlent les parcours, avaries, capacités, identités et reprises.",
+            "limits": "Tranche de prototype reçue; art/gestes finaux et compréhension humaine QA158 restent ouverts."
           }
         ],
         "deliverables": [
@@ -5629,8 +5783,11 @@
           "src/simulation.mjs",
           "src/departure-validation.mjs"
         ],
-        "evidence": [],
-        "remainingWork": "Validation finale de la tranche et finition des gestes/interventions; aucune hydraulique générale revendiquée."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-campaign-audit.json"
+        ],
+        "remainingWork": "Tranche de prototype reçue; art/gestes finaux et compréhension humaine QA158 restent ouverts."
       },
       "reconciliationProposal": {
         "status": "À produire",
@@ -5685,12 +5842,17 @@
         "owners": [
           "nacre_gameplay"
         ],
-        "state": "partial_runtime_received",
+        "state": "partial_work_received",
         "workPerformed": [
           {
             "receiptId": "mi08-controls-runtime",
             "description": "Recensement par origine, places, brancards, accompagnants, départs et arrivées individuels conservés.",
             "limits": "Validation finale de la tranche et lisibilité humaine; identités historiques inconnues restent agrégées."
+          },
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "26 tests de mission, 11 tests de dossier v8 et audit de 32 variantes contrôlent les parcours, avaries, capacités, identités et reprises.",
+            "limits": "Tranche de prototype reçue; art/gestes finaux et compréhension humaine QA158 restent ouverts."
           }
         ],
         "deliverables": [
@@ -5699,8 +5861,11 @@
           "src/simulation.mjs",
           "src/departure-validation.mjs"
         ],
-        "evidence": [],
-        "remainingWork": "Validation finale de la tranche et lisibilité humaine; identités historiques inconnues restent agrégées."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-campaign-audit.json"
+        ],
+        "remainingWork": "Tranche de prototype reçue; art/gestes finaux et compréhension humaine QA158 restent ouverts."
       },
       "reconciliationProposal": {
         "status": "À produire",
@@ -5943,19 +6108,38 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Épuisement, recharge partielle et réserve exacte contrôlés sur six châssis; 36 sélections API refusées, puis vrai flux DOM pause/menu/châssis/opération/reprise.",
+            "limits": "Portée Node et DOM modélisé; aucun geste matériel ou téléchargement natif déduit."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Ajouter le scénario complet de changement de sélection/menu puis reprise; comparer magasin/réserve avant-après sans gain."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json",
+          "docs/validation/v09-ui-runtime.txt"
+        ],
+        "remainingWork": "Portée Node et DOM modélisé; aucun geste matériel ou téléchargement natif déduit."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Épuisement, recharge partielle et réserve exacte contrôlés sur six châssis; 36 sélections API refusées, puis vrai flux DOM pause/menu/châssis/opération/reprise.",
+        "proofs": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json",
+          "docs/validation/v09-ui-runtime.txt"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -6084,19 +6268,36 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Pose de pied et dégâts réels sur transport par commandes publiques; cible hors empreinte, pied en vol et attente proche contrôlés en géométrie isolée.",
+            "limits": "Stimuli unitaires distingués des parcours publics; pas de validation d’animation humaine."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Ajouter cible sous empreinte, cible juste hors empreinte et attente proche sans pas, par contacts réellement simulés."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json"
+        ],
+        "remainingWork": "Stimuli unitaires distingués des parcours publics; pas de validation d’animation humaine."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Pose de pied et dégâts réels sur transport par commandes publiques; cible hors empreinte, pied en vol et attente proche contrôlés en géométrie isolée.",
+        "proofs": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -6226,19 +6427,36 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Approche publique, scan hors portée, interruption au-delà de 250 unités, reprise et cinq nouvelles tentatives sans seconde copie.",
+            "limits": "Progression numérique et règles de portée contrôlées; compréhension visuelle humaine non déduite."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Couvrir interruption en sortant de portée et reprise, puis seconde tentative de copie; contrôler une seule attribution."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json"
+        ],
+        "remainingWork": "Progression numérique et règles de portée contrôlées; compréhension visuelle humaine non déduite."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Approche publique, scan hors portée, interruption au-delà de 250 unités, reprise et cinq nouvelles tentatives sans seconde copie.",
+        "proofs": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -6272,19 +6490,36 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Trois ordres de destruction publique, compte exact à chaque étape et victoire seulement après atteinte de l’extraction.",
+            "limits": "Trois ordres exécutés; aucune affirmation sur les six permutations exhaustives."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Exécuter plusieurs ordres de destruction des trois relais sans assigner directement leur santé ou la victoire."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json"
+        ],
+        "remainingWork": "Trois ordres exécutés; aucune affirmation sur les six permutations exhaustives."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Trois ordres de destruction publique, compte exact à chaque étape et victoire seulement après atteinte de l’extraction.",
+        "proofs": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -6318,11 +6553,20 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "partial_work_received",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Victoire publique avec convoi protégé et défaite publique par tirs ennemis; bilan du transport et fonction de rapport contrôlés.",
+            "limits": "Le récit mentionne 47 familles mais aucun recensement de leurs occupants n’est simulé. La survie du transport et les civils indépendants ne prouvent pas le sort de ces familles; ne pas convertir 47 familles en 47 personnes."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Conserver une paire de parcours publics victoire/perte et vérifier survivants/rapport final; distinguer stimulus isolé et partie pilotée."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json"
+        ],
+        "remainingWork": "Le récit mentionne 47 familles mais aucun recensement de leurs occupants n’est simulé. La survie du transport et les civils indépendants ne prouvent pas le sort de ces familles; ne pas convertir 47 familles en 47 personnes."
       },
       "reconciliationProposal": {
         "status": "À produire",
@@ -6365,11 +6609,21 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "partial_work_received",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Deux choix publics verrouillés, rapports différenciés, stockage, archives en nouveau contexte DOM et nouvelle opération contrôlés.",
+            "limits": "Le critère historique demande de battre Cerbère puis choisir. Le prototype choisit d’abord : obéir permet le retrait avec Cerbère vivant, contester impose le combat. La divergence de scénario reste explicitement ouverte; le critère original n’est pas réécrit pour obtenir Vérifié."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Exécuter les deux issues avec rapport et sauvegarde d’opération, puis tenter modification après validation sans rejouer."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json",
+          "docs/validation/v09-ui-runtime.txt"
+        ],
+        "remainingWork": "Le critère historique demande de battre Cerbère puis choisir. Le prototype choisit d’abord : obéir permet le retrait avec Cerbère vivant, contester impose le combat. La divergence de scénario reste explicitement ouverte; le critère original n’est pas réécrit pour obtenir Vérifié."
       },
       "reconciliationProposal": {
         "status": "À produire",
@@ -6462,19 +6716,36 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Deux parcours OP03 traversent décision, résultat, stockage, archives dans un nouveau contexte et lancement d’une autre opération avec état neuf.",
+            "limits": "Fermeture/rechargement modélisés dans le DOM de l’application; navigateur natif séparé."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Exécuter fermeture après résultat d’opération puis autre opération; comparer état neuf, ennemis, projectiles et archive autonome."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-ui-runtime.txt"
+        ],
+        "remainingWork": "Fermeture/rechargement modélisés dans le DOM de l’application; navigateur natif séparé."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Deux parcours OP03 traversent décision, résultat, stockage, archives dans un nouveau contexte et lancement d’une autre opération avec état neuf.",
+        "proofs": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-ui-runtime.txt"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -6511,19 +6782,36 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Lecteurs historiques, données vides/mal formées/étrangères/futures et page utilisable contrôlés en Node et DOM.",
+            "limits": "Refus de fichier par dialogue natif relève séparément de QA38."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Rattacher explicitement le critère à ces preuves et rafraîchir la suite v0.9. Le rejet de fichier par dialogue natif reste QA38."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-ui-runtime.txt"
+        ],
+        "remainingWork": "Refus de fichier par dialogue natif relève séparément de QA38."
       },
       "reconciliationProposal": {
         "status": "Vérifié",
-        "condition": "Seulement après rattachement explicite aux tests de panne/import et au DOM modélisé; ne certifie pas un blocage natif des permissions ni QA38."
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Lecteurs historiques, données vides/mal formées/étrangères/futures et page utilisable contrôlés en Node et DOM.",
+        "proofs": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-ui-runtime.txt"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -6558,19 +6846,36 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Pannes et quota de stockage injectés; session jouable, copie valide préservée et avertissement visible contrôlés.",
+            "limits": "Panne simulée de stockage, sans revendiquer une permission Chrome effectivement bloquée."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Rattacher ce résultat au scénario de panne injectée; un blocage de permission Chrome réel reste une portée distincte à observer."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-ui-runtime.txt"
+        ],
+        "remainingWork": "Panne simulée de stockage, sans revendiquer une permission Chrome effectivement bloquée."
       },
       "reconciliationProposal": {
         "status": "Vérifié",
-        "condition": "Seulement après rattachement explicite aux tests de panne/import et au DOM modélisé; ne certifie pas un blocage natif des permissions ni QA38."
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Pannes et quota de stockage injectés; session jouable, copie valide préservée et avertissement visible contrôlés.",
+        "proofs": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-ui-runtime.txt"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -6604,11 +6909,20 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "native_observation_not_validated",
+        "workPerformed": [
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "Deux essais natifs avec D maintenu, changement d’onglet puis barre d’adresse, ont laissé la marche et l’horloge continuer. Aucun retour en pause n’a été observé. Cause application ou entrées gérées indéterminée; non validé, observation à caractériser.",
+            "limits": "Isoler la cause puis répéter perte et retour de focus avec déplacement et tir maintenus. Les tests synthétiques réussis ne remplacent pas ce résultat natif contradictoire."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Exécuter blur/retour pendant marche et tir dans le navigateur; vérifier aucune touche ou pression fantôme."
+        "evidence": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ],
+        "remainingWork": "Isoler la cause puis répéter perte et retour de focus avec déplacement et tir maintenus. Les tests synthétiques réussis ne remplacent pas ce résultat natif contradictoire."
       },
       "reconciliationProposal": {
         "status": "À produire",
@@ -6651,11 +6965,19 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "partial_work_received",
+        "workPerformed": [
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "Fenêtre Chrome 1363 × 936 pixels et zooms de page 125 % et 150 % inspectés; navigation et boutons observés aux dimensions déclarées.",
+            "limits": "Une véritable petite fenêtre native redimensionnée indépendamment n’a pas été établie; le critère complet reste ouvert."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Contrôler petite fenêtre, écran large et zoom de texte; vérifier contrôles atteignables et Canvas proportionnel."
+        "evidence": [
+          "docs/validation/v09-browser.json"
+        ],
+        "remainingWork": "Une véritable petite fenêtre native redimensionnée indépendamment n’a pas été établie; le critère complet reste ouvert."
       },
       "reconciliationProposal": {
         "status": "À produire",
@@ -6697,19 +7019,36 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "Dans Chrome natif : Tab et Maj+Tab, activation du briefing par Entrée, fermeture de dialogue par Échap avec retour du focus au déclencheur; conflits et persistance de la reconfiguration également exercés.",
+            "limits": "Chrome Linux, fenêtre et zooms déclarés; aucun essai de manette ou utilisateur concerné. La perte de focus en mission reste non validée sous QA19."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Exécuter Tab/Entrée/Échap, ordre de focus visible et fermeture des panneaux dans Chrome."
+        "evidence": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ],
+        "remainingWork": "Chrome Linux, fenêtre et zooms déclarés; aucun essai de manette ou utilisateur concerné. La perte de focus en mission reste non validée sous QA19."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Dans Chrome natif : Tab et Maj+Tab, activation du briefing par Entrée, fermeture de dialogue par Échap avec retour du focus au déclencheur; conflits et persistance de la reconfiguration également exercés.",
+        "proofs": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -6849,19 +7188,36 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Deux séquences à 30/60/120 mises à jour par seconde : collisions/comptes identiques, position dans dix unités sur dix secondes et scan dans un quantum.",
+            "limits": "Cadences émulées sous Node; ni FPS navigateur, ni GPU, ni onglet en arrière-plan ou cadence inférieure à 20 Hz mesurés."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Rejouer des cadences de rendu distinctes avec intégration identique et tolérance déclarée; comparer collisions et objectifs."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json"
+        ],
+        "remainingWork": "Cadences émulées sous Node; ni FPS navigateur, ni GPU, ni onglet en arrière-plan ou cadence inférieure à 20 Hz mesurés."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Deux séquences à 30/60/120 mises à jour par seconde : collisions/comptes identiques, position dans dix unités sur dix secondes et scan dans un quantum.",
+        "proofs": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -6898,12 +7254,22 @@
         "owners": [
           "bible_production"
         ],
-        "state": "verified_on_initial_source",
+        "state": "criterion_verified_in_declared_scope",
         "workPerformed": [
           {
             "receiptId": "reference-audit-initial",
             "description": "Audit exhaustif des références et déclarations symboliques; sept mutations négatives rejetées, cinq baselines historiques contrôlées sans Git et révision inconnue rejetée.",
             "limits": "Contrôle sur la Bible 0.8 initiale, à rafraîchir après modifications 0.9. Aucun export 0.9 ni comportement natif Excel encore contrôlé."
+          },
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Tous les IDs, références, plages et symboles résolus; sept copies négatives et cinq baselines sans Git contrôlées.",
+            "limits": "Existence d’une référence, sans certification du gameplay ou de la finition qu’elle décrit; audit rafraîchi avec la source finale."
+          },
+          {
+            "receiptId": "workbook-final-reception-v09",
+            "description": "Audit final : 816 IDs uniques, 1 141 occurrences et 1 749 références développées résolues; sept erreurs injectées rejetées, cinq baselines sans Git acceptées et révision inconnue refusée.",
+            "limits": "Portée documentaire et existence des liens; aucun comportement de gameplay ou test humain déduit."
           }
         ],
         "deliverables": [
@@ -6915,15 +7281,23 @@
           "docs/validation/production-v09-reference-audit.json",
           "docs/validation/production-v09-reference-probes.json"
         ],
-        "remainingWork": "Rafraîchir le contrôle et ses preuves après les modifications finales de la Bible 0.9; aucun lien non résolu sur la source initiale."
+        "remainingWork": "Portée documentaire et existence des liens; aucun comportement de gameplay ou test humain déduit."
       },
       "reconciliationProposal": {
         "status": "Vérifié",
-        "condition": "Contrôle désormais exécuté; attendre le dernier passage sur le JSON 0.9 final avant de modifier le statut source."
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Tous les IDs, références, plages et symboles résolus; sept copies négatives et cinq baselines sans Git contrôlées.",
+        "proofs": [
+          "docs/validation/production-v09-reference-audit.json",
+          "docs/validation/production-v09-reference-probes.json"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -7049,19 +7423,36 @@
       "baselineStatus": "À produire",
       "v09": {
         "owners": [],
-        "state": "not_delivered",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Transports de MI01 et OP02 touchés par les deux camps, impacts directs, explosions bornées et vrais contacts de pied; suivi sûr sur six châssis sans immunité.",
+            "limits": "La population des 47 familles d’OP02 reste non recensée et relève de QA13; aucune perte d’occupant inventée."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Compléter tir, pose de pied et effet de zone près d’un transport protégé, avec cibles hors empreinte et rapport correspondant."
+        "evidence": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json"
+        ],
+        "remainingWork": "La population des 47 familles d’OP02 reste non recensée et relève de QA13; aucune perte d’occupant inventée."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Transports de MI01 et OP02 touchés par les deux camps, impacts directs, explosions bornées et vrais contacts de pied; suivi sûr sur six châssis sans immunité.",
+        "proofs": [
+          "docs/validation/v09-node-tests.txt",
+          "docs/validation/v09-backlog-audit.json"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -7098,20 +7489,39 @@
         "owners": [
           "bible_production"
         ],
-        "state": "preparation_delivered",
+        "state": "partial_work_received",
         "workPerformed": [
           {
             "receiptId": "human-protocol-prepared",
             "description": "Protocole utilisable avec consignes neutres, scénarios, distinctions à observer, champs de matériel/dossier, aides extérieures et observations contradictoires; fiche de session vide.",
             "limits": "Aucun participant, appareil, écoute ou observation n’est déclaré exécuté. Les essais humains et spécialisés restent ouverts."
+          },
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "Le premier export et ses formules sont réconciliés. LibreOfficeDev CLI identifié; root a observé l’absence de Calc/Excel/LibreOffice dans Sky.list_apps et cua.getState.",
+            "limits": "Usage interactif de tri, filtres, volets et édition non exécuté : aucune application bureautique GUI disponible dans l’inventaire. Recalcul headless sur copie prévu, distinct du critère GUI."
+          },
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "L’inventaire Sky/CUA observé par root ne contient aucune application Calc, Excel ou LibreOffice graphique; aucune ouverture GUI n’a été tentée.",
+            "limits": "Tri, filtres, volets et édition interactive restent non exécutés. Le recalcul CLI sur copie possède sa propre preuve, distincte du geste GUI."
+          },
+          {
+            "receiptId": "workbook-final-reception-v09",
+            "description": "LibreOfficeDev headless a recalculé 126 caches volontairement retirés sur une copie. Les 5 527 cellules source et toutes les valeurs concordent; l’original est intact. Tables, validations, règles et volets conservés en XML.",
+            "limits": "Aucune application bureautique graphique dans l’inventaire observé; tri, filtres, volets et édition interactifs restent non exécutés. Aucun usage Excel desktop revendiqué."
           }
         ],
         "deliverables": [
           "docs/HUMAN_VALIDATION_V09.md",
           "docs/validation/human-session-template-v09.json"
         ],
-        "evidence": [],
-        "remainingWork": "Ouvrir dans Excel ou LibreOffice natif, trier/filtrer, déplacer les volets et modifier un statut; consigner version et résultat visible."
+        "evidence": [
+          "docs/validation/workbook-v0.9-initial-export.json",
+          "docs/validation/workbook-v0.9-native-availability.json",
+          "docs/validation/workbook-v0.9-libreoffice.json"
+        ],
+        "remainingWork": "Aucune application bureautique graphique dans l’inventaire observé; tri, filtres, volets et édition interactifs restent non exécutés. Aucun usage Excel desktop revendiqué."
       },
       "reconciliationProposal": {
         "status": "À produire",
@@ -7155,19 +7565,36 @@
         "owners": [
           "bible_production"
         ],
-        "state": "announced_no_delivery",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "automatic-reception-v09",
+            "description": "351 médias sources et web enregistrés; cinq inclusions inline de trois images rapprochées; zéro média inconnu, référence externe non distribuée.",
+            "limits": "Rapprochement technique de fichiers. Dates exactes de génération, modèles/job ou droits historiques absents restent non renseignés; revue commerciale PR26 séparée."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Comparer exhaustivement les médias réellement embarqués à un registre par fichier avec origine/version/usage; exclure les références non distribuables."
+        "evidence": [
+          "assets/production/distribution-manifest.json",
+          "docs/validation/v09-media-audit.txt"
+        ],
+        "remainingWork": "Rapprochement technique de fichiers. Dates exactes de génération, modèles/job ou droits historiques absents restent non renseignés; revue commerciale PR26 séparée."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "351 médias sources et web enregistrés; cinq inclusions inline de trois images rapprochées; zéro média inconnu, référence externe non distribuée.",
+        "proofs": [
+          "assets/production/distribution-manifest.json",
+          "docs/validation/v09-media-audit.txt"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -7204,19 +7631,36 @@
         "owners": [
           "root"
         ],
-        "state": "announced_no_delivery",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "MI01 lancée depuis la page, marche et tirs, pause, rechargement et reprise; checkpoint exporté strictement identique, seule la révision du dossier augmente. Hangar, équipage et rapports parcourus.",
+            "limits": "Le rapport MI01 utilisé pour les vues après réussite vient d’un dossier authentique préparé. Cette preuve ne revendique pas une nouvelle mission MI01 entièrement terminée dans Chrome."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Compléter la navigation native équipage et rapports aux dimensions déclarées; rattacher chaque action au même dossier de preuve."
+        "evidence": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ],
+        "remainingWork": "Le rapport MI01 utilisé pour les vues après réussite vient d’un dossier authentique préparé. Cette preuve ne revendique pas une nouvelle mission MI01 entièrement terminée dans Chrome."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "MI01 lancée depuis la page, marche et tirs, pause, rechargement et reprise; checkpoint exporté strictement identique, seule la révision du dossier augmente. Hangar, équipage et rapports parcourus.",
+        "proofs": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -7253,19 +7697,36 @@
         "owners": [
           "root"
         ],
-        "state": "announced_no_delivery",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "Export réel, import valide avec confirmation native, nouvelle exportation identique, refus visible du fichier invalide et dossier conservé; réimport du fichier Chrome exact, sans gain supplémentaire.",
+            "limits": "Fichiers et sélecteur natifs contrôlés dans Chrome disponible, sans prétendre certifier les autres navigateurs."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Importer aussi un fichier invalide par le sélecteur natif, constater l’erreur et comparer le dossier avant/après sans double gain."
+        "evidence": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ],
+        "remainingWork": "Fichiers et sélecteur natifs contrôlés dans Chrome disponible, sans prétendre certifier les autres navigateurs."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Export réel, import valide avec confirmation native, nouvelle exportation identique, refus visible du fichier invalide et dossier conservé; réimport du fichier Chrome exact, sans gain supplémentaire.",
+        "proofs": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -7300,19 +7761,36 @@
         "owners": [
           "root"
         ],
-        "state": "announced_no_delivery",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "MI02 débloquée après import d’un rapport MI01 authentique; briefing et pilotage natifs. Poursuite reprise depuis un checkpoint préparé explicitement, marche, pause, rechargement exact du checkpoint puis freinage; deux rapports et briefings de relecture consultés.",
+            "limits": "La préparation Node est distinguée des actions Chrome. Aucun parcours natif complet de MI01 jusqu’à la fin de MI02 n’est revendiqué."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Jouer ces transitions dans Chrome, reprendre pendant poursuite puis consulter deux rapports et relectures avec images/viewport."
+        "evidence": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ],
+        "remainingWork": "La préparation Node est distinguée des actions Chrome. Aucun parcours natif complet de MI01 jusqu’à la fin de MI02 n’est revendiqué."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "MI02 débloquée après import d’un rapport MI01 authentique; briefing et pilotage natifs. Poursuite reprise depuis un checkpoint préparé explicitement, marche, pause, rechargement exact du checkpoint puis freinage; deux rapports et briefings de relecture consultés.",
+        "proofs": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -7349,19 +7827,36 @@
         "owners": [
           "root"
         ],
-        "state": "announced_no_delivery",
-        "workPerformed": [],
+        "state": "criterion_verified_in_declared_scope",
+        "workPerformed": [
+          {
+            "receiptId": "native-chrome-reception-v09",
+            "description": "Parcours Chrome réel, clavier, souris, stockage local, imports et exports; environnement, console capturée et dix-huit images consignés. MI08 continuée du point de porte préparé jusqu’au résultat et rechargement final exact.",
+            "limits": "Portée limitée aux actions nommées sur la publication initiale c044fbe. QA19 et QA20 restent ouverts; les deux corrections de texte attendent une confirmation Chrome après republication. Aucun matériel de manette, son ou test humain déduit."
+          }
+        ],
         "deliverables": [],
-        "evidence": [],
-        "remainingWork": "Produire le parcours natif nommé de la version actuelle avec console et captures; ne pas l’attribuer rétroactivement à une 0.4 non observée."
+        "evidence": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ],
+        "remainingWork": "Portée limitée aux actions nommées sur la publication initiale c044fbe. QA19 et QA20 restent ouverts; les deux corrections de texte attendent une confirmation Chrome après republication. Aucun matériel de manette, son ou test humain déduit."
       },
       "reconciliationProposal": {
-        "status": "À produire",
-        "condition": "Critère original encore incomplet. Un lot v0.9 reçu pourra justifier Prototype ou Vérifié dans sa portée exacte, sans supprimer le reste."
+        "status": "Vérifié",
+        "condition": "Réception appliquée dans la portée et les limites explicites du registre."
       },
-      "appliedStatusChange": null,
-      "currentStatus": "À produire",
-      "criterionState": "partial"
+      "appliedStatusChange": {
+        "from": "À produire",
+        "to": "Vérifié",
+        "basis": "Parcours Chrome réel, clavier, souris, stockage local, imports et exports; environnement, console capturée et dix-huit images consignés. MI08 continuée du point de porte préparé jusqu’au résultat et rechargement final exact.",
+        "proofs": [
+          "docs/validation/v09-browser.json",
+          "docs/validation/v09-browser-export-audit.json"
+        ]
+      },
+      "currentStatus": "Vérifié",
+      "criterionState": "satisfied"
     },
     {
       "sheet": "QA",
@@ -7785,11 +8280,14 @@
       ],
       "proofs": [
         "docs/validation/production-v09-assets-receipt.json",
-        "docs/validation/production-v09-assets-audio-tests.txt"
+        "docs/validation/production-v09-assets-audio-tests.txt",
+        "docs/validation/v09-node-tests.txt",
+        "docs/validation/v09-assets-render.txt",
+        "assets/production/distribution-manifest.json"
       ],
       "work": "354 fichiers de production contrôlés par chemin, taille et empreinte; réception détaillée de 27 des 133 lots initiaux.",
-      "state": "artifacts_verified_integration_pending",
-      "limits": "Lots partiels; renderer en cours, voix/mix humain/gestes finaux absents."
+      "state": "partial_production_received_automatic_gates_verified",
+      "limits": "Lots partiels. Les usages renderer constatés et les modules seulement exportés restent distingués; voix, mix final, mouvement final et essais humains ouverts."
     },
     {
       "id": "mi08-controls-runtime",
@@ -7806,10 +8304,175 @@
         "src/controls.mjs",
         "src/simulation.mjs"
       ],
-      "proofs": [],
+      "proofs": [
+        "docs/validation/v09-node-tests.txt",
+        "docs/validation/v09-ui-runtime.txt",
+        "docs/validation/v09-campaign-audit.json"
+      ],
       "work": "Comportements présents au stade prototype; réception des suites finales encore en cours.",
-      "state": "partial_runtime_received",
+      "state": "prototype_automatic_gates_received",
       "limits": "Aucun essai humain ou matériel déduit des tests automatiques."
+    },
+    {
+      "id": "automatic-reception-v09",
+      "scopeIds": [
+        "QA05",
+        "QA08",
+        "QA11",
+        "QA12",
+        "QA16",
+        "QA17",
+        "QA18",
+        "QA24",
+        "QA25",
+        "QA28",
+        "QA30",
+        "QA13",
+        "QA14",
+        "QA29",
+        "PR02",
+        "PR17",
+        "PR24",
+        "PR62",
+        "PR81",
+        "PR82",
+        "AS30"
+      ],
+      "files": [
+        "tests/production-backlog.test.mjs",
+        "src/controls.mjs",
+        "src/simulation.mjs",
+        "assets/production/distribution-manifest.json"
+      ],
+      "proofs": [
+        "docs/validation/v09-node-tests.txt",
+        "docs/validation/v09-ui-runtime.txt",
+        "docs/validation/v09-campaign-audit.json",
+        "docs/validation/v09-backlog-audit.json",
+        "docs/validation/v09-assets-render.txt",
+        "docs/validation/v09-media-audit.txt",
+        "assets/production/distribution-manifest.json",
+        "docs/previews/mi08-render-manifest.json",
+        "docs/validation/production-v09-automatic-receipt.json",
+        "docs/validation/production-v09-automatic-receipt-initial.json"
+      ],
+      "work": "291 tests Node, 57 parcours DOM, 32 variantes MI08, 8 915 roundtrips/restaurations et 795 continuations; seize tests de backlog réexécutés, rapport détaillé initial conservé.",
+      "state": "automatic_gates_received_on_final_runtime",
+      "limits": "QA13 et QA14 gardent leur reliquat exact; l’ancien reçu 290 et son rapport de backlog sont historiques. Chrome, humains, matériel et classeur possèdent des réceptions distinctes."
+    },
+    {
+      "id": "native-chrome-reception-v09",
+      "scopeIds": [
+        "QA21",
+        "QA37",
+        "QA38",
+        "QA45",
+        "QA60",
+        "QA19",
+        "QA20",
+        "QA29",
+        "PR24",
+        "PR32",
+        "PR36",
+        "AS56",
+        "AS61"
+      ],
+      "files": [
+        "src/main.mjs",
+        "src/controls.mjs"
+      ],
+      "proofs": [
+        "docs/validation/v09-browser.json",
+        "docs/validation/v09-browser-export-audit.json",
+        "docs/validation/production-v09-browser-receipt.json"
+      ],
+      "work": "Cinq QA natives reçues; dix-huit captures et 52 identités de fichiers rapprochées. MI08 du point préparé jusqu’au résultat : 34 au refuge, deux à Aval, aucun perdu, rechargement final exact. Archives et dossier sanitaire reçus au stade prototype.",
+      "state": "received_with_open_native_observations",
+      "limits": "QA19 non validée après deux observations de marche persistante; QA20 petite fenêtre non établie; QA29 GUI absent. Préparation Node, observation Chrome et test humain restent distincts. Corrections textuelles à confirmer après republication."
+    },
+    {
+      "id": "native-sanitary-panel-v09",
+      "scopeIds": [
+        "AS61"
+      ],
+      "files": [
+        "src/main.mjs"
+      ],
+      "proofs": [
+        "docs/validation/v09-browser-sanitary-panel.json",
+        "docs/validation/v09-browser-sanitary-panel.txt",
+        "docs/previews/browser-v09-sanitary-panel.png"
+      ],
+      "work": "Ouverture native du panneau sanitaire et sept lignes observées; complément distinct de la preuve initiale repliée.",
+      "state": "partial_interface_received",
+      "limits": "Présentation finale et compréhension humaine restent ouvertes; aucune validation de tous les patients comme témoins."
+    },
+    {
+      "id": "workbook-final-reception-v09",
+      "scopeIds": [
+        "PR02",
+        "QA25",
+        "QA29",
+        "AS50",
+        "QA157"
+      ],
+      "files": [
+        "data/bible.json",
+        "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+        "tools/verify-bible-export.py",
+        "tests/fixtures/bible-v08-ids.json"
+      ],
+      "proofs": [
+        "docs/validation/workbook-v0.9-export.json",
+        "docs/validation/workbook-v0.9-baseline-check.json",
+        "docs/validation/workbook-v0.9-visual-review.json",
+        "docs/validation/workbook-v0.9-libreoffice.json",
+        "docs/validation/production-v09-reference-audit.json",
+        "docs/validation/production-v09-reference-probes.json"
+      ],
+      "work": "816 fiches, 5 527 cellules, 126 formules et références réconciliées; 37 vues de dix feuilles relues; recalcul natif headless après suppression des caches réussi, original inchangé.",
+      "state": "received_with_native_gui_limit",
+      "limits": "QA29 conserve son usage interactif non exécuté; aucune validation humaine, matérielle ou de finition finale du jeu. La normalisation native des noms de feuille est consignée."
     }
-  ]
+  ],
+  "completedAt": "2026-11-11T11:40:26.069089+00:00",
+  "currentProofs": [
+    {
+      "path": "docs/validation/workbook-v0.9-export.json",
+      "sha256": "a49f88c31d44750f76430a8ae8eca65d4cb00729efacbf47dacba762ea2afbed"
+    },
+    {
+      "path": "docs/validation/workbook-v0.9-baseline-check.json",
+      "sha256": "dd8030a33313cf108138776218527ce3666c2c92d08186595327c15d16ee56c5"
+    },
+    {
+      "path": "docs/validation/workbook-v0.9-visual-review.json",
+      "sha256": "3fbbd30e80b00ad9139009566c3680447738b8c03ff7655753ebcce887914c09"
+    },
+    {
+      "path": "docs/validation/workbook-v0.9-libreoffice.json",
+      "sha256": "113ca335696665780704cc3d17cbc3dec22ce6b576d150d4e3daa62a925013ea"
+    },
+    {
+      "path": "docs/validation/production-v09-reference-audit.json",
+      "sha256": "4a797b6023a63d3a0c9cf669aca3f401bd02ccfa6958a9593fd5b05c29ae8708"
+    },
+    {
+      "path": "docs/validation/production-v09-reference-probes.json",
+      "sha256": "8a53ae3d4168767817614f187a12a9c7ea01afc89c6af211f947c7c6feadc6c5"
+    },
+    {
+      "path": "docs/validation/production-v09-automatic-receipt.json",
+      "sha256": "08513b8379923b1b6e0fe06646208931af0be22babe165a10bdb2dfc0ebf5f0a"
+    },
+    {
+      "path": "docs/validation/production-v09-browser-receipt.json",
+      "sha256": "1169f739d91e6aa88b895d8410c0de20654feef253c88f318675b57601754d43"
+    },
+    {
+      "path": "docs/validation/production-v09-assets-receipt.json",
+      "sha256": "aa328be74ad79b780552be78f67381b3ff181ae0799009cd1e2bc92842bb0f43"
+    }
+  ],
+  "historicalProofRule": "Les empreintes datées de l’audit initial restent historiques lorsque le chemin courant a été rafraîchi. currentProofs désigne les fichiers réellement rapprochés au gel final; les preuves natives initiales et la baseline restent immuables."
 }

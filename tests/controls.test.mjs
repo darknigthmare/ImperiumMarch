@@ -55,3 +55,20 @@ test('displayed instructions replace original physical keys once without recursi
   assert.equal(formatControlText('D : avancer ; Q/A : reculer.',b),'G : avancer ; Q / A / ← : reculer.');
   assert.equal(formatControlText('L’ambulance. D’une porte. Appuis A et B.',b),'L’ambulance. D’une porte. Appuis A et B.');
 });
+
+test('key hints respect accented letters, combining marks and apostrophes in French radio text', () => {
+  const radio = 'Rive-Courte a quitté la zone des portes. Départ acquis ; le refuge doit encore confirmer l’arrivée.';
+  assert.equal(formatControlText(radio, defaultBindings()), radio);
+  let bindings = defaultBindings();
+  for (const [action, code] of [['repair', 'KeyB'], ['interact', 'KeyT'], ['right', 'KeyG'], ['left', 'KeyH'], ['reload', 'KeyN'], ['stepB', 'KeyK'], ['fullscreen', 'KeyU'], ['pause', 'KeyP']]) {
+    const remapped = remapBinding(bindings, action, code);
+    assert.equal(remapped.ok, true); bindings = remapped.bindings;
+  }
+  for (const prose of [
+    radio,
+    'Dès février, Réparation et Départ restent des mots. Échappée, PréÉchap et Échappement aussi.',
+    'éD Dà éE Eé Q/Aé E\u0301 e\u0301D D\u0301 9D D9 _D D_',
+    "L’ambulance. D’une porte. L'ambulance. D'une porte. l'Échap. Appuis A et B. 'D' et ’E’.",
+  ]) assert.equal(formatControlText(prose, bindings), prose);
+  assert.equal(formatControlText('(D), [E] — Q/A ; Échap.', bindings), '(G), [T] — H ; P / Échap.');
+});

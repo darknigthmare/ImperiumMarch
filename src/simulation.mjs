@@ -2881,7 +2881,8 @@ function departureInteraction(s) {
   if (ramp) return ramp.working ? `Passerelle ${Math.round(ramp.progress * 100)} %` : 'E · Verrouiller la passerelle d’embarquement (4 s)';
   if (near(d.registry.x)) return !d.registry.inspected ? d.registry.working ? `Registre ${Math.round(d.registry.progress * 100)} %` : 'E · Ouvrir et copier le registre, ou constater ses ruines'
     : !s.decision.resolved ? c.manifestRead ? 'E · Choisir fermeture, fenêtre ou accès maintenu' : 'Terminer les liaisons et les deux inspections avant le relevé'
-      : departureReportReady(s) && !d.report.transmitted ? d.report.working ? `Rapport ${Math.round(d.report.progress * 100)} %` : 'E · Transmettre à Holt le bilan matériel achevé' : 'Le rapport attend les manœuvres et les arrivées réellement accomplies';
+      : d.report.transmitted ? 'Bilan transmis à Holt · rejoindre la sortie'
+        : departureReportReady(s) ? d.report.working ? `Rapport ${Math.round(d.report.progress * 100)} %` : 'E · Transmettre à Holt le bilan matériel achevé' : 'Le rapport attend les manœuvres et les arrivées réellement accomplies';
   return d.report.transmitted ? `${c.peopleArrived} au refuge · ${c.peopleLocal} à Aval · ${c.peopleLost} perdus · rejoindre la sortie`
     : `Courant ${Math.round(d.current * 100)} % · ${d.tide.slack ? 'renverse annoncée' : `renverse dans ${Math.ceil(d.tide.nextSlack)} s`} · vérifier chaque bateau`;
 }

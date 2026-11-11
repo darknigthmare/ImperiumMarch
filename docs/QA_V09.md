@@ -14,7 +14,7 @@ Les résultats finaux sont inscrits après les suites exécutées sur sources fi
 
 | Contrôle | Portée et preuve attendue |
 | --- | --- |
-| Suite Node | **290/290 tests réussis**, zéro échec, ignoré ou todo. Simulation, migrations historiques, ressources, collisions, contrôles et intégrité des lots. |
+| Suite Node | **291/291 tests réussis**, zéro échec, ignoré ou todo. Simulation, migrations historiques, ressources, collisions, contrôles et intégrité des lots. |
 | Interface | **57/57 parcours réussis**. Gestionnaires du bundle autonome dans un DOM modélisé; Canvas neutralisé. |
 | Audit de campagne | **32 variantes, 8 915 sauvegardes/réimports, 8 915 restaurations exactes et 795 continuations déterministes**. Six châssis × trois conduites, dix avaries et quatre héritages sanitaires. Capture aux transitions physiques et au plus tous les deux secondes. |
 | SVG / Canvas | **5/5 cas**, recouvrement de **98,28 % à 99,90 %** via `check:assets-render`, séparé des tests purs; dépendance de développement Canvas 0.1.100 explicitement installée dans la CI. |
@@ -44,6 +44,8 @@ La transmission ne produit ni carburant ni preuve globale supplémentaire. Le pr
 - L’ouverture d’une décision par une entrée clavier avançait l’horloge avant la mise à jour des lectures de courant. Ces lectures sont synchronisées avant la suspension.
 - Les deux bateaux pouvaient se superposer à l’attente et aux débarcadères. Ils gardent une séparation dans le bassin et des positions d’accostage distinctes.
 - La correction des aides de touches remplace les touches d’origine une seule fois, évitant les substitutions en cascade et les altérations d’apostrophes françaises.
+- La réception native a montré que la frontière de mot ASCII transformait « Départ » en « D / →épart ». Les limites Unicode protègent maintenant lettres accentuées, marques combinantes, nombres et apostrophes ; un test reproduit le message radio concerné.
+- Après transmission effective, l’invite près du registre gardait son message d’attente. Elle affiche désormais « Bilan transmis à Holt · rejoindre la sortie ». Le test couvre attente, disponibilité, travail partiel et transmission pour les trois conduites.
 - Les messages de pression, de portes, d’embarquement, de départ et d’arrivée sont reçus par la radio; les messages critiques restent prioritaires.
 - Une touche Entrée assignée au plein écran conserve l’activation native des boutons. Une manette tenue en arrière-plan ne relance pas une mission suspendue.
 - Le convoi OP02 et le camion de MI01 étaient exclus des tirs du joueur, des explosions et du piétinement. Ils utilisent maintenant les impacts balayés des deux camps, un effet de zone borné et les contacts réels. Le convoyeur attend derrière la cible d’un pied en descente; il ne reçoit aucune immunité ni soin supplémentaire. Un signal explicite annonce les dégâts alliés.
@@ -60,19 +62,42 @@ Les aperçus MI08 sont des rendus Canvas de scènes atteintes par commandes publ
 
 ## Classeur
 
-L’export initial de la 0.9 contient **816 fiches et 5 527 cellules source**, conserve les 769 IDs de la 0.8 et ajoute 47 fiches. Les 21 onglets comprennent vingt tables filtrables, vingt validations de statut, quatre-vingts règles conditionnelles, vingt volets et 126 formules.
+Le classeur final de la 0.9 contient **816 fiches et 5 527 cellules source**, conserve les 769 IDs de la 0.8 et ajoute 47 fiches. Les 21 onglets comprennent vingt tables filtrables, vingt validations de statut, quatre-vingts règles conditionnelles, vingt volets et 126 formules. Les statuts finaux sont 287 « Conçu », 310 « Prototype », 83 « À produire » et 136 « Vérifié » ; ces nombres portent sur des fiches et ne mesurent pas un pourcentage de jeu terminé.
 
-Le premier export conserve les QA natives et les nouvelles QA ouvertes. La réception finale rapproche le JSON, le XML du classeur, les formules calculées, les références, les baselines historiques et les vues modifiées. Le recalcul LibreOffice doit porter sur une copie distincte et déclarer les écarts; il ne suffit pas à démontrer l’usage interactif de ses filtres et volets.
+La réception finale rapproche le JSON, le XML du classeur, les formules calculées, les références et les baselines historiques. **37 vues ciblées** ont été relues visuellement et rapprochées des plages, hauteurs et colonnes du fichier final. Le SHA-256 du XLSX est `af5c84c1a1efc9d78300f3443d0097fca0027596385db97358d97c7e6bdcf701` ; celui du JSON source est `fd20c64cec042c3dbbdb866146ab22c5b6a1235d4f78e30db1ec19d6c03251f2`.
+
+Le recalcul indépendant utilise LibreOffice en mode headless sur une copie dont les **126 caches de formule ont été effacés**. Les 126 résultats sont recalculés ; les 5 527 cellules source et toutes les valeurs comparées restent identiques, sans cellule d’erreur. L’original conserve son empreinte. Le reçu déclare les normalisations de syntaxe des formules dans la copie. Ce contrôle ne valide pas l’usage interactif des filtres et volets : QA29 reste ouverte.
+
+Preuves : [export final](validation/workbook-v0.9-export.json), [réception visuelle finale](validation/workbook-v0.9-visual-review.json), [recalcul LibreOffice](validation/workbook-v0.9-libreoffice.json) et [comparaison des baselines](validation/workbook-v0.9-baseline-check.json). Les reçus du premier export sont conservés séparément.
 
 ## Navigateur réel
 
 Le lancement Chromium automatisé local a échoué avant navigation : le runtime refuse la création du socket et le traçage nécessaires au processus. Ce résultat ne constitue pas un échec du jeu et n’est pas compté comme un test navigateur réussi. L’ouverture `file:` est également refusée par la politique du navigateur partagé. Aucun contournement n’est utilisé.
 
-Le parcours natif est donc prévu sur la publication HTTPS, dans Chrome partagé. Le dossier v7 réellement présent avant mise à jour est conservé dans [v09-browser-migration-before.json](validation/v09-browser-migration-before.json), avec ses sept rapports, 34 pièces, zéro carburant en réserve et deux lots consommés.
+Le parcours natif a été effectué sur la publication HTTPS, dans Chrome partagé sous Linux. Le dossier v7 réellement présent avant mise à jour est conservé dans [v09-browser-migration-before.json](validation/v09-browser-migration-before.json), avec ses sept rapports, 34 pièces, zéro carburant en réserve et deux lots consommés. L’export v8 correspond exactement à la migration attendue ; seuls le numéro de version et le volet d’Aval vide sont ajoutés.
 
 Les points préparés pour MI02 et MI08 sont produits par [prepare-browser-v09.mjs](../tools/prepare-browser-v09.mjs), à partir des fixtures historiques ou de cet export réel. Leur [manifeste](validation/v09-browser-input-manifest.json) les désigne explicitement comme entrées Node. Ils ne deviennent des preuves de navigateur qu’après les actions, exports et observations réellement consignés.
 
-**Observations natives de la publication 0.9 encore à recevoir dans ce premier état.** Les résultats des versions antérieures gardent leur version et leur portée historiques.
+Le [rapport natif](validation/v09-browser.json) et l’[audit des exports](validation/v09-browser-export-audit.json) conservent les entrées, sorties, images, empreintes et portées. Le bureau mesure 1 363 × 1 023 pixels ; la page 1 363 × 936, avec 1 348 pixels CSS disponibles quand sa barre de défilement est présente. Le zoom natif à 125 % et 150 % donne respectivement 1 078 × 749 et 899 × 624 pixels CSS. Les boutons du briefing restent atteignables par Tab, avec défilement et focus visibles. Une petite fenêtre native redimensionnée séparément n’a pas été reçue.
+
+| Parcours natif | Résultat et limite |
+| --- | --- |
+| MI01 | Briefing, Tab/Entrée, déplacement, trois tirs, pause, retour, recharge et reprise observés. Le checkpoint est strictement identique après reload ; seule la révision du dossier passe de 8 à 10. Les conséquences au hangar et le rapport terminé sont consultés depuis un dossier historique préparé. |
+| Dossier portable | Import avec confirmation, export, réimport de cet export et rejet explicite du JSON invalide. Les exports valides et le dossier après rejet sont identiques octet pour octet ; aucune récompense n’est ajoutée. |
+| MI02 | Déblocage et briefing depuis MI01, lancement et marche ; import déclaré d’un point de poursuite, pilotage, reload et freinage natif. Le checkpoint reste exact, puis le train est effectivement arrêté. Les deux rapports et leurs relectures sont consultés depuis le dossier historique terminé ; ce n’est pas une nouvelle partie intégrale de MI02. |
+| Commandes | Conflit E refusé pour Avancer ; Échap annule la capture ; K est conservée après recharge ; les valeurs par défaut sont rétablies. Tab, Maj+Tab, Entrée et Échap sont observés dans les parcours nommés. |
+| MI08 | Continuation depuis le point préparé de porte partielle : ouverture, 34 départs, fermeture, 34 arrivées individuelles, deux accueils locaux, transmission et extraction. Quatre patients au refuge, deux bateaux arrivés et aucune perte ; l’absence de perte n’implique pas l’absence de dommage matériel. Aucun nouvel import entre ce point et le premier résultat. |
+| Persistance finale | Les sept anciens rapports sont exacts ; les pièces passent de 34 à 38 une seule fois, le carburant reste à zéro et les deux lots consommés restent consignés. Les exports du dossier achevé avant et après reload sont identiques octet pour octet. |
+| Archives | Huit rapports visibles et 36 lignes individuelles d’Aval, avec personnes, destination, trajet et accord. Mara Eren et les quatre patients restent identifiables. Le [panneau sanitaire développé](validation/v09-browser-sanitary-panel.json) comporte sept lignes séparant examen, cargaison, balise, journal, origine à recouper, accord d’un témoin et transmission à Mara. |
+| Console | 272 avertissements/erreurs capturés, tous issus du script d’extension du navigateur ; aucune entrée de l’application dans cette collecte de limite 5 000. |
+
+La porte partielle conservée était ouverte à 77,291666… %, mais le travail avait déjà été interrompu avant l’export (`working=false`, `progress=0`). Ce contrôle prouve la conservation de la position physique, pas une manœuvre encore active. La reprise des travaux actifs reste couverte séparément par les tests de simulation.
+
+### Contrôles natifs encore ouverts
+
+**QA19 n’est pas validée.** Lors d’un clic vers un autre onglet en maintenant D, puis d’un second essai vers la barre d’adresse, aucune pause n’a été constatée et la marche a continué jusqu’à l’extraction. Les gardes `blur`, `visibilitychange` et `document.hasFocus` existent dans le code livré ; la cause entre application et environnement d’entrée géré reste à établir. L’erreur de la façade DOM protégée sur `document.hasFocus` ne renseigne pas sur son état réel. Aucun correctif spéculatif ni réussite humaine n’est inventé.
+
+**QA20 reste ouverte** pour la petite fenêtre native, malgré les vues larges et le zoom reçus. **QA29 reste ouverte** pour l’usage interactif de Calc/Excel. Les deux corrections de texte issues du parcours natif sont rattachées à leurs tests et à la publication suivante. Les résultats des versions antérieures conservent leur version historique.
 
 ## Limites
 

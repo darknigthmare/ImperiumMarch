@@ -42,7 +42,11 @@ export function bindingLabel(codes) {
 /** Replace each original key token once; remapped names never feed another replacement. */
 export function formatControlText(value, bindings) {
   const names = { Q:'left', A:'left', D:'right', J:'stepA', L:'stepB', Espace:'brace', ESPACE:'brace', V:'vent', R:'reload', T:'repair', E:'interact', F:'fullscreen', Échap:'pause' };
-  return String(value || '').replace(/\bQ\s*\/\s*A\b|\b(?:Espace|ESPACE|Q|D|J|L|V|R|T|E|F)\b(?![’'])|Échap/g, token => bindingLabel(bindings[token.includes('/') ? 'left' : names[token]]));
+  // ASCII word boundaries split « Départ » after D and decomposed accents
+  // after their base letter. Keep letters, marks, numbers and apostrophes
+  // attached to their word, while preserving punctuation around real hints.
+  return String(value || '').replace(/(^|[^\p{L}\p{M}\p{N}_’'])(Q\s*\/\s*A|Espace|ESPACE|Échap|Q(?!\s*\/\s*A)|D|J|L|V|R|T|E|F)(?![\p{L}\p{M}\p{N}_’'])/gu,
+    (_, prefix, token) => prefix + bindingLabel(bindings[token.includes('/') ? 'left' : names[token]]));
 }
 export function remapBinding(bindings, actionId, code) {
   const action = CONTROL_ACTIONS.find(a => a.id === actionId), current = normalizeBindings(bindings);

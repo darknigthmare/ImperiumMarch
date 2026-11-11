@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "version": "0.9.0",
+  "receivedAt": "2026-11-11T11:28:14.119318+00:00",
+  "initialLocalSnapshot": "01c4aed07788c574eeed421222c2de5fe3d25bdf",
+  "scope": "Réception automatique finale des sources corrigées, distincte de la publication initiale testée dans Chrome. Ancienne réception 290 tests conservée byte-identique; navigateur, matériel, humain et classeur sont des réceptions séparées.",
+  "node": {
+    "tests": 291,
+    "passed": 291,
+    "failed": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "modeledDomFlows": 57,
+  "mi08Audit": {
+    "variants": 32,
+    "jsonRoundtrips": 8915,
+    "exactRestorations": 8915,
+    "deterministicContinuations": 795,
+    "sourceHashesMatchCurrent": true
+  },
+  "backlog": {
+    "newNodeTests": 16,
+    "criteria": 8,
+    "historicalAuditSourceHashesMatchCurrent": false,
+    "historicalSimulationSha256": "1b1072704ce600ecfed96c4b54459b55217d5d1d5fe6c1e581b613b63beb1870",
+    "currentSimulationSha256": "a3ec0c6cdfee1b5d312bde8fb6db59dd8bfb711f39740aca729759d7bc1afd06",
+    "sameTestsReexecutedInFinal291Suite": true,
+    "testSourceUnchanged": true,
+    "scope": "Le rapport détaillé de backlog reste historique. Le journal final 291 exécute les mêmes seize tests sur la simulation corrigée; ne pas attribuer au vieux rapport une nouvelle empreinte source."
+  },
+  "assetsAudio": {
+    "pureNodeTests": 18,
+    "rasterCases": 5,
+    "rasterSharedCoveragePercent": [
+      98.28,
+      99.9
+    ],
+    "initial19TestLogHistorical": true
+  },
+  "media": {
+    "registeredSourceMedia": 351,
+    "sourceMedia": 351,
+    "runtimeImageFiles": 3,
+    "productionGraphicsMedia": 292,
+    "productionAudioMedia": 56,
+    "observedWebMedia": 351,
+    "observedInlineOccurrences": 5,
+    "observedInlineDistinctHashes": 3,
+    "excludedDocumentationMedia": 203,
+    "unregisteredSourceMedia": 0,
+    "unregisteredWebMedia": 0,
+    "unregisteredInlineMedia": 0,
+    "productionWavsEmbedded": 0
+  },
+  "canvas": {
+    "images": 17,
+    "sourceHashesMatchCurrent": true,
+    "allPngHashesMatch": true,
+    "visualReview": "Inspection rapportée par l’agent de production, conservée dans le manifeste de scènes; Canvas seul."
+  },
+  "proofs": [
+    {
+      "path": "docs/validation/v09-node-tests.txt",
+      "sha256": "4feb3781a2e926974b9b8f5bd4c049178528266919c16a9944e1c8dda4387975"
+    },
+    {
+      "path": "docs/validation/v09-ui-runtime.txt",
+      "sha256": "a78dde5e1fc281ac2322d9c393bbb6744b8e9a4afafd9ee490d0c21466eb1abb"
+    },
+    {
+      "path": "docs/validation/v09-campaign-audit.json",
+      "sha256": "e84859fafc3dc0c46b5c948a0187b34df308d65c4a4df1c178f3d9467bb738de"
+    },
+    {
+      "path": "docs/validation/v09-backlog-audit.json",
+      "sha256": "4389fded845c4a509b500f4b56a1e8f5986c87c489910157eefb02b960f3d521"
+    },
+    {
+      "path": "docs/validation/v09-assets-render.txt",
+      "sha256": "98dbae0667d73c5ba4464c81f416352567846048c46f4066f7cd6a15a40cdd28"
+    },
+    {
+      "path": "docs/validation/v09-media-audit.txt",
+      "sha256": "ff04958b3335245aa2df73ec56920a52caf994a2ebc1c87350d821008986a467"
+    },
+    {
+      "path": "assets/production/distribution-manifest.json",
+      "sha256": "e5ccf6f14c1abadd1ce5d0699b8cd41a0043f345cd4370d910745465936bdcd0"
+    },
+    {
+      "path": "docs/previews/mi08-render-manifest.json",
+      "sha256": "ab26441293cb47ab443c7385b8ec1ed04b8e93aa26d83397328f80bf90691cbd"
+    }
+  ],
+  "newQaVerified": [
+    "QA138",
+    "QA139",
+    "QA140",
+    "QA141",
+    "QA142",
+    "QA143",
+    "QA144",
+    "QA145",
+    "QA146",
+    "QA147",
+    "QA148",
+    "QA149",
+    "QA150",
+    "QA151",
+    "QA152",
+    "QA153",
+    "QA154",
+    "QA155",
+    "QA156"
+  ],
+  "originalQaVerified": [
+    "QA05",
+    "QA08",
+    "QA11",
+    "QA12",
+    "QA16",
+    "QA17",
+    "QA18",
+    "QA24",
+    "QA25",
+    "QA28",
+    "QA30"
+  ],
+  "previousReceipt": {
+    "path": "docs/validation/production-v09-automatic-receipt-initial.json",
+    "sha256": "5488ed6e84863771398268096b41993f14ce223c758becbd2c33f7c3a4afbb40",
+    "sourceRevision": "Snapshot initial local 01c4aed / public c044fbe; ses empreintes historiques ne désignent pas tous les fichiers courants après correction."
+  },
+  "currentRuntimeSourceHashes": {
+    "src/content.mjs": "5dea60cf815deaf606ab419fff363a575082b883c8af7ec1cf6bbdbaf8143f16",
+    "src/simulation.mjs": "a3ec0c6cdfee1b5d312bde8fb6db59dd8bfb711f39740aca729759d7bc1afd06",
+    "src/campaign.mjs": "e3b960fd7ec90c49af82b1046ddbb95fba2f8d706051ae840941cfb0095f5272",
+    "src/controls.mjs": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32",
+    "src/main.mjs": "e72b9779b832cd2edeabe85f20578401d6fad71792b4c406e7f5cef75abc35eb",
+    "src/renderer.mjs": "3627328993c9e4152672d6edaa36933ab69a3ea22337359fcb9803ccda01bfa0",
+    "tests/controls.test.mjs": "4a71a9bbd9c0968312464ddb53f9bd39ad723683254a42b0cc02b95e0692371d",
+    "tests/mi08-mission.test.mjs": "07be574fc751a2d278c93e5733c6a95a6b1dcb0e79fa651b8d7abed4413abd8f"
+  },
+  "mediaSnapshotNote": "Rapprochement strict final après les 37 vues Bible et 19 captures Chrome : 351 médias sources/web, 203 documentaires exclus, aucune entrée inconnue; copie web du manifeste identique.",
+  "automaticStatusesReconciledBeforeChrome": 43,
+  "finalOfflineBundle": {
+    "path": "dist/Ordre_de_Cendre.html",
+    "sha256": "6a22452f5fda661284378d36bc358c38fc6a50de88bb4403238eb92431a67d90",
+    "bytes": 10168928,
+    "identityToBundleTestedBy57Flows": "Compared and confirmed by root in final publication gate; no runtime changes after those flows."
+  },
+  "finalBibleSourceSha256": "fd20c64cec042c3dbbdb866146ab22c5b6a1235d4f78e30db1ec19d6c03251f2"
+}

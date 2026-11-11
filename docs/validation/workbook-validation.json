@@ -4,10 +4,10 @@
   "sheets": 21,
   "designRows": 816,
   "statusCounts": {
-    "Conçu": 288,
-    "Prototype": 305,
-    "À produire": 123,
-    "Vérifié": 100
+    "Conçu": 287,
+    "Prototype": 310,
+    "À produire": 83,
+    "Vérifié": 136
   },
   "catalog": [
     {
@@ -199,8 +199,8 @@
       "lastColumn": "F",
       "statusIndex": 5,
       "sourceCounts": [
-        38,
-        36,
+        37,
+        37,
         0,
         0
       ]
@@ -213,8 +213,8 @@
       "statusIndex": 6,
       "sourceCounts": [
         0,
-        33,
-        29,
+        35,
+        27,
         0
       ]
     },
@@ -226,8 +226,8 @@
       "statusIndex": 6,
       "sourceCounts": [
         1,
-        47,
-        34,
+        49,
+        32,
         0
       ]
     },
@@ -240,8 +240,8 @@
       "sourceCounts": [
         0,
         0,
-        60,
-        98
+        24,
+        134
       ]
     },
     {
@@ -271,17 +271,60 @@
       ]
     }
   ],
-  "previews": [],
+  "previews": [
+    "bible-v09-synthese.png",
+    "bible-v09-nacre.png",
+    "bible-v09-mara-vann.png",
+    "bible-v09-mi08-mi09.png",
+    "bible-v09-portes.png",
+    "bible-v09-systemes-personnes.png",
+    "bible-v09-systemes-production.png",
+    "bible-v09-ordre-continuite.png",
+    "bible-v09-accueil-sanitaire.png",
+    "bible-v09-identites-mara.png",
+    "bible-v09-conduites-services.png",
+    "bible-v09-rigs.png",
+    "bible-v09-audio.png",
+    "bible-v09-manifestes.png",
+    "bible-v09-kit-nacre.png",
+    "bible-v09-registre-ui.png",
+    "bible-v09-ambulance-ui-son.png",
+    "bible-v09-commandes.png",
+    "bible-v09-production-mi08.png",
+    "bible-v09-qa-operations.png",
+    "bible-v09-qa-temps-integrite.png",
+    "bible-v09-qa-natif.png",
+    "bible-v09-qa-mi08.png",
+    "bible-v09-qa-arrivees-pertes.png",
+    "bible-v09-qa-dossier-commandes.png",
+    "bible-v09-qa-son-rendu.png",
+    "bible-v09-atelier.png",
+    "bible-v09-prototype-mi08.png",
+    "bible-v09-prototype-production.png",
+    "bible-v09-qa-chassis-reprise.png",
+    "bible-v09-qa-archives-stockage.png",
+    "bible-v09-qa-focus-affichage-clavier.png",
+    "bible-v09-qa-poursuite-native.png",
+    "bible-v09-qa-session-native.png",
+    "bible-v09-production-bible.png",
+    "bible-v09-production-navigateur.png",
+    "bible-v09-qa-bible-humain.png"
+  ],
   "tests": [
     "Total des fiches réconcilié avec le JSON",
     "Statuts réconciliés avec le JSON",
     "Modification temporaire de statut et recalcul vérifiés, valeur restaurée"
   ],
   "scope": "Bible de conception et registre de production. MI01–MI04 forment l’arc jouable de Vesper; MI05–MI08 couvrent chenal, digue, ambulance et portes d’Aval sur Nacre. Huit missions, six châssis, trois opérations indépendantes et dossier v8 sont disponibles au stade prototype. Les 24 autres missions principales restent conçues. Les 133 critères À produire de la 0.8 sont conservés dans un registre immuable et réconciliés avec les livrables reçus, sans assimiler art procédural, test automatique et essai humain.",
+  "previewGeneration": {
+    "generatedThisExport": 2,
+    "retainedWithUnchangedSourceRanges": 35,
+    "review": "docs/validation/workbook-v0.9-visual-review.json"
+  },
   "exportValidation": {
     "workbook": "ORDRE_DE_CENDRE_Bible.xlsx",
     "version": "0.9.0",
-    "sha256": "866b7ec16d491c4ece870a9689356bb8c90a08b01630bf4dc42f6310ecb86524",
+    "sha256": "af5c84c1a1efc9d78300f3443d0097fca0027596385db97358d97c7e6bdcf701",
     "sourceRecords": 816,
     "sourceCellsCompared": 5527,
     "historicalRevision": "03c69e7",
@@ -298,19 +341,19 @@
     "referenceAudit": {
       "source": "data/bible.json",
       "version": "0.9.0",
-      "sourceSha256": "ac79b57e0224048be8e23b3a19b33be9c5f664b2f5b6e7d067a1e1a0a6dff667",
+      "sourceSha256": "fd20c64cec042c3dbbdb866146ab22c5b6a1235d4f78e30db1ec19d6c03251f2",
       "scope": "All explicit two-letter/two-or-three-digit identifiers in row fields and metadata, closed ranges and abbreviated pairs such as PT03/04. Symbols resolve to canonical declaration rows. Existence of a reference does not certify gameplay, art, narrative truth or human usability.",
       "sourceSheets": 20,
       "sourceRows": 816,
       "uniqueIds": 816,
       "textFieldsScanned": 4752,
-      "referenceOccurrences": 1110,
+      "referenceOccurrences": 1141,
       "closedRanges": 94,
       "abbreviatedPairs": 1,
-      "expandedReferences": 1718,
+      "expandedReferences": 1749,
       "resolvedByKind": {
-        "standalone_operation": 26,
-        "row": 1639,
+        "standalone_operation": 29,
+        "row": 1667,
         "technical_evidence": 41,
         "witness_evidence": 6,
         "political_evidence": 6
@@ -319,7 +362,9 @@
       "passed": true
     },
     "engineScope": "Recalcul et test de modification de statut exécutés dans @oai/artifact-tool. Ce contrôle lit le ZIP/XML exporté; une éventuelle exécution native est consignée séparément et ne se déduit pas de ce rapport.",
-    "renderedPreviewCount": 0,
-    "visualScope": "Aucune nouvelle vue générée pour cet export initial. Relecture visuelle finale et contrôle natif restent séparés de cette réconciliation XML."
+    "renderedPreviewCount": 37,
+    "generatedPreviewCountThisExport": 2,
+    "retainedPreviewCount": 35,
+    "visualScope": "37 vues associées à la réception : 2 générées par cet export et 35 conservées sur des plages source inchangées. Leur relecture effective et leurs empreintes sont consignées séparément; le nombre de vues ne certifie ni navigateur ni usage natif du classeur."
   }
 }

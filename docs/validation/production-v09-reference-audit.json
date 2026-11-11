@@ -1,19 +1,19 @@
 {
   "source": "data/bible.json",
   "version": "0.9.0",
-  "sourceSha256": "ac79b57e0224048be8e23b3a19b33be9c5f664b2f5b6e7d067a1e1a0a6dff667",
+  "sourceSha256": "fd20c64cec042c3dbbdb866146ab22c5b6a1235d4f78e30db1ec19d6c03251f2",
   "scope": "All explicit two-letter/two-or-three-digit identifiers in row fields and metadata, closed ranges and abbreviated pairs such as PT03/04. Symbols resolve to canonical declaration rows. Existence of a reference does not certify gameplay, art, narrative truth or human usability.",
   "sourceSheets": 20,
   "sourceRows": 816,
   "uniqueIds": 816,
   "textFieldsScanned": 4752,
-  "referenceOccurrences": 1110,
+  "referenceOccurrences": 1141,
   "closedRanges": 94,
   "abbreviatedPairs": 1,
-  "expandedReferences": 1718,
+  "expandedReferences": 1749,
   "resolvedByKind": {
-    "standalone_operation": 26,
-    "row": 1639,
+    "standalone_operation": 29,
+    "row": 1667,
     "technical_evidence": 41,
     "witness_evidence": 6,
     "political_evidence": 6
@@ -6282,19 +6282,6 @@
       ]
     },
     {
-      "sheet": "Assets",
-      "sourceId": "AS50",
-      "field": "spec",
-      "text": "MI08",
-      "targets": [
-        {
-          "id": "MI08",
-          "kind": "row",
-          "sheet": "Campagne"
-        }
-      ]
-    },
-    {
       "sheet": "Production",
       "sourceId": "PR02",
       "field": "depends",
@@ -11713,6 +11700,116 @@
     },
     {
       "sheet": "QA",
+      "sourceId": "QA16",
+      "field": "expected",
+      "text": "OP03",
+      "targets": [
+        {
+          "id": "OP03",
+          "anchor": "NA19",
+          "sheet": "Narration",
+          "kind": "standalone_operation",
+          "declared": true
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA17",
+      "field": "expected",
+      "text": "QA38",
+      "targets": [
+        {
+          "id": "QA38",
+          "kind": "row",
+          "sheet": "QA"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA21",
+      "field": "expected",
+      "text": "QA19",
+      "targets": [
+        {
+          "id": "QA19",
+          "kind": "row",
+          "sheet": "QA"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA28",
+      "field": "expected",
+      "text": "MI01",
+      "targets": [
+        {
+          "id": "MI01",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA28",
+      "field": "expected",
+      "text": "OP02",
+      "targets": [
+        {
+          "id": "OP02",
+          "anchor": "NA18",
+          "sheet": "Narration",
+          "kind": "standalone_operation",
+          "declared": true
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA28",
+      "field": "expected",
+      "text": "OP02",
+      "targets": [
+        {
+          "id": "OP02",
+          "anchor": "NA18",
+          "sheet": "Narration",
+          "kind": "standalone_operation",
+          "declared": true
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA28",
+      "field": "expected",
+      "text": "QA13",
+      "targets": [
+        {
+          "id": "QA13",
+          "kind": "row",
+          "sheet": "QA"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA30",
+      "field": "expected",
+      "text": "PR26",
+      "targets": [
+        {
+          "id": "PR26",
+          "kind": "row",
+          "sheet": "Production"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
       "sourceId": "QA31",
       "field": "area",
       "text": "MI01",
@@ -11821,6 +11918,45 @@
       "sheet": "QA",
       "sourceId": "QA37",
       "field": "scenario",
+      "text": "MI01",
+      "targets": [
+        {
+          "id": "MI01",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA37",
+      "field": "expected",
+      "text": "MI01",
+      "targets": [
+        {
+          "id": "MI01",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA37",
+      "field": "expected",
+      "text": "MI01",
+      "targets": [
+        {
+          "id": "MI01",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA37",
+      "field": "expected",
       "text": "MI01",
       "targets": [
         {
@@ -12027,6 +12163,58 @@
     },
     {
       "sheet": "QA",
+      "sourceId": "QA45",
+      "field": "expected",
+      "text": "MI02",
+      "targets": [
+        {
+          "id": "MI02",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA45",
+      "field": "expected",
+      "text": "MI01",
+      "targets": [
+        {
+          "id": "MI01",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA45",
+      "field": "expected",
+      "text": "MI01",
+      "targets": [
+        {
+          "id": "MI01",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA45",
+      "field": "expected",
+      "text": "MI02",
+      "targets": [
+        {
+          "id": "MI02",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
       "sourceId": "QA46",
       "field": "area",
       "text": "MI03",
@@ -12207,6 +12395,45 @@
           "id": "MI03",
           "kind": "row",
           "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA60",
+      "field": "expected",
+      "text": "MI08",
+      "targets": [
+        {
+          "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA60",
+      "field": "expected",
+      "text": "QA19",
+      "targets": [
+        {
+          "id": "QA19",
+          "kind": "row",
+          "sheet": "QA"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA60",
+      "field": "expected",
+      "text": "QA20",
+      "targets": [
+        {
+          "id": "QA20",
+          "kind": "row",
+          "sheet": "QA"
         }
       ]
     },
@@ -12971,8 +13198,34 @@
     },
     {
       "sheet": "QA",
+      "sourceId": "QA138",
+      "field": "expected",
+      "text": "MI08",
+      "targets": [
+        {
+          "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
       "sourceId": "QA139",
       "field": "area",
+      "text": "MI08",
+      "targets": [
+        {
+          "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA139",
+      "field": "expected",
       "text": "MI08",
       "targets": [
         {
@@ -12997,8 +13250,34 @@
     },
     {
       "sheet": "QA",
+      "sourceId": "QA140",
+      "field": "expected",
+      "text": "MI08",
+      "targets": [
+        {
+          "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
       "sourceId": "QA141",
       "field": "area",
+      "text": "MI08",
+      "targets": [
+        {
+          "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA141",
+      "field": "expected",
       "text": "MI08",
       "targets": [
         {
@@ -13023,8 +13302,34 @@
     },
     {
       "sheet": "QA",
+      "sourceId": "QA142",
+      "field": "expected",
+      "text": "MI08",
+      "targets": [
+        {
+          "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
       "sourceId": "QA143",
       "field": "area",
+      "text": "MI08",
+      "targets": [
+        {
+          "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA143",
+      "field": "expected",
       "text": "MI08",
       "targets": [
         {
@@ -13049,8 +13354,34 @@
     },
     {
       "sheet": "QA",
+      "sourceId": "QA144",
+      "field": "expected",
+      "text": "MI08",
+      "targets": [
+        {
+          "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
       "sourceId": "QA145",
       "field": "area",
+      "text": "MI08",
+      "targets": [
+        {
+          "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA145",
+      "field": "expected",
       "text": "MI08",
       "targets": [
         {
@@ -13075,8 +13406,34 @@
     },
     {
       "sheet": "QA",
+      "sourceId": "QA146",
+      "field": "expected",
+      "text": "MI08",
+      "targets": [
+        {
+          "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
       "sourceId": "QA147",
       "field": "area",
+      "text": "MI08",
+      "targets": [
+        {
+          "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA147",
+      "field": "expected",
       "text": "MI08",
       "targets": [
         {
@@ -13101,12 +13458,51 @@
     },
     {
       "sheet": "QA",
+      "sourceId": "QA148",
+      "field": "expected",
+      "text": "MI08",
+      "targets": [
+        {
+          "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
       "sourceId": "QA151",
       "field": "area",
       "text": "MI08",
       "targets": [
         {
           "id": "MI08",
+          "kind": "row",
+          "sheet": "Campagne"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA152",
+      "field": "expected",
+      "text": "QA19",
+      "targets": [
+        {
+          "id": "QA19",
+          "kind": "row",
+          "sheet": "QA"
+        }
+      ]
+    },
+    {
+      "sheet": "QA",
+      "sourceId": "QA154",
+      "field": "expected",
+      "text": "MI07",
+      "targets": [
+        {
+          "id": "MI07",
           "kind": "row",
           "sheet": "Campagne"
         }
@@ -17325,6 +17721,19 @@
           "id": "PR24",
           "kind": "row",
           "sheet": "Production"
+        }
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "sourceId": "PX85",
+      "field": "limits",
+      "text": "QA19",
+      "targets": [
+        {
+          "id": "QA19",
+          "kind": "row",
+          "sheet": "QA"
         }
       ]
     },

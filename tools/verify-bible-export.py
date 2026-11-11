@@ -237,6 +237,10 @@ with zipfile.ZipFile(file) as z:
     state=root/'docs/validation/workbook-validation.json'
     q=json.loads(state.read_text())
     preview_count=len(q.get('previews',[]))
+    preview_generation=q.get('previewGeneration',{})
+    generated_count=preview_generation.get('generatedThisExport',preview_count)
+    retained_count=preview_generation.get('retainedWithUnchangedSourceRanges',0)
+    assert generated_count+retained_count==preview_count
     report={
       'workbook':file.name,'version':source['meta']['version'],'sha256':hashlib.sha256(file.read_bytes()).hexdigest(),
       'sourceRecords':len(ids),'sourceCellsCompared':source_cells,'historicalRevision':baseline,'historicalIdsPreserved':len(old_ids),'addedIds':len(ids)-len(old_ids),
@@ -245,7 +249,8 @@ with zipfile.ZipFile(file) as z:
       'referenceAudit':{key:value for key,value in references.items() if key not in ('occurrences','symbolDeclarations')},
       'engineScope':'Recalcul et test de modification de statut exécutés dans @oai/artifact-tool. Ce contrôle lit le ZIP/XML exporté; une éventuelle exécution native est consignée séparément et ne se déduit pas de ce rapport.',
       'renderedPreviewCount':preview_count,
-      'visualScope':f'{preview_count} vues générées par cet export. Leur relecture effective et les plages observées sont consignées séparément; le nombre de vues ne certifie ni navigateur ni usage natif du classeur.' if preview_count else 'Aucune nouvelle vue générée pour cet export initial. Relecture visuelle finale et contrôle natif restent séparés de cette réconciliation XML.',
+      'generatedPreviewCountThisExport':generated_count,'retainedPreviewCount':retained_count,
+      'visualScope':f'{preview_count} vues associées à la réception : {generated_count} générées par cet export et {retained_count} conservées sur des plages source inchangées. Leur relecture effective et leurs empreintes sont consignées séparément; le nombre de vues ne certifie ni navigateur ni usage natif du classeur.' if preview_count else 'Aucune nouvelle vue générée pour cet export initial. Relecture visuelle finale et contrôle natif restent séparés de cette réconciliation XML.',
     }
     release='.'.join(source['meta']['version'].split('.')[:2])
     out=root/f'docs/validation/workbook-v{release}-export.json'; out.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')

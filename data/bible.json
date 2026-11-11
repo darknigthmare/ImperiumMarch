@@ -4304,11 +4304,11 @@
         },
         {
           "id": "NA47",
-          "type": "Choix conçu",
+          "type": "Choix",
           "name": "Fermer avec des gens devant",
           "rule": "Le joueur voit quels bateaux sont encore à l’intérieur et qui peut les recevoir. L’ordre de fermeture, son exécution et la déclaration à Holt ne se confondent pas.",
           "sources": "MI08; portes, refuge, départ de Mara et ordre impérial.",
-          "status": "Conçu"
+          "status": "Prototype"
         },
         {
           "id": "NA48",
@@ -4802,7 +4802,7 @@
           "id": "AS30",
           "category": "Production",
           "deliverable": "Registre de provenance",
-          "spec": "Auteur ou générateur, prompt le cas échéant, date, droits, version et chemins de chaque asset final. 0.9 : Deux manifestes avec origine, méthode, date, version, droits déclarés, chemins et SHA-256 des 354 fichiers du lot. Limite : Réconcilier le lot avec tous les médias embarqués de la livraison finale; les droits déclarés ne constituent pas la revue commerciale PR26.",
+          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. 0.9 : manifeste de distribution exhaustif des 351 médias sources/web, cinq inclusions de trois images et références exclues, plus manifestes des 354 fichiers de production. Les dates exactes, modèles/jobs ou licences historiques non documentés restent explicitement inconnus; PR26 reste ouvert.",
           "acceptance": "Tout asset livré possède une entrée; aucun média de référence embarqué sans autorisation.",
           "priority": "P0",
           "status": "Prototype"
@@ -4982,7 +4982,7 @@
           "id": "AS50",
           "category": "Nacre",
           "deliverable": "Portes d’Aval et départ de MI08",
-          "spec": "Deux portes, indicateurs de pression, niches de refuge, bateaux en file et silhouettes locales dans des états de départ distincts. 0.9 : Porte, mécanisme indépendant, Veille d’Aval, Rive-Courte et refuge vectoriels. Limite : MI08 et son renderer sont en intégration; aucune arrivée ou personne n’est certifiée par ces dessins seuls.",
+          "spec": "Deux portes, indicateurs de pression, niches de refuge, bateaux en file et silhouettes locales dans des états de départ distincts. 0.9 : Porte, mécanisme indépendant, Veille d’Aval, Rive-Courte et refuge vectoriels. Réception : portes, mécanismes, bateaux, quais et accueil intégrés au renderer; dix-sept scènes Canvas relues et une continuation Chrome reçue. Limite : les gestes finaux et la compréhension humaine restent ouverts; les dessins seuls ne prouvent aucune arrivée.",
           "acceptance": "Les portes, personnes et bateaux visibles correspondent à leurs états persistants. Aucune foule générique ne remplace le bilan.",
           "priority": "P1",
           "status": "Prototype"
@@ -5036,10 +5036,10 @@
           "id": "AS56",
           "category": "Interface",
           "deliverable": "Archives de Nacre",
-          "spec": "Présentation finale rapprochant personnes, logements, service et dépense de la sortie, avec accès séparé au stock courant et au cumul officiel.",
+          "spec": "Présentation finale rapprochant personnes, logements, service et dépense de la sortie, avec accès séparé au stock courant et au cumul officiel. Réception 0.9 : Archives de Nacre et état courant exposent personnes, logements, service, stock et dépense; journal et registre d’Aval parcourus dans Chrome, reçus JSON conservés. Reste : Présentation encore au stade prototype. La capture montre deux lots consommés dans la sortie; le cas zéro dans cette sortie après deux lots dépensés auparavant reste à observer dans Chrome, ainsi que sa compréhension spontanée.",
           "acceptance": "Le joueur distingue zéro carburant utilisé dans cette sortie et deux lots déjà dépensés auparavant. Couleur et icône ne sont pas les seuls supports de sens.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS57",
@@ -5081,10 +5081,10 @@
           "id": "AS61",
           "category": "Interface finale",
           "deliverable": "Dossier sanitaire et provenance",
-          "spec": "Présentation séparée des personnes, cargo constaté, récupération, destination et provenance encore inconnue.",
+          "spec": "Présentation séparée des personnes, cargo constaté, récupération, destination et provenance encore inconnue. Réception 0.9 : Dossier sanitaire, états des personnes, cargaison, balise et destination présentés séparément. Le rapport Chrome garde « origine de la pose : à recouper » et un accord à témoigner distinct du recensement. Complément reçu : les sept lignes du panneau détaillé sont aussi développées et observées dans une preuve Chrome complémentaire. Présentation finale et compréhension humaine restent à produire; le registre d’Aval n’attribue pas un accord de témoignage à tous les patients.",
           "acceptance": "Un état inconnu reste inconnu; les données de soins ne sont pas converties en liste publique de témoins.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS62",
@@ -5154,7 +5154,7 @@
           "depends": "VI01–VI16",
           "acceptance": "IDs uniques, liens cohérents, onglets lisibles, statuts honnêtes et inventaire des sources.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "PR03",
@@ -5420,11 +5420,11 @@
         {
           "id": "PR32",
           "workstream": "Validation navigateur 0.2",
-          "deliverable": "Parcours interactifs et reprise après rechargement sur le navigateur disponible.",
+          "deliverable": "Parcours interactifs et reprise après rechargement sur le navigateur disponible. 0.9 : réception Chrome réelle des parcours nommés et de leurs limites; dossier d’essai et captures conservés.",
           "depends": "PR29–PR31; PR09",
           "acceptance": "Environnement, dimensions, actions réellement exécutées et limites consignés. Aucun contrôle statique ou état injecté présenté comme partie humaine complète.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "PR33",
@@ -5950,9 +5950,9 @@
           "id": "QA05",
           "area": "Munitions",
           "scenario": "Vider, recharger, changer de sélection et reprendre la mission.",
-          "expected": "Réserves cohérentes; compteur jamais négatif ni augmenté par un changement de menu.",
+          "expected": "Réserves cohérentes; compteur jamais négatif ni augmenté par un changement de menu. Contrôle exécuté : Épuisement, recharge partielle et réserve exacte contrôlés sur six châssis; 36 sélections API refusées, puis vrai flux DOM pause/menu/châssis/opération/reprise. Portée : Portée Node et DOM modélisé; aucun geste matériel ou téléchargement natif déduit. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA06",
@@ -5974,9 +5974,9 @@
           "id": "QA08",
           "area": "Piétinement",
           "scenario": "Poser un pied sur une cible puis près d’une cible hors empreinte.",
-          "expected": "Dégâts au contact réel seulement; absence de dégâts en restant simplement à proximité.",
+          "expected": "Dégâts au contact réel seulement; absence de dégâts en restant simplement à proximité. Contrôle exécuté : Pose de pied et dégâts réels sur transport par commandes publiques; cible hors empreinte, pied en vol et attente proche contrôlés en géométrie isolée. Portée : Stimuli unitaires distingués des parcours publics; pas de validation d’animation humaine. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA09",
@@ -5998,23 +5998,23 @@
           "id": "QA11",
           "area": "OP01",
           "scenario": "Scanner hors portée, entrer à portée, interrompre puis terminer la copie.",
-          "expected": "Condition de distance réelle, progression claire et preuve attribuée une seule fois.",
+          "expected": "Condition de distance réelle, progression claire et preuve attribuée une seule fois. Contrôle exécuté : Approche publique, scan hors portée, interruption au-delà de 250 unités, reprise et cinq nouvelles tentatives sans seconde copie. Portée : Progression numérique et règles de portée contrôlées; compréhension visuelle humaine non déduite. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA12",
           "area": "OP01",
           "scenario": "Détruire les trois relais dans plusieurs ordres puis atteindre extraction.",
-          "expected": "Compteur exact et victoire au moment prévu; aucune dépendance à un ordre caché.",
+          "expected": "Compteur exact et victoire au moment prévu; aucune dépendance à un ordre caché. Contrôle exécuté : Trois ordres de destruction publique, compte exact à chaque étape et victoire seulement après atteinte de l’extraction. Portée : Trois ordres exécutés; aucune affirmation sur les six permutations exhaustives. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA13",
           "area": "OP02",
           "scenario": "Protéger le convoi jusqu’à la fin puis rejouer en le laissant détruire.",
-          "expected": "Victoire et échec distincts; survivants et bilan corrects.",
+          "expected": "Victoire et échec distincts; survivants et bilan corrects. Réception partielle 0.9 : victoire et perte du transport contrôlées; les 47 familles du récit ne possèdent pas de recensement individuel. Aucun nombre de personnes ou sort des occupants n’en est déduit. Preuve : docs/validation/v09-backlog-audit.json.",
           "priority": "P0",
           "status": "À produire"
         },
@@ -6022,7 +6022,7 @@
           "id": "QA14",
           "area": "OP03",
           "scenario": "Battre l’adversaire lourd puis tester chaque décision.",
-          "expected": "Choix différencié dans le rapport et la sauvegarde; pas de décision modifiable après validation sans rejouer.",
+          "expected": "Choix différencié dans le rapport et la sauvegarde; pas de décision modifiable après validation sans rejouer. Écart conservé : le critère initial place le choix après le combat, tandis que le prototype choisit avant Cerbère; obéir permet son retrait vivant. Les deux branches, rapports et archives sont contrôlés, mais cette divergence reste ouverte. Preuves : docs/validation/v09-backlog-audit.json; docs/validation/v09-ui-runtime.txt.",
           "priority": "P0",
           "status": "À produire"
         },
@@ -6038,31 +6038,31 @@
           "id": "QA16",
           "area": "Reprise",
           "scenario": "Fermer après un résultat, rouvrir puis recommencer une autre opération.",
-          "expected": "Progression persistante et état de mission neuf, sans ennemis ou projectiles résiduels.",
+          "expected": "Progression persistante et état de mission neuf, sans ennemis ou projectiles résiduels. Contrôle exécuté : Deux parcours OP03 traversent décision, résultat, stockage, archives dans un nouveau contexte et lancement d’une autre opération avec état neuf. Portée : Fermeture/rechargement modélisés dans le DOM de l’application; navigateur natif séparé. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA17",
           "area": "Données invalides",
           "scenario": "Fournir une sauvegarde vide, ancienne ou mal formée.",
-          "expected": "Valeurs par défaut sûres, message si nécessaire et aucune page bloquée.",
+          "expected": "Valeurs par défaut sûres, message si nécessaire et aucune page bloquée. Contrôle exécuté : Lecteurs historiques, données vides/mal formées/étrangères/futures et page utilisable contrôlés en Node et DOM. Portée : Refus de fichier par dialogue natif relève séparément de QA38. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA18",
           "area": "Stockage indisponible",
           "scenario": "Bloquer le stockage navigateur ou atteindre sa limite.",
-          "expected": "Le jeu reste jouable; impossibilité de sauvegarder indiquée honnêtement.",
+          "expected": "Le jeu reste jouable; impossibilité de sauvegarder indiquée honnêtement. Contrôle exécuté : Pannes et quota de stockage injectés; session jouable, copie valide préservée et avertissement visible contrôlés. Portée : Panne simulée de stockage, sans revendiquer une permission Chrome effectivement bloquée. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA19",
           "area": "Entrées",
           "scenario": "Perdre le focus en maintenant déplacement ou tir puis revenir.",
-          "expected": "Entrées réinitialisées; aucune action maintenue sans intention du joueur.",
+          "expected": "Entrées réinitialisées; aucune action maintenue sans intention du joueur. Observation 0.9 : Deux essais natifs avec D maintenu, changement d’onglet puis barre d’adresse, ont laissé la marche et l’horloge continuer. Aucun retour en pause n’a été observé. Cause application ou entrées gérées indéterminée; non validé, observation à caractériser. Preuve : docs/validation/v09-browser.json.",
           "priority": "P0",
           "status": "À produire"
         },
@@ -6070,7 +6070,7 @@
           "id": "QA20",
           "area": "Affichage",
           "scenario": "Vérifier écran large, petite fenêtre et zoom de texte.",
-          "expected": "Contrôles non tronqués, boutons atteignables, indicateurs lisibles et canvas proportionnel.",
+          "expected": "Contrôles non tronqués, boutons atteignables, indicateurs lisibles et canvas proportionnel. Réception partielle 0.9 : grand écran et zooms 125/150 % observés; véritable petite fenêtre native non établie. Preuve : docs/validation/v09-browser.json.",
           "priority": "P0",
           "status": "À produire"
         },
@@ -6078,9 +6078,9 @@
           "id": "QA21",
           "area": "Clavier",
           "scenario": "Naviguer dans les menus avec Tab, Entrée et Échap.",
-          "expected": "Focus visible, ordre logique et fermeture du panneau prévue.",
+          "expected": "Focus visible, ordre logique et fermeture du panneau prévue. Réception 0.9 : Dans Chrome natif : Tab et Maj+Tab, activation du briefing par Entrée, fermeture de dialogue par Échap avec retour du focus au déclencheur; conflits et persistance de la reconfiguration également exercés. Limite : Chrome Linux, fenêtre et zooms déclarés; aucun essai de manette ou utilisateur concerné. La perte de focus en mission reste non validée sous QA19. Preuve : docs/validation/v09-browser.json.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA22",
@@ -6102,17 +6102,17 @@
           "id": "QA24",
           "area": "Temps",
           "scenario": "Rejouer une séquence de simulation à plusieurs cadences de rendu.",
-          "expected": "Résultats de collision et de progression équivalents dans la tolérance documentée.",
+          "expected": "Résultats de collision et de progression équivalents dans la tolérance documentée. Contrôle exécuté : Deux séquences à 30/60/120 mises à jour par seconde : collisions/comptes identiques, position dans dix unités sur dix secondes et scan dans un quantum. Portée : Cadences émulées sous Node; ni FPS navigateur, ni GPU, ni onglet en arrière-plan ou cadence inférieure à 20 Hz mesurés. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA25",
           "area": "Intégrité bible",
           "scenario": "Vérifier IDs et références de tous onglets.",
-          "expected": "Aucun ID dupliqué et chaque référence de contenu pointe vers une entrée existante ou une plage explicitée.",
+          "expected": "Aucun ID dupliqué et chaque référence de contenu pointe vers une entrée existante ou une plage explicitée. Contrôle exécuté : Tous les IDs, références, plages et symboles résolus; sept copies négatives et cinq baselines sans Git contrôlées. Portée : Existence d’une référence, sans certification du gameplay ou de la finition qu’elle décrit; audit rafraîchi avec la source finale. Preuve : docs/validation/production-v09-reference-audit.json.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA26",
@@ -6134,15 +6134,15 @@
           "id": "QA28",
           "area": "Civils",
           "scenario": "Tirer, marcher et utiliser effets de zone près d’un transport protégé.",
-          "expected": "Même logique de collision; dommages et conséquences explicités sans immunité arbitraire.",
+          "expected": "Même logique de collision; dommages et conséquences explicités sans immunité arbitraire. Contrôle exécuté : Transports de MI01 et OP02 touchés par les deux camps, impacts directs, explosions bornées et vrais contacts de pied; suivi sûr sur six châssis sans immunité. Portée : La population des 47 familles d’OP02 reste non recensée et relève de QA13; aucune perte d’occupant inventée. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA29",
           "area": "Excel",
           "scenario": "Ouvrir le classeur, trier les tables, modifier un statut et lire le tableau de bord.",
-          "expected": "Filtres et volets utilisables; formules cohérentes, pas d’erreur ni de texte illisible.",
+          "expected": "Filtres et volets utilisables; formules cohérentes, pas d’erreur ni de texte illisible. Réception 0.9 : aucune application bureautique graphique dans l’inventaire observé; recalcul CLI séparé, usage interactif non exécuté.",
           "priority": "P0",
           "status": "À produire"
         },
@@ -6150,9 +6150,9 @@
           "id": "QA30",
           "area": "Provenance",
           "scenario": "Comparer chaque média embarqué à son entrée de registre.",
-          "expected": "Chemin, origine, version et usage renseignés; médias de référence non distribués.",
+          "expected": "Chemin, origine, version et usage renseignés; médias de référence non distribués. Contrôle exécuté : 351 médias sources et web enregistrés; cinq inclusions inline de trois images rapprochées; zéro média inconnu, référence externe non distribuée. Portée : Rapprochement technique de fichiers. Dates exactes de génération, modèles/job ou droits historiques absents restent non renseignés; revue commerciale PR26 séparée. Preuve : assets/production/distribution-manifest.json.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA31",
@@ -6206,17 +6206,17 @@
           "id": "QA37",
           "area": "Navigateur — reprise et interface",
           "scenario": "Lancer MI01 depuis la page, mettre en pause, recharger puis reprendre; parcourir hangar, équipage et rapports aux dimensions testées.",
-          "expected": "Reprise accessible, dialogues et commandes fonctionnels, état sauvegardé retrouvé. Étendue exacte et limites consignées dans le rapport navigateur.",
+          "expected": "Reprise accessible, dialogues et commandes fonctionnels, état sauvegardé retrouvé. Étendue exacte et limites consignées dans le rapport navigateur. Réception 0.9 : MI01 lancée depuis la page, marche et tirs, pause, rechargement et reprise; checkpoint exporté strictement identique, seule la révision du dossier augmente. Hangar, équipage et rapports parcourus. Limite : Le rapport MI01 utilisé pour les vues après réussite vient d’un dossier authentique préparé. Cette preuve ne revendique pas une nouvelle mission MI01 entièrement terminée dans Chrome. Preuve : docs/validation/v09-browser.json.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA38",
           "area": "Navigateur — sauvegarde portable",
           "scenario": "Exporter un dossier depuis la page, l’importer avec confirmation puis essayer un fichier invalide.",
-          "expected": "Fichier valide restitué sans double gain. Erreur explicite sur fichier invalide et conservation du dossier déjà présent.",
+          "expected": "Fichier valide restitué sans double gain. Erreur explicite sur fichier invalide et conservation du dossier déjà présent. Réception 0.9 : Export réel, import valide avec confirmation native, nouvelle exportation identique, refus visible du fichier invalide et dossier conservé; réimport du fichier Chrome exact, sans gain supplémentaire. Limite : Fichiers et sélecteur natifs contrôlés dans Chrome disponible, sans prétendre certifier les autres navigateurs. Preuve : docs/validation/v09-browser.json.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA39",
@@ -6270,9 +6270,9 @@
           "id": "QA45",
           "area": "Navigateur — deuxième sortie",
           "scenario": "Depuis le menu, débloquer MI02, charger son briefing, piloter puis recharger pendant la poursuite. Consulter les deux rapports et les relectures.",
-          "expected": "Mission et sauvegarde attendues après navigation/rechargement, dialogues accessibles, train et objectifs lisibles. Dimensions et parcours exacts à consigner dans le rapport navigateur.",
+          "expected": "Mission et sauvegarde attendues après navigation/rechargement, dialogues accessibles, train et objectifs lisibles. Dimensions et parcours exacts à consigner dans le rapport navigateur. Réception 0.9 : MI02 débloquée après import d’un rapport MI01 authentique; briefing et pilotage natifs. Poursuite reprise depuis un checkpoint préparé explicitement, marche, pause, rechargement exact du checkpoint puis freinage; deux rapports et briefings de relecture consultés. Limite : La préparation Node est distinguée des actions Chrome. Aucun parcours natif complet de MI01 jusqu’à la fin de MI02 n’est revendiqué. Preuve : docs/validation/v09-browser.json.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA46",
@@ -6390,9 +6390,9 @@
           "id": "QA60",
           "area": "Navigateur — 0.4",
           "scenario": "Parcourir la livraison dans un navigateur réel avec clavier, souris et sauvegarde locale.",
-          "expected": "Environnement, console, images et parcours nommés; aucune validation déduite du seul modèle DOM.",
+          "expected": "Environnement, console, images et parcours nommés; aucune validation déduite du seul modèle DOM. Réception 0.9 : Parcours Chrome réel, clavier, souris, stockage local, imports et exports; environnement, console capturée et dix-huit images consignés. MI08 continuée du point de porte préparé jusqu’au résultat et rechargement final exact. Limite : Portée limitée aux actions nommées sur la publication initiale c044fbe. QA19 et QA20 restent ouverts; les deux corrections textuelles ultérieures ne sont pas validées par cette session initiale et relèvent d’un reçu séparé. Aucun matériel de manette, son ou test humain déduit. Preuve : docs/validation/v09-browser.json.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA61",
@@ -7014,161 +7014,161 @@
           "id": "QA138",
           "area": "MI08 — parcours",
           "scenario": "Terminer les trois conduites avec chacun des six châssis, par commandes publiques.",
-          "expected": "Le choix ne saute aucun travail; reçus, personnes, ouvrages et sortie correspondent aux actes.",
+          "expected": "Le choix ne saute aucun travail; reçus, personnes, ouvrages et sortie correspondent aux actes. Contrôle exécuté : 26 tests MI08 et audit indépendant de 32 variantes; commandes publiques et unités isolées explicitement distinguées. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA139",
           "area": "MI08 — courant",
           "scenario": "Observer plusieurs cycles, fermer l’amenée et comparer les fenêtres des deux bateaux.",
-          "expected": "Cycle de soixante-quatre secondes, courant progressif, ouverture et seuils propres conservés à la reprise.",
+          "expected": "Cycle de soixante-quatre secondes, courant progressif, ouverture et seuils propres conservés à la reprise. Contrôle exécuté : 26 tests MI08 et audit indépendant de 32 variantes; commandes publiques et unités isolées explicitement distinguées. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA140",
           "area": "MI08 — ouvrages",
           "scenario": "Manœuvrer sous appui, interrompre, endommager séparément mécanisme et vantail, puis obturer.",
-          "expected": "Deux ouvrages indépendants; un dommage réel ne se répare pas par dialogue; le repli et le constat permettent un bilan.",
+          "expected": "Deux ouvrages indépendants; un dommage réel ne se répare pas par dialogue; le repli et le constat permettent un bilan. Contrôle exécuté : 26 tests MI08 et audit indépendant de 32 variantes; commandes publiques et unités isolées explicitement distinguées. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA141",
           "area": "MI08 — contacts",
           "scenario": "Retrouver les groupes, demander les services puis quitter la portée pendant un travail.",
-          "expected": "Durées et interruptions réelles; technicien utile après arrivée; liaison de Mara distincte de sa présence.",
+          "expected": "Durées et interruptions réelles; technicien utile après arrivée; liaison de Mara distincte de sa présence. Contrôle exécuté : 26 tests MI08 et audit indépendant de 32 variantes; commandes publiques et unités isolées explicitement distinguées. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA142",
           "area": "MI08 — origines",
           "scenario": "Charger plusieurs héritages authentiques, avec pertes et accueil sanitaire impérial ou civil.",
-          "expected": "Aucun mort recréé; populations séparées; ambulance saisie non transportée; nouveaux IDs explicitement agrégés.",
+          "expected": "Aucun mort recréé; populations séparées; ambulance saisie non transportée; nouveaux IDs explicitement agrégés. Contrôle exécuté : 26 tests MI08 et audit indépendant de 32 variantes; commandes publiques et unités isolées explicitement distinguées. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA143",
           "area": "MI08 — accord",
           "scenario": "Tenter allocation avant arrivée des invités, puis confirmer après les contacts et l’accueil préparé.",
-          "expected": "Retrouver, venir au quai, consentir et embarquer restent quatre états différents.",
+          "expected": "Retrouver, venir au quai, consentir et embarquer restent quatre états différents. Contrôle exécuté : 26 tests MI08 et audit indépendant de 32 variantes; commandes publiques et unités isolées explicitement distinguées. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA144",
           "area": "MI08 — capacités",
           "scenario": "Répartir sièges, brancards, opérateurs et accompagnants; perdre une capacité ou un service.",
-          "expected": "Chaque limite de bateau et de refuge est respectée. Les personnes non transportables gardent une destination locale.",
+          "expected": "Chaque limite de bateau et de refuge est respectée. Les personnes non transportables gardent une destination locale. Contrôle exécuté : 26 tests MI08 et audit indépendant de 32 variantes; commandes publiques et unités isolées explicitement distinguées. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA145",
           "area": "MI08 — arrivées",
           "scenario": "Observer embarquement, sortie de zone, traversée, accostage et trajet jusqu’au refuge.",
-          "expected": "Départ acquis distinct de l’arrivée individuelle; aucune duplication entre quai, bateau et accueil.",
+          "expected": "Départ acquis distinct de l’arrivée individuelle; aucune duplication entre quai, bateau et accueil. Contrôle exécuté : 26 tests MI08 et audit indépendant de 32 variantes; commandes publiques et unités isolées explicitement distinguées. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA146",
           "area": "MI08 — pertes",
           "scenario": "Perdre séparément passerelles, bateaux, techniciens, responsable ou Mara par dégâts réellement appliqués.",
-          "expected": "Les pertes modifient places et services; rappel et accueil local n’effacent pas les décès et la mission garde un bilan.",
+          "expected": "Les pertes modifient places et services; rappel et accueil local n’effacent pas les décès et la mission garde un bilan. Contrôle exécuté : 26 tests MI08 et audit indépendant de 32 variantes; commandes publiques et unités isolées explicitement distinguées. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA147",
           "area": "MI08 — registre",
           "scenario": "Détruire le registre avant et après copie, puis perdre la radio de refuge avant contact.",
-          "expected": "Ruines sans données inédites; copie conservée; absence de capacité confirmée ne devient pas une promesse de places.",
+          "expected": "Ruines sans données inédites; copie conservée; absence de capacité confirmée ne devient pas une promesse de places. Contrôle exécuté : 26 tests MI08 et audit indépendant de 32 variantes; commandes publiques et unités isolées explicitement distinguées. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA148",
           "area": "MI08 — décisions",
           "scenario": "Comparer fermeture immédiate, fenêtre suivie de fermeture et accès maintenu avec renfort annoncé.",
-          "expected": "Les ouvrages doivent réellement changer; aucun renfort actif avant son délai; rapport et extraction viennent après résolution.",
+          "expected": "Les ouvrages doivent réellement changer; aucun renfort actif avant son délai; rapport et extraction viennent après résolution. Contrôle exécuté : 26 tests MI08 et audit indépendant de 32 variantes; commandes publiques et unités isolées explicitement distinguées. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA149",
           "area": "Dossier v8 — migration",
           "scenario": "Migrer les six variantes historiques v7 et rejeter un format futur sans réécriture.",
-          "expected": "Seul le dossier de départ vide est ajouté; rapports, checkpoints, stock et dépense gardent leurs valeurs historiques.",
+          "expected": "Seul le dossier de départ vide est ajouté; rapports, checkpoints, stock et dépense gardent leurs valeurs historiques. Contrôle exécuté : Onze tests du dossier v8, six variantes historiques, conservation exacte et protection des formats futurs. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA150",
           "area": "Dossier v8 — intégrité",
           "scenario": "Reprendre travaux et trajets; tenter des modifications de personnes, capacités, positions, provenance et faits.",
-          "expected": "Copies profondes, reprise exacte et refus des contradictions; le dossier valide existant reste protégé.",
+          "expected": "Copies profondes, reprise exacte et refus des contradictions; le dossier valide existant reste protégé. Contrôle exécuté : 8915 roundtrips et restaurations exactes, 795 continuations déterministes; forgeries refusées dans la suite dossier. Preuve : docs/validation/v09-campaign-audit.json.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA151",
           "area": "MI08 — reçu officiel",
           "scenario": "Comparer premier rapport, relecture, défaite et retour au hangar sur variantes héritées.",
-          "expected": "Quatre lots de pièces pour la première réussite seulement; aucun carburant créé; liste des personnes et bateaux conservée.",
+          "expected": "Quatre lots de pièces pour la première réussite seulement; aucun carburant créé; liste des personnes et bateaux conservée. Contrôle exécuté : Premiers rapports, trois conduites, défaite, relecture et dotation unique contrôlés; aucun carburant ajouté. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA152",
           "area": "Commandes — configuration",
           "scenario": "Réaffecter les actions, refuser conflits, recharger puis simuler focus, connexion, pause et déconnexion de manette.",
-          "expected": "Carte complète, Échap conservé, neutre obligatoire et absence de commande fantôme. Portée synthétique explicitée.",
+          "expected": "Carte complète, Échap conservé, neutre obligatoire et absence de commande fantôme. Portée synthétique explicitée. Contrôle exécuté : Huit tests purs et flux DOM de reconfiguration/manette synthétique; aucun périphérique physique certifié. Preuve : docs/validation/v09-ui-runtime.txt. Observation distincte : QA19 reste non validée après deux essais Chrome où la marche continue lors de la perte de focus; cause indéterminée.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA153",
           "area": "Assets — géométrie",
           "scenario": "Contrôler rigs, primitives partagées, contacts, zone du radiateur et empreintes des exports.",
-          "expected": "Fichiers, références et géométrie concordent; les six silhouettes non jouables ne deviennent pas des châssis livrés.",
+          "expected": "Fichiers, références et géométrie concordent; les six silhouettes non jouables ne deviennent pas des châssis livrés. Contrôle exécuté : 18 tests purs assets/audio au total; cinq cas raster distincts, 98,28 à 99,90 % de recouvrement. Intégration de pieds et radiateur contrôlée. Preuve : docs/validation/v09-assets-render.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA154",
           "area": "Audio — événements",
           "scenario": "Contrôler les exports WAV et les transitions réellement obtenues sur un parcours sanitaire public.",
-          "expected": "Familles et formats intègres, déclenchements cohérents. Tests de moteur séparés de l’écoute humaine, des voix et du mix final.",
+          "expected": "Familles et formats intègres, déclenchements cohérents. Tests de moteur séparés de l’écoute humaine, des voix et du mix final. Contrôle exécuté : Douze tests audio dont parcours public MI07; exports PCM/WAV, événements et doubles AudioContext. Aucune écoute humaine certifiée. Preuve : docs/validation/v09-node-tests.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA155",
           "area": "Interface — dossier v8",
           "scenario": "Exécuter les gestionnaires de lancement, reprise, trois conduites, registres, journal et préférences de commandes.",
-          "expected": "Parcours DOM modélisés identifiés comme tels; historique, listes et état réel affichés sans gain supplémentaire.",
+          "expected": "Parcours DOM modélisés identifiés comme tels; historique, listes et état réel affichés sans gain supplémentaire. Contrôle exécuté : 57 parcours sur les vrais gestionnaires dans un DOM modélisé; navigateur, CSS et focus natifs séparés. Preuve : docs/validation/v09-ui-runtime.txt.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA156",
           "area": "Rendu — portes d’Aval",
           "scenario": "Produire des scènes atteintes par commandes publiques et relire les images et états copiés profondément.",
-          "expected": "Éléments lisibles et cohérents avec leur scène; un rendu Canvas ne certifie pas HUD HTML, audio, FPS ou essai humain.",
+          "expected": "Éléments lisibles et cohérents avec leur scène; un rendu Canvas ne certifie pas HUD HTML, audio, FPS ou essai humain. Contrôle exécuté : 17 scènes Canvas 1 600 × 900 produites puis relues par l’agent de production; états complets copiés profondément, hashes sources et PNG rapprochés. Aucun navigateur/HUD/audio/FPS humain certifié. Preuve : docs/previews/mi08-render-manifest.json.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA157",
           "area": "Bible — réception 0.9",
           "scenario": "Régénérer, recalculer puis réconcilier source, références, baseline, formules et vues modifiées.",
-          "expected": "Les 769 IDs et 133 critères initiaux restent attestés. Contrôles d’export distincts de l’usage interactif natif QA29.",
+          "expected": "Les 769 IDs et 133 critères initiaux restent attestés. Contrôles d’export distincts de l’usage interactif natif QA29. Réception : 816 fiches, 5 527 cellules, 126 formules et références réconciliées; sept sondes négatives, cinq baselines sans Git et révision inconnue contrôlées. Vues ciblées relues; détails, empreintes et contrôle natif séparé dans docs/validation/workbook-v0.9-export.json et docs/validation/workbook-v0.9-visual-review.json.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA158",
@@ -8059,8 +8059,8 @@
           "id": "PX85",
           "link": "SY89; SY90; PR24",
           "name": "Clavier et manette de mission",
-          "implemented": "Onze actions reconfigurables; entrées standard de manette, zone morte, neutre, déconnexion et pause maîtrisés.",
-          "limits": "Pas de navigation des menus à la manette, ni essai matériel ou utilisateur concerné déduit des tests synthétiques.",
+          "implemented": "Onze actions reconfigurables; entrées standard de manette, zone morte, neutre, déconnexion et pause contrôlés par tests synthétiques et DOM. Reconfiguration clavier également reçue dans Chrome.",
+          "limits": "Pas de menus à la manette ni d’essai matériel ou utilisateur concerné. QA19 : deux essais natifs de perte de focus ont laissé continuer la marche; cause indéterminée, réception ouverte.",
           "path": "src/controls.mjs; src/main.mjs",
           "status": "Prototype"
         },

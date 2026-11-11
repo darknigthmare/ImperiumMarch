@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "receivedAt": "2026-11-11T10:16:08.514086+00:00",
-  "state": "artifacts_verified_runtime_integration_pending",
+  "state": "partial_production_received_automatic_gates_verified",
   "manifests": [
     {
       "path": "assets/production/manifest.json",
@@ -38,12 +38,6 @@
   "pendingBaselineIdsCovered": 27,
   "additionalExistingPrototypeId": "AS25",
   "fileCountsAreOverlappingTags": true,
-  "tests": {
-    "path": "docs/validation/production-v09-assets-audio-tests.txt",
-    "passed": 19,
-    "failed": 0,
-    "scope": "Pure geometry, exports, synthetic audio, AudioContext double and public MI07 control path; not native browser audio or human listening."
-  },
   "records": [
     {
       "id": "AS02",
@@ -684,7 +678,7 @@
     {
       "id": "AS30",
       "delivered": "Deux manifestes avec origine, méthode, date, version, droits déclarés, chemins et SHA-256 des 354 fichiers du lot.",
-      "remaining": "Réconcilier le lot avec tous les médias embarqués de la livraison finale; les droits déclarés ne constituent pas la revue commerciale PR26.",
+      "remaining": "Conserver les inconnues documentaires historiques et faire la revue commerciale PR26; rapprochement exhaustif des médias désormais reçu.",
       "taggedFileCount": 6,
       "files": [
         {
@@ -3634,7 +3628,7 @@
     {
       "id": "AS50",
       "delivered": "Porte, mécanisme indépendant, Veille d’Aval, Rive-Courte et refuge vectoriels.",
-      "remaining": "MI08 et son renderer sont en intégration; aucune arrivée ou personne n’est certifiée par ces dessins seuls.",
+      "remaining": "Gestes finaux, finition visuelle et compréhension humaine des états restent ouverts; kit et intégration au renderer reçus dans la portée documentée.",
       "taggedFileCount": 28,
       "files": [
         {
@@ -3777,6 +3771,10 @@
           "sha256": "15a5f74ce6ac3836c421d08438ed8ed6d46f7b702bca8a47e88e4439d1d4ce7d",
           "format": "cue"
         }
+      ],
+      "integrationProofs": [
+        "docs/previews/mi08-render-manifest.json",
+        "docs/validation/v09-browser.json"
       ]
     },
     {
@@ -3981,5 +3979,42 @@
     "Fichiers produits et contrôlés; intégration renderer encore en cours à cette réception.",
     "L’API audio est branchée par root; aucune écoute humaine ou sortie matérielle n’est certifiée ici.",
     "Voix humaines, six nouveaux châssis jouables et finition finale non livrés."
-  ]
+  ],
+  "initialReception": {
+    "path": "docs/validation/production-v09-assets-audio-tests.txt",
+    "passed": 19,
+    "failed": 0,
+    "scope": "Pure geometry, exports, synthetic audio, AudioContext double and public MI07 control path; not native browser audio or human listening.",
+    "historical": true
+  },
+  "currentValidation": {
+    "pureNodeTests": 18,
+    "pureTestProof": {
+      "path": "docs/validation/v09-node-tests.txt",
+      "sha256": "4feb3781a2e926974b9b8f5bd4c049178528266919c16a9944e1c8dda4387975"
+    },
+    "rasterCases": 5,
+    "rasterProof": {
+      "path": "docs/validation/v09-assets-render.txt",
+      "sha256": "98dbae0667d73c5ba4464c81f416352567846048c46f4066f7cd6a15a40cdd28"
+    },
+    "scope": "Eighteen pure Node tests plus a separate five-case raster checker. They are not nineteen current Node tests and not twenty-three Node tests."
+  },
+  "distributionReceipt": {
+    "path": "assets/production/distribution-manifest.json",
+    "sha256": "e5ccf6f14c1abadd1ce5d0699b8cd41a0043f345cd4370d910745465936bdcd0"
+  },
+  "integrationScope": "Les six rigs et le radiateur emploient les primitives partagées; MI08 utilise les composants portes, mécanismes, bateaux, quais et accueil. Les autres modules exportés gardent leur intégration et finition propres; tous les modules ne sont pas déclarés intégrés dans toutes les anciennes missions.",
+  "finalDistribution": {
+    "sourceMedia": 351,
+    "registeredWebMedia": 351,
+    "excludedDocumentationMedia": 203,
+    "unknownMedia": 0,
+    "wavEmbeddedInOfflineHtml": 0,
+    "webManifestByteIdentical": true,
+    "proof": {
+      "path": "docs/validation/v09-media-audit.txt",
+      "sha256": "ff04958b3335245aa2df73ec56920a52caf994a2ebc1c87350d821008986a467"
+    }
+  }
 }

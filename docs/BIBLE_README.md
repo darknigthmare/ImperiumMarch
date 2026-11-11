@@ -55,16 +55,22 @@ Il résout les identifiants explicites à deux lettres et deux ou trois chiffres
 
 ## Contrôle de réception 0.9
 
-La structure de 816 fiches est préparée; les contrôles finaux d’export, de recalcul et de vues seront consignés après gel des réceptions. Aucun résultat de classeur final n’est anticipé dans cet état de travail.
+Le fichier exporté réconcilie **816 fiches et 5 527 cellules source**, avec **769 IDs historiques conservés** et 47 ajouts. Ses 21 onglets comportent 20 tables, 126 formules calculées sans erreur, 20 plages de validation, 80 règles conditionnelles et 20 feuilles de données aux volets figés. La modification temporaire d’un statut et la restauration ont été contrôlées dans le moteur de génération.
 
 | Statut | Fiches |
 | --- | ---: |
-| Conçu | 288 |
-| Prototype | 305 |
-| À produire | 123 |
-| Vérifié | 100 |
+| Conçu | 287 |
+| Prototype | 310 |
+| À produire | 83 |
+| Vérifié | 136 |
 | **Total** | **816** |
 
-Le recalcul indépendant LibreOffice est préparé sur une copie jetable; aucun résultat natif n’est encore attribué. QA29 conserve son exigence distincte de tri, filtres, volets et édition dans une interface bureautique réellement observée.
+Les preuves comprennent la [réconciliation de l’export](validation/workbook-v0.9-export.json), le [contrôle des baselines](validation/workbook-v0.9-baseline-check.json), la [relecture visuelle](validation/workbook-v0.9-visual-review.json), l’[inspection des cellules](validation/workbook-v0.9-inspection.ndjson) et le [contrôle des formules](validation/workbook-v0.9-formula-check.ndjson). Les **37 vues de dix feuilles** ciblent les lignes modifiées et la synthèse. Les vues conservées d’un export précédent ont exactement les mêmes valeurs, formules, hauteurs de lignes et colonnes que le fichier final.
+
+Empreinte SHA-256 du classeur final : `af5c84c1a1efc9d78300f3443d0097fca0027596385db97358d97c7e6bdcf701`.
+
+Un contrôle indépendant a exécuté **LibreOfficeDev 26.8.0.0.alpha0 2c87e51eeaa2b413ff4ae097b2705eea1995d8e5** en mode headless sur une copie jetable, après retrait des 126 caches de formules. Les 126 résultats ont été recalculés; les 5 527 cellules source et toutes les valeurs comparées concordent. L’original est resté inchangé. Le [rapport natif](validation/workbook-v0.9-libreoffice.json) conserve version, commande, empreintes et observations structurelles.
+
+LibreOffice a normalisé cent expressions en retirant les apostrophes facultatives autour des noms de feuille; leurs résultats sont identiques. La copie conserve aussi les tables, validations, règles conditionnelles et volets contrôlés en XML. Ces observations structurelles ne valident pas le tri interactif, le défilement des volets ou une modification par un utilisateur. **QA29 reste ouverte** pour ces gestes. Aucune exécution dans Excel desktop n’est revendiquée.
 
 Le [bilan de production](PRODUCTION_V09.md), le [contrat de Nacre](NACRE_CONSEQUENCES_V09.md) et le [registre des 133 critères](PRODUCTION_REGISTER_V09.md) expliquent les changements et les travaux ouverts. Les documents des tranches précédentes conservent leurs bilans historiques.

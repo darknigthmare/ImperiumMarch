@@ -315,16 +315,28 @@ test('partial intake, invitation, ramp, allocation, passage and report work resu
   pilotMI08(s); assert.equal(s.status, 'won');
 });
 
-test('a completed material outcome still requires a timed report and actual extraction; report prose follows observed losses', () => {
-  const s = pilotMI08(create(), { choice: 'obey', stopAt: g => g.campaign.peopleLocal === 36 && g.campaign.closureCompleted && !g.departure.report.working });
-  assert.equal(s.campaign.reportTransmitted, false); assert.equal(s.extraction.active, false);
-  walkTo(s, s.extraction.x); assert.equal(s.status, 'playing');
-  pilotMI08(s, { choice: 'obey', stopAt: g => g.departure.report.progress > .4 });
-  assert.equal(s.campaign.reportTransmitted, false); advance(s, 4, { move: -1 }); assert.equal(s.departure.report.progress, 0);
-  pilotMI08(s, { choice: 'obey', stopAt: g => g.campaign.reportTransmitted });
-  assert.equal(s.status, 'playing'); assert.equal(s.extraction.active, true); assert.equal(s.campaign.reportFiled, false);
-  assert.match(departureDecisionBody(s), /36 à l’accueil local/); assert.equal(s.decision.body, departureDecisionBody(s));
-  pilotMI08(s, { choice: 'obey' }); assert.equal(s.status, 'won');
+test('every material plan requires a timed report and actual extraction; prompts distinguish waiting, ready, transmitting and transmitted', () => {
+  for (const choice of ['obey', 'delay', 'defy']) {
+    const s = pilotMI08(create(), { choice, stopAt: g => g.decision.active });
+    assert.equal(commandGame(s, 'choice', choice), true); advance(s, 1 / 60, { brace: true });
+    assert.match(s.interaction, /Le rapport attend les manœuvres et les arrivées/);
+    pilotMI08(s, { choice, stopAt: g => g.campaign.phase === 'report' && !g.departure.report.working });
+    assert.equal(s.campaign.reportTransmitted, false); assert.equal(s.extraction.active, false);
+    walkTo(s, s.extraction.x); assert.equal(s.status, 'playing');
+    pilotMI08(s, { choice, stopAt: g => Math.abs(g.player.x - g.departure.registry.x) < g.mission.departure.interactionRadius && !g.departure.report.working });
+    assert.match(s.interaction, /E · Transmettre à Holt le bilan matériel achevé/);
+    pilotMI08(s, { choice, stopAt: g => g.departure.report.progress > .4 });
+    assert.equal(s.campaign.reportTransmitted, false); assert.match(s.interaction, /^Rapport \d+ %$/);
+    advance(s, 4, { move: Math.sign(s.player.x - s.departure.registry.x) || 1 }); assert.equal(s.departure.report.progress, 0);
+    pilotMI08(s, { choice, stopAt: g => g.campaign.reportTransmitted });
+    assert.ok(Math.abs(s.player.x - s.departure.registry.x) < s.mission.departure.interactionRadius);
+    assert.equal(s.status, 'playing'); assert.equal(s.extraction.active, true); assert.equal(s.campaign.reportFiled, choice === 'defy');
+    assert.equal(s.interaction, 'Bilan transmis à Holt · rejoindre la sortie');
+    assert.equal(commandGame(s, 'interact'), false); assert.equal(s.departure.report.progress, 1);
+    if (choice === 'obey') assert.match(departureDecisionBody(s), /36 à l’accueil local/);
+    assert.equal(s.decision.body, departureDecisionBody(s));
+    pilotMI08(s, { choice }); assert.equal(s.status, 'won');
+  }
 });
 
 test('enemy projectiles use the same physical objects and exposed people, without reaching people still inside origin shelters', () => {
