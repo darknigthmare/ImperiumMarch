@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.8.0 · Français**
+**Nom de code : ImperiumMarch · Version 0.9.0 · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -10,7 +10,7 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 **Ordre de Cendre** est un projet original de combat tactique en 2D, inspiré par le contrôle volontaire des appuis de BE-A Walker. Il développe ses propres mondes, machines, factions, personnages et récit. Sa proposition est de faire du pilotage une responsabilité matérielle : porter une machine, choisir une ligne de tir, vérifier une qualification hostile et retrouver les conséquences au retour.
 
-Cette livraison contient un **prototype de sept missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant. La qualité de production visée, les huit mondes et la campagne complète restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V08.md) relient leur conception à la tranche réellement jouable.
+Cette livraison contient un **prototype de huit missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant. La qualité de production visée, les huit mondes et la campagne complète restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V08.md) relient leur conception à la tranche réellement jouable.
 
 ## Jouer à cette version
 
@@ -18,7 +18,7 @@ Cette livraison contient un **prototype de sept missions de campagne**, six mach
 
 Ouvrir [**dist/Ordre_de_Cendre.html**](dist/Ordre_de_Cendre.html) dans un navigateur de bureau récent, après l’avoir téléchargé ou extrait du pack. Le code, les styles et les images sont intégrés. Aucun serveur ni téléchargement complémentaire n’est nécessaire pour cette édition. Le son démarre après une interaction.
 
-1. **Campagne** : ouvrir le dossier de Sera, jouer MI01, puis MI02, MI03, MI04, MI05, MI06 et MI07, débloquées par le premier rapport de la mission précédente.
+1. **Campagne** : ouvrir le dossier de Sera, jouer MI01, puis MI02, MI03, MI04, MI05, MI06, MI07 et MI08, débloquées par le premier rapport de la mission précédente.
 2. **Hangar** : choisir parmi six châssis. Au retour, lire les réactions de Tess et Sami et réparer avec les pièces disponibles.
 3. **Reprendre la mission** : retrouver le dernier point de liaison, ses appuis, projectiles, travaux et objectifs.
 4. **Simulations** : jouer les trois opérations indépendantes. Elles dévoilent des éléments ultérieurs du récit et ne modifient pas le dossier officiel.
@@ -48,7 +48,20 @@ npm run build:web
 
 `npm run test:browser` fournit un contrôle Chromium distinct, avec Playwright et un navigateur installés dans un environnement autorisé. Les outils de classeur et de rendu Canvas utilisent des dépendances de développement séparées ; elles ne sont pas requises pour jouer.
 
-## Nouveautés de la 0.8 — Une ambulance sans escorte
+## Nouveautés de la 0.9 — Les portes d’Aval
+
+**MI08 achève l’affectation de Nacre après le bilan de MI07.** Les portes d’amenée et de passage ont des fonctions et des mécanismes distincts. Retrouvez les survivants, confirmez les places du refuge, préparez les passerelles et recueillez les accords. La fermeture immédiate, une fenêtre suivie de fermeture et le maintien du passage sont trois conduites à accomplir sur le terrain.
+
+- **Des personnes et des trajets conservés individuellement.** Places assises, brancards, opérateurs et accompagnants ont des contraintes distinctes. Une personne embarquée n’est pas encore partie ; un bateau parti n’est pas encore arrivé. Les replis locaux sont comptés à l’accueil.
+- **Un dossier v8 qui conserve les versions antérieures.** Les rapports historiques restent inchangés. Le nouveau recensement d’Aval conserve ses identités et destinations sans inventer celles que les anciens rapports ne donnaient pas.
+- **Des pièces graphiques réutilisables.** Six rigs, des pièces et états SVG, douze silhouettes et des composants de Nacre partagent leur géométrie avec le Canvas. La production, les pivots et la provenance sont documentés.
+- **Une bibliothèque sonore originale.** Huit ambiances planétaires, trois motifs et quarante-quatre signaux sont synthétisés sans chargement réseau, avec des exports WAV pour revue.
+- **Des commandes configurables.** Onze actions clavier peuvent être réaffectées. Les manettes standard commandent la mission ; les menus et décisions restent au clavier ou à la souris. Les essais physiques et humains restent à effectuer.
+- **Un registre des 133 « À produire ».** Les critères d’origine sont conservés avec les livraisons reçues, les preuves et le travail restant. Les lignes ne sont pas déclarées terminées par simple changement d’étiquette.
+
+Le [contrat MI08](docs/CAMPAIGN_MISSION_08.md), le [format de sauvegarde v8](docs/CAMPAIGN_SAVE_V8.md), les [commandes et le son](docs/CONTROLS_AUDIO_V09.md), le [lot graphique et audio](assets/production/README.md) et le [registre de production](docs/PRODUCTION_REGISTER_V09.md) détaillent cette livraison.
+
+## Une ambulance sans escorte — conservée depuis la 0.8
 
 **MI07 ouvre la chaussée des Salines après le bilan de MI06.** Holt désigne un transport comme dépôt mobile de munitions. Une conductrice et un soignant accompagnent quatre patients : ce groupe est distinct des passagers du chenal et des habitants de la digue.
 
@@ -79,7 +92,7 @@ Le [contrat MI07](docs/CAMPAIGN_MISSION_07.md), le [dossier v7](docs/CAMPAIGN_SA
 
 *Rendu Canvas de production, obtenu par commandes publiques ; les instruments HTML ne sont pas inclus. Ce n’est pas une capture navigateur.*
 
-Le [contrat MI06](docs/CAMPAIGN_MISSION_06.md), le [dossier v6](docs/CAMPAIGN_SAVE_V6.md) et les [conséquences de Nacre](docs/NACRE_CONSEQUENCES_V08.md) décrivent les règles et leurs limites. MI07 est désormais jouable ; MI08 reste conçue.
+Le [contrat MI06](docs/CAMPAIGN_MISSION_06.md), le [dossier v6](docs/CAMPAIGN_SAVE_V6.md) et les [conséquences de Nacre](docs/NACRE_CONSEQUENCES_V08.md) décrivent les règles et leurs limites. MI07 et MI08 sont désormais jouables.
 
 ### Le chenal de MI05, conservé
 
@@ -185,14 +198,14 @@ Une relecture ne remplace pas le premier rapport, ne redonne pas de dotation et 
 
 ## Portée réelle et cible de production
 
-| Domaine | Livré dans la 0.8 | Cible encore à produire |
+| Domaine | Livré dans la 0.9 | Cible encore à produire |
 | --- | --- | --- |
-| Campagne | MI01–MI07, sept rapports, conséquences de Vesper, chenal, digue et ambulance de Nacre. | 25 autres missions principales et 16 contrats. |
+| Campagne | MI01–MI08, huit rapports, Vesper et Nacre jusqu’aux portes d’Aval. | 24 autres missions principales et 16 contrats. |
 | Opérations indépendantes | Vesper : relais ; Nacre : escorte ; Thyr : ordre et adversaire lourd. | Campagnes des autres mondes et leurs règles propres. |
 | Châssis | Six machines, deux profils par nombre d’appuis. | Six autres modèles, équipements et aptitudes spécialisées. |
 | Combat | Tirs balayés, roquettes, ancrage, chauffe, appuis, radiateur localisé, deux kits finis et réserves de munitions. | Familles d’armes complètes, composants ennemis, doctrines d’escouade. |
-| Monde et récit | Arc de Vesper, ouverture de Nacre, équipage et faits de sept missions. | Huit planètes complètes, neuf factions, coalition et quatre familles de fins. |
-| Conception | 769 fiches, 21 onglets, concept complet, contrat causal de Vesper et suite de Nacre détaillée. | Assets, voix, animations, niveaux, réglages et tests humains de production. |
+| Monde et récit | Arc de Vesper, ouverture de Nacre, équipage et faits de huit missions. | Huit planètes complètes, neuf factions, coalition et quatre familles de fins. |
+| Conception | 816 fiches, 21 onglets, concept complet, contrats causaux de Vesper et Nacre, registre des 133 critères initiaux. | Assets, voix, animations, niveaux, réglages et tests humains de production. |
 
 Les statuts **Conçu**, **Prototype**, **À produire** et **Vérifié** restent distincts. Les fiches ne constituent pas un pourcentage d’achèvement. Les validations portent sur des scénarios et un environnement précis.
 
@@ -211,7 +224,7 @@ Les statuts **Conçu**, **Prototype**, **À produire** et **Vérifié** restent 
 | E | Lancer un travail ou une interaction proche, puis rester à portée. |
 | Échap / F | Pause / plein écran. |
 
-Les boutons tactiles sont présents. Leur ergonomie sur matériel réel reste à valider. La hauteur de la machine change sa ligne de tir ; les bâtiments civils ne sont pas des cibles automatiques.
+Onze actions clavier sont reconfigurables dans Réglages. Une manette standard peut piloter les missions : déplacement et visée aux sticks, RT pour tirer, LT pour ancrer, A pour interagir et Start pour la pause. Le panneau décrit la carte complète. Les menus et les choix utilisent le clavier ou la souris. Les boutons tactiles sont présents. Le confort sur matériel réel reste à valider. La hauteur de la machine change sa ligne de tir ; les bâtiments civils ne sont pas des cibles automatiques.
 
 ## Documentation
 
@@ -219,23 +232,25 @@ Les boutons tactiles sont présents. Leur ergonomie sur matériel réel reste à
 | --- | --- |
 | [Conséquences Vesper 0.5](docs/VESPER_CONSEQUENCES_V05.md) | Causalité, preuve, connaissance, composants, Nacre et critères de production. |
 | [Concept complet 0.4](docs/CONCEPT_COMPLET_V04.md) | Tous les domaines : règles, contenu, récit, économie, art, accessibilité et production. |
-| [Bible Excel](docs/ORDRE_DE_CENDRE_Bible.xlsx) | 21 onglets, 769 fiches, 20 tables filtrables et 126 formules. |
+| [Bible Excel](docs/ORDRE_DE_CENDRE_Bible.xlsx) | 21 onglets, 816 fiches, 20 tables filtrables et 126 formules. |
 | [Bible générale](docs/BIBLE_FR.md) | Vision et règles communes. |
 | [Campagne](docs/CAMPAIGN_FR.md) | Trente-deux missions, quatre actes et fins ; contient des révélations. |
-| [MI01](docs/CAMPAIGN_MISSION_01.md), [MI02](docs/CAMPAIGN_MISSION_02.md), [MI03](docs/CAMPAIGN_MISSION_03.md), [MI04](docs/CAMPAIGN_MISSION_04.md), [MI05](docs/CAMPAIGN_MISSION_05.md), [MI06](docs/CAMPAIGN_MISSION_06.md), [MI07](docs/CAMPAIGN_MISSION_07.md) | Contrats du contenu réellement exécuté. |
-| [Production 0.8](docs/PRODUCTION_V08.md) | Fiches, dépendances, prochaines étapes et critères. |
-| [Validation 0.8](docs/QA_V08.md) | Preuves de tests et limites constatées. |
-| [Sauvegarde v7](docs/CAMPAIGN_SAVE_V7.md), [Architecture](docs/ARCHITECTURE.md), [API simulation](docs/SIMULATION_API.md) | Contrats techniques et règles de migration. |
+| [MI01](docs/CAMPAIGN_MISSION_01.md), [MI02](docs/CAMPAIGN_MISSION_02.md), [MI03](docs/CAMPAIGN_MISSION_03.md), [MI04](docs/CAMPAIGN_MISSION_04.md), [MI05](docs/CAMPAIGN_MISSION_05.md), [MI06](docs/CAMPAIGN_MISSION_06.md), [MI07](docs/CAMPAIGN_MISSION_07.md), [MI08](docs/CAMPAIGN_MISSION_08.md) | Contrats du contenu réellement exécuté. |
+| [Production 0.9](docs/PRODUCTION_V09.md), [registre des 133 critères](docs/PRODUCTION_REGISTER_V09.md) | Livrables reçus, preuves, dépendances et travail restant par ID. |
+| [Validation 0.9](docs/QA_V09.md) | Résultats exécutés et limites distinctes de simulation, interface, rendu, classeur et navigateur. |
+| [Sauvegarde v8](docs/CAMPAIGN_SAVE_V8.md), [Architecture](docs/ARCHITECTURE.md), [API simulation](docs/SIMULATION_API.md) | Contrats techniques et règles de migration. |
+| [Conséquences de Nacre](docs/NACRE_CONSEQUENCES_V09.md), [commandes et son](docs/CONTROLS_AUDIO_V09.md) | Personnes, capacités, arrivées, héritages et commandes disponibles. |
+| [Lots graphiques et audio](assets/production/README.md) | Pièces, rigs, modules, signaux et manifestes des 354 fichiers produits. |
 | [Direction artistique](docs/ART_DIRECTION.md), [provenance](docs/ASSET_PROVENANCE.md) | Art, animation, sons et origine des éléments. |
 | [Déploiement](docs/DEPLOYMENT.md) | Construction web, liaison distante et état réel de publication. |
-| [Données source](data/bible.json) | Les 769 fiches à identifiants stables, dont les 705 précédentes conservées. |
+| [Données source](data/bible.json) | Les 816 fiches à identifiants stables, dont les 769 précédentes conservées. |
 
 ## Vérification et prochaine étape
 
-La version passe **212 tests Node** et **45 parcours d’interface** dans le DOM modélisé. L’audit indépendant couvre **18 variantes**, **3 054 sauvegardes suivies de réimportation** et **1 878 restaurations exactes**. La [validation 0.8](docs/QA_V08.md) distingue les contrôles de simulation, les migrations historiques, les parcours d’interface dans un DOM modélisé, les rendus Canvas, le classeur recalculé et le navigateur réel. Les parcours MI07 couvrent les six châssis, les deux destinations, les interruptions, les pertes et les solutions de constat ou de remorquage. Une source perdue ne crée pas de preuve ; une relecture ne modifie pas le premier dossier.
+La version passe **290 tests Node et 57 parcours d’interface dans un DOM modélisé**. L’audit indépendant de MI08 couvre **32 variantes, 8 915 sauvegardes suivies de réimportation, 8 915 restaurations exactes et 795 continuations déterministes**. La [validation 0.9](docs/QA_V09.md) conserve les résultats exécutés sur les sources livrées et distingue simulation par commandes publiques, migrations historiques, DOM modélisé, rendus Canvas, classeur et navigateur réel. La matrice MI08 couvre les six châssis et les trois conduites ; les avaries et les héritages sanitaires sont des variantes séparées. Une source perdue ne crée pas de preuve ; un départ ne compte pas comme une arrivée ; une relecture ne modifie pas le premier dossier.
 
-**Chrome a également achevé une continuation MI07 avec le Pèlerin vers l’accueil civil** : quatre patients et deux membres du personnel arrivés, zéro perte, balise conservée et sept rapports classés. Les six anciens rapports et les conséquences de MI05–MI06 restent identiques. Le dossier final, avec 34 pièces d’atelier, zéro carburant en réserve et deux lots consommés, reste entièrement identique après rechargement. Ce parcours a permis de corriger le chevauchement des cartes Canvas avec les objectifs ; la capture ci-dessus montre la disposition corrigée. Il ne remplace pas un essai humain ni la matrice de simulation des six châssis.
+La continuation native MI07 de la version 0.8 reste conservée dans son [rapport historique](docs/QA_V08.md) et n’est pas présentée comme un nouveau parcours de la 0.9. Les observations de la version actuelle sont rattachées à leurs propres captures et exports.
 
 Le site de jeu est [imperium-march.vercel.app](https://imperium-march.vercel.app/). Le [suivi de publication](docs/DEPLOYMENT.md) identifie le commit distant, le déploiement exact, la CI et les observations de navigateur effectivement réalisées. Les captures Canvas restent distinctes de ces observations.
 
-La prochaine mission à produire est **MI08 — La marée compte les absents**, aux portes d’Aval. Elle doit réunir les personnes et les moyens réellement conservés à Nacre, établir les capacités des bateaux et rendre observables leurs départs. L’animation, l’audio, les essais humains, les performances mesurées et une mission de référence aboutie restent des chantiers ouverts.
+Les prochains chantiers comprennent les quatre contrats de l’acte I, la suite de campagne à Thyr, les six autres châssis et la finition de la mission de référence. Les voix, l’animation finale, les essais humains et les performances sur matériel déclaré gardent leurs critères dans le registre de production.

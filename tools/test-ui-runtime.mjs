@@ -10,7 +10,7 @@ import { readFileSync } from 'node:fs';
 import { Script, createContext } from 'node:vm';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { beginCampaignMission, checkpointCampaign, finishCampaignMission, createCampaign, serializeCampaign, parseCampaign, CAMPAIGN_SAVE_KEY } from '../src/campaign.mjs';
+import { beginCampaignMission, checkpointCampaign, finishCampaignMission, createCampaign, serializeCampaign, parseCampaign, CAMPAIGN_SAVE_KEY, CAMPAIGN_SAVE_VERSION } from '../src/campaign.mjs';
 import { commandGame, updateGame } from '../src/simulation.mjs';
 import { pilotMI02 } from '../tests/helpers/mi02-driver.mjs';
 import { pilotMI03 } from '../tests/helpers/mi03-driver.mjs';
@@ -18,6 +18,7 @@ import { pilotMI04 } from '../tests/helpers/mi04-driver.mjs';
 import { pilotMI05 } from '../tests/helpers/mi05-driver.mjs';
 import { pilotMI06 } from '../tests/helpers/mi06-driver.mjs';
 import { pilotMI07 } from '../tests/helpers/mi07-driver.mjs';
+import { pilotMI08 } from '../tests/helpers/mi08-driver.mjs';
 import { WALKERS } from '../src/content.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -28,6 +29,7 @@ const compiled = new Script(script, { filename: 'Ordre_de_Cendre.delivered.js' }
 const normalized = value => JSON.parse(JSON.stringify(value));
 
 function harness(values = new Map(), { denyWrites = false } = {}) {
+  let gamepads = [], focused = true;
   const nodes = new Set(), ids = new Map(), errors = [], raf = [];
   let time = 0, document;
   class Events {
@@ -89,17 +91,19 @@ function harness(values = new Map(), { denyWrites = false } = {}) {
       return true;
     });
   }
-  document = Object.assign(new Events(), { hidden: false, getElementById: id => ids.get(id), querySelectorAll: select, querySelector: selector => select(selector)[0] || null, createElement: tag => new Element(tag) });
+  document = Object.assign(new Events(), { hidden: false, hasFocus: () => focused, getElementById: id => ids.get(id), querySelectorAll: select, querySelector: selector => select(selector)[0] || null, createElement: tag => new Element(tag) });
   parse(markup); document.body = select('body')[0]; document.documentElement = select('html')[0]; document.activeElement = document.body;
   const storage = { getItem: key => values.get(key) ?? null, setItem: (key, value) => { if (denyWrites) throw new Error('quota'); values.set(key, value); } };
   const window = Object.assign(new Events(), { devicePixelRatio: 1, localStorage: storage, scrollTo() {} });
-  const context = createContext({ window, document, localStorage: storage, Image: class { set src(_) {} },
+  const context = createContext({ window, document, localStorage: storage, navigator: { getGamepads: () => gamepads }, Image: class { set src(_) {} },
     matchMedia: () => ({ matches: false }), location: { search: '?test=1' }, requestAnimationFrame: callback => raf.push(callback),
     setTimeout: () => 1, clearTimeout() {}, URLSearchParams, URL, Blob, structuredClone,
     console: { error: (...args) => errors.push(args.map(String).join(' ')), log() {}, warn() {} } });
   compiled.runInContext(context);
   const api = {
     ids, values, errors, window, document,
+    setGamepads: value => { gamepads = value; },
+    setFocus: value => { focused = value; },
     snapshot: () => normalized(window.__IMPERIUM_TEST__.snapshot()),
     click: id => { assert.ok(ids.has(id), `missing UI element ${id}`); return ids.get(id).click(); },
     data: async (key, value) => { const node = select(`[data-${key}]`).find(item => item.dataset[key] === value); assert.ok(node, `missing ${key}=${value}`); await node.click(); },
@@ -312,7 +316,7 @@ for (const choice of ['obey', 'defy']) await check(`MI03 ${choice} decision, ext
   assert.equal(fresh.ids.get('workshop-network').hidden, false);
   await fresh.data('view', 'campaign');
   assert.match(fresh.ids.get('campaign-debrief').innerHTML, /MI03 \/ RAPPORT/);
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 7 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 8 RAPPORTS CLASSÉS');
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
   for (const id of ['MI01', 'MI02', 'MI03']) assert.match(fresh.ids.get('archive-content').innerHTML, new RegExp(`CAMPAGNE / ${id}`));
   await fresh.data('view', 'campaign'); await fresh.data('chapter', 'MI03'); await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
@@ -387,7 +391,7 @@ for (const choice of ['obey', 'defy']) await check(`MI04 ${choice} records the t
   assert.equal(fresh.ids.get('workshop-industrial').hidden, false);
   assert.match(fresh.ids.get('workshop-condition').textContent, /radiateur/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 7 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 8 RAPPORTS CLASSÉS');
   assert.equal(fresh.ids.get('campaign-transition').hidden, false);
   assert.match(fresh.ids.get('campaign-transition-text').textContent, /Nacre/);
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
@@ -465,10 +469,16 @@ await check('an exhausted finite reserve remains empty after UI reload and displ
   assert.equal(h.snapshot().game.player.ammo, 0);
   assert.equal(h.snapshot().game.player.reserveAmmo, 0);
   assert.equal(h.snapshot().game.player.reloadTime, 0);
+  await h.click('pause-button'); const exhausted = h.snapshot().game;
+  await h.click('to-menu'); await h.data('view','hangar'); await h.data('walker','WK09'); await h.click('confirm-rig');
+  await h.data('view','operations'); await h.data('mission','op03');
+  const fresh = harness(h.values); await fresh.click('campaign-resume');
+  assert.deepEqual(fresh.snapshot().game, exhausted, 'menu selections and a new context cannot refill the exhausted sortie');
+  assert.equal(fresh.snapshot().game.walkerId, 'WK02');
 });
 
 await check('unsupported saves remain untouched until an explicit new dossier', async () => {
-  const raw = JSON.stringify({ ...createCampaign(), version: 42 }); const values = new Map([[CAMPAIGN_SAVE_KEY, raw]]), h = harness(values);
+  const raw = JSON.stringify({ ...createCampaign(), version: CAMPAIGN_SAVE_VERSION + 1 }); const values = new Map([[CAMPAIGN_SAVE_KEY, raw]]), h = harness(values);
   assert.equal(h.snapshot().campaignBlocked, true); assert.equal(h.ids.get('campaign-deploy').disabled, true);
   h.frames(3); assert.equal(values.get(CAMPAIGN_SAVE_KEY), raw);
   await h.click('campaign-new'); await h.click('campaign-confirm-new'); assert.equal(h.snapshot().campaignBlocked, false);
@@ -502,7 +512,7 @@ await check('importing a genuine v4 Vesper dossier unlocks Nacre in the delivere
   assert.match(h.ids.get('campaign-import-summary').textContent, /MI04/);
   await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Le prix du passage');
-  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 7 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 8 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v4Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /journal de Vesper/);
@@ -563,7 +573,7 @@ for (const choice of ['obey', 'defy']) await check(`MI05 ${choice} debrief, arch
   assert.match(fresh.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI05/);
   assert.match(fresh.ids.get('archive-content').innerHTML, /Vann Ostre/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 7 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 8 RAPPORTS CLASSÉS');
   await fresh.data('chapter', 'MI05');
   await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
   assert.equal(fresh.snapshot().campaignReplay, true);
@@ -598,7 +608,7 @@ await check('a genuine v5 import unlocks MI06 with its actual stock and ten dist
   h.ids.get('campaign-file').files = [{ size: raw.length, text: async () => raw }];
   await h.ids.get('campaign-file').dispatch('change'); await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Les maisons sous la ligne');
-  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 7 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 8 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v5Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /dix habitants/);
@@ -714,7 +724,7 @@ for (const choice of ['obey', 'defy']) await check(`MI06 ${choice} requires the 
   await h.data('view', 'archives'); await h.data('archive', 'records');
   assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI06/);
   await h.data('view', 'campaign');
-  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 7 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 8 RAPPORTS CLASSÉS');
   await h.data('chapter', 'MI06'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().campaignReplay, true);
   assert.equal(h.snapshot().game.campaign.context.fuelAvailable, 2);
@@ -765,7 +775,7 @@ async function importAmbulanceDossier(h, dossier) {
 await check('MI07 migration imports an authentic paid v6 valve without rewriting its scene or earlier reports', async () => {
   const h = harness(); await importAmbulanceDossier(h, v6Dossier.live);
   const migrated = h.snapshot().campaign;
-  assert.equal(migrated.version, 7);
+  assert.equal(migrated.version, CAMPAIGN_SAVE_VERSION);
   assert.deepEqual(migrated.checkpoint, v6Dossier.live.checkpoint);
   assert.deepEqual(migrated.preDecisionCheckpoint, v6Dossier.live.preDecisionCheckpoint);
   assert.deepEqual(migrated.completed, v6Dossier.live.completed);
@@ -787,7 +797,7 @@ for (const [variant, route, routeText] of [['completed', 'main', 'PRINCIPALE'], 
   const h = harness(); await importAmbulanceDossier(h, v6Dossier[variant]);
   const prior = h.snapshot().campaign;
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Une ambulance sans escorte');
-  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 7 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 8 RAPPORTS CLASSÉS');
   await h.click('campaign-deploy');
   const briefing = h.ids.get('briefing-description').textContent;
   assert.match(briefing, /quatre patients et deux membres/);
@@ -922,7 +932,7 @@ for (const choice of ['obey', 'defy']) await check(`MI07 ${choice} selects a des
   await h.data('view', 'archives'); await h.data('archive', 'records');
   assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI07/);
   await h.data('view', 'campaign');
-  assert.equal(h.ids.get('campaign-progress').textContent, '7 / 7 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '7 / 8 RAPPORTS CLASSÉS');
   assert.match(h.ids.get('campaign-debrief').innerHTML, /À recouper/);
   await h.data('chapter', 'MI07'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().campaignReplay, true);
@@ -1011,6 +1021,183 @@ await check('MI07 a touch interaction can be paused and saved before the next an
   assert.deepEqual(saved.checkpoint, h.snapshot().game);
   const fresh = harness(h.values); await fresh.click('campaign-resume');
   assert.deepEqual(fresh.snapshot().game, saved.checkpoint);
+});
+
+const v7Dossier = JSON.parse(readFileSync(resolve(root, 'tests/fixtures/campaign-v7-mi07.json'), 'utf8'));
+const departurePoints = new Map();
+function departurePoint(kind, choice = 'delay') {
+  const key=`${kind}:${choice}`;
+  if (!departurePoints.has(key)) {
+    const {campaign,game}=beginCampaignMission(parseCampaign(JSON.stringify(v7Dossier.completed)),{missionId:'MI08',walkerId:'WK09',difficulty:'story',seed:1847});
+    const condition = kind==='decision' ? s=>s.decision.active
+      : kind==='gate' ? s=>s.departure.locks[1].working && s.departure.locks[1].progress>.35 && s.departure.locks[1].progress<.65
+      : s=>s.campaign.reportTransmitted && s.player.x>s.extraction.x-s.extraction.radius-55;
+    pilotMI08(game,{choice,stopAt:condition});
+    assert.equal(game.status,'playing',`public MI08 point ${key}`);assert.ok(condition(game));
+    departurePoints.set(key,serializeCampaign(checkpointCampaign(campaign,game)));
+  }
+  return parseCampaign(departurePoints.get(key));
+}
+
+await check('MI08 imports a genuine v7 dossier with seven unchanged reports and exposes its inherited briefing',async()=>{
+  const h=harness();await importAmbulanceDossier(h,v7Dossier.completed);
+  const s=h.snapshot();assert.equal(s.campaign.version,CAMPAIGN_SAVE_VERSION);assert.deepEqual(s.campaign.completed,v7Dossier.completed.completed);
+  assert.equal(h.ids.get('campaign-progress').textContent,'7 / 8 RAPPORTS CLASSÉS');
+  await h.click('campaign-deploy');assert.match(h.ids.get('briefing-title').textContent,/marée compte/);
+  assert.match(h.ids.get('briefing-description').textContent,/12 passagers.*10 habitants.*4 patients/);
+  await h.click('launch');assert.equal(h.snapshot().game.missionId,'MI08');
+  assert.equal(h.ids.get('departure-instrument').hidden,false);assert.equal(h.ids.get('ambulance-instrument').hidden,true);
+  assert.equal(h.snapshot().game.campaign.peopleDeparted,0);assert.deepEqual(h.snapshot().campaign.resources,v7Dossier.completed.resources);
+});
+
+await check('MI08 gate work pauses, imports and restores exactly without continuing absent keyboard anchoring',async()=>{
+  const prepared=departurePoint('gate'),h=harness(new Map([[CAMPAIGN_SAVE_KEY,serializeCampaign(prepared)]]));
+  await h.click('campaign-resume');const before=h.snapshot().game;await h.click('pause-button');h.frames(30);
+  assert.deepEqual(h.snapshot().game,before);assert.equal(h.snapshot().campaignWarning,'');
+  const fresh=harness(h.values);await fresh.click('campaign-resume');assert.deepEqual(fresh.snapshot().game,before);
+  fresh.frames(30);assert.equal(fresh.snapshot().game.departure.locks[1].opening,before.departure.locks[1].opening);
+  await fresh.key('Space');fresh.frames(10);await fresh.key('KeyE');fresh.frames(90);await fresh.key('KeyE',false);await fresh.key('Space',false);
+  assert.ok(fresh.snapshot().game.departure.locks[1].opening>before.departure.locks[1].opening);
+  await fresh.click('pause-button');assert.equal(fresh.snapshot().campaignWarning,'');
+});
+
+for(const choice of ['obey','delay','defy'])await check(`MI08 ${choice} UI selects a plan without arrivals, records the physical result and preserves it during replay`,async()=>{
+  const source=departurePoint('decision'),h=harness(new Map([[CAMPAIGN_SAVE_KEY,serializeCampaign(source)]]));
+  await h.click('campaign-resume');h.frames(1);assert.equal(h.ids.get('decision-dialog').open,true);
+  const before=h.snapshot().game.campaign;await h.data('choice',choice);
+  const chosen=h.snapshot();assert.equal(chosen.game.decision.choice,choice);assert.equal(chosen.game.campaign.peopleDeparted,before.peopleDeparted);assert.equal(chosen.game.campaign.peopleArrived,before.peopleArrived);
+  assert.equal(chosen.campaignWarning,'');assert.equal(h.ids.get('decision-dialog').open,false);
+  await h.click('pause-button');await h.click('to-menu');
+  const end=departurePoint('extraction',choice);await importAmbulanceDossier(h,end);await h.click('campaign-resume');
+  await h.key('KeyD');h.frames(160);await h.key('KeyD',false);
+  const finished=h.snapshot();assert.equal(finished.game.status,'won');assert.equal(h.ids.get('result-dialog').open,true);assert.equal(finished.campaignWarning,'');
+  assert.equal(finished.campaign.completed.MI08.choice,choice);assert.equal(finished.campaign.resources.parts,38);
+  assert.equal(finished.campaign.completed.MI08.peopleArrived,choice==='obey'?0:34);
+  assert.equal(finished.campaign.completed.MI08.peopleLocal,choice==='obey'?36:2);
+  const first=JSON.stringify(finished.campaign);await h.click('result-menu');await h.data('view','archives');await h.data('archive','records');
+  assert.match(h.ids.get('archive-content').innerHTML,/Registre des personnes d’Aval/);assert.match(h.ids.get('archive-content').innerHTML,/Dossier sanitaire des Salines/);
+  await h.data('view','campaign');await h.click('campaign-deploy');await h.click('launch');
+  assert.equal(h.snapshot().campaignReplay,true);assert.equal(JSON.stringify(h.snapshot().campaign),first);
+});
+
+await check('Enter assigned to fullscreen leaves button activation available and operates from the Canvas',async()=>{
+  const h=harness();let calls=0;h.document.documentElement.requestFullscreen=async()=>{calls++;};
+  await h.data('view','settings');await h.data('binding','fullscreen');await h.key('Enter');
+  assert.deepEqual(h.snapshot().settings.bindings.fullscreen,['Enter']);
+  h.ids.get('bindings-reset').focus();await h.key('Enter');assert.equal(calls,0);
+  await h.data('view','campaign');await h.click('campaign-deploy');await h.click('launch');await h.key('Enter');assert.equal(calls,1);
+});
+
+await check('key rebinding reports conflicts, persists valid keys and keeps Escape cancellation', async () => {
+  const h=harness(); await h.data('view','settings');
+  await h.data('binding','interact'); await h.key('KeyD');
+  assert.match(h.ids.get('binding-status').textContent,/déjà utilisée/);
+  assert.deepEqual(h.snapshot().settings.bindings.interact,['KeyE']);
+  await h.key('KeyG'); assert.deepEqual(h.snapshot().settings.bindings.interact,['KeyG']);
+  assert.match(h.ids.get('briefing-controls').innerHTML,/G/);
+  const fresh=harness(h.values); assert.deepEqual(fresh.snapshot().settings.bindings.interact,['KeyG']);
+  await fresh.data('view','settings'); await fresh.data('binding','repair'); await fresh.key('Escape');
+  assert.deepEqual(fresh.snapshot().settings.bindings.repair,['KeyT']);
+  assert.equal(fresh.ids.get('binding-status').textContent,'Modification annulée.');
+  await fresh.click('bindings-reset'); assert.deepEqual(fresh.snapshot().settings.bindings.interact,['KeyE']);
+  assert.deepEqual(fresh.snapshot().settings.bindings.pause,['Escape']);
+});
+
+await check('rebound movement drives the real simulation; old keys release and navigation cancels capture', async () => {
+  const h=harness();await h.data('view','settings');await h.data('binding','right');await h.key('KeyG');
+  await h.data('binding','left');await h.data('view','campaign');
+  assert.equal(h.ids.get('binding-status').textContent,'Modification annulée.');
+  await h.click('campaign-deploy');await h.click('launch');
+  const x=h.snapshot().game.player.x;
+  await h.key('KeyD');h.frames(60);await h.key('KeyD',false);
+  assert.equal(h.snapshot().game.player.x,x);
+  await h.key('KeyG');h.frames(120);await h.key('KeyG',false);
+  assert.ok(h.snapshot().game.player.x>x+20);
+  await h.click('pause-button');const paused=h.snapshot().game.elapsed;h.frames(15);
+  assert.equal(h.snapshot().game.elapsed,paused);assert.equal(h.snapshot().campaignWarning,'');
+});
+
+await check('synthetic standard-gamepad input drives the actual application and releases after pause or disconnect', async () => {
+  const h=harness();await h.click('campaign-deploy');await h.click('launch');
+  const pad={index:0,id:'test-standard',mapping:'standard',connected:true,axes:[1,0,0,0],buttons:Array.from({length:17},()=>({pressed:false,value:0}))};
+  h.setGamepads([pad]);const x=h.snapshot().game.player.x;h.frames(60);
+  assert.equal(h.snapshot().game.player.x,x);assert.match(h.ids.get('gamepad-status').textContent,/Relâchez/);
+  pad.axes[0]=0;h.frames(2);pad.axes[0]=1;h.frames(100);pad.axes[0]=0;
+  assert.ok(h.snapshot().game.player.x>x+20);
+  pad.buttons[9]={pressed:true,value:1};h.frames(1);assert.equal(h.snapshot().paused,true);
+  const paused=h.snapshot().game.elapsed;h.frames(20);assert.equal(h.snapshot().game.elapsed,paused);
+  pad.buttons[9]={pressed:false,value:0};h.frames(2);pad.buttons[9]={pressed:true,value:1};h.frames(1);
+  assert.equal(h.snapshot().paused,false);
+  pad.buttons[9]={pressed:false,value:0};h.frames(2);pad.axes[0]=1;h.frames(20);
+  h.setGamepads([]);h.frames(90);assert.equal(h.snapshot().game.player.move,0);
+  assert.match(h.ids.get('gamepad-status').textContent,/Aucune/);
+  assert.equal(h.snapshot().campaignWarning,'');
+  pad.axes[0]=0;h.setGamepads([pad]);h.frames(2);h.setFocus(false);h.frames(1);
+  assert.equal(h.snapshot().paused,true);pad.buttons[9]={pressed:true,value:1};h.frames(10);
+  assert.equal(h.snapshot().paused,true,'background Start cannot resume a mission');
+  h.setFocus(true);h.frames(2);assert.equal(h.snapshot().paused,true,'held Start must return to neutral');
+  pad.buttons[9]={pressed:false,value:0};h.frames(2);pad.buttons[9]={pressed:true,value:1};h.frames(1);
+  assert.equal(h.snapshot().paused,false);
+});
+
+await check('QA05 menu selections preserve ammunition and partial reload until its real completion',async()=>{
+  const started=beginCampaignMission(createCampaign(),{missionId:'MI01',walkerId:'WK01',seed:519});
+  const s=started.game, total=s.player.ammo+s.player.reserveAmmo;
+  for(let frame=0;frame<600&&s.stats.shots<3;frame++)updateGame(s,1/60,{brace:true,fire:true,aimX:s.player.x,aimY:-200});
+  assert.equal(s.stats.shots,3);assert.equal(commandGame(s,'reload'),true);
+  for(let frame=0;frame<24;frame++)updateGame(s,1/60,{brace:true});
+  const h=harness(new Map([[CAMPAIGN_SAVE_KEY,serializeCampaign(checkpointCampaign(started.campaign,s))]]));
+  await h.click('campaign-resume');await h.click('pause-button');const stopped=h.snapshot().game;
+  assert.ok(stopped.player.reloadTime>0);
+  await h.click('to-menu');await h.data('view','hangar');await h.data('walker','WK10');await h.click('confirm-rig');
+  await h.data('view','operations');await h.data('mission','op03');h.frames(120);
+  const fresh=harness(h.values);await fresh.click('campaign-resume');
+  assert.deepEqual(fresh.snapshot().game,stopped);
+  fresh.frames(180);const p=fresh.snapshot().game.player;
+  assert.equal(p.reloadTime,0);assert.equal(p.ammo,p.maxAmmo);assert.equal(p.ammo+p.reserveAmmo,total-3);
+});
+
+// Drive a complete operation through the application's real key and touch-button
+// handlers. Reading a test snapshot selects inputs; no game field is assigned.
+async function completeOperationThroughUI(h,choice){
+  const held=new Map(), buttons=Object.fromEntries(['fire','secondary'].map(k=>[k,h.document.querySelector(`[data-hold="${k}"]`)]));
+  async function key(code,on){if(Boolean(held.get(code))!==on){await h.key(code,on);held.set(code,on);}}
+  async function touch(code,on){if(Boolean(held.get(code))!==on){await buttons[code].dispatch(on?'pointerdown':'pointerup',{pointerId:31,pointerType:'touch'});held.set(code,on);}}
+  for(let frame=0;frame<36000;frame+=6){
+    const s=h.snapshot().game,p=s.player;if(s.status!=='playing')break;
+    if(s.decision.active){assert.equal(h.ids.get('decision-dialog').open,true);await h.data('choice',choice);held.clear();continue;}
+    const target=s.enemies.filter(e=>!e.dead&&e.active&&!(e.type==='boss'&&(!s.bossReleased||s.decision.choice==='obey'))&&Math.abs(e.x-p.x)<1000).sort((a,b)=>Math.abs(a.x-p.x)-Math.abs(b.x-p.x))[0];
+    const destination=!s.evidence.collected?s.evidence.x:!s.decision.resolved?s.mission.decisionX:s.extraction.x;
+    let move=Math.abs(destination-p.x)>35?Math.sign(destination-p.x):0;
+    if(target&&Math.abs(target.x-p.x)<680)move=0;
+    const interact=!s.evidence.collected&&Math.abs(p.x-s.evidence.x)<190||s.evidence.collected&&!s.decision.resolved&&Math.abs(p.x-s.mission.decisionX)<280;
+    if(interact)move=0;
+    const vent=p.heat>72||p.overheated;
+    await key('KeyD',move>0);await key('KeyQ',move<0);await key('Space',move===0);await key('KeyV',vent);await key('KeyE',interact&&frame%12===0);
+    await touch('fire',Boolean(target)&&!vent);await touch('secondary',Boolean(target)&&target.hp>160&&!vent);
+    h.frames(6);
+  }
+  for(const code of ['KeyD','KeyQ','Space','KeyV','KeyE'])await h.key(code,false);
+  for(const code of ['fire','secondary'])await buttons[code].dispatch('pointerup',{pointerId:31,pointerType:'touch'});
+  const end=h.snapshot();
+  assert.equal(end.game.status,'won',JSON.stringify({paused:end.paused,elapsed:end.game.elapsed,x:end.game.player.x,hull:end.game.player.hull,heat:end.game.player.heat,ammo:end.game.player.ammo,reserve:end.game.player.reserveAmmo,decision:end.game.decision,evidence:end.game.evidence,enemies:end.game.enemies.filter(e=>!e.dead).map(e=>({type:e.type,x:e.x,hp:e.hp,active:e.active}))}));
+}
+
+for(const choice of ['obey','defy'])await check(`QA14/QA16 OP03 ${choice} traverses UI decision, report, persisted archive and a fresh operation`,async()=>{
+  const h=harness();await h.data('view','hangar');await h.data('walker','WK09');await h.click('confirm-rig');
+  h.ids.get('difficulty').value='story';await h.ids.get('difficulty').dispatch('change');
+  await h.data('view','operations');await h.data('mission','op03');await h.click('deploy');await h.click('launch');
+  await completeOperationThroughUI(h,choice);
+  const result=h.snapshot().game;assert.equal(result.decision.choice,choice);assert.equal(result.enemies.find(e=>e.type==='boss').dead,choice==='defy');
+  assert.equal(h.ids.get('result-dialog').open,true);
+  const stored=h.values.get('imperium.records.v1'),record=JSON.parse(stored).op03;
+  assert.equal(record.choice,choice);assert.equal(record.kills,result.stats.kills);assert.equal(record.completed,true);
+  await h.data('choice',choice==='obey'?'defy':'obey');assert.equal(h.values.get('imperium.records.v1'),stored,'a late choice cannot rewrite the report');
+  const fresh=harness(h.values);await fresh.data('view','archives');await fresh.data('archive','records');
+  assert.match(fresh.ids.get('archive-content').innerHTML,choice==='defy'?/Ordre contesté/:/Ordre exécuté/);
+  await fresh.data('view','operations');await fresh.data('mission','op01');await fresh.click('deploy');await fresh.click('launch');
+  const next=fresh.snapshot().game;assert.equal(next.missionId,'op01');assert.equal(next.elapsed,0);assert.equal(next.projectiles.length,0);assert.equal(next.enemies.some(e=>e.dead),false);
+  assert.equal(fresh.values.get('imperium.records.v1'),stored);
 });
 
 console.log(`UI STATE INTEGRATION PASSED: ${checks} flows against the actual offline application script in a modeled DOM.`);

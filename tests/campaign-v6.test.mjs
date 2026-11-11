@@ -50,6 +50,7 @@ test('authentic public v5 dossiers migrate without rewriting MI01–MI05 or cred
     assert.equal(migrated.world.nacre.dike.residentsTotal, 0);
     const previousShape = clone(migrated);
     previousShape.version = 5;
+    delete previousShape.world.nacre.departure;
     delete previousShape.world.nacre.ambulance; delete previousShape.world.nacre.dike; delete previousShape.world.nacre.fuelSpent;
     assert.deepEqual(previousShape, old);
     assert.deepEqual(parseCampaign(serializeCampaign(migrated)), migrated);

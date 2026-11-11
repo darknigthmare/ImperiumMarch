@@ -19,17 +19,18 @@ function storage(primary) {
   return { values, getItem: key => values.get(key) ?? null, setItem(key, value) { values.set(key, String(value)); } };
 }
 
-test('authentic v6 migration adds only an unvisited ambulance and preserves a paid live valve exactly', () => {
-  assert.equal(CAMPAIGN_SAVE_VERSION, 7);
+test('authentic v6 migration adds only unvisited ambulance and departure dossiers and preserves a paid live valve exactly', () => {
   assert.equal(historical.provenance.sourceRevision, 'bc830013455bb8f71e1eaf0316173ac0e91746f8');
   assert.equal(historical.provenance.saveVersion, 6);
   const original = JSON.stringify(historical);
   for (const old of [historical.live, historical.completed, historical.manualCompleted]) {
     const migrated = parseCampaign(JSON.stringify(old));
-    const prior = clone(migrated); prior.version = 6; delete prior.world.nacre.ambulance;
+    assert.equal(migrated.version, CAMPAIGN_SAVE_VERSION);
+    const prior = clone(migrated); prior.version = 6; delete prior.world.nacre.ambulance; delete prior.world.nacre.departure;
     assert.deepEqual(prior, old);
     assert.equal(migrated.world.nacre.ambulance.patientsTotal, 0);
     assert.equal(migrated.world.nacre.ambulance.beaconRecovered, false);
+    assert.deepEqual(migrated.world.nacre.departure, createCampaign().world.nacre.departure);
     assert.deepEqual(parseCampaign(serializeCampaign(migrated)), migrated);
   }
   const live = parseCampaign(JSON.stringify(historical.live));
@@ -49,7 +50,7 @@ test('v6 read is nonmutating, first write preserves original bytes and an unsupp
   assert.equal(loaded.blocked, false); assert.equal(disk.getItem(CAMPAIGN_SAVE_KEY), bytes);
   assert.equal(writeCampaign(disk, loaded.campaign).ok, true);
   assert.equal(disk.getItem(CAMPAIGN_BACKUP_KEY), bytes);
-  const future = JSON.stringify({ ...createCampaign(), version: 8 }); disk.values.set(CAMPAIGN_SAVE_KEY, future);
+  const future = JSON.stringify({ ...createCampaign(), version: CAMPAIGN_SAVE_VERSION + 1 }); disk.values.set(CAMPAIGN_SAVE_KEY, future);
   const blocked = readCampaign(disk);
   assert.equal(blocked.blocked, true); assert.equal(writeCampaign(disk, blocked.campaign).ok, false);
   assert.equal(disk.getItem(CAMPAIGN_SAVE_KEY), future);
@@ -100,7 +101,7 @@ for (const variant of ['completed', 'manualCompleted']) for (const choice of ['o
   assert.equal(saved.resources.fuel, start.campaign.resources.fuel);
   assert.equal(saved.world.nacre.fuelSpent, start.campaign.world.nacre.fuelSpent);
   assert.equal(saved.resources.parts, start.campaign.resources.parts + 4);
-  assert.equal(nextCampaignMissionId(saved), null);
+  assert.equal(nextCampaignMissionId(saved), 'MI08');
   for (const id of ['MI01','MI02','MI03','MI04','MI05','MI06']) assert.deepEqual(saved.completed[id], start.campaign.completed[id]);
   const before = serializeCampaign(saved), replay = startAmbulance(saved);
   assert.equal(replay.replay, true); pilotMI07(replay.game, { choice: choice === 'defy' ? 'obey' : 'defy' });

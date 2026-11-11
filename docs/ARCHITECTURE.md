@@ -35,6 +35,8 @@ Les tirs utilisent des segments balayés entre l’ancienne et la nouvelle posit
 
 Les ennemis montrent une préparation avant leur attaque. La portée déclenche leur activité. Le convoi partage le monde et peut être ciblé. Les civils restent distincts des listes de cibles hostiles. Les pertes civiles, preuves, ordres et neutralisations sont enregistrés séparément.
 
+Le convoi reçoit les tirs balayés des deux camps, les explosions à portée et les appuis effectifs. Le véhicule suiveur évite de s’engager sous l’empreinte cible d’un pied descendant; cette attente est un comportement de conduite, sans immunité aux dommages. Les familles annoncées dans OP02 ne disposent pas encore d’un recensement individuel : aucun nombre de survivants ou de décès de ce groupe n’est déduit du seul état de la coque.
+
 MI02 ajoute un train distinct du camion d’escorte : locomotive, deux wagons et deux harpons. La simulation détient leurs positions, leurs états de santé, les temps de travail et le freinage. Le rendu lit ces valeurs. Le wagon fermé contient huit ouvriers; les dégâts peuvent tuer des occupants et détruire son registre de vente. Ni l’ouverture des portes ni une décision de rapport ne restaurent ce qui a été perdu.
 
 ## Les stations de MI03
@@ -142,3 +144,15 @@ La simulation porte le mouvement du véhicule, son arrêt, l’accord à l’exa
 Les faits sanitaires rejoignent `world.nacre.ambulance` uniquement au premier rapport réussi. Les relectures sont indépendantes. Le HUD HTML présente l’étape, la route, les personnes, la cargaison et la balise. Le résultat et l’atelier distinguent le véhicule, les personnes et les pièces récupérées. Une perte matérielle reste constatable sans reconstituer les données détruites.
 
 Le dossier v7 ajoute seulement l’ambulance non visitée aux anciennes sauvegardes v6. Les invariants du carburant MI06 restent identiques. Les détails de validation et les limites sont documentés dans [CAMPAIGN_SAVE_V7.md](CAMPAIGN_SAVE_V7.md).
+
+## Les portes d’Aval et le dossier v8
+
+MI08 reçoit les bilans conservés du chenal, de la digue et de l’ambulance. La simulation détient les portes et leurs mécanismes, la marée, le bassin, les personnes, les accès et les bateaux. Un plan de passage ne réalise aucune arrivée. Le trajet naval, l’accostage, le débarquement puis la marche vers l’accueil produisent des faits successifs. Les replis locaux et les pertes restent séparés des départs vers le refuge.
+
+`departure-validation.mjs` rassemble la validation stricte du contexte, des faits et des reçus de MI08. Elle ne modifie ni scène, ni stockage, ni temps. Les identités et capacités sont dérivées depuis la même définition que la simulation. Le dossier conserve les anciens agrégats et marque explicitement les identités de sortie nouvelles, sans inventer de personnes historiques. La migration v7 ne touche pas les scènes anciennes et ajoute le seul dossier d’Aval vide.
+
+Les commandes sont lues par `controls.mjs`, sans DOM ni stockage. `main.mjs` applique les préférences et combine clavier, souris, tactile et manette standard. Le retour au neutre, la perte de focus et la pause empêchent une ancienne pression de devenir une action nouvelle. La reconfiguration met à jour les aides visibles à partir des touches d’origine.
+
+`production-assets.mjs` partage les primitives des exports SVG et du dessin Canvas. Le renderer continue de prendre pieds, articulations et radiateur dans la simulation. L’audio reçoit les événements et observe les faits; son premier passage sur un checkpoint initialise le suivi sans rejouer des réussites historiques. Les deux couches restent sans pouvoir sur les arrivées, les dégâts, les ressources ou les décisions.
+
+Les contrats détaillés de cette tranche sont [MI08](CAMPAIGN_MISSION_08.md), [dossier v8](CAMPAIGN_SAVE_V8.md), [conséquences de Nacre](NACRE_CONSEQUENCES_V09.md) et [commandes et audio](CONTROLS_AUDIO_V09.md).

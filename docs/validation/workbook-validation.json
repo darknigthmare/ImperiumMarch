@@ -1,12 +1,12 @@
 {
   "workbook": "ORDRE_DE_CENDRE_Bible.xlsx",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "sheets": 21,
-  "designRows": 769,
+  "designRows": 816,
   "statusCounts": {
-    "Conçu": 292,
-    "Prototype": 244,
-    "À produire": 133,
+    "Conçu": 288,
+    "Prototype": 305,
+    "À produire": 123,
     "Vérifié": 100
   },
   "catalog": [
@@ -25,13 +25,13 @@
     },
     {
       "name": "Systèmes",
-      "count": 82,
-      "lastRow": 88,
+      "count": 92,
+      "lastRow": 98,
       "lastColumn": "G",
       "statusIndex": 6,
       "sourceCounts": [
-        19,
-        63,
+        18,
+        74,
         0,
         0
       ]
@@ -121,8 +121,8 @@
       "lastColumn": "I",
       "statusIndex": 8,
       "sourceCounts": [
-        25,
-        7,
+        24,
+        8,
         0,
         0
       ]
@@ -194,13 +194,13 @@
     },
     {
       "name": "Narration",
-      "count": 68,
-      "lastRow": 74,
+      "count": 74,
+      "lastRow": 80,
       "lastColumn": "F",
       "statusIndex": 5,
       "sourceCounts": [
-        40,
-        28,
+        38,
+        36,
         0,
         0
       ]
@@ -213,8 +213,8 @@
       "statusIndex": 6,
       "sourceCounts": [
         0,
-        6,
-        56,
+        33,
+        29,
         0
       ]
     },
@@ -226,21 +226,21 @@
       "statusIndex": 6,
       "sourceCounts": [
         1,
-        43,
-        38,
+        47,
+        34,
         0
       ]
     },
     {
       "name": "QA",
-      "count": 137,
-      "lastRow": 143,
+      "count": 158,
+      "lastRow": 164,
       "lastColumn": "F",
       "statusIndex": 5,
       "sourceCounts": [
         0,
         0,
-        39,
+        60,
         98
       ]
     },
@@ -259,41 +259,34 @@
     },
     {
       "name": "Prototype",
-      "count": 78,
-      "lastRow": 84,
+      "count": 88,
+      "lastRow": 94,
       "lastColumn": "G",
       "statusIndex": 6,
       "sourceCounts": [
         0,
-        78,
+        88,
         0,
         0
       ]
     }
   ],
-  "previews": [
-    "00-Synthese.png",
-    "bible-v08-systems.png",
-    "bible-v08-assets.png",
-    "bible-v08-production.png",
-    "bible-v08-qa-gameplay.png",
-    "bible-v08-qa-persistence.png"
-  ],
+  "previews": [],
   "tests": [
     "Total des fiches réconcilié avec le JSON",
     "Statuts réconciliés avec le JSON",
     "Modification temporaire de statut et recalcul vérifiés, valeur restaurée"
   ],
-  "scope": "Bible de conception et suivi de production. MI01–MI04 forment le premier arc jouable de Vesper. MI05 ouvre le chenal de Nacre, MI06 met en jeu la digue et MI07 suit une ambulance sur la chaussée des Salines. Arrêt protégé, consentement, inspections, balise, rampe et transfert restent des actes distincts. Six châssis, munitions finies, radiateur réparable et dossier v7 sont disponibles. Les 25 autres missions principales restent conçues, dont MI08 détaillée dans le contrat de Nacre. OP01–OP03 gardent leurs rapports indépendants. Consulter Prototype pour la portée implémentée.",
+  "scope": "Bible de conception et registre de production. MI01–MI04 forment l’arc jouable de Vesper; MI05–MI08 couvrent chenal, digue, ambulance et portes d’Aval sur Nacre. Huit missions, six châssis, trois opérations indépendantes et dossier v8 sont disponibles au stade prototype. Les 24 autres missions principales restent conçues. Les 133 critères À produire de la 0.8 sont conservés dans un registre immuable et réconciliés avec les livrables reçus, sans assimiler art procédural, test automatique et essai humain.",
   "exportValidation": {
     "workbook": "ORDRE_DE_CENDRE_Bible.xlsx",
-    "version": "0.8.0",
-    "sha256": "726c2d8a3464af1cd934574942da5c2ccc0cbfc0dcf12d5874fa26deb30835cb",
-    "sourceRecords": 769,
-    "sourceCellsCompared": 5225,
-    "historicalRevision": "1e7eadb",
-    "historicalIdsPreserved": 705,
-    "addedIds": 64,
+    "version": "0.9.0",
+    "sha256": "866b7ec16d491c4ece870a9689356bb8c90a08b01630bf4dc42f6310ecb86524",
+    "sourceRecords": 816,
+    "sourceCellsCompared": 5527,
+    "historicalRevision": "03c69e7",
+    "historicalIdsPreserved": 769,
+    "addedIds": 47,
     "sheets": 21,
     "namedTables": 20,
     "calculatedFormulaCells": 126,
@@ -302,7 +295,31 @@
     "statusValidationRanges": 20,
     "conditionalFormatRules": 80,
     "frozenDataSheets": 20,
-    "engineScope": "Recalcul et test de modification de statut exécutés dans @oai/artifact-tool. Contrôle du fichier XLSX exporté par lecture XML; aucune exécution native dans Excel ni LibreOffice.",
-    "visualScope": "Synthèse et vues des domaines ajoutés ou modifiés, avec aperçus des lignes nouvelles. Mise en page des autres tables conservée. Pas de validation navigateur ni de comportement natif Excel."
+    "referenceAudit": {
+      "source": "data/bible.json",
+      "version": "0.9.0",
+      "sourceSha256": "ac79b57e0224048be8e23b3a19b33be9c5f664b2f5b6e7d067a1e1a0a6dff667",
+      "scope": "All explicit two-letter/two-or-three-digit identifiers in row fields and metadata, closed ranges and abbreviated pairs such as PT03/04. Symbols resolve to canonical declaration rows. Existence of a reference does not certify gameplay, art, narrative truth or human usability.",
+      "sourceSheets": 20,
+      "sourceRows": 816,
+      "uniqueIds": 816,
+      "textFieldsScanned": 4752,
+      "referenceOccurrences": 1110,
+      "closedRanges": 94,
+      "abbreviatedPairs": 1,
+      "expandedReferences": 1718,
+      "resolvedByKind": {
+        "standalone_operation": 26,
+        "row": 1639,
+        "technical_evidence": 41,
+        "witness_evidence": 6,
+        "political_evidence": 6
+      },
+      "issues": [],
+      "passed": true
+    },
+    "engineScope": "Recalcul et test de modification de statut exécutés dans @oai/artifact-tool. Ce contrôle lit le ZIP/XML exporté; une éventuelle exécution native est consignée séparément et ne se déduit pas de ce rapport.",
+    "renderedPreviewCount": 0,
+    "visualScope": "Aucune nouvelle vue générée pour cet export initial. Relecture visuelle finale et contrôle natif restent séparés de cette réconciliation XML."
   }
 }

@@ -1,8 +1,8 @@
 # ORDRE DE CENDRE — Campagne et continuité
 
-**Version de conception 0.8.0 · 11 novembre 2026**
+**Version de conception 0.9.0 · 11 novembre 2026**
 
-Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI07 sont jouables au stade prototype, avec progression, dossier et reprise. Les 25 missions MI08–MI32 restent conçues. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.8](NACRE_CONSEQUENCES_V08.md) précise MI05–MI07 jouables et la production encore ouverte de MI08.
+Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI08 sont jouables au stade prototype, avec progression, dossier v8 et reprise. Les 24 missions MI09–MI32 et les seize contrats restent conçus. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.9](NACRE_CONSEQUENCES_V09.md) précise les quatre sorties jouables, leurs populations et leurs arrivées distinctes.
 
 La campagne suit Sera Vey depuis ses premières opérations d’occupation jusqu’à une confrontation avec l’autorité qui les ordonnait. La défection est l’axe du récit. Les décisions déterminent qui part avec elle, ce qu’elle peut prouver, ce qu’elle laisse derrière elle et la forme du pouvoir après la bataille.
 
@@ -165,15 +165,15 @@ Le [contrat MI07](CAMPAIGN_MISSION_07.md) décrit les interactions, les pertes e
 
 #### MI08 — La marée compte les absents
 
-**Lieu :** Nacre (PL02), portes d’Aval · **État :** Conçu
+**Lieu :** Nacre (PL02), portes d’Aval · **État :** Prototype jouable en 0.9
 
 **Ordre reçu.** Fermer les accès de l’archipel pour une opération de contrôle.
 
-**Déroulement à produire.** Gérer deux portes aux fonctions différentes, lire la pression et préparer les départs des bateaux disponibles. Annoncer refuge, places et horaires avant de choisir fermeture immédiate, fenêtre retardée ou maintien d’un accès. Les départs déjà réalisés restent acquis.
+**Déroulement jouable.** Inspecter les commandes et le registre, retrouver les groupes réellement arrivés des trois missions précédentes, confirmer l’accueil et préparer les passerelles. L’amenée règle progressivement le bassin; le passage ouvre la route des bateaux. Après le choix, les invités doivent arriver, confirmer leur destination puis embarquer. Opérateur, accompagnant, places assises et brancards ont leurs contraintes propres. Le départ acquis reste distinct de l’arrivée individuelle au refuge.
 
-**Ce que la mission révèle.** Les registres de relogement consultés imposent des contrats forcés. Sera peut couvrir le départ de Mara et des familles présentes. L’ordre, son exécution et le rapport à Holt restent trois actes distincts.
+**Ce que la mission révèle.** Les pages réellement copiées lient relogement et obligation de travail. Des ruines sans copie ne reconstituent pas ces clauses. Une nouvelle liaison fait venir Mara physiquement; un accord ultérieur fixe sa destination. Sera peut fermer immédiatement, accorder une fenêtre puis revenir fermer, ou maintenir l’accès sous contrôle supplémentaire. La conduite choisie, son exécution et le rapport restent des faits distincts.
 
-**Ce qui reste après la mission.** Personnes arrivées, restées ou perdues, maisons, pompes, portes, refuge et documents alimentent des suites séparées. La désobéissance locale de Nacre ne remplace pas la défection opérationnelle prévue à MI16. Le [contrat de Nacre 0.8](NACRE_CONSEQUENCES_V08.md) détaille les héritages jouables de MI05–MI07 et les scènes, dommages, interruptions et issues de MI08, qui reste conçue.
+**Ce qui reste après la mission.** Le reçu garde le nouveau recensement, la provenance, les accords, chaque destination, les départs, arrivées et pertes, ainsi que les deux bateaux et ouvrages. Une avarie permet un constat et un accueil local sans réparer un objet disparu. Les techniciens terminent leur service dans une niche locale, distincte du refuge aval. Les anciens agrégats ne deviennent pas des identités historiques inventées. Aucun PT, PO ou carburant nouveau n’est attribué; la désobéissance locale ne remplace pas MI16. Le [contrat MI08](CAMPAIGN_MISSION_08.md) et le [contrat de Nacre 0.9](NACRE_CONSEQUENCES_V09.md) fixent les durées, capacités, dommages et reprises.
 
 ### Acte II — Le coût du silence
 

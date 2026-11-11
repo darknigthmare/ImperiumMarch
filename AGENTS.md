@@ -7,7 +7,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - `data/bible.json` est la source des fiches de conception et du classeur. Garder les IDs stables.
 - `docs/BIBLE_FR.md`, `docs/CAMPAIGN_FR.md` et `docs/ART_DIRECTION.md` développent le canon du projet.
 - `src/content.mjs` décrit uniquement les données actuellement utilisées par le prototype.
-- `src/campaign.mjs` gère les dossiers MI01–MI07, leur progression et la migration des sauvegardes v1/v2/v3/v4/v5/v6 vers v7 ; les opérations OP01–OP03 restent indépendantes.
+- `src/campaign.mjs` gère les dossiers MI01–MI08, leur progression et la migration des sauvegardes v1/v2/v3/v4/v5/v6/v7 vers v8 ; les opérations OP01–OP03 restent indépendantes.
 - L’onglet Prototype précise la différence entre le comportement actuel et le comportement final conçu.
 
 ## Développement
@@ -24,7 +24,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 
 - Ne pas marquer une fiche finie parce qu’une description existe. Conçu, Prototype et Vérifié décrivent des niveaux différents.
 - Les trois opérations de prototype ne sont pas les 32 missions de la campagne finale.
-- MI01–MI07 sont jouables au stade prototype depuis les 0.2 à 0.8 ; les 25 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
+- MI01–MI08 sont jouables au stade prototype depuis les 0.2 à 0.9 ; les 24 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
 - Ne pas présenter une image de concept comme une capture du jeu, un rendu Canvas comme une capture navigateur ou un test statique comme un clic exécuté.
 - Une nouvelle vérification navigateur doit préciser l’environnement réel et les parcours effectués.
 - Les références de gameplay servent la conception ; conserver les noms, assets, silhouettes et récits originaux du projet.
@@ -64,3 +64,12 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - Le choix de destination exige ensuite un trajet. Patients arrivés, personnel vivant, personnel arrivé, véhicule récupéré ou saisi restent distincts. Les dégâts après décision restent inscrits jusqu’au bilan.
 - La pièce, les attaches et le journal de balise exigent un démontage accompli. Une destruction permet un constat sans reconstitution. `provenanceVerified` reste faux dans MI07 ; aucune nouvelle preuve PT ou PO n’est attribuée.
 - La fixture `campaign-v6-mi06.json` provient du code public immuable `bc830013455bb8f71e1eaf0316173ac0e91746f8` de la 0.7. La migration v7 ajoute seulement `world.nacre.ambulance` non visité et conserve les scènes MI01–MI06 et le registre de carburant. Ne pas régénérer cette fixture depuis les modules courants.
+
+## Départ de Nacre et production 0.9
+
+- MI08 distingue amenée, passage, pression, fenêtres de courant, accords, places assises, brancards, accompagnants, embarquement, départ de zone et arrivée individuelle. Un choix ne remplace pas une opération physique.
+- La migration v7 ajoute seulement le dossier `world.nacre.departure` vide. Ne jamais régénérer la fixture v7 depuis le code courant : ses octets sont attestés dans `validation/v09-historic-v7.json`.
+- Les anciens agrégats deviennent un nouveau recensement MI08 avec provenance explicite. Ne pas inventer une identité historique, ressusciter un mort, déplacer une ambulance saisie ni convertir le contact radio de Mara en présence passée.
+- Le nouveau reçu MI08 conserve sa liste de personnes et de bateaux. Départ historique, arrivée au refuge, accueil local et perte restent distincts. Le choix `delay` est autorisé uniquement dans MI08.
+- `production-assets.mjs` partage la géométrie SVG/Canvas ; garder pivots et positions des vrais pieds. Les WAV sont des exports : le runtime synthétise les mêmes PCM sans requête réseau.
+- Le registre v09 conserve les 133 critères À produire de la baseline. Réception d’un livrable, validation du prototype et critère humain satisfait sont trois faits différents. Ne pas transformer un test synthétique de manette en essai matériel.

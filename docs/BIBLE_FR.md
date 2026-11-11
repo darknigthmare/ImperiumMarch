@@ -2,7 +2,7 @@
 
 ## Chaque pas laisse une trace.
 
-**Nom de code :** ImperiumMarch · **Version de conception :** 0.8.0 · **Date :** 11 novembre 2026
+**Nom de code :** ImperiumMarch · **Version de conception :** 0.9.0 · **Date :** 11 novembre 2026
 
 **ORDRE DE CENDRE** est un jeu d’action tactique en 2D dans lequel le joueur pilote les machines d’occupation de l’Empire d’Orthe. D’abord chargé de « pacifier » ses mondes périphériques, il découvre que les catastrophes justifiant ces interventions sont en partie organisées par ceux qui prétendent les réparer. Sa machine ne change pas soudainement de nature lorsqu’il refuse un ordre : elle reste lourde, dangereuse et dépendante de pièces fabriquées par l’Empire. Il doit apprendre à s’en servir pour autre chose que contraindre.
 
@@ -10,7 +10,7 @@ La signature du jeu est le rapport entre **appui, puissance et responsabilité**
 
 La qualité AAA est une **ambition de direction et de finition**. Cette version constitue une fondation de production, avec un prototype jouable et une bible étendue. Elle ne représente pas une campagne finale ni un jeu commercial terminé. La source structurée est [data/bible.json](../data/bible.json). L’onglet **Prototype** du classeur décrit précisément les éléments présents et leurs limites; les autres onglets comprennent aussi les règles prévues pour la suite.
 
-**Portée exécutée en 0.8 :** MI01–MI04 constituent le premier arc jouable de Vesper. MI05 ouvre le chenal de Nacre, MI06 poursuit la digue et MI07 accompagne une ambulance sur la chaussée des Salines. Les six châssis gardent leurs réserves finies et leur radiateur réparable. La campagne conserve ses conséquences dans un dossier v7; le carburant engagé à MI06 ne revient pas lors du passage à MI07. Les 25 autres missions principales restent conçues. La [production 0.8](PRODUCTION_V08.md) définit cette portée. Le [concept complet](CONCEPT_COMPLET_V04.md) présente l’ensemble du jeu; [Vesper](VESPER_CONSEQUENCES_V05.md) et [Nacre 0.8](NACRE_CONSEQUENCES_V08.md) précisent les conséquences. Les bilans antérieurs conservent leur portée historique.
+**Portée exécutée en 0.9 :** MI01–MI04 constituent le premier arc jouable de Vesper. MI05–MI08 couvrent le chenal, la digue, la chaussée sanitaire et les portes d’Aval sur Nacre. La campagne conserve ses conséquences dans un dossier v8, avec recensement individuel au départ d’Aval. Les six châssis gardent leurs réserves finies et leur radiateur réparable. Le carburant engagé à MI06 ne revient pas dans les missions suivantes. Les 24 autres missions principales et les seize contrats restent conçus. La [production 0.9](PRODUCTION_V09.md) décrit les missions, les lots visuels et sonores et les commandes livrées; le [registre des 133 critères initiaux](PRODUCTION_REGISTER_V09.md) conserve leurs limites. Le [concept complet](CONCEPT_COMPLET_V04.md), [Vesper](VESPER_CONSEQUENCES_V05.md) et [Nacre 0.9](NACRE_CONSEQUENCES_V09.md) précisent la direction et les conséquences. Les bilans antérieurs conservent leur portée historique.
 
 ## 1. Le contrat avec le joueur
 
@@ -69,6 +69,14 @@ MI07 utilise l’état conservé du panneau de MI06. Un verrou achevé, sans ét
 L’Ambulance Quai introduit quatre patients, une conductrice et un soignant. L’appel d’arrêt, l’accord à l’examen, le constat de la caisse et le démontage du boîtier sont des actions différentes. Le marquage hostile transmis par Holt ne remplace pas une inspection. Une source détruite garde une issue de constat, avec les données effectivement obtenues avant sa perte.
 
 Le choix conduit au poste médical impérial ou à l’accueil civil. Le véhicule doit encore rejoindre cette destination. L’arrivée des personnes et la disponibilité de l’ambulance sont des résultats distincts; la récupération de sa balise ne prouve pas l’identité de celui qui l’a posée. Le [contrat MI07](CAMPAIGN_MISSION_07.md) précise ce fonctionnement. Le modèle reste routier; les capacités amphibies conçues de VE02 ne sont pas livrées par cette mission.
+
+### Fermer une porte ne résout pas une traversée
+
+MI08 distingue la porte d’amenée, qui règle le bassin, et la porte de passage, qui ouvre la route des bateaux. Fermer l’amenée change progressivement le niveau et le courant. Chaque bateau attend une fenêtre adaptée à ses limites, ses opérateurs, ses accompagnants sanitaires et les personnes réellement embarquées.
+
+Le niveau retrouve les personnes arrivées dans les trois missions précédentes. Un nouvel échange, un trajet vers le quai et un accord de destination sont nécessaires. Les places assises, brancards et postes d’opérateur ne sont pas interchangeables. La sortie de la zone est un départ; l’arrivée au refuge exige encore une traversée, un accostage et la marche jusqu’à sa porte.
+
+La fermeture immédiate, la fenêtre suivie de fermeture et le maintien du passage sont trois conduites à exécuter. Un mécanisme perdu peut imposer un constat et un repli. Les personnes restées à Aval rejoignent un accueil local; elles ne sont pas déclarées mortes parce qu’elles n’ont pas embarqué. Le [contrat MI08](CAMPAIGN_MISSION_08.md) décrit ces actions et leurs limites.
 
 ### Les avaries
 
@@ -164,7 +172,7 @@ Le major Daren Holt croit à la chaîne de commandement parce qu’il l’a vue 
 
 Ilan Rusk veut rentrer avec un nom honorable auprès de sa famille. Mara Eren veut des lits, des routes et des personnes vivantes. Nima Sol exige une preuve recoupable. Leth demande que sa culture ne devienne pas seulement une pièce dans une histoire humaine. Chacun doit pouvoir remercier Sera pour un acte et lui en reprocher un autre sans contradiction artificielle.
 
-Mara intervient à la radio après l’inspection des seuils de MI06; un appel facultatif de MI07 lui transmet réellement le relevé compilé, y compris un constat de perte. Le prototype ne simule pas un personnage physique Mara exposé aux tirs et ne la recrute pas. Un contact accompli ne vaut ni accord des patients à témoigner, ni confiance générale, ni engagement à rejoindre Sera. Un membre du personnel peut donner séparément son consentement à témoigner; cet accord garde l’identité de son auteur et sa disponibilité dépend de sa survie.
+Mara intervient à la radio après l’inspection des seuils de MI06; un appel facultatif de MI07 lui transmet réellement le relevé compilé, y compris un constat de perte. MI08 établit une nouvelle liaison puis son trajet physique vers le quai, exposé aux tirs. Elle confirme ensuite sa destination et peut accompagner des patients. Cette présence ne lui est pas attribuée rétroactivement et ne la recrute pas dans l’équipage. Un contact ne vaut ni accord des patients à témoigner, ni confiance générale. Le consentement sanitaire garde son auteur; l’accord d’un membre du personnel perdu ne passe pas à son collègue.
 
 ## 12. Choix, confiance et fins
 
@@ -184,6 +192,10 @@ Le stock actuel, la dépense cumulée et la consommation d’une sortie ont des 
 
 Le prototype est une base web portable qui sépare contenu, simulation, rendu, interface et audio. Il permet de tester le pilotage et les décisions sur plusieurs opérations. Les tests de simulation ne remplacent ni les essais manuels, ni les tests d’accessibilité, ni la validation de la campagne complète.
 
+La 0.9 fournit des pièces SVG, rigs, planches et modules partageant leur définition avec le rendu Canvas, ainsi que des signaux, ambiances, motifs et exports WAV. Le pied affiché et le radiateur gardent leurs positions de simulation. Ces lots font avancer la fabrication sans certifier une animation finale, des voix enregistrées ou un mix éprouvé par des joueurs. Leur réception est détaillée par critère, avec provenance et fichiers, dans le registre de production.
+
+Onze actions clavier sont reconfigurables. Les commandes standard de manette sont prises en charge en mission, avec neutre, zone morte et remise à zéro après déconnexion ou perte de focus. Les menus à la manette, le matériel réel et les essais avec utilisateurs concernés restent des tâches distinctes. Le protocole préparé ne remplace pas leurs observations.
+
 Le prochain jalon de qualité doit être **MI01 entièrement finalisée**, du briefing au retour au hangar. Il doit réunir animation mécanique, environnement, objectifs, civils, dialogue, son et mesure de performance. Produire huit planètes avant de réussir ce niveau rendrait les corrections très coûteuses.
 
 Après ce jalon, le travail se découpe par actes et par familles de systèmes. Les douze châssis, les trente-six types d’ennemis, les dix-huit véhicules, les vingt-quatre espèces animales et les vingt-quatre espèces végétales constituent un catalogue de conception. Leur présence dans le classeur ne vaut pas livraison d’animations, d’IA ou de niveaux.
@@ -192,7 +204,7 @@ L’estimation de calendrier et de financement doit être fondée sur la vitesse
 
 ## 14. Utilisation de la bible Excel
 
-La version 0.8 du classeur contient 769 fiches dans vingt feuilles de contenu source, plus une synthèse. Les 705 identifiants de la 0.7 restent présents. Les IDs permettent de relier une mission à sa planète, un système à une validation ou un châssis à son armement. Les textes sont volontairement concrets : une ligne de production possède un livrable et un critère de clôture.
+La version 0.9 du classeur contient 816 fiches dans vingt feuilles de contenu source, plus une synthèse. Les 769 identifiants de la 0.8 restent présents. Les 133 lignes initialement À produire gardent une baseline immuable, leur critère d’origine et un reçu de production. Les IDs permettent de relier une mission à sa planète, un système à une validation ou un châssis à son armement. Une ligne de production possède un livrable et un critère de clôture; une réception partielle conserve le travail restant.
 
 **Conçu** signifie spécifié; **Prototype** signifie présent dans la portée détaillée de l’onglet éponyme; **À produire** désigne le travail identifié mais non livré; **Vérifié** doit toujours se rapporter à un contrôle réellement exécuté. Un test prévu dans QA ne devient pas vérifié parce que le code existe. Un asset illustré ne devient pas une animation intégrée parce qu’il est beau.
 

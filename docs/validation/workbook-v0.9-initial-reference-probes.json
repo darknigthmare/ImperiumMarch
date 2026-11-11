@@ -1,0 +1,338 @@
+{
+  "date": "2026-11-11T10:43:15.735391+00:00",
+  "sourceVersion": "0.9.0",
+  "sourceSha256": "ac79b57e0224048be8e23b3a19b33be9c5f664b2f5b6e7d067a1e1a0a6dff667",
+  "verifierSha256": "911dc20499fe34c181e788e2adc6807fc0f47f42583f8cc2152cf6e14a6a6a6d",
+  "scope": "Synthetic negative mutations in disposable source copies. Real source, workbook and historical reports are not modified.",
+  "negativeReferenceProbes": [
+    {
+      "case": "unknown_three_digit_id",
+      "expectedIssue": "unresolved_reference",
+      "detectedIssues": [
+        {
+          "sheet": "Vision",
+          "sourceId": "VI01",
+          "field": "acceptance",
+          "text": "QA999",
+          "type": "unresolved_reference",
+          "target": "QA999"
+        }
+      ],
+      "rejected": true
+    },
+    {
+      "case": "missing_interior_of_closed_range",
+      "expectedIssue": "unresolved_reference",
+      "detectedIssues": [
+        {
+          "sheet": "Vision",
+          "sourceId": "VI01",
+          "field": "acceptance",
+          "text": "SY39–SY41",
+          "type": "unresolved_reference",
+          "target": "SY40"
+        },
+        {
+          "sheet": "Production",
+          "sourceId": "PR45",
+          "field": "depends",
+          "text": "SY40",
+          "type": "unresolved_reference",
+          "target": "SY40"
+        }
+      ],
+      "rejected": true
+    },
+    {
+      "case": "descending_range",
+      "expectedIssue": "invalid_range",
+      "detectedIssues": [
+        {
+          "sheet": "Vision",
+          "sourceId": "VI01",
+          "field": "acceptance",
+          "text": "SY08–SY01",
+          "type": "invalid_range",
+          "reason": "Range endpoints must share a prefix and be ascending."
+        }
+      ],
+      "rejected": true
+    },
+    {
+      "case": "mixed_prefix_range",
+      "expectedIssue": "invalid_range",
+      "detectedIssues": [
+        {
+          "sheet": "Vision",
+          "sourceId": "VI01",
+          "field": "acceptance",
+          "text": "SY01–AS03",
+          "type": "invalid_range",
+          "reason": "Range endpoints must share a prefix and be ascending."
+        }
+      ],
+      "rejected": true
+    },
+    {
+      "case": "duplicate_source_identifier",
+      "expectedIssue": "duplicate_identifier",
+      "detectedIssues": [
+        {
+          "type": "duplicate_identifier",
+          "id": "VI01"
+        }
+      ],
+      "rejected": true
+    },
+    {
+      "case": "symbol_without_canonical_declaration",
+      "expectedIssue": "missing_symbol_declaration",
+      "detectedIssues": [
+        {
+          "type": "missing_symbol_declaration",
+          "symbol": "PT01",
+          "anchor": "NA32"
+        },
+        {
+          "sheet": "Vision",
+          "sourceId": "VI22",
+          "field": "acceptance",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Systèmes",
+          "sourceId": "SY49",
+          "field": "design",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Campagne",
+          "sourceId": "MI04",
+          "field": "consequence",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Narration",
+          "sourceId": "NA01",
+          "field": "sources",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Narration",
+          "sourceId": "NA13",
+          "field": "sources",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Narration",
+          "sourceId": "NA33",
+          "field": "rule",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Narration",
+          "sourceId": "NA36",
+          "field": "rule",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Narration",
+          "sourceId": "NA37",
+          "field": "rule",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Narration",
+          "sourceId": "NA42",
+          "field": "sources",
+          "text": "PT01–PT05",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Production",
+          "sourceId": "PR43",
+          "field": "deliverable",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Production",
+          "sourceId": "PR43",
+          "field": "acceptance",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Production",
+          "sourceId": "PR55",
+          "field": "acceptance",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "QA",
+          "sourceId": "QA32",
+          "field": "expected",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "QA",
+          "sourceId": "QA64",
+          "field": "expected",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "QA",
+          "sourceId": "QA68",
+          "field": "expected",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "QA",
+          "sourceId": "QA69",
+          "field": "scenario",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "QA",
+          "sourceId": "QA79",
+          "field": "scenario",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "QA",
+          "sourceId": "QA79",
+          "field": "expected",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "QA",
+          "sourceId": "QA116",
+          "field": "scenario",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Prototype",
+          "sourceId": "PX42",
+          "field": "limits",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Prototype",
+          "sourceId": "PX50",
+          "field": "name",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Prototype",
+          "sourceId": "PX50",
+          "field": "implemented",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        },
+        {
+          "sheet": "Prototype",
+          "sourceId": "PX55",
+          "field": "implemented",
+          "text": "PT01",
+          "type": "unresolved_reference",
+          "target": "PT01"
+        }
+      ],
+      "rejected": true
+    },
+    {
+      "case": "unknown_abbreviated_partner",
+      "expectedIssue": "unresolved_reference",
+      "detectedIssues": [
+        {
+          "sheet": "Vision",
+          "sourceId": "VI01",
+          "field": "acceptance",
+          "text": "PT03/99",
+          "type": "unresolved_reference",
+          "target": "PT99"
+        }
+      ],
+      "rejected": true
+    }
+  ],
+  "historicalFallbacks": [
+    {
+      "argument": "default",
+      "historicalIds": 769,
+      "passed": true,
+      "withoutGit": true
+    },
+    {
+      "argument": "1e7eadb",
+      "historicalIds": 705,
+      "passed": true,
+      "withoutGit": true
+    },
+    {
+      "argument": "c598bad",
+      "historicalIds": 643,
+      "passed": true,
+      "withoutGit": true
+    },
+    {
+      "argument": "d7d76b6",
+      "historicalIds": 581,
+      "passed": true,
+      "withoutGit": true
+    },
+    {
+      "argument": "c81a360",
+      "historicalIds": 526,
+      "passed": true,
+      "withoutGit": true
+    },
+    {
+      "argument": "abcdef0",
+      "expected": "unrecognized revision rejected",
+      "passed": true,
+      "withoutGit": true
+    }
+  ],
+  "passed": true
+}

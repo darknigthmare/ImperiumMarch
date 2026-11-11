@@ -1,0 +1,79 @@
+{
+  "sourceRevision": "0ae303a7b04d45472dc17154039ddc73760dc97a",
+  "localSourceRevision": "03c69e73175d6e2d61f59f6f9ba8ee80da827103",
+  "sourceTree": "692dee9f3fccd9970a8c2f0b5ee5af9a5ad821c2",
+  "sourceVersion": "0.8.0",
+  "saveVersion": 7,
+  "verifiedHistoricBlobs": 332,
+  "sourceHashes": {
+    "src/campaign.mjs": "a352c886a39bb80afaee37a53fbe917af8222a4a5c35642995212e79dba8df60",
+    "src/simulation.mjs": "aa86fec4b762d8bfd14675fb731fbc19252ccfbca2b3af1586e1ff858d5a32a2",
+    "src/content.mjs": "211b06c1ad103095b4609cac1b01ba4c8d1e9d5484444f1cdf0603982d7c5424",
+    "tests/helpers/mi07-driver.mjs": "2d465771f34b997e8681e74730b0249a34c184fd3370ec7418cfc5839695120c",
+    "tests/fixtures/campaign-v6-mi06.json": "e7ea0548ce459ef3a7d378a1892b7bfde4c591630eaec1e67c99c8b75e95b12c",
+    "docs/validation/v08-browser-after-visual-fix.json": "beb024fc64e9735eb457c79e5eaf9082e10140296ce29d65c84eed65f43180a6",
+    "docs/validation/v08-browser-completed.json": "8eeae36f338aac4ed5916330443fb7fd77c36f8b960d1c0f76fa1febd5c71252"
+  },
+  "source": "Immutable publication-v08-final snapshot, every tracked Git blob verified before loading its modules. No development modules imported.",
+  "nativeVariants": "live and completed are exact UI exports from native Chrome during the verified v0.8 release; live handover74.332%, completed civil transfer with4patients and2staff. Their historical before-MI07 reports are preserved.",
+  "generatedVariants": "The other four dossiers use the historical public MI07 pilot and historical checkpoint/restore/finish APIs. No direct state, damage, clock, outcome or resource assignment.",
+  "runs": {
+    "imperialCompleted": {
+      "history": "completed",
+      "walkerId": "WK09",
+      "seed": 1847,
+      "options": {
+        "choice": "obey"
+      },
+      "captures": 97,
+      "elapsed": 190.68333333337722,
+      "patients": 4,
+      "staff": 2,
+      "destination": "imperial"
+    },
+    "manualCompleted": {
+      "history": "manualCompleted",
+      "walkerId": "WK06",
+      "seed": 1847,
+      "options": {
+        "choice": "defy"
+      },
+      "captures": 112,
+      "elapsed": 220.41666666673422,
+      "patients": 4,
+      "staff": 2,
+      "destination": "clinic"
+    },
+    "noStaffCompleted": {
+      "history": "completed",
+      "walkerId": "WK09",
+      "seed": 1847,
+      "options": {
+        "choice": "defy",
+        "killStaff": true
+      },
+      "captures": 142,
+      "elapsed": 281.66666666673916,
+      "patients": 4,
+      "staff": 0,
+      "destination": "clinic"
+    },
+    "lossCompleted": {
+      "history": "completed",
+      "walkerId": "WK09",
+      "seed": 1847,
+      "options": {
+        "choice": "defy",
+        "destroyVehicle": true
+      },
+      "captures": 73,
+      "elapsed": 142.3666666666721,
+      "patients": 0,
+      "staff": 0,
+      "destination": "clinic"
+    }
+  },
+  "fixture": "tests/fixtures/campaign-v7-mi07.json",
+  "fixtureSha256": "8ca58deb11f4048039cda3a54157f7eddb2dd6af6a34450a3d177b3bdfa67a5c",
+  "fixtureBytes": 416347
+}

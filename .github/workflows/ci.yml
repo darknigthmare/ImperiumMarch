@@ -14,6 +14,10 @@ jobs:
         with:
           node-version: '22'
       - run: npm test
+      - name: Install pinned development-only raster validator
+        run: npm install --no-save --no-package-lock --ignore-scripts @napi-rs/canvas@0.1.100
+      - name: Validate shared SVG and Canvas rendering
+        run: npm run check:assets-render
       - run: npm run check
       - run: npm run build
       - run: npm run check:ui

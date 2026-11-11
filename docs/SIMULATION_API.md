@@ -43,7 +43,7 @@ Tirs testés sur segments balayés pour éviter de traverser les cibles rapides.
 
 Chaque sortie commence avec un magasin chargé et une réserve de huit magasins, soit `maxReserveAmmo = walker.ammo * 8`. La fin d’un rechargement transfère `min(maxAmmo - ammo, reserveAmmo)` coups : elle conserve le total, peut donner un dernier magasin partiel, et ne crée pas de munitions lorsque la réserve est vide. Un dépôt récupéré ajoute au plus trois magasins en réserve, bornés par `maxReserveAmmo`, deux roquettes bornées par leur capacité, les réparations de coque existantes et trente points de santé par pied. Les conditions de contact incluent désormais une réserve incomplète. Le marqueur `collected` interdit toute seconde collecte. Les cinq tests de `tests/ammunition.test.mjs` couvrent le stock initial, le transfert partiel, l’épuisement, la dernière charge et l’absence de ravitaillement répétable.
 
-Le score mesure seulement la performance de combat ; aucun score moral unifié. La décision, les preuves récupérées, les pertes civiles et l’état du convoi restent séparés. Les opérations sont rejouables indépendamment ; la progression MI01–MI07 et l’atelier passent par `campaign.mjs`.
+Le score mesure seulement la performance de combat ; aucun score moral unifié. La décision, les preuves récupérées, les pertes civiles et l’état du convoi restent séparés. Les opérations sont rejouables indépendamment ; la progression MI01–MI08 et l’atelier passent par `campaign.mjs`.
 
 ## MI01
 
@@ -253,3 +253,26 @@ La sauvegarde v7 conserve les faits de cette scène dans `world.nacre.ambulance`
 Les tests `campaign-v7.test.mjs` complètent les contrôles historiques par la migration v6, les rampes héritées, le rapport sanitaire, la reprise des travaux et l’échec terminal. Les scènes MI07 et leurs pertes sont couvertes séparément par `mi07-mission.test.mjs`; le modèle DOM ne remplace pas la validation visuelle.
 
 `handover.completed` ne suffit pas à classer les personnes comme arrivées : `campaign.transferResolved` exige aussi que les quatre patients et les deux membres d’équipe aient chacun atteint l’accueil ou soient constatés perdus.
+
+## MI08 — Les portes d’Aval (0.9)
+
+`departure` appartient uniquement aux scènes MI08. `campaignContext` reçoit les bilans conservés de MI05, MI06 et MI07; il ne transporte pas un nouveau stock de carburant. Les fonctions pures `departurePersonSeeds(context)`, `departureReceiptRoster(state)`, `departureTideAt(elapsed)`, `departureWindow(state, boat?)`, `departureGateBounds(gate)` et `departureDecisionBody(state)` exposent les dérivations communes à la simulation, au rendu et au validateur.
+
+| Objet | État détenu par la simulation |
+| --- | --- |
+| `departure.locks[2]` | Porte, mécanisme, ouverture, pression, inspection, manœuvre, fatigue et obturation d’urgence de l’amenée. |
+| `departure.tide`, `basin`, `current` | Marée de 64 secondes, niveau progressif du bassin et courant dérivé; aucune horloge externe. |
+| `departure.origins[3]` | Contacts des survivants du chenal, de la digue et de l’ambulance, avec invitation distincte de l’arrivée au quai. |
+| `departure.people[]` | ID de sortie, provenance, rôle, position, santé, accord, destination, bateau, service et phase de trajet. |
+| `departure.boats[2]` | Coques Rive-Courte et Veille d’Aval, capacités distinctes de sièges, brancards et opérateurs, trajet, rappel et accostage. |
+| `departure.ramps[2]` | Passerelles, intégrité et préparation de l’accès à chaque bateau. |
+| `quay`, `refugeRadio`, `registry` | Contact du quai, confirmation de capacité au refuge et copie ou constat des registres. |
+| `refuge`, `shelter`, `serviceShelter` | Porte du refuge, accueil local et niche technique; arrivée validée par la position de chaque personne. |
+| `vann`, `mara`, `technical` | Échanges locaux, disponibilité des personnes et accords réellement recueillis. |
+| `boarding`, `report`, `alert` | Ordre d’embarquement, rappel, transmission et délai d’arrivée du contrôle. |
+
+`commandGame(state, 'choice', value)` accepte `obey`, `delay` et `defy` pour cette seule mission. Ces valeurs choisissent respectivement fermeture immédiate, fenêtre de passage puis fermeture, ou maintien du passage. Le choix engage un plan; les interactions et les déplacements doivent encore l’accomplir. Les départs sont acquis à la sortie navale, les bateaux accostent ensuite à des quais distincts et les personnes gagnent la porte du refuge. À la première frame d’accostage, `moving` devient faux en même temps que `arrived` devient vrai.
+
+Les identités nouvelles issues d’un ancien compte agrégé sont déclarées `sourceKind: aggregate`; elles ne prétendent pas identifier rétroactivement des individus des anciennes missions. L’ID connu d’un témoin sanitaire n’est repris que si les faits antérieurs permettent cette correspondance. Les pertes, départs et accords restent historiques; les arrivées et capacités sont rapprochées des personnes et bateaux concernés par `departure-validation.mjs`.
+
+Le dossier v8 conserve le premier bilan dans `world.nacre.departure` et le reçu MI08, avec quatre pièces uniques, sans dotation de carburant ni preuve globale. Les détails physiques, les parcours de repli et les règles d’import figurent dans [le contrat MI08](CAMPAIGN_MISSION_08.md) et [le contrat de sauvegarde v8](CAMPAIGN_SAVE_V8.md).

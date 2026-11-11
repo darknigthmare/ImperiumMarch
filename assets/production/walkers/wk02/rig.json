@@ -1,0 +1,338 @@
+{
+  "id": "WK02",
+  "name": "Caracal",
+  "designation": "C-5",
+  "legs": 2,
+  "width": 110,
+  "bodyHeight": 70,
+  "height": 80,
+  "color": "#8cb6b9",
+  "assets": [
+    "AS31",
+    "AS36",
+    "AS41"
+  ],
+  "role": "Bipède bas urbain, flanc ramassé et proue en pince",
+  "footWidth": 58,
+  "upper": 49.6,
+  "lower": 51.2,
+  "offsets": [
+    -38,
+    38
+  ],
+  "unit": "game-world-unit",
+  "rootPivot": [
+    0,
+    0
+  ],
+  "parts": [
+    {
+      "part": "hull",
+      "size": [
+        110,
+        70
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -77,
+        -86,
+        154,
+        136
+      ]
+    },
+    {
+      "part": "turret",
+      "size": [
+        85,
+        42
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -24,
+        -25,
+        122,
+        50
+      ]
+    },
+    {
+      "part": "upper",
+      "size": [
+        100,
+        24
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -3,
+        -16,
+        106,
+        32
+      ]
+    },
+    {
+      "part": "lower",
+      "size": [
+        100,
+        24
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -3,
+        -16,
+        106,
+        32
+      ]
+    },
+    {
+      "part": "hip",
+      "size": [
+        28,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -16,
+        -16,
+        32,
+        32
+      ]
+    },
+    {
+      "part": "knee",
+      "size": [
+        28,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -16,
+        -16,
+        32,
+        32
+      ]
+    },
+    {
+      "part": "foot",
+      "size": [
+        58,
+        18
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -31,
+        -21,
+        62,
+        24
+      ]
+    },
+    {
+      "part": "radiator",
+      "size": [
+        22,
+        45.5
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ]
+    }
+  ],
+  "footInstances": [
+    {
+      "id": "foot-0",
+      "homeOffset": -38,
+      "depth": "far",
+      "group": 0,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    },
+    {
+      "id": "foot-1",
+      "homeOffset": 38,
+      "depth": "near",
+      "group": 1,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    }
+  ],
+  "hierarchy": [
+    "far legs",
+    "cradle and hull",
+    "near legs",
+    "independent turret",
+    "rear radiator"
+  ],
+  "damage": "Health is supplied by simulation; art states do not inflict damage.",
+  "poses": [
+    {
+      "file": "assets/production/walkers/wk02/assembly-stand-right.svg",
+      "pose": "stand-right",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -38,
+          "y": 0.37714014519451666,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 38,
+          "y": -0.6588080785644479,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk02/assembly-stand-left.svg",
+      "pose": "stand-left",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -38,
+          "y": 0.37714014519451666,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 38,
+          "y": -0.6588080785644479,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk02/assembly-brace.svg",
+      "pose": "brace",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -38,
+          "y": 0.37714014519451666,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 38,
+          "y": -0.6588080785644479,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk02/assembly-walk.svg",
+      "pose": "walk",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": 8.117036582945047,
+          "y": -60.33120048091814,
+          "contact": false
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 22.593599082945047,
+          "y": -0.4160082039577446,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk02/assembly-aim-up.svg",
+      "pose": "aim-up",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -38,
+          "y": 0.37714014519451666,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 38,
+          "y": -0.6588080785644479,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk02/assembly-damaged.svg",
+      "pose": "damaged",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -38,
+          "y": 0.37714014519451666,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 38,
+          "y": -0.6588080785644479,
+          "contact": true
+        }
+      ]
+    }
+  ]
+}

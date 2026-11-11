@@ -3,21 +3,21 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "date": "2026-11-11",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "Bible de conception et suivi de production. MI01–MI04 forment le premier arc jouable de Vesper. MI05 ouvre le chenal de Nacre, MI06 met en jeu la digue et MI07 suit une ambulance sur la chaussée des Salines. Arrêt protégé, consentement, inspections, balise, rampe et transfert restent des actes distincts. Six châssis, munitions finies, radiateur réparable et dossier v7 sont disponibles. Les 25 autres missions principales restent conçues, dont MI08 détaillée dans le contrat de Nacre. OP01–OP03 gardent leurs rapports indépendants. Consulter Prototype pour la portée implémentée.",
+    "scope": "Bible de conception et registre de production. MI01–MI04 forment l’arc jouable de Vesper; MI05–MI08 couvrent chenal, digue, ambulance et portes d’Aval sur Nacre. Huit missions, six châssis, trois opérations indépendantes et dossier v8 sont disponibles au stade prototype. Les 24 autres missions principales restent conçues. Les 133 critères À produire de la 0.8 sont conservés dans un registre immuable et réconciliés avec les livrables reçus, sans assimiler art procédural, test automatique et essai humain.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
-      "Prototype": "Présent en partie dans une version jouable; l’onglet Prototype précise la portée et les règles cibles encore absentes.",
+      "Prototype": "Livrable partiel disponible. L’onglet Prototype et les reçus de production précisent son intégration, sa portée et les critères encore ouverts.",
       "À produire": "Travail identifié dont le livrable reste à réaliser.",
       "Vérifié": "Contrôle exécuté ou provenance vérifiée, avec portée explicitée."
     },
     "balanceDisclaimer": "Dimensions, charges et valeurs de gameplay décrites ici sont des hypothèses à calibrer.",
     "qualityDisclaimer": "AAA est une ambition de qualité, pas une description du niveau de finition du prototype.",
     "sheetCount": 20,
-    "recordCount": 769,
+    "recordCount": 816,
     "release": {
       "playableCampaignMissions": [
         "MI01",
@@ -26,7 +26,8 @@
         "MI04",
         "MI05",
         "MI06",
-        "MI07"
+        "MI07",
+        "MI08"
       ],
       "standaloneOperations": [
         "OP01",
@@ -34,8 +35,8 @@
         "OP03"
       ],
       "campaignMissionDesigns": 32,
-      "remainingCampaignMissionDesigns": 25,
-      "saveFormatVersion": 7,
+      "remainingCampaignMissionDesigns": 24,
+      "saveFormatVersion": 8,
       "playableWalkerIds": [
         "WK01",
         "WK02",
@@ -52,6 +53,19 @@
         "Pèlerin",
         "Cloporte"
       ]
+    },
+    "productionBaseline": {
+      "version": "0.8.0",
+      "recordCount": 769,
+      "pendingCount": 133,
+      "pendingBySheet": {
+        "Assets": 56,
+        "Production": 38,
+        "QA": 39
+      },
+      "path": "docs/validation/production-v09-baseline.json",
+      "registry": "docs/validation/production-v09-registry.json",
+      "rule": "Le statut Prototype atteste une réception partielle. Le critère original et le reste sont conservés; seul un contrôle exécuté reçoit Vérifié."
     }
   },
   "sheets": [
@@ -877,11 +891,11 @@
         {
           "id": "SY62",
           "system": "Portes et pression",
-          "design": "Cible MI08 : deux portes gardent leur propre ouverture, pression, fatigue et calendrier de manœuvre. Chaque bateau a une fenêtre et une destination.",
-          "counterplay": "Préparer une évacuation avant de fermer; retirer les personnes d’une zone de rupture. Aucune porte ne résout toutes les issues du quartier.",
-          "acceptance": "Les bateaux déjà sortis restent sortis, ceux encore en attente ne sont pas comptés au refuge. Chaque dommage reste localisé.",
+          "design": "MI08 possède deux ouvrages indépendants : amenée du bassin et passage des bateaux. Ouverture, mécanisme, vantail, pression et fatigue sont séparés. Fermer l’amenée modifie progressivement le niveau; aucune commande n’annule instantanément le courant.",
+          "counterplay": "Manœuvre ancrée de huit secondes, ramenée à quatre sur l’amenée avec technicien présent. Un mécanisme perdu fige la position; l’obturation de secours prend douze secondes sans réparer l’ouvrage.",
+          "acceptance": "Portes, fenêtres propres aux bateaux, pertes et constat de dommage restent dans le reçu. Une fermeture choisie demande encore sa manœuvre réelle.",
           "priority": "P1",
-          "status": "Conçu"
+          "status": "Prototype"
         },
         {
           "id": "SY63",
@@ -1060,6 +1074,96 @@
           "design": "Obéir transfère vers le poste impérial et permet la saisie du véhicule survivant. Contester la désignation accompagne vers l’accueil civil et conserve le véhicule qui y arrive.",
           "counterplay": "La disposition choisie n’annule aucun dommage, ne reconstitue personne et ne certifie pas la provenance de pose.",
           "acceptance": "Premier rapport immuable, états de transfert réels, aucune nouvelle dotation en relecture et aucun carburant produit.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY83",
+          "system": "Retrouver les personnes",
+          "design": "Les groupes de MI05, MI06 et MI07 sont construits à partir des arrivées réellement conservées. Un contact local invite les personnes présentes; elles marchent jusqu’au quai.",
+          "counterplay": "Les morts antérieurs ne reviennent pas. Les populations gardent leur origine et les trajets exposés restent vulnérables.",
+          "acceptance": "Le compte à quai augmente à l’arrivée physique, sans recréer une personne perdue.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY84",
+          "system": "Places et accompagnants",
+          "design": "Deux bateaux distinguent places assises, brancards et postes d’opérateur. Un transport de patients exige un accompagnant sanitaire réellement à bord.",
+          "counterplay": "Le refuge doit confirmer ses trente-quatre places, dont quatre brancards. Une épave ou une passerelle perdue n’offre plus de places.",
+          "acceptance": "L’allocation respecte chaque capacité et conserve une destination locale pour les personnes non embarquées.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY85",
+          "system": "Accord et service à Aval",
+          "design": "Retrouver un groupe, appeler Vann ou Mara, accepter un service et confirmer une destination sont des actes distincts. Les invités doivent arriver avant l’accord au quai.",
+          "counterplay": "Une liaison radio passée n’est ni une présence physique ni une autorisation permanente. Un opérateur perdu ne travaille plus.",
+          "acceptance": "Aucun embarquement avant accord; un service technique agit seulement après acceptation et arrivée à la commande.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY86",
+          "system": "Départ puis arrivée",
+          "design": "L’embarquement prend deux secondes, quatre sur brancard. Le bateau attend opérateur, accompagnant, ouverture, niveau et courant; après sortie de zone, il rejoint le dock aval.",
+          "counterplay": "La sortie acquise n’est pas une arrivée. Après accostage, chaque personne gagne la porte du refuge; le compte est crédité à cette porte.",
+          "acceptance": "Le reçu sépare départ historique, trajet, débarquement, arrivée au refuge, accueil local et perte.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY87",
+          "system": "Repli sans réparation fictive",
+          "design": "Une passerelle, une commande, un bateau, un registre ou une radio peuvent être détruits. Le constat conserve la perte et le rappel ramène les personnes encore présentes vers l’accueil local.",
+          "counterplay": "Une obturation d’amenée ne restaure pas le vantail. Un bateau déjà sorti garde sa route; le rappel ne le téléporte pas au quai.",
+          "acceptance": "Les avaries permettent un rapport avec leurs conséquences, sans résurrection, places fictives ou source reconstituée.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY88",
+          "system": "Identités de recensement",
+          "design": "Le nouveau dossier d’Aval attribue des IDs stables à ses personnes et conserve sourceMission, sourceGroup, sourceKind et originalId. Un agrégat antérieur reste explicitement agrégé.",
+          "counterplay": "Un témoin sanitaire identifié n’est conservé comme tel que si le reçu permet de garantir sa présence parmi les arrivants.",
+          "acceptance": "La migration ajoute un dossier vide; le reçu nouveau garde son recensement sans inventer les identités absentes de l’ancien format.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY89",
+          "system": "Clavier configurable",
+          "design": "Onze actions de mission peuvent être réaffectées et conservées localement. Les conflits sont refusés et Échap reste un moyen de pause permanent.",
+          "counterplay": "Une préférence endommagée revient à une carte complète sûre. Quitter le panneau annule une capture en cours.",
+          "acceptance": "Commandes AZERTY/QWERTY préservées; capture, conflit, restauration et persistance contrôlés. Validation humaine distincte.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY90",
+          "system": "Manette de mission",
+          "design": "La correspondance standard fournit déplacement, visée au stick et actions de mission. Une zone morte borne les axes; connexion ou retour de focus exigent un passage au neutre.",
+          "counterplay": "Déconnexion, perte de focus et périphérique non compatible libèrent les commandes. La pause réagit au front de pression.",
+          "acceptance": "Tests synthétiques et UI modélisée séparés d’un essai matériel. La navigation des menus à la manette reste à produire.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY91",
+          "system": "Son lié aux faits",
+          "design": "Le moteur synthétise les mêmes familles de sons que les exports WAV. Pas, tirs, alertes et travaux utilisent les événements ou états réellement observés.",
+          "counterplay": "Une boucle s’arrête avec la pause ou l’état qui la justifie. Le mix final, les voix et l’écoute sur matériel déclaré restent ouverts.",
+          "acceptance": "Le déclenchement ne crédite ni arrivée ni action. Manifestes, code, tests et limites distinguent synthèse, export et perception.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY92",
+          "system": "Pièces partagées SVG et Canvas",
+          "design": "Les pièces dessinées et leurs rigs servent au rendu Canvas par les mêmes primitives. Le pied affiché reste lié au contact simulé et le radiateur à sa zone de collision.",
+          "counterplay": "Une planche de poses ne démontre pas la qualité de tout un cycle en mouvement. Les six silhouettes non jouables restent conçues.",
+          "acceptance": "Les manifestes identifient chaque export; le rendu ne déplace pas les collisions pour faire correspondre une illustration.",
           "priority": "P0",
           "status": "Prototype"
         }
@@ -1720,7 +1824,7 @@
           "name": "Nacre",
           "biome": "Archipels, récifs lumineux, digues habitées, plateformes et docks de récupération.",
           "society": "Les communes de marée dépendent des pompes; pirates prédateurs et capitaines de secours se disputent les routes.",
-          "terrain": "Le chenal, la digue et la chaussée sanitaire fournissent trois situations locales : marée, soutien du panneau et rampe héritée. Les dommages et trajets viennent de la simulation. Résistance générale des quais, fluides volumétriques et marées de tout l’archipel restent conçus.",
+          "terrain": "Quatre situations locales : bancs et marée du chenal, soutien de la digue, rampe sanitaire héritée, puis deux portes et courant progressif à Aval. La simulation détermine dommages et trajets. Fluides volumétriques, résistance générale des quais et navigation de l’archipel restent conçus.",
           "reveal": "Les inondations servent à transformer des habitants sans titre en main-d’œuvre sous contrat.",
           "missions": "MI05–MI08",
           "status": "Prototype"
@@ -2011,7 +2115,7 @@
           "name": "Mara Eren",
           "role": "Médecin de Nacre",
           "desire": "Défend le maintien des soins, même à ceux qui ont détruit son dispensaire.",
-          "arc": "À MI06, Mara intervient à la radio après constat des maisons. À MI07, un appel facultatif lui transmet le relevé réellement compilé, y compris un constat de perte. Aucun personnage physique Mara vulnérable, recrutement ou consentement général des patients n’est attribué.",
+          "arc": "Mara parle à la radio dans MI06 et MI07. Dans MI08 seulement, une nouvelle liaison la fait rejoindre physiquement le quai depuis son poste; elle devient exposée sur le trajet. Un accord ultérieur fixe sa destination. Elle peut accompagner des patients, sans recrutement ni consentement politique général.",
           "faction": "FA08",
           "status": "Prototype"
         },
@@ -2020,7 +2124,7 @@
           "name": "Capitaine Vann Ostre",
           "role": "Navigateur des Brisants",
           "desire": "Vend sa connaissance des courants et prétend ne devoir fidélité à personne.",
-          "arc": "À MI05, Vann et Rive-Courte facilitent un passage intéressé si le contact est réellement pris. CT04 doit éprouver son choix entre moteur profitable et passagers connus. Sa coopération ne représente pas tous les Brisants.",
+          "arc": "MI05 exige un vrai contact avec Rive-Courte. À MI08, seuls les membres survivants de cet équipage rencontré peuvent fournir un nouveau service après liaison. Vann coopère pour cette traversée; CT04 et son choix entre profit et passagers restent conçus.",
           "faction": "FA04",
           "status": "Prototype"
         },
@@ -2214,10 +2318,10 @@
           "planet": "PL02",
           "title": "La marée compte les absents",
           "order": "Fermer les portes de la digue d’Aval pour l’opération impériale de contrôle de l’archipel.",
-          "play": "Cible conçue : régler une porte d’amenée et une porte de passage, identifier les capacités des bateaux et l’accueil, observer embarquement et départ, puis réaliser la fermeture choisie. Chaque porte garde son mécanisme, ses dégâts et son état.",
-          "truth": "Les documents consultés lient le relogement à des contrats forcés. Sera peut laisser partir Mara et les familles présentes; une fermeture administrative ne rend pas le courant ni les habitants abstraits.",
-          "consequence": "Départ, trajet et arrivée au refuge restent distincts, avec une place et une origine par personne. Les groupes de MI05, MI06 et MI07 ne sont pas fusionnés. Une porte bloquée conserve une issue de constat et d’accueil local. La désobéissance locale ne remplace pas MI16.",
-          "status": "Conçu"
+          "play": "Prototype : inspecter deux commandes et un registre, retrouver les groupes survivants, confirmer l’accueil et préparer les deux passerelles. Après le choix, obtenir les accords au quai, observer embarquement et trajet, puis accomplir la manœuvre et le rapport.",
+          "truth": "Les pages copiées lient relogement et obligation de travail; un support détruit avant copie ne fournit qu’un constat. Sera peut fermer immédiatement, ménager une fenêtre puis fermer, ou maintenir l’accès sous contrôle supplémentaire. Aucun choix ne déplace une personne.",
+          "consequence": "Le reçu conserve personnes par origine, consentement, départ, arrivée au refuge, accueil local et pertes, ainsi que les deux bateaux et portes. Les anciens agrégats reçoivent de nouvelles identités de recensement sans identité historique inventée. Aucun PT, PO ou carburant nouveau; MI16 reste la défection.",
+          "status": "Prototype"
         },
         {
           "id": "MI09",
@@ -4328,19 +4432,67 @@
         },
         {
           "id": "NA63",
-          "type": "Transition conçue",
+          "type": "Transition",
           "name": "Une place pour chaque arrivée",
-          "rule": "MI08 doit retrouver les patients et le personnel réellement accueillis, selon leur accord et les capacités de transport. Un véhicule saisi n’est pas disponible au quai civil sans nouvelle scène.",
-          "sources": "MI07 vers MI08; destination, disponibilité et retour identifiés.",
-          "status": "Conçu"
+          "rule": "MI08 retrouve seulement les patients et le personnel réellement arrivés à la destination de MI07. La liaison prend cinq secondes à l’accueil impérial au lieu de trois. Une ambulance saisie reste au poste; ce sont les personnes retrouvées qui rejoignent le quai.",
+          "sources": "MI07 vers MI08; dossier sanitaire conservé, nouveau contact, trajet et accord de destination séparés.",
+          "status": "Prototype"
         },
         {
           "id": "NA64",
-          "type": "Écriture conçue",
+          "type": "Écriture",
           "name": "Ceux qui restent sur le quai",
-          "rule": "Fermer le passage ne transforme pas automatiquement toutes les personnes restantes en victimes. Un accueil local, une attente ou une perte doivent découler d’états matériels observés.",
-          "sources": "MI08; portes, embarquement, accueil et rapport à produire.",
-          "status": "Conçu"
+          "rule": "Les personnes sans place, sans accord de service ou rappelées rejoignent réellement l’accueil local préparé. Fermer le passage ne les déclare pas mortes. Les techniciens gagnent leur propre niche après service, hors du compte du refuge aval.",
+          "sources": "MI08; personnes présentes, capacité, rappel et arrivée observée. Le bilan conserve la destination propre à chacune.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA69",
+          "type": "Recensement",
+          "name": "Des personnes, pas des noms inventés",
+          "rule": "Les reçus anciens ne nomment pas tous leurs survivants. Les IDs d’Aval désignent le nouveau recensement; ils ne prétendent pas identifier quel ancien habitant a survécu.",
+          "sources": "MI05–MI08; sourceKind agrégé et originalId absent conservés dans le dossier.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA70",
+          "type": "Scène",
+          "name": "Mara rejoint le quai",
+          "rule": "La liaison nouvelle de MI08 fait venir Mara depuis son poste. Elle peut être perdue en trajet et doit encore confirmer sa destination. Sa présence n’est pas attribuée rétroactivement aux radios de MI06 ou MI07.",
+          "sources": "PN07; liaison, trajet physique, accord au quai et accompagnement sanitaire distincts.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA71",
+          "type": "Source locale",
+          "name": "Le prix du relogement",
+          "rule": "Seules les pages effectivement copiées lient accueil et obligation de travail. Elles ne révèlent pas seules l’auteur de la balise, la chaîne PALINODE ou une preuve politique déjà complète.",
+          "sources": "Registre d’Aval, MI08. Ruines avant copie : constat sans noms ni clauses reconstitués.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA72",
+          "type": "Ordre",
+          "name": "Trois conduites et leurs actes",
+          "rule": "Obéir exige les fermetures et l’accueil local; une fenêtre exige des départs puis une seconde manœuvre; maintenir le passage déclenche un contrôle supplémentaire réellement présent. Le rapport décrit ce qui a été exécuté.",
+          "sources": "MI08; choix administratif, ouvrage physique et résultat humain séparés. Défection globale toujours MI16.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA73",
+          "type": "Service",
+          "name": "Une traversée avec Rive-Courte",
+          "rule": "Le contact de MI05 autorise seulement à retrouver les survivants connus. MI08 demande un nouvel accord. Un opérateur sert son bateau; sa présence ne garantit pas un pacte avec tous les Brisants.",
+          "sources": "PN08; NA41; équipage survivant, service local, capacité et perte possibles.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA74",
+          "type": "État",
+          "name": "Ceux qui restent à Aval",
+          "rule": "Accueil local et refuge en aval sont deux destinations réelles. Les deux techniciens terminent leur service dans une niche distincte. Le bilan ne présente pas toute personne non embarquée comme morte ou disparue.",
+          "sources": "MI08; recensement individuel, arrivées et replis. MI09–MI32 et CT03/CT04 restent conçus.",
+          "status": "Prototype"
         }
       ]
     },
@@ -4398,37 +4550,37 @@
           "id": "AS02",
           "category": "Marcheur",
           "deliverable": "Vigie — planches et pièces",
-          "spec": "Vues latérales gauche/droite, coque, tourelle, hanches, cuisses, tibias, pieds et pivots nommés.",
+          "spec": "Vues latérales gauche/droite, coque, tourelle, hanches, cuisses, tibias, pieds et pivots nommés. 0.9 : Rig Vigie, huit pièces séparées, pivots/couches et six poses dont gauche/droite. Limite : Relire tous les débattements et l’assemblage intégré en mouvement; finition de l’animation encore ouverte.",
           "acceptance": "Connexions mécaniques cohérentes, aucune pièce flottante, débattements vérifiés.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS03",
           "category": "Marcheur",
           "deliverable": "Bastion — planches et pièces",
-          "spec": "Quatre pattes séparées, masques de profondeur, coque basse, ancrage et état endommagé.",
+          "spec": "Quatre pattes séparées, masques de profondeur, coque basse, ancrage et état endommagé. 0.9 : Rig Bastion, quatre chaînes de membres identifiées, couches proche/lointaine et poses. Limite : Relire profondeur et lisibilité des appuis dans le renderer intégré et pendant les transitions.",
           "acceptance": "Les membres éloignés restent visibles et lisibles sans confusion d’appui.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS04",
           "category": "Marcheur",
           "deliverable": "Pèlerin — planches et pièces",
-          "spec": "Six pattes identifiées, tripodes colorés seulement en vue technique, nacelle et équipements amovibles.",
+          "spec": "Six pattes identifiées, tripodes colorés seulement en vue technique, nacelle et équipements amovibles. 0.9 : Rig Pèlerin, six chaînes avec groupes de tripodes et poses à échelle commune. Limite : Contrôler le gait intégré au zoom minimum et produire les équipements réellement amovibles restant hors des huit pièces.",
           "acceptance": "Gait stable et silhouettes lisibles en zoom minimum.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS05",
           "category": "Marcheur",
           "deliverable": "Neuf châssis supplémentaires",
-          "spec": "Une fiche de silhouette par châssis, puis production découpée après validation de rôle.",
+          "spec": "Une fiche de silhouette par châssis, puis production découpée après validation de rôle. 0.9 : Douze silhouettes distinctes, donc les neuf compléments aux trois premiers châssis. Limite : Six restent conçus non jouables; leurs rigs détaillés et capacités spécialisées ne sont pas produits par les silhouettes.",
           "acceptance": "Pas de simple variation de couleur des trois châssis de départ.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS06",
@@ -4533,10 +4685,10 @@
           "id": "AS17",
           "category": "Décors",
           "deliverable": "Kit Nacre",
-          "spec": "Mer en plusieurs plans, marées, digues, quais, villages, mangroves et silhouettes navales.",
+          "spec": "Mer en plusieurs plans, marées, digues, quais, villages, mangroves et silhouettes navales. 0.9 : Premiers modules vectoriels de repère de marée et de refuge, avec kit Nacre partagé. Limite : Mer en plusieurs plans, mangroves, matières animées et environnement complet restent à finir.",
           "acceptance": "Niveau d’eau et zones praticables correspondent au gameplay.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS18",
@@ -4614,19 +4766,19 @@
           "id": "AS26",
           "category": "Son",
           "deliverable": "Mondes et vie",
-          "spec": "Ambiances par biome, métiers, circulation, faune et infrastructures endommagées.",
+          "spec": "Ambiances par biome, métiers, circulation, faune et infrastructures endommagées. 0.9 : Huit ambiances planétaires composées et exports WAV distincts, avec quelques signaux de pas. Limite : Métiers, circulation, faune et variations d’infrastructures de tous les mondes restent à compléter; écoute humaine non réalisée.",
           "acceptance": "Aucune ambiance identique recyclée sur les huit planètes.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS27",
           "category": "Musique",
           "deliverable": "Motifs de campagne",
-          "spec": "Marche impériale retenue, motifs d’équipage et textures des mondes; variation après rupture.",
+          "spec": "Marche impériale retenue, motifs d’équipage et textures des mondes; variation après rupture. 0.9 : Trois motifs originaux avec boucle et mixage logiciel bornés; exports réutilisables. Limite : Transitions narratives finales, déclenchement de la rupture MI16 et écoute humaine du mix restent ouverts.",
           "acceptance": "Transitions réactives sans pomper le volume ni annoncer automatiquement un secret.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS28",
@@ -4650,19 +4802,19 @@
           "id": "AS30",
           "category": "Production",
           "deliverable": "Registre de provenance",
-          "spec": "Auteur ou générateur, prompt le cas échéant, date, droits, version et chemins de chaque asset final.",
+          "spec": "Auteur ou générateur, prompt le cas échéant, date, droits, version et chemins de chaque asset final. 0.9 : Deux manifestes avec origine, méthode, date, version, droits déclarés, chemins et SHA-256 des 354 fichiers du lot. Limite : Réconcilier le lot avec tous les médias embarqués de la livraison finale; les droits déclarés ne constituent pas la revue commerciale PR26.",
           "acceptance": "Tout asset livré possède une entrée; aucun média de référence embarqué sans autorisation.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS31",
           "category": "Marcheurs",
           "deliverable": "Rigs Caracal, Arpenteur et Cloporte",
-          "spec": "Pièces séparées, pivots, états de dégâts et couche des membres éloignés pour trois profils bas/haut/très bas.",
+          "spec": "Pièces séparées, pivots, états de dégâts et couche des membres éloignés pour trois profils bas/haut/très bas. 0.9 : Trois rigs Caracal/Arpenteur/Cloporte, pièces, pivots, couches et poses. Limite : Inspection intégrée sur terrain commun et finition des mouvements/dégâts restent à effectuer.",
           "acceptance": "Inspection des pieds visibles, transition marche/ancrage et angles du canon sur un terrain commun.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS32",
@@ -4686,10 +4838,10 @@
           "id": "AS34",
           "category": "Audio",
           "deliverable": "Inspection et contrôle",
-          "spec": "Motifs d’émission civil/militaire, inspection, gaine sécurisée et transmission de Holt.",
+          "spec": "Motifs d’émission civil/militaire, inspection, gaine sécurisée et transmission de Holt. 0.9 : Signaux synthétiques d’inspection, de liaison et de contrôle. Limite : Voix de Holt, articulation entre consigne et combat et écoute du mix final restent à produire ou observer.",
           "acceptance": "Le mix garde les télégraphes de danger et les sous-titres disponibles pendant l’interaction.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS35",
@@ -4704,10 +4856,10 @@
           "id": "AS36",
           "category": "Animation",
           "deliverable": "Diagnostic d’une avarie",
-          "spec": "Un composant visible avec état normal, touché, dégradé et réparé.",
+          "spec": "Un composant visible avec état normal, touché, dégradé et réparé. 0.9 : Quatre états de radiateur et diagnostics des six rigs; source de dessin partagée avec Canvas. Limite : Identification spontanée par un joueur et finition en contexte restent non observées; aucun autre composant adverse ajouté.",
           "acceptance": "Le joueur identifie la pièce touchée sans ouvrir une fiche technique.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS37",
@@ -4722,46 +4874,46 @@
           "id": "AS38",
           "category": "Production",
           "deliverable": "Manifestes d’intégration",
-          "spec": "Registre de chaque asset avec provenance, pivots, échelle, usage, variante et dépendances.",
+          "spec": "Registre de chaque asset avec provenance, pivots, échelle, usage, variante et dépendances. 0.9 : Six rigs documentés et manifestes donnant pivots, taille nominale, encombrement, variantes, usages et dépendances. Limite : Prouver l’intégration du remplacement dans le renderer final et poursuivre le contrat pour chaque future substitution.",
           "acceptance": "Un asset peut être remplacé sans perdre collision, position du son ou identité de la source.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS39",
           "category": "Vesper",
           "deliverable": "Kit final de refroidissement",
-          "spec": "Turbines, vannes, raccordements, pompe portable et états actif/en cours/stabilisé. Le modèle procédural de MI04 fournit les dimensions de référence.",
+          "spec": "Turbines, vannes, raccordements, pompe portable et états actif/en cours/stabilisé. Le modèle procédural de MI04 fournit les dimensions de référence. 0.9 : Turbine, vanne et pompe auxiliaire en modules vectoriels avec variantes. Limite : Kit Vesper complet et lecture thermique en mouvement dans le niveau final restent ouverts.",
           "acceptance": "Le poste de travail et le risque thermique sont identifiables en mouvement sans recouvrir les contacts de pieds.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS40",
           "category": "Vesper",
           "deliverable": "Poste de maintenance final",
-          "spec": "Bâtiment, terminal et ruines avec fonction identifiable. Le sort du journal et de sa copie reste montré par l’interface, pas inventé dans le décor.",
+          "spec": "Bâtiment, terminal et ruines avec fonction identifiable. Le sort du journal et de sa copie reste montré par l’interface, pas inventé dans le décor. 0.9 : Poste de maintenance et variantes de ruine vectoriels, sans archive fictivement recréée. Limite : Inspection intégrée des trois états de connaissance et finition de l’environnement restent ouvertes.",
           "acceptance": "Original vivant, copie acquise et original détruit se distinguent sans rendre les ruines magiquement lisibles.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS41",
           "category": "Marcheurs",
           "deliverable": "Radiateur et réparation animés",
-          "spec": "Pièce arrière pour six profils, impact local, état dégradé et intervention de quatre secondes. Position visuelle liée à la collision simulée.",
+          "spec": "Pièce arrière pour six profils, impact local, état dégradé et intervention de quatre secondes. Position visuelle liée à la collision simulée. 0.9 : Radiateur séparé pour six profils, quatre états et cinq étapes de réparation; radiatorBounds conservé par les tests. Limite : Validation intégrée basse/haute et animation de production complète restent ouvertes.",
           "acceptance": "Animation lisible à hauteur basse et haute; effet n’agrandit pas fictivement la zone vulnérable.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS42",
           "category": "Audio",
           "deliverable": "Couche thermique et maintenance",
-          "spec": "Distinguer turbine active, mise en charge, radiateur touché, réparation interrompue et circuit stabilisé; sous-titres et retours visuels conservés.",
+          "spec": "Distinguer turbine active, mise en charge, radiateur touché, réparation interrompue et circuit stabilisé; sous-titres et retours visuels conservés. 0.9 : Signaux synthétiques de surchauffe, impact du radiateur, réparation et refroidissement. Limite : Écoute simultanée de mécanique, parole et danger; voix et mixage final non produits.",
           "acceptance": "Danger, parole et mécanique restent compréhensibles ensemble; aucune validation audio déduite d’un test Node.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS43",
@@ -4776,64 +4928,64 @@
           "id": "AS44",
           "category": "Nacre",
           "deliverable": "Repères de marée et matières des bancs",
-          "spec": "Graduations fixes, eau mobile, vase découverte et tablier posé lisibles avec les trois familles de marcheurs. L’animation suit le niveau simulé.",
+          "spec": "Graduations fixes, eau mobile, vase découverte et tablier posé lisibles avec les trois familles de marcheurs. L’animation suit le niveau simulé. 0.9 : Repère de marée vectoriel normal/dégradé avec ancres de niveau. Limite : Matières de vase/tablier et lecture du risque sans seule couleur en combat restent à finaliser.",
           "acceptance": "Lecture sans dépendre seulement de la couleur. Le contact sûr et le risque submergé restent visibles dans un cadrage de combat.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS45",
           "category": "Nacre",
           "deliverable": "Barges Saisie et Rive-Courte",
-          "spec": "Deux coques aux usages identifiables, pièces de treuil séparées, documents et poste radio, dommages cohérents avec leurs zones de collision.",
+          "spec": "Deux coques aux usages identifiables, pièces de treuil séparées, documents et poste radio, dommages cohérents avec leurs zones de collision. 0.9 : Coques Saisie/Rive-Courte, treuil indépendant et variantes de dommage. Limite : Inspection intégrée des collisions, documents/radio et des équipages; animations finales encore absentes.",
           "acceptance": "Une coque préservée et un treuil coupé se reconnaissent. Une épave ne montre pas de personnel vivant ni une radio disponible.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS46",
           "category": "Nacre",
           "deliverable": "Dock et bateau de passage",
-          "spec": "Accès, défenses, marques de niveau, cabine de ferry et aire d’accueil. Arrivée, perte et attente ont des animations propres.",
+          "spec": "Accès, défenses, marques de niveau, cabine de ferry et aire d’accueil. Arrivée, perte et attente ont des animations propres. 0.9 : Dock et ferry vectoriels avec variantes d’attente, arrivée et perte. Limite : Débarquement lisible, animation des passagers et absence de chevauchement doivent être observés en intégration.",
           "acceptance": "Le bateau atteint le dock sans se superposer au quai. Une personne comptée à l’arrivée possède une sortie lisible.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS47",
           "category": "Audio",
           "deliverable": "Scène sonore de chenal",
-          "spec": "Eau contre piliers, treuil sous tension, tablier qui se verrouille, moteur en attente et radio de Vann. Danger et consigne restent prioritaires.",
+          "spec": "Eau contre piliers, treuil sous tension, tablier qui se verrouille, moteur en attente et radio de Vann. Danger et consigne restent prioritaires. 0.9 : Signaux de treuil/tablier/moteur et ambiance de chenal, plus modules de treuil. Limite : Voix de Vann et essai d’écoute en combat avec consignes et marée restent absents.",
           "acceptance": "Essai d’écoute avec combat, voix et marée simultanés. Les sons n’annoncent pas un événement que la simulation n’a pas produit.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS48",
           "category": "Nacre",
           "deliverable": "Digue, panneau et pompe de MI06",
-          "spec": "Panneau articulé avec points d’appui, verrous, canal de dérivation, conduites et seuils sur façades. Techniciens avec trajet d’intervention.",
+          "spec": "Panneau articulé avec points d’appui, verrous, canal de dérivation, conduites et seuils sur façades. Techniciens avec trajet d’intervention. 0.9 : Panneau, pompe et vanne vectoriels avec variantes et points d’ancrage. Limite : Lecture intégrée du soutien/verrou/pression et gestes détaillés des techniciens restent à finir.",
           "acceptance": "Le soutien, le verrouillage et la perte de pression se comprennent depuis la vue jouable.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS49",
           "category": "Nacre",
           "deliverable": "Ambulance inspectable de MI07",
-          "spec": "Véhicule avec postes de soin, accès patient, attaches de balise ajoutée et variantes de dégâts. Une silhouette sanitaire propre au monde.",
+          "spec": "Véhicule avec postes de soin, accès patient, attaches de balise ajoutée et variantes de dégâts. Une silhouette sanitaire propre au monde. 0.9 : Ambulance, caisse et balise vectorielles avec dégâts et attaches. Limite : Accès des six châssis, gestes sanitaires et finition des personnes doivent être vérifiés/produits en contexte.",
           "acceptance": "Inspection et transfert possèdent une zone d’approche sûre pour chaque châssis. La balise ne flotte pas hors de la carrosserie.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS50",
           "category": "Nacre",
           "deliverable": "Portes d’Aval et départ de MI08",
-          "spec": "Deux portes, indicateurs de pression, niches de refuge, bateaux en file et silhouettes locales dans des états de départ distincts.",
+          "spec": "Deux portes, indicateurs de pression, niches de refuge, bateaux en file et silhouettes locales dans des états de départ distincts. 0.9 : Porte, mécanisme indépendant, Veille d’Aval, Rive-Courte et refuge vectoriels. Limite : MI08 et son renderer sont en intégration; aucune arrivée ou personne n’est certifiée par ces dessins seuls.",
           "acceptance": "Les portes, personnes et bateaux visibles correspondent à leurs états persistants. Aucune foule générique ne remplace le bilan.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS51",
@@ -4848,10 +5000,10 @@
           "id": "AS52",
           "category": "Nacre",
           "deliverable": "Maisons des Trois-Vannes",
-          "spec": "Deux façades originales, seuils visibles, variantes sèche, exposée, inondée et détruite; accès au secours séparé de la silhouette de tir.",
+          "spec": "Deux façades originales, seuils visibles, variantes sèche, exposée, inondée et détruite; accès au secours séparé de la silhouette de tir. 0.9 : Deux façades originales avec variantes sèche, exposée, inondée et détruite. Limite : Contrôler occupations/évacuations dans le renderer intégré et achever les animations de secours.",
           "acceptance": "La maison vide ne paraît pas encore habitée après une évacuation. Logement perdu et personnes perdues ne partagent pas la même animation.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS53",
@@ -4866,10 +5018,10 @@
           "id": "AS54",
           "category": "Audio",
           "deliverable": "Charge, eau et verrou",
-          "spec": "Variation du bruit de charge, verrou achevé, pompe en route et alerte d’eau attachées aux événements simulés.",
+          "spec": "Variation du bruit de charge, verrou achevé, pompe en route et alerte d’eau attachées aux événements simulés. 0.9 : Signaux de pompe, verrou, pression et eau reliables aux transitions simulées. Limite : Voix et écoute humaine distinguant maintien et travail fini restent absentes.",
           "acceptance": "Une alerte possède une version textuelle; l’écoute permet de distinguer maintien nécessaire et travail terminé. Voix et effets restent à produire.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS55",
@@ -4920,10 +5072,10 @@
           "id": "AS60",
           "category": "Accessoire",
           "deliverable": "Balise fixée et démontée",
-          "spec": "Attaches cohérentes avec la carrosserie, emplacement lisible, dégâts localisés et version récupérée identifiable.",
+          "spec": "Attaches cohérentes avec la carrosserie, emplacement lisible, dégâts localisés et version récupérée identifiable. 0.9 : Balise et support en sept variantes, avec attaches, démontage, récupération et perte. Limite : Contrôler l’intégration sur carrosserie et tous les cadrages de combat; aucune nouvelle phase d’examen ajoutée.",
           "acceptance": "Pièce fixée, démontage en cours, récupération et perte sont visuellement distincts. Le journal n’est pas représenté par un objet intact après destruction; aucune phase supplémentaire d’examen n’est promise.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS61",
@@ -4938,10 +5090,10 @@
           "id": "AS62",
           "category": "Audio Nacre",
           "deliverable": "Appel, accord et alerte de saisie",
-          "spec": "Voix de personnel, liaison Mara, moteurs et alerte annonçant le danger sans masquer l’interaction.",
+          "spec": "Voix de personnel, liaison Mara, moteurs et alerte annonçant le danger sans masquer l’interaction. 0.9 : Signaux d’accord, inspection, saisie et transfert, avec sous-titres issus du jeu. Limite : Voix du personnel/Mara, jeu d’acteur et mix humain final restent absents.",
           "acceptance": "Le dialogue correspond à un interlocuteur disponible; sous-titres et signaux visuels portent la même information.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         }
       ]
     },
@@ -5196,11 +5348,11 @@
         {
           "id": "PR24",
           "workstream": "Accessibilité",
-          "deliverable": "Reconfiguration, manette, marche assistée, contraste, texte et secousses.",
+          "deliverable": "Reconfiguration, manette, marche assistée, contraste, texte et secousses. 0.9 : Onze actions clavier reconfigurables et contrôles standard de manette en mission; préférences et relâchement des entrées.",
           "depends": "PR09; SY27",
           "acceptance": "Tester avec utilisateurs concernés et matériel réellement disponible.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "PR25",
@@ -5538,11 +5690,11 @@
         {
           "id": "PR62",
           "workstream": "MI08 — portes",
-          "deliverable": "Deux portes sous pression, file de bateaux, destination de refuge et décision d’exécution de l’ordre.",
+          "deliverable": "Deux portes sous pression, file de bateaux, destination de refuge et décision d’exécution de l’ordre. 0.9 : MI08 jouable avec deux portes, courant progressif, trois conduites, trajets et bilan réel.",
           "depends": "SY62; AS50; MI05–MI07",
           "acceptance": "Les sorties sont observées et conservées. Une perte de personne ou de source ne bloque pas la campagne et n’est pas annulée au rapport.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "PR63",
@@ -5709,20 +5861,20 @@
         {
           "id": "PR81",
           "workstream": "MI08 — services et portes",
-          "deliverable": "Porte d’amenée, porte de passage, commandes, états de blocage et issues de repli.",
+          "deliverable": "Porte d’amenée, porte de passage, commandes, états de blocage et issues de repli. 0.9 : Deux commandes indépendantes, mécanismes/vantaux endommageables, obturation de secours et constats.",
           "depends": "MI06; MI07; SY62; PR62",
           "acceptance": "Chaque mécanisme a ses dégâts et son effet. Une source ou une porte détruite laisse un bilan terminable sans restauration fictive.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "PR82",
           "workstream": "MI08 — personnes et accueil",
-          "deliverable": "Listes de personnes par origine, capacités de brancards, embarquement, départ et confirmation d’arrivée.",
+          "deliverable": "Listes de personnes par origine, capacités de brancards, embarquement, départ et confirmation d’arrivée. 0.9 : Recensement par origine, places, brancards, accompagnants, départs et arrivées individuels conservés.",
           "depends": "NA63; NA64; PR62; AS50",
           "acceptance": "Aucune duplication entre quai, bateau et refuge. Une destination annoncée n’est pas une arrivée observée.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         }
       ]
     },
@@ -6857,6 +7009,174 @@
           "expected": "Les personnes comprennent arrêt, accord, examen, récupération, route et arrivée. L’essai humain reste distinct des scripts.",
           "priority": "P1",
           "status": "À produire"
+        },
+        {
+          "id": "QA138",
+          "area": "MI08 — parcours",
+          "scenario": "Terminer les trois conduites avec chacun des six châssis, par commandes publiques.",
+          "expected": "Le choix ne saute aucun travail; reçus, personnes, ouvrages et sortie correspondent aux actes.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA139",
+          "area": "MI08 — courant",
+          "scenario": "Observer plusieurs cycles, fermer l’amenée et comparer les fenêtres des deux bateaux.",
+          "expected": "Cycle de soixante-quatre secondes, courant progressif, ouverture et seuils propres conservés à la reprise.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA140",
+          "area": "MI08 — ouvrages",
+          "scenario": "Manœuvrer sous appui, interrompre, endommager séparément mécanisme et vantail, puis obturer.",
+          "expected": "Deux ouvrages indépendants; un dommage réel ne se répare pas par dialogue; le repli et le constat permettent un bilan.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA141",
+          "area": "MI08 — contacts",
+          "scenario": "Retrouver les groupes, demander les services puis quitter la portée pendant un travail.",
+          "expected": "Durées et interruptions réelles; technicien utile après arrivée; liaison de Mara distincte de sa présence.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA142",
+          "area": "MI08 — origines",
+          "scenario": "Charger plusieurs héritages authentiques, avec pertes et accueil sanitaire impérial ou civil.",
+          "expected": "Aucun mort recréé; populations séparées; ambulance saisie non transportée; nouveaux IDs explicitement agrégés.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA143",
+          "area": "MI08 — accord",
+          "scenario": "Tenter allocation avant arrivée des invités, puis confirmer après les contacts et l’accueil préparé.",
+          "expected": "Retrouver, venir au quai, consentir et embarquer restent quatre états différents.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA144",
+          "area": "MI08 — capacités",
+          "scenario": "Répartir sièges, brancards, opérateurs et accompagnants; perdre une capacité ou un service.",
+          "expected": "Chaque limite de bateau et de refuge est respectée. Les personnes non transportables gardent une destination locale.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA145",
+          "area": "MI08 — arrivées",
+          "scenario": "Observer embarquement, sortie de zone, traversée, accostage et trajet jusqu’au refuge.",
+          "expected": "Départ acquis distinct de l’arrivée individuelle; aucune duplication entre quai, bateau et accueil.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA146",
+          "area": "MI08 — pertes",
+          "scenario": "Perdre séparément passerelles, bateaux, techniciens, responsable ou Mara par dégâts réellement appliqués.",
+          "expected": "Les pertes modifient places et services; rappel et accueil local n’effacent pas les décès et la mission garde un bilan.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA147",
+          "area": "MI08 — registre",
+          "scenario": "Détruire le registre avant et après copie, puis perdre la radio de refuge avant contact.",
+          "expected": "Ruines sans données inédites; copie conservée; absence de capacité confirmée ne devient pas une promesse de places.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA148",
+          "area": "MI08 — décisions",
+          "scenario": "Comparer fermeture immédiate, fenêtre suivie de fermeture et accès maintenu avec renfort annoncé.",
+          "expected": "Les ouvrages doivent réellement changer; aucun renfort actif avant son délai; rapport et extraction viennent après résolution.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA149",
+          "area": "Dossier v8 — migration",
+          "scenario": "Migrer les six variantes historiques v7 et rejeter un format futur sans réécriture.",
+          "expected": "Seul le dossier de départ vide est ajouté; rapports, checkpoints, stock et dépense gardent leurs valeurs historiques.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA150",
+          "area": "Dossier v8 — intégrité",
+          "scenario": "Reprendre travaux et trajets; tenter des modifications de personnes, capacités, positions, provenance et faits.",
+          "expected": "Copies profondes, reprise exacte et refus des contradictions; le dossier valide existant reste protégé.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA151",
+          "area": "MI08 — reçu officiel",
+          "scenario": "Comparer premier rapport, relecture, défaite et retour au hangar sur variantes héritées.",
+          "expected": "Quatre lots de pièces pour la première réussite seulement; aucun carburant créé; liste des personnes et bateaux conservée.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA152",
+          "area": "Commandes — configuration",
+          "scenario": "Réaffecter les actions, refuser conflits, recharger puis simuler focus, connexion, pause et déconnexion de manette.",
+          "expected": "Carte complète, Échap conservé, neutre obligatoire et absence de commande fantôme. Portée synthétique explicitée.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA153",
+          "area": "Assets — géométrie",
+          "scenario": "Contrôler rigs, primitives partagées, contacts, zone du radiateur et empreintes des exports.",
+          "expected": "Fichiers, références et géométrie concordent; les six silhouettes non jouables ne deviennent pas des châssis livrés.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA154",
+          "area": "Audio — événements",
+          "scenario": "Contrôler les exports WAV et les transitions réellement obtenues sur un parcours sanitaire public.",
+          "expected": "Familles et formats intègres, déclenchements cohérents. Tests de moteur séparés de l’écoute humaine, des voix et du mix final.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA155",
+          "area": "Interface — dossier v8",
+          "scenario": "Exécuter les gestionnaires de lancement, reprise, trois conduites, registres, journal et préférences de commandes.",
+          "expected": "Parcours DOM modélisés identifiés comme tels; historique, listes et état réel affichés sans gain supplémentaire.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA156",
+          "area": "Rendu — portes d’Aval",
+          "scenario": "Produire des scènes atteintes par commandes publiques et relire les images et états copiés profondément.",
+          "expected": "Éléments lisibles et cohérents avec leur scène; un rendu Canvas ne certifie pas HUD HTML, audio, FPS ou essai humain.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA157",
+          "area": "Bible — réception 0.9",
+          "scenario": "Régénérer, recalculer puis réconcilier source, références, baseline, formules et vues modifiées.",
+          "expected": "Les 769 IDs et 133 critères initiaux restent attestés. Contrôles d’export distincts de l’usage interactif natif QA29.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "QA158",
+          "area": "Essai humain — Aval",
+          "scenario": "Faire jouer sans guidage sur matériel déclaré les accords, capacités, portes, fenêtre et trois destinations possibles.",
+          "expected": "La personne distingue service, embarquement, départ, refuge, accueil local et perte; observations non déduites des scripts.",
+          "priority": "P1",
+          "status": "À produire"
         }
       ]
     },
@@ -7137,7 +7457,7 @@
           "link": "SY05; SY10",
           "name": "Ancrage et avaries de pattes",
           "implemented": "L’ancrage interdit un nouveau pas, augmente la stabilité et réduit les dégâts; les impacts bas diminuent l’intégrité d’une patte.",
-          "limits": "Collision de jambe simplifiée; intégrité minimale conservée et aucune perte complète de membre.",
+          "limits": "Collision de jambe simplifiée et aucune perte complète de membre. Le plancher de combat ne remonte jamais une patte déjà usée sous quinze points par l’eau; cette usure persiste.",
           "path": "src/simulation.mjs",
           "status": "Prototype"
         },
@@ -7172,7 +7492,7 @@
           "id": "PX22",
           "link": "SY26",
           "name": "Résultats et réglages locaux",
-          "implemented": "Réglages et derniers rapports des opérations autonomes conservés séparément. MI01–MI07 disposent d’un dossier de campagne et de points de reprise.",
+          "implemented": "Réglages et rapports des opérations autonomes conservés séparément. MI01–MI08 possèdent un dossier de campagne v8 et des points de reprise. Les nouveaux reçus d’Aval gardent personnes et bateaux individuellement.",
           "limits": "Les rapports OP01–OP03 ne deviennent pas des réussites de campagne. Une relecture ne réécrit pas les résultats et ressources officiels.",
           "path": "src/main.mjs; src/campaign.mjs",
           "status": "Prototype"
@@ -7244,8 +7564,8 @@
           "id": "PX30",
           "link": "SY25; PR21; PR31",
           "name": "Atelier et réparation locale",
-          "implemented": "Six lots initiaux, quatre pour chaque première réussite de MI01–MI07. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
-          "limits": "Dotations limitées aux sept missions principales jouables; une relecture ne verse aucun lot supplémentaire. Chaque nouvelle sortie renouvelle munitions et deux kits. Modules, pièces rares et économie de campagne complète à produire.",
+          "implemented": "Six lots initiaux et quatre par première réussite de MI01–MI08. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
+          "limits": "Huit dotations de première réussite; aucune en relecture. Une nouvelle sortie renouvelle munitions et deux kits. Le carburant acquis à MI05 puis dépensé à MI06 ne revient pas. Modules, pièces rares et économie complète restent à produire.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -7679,6 +7999,96 @@
           "implemented": "Rendu et interface exposent les étapes, le constat disponible, la route et l’issue sanitaire.",
           "limits": "Kit procédural et interface de prototype; art, audio et compréhension humaine QA137 encore ouverts.",
           "path": "src/renderer.mjs; src/main.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX79",
+          "link": "MI08; SY62; PR62",
+          "name": "Deux portes sous pression",
+          "implemented": "Amenée et passage ont leurs commandes, états, mécanismes, vantaux, pression, fatigue et manœuvres. Courant calculé progressivement.",
+          "limits": "Hydraulique locale simplifiée; aucun modèle général de fluides ni résistance complète des quais.",
+          "path": "src/content.mjs; src/simulation.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX80",
+          "link": "SY83; SY85; NA69",
+          "name": "Groupes retrouvés à Aval",
+          "implemented": "Contacts des trois origines, nouveaux services de Vann et des techniciens, liaison puis arrivée physique de Mara.",
+          "limits": "Identités historiques inconnues conservées comme agrégats; aucun recrutement général ni résurrection.",
+          "path": "src/simulation.mjs; src/departure-validation.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX81",
+          "link": "SY84; SY86; PR82",
+          "name": "Places, embarquement, arrivée",
+          "implemented": "Deux bateaux, passerelles, opérateurs, accompagnants et brancards; arrivée créditée à la porte du refuge.",
+          "limits": "Capacités locales fixes; navigation libre et animation finale des gestes d’accueil restent ouvertes.",
+          "path": "src/simulation.mjs; src/renderer.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX82",
+          "link": "SY87; NA64",
+          "name": "Accueil local et avaries",
+          "implemented": "Rappel des personnes encore présentes, niche des techniciens, constats des supports perdus et obturation de secours.",
+          "limits": "Aucune reconstruction par dialogue; un départ déjà acquis ne peut être rappelé à travers le niveau.",
+          "path": "src/simulation.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX83",
+          "link": "NA71; NA72; PR81",
+          "name": "Ordre et rapport d’Aval",
+          "implemented": "Trois conduites possibles, travaux après choix, copie ou ruines du registre, rapport final exact.",
+          "limits": "Le constat de contrats forcés ne donne aucun PT/PO nouveau; MI16 et la suite politique restent conçus.",
+          "path": "src/simulation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX84",
+          "link": "SY88; QA149; QA150",
+          "name": "Dossier v8 et recensement",
+          "implemented": "Migration historique, reçu individuel, bateaux, reprises et relecture isolée. Le stock et la dépense précédents restent intacts.",
+          "limits": "Les nouveaux IDs ne reconstituent pas les noms absents des anciens reçus; formats futurs refusés.",
+          "path": "src/campaign.mjs; src/departure-validation.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX85",
+          "link": "SY89; SY90; PR24",
+          "name": "Clavier et manette de mission",
+          "implemented": "Onze actions reconfigurables; entrées standard de manette, zone morte, neutre, déconnexion et pause maîtrisés.",
+          "limits": "Pas de navigation des menus à la manette, ni essai matériel ou utilisateur concerné déduit des tests synthétiques.",
+          "path": "src/controls.mjs; src/main.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX86",
+          "link": "SY92; AS02; AS31",
+          "name": "Pièces, rigs et modules",
+          "implemented": "Exports vectoriels, rigs et pièces de décor partagent leur définition avec le renderer; contacts et radiateur gardent leur géométrie de simulation.",
+          "limits": "Kit procédural partiel; les planches ne démontrent ni cycle final en mouvement ni finition de tous les mondes.",
+          "path": "src/production-assets.mjs; assets/production/manifest.json",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX87",
+          "link": "SY91; AS26; AS27",
+          "name": "Audio de prototype livré",
+          "implemented": "Synthèse de signaux, ambiances et motifs; exports WAV et manifestes contrôlés. Le runtime demeure autonome sans chargement externe.",
+          "limits": "Voix humaines, interprétation, mix final et confort d’écoute sur matériel déclaré restent à produire.",
+          "path": "src/audio.mjs; assets/production/audio/manifest.json",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX88",
+          "link": "PR02; QA25; QA157",
+          "name": "Registre de réception",
+          "implemented": "Les 133 critères initiaux disposent d’une baseline immuable, d’un audit par ID, de preuves et d’un reste. Les références symboliques sont résolues explicitement.",
+          "limits": "Une réception partielle ne clôt pas un critère d’art final ou d’essai humain; les compteurs ne mesurent pas le pourcentage du jeu fini.",
+          "path": "docs/validation/production-v09-registry.json; tools/verify-bible-export.py",
           "status": "Prototype"
         }
       ]

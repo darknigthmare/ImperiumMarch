@@ -1,0 +1,2489 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-11-11T09:43:02.942942+00:00",
+  "targetVersion": "0.9.0",
+  "purpose": "Baseline immuable des 133 fiches À produire au début de la demande utilisateur. Les évaluations et livraisons ultérieures vont dans le registre séparé; ne pas réécrire les critères ni les statuts de cette capture.",
+  "source": {
+    "file": "data/bible.json",
+    "version": "0.8.0",
+    "localRevision": "03c69e73175d6e2d61f59f6f9ba8ee80da827103",
+    "publicRevision": "0ae303a7b04d45472dc17154039ddc73760dc97a",
+    "gitBlob": "779ba0d759b808466372026daed23e86e3ef1398",
+    "sha256": "91c50ed7bd1dcf4fa267de68a1708535848af8fb48901b9e18f043d048c7b8ef",
+    "recordCount": 769
+  },
+  "selection": {
+    "status": "À produire",
+    "total": 133,
+    "bySheet": {
+      "Assets": 56,
+      "Production": 38,
+      "QA": 39
+    }
+  },
+  "columns": {
+    "Assets": [
+      {
+        "key": "id",
+        "label": "ID",
+        "width": 12
+      },
+      {
+        "key": "category",
+        "label": "Catégorie",
+        "width": 24
+      },
+      {
+        "key": "deliverable",
+        "label": "Livrable",
+        "width": 47
+      },
+      {
+        "key": "spec",
+        "label": "Spécification",
+        "width": 78
+      },
+      {
+        "key": "acceptance",
+        "label": "Contrôle",
+        "width": 65
+      },
+      {
+        "key": "priority",
+        "label": "Priorité",
+        "width": 12
+      },
+      {
+        "key": "status",
+        "label": "Statut",
+        "width": 18
+      }
+    ],
+    "Production": [
+      {
+        "key": "id",
+        "label": "ID",
+        "width": 12
+      },
+      {
+        "key": "workstream",
+        "label": "Chantier",
+        "width": 27
+      },
+      {
+        "key": "deliverable",
+        "label": "Livrable concret",
+        "width": 63
+      },
+      {
+        "key": "depends",
+        "label": "Dépendances",
+        "width": 32
+      },
+      {
+        "key": "acceptance",
+        "label": "Critère de clôture",
+        "width": 78
+      },
+      {
+        "key": "priority",
+        "label": "Priorité",
+        "width": 12
+      },
+      {
+        "key": "status",
+        "label": "Statut",
+        "width": 18
+      }
+    ],
+    "QA": [
+      {
+        "key": "id",
+        "label": "ID",
+        "width": 12
+      },
+      {
+        "key": "area",
+        "label": "Domaine",
+        "width": 24
+      },
+      {
+        "key": "scenario",
+        "label": "Scénario",
+        "width": 72
+      },
+      {
+        "key": "expected",
+        "label": "Résultat attendu",
+        "width": 75
+      },
+      {
+        "key": "priority",
+        "label": "Priorité",
+        "width": 12
+      },
+      {
+        "key": "status",
+        "label": "Statut",
+        "width": 18
+      }
+    ]
+  },
+  "records": [
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 1,
+      "id": "AS02",
+      "status": "À produire",
+      "deliverable": "Vigie — planches et pièces",
+      "criterion": "Connexions mécaniques cohérentes, aucune pièce flottante, débattements vérifiés.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS02",
+        "category": "Marcheur",
+        "deliverable": "Vigie — planches et pièces",
+        "spec": "Vues latérales gauche/droite, coque, tourelle, hanches, cuisses, tibias, pieds et pivots nommés.",
+        "acceptance": "Connexions mécaniques cohérentes, aucune pièce flottante, débattements vérifiés.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 2,
+      "id": "AS03",
+      "status": "À produire",
+      "deliverable": "Bastion — planches et pièces",
+      "criterion": "Les membres éloignés restent visibles et lisibles sans confusion d’appui.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS03",
+        "category": "Marcheur",
+        "deliverable": "Bastion — planches et pièces",
+        "spec": "Quatre pattes séparées, masques de profondeur, coque basse, ancrage et état endommagé.",
+        "acceptance": "Les membres éloignés restent visibles et lisibles sans confusion d’appui.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 3,
+      "id": "AS04",
+      "status": "À produire",
+      "deliverable": "Pèlerin — planches et pièces",
+      "criterion": "Gait stable et silhouettes lisibles en zoom minimum.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS04",
+        "category": "Marcheur",
+        "deliverable": "Pèlerin — planches et pièces",
+        "spec": "Six pattes identifiées, tripodes colorés seulement en vue technique, nacelle et équipements amovibles.",
+        "acceptance": "Gait stable et silhouettes lisibles en zoom minimum.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 4,
+      "id": "AS05",
+      "status": "À produire",
+      "deliverable": "Neuf châssis supplémentaires",
+      "criterion": "Pas de simple variation de couleur des trois châssis de départ.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS05",
+        "category": "Marcheur",
+        "deliverable": "Neuf châssis supplémentaires",
+        "spec": "Une fiche de silhouette par châssis, puis production découpée après validation de rôle.",
+        "acceptance": "Pas de simple variation de couleur des trois châssis de départ.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 5,
+      "id": "AS06",
+      "status": "À produire",
+      "deliverable": "Cycle d’appui bipède",
+      "criterion": "Pied posé sans glissement visible et centre de masse crédible.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS06",
+        "category": "Animation",
+        "deliverable": "Cycle d’appui bipède",
+        "spec": "Préparation, transfert de masse, levée, trajectoire, pose et absorption; variantes avant/arrière.",
+        "acceptance": "Pied posé sans glissement visible et centre de masse crédible.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 6,
+      "id": "AS07",
+      "status": "À produire",
+      "deliverable": "Cycles quadrupède et hexapode",
+      "criterion": "Nombre et groupe de pattes corrects dans tous les états.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS07",
+        "category": "Animation",
+        "deliverable": "Cycles quadrupède et hexapode",
+        "spec": "Paires diagonales, tripodes, marche prudente, pivot et adaptation après avarie.",
+        "acceptance": "Nombre et groupe de pattes corrects dans tous les états.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 7,
+      "id": "AS08",
+      "status": "À produire",
+      "deliverable": "Postures et ancrage",
+      "criterion": "Transitions continues et collisions synchronisées.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS08",
+        "category": "Animation",
+        "deliverable": "Postures et ancrage",
+        "spec": "Basse, nominale, haute, ancrage, désancrage, choc et redressement.",
+        "acceptance": "Transitions continues et collisions synchronisées.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 8,
+      "id": "AS09",
+      "status": "À produire",
+      "deliverable": "Recul et rechargement",
+      "criterion": "Origine du tir, position du chargeur et retour en batterie cohérents.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS09",
+        "category": "Animation",
+        "deliverable": "Recul et rechargement",
+        "spec": "Recul par point d’arme, évacuation des douilles, trappes et manipulation des grosses munitions.",
+        "acceptance": "Origine du tir, position du chargeur et retour en batterie cohérents.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 9,
+      "id": "AS10",
+      "status": "À produire",
+      "deliverable": "Équipage et portraits",
+      "criterion": "Visages distincts, mêmes détails entre portrait, scène et miniature.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS10",
+        "category": "Personnages",
+        "deliverable": "Équipage et portraits",
+        "spec": "Quatorze personnages récurrents avec expressions sobres et tenues fonctionnelles.",
+        "acceptance": "Visages distincts, mêmes détails entre portrait, scène et miniature.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 10,
+      "id": "AS11",
+      "status": "À produire",
+      "deliverable": "Escouades impériales",
+      "criterion": "Les rôles sont reconnaissables sans lecture du nom.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS11",
+        "category": "Infanterie",
+        "deliverable": "Escouades impériales",
+        "spec": "Silhouettes par rôle, déplacement, couverture, tir, blessure, reddition et évacuation.",
+        "acceptance": "Les rôles sont reconnaissables sans lecture du nom.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 11,
+      "id": "AS12",
+      "status": "À produire",
+      "deliverable": "Rebelles et pirates",
+      "criterion": "Cohérence d’équipement avec provenance et biome.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS12",
+        "category": "Infanterie",
+        "deliverable": "Rebelles et pirates",
+        "spec": "Variété de protections et outils; différences de doctrine visibles sans uniformiser tous les civils.",
+        "acceptance": "Cohérence d’équipement avec provenance et biome.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 12,
+      "id": "AS13",
+      "status": "À produire",
+      "deliverable": "Khelt — langue visuelle",
+      "criterion": "Aucune équivalence simpliste avec peuple humain réel ou tribu primitive générique.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS13",
+        "category": "Aliens",
+        "deliverable": "Khelt — langue visuelle",
+        "spec": "Anatomie, vêtements, gestes, technologies et architecture développés ensemble.",
+        "acceptance": "Aucune équivalence simpliste avec peuple humain réel ou tribu primitive générique.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 13,
+      "id": "AS14",
+      "status": "À produire",
+      "deliverable": "Véhicules de prototype",
+      "criterion": "Points d’impact, moteurs et éléments mobiles alignés sur collisions.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS14",
+        "category": "Véhicules",
+        "deliverable": "Véhicules de prototype",
+        "spec": "Camion d’escorte, patin pirate, drone, tourelle et marcheur lourd ennemi.",
+        "acceptance": "Points d’impact, moteurs et éléments mobiles alignés sur collisions.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 14,
+      "id": "AS15",
+      "status": "À produire",
+      "deliverable": "Parc complet",
+      "criterion": "Pas de réutilisation d’une même hitbox pour des profils incompatibles.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS15",
+        "category": "Véhicules",
+        "deliverable": "Parc complet",
+        "spec": "Dix-huit véhicules, variantes civiles et militaires documentées séparément.",
+        "acceptance": "Pas de réutilisation d’une même hitbox pour des profils incompatibles.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 15,
+      "id": "AS16",
+      "status": "À produire",
+      "deliverable": "Kit Vesper",
+      "criterion": "Répétitions masquées, sol continu et plans de collision identifiables.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS16",
+        "category": "Décors",
+        "deliverable": "Kit Vesper",
+        "spec": "Ciel, montagnes, industrie, rues, sols, galeries, végétation, ruines et jonctions.",
+        "acceptance": "Répétitions masquées, sol continu et plans de collision identifiables.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 16,
+      "id": "AS17",
+      "status": "À produire",
+      "deliverable": "Kit Nacre",
+      "criterion": "Niveau d’eau et zones praticables correspondent au gameplay.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS17",
+        "category": "Décors",
+        "deliverable": "Kit Nacre",
+        "spec": "Mer en plusieurs plans, marées, digues, quais, villages, mangroves et silhouettes navales.",
+        "acceptance": "Niveau d’eau et zones praticables correspondent au gameplay.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 17,
+      "id": "AS18",
+      "status": "À produire",
+      "deliverable": "Kit Thyr",
+      "criterion": "Arbres porteurs raccordés aux bâtiments; aucune porte flottante.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS18",
+        "category": "Décors",
+        "deliverable": "Kit Thyr",
+        "spec": "Canopée, colonnes-mères, hameaux suspendus, racines et pistes modulaires.",
+        "acceptance": "Arbres porteurs raccordés aux bâtiments; aucune porte flottante.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 18,
+      "id": "AS19",
+      "status": "À produire",
+      "deliverable": "Kits Kharon et Sereis",
+      "criterion": "Dangers annoncés avant interaction; effets climatiques réglables.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS19",
+        "category": "Décors",
+        "deliverable": "Kits Kharon et Sereis",
+        "spec": "Roches, installations et phénomènes propres à chaleur et glace; palettes distinctes.",
+        "acceptance": "Dangers annoncés avant interaction; effets climatiques réglables.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 19,
+      "id": "AS20",
+      "status": "À produire",
+      "deliverable": "Kits Ilex, Méridien, Orthe",
+      "criterion": "Les lieux racontent économie, population et conflit sans dépendre de panneaux explicatifs.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS20",
+        "category": "Décors",
+        "deliverable": "Kits Ilex, Méridien, Orthe",
+        "spec": "Jardins résonants, agriculture habitée, centre impérial et transitions périphérie/capitale.",
+        "acceptance": "Les lieux racontent économie, population et conflit sans dépendre de panneaux explicatifs.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 20,
+      "id": "AS21",
+      "status": "À produire",
+      "deliverable": "Faune et flore",
+      "criterion": "Distribution écologique par planète et animation adaptée à son rôle.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS21",
+        "category": "Biologie",
+        "deliverable": "Faune et flore",
+        "spec": "24 espèces animales et 24 végétales; silhouettes, variations et interactions ciblées.",
+        "acceptance": "Distribution écologique par planète et animation adaptée à son rôle.",
+        "priority": "P2",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 21,
+      "id": "AS22",
+      "status": "À produire",
+      "deliverable": "Combat et destruction",
+      "criterion": "Priorité à la lecture des menaces; budget de particules et réduction possibles.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS22",
+        "category": "FX",
+        "deliverable": "Combat et destruction",
+        "spec": "Impacts selon matériau, ricochets, poussière, flammes, fumées, débris et traces de pieds.",
+        "acceptance": "Priorité à la lecture des menaces; budget de particules et réduction possibles.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 23,
+      "id": "AS24",
+      "status": "À produire",
+      "deliverable": "Hangar et carte",
+      "criterion": "Toute donnée exposée sert une décision concrète.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS24",
+        "category": "Interface",
+        "deliverable": "Hangar et carte",
+        "spec": "Navigation diegétique, choix d’équipement, itinéraires, preuves et équipage.",
+        "acceptance": "Toute donnée exposée sert une décision concrète.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 25,
+      "id": "AS26",
+      "status": "À produire",
+      "deliverable": "Mondes et vie",
+      "criterion": "Aucune ambiance identique recyclée sur les huit planètes.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS26",
+        "category": "Son",
+        "deliverable": "Mondes et vie",
+        "spec": "Ambiances par biome, métiers, circulation, faune et infrastructures endommagées.",
+        "acceptance": "Aucune ambiance identique recyclée sur les huit planètes.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 26,
+      "id": "AS27",
+      "status": "À produire",
+      "deliverable": "Motifs de campagne",
+      "criterion": "Transitions réactives sans pomper le volume ni annoncer automatiquement un secret.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS27",
+        "category": "Musique",
+        "deliverable": "Motifs de campagne",
+        "spec": "Marche impériale retenue, motifs d’équipage et textures des mondes; variation après rupture.",
+        "acceptance": "Transitions réactives sans pomper le volume ni annoncer automatiquement un secret.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 27,
+      "id": "AS28",
+      "status": "À produire",
+      "deliverable": "Séquences en moteur",
+      "criterion": "Pas de séparation de qualité brutale entre cinématique et gameplay.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS28",
+        "category": "Cinématiques",
+        "deliverable": "Séquences en moteur",
+        "spec": "Briefing, défection, confrontation et épilogues; compositions réutilisant les décors jouables.",
+        "acceptance": "Pas de séparation de qualité brutale entre cinématique et gameplay.",
+        "priority": "P2",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 28,
+      "id": "AS29",
+      "status": "À produire",
+      "deliverable": "Français et architecture langues",
+      "criterion": "Interface sans texte tronqué et sous-titres avec identification du locuteur.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS29",
+        "category": "Localisation",
+        "deliverable": "Français et architecture langues",
+        "spec": "Textes externalisés, formats de nombres et longueur testés; doublage selon budget validé.",
+        "acceptance": "Interface sans texte tronqué et sous-titres avec identification du locuteur.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 29,
+      "id": "AS30",
+      "status": "À produire",
+      "deliverable": "Registre de provenance",
+      "criterion": "Tout asset livré possède une entrée; aucun média de référence embarqué sans autorisation.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS30",
+        "category": "Production",
+        "deliverable": "Registre de provenance",
+        "spec": "Auteur ou générateur, prompt le cas échéant, date, droits, version et chemins de chaque asset final.",
+        "acceptance": "Tout asset livré possède une entrée; aucun média de référence embarqué sans autorisation.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 30,
+      "id": "AS31",
+      "status": "À produire",
+      "deliverable": "Rigs Caracal, Arpenteur et Cloporte",
+      "criterion": "Inspection des pieds visibles, transition marche/ancrage et angles du canon sur un terrain commun.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS31",
+        "category": "Marcheurs",
+        "deliverable": "Rigs Caracal, Arpenteur et Cloporte",
+        "spec": "Pièces séparées, pivots, états de dégâts et couche des membres éloignés pour trois profils bas/haut/très bas.",
+        "acceptance": "Inspection des pieds visibles, transition marche/ancrage et angles du canon sur un terrain commun.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 31,
+      "id": "AS32",
+      "status": "À produire",
+      "deliverable": "Décors définitifs des émetteurs de MI03",
+      "criterion": "La qualification devient visible après inspection; bâtiment coupé, endommagé et détruit restent distinguables.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS32",
+        "category": "Vesper",
+        "deliverable": "Décors définitifs des émetteurs de MI03",
+        "spec": "Lot peint et modulaire pour station militaire, dispensaire et maisons : gaines, antennes, fenêtres et états de dommages. Le rendu procédural actuel sert de référence fonctionnelle.",
+        "acceptance": "La qualification devient visible après inspection; bâtiment coupé, endommagé et détruit restent distinguables.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 32,
+      "id": "AS33",
+      "status": "À produire",
+      "deliverable": "Habillage final magasin et réserve",
+      "criterion": "Lecture au clavier et à faible contraste; aucune animation ne suggère des cartouches créées.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS33",
+        "category": "Interface",
+        "deliverable": "Habillage final magasin et réserve",
+        "spec": "Finition typographique et animée des quantités déjà présentes dans le HUD : magasin, réserve, chargement partiel et caisse collectée.",
+        "acceptance": "Lecture au clavier et à faible contraste; aucune animation ne suggère des cartouches créées.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 33,
+      "id": "AS34",
+      "status": "À produire",
+      "deliverable": "Inspection et contrôle",
+      "criterion": "Le mix garde les télégraphes de danger et les sous-titres disponibles pendant l’interaction.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS34",
+        "category": "Audio",
+        "deliverable": "Inspection et contrôle",
+        "spec": "Motifs d’émission civil/militaire, inspection, gaine sécurisée et transmission de Holt.",
+        "acceptance": "Le mix garde les télégraphes de danger et les sous-titres disponibles pendant l’interaction.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 34,
+      "id": "AS35",
+      "status": "À produire",
+      "deliverable": "Niveau de référence fini",
+      "criterion": "Séquence MI01 du briefing au hangar inspectée en mouvement avec caméra, FX et sons.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS35",
+        "category": "Environnement",
+        "deliverable": "Niveau de référence fini",
+        "spec": "Un kit cohérent Vesper : route, conduite, mine, atelier, véhicule, personnes et matières de contact.",
+        "acceptance": "Séquence MI01 du briefing au hangar inspectée en mouvement avec caméra, FX et sons.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 35,
+      "id": "AS36",
+      "status": "À produire",
+      "deliverable": "Diagnostic d’une avarie",
+      "criterion": "Le joueur identifie la pièce touchée sans ouvrir une fiche technique.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS36",
+        "category": "Animation",
+        "deliverable": "Diagnostic d’une avarie",
+        "spec": "Un composant visible avec état normal, touché, dégradé et réparé.",
+        "acceptance": "Le joueur identifie la pièce touchée sans ouvrir une fiche technique.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 36,
+      "id": "AS37",
+      "status": "À produire",
+      "deliverable": "Première relation écologique",
+      "criterion": "La scène montre observation, intervention et retour au calme; catalogue complet hors portée de ce lot.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS37",
+        "category": "Biologie",
+        "deliverable": "Première relation écologique",
+        "spec": "Une surface, une plante structurante et une espèce animale dont besoins et réactions se répondent.",
+        "acceptance": "La scène montre observation, intervention et retour au calme; catalogue complet hors portée de ce lot.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 37,
+      "id": "AS38",
+      "status": "À produire",
+      "deliverable": "Manifestes d’intégration",
+      "criterion": "Un asset peut être remplacé sans perdre collision, position du son ou identité de la source.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS38",
+        "category": "Production",
+        "deliverable": "Manifestes d’intégration",
+        "spec": "Registre de chaque asset avec provenance, pivots, échelle, usage, variante et dépendances.",
+        "acceptance": "Un asset peut être remplacé sans perdre collision, position du son ou identité de la source.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 38,
+      "id": "AS39",
+      "status": "À produire",
+      "deliverable": "Kit final de refroidissement",
+      "criterion": "Le poste de travail et le risque thermique sont identifiables en mouvement sans recouvrir les contacts de pieds.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS39",
+        "category": "Vesper",
+        "deliverable": "Kit final de refroidissement",
+        "spec": "Turbines, vannes, raccordements, pompe portable et états actif/en cours/stabilisé. Le modèle procédural de MI04 fournit les dimensions de référence.",
+        "acceptance": "Le poste de travail et le risque thermique sont identifiables en mouvement sans recouvrir les contacts de pieds.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 39,
+      "id": "AS40",
+      "status": "À produire",
+      "deliverable": "Poste de maintenance final",
+      "criterion": "Original vivant, copie acquise et original détruit se distinguent sans rendre les ruines magiquement lisibles.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS40",
+        "category": "Vesper",
+        "deliverable": "Poste de maintenance final",
+        "spec": "Bâtiment, terminal et ruines avec fonction identifiable. Le sort du journal et de sa copie reste montré par l’interface, pas inventé dans le décor.",
+        "acceptance": "Original vivant, copie acquise et original détruit se distinguent sans rendre les ruines magiquement lisibles.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 40,
+      "id": "AS41",
+      "status": "À produire",
+      "deliverable": "Radiateur et réparation animés",
+      "criterion": "Animation lisible à hauteur basse et haute; effet n’agrandit pas fictivement la zone vulnérable.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS41",
+        "category": "Marcheurs",
+        "deliverable": "Radiateur et réparation animés",
+        "spec": "Pièce arrière pour six profils, impact local, état dégradé et intervention de quatre secondes. Position visuelle liée à la collision simulée.",
+        "acceptance": "Animation lisible à hauteur basse et haute; effet n’agrandit pas fictivement la zone vulnérable.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 41,
+      "id": "AS42",
+      "status": "À produire",
+      "deliverable": "Couche thermique et maintenance",
+      "criterion": "Danger, parole et mécanique restent compréhensibles ensemble; aucune validation audio déduite d’un test Node.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS42",
+        "category": "Audio",
+        "deliverable": "Couche thermique et maintenance",
+        "spec": "Distinguer turbine active, mise en charge, radiateur touché, réparation interrompue et circuit stabilisé; sous-titres et retours visuels conservés.",
+        "acceptance": "Danger, parole et mécanique restent compréhensibles ensemble; aucune validation audio déduite d’un test Node.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 43,
+      "id": "AS44",
+      "status": "À produire",
+      "deliverable": "Repères de marée et matières des bancs",
+      "criterion": "Lecture sans dépendre seulement de la couleur. Le contact sûr et le risque submergé restent visibles dans un cadrage de combat.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS44",
+        "category": "Nacre",
+        "deliverable": "Repères de marée et matières des bancs",
+        "spec": "Graduations fixes, eau mobile, vase découverte et tablier posé lisibles avec les trois familles de marcheurs. L’animation suit le niveau simulé.",
+        "acceptance": "Lecture sans dépendre seulement de la couleur. Le contact sûr et le risque submergé restent visibles dans un cadrage de combat.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 44,
+      "id": "AS45",
+      "status": "À produire",
+      "deliverable": "Barges Saisie et Rive-Courte",
+      "criterion": "Une coque préservée et un treuil coupé se reconnaissent. Une épave ne montre pas de personnel vivant ni une radio disponible.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS45",
+        "category": "Nacre",
+        "deliverable": "Barges Saisie et Rive-Courte",
+        "spec": "Deux coques aux usages identifiables, pièces de treuil séparées, documents et poste radio, dommages cohérents avec leurs zones de collision.",
+        "acceptance": "Une coque préservée et un treuil coupé se reconnaissent. Une épave ne montre pas de personnel vivant ni une radio disponible.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 45,
+      "id": "AS46",
+      "status": "À produire",
+      "deliverable": "Dock et bateau de passage",
+      "criterion": "Le bateau atteint le dock sans se superposer au quai. Une personne comptée à l’arrivée possède une sortie lisible.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS46",
+        "category": "Nacre",
+        "deliverable": "Dock et bateau de passage",
+        "spec": "Accès, défenses, marques de niveau, cabine de ferry et aire d’accueil. Arrivée, perte et attente ont des animations propres.",
+        "acceptance": "Le bateau atteint le dock sans se superposer au quai. Une personne comptée à l’arrivée possède une sortie lisible.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 46,
+      "id": "AS47",
+      "status": "À produire",
+      "deliverable": "Scène sonore de chenal",
+      "criterion": "Essai d’écoute avec combat, voix et marée simultanés. Les sons n’annoncent pas un événement que la simulation n’a pas produit.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS47",
+        "category": "Audio",
+        "deliverable": "Scène sonore de chenal",
+        "spec": "Eau contre piliers, treuil sous tension, tablier qui se verrouille, moteur en attente et radio de Vann. Danger et consigne restent prioritaires.",
+        "acceptance": "Essai d’écoute avec combat, voix et marée simultanés. Les sons n’annoncent pas un événement que la simulation n’a pas produit.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 47,
+      "id": "AS48",
+      "status": "À produire",
+      "deliverable": "Digue, panneau et pompe de MI06",
+      "criterion": "Le soutien, le verrouillage et la perte de pression se comprennent depuis la vue jouable.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS48",
+        "category": "Nacre",
+        "deliverable": "Digue, panneau et pompe de MI06",
+        "spec": "Panneau articulé avec points d’appui, verrous, canal de dérivation, conduites et seuils sur façades. Techniciens avec trajet d’intervention.",
+        "acceptance": "Le soutien, le verrouillage et la perte de pression se comprennent depuis la vue jouable.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 48,
+      "id": "AS49",
+      "status": "À produire",
+      "deliverable": "Ambulance inspectable de MI07",
+      "criterion": "Inspection et transfert possèdent une zone d’approche sûre pour chaque châssis. La balise ne flotte pas hors de la carrosserie.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS49",
+        "category": "Nacre",
+        "deliverable": "Ambulance inspectable de MI07",
+        "spec": "Véhicule avec postes de soin, accès patient, attaches de balise ajoutée et variantes de dégâts. Une silhouette sanitaire propre au monde.",
+        "acceptance": "Inspection et transfert possèdent une zone d’approche sûre pour chaque châssis. La balise ne flotte pas hors de la carrosserie.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 49,
+      "id": "AS50",
+      "status": "À produire",
+      "deliverable": "Portes d’Aval et départ de MI08",
+      "criterion": "Les portes, personnes et bateaux visibles correspondent à leurs états persistants. Aucune foule générique ne remplace le bilan.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS50",
+        "category": "Nacre",
+        "deliverable": "Portes d’Aval et départ de MI08",
+        "spec": "Deux portes, indicateurs de pression, niches de refuge, bateaux en file et silhouettes locales dans des états de départ distincts.",
+        "acceptance": "Les portes, personnes et bateaux visibles correspondent à leurs états persistants. Aucune foule générique ne remplace le bilan.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 51,
+      "id": "AS52",
+      "status": "À produire",
+      "deliverable": "Maisons des Trois-Vannes",
+      "criterion": "La maison vide ne paraît pas encore habitée après une évacuation. Logement perdu et personnes perdues ne partagent pas la même animation.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS52",
+        "category": "Nacre",
+        "deliverable": "Maisons des Trois-Vannes",
+        "spec": "Deux façades originales, seuils visibles, variantes sèche, exposée, inondée et détruite; accès au secours séparé de la silhouette de tir.",
+        "acceptance": "La maison vide ne paraît pas encore habitée après une évacuation. Logement perdu et personnes perdues ne partagent pas la même animation.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 52,
+      "id": "AS53",
+      "status": "À produire",
+      "deliverable": "Techniciens au panneau",
+      "criterion": "Les mains atteignent le point de travail. Aucun personnage vivant rendu pour un intervenant perdu; les silhouettes ne masquent pas les zones de visée.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS53",
+        "category": "Personnages",
+        "deliverable": "Techniciens au panneau",
+        "spec": "Deux silhouettes lisibles, marche, arrêt, intervention, mise à couvert et perte; outils liés au verrou et à la pompe.",
+        "acceptance": "Les mains atteignent le point de travail. Aucun personnage vivant rendu pour un intervenant perdu; les silhouettes ne masquent pas les zones de visée.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 53,
+      "id": "AS54",
+      "status": "À produire",
+      "deliverable": "Charge, eau et verrou",
+      "criterion": "Une alerte possède une version textuelle; l’écoute permet de distinguer maintien nécessaire et travail terminé. Voix et effets restent à produire.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS54",
+        "category": "Audio",
+        "deliverable": "Charge, eau et verrou",
+        "spec": "Variation du bruit de charge, verrou achevé, pompe en route et alerte d’eau attachées aux événements simulés.",
+        "acceptance": "Une alerte possède une version textuelle; l’écoute permet de distinguer maintien nécessaire et travail terminé. Voix et effets restent à produire.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 54,
+      "id": "AS55",
+      "status": "À produire",
+      "deliverable": "Mara au chantier",
+      "criterion": "Aucune image ne suggère un recrutement ou une présence sous les tirs si le prototype ne simule qu’un contact à distance.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS55",
+        "category": "Personnages",
+        "deliverable": "Mara au chantier",
+        "spec": "Portrait et mise en scène de médecin liés à une présence ou une liaison explicitement établie; variantes de constat selon maisons et habitants.",
+        "acceptance": "Aucune image ne suggère un recrutement ou une présence sous les tirs si le prototype ne simule qu’un contact à distance.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 55,
+      "id": "AS56",
+      "status": "À produire",
+      "deliverable": "Archives de Nacre",
+      "criterion": "Le joueur distingue zéro carburant utilisé dans cette sortie et deux lots déjà dépensés auparavant. Couleur et icône ne sont pas les seuls supports de sens.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS56",
+        "category": "Interface",
+        "deliverable": "Archives de Nacre",
+        "spec": "Présentation finale rapprochant personnes, logements, service et dépense de la sortie, avec accès séparé au stock courant et au cumul officiel.",
+        "acceptance": "Le joueur distingue zéro carburant utilisé dans cette sortie et deux lots déjà dépensés auparavant. Couleur et icône ne sont pas les seuls supports de sens.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 57,
+      "id": "AS58",
+      "status": "À produire",
+      "deliverable": "Patients et personnel sanitaire",
+      "criterion": "Origine et présence lisibles; aucun personnage final revendiqué à partir d’un compteur agrégé.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS58",
+        "category": "Personnages",
+        "deliverable": "Patients et personnel sanitaire",
+        "spec": "Silhouettes et gestes distincts pour quatre patients, une conductrice et un soignant, dans les limites des états exposés.",
+        "acceptance": "Origine et présence lisibles; aucun personnage final revendiqué à partir d’un compteur agrégé.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 58,
+      "id": "AS59",
+      "status": "À produire",
+      "deliverable": "Arrêt et transfert sanitaire",
+      "criterion": "Contact au sol, accès sans traversée de coque et accueil compréhensible pour les six châssis.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS59",
+        "category": "Animation",
+        "deliverable": "Arrêt et transfert sanitaire",
+        "spec": "Ralentissement, immobilisation, accès latéral et transfert adaptés aux lieux et au terrain.",
+        "acceptance": "Contact au sol, accès sans traversée de coque et accueil compréhensible pour les six châssis.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 59,
+      "id": "AS60",
+      "status": "À produire",
+      "deliverable": "Balise fixée et démontée",
+      "criterion": "Pièce fixée, démontage en cours, récupération et perte sont visuellement distincts. Le journal n’est pas représenté par un objet intact après destruction; aucune phase supplémentaire d’examen n’est promise.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS60",
+        "category": "Accessoire",
+        "deliverable": "Balise fixée et démontée",
+        "spec": "Attaches cohérentes avec la carrosserie, emplacement lisible, dégâts localisés et version récupérée identifiable.",
+        "acceptance": "Pièce fixée, démontage en cours, récupération et perte sont visuellement distincts. Le journal n’est pas représenté par un objet intact après destruction; aucune phase supplémentaire d’examen n’est promise.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 60,
+      "id": "AS61",
+      "status": "À produire",
+      "deliverable": "Dossier sanitaire et provenance",
+      "criterion": "Un état inconnu reste inconnu; les données de soins ne sont pas converties en liste publique de témoins.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS61",
+        "category": "Interface finale",
+        "deliverable": "Dossier sanitaire et provenance",
+        "spec": "Présentation séparée des personnes, cargo constaté, récupération, destination et provenance encore inconnue.",
+        "acceptance": "Un état inconnu reste inconnu; les données de soins ne sont pas converties en liste publique de témoins.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Assets",
+      "sourceRowIndex": 61,
+      "id": "AS62",
+      "status": "À produire",
+      "deliverable": "Appel, accord et alerte de saisie",
+      "criterion": "Le dialogue correspond à un interlocuteur disponible; sous-titres et signaux visuels portent la même information.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "AS62",
+        "category": "Audio Nacre",
+        "deliverable": "Appel, accord et alerte de saisie",
+        "spec": "Voix de personnel, liaison Mara, moteurs et alerte annonçant le danger sans masquer l’interaction.",
+        "acceptance": "Le dialogue correspond à un interlocuteur disponible; sous-titres et signaux visuels portent la même information.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 1,
+      "id": "PR02",
+      "status": "À produire",
+      "deliverable": "Bible structurée, campagne et Excel régénérable depuis la même source.",
+      "criterion": "IDs uniques, liens cohérents, onglets lisibles, statuts honnêtes et inventaire des sources.",
+      "explicitDependencies": "VI01–VI16",
+      "sourceRecord": {
+        "id": "PR02",
+        "workstream": "Conception",
+        "deliverable": "Bible structurée, campagne et Excel régénérable depuis la même source.",
+        "depends": "VI01–VI16",
+        "acceptance": "IDs uniques, liens cohérents, onglets lisibles, statuts honnêtes et inventaire des sources.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 13,
+      "id": "PR14",
+      "status": "À produire",
+      "deliverable": "Véritables articulations endommageables, armure/incidence et terrain physique.",
+      "criterion": "Ennemis et joueur utilisent les mêmes règles; avarie visible et comportement modifié.",
+      "explicitDependencies": "PR04; PR05",
+      "sourceRecord": {
+        "id": "PR14",
+        "workstream": "Systèmes avancés",
+        "deliverable": "Véritables articulations endommageables, armure/incidence et terrain physique.",
+        "depends": "PR04; PR05",
+        "acceptance": "Ennemis et joueur utilisent les mêmes règles; avarie visible et comportement modifié.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 14,
+      "id": "PR15",
+      "status": "À produire",
+      "deliverable": "Couverture, coopération, repli, reddition et fin d’engagement.",
+      "criterion": "Scénarios contre chaque doctrine, sans tirs à travers obstacles ni poursuite infinie.",
+      "explicitDependencies": "PR05; SY16–SY18",
+      "sourceRecord": {
+        "id": "PR15",
+        "workstream": "IA",
+        "deliverable": "Couverture, coopération, repli, reddition et fin d’engagement.",
+        "depends": "PR05; SY16–SY18",
+        "acceptance": "Scénarios contre chaque doctrine, sans tirs à travers obstacles ni poursuite infinie.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 16,
+      "id": "PR17",
+      "status": "À produire",
+      "deliverable": "MI01–MI08 et CT01–CT04 sur Vesper/Nacre.",
+      "criterion": "Parcours complet avec variantes de preuves et pertes locales persistantes.",
+      "explicitDependencies": "PR16; AS16; AS17",
+      "sourceRecord": {
+        "id": "PR17",
+        "workstream": "Acte I",
+        "deliverable": "MI01–MI08 et CT01–CT04 sur Vesper/Nacre.",
+        "depends": "PR16; AS16; AS17",
+        "acceptance": "Parcours complet avec variantes de preuves et pertes locales persistantes.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 17,
+      "id": "PR18",
+      "status": "À produire",
+      "deliverable": "MI09–MI16 et CT05–CT08, départ de l’Empire.",
+      "criterion": "Défection cohérente avec équipage, stocks et sources conservées.",
+      "explicitDependencies": "PR17; AS18; AS19",
+      "sourceRecord": {
+        "id": "PR18",
+        "workstream": "Acte II",
+        "deliverable": "MI09–MI16 et CT05–CT08, départ de l’Empire.",
+        "depends": "PR17; AS18; AS19",
+        "acceptance": "Défection cohérente avec équipage, stocks et sources conservées.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 18,
+      "id": "PR19",
+      "status": "À produire",
+      "deliverable": "MI17–MI24 et CT09–CT12, alliance et dossier.",
+      "criterion": "Démontrer plusieurs chemins valides vers dossier triangulé et coalition.",
+      "explicitDependencies": "PR18; AS19; AS20",
+      "sourceRecord": {
+        "id": "PR19",
+        "workstream": "Acte III",
+        "deliverable": "MI17–MI24 et CT09–CT12, alliance et dossier.",
+        "depends": "PR18; AS19; AS20",
+        "acceptance": "Démontrer plusieurs chemins valides vers dossier triangulé et coalition.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 19,
+      "id": "PR20",
+      "status": "À produire",
+      "deliverable": "MI25–MI32 et CT13–CT16, finale et épilogues.",
+      "criterion": "Quatre familles de fins testées avec états antérieurs et conséquences locales.",
+      "explicitDependencies": "PR19; NA01–NA16",
+      "sourceRecord": {
+        "id": "PR20",
+        "workstream": "Acte IV",
+        "deliverable": "MI25–MI32 et CT13–CT16, finale et épilogues.",
+        "depends": "PR19; NA01–NA16",
+        "acceptance": "Quatre familles de fins testées avec états antérieurs et conséquences locales.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 21,
+      "id": "PR22",
+      "status": "À produire",
+      "deliverable": "Douze châssis avec rôles distincts et tous équipements compatibles.",
+      "criterion": "Routes de niveaux validées pour châssis autorisés; aucun softlock par choix matériel.",
+      "explicitDependencies": "PR21; WK01–WK12",
+      "sourceRecord": {
+        "id": "PR22",
+        "workstream": "Flotte complète",
+        "deliverable": "Douze châssis avec rôles distincts et tous équipements compatibles.",
+        "depends": "PR21; WK01–WK12",
+        "acceptance": "Routes de niveaux validées pour châssis autorisés; aucun softlock par choix matériel.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 22,
+      "id": "PR23",
+      "status": "À produire",
+      "deliverable": "Faune, flore et activités civiles par planète.",
+      "criterion": "Rencontre écologique contextualisée, états après mission et budgets de simulation respectés.",
+      "explicitDependencies": "PR17–PR20; FU01–FU24; FL01–FL24",
+      "sourceRecord": {
+        "id": "PR23",
+        "workstream": "Vie des mondes",
+        "deliverable": "Faune, flore et activités civiles par planète.",
+        "depends": "PR17–PR20; FU01–FU24; FL01–FL24",
+        "acceptance": "Rencontre écologique contextualisée, états après mission et budgets de simulation respectés.",
+        "priority": "P2",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 23,
+      "id": "PR24",
+      "status": "À produire",
+      "deliverable": "Reconfiguration, manette, marche assistée, contraste, texte et secousses.",
+      "criterion": "Tester avec utilisateurs concernés et matériel réellement disponible.",
+      "explicitDependencies": "PR09; SY27",
+      "sourceRecord": {
+        "id": "PR24",
+        "workstream": "Accessibilité",
+        "deliverable": "Reconfiguration, manette, marche assistée, contraste, texte et secousses.",
+        "depends": "PR09; SY27",
+        "acceptance": "Tester avec utilisateurs concernés et matériel réellement disponible.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 24,
+      "id": "PR25",
+      "status": "À produire",
+      "deliverable": "Application autonome, mises à jour, sauvegardes portables et documentation.",
+      "criterion": "Installation propre, désinstallation sans perte arbitraire et migration testée.",
+      "explicitDependencies": "PR13; PR20; PR24",
+      "sourceRecord": {
+        "id": "PR25",
+        "workstream": "Distribution",
+        "deliverable": "Application autonome, mises à jour, sauvegardes portables et documentation.",
+        "depends": "PR13; PR20; PR24",
+        "acceptance": "Installation propre, désinstallation sans perte arbitraire et migration testée.",
+        "priority": "P2",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 25,
+      "id": "PR26",
+      "status": "À produire",
+      "deliverable": "Revue nom, droits des assets, licences, âge cible et exigences des boutiques.",
+      "criterion": "Vérifications documentées par les personnes compétentes avant engagement commercial.",
+      "explicitDependencies": "PR20; AS30",
+      "sourceRecord": {
+        "id": "PR26",
+        "workstream": "Commercialisation",
+        "deliverable": "Revue nom, droits des assets, licences, âge cible et exigences des boutiques.",
+        "depends": "PR20; AS30",
+        "acceptance": "Vérifications documentées par les personnes compétentes avant engagement commercial.",
+        "priority": "P2",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 26,
+      "id": "PR27",
+      "status": "À produire",
+      "deliverable": "Découpage équipe, estimation et financement après niveau de référence.",
+      "criterion": "Estimations fondées sur temps réellement observés; hypothèses et réserves explicites.",
+      "explicitDependencies": "PR16",
+      "sourceRecord": {
+        "id": "PR27",
+        "workstream": "Pilotage production",
+        "deliverable": "Découpage équipe, estimation et financement après niveau de référence.",
+        "depends": "PR16",
+        "acceptance": "Estimations fondées sur temps réellement observés; hypothèses et réserves explicites.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 31,
+      "id": "PR32",
+      "status": "À produire",
+      "deliverable": "Parcours interactifs et reprise après rechargement sur le navigateur disponible.",
+      "criterion": "Environnement, dimensions, actions réellement exécutées et limites consignés. Aucun contrôle statique ou état injecté présenté comme partie humaine complète.",
+      "explicitDependencies": "PR29–PR31; PR09",
+      "sourceRecord": {
+        "id": "PR32",
+        "workstream": "Validation navigateur 0.2",
+        "deliverable": "Parcours interactifs et reprise après rechargement sur le navigateur disponible.",
+        "depends": "PR29–PR31; PR09",
+        "acceptance": "Environnement, dimensions, actions réellement exécutées et limites consignés. Aucun contrôle statique ou état injecté présenté comme partie humaine complète.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 34,
+      "id": "PR35",
+      "status": "À produire",
+      "deliverable": "Art final du train et des harpons, animation des portes et des ouvriers, freinage et déraillement mis en scène.",
+      "criterion": "L’état de chaque wagon et de chaque câble reste lisible en mouvement, à petite résolution et sans audio. Les images montrent les mêmes collisions et événements que la simulation.",
+      "explicitDependencies": "PR33; AS06; AS23",
+      "sourceRecord": {
+        "id": "PR35",
+        "workstream": "Finition du viaduc",
+        "deliverable": "Art final du train et des harpons, animation des portes et des ouvriers, freinage et déraillement mis en scène.",
+        "depends": "PR33; AS06; AS23",
+        "acceptance": "L’état de chaque wagon et de chaque câble reste lisible en mouvement, à petite résolution et sans audio. Les images montrent les mêmes collisions et événements que la simulation.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 35,
+      "id": "PR36",
+      "status": "À produire",
+      "deliverable": "Parcours réel MI01 vers MI02, reprise en poursuite, rapports, relecture et import v1 dans le navigateur de livraison.",
+      "criterion": "Environnement, commandes, dimensions et résultats réellement observés consignés. Les tests Node et DOM ne sont pas comptés comme validation navigateur.",
+      "explicitDependencies": "PR33; PR34; PR32",
+      "sourceRecord": {
+        "id": "PR36",
+        "workstream": "Validation navigateur 0.3",
+        "deliverable": "Parcours réel MI01 vers MI02, reprise en poursuite, rapports, relecture et import v1 dans le navigateur de livraison.",
+        "depends": "PR33; PR34; PR32",
+        "acceptance": "Environnement, commandes, dimensions et résultats réellement observés consignés. Les tests Node et DOM ne sont pas comptés comme validation navigateur.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 41,
+      "id": "PR42",
+      "status": "À produire",
+      "deliverable": "Parcours navigateur, perception des six silhouettes, commandes, pause, décision, import et reprise.",
+      "criterion": "Environnement et parcours réels nommés; test DOM et rendu Canvas ne remplacent pas cet essai.",
+      "explicitDependencies": "PR37–PR40; QA46–QA63",
+      "sourceRecord": {
+        "id": "PR42",
+        "workstream": "Validation humaine 0.4",
+        "deliverable": "Parcours navigateur, perception des six silhouettes, commandes, pause, décision, import et reprise.",
+        "depends": "PR37–PR40; QA46–QA63",
+        "acceptance": "Environnement et parcours réels nommés; test DOM et rendu Canvas ne remplacent pas cet essai.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 43,
+      "id": "PR44",
+      "status": "À produire",
+      "deliverable": "Observateur, tireur, couverture et repli coordonnés dans une rencontre de référence.",
+      "criterion": "Rôle difficile identifiable, télégraphe lisible et réponse différente d’un simple tir soutenu.",
+      "explicitDependencies": "SY37; EN01–EN04",
+      "sourceRecord": {
+        "id": "PR44",
+        "workstream": "Première doctrine d’escouade",
+        "deliverable": "Observateur, tireur, couverture et repli coordonnés dans une rencontre de référence.",
+        "depends": "SY37; EN01–EN04",
+        "acceptance": "Rôle difficile identifiable, télégraphe lisible et réponse différente d’un simple tir soutenu.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 44,
+      "id": "PR45",
+      "status": "À produire",
+      "deliverable": "Départ garanti, consommables, pièces spécialisées et services locaux; changement matériel après MI16.",
+      "criterion": "Parcours avec pertes et dépenses maximales conservent une route viable sans récompense répétable.",
+      "explicitDependencies": "SY40; SY41; PR21",
+      "sourceRecord": {
+        "id": "PR45",
+        "workstream": "Économie de campagne",
+        "deliverable": "Départ garanti, consommables, pièces spécialisées et services locaux; changement matériel après MI16.",
+        "depends": "SY40; SY41; PR21",
+        "acceptance": "Parcours avec pertes et dépenses maximales conservent une route viable sans récompense répétable.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 45,
+      "id": "PR46",
+      "status": "À produire",
+      "deliverable": "MI01 au niveau cible d’animation, art, son, interface et performance mesurée.",
+      "criterion": "Essais humains complets et coût de production par discipline avant engagement des biomes suivants.",
+      "explicitDependencies": "PR16; AS35; AS36",
+      "sourceRecord": {
+        "id": "PR46",
+        "workstream": "Niveau de référence",
+        "deliverable": "MI01 au niveau cible d’animation, art, son, interface et performance mesurée.",
+        "depends": "PR16; AS35; AS36",
+        "acceptance": "Essais humains complets et coût de production par discipline avant engagement des biomes suivants.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 46,
+      "id": "PR47",
+      "status": "À produire",
+      "deliverable": "Une relation écologique complète, puis un biome avec surface, obstacle, service et vie locale.",
+      "criterion": "Interaction prévisible, conséquence visible et intégration dans une mission; variantes produites ensuite.",
+      "explicitDependencies": "SY39; AS37; PL03",
+      "sourceRecord": {
+        "id": "PR47",
+        "workstream": "Écologie et planète",
+        "deliverable": "Une relation écologique complète, puis un biome avec surface, obstacle, service et vie locale.",
+        "depends": "SY39; AS37; PL03",
+        "acceptance": "Interaction prévisible, conséquence visible et intégration dans une mission; variantes produites ensuite.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 47,
+      "id": "PR48",
+      "status": "À produire",
+      "deliverable": "Contrats de tous les retours, redondance des sources, pactes et résolution FI01–FI04.",
+      "criterion": "Table d’états testée et lecture narrative humaine; aucun témoin ressuscité ni source inventée.",
+      "explicitDependencies": "NA20–NA31; PR20",
+      "sourceRecord": {
+        "id": "PR48",
+        "workstream": "Résolution de campagne",
+        "deliverable": "Contrats de tous les retours, redondance des sources, pactes et résolution FI01–FI04.",
+        "depends": "NA20–NA31; PR20",
+        "acceptance": "Table d’états testée et lecture narrative humaine; aucun témoin ressuscité ni source inventée.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 51,
+      "id": "PR52",
+      "status": "À produire",
+      "deliverable": "Habillage, animation, audio et observation humaine de la continuité des quatre sorties.",
+      "criterion": "Le joueur relie spontanément une conséquence de MI04 à un acte précédent et comprend l’avarie sans explication extérieure.",
+      "explicitDependencies": "PR46; AS39–AS42; QA78",
+      "sourceRecord": {
+        "id": "PR52",
+        "workstream": "Vesper fini",
+        "deliverable": "Habillage, animation, audio et observation humaine de la continuité des quatre sorties.",
+        "depends": "PR46; AS39–AS42; QA78",
+        "acceptance": "Le joueur relie spontanément une conséquence de MI04 à un acte précédent et comprend l’avarie sans explication extérieure.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 53,
+      "id": "PR54",
+      "status": "À produire",
+      "deliverable": "Appliquer un composant local équivalent à une machine ennemie de référence.",
+      "criterion": "Le joueur identifie la pièce, la neutralise par collision réelle et obtient une fenêtre tactique lisible.",
+      "explicitDependencies": "PR50; SY36; EN01–EN36",
+      "sourceRecord": {
+        "id": "PR54",
+        "workstream": "Avarie adverse",
+        "deliverable": "Appliquer un composant local équivalent à une machine ennemie de référence.",
+        "depends": "PR50; SY36; EN01–EN36",
+        "acceptance": "Le joueur identifie la pièce, la neutralise par collision réelle et obtient une fenêtre tactique lisible.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 54,
+      "id": "PR55",
+      "status": "À produire",
+      "deliverable": "Production du recoupement PT03, provenance distincte, dépôt et diffusion séparés.",
+      "criterion": "Branche sans PT01 terminable avec dossier différent; aucune source perdue recréée ni publication imposée par la seule collecte.",
+      "explicitDependencies": "NA32–NA38; MI13–MI16; PR48",
+      "sourceRecord": {
+        "id": "PR55",
+        "workstream": "Chaîne de preuve future",
+        "deliverable": "Production du recoupement PT03, provenance distincte, dépôt et diffusion séparés.",
+        "depends": "NA32–NA38; MI13–MI16; PR48",
+        "acceptance": "Branche sans PT01 terminable avec dossier différent; aucune source perdue recréée ni publication imposée par la seule collecte.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 55,
+      "id": "PR56",
+      "status": "À produire",
+      "deliverable": "Mesurer sur MI01 fini le temps et les reprises par discipline, puis calibrer le lot Nacre.",
+      "criterion": "Plan de production fondé sur travail observé; pas de calendrier commercial déduit du nombre de fiches.",
+      "explicitDependencies": "PR46; AS35; essais humains",
+      "sourceRecord": {
+        "id": "PR56",
+        "workstream": "Coût de fabrication",
+        "deliverable": "Mesurer sur MI01 fini le temps et les reprises par discipline, puis calibrer le lot Nacre.",
+        "depends": "PR46; AS35; essais humains",
+        "acceptance": "Plan de production fondé sur travail observé; pas de calendrier commercial déduit du nombre de fiches.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 61,
+      "id": "PR62",
+      "status": "À produire",
+      "deliverable": "Deux portes sous pression, file de bateaux, destination de refuge et décision d’exécution de l’ordre.",
+      "criterion": "Les sorties sont observées et conservées. Une perte de personne ou de source ne bloque pas la campagne et n’est pas annulée au rapport.",
+      "explicitDependencies": "SY62; AS50; MI05–MI07",
+      "sourceRecord": {
+        "id": "PR62",
+        "workstream": "MI08 — portes",
+        "deliverable": "Deux portes sous pression, file de bateaux, destination de refuge et décision d’exécution de l’ordre.",
+        "depends": "SY62; AS50; MI05–MI07",
+        "acceptance": "Les sorties sont observées et conservées. Une perte de personne ou de source ne bloque pas la campagne et n’est pas annulée au rapport.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 62,
+      "id": "PR63",
+      "status": "À produire",
+      "deliverable": "Kit final du chenal, barges, ferry, silhouettes et scènes sonores.",
+      "criterion": "Rendu, collision et son concordent. Essai humain documenté pour lisibilité, compréhension et fatigue visuelle.",
+      "explicitDependencies": "AS44–AS47; PR46",
+      "sourceRecord": {
+        "id": "PR63",
+        "workstream": "Nacre — production visuelle",
+        "deliverable": "Kit final du chenal, barges, ferry, silhouettes et scènes sonores.",
+        "depends": "AS44–AS47; PR46",
+        "acceptance": "Rendu, collision et son concordent. Essai humain documenté pour lisibilité, compréhension et fatigue visuelle.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 63,
+      "id": "PR64",
+      "status": "À produire",
+      "deliverable": "Scènes de Vann et Mara, conditions de retour et fenêtre de CT03/CT04.",
+      "criterion": "Chaque réplique nomme un acte connu. Aucun service militaire rendu ne donne automatiquement confiance, témoignage ou recrutement.",
+      "explicitDependencies": "NA41; NA45; NA48; CT03; CT04",
+      "sourceRecord": {
+        "id": "PR64",
+        "workstream": "Relations locales",
+        "deliverable": "Scènes de Vann et Mara, conditions de retour et fenêtre de CT03/CT04.",
+        "depends": "NA41; NA45; NA48; CT03; CT04",
+        "acceptance": "Chaque réplique nomme un acte connu. Aucun service militaire rendu ne donne automatiquement confiance, témoignage ou recrutement.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 64,
+      "id": "PR65",
+      "status": "À produire",
+      "deliverable": "Parcours de joueurs sur marée, tablier, tir sur treuil, inspection et protection du bateau.",
+      "criterion": "Observations sans explication extérieure, matériel et conditions notés; difficultés corrigées avant élargissement du biome.",
+      "explicitDependencies": "PR57; PR59; QA95",
+      "sourceRecord": {
+        "id": "PR65",
+        "workstream": "Essai humain de Nacre",
+        "deliverable": "Parcours de joueurs sur marée, tablier, tir sur treuil, inspection et protection du bateau.",
+        "depends": "PR57; PR59; QA95",
+        "acceptance": "Observations sans explication extérieure, matériel et conditions notés; difficultés corrigées avant élargissement du biome.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 69,
+      "id": "PR70",
+      "status": "À produire",
+      "deliverable": "Scène de constat, voix et variantes locales, avec source de connaissance et lieu de parole explicites.",
+      "criterion": "Mara ne promet pas une alliance en remerciant une évacuation; une maison perdue conserve une réplique adaptée même sans mort.",
+      "explicitDependencies": "PN07; NA45; NA51; AS55",
+      "sourceRecord": {
+        "id": "PR70",
+        "workstream": "Mara — mise en scène",
+        "deliverable": "Scène de constat, voix et variantes locales, avec source de connaissance et lieu de parole explicites.",
+        "depends": "PN07; NA45; NA51; AS55",
+        "acceptance": "Mara ne promet pas une alliance en remerciant une évacuation; une maison perdue conserve une réplique adaptée même sans mort.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 70,
+      "id": "PR71",
+      "status": "À produire",
+      "deliverable": "Mise en scène finale des trajets déjà simulés, gestes d’accueil à l’abri, animations de secours et travail détaillé des techniciens.",
+      "criterion": "La foule visible et le compte sauvegardé correspondent. Un habitant évacué n’est pas dessiné dans la maison ensuite détruite.",
+      "explicitDependencies": "AS52; AS53; NA56",
+      "sourceRecord": {
+        "id": "PR71",
+        "workstream": "Secours visibles",
+        "deliverable": "Mise en scène finale des trajets déjà simulés, gestes d’accueil à l’abri, animations de secours et travail détaillé des techniciens.",
+        "depends": "AS52; AS53; NA56",
+        "acceptance": "La foule visible et le compte sauvegardé correspondent. Un habitant évacué n’est pas dessiné dans la maison ensuite détruite.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 72,
+      "id": "PR73",
+      "status": "À produire",
+      "deliverable": "Sessions sans guidage extérieur sur appuis, soutien, travaux après décision, évacuation et carburant dépensé.",
+      "criterion": "Matériel, consignes et observations documentés. Corriger les confusions avant d’annoncer la lisibilité finale du dispositif.",
+      "explicitDependencies": "PR60; PR68; QA115",
+      "sourceRecord": {
+        "id": "PR73",
+        "workstream": "Essai humain de la digue",
+        "deliverable": "Sessions sans guidage extérieur sur appuis, soutien, travaux après décision, évacuation et carburant dépensé.",
+        "depends": "PR60; PR68; QA115",
+        "acceptance": "Matériel, consignes et observations documentés. Corriger les confusions avant d’annoncer la lisibilité finale du dispositif.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 73,
+      "id": "PR74",
+      "status": "À produire",
+      "deliverable": "Art, mouvement, son et feedback de pression cohérents sur le panneau, les conduites et les maisons.",
+      "criterion": "Les ruptures sont annoncées et localisées. Aucun fluide général ou modèle de résistance de quai déclaré livré par les seuls états locaux.",
+      "explicitDependencies": "AS48; AS52–AS54; PR46",
+      "sourceRecord": {
+        "id": "PR74",
+        "workstream": "Finition hydraulique",
+        "deliverable": "Art, mouvement, son et feedback de pression cohérents sur le panneau, les conduites et les maisons.",
+        "depends": "AS48; AS52–AS54; PR46",
+        "acceptance": "Les ruptures sont annoncées et localisées. Aucun fluide général ou modèle de résistance de quai déclaré livré par les seuls états locaux.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 78,
+      "id": "PR79",
+      "status": "À produire",
+      "deliverable": "Art, gestes d’arrêt, accès sanitaire, balise et audio final de la chaussée.",
+      "criterion": "Matériel, collisions et actions restent concordants. Le kit procédural ne clôt pas les assets finaux.",
+      "explicitDependencies": "AS49; AS58–AS62",
+      "sourceRecord": {
+        "id": "PR79",
+        "workstream": "Finition ambulance",
+        "deliverable": "Art, gestes d’arrêt, accès sanitaire, balise et audio final de la chaussée.",
+        "depends": "AS49; AS58–AS62",
+        "acceptance": "Matériel, collisions et actions restent concordants. Le kit procédural ne clôt pas les assets finaux.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 79,
+      "id": "PR80",
+      "status": "À produire",
+      "deliverable": "Sessions sans guidage sur arrêt, accord, sources, rampe et destination.",
+      "criterion": "Matériel et observations documentés; aucune confusion entre choix et arrivée ou entre balise et auteur.",
+      "explicitDependencies": "PR61; PR76; QA137",
+      "sourceRecord": {
+        "id": "PR80",
+        "workstream": "Essai humain sanitaire",
+        "deliverable": "Sessions sans guidage sur arrêt, accord, sources, rampe et destination.",
+        "depends": "PR61; PR76; QA137",
+        "acceptance": "Matériel et observations documentés; aucune confusion entre choix et arrivée ou entre balise et auteur.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 80,
+      "id": "PR81",
+      "status": "À produire",
+      "deliverable": "Porte d’amenée, porte de passage, commandes, états de blocage et issues de repli.",
+      "criterion": "Chaque mécanisme a ses dégâts et son effet. Une source ou une porte détruite laisse un bilan terminable sans restauration fictive.",
+      "explicitDependencies": "MI06; MI07; SY62; PR62",
+      "sourceRecord": {
+        "id": "PR81",
+        "workstream": "MI08 — services et portes",
+        "deliverable": "Porte d’amenée, porte de passage, commandes, états de blocage et issues de repli.",
+        "depends": "MI06; MI07; SY62; PR62",
+        "acceptance": "Chaque mécanisme a ses dégâts et son effet. Une source ou une porte détruite laisse un bilan terminable sans restauration fictive.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "Production",
+      "sourceRowIndex": 81,
+      "id": "PR82",
+      "status": "À produire",
+      "deliverable": "Listes de personnes par origine, capacités de brancards, embarquement, départ et confirmation d’arrivée.",
+      "criterion": "Aucune duplication entre quai, bateau et refuge. Une destination annoncée n’est pas une arrivée observée.",
+      "explicitDependencies": "NA63; NA64; PR62; AS50",
+      "sourceRecord": {
+        "id": "PR82",
+        "workstream": "MI08 — personnes et accueil",
+        "deliverable": "Listes de personnes par origine, capacités de brancards, embarquement, départ et confirmation d’arrivée.",
+        "depends": "NA63; NA64; PR62; AS50",
+        "acceptance": "Aucune duplication entre quai, bateau et refuge. Une destination annoncée n’est pas une arrivée observée.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 0,
+      "id": "QA01",
+      "status": "À produire",
+      "deliverable": "Lancer depuis une copie propre du dépôt avec la commande documentée.",
+      "criterion": "Menu visible, ressources locales chargées, aucune dépendance cachée à la machine d’auteur.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA01",
+        "area": "Installation",
+        "scenario": "Lancer depuis une copie propre du dépôt avec la commande documentée.",
+        "expected": "Menu visible, ressources locales chargées, aucune dépendance cachée à la machine d’auteur.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 1,
+      "id": "QA02",
+      "status": "À produire",
+      "deliverable": "Marcher, reculer, arrêter et reprendre sur chaque surface du prototype.",
+      "criterion": "Deux membres visibles; contact continu pendant appui, corps cohérent et aucun téléport.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA02",
+        "area": "Bipède",
+        "scenario": "Marcher, reculer, arrêter et reprendre sur chaque surface du prototype.",
+        "expected": "Deux membres visibles; contact continu pendant appui, corps cohérent et aucun téléport.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 2,
+      "id": "QA03",
+      "status": "À produire",
+      "deliverable": "Alterner déplacement et tir en ancrage avec Bastion.",
+      "criterion": "Quatre pattes, motif spécifique et stabilité différente du bipède.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA03",
+        "area": "Quadrupède",
+        "scenario": "Alterner déplacement et tir en ancrage avec Bastion.",
+        "expected": "Quatre pattes, motif spécifique et stabilité différente du bipède.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 3,
+      "id": "QA04",
+      "status": "À produire",
+      "deliverable": "Avancer lentement puis rapidement avec Pèlerin.",
+      "criterion": "Six membres et alternance des groupes lisibles; pas de membres superposés involontairement.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA04",
+        "area": "Hexapode",
+        "scenario": "Avancer lentement puis rapidement avec Pèlerin.",
+        "expected": "Six membres et alternance des groupes lisibles; pas de membres superposés involontairement.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 4,
+      "id": "QA05",
+      "status": "À produire",
+      "deliverable": "Vider, recharger, changer de sélection et reprendre la mission.",
+      "criterion": "Réserves cohérentes; compteur jamais négatif ni augmenté par un changement de menu.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA05",
+        "area": "Munitions",
+        "scenario": "Vider, recharger, changer de sélection et reprendre la mission.",
+        "expected": "Réserves cohérentes; compteur jamais négatif ni augmenté par un changement de menu.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 5,
+      "id": "QA06",
+      "status": "À produire",
+      "deliverable": "Maintenir le tir jusqu’au seuil, attendre puis reprendre.",
+      "criterion": "Verrouillage et reprise signalés; pas de tir furtif pendant la sécurité.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA06",
+        "area": "Chaleur",
+        "scenario": "Maintenir le tir jusqu’au seuil, attendre puis reprendre.",
+        "expected": "Verrouillage et reprise signalés; pas de tir furtif pendant la sécurité.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 6,
+      "id": "QA07",
+      "status": "À produire",
+      "deliverable": "Tirer à gauche et à droite, de très près, en posture basse et haute.",
+      "criterion": "Projectiles issus de l’arme et collision correcte sans traverser une cible proche.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA07",
+        "area": "Tirs",
+        "scenario": "Tirer à gauche et à droite, de très près, en posture basse et haute.",
+        "expected": "Projectiles issus de l’arme et collision correcte sans traverser une cible proche.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 7,
+      "id": "QA08",
+      "status": "À produire",
+      "deliverable": "Poser un pied sur une cible puis près d’une cible hors empreinte.",
+      "criterion": "Dégâts au contact réel seulement; absence de dégâts en restant simplement à proximité.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA08",
+        "area": "Piétinement",
+        "scenario": "Poser un pied sur une cible puis près d’une cible hors empreinte.",
+        "expected": "Dégâts au contact réel seulement; absence de dégâts en restant simplement à proximité.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 8,
+      "id": "QA09",
+      "status": "À produire",
+      "deliverable": "Aller aux deux limites de carte et changer taille de fenêtre pendant le mouvement.",
+      "criterion": "Monde borné, HUD accessible, visée correcte et aucune zone vide involontaire.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA09",
+        "area": "Caméra",
+        "scenario": "Aller aux deux limites de carte et changer taille de fenêtre pendant le mouvement.",
+        "expected": "Monde borné, HUD accessible, visée correcte et aucune zone vide involontaire.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 9,
+      "id": "QA10",
+      "status": "À produire",
+      "deliverable": "Mettre en pause pendant un tir ennemi et une escorte.",
+      "criterion": "Simulation gelée; reprise sans saut temporel ni projectile créé en rafale.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA10",
+        "area": "Pause",
+        "scenario": "Mettre en pause pendant un tir ennemi et une escorte.",
+        "expected": "Simulation gelée; reprise sans saut temporel ni projectile créé en rafale.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 10,
+      "id": "QA11",
+      "status": "À produire",
+      "deliverable": "Scanner hors portée, entrer à portée, interrompre puis terminer la copie.",
+      "criterion": "Condition de distance réelle, progression claire et preuve attribuée une seule fois.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA11",
+        "area": "OP01",
+        "scenario": "Scanner hors portée, entrer à portée, interrompre puis terminer la copie.",
+        "expected": "Condition de distance réelle, progression claire et preuve attribuée une seule fois.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 11,
+      "id": "QA12",
+      "status": "À produire",
+      "deliverable": "Détruire les trois relais dans plusieurs ordres puis atteindre extraction.",
+      "criterion": "Compteur exact et victoire au moment prévu; aucune dépendance à un ordre caché.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA12",
+        "area": "OP01",
+        "scenario": "Détruire les trois relais dans plusieurs ordres puis atteindre extraction.",
+        "expected": "Compteur exact et victoire au moment prévu; aucune dépendance à un ordre caché.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 12,
+      "id": "QA13",
+      "status": "À produire",
+      "deliverable": "Protéger le convoi jusqu’à la fin puis rejouer en le laissant détruire.",
+      "criterion": "Victoire et échec distincts; survivants et bilan corrects.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA13",
+        "area": "OP02",
+        "scenario": "Protéger le convoi jusqu’à la fin puis rejouer en le laissant détruire.",
+        "expected": "Victoire et échec distincts; survivants et bilan corrects.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 13,
+      "id": "QA14",
+      "status": "À produire",
+      "deliverable": "Battre l’adversaire lourd puis tester chaque décision.",
+      "criterion": "Choix différencié dans le rapport et la sauvegarde; pas de décision modifiable après validation sans rejouer.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA14",
+        "area": "OP03",
+        "scenario": "Battre l’adversaire lourd puis tester chaque décision.",
+        "expected": "Choix différencié dans le rapport et la sauvegarde; pas de décision modifiable après validation sans rejouer.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 14,
+      "id": "QA15",
+      "status": "À produire",
+      "deliverable": "Subir une destruction au milieu de chaque objectif.",
+      "criterion": "Défaite claire, arrêt de simulation, possibilité de recommencer proprement.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA15",
+        "area": "Défaite",
+        "scenario": "Subir une destruction au milieu de chaque objectif.",
+        "expected": "Défaite claire, arrêt de simulation, possibilité de recommencer proprement.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 15,
+      "id": "QA16",
+      "status": "À produire",
+      "deliverable": "Fermer après un résultat, rouvrir puis recommencer une autre opération.",
+      "criterion": "Progression persistante et état de mission neuf, sans ennemis ou projectiles résiduels.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA16",
+        "area": "Reprise",
+        "scenario": "Fermer après un résultat, rouvrir puis recommencer une autre opération.",
+        "expected": "Progression persistante et état de mission neuf, sans ennemis ou projectiles résiduels.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 16,
+      "id": "QA17",
+      "status": "À produire",
+      "deliverable": "Fournir une sauvegarde vide, ancienne ou mal formée.",
+      "criterion": "Valeurs par défaut sûres, message si nécessaire et aucune page bloquée.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA17",
+        "area": "Données invalides",
+        "scenario": "Fournir une sauvegarde vide, ancienne ou mal formée.",
+        "expected": "Valeurs par défaut sûres, message si nécessaire et aucune page bloquée.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 17,
+      "id": "QA18",
+      "status": "À produire",
+      "deliverable": "Bloquer le stockage navigateur ou atteindre sa limite.",
+      "criterion": "Le jeu reste jouable; impossibilité de sauvegarder indiquée honnêtement.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA18",
+        "area": "Stockage indisponible",
+        "scenario": "Bloquer le stockage navigateur ou atteindre sa limite.",
+        "expected": "Le jeu reste jouable; impossibilité de sauvegarder indiquée honnêtement.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 18,
+      "id": "QA19",
+      "status": "À produire",
+      "deliverable": "Perdre le focus en maintenant déplacement ou tir puis revenir.",
+      "criterion": "Entrées réinitialisées; aucune action maintenue sans intention du joueur.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA19",
+        "area": "Entrées",
+        "scenario": "Perdre le focus en maintenant déplacement ou tir puis revenir.",
+        "expected": "Entrées réinitialisées; aucune action maintenue sans intention du joueur.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 19,
+      "id": "QA20",
+      "status": "À produire",
+      "deliverable": "Vérifier écran large, petite fenêtre et zoom de texte.",
+      "criterion": "Contrôles non tronqués, boutons atteignables, indicateurs lisibles et canvas proportionnel.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA20",
+        "area": "Affichage",
+        "scenario": "Vérifier écran large, petite fenêtre et zoom de texte.",
+        "expected": "Contrôles non tronqués, boutons atteignables, indicateurs lisibles et canvas proportionnel.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 20,
+      "id": "QA21",
+      "status": "À produire",
+      "deliverable": "Naviguer dans les menus avec Tab, Entrée et Échap.",
+      "criterion": "Focus visible, ordre logique et fermeture du panneau prévue.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA21",
+        "area": "Clavier",
+        "scenario": "Naviguer dans les menus avec Tab, Entrée et Échap.",
+        "expected": "Focus visible, ordre logique et fermeture du panneau prévue.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 21,
+      "id": "QA22",
+      "status": "À produire",
+      "deliverable": "Démarrer sans interaction, activer le son, couper puis relancer.",
+      "criterion": "Aucun son imposé avant interaction; volume maîtrisé, silence réel et absence d’erreur d’audio.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA22",
+        "area": "Audio",
+        "scenario": "Démarrer sans interaction, activer le son, couper puis relancer.",
+        "expected": "Aucun son imposé avant interaction; volume maîtrisé, silence réel et absence d’erreur d’audio.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 22,
+      "id": "QA23",
+      "status": "À produire",
+      "deliverable": "Mesurer séquence chargée avec nombre maximal attendu d’entités.",
+      "criterion": "Budget cible défini avec matériel et résolution; résultat mesuré, pas une estimation présentée comme test.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA23",
+        "area": "Performance",
+        "scenario": "Mesurer séquence chargée avec nombre maximal attendu d’entités.",
+        "expected": "Budget cible défini avec matériel et résolution; résultat mesuré, pas une estimation présentée comme test.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 23,
+      "id": "QA24",
+      "status": "À produire",
+      "deliverable": "Rejouer une séquence de simulation à plusieurs cadences de rendu.",
+      "criterion": "Résultats de collision et de progression équivalents dans la tolérance documentée.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA24",
+        "area": "Temps",
+        "scenario": "Rejouer une séquence de simulation à plusieurs cadences de rendu.",
+        "expected": "Résultats de collision et de progression équivalents dans la tolérance documentée.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 24,
+      "id": "QA25",
+      "status": "À produire",
+      "deliverable": "Vérifier IDs et références de tous onglets.",
+      "criterion": "Aucun ID dupliqué et chaque référence de contenu pointe vers une entrée existante ou une plage explicitée.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA25",
+        "area": "Intégrité bible",
+        "scenario": "Vérifier IDs et références de tous onglets.",
+        "expected": "Aucun ID dupliqué et chaque référence de contenu pointe vers une entrée existante ou une plage explicitée.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 25,
+      "id": "QA26",
+      "status": "À produire",
+      "deliverable": "Construire combinaisons de preuves, confiance, pertes et pactes.",
+      "criterion": "Quatre fins atteignables sans score de karma caché; états contradictoires détectés.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA26",
+        "area": "États narratifs",
+        "scenario": "Construire combinaisons de preuves, confiance, pertes et pactes.",
+        "expected": "Quatre fins atteignables sans score de karma caché; états contradictoires détectés.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 26,
+      "id": "QA27",
+      "status": "À produire",
+      "deliverable": "Finir chaque mission avec tous les châssis autorisés.",
+      "criterion": "Pas d’impasse de franchissement; chemin alternatif quand le gabarit est grand.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA27",
+        "area": "Niveau final",
+        "scenario": "Finir chaque mission avec tous les châssis autorisés.",
+        "expected": "Pas d’impasse de franchissement; chemin alternatif quand le gabarit est grand.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 27,
+      "id": "QA28",
+      "status": "À produire",
+      "deliverable": "Tirer, marcher et utiliser effets de zone près d’un transport protégé.",
+      "criterion": "Même logique de collision; dommages et conséquences explicités sans immunité arbitraire.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA28",
+        "area": "Civils",
+        "scenario": "Tirer, marcher et utiliser effets de zone près d’un transport protégé.",
+        "expected": "Même logique de collision; dommages et conséquences explicités sans immunité arbitraire.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 28,
+      "id": "QA29",
+      "status": "À produire",
+      "deliverable": "Ouvrir le classeur, trier les tables, modifier un statut et lire le tableau de bord.",
+      "criterion": "Filtres et volets utilisables; formules cohérentes, pas d’erreur ni de texte illisible.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA29",
+        "area": "Excel",
+        "scenario": "Ouvrir le classeur, trier les tables, modifier un statut et lire le tableau de bord.",
+        "expected": "Filtres et volets utilisables; formules cohérentes, pas d’erreur ni de texte illisible.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 29,
+      "id": "QA30",
+      "status": "À produire",
+      "deliverable": "Comparer chaque média embarqué à son entrée de registre.",
+      "criterion": "Chemin, origine, version et usage renseignés; médias de référence non distribués.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA30",
+        "area": "Provenance",
+        "scenario": "Comparer chaque média embarqué à son entrée de registre.",
+        "expected": "Chemin, origine, version et usage renseignés; médias de référence non distribués.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 36,
+      "id": "QA37",
+      "status": "À produire",
+      "deliverable": "Lancer MI01 depuis la page, mettre en pause, recharger puis reprendre; parcourir hangar, équipage et rapports aux dimensions testées.",
+      "criterion": "Reprise accessible, dialogues et commandes fonctionnels, état sauvegardé retrouvé. Étendue exacte et limites consignées dans le rapport navigateur.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA37",
+        "area": "Navigateur — reprise et interface",
+        "scenario": "Lancer MI01 depuis la page, mettre en pause, recharger puis reprendre; parcourir hangar, équipage et rapports aux dimensions testées.",
+        "expected": "Reprise accessible, dialogues et commandes fonctionnels, état sauvegardé retrouvé. Étendue exacte et limites consignées dans le rapport navigateur.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 37,
+      "id": "QA38",
+      "status": "À produire",
+      "deliverable": "Exporter un dossier depuis la page, l’importer avec confirmation puis essayer un fichier invalide.",
+      "criterion": "Fichier valide restitué sans double gain. Erreur explicite sur fichier invalide et conservation du dossier déjà présent.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA38",
+        "area": "Navigateur — sauvegarde portable",
+        "scenario": "Exporter un dossier depuis la page, l’importer avec confirmation puis essayer un fichier invalide.",
+        "expected": "Fichier valide restitué sans double gain. Erreur explicite sur fichier invalide et conservation du dossier déjà présent.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 44,
+      "id": "QA45",
+      "status": "À produire",
+      "deliverable": "Depuis le menu, débloquer MI02, charger son briefing, piloter puis recharger pendant la poursuite. Consulter les deux rapports et les relectures.",
+      "criterion": "Mission et sauvegarde attendues après navigation/rechargement, dialogues accessibles, train et objectifs lisibles. Dimensions et parcours exacts à consigner dans le rapport navigateur.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA45",
+        "area": "Navigateur — deuxième sortie",
+        "scenario": "Depuis le menu, débloquer MI02, charger son briefing, piloter puis recharger pendant la poursuite. Consulter les deux rapports et les relectures.",
+        "expected": "Mission et sauvegarde attendues après navigation/rechargement, dialogues accessibles, train et objectifs lisibles. Dimensions et parcours exacts à consigner dans le rapport navigateur.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 59,
+      "id": "QA60",
+      "status": "À produire",
+      "deliverable": "Parcourir la livraison dans un navigateur réel avec clavier, souris et sauvegarde locale.",
+      "criterion": "Environnement, console, images et parcours nommés; aucune validation déduite du seul modèle DOM.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA60",
+        "area": "Navigateur — 0.4",
+        "scenario": "Parcourir la livraison dans un navigateur réel avec clavier, souris et sauvegarde locale.",
+        "expected": "Environnement, console, images et parcours nommés; aucune validation déduite du seul modèle DOM.",
+        "priority": "P0",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 61,
+      "id": "QA62",
+      "status": "À produire",
+      "deliverable": "Finir briefing et décision au clavier; lire danger sans audio et faction sans seule couleur.",
+      "criterion": "Focus visible, textes lisibles et distinction fonctionnelle. Requiert des essais humains.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA62",
+        "area": "Accessibilité — parcours",
+        "scenario": "Finir briefing et décision au clavier; lire danger sans audio et faction sans seule couleur.",
+        "expected": "Focus visible, textes lisibles et distinction fonctionnelle. Requiert des essais humains.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 77,
+      "id": "QA78",
+      "status": "À produire",
+      "deliverable": "Dans un navigateur réel, reconnaître le radiateur touché, réparer et expliquer un héritage de Vesper.",
+      "criterion": "Environnement, commandes et observations documentés; perception et audio contrôlés par un parcours réel.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA78",
+        "area": "Essai humain — 0.5",
+        "scenario": "Dans un navigateur réel, reconnaître le radiateur touché, réparer et expliquer un héritage de Vesper.",
+        "expected": "Environnement, commandes et observations documentés; perception et audio contrôlés par un parcours réel.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 94,
+      "id": "QA95",
+      "status": "À produire",
+      "deliverable": "Faire jouer la mission sans consigne extérieure à des personnes sur un matériel déclaré.",
+      "criterion": "Elles anticipent la marée, distinguent treuil et coque, expliquent les deux équipages et retrouvent le résultat de leur sortie. Essai humain distinct des tests automatisés.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA95",
+        "area": "Essai humain — Nacre",
+        "scenario": "Faire jouer la mission sans consigne extérieure à des personnes sur un matériel déclaré.",
+        "expected": "Elles anticipent la marée, distinguent treuil et coque, expliquent les deux équipages et retrouvent le résultat de leur sortie. Essai humain distinct des tests automatisés.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 114,
+      "id": "QA115",
+      "status": "À produire",
+      "deliverable": "Faire jouer sans consigne extérieure sur un matériel déclaré.",
+      "criterion": "Les personnes distinguent soutien et verrou, décision et travaux, habitants et logements, dépense immédiate et rapport. Essai humain séparé des scripts.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA115",
+        "area": "Essai humain — digue",
+        "scenario": "Faire jouer sans consigne extérieure sur un matériel déclaré.",
+        "expected": "Les personnes distinguent soutien et verrou, décision et travaux, habitants et logements, dépense immédiate et rapport. Essai humain séparé des scripts.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    },
+    {
+      "sheet": "QA",
+      "sourceRowIndex": 136,
+      "id": "QA137",
+      "status": "À produire",
+      "deliverable": "Faire jouer sans consigne extérieure sur un matériel déclaré.",
+      "criterion": "Les personnes comprennent arrêt, accord, examen, récupération, route et arrivée. L’essai humain reste distinct des scripts.",
+      "explicitDependencies": "",
+      "sourceRecord": {
+        "id": "QA137",
+        "area": "Essai humain — ambulance",
+        "scenario": "Faire jouer sans consigne extérieure sur un matériel déclaré.",
+        "expected": "Les personnes comprennent arrêt, accord, examen, récupération, route et arrivée. L’essai humain reste distinct des scripts.",
+        "priority": "P1",
+        "status": "À produire"
+      }
+    }
+  ]
+}

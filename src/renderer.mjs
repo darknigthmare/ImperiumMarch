@@ -1,4 +1,5 @@
-import { terrainAt, radiatorBounds, channelSurfaceAt } from './simulation.mjs';
+import { terrainAt, radiatorBounds, channelSurfaceAt, departureGateBounds, departureWindow } from './simulation.mjs';
+import { drawProductionPart, productionLegPose } from './production-assets.mjs';
 import { WALKERS } from './content.mjs';
 
 const W = 1600, H = 900;
@@ -47,148 +48,49 @@ function strut(c, ax, ay, bx, by, width, back = false) {
 }
 
 function drawLeg(c, p, walker, f, back) {
-  const hx = p.x + f.homeOffset * (walker.legs === 2 ? 0.37 : 0.68);
-  const hy = p.y + p.height / 2 - 9;
-  const dx = f.x - hx, dy = f.y - hy;
-  const upper = walker.height * 0.62, lower = walker.height * 0.64;
-  const reach = Math.max(2, Math.min(Math.hypot(dx, dy), upper + lower - 2));
-  const a = Math.acos(clamp((upper * upper + reach * reach - lower * lower) / (2 * upper * reach), -1, 1));
-  const base = Math.atan2(dy, dx);
-  const bend = walker.legs === 2 ? -1 : f.homeOffset < 0 ? 1 : -1;
-  const kx = hx + Math.cos(base + a * bend) * upper;
-  const ky = hy + Math.sin(base + a * bend) * upper;
-  const thickness = walker.legs === 2 ? 23 : 18;
+  const pose = productionLegPose(p, walker, f), [hx, hy] = pose.hip, [kx, ky] = pose.knee;
+  const thickness = walker.legs === 2 ? 23 : 18, state = f.health < 45 ? 'damaged' : p.braced ? 'braced' : 'normal';
+  // Shared SVG/Canvas plates use the existing physical pivots and contact.
+  // The hydraulic links remain attached to the same IK, never to painted feet.
   line(c, hx + 9, hy, kx + 10, ky, '#152123', thickness + 7);
   line(c, kx + 10, ky, f.x + 8, f.y - 6, '#152123', thickness + 5);
-  strut(c, hx, hy, kx, ky, thickness, back);
-  strut(c, kx, ky, f.x, f.y - 8, thickness * 0.7, back);
-  // Two polished hydraulic rams run beside the load-bearing links.
-  const ox = back ? -8 : 9;
-  line(c, hx + ox, hy + 12, mix(kx, f.x, 0.3) + ox, mix(ky, f.y, 0.3), '#101a1d', 8);
-  line(c, hx + ox, hy + 12, kx + ox, ky + 9, back ? '#667377' : '#c6c9bd', 4);
-  line(c, kx + ox, ky + 9, mix(kx, f.x, 0.3) + ox, mix(ky, f.y, 0.3), '#48595b', 6);
-  circle(c, kx, ky, thickness * 0.65, '#222f32', '#85918a', 2);
-  circle(c, kx, ky, thickness * 0.34, '#a39e7f', '#18262b', 2);
-  line(c, kx - 5, ky, kx + 5, ky, '#293c40', 2);
-  circle(c, hx, hy, thickness * 0.62, '#18282b', '#75857f', 2);
-  const fx = f.x, fy = f.y;
-  const fw = walker.legs === 2 ? 27 : 22;
-  plate(c, [[fx - fw, fy - 13], [fx + fw - 5, fy - 13], [fx + fw + 5, fy - 5], [fx + fw + 4, fy + 2], [fx - fw - 5, fy + 2], [fx - fw - 5, fy - 5]], back ? '#526263' : '#999a85', '#27393c');
-  line(c, fx - fw - 3, fy, fx + fw + 3, fy, '#0f1e22', 4);
-  for (let i = -1; i <= 1; i++) line(c, fx + i * 11, fy - 10, fx + i * 11 + 3, fy - 3, '#d4bd87', 2);
-  if (f.health < 45) {
-    circle(c, kx + 3, ky - 3, 2.5, '#f18b56');
-    line(c, kx - 7, ky - 10, kx + 8, ky + 7, '#171b1c', 2);
+  for (const [part, start, end, height] of [['upper', pose.hip, pose.knee, thickness], ['lower', pose.knee, pose.ankle, thickness * .7]]) {
+    drawProductionPart(c, { walkerId: walker.id, part, x: start[0], y: start[1],
+      width: Math.hypot(end[0] - start[0], end[1] - start[1]), height,
+      rotation: Math.atan2(end[1] - start[1], end[0] - start[0]), back, state });
   }
+  const ox = back ? -8 : 9;
+  line(c, hx + ox, hy + 12, mix(kx, f.x, .3) + ox, mix(ky, f.y, .3), '#101a1d', 8);
+  line(c, hx + ox, hy + 12, kx + ox, ky + 9, back ? '#667377' : '#c6c9bd', 4);
+  line(c, kx + ox, ky + 9, mix(kx, f.x, .3) + ox, mix(ky, f.y, .3), '#48595b', 6);
+  for (const [part, x, y, scale] of [['hip', hx, hy, 1.24], ['knee', kx, ky, 1.3]])
+    drawProductionPart(c, { walkerId: walker.id, part, x, y, width: thickness * scale, height: thickness * scale, back, state });
+  drawProductionPart(c, { walkerId: walker.id, part: 'foot', x: f.x, y: f.y, back, state });
 }
 
 function drawWalker(c, p, walker, t, options = {}) {
-  const backFeet = p.feet.filter(f => f.side === 'back');
-  const frontFeet = p.feet.filter(f => f.side !== 'back');
   c.save();
-  for (const f of backFeet) drawLeg(c, p, walker, f, true);
-  const x = p.x, y = p.y;
-  const facing = p.facing || 1;
-  c.save(); c.translate(x, y); c.scale(facing, 1);
-  const shellLabel = (text, lx, ly, size, color) => {
-    c.save(); c.translate(lx, ly); c.scale(facing, 1); label(c, text, 0, 0, size, color); c.restore();
-  };
-  // Exposed cradle and suspension below the armored shell.
-  plate(c, [[-p.width * 0.45, 12], [p.width * 0.42, 12], [p.width * 0.34, 40], [-p.width * 0.32, 40]], '#4e6060', '#26393d');
-  for (let i = 0; i < walker.legs / 2; i++) circle(c, -p.width * 0.3 + i * p.width * 0.6 / Math.max(1, walker.legs / 2 - 1), 28, 10, '#1e3034', '#697d77', 2);
-  c.save(); c.scale(p.width / (walker.legs === 2 ? 126 : walker.legs === 4 ? 172 : 188), 1);
-  if (walker.legs === 2) {
-    plate(c, [[-65, -24], [-44, -43], [27, -41], [58, -22], [67, 10], [43, 31], [-42, 28], [-64, 9]], '#999b85', '#4c5b56');
-    plate(c, [[-41, -36], [21, -35], [30, -14], [-42, -12]], '#b1ae91', '#6f796b');
-    plate(c, [[35, -28], [57, -19], [63, 3], [28, 7], [24, -11]], '#798c84', '#293f42');
-    poly(c, [[29, -23], [51, -17], [54, -7], [30, -6]], '#f1c180', '#1e3339', 3);
-    line(c, 39, -19, 41, -7, '#3d4846', 2);
-    c.fillStyle = '#172a30'; c.fillRect(-64, -11, 22, 31);
-    for (let i = 0; i < 5; i++) line(c, -61, -7 + i * 5, -45, -7 + i * 5, '#657974', 2);
-    plate(c, [[-74, -27], [-60, -29], [-60, 13], [-73, 19], [-80, 8]], '#727e70', '#314a4a');
-    c.fillStyle = '#d3a767'; c.fillRect(-36, -30, 7, 19);
-    line(c, -29, -13, 19, -13, '#e3b16b', 2);
-    shellLabel(walker.designation || '12', -34, 12, 12, '#dfdcc0');
-    if (walker.id === 'WK02') {
-      plate(c, [[-48, -39], [26, -38], [43, -24], [-54, -22]], '#a1ad9b', '#506e66');
-      line(c, -43, -28, 26, -28, walker.color, 4);
-      plate(c, [[48, 12], [72, 7], [67, 24], [37, 29]], '#7d9c8d', '#2d4c49');
-    }
-    bolt(c, -49, -26); bolt(c, -45, 18); bolt(c, 17, 19); bolt(c, 21, -31);
-  } else if (walker.legs === 4) {
-    plate(c, [[-90, -14], [-65, -36], [44, -36], [85, -12], [81, 17], [58, 29], [-74, 28]], '#919986', '#405553');
-    plate(c, [[-62, -32], [35, -32], [57, -15], [-77, -15]], '#b4b397', '#727f6e');
-    plate(c, [[53, -23], [83, -8], [77, 11], [48, 13]], '#788e84', '#314a4e');
-    poly(c, [[53, -15], [77, -6], [73, 2], [50, 2]], '#efbf79', '#172d32', 2.5);
-    plate(c, [[-91, -4], [-55, -5], [-49, 18], [-87, 19]], '#6c7d6c', '#344f50');
-    for (let i = 0; i < 6; i++) line(c, -83 + i * 5, -2, -80 + i * 5, 14, '#1d3539', 3);
-    plate(c, [[-40, -8], [33, -8], [40, 18], [-44, 18]], '#84927a', '#4b645c');
-    line(c, -34, -1, 25, -1, walker.color || '#cca46c', 4); shellLabel(walker.designation || 'Q–40', -30, 13, 12, '#d5d6bb');
-    for (const bx of [-63, -34, 24, 64]) bolt(c, bx, 21);
-    c.fillStyle = '#3c5050'; c.fillRect(-38, -45, 58, 8); line(c, -36, -45, 17, -45, '#c9c5a5', 2);
-    if (walker.id === 'WK06') {
-      plate(c, [[-76, -37], [-70, -59], [-12, -59], [-4, -37]], '#c6bea0', '#6c7c69');
-      for (let i = 0; i < 4; i++) line(c, -62 + i * 13, -55, -59 + i * 13, -40, '#364d4d', 3);
-      line(c, 42, -32, 42, -62, '#637b71', 5); circle(c, 42, -64, 6, '#b8c8a8', '#233d42', 2);
-    }
-  } else {
-    plate(c, [[-99, -21], [-76, -39], [49, -37], [91, -19], [98, 10], [75, 29], [-80, 29], [-99, 10]], '#a3a18a', '#465c55');
-    plate(c, [[-75, -33], [42, -32], [57, -13], [-83, -13]], '#b4b196', '#758272');
-    plate(c, [[62, -26], [89, -12], [92, 4], [56, 10]], '#8c9b88', '#365455');
-    poly(c, [[65, -18], [83, -10], [85, -3], [61, -2]], '#f5cd8c', '#20383b', 2);
-    for (let j = 0; j < 3; j++) {
-      const xx = -67 + j * 31;
-      plate(c, [[xx, -6], [xx + 25, -6], [xx + 28, 17], [xx - 3, 17]], '#7d907a', '#3b5853');
-      for (let i = 0; i < 4; i++) line(c, xx + 4, -1 + i * 4, xx + 20, -1 + i * 4, '#233d3e', 2);
-      bolt(c, xx + 4, 20, 1.7);
-    }
-    c.fillStyle = walker.color || '#c6a766'; c.fillRect(30, -5, 9, 24); shellLabel(walker.designation || 'H6', -18, -20, 12, '#e3dfbe');
-    if (walker.id === 'WK10') {
-      for (let i = 0; i < 5; i++) {
-        const xx = -81 + i * 29;
-        plate(c, [[xx, -34], [xx + 23, -37], [xx + 31, -20], [xx - 4, -20]], '#afb39f', '#5e786c');
-      }
-      line(c, -89, -12, -107, -5, '#9ca88e', 7);
-    } else {
-      line(c, -92, -17, -92, -56, '#435a59', 7); line(c, -94, -56, -84, -56, '#9fa58d', 3);
-      line(c, -76, -31, -76, -61, '#435a59', 7); line(c, -80, -61, -70, -61, '#9fa58d', 3);
-    }
-  }
-  c.restore();
-  // Fine hardware gives the silhouette a consistent industrial construction.
-  const mastTop = ['WK02', 'WK10'].includes(walker.id) ? -53 : -73;
-  line(c, -20, -39, -20, mastTop, '#192d33', 3); line(c, -20, mastTop, -16, mastTop - 9, '#bac3a8', 1.6);
-  circle(c, -20, mastTop + 2, 2, '#d8aa66');
-  c.fillStyle = '#172e35'; c.fillRect(-11, -47, 26, 8); circle(c, 7, -43, 3, '#a6c1b2');
-  for (let i = 0; i < 5; i++) line(c, -p.width / 2 + 28 + i * 9, 24, -p.width / 2 + 33 + i * 9, 27, '#c8b487', 1);
-  c.restore();
-  for (const f of frontFeet) drawLeg(c, p, walker, f, false);
-  // Gimbal, recoil sleeve and rifled barrel rotate independently from the chassis.
-  c.save(); c.translate(x + 9, y + 8); c.rotate(p.aimAngle || 0);
-  const barrel = walker.legs === 4 ? 105 : walker.legs === 6 ? 94 : 85;
-  circle(c, 0, 0, 21, '#243b40', '#a7aa91', 3);
-  circle(c, 0, 0, 12, '#647b72', '#142f37', 3);
-  plate(c, [[-8, -12], [41, -12], [49, -8], [49, 8], [-8, 13]], '#9ca68b', '#3f5f59');
-  c.fillStyle = '#213a40'; c.fillRect(34, -6, barrel - 30, 12);
-  line(c, 41, -5, barrel, -5, '#bcc4aa', 3);
-  c.fillStyle = '#a5a68c'; c.fillRect(barrel - 10, -11, 17, 22);
-  c.fillStyle = '#233d45'; c.fillRect(barrel + 3, -8, 6, 16);
-  for (let i = 0; i < 4; i++) line(c, 48 + i * 9, -8, 48 + i * 9, 8, '#728b80', 2);
-  if (walker.legs === 6) { c.fillStyle = '#213a40'; c.fillRect(30, 14, 57, 6); line(c, 32, 14, 88, 14, '#9aa995', 1.5); }
-  if (p.fireCooldown > 0.1 && !options.hangar) {
+  for (const f of p.feet.filter(f => f.side === 'back')) drawLeg(c, p, walker, f, true);
+  drawProductionPart(c, { walkerId: walker.id, part: 'hull', x: p.x, y: p.y, width: p.width, height: p.height,
+    facing: p.facing || 1, state: p.hull / p.maxHull < .45 ? 'damaged' : p.braced ? 'braced' : 'normal' });
+  for (const f of p.feet.filter(f => f.side !== 'back')) drawLeg(c, p, walker, f, false);
+  drawProductionPart(c, { walkerId: walker.id, part: 'turret', x: p.x + 9, y: p.y + 8, rotation: p.aimAngle || 0 });
+  if (p.fireCooldown > .1 && !options.hangar) {
+    const barrel = walker.legs === 4 ? 105 : walker.legs === 6 ? 94 : 85;
+    c.save(); c.translate(p.x + 9, p.y + 8); c.rotate(p.aimAngle || 0);
     glow(c, barrel + 15, 0, 42, '#ffd58766');
     poly(c, [[barrel + 7, -7], [barrel + 40, -3], [barrel + 25, 0], [barrel + 48, 4], [barrel + 8, 8]], '#ffe2a2');
+    c.restore();
   }
-  c.restore();
   if (p.venting || p.heat > 70) {
     for (let i = 0; i < 5; i++) {
-      const phase = (t * 0.8 + i * 0.23) % 1;
-      c.globalAlpha = (1 - phase) * 0.18;
-      circle(c, x - facing * (p.width * 0.47 + phase * 20), y - 30 - phase * 85, 9 + phase * 27, '#d2d5c6');
+      const phase = (t * .8 + i * .23) % 1;
+      c.globalAlpha = (1 - phase) * .18;
+      circle(c, p.x - (p.facing || 1) * (p.width * .47 + phase * 20), p.y - 30 - phase * 85, 9 + phase * 27, '#d2d5c6');
     }
     c.globalAlpha = 1;
   }
-  if (p.flash > 0) { glow(c, x, y, p.width, '#ff8c5345'); }
+  if (p.flash > 0) glow(c, p.x, p.y, p.width, '#ff8c5345');
   c.restore();
 }
 
@@ -233,11 +135,12 @@ export class Renderer {
     if (s.channel) this.drawChannel(s, t);
     if (s.dike) this.drawDike(s, t);
     if (s.ambulance) this.drawAmbulanceSite(s, t);
+    if (s.departure) this.drawDepartureSite(s, t);
     for (const r of s.relays) if (this.visible(r.x, 150)) this.drawRelay(r, s);
-    if (!s.train && !s.industrial && !s.dike && !s.ambulance) this.drawEvidence(s, t);
+    if (!s.train && !s.industrial && !s.dike && !s.ambulance && !s.departure) this.drawEvidence(s, t);
     this.drawExtraction(s, t);
     for (const item of s.pickups) if (!item.collected && this.visible(item.x, 100)) this.drawSupply(item, t);
-    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped) && (!e.id.startsWith('seizure-drone-') || s.ambulance?.raidTriggered));
+    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped) && (!e.id.startsWith('seizure-drone-') || s.ambulance?.raidTriggered) && (!e.id.startsWith('aval-control-drone-') || s.departure?.alert.triggered));
     for (const e of visibleEnemies) this.drawTelegraph(e, s, t);
     for (const civilian of s.civilians) if (civilian.alive && !civilian.safe && this.visible(civilian.x, 100)) this.drawHuman(civilian, t, true);
     if (s.convoy && this.visible(s.convoy.x, 200)) this.drawConvoy(s.convoy, t);
@@ -248,6 +151,7 @@ export class Renderer {
     this.drawRadiator(s, t);
     if (s.dike) { this.drawDikeControls(s, t); this.drawDikePeople(s, t); }
     if (s.ambulance) { this.drawAmbulanceVehicle(s, t); this.drawAmbulancePeople(s, t); }
+    if (s.departure) { this.drawDepartureBoats(s, t); this.drawDeparturePeople(s, t); }
     for (const e of visibleEnemies) if (e.kind === 'air') this.drawEnemy(e, s, t);
     this.drawShots(s);
     this.drawParticles(s);
@@ -258,12 +162,237 @@ export class Renderer {
     if (s.channel) this.drawChannelLabels(s);
     if (s.dike) this.drawDikeLabels(s);
     if (s.ambulance) this.drawAmbulanceLabels(s);
+    if (s.departure) this.drawDepartureLabels(s);
     c.restore();
     this.drawAtmosphere(s, t);
     this.drawMarkers(s);
     if (s.channel && options.tideInstrument !== false) this.drawChannelTide(s);
+    if (s.departure && options.departureInstrument !== false) this.drawDepartureInstrument(s);
     if (options.pointer?.visible) this.drawReticle(options.pointer, s);
     if (s.interaction && options.interactionPrompt !== false) this.drawInteraction(s);
+  }
+
+  drawDepartureSite(s, t) {
+    const c = this.ctx, d = s.departure, settings = s.mission.departure;
+    const from = Math.max(this.cameraX - 40, settings.intakeX - 65), to = Math.min(this.cameraX + W + 40, settings.refugeX + 180);
+    if (to > from) {
+      // The quay is a walkable bank. Water is below that contact plane; its
+      // instrument and marked levels come from the simulated basin and tide.
+      const water = c.createLinearGradient(0, 678, 0, 795);
+      water.addColorStop(0, '#7aa994b3'); water.addColorStop(.22, '#356c70d9'); water.addColorStop(1, '#193e4a');
+      c.fillStyle = water; c.fillRect(from, 680, to - from, 112);
+      for (let row = 0; row < 7; row++) for (let x = Math.floor(from / 78) * 78; x < to; x += 78) {
+        const drift = Math.sin(t * (1 + d.current) + row + x * .01) * 12;
+        line(c, x + drift, 690 + row * 12, x + 29 + drift, 690 + row * 12, row < 2 ? '#b6d1aa50' : '#6eaba535', 1.5);
+      }
+      for (let x = Math.floor(from / 72) * 72; x < to; x += 72) {
+        const y = terrainAt(x, s.planetId);
+        c.fillStyle = '#354e4c'; c.fillRect(x - 2, y + 4, 5, 49);
+        line(c, x - 4, y + 3, x + 65, terrainAt(x + 65, s.planetId) + 3, '#a8b594', 6);
+        line(c, x - 4, y, x + 65, terrainAt(x + 65, s.planetId), '#d1c9a0', 1.5);
+      }
+    }
+    for (const gate of d.locks) if (this.visible(gate.x, 380)) {
+      const box = departureGateBounds(gate), mech = gate.mechanism;
+      line(c, mech.x + 24, mech.y - 18, gate.x - 38, gate.y - 170, mech.destroyed ? '#7a6a55' : '#c3b683', 2);
+      drawProductionPart(c, { part: 'gate', x: gate.x, y: gate.y, width: gate.w, height: gate.h,
+        state: gate.destroyed ? 'destroyed' : gate.hp < gate.maxHp * .5 ? 'damaged' : gate.working ? 'working' : 'normal', progress: gate.opening });
+      drawProductionPart(c, { part: 'gate-mechanism', x: mech.x, y: mech.y, width: mech.w, height: mech.h,
+        state: mech.destroyed ? 'destroyed' : gate.working ? 'working' : 'normal', progress: gate.progress });
+      const color = gate.destroyed || mech.destroyed ? '#e1a178' : gate.working ? '#f0cf8d' : '#c4d5ae';
+      circle(c, mech.x, mech.y - 34, 4, color, '#1b3c40', 1.5);
+      c.fillStyle = '#183a40'; c.fillRect(mech.x - 28, mech.y + 35, 56, 4);
+      c.fillStyle = color; c.fillRect(mech.x - 28, mech.y + 35, 56 * mech.hp / mech.maxHp, 4);
+      if (gate.working || gate.scanning || gate.sealWorking) {
+        const progress = gate.working ? gate.progress : gate.scanning ? gate.scanProgress : gate.sealProgress;
+        c.fillStyle = '#19363a'; c.fillRect(mech.x - 32, mech.y - 44, 64, 4);
+        c.fillStyle = '#e5c084'; c.fillRect(mech.x - 32, mech.y - 44, 64 * progress, 4);
+      }
+      const markerX = gate.x + 84, markerY = terrainAt(markerX, s.planetId) - 58;
+      drawProductionPart(c, { part: 'tide-marker', x: markerX, y: markerY, width: 24, height: 110 });
+      const localLevel = gate.kind === 'intake' ? d.basin : d.tide.level;
+      line(c, markerX - 14, markerY + 50 - 92 * localLevel, markerX + 14, markerY + 50 - 92 * localLevel, '#c7e6c6', 3);
+      if (gate.sealed || gate.sealWorking) {
+        const progress = gate.sealed ? 1 : gate.sealProgress;
+        for (let row = 0; row < 4 * progress; row++) {
+          const y = terrainAt(mech.x + 56, s.planetId) - 8 - row * 10;
+          plate(c, [[mech.x + 33, y], [mech.x + 78, y - 3], [mech.x + 81, y + 6], [mech.x + 32, y + 8]], '#afb28b', '#5d7360');
+        }
+      }
+      if (gate.flash > 0) glow(c, box.x, box.y, gate.w, '#ffb26b44');
+    }
+    for (const [index, origin] of d.origins.entries()) if (this.visible(origin.x, 140)) {
+      const y = terrainAt(origin.x, s.planetId);
+      drawProductionPart(c, { part: index === 1 ? 'house-b' : 'house-a', x: origin.x, y: y - 48, width: 108, height: 96 });
+      c.fillStyle = '#163940'; c.fillRect(origin.x - 30, y - 93, 60, 17);
+      label(c, index === 0 ? 'CHENAL' : index === 1 ? 'DIGUE' : 'SOINS', origin.x, y - 81, 8, '#d1d0a6', 'center');
+      circle(c, origin.x + 42, y - 70, 3, origin.resolved ? '#b2d8b4' : '#e1bb77');
+    }
+    for (const post of [d.quay, d.refugeRadio, d.registry]) if (this.visible(post.x, 140)) {
+      drawProductionPart(c, { part: 'maintenance-post', x: post.x, y: post.y, width: post.w, height: post.h,
+        state: post.destroyed ? 'destroyed' : post.hp < post.maxHp * .5 ? 'damaged' : 'normal' });
+      if (post !== d.registry && !post.destroyed) {
+        line(c, post.x + 14, post.y - post.h / 2 + 5, post.x + 14, post.y - post.h / 2 - 29, '#bbc4a0', 2);
+        circle(c, post.x + 14, post.y - post.h / 2 - 29, 3, post.contacted ? '#bee4b7' : '#e2ba7d');
+      }
+      if (post.working) {
+        c.fillStyle = '#12343a'; c.fillRect(post.x - 35, post.y - post.h / 2 - 12, 70, 5);
+        c.fillStyle = '#c5d6b0'; c.fillRect(post.x - 35, post.y - post.h / 2 - 12, 70 * post.progress, 5);
+      }
+    }
+    if (this.visible(settings.serviceX, 100)) {
+      const y = terrainAt(settings.serviceX, s.planetId);
+      line(c, settings.serviceX - 22, y, settings.serviceX - 22, y - 100, '#455f5d', 4);
+      poly(c, [[settings.serviceX - 22, y - 97], [settings.serviceX + 16, y - 88], [settings.serviceX - 22, y - 79]], '#b6c49d', '#244d53', 1);
+      c.fillStyle = '#24484d'; c.fillRect(settings.serviceX - 13, y - 41, 26, 35);
+      circle(c, settings.serviceX, y - 28, 6, d.vann.contacted && d.mara.contacted ? '#bce1ae' : '#d4b57b');
+    }
+    for (const building of [d.serviceShelter, d.shelter, d.refuge]) if (this.visible(building.x, 230)) {
+      drawProductionPart(c, { part: 'refuge', x: building.x, y: building.y, width: building.w, height: building.h,
+        state: building === d.refuge ? d.refugeRadio.contacted ? 'receiving' : 'normal' : building.prepared ? 'receiving' : 'normal' });
+      const color = building === d.refuge ? '#c7ddb6' : '#e2c792';
+      label(c, building === d.refuge ? 'REFUGE EN AVAL' : building === d.serviceShelter ? 'RELAIS D’AMENÉE' : 'ACCUEIL D’AVAL', building.x, building.y - building.h / 2 - 10, 9, color, 'center');
+    }
+    for (const x of [...settings.boatXs, ...settings.refugeDockXs]) if (this.visible(x, 160))
+      drawProductionPart(c, { part: 'dock', x, y: terrainAt(x, s.planetId) + 16, width: 240, height: 88 });
+    for (const ramp of d.ramps) if (this.visible(ramp.x, 120)) {
+      drawProductionPart(c, { part: 'ramp', x: ramp.x, y: ramp.y, width: ramp.w, height: ramp.h,
+        state: ramp.destroyed ? 'destroyed' : ramp.prepared ? 'prepared' : ramp.working ? 'working' : 'normal', progress: ramp.progress });
+      if (ramp.working) {
+        c.fillStyle = '#193b40'; c.fillRect(ramp.x - 40, ramp.y - 26, 80, 4);
+        c.fillStyle = '#cdd5a6'; c.fillRect(ramp.x - 40, ramp.y - 26, 80 * ramp.progress, 4);
+      }
+    }
+  }
+
+  drawDepartureBoats(s, t) {
+    const c = this.ctx, d = s.departure;
+    for (const boat of d.boats) if (this.visible(boat.x, 160)) {
+      const state = boat.destroyed ? 'destroyed' : boat.arrived ? 'arrived' : boat.moving ? 'moving' : boat.phase === 'boarding' ? 'boarding' : 'waiting';
+      if (boat.moving) for (let i = 0; i < 4; i++) line(c, boat.x - boat.w / 2 - 8 - i * 11,
+        boat.y + 24 + Math.sin(t * 4 + i) * 2, boat.x - boat.w / 2 + 12 - i * 11, boat.y + 24, '#c8d9ad88', 2);
+      drawProductionPart(c, { part: boat.kind === 'municipal' ? 'boat-veille-aval' : 'barge-rive-courte',
+        x: boat.x, y: boat.y, width: boat.w, height: boat.h, state });
+      if (!boat.destroyed && boat.hp < boat.maxHp) {
+        c.fillStyle = '#193b40'; c.fillRect(boat.x - 36, boat.y + 41, 72, 4);
+        c.fillStyle = boat.hp < boat.maxHp * .4 ? '#dfad86' : '#adcfae'; c.fillRect(boat.x - 36, boat.y + 41, 72 * boat.hp / boat.maxHp, 4);
+      }
+      if (boat.flash > 0) glow(c, boat.x, boat.y, 90, '#ffb16955');
+    }
+  }
+
+  drawDeparturePeople(s, t) {
+    const c = this.ctx;
+    const colors = { refugee: '#9dc7b8', resident: '#d1c19a', patient: '#d7e1c8', staff: '#bed9cb', crew: '#94b0c2', technician: '#d6bd83', mara: '#cadfb3', harbourmaster: '#9eafcf' };
+    for (const person of s.departure.people) {
+      if (!person.alive || person.safe || ['origin', 'offsite'].includes(person.phase) || !this.visible(person.x, 60)) continue;
+      const color = colors[person.role], aboard = ['aboard', 'en-route'].includes(person.phase);
+      if (aboard) {
+        // Occupants are drawn once, at their simulated deck positions. Their
+        // lower bodies remain behind the hull, instead of duplicating a queue.
+        if (person.role === 'patient') line(c, person.x - 6, person.y - 5, person.x + 6, person.y - 5, color, 3);
+        else circle(c, person.x, person.y - 7, 2.5, color, '#264a50', 1);
+        continue;
+      }
+      const bottom = person.y + person.h / 2;
+      if (person.role === 'patient') {
+        this.drawShadow(person.x, bottom, 17, 3);
+        line(c, person.x - 15, bottom - 6, person.x + 15, bottom - 6, '#a2b6ab', 3);
+        circle(c, person.x - 10, bottom - 3, 2.5, '#173740'); circle(c, person.x + 10, bottom - 3, 2.5, '#173740');
+        c.fillStyle = '#d8dbb7'; c.fillRect(person.x - 10, bottom - 17, 20, 10);
+        circle(c, person.x + 9, bottom - 18, 3.6, '#d5bc98');
+        line(c, person.x - 2, bottom - 16, person.x - 2, bottom - 9, '#639487', 2);
+      } else {
+        const moving = ['joining', 'boarding', 'returning', 'landing'].includes(person.phase), pace = moving ? Math.sin(t * 8 + person.x * .13) * 3 : 0;
+        this.drawShadow(person.x, bottom, 10, 3);
+        line(c, person.x - 3, bottom - 13, person.x - 4 - pace, bottom - 1, '#1b3439', 3);
+        line(c, person.x + 3, bottom - 13, person.x + 4 + pace, bottom - 1, '#29474a', 3);
+        poly(c, [[person.x - 6, bottom - 26], [person.x + 6, bottom - 26], [person.x + 8, bottom - 11], [person.x - 7, bottom - 11]], color, '#294a4e', 1);
+        circle(c, person.x, bottom - 30, 3.8, '#ccb896');
+        if (person.role === 'technician') line(c, person.x - 6, bottom - 33, person.x + 6, bottom - 33, '#d8c88f', 3);
+        if (['staff', 'mara'].includes(person.role)) { line(c, person.x - 3, bottom - 21, person.x + 3, bottom - 21, '#456d60', 1.5); line(c, person.x, bottom - 24, person.x, bottom - 18, '#456d60', 1.5); }
+        if (person.role === 'crew') line(c, person.x - 5, bottom - 33, person.x + 4, bottom - 33, '#456b79', 3);
+      }
+      if (person.phase === 'boarding' && person.boardingProgress > 0) {
+        c.fillStyle = '#1c3b40'; c.fillRect(person.x - 9, person.y - person.h / 2 - 8, 18, 3);
+        c.fillStyle = '#d8d9a9'; c.fillRect(person.x - 9, person.y - person.h / 2 - 8, 18 * person.boardingProgress, 3);
+      }
+    }
+  }
+
+  drawDepartureLabels(s) {
+    const c = this.ctx, d = s.departure, f = s.campaign, entries = [];
+    const joining = d.people.filter(p => p.alive && p.phase === 'joining' && p.role !== 'technician').length;
+    const nearestGate = [...d.locks].sort((a, b) => Math.abs(a.controlX - s.player.x) - Math.abs(b.controlX - s.player.x))[0];
+    if (Math.abs(nearestGate.controlX - s.player.x) < 660) {
+      const gate = nearestGate, damaged = gate.destroyed || gate.mechanism.destroyed;
+      entries.push({ title: gate.kind === 'intake' ? 'AMENÉE · RÈGLE L’APPORT AU BASSIN' : 'PASSAGE · OUVRE LA ROUTE DES BATEAUX',
+        detail: gate.sealWorking ? `OBTURATION ${Math.round(gate.sealProgress * 100)} % · ANCRAGE REQUIS` : gate.scanning ? `INSPECTION ${Math.round(gate.scanProgress * 100)} %`
+          : damaged ? `AVARIE · OUVERTURE CONSERVÉE ${Math.round(gate.opening * 100)} %` : gate.working ? `MANŒUVRE ${Math.round(gate.progress * 100)} % · ANCRAGE REQUIS` : `OUVERTURE ${Math.round(gate.opening * 100)} % · PRESSION ${Math.round(gate.pressure * 100)} %`,
+        sub: gate.sealed ? 'Obturation posée · mécanisme toujours perdu' : `Fatigue ${Math.round(gate.fatigue)} % · ${gate.kind === 'intake' ? 'le niveau évolue progressivement' : 'une ouverture ne suffit pas à traverser'}`,
+        color: damaged ? '#e2ac85' : '#c3d6b1' });
+    }
+    const origin = d.origins.find(origin => Math.abs(origin.x - s.player.x) < 260 && (!origin.resolved || origin.working));
+    if (origin) entries.push({ title: origin.sourceMission === 'MI05' ? 'LES PASSAGERS DU CHENAL' : origin.sourceMission === 'MI06' ? 'LES PERSONNES DE L’ABRI DE LA DIGUE' : 'LES PERSONNES DE L’ACCUEIL SANITAIRE',
+      detail: origin.working ? `INVITATION EN COURS ${Math.round(origin.progress * 100)} %` : `${origin.total} PERSONNES À CONTACTER · ÉCHANGE À EFFECTUER`,
+      sub: 'Rejoindre le quai précède l’accord de destination', color: '#c8d9b9' });
+    if (d.quay.working || !d.quay.resolved && Math.abs(s.player.x - d.quay.x) < 240) entries.push({ title: 'RESPONSABLE DU QUAI D’AVAL',
+      detail: d.quay.working ? `CONSULTATION ${Math.round(d.quay.progress * 100)} % · CAPACITÉS À VÉRIFIER` : 'E · ÉTABLIR LES PLACES ET LES SERVICES',
+      sub: `${joining} personnes rejoignent le quai · aucune place encore attribuée`, color: '#d8cc9f' });
+    if (d.refugeRadio.working || !d.refugeRadio.resolved && Math.abs(s.player.x - d.refugeRadio.x) < 240) entries.unshift({ title: 'LIAISON DU REFUGE EN AVAL',
+      detail: d.refugeRadio.working ? `ÉCHANGE ${Math.round(d.refugeRadio.progress * 100)} % · ACCUEIL À CONFIRMER` : 'E · DEMANDER LA CAPACITÉ RÉELLE DU REFUGE',
+      sub: d.refugeRadio.destroyed ? 'Radio perdue · aucune place distante confirmée' : 'Le contact doit être accompli avant de promettre une place', color: '#c5d5b5' });
+    const visibleBoats = d.boats.filter(boat => this.visible(boat.x, 60));
+    for (const boat of visibleBoats) {
+      const members = d.people.filter(person => person.boatId === boat.id && person.alive), aboard = members.filter(person => ['aboard', 'en-route'].includes(person.phase)).length;
+      const patients = members.filter(person => person.role === 'patient').length, landing = members.filter(person => person.phase === 'landing').length;
+      const arrived = members.filter(person => person.phase === 'arrived').length, lost = d.people.filter(person => person.boatId === boat.id && !person.alive).length;
+      const phase = boat.destroyed ? 'COQUE PERDUE · AUCUNE CAPACITÉ' : boat.arrived ? 'ACCOSTAGE ACQUIS · DÉBARQUEMENT VERS LA PORTE'
+        : boat.returning ? 'RETOUR MATÉRIEL AU QUAI' : boat.returned ? 'RETOUR AU QUAI ACQUIS' : boat.departed ? 'DÉPART ACQUIS · REFUGE ENCORE À REJOINDRE'
+          : boat.moving ? 'TRAJET DANS LE BASSIN' : boat.departureOrdered ? `ATTENTE · ${departureWindow(s, boat) ? 'FENÊTRE PRATICABLE' : 'COURANT OU PASSAGE À ATTENDRE'}` : boat.available ? 'ÉQUIPAGE AYANT ACCEPTÉ CE VOYAGE' : 'SERVICE À CONFIRMER AU QUAI';
+      entries.push({ title: `${boat.name.toUpperCase()} · ${boat.seatCapacity} SIÈGES / ${boat.stretcherCapacity} BRANCARDS / ${boat.crewCapacity} ÉQUIPIER${boat.crewCapacity > 1 ? 'S' : ''}`, detail: phase,
+        sub: boat.destroyed ? `${lost} occupants perdus · les places de l’épave sont retirées`
+          : boat.arrived ? `${landing} débarquent · ${arrived} accueillis · ${patients} brancards`
+            : `${aboard} à bord / ${members.length} attendus · ${patients} brancards réservés`, color: boat.destroyed ? '#e0a887' : '#badbc6' });
+    }
+    const receiving = Math.abs(s.player.x - d.refuge.x) < 420 ? d.refuge : Math.abs(s.player.x - d.shelter.x) < 330 ? d.shelter : null;
+    if (receiving) entries.unshift({ title: receiving === d.refuge ? 'PORTE DU REFUGE EN AVAL' : 'ACCUEIL LOCAL D’AVAL',
+      detail: receiving === d.refuge ? `${f.peopleArrived} PERSONNES ACCUEILLIES · ARRIVÉES INDIVIDUELLES`
+        : d.shelter.working ? `PRÉPARATION ${Math.round(d.shelter.progress * 100)} %` : `${f.peopleLocal} PERSONNES À L’ABRI · ${d.shelter.prepared ? 'ACCUEIL OUVERT' : 'ACCUEIL À PRÉPARER'}`,
+      sub: receiving === d.refuge ? `${d.people.filter(p => p.phase === 'landing').length} débarquent encore · ${f.patientsArrived} patients accueillis`
+        : `${f.patientsLocal} patients accueillis · rester à Aval ne signifie pas être perdu`, color: '#cad7b1' });
+    if (Math.abs(s.player.x - d.registry.x) < 360) entries.push({ title: f.reportTransmitted ? 'BILAN TRANSMIS À HOLT' : 'REGISTRE DE RELOGEMENT',
+      detail: d.report.working ? `TRANSMISSION ${Math.round(d.report.progress * 100)} %` : d.registry.working ? `EXAMEN ${Math.round(d.registry.progress * 100)} %` : d.registry.copied ? 'PAGES COPIÉES · OBLIGATION DE TRAVAIL CONSTATÉE' : d.registry.destroyed ? 'RUINES · PAGES NON RECONSTITUÉES' : 'E · OUVRIR ET COPIER LES PAGES',
+      sub: `${f.peopleArrived} au refuge · ${f.peopleLocal} à Aval · ${f.peopleLost} perdus`, color: '#ddd1a4' });
+    if (d.boarding.working) entries.unshift({ title: d.boarding.recallOrdered ? 'ACCORD DE REPLI LOCAL' : 'ACCORDS DE DESTINATION AU QUAI',
+      detail: `ÉCHANGE ${Math.round(d.boarding.progress * 100)} % · PLACES NON ENCORE ACQUISES`, sub: 'L’embarquement et l’arrivée restent des étapes physiques', color: '#e2cc98' });
+    if (d.alert.announced && !d.alert.triggered) entries.unshift({ title: 'CONTRÔLE D’AVAL ANNONCÉ',
+      detail: `DEUX DRONES DANS ${Math.ceil(s.mission.departure.alertDelay - d.alert.elapsed)} s`, sub: 'Protéger les personnes encore exposées', color: '#e5b187' });
+    if (!entries.length && s.player.x > 2500) entries.push({ title: f.boardingOrdered ? 'SUIVI DES PERSONNES D’AVAL' : 'PRÉPARER CHAQUE ACCUEIL',
+      detail: `${joining} REJOIGNENT LE QUAI · ${f.peopleAtQuay} PRÉSENTES · ${f.peopleAboard} À BORD`,
+      sub: `${f.peopleArrived} au refuge · ${f.peopleLocal} à Aval · ${f.peopleLost} perdus`, color: '#c2d7b6' });
+    // The central sky is reserved for scene cards. Left objectives/instruments,
+    // right radio and lower gauges keep the same free areas as MI07.
+    const shown = entries.slice(0, 3), height = shown.length * 75 - 8, top = clamp(350 - height / 2, 200, 500 - height);
+    for (const [index, entry] of shown.entries()) {
+      const width = 414, x = this.cameraX + clamp(W * .55, W * .35 + width / 2, W * .74 - width / 2), y = top + index * 75;
+      c.fillStyle = '#12333aee'; c.fillRect(x - width / 2, y, width, 67); line(c, x - width / 2, y, x + width / 2, y, entry.color, 1.5);
+      label(c, entry.title, x, y + 18, 10, entry.color, 'center'); label(c, entry.detail, x, y + 37, 9, '#d9dec3', 'center'); label(c, entry.sub, x, y + 55, 9, '#abc9b8', 'center');
+    }
+  }
+
+  drawDepartureInstrument(s) {
+    const c = this.ctx, d = s.departure, f = s.campaign, x = 1196, y = 698, width = 360;
+    const joining = d.people.filter(p => p.alive && p.phase === 'joining').length, uninvited = d.people.filter(p => p.alive && p.phase === 'origin').length;
+    c.fillStyle = '#102f39ed'; c.fillRect(x, y, width, 162); line(c, x, y, x + width, y, '#97c2b1', 2);
+    label(c, 'AVAL · PRESSION, COURANT ET PERSONNES', x + 14, y + 21, 11, '#d4d9ae');
+    label(c, `BASSIN ${Math.round(d.basin * 100)} % · COURANT ${Math.round(d.current * 100)} %`, x + 14, y + 41, 10, '#bcd9c4');
+    label(c, d.tide.slack ? `RENVERSE · ${Math.ceil(d.tide.remaining)} s restantes` : `PROCHAINE RENVERSE · ${Math.ceil(d.tide.nextSlack)} s`, x + 14, y + 59, 10, '#e0c38c');
+    label(c, `Amenée ${Math.round(d.locks[0].opening * 100)} % · Passage ${Math.round(d.locks[1].opening * 100)} %`, x + 14, y + 78, 10, '#c4d4b4');
+    label(c, `${joining} rejoignent le quai · ${uninvited} à contacter`, x + 14, y + 96, 10, '#bbcdb0');
+    label(c, `${f.peopleAtQuay} au quai · ${f.peopleAboard} à bord · ${f.peopleEnRoute} vers refuge`, x + 14, y + 114, 10, '#d2d8ba');
+    label(c, `${f.peopleArrived} refuge · ${f.peopleLocal} Aval · ${f.peopleLost} perdus`, x + 14, y + 132, 10, '#b7d8ba');
+    label(c, `${f.patientsTotal} PATIENTS · ${f.patientsTotal - f.patientsArrived - f.patientsLocal - f.patientsLost} à accueillir · ${f.patientsLost} perdus`, x + 14, y + 150, 9, '#afc6b2');
   }
 
   drawAmbulanceSite(s, t) {
@@ -802,16 +931,11 @@ export class Renderer {
 
   drawRadiator(s, t) {
     const c = this.ctx, part = s.player.radiator, box = radiatorBounds(s);
-    const color = part.health < 40 ? '#ec9e75' : part.health < 80 ? '#dfc18b' : '#a1c8b5';
     c.save(); c.translate(box.x, box.y);
-    // The visible fins occupy the exact local collision box returned by the simulation.
-    c.fillStyle = '#203b3e'; c.fillRect(-box.w / 2, -box.h / 2, box.w, box.h);
-    c.strokeStyle = color; c.lineWidth = 1.5; c.strokeRect(-box.w / 2, -box.h / 2, box.w, box.h);
-    for (let y = -box.h / 2 + 5; y < box.h / 2 - 2; y += 6) line(c, -box.w / 2 + 3, y, box.w / 2 - 3, y, color, 2);
-    if (part.health < 75) {
-      line(c, -7, -box.h * .3, 5, -2, '#15262b', 3);
-      line(c, 5, -2, -4, box.h * .3, '#15262b', 3);
-    }
+    // Shared fins keep the authoritative radiator bounds used by projectiles.
+    drawProductionPart(c, { walkerId: s.walkerId, part: 'radiator', x: 0, y: 0, width: box.w, height: box.h,
+      state: part.repairing ? 'repairing' : part.health < 50 ? 'damaged' : part.repairKits < part.maxRepairKits ? 'repaired' : 'normal',
+      progress: part.repairProgress });
     if (part.repairing) {
       glow(c, 0, 0, 38, '#a6dec530');
       circle(c, 0, Math.sin(t * 6) * box.h * .3, 2.3, '#e0efbb');
@@ -1166,7 +1290,7 @@ export class Renderer {
   }
 
   drawCampaignLandmarks(s, t) {
-    if (s.channel || s.dike || s.ambulance) return;
+    if (s.channel || s.dike || s.ambulance || s.departure) return;
     if (s.train) { this.drawRailHarpoons(s, t); return; }
     if (s.network) { this.drawNetworkStations(s, t); return; }
     if (s.industrial) { this.drawIndustrialStation(s, t); return; }

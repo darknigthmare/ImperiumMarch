@@ -31,6 +31,8 @@ Tess intervient comme mécanicienne, Sami comme conducteur et Holt comme respons
 
 Les valeurs `obey` et `defy` sont des identifiants de compatibilité de l’interface. Pour MI01, elles désignent deux traitements administratifs du rapport, pas une rupture militaire. Les pertes civiles et l’intégrité du camion restent des états séparés.
 
+Depuis la 0.9, les tirs du joueur, les explosions et les appuis réels peuvent également endommager le camion. La première atteinte alliée déclenche un avertissement. Le convoyeur attend derrière l’empreinte annoncée d’un pied descendant au lieu de passer dessous; le joueur peut toujours l’atteindre volontairement. Cette règle de suivi ne restaure pas son intégrité et ne remplace pas ses collisions. La livraison conserve son exigence d’arrivée avec une intégrité positive.
+
 La protection actuelle consiste à déployer des dalles sur un passage unique. Il n’existe pas encore de détour libre en profondeur, de réseau de conduites physique ou de simulation épidémiologique. Le coût de deux lots décrit la charge de réparation transmise au retour de mission ; le traitement du budget et le bilan de hangar appartiennent au module de campagne.
 
 ## Contrat technique

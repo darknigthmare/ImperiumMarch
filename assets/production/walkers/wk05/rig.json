@@ -1,0 +1,464 @@
+{
+  "id": "WK05",
+  "name": "Bastion",
+  "designation": "Q-40",
+  "legs": 4,
+  "width": 172,
+  "bodyHeight": 62,
+  "height": 115,
+  "color": "#a8b9af",
+  "assets": [
+    "AS03",
+    "AS36",
+    "AS41"
+  ],
+  "role": "Quadrupède de brèche, blindage frontal et coque basse",
+  "footWidth": 58,
+  "upper": 71.3,
+  "lower": 73.6,
+  "offsets": [
+    -71,
+    71,
+    -89,
+    89
+  ],
+  "unit": "game-world-unit",
+  "rootPivot": [
+    0,
+    0
+  ],
+  "parts": [
+    {
+      "part": "hull",
+      "size": [
+        172,
+        62
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -120.39999999999999,
+        -86,
+        240.79999999999998,
+        136
+      ]
+    },
+    {
+      "part": "turret",
+      "size": [
+        105,
+        42
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -24,
+        -25,
+        142,
+        50
+      ]
+    },
+    {
+      "part": "upper",
+      "size": [
+        100,
+        24
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -3,
+        -16,
+        106,
+        32
+      ]
+    },
+    {
+      "part": "lower",
+      "size": [
+        100,
+        24
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -3,
+        -16,
+        106,
+        32
+      ]
+    },
+    {
+      "part": "hip",
+      "size": [
+        28,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -16,
+        -16,
+        32,
+        32
+      ]
+    },
+    {
+      "part": "knee",
+      "size": [
+        28,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -16,
+        -16,
+        32,
+        32
+      ]
+    },
+    {
+      "part": "foot",
+      "size": [
+        58,
+        18
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -31,
+        -21,
+        62,
+        24
+      ]
+    },
+    {
+      "part": "radiator",
+      "size": [
+        22,
+        40.300000000000004
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -13,
+        -23.150000000000002,
+        26,
+        46.300000000000004
+      ]
+    }
+  ],
+  "footInstances": [
+    {
+      "id": "foot-0",
+      "homeOffset": -71,
+      "depth": "far",
+      "group": 0,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    },
+    {
+      "id": "foot-1",
+      "homeOffset": 71,
+      "depth": "far",
+      "group": 1,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    },
+    {
+      "id": "foot-2",
+      "homeOffset": -89,
+      "depth": "near",
+      "group": 1,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    },
+    {
+      "id": "foot-3",
+      "homeOffset": 89,
+      "depth": "near",
+      "group": 0,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    }
+  ],
+  "hierarchy": [
+    "far legs",
+    "cradle and hull",
+    "near legs",
+    "independent turret",
+    "rear radiator"
+  ],
+  "damage": "Health is supplied by simulation; art states do not inflict damage.",
+  "poses": [
+    {
+      "file": "assets/production/walkers/wk05/assembly-stand-right.svg",
+      "pose": "stand-right",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -71,
+          "y": 0.3558142035834635,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "back",
+          "group": 1,
+          "x": 71,
+          "y": -1.3240420221430895,
+          "contact": true
+        },
+        {
+          "id": "foot-2",
+          "side": "front",
+          "group": 1,
+          "x": -89,
+          "y": 0.17715673162126677,
+          "contact": true
+        },
+        {
+          "id": "foot-3",
+          "side": "front",
+          "group": 0,
+          "x": 89,
+          "y": -1.679922575100477,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk05/assembly-stand-left.svg",
+      "pose": "stand-left",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -71,
+          "y": 0.3558142035834635,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "back",
+          "group": 1,
+          "x": 71,
+          "y": -1.3240420221430895,
+          "contact": true
+        },
+        {
+          "id": "foot-2",
+          "side": "front",
+          "group": 1,
+          "x": -89,
+          "y": 0.17715673162126677,
+          "contact": true
+        },
+        {
+          "id": "foot-3",
+          "side": "front",
+          "group": 0,
+          "x": 89,
+          "y": -1.679922575100477,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk05/assembly-brace.svg",
+      "pose": "brace",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -71,
+          "y": 0.3558142035834635,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "back",
+          "group": 1,
+          "x": 71,
+          "y": -1.3240420221430895,
+          "contact": true
+        },
+        {
+          "id": "foot-2",
+          "side": "front",
+          "group": 1,
+          "x": -89,
+          "y": 0.17715673162126677,
+          "contact": true
+        },
+        {
+          "id": "foot-3",
+          "side": "front",
+          "group": 0,
+          "x": 89,
+          "y": -1.679922575100477,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk05/assembly-walk.svg",
+      "pose": "walk",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -40.86215087495998,
+          "y": -42.08484599031465,
+          "contact": false
+        },
+        {
+          "id": "foot-1",
+          "side": "back",
+          "group": 1,
+          "x": 61.56935736847578,
+          "y": -1.1802155846121423,
+          "contact": true
+        },
+        {
+          "id": "foot-2",
+          "side": "front",
+          "group": 1,
+          "x": -98.43064263152422,
+          "y": 0.32098316915221403,
+          "contact": true
+        },
+        {
+          "id": "foot-3",
+          "side": "front",
+          "group": 0,
+          "x": 119.13784912504002,
+          "y": -44.26409393236122,
+          "contact": false
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk05/assembly-aim-up.svg",
+      "pose": "aim-up",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -71,
+          "y": 0.3558142035834635,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "back",
+          "group": 1,
+          "x": 71,
+          "y": -1.3240420221430895,
+          "contact": true
+        },
+        {
+          "id": "foot-2",
+          "side": "front",
+          "group": 1,
+          "x": -89,
+          "y": 0.17715673162126677,
+          "contact": true
+        },
+        {
+          "id": "foot-3",
+          "side": "front",
+          "group": 0,
+          "x": 89,
+          "y": -1.679922575100477,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk05/assembly-damaged.svg",
+      "pose": "damaged",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -71,
+          "y": 0.3558142035834635,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "back",
+          "group": 1,
+          "x": 71,
+          "y": -1.3240420221430895,
+          "contact": true
+        },
+        {
+          "id": "foot-2",
+          "side": "front",
+          "group": 1,
+          "x": -89,
+          "y": 0.17715673162126677,
+          "contact": true
+        },
+        {
+          "id": "foot-3",
+          "side": "front",
+          "group": 0,
+          "x": 89,
+          "y": -1.679922575100477,
+          "contact": true
+        }
+      ]
+    }
+  ]
+}

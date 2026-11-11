@@ -1,0 +1,102 @@
+{
+  "type": "Node-prepared public-control inputs, not native browser results",
+  "runtime": "v24.22.1",
+  "sources": {
+    "docs/validation/v09-browser-migration-before.json": "8eeae36f338aac4ed5916330443fb7fd77c36f8b960d1c0f76fa1febd5c71252",
+    "tests/fixtures/campaign-v1-mi01.json": "c6bad07aede50fe980460dc67a307bf69804d170abeeb643477358d36c02a22b",
+    "tests/fixtures/campaign-v2-mi02.json": "9024310b7c33e39ed73ac30a03b7db5103be73ee472e95804c4214054ebe5cf2",
+    "src/content.mjs": "5dea60cf815deaf606ab419fff363a575082b883c8af7ec1cf6bbdbaf8143f16",
+    "src/simulation.mjs": "1b1072704ce600ecfed96c4b54459b55217d5d1d5fe6c1e581b613b63beb1870",
+    "src/campaign.mjs": "e3b960fd7ec90c49af82b1046ddbb95fba2f8d706051ae840941cfb0095f5272",
+    "src/departure-validation.mjs": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b",
+    "tests/helpers/mi02-driver.mjs": "48a4b776f66010d94345e55a381b94897d628ad1c7c982eb756d7ee4b1080305",
+    "tests/helpers/mi08-driver.mjs": "07b577d7ad7cd860bfcd4604d19744e976f988e01a2435f6e2dc5e415a4f2088"
+  },
+  "files": [
+    {
+      "path": "docs/validation/v09-browser-migration-expected.json",
+      "sha256": "1cc6728c1632e5cd11faefcd2cc4981f71857ab4c2bfd7eb5fa4537006fd7af9",
+      "note": "Expected migration of the actual pre-upgrade browser export; only the declared v8 addition is allowed.",
+      "mission": null,
+      "elapsed": null,
+      "playerX": null
+    },
+    {
+      "path": "docs/validation/v09-browser-mi01-completed-input.json",
+      "sha256": "c19b793cdc37d054843fa5252f2ee5306431b846bd450a87f0fe396878e4ae8a",
+      "note": "Authentic historical MI01 receipt, migrated without changing the receipt, for opening the MI02 briefing.",
+      "mission": null,
+      "elapsed": null,
+      "playerX": null
+    },
+    {
+      "path": "docs/validation/v09-browser-mi02-chase-input.json",
+      "sha256": "0442aa7f34a8819e320217af40d88a8bc003de74762227a550ba3f9395f0e6c7",
+      "note": "Prepared by the public MI02 pilot: two harpoons released, train moving, braking not started. Chrome must perform its own chase, reload and braking actions.",
+      "mission": "MI02",
+      "elapsed": 31.066666666666183,
+      "playerX": 2319.264241906264
+    },
+    {
+      "path": "docs/validation/v09-browser-mi02-completed-input.json",
+      "sha256": "a5cc7cef069c69ce9247c783bfde18a7c5f37829570f10a5ae2cca816bc74950",
+      "note": "Authentic historical two-report dossier, for native archive and replay navigation only.",
+      "mission": null,
+      "elapsed": null,
+      "playerX": null
+    },
+    {
+      "path": "docs/validation/v09-browser-native-gate-input.json",
+      "sha256": "52cca3cf799c73a1d12e7996339c9aa9f5fe71563890f609b920e94645500473",
+      "note": "Node-prepared MI08 gate checkpoint, descended from the preserved actual browser v7 export; not a browser result.",
+      "mission": "MI08",
+      "elapsed": 268.8333333334175,
+      "playerX": 4453.9895218936
+    },
+    {
+      "path": "docs/validation/v09-browser-native-departed-input.json",
+      "sha256": "575cf40eac079789c1c30cdbd1c5224a2e31864b7766e28945bdfdd08803b292",
+      "note": "Node-prepared MI08 departed checkpoint, descended from the preserved actual browser v7 export; not a browser result.",
+      "mission": "MI08",
+      "elapsed": 279.26666666674134,
+      "playerX": 4664.877311538152
+    },
+    {
+      "path": "docs/validation/v09-browser-native-landing-input.json",
+      "sha256": "a56f53a9b51fcf3c4e4cb5598c06fb42dd7f083eec995f735be0cfa74108ff04",
+      "note": "Node-prepared MI08 landing checkpoint, descended from the preserved actual browser v7 export; not a browser result.",
+      "mission": "MI08",
+      "elapsed": 289.6666666667319,
+      "playerX": 4664.877311538152
+    },
+    {
+      "path": "docs/validation/v09-browser-native-report-input.json",
+      "sha256": "6156ddf89ef90a9b6fefd25aee9ac1b6686be600f1c01617d46d9dec22bf2ec1",
+      "note": "Node-prepared MI08 report checkpoint, descended from the preserved actual browser v7 export; not a browser result.",
+      "mission": "MI08",
+      "elapsed": 308.9500000000477,
+      "playerX": 4970.576604708634
+    },
+    {
+      "path": "docs/validation/v09-browser-native-extraction-input.json",
+      "sha256": "77f8c6a3c68837ccbf8e03ad2fe9888d389bc2d79f240f873c4f24c99a911854",
+      "note": "Node-prepared MI08 extraction checkpoint, descended from the preserved actual browser v7 export; not a browser result.",
+      "mission": "MI08",
+      "elapsed": 327.6500000000307,
+      "playerX": 6300.796756255448
+    },
+    {
+      "path": "docs/validation/v09-browser-native-completed-reference.json",
+      "sha256": "aa896deb5a3fd0ebd708494e308e09248820eeac58c72840aea039a4b0463e9c",
+      "note": "Public-pilot reference only; the final Chrome export must be saved separately and described as observed.",
+      "mission": null,
+      "elapsed": null,
+      "playerX": null
+    }
+  ],
+  "limits": [
+    "No Chrome interaction is performed by this tool.",
+    "No simulated result is counted as a human test.",
+    "The actual pre-upgrade browser export is kept unchanged."
+  ]
+}

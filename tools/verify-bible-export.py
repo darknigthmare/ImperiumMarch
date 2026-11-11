@@ -1,11 +1,18 @@
-import json, re, zipfile, hashlib, subprocess, sys
+import argparse, collections, json, re, zipfile, hashlib, subprocess, sys
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
-root=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else Path(__file__).resolve().parents[1]
-baseline=sys.argv[2] if len(sys.argv)>2 else '1e7eadb'
+parser=argparse.ArgumentParser(description='Reconcile the Bible XLSX and audit its identifier references.')
+parser.add_argument('root',nargs='?',default=str(Path(__file__).resolve().parents[1]))
+parser.add_argument('baseline',nargs='?',default='03c69e7')
+parser.add_argument('--references-only',action='store_true',help='Check source identifiers and references without touching the workbook or its existing reports.')
+parser.add_argument('--reference-report',type=Path,help='Write the complete reference audit to this path relative to the repository root.')
+args=parser.parse_args()
+root=Path(args.root).resolve()
+baseline=args.baseline
 file=root/'docs/ORDRE_DE_CENDRE_Bible.xlsx'
-source=json.loads((root/'data/bible.json').read_text())
+source_bytes=(root/'data/bible.json').read_bytes()
+source=json.loads(source_bytes)
 ns={'s':'http://schemas.openxmlformats.org/spreadsheetml/2006/main','r':'http://schemas.openxmlformats.org/officeDocument/2006/relationships'}
 N='{'+ns['s']+'}'
 def col(i):
@@ -26,7 +33,7 @@ def historical_ids(revision):
         # Published snapshots and source archives may not carry local Git history.
         # Each frozen fixture is valid for its recorded historical revision only.
         candidates=[]
-        for name in ['bible-v07-ids.json','bible-v06-ids.json','bible-v05-ids.json','bible-v04-ids.json']:
+        for name in ['bible-v08-ids.json','bible-v07-ids.json','bible-v06-ids.json','bible-v05-ids.json','bible-v04-ids.json']:
             fixture_path=root/'tests/fixtures'/name
             if fixture_path.is_file(): candidates.append(json.loads(fixture_path.read_text()))
         matches=[candidate for candidate in candidates
@@ -51,6 +58,107 @@ def historical_ids(revision):
         return set(values)
     old=json.loads(raw)
     return {r['id'] for sheet in old['sheets'] for r in sheet['rows']}
+
+def reference_audit(document):
+    """Resolve explicit two-letter/two-or-three-digit IDs and their ranges.
+
+    Narrative evidence and standalone operations are symbols rather than row IDs.
+    Their declarations are checked in the named canonical rows, not waived as
+    arbitrary unknown prefixes. This validates links, not implementation status.
+    """
+    aliases={
+      'OP01':('NA17','standalone_operation'), 'OP02':('NA18','standalone_operation'), 'OP03':('NA19','standalone_operation'),
+      'PT01':('NA32','technical_evidence'), 'PT02':('MI10','technical_evidence'), 'PT03':('MI13','technical_evidence'),
+      'PT04':('MI15','technical_evidence'), 'PT05':('MI18','technical_evidence'),
+      'PO01':('MI22','political_evidence'), 'PO02':('MI26','political_evidence'), 'PO03':('MI30','political_evidence'),
+      'TE01':('MI11','witness_evidence'), 'TE02':('MI15','witness_evidence'),
+    }
+    token=re.compile(r'(?<![A-Za-z0-9])(?P<prefix>[A-Z]{2})(?P<start>\d{2,3})(?:(?P<separator>[–—-])(?P<end_prefix>[A-Z]{2})?(?P<end>\d{2,3})|/(?P<short>\d{2,3}))?(?![A-Za-z0-9])')
+    rows={}; duplicate_ids=[]; fields=[]; issues=[]
+    def strings(value,path):
+        if isinstance(value,str): yield path,value
+        elif isinstance(value,list):
+            for i,item in enumerate(value): yield from strings(item,f'{path}[{i}]')
+        elif isinstance(value,dict):
+            for key,item in value.items(): yield from strings(item,f'{path}.{key}')
+    for sheet in document['sheets']:
+        for row in sheet['rows']:
+            identifier=row['id']
+            if identifier in rows: duplicate_ids.append(identifier)
+            rows[identifier]={'sheet':sheet['name'],'row':row}
+            if not re.fullmatch(r'[A-Z]{2}\d{2,3}',identifier):
+                issues.append({'type':'invalid_identifier','id':identifier})
+            for key,value in row.items():
+                if key=='id': continue
+                for path,text in strings(value,key): fields.append((sheet['name'],identifier,path,text))
+    for path,text in strings(document.get('meta',{}),'meta'):
+        fields.append((None,None,path,text))
+    def expanded(match):
+        prefix=match['prefix']; start=int(match['start'])
+        if match['end']:
+            other=match['end_prefix'] or prefix
+            end=int(match['end'])
+            if other!=prefix or end<start:
+                raise ValueError('Range endpoints must share a prefix and be ascending.')
+            return [f'{prefix}{i:02}' for i in range(start,end+1)]
+        if match['short']: return [f'{prefix}{start:02}',f'{prefix}{int(match["short"]):02}']
+        return [f'{prefix}{start:02}']
+    declarations={}
+    for symbol,(anchor,kind) in aliases.items():
+        row=rows.get(anchor)
+        declared=[]
+        if row:
+            for value in row['row'].values():
+                if not isinstance(value,str): continue
+                for match in token.finditer(value):
+                    try: declared.extend(expanded(match))
+                    except ValueError: pass
+        if row is None or symbol not in declared:
+            issues.append({'type':'missing_symbol_declaration','symbol':symbol,'anchor':anchor})
+        declarations[symbol]={'anchor':anchor,'sheet':row['sheet'] if row else None,'kind':kind,'declared':symbol in declared}
+    occurrences=[]; resolved=collections.Counter(); range_count=0; abbreviated=0
+    for sheet,identifier,field,text in fields:
+        for match in token.finditer(text):
+            location={'sheet':sheet,'sourceId':identifier,'field':field,'text':match.group()}
+            try: targets=expanded(match)
+            except ValueError as error:
+                issues.append(dict(location,type='invalid_range',reason=str(error)))
+                continue
+            if match['end']: range_count+=1
+            if match['short']: abbreviated+=1
+            locations=[]
+            for target in targets:
+                if target in rows:
+                    resolution={'id':target,'kind':'row','sheet':rows[target]['sheet']}
+                elif target in declarations and declarations[target]['declared']:
+                    resolution={'id':target,**declarations[target]}
+                else:
+                    issues.append(dict(location,type='unresolved_reference',target=target))
+                    resolution={'id':target,'kind':'unresolved'}
+                resolved[resolution['kind']]+=1
+                locations.append(resolution)
+            occurrences.append(dict(location,targets=locations))
+    for identifier in duplicate_ids: issues.append({'type':'duplicate_identifier','id':identifier})
+    return {
+      'source':'data/bible.json','version':document['meta']['version'],
+      'sourceSha256':hashlib.sha256(source_bytes).hexdigest(),
+      'scope':'All explicit two-letter/two-or-three-digit identifiers in row fields and metadata, closed ranges and abbreviated pairs such as PT03/04. Symbols resolve to canonical declaration rows. Existence of a reference does not certify gameplay, art, narrative truth or human usability.',
+      'sourceSheets':len(document['sheets']),'sourceRows':sum(len(s['rows']) for s in document['sheets']),
+      'uniqueIds':len(rows),'textFieldsScanned':len(fields),'referenceOccurrences':len(occurrences),
+      'closedRanges':range_count,'abbreviatedPairs':abbreviated,'expandedReferences':sum(resolved.values()),
+      'resolvedByKind':dict(resolved),'symbolDeclarations':declarations,'issues':issues,
+      'occurrences':occurrences,'passed':not issues,
+    }
+
+references=reference_audit(source)
+if args.reference_report:
+    path=root/args.reference_report
+    path.parent.mkdir(parents=True,exist_ok=True)
+    path.write_text(json.dumps(references,ensure_ascii=False,indent=2)+'\n')
+assert references['passed'],references['issues']
+if args.references_only:
+    print(json.dumps({key:value for key,value in references.items() if key not in ('occurrences','symbolDeclarations')},ensure_ascii=False))
+    sys.exit(0)
 
 old_ids=historical_ids(baseline)
 ids=[r['id'] for s in source['sheets'] for r in s['rows']]
@@ -126,15 +234,20 @@ with zipfile.ZipFile(file) as z:
         tables=[ET.fromstring(z.read(f)) for f in table_files]
         table=next(t for t in tables if t.attrib['name']==f'Bible_{i:02}')
         assert table.attrib['ref']==f'A6:{col(len(spec["columns"]))}{6+len(spec["rows"])}'
+    state=root/'docs/validation/workbook-validation.json'
+    q=json.loads(state.read_text())
+    preview_count=len(q.get('previews',[]))
     report={
       'workbook':file.name,'version':source['meta']['version'],'sha256':hashlib.sha256(file.read_bytes()).hexdigest(),
       'sourceRecords':len(ids),'sourceCellsCompared':source_cells,'historicalRevision':baseline,'historicalIdsPreserved':len(old_ids),'addedIds':len(ids)-len(old_ids),
       'sheets':len(sheets),'namedTables':len(table_files),'calculatedFormulaCells':len(formulas),'errorCells':len(errors),
       'summaryCachesReconciled':True,'statusValidationRanges':validation_count,'conditionalFormatRules':cf_count,'frozenDataSheets':pane_count,
-      'engineScope':'Recalcul et test de modification de statut exécutés dans @oai/artifact-tool. Contrôle du fichier XLSX exporté par lecture XML; aucune exécution native dans Excel ni LibreOffice.',
-      'visualScope':'Synthèse et vues des domaines ajoutés ou modifiés, avec aperçus des lignes nouvelles. Mise en page des autres tables conservée. Pas de validation navigateur ni de comportement natif Excel.',
+      'referenceAudit':{key:value for key,value in references.items() if key not in ('occurrences','symbolDeclarations')},
+      'engineScope':'Recalcul et test de modification de statut exécutés dans @oai/artifact-tool. Ce contrôle lit le ZIP/XML exporté; une éventuelle exécution native est consignée séparément et ne se déduit pas de ce rapport.',
+      'renderedPreviewCount':preview_count,
+      'visualScope':f'{preview_count} vues générées par cet export. Leur relecture effective et les plages observées sont consignées séparément; le nombre de vues ne certifie ni navigateur ni usage natif du classeur.' if preview_count else 'Aucune nouvelle vue générée pour cet export initial. Relecture visuelle finale et contrôle natif restent séparés de cette réconciliation XML.',
     }
     release='.'.join(source['meta']['version'].split('.')[:2])
     out=root/f'docs/validation/workbook-v{release}-export.json'; out.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-    state=root/'docs/validation/workbook-validation.json'; q=json.loads(state.read_text());q['exportValidation']=report;state.write_text(json.dumps(q,ensure_ascii=False,indent=2)+'\n')
+    q['exportValidation']=report;state.write_text(json.dumps(q,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps(report,ensure_ascii=False))

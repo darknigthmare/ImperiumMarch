@@ -1,0 +1,338 @@
+{
+  "id": "WK01",
+  "name": "Vigie",
+  "designation": "M-12",
+  "legs": 2,
+  "width": 126,
+  "bodyHeight": 70,
+  "height": 180,
+  "color": "#d5ad72",
+  "assets": [
+    "AS02",
+    "AS36",
+    "AS41"
+  ],
+  "role": "Éclaireur haut, poitrine angulaire et jambes longues",
+  "footWidth": 64,
+  "upper": 111.6,
+  "lower": 115.2,
+  "offsets": [
+    -38,
+    38
+  ],
+  "unit": "game-world-unit",
+  "rootPivot": [
+    0,
+    0
+  ],
+  "parts": [
+    {
+      "part": "hull",
+      "size": [
+        126,
+        70
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -88.19999999999999,
+        -86,
+        176.39999999999998,
+        136
+      ]
+    },
+    {
+      "part": "turret",
+      "size": [
+        85,
+        42
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -24,
+        -25,
+        122,
+        50
+      ]
+    },
+    {
+      "part": "upper",
+      "size": [
+        100,
+        24
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -3,
+        -16,
+        106,
+        32
+      ]
+    },
+    {
+      "part": "lower",
+      "size": [
+        100,
+        24
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -3,
+        -16,
+        106,
+        32
+      ]
+    },
+    {
+      "part": "hip",
+      "size": [
+        28,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -16,
+        -16,
+        32,
+        32
+      ]
+    },
+    {
+      "part": "knee",
+      "size": [
+        28,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -16,
+        -16,
+        32,
+        32
+      ]
+    },
+    {
+      "part": "foot",
+      "size": [
+        64,
+        18
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -34,
+        -21,
+        68,
+        24
+      ]
+    },
+    {
+      "part": "radiator",
+      "size": [
+        22,
+        45.5
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ]
+    }
+  ],
+  "footInstances": [
+    {
+      "id": "foot-0",
+      "homeOffset": -38,
+      "depth": "far",
+      "group": 0,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    },
+    {
+      "id": "foot-1",
+      "homeOffset": 38,
+      "depth": "near",
+      "group": 1,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    }
+  ],
+  "hierarchy": [
+    "far legs",
+    "cradle and hull",
+    "near legs",
+    "independent turret",
+    "rear radiator"
+  ],
+  "damage": "Health is supplied by simulation; art states do not inflict damage.",
+  "poses": [
+    {
+      "file": "assets/production/walkers/wk01/assembly-stand-right.svg",
+      "pose": "stand-right",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -38,
+          "y": 0.37714014519451666,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 38,
+          "y": -0.6588080785644479,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk01/assembly-stand-left.svg",
+      "pose": "stand-left",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -38,
+          "y": 0.37714014519451666,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 38,
+          "y": -0.6588080785644479,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk01/assembly-brace.svg",
+      "pose": "brace",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -38,
+          "y": 0.37714014519451666,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 38,
+          "y": -0.6588080785644479,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk01/assembly-walk.svg",
+      "pose": "walk",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": 4.820504487252094,
+          "y": -65.22695895785193,
+          "contact": false
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 24.6743529649803,
+          "y": -0.45110332230160566,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk01/assembly-aim-up.svg",
+      "pose": "aim-up",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -38,
+          "y": 0.37714014519451666,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 38,
+          "y": -0.6588080785644479,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk01/assembly-damaged.svg",
+      "pose": "damaged",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -38,
+          "y": 0.37714014519451666,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 38,
+          "y": -0.6588080785644479,
+          "contact": true
+        }
+      ]
+    }
+  ]
+}

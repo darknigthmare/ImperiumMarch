@@ -25,7 +25,7 @@ for (const legs of [2, 4, 6]) {
   assert.ok(Math.max(...family.map(w => w.height)) - Math.min(...family.map(w => w.height)) > 60);
 }
 assert.deepEqual(MISSIONS.map(m => m.planetId), ['PL01', 'PL02', 'PL03']);
-assert.deepEqual(CAMPAIGN_MISSIONS.map(m => m.id), ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07']);
+assert.deepEqual(CAMPAIGN_MISSIONS.map(m => m.id), ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08']);
 assert.equal(new Set(ALL_MISSIONS.map(m => m.id)).size, ALL_MISSIONS.length);
 for (const mission of CAMPAIGN_MISSIONS) {
   if (mission.id === 'MI01') {
@@ -45,6 +45,12 @@ for (const mission of CAMPAIGN_MISSIONS) {
     assert.ok(site.turbineXs[1] < site.contactX && site.contactX < site.postX);
     assert.equal(site.postX, mission.evidenceX);
     assert.ok(site.postX < mission.extractionX);
+  }
+  if (mission.id === 'MI08') {
+    assert.ok(mission.departure.intakeX < mission.departure.passageX && mission.departure.exitX < mission.departure.refugeX && mission.departure.refugeX < mission.extractionX);
+    assert.deepEqual(mission.departure.stretcherCapacities, [2, 2]);
+    assert.equal(mission.departure.refugeStretchers, 4);
+    assert.ok(mission.decision.delay);
   }
   assert.ok(mission.extractionX < mission.length);
   assert.equal(bible.sheets.flatMap(sheet => sheet.rows).find(row => row.id === mission.id)?.status, 'Prototype');

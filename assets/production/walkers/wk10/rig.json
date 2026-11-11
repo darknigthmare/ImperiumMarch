@@ -1,0 +1,590 @@
+{
+  "id": "WK10",
+  "name": "Cloporte",
+  "designation": "CL-4",
+  "legs": 6,
+  "width": 180,
+  "bodyHeight": 62,
+  "height": 72,
+  "color": "#b5c58e",
+  "assets": [
+    "AS31",
+    "AS36",
+    "AS41"
+  ],
+  "role": "Hexapode très bas, toit cuirassé et palpeur déporté",
+  "footWidth": 50,
+  "upper": 44.64,
+  "lower": 46.08,
+  "offsets": [
+    -88,
+    0,
+    88,
+    -105,
+    5,
+    105
+  ],
+  "unit": "game-world-unit",
+  "rootPivot": [
+    0,
+    0
+  ],
+  "parts": [
+    {
+      "part": "hull",
+      "size": [
+        180,
+        62
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -125.99999999999999,
+        -86,
+        251.99999999999997,
+        136
+      ]
+    },
+    {
+      "part": "turret",
+      "size": [
+        94,
+        42
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -24,
+        -25,
+        131,
+        50
+      ]
+    },
+    {
+      "part": "upper",
+      "size": [
+        100,
+        24
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -3,
+        -16,
+        106,
+        32
+      ]
+    },
+    {
+      "part": "lower",
+      "size": [
+        100,
+        24
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -3,
+        -16,
+        106,
+        32
+      ]
+    },
+    {
+      "part": "hip",
+      "size": [
+        28,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -16,
+        -16,
+        32,
+        32
+      ]
+    },
+    {
+      "part": "knee",
+      "size": [
+        28,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -16,
+        -16,
+        32,
+        32
+      ]
+    },
+    {
+      "part": "foot",
+      "size": [
+        50,
+        18
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -27,
+        -21,
+        54,
+        24
+      ]
+    },
+    {
+      "part": "radiator",
+      "size": [
+        22,
+        40.300000000000004
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -13,
+        -23.150000000000002,
+        26,
+        46.300000000000004
+      ]
+    }
+  ],
+  "footInstances": [
+    {
+      "id": "foot-0",
+      "homeOffset": -88,
+      "depth": "far",
+      "group": 0,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    },
+    {
+      "id": "foot-1",
+      "homeOffset": 0,
+      "depth": "far",
+      "group": 1,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    },
+    {
+      "id": "foot-2",
+      "homeOffset": 88,
+      "depth": "far",
+      "group": 0,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    },
+    {
+      "id": "foot-3",
+      "homeOffset": -105,
+      "depth": "near",
+      "group": 1,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    },
+    {
+      "id": "foot-4",
+      "homeOffset": 5,
+      "depth": "near",
+      "group": 0,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    },
+    {
+      "id": "foot-5",
+      "homeOffset": 105,
+      "depth": "near",
+      "group": 1,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    }
+  ],
+  "hierarchy": [
+    "far legs",
+    "cradle and hull",
+    "near legs",
+    "independent turret",
+    "rear radiator"
+  ],
+  "damage": "Health is supplied by simulation; art states do not inflict damage.",
+  "poses": [
+    {
+      "file": "assets/production/walkers/wk10/assembly-stand-right.svg",
+      "pose": "stand-right",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -88,
+          "y": 0.19041348804546487,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "back",
+          "group": 1,
+          "x": 0,
+          "y": 0,
+          "contact": true
+        },
+        {
+          "id": "foot-2",
+          "side": "back",
+          "group": 0,
+          "x": 88,
+          "y": -1.6607097026850397,
+          "contact": true
+        },
+        {
+          "id": "foot-3",
+          "side": "front",
+          "group": 1,
+          "x": -105,
+          "y": -0.09010129545640666,
+          "contact": true
+        },
+        {
+          "id": "foot-4",
+          "side": "front",
+          "group": 0,
+          "x": 5,
+          "y": -0.07424732516585664,
+          "contact": true
+        },
+        {
+          "id": "foot-5",
+          "side": "front",
+          "group": 1,
+          "x": 105,
+          "y": -1.9740761032651335,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk10/assembly-stand-left.svg",
+      "pose": "stand-left",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -88,
+          "y": 0.19041348804546487,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "back",
+          "group": 1,
+          "x": 0,
+          "y": 0,
+          "contact": true
+        },
+        {
+          "id": "foot-2",
+          "side": "back",
+          "group": 0,
+          "x": 88,
+          "y": -1.6607097026850397,
+          "contact": true
+        },
+        {
+          "id": "foot-3",
+          "side": "front",
+          "group": 1,
+          "x": -105,
+          "y": -0.09010129545640666,
+          "contact": true
+        },
+        {
+          "id": "foot-4",
+          "side": "front",
+          "group": 0,
+          "x": 5,
+          "y": -0.07424732516585664,
+          "contact": true
+        },
+        {
+          "id": "foot-5",
+          "side": "front",
+          "group": 1,
+          "x": 105,
+          "y": -1.9740761032651335,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk10/assembly-brace.svg",
+      "pose": "brace",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -88,
+          "y": 0.19041348804546487,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "back",
+          "group": 1,
+          "x": 0,
+          "y": 0,
+          "contact": true
+        },
+        {
+          "id": "foot-2",
+          "side": "back",
+          "group": 0,
+          "x": 88,
+          "y": -1.6607097026850397,
+          "contact": true
+        },
+        {
+          "id": "foot-3",
+          "side": "front",
+          "group": 1,
+          "x": -105,
+          "y": -0.09010129545640666,
+          "contact": true
+        },
+        {
+          "id": "foot-4",
+          "side": "front",
+          "group": 0,
+          "x": 5,
+          "y": -0.07424732516585664,
+          "contact": true
+        },
+        {
+          "id": "foot-5",
+          "side": "front",
+          "group": 1,
+          "x": 105,
+          "y": -1.9740761032651335,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk10/assembly-walk.svg",
+      "pose": "walk",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -54.917242361058356,
+          "y": -42.23625124013654,
+          "contact": false
+        },
+        {
+          "id": "foot-1",
+          "side": "back",
+          "group": 1,
+          "x": -10.084785561659373,
+          "y": 0.1543829164345425,
+          "contact": true
+        },
+        {
+          "id": "foot-2",
+          "side": "back",
+          "group": 0,
+          "x": 121.08275763894164,
+          "y": -44.66581354802997,
+          "contact": false
+        },
+        {
+          "id": "foot-3",
+          "side": "front",
+          "group": 1,
+          "x": -115.08478556165937,
+          "y": 0.06428162097813583,
+          "contact": true
+        },
+        {
+          "id": "foot-4",
+          "side": "front",
+          "group": 0,
+          "x": 38.082757638941644,
+          "y": -43.305699745682205,
+          "contact": false
+        },
+        {
+          "id": "foot-5",
+          "side": "front",
+          "group": 1,
+          "x": 94.91521443834063,
+          "y": -1.819693186830591,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk10/assembly-aim-up.svg",
+      "pose": "aim-up",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -88,
+          "y": 0.19041348804546487,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "back",
+          "group": 1,
+          "x": 0,
+          "y": 0,
+          "contact": true
+        },
+        {
+          "id": "foot-2",
+          "side": "back",
+          "group": 0,
+          "x": 88,
+          "y": -1.6607097026850397,
+          "contact": true
+        },
+        {
+          "id": "foot-3",
+          "side": "front",
+          "group": 1,
+          "x": -105,
+          "y": -0.09010129545640666,
+          "contact": true
+        },
+        {
+          "id": "foot-4",
+          "side": "front",
+          "group": 0,
+          "x": 5,
+          "y": -0.07424732516585664,
+          "contact": true
+        },
+        {
+          "id": "foot-5",
+          "side": "front",
+          "group": 1,
+          "x": 105,
+          "y": -1.9740761032651335,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/walkers/wk10/assembly-damaged.svg",
+      "pose": "damaged",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -88,
+          "y": 0.19041348804546487,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "back",
+          "group": 1,
+          "x": 0,
+          "y": 0,
+          "contact": true
+        },
+        {
+          "id": "foot-2",
+          "side": "back",
+          "group": 0,
+          "x": 88,
+          "y": -1.6607097026850397,
+          "contact": true
+        },
+        {
+          "id": "foot-3",
+          "side": "front",
+          "group": 1,
+          "x": -105,
+          "y": -0.09010129545640666,
+          "contact": true
+        },
+        {
+          "id": "foot-4",
+          "side": "front",
+          "group": 0,
+          "x": 5,
+          "y": -0.07424732516585664,
+          "contact": true
+        },
+        {
+          "id": "foot-5",
+          "side": "front",
+          "group": 1,
+          "x": 105,
+          "y": -1.9740761032651335,
+          "contact": true
+        }
+      ]
+    }
+  ]
+}

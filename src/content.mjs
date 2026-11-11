@@ -272,6 +272,34 @@ export const CAMPAIGN_MISSIONS = [
     intro: 'NACRE // CHAUSSÉE DES SALINES · 16:10',
   },
 
+  {
+    id: 'MI08', number: '08', campaign: true, act: 'I — Le poids de l’ordre',
+    name: 'La marée compte les absents', planetId: 'PL02', planet: 'Nacre',
+    biome: 'PORTES D’AVAL', length: 6800, difficulty: 'PASSAGE SOUS PRESSION', duration: '8–14 min',
+    faction: 'Régie impériale / services du quai / équipage de Rive-Courte', accent: '#a7d3c6', sky: ['#142c39', '#496f7c', '#d8cba9'],
+    description: 'Retrouvez les survivants réellement présents, annoncez les places du refuge et préparez les bateaux. L’amenée règle l’eau du bassin ; la porte de passage commande sa sortie. Un accord, un embarquement, un départ et une arrivée sont quatre faits distincts.',
+    briefing: '« Portes d’Aval. Fermez les deux accès pour l’opération de contrôle. Transmettez le bilan du quai après la manœuvre. » — Major Holt',
+    hint: 'E inspecte les deux commandes et le registre. Retrouver les groupes ne les fait pas monter à bord. Consultez le quai et le refuge, demandez les services disponibles, préparez passerelles et accueil local. Fermez l’amenée sous ancrage ; la pression baisse progressivement. Après le choix, confirmez l’allocation au quai et manœuvrez le passage. Les bateaux attendent leur fenêtre de courant. E à l’accueil local rappelle ceux qui ne peuvent plus partir. Le rapport vient après les faits.',
+    type: 'departure', evidenceX: 5060, decisionX: 5060, extractionX: 6500,
+    evidenceLabel: 'REGISTRE DE RELOGEMENT D’AVAL', civilianPositions: [], supplyPositions: [720, 2510, 4090, 5580, 6250],
+    enemyPlan: [[630, 'rifle'], [1350, 'drone'], [2050, 'rocket'], [2900, 'skimmer'], [4390, 'rifle'], [4860, 'drone']],
+    departure: { interactionRadius: 160, inspectTime: 3, contactTime: 3, imperialContactTime: 5,
+      gateTime: 8, assistedIntakeTime: 4, sealTime: 12, rampTime: 4, shelterTime: 4,
+      allocationTime: 3, boardingTime: 2, stretcherTime: 4, reportTime: 3, alertDelay: 12,
+      intakeX: 1160, intakeControlX: 940, passageX: 4760, passageControlX: 4540,
+      originXs: [1500, 1900, 2300], quayX: 2660, refugeRadioX: 3060,
+      serviceX: 3460, shelterX: 3680, serviceShelterX: 780, exitX: 5300, refugeX: 6100,
+      boatXs: [3850, 4250], refugeDockXs: [5820, 6040],
+      seatCapacities: [18, 8], stretcherCapacities: [2, 2], crewCapacities: [4, 1],
+      boatSpeeds: [78, 70], currentLimits: [.42, .32], refugeCapacity: 34, refugeStretchers: 4 },
+    decision: { title: 'Les personnes avant la fermeture',
+      body: 'Choisir une conduite ne manœuvre aucune porte et ne fait partir personne. Les accords, les places de brancard et les arrivées seront vérifiés dans le monde. Le rapport à Holt suivra les opérations réellement accomplies.',
+      obey: 'Fermer immédiatement ; accueillir les personnes restantes à Aval',
+      delay: 'Accorder une fenêtre aux bateaux prêts, puis fermer',
+      defy: 'Maintenir le passage et protéger les départs consentis' },
+    intro: 'NACRE // PORTES D’AVAL · 18:40',
+  },
+
 ];
 
 export const ALL_MISSIONS = [...MISSIONS, ...CAMPAIGN_MISSIONS];

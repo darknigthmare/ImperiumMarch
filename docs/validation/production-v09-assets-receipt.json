@@ -1,0 +1,3985 @@
+{
+  "schemaVersion": 1,
+  "receivedAt": "2026-11-11T10:16:08.514086+00:00",
+  "state": "artifacts_verified_runtime_integration_pending",
+  "manifests": [
+    {
+      "path": "assets/production/manifest.json",
+      "sha256": "85acc6291bc646bea2ab045a2e58b8d92a6fe291aa1d6c32b1805c5092e01128",
+      "source": "src/production-assets.mjs",
+      "sourceSha256": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0",
+      "counts": {
+        "files": 298,
+        "svg": 287,
+        "png": 5,
+        "rigs": 6,
+        "parts": 8,
+        "components": 21,
+        "silhouettes": 12
+      }
+    },
+    {
+      "path": "assets/production/audio/manifest.json",
+      "sha256": "a7a8ca79098c5f36d015d84224ab708a9caa1e32c99c720a13093ec6d39c05a9",
+      "source": "src/audio.mjs",
+      "sourceSha256": "a1fe78add6c0eac7961d937afd501295d5772af6f20191b377cadd8fc7282829",
+      "counts": {
+        "cues": 44,
+        "ambiences": 8,
+        "motifs": 3,
+        "previews": 1,
+        "files": 56,
+        "bytes": 8840028
+      }
+    }
+  ],
+  "filesChecked": 354,
+  "uniqueFilesChecked": 354,
+  "pendingBaselineIdsCovered": 27,
+  "additionalExistingPrototypeId": "AS25",
+  "fileCountsAreOverlappingTags": true,
+  "tests": {
+    "path": "docs/validation/production-v09-assets-audio-tests.txt",
+    "passed": 19,
+    "failed": 0,
+    "scope": "Pure geometry, exports, synthetic audio, AudioContext double and public MI07 control path; not native browser audio or human listening."
+  },
+  "records": [
+    {
+      "id": "AS02",
+      "delivered": "Rig Vigie, huit pièces séparées, pivots/couches et six poses dont gauche/droite.",
+      "remaining": "Relire tous les débattements et l’assemblage intégré en mouvement; finition de l’animation encore ouverte.",
+      "taggedFileCount": 28,
+      "files": [
+        {
+          "path": "assets/production/walkers/wk01/hull-near.svg",
+          "sha256": "7ba4209ea2ca3340295af2d80e51ad83e595b31eb21929908de5de29d24292c0",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hull-far.svg",
+          "sha256": "46adf15c4ab5fccb514a589eca6f638cf4a728765e3bc5a68b49f2644816ba08",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/turret-near.svg",
+          "sha256": "67acc92f7739db059b089f8ede83c9307f77f8c3b73101b33a32e1ea0d6694ac",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/turret-far.svg",
+          "sha256": "b8effe67bd016d6864a836dca8e9a009d85dd33ec05681d3d4563ef938db1a18",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/upper-near.svg",
+          "sha256": "1b158d1efb300273df7dfdff9b8e526078aac365e1d94e2fc42ae8d460fbdecb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/upper-far.svg",
+          "sha256": "c7d6ed8c15902a1a77e4e7b76c99dfbee59412c595c4617ff4b69c45f1b6940e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/lower-near.svg",
+          "sha256": "984e873e1c07cc4c2ba4568dba3897645de6488a253b5891e75274c6cdffb1fd",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/lower-far.svg",
+          "sha256": "47ba84b2089ebde356221fcfb8d2b9ccada1e540c6be8e09e0223ea10f19e1d1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hip-near.svg",
+          "sha256": "2f2e564373c23f85bc860523c32a4203bf0c1de5ecc9ccf18ac2dbf903e4b568",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hip-far.svg",
+          "sha256": "ee28190b8a0124d84cc1423fdf5ea30891442223d198b514d23ad506be7ed2c9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/knee-near.svg",
+          "sha256": "73763029bdaba03a45d622483b6c4591871059aea453f24c91904c94f57e8c29",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/knee-far.svg",
+          "sha256": "d6acace1deb4bb94b13d854d55233ebc1da0327985fda60ad531a8616b0a2e2b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/foot-near.svg",
+          "sha256": "6ebe7f785bf3b98ef2046e1f4f8d06148a1d614f298d9d96f16caa64ef6667f1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/foot-far.svg",
+          "sha256": "bd0a10c5ca18ff80f08c5866f3427d2bf00b1b0eaba903bd3f47e2eff9e5c6ac",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-near.svg",
+          "sha256": "dedb0306b68494ef8cdcd0b4344f6f8eeed3113162127d38889550e8e10f21d0",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-far.svg",
+          "sha256": "affb83847f68070095b04f38af4957991bd722048a0f7ce25e8916d035fbb8d8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hull-damaged.svg",
+          "sha256": "d259a00a9c8282c9697e08615f977282409ff2629cf8fd36a9e8c667a9ae807f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hull-repaired.svg",
+          "sha256": "7527dc951c868d4a69f77db18d4f06eac3b03ea8b24c98421a76b479b501709f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hull-braced.svg",
+          "sha256": "73600c74aa88c4abf8d0ee021a15f44dcdfd8e74926e0b912e3d71959c4553ea",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-stand-right.svg",
+          "sha256": "04a81aee7912192ff338183734e78d65ed82ed1129f206c0dd0ace689d3f3a0d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-stand-left.svg",
+          "sha256": "9de0d89686472134b7e3a229e41535bf696baec60713d70a629a2ca4f74a91c2",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-brace.svg",
+          "sha256": "f1cff0453799ab9880923f6e22b4ecc8bb6528d2a7d7245fa398d6662f6f8223",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-walk.svg",
+          "sha256": "79ec361d89a7b189352137dbb4d85af2c977246ebaff8adb6e422c8c0f859fa3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-aim-up.svg",
+          "sha256": "35176d72d43d383da427671f3b711d2767f2eab2ad4976acb481f29d31292257",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-damaged.svg",
+          "sha256": "683e572cac9557672c73a3184e232572ebe2d8f6aef7f325c6e7f2c20fd4d768",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/rig.json",
+          "sha256": "257abd3e921c72c60731e05af120fa4c720bca1ad8540bbae8a96ee7a2b3095b",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/previews/walkers-six-common-scale.png",
+          "sha256": "52ce90bfcffc35c58f9df7f43763264c97e968a12725f533f5a322b3bce94a3a",
+          "format": "png"
+        },
+        {
+          "path": "assets/production/previews/current-vs-production.png",
+          "sha256": "a12a0f4ad7d208049474255dd97c7b2836ab09eac7fb6d6fd1c55032ae41023b",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS03",
+      "delivered": "Rig Bastion, quatre chaînes de membres identifiées, couches proche/lointaine et poses.",
+      "remaining": "Relire profondeur et lisibilité des appuis dans le renderer intégré et pendant les transitions.",
+      "taggedFileCount": 28,
+      "files": [
+        {
+          "path": "assets/production/walkers/wk05/hull-near.svg",
+          "sha256": "045b38a56a8aae8758cab8778561e690cbdfb2b6b625138d4a452487c98332e9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-far.svg",
+          "sha256": "4a8290cd9e4bd81ce7d79103f9afa182444736ac9c87601492be10ad9b60ff40",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/turret-near.svg",
+          "sha256": "4bfc19f5365fd566787300e8777fe969b814a089b2a2a2f689681993633404f4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/turret-far.svg",
+          "sha256": "9e4db572932e0592182588a0058800f81ef98fe6106b52b9907230abc440bcec",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/upper-near.svg",
+          "sha256": "d393af5c375acf06805d3858818251ce3b6911d14c0a91e65638a8ac33d6adc7",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/upper-far.svg",
+          "sha256": "cb462e85d81ecfb3c0329c23596393ac7f87f59a6565d87c945e2e27de5cf425",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/lower-near.svg",
+          "sha256": "7cb1822e8fcee9dcaccebc596af91b1be6f38aa555f3f23052138bced1560886",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/lower-far.svg",
+          "sha256": "1a9f501675a6429b7fbffff531ac2adb0f268d5bde37b1d18c0273bf51ea2d9a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hip-near.svg",
+          "sha256": "af60a55e59cf1bece596e09e203e1232150da5fc95bd3e3ea608c75764e95df4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hip-far.svg",
+          "sha256": "9b3c913f6c08e5ae26bf7ad92db2f406474ca5f2c78afffd59762e341bfd2ee6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/knee-near.svg",
+          "sha256": "18980c28dde554003d35ee006273042b7cc165b2cf644063fd66609d032213f6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/knee-far.svg",
+          "sha256": "71301dd45d63167f7224e26cb0a6215c875ec16bd983e31499fc6e3fa3b4b97f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/foot-near.svg",
+          "sha256": "dd545fddedc1e2d0dcf5225f0941267ca5176920752b7c34568a59035f6dabf6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/foot-far.svg",
+          "sha256": "9bdc6fdb06112336376ecc36e43bcca57e91442fa1dc71a673f44adab4b6cb0d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-near.svg",
+          "sha256": "d7fa73e67ffffa072de0a022f2dbc7d8573357d0943f89073000ca5d82df144e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-far.svg",
+          "sha256": "10fb87c3de3169e479a262db060b13d841c6a7ae74679701d0827d6dce96c988",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-damaged.svg",
+          "sha256": "3fc06578a8aa534e09c0c19ad315c76472002f358ae3d7a6264f1dfc3fbfd50a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-repaired.svg",
+          "sha256": "326bce25a0611a501f6f1d6d4a6855be221ea0ea6500f39d898ae58ce079fb5d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-braced.svg",
+          "sha256": "3c247be077804049d5520a346b80c4b64787eb0b016d5737c7eb469f4ce59fff",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-stand-right.svg",
+          "sha256": "9c77bd87d7a6980c0b46dda62d55735ec98bf458ce9b52c87b4f7e951bca66d8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-stand-left.svg",
+          "sha256": "bfc231fe9f2201ec9eaac431847bfb93cecdbc6f9db2b495a82c6915b3f356ec",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-brace.svg",
+          "sha256": "6a40e04f11a1d6d69e4486ea33c44ff4c1102604582e15e11557cf161cee7f50",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-walk.svg",
+          "sha256": "f50a0019ee4eb5256e68f653c30aa54a480d95a53a5e0911a5131ef0ec6a286c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-aim-up.svg",
+          "sha256": "ea38212e9757cb57d05d7ad4539fb98c1702a018dc4389a01a8d7c75149a5865",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-damaged.svg",
+          "sha256": "6921eb88012da9b657b4c824083f1aaa2264ecb7737756d25fe7f91af4b171bf",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/rig.json",
+          "sha256": "5716b225f3ca74c5e383689cfba6db92ddcf15173055ddc3fc2d8e96d5868783",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/previews/walkers-six-common-scale.png",
+          "sha256": "52ce90bfcffc35c58f9df7f43763264c97e968a12725f533f5a322b3bce94a3a",
+          "format": "png"
+        },
+        {
+          "path": "assets/production/previews/current-vs-production.png",
+          "sha256": "a12a0f4ad7d208049474255dd97c7b2836ab09eac7fb6d6fd1c55032ae41023b",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS04",
+      "delivered": "Rig Pèlerin, six chaînes avec groupes de tripodes et poses à échelle commune.",
+      "remaining": "Contrôler le gait intégré au zoom minimum et produire les équipements réellement amovibles restant hors des huit pièces.",
+      "taggedFileCount": 28,
+      "files": [
+        {
+          "path": "assets/production/walkers/wk09/hull-near.svg",
+          "sha256": "0fc9ba0d599784f79ea39b2f0a6b6b99dccfb621c4e0a406346c40375f4df29a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-far.svg",
+          "sha256": "5d27b3a171e49fd3ae631c91dab6cb9795f1bb07ed802368cb6cd0fc3dbb70b2",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/turret-near.svg",
+          "sha256": "5d60e3d484ee882ae2a1ebe133a0810a267d8eca307871f03c9e97a9c2d41ecd",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/turret-far.svg",
+          "sha256": "7a944c292deb6e125fa6e704ae57c35db379514196e1e59851534b4836f9718c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/upper-near.svg",
+          "sha256": "3f9ecef05b747af1c2ed93aecffe933de2cfc61b7a1e446f3e6dfd905f538103",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/upper-far.svg",
+          "sha256": "8439b617b675bda2ec0cf1dd713e62cbabc219f39fe9bd3a644b7fed0e16af5f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/lower-near.svg",
+          "sha256": "8b43bcb88a3d9e48d236b54ee970a64c25299478ed1a0fdb4b142244c386cdbb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/lower-far.svg",
+          "sha256": "3b2ff4ced89ac69a39dace565c98b49ed4fa6536917f47bf303a5d848c708d50",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hip-near.svg",
+          "sha256": "f10ea301ad23566be18f65c8d96a8d8b70ca294dcf40a34deff6ca5325b76894",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hip-far.svg",
+          "sha256": "6d4bc05b641482d912097b646d6935a2dde403ddd6d5d5619f83a7703543a8b6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/knee-near.svg",
+          "sha256": "f75759cbd387d627d53118986995263509f65ee980b4cd38af31487e882965a4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/knee-far.svg",
+          "sha256": "8cdc90ab0eab07d8901b67a9ddbfe53e965465d954cd01cfec60b71fc207a2db",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/foot-near.svg",
+          "sha256": "340df554d259b1bcaf6659df03f73829916be5b39b2b9e53c98a6a733352bf64",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/foot-far.svg",
+          "sha256": "1b68e2d6feecdf3c17ca9c740008377e86d277bda1c79b07c16b4df541f3666c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-near.svg",
+          "sha256": "054ee33d06bd2b11fd809398b3834752fab49b26ea1d48c2961c01a0b63d4082",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-far.svg",
+          "sha256": "29527804768b9eaea4148f3113623277b0e57ea0e23184bbca37eca90848a6da",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-damaged.svg",
+          "sha256": "d85fb9803298a7dba61e1b8c22d7febe1e007cf536efed344c145986d3aa6b4b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-repaired.svg",
+          "sha256": "30f746dbb256f776d690113dacadc5c50572d051cda615f93cdefaa42a621cfe",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-braced.svg",
+          "sha256": "f57b67dfcde0f3e8b0aec2874af812377e40f1aca46a21d607c7ab1ec962f495",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-stand-right.svg",
+          "sha256": "d59eedb58bbf51c97feb0f76445c67d3ec26d57944415de2705cad67de870249",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-stand-left.svg",
+          "sha256": "6d96ad98e4ee10af991a11b28291a533500059f4ca1610a482f540ab1d8d2d5d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-brace.svg",
+          "sha256": "905370a985b73c2bac2394254f877f34d035e8a6df47461b503f2245ad95c697",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-walk.svg",
+          "sha256": "e282ae089dbe84fb68b09256091dbc4eca060a17a5c1adce52e4b7c3e7ad9526",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-aim-up.svg",
+          "sha256": "c3103113a22ca41309362d6157b98bf986e9e09d64098f4d271beb58fb6c776c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-damaged.svg",
+          "sha256": "ee85f15531bc36e9e05a820d5b895fc9acf9ab9ff63962cab5462795d85662eb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/rig.json",
+          "sha256": "12d6cdd9ce8ae0fa89be74f815b85e73ca88f39b8703cad4d53feec3b36e93a9",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/previews/walkers-six-common-scale.png",
+          "sha256": "52ce90bfcffc35c58f9df7f43763264c97e968a12725f533f5a322b3bce94a3a",
+          "format": "png"
+        },
+        {
+          "path": "assets/production/previews/current-vs-production.png",
+          "sha256": "a12a0f4ad7d208049474255dd97c7b2836ab09eac7fb6d6fd1c55032ae41023b",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS05",
+      "delivered": "Douze silhouettes distinctes, donc les neuf compléments aux trois premiers châssis.",
+      "remaining": "Six restent conçus non jouables; leurs rigs détaillés et capacités spécialisées ne sont pas produits par les silhouettes.",
+      "taggedFileCount": 13,
+      "files": [
+        {
+          "path": "assets/production/silhouettes/wk01.svg",
+          "sha256": "6f42b5efa9708f975324631b04a0a15f675dafd970325c25a88906f250f98f85",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/silhouettes/wk02.svg",
+          "sha256": "014c5f6c3dddf32ec20e88b5f1e35d60c77debd62c4c09f4aa974eb68bc7eb49",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/silhouettes/wk03.svg",
+          "sha256": "4a9775ec0fb14515c17ba5e80492281ab4596d43d90d2a81d6bad3d2b72986ae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/silhouettes/wk04.svg",
+          "sha256": "7881e73125180ee00ed9ef639c2e6df2b522c17a70ae56b429ef3d41e9728b71",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/silhouettes/wk05.svg",
+          "sha256": "4a7cc6a65e9437c5dc7ed79b200b8ff1afb856c9439e538b01ee15b2b395bcef",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/silhouettes/wk06.svg",
+          "sha256": "a121990fdce00c08583e4eccd9c86769b89f2090a239c0cf4c2179ff734790f9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/silhouettes/wk07.svg",
+          "sha256": "a5842d41fe55586716b0089281fcdff4de278e990b9a204ad9bbfce9b723dbde",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/silhouettes/wk08.svg",
+          "sha256": "d79873241eb47686901b73a031c3054ff396ffb74bd3e2a8d91f28080b491f2b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/silhouettes/wk09.svg",
+          "sha256": "725930916735a217497fe4ca280399b74baf6642638fbf58f801db80bdaba4d2",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/silhouettes/wk10.svg",
+          "sha256": "885b84c3605c88ff11fddad50ec96d8fedee53ac5e0d3d03613efa32630723b3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/silhouettes/wk11.svg",
+          "sha256": "d52e6f5d32e89822293ad882409e9ad4559e3a3e8f34767678c4da4e8db26ed4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/silhouettes/wk12.svg",
+          "sha256": "2f637695ffd4a46c573605bb7b8f1099dbdf4697ca9ff8edd4170c46c50f3375",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/previews/silhouettes-twelve.png",
+          "sha256": "5a0a25c976d1484cc8d59c7662597fc0df5fb8605259a1ec6be07bba509ed222",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS17",
+      "delivered": "Premiers modules vectoriels de repère de marée et de refuge, avec kit Nacre partagé.",
+      "remaining": "Mer en plusieurs plans, mangroves, matières animées et environnement complet restent à finir.",
+      "taggedFileCount": 4,
+      "files": [
+        {
+          "path": "assets/production/nacre/tide-marker-normal.svg",
+          "sha256": "86568c94ebce766a3c53e39aeb0c159d554ddc234499cf6ef3529820332fabae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/dock-normal.svg",
+          "sha256": "c33d686bc4f91317883bf13f36d19abeb9a0b0fb1a62abf8a74e65f087f18360",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/dock-damaged.svg",
+          "sha256": "d570283e2f9688c40e6da912b0466e51d0b2428f494f67c824af418f97a57b1a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/previews/nacre-components.png",
+          "sha256": "3a096c2d666d2ba3ab116efe78cfe2a6fdf9a7735bac25bfcd07d63faf856095",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS26",
+      "delivered": "Huit ambiances planétaires composées et exports WAV distincts, avec quelques signaux de pas.",
+      "remaining": "Métiers, circulation, faune et variations d’infrastructures de tous les mondes restent à compléter; écoute humaine non réalisée.",
+      "taggedFileCount": 10,
+      "files": [
+        {
+          "path": "assets/production/audio/cue-step-fibre.wav",
+          "sha256": "a611e1a232c034c55b4202a1c812950f76dbb6f4dd96a8355984f03a4ab9fe57",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/ambience-pl01.wav",
+          "sha256": "080f374de3a7f947377df7102fc30889fa187c4c939fae76ed82c3db8a96340c",
+          "format": "ambience"
+        },
+        {
+          "path": "assets/production/audio/ambience-pl02.wav",
+          "sha256": "d06d0f88ae1cddb999d1019cdc2659d6afe02f8dc2a95712f9266d8334d8f3f2",
+          "format": "ambience"
+        },
+        {
+          "path": "assets/production/audio/ambience-pl03.wav",
+          "sha256": "b12fb9efe3c528c41a0de1785bf0d80a52e630a9c4b753a53623bc3127a40eb9",
+          "format": "ambience"
+        },
+        {
+          "path": "assets/production/audio/ambience-pl04.wav",
+          "sha256": "d9d8483bfec5c5ef2f3f50402a9123c6bcb8423f2e5b700af5d4d40b51c2f0eb",
+          "format": "ambience"
+        },
+        {
+          "path": "assets/production/audio/ambience-pl05.wav",
+          "sha256": "41cd80c71d0deea0bf13797a1a11ffc66a27b8a30dc50eb3a89cd936901d6f43",
+          "format": "ambience"
+        },
+        {
+          "path": "assets/production/audio/ambience-pl06.wav",
+          "sha256": "0602c34eac874d07c8414b1167df4df1006d281f306af10bd4c08b53485acf6d",
+          "format": "ambience"
+        },
+        {
+          "path": "assets/production/audio/ambience-pl07.wav",
+          "sha256": "044082c83c9c72b5843230df57ca43f6bfb943c68e77659121c650b924d54bda",
+          "format": "ambience"
+        },
+        {
+          "path": "assets/production/audio/ambience-pl08.wav",
+          "sha256": "9052834e2ae067cb22fab8a1a0d3f927ab0cd08a330f38b19799eb0f766501d2",
+          "format": "ambience"
+        },
+        {
+          "path": "assets/production/audio/preview-nacre-library.wav",
+          "sha256": "fe054462bdc63911a646828f56952f2a91f0960e0f0863908807aad8ca8749e7",
+          "format": "preview"
+        }
+      ]
+    },
+    {
+      "id": "AS27",
+      "delivered": "Trois motifs originaux avec boucle et mixage logiciel bornés; exports réutilisables.",
+      "remaining": "Transitions narratives finales, déclenchement de la rupture MI16 et écoute humaine du mix restent ouverts.",
+      "taggedFileCount": 5,
+      "files": [
+        {
+          "path": "assets/production/audio/cue-victory.wav",
+          "sha256": "15554d1dce273a34ad5bdd03088675fbd9a520d1476b000853514f07e03be2d8",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/motif-imperial.wav",
+          "sha256": "bc528a9ecf7b8a5494c69671ba86852d718e6cffbfaf50e997f067c38c70cdf7",
+          "format": "motif"
+        },
+        {
+          "path": "assets/production/audio/motif-crew.wav",
+          "sha256": "1a93717b84a7ed347d828421895569d1bc64e264e8b3734c63a787a0436c6a63",
+          "format": "motif"
+        },
+        {
+          "path": "assets/production/audio/motif-fracture.wav",
+          "sha256": "aa1c1f49b4af791c47021caeae767f8e4c01e9215f21bba61c59f578e5acbe0c",
+          "format": "motif"
+        },
+        {
+          "path": "assets/production/audio/preview-nacre-library.wav",
+          "sha256": "fe054462bdc63911a646828f56952f2a91f0960e0f0863908807aad8ca8749e7",
+          "format": "preview"
+        }
+      ]
+    },
+    {
+      "id": "AS30",
+      "delivered": "Deux manifestes avec origine, méthode, date, version, droits déclarés, chemins et SHA-256 des 354 fichiers du lot.",
+      "remaining": "Réconcilier le lot avec tous les médias embarqués de la livraison finale; les droits déclarés ne constituent pas la revue commerciale PR26.",
+      "taggedFileCount": 6,
+      "files": [
+        {
+          "path": "assets/production/walkers/wk01/rig.json",
+          "sha256": "257abd3e921c72c60731e05af120fa4c720bca1ad8540bbae8a96ee7a2b3095b",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk02/rig.json",
+          "sha256": "07257a55e128adc31dab2d527cdf4c6f9a0dc94a5d651a2f4d4ad59e7798ccdf",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk05/rig.json",
+          "sha256": "5716b225f3ca74c5e383689cfba6db92ddcf15173055ddc3fc2d8e96d5868783",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk06/rig.json",
+          "sha256": "c5fe285bfdd93263283ea3d4a7eb18547c0fecfc70844d4cc218091ad4fbf032",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk09/rig.json",
+          "sha256": "12d6cdd9ce8ae0fa89be74f815b85e73ca88f39b8703cad4d53feec3b36e93a9",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk10/rig.json",
+          "sha256": "86d923845b75cabd4effcdefc2dabc8f68ba0b9d11d84677f4cbb2ffd45ca55f",
+          "format": "json"
+        }
+      ]
+    },
+    {
+      "id": "AS31",
+      "delivered": "Trois rigs Caracal/Arpenteur/Cloporte, pièces, pivots, couches et poses.",
+      "remaining": "Inspection intégrée sur terrain commun et finition des mouvements/dégâts restent à effectuer.",
+      "taggedFileCount": 81,
+      "files": [
+        {
+          "path": "assets/production/walkers/wk02/hull-near.svg",
+          "sha256": "ae436b6ce1db9b663b30cc3cf92c0e1e152a47bf2b496ca7d19ea0604fbc4fd8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-far.svg",
+          "sha256": "a16a78abe484fb490c7fcf1a1aad8f2dbffc4228cea748b4ffebc5156435a80a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/turret-near.svg",
+          "sha256": "62e8d8876d9c540cbd9b43c81d210fd1d77675ef2b8023bcdc3cc95bbae197ce",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/turret-far.svg",
+          "sha256": "332629ffe00d38d1d3f5a25d5c2d7543fea71545bfd5dbcdb0c491563cdd9c21",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/upper-near.svg",
+          "sha256": "5fd0ab628016c0a516dd7f0ac5f705c89b169481e108fcb5507e2f3b53a9ab09",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/upper-far.svg",
+          "sha256": "397e282c0193512095adbfc5dd9b48802061ebc56ae56148031c4d546337825e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/lower-near.svg",
+          "sha256": "de6bb541b11e93cdabd010ec34b3d0216b10a4b9af6b826172df59e25d15dc93",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/lower-far.svg",
+          "sha256": "3bcccefde822338cd9c8476625fb33efc51a78282651c977210c7b75d7edf627",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hip-near.svg",
+          "sha256": "35d0eed374675821c8040b2a33ebbc82ec959bd502b14e665cf279ca4fc9e52e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hip-far.svg",
+          "sha256": "93a151093b221c39b04009747028c471ac1693d652ddadb28bfa0a164a060bf5",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/knee-near.svg",
+          "sha256": "c129438f0d1f85b11352266de96457d36b7464f38c72a32acfb0d4c6d4eaa02a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/knee-far.svg",
+          "sha256": "05e2fd509e8e7965e8c83f2fa5d688d5db0db9ae87e043c4fcf0938a4973c869",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/foot-near.svg",
+          "sha256": "8fb1b034b2e555924a493d9c694cf5f059dd5c2afcf1545adf61925e58b74ebe",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/foot-far.svg",
+          "sha256": "37cd53bcc941c5871a5c7acd327f146c2b1423dbf949d75c576f756bd1b20129",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-near.svg",
+          "sha256": "d3086f0342ea3485dc165292b659610676c6f54f1b08f44f458c234342a98010",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-far.svg",
+          "sha256": "4849caaca0a7a664859fc5841bd1966325ca2ab634232017bf7fe578b030b403",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-damaged.svg",
+          "sha256": "867c8ac4c0dd123d4e0f46f6ba516ac8bf62d5c64c42290d8a8d1ffda8c932d9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-repaired.svg",
+          "sha256": "0577ad7484977d087aafce73b094f0de73d5b95620d528ca9bce70b5087d434f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-braced.svg",
+          "sha256": "b6211378246286e375be1601118dab019fa2613435407ced270573a234a691c9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-stand-right.svg",
+          "sha256": "34627eda18ef8d085a0bb866a48287b8453ad6a801d2c8311ce2906f7bdfbfbc",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-stand-left.svg",
+          "sha256": "642dcd6f6fdd59ab67b7ebf9f0f8a37dfd3b97561aa834fbe735c55806f3c385",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-brace.svg",
+          "sha256": "0f1b99ce5e843197fec1262f03c573fd1267cad9615f7a04aec895fb6e71e827",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-walk.svg",
+          "sha256": "9631b582919866cd1ecc2176a4bfa5433968a78a0c5ebc79fc940d020db5b7d5",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-aim-up.svg",
+          "sha256": "651cac79fe45b4f8ed3984152ade28d39951fc689553793a09463c369cb8e68b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-damaged.svg",
+          "sha256": "44e377fe2a29b09e47dfece3630cec3d65c3f58f22d4e050e2feab59dbab8783",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/rig.json",
+          "sha256": "07257a55e128adc31dab2d527cdf4c6f9a0dc94a5d651a2f4d4ad59e7798ccdf",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-near.svg",
+          "sha256": "5a49f8351310a62db4ff5ecd1100ad1ab68b8e6bef29598f7db2c56fbd1822ef",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-far.svg",
+          "sha256": "fa37b9a406dfadbfdc21b1a414c21aa946e249553f0c590a855f5afe60f2599e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/turret-near.svg",
+          "sha256": "3cef762e7166f28cb67364bcf6c5ed37510acd5953fe248045db3c418f20f2dd",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/turret-far.svg",
+          "sha256": "b990a54d6891c3aa523d3d517a0feb2ec1fd3dee664ee53a90b49cab363cafd3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/upper-near.svg",
+          "sha256": "241b838961f9ee3e331a6395accb12d0fe3fc95166071b85916721ac8567cdd4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/upper-far.svg",
+          "sha256": "60790e9582acdfc4ad2fc0769ed7460ae472e096cf3c6c6be5a6bd2adfa68d1e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/lower-near.svg",
+          "sha256": "eb92fc3c3655d0c93727ea40c8eeb56a37cb0979106773cfeca1685a795c4c3e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/lower-far.svg",
+          "sha256": "b8bae077f493c158b58c0e32d0442d4b2ed7e0d355fd307c7554278a99928552",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hip-near.svg",
+          "sha256": "46c48da44f9a83e2b81bd3a4269fa7ef89ba6e48d2727ff1838829ec5c9ce03d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hip-far.svg",
+          "sha256": "0df226d6ff7cb9a016894f3f00cc564928ff546bf805d615e5c45b52e58a8077",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/knee-near.svg",
+          "sha256": "c0344fe5eb04fc04809754cecaffd63ccf3a73efe64eea953601964355409e22",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/knee-far.svg",
+          "sha256": "df7944cd23d0b497d963095d285a1201e51b29132c8c8e09456aa7dedb9c4301",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/foot-near.svg",
+          "sha256": "5faf05bde506ab7d06c16b08d0ab9c638a43107215418539ef9e5f5c62aab363",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/foot-far.svg",
+          "sha256": "316b144a8c63b93159bdf9d81f55ea3b16a8f4cfda582c2db8c7a57a4556190f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-near.svg",
+          "sha256": "005f336b1e6a99e35ed7ba0246e05a00837f0ec2a54b9db05c0dd3f58a04759b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-far.svg",
+          "sha256": "90a5c31534849fdaf1b342b77986aeb1058668cd9e8ca45673b2748e2c9628ae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-damaged.svg",
+          "sha256": "78eb9a7e2dc9e66fc0da6ff7083880e34cc12f534ee47ace2a94fd25395411ba",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-repaired.svg",
+          "sha256": "55fad04dbf3478247618a5d23c2deb19a9980720b29bc682f87cc899b77db768",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-braced.svg",
+          "sha256": "ff5db20c2ec0c73316e74d51822b9eed4e9a63fb12a65592e5be2fe7b27a0840",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-stand-right.svg",
+          "sha256": "5f0971094fa0389db4de572a2a3e7f0ef13352a76c0049c868ecf5f9ac7c1d87",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-stand-left.svg",
+          "sha256": "8a6386f0999ec31366b0d726b9556196b8f924238d92924fc0001f2412318a7c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-brace.svg",
+          "sha256": "d706d97a01c001e0cb0892d192844a176e4dc90d44c9c008474849f2d7993267",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-walk.svg",
+          "sha256": "fa467e52917193346b1306b6a451be35f7550cd98283081486a0fe4722c319a1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-aim-up.svg",
+          "sha256": "6c3283622fed5b6426498a343d2b4b65174071bef8d25237f8b6655bde51944a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-damaged.svg",
+          "sha256": "7a861cf71c41f0db87c362ef5d464fac060cb84f6b6e284ca8e9c01f8551f278",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/rig.json",
+          "sha256": "c5fe285bfdd93263283ea3d4a7eb18547c0fecfc70844d4cc218091ad4fbf032",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-near.svg",
+          "sha256": "20822201815ef565dda85415a75de6c06e6c377c7c057bf3a7c8638012ec85b0",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-far.svg",
+          "sha256": "01380f35e12249c264a04b5a1dd492267aee4506a74127d29e4d461b234c7b48",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/turret-near.svg",
+          "sha256": "2ffcbddfe080a25c152b77ad7dddeea2f15aa0ddab903522b8567098b31cccf7",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/turret-far.svg",
+          "sha256": "d9f2aabe086d0e09ce48fa1faede07101284e506b155b4bdfe858015695971b3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/upper-near.svg",
+          "sha256": "c514a27f9316c5cb860f0579aaeacc491fdab4d7d42fbad368012e01093c044c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/upper-far.svg",
+          "sha256": "c41ec31e140f77045078e38df999d5f2e44551c3e94a3fbe172c31c17e3cff98",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/lower-near.svg",
+          "sha256": "c821893743dfea76e0596f8a46fa8eadbf00c6e0097c35e7302599394ed28373",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/lower-far.svg",
+          "sha256": "09ffeff7635e0f9a53c028ca165018e0eb24d2a2a6e2ac87d8b683fe68bebcf8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hip-near.svg",
+          "sha256": "7dd2b0c42e5bd09355cd4c4a12704c1c4fc6b356400984b3ea15405e71c04d49",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hip-far.svg",
+          "sha256": "30e6a046017f54dd08903c364fe8e10ef02d355067604acb0c8738f63bdfba5b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/knee-near.svg",
+          "sha256": "ad35fd2b4c426cd8621665c0603aca6ae0db2677d326cd33c02e6086eab354fe",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/knee-far.svg",
+          "sha256": "3de19ec090e52e4465834b8d80ecdfa5fcbadd4564f4a37f2a7b02057a44fdae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/foot-near.svg",
+          "sha256": "456b6adc248babd4fb9f7537637c6e632a541fb0baed0676f229d08c22ec56a3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/foot-far.svg",
+          "sha256": "9b52ef373d8c780dbfef139fccd28599a05b7c447ac52e78bbdfeacf8752f56a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-near.svg",
+          "sha256": "3e158ffc793e3681939c9b6e4c6cd38d07379c885e4064dc8e48999df3c9d153",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-far.svg",
+          "sha256": "534c47d17ca7d36b924197711da035457e63356aca84394cbbb383073e8d6da1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-damaged.svg",
+          "sha256": "4100474d6c47480bbf81fad8c5a732e0476406a9720ccca2b56defacb8af5836",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-repaired.svg",
+          "sha256": "26ddaeba36dc7e8292ed26d4b945c58283bb9fe22e5e8b6baaa080274773e5ae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-braced.svg",
+          "sha256": "36c68e5ae0a4015f23e6553acbabcf5fc74c1d1c90b516c86a2020dc75113967",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-stand-right.svg",
+          "sha256": "100ce5fcbe8347c813a157cc1c0b567db4ee315ab1d1d9c03a1624eea397d91f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-stand-left.svg",
+          "sha256": "376747804f21fa5774abebfe12e598ee855d171e32803bcd048cb38366feb647",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-brace.svg",
+          "sha256": "1bc34f2128b97071d2989a21fbd192dab4e173040a005e20f7702286543ba2fb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-walk.svg",
+          "sha256": "58a4f58a71ea10f5e85df19ac6f9484b281e66bcf8e3ecbad858b23d19b6b8ed",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-aim-up.svg",
+          "sha256": "dc2206ad8c1103aab39d6423a9bf66ffde2641999c026cc90f0f1315ac88ee00",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-damaged.svg",
+          "sha256": "2132753a894ad20d34d0c24cead2b3c9234133fd9f118b5bbaade1ebe1c6d117",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/rig.json",
+          "sha256": "86d923845b75cabd4effcdefc2dabc8f68ba0b9d11d84677f4cbb2ffd45ca55f",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/previews/walkers-six-common-scale.png",
+          "sha256": "52ce90bfcffc35c58f9df7f43763264c97e968a12725f533f5a322b3bce94a3a",
+          "format": "png"
+        },
+        {
+          "path": "assets/production/previews/parts-damage-repair.png",
+          "sha256": "bd6d10952a230642880d717e12a1d6481c36d77ca608ea17dc48de706948ac47",
+          "format": "png"
+        },
+        {
+          "path": "assets/production/previews/current-vs-production.png",
+          "sha256": "a12a0f4ad7d208049474255dd97c7b2836ab09eac7fb6d6fd1c55032ae41023b",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS34",
+      "delivered": "Signaux synthétiques d’inspection, de liaison et de contrôle.",
+      "remaining": "Voix de Holt, articulation entre consigne et combat et écoute du mix final restent à produire ou observer.",
+      "taggedFileCount": 6,
+      "files": [
+        {
+          "path": "assets/production/audio/cue-radio.wav",
+          "sha256": "598cb749307f7e664c4587a26a3abee575a95bbb44ae336b624ff0d6bd5e4ae3",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-civil-signal.wav",
+          "sha256": "5a87eb688b89e4fbc1aed4070a1106b49df304c87b5bacf24300f06d7dd66881",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-military-signal.wav",
+          "sha256": "be64f63521eb6dc0f9f6eb585cf45d68ac67e2e9046bd5247ae81f965f1ed0c9",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-inspection-complete.wav",
+          "sha256": "0507fbc9b0e803f345162ae0dfd2b46b2f75ce4bd76e2e72089d1ea3eac733f1",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-relay-secured.wav",
+          "sha256": "b8330e161771812ca347c4a51d4d16558b9cf7dc1075d866ed69b4f0c0901e90",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-control-arrival.wav",
+          "sha256": "01e995a2934bf4bac7546302769a2953ab0f610bb626ff79140364fd84116170",
+          "format": "cue"
+        }
+      ]
+    },
+    {
+      "id": "AS36",
+      "delivered": "Quatre états de radiateur et diagnostics des six rigs; source de dessin partagée avec Canvas.",
+      "remaining": "Identification spontanée par un joueur et finition en contexte restent non observées; aucun autre composant adverse ajouté.",
+      "taggedFileCount": 176,
+      "files": [
+        {
+          "path": "assets/production/walkers/wk01/hull-near.svg",
+          "sha256": "7ba4209ea2ca3340295af2d80e51ad83e595b31eb21929908de5de29d24292c0",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hull-far.svg",
+          "sha256": "46adf15c4ab5fccb514a589eca6f638cf4a728765e3bc5a68b49f2644816ba08",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/turret-near.svg",
+          "sha256": "67acc92f7739db059b089f8ede83c9307f77f8c3b73101b33a32e1ea0d6694ac",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/turret-far.svg",
+          "sha256": "b8effe67bd016d6864a836dca8e9a009d85dd33ec05681d3d4563ef938db1a18",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/upper-near.svg",
+          "sha256": "1b158d1efb300273df7dfdff9b8e526078aac365e1d94e2fc42ae8d460fbdecb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/upper-far.svg",
+          "sha256": "c7d6ed8c15902a1a77e4e7b76c99dfbee59412c595c4617ff4b69c45f1b6940e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/lower-near.svg",
+          "sha256": "984e873e1c07cc4c2ba4568dba3897645de6488a253b5891e75274c6cdffb1fd",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/lower-far.svg",
+          "sha256": "47ba84b2089ebde356221fcfb8d2b9ccada1e540c6be8e09e0223ea10f19e1d1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hip-near.svg",
+          "sha256": "2f2e564373c23f85bc860523c32a4203bf0c1de5ecc9ccf18ac2dbf903e4b568",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hip-far.svg",
+          "sha256": "ee28190b8a0124d84cc1423fdf5ea30891442223d198b514d23ad506be7ed2c9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/knee-near.svg",
+          "sha256": "73763029bdaba03a45d622483b6c4591871059aea453f24c91904c94f57e8c29",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/knee-far.svg",
+          "sha256": "d6acace1deb4bb94b13d854d55233ebc1da0327985fda60ad531a8616b0a2e2b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/foot-near.svg",
+          "sha256": "6ebe7f785bf3b98ef2046e1f4f8d06148a1d614f298d9d96f16caa64ef6667f1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/foot-far.svg",
+          "sha256": "bd0a10c5ca18ff80f08c5866f3427d2bf00b1b0eaba903bd3f47e2eff9e5c6ac",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-near.svg",
+          "sha256": "dedb0306b68494ef8cdcd0b4344f6f8eeed3113162127d38889550e8e10f21d0",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-far.svg",
+          "sha256": "affb83847f68070095b04f38af4957991bd722048a0f7ce25e8916d035fbb8d8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hull-damaged.svg",
+          "sha256": "d259a00a9c8282c9697e08615f977282409ff2629cf8fd36a9e8c667a9ae807f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hull-repaired.svg",
+          "sha256": "7527dc951c868d4a69f77db18d4f06eac3b03ea8b24c98421a76b479b501709f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hull-braced.svg",
+          "sha256": "73600c74aa88c4abf8d0ee021a15f44dcdfd8e74926e0b912e3d71959c4553ea",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-hit.svg",
+          "sha256": "a922c273d9318077a5e7ec9165dea0b63745860b15f06b7a207e60f6637adc64",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-damaged.svg",
+          "sha256": "b7ed9745cd0251d167ff2ee4809688c1a0dfc2dd2447efc32f94af06195d2b39",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-repaired.svg",
+          "sha256": "230680b0f27207ecbe7c5ad9174583dd6a37bff1774584d45ca51d02594945f8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-stand-right.svg",
+          "sha256": "04a81aee7912192ff338183734e78d65ed82ed1129f206c0dd0ace689d3f3a0d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-stand-left.svg",
+          "sha256": "9de0d89686472134b7e3a229e41535bf696baec60713d70a629a2ca4f74a91c2",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-brace.svg",
+          "sha256": "f1cff0453799ab9880923f6e22b4ecc8bb6528d2a7d7245fa398d6662f6f8223",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-walk.svg",
+          "sha256": "79ec361d89a7b189352137dbb4d85af2c977246ebaff8adb6e422c8c0f859fa3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-aim-up.svg",
+          "sha256": "35176d72d43d383da427671f3b711d2767f2eab2ad4976acb481f29d31292257",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-damaged.svg",
+          "sha256": "683e572cac9557672c73a3184e232572ebe2d8f6aef7f325c6e7f2c20fd4d768",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/rig.json",
+          "sha256": "257abd3e921c72c60731e05af120fa4c720bca1ad8540bbae8a96ee7a2b3095b",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-near.svg",
+          "sha256": "ae436b6ce1db9b663b30cc3cf92c0e1e152a47bf2b496ca7d19ea0604fbc4fd8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-far.svg",
+          "sha256": "a16a78abe484fb490c7fcf1a1aad8f2dbffc4228cea748b4ffebc5156435a80a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/turret-near.svg",
+          "sha256": "62e8d8876d9c540cbd9b43c81d210fd1d77675ef2b8023bcdc3cc95bbae197ce",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/turret-far.svg",
+          "sha256": "332629ffe00d38d1d3f5a25d5c2d7543fea71545bfd5dbcdb0c491563cdd9c21",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/upper-near.svg",
+          "sha256": "5fd0ab628016c0a516dd7f0ac5f705c89b169481e108fcb5507e2f3b53a9ab09",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/upper-far.svg",
+          "sha256": "397e282c0193512095adbfc5dd9b48802061ebc56ae56148031c4d546337825e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/lower-near.svg",
+          "sha256": "de6bb541b11e93cdabd010ec34b3d0216b10a4b9af6b826172df59e25d15dc93",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/lower-far.svg",
+          "sha256": "3bcccefde822338cd9c8476625fb33efc51a78282651c977210c7b75d7edf627",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hip-near.svg",
+          "sha256": "35d0eed374675821c8040b2a33ebbc82ec959bd502b14e665cf279ca4fc9e52e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hip-far.svg",
+          "sha256": "93a151093b221c39b04009747028c471ac1693d652ddadb28bfa0a164a060bf5",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/knee-near.svg",
+          "sha256": "c129438f0d1f85b11352266de96457d36b7464f38c72a32acfb0d4c6d4eaa02a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/knee-far.svg",
+          "sha256": "05e2fd509e8e7965e8c83f2fa5d688d5db0db9ae87e043c4fcf0938a4973c869",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/foot-near.svg",
+          "sha256": "8fb1b034b2e555924a493d9c694cf5f059dd5c2afcf1545adf61925e58b74ebe",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/foot-far.svg",
+          "sha256": "37cd53bcc941c5871a5c7acd327f146c2b1423dbf949d75c576f756bd1b20129",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-near.svg",
+          "sha256": "d3086f0342ea3485dc165292b659610676c6f54f1b08f44f458c234342a98010",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-far.svg",
+          "sha256": "4849caaca0a7a664859fc5841bd1966325ca2ab634232017bf7fe578b030b403",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-damaged.svg",
+          "sha256": "867c8ac4c0dd123d4e0f46f6ba516ac8bf62d5c64c42290d8a8d1ffda8c932d9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-repaired.svg",
+          "sha256": "0577ad7484977d087aafce73b094f0de73d5b95620d528ca9bce70b5087d434f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-braced.svg",
+          "sha256": "b6211378246286e375be1601118dab019fa2613435407ced270573a234a691c9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-hit.svg",
+          "sha256": "d6913298166402a0fccc0414df0a706a1b7a781dabb6f3c548b54e4c2903433c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-damaged.svg",
+          "sha256": "96209d13dc2169173377e5c124dd0ff846b5bd2df2a85879f4f7fa8ea9e45c44",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-repaired.svg",
+          "sha256": "b543ebc5b87a41fc42073428410179e38d798d2a7b48ef2920082636f09c7ea2",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-stand-right.svg",
+          "sha256": "34627eda18ef8d085a0bb866a48287b8453ad6a801d2c8311ce2906f7bdfbfbc",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-stand-left.svg",
+          "sha256": "642dcd6f6fdd59ab67b7ebf9f0f8a37dfd3b97561aa834fbe735c55806f3c385",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-brace.svg",
+          "sha256": "0f1b99ce5e843197fec1262f03c573fd1267cad9615f7a04aec895fb6e71e827",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-walk.svg",
+          "sha256": "9631b582919866cd1ecc2176a4bfa5433968a78a0c5ebc79fc940d020db5b7d5",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-aim-up.svg",
+          "sha256": "651cac79fe45b4f8ed3984152ade28d39951fc689553793a09463c369cb8e68b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-damaged.svg",
+          "sha256": "44e377fe2a29b09e47dfece3630cec3d65c3f58f22d4e050e2feab59dbab8783",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/rig.json",
+          "sha256": "07257a55e128adc31dab2d527cdf4c6f9a0dc94a5d651a2f4d4ad59e7798ccdf",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-near.svg",
+          "sha256": "045b38a56a8aae8758cab8778561e690cbdfb2b6b625138d4a452487c98332e9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-far.svg",
+          "sha256": "4a8290cd9e4bd81ce7d79103f9afa182444736ac9c87601492be10ad9b60ff40",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/turret-near.svg",
+          "sha256": "4bfc19f5365fd566787300e8777fe969b814a089b2a2a2f689681993633404f4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/turret-far.svg",
+          "sha256": "9e4db572932e0592182588a0058800f81ef98fe6106b52b9907230abc440bcec",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/upper-near.svg",
+          "sha256": "d393af5c375acf06805d3858818251ce3b6911d14c0a91e65638a8ac33d6adc7",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/upper-far.svg",
+          "sha256": "cb462e85d81ecfb3c0329c23596393ac7f87f59a6565d87c945e2e27de5cf425",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/lower-near.svg",
+          "sha256": "7cb1822e8fcee9dcaccebc596af91b1be6f38aa555f3f23052138bced1560886",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/lower-far.svg",
+          "sha256": "1a9f501675a6429b7fbffff531ac2adb0f268d5bde37b1d18c0273bf51ea2d9a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hip-near.svg",
+          "sha256": "af60a55e59cf1bece596e09e203e1232150da5fc95bd3e3ea608c75764e95df4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hip-far.svg",
+          "sha256": "9b3c913f6c08e5ae26bf7ad92db2f406474ca5f2c78afffd59762e341bfd2ee6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/knee-near.svg",
+          "sha256": "18980c28dde554003d35ee006273042b7cc165b2cf644063fd66609d032213f6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/knee-far.svg",
+          "sha256": "71301dd45d63167f7224e26cb0a6215c875ec16bd983e31499fc6e3fa3b4b97f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/foot-near.svg",
+          "sha256": "dd545fddedc1e2d0dcf5225f0941267ca5176920752b7c34568a59035f6dabf6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/foot-far.svg",
+          "sha256": "9bdc6fdb06112336376ecc36e43bcca57e91442fa1dc71a673f44adab4b6cb0d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-near.svg",
+          "sha256": "d7fa73e67ffffa072de0a022f2dbc7d8573357d0943f89073000ca5d82df144e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-far.svg",
+          "sha256": "10fb87c3de3169e479a262db060b13d841c6a7ae74679701d0827d6dce96c988",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-damaged.svg",
+          "sha256": "3fc06578a8aa534e09c0c19ad315c76472002f358ae3d7a6264f1dfc3fbfd50a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-repaired.svg",
+          "sha256": "326bce25a0611a501f6f1d6d4a6855be221ea0ea6500f39d898ae58ce079fb5d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-braced.svg",
+          "sha256": "3c247be077804049d5520a346b80c4b64787eb0b016d5737c7eb469f4ce59fff",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-hit.svg",
+          "sha256": "e126c3e341fee95ba47f6913c0ba6208607c0a9b1be6c8e70dfa394b28f3193e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-damaged.svg",
+          "sha256": "a13db3cfe716fbeaaf448e6be136608d0895217bd82f7232721c5187ef18e5ea",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-repaired.svg",
+          "sha256": "7ed1b5c0c2a2797520f9585a77bb3c40e2d9cfcef2e299bc1b669b422633b973",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-stand-right.svg",
+          "sha256": "9c77bd87d7a6980c0b46dda62d55735ec98bf458ce9b52c87b4f7e951bca66d8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-stand-left.svg",
+          "sha256": "bfc231fe9f2201ec9eaac431847bfb93cecdbc6f9db2b495a82c6915b3f356ec",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-brace.svg",
+          "sha256": "6a40e04f11a1d6d69e4486ea33c44ff4c1102604582e15e11557cf161cee7f50",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-walk.svg",
+          "sha256": "f50a0019ee4eb5256e68f653c30aa54a480d95a53a5e0911a5131ef0ec6a286c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-aim-up.svg",
+          "sha256": "ea38212e9757cb57d05d7ad4539fb98c1702a018dc4389a01a8d7c75149a5865",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-damaged.svg",
+          "sha256": "6921eb88012da9b657b4c824083f1aaa2264ecb7737756d25fe7f91af4b171bf",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/rig.json",
+          "sha256": "5716b225f3ca74c5e383689cfba6db92ddcf15173055ddc3fc2d8e96d5868783",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-near.svg",
+          "sha256": "5a49f8351310a62db4ff5ecd1100ad1ab68b8e6bef29598f7db2c56fbd1822ef",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-far.svg",
+          "sha256": "fa37b9a406dfadbfdc21b1a414c21aa946e249553f0c590a855f5afe60f2599e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/turret-near.svg",
+          "sha256": "3cef762e7166f28cb67364bcf6c5ed37510acd5953fe248045db3c418f20f2dd",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/turret-far.svg",
+          "sha256": "b990a54d6891c3aa523d3d517a0feb2ec1fd3dee664ee53a90b49cab363cafd3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/upper-near.svg",
+          "sha256": "241b838961f9ee3e331a6395accb12d0fe3fc95166071b85916721ac8567cdd4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/upper-far.svg",
+          "sha256": "60790e9582acdfc4ad2fc0769ed7460ae472e096cf3c6c6be5a6bd2adfa68d1e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/lower-near.svg",
+          "sha256": "eb92fc3c3655d0c93727ea40c8eeb56a37cb0979106773cfeca1685a795c4c3e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/lower-far.svg",
+          "sha256": "b8bae077f493c158b58c0e32d0442d4b2ed7e0d355fd307c7554278a99928552",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hip-near.svg",
+          "sha256": "46c48da44f9a83e2b81bd3a4269fa7ef89ba6e48d2727ff1838829ec5c9ce03d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hip-far.svg",
+          "sha256": "0df226d6ff7cb9a016894f3f00cc564928ff546bf805d615e5c45b52e58a8077",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/knee-near.svg",
+          "sha256": "c0344fe5eb04fc04809754cecaffd63ccf3a73efe64eea953601964355409e22",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/knee-far.svg",
+          "sha256": "df7944cd23d0b497d963095d285a1201e51b29132c8c8e09456aa7dedb9c4301",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/foot-near.svg",
+          "sha256": "5faf05bde506ab7d06c16b08d0ab9c638a43107215418539ef9e5f5c62aab363",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/foot-far.svg",
+          "sha256": "316b144a8c63b93159bdf9d81f55ea3b16a8f4cfda582c2db8c7a57a4556190f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-near.svg",
+          "sha256": "005f336b1e6a99e35ed7ba0246e05a00837f0ec2a54b9db05c0dd3f58a04759b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-far.svg",
+          "sha256": "90a5c31534849fdaf1b342b77986aeb1058668cd9e8ca45673b2748e2c9628ae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-damaged.svg",
+          "sha256": "78eb9a7e2dc9e66fc0da6ff7083880e34cc12f534ee47ace2a94fd25395411ba",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-repaired.svg",
+          "sha256": "55fad04dbf3478247618a5d23c2deb19a9980720b29bc682f87cc899b77db768",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-braced.svg",
+          "sha256": "ff5db20c2ec0c73316e74d51822b9eed4e9a63fb12a65592e5be2fe7b27a0840",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-hit.svg",
+          "sha256": "20bc9472248d48abd04b88824f1e3d50397c7c227951d27b8801439b7bae6e60",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-damaged.svg",
+          "sha256": "1d57cd97e45d3d14a25354203de346fc407cdcfbd4c33cfd5b6f27227f24ce3a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-repaired.svg",
+          "sha256": "bf35dcc05c3d2513c3c53c6fe95db301f581d807a565dcbfae1aa927613dd12e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-stand-right.svg",
+          "sha256": "5f0971094fa0389db4de572a2a3e7f0ef13352a76c0049c868ecf5f9ac7c1d87",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-stand-left.svg",
+          "sha256": "8a6386f0999ec31366b0d726b9556196b8f924238d92924fc0001f2412318a7c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-brace.svg",
+          "sha256": "d706d97a01c001e0cb0892d192844a176e4dc90d44c9c008474849f2d7993267",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-walk.svg",
+          "sha256": "fa467e52917193346b1306b6a451be35f7550cd98283081486a0fe4722c319a1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-aim-up.svg",
+          "sha256": "6c3283622fed5b6426498a343d2b4b65174071bef8d25237f8b6655bde51944a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-damaged.svg",
+          "sha256": "7a861cf71c41f0db87c362ef5d464fac060cb84f6b6e284ca8e9c01f8551f278",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/rig.json",
+          "sha256": "c5fe285bfdd93263283ea3d4a7eb18547c0fecfc70844d4cc218091ad4fbf032",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-near.svg",
+          "sha256": "0fc9ba0d599784f79ea39b2f0a6b6b99dccfb621c4e0a406346c40375f4df29a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-far.svg",
+          "sha256": "5d27b3a171e49fd3ae631c91dab6cb9795f1bb07ed802368cb6cd0fc3dbb70b2",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/turret-near.svg",
+          "sha256": "5d60e3d484ee882ae2a1ebe133a0810a267d8eca307871f03c9e97a9c2d41ecd",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/turret-far.svg",
+          "sha256": "7a944c292deb6e125fa6e704ae57c35db379514196e1e59851534b4836f9718c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/upper-near.svg",
+          "sha256": "3f9ecef05b747af1c2ed93aecffe933de2cfc61b7a1e446f3e6dfd905f538103",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/upper-far.svg",
+          "sha256": "8439b617b675bda2ec0cf1dd713e62cbabc219f39fe9bd3a644b7fed0e16af5f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/lower-near.svg",
+          "sha256": "8b43bcb88a3d9e48d236b54ee970a64c25299478ed1a0fdb4b142244c386cdbb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/lower-far.svg",
+          "sha256": "3b2ff4ced89ac69a39dace565c98b49ed4fa6536917f47bf303a5d848c708d50",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hip-near.svg",
+          "sha256": "f10ea301ad23566be18f65c8d96a8d8b70ca294dcf40a34deff6ca5325b76894",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hip-far.svg",
+          "sha256": "6d4bc05b641482d912097b646d6935a2dde403ddd6d5d5619f83a7703543a8b6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/knee-near.svg",
+          "sha256": "f75759cbd387d627d53118986995263509f65ee980b4cd38af31487e882965a4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/knee-far.svg",
+          "sha256": "8cdc90ab0eab07d8901b67a9ddbfe53e965465d954cd01cfec60b71fc207a2db",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/foot-near.svg",
+          "sha256": "340df554d259b1bcaf6659df03f73829916be5b39b2b9e53c98a6a733352bf64",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/foot-far.svg",
+          "sha256": "1b68e2d6feecdf3c17ca9c740008377e86d277bda1c79b07c16b4df541f3666c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-near.svg",
+          "sha256": "054ee33d06bd2b11fd809398b3834752fab49b26ea1d48c2961c01a0b63d4082",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-far.svg",
+          "sha256": "29527804768b9eaea4148f3113623277b0e57ea0e23184bbca37eca90848a6da",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-damaged.svg",
+          "sha256": "d85fb9803298a7dba61e1b8c22d7febe1e007cf536efed344c145986d3aa6b4b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-repaired.svg",
+          "sha256": "30f746dbb256f776d690113dacadc5c50572d051cda615f93cdefaa42a621cfe",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-braced.svg",
+          "sha256": "f57b67dfcde0f3e8b0aec2874af812377e40f1aca46a21d607c7ab1ec962f495",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-hit.svg",
+          "sha256": "34f8d0a3a0c1b7c567d96c2f8d389310c4578a80cb379499e3e639114de68bfa",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-damaged.svg",
+          "sha256": "ca9538219333126e2b179292b791a44299beb12d674c7904dca19b14998fc18d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-repaired.svg",
+          "sha256": "febb7eef4a12799eb6238469fe08057ddce8bff2ac434d1277e26e0a36568dd1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-stand-right.svg",
+          "sha256": "d59eedb58bbf51c97feb0f76445c67d3ec26d57944415de2705cad67de870249",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-stand-left.svg",
+          "sha256": "6d96ad98e4ee10af991a11b28291a533500059f4ca1610a482f540ab1d8d2d5d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-brace.svg",
+          "sha256": "905370a985b73c2bac2394254f877f34d035e8a6df47461b503f2245ad95c697",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-walk.svg",
+          "sha256": "e282ae089dbe84fb68b09256091dbc4eca060a17a5c1adce52e4b7c3e7ad9526",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-aim-up.svg",
+          "sha256": "c3103113a22ca41309362d6157b98bf986e9e09d64098f4d271beb58fb6c776c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-damaged.svg",
+          "sha256": "ee85f15531bc36e9e05a820d5b895fc9acf9ab9ff63962cab5462795d85662eb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/rig.json",
+          "sha256": "12d6cdd9ce8ae0fa89be74f815b85e73ca88f39b8703cad4d53feec3b36e93a9",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-near.svg",
+          "sha256": "20822201815ef565dda85415a75de6c06e6c377c7c057bf3a7c8638012ec85b0",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-far.svg",
+          "sha256": "01380f35e12249c264a04b5a1dd492267aee4506a74127d29e4d461b234c7b48",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/turret-near.svg",
+          "sha256": "2ffcbddfe080a25c152b77ad7dddeea2f15aa0ddab903522b8567098b31cccf7",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/turret-far.svg",
+          "sha256": "d9f2aabe086d0e09ce48fa1faede07101284e506b155b4bdfe858015695971b3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/upper-near.svg",
+          "sha256": "c514a27f9316c5cb860f0579aaeacc491fdab4d7d42fbad368012e01093c044c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/upper-far.svg",
+          "sha256": "c41ec31e140f77045078e38df999d5f2e44551c3e94a3fbe172c31c17e3cff98",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/lower-near.svg",
+          "sha256": "c821893743dfea76e0596f8a46fa8eadbf00c6e0097c35e7302599394ed28373",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/lower-far.svg",
+          "sha256": "09ffeff7635e0f9a53c028ca165018e0eb24d2a2a6e2ac87d8b683fe68bebcf8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hip-near.svg",
+          "sha256": "7dd2b0c42e5bd09355cd4c4a12704c1c4fc6b356400984b3ea15405e71c04d49",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hip-far.svg",
+          "sha256": "30e6a046017f54dd08903c364fe8e10ef02d355067604acb0c8738f63bdfba5b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/knee-near.svg",
+          "sha256": "ad35fd2b4c426cd8621665c0603aca6ae0db2677d326cd33c02e6086eab354fe",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/knee-far.svg",
+          "sha256": "3de19ec090e52e4465834b8d80ecdfa5fcbadd4564f4a37f2a7b02057a44fdae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/foot-near.svg",
+          "sha256": "456b6adc248babd4fb9f7537637c6e632a541fb0baed0676f229d08c22ec56a3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/foot-far.svg",
+          "sha256": "9b52ef373d8c780dbfef139fccd28599a05b7c447ac52e78bbdfeacf8752f56a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-near.svg",
+          "sha256": "3e158ffc793e3681939c9b6e4c6cd38d07379c885e4064dc8e48999df3c9d153",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-far.svg",
+          "sha256": "534c47d17ca7d36b924197711da035457e63356aca84394cbbb383073e8d6da1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-damaged.svg",
+          "sha256": "4100474d6c47480bbf81fad8c5a732e0476406a9720ccca2b56defacb8af5836",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-repaired.svg",
+          "sha256": "26ddaeba36dc7e8292ed26d4b945c58283bb9fe22e5e8b6baaa080274773e5ae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-braced.svg",
+          "sha256": "36c68e5ae0a4015f23e6553acbabcf5fc74c1d1c90b516c86a2020dc75113967",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-hit.svg",
+          "sha256": "c5eb4845312bb69ba000f9dea234ce20d26b05c6ce957dbee23ff541ec091536",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-damaged.svg",
+          "sha256": "d90bfa3afd204a0b0c9983b6f3f0e340a1a80b20f10087c77a6c5c3f49aeb052",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-repaired.svg",
+          "sha256": "9ca6a837fa06abfe8514d964bef62058310962d8f1477521c139fd99e7d86b2e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-stand-right.svg",
+          "sha256": "100ce5fcbe8347c813a157cc1c0b567db4ee315ab1d1d9c03a1624eea397d91f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-stand-left.svg",
+          "sha256": "376747804f21fa5774abebfe12e598ee855d171e32803bcd048cb38366feb647",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-brace.svg",
+          "sha256": "1bc34f2128b97071d2989a21fbd192dab4e173040a005e20f7702286543ba2fb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-walk.svg",
+          "sha256": "58a4f58a71ea10f5e85df19ac6f9484b281e66bcf8e3ecbad858b23d19b6b8ed",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-aim-up.svg",
+          "sha256": "dc2206ad8c1103aab39d6423a9bf66ffde2641999c026cc90f0f1315ac88ee00",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-damaged.svg",
+          "sha256": "2132753a894ad20d34d0c24cead2b3c9234133fd9f118b5bbaade1ebe1c6d117",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/rig.json",
+          "sha256": "86d923845b75cabd4effcdefc2dabc8f68ba0b9d11d84677f4cbb2ffd45ca55f",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/previews/parts-damage-repair.png",
+          "sha256": "bd6d10952a230642880d717e12a1d6481c36d77ca608ea17dc48de706948ac47",
+          "format": "png"
+        },
+        {
+          "path": "assets/production/audio/cue-radiator-hit.wav",
+          "sha256": "25483eb8575efb0593f5c53a07bc69d02d6ac3999cd8ce7e7f498b51349ac59a",
+          "format": "cue"
+        }
+      ]
+    },
+    {
+      "id": "AS38",
+      "delivered": "Six rigs documentés et manifestes donnant pivots, taille nominale, encombrement, variantes, usages et dépendances.",
+      "remaining": "Prouver l’intégration du remplacement dans le renderer final et poursuivre le contrat pour chaque future substitution.",
+      "taggedFileCount": 6,
+      "files": [
+        {
+          "path": "assets/production/walkers/wk01/rig.json",
+          "sha256": "257abd3e921c72c60731e05af120fa4c720bca1ad8540bbae8a96ee7a2b3095b",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk02/rig.json",
+          "sha256": "07257a55e128adc31dab2d527cdf4c6f9a0dc94a5d651a2f4d4ad59e7798ccdf",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk05/rig.json",
+          "sha256": "5716b225f3ca74c5e383689cfba6db92ddcf15173055ddc3fc2d8e96d5868783",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk06/rig.json",
+          "sha256": "c5fe285bfdd93263283ea3d4a7eb18547c0fecfc70844d4cc218091ad4fbf032",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk09/rig.json",
+          "sha256": "12d6cdd9ce8ae0fa89be74f815b85e73ca88f39b8703cad4d53feec3b36e93a9",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk10/rig.json",
+          "sha256": "86d923845b75cabd4effcdefc2dabc8f68ba0b9d11d84677f4cbb2ffd45ca55f",
+          "format": "json"
+        }
+      ]
+    },
+    {
+      "id": "AS39",
+      "delivered": "Turbine, vanne et pompe auxiliaire en modules vectoriels avec variantes.",
+      "remaining": "Kit Vesper complet et lecture thermique en mouvement dans le niveau final restent ouverts.",
+      "taggedFileCount": 11,
+      "files": [
+        {
+          "path": "assets/production/nacre/auxiliary-pump-normal.svg",
+          "sha256": "f8f8940ccbe8e8a0db278d2abd5222bd4f945bace5c6f9839b2d7c2144f1db88",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/auxiliary-pump-connected.svg",
+          "sha256": "b1e4d9a13927b730accba54b95c91116004393ed1fee320dfae2a45df60c28b8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/auxiliary-pump-active.svg",
+          "sha256": "e7697b2359762324e40ae305158e3c24ae28c07a53011d5732c1c751b829786b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/auxiliary-pump-destroyed.svg",
+          "sha256": "ec017082848f5825e6e94d3a7122081e378d820863a69f00ce3f5f256cca5688",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/routing-valve-normal.svg",
+          "sha256": "efd8e78d210f1421c1a265e94d2250aeaa9fa29f9258ffcc1e096e70e2811e13",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/routing-valve-working.svg",
+          "sha256": "4fad5e2e7544f9206269255002f82e6893c373108f011ca4ad11479a8d11a20b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/routing-valve-completed.svg",
+          "sha256": "16215ef160ef621c5559f7ca794232e2e87d1633b406243fe7cc9aebbdcc247c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/cooling-turbine-hot.svg",
+          "sha256": "ab1d44c1778b97778cfd8fb4135b2843d8368c67344d1e78940b70cb5c4c90f6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/cooling-turbine-working.svg",
+          "sha256": "5fb1b526d96267921c3c678122a8db2780bdb121d225753c428a8ba1d9fe2817",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/cooling-turbine-cooled.svg",
+          "sha256": "e6ed139b6dd4dcfc41df649069d618611b925f8ce72758fa9671c7b1b34d79d7",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/previews/nacre-components.png",
+          "sha256": "3a096c2d666d2ba3ab116efe78cfe2a6fdf9a7735bac25bfcd07d63faf856095",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS40",
+      "delivered": "Poste de maintenance et variantes de ruine vectoriels, sans archive fictivement recréée.",
+      "remaining": "Inspection intégrée des trois états de connaissance et finition de l’environnement restent ouvertes.",
+      "taggedFileCount": 4,
+      "files": [
+        {
+          "path": "assets/production/nacre/maintenance-post-normal.svg",
+          "sha256": "ddf69294593cef279774f3415bf9c8ec359eca384491bf5ef20b28357450634f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/maintenance-post-damaged.svg",
+          "sha256": "80fbd96f0f810e6ebd2be1621551eea73bde80a22161e0ba3a276eb9224119fc",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/maintenance-post-destroyed.svg",
+          "sha256": "0803d2329086648444a1276e2acf352c61745800bfe40aa793e459cab1101a5f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/previews/nacre-components.png",
+          "sha256": "3a096c2d666d2ba3ab116efe78cfe2a6fdf9a7735bac25bfcd07d63faf856095",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS41",
+      "delivered": "Radiateur séparé pour six profils, quatre états et cinq étapes de réparation; radiatorBounds conservé par les tests.",
+      "remaining": "Validation intégrée basse/haute et animation de production complète restent ouvertes.",
+      "taggedFileCount": 210,
+      "files": [
+        {
+          "path": "assets/production/walkers/wk01/hull-near.svg",
+          "sha256": "7ba4209ea2ca3340295af2d80e51ad83e595b31eb21929908de5de29d24292c0",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hull-far.svg",
+          "sha256": "46adf15c4ab5fccb514a589eca6f638cf4a728765e3bc5a68b49f2644816ba08",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/turret-near.svg",
+          "sha256": "67acc92f7739db059b089f8ede83c9307f77f8c3b73101b33a32e1ea0d6694ac",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/turret-far.svg",
+          "sha256": "b8effe67bd016d6864a836dca8e9a009d85dd33ec05681d3d4563ef938db1a18",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/upper-near.svg",
+          "sha256": "1b158d1efb300273df7dfdff9b8e526078aac365e1d94e2fc42ae8d460fbdecb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/upper-far.svg",
+          "sha256": "c7d6ed8c15902a1a77e4e7b76c99dfbee59412c595c4617ff4b69c45f1b6940e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/lower-near.svg",
+          "sha256": "984e873e1c07cc4c2ba4568dba3897645de6488a253b5891e75274c6cdffb1fd",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/lower-far.svg",
+          "sha256": "47ba84b2089ebde356221fcfb8d2b9ccada1e540c6be8e09e0223ea10f19e1d1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hip-near.svg",
+          "sha256": "2f2e564373c23f85bc860523c32a4203bf0c1de5ecc9ccf18ac2dbf903e4b568",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hip-far.svg",
+          "sha256": "ee28190b8a0124d84cc1423fdf5ea30891442223d198b514d23ad506be7ed2c9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/knee-near.svg",
+          "sha256": "73763029bdaba03a45d622483b6c4591871059aea453f24c91904c94f57e8c29",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/knee-far.svg",
+          "sha256": "d6acace1deb4bb94b13d854d55233ebc1da0327985fda60ad531a8616b0a2e2b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/foot-near.svg",
+          "sha256": "6ebe7f785bf3b98ef2046e1f4f8d06148a1d614f298d9d96f16caa64ef6667f1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/foot-far.svg",
+          "sha256": "bd0a10c5ca18ff80f08c5866f3427d2bf00b1b0eaba903bd3f47e2eff9e5c6ac",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-near.svg",
+          "sha256": "dedb0306b68494ef8cdcd0b4344f6f8eeed3113162127d38889550e8e10f21d0",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-far.svg",
+          "sha256": "affb83847f68070095b04f38af4957991bd722048a0f7ce25e8916d035fbb8d8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hull-damaged.svg",
+          "sha256": "d259a00a9c8282c9697e08615f977282409ff2629cf8fd36a9e8c667a9ae807f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hull-repaired.svg",
+          "sha256": "7527dc951c868d4a69f77db18d4f06eac3b03ea8b24c98421a76b479b501709f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/hull-braced.svg",
+          "sha256": "73600c74aa88c4abf8d0ee021a15f44dcdfd8e74926e0b912e3d71959c4553ea",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-hit.svg",
+          "sha256": "a922c273d9318077a5e7ec9165dea0b63745860b15f06b7a207e60f6637adc64",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-damaged.svg",
+          "sha256": "b7ed9745cd0251d167ff2ee4809688c1a0dfc2dd2447efc32f94af06195d2b39",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-repaired.svg",
+          "sha256": "230680b0f27207ecbe7c5ad9174583dd6a37bff1774584d45ca51d02594945f8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-repair-0s.svg",
+          "sha256": "e57d463aebe23cc0bd91bee13fd65bd5daa0a7f000a7bb3417483deb8da95215",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-repair-1s.svg",
+          "sha256": "40e501eaa4277237da15124830548e57ccb09b26ed74d5acb03cce4ecdcf4092",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-repair-2s.svg",
+          "sha256": "47516c801c4a9c93ac3767f4a497c7d97bb1d51042be6fe6a99b4407d8ef9d57",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-repair-3s.svg",
+          "sha256": "a643b0036ae73a2f3968fd51eb816e3ce3b60ae61dac66f5f37056e6e643e375",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/radiator-repair-4s.svg",
+          "sha256": "166343d20dc1ad7b264b2a997c33d9b0904b21acddaf17aadca356eff0d25527",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-stand-right.svg",
+          "sha256": "04a81aee7912192ff338183734e78d65ed82ed1129f206c0dd0ace689d3f3a0d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-stand-left.svg",
+          "sha256": "9de0d89686472134b7e3a229e41535bf696baec60713d70a629a2ca4f74a91c2",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-brace.svg",
+          "sha256": "f1cff0453799ab9880923f6e22b4ecc8bb6528d2a7d7245fa398d6662f6f8223",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-walk.svg",
+          "sha256": "79ec361d89a7b189352137dbb4d85af2c977246ebaff8adb6e422c8c0f859fa3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-aim-up.svg",
+          "sha256": "35176d72d43d383da427671f3b711d2767f2eab2ad4976acb481f29d31292257",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/assembly-damaged.svg",
+          "sha256": "683e572cac9557672c73a3184e232572ebe2d8f6aef7f325c6e7f2c20fd4d768",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk01/rig.json",
+          "sha256": "257abd3e921c72c60731e05af120fa4c720bca1ad8540bbae8a96ee7a2b3095b",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-near.svg",
+          "sha256": "ae436b6ce1db9b663b30cc3cf92c0e1e152a47bf2b496ca7d19ea0604fbc4fd8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-far.svg",
+          "sha256": "a16a78abe484fb490c7fcf1a1aad8f2dbffc4228cea748b4ffebc5156435a80a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/turret-near.svg",
+          "sha256": "62e8d8876d9c540cbd9b43c81d210fd1d77675ef2b8023bcdc3cc95bbae197ce",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/turret-far.svg",
+          "sha256": "332629ffe00d38d1d3f5a25d5c2d7543fea71545bfd5dbcdb0c491563cdd9c21",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/upper-near.svg",
+          "sha256": "5fd0ab628016c0a516dd7f0ac5f705c89b169481e108fcb5507e2f3b53a9ab09",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/upper-far.svg",
+          "sha256": "397e282c0193512095adbfc5dd9b48802061ebc56ae56148031c4d546337825e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/lower-near.svg",
+          "sha256": "de6bb541b11e93cdabd010ec34b3d0216b10a4b9af6b826172df59e25d15dc93",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/lower-far.svg",
+          "sha256": "3bcccefde822338cd9c8476625fb33efc51a78282651c977210c7b75d7edf627",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hip-near.svg",
+          "sha256": "35d0eed374675821c8040b2a33ebbc82ec959bd502b14e665cf279ca4fc9e52e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hip-far.svg",
+          "sha256": "93a151093b221c39b04009747028c471ac1693d652ddadb28bfa0a164a060bf5",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/knee-near.svg",
+          "sha256": "c129438f0d1f85b11352266de96457d36b7464f38c72a32acfb0d4c6d4eaa02a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/knee-far.svg",
+          "sha256": "05e2fd509e8e7965e8c83f2fa5d688d5db0db9ae87e043c4fcf0938a4973c869",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/foot-near.svg",
+          "sha256": "8fb1b034b2e555924a493d9c694cf5f059dd5c2afcf1545adf61925e58b74ebe",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/foot-far.svg",
+          "sha256": "37cd53bcc941c5871a5c7acd327f146c2b1423dbf949d75c576f756bd1b20129",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-near.svg",
+          "sha256": "d3086f0342ea3485dc165292b659610676c6f54f1b08f44f458c234342a98010",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-far.svg",
+          "sha256": "4849caaca0a7a664859fc5841bd1966325ca2ab634232017bf7fe578b030b403",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-damaged.svg",
+          "sha256": "867c8ac4c0dd123d4e0f46f6ba516ac8bf62d5c64c42290d8a8d1ffda8c932d9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-repaired.svg",
+          "sha256": "0577ad7484977d087aafce73b094f0de73d5b95620d528ca9bce70b5087d434f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/hull-braced.svg",
+          "sha256": "b6211378246286e375be1601118dab019fa2613435407ced270573a234a691c9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-hit.svg",
+          "sha256": "d6913298166402a0fccc0414df0a706a1b7a781dabb6f3c548b54e4c2903433c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-damaged.svg",
+          "sha256": "96209d13dc2169173377e5c124dd0ff846b5bd2df2a85879f4f7fa8ea9e45c44",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-repaired.svg",
+          "sha256": "b543ebc5b87a41fc42073428410179e38d798d2a7b48ef2920082636f09c7ea2",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-repair-0s.svg",
+          "sha256": "c4f90958d9151b2bcdb1f93bea7b744be0a3ee5079fc06412bfb7322376fb170",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-repair-1s.svg",
+          "sha256": "9fe131411bcd38eac4737f79434bbebb9119f4d06a6f3565ee282896623f35fa",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-repair-2s.svg",
+          "sha256": "112fda66c00fe5ad99dfaeac7973fda97616f1f77d054c8b5c841574637aba5a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-repair-3s.svg",
+          "sha256": "ce791b8ea93a32d0f56adb02d748158d80f2222e14a4b6c6728eff696ead7cf9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/radiator-repair-4s.svg",
+          "sha256": "bc4bbdc1809232cad921456c7e28fe339dac52395595388803c746d4cfaee160",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-stand-right.svg",
+          "sha256": "34627eda18ef8d085a0bb866a48287b8453ad6a801d2c8311ce2906f7bdfbfbc",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-stand-left.svg",
+          "sha256": "642dcd6f6fdd59ab67b7ebf9f0f8a37dfd3b97561aa834fbe735c55806f3c385",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-brace.svg",
+          "sha256": "0f1b99ce5e843197fec1262f03c573fd1267cad9615f7a04aec895fb6e71e827",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-walk.svg",
+          "sha256": "9631b582919866cd1ecc2176a4bfa5433968a78a0c5ebc79fc940d020db5b7d5",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-aim-up.svg",
+          "sha256": "651cac79fe45b4f8ed3984152ade28d39951fc689553793a09463c369cb8e68b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/assembly-damaged.svg",
+          "sha256": "44e377fe2a29b09e47dfece3630cec3d65c3f58f22d4e050e2feab59dbab8783",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk02/rig.json",
+          "sha256": "07257a55e128adc31dab2d527cdf4c6f9a0dc94a5d651a2f4d4ad59e7798ccdf",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-near.svg",
+          "sha256": "045b38a56a8aae8758cab8778561e690cbdfb2b6b625138d4a452487c98332e9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-far.svg",
+          "sha256": "4a8290cd9e4bd81ce7d79103f9afa182444736ac9c87601492be10ad9b60ff40",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/turret-near.svg",
+          "sha256": "4bfc19f5365fd566787300e8777fe969b814a089b2a2a2f689681993633404f4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/turret-far.svg",
+          "sha256": "9e4db572932e0592182588a0058800f81ef98fe6106b52b9907230abc440bcec",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/upper-near.svg",
+          "sha256": "d393af5c375acf06805d3858818251ce3b6911d14c0a91e65638a8ac33d6adc7",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/upper-far.svg",
+          "sha256": "cb462e85d81ecfb3c0329c23596393ac7f87f59a6565d87c945e2e27de5cf425",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/lower-near.svg",
+          "sha256": "7cb1822e8fcee9dcaccebc596af91b1be6f38aa555f3f23052138bced1560886",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/lower-far.svg",
+          "sha256": "1a9f501675a6429b7fbffff531ac2adb0f268d5bde37b1d18c0273bf51ea2d9a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hip-near.svg",
+          "sha256": "af60a55e59cf1bece596e09e203e1232150da5fc95bd3e3ea608c75764e95df4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hip-far.svg",
+          "sha256": "9b3c913f6c08e5ae26bf7ad92db2f406474ca5f2c78afffd59762e341bfd2ee6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/knee-near.svg",
+          "sha256": "18980c28dde554003d35ee006273042b7cc165b2cf644063fd66609d032213f6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/knee-far.svg",
+          "sha256": "71301dd45d63167f7224e26cb0a6215c875ec16bd983e31499fc6e3fa3b4b97f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/foot-near.svg",
+          "sha256": "dd545fddedc1e2d0dcf5225f0941267ca5176920752b7c34568a59035f6dabf6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/foot-far.svg",
+          "sha256": "9bdc6fdb06112336376ecc36e43bcca57e91442fa1dc71a673f44adab4b6cb0d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-near.svg",
+          "sha256": "d7fa73e67ffffa072de0a022f2dbc7d8573357d0943f89073000ca5d82df144e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-far.svg",
+          "sha256": "10fb87c3de3169e479a262db060b13d841c6a7ae74679701d0827d6dce96c988",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-damaged.svg",
+          "sha256": "3fc06578a8aa534e09c0c19ad315c76472002f358ae3d7a6264f1dfc3fbfd50a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-repaired.svg",
+          "sha256": "326bce25a0611a501f6f1d6d4a6855be221ea0ea6500f39d898ae58ce079fb5d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/hull-braced.svg",
+          "sha256": "3c247be077804049d5520a346b80c4b64787eb0b016d5737c7eb469f4ce59fff",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-hit.svg",
+          "sha256": "e126c3e341fee95ba47f6913c0ba6208607c0a9b1be6c8e70dfa394b28f3193e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-damaged.svg",
+          "sha256": "a13db3cfe716fbeaaf448e6be136608d0895217bd82f7232721c5187ef18e5ea",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-repaired.svg",
+          "sha256": "7ed1b5c0c2a2797520f9585a77bb3c40e2d9cfcef2e299bc1b669b422633b973",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-repair-0s.svg",
+          "sha256": "2e63a8e6da4078b929ee4937da813f7468e6f7ce162db63e6886dcc870389f75",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-repair-1s.svg",
+          "sha256": "0d61efabb65dfaa7bf5a2435aa3fe5ecfa73699716b8d87634cb17ef230fbce9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-repair-2s.svg",
+          "sha256": "c98708ec8e167f6b57d8b491b768e4b7f20b4610d36c403b2b139c0121c5a3d5",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-repair-3s.svg",
+          "sha256": "e1cfb2236b61d47d5dd6e438bb62cc84b05cf14ec2379336ba23b8e4f7c1b103",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/radiator-repair-4s.svg",
+          "sha256": "1ab2efcd23ec33c140c066be11c265aa380b775d5a45f2f14056c1c05715cd34",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-stand-right.svg",
+          "sha256": "9c77bd87d7a6980c0b46dda62d55735ec98bf458ce9b52c87b4f7e951bca66d8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-stand-left.svg",
+          "sha256": "bfc231fe9f2201ec9eaac431847bfb93cecdbc6f9db2b495a82c6915b3f356ec",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-brace.svg",
+          "sha256": "6a40e04f11a1d6d69e4486ea33c44ff4c1102604582e15e11557cf161cee7f50",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-walk.svg",
+          "sha256": "f50a0019ee4eb5256e68f653c30aa54a480d95a53a5e0911a5131ef0ec6a286c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-aim-up.svg",
+          "sha256": "ea38212e9757cb57d05d7ad4539fb98c1702a018dc4389a01a8d7c75149a5865",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/assembly-damaged.svg",
+          "sha256": "6921eb88012da9b657b4c824083f1aaa2264ecb7737756d25fe7f91af4b171bf",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk05/rig.json",
+          "sha256": "5716b225f3ca74c5e383689cfba6db92ddcf15173055ddc3fc2d8e96d5868783",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-near.svg",
+          "sha256": "5a49f8351310a62db4ff5ecd1100ad1ab68b8e6bef29598f7db2c56fbd1822ef",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-far.svg",
+          "sha256": "fa37b9a406dfadbfdc21b1a414c21aa946e249553f0c590a855f5afe60f2599e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/turret-near.svg",
+          "sha256": "3cef762e7166f28cb67364bcf6c5ed37510acd5953fe248045db3c418f20f2dd",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/turret-far.svg",
+          "sha256": "b990a54d6891c3aa523d3d517a0feb2ec1fd3dee664ee53a90b49cab363cafd3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/upper-near.svg",
+          "sha256": "241b838961f9ee3e331a6395accb12d0fe3fc95166071b85916721ac8567cdd4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/upper-far.svg",
+          "sha256": "60790e9582acdfc4ad2fc0769ed7460ae472e096cf3c6c6be5a6bd2adfa68d1e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/lower-near.svg",
+          "sha256": "eb92fc3c3655d0c93727ea40c8eeb56a37cb0979106773cfeca1685a795c4c3e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/lower-far.svg",
+          "sha256": "b8bae077f493c158b58c0e32d0442d4b2ed7e0d355fd307c7554278a99928552",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hip-near.svg",
+          "sha256": "46c48da44f9a83e2b81bd3a4269fa7ef89ba6e48d2727ff1838829ec5c9ce03d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hip-far.svg",
+          "sha256": "0df226d6ff7cb9a016894f3f00cc564928ff546bf805d615e5c45b52e58a8077",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/knee-near.svg",
+          "sha256": "c0344fe5eb04fc04809754cecaffd63ccf3a73efe64eea953601964355409e22",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/knee-far.svg",
+          "sha256": "df7944cd23d0b497d963095d285a1201e51b29132c8c8e09456aa7dedb9c4301",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/foot-near.svg",
+          "sha256": "5faf05bde506ab7d06c16b08d0ab9c638a43107215418539ef9e5f5c62aab363",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/foot-far.svg",
+          "sha256": "316b144a8c63b93159bdf9d81f55ea3b16a8f4cfda582c2db8c7a57a4556190f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-near.svg",
+          "sha256": "005f336b1e6a99e35ed7ba0246e05a00837f0ec2a54b9db05c0dd3f58a04759b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-far.svg",
+          "sha256": "90a5c31534849fdaf1b342b77986aeb1058668cd9e8ca45673b2748e2c9628ae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-damaged.svg",
+          "sha256": "78eb9a7e2dc9e66fc0da6ff7083880e34cc12f534ee47ace2a94fd25395411ba",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-repaired.svg",
+          "sha256": "55fad04dbf3478247618a5d23c2deb19a9980720b29bc682f87cc899b77db768",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/hull-braced.svg",
+          "sha256": "ff5db20c2ec0c73316e74d51822b9eed4e9a63fb12a65592e5be2fe7b27a0840",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-hit.svg",
+          "sha256": "20bc9472248d48abd04b88824f1e3d50397c7c227951d27b8801439b7bae6e60",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-damaged.svg",
+          "sha256": "1d57cd97e45d3d14a25354203de346fc407cdcfbd4c33cfd5b6f27227f24ce3a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-repaired.svg",
+          "sha256": "bf35dcc05c3d2513c3c53c6fe95db301f581d807a565dcbfae1aa927613dd12e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-repair-0s.svg",
+          "sha256": "12b7689b1e4324bd787b2b750b1d26d2be5546d2111778fb9d6e6aed61e56311",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-repair-1s.svg",
+          "sha256": "5f437185752912ec846288b3bedf2822aaa8d07c27e65387dd8bf2bd77f0acf6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-repair-2s.svg",
+          "sha256": "d46d04bcca4a25c2b33a61ee6a2aed87af175802fb1370b38a3f33457a0c77cc",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-repair-3s.svg",
+          "sha256": "9cb7c3e43a4e15bf5af4444f64d74fa521467148594dac0cfb87bb8974efa80f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/radiator-repair-4s.svg",
+          "sha256": "4d36adac8025b6cccc36a4f6189fd6c7f2681f337300ee92b96cb843e3bcb6d8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-stand-right.svg",
+          "sha256": "5f0971094fa0389db4de572a2a3e7f0ef13352a76c0049c868ecf5f9ac7c1d87",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-stand-left.svg",
+          "sha256": "8a6386f0999ec31366b0d726b9556196b8f924238d92924fc0001f2412318a7c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-brace.svg",
+          "sha256": "d706d97a01c001e0cb0892d192844a176e4dc90d44c9c008474849f2d7993267",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-walk.svg",
+          "sha256": "fa467e52917193346b1306b6a451be35f7550cd98283081486a0fe4722c319a1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-aim-up.svg",
+          "sha256": "6c3283622fed5b6426498a343d2b4b65174071bef8d25237f8b6655bde51944a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/assembly-damaged.svg",
+          "sha256": "7a861cf71c41f0db87c362ef5d464fac060cb84f6b6e284ca8e9c01f8551f278",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk06/rig.json",
+          "sha256": "c5fe285bfdd93263283ea3d4a7eb18547c0fecfc70844d4cc218091ad4fbf032",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-near.svg",
+          "sha256": "0fc9ba0d599784f79ea39b2f0a6b6b99dccfb621c4e0a406346c40375f4df29a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-far.svg",
+          "sha256": "5d27b3a171e49fd3ae631c91dab6cb9795f1bb07ed802368cb6cd0fc3dbb70b2",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/turret-near.svg",
+          "sha256": "5d60e3d484ee882ae2a1ebe133a0810a267d8eca307871f03c9e97a9c2d41ecd",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/turret-far.svg",
+          "sha256": "7a944c292deb6e125fa6e704ae57c35db379514196e1e59851534b4836f9718c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/upper-near.svg",
+          "sha256": "3f9ecef05b747af1c2ed93aecffe933de2cfc61b7a1e446f3e6dfd905f538103",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/upper-far.svg",
+          "sha256": "8439b617b675bda2ec0cf1dd713e62cbabc219f39fe9bd3a644b7fed0e16af5f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/lower-near.svg",
+          "sha256": "8b43bcb88a3d9e48d236b54ee970a64c25299478ed1a0fdb4b142244c386cdbb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/lower-far.svg",
+          "sha256": "3b2ff4ced89ac69a39dace565c98b49ed4fa6536917f47bf303a5d848c708d50",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hip-near.svg",
+          "sha256": "f10ea301ad23566be18f65c8d96a8d8b70ca294dcf40a34deff6ca5325b76894",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hip-far.svg",
+          "sha256": "6d4bc05b641482d912097b646d6935a2dde403ddd6d5d5619f83a7703543a8b6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/knee-near.svg",
+          "sha256": "f75759cbd387d627d53118986995263509f65ee980b4cd38af31487e882965a4",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/knee-far.svg",
+          "sha256": "8cdc90ab0eab07d8901b67a9ddbfe53e965465d954cd01cfec60b71fc207a2db",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/foot-near.svg",
+          "sha256": "340df554d259b1bcaf6659df03f73829916be5b39b2b9e53c98a6a733352bf64",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/foot-far.svg",
+          "sha256": "1b68e2d6feecdf3c17ca9c740008377e86d277bda1c79b07c16b4df541f3666c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-near.svg",
+          "sha256": "054ee33d06bd2b11fd809398b3834752fab49b26ea1d48c2961c01a0b63d4082",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-far.svg",
+          "sha256": "29527804768b9eaea4148f3113623277b0e57ea0e23184bbca37eca90848a6da",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-damaged.svg",
+          "sha256": "d85fb9803298a7dba61e1b8c22d7febe1e007cf536efed344c145986d3aa6b4b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-repaired.svg",
+          "sha256": "30f746dbb256f776d690113dacadc5c50572d051cda615f93cdefaa42a621cfe",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/hull-braced.svg",
+          "sha256": "f57b67dfcde0f3e8b0aec2874af812377e40f1aca46a21d607c7ab1ec962f495",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-hit.svg",
+          "sha256": "34f8d0a3a0c1b7c567d96c2f8d389310c4578a80cb379499e3e639114de68bfa",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-damaged.svg",
+          "sha256": "ca9538219333126e2b179292b791a44299beb12d674c7904dca19b14998fc18d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-repaired.svg",
+          "sha256": "febb7eef4a12799eb6238469fe08057ddce8bff2ac434d1277e26e0a36568dd1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-repair-0s.svg",
+          "sha256": "5578faa3028147fa6572bd7248e93a6f187083c8e007919e517855d1cfa08e63",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-repair-1s.svg",
+          "sha256": "682c00c0cc515e06932e839cf3ae2c51367ab22ff025cb5b1565c2390a2caac1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-repair-2s.svg",
+          "sha256": "9bea4918b700eb573627450a4f361a2ea0654d43c0a97ed4d3f26fe6e9b25df1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-repair-3s.svg",
+          "sha256": "ddeda198aa63384b6b6258a810b98bb8c8e667bd06a2194a7c5f53938abbc075",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/radiator-repair-4s.svg",
+          "sha256": "392485c17295bd04fb687eaf266d1eccb465c75eed6203e487a143317f66fb20",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-stand-right.svg",
+          "sha256": "d59eedb58bbf51c97feb0f76445c67d3ec26d57944415de2705cad67de870249",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-stand-left.svg",
+          "sha256": "6d96ad98e4ee10af991a11b28291a533500059f4ca1610a482f540ab1d8d2d5d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-brace.svg",
+          "sha256": "905370a985b73c2bac2394254f877f34d035e8a6df47461b503f2245ad95c697",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-walk.svg",
+          "sha256": "e282ae089dbe84fb68b09256091dbc4eca060a17a5c1adce52e4b7c3e7ad9526",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-aim-up.svg",
+          "sha256": "c3103113a22ca41309362d6157b98bf986e9e09d64098f4d271beb58fb6c776c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/assembly-damaged.svg",
+          "sha256": "ee85f15531bc36e9e05a820d5b895fc9acf9ab9ff63962cab5462795d85662eb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk09/rig.json",
+          "sha256": "12d6cdd9ce8ae0fa89be74f815b85e73ca88f39b8703cad4d53feec3b36e93a9",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-near.svg",
+          "sha256": "20822201815ef565dda85415a75de6c06e6c377c7c057bf3a7c8638012ec85b0",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-far.svg",
+          "sha256": "01380f35e12249c264a04b5a1dd492267aee4506a74127d29e4d461b234c7b48",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/turret-near.svg",
+          "sha256": "2ffcbddfe080a25c152b77ad7dddeea2f15aa0ddab903522b8567098b31cccf7",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/turret-far.svg",
+          "sha256": "d9f2aabe086d0e09ce48fa1faede07101284e506b155b4bdfe858015695971b3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/upper-near.svg",
+          "sha256": "c514a27f9316c5cb860f0579aaeacc491fdab4d7d42fbad368012e01093c044c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/upper-far.svg",
+          "sha256": "c41ec31e140f77045078e38df999d5f2e44551c3e94a3fbe172c31c17e3cff98",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/lower-near.svg",
+          "sha256": "c821893743dfea76e0596f8a46fa8eadbf00c6e0097c35e7302599394ed28373",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/lower-far.svg",
+          "sha256": "09ffeff7635e0f9a53c028ca165018e0eb24d2a2a6e2ac87d8b683fe68bebcf8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hip-near.svg",
+          "sha256": "7dd2b0c42e5bd09355cd4c4a12704c1c4fc6b356400984b3ea15405e71c04d49",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hip-far.svg",
+          "sha256": "30e6a046017f54dd08903c364fe8e10ef02d355067604acb0c8738f63bdfba5b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/knee-near.svg",
+          "sha256": "ad35fd2b4c426cd8621665c0603aca6ae0db2677d326cd33c02e6086eab354fe",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/knee-far.svg",
+          "sha256": "3de19ec090e52e4465834b8d80ecdfa5fcbadd4564f4a37f2a7b02057a44fdae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/foot-near.svg",
+          "sha256": "456b6adc248babd4fb9f7537637c6e632a541fb0baed0676f229d08c22ec56a3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/foot-far.svg",
+          "sha256": "9b52ef373d8c780dbfef139fccd28599a05b7c447ac52e78bbdfeacf8752f56a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-near.svg",
+          "sha256": "3e158ffc793e3681939c9b6e4c6cd38d07379c885e4064dc8e48999df3c9d153",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-far.svg",
+          "sha256": "534c47d17ca7d36b924197711da035457e63356aca84394cbbb383073e8d6da1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-damaged.svg",
+          "sha256": "4100474d6c47480bbf81fad8c5a732e0476406a9720ccca2b56defacb8af5836",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-repaired.svg",
+          "sha256": "26ddaeba36dc7e8292ed26d4b945c58283bb9fe22e5e8b6baaa080274773e5ae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/hull-braced.svg",
+          "sha256": "36c68e5ae0a4015f23e6553acbabcf5fc74c1d1c90b516c86a2020dc75113967",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-hit.svg",
+          "sha256": "c5eb4845312bb69ba000f9dea234ce20d26b05c6ce957dbee23ff541ec091536",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-damaged.svg",
+          "sha256": "d90bfa3afd204a0b0c9983b6f3f0e340a1a80b20f10087c77a6c5c3f49aeb052",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-repaired.svg",
+          "sha256": "9ca6a837fa06abfe8514d964bef62058310962d8f1477521c139fd99e7d86b2e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-repair-0s.svg",
+          "sha256": "8445b4d6a50853fd08abb2857cea50cb657dd9a68b559b21d1028b84fef15490",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-repair-1s.svg",
+          "sha256": "d973c9da352ec4c900e3d67da87c90ff02a7655e4c87fb956d26b5a03ae108a3",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-repair-2s.svg",
+          "sha256": "55dd252b8b0cb30d9f102a9f2b0dafa9cf416fa4dbd0f054fcc4c819ae595f89",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-repair-3s.svg",
+          "sha256": "10583e88b566c9afbc69688b3ed974f21decd9f4b3138c392855c865819de28f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/radiator-repair-4s.svg",
+          "sha256": "c13a145166159677980cc170bbb2ebb62db31f66378984415e21d26dad0b5d9b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-stand-right.svg",
+          "sha256": "100ce5fcbe8347c813a157cc1c0b567db4ee315ab1d1d9c03a1624eea397d91f",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-stand-left.svg",
+          "sha256": "376747804f21fa5774abebfe12e598ee855d171e32803bcd048cb38366feb647",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-brace.svg",
+          "sha256": "1bc34f2128b97071d2989a21fbd192dab4e173040a005e20f7702286543ba2fb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-walk.svg",
+          "sha256": "58a4f58a71ea10f5e85df19ac6f9484b281e66bcf8e3ecbad858b23d19b6b8ed",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-aim-up.svg",
+          "sha256": "dc2206ad8c1103aab39d6423a9bf66ffde2641999c026cc90f0f1315ac88ee00",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/assembly-damaged.svg",
+          "sha256": "2132753a894ad20d34d0c24cead2b3c9234133fd9f118b5bbaade1ebe1c6d117",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/walkers/wk10/rig.json",
+          "sha256": "86d923845b75cabd4effcdefc2dabc8f68ba0b9d11d84677f4cbb2ffd45ca55f",
+          "format": "json"
+        },
+        {
+          "path": "assets/production/previews/walkers-six-common-scale.png",
+          "sha256": "52ce90bfcffc35c58f9df7f43763264c97e968a12725f533f5a322b3bce94a3a",
+          "format": "png"
+        },
+        {
+          "path": "assets/production/previews/parts-damage-repair.png",
+          "sha256": "bd6d10952a230642880d717e12a1d6481c36d77ca608ea17dc48de706948ac47",
+          "format": "png"
+        },
+        {
+          "path": "assets/production/audio/cue-radiator-hit.wav",
+          "sha256": "25483eb8575efb0593f5c53a07bc69d02d6ac3999cd8ce7e7f498b51349ac59a",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-repair-start.wav",
+          "sha256": "01d88b36a7373d0c6c6e304e8528766bd197d63d5bcd7f39e7783c9e0391ce94",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-repair-cancel.wav",
+          "sha256": "9c0995ad2aa54ee64ea3cfa350aa5b3b46cf0b718c198aa72a7dea698448cb9f",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-repair-complete.wav",
+          "sha256": "ebe9a95a305b770a1cbcda3d34a3abfbea95ed563240756693b2cdaaefbecbb4",
+          "format": "cue"
+        }
+      ]
+    },
+    {
+      "id": "AS42",
+      "delivered": "Signaux synthétiques de surchauffe, impact du radiateur, réparation et refroidissement.",
+      "remaining": "Écoute simultanée de mécanique, parole et danger; voix et mixage final non produits.",
+      "taggedFileCount": 7,
+      "files": [
+        {
+          "path": "assets/production/audio/cue-overheat.wav",
+          "sha256": "51c68e3a201efd757ca70e84f1e56b073cd7c7da168a8e841307a0e5ec372154",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-radiator-hit.wav",
+          "sha256": "25483eb8575efb0593f5c53a07bc69d02d6ac3999cd8ce7e7f498b51349ac59a",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-repair-start.wav",
+          "sha256": "01d88b36a7373d0c6c6e304e8528766bd197d63d5bcd7f39e7783c9e0391ce94",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-repair-cancel.wav",
+          "sha256": "9c0995ad2aa54ee64ea3cfa350aa5b3b46cf0b718c198aa72a7dea698448cb9f",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-repair-complete.wav",
+          "sha256": "ebe9a95a305b770a1cbcda3d34a3abfbea95ed563240756693b2cdaaefbecbb4",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-pump-start.wav",
+          "sha256": "31902c0b42bd1a696364afb2c7e7e06fc87731456669376ce2bc8ef5946986fb",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-turbine-cooled.wav",
+          "sha256": "d5faec9a2e48f600b4b4ebc5a91dce03d0079364a5c22dc50317c67a874aa228",
+          "format": "cue"
+        }
+      ]
+    },
+    {
+      "id": "AS44",
+      "delivered": "Repère de marée vectoriel normal/dégradé avec ancres de niveau.",
+      "remaining": "Matières de vase/tablier et lecture du risque sans seule couleur en combat restent à finaliser.",
+      "taggedFileCount": 2,
+      "files": [
+        {
+          "path": "assets/production/nacre/tide-marker-normal.svg",
+          "sha256": "86568c94ebce766a3c53e39aeb0c159d554ddc234499cf6ef3529820332fabae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/previews/nacre-components.png",
+          "sha256": "3a096c2d666d2ba3ab116efe78cfe2a6fdf9a7735bac25bfcd07d63faf856095",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS45",
+      "delivered": "Coques Saisie/Rive-Courte, treuil indépendant et variantes de dommage.",
+      "remaining": "Inspection intégrée des collisions, documents/radio et des équipages; animations finales encore absentes.",
+      "taggedFileCount": 14,
+      "files": [
+        {
+          "path": "assets/production/nacre/barge-seizure-normal.svg",
+          "sha256": "f762435bb79216529fe7500048d85c92af484a3da2c798cbf9da442e189344d1",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/barge-seizure-released.svg",
+          "sha256": "d29eb0b1ba6767056ee6a6a8095671aef7a5143ceb3f563f19c514798a67920b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/barge-seizure-damaged.svg",
+          "sha256": "43b40e7332e51b17c02d6cb6047aaee3e98067728f20af79430d1a9b3dd52e6a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/barge-seizure-destroyed.svg",
+          "sha256": "f8dcdab05a31bc24d6f1f7d1aab59a5d20f4577124695c30a3d37e9d7672b3db",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/barge-rive-courte-waiting.svg",
+          "sha256": "e85797df5da0ee59b60c6253ac5e46486c1218d6b82b2791c70ce2565b455c93",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/barge-rive-courte-boarding.svg",
+          "sha256": "80809ae09a66609ba100192aa2c6924718023e13cc7849f2634db1fad803cd8c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/barge-rive-courte-moving.svg",
+          "sha256": "e8cfcb3db14a1219ca84fd4757ee01eba3924b8dd72a68963c5518b1b8ac9d17",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/barge-rive-courte-arrived.svg",
+          "sha256": "19f76f469b0b9863b064e665c7ecea602bd2cfc37843e13c940d5c424849d4cf",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/barge-rive-courte-destroyed.svg",
+          "sha256": "47a8dff871dd0ad12ca876ee7b97611008512a4f37185b441a22b83334e36935",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/winch-normal.svg",
+          "sha256": "57be6dff713d5e3ccba02b4e0a6a1f37bdfb89dc9ddd9663f700f9a475846dfe",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/winch-loaded.svg",
+          "sha256": "cc32633a420ede1e0ba39ccc4d81cb58881d2cb6b37e16a54f021d1f4edaeea7",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/winch-released.svg",
+          "sha256": "9d891bcba01c8bf818356e61e64330f965b9cb15b57c72d319456307bb517304",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/winch-destroyed.svg",
+          "sha256": "8569c2bb555883ccad2c3f2f17cced5c17f660aa18e606f9416107c3d9f231ea",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/previews/nacre-components.png",
+          "sha256": "3a096c2d666d2ba3ab116efe78cfe2a6fdf9a7735bac25bfcd07d63faf856095",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS46",
+      "delivered": "Dock et ferry vectoriels avec variantes d’attente, arrivée et perte.",
+      "remaining": "Débarquement lisible, animation des passagers et absence de chevauchement doivent être observés en intégration.",
+      "taggedFileCount": 7,
+      "files": [
+        {
+          "path": "assets/production/nacre/dock-normal.svg",
+          "sha256": "c33d686bc4f91317883bf13f36d19abeb9a0b0fb1a62abf8a74e65f087f18360",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/dock-damaged.svg",
+          "sha256": "d570283e2f9688c40e6da912b0466e51d0b2428f494f67c824af418f97a57b1a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/ferry-waiting.svg",
+          "sha256": "3d1541b505dc06fea165f8af7e06f1c515801eb639c3bf29d38affc796bc195c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/ferry-moving.svg",
+          "sha256": "66d7d60988e48a02d28a1cfb3a372acc80c8159ee33068433d5a6956740bd0f6",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/ferry-arrived.svg",
+          "sha256": "d8d55d7d4573d346321e2b9e8f18e83fc04b1bea48ee0a26654564a325752387",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/ferry-destroyed.svg",
+          "sha256": "ce381ae8b472d65298adbc958a93fcba57ba37fc15877d5129cfd9f6b257189e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/previews/nacre-components.png",
+          "sha256": "3a096c2d666d2ba3ab116efe78cfe2a6fdf9a7735bac25bfcd07d63faf856095",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS47",
+      "delivered": "Signaux de treuil/tablier/moteur et ambiance de chenal, plus modules de treuil.",
+      "remaining": "Voix de Vann et essai d’écoute en combat avec consignes et marée restent absents.",
+      "taggedFileCount": 12,
+      "files": [
+        {
+          "path": "assets/production/nacre/winch-normal.svg",
+          "sha256": "57be6dff713d5e3ccba02b4e0a6a1f37bdfb89dc9ddd9663f700f9a475846dfe",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/winch-loaded.svg",
+          "sha256": "cc32633a420ede1e0ba39ccc4d81cb58881d2cb6b37e16a54f021d1f4edaeea7",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/winch-released.svg",
+          "sha256": "9d891bcba01c8bf818356e61e64330f965b9cb15b57c72d319456307bb517304",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/winch-destroyed.svg",
+          "sha256": "8569c2bb555883ccad2c3f2f17cced5c17f660aa18e606f9416107c3d9f231ea",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/audio/cue-step-wet.wav",
+          "sha256": "d852eeff58710079b716b62005cf11cb7a85ec19b21a96414d22229b17ba32ca",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-winch-load.wav",
+          "sha256": "bd55d120acfc5233cc5b5375f4000798b03621aa542250c14f91389069c3754d",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-winch-release.wav",
+          "sha256": "b1f9df83b4a32075277d680bece4a298323073e6fe0d7127594157398a899221",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-bridge-lock.wav",
+          "sha256": "03ac72a47b60a11882bc68455a6a4d80fbddc1d222c65b7950057f48a0159cd3",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-engine-depart.wav",
+          "sha256": "7f5a5496d84758c960fde061a2ec40bacc38c42c6a3f5652eb595b1559f11a51",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-engine-arrive.wav",
+          "sha256": "0fb62e98370d9aaff3725a2fe7d2cb80144e320645004aca2b59de1b7d9b70ea",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-boat-departed.wav",
+          "sha256": "b81eb55811631f0918523a321d6cc6a16f32d6c60a4926ba18e628b9833ddca2",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/preview-nacre-library.wav",
+          "sha256": "fe054462bdc63911a646828f56952f2a91f0960e0f0863908807aad8ca8749e7",
+          "format": "preview"
+        }
+      ]
+    },
+    {
+      "id": "AS48",
+      "delivered": "Panneau, pompe et vanne vectoriels avec variantes et points d’ancrage.",
+      "remaining": "Lecture intégrée du soutien/verrou/pression et gestes détaillés des techniciens restent à finir.",
+      "taggedFileCount": 13,
+      "files": [
+        {
+          "path": "assets/production/nacre/dike-panel-normal.svg",
+          "sha256": "e59a8e74c8321bd776665e603402b1bd53ad493f7c8e581beb2710ff688fb9dc",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/dike-panel-supported.svg",
+          "sha256": "f0c712d5a8110789472145a2722dd5dc13d0e0a3e21b64f1b87c37a4c3fa2c8a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/dike-panel-locked.svg",
+          "sha256": "f5f8cd2154399980d0b102acac04f9215cbb3fe99d02be318ea9a9c1b3650bcc",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/dike-panel-damaged.svg",
+          "sha256": "ec05bc9d91796a3a329f64b59871d78d146cb96b9763f2c3ad7e7d429f3cfde2",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/dike-panel-destroyed.svg",
+          "sha256": "6f5331fa339c6cb9a2f3d1fffbbfe54771121dcd97cfaa0abf7b06f0ac6f617d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/auxiliary-pump-normal.svg",
+          "sha256": "f8f8940ccbe8e8a0db278d2abd5222bd4f945bace5c6f9839b2d7c2144f1db88",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/auxiliary-pump-connected.svg",
+          "sha256": "b1e4d9a13927b730accba54b95c91116004393ed1fee320dfae2a45df60c28b8",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/auxiliary-pump-active.svg",
+          "sha256": "e7697b2359762324e40ae305158e3c24ae28c07a53011d5732c1c751b829786b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/auxiliary-pump-destroyed.svg",
+          "sha256": "ec017082848f5825e6e94d3a7122081e378d820863a69f00ce3f5f256cca5688",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/routing-valve-normal.svg",
+          "sha256": "efd8e78d210f1421c1a265e94d2250aeaa9fa29f9258ffcc1e096e70e2811e13",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/routing-valve-working.svg",
+          "sha256": "4fad5e2e7544f9206269255002f82e6893c373108f011ca4ad11479a8d11a20b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/routing-valve-completed.svg",
+          "sha256": "16215ef160ef621c5559f7ca794232e2e87d1633b406243fe7cc9aebbdcc247c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/previews/nacre-components.png",
+          "sha256": "3a096c2d666d2ba3ab116efe78cfe2a6fdf9a7735bac25bfcd07d63faf856095",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS49",
+      "delivered": "Ambulance, caisse et balise vectorielles avec dégâts et attaches.",
+      "remaining": "Accès des six châssis, gestes sanitaires et finition des personnes doivent être vérifiés/produits en contexte.",
+      "taggedFileCount": 11,
+      "files": [
+        {
+          "path": "assets/production/nacre/ambulance-normal.svg",
+          "sha256": "39335a134fda9fbc6a30c4dbb0e56401c69534f8143d39216c97119d32c25574",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/ambulance-damaged.svg",
+          "sha256": "2ec680f0ca127b7e9a45e6180e567a109f18f5d0758513616b3898f3e99e6406",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/ambulance-destroyed.svg",
+          "sha256": "ba5f9bcfad85a9bd581614f8647dc9b3c54f00306e0e868dfff0185f04c3fe05",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/medical-case-normal.svg",
+          "sha256": "693e4ad5064d4476fb8c83c1e9f6164a09cd4c55272c47a76df5a2c8b25a6298",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/medical-case-inspecting.svg",
+          "sha256": "426d4480b8768a898ec4e1d484188fdff9cf97f0fb735e1b464fc3213dfaa0ce",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/medical-case-verified.svg",
+          "sha256": "58797adb74966ea682d614b7f4c35746ef4099d9c0096b75bcd970c452544f3b",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/medical-case-destroyed.svg",
+          "sha256": "94f2a7da9b408d19cc705b06a50bca710a53a2e070908764fa6016ecf3826984",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/ramp-closed.svg",
+          "sha256": "1bb429679dd62c57b3e78f04ccdf2a05b656f1bad09e49c58b6e6aad930e93ea",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/ramp-working.svg",
+          "sha256": "e03abf34e4b117890e777f2281fbf5879dff7814daa620343b7d4d05737a79b7",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/ramp-prepared.svg",
+          "sha256": "43cd8aedf65001cba12a3ba7564b36a2fe102363fc85b96c114fb8c1f6de2597",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/previews/nacre-components.png",
+          "sha256": "3a096c2d666d2ba3ab116efe78cfe2a6fdf9a7735bac25bfcd07d63faf856095",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS50",
+      "delivered": "Porte, mécanisme indépendant, Veille d’Aval, Rive-Courte et refuge vectoriels.",
+      "remaining": "MI08 et son renderer sont en intégration; aucune arrivée ou personne n’est certifiée par ces dessins seuls.",
+      "taggedFileCount": 28,
+      "files": [
+        {
+          "path": "assets/production/nacre/barge-rive-courte-waiting.svg",
+          "sha256": "e85797df5da0ee59b60c6253ac5e46486c1218d6b82b2791c70ce2565b455c93",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/barge-rive-courte-boarding.svg",
+          "sha256": "80809ae09a66609ba100192aa2c6924718023e13cc7849f2634db1fad803cd8c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/barge-rive-courte-moving.svg",
+          "sha256": "e8cfcb3db14a1219ca84fd4757ee01eba3924b8dd72a68963c5518b1b8ac9d17",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/barge-rive-courte-arrived.svg",
+          "sha256": "19f76f469b0b9863b064e665c7ecea602bd2cfc37843e13c940d5c424849d4cf",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/barge-rive-courte-destroyed.svg",
+          "sha256": "47a8dff871dd0ad12ca876ee7b97611008512a4f37185b441a22b83334e36935",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/gate-closed.svg",
+          "sha256": "664c0b260401d577cd1699bdd016725ca66f414f652f98c9904ba9dc8c69069e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/gate-working.svg",
+          "sha256": "80af5e6db83be615b0b23b08bae47fdc72283c6a392708c9c2f0de258971e526",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/gate-open.svg",
+          "sha256": "e0c836cdc638ff283d6424c20c6a5bdfc4b33c3ff6abdaf1a8c2a1206b3b51f7",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/gate-damaged.svg",
+          "sha256": "78e376f7083f19da197948ec25744d31befcc6b9d638b9edc96ed9f0a374c239",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/gate-blocked.svg",
+          "sha256": "163c702d8c118ab47551111cfc174f781002dd3523f0994b77f5614612e840fe",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/gate-mechanism-normal.svg",
+          "sha256": "109277b09bd9b08c8457297ab46c2095da6cb4e202b6280a3a974f56d2c980be",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/gate-mechanism-working.svg",
+          "sha256": "be9e057efadf5f6e21fc2133578830eaacb3a09946318830789aa16c5bc7f82d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/gate-mechanism-damaged.svg",
+          "sha256": "564e6c85a3c04c562df36b851815e1989dc4a8ae6382ac622dc2bee71fb6d437",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/gate-mechanism-destroyed.svg",
+          "sha256": "a51a8e50107e0278746e6be40525018c64cee7e81e9eedf3cbf202ebd1c4b299",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/boat-veille-aval-waiting.svg",
+          "sha256": "fe1fcdf3e9e5d2d0c26a6100c7b05cc44abb97cad7e41336c704c109444a6e76",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/boat-veille-aval-boarding.svg",
+          "sha256": "23f74cfe15c28719460a676d6e9e9024796d21647c6c22d712d5fdf2ed38368d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/boat-veille-aval-moving.svg",
+          "sha256": "7d4103f05e4ef16db8cd63369a746ab4740bb40e312b6f3dd31a8f8d2b144382",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/boat-veille-aval-arrived.svg",
+          "sha256": "60797eb7c23669fdf8ac7500853a34d51fbc62a259b17ae2223e0576be0c2dc2",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/boat-veille-aval-destroyed.svg",
+          "sha256": "80dccc4f77f79658960ba461f3bde1f29d4775d62fbb01686b47e0a8ea118e4c",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/refuge-normal.svg",
+          "sha256": "7793d62ac335a9f4fc6f90203bac8d56879a24b4a551aefc0c6522087ac6c3ae",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/refuge-receiving.svg",
+          "sha256": "aa56f8ddbb5e64bb7826f6cb53cf608319e42789cfef6f4d05e13dece890a19e",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/refuge-damaged.svg",
+          "sha256": "e81b18c40e38823e3f742c754f56eb555db25977e5b41c285fef7a1f3691ccb7",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/previews/nacre-components.png",
+          "sha256": "3a096c2d666d2ba3ab116efe78cfe2a6fdf9a7735bac25bfcd07d63faf856095",
+          "format": "png"
+        },
+        {
+          "path": "assets/production/audio/cue-person-arrived.wav",
+          "sha256": "a227a1b52f90b621f6cd4cd96594489a75cf24ec2f9b6716d5460e8e3280cd35",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-boarding-complete.wav",
+          "sha256": "c0c3252e71d491d7147c4b4de58febdc54eed4fc22e04f005d8b78d461c7f9cb",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-boat-departed.wav",
+          "sha256": "b81eb55811631f0918523a321d6cc6a16f32d6c60a4926ba18e628b9833ddca2",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-gate-open.wav",
+          "sha256": "1b9be4e2dff159e750089a1d522506a4b3baacc085de851f6ec5911ac9631bbe",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-gate-lock.wav",
+          "sha256": "15a5f74ce6ac3836c421d08438ed8ed6d46f7b702bca8a47e88e4439d1d4ce7d",
+          "format": "cue"
+        }
+      ]
+    },
+    {
+      "id": "AS52",
+      "delivered": "Deux façades originales avec variantes sèche, exposée, inondée et détruite.",
+      "remaining": "Contrôler occupations/évacuations dans le renderer intégré et achever les animations de secours.",
+      "taggedFileCount": 9,
+      "files": [
+        {
+          "path": "assets/production/nacre/house-a-dry.svg",
+          "sha256": "94ae51c5a2aa36519a850986a4f26b9714c70213c97f28a03188ec4f5414787a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/house-a-exposed.svg",
+          "sha256": "da1e343131f2b0e201e940a8261e9e46563a8fb2e2ca0b473b7d5bddfbd99340",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/house-a-flooded.svg",
+          "sha256": "8ac21c06a8509b37c95286f159ccd502a64098e7f94c4242b573938697eee2cb",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/house-a-destroyed.svg",
+          "sha256": "9774fabc8fecd5e0ef8fbcd8cafa908609a01c032f2958672d4f8984e6a94dfd",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/house-b-dry.svg",
+          "sha256": "74634c03c7a6e8cc24498dd348d83903a6e2223d2df48f3c4d165f1f13b7c3c9",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/house-b-exposed.svg",
+          "sha256": "96b27d8f2a2fbd97c6cef4b319a1bad89082a45e1e4fd018cbb8796f28b02425",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/house-b-flooded.svg",
+          "sha256": "7ae6aa390b368a69faef4dce955ec66c00a2bd1fb42e50e4e4b456065d768545",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/house-b-destroyed.svg",
+          "sha256": "3dac6a6ae58e82dfd8c1c7fd38668d683df58728e19eec6375ec33dc3b1ec02a",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/previews/nacre-components.png",
+          "sha256": "3a096c2d666d2ba3ab116efe78cfe2a6fdf9a7735bac25bfcd07d63faf856095",
+          "format": "png"
+        }
+      ]
+    },
+    {
+      "id": "AS54",
+      "delivered": "Signaux de pompe, verrou, pression et eau reliables aux transitions simulées.",
+      "remaining": "Voix et écoute humaine distinguant maintien et travail fini restent absentes.",
+      "taggedFileCount": 7,
+      "files": [
+        {
+          "path": "assets/production/audio/cue-pump-start.wav",
+          "sha256": "31902c0b42bd1a696364afb2c7e7e06fc87731456669376ce2bc8ef5946986fb",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-dike-load.wav",
+          "sha256": "22a38f7f16c2770ccb67d3546476b6e3a306012eeb78788e73d8c7878a4f8e84",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-pressure-warning.wav",
+          "sha256": "eb5ab95ef7d2d04262675379571f0ce02ebde851d7549496809ebf91e25d0b4d",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-water-warning.wav",
+          "sha256": "0f175ffb2e99e38c48058cb698a023d2beab38c120bb459ba91153c886eb24ae",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-gate-open.wav",
+          "sha256": "1b9be4e2dff159e750089a1d522506a4b3baacc085de851f6ec5911ac9631bbe",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-gate-lock.wav",
+          "sha256": "15a5f74ce6ac3836c421d08438ed8ed6d46f7b702bca8a47e88e4439d1d4ce7d",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/preview-nacre-library.wav",
+          "sha256": "fe054462bdc63911a646828f56952f2a91f0960e0f0863908807aad8ca8749e7",
+          "format": "preview"
+        }
+      ]
+    },
+    {
+      "id": "AS60",
+      "delivered": "Balise et support en sept variantes, avec attaches, démontage, récupération et perte.",
+      "remaining": "Contrôler l’intégration sur carrosserie et tous les cadrages de combat; aucune nouvelle phase d’examen ajoutée.",
+      "taggedFileCount": 7,
+      "files": [
+        {
+          "path": "assets/production/nacre/beacon-attached.svg",
+          "sha256": "ee6a8fee40cb45c3bcddee60c4859e958051287ee064623797a7cffd5af74eed",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/beacon-dismantling.svg",
+          "sha256": "830b7884c359f95159389ac86dba31442e93b1e83b1298cdc9aeeffcbaf527de",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/beacon-recovered.svg",
+          "sha256": "000441574d0f3032a656b3ccd97394321eb5255946f7b6e58052694cc4dd858d",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/nacre/beacon-lost.svg",
+          "sha256": "ced803933d83219c59fd23bd72fd3e40a302522a9d62a2c48a48a0968e8a78be",
+          "format": "svg"
+        },
+        {
+          "path": "assets/production/previews/nacre-components.png",
+          "sha256": "3a096c2d666d2ba3ab116efe78cfe2a6fdf9a7735bac25bfcd07d63faf856095",
+          "format": "png"
+        },
+        {
+          "path": "assets/production/audio/cue-beacon-recovered.wav",
+          "sha256": "368bfc532d2ebf7110d98ae28bd5fbdb51357a35ae499653176bdd7a4396188d",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-beacon-lost.wav",
+          "sha256": "52ed92a3d1f6717bc706e69e15437f5d2ebdf2ea1705808fb518e3c59f393af2",
+          "format": "cue"
+        }
+      ]
+    },
+    {
+      "id": "AS62",
+      "delivered": "Signaux d’accord, inspection, saisie et transfert, avec sous-titres issus du jeu.",
+      "remaining": "Voix du personnel/Mara, jeu d’acteur et mix humain final restent absents.",
+      "taggedFileCount": 10,
+      "files": [
+        {
+          "path": "assets/production/audio/cue-inspection-complete.wav",
+          "sha256": "0507fbc9b0e803f345162ae0dfd2b46b2f75ce4bd76e2e72089d1ea3eac733f1",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-engine-depart.wav",
+          "sha256": "7f5a5496d84758c960fde061a2ec40bacc38c42c6a3f5652eb595b1559f11a51",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-engine-arrive.wav",
+          "sha256": "0fb62e98370d9aaff3725a2fe7d2cb80144e320645004aca2b59de1b7d9b70ea",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-consent-recorded.wav",
+          "sha256": "ae4fb74af6ffe76da9858c99ac7b6b24131bb779a3795b212b281d1965f30ac4",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-beacon-recovered.wav",
+          "sha256": "368bfc532d2ebf7110d98ae28bd5fbdb51357a35ae499653176bdd7a4396188d",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-beacon-lost.wav",
+          "sha256": "52ed92a3d1f6717bc706e69e15437f5d2ebdf2ea1705808fb518e3c59f393af2",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-seizure-warning.wav",
+          "sha256": "898200dcb6616fb13c9e01073baaadf3cc0fff66b679d3144acaa2b33f983e81",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-transfer-start.wav",
+          "sha256": "8607e46a89fc2d9533688d8467c97093300d85347486c3adf16a5b266cb1ebff",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/cue-person-arrived.wav",
+          "sha256": "a227a1b52f90b621f6cd4cd96594489a75cf24ec2f9b6716d5460e8e3280cd35",
+          "format": "cue"
+        },
+        {
+          "path": "assets/production/audio/preview-nacre-library.wav",
+          "sha256": "fe054462bdc63911a646828f56952f2a91f0960e0f0863908807aad8ca8749e7",
+          "format": "preview"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Fichiers produits et contrôlés; intégration renderer encore en cours à cette réception.",
+    "L’API audio est branchée par root; aucune écoute humaine ou sortie matérielle n’est certifiée ici.",
+    "Voix humaines, six nouveaux châssis jouables et finition finale non livrés."
+  ]
+}

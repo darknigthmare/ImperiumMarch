@@ -2,6 +2,7 @@ import { WALKERS, MISSIONS, CAMPAIGN_MISSIONS, DIFFICULTIES } from './content.mj
 import { createGame, updateGame, commandGame } from './simulation.mjs';
 import { Renderer } from './renderer.mjs';
 import { AudioEngine } from './audio.mjs';
+import { CONTROL_ACTIONS, normalizeBindings, bindingLabel, remapBinding, keyboardActions, GamepadInput, defaultBindings, formatControlText } from './controls.mjs';
 import { createCampaign, readCampaign, writeCampaign, beginCampaignMission, checkpointCampaign, restoreCampaignGame, finishCampaignMission, serviceCampaignWalker, repairCampaignPipe, campaignRepairCost, serializeCampaign, parseCampaign, nextCampaignMissionId } from './campaign.mjs';
 
 const $ = id => document.getElementById(id);
@@ -10,7 +11,7 @@ const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
 const defaults = { difficulty: 'normal', assist: true, shake: true, motion: matchMedia('(prefers-reduced-motion: reduce)').matches, contrast: false, volume: 55, walkerId: 'WK01', missionId: 'op01' };
 function load(key, fallback) { try { const v = JSON.parse(localStorage.getItem(key)); return v && typeof v === 'object' && !Array.isArray(v) ? v : fallback; } catch { return fallback; } }
 const saved = load('imperium.settings.v1', {});
-const settings = { ...defaults };
+const settings = { ...defaults, bindings: normalizeBindings(saved.bindings) };
 for (const key of ['assist', 'shake', 'motion', 'contrast']) if (typeof saved[key] === 'boolean') settings[key] = saved[key];
 if (Object.hasOwn(DIFFICULTIES, saved.difficulty)) settings.difficulty = saved.difficulty;
 if (Number.isFinite(saved.volume)) settings.volume = clamp(saved.volume, 0, 100);
@@ -32,6 +33,11 @@ let campaign = loadedCampaign.campaign, campaignBlocked = loadedCampaign.blocked
 let selectedCampaignId = nextCampaignMissionId(campaign) || CAMPAIGN_MISSIONS.at(-1).id, pendingCampaignId = selectedCampaignId;
 let activeMode = 'operations', pendingMode = 'operations', campaignReplay = false, pendingReplay = false, lastCampaignSaveAt = -1, decisionCheckpointTaken = false, pendingImport = null;
 const keys = new Set(), touch = {};
+const gamepad = new GamepadInput();
+let padState = gamepad.sample([]), bindingCapture = null, aimMode = 'pointer';
+const padAim = { x: 1, y: 0 };
+const keyLabel = id => bindingLabel(settings.bindings[id]);
+const controlsText = text => formatControlText(text, settings.bindings);
 const pointer = { x: 1100, y: 570, clientX: 0, clientY: 0, visible: false, fire: false, secondary: false, touched: false };
 const selectedWalker = () => WALKERS.find(w => w.id === settings.walkerId);
 const selectedMission = () => MISSIONS.find(m => m.id === settings.missionId);
@@ -66,6 +72,12 @@ const campaignOrders = {
     task: 'Relever les seuils, tenir le panneau, couvrir les techniciens et achever le circuit choisi.',
     caution: 'Ancrez tous les appuis pour soutenir la digue. Les personnes évacuées et les logements préservés ont des bilans distincts.',
   },
+  MI08: {
+    status: 'Holt demande la fermeture des portes d’Aval. Les personnes présentes au quai n’ont pas encore embarqué.',
+    description: 'Le courant traverse le bassin. Deux bateaux attendent leurs équipages et un refuge doit confirmer ses places. Retrouvez les survivants des missions précédentes, préparez les accès et recueillez leurs accords avant de manœuvrer les portes.',
+    task: 'Régler l’amenée, organiser les accueils, faire accomplir le trajet choisi et transmettre le bilan.',
+    caution: 'Places assises, brancards et opérateurs sont distincts. Une fermeture, un départ et une arrivée doivent chacun être accomplis.',
+  },
   MI07: {
     status: 'Holt désigne un dépôt mobile de munitions. Une conductrice demande une aire sûre pour arrêter son ambulance.',
     description: 'Sous la caisse sanitaire, Tess aperçoit un boîtier récemment fixé. Faites arrêter le véhicule, échangez avec son équipe et examinez ce que la signature hostile prétend identifier.',
@@ -82,7 +94,7 @@ const campaignOrders = {
 const timeLabel = time => `${Math.floor(time / 60).toString().padStart(2, '0')}:${Math.floor(time % 60).toString().padStart(2, '0')}`;
 let toastTimer;
 function toast(message) { $('toast').textContent = message; $('toast').hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').hidden = true, 3200); }
-function clearInput() { keys.clear(); pointer.fire = false; pointer.secondary = false; for (const k of Object.keys(touch)) touch[k] = false; }
+function clearInput() { keys.clear(); gamepad.reset(); padState = { ...padState, input: gamepad.sample([]).input }; pointer.fire = false; pointer.secondary = false; for (const k of Object.keys(touch)) touch[k] = false; }
 function closeDialogs() { all('dialog[open]').forEach(d => d.close()); }
 
 function saveCampaign({ replaceInvalid = false } = {}) {
@@ -96,7 +108,7 @@ function saveCampaign({ replaceInvalid = false } = {}) {
   return result.ok;
 }
 function captureCampaign(beforeDecision = false) {
-  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07'].includes(game.missionId) && game.status === 'lost'))) return;
+  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08'].includes(game.missionId) && game.status === 'lost'))) return;
   try {
     campaign = checkpointCampaign(campaign, game, { beforeDecision });
     lastCampaignSaveAt = game.elapsed;
@@ -113,6 +125,15 @@ function renderCampaignStatus() {
   $('campaign-save-status').classList.toggle('save-warning', Boolean(campaignWarning || campaignBlocked));
 }
 function campaignReceiptFacts(receipt) {
+  if (receipt.missionId === 'MI08') return [
+    ['PERSONNES RECENSÉES', receipt.peopleTotal], ['DÉPARTS ACQUIS', receipt.peopleDeparted],
+    ['ARRIVÉES AU REFUGE', receipt.peopleArrived], ['ACCUEIL LOCAL', receipt.peopleLocal], ['PERTES À AVAL', receipt.peopleLost],
+    ['PATIENTS', `${receipt.patientsArrived} au refuge · ${receipt.patientsLocal} à Aval · ${receipt.patientsLost} perdus`],
+    ['BATEAUX', `${receipt.boatsDeparted} partis · ${receipt.boatsArrived} arrivés · ${receipt.boatsLost} perdus`],
+    ['OUVRAGES', receipt.execution === 'damaged' ? 'Avaries constatées' : receipt.closureCompleted ? 'Deux accès fermés' : receipt.accessMaintained ? 'Passage maintenu' : 'État consigné'],
+    ['REGISTRE DE RELOGEMENT', receipt.registryCopied ? 'Pages et obligations de travail copiées' : 'Support perdu · absence consignée'],
+    ['MARA', receipt.maraDeparted ? 'Rencontrée, accord reçu, départ accompli' : receipt.maraPresent ? 'Présence au quai établie' : 'Absente du quai'],
+  ];
   if (receipt.missionId === 'MI07') return [
     ['PATIENTS ARRIVÉS', `${receipt.patientsArrived} / ${receipt.patientsTotal}`],
     ['PATIENTS PERDUS', receipt.patientsLost],
@@ -199,7 +220,7 @@ function renderCampaignUI() {
       : 'Le journal du poste a été perdu. Le bilan de Vesper conserve cette absence ; une autre source technique reste à trouver.';
     const passage = campaign.completed.MI05;
     $('campaign-transition-text').textContent = `${inherited} ${passage
-      ? campaign.completed.MI07 ? `Sur la chaussée des Salines, ${campaign.completed.MI07.patientsArrived} patients sont arrivés et ${campaign.completed.MI07.patientsLost} sont morts. Le dossier sanitaire garde leur destination, l’équipe et la balise séparément. La sortie de Nacre aux portes d’Aval reste en préparation.` : campaign.completed.MI06 ? `Aux Trois-Vannes, ${campaign.completed.MI06.residentsSafe} habitants sont à l’abri et ${campaign.completed.MI06.homesUninhabitable} logements sont inhabitables. La chaussée des Salines est maintenant accessible dans « Une ambulance sans escorte ». Le chantier détermine la rampe utilisable.` : `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai. La digue des Trois-Vannes est maintenant accessible dans « Les maisons sous la ligne ». ${campaign.resources.fuel} lots de carburant restent disponibles ; une solution manuelle existe sans réserve.`
+      ? campaign.completed.MI08 ? `Aux portes d’Aval, ${campaign.completed.MI08.peopleDeparted} personnes sont parties, ${campaign.completed.MI08.peopleArrived} sont arrivées au refuge et ${campaign.completed.MI08.peopleLocal} ont rejoint l’accueil local. Le bilan garde ${campaign.completed.MI08.peopleLost} pertes. L’arc de Nacre est achevé ; la prochaine affectation vers Thyr reste en préparation.` : campaign.completed.MI07 ? `Sur la chaussée des Salines, ${campaign.completed.MI07.patientsArrived} patients sont arrivés et ${campaign.completed.MI07.patientsLost} sont morts. Le dossier sanitaire garde leur destination, l’équipe et la balise séparément. Les portes d’Aval sont maintenant accessibles dans « La marée compte les absents ». Retrouvez les survivants avant toute allocation de place.` : campaign.completed.MI06 ? `Aux Trois-Vannes, ${campaign.completed.MI06.residentsSafe} habitants sont à l’abri et ${campaign.completed.MI06.homesUninhabitable} logements sont inhabitables. La chaussée des Salines est maintenant accessible dans « Une ambulance sans escorte ». Le chantier détermine la rampe utilisable.` : `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai. La digue des Trois-Vannes est maintenant accessible dans « Les maisons sous la ligne ». ${campaign.resources.fuel} lots de carburant restent disponibles ; une solution manuelle existe sans réserve.`
       : 'Votre nouvelle affectation est ouverte : rejoignez le chenal de Nacre dans « Le prix du passage ». Le départ reste possible avec ou sans le journal.'}`;
   }
   $('campaign-mission-list').innerHTML = CAMPAIGN_MISSIONS.map((m, index) => {
@@ -259,6 +280,11 @@ function renderWorkshop() {
   if (campaign.completed.MI07) {
     const report = campaign.completed.MI07;
     $('workshop-ambulance').textContent = `Salines : ${report.patientsArrived} patients arrivés, ${report.patientsLost} perdus ; ${report.staffAlive} membres de l’équipe vivants. ${report.destination === 'clinic' ? 'Accueil civil.' : 'Poste médical impérial.'} ${report.beaconRecovered ? 'Balise, attaches et journal conservés ; origine de la pose à recouper.' : 'Balise perdue ; aucune donnée recréée.'} ${report.witnessConsent ? 'Un accord à témoigner a été recueilli.' : 'Aucun accord à témoigner recueilli.'}`;
+  }
+  $('workshop-departure').hidden = !campaign.completed.MI08;
+  if (campaign.completed.MI08) {
+    const r = campaign.completed.MI08;
+    $('workshop-departure').textContent = `Aval : ${r.peopleDeparted} départs, ${r.peopleArrived} arrivées au refuge, ${r.peopleLocal} personnes accueillies localement, ${r.peopleLost} pertes. ${r.registryCopied ? 'Registre de relogement copié.' : 'Registre perdu : absence conservée.'} Les personnes et les bateaux gardent leur résultat individuel dans le journal de vol.`;
   }
   $('campaign-repair-pipe').hidden = !campaign.completed?.MI01 || world.pipeIntact || world.pipeRepaired;
   $('campaign-repair-pipe').textContent = 'Réparer la conduite · 2 lots';
@@ -324,6 +350,7 @@ window.addEventListener('pagehide', () => captureCampaign());
 function showView(next) {
   if (!['campaign', 'operations', 'hangar', 'archives', 'settings'].includes(next)) return;
   view = next;
+  if (next !== 'settings' && bindingCapture) { bindingCapture = null; renderBindings(); $('binding-status').textContent = 'Modification annulée.'; }
   all('.view').forEach(el => el.hidden = el.id !== `view-${next}`);
   all('.nav-item').forEach(el => { const active = el.dataset.view === next; el.classList.toggle('active', active); if (active) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
   $('menu').classList.toggle('interior', !['campaign', 'operations'].includes(next));
@@ -377,6 +404,38 @@ const factions = [
   ['09 / COHORTE VÉTÉRANE', 'Cohorte des Serments', 'Des équipages expérimentés disposent de machines et de ravitaillement prioritaires. Leur fidélité au commandement se mesure aussi à la peur de perdre ceux qui dépendent d’eux.'],
 ];
 all('[data-archive]').forEach(el => el.addEventListener('click', () => { archive = el.dataset.archive; renderArchive(); }));
+function nacreArchive() {
+  const medical = campaign.completed.MI07, departure = campaign.completed.MI08;
+  if (!medical && !departure) return '';
+  const row = (label,value) => `<tr><th scope="row">${escapeHTML(label)}</th><td>${escapeHTML(value)}</td></tr>`;
+  let html = '<section class="nacre-dossiers" aria-label="Pièces et destinations de Nacre"><p class="eyebrow">NACRE / PIÈCES CONSERVÉES</p>';
+  if (medical) {
+    const checks = [
+      ['Accord à l’examen',medical.consentObtained ? 'Recueilli auprès de l’équipe' : 'Non recueilli'],
+      ['Caisse du véhicule',medical.medicalCargoVerified ? 'Cargaison sanitaire examinée et vérifiée' : 'Aucune cargaison vérifiable'],
+      ['Balise et attaches',medical.fixingsPreserved ? 'Récupérées et conservées' : 'Non récupérées'],
+      ['Journal de la balise',medical.beaconLogCopied ? 'Copie conservée' : 'Aucune copie'],
+      ['Origine de la pose','À recouper : le matériel seul n’identifie pas le donneur d’ordre'],
+      ['Accord à témoigner',medical.witnessConsent ? medical.witnessAvailable ? 'Recueilli ; témoin vivant au bilan des Salines' : 'Recueilli ; témoin décédé avant le bilan' : 'Aucun accord recueilli'],
+      ['Transmission à Mara',medical.maraContacted ? 'Relevé effectivement transmis par radio' : 'Aucune transmission'],
+    ];
+    html += `<details class="dossier-detail"><summary>Dossier sanitaire des Salines <span>${medical.beaconRecovered ? 'Pièces récupérées' : 'Pièces manquantes'}</span></summary><p>Le constat sanitaire, les pièces matérielles et l’accord à témoigner sont conservés séparément.</p><div class="dossier-table-wrap"><table><caption>Pièces du premier rapport des Salines</caption><tbody>${checks.map(([a,b])=>row(a,b)).join('')}</tbody></table></div></details>`;
+  }
+  if (departure) {
+    const roles = {refugee:'Passager du chenal',resident:'Habitant des Trois-Vannes',patient:'Patient des Salines',staff:'Soignant des Salines',crew:'Équipier de Rive-Courte',technician:'Technicien de la digue',mara:'Mara Eren',harbourmaster:'Responsable du quai'};
+    const phase = {arrived:'Arrivé au refuge',local:'Accueil local atteint',lost:'Décédé à Aval',offsite:'N’a pas rejoint le quai'};
+    const counters = {};
+    const people = departure.roster.people.map(person => {
+      counters[person.role]=(counters[person.role]||0)+1;
+      const label=roles[person.role]+(['mara','harbourmaster'].includes(person.role)?'':` ${counters[person.role]}`);
+      const boat=departure.roster.boats.find(b=>b.id===person.boatId);
+      return `<tr><th scope="row">${escapeHTML(label)}</th><td>${escapeHTML(phase[person.phase]||'Bilan en cours')}</td><td>${person.departed ? `Départ acquis · ${escapeHTML(boat?.name||'bateau')}` : 'Aucun départ acquis'}</td><td>${person.consent ? 'Accord recueilli' : 'Aucun accord de départ'}</td></tr>`;
+    }).join('');
+    html += `<details class="dossier-detail"><summary>Registre des personnes d’Aval <span>${departure.peopleArrived} au refuge · ${departure.peopleLocal} à Aval · ${departure.peopleLost} pertes</span></summary><p>Les numéros distinguent les personnes recensées à Aval. Les rapports antérieurs restent conservés tels qu’ils ont été signés.</p><div class="dossier-table-wrap"><table><caption>Destinations et départs individuellement constatés</caption><thead><tr><th scope="col">Personne</th><th scope="col">Dernier état</th><th scope="col">Trajet</th><th scope="col">Accord</th></tr></thead><tbody>${people}</tbody></table></div><p class="muted">${departure.registryCopied ? 'Les pages de relogement ont été copiées : lieu d’origine, accueil annoncé et obligation de travail peuvent être confrontés.' : 'Le support de relogement est perdu. Un nom absent ne permet pas de conclure à un décès.'}</p></details>`;
+  }
+  return html + '</section>';
+}
+
 function renderArchive() {
   all('[data-archive]').forEach(el => { const active = archive === el.dataset.archive; el.classList.toggle('active', active); el.setAttribute('aria-selected', String(active)); });
   if (archive === 'doctrine') {
@@ -392,9 +451,41 @@ function renderArchive() {
       return `<article class="record-card"><div><p class="eyebrow">CAMPAGNE / ${r.missionId} / PREMIÈRE RÉUSSITE</p><h3>${escapeHTML(r.missionName)}</h3><p>${escapeHTML(r.walkerName)} · ${timeLabel(r.elapsed)}</p></div><div><p>${facts}<br>${escapeHTML(r.decisionLabel)}</p></div></article>`;
     }).join('');
     const simulations = finished.length ? finished.map(m => { const r = records[m.id]; return `<article class="record-card"><div><p class="eyebrow">SIMULATION / ${m.planet.toUpperCase()} / OPÉRATION ${m.number}</p><h3>${m.name}</h3><p>${escapeHTML(r.walker || 'Marcheur')} · ${timeLabel(Number(r.time) || 0)}</p></div><div><p>Preuves récupérées : ${Number(r.evidence) || 0}<br>Pertes civiles : ${Number(r.collateral) || 0}<br>Décision : ${r.choice === 'defy' ? 'Ordre contesté' : 'Ordre exécuté'}</p></div></article>`; }).join('') : '<p class="muted">Aucun rapport de simulation. Les exercices sont indépendants du dossier de campagne.</p>';
-    $('archive-content').innerHTML = official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
+    $('archive-content').innerHTML = nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
   }
 }
+
+function renderBindings() {
+  $('binding-list').innerHTML = CONTROL_ACTIONS.map(a => `<div class="binding-row"><span>${escapeHTML(a.label)}</span><button type="button" class="binding-button" data-binding="${a.id}" aria-pressed="${bindingCapture === a.id}" aria-label="Modifier la touche : ${escapeHTML(a.label)}. ${escapeHTML(keyLabel(a.id))}">${bindingCapture === a.id ? 'APPUYEZ SUR UNE TOUCHE…' : escapeHTML(keyLabel(a.id))}</button></div>`).join('');
+  all('[data-binding]').forEach(el => el.addEventListener('click', () => {
+    bindingCapture = el.dataset.binding; clearInput();
+    $('binding-status').textContent = `${CONTROL_ACTIONS.find(a => a.id === bindingCapture).label} : appuyez sur une touche. Échap annule.`;
+    renderBindings(); document.querySelector(`[data-binding="${bindingCapture}"]`)?.focus();
+  }));
+  $('manual-help').textContent = `En marche manuelle, maintenez une direction puis alternez ${keyLabel('stepA')} et ${keyLabel('stepB')}. Les quadrupèdes déplacent leurs diagonales ; les hexapodes leurs tripodes.`;
+  $('assist-description').textContent = `Maintenir une direction alterne les appuis. Désactivée : utilisez ${keyLabel('stepA')} et ${keyLabel('stepB')} pour chaque groupe.`;
+  $('keyboard-hints').innerHTML = [['left','MARCHE ←'],['right','MARCHE →'],['brace','ANCRAGE'],['vent','PURGE'],['repair','RADIATEUR'],['interact','INTERACTION']].map(([id,label]) => `<span><kbd>${escapeHTML(keyLabel(id))}</kbd> ${label}</span>`).join('') + '<span id="assist-hint"></span>';
+  $('briefing-controls').innerHTML = `<kbd>${escapeHTML(keyLabel('left'))} / ${escapeHTML(keyLabel('right'))}</kbd> Marcher <kbd>Souris</kbd> Viser / tirer <kbd>${escapeHTML(keyLabel('interact'))}</kbd> Interagir`;
+  $('pause-controls').textContent = `${keyLabel('brace')} : ancrage · ${keyLabel('vent')} : purge · ${keyLabel('reload')} : recharger · ${keyLabel('interact')} : interagir`;
+  $('game-canvas').setAttribute('aria-label', `Champ de bataille. ${keyLabel('left')} et ${keyLabel('right')} pour marcher, souris pour viser, clic pour tirer. ${keyLabel('repair')} pour réparer le radiateur à l’arrêt. ${keyLabel('pause')} pour la pause.`);
+}
+function refreshGamepad() {
+  if (document.hidden || document.hasFocus?.() === false) {
+    gamepad.reset(); padState = gamepad.sample([]);
+    if (inGame && !paused) pauseMission();
+    audio.setPaused(true);
+    return;
+  }
+  let devices = [];
+  try { devices = navigator.getGamepads?.() || []; } catch { /* Browser permissions may hide devices. */ }
+  padState = gamepad.sample(devices);
+  const status = { disconnected: 'Aucune manette standard détectée.', unsupported: 'Manette détectée sans disposition standard : utilisez le clavier ou la souris.', release: 'Relâchez les commandes de la manette pour reprendre.', ready: 'Manette standard prête en mission.' }[padState.status];
+  if ($('gamepad-status').textContent !== status) $('gamepad-status').textContent = status;
+  if (padState.input.pausePressed && inGame && game?.status === 'playing' && !game.decision.active) {
+    if ($('pause-dialog').open) resumeMission(); else if (!paused) pauseMission();
+  }
+}
+$('bindings-reset').addEventListener('click', () => { bindingCapture = null; settings.bindings = defaultBindings(); saveSettings(); renderBindings(); $('binding-status').textContent = 'Touches par défaut rétablies.'; });
 
 function applySettings() {
   $('difficulty').value = settings.difficulty;
@@ -404,6 +495,7 @@ function applySettings() {
   document.body.classList.toggle('high-contrast', settings.contrast);
   document.body.classList.toggle('manual-gait', !settings.assist);
   audio.setVolume(settings.volume / 100);
+  renderBindings();
   if (game?.status === 'playing') commandGame(game, 'assist', settings.assist);
 }
 for (const key of ['difficulty', 'assist', 'shake', 'motion', 'contrast', 'volume']) $(key).addEventListener('input', () => { settings[key] = key === 'difficulty' ? $(key).value : key === 'volume' ? Number($(key).value) : $(key).checked; applySettings(); saveSettings(); });
@@ -412,7 +504,7 @@ function showBriefing() {
   const m = pendingMode === 'campaign' ? CAMPAIGN_MISSIONS.find(m => m.id === pendingCampaignId) : selectedMission(), w = selectedWalker();
   $('briefing-planet').textContent = `${pendingMode === 'campaign' ? 'MISSION' : 'SIMULATION'} ${m.number} / ${m.planet.toUpperCase()} / ${m.biome}`;
   $('briefing-title').textContent = m.name; $('briefing-quote').textContent = m.briefing;
-  $('briefing-description').textContent = m.description; $('briefing-tip').textContent = pendingMode === 'campaign' && pendingReplay ? `${m.hint} Relecture : votre dossier, vos ressources et vos choix conservés restent ceux de la première réussite.` : pendingMode === 'campaign' && campaign.checkpoint ? `${m.hint} Ce départ recommence la mission. Fermez ce briefing et choisissez « Reprendre » pour utiliser la dernière liaison.` : m.hint;
+  $('briefing-description').textContent = m.description; $('briefing-tip').textContent = pendingMode === 'campaign' && pendingReplay ? `${controlsText(m.hint)} Relecture : votre dossier, vos ressources et vos choix conservés restent ceux de la première réussite.` : pendingMode === 'campaign' && campaign.checkpoint ? `${controlsText(m.hint)} Ce départ recommence la mission. Fermez ce briefing et choisissez « Reprendre » pour utiliser la dernière liaison.` : controlsText(m.hint);
   if (pendingMode === 'campaign' && m.id === 'MI02') {
     const vesper = campaign.world.vesper;
     $('briefing-description').textContent += ` ${vesper.servicesInterrupted ? 'Tess a laissé une équipe auprès des maisons privées d’alimentation. La conduite attend toujours ses raccords.' : vesper.pipeRepaired ? 'L’équipe de Tess a remis la conduite en service avant votre départ.' : 'La conduite du couloir quarante-deux est restée intacte.'} ${vesper.noticeFiled ? 'Sami a fait parvenir une copie de votre signalement aux Cales-Basses ; les filtres supplémentaires restent attendus.' : 'Les Cales-Basses attendent toujours une réponse. Sami veut vérifier lui-même le chargement de ce train.'}`;
@@ -438,6 +530,10 @@ function showBriefing() {
     const dike = campaign.world.nacre.dike;
     const mainRamp = dike.panelsLocked === 1 && !dike.emergencyShoring && dike.dikeFatigue < 65;
     $('briefing-description').textContent += ` ${mainRamp ? 'Le panneau verrouillé, sous le seuil de fatigue de 65 %, permet la rampe principale.' : 'L’état du panneau impose la rampe secondaire : le trajet sera plus long à protéger.'} ${dike.techniciansAlive ? `${dike.techniciansAlive} technicien${dike.techniciansAlive > 1 ? 's ont survécu' : ' a survécu'} à la digue ; demandez leur aide sur place.` : 'Aucun technicien de la digue ne peut aider ; la préparation manuelle reste possible.'} L’ambulance transporte quatre patients et deux membres d’équipe, distincts des personnes des missions précédentes. Aucun carburant supplémentaire n’est attribué.`;
+  }
+  if (pendingMode === 'campaign' && m.id === 'MI08') {
+    const n = campaign.world.nacre;
+    $('briefing-description').textContent += ` Les rapports précédents conservent ${n.passage.refugeesPassed} passagers du chenal, ${n.dike.residentsSafe} habitants mis à l’abri et ${n.ambulance.patientsArrived} patients arrivés à l’accueil sanitaire. Il faut les retrouver et leur proposer les places disponibles. ${n.passage.smugglerVerified ? 'Vann a déjà été contacté : une nouvelle demande de service reste nécessaire.' : 'Aucun accord antérieur ne permet de compter sur Rive-Courte.'} ${n.ambulance.vehicleSeized ? 'L’ambulance reste saisie au poste impérial.' : 'Le véhicule sanitaire ne fait pas partie de la flotte du quai.'}`;
   }
   $('briefing-walker').textContent = `${w.designation} ${w.name}`;
   $('briefing-assist').textContent = settings.assist ? 'Marche assistée' : 'Appuis manuels';
@@ -475,22 +571,25 @@ function enterMission(nextGame) {
   $('hud-weapon').textContent = game.walker.weapon.toUpperCase();
   $('intro-location').textContent = game.mission.intro; $('intro-title').textContent = game.mission.name;
   $('restart').textContent = activeMode === 'campaign' ? 'Recommencer la mission' : 'Recommencer l’opération';
+  aimMode = 'pointer'; padAim.x = 1; padAim.y = 0;
+  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
+  audio.setPaused(false); audio.update(game);
   $('game-canvas').focus({ preventScroll: true }); audio.unlock(); updateHUD();
 }
 $('launch').addEventListener('click', startMission);
 function pauseMission() {
   if (!inGame || !game || game.status !== 'playing' || game.decision.active || paused) return;
-  paused = true; clearInput(); captureCampaign(); $('pause-dialog').showModal();
+  paused = true; audio.setPaused(true); clearInput(); captureCampaign(); $('pause-dialog').showModal();
 }
 function resumeMission() {
   if (!game || game.status !== 'playing') return;
-  closeDialogs(); inGame = true; paused = false; clearInput();
+  closeDialogs(); inGame = true; paused = false; audio.setPaused(false); clearInput();
   $('menu').hidden = true; $('game-screen').hidden = false; $('game-canvas').focus({ preventScroll: true }); audio.unlock();
   if (game.decision.active) showDecision();
 }
 function returnToMenu() {
   captureCampaign();
-  closeDialogs(); clearInput(); paused = true; inGame = false;
+  closeDialogs(); clearInput(); paused = true; inGame = false; audio.setPaused(true);
   $('menu').hidden = false; $('game-screen').hidden = true;
   $('resume').hidden = activeMode !== 'operations' || !game || game.status !== 'playing'; renderMissionCards(); renderCampaignUI(); showView(activeMode === 'campaign' ? 'campaign' : 'operations');
 }
@@ -506,15 +605,16 @@ $('result-dialog').addEventListener('cancel', event => { event.preventDefault();
 function showDecision() {
   if ($('decision-dialog').open || !game?.decision.active) return;
   if (!decisionCheckpointTaken) { captureCampaign(true); decisionCheckpointTaken = true; }
-  clearInput();
+  clearInput(); audio.setPaused(true);
   $('decision-title').textContent = game.decision.title; $('decision-body').textContent = game.decision.body;
   $('decision-options').innerHTML = game.decision.options.map((o, i) => `<button class="decision-choice" data-choice="${o.id}"><span>0${i + 1}</span><strong>${escapeHTML(o.label)}</strong></button>`).join('');
-  all('[data-choice]').forEach(el => el.addEventListener('click', () => { commandGame(game, 'choice', el.dataset.choice); captureCampaign(); $('decision-dialog').close(); clearInput(); $('game-canvas').focus(); updateHUD(); }));
+  all('[data-choice]').forEach(el => el.addEventListener('click', () => { commandGame(game, 'choice', el.dataset.choice); captureCampaign(); $('decision-dialog').close(); audio.setPaused(false); clearInput(); $('game-canvas').focus(); updateHUD(); }));
   $('decision-dialog').showModal();
 }
 function showResult() {
   if (resultRecorded) return;
   resultRecorded = true; clearInput(); const won = game.status === 'won';
+  audio.setScene({ mood: 'none' }); audio.setPaused(false); audio.event(won ? 'victory' : 'defeat', game);
   $('result-eyebrow').textContent = `${game.mission.planet.toUpperCase()} / RAPPORT DE MISSION`;
   $('result-title').textContent = won ? 'La marche laisse une trace.' : 'Liaison perdue.';
   $('result-outcome').textContent = game.outcome;
@@ -525,7 +625,8 @@ function showResult() {
   const channelMission = game.missionId === 'MI05';
   const dikeMission = game.missionId === 'MI06';
   const ambulanceMission = game.missionId === 'MI07';
-  const missionStat = ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
+  const departureMission = game.missionId === 'MI08';
+  const missionStat = departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
     : industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
     : networkMission ? ['RÉSEAUX CIVILS ACTIFS', `${game.campaign.civilRelaysOnline} / 2`]
     : railMission ? ['OUVRIERS LIBÉRÉS', `${game.campaign.hostagesRescued} / ${game.campaign.hostagesTotal}`]
@@ -533,7 +634,11 @@ function showResult() {
     : ['PREUVES RÉCUPÉRÉES', game.stats.evidence];
   const stats = [['DURÉE', timeLabel(game.elapsed)], ['CIBLES NEUTRALISÉES', game.stats.kills], missionStat, ['PERTES CIVILES', game.stats.collateral]];
   let decisionText;
-  if (ambulanceMission) {
+  if (departureMission) {
+    const f = game.campaign;
+    stats.push(['DÉPARTS ACQUIS',f.peopleDeparted],['ACCUEIL LOCAL',f.peopleLocal],['PERTES À AVAL',f.peopleLost],['PATIENTS ARRIVÉS',`${f.patientsArrived} refuge · ${f.patientsLocal} local`]);
+    decisionText = `${f.plan === 'open' ? 'Maintien du passage choisi.' : f.plan === 'window' ? 'Fenêtre avant fermeture choisie.' : f.plan === 'close' ? 'Fermeture immédiate choisie.' : 'Aucune conduite choisie.'} ${f.execution === 'damaged' ? 'Des avaries sont constatées sur les ouvrages.' : f.closureCompleted ? 'Les deux accès ont été fermés.' : f.accessMaintained ? 'Le passage est maintenu.' : 'Les opérations ne sont pas achevées.'} ${f.boatsDeparted} bateaux partis, ${f.boatsArrived} arrivés, ${f.boatsLost} perdus. ${f.registryCopied ? 'Pages de relogement copiées.' : 'Registre non copié.'} ${f.reportTransmitted ? 'Bilan effectivement transmis.' : 'Rapport encore à transmettre.'}`;
+  } else if (ambulanceMission) {
     const f = game.campaign;
     decisionText = `${f.destination === 'clinic' ? 'Accueil civil choisi.' : f.destination === 'imperial' ? 'Poste médical impérial choisi.' : 'Destination encore indéterminée.'} ${f.patientsArrived} patients arrivés, ${f.patientsLost} perdus ; ${f.staffAlive} membres de l’équipe vivants. ${f.beaconRecovered ? 'Balise, attaches et journal conservés ; origine de la pose à recouper.' : 'Aucune balise récupérée.'} ${f.vehicleDestroyed ? 'Véhicule détruit.' : f.vehicleSeized ? 'Véhicule arrivé puis saisi.' : f.vehicleRecovered ? 'Véhicule conservé pour les soins.' : 'Transfert non achevé.'}`;
   } else if (dikeMission) {
@@ -579,6 +684,18 @@ let lastObjectives = '';
 function updateHUD() {
   if (!game) return;
   const p = game.player;
+  $('departure-instrument').hidden = !game.departure;
+  if (game.departure) {
+    const d=game.departure, f=game.campaign;
+    const gateLabel=g=>g.destroyed?'BRÈCHE':g.mechanism.destroyed?`BLOQUÉE ${Math.round(g.opening*100)} %`:g.opening<=.05?'FERMÉE':`${Math.round(g.opening*100)} % OUVERTE`;
+    $('departure-gates').textContent = `AMENÉE ${gateLabel(d.locks[0])} · PASSAGE ${gateLabel(d.locks[1])}`;
+    $('departure-water').textContent = `BASSIN ${Math.round(d.basin*100)} % · COURANT ${Math.round(d.current*100)} % · ${d.tide.slack ? `ÉTALE ${Math.ceil(d.tide.remaining)} s` : `ÉTALE DANS ${Math.ceil(d.tide.nextSlack)} s`}`;
+    $('departure-queue').textContent = `${f.peopleAtQuay} À QUAI · ${f.peopleAboard} À BORD · ${f.peopleEnRoute} EN ROUTE`;
+    $('departure-arrivals').textContent = `${f.peopleDeparted} PARTIS · ${f.peopleArrived} AU REFUGE · ${f.peopleLocal} À AVAL · ${f.peopleLost} PERDUS`;
+    $('departure-patients').textContent = `PATIENTS : ${f.patientsArrived} REFUGE · ${f.patientsLocal} LOCAL · ${f.patientsLost} PERDUS / ${f.patientsTotal}`;
+    $('departure-refuge').textContent = f.refugeAvailable ? 'REFUGE CONFIRMÉ · 34 PLACES DONT 4 BRANCARDS' : 'REFUGE NON CONFIRMÉ · PRÉPAREZ L’ACCUEIL LOCAL';
+    $('departure-instrument').classList.toggle('departure-warning',f.peopleLost>0||f.execution==='damaged');
+  }
   $('ambulance-instrument').hidden = !game.ambulance;
   if (game.ambulance) {
     const f = game.campaign;
@@ -598,7 +715,7 @@ function updateHUD() {
   }
   $('hud-timer').textContent = timeLabel(game.elapsed);
   $('hud-interaction').hidden = !game.interaction;
-  $('hud-interaction').textContent = game.interaction;
+  $('hud-interaction').textContent = controlsText(game.interaction);
   const hull = Math.ceil(p.hull / p.maxHull * 100);
   $('hull-value').textContent = `${hull.toString().padStart(3, '0')}%`;
   $('hull-bar').style.width = `${hull}%`; $('hull-bar').style.background = hull < 25 ? '#e07c65' : '#c0c6aa';
@@ -612,14 +729,14 @@ function updateHUD() {
   $('radiator-bar').style.width = `${radiator.health}%`;
   $('radiator-condition').textContent = `DISSIPATION ${Math.round(35 + 0.65 * radiator.health)} % · ${radiator.repairKits} KIT${radiator.repairKits === 1 ? '' : 'S'}`;
   $('radiator-condition').classList.toggle('component-warning', radiator.health < 50);
-  $('radiator-repair').textContent = radiator.repairing ? `RÉPARATION ${Math.round(radiator.repairProgress * 100)} %` : radiator.health >= radiator.maxHealth ? 'RADIATEUR PRÊT' : !radiator.repairKits ? 'KITS ÉPUISÉS' : !repairReady ? 'IMMOBILISEZ LES APPUIS' : 'T · RÉPARER À L’ARRÊT';
+  $('radiator-repair').textContent = radiator.repairing ? `RÉPARATION ${Math.round(radiator.repairProgress * 100)} %` : radiator.health >= radiator.maxHealth ? 'RADIATEUR PRÊT' : !radiator.repairKits ? 'KITS ÉPUISÉS' : !repairReady ? 'IMMOBILISEZ LES APPUIS' : `${keyLabel('repair')} · RÉPARER À L’ARRÊT`;
   $('radiator-repair').disabled = radiator.repairing || radiator.health >= radiator.maxHealth || radiator.repairKits === 0 || !repairReady;
   $('ammo-value').textContent = p.reloadTime > 0 ? '··' : p.ammo.toString().padStart(2, '0');
   $('ammo-total').textContent = `/ ${p.maxAmmo}`;
   $('ammo-reserve').textContent = p.reserveAmmo === 0 ? 'RÉSERVE ÉPUISÉE · REJOIGNEZ UN DÉPÔT' : `RÉSERVE ${p.reserveAmmo} / ${p.maxReserveAmmo}`;
   $('ammo-reserve').classList.toggle('ammo-warning', p.reserveAmmo <= p.maxAmmo);
   $('rocket-value').textContent = p.reloadTime > 0 ? `RECHARGEMENT ${p.reloadTime.toFixed(1)} s` : `ROQUETTES  ${p.rockets.toString().padStart(2, '0')} / ${p.maxRockets}`;
-  $('assist-hint').textContent = game.assist ? 'ASSISTANCE AUX APPUIS ACTIVE' : 'J / L — APPUIS MANUELS';
+  $('assist-hint').textContent = game.assist ? 'ASSISTANCE AUX APPUIS ACTIVE' : `${keyLabel('stepA')} / ${keyLabel('stepB')} — APPUIS MANUELS`;
   $('leg-status').innerHTML = p.feet.map(f => `<span class="leg ${f.phase === 'swing' ? 'swing' : ''} ${f.health < 40 ? 'damaged' : ''}" data-label="${f.group ? 'B' : 'A'}${f.index + 1}" title="Appui ${f.index + 1} : ${Math.round(f.health)} %"></span>`).join('');
   const objectiveHTML = game.objectives.map(o => `<li class="${o.complete ? 'complete' : ''}"><span class="objective-symbol">${o.complete ? '✓' : '◇'}</span><span>${escapeHTML(o.label)}</span>${o.target > 1 ? `<span class="objective-progress">${o.id === "escort" ? Math.min(100, Math.round(o.current / o.target * 100)) + " %" : o.current + "/" + o.target}</span>` : ''}</li>`).join('');
   if (lastObjectives !== objectiveHTML) { $('hud-objectives').innerHTML = objectiveHTML; lastObjectives = objectiveHTML; }
@@ -661,21 +778,37 @@ async function fullscreen() {
 }
 $('fullscreen-menu').addEventListener('click', fullscreen);
 window.addEventListener('keydown', e => {
-  if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
-  if (e.code === 'KeyF' && !e.repeat && !e.ctrlKey && !e.metaKey) { e.preventDefault(); fullscreen(); return; }
+  if (bindingCapture) {
+    e.preventDefault();
+    if (e.repeat) return;
+    if (e.code === 'Escape') { bindingCapture = null; renderBindings(); $('binding-status').textContent = 'Modification annulée.'; return; }
+    if (e.ctrlKey || e.metaKey || e.altKey) { $('binding-status').textContent = 'Choisissez une touche seule, sans Ctrl, Alt ni touche système.'; return; }
+    const result = remapBinding(settings.bindings, bindingCapture, e.code);
+    $('binding-status').textContent = result.message;
+    if (result.ok) { const id = bindingCapture; settings.bindings = result.bindings; bindingCapture = null; saveSettings(); renderBindings(); document.querySelector(`[data-binding="${id}"]`)?.focus(); }
+    return;
+  }
+  if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement?.tagName) || e.ctrlKey || e.metaKey || e.altKey) return;
+  if (['Enter','Space'].includes(e.code) && ['BUTTON','A','SUMMARY'].includes(document.activeElement?.tagName)) return;
+  if (settings.bindings.fullscreen.includes(e.code) && !e.repeat) { e.preventDefault(); fullscreen(); return; }
   if (!inGame || !game) return;
-  if (e.code === 'Escape') { if (!$('pause-dialog').open && !$('decision-dialog').open && !$('result-dialog').open) { e.preventDefault(); pauseMission(); } return; }
+  if (settings.bindings.pause.includes(e.code)) {
+    if (e.code !== 'Escape' && $('pause-dialog').open && !e.repeat) { e.preventDefault(); resumeMission(); }
+    else if (!$('pause-dialog').open && !$('decision-dialog').open && !$('result-dialog').open) { e.preventDefault(); pauseMission(); }
+    return;
+  }
   if (paused || game.decision.active || game.status !== 'playing') return;
-  if (['Space', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.code)) e.preventDefault();
+  if (Object.values(settings.bindings).some(codes => codes.includes(e.code))) e.preventDefault();
   keys.add(e.code);
 });
 window.addEventListener('keyup', e => keys.delete(e.code));
 window.addEventListener('blur', () => { clearInput(); if (inGame && !document.querySelector('dialog[open]')) pauseMission(); });
 document.addEventListener('visibilitychange', () => { if (document.hidden) { clearInput(); pauseMission(); } });
 window.addEventListener('beforeunload', () => captureCampaign());
+window.addEventListener('pagehide', event => { if (event.persisted) audio.setPaused(true); else audio.dispose(); });
 const canvas = $('game-canvas');
-canvas.addEventListener('pointermove', e => { pointer.clientX = e.clientX; pointer.clientY = e.clientY; pointer.visible = true; pointer.touched = e.pointerType === 'touch'; const p = renderer.worldPoint(e.clientX, e.clientY); pointer.x = p.x; pointer.y = p.y; });
-canvas.addEventListener('pointerdown', e => { if (paused || !game || game.decision.active) return; audio.unlock(); canvas.setPointerCapture(e.pointerId); const p = renderer.worldPoint(e.clientX, e.clientY); Object.assign(pointer, p, { clientX: e.clientX, clientY: e.clientY, visible: true, touched: e.pointerType === 'touch' }); if (e.button === 2) pointer.secondary = true; else pointer.fire = true; });
+canvas.addEventListener('pointermove', e => { aimMode = 'pointer'; pointer.clientX = e.clientX; pointer.clientY = e.clientY; pointer.visible = true; pointer.touched = e.pointerType === 'touch'; const p = renderer.worldPoint(e.clientX, e.clientY); pointer.x = p.x; pointer.y = p.y; });
+canvas.addEventListener('pointerdown', e => { aimMode = 'pointer'; if (paused || !game || game.decision.active) return; audio.unlock(); canvas.setPointerCapture(e.pointerId); const p = renderer.worldPoint(e.clientX, e.clientY); Object.assign(pointer, p, { clientX: e.clientX, clientY: e.clientY, visible: true, touched: e.pointerType === 'touch' }); if (e.button === 2) pointer.secondary = true; else pointer.fire = true; });
 window.addEventListener('pointerup', e => { if (e.button === 2) pointer.secondary = false; else pointer.fire = false; });
 canvas.addEventListener('pointercancel', clearInput); canvas.addEventListener('contextmenu', e => e.preventDefault());
 all('[data-hold]').forEach(el => {
@@ -686,7 +819,10 @@ all('[data-hold]').forEach(el => {
 all('[data-action]').forEach(el => el.addEventListener('click', () => { if (game && !paused) commandGame(game, el.dataset.action); }));
 
 function input() {
-  if (pointer.visible && !pointer.touched) Object.assign(pointer, renderer.worldPoint(pointer.clientX, pointer.clientY));
+  const keyboard = keyboardActions(keys, settings.bindings), pad = padState.input;
+  if (pad.aimActive) { aimMode = 'gamepad'; padAim.x = pad.aimX; padAim.y = pad.aimY; }
+  if (aimMode === 'gamepad') Object.assign(pointer, { x: game.player.x + padAim.x * 700, y: game.player.y + padAim.y * 700, visible: true, touched: false });
+  else if (pointer.visible && !pointer.touched) Object.assign(pointer, renderer.worldPoint(pointer.clientX, pointer.clientY));
   let aimX = pointer.x, aimY = pointer.y;
   if (touch.fire || touch.secondary) {
     const targets = [...game.enemies.filter(e => !e.dead && e.active && (e.id !== 'holt-observer' || game.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !game.industrial?.retreatEscaped) && !(e.type === "boss" && (!game.bossReleased || game.decision.choice === "obey"))), ...game.relays.filter(r => !r.destroyed)];
@@ -694,22 +830,30 @@ function input() {
     const target = targets.find(e => Math.abs(e.x - game.player.x) < 1000);
     aimX = target?.x ?? game.player.x + 600; aimY = target?.y ?? game.player.y + 60;
   }
-  return { move: (keys.has('KeyD') || keys.has('ArrowRight') || touch.right ? 1 : 0) - (keys.has('KeyQ') || keys.has('KeyA') || keys.has('ArrowLeft') || touch.left ? 1 : 0), fire: pointer.fire || touch.fire, secondary: pointer.secondary || touch.secondary,
-    aimX, aimY, brace: keys.has('Space') || touch.brace, vent: keys.has('KeyV') || touch.vent, reload: keys.has('KeyR'), repair: keys.has('KeyT'), stepA: keys.has('KeyJ'), stepB: keys.has('KeyL'), interact: keys.has('KeyE') };
+  return { move: clamp((keyboard.right || touch.right ? 1 : 0) - (keyboard.left || touch.left ? 1 : 0) + pad.move, -1, 1), fire: pointer.fire || touch.fire || pad.fire, secondary: pointer.secondary || touch.secondary || pad.secondary,
+    aimX, aimY, brace: keyboard.brace || touch.brace || pad.brace, vent: keyboard.vent || touch.vent || pad.vent, reload: keyboard.reload || pad.reload, repair: keyboard.repair || pad.repair, stepA: keyboard.stepA || pad.stepA, stepB: keyboard.stepB || pad.stepB, interact: keyboard.interact || pad.interact };
 }
 function events() {
   const fresh = game.events.filter(e => e.id > lastEventId); let sounds = 0;
   for (const e of fresh) {
     lastEventId = e.id;
-    if (sounds < 5) { audio.event(e.type); sounds++; }
-    if (e.text && ['radio', 'objective', 'overheat'].includes(e.type) && !radioQueue.some(item => item.text === e.text)) {
-      radioQueue.push({ type: e.type, text: e.text });
-      if (radioQueue.length > 8) radioQueue.splice(0, radioQueue.length - 8);
+    if (sounds < 5 && !['victory','defeat'].includes(e.type) && audio.event(e, game)) sounds++;
+    if (e.text && ['radio','objective','overheat','pressure','gate','boarding','departure','arrival'].includes(e.type) && !radioQueue.some(item => item.text === e.text)) {
+      const priority = ['overheat','pressure','departure'].includes(e.type), routine = ['boarding','arrival'].includes(e.type);
+      const item = { type:e.type, text:e.text, priority };
+      if (routine) radioQueue = radioQueue.filter(previous => previous.type !== e.type);
+      if (priority) { radioQueue.unshift(item); radioUntil = Math.min(radioUntil, game.elapsed); }
+      else radioQueue.push(item);
+      while (radioQueue.length > 8) {
+        const discard = radioQueue.findIndex(previous => !previous.priority && ['boarding','arrival'].includes(previous.type));
+        const ordinary = radioQueue.findIndex(previous => !previous.priority);
+        radioQueue.splice(discard >= 0 ? discard : ordinary >= 0 ? ordinary : radioQueue.length - 1, 1);
+      }
     }
   }
   if (game.elapsed >= radioUntil && radioQueue.length) {
     const next = radioQueue.shift();
-    $('radio-text').textContent = next.text;
+    $('radio-text').textContent = controlsText(next.text);
     radioUntil = game.elapsed + clamp(next.text.length / 23, 4, 10);
   }
   $('radio').classList.toggle('visible', game.elapsed < radioUntil);
@@ -717,22 +861,23 @@ function events() {
 function frame(now) {
   const dt = Math.min((now - (lastTime || now)) / 1000, .05); lastTime = now;
   try {
+    refreshGamepad();
     if (inGame && game) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
       if (!paused && activeMode === 'campaign' && !campaignReplay) {
         const fuelChanged = game.missionId === 'MI06' && game.campaign.fuelSpent !== campaign.checkpoint?.campaign.fuelSpent;
-        const failedSortie = ['MI06', 'MI07'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
+        const failedSortie = ['MI06', 'MI07', 'MI08'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
         if (fuelChanged || failedSortie || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
       }
-      renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, interactionPrompt: false, pointer });
-      if (!paused) events();
+      renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, departureInstrument: false, interactionPrompt: false, pointer });
+      if (!paused) { audio.update(game); events(); }
       hudTick += dt; if (hudTick > .1) { updateHUD(); hudTick = 0; }
       $('mission-intro').classList.toggle('visible', game.elapsed > .4 && game.elapsed < 4.6);
       if (game.decision.active) showDecision();
       if (game.status !== 'playing') showResult();
     } else if (view === 'hangar') hangarRenderer.renderHangar(selectedWalker(), settings.motion ? 0 : now / 1000);
   } catch (error) {
-    console.error('Rendering stopped safely:', error); paused = true;
+    console.error('Rendering stopped safely:', error); paused = true; audio.setPaused(true);
     if (inGame && !document.querySelector('dialog[open]')) { $('pause-dialog').showModal(); toast('La liaison a rencontré une erreur. Vous pouvez revenir au pont.'); }
   }
   requestAnimationFrame(frame);

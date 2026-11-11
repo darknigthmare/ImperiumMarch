@@ -330,7 +330,14 @@ export function createGame(options = {}) {
       signalAnnounced: false, signalElapsed: 0, raidTriggered: false,
     };
   }
+  if (mission.id === 'MI08') createDepartureMission(state, options.campaignContext || {});
   state.enemies = spawnEnemies(state);
+  if (mission.id === 'MI08') {
+    for (const [i, x] of [4480, 4890].entries()) {
+      const drone = enemy(state, 'drone', x, state.enemies.length);
+      drone.id = `aval-control-drone-${i + 1}`; state.enemies.push(drone);
+    }
+  }
   if (mission.id === 'MI07') {
     for (const [i, x] of [3010, 3370].entries()) {
       const drone = enemy(state, 'drone', x, state.enemies.length);
@@ -658,6 +665,10 @@ function interactTrainMission(s) {
 
 function interact(s) {
   if (s.status !== 'playing' || s.decision.active) return false;
+  if (s.missionId === 'MI08') {
+    const changed = interactDepartureMission(s);
+    refreshDepartureFacts(s); refreshObjectives(s); return changed;
+  }
   if (s.missionId === 'MI02') return interactTrainMission(s);
   if (s.missionId === 'MI03') return interactNetworkMission(s);
   if (s.missionId === 'MI04') return interactIndustrialMission(s);
@@ -696,8 +707,19 @@ export function commandGame(s, action, payload) {
   if (!s || s.status !== 'playing') return false;
   if (action === 'assist') { s.assist = Boolean(payload); return true; }
   if (action === 'choice') {
-    if (!s.decision.active || s.decision.resolved || !['obey', 'defy'].includes(payload)) return false;
+    if (!s.decision.active || s.decision.resolved || !(s.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : ['obey', 'defy']).includes(payload)) return false;
     s.decision.choice = payload; s.decision.resolved = true; s.decision.active = false;
+    if (s.missionId === 'MI08') {
+      s.campaign.plan = payload === 'obey' ? 'close' : payload === 'delay' ? 'window' : 'open';
+      s.campaign.phase = 'boarding';
+      if (payload === 'obey') s.stats.ordersObeyed++; else s.stats.ordersDefied++;
+      if (payload === 'defy') { s.departure.alert.announced = true; emit(s, 'radio', 'Holt : « Le passage reste ouvert. Deux drones de contrôle arrivent dans douze secondes. »'); }
+      emit(s, 'radio', payload === 'obey'
+        ? 'Sera : « Fermeture immédiate. Confirmez à chacun sa place à l’accueil local ; personne ne disparaît parce que la porte se ferme. »'
+        : payload === 'delay' ? 'Sera : « Une fenêtre pour les bateaux réellement prêts. Je reprendrai ensuite la commande pour fermer. »'
+          : 'Sera : « Nous gardons cet accès. Il faut encore les accords, les embarquements et la bonne renverse. Le rapport suivra. »');
+      refreshDepartureFacts(s); refreshObjectives(s); return true;
+    }
     if (s.missionId === 'MI07') {
       s.campaign.destination = payload === 'defy' ? 'clinic' : 'imperial';
       s.campaign.reportFiled = payload === 'defy'; s.campaign.phase = 'transfer';
@@ -795,6 +817,17 @@ function hitCivilian(s, c, damage) {
   }
 }
 
+function hitConvoy(s, damage, x, y, playerCaused = false) {
+  const c = s.convoy;
+  if (!c || c.hp <= 0 || damage <= 0) return;
+  c.hp = Math.max(0, c.hp - damage);
+  particles(s, x, y, 'spark', 7);
+  if (playerCaused && !s.notified.convoyFriendlyDamage) {
+    s.notified.convoyFriendlyDamage = true;
+    emit(s, 'radio', 'Tess : « Le transport protégé est touché par notre marcheur. Écarte les appuis et la ligne de tir ; sa perte ferait échouer l’escorte. »');
+  }
+}
+
 function destroyEnemy(s, e) {
   if (e.dead) return;
   e.dead = true; e.hp = 0;
@@ -808,6 +841,7 @@ function destroyEnemy(s, e) {
 function enemyPresent(s, e) {
   // The controller has a fixed save slot before arrival, not a physical target.
   if (e.id.startsWith('seizure-drone-') && !s.ambulance?.raidTriggered) return false;
+  if (e.id.startsWith('aval-control-drone-') && !s.departure?.alert.triggered) return false;
   if (e.id === 'private-hauler' && s.industrial?.retreatEscaped) return false;
   return e.id !== 'holt-observer' || Boolean(s.network?.scrutinyTriggered);
 }
@@ -936,6 +970,10 @@ function stomp(s, f) {
     }
   }
   for (const c of s.civilians) if (c.alive && !c.safe && Math.abs(c.x - f.x) < 26) hitCivilian(s, c, 90);
+  if (s.convoy && f.contact && s.convoy.hp > 0 && Math.abs(s.convoy.x - f.x) < 35 + s.convoy.w / 2 &&
+      Math.abs((s.convoy.y + s.convoy.h / 2) - f.y) < 32) {
+    hitConvoy(s, 65, f.x, f.y, true);
+  }
   if (s.network && f.contact) for (const station of s.network.stations) {
     const terminalX = station.x + station.w / 2 + 30;
     if (station.kind !== 'military' && !station.secured && !station.destroyed && Math.abs(f.x - terminalX) < 18 &&
@@ -1047,6 +1085,7 @@ function updateEnemies(s, dt) {
     e.flash = Math.max(0, e.flash - dt);
     if (e.dead) continue;
     if (e.id.startsWith('seizure-drone-') && !s.ambulance?.raidTriggered) { e.active = false; e.phase = 'idle'; continue; }
+    if (e.id.startsWith('aval-control-drone-') && !s.departure?.alert.triggered) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'holt-observer' && !s.campaign?.holtAlerted) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'private-hauler') {
       const site = s.industrial;
@@ -1072,7 +1111,9 @@ function updateEnemies(s, dt) {
       || Boolean(s.channel && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < 900)
       || Boolean(s.dike && [...s.dike.technicians.filter(t => t.called), ...s.dike.residents.filter(r => r.phase === 'evacuating')].some(person => person.alive && !person.safe && Math.abs(e.x - person.x) < 900))
       || Boolean(s.ambulance && (s.ambulance.vehicle.called && !s.ambulance.vehicle.destroyed && Math.abs(e.x - s.ambulance.vehicle.x) < 900
-        || [...s.ambulance.staff, ...s.ambulance.patients].some(person => person.alive && !person.safe && person.phase !== 'aboard' && Math.abs(e.x - person.x) < 900)));
+        || [...s.ambulance.staff, ...s.ambulance.patients].some(person => person.alive && !person.safe && person.phase !== 'aboard' && Math.abs(e.x - person.x) < 900)))
+      || Boolean(s.departure && (s.departure.boats.some(boat => boat.departureOrdered && !boat.destroyed && !boat.departed && Math.abs(e.x - boat.x) < 900)
+        || s.departure.people.some(person => departureExposed(person) && Math.abs(e.x - person.x) < 900)));
     if (!e.active) { e.phase = 'idle'; continue; }
     if (e.type === 'boss' && !s.bossReleased) { e.phase = 'guard'; continue; }
     if (e.type === 'boss' && s.decision.choice === 'obey') { e.active = false; e.phase = 'standdown'; e.telegraph = 0; continue; }
@@ -1093,7 +1134,12 @@ function updateEnemies(s, dt) {
         .sort((u, v) => Math.abs(e.x - u.x) - Math.abs(e.x - v.x))[0];
       if (person) target = person;
     }
-    e.attackTarget = target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : target === s.ambulance?.vehicle ? 'ambulance' : s.ambulance?.staff.includes(target) ? 'medical-staff' : s.ambulance?.patients.includes(target) ? 'patient' : 'convoy';
+    if (s.departure) {
+      const candidates = [...s.departure.boats.filter(boat => boat.departureOrdered && !boat.destroyed && !boat.departed), ...s.departure.people.filter(departureExposed)]
+        .filter(item => Math.abs(e.x - item.x) < Math.abs(e.x - target.x)).sort((a, b) => Math.abs(e.x - a.x) - Math.abs(e.x - b.x));
+      if (candidates.length) target = candidates[0];
+    }
+    e.attackTarget = target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : target === s.ambulance?.vehicle ? 'ambulance' : s.ambulance?.staff.includes(target) ? 'medical-staff' : s.ambulance?.patients.includes(target) ? 'patient' : s.departure?.boats.includes(target) ? 'departure-boat' : s.departure?.people.includes(target) ? 'departure-person' : 'convoy';
     const td = Math.abs(e.x - target.x);
     if (e.phase === 'attack') {
       e.telegraph = Math.min(1, e.telegraph + dt / e.windup);
@@ -1153,6 +1199,12 @@ function explosion(s, shot, direct = null) {
   particles(s, shot.x, shot.y, 'smoke', 6);
   emit(s, 'explosion', '', shot.x, shot.y);
   s.cameraShake = Math.max(s.cameraShake, 0.35 * (1 - Math.min(1, Math.abs(shot.x - s.player.x) / 1100)));
+  if (s.convoy && s.convoy !== direct && s.convoy.hp > 0) {
+    const c = s.convoy, distance = dist(shot.x, shot.y, c.x, c.y);
+    if (distance < radius + c.w / 2) hitConvoy(s,
+      shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1) * .55 * Math.max(.25, 1 - distance / (radius + c.w / 2)),
+      shot.x, shot.y, shot.team === 'player');
+  }
   if (s.train) {
     for (const part of [s.train, ...s.train.wagons]) {
       if (part === direct || part.destroyed) continue;
@@ -1177,6 +1229,12 @@ function explosion(s, shot, direct = null) {
     if (part === direct || part.destroyed || part.recovered || part.cleared || part.alive === false || part.safe || part.phase === 'aboard') continue;
     const distance = dist(part.x, part.y, shot.x, shot.y);
     if (distance < radius + (part.w || 20) * .35) hitAmbulancePart(s, part, shot.damage * .75 * (1 - distance / (radius + (part.w || 20) * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1));
+  }
+  if (s.departure) for (const part of [...departureSolids(s), ...s.departure.people.filter(departureExposed)]) {
+    if (part === direct || part.destroyed) continue;
+    const bounds = s.departure.locks.includes(part) ? departureGateBounds(part) : part;
+    const distance = dist(bounds.x, bounds.y, shot.x, shot.y);
+    if (distance < radius + bounds.w * .35) hitDeparturePart(s, part, shot.damage * .7 * (1 - distance / (radius + bounds.w * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1));
   }
   if (s.dike) for (const part of [...s.dike.houses, ...s.dike.covers, s.dike.panel, s.dike.auxiliary,
     ...s.dike.technicians, ...s.dike.residents.filter(r => r.phase !== 'home')]) {
@@ -1228,8 +1286,8 @@ function updateProjectiles(s, dt) {
         const ly = (p.y + p.height / 2 + f.y) / 2;
         test(p, 'player', lx, ly, 25, Math.max(24, f.y - p.y - p.height / 2));
       }
-      if (s.convoy && s.convoy.hp > 0) test(s.convoy, 'convoy');
     }
+    if (s.convoy && s.convoy.hp > 0) test(s.convoy, 'convoy');
     if (s.train) for (const part of [s.train, ...s.train.wagons]) if (!part.destroyed) test(part, 'train');
     if (s.network) for (const station of s.network.stations) if (!station.destroyed) test(station, 'network');
     if (s.industrial && !s.industrial.post.destroyed) test(s.industrial.post, 'maintenance');
@@ -1237,6 +1295,13 @@ function updateProjectiles(s, dt) {
       const a = s.ambulance;
       for (const item of [a.vehicle, a.cargo, a.beacon, ...a.barriers]) if (!item.destroyed && !item.recovered && !item.cleared) test(item, 'ambulance');
       for (const person of [...a.staff, ...a.patients]) if (person.alive && !person.safe && person.phase !== 'aboard') test(person, 'ambulance');
+    }
+    if (s.departure) {
+      for (const part of departureSolids(s)) if (!part.destroyed) {
+        const bounds = s.departure.locks.includes(part) ? departureGateBounds(part) : part;
+        test(part, 'departure', bounds.x, bounds.y, bounds.w, bounds.h);
+      }
+      for (const person of s.departure.people.filter(departureExposed)) test(person, 'departure');
     }
     if (s.dike) {
       for (const item of [...s.dike.houses, ...s.dike.covers, s.dike.panel, s.dike.auxiliary]) if (!item.destroyed) test(item, 'dike');
@@ -1257,10 +1322,11 @@ function updateProjectiles(s, dt) {
       if (hit.kind === 'player') damagePlayer(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'radiator') damageRadiator(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'ambulance') hitAmbulancePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
+      if (hit.kind === 'departure') hitDeparturePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'dike') hitDikePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'channel') hitChannelPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'maintenance') hitMaintenancePost(s, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
-      if (hit.kind === 'convoy') { s.convoy.hp = Math.max(0, s.convoy.hp - shot.damage * s.difficulty.damage); particles(s, shot.x, shot.y, 'spark', 7); }
+      if (hit.kind === 'convoy') hitConvoy(s, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1), shot.x, shot.y, shot.team === 'player');
       if (hit.kind === 'train') hitTrainPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'network') hitNetworkStation(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (shot.type === 'rocket') explosion(s, shot, hit.entity);
@@ -2225,6 +2291,601 @@ function ambulanceInteraction(s) {
   return c.transferResolved ? `${c.patientsArrived} patients arrivés · ${c.patientsLost} perdus · rejoindre la sortie` : a.handover.ordered ? 'Protéger le trajet réel du transport et des personnes' : 'Arrêt · accord · caisse · balise · destination · transfert';
 }
 
+function departureContext(previous) {
+  const integer = (key, maximum) => clamp(Number.isInteger(previous[key]) ? previous[key] : 0, 0, maximum);
+  return {
+    refugeesPassed: integer('refugeesPassed', 12), refugeesLost: integer('refugeesLost', 12),
+    smugglerVerified: previous.smugglerVerified === true, bargeCiviliansLost: integer('bargeCiviliansLost', 4),
+    residentsSafe: integer('residentsSafe', 10), residentsLost: integer('residentsLost', 10),
+    techniciansAlive: integer('techniciansAlive', 2), techniciansLost: integer('techniciansLost', 2),
+    homesUninhabitable: integer('homesUninhabitable', 2), pumpsOnline: previous.pumpsOnline === true,
+    panelsLocked: previous.panelsLocked === 1 ? 1 : 0, emergencyShoring: previous.emergencyShoring === true,
+    dikeFatigue: clamp(finite(previous.dikeFatigue), 0, 100),
+    patientsArrived: integer('patientsArrived', 4), patientsLost: integer('patientsLost', 4),
+    staffArrived: integer('staffArrived', 2), staffLost: integer('staffLost', 2),
+    medicalDestination: previous.medicalDestination === 'imperial' ? 'imperial' : 'clinic',
+    medicalVehicleRecovered: previous.medicalVehicleRecovered === true, medicalVehicleSeized: previous.medicalVehicleSeized === true,
+    medicalWitnessId: ['ambulance-driver', 'ambulance-medic'].includes(previous.medicalWitnessId) ? previous.medicalWitnessId : null,
+    medicalWitnessAvailable: previous.medicalWitnessAvailable === true,
+  };
+}
+
+export function departurePersonSeeds(previous = {}) {
+  const context = departureContext(previous), people = [];
+  const add = (count, mission, group, role) => {
+    for (let i = 0; i < count; i++) people.push({ id: `aval-${role}-survivor-${i + 1}`, sourceMission: mission,
+      sourceGroup: group, sourceKind: 'aggregate', originalId: null, role });
+  };
+  add(context.refugeesPassed, 'MI05', 'mi05-passengers', 'refugee');
+  add(context.residentsSafe, 'MI06', 'mi06-residents', 'resident');
+  add(context.patientsArrived, 'MI07', 'mi07-medical', 'patient');
+  add(context.staffArrived, 'MI07', 'mi07-medical', 'staff');
+  const knownWitness = people.find(person => person.role === 'staff');
+  if (knownWitness && context.staffArrived === 2 - context.staffLost && context.medicalWitnessAvailable && context.medicalWitnessId) {
+    knownWitness.sourceKind = 'identified'; knownWitness.originalId = context.medicalWitnessId;
+  }
+  add(context.smugglerVerified ? 4 - context.bargeCiviliansLost : 0, 'MI05', 'mi05-crew', 'crew');
+  add(context.techniciansAlive, 'MI06', 'mi06-technicians', 'technician');
+  people.push({ id: 'aval-mara', sourceMission: 'MI08', sourceGroup: 'mara', sourceKind: 'identified', originalId: 'PN07', role: 'mara' },
+    { id: 'aval-harbourmaster', sourceMission: 'MI08', sourceGroup: 'aval', sourceKind: 'scene', originalId: null, role: 'harbourmaster' });
+  return people;
+}
+
+export function departureReceiptRoster(s) {
+  const pick = (value, keys) => Object.fromEntries(keys.map(key => [key, value[key]]));
+  return {
+    people: s.departure.people.map(person => pick(person, ['id', 'sourceMission', 'sourceGroup', 'sourceKind', 'originalId', 'role', 'alive', 'safe', 'phase', 'met', 'consent', 'destination', 'boatId', 'departed', 'serviceAccepted'])),
+    boats: s.departure.boats.map(boat => pick(boat, ['id', 'kind', 'name', 'hp', 'maxHp', 'destroyed', 'phase', 'departed', 'arrived', 'returned'])),
+  };
+}
+
+export function departureTideAt(elapsed) {
+  const phase = ((finite(elapsed) % 64) + 64) % 64, angle = phase / 64 * Math.PI * 2;
+  const slack = phase >= 8 && phase <= 24 || phase >= 40 && phase <= 56;
+  return { phase, level: .5 + .22 * Math.sin(angle), flow: .55 * Math.cos(angle), slack,
+    nextSlack: slack ? 0 : phase < 8 ? 8 - phase : phase < 40 ? 40 - phase : 72 - phase,
+    remaining: slack ? (phase <= 24 ? 24 : 56) - phase : 0 };
+}
+
+export function departureWindow(s, boat = null) {
+  const d = s.departure;
+  if (typeof boat === 'string') boat = d.boats.find(item => item.id === boat);
+  return d.locks[1].opening >= .85 && d.tide.slack && d.tide.level >= .30 && d.current <= (boat?.currentLimit ?? .32);
+}
+
+export function departureGateBounds(gate) {
+  return { x: gate.x, y: gate.y - gate.opening * 140, w: gate.w, h: gate.h };
+}
+
+function createDepartureMission(s, previous) {
+  const context = departureContext(previous), settings = s.mission.departure;
+  const solid = (id, x, w, h, hp) => ({ id, x, y: terrainAt(x, s.planetId) - h / 2, w, h, hp, maxHp: hp, destroyed: false, flash: 0 });
+  const conversation = () => ({ working: false, progress: 0, contacted: false, resolved: false });
+  const radio = (id, x, available) => ({ id, x, y: terrainAt(x, s.planetId) - 32, available, ...conversation() });
+  s.campaign = { missionId: 'MI08', phase: 'approach', plan: 'unselected', controlsInspected: 0,
+    quayContacted: false, refugeContacted: false, refugeAvailable: false, originsResolved: 0, boardingOrdered: false,
+    peopleTotal: 0, peopleAtQuay: 0, peopleAboard: 0, peopleDeparted: 0, peopleEnRoute: 0, peopleArrived: 0, peopleLocal: 0, peopleLost: 0,
+    patientsTotal: context.patientsArrived, patientsArrived: 0, patientsLocal: 0, patientsLost: 0,
+    boatsTotal: 2, boatsDeparted: 0, boatsArrived: 0, boatsLost: 0,
+    intakeClosed: false, passageClosed: false, emergencySeal: false, closureCompleted: false, accessMaintained: false, execution: 'pending',
+    documentsInspected: false, registryCopied: false, forcedContractsVerified: false, manifestRead: false,
+    reportTransmitted: false, reportFiled: false, maraContacted: false, maraPresent: false, maraDeparted: false,
+    techniciansAssigned: 0, vannContacted: false, context, tutorial: { stepped: false, braced: false } };
+  const originIds = ['mi05-passengers', 'mi06-residents', 'mi07-medical'];
+  const seeds = departurePersonSeeds(context);
+  const people = seeds.map((seed, index) => {
+    const originIndex = originIds.indexOf(seed.sourceGroup), slot = seeds.slice(0, index).filter(item => item.sourceGroup === seed.sourceGroup).length;
+    const x = seed.role === 'technician' ? settings.intakeControlX + 100 + slot * 28
+      : seed.role === 'crew' ? settings.serviceX - 70 + slot * 24
+        : seed.role === 'mara' ? settings.originXs[2] - 120 : seed.role === 'harbourmaster' ? settings.quayX + 90
+          : settings.originXs[originIndex] + (slot - 2) * 22;
+    const patient = seed.role === 'patient', hp = patient ? 65 : 90;
+    return { ...seed, x, y: terrainAt(x, s.planetId) - (patient ? 12 : 17), w: patient ? 28 : 19, h: patient ? 24 : 34,
+      hp, maxHp: hp, alive: true, safe: false, phase: seed.role === 'mara' ? 'offsite' : 'origin',
+      met: false, consent: false, destination: 'unselected', boatId: null, departed: false, serviceAccepted: false, boardingProgress: 0 };
+  });
+  s.departure = {
+    tide: departureTideAt(0), basin: .62, current: 0,
+    locks: ['intake', 'passage'].map((kind, i) => {
+      const x = i ? settings.passageX : settings.intakeX, controlX = i ? settings.passageControlX : settings.intakeControlX;
+      return { ...solid(`aval-${kind}-gate`, x, 96, 180, 900), kind, controlX,
+        mechanism: solid(`aval-${kind}-mechanism`, controlX, 56, 52, 180),
+        opening: i ? .65 : 1, targetOpening: i ? 1 : 0, startOpening: i ? .65 : 1,
+        working: false, progress: 0, inspected: false, scanning: false, scanProgress: 0, pressure: 0, fatigue: 0,
+        closedOnce: false, damageNoted: false, sealWorking: false, sealProgress: 0, sealed: false };
+    }),
+    origins: originIds.map((id, i) => ({ id, sourceMission: `MI0${i + 5}`, x: settings.originXs[i],
+      y: terrainAt(settings.originXs[i], s.planetId) - 34, total: people.filter(person => person.sourceGroup === id).length,
+      working: false, progress: 0, resolved: false, contacted: false, invited: false })),
+    people,
+    boats: settings.boatXs.map((x, i) => ({ ...solid(i ? 'aval-veille' : 'aval-rive-courte', x, i ? 164 : 184, i ? 64 : 68, i ? 680 : 780),
+      y: terrainAt(x, s.planetId) - 35, kind: i ? 'municipal' : 'rive-courte', name: i ? 'Veille d’Aval' : 'Rive-Courte',
+      seatCapacity: settings.seatCapacities[i], stretcherCapacity: settings.stretcherCapacities[i], crewCapacity: settings.crewCapacities[i],
+      speed: settings.boatSpeeds[i], currentLimit: settings.currentLimits[i], available: false, boardingReady: false,
+      moving: false, phase: 'moored', departureOrdered: false, departed: false, arrived: false, returned: false, returning: false })),
+    ramps: settings.boatXs.map((x, i) => ({ ...solid(`aval-ramp-${i + 1}`, x - 90, 86, 30, 280),
+      boatId: i ? 'aval-veille' : 'aval-rive-courte', prepared: false, working: false, progress: 0 })),
+    quay: { ...solid('aval-quay-post', settings.quayX, 58, 80, 240), ...conversation() },
+    refugeRadio: { ...solid('aval-refuge-radio', settings.refugeRadioX, 58, 70, 180), ...conversation() },
+    refuge: { id: 'aval-downstream-refuge', x: settings.refugeX, y: terrainAt(settings.refugeX, s.planetId) - 85,
+      w: 176, h: 170, capacity: settings.refugeCapacity, stretcherCapacity: settings.refugeStretchers },
+    shelter: { id: 'aval-local-shelter', x: settings.shelterX, y: terrainAt(settings.shelterX, s.planetId) - 70,
+      w: 150, h: 140, capacity: 40, prepared: false, working: false, progress: 0 },
+    serviceShelter: { id: 'aval-service-shelter', x: settings.serviceShelterX, y: terrainAt(settings.serviceShelterX, s.planetId) - 50,
+      w: 104, h: 100, capacity: 2, prepared: true },
+    registry: { ...solid('aval-relocation-registry', s.evidence.x, 78, 92, 260), working: false, progress: 0, inspected: false, copied: false },
+    vann: radio('aval-vann-radio', settings.serviceX, people.some(person => person.role === 'crew')),
+    mara: radio('aval-mara-radio', settings.serviceX, true),
+    technical: radio('aval-intake-service', settings.intakeControlX, context.techniciansAlive > 0),
+    boarding: { ordered: false, working: false, progress: 0, assigned: false, recallOrdered: false },
+    report: { working: false, progress: 0, transmitted: false },
+    alert: { announced: false, elapsed: 0, triggered: false },
+  };
+  s.decision.options.splice(1, 0, { id: 'delay', label: s.mission.decision.delay });
+  updateDepartureHydraulics(s, 0); refreshDepartureFacts(s);
+}
+
+function departureBoatPeople(s, boat) { return s.departure.people.filter(person => person.boatId === boat.id && person.alive); }
+function departurePresent(person) { return person.phase !== 'offsite'; }
+function departureExposed(person) { return person.alive && !person.safe && !['origin', 'offsite', 'aboard', 'en-route', 'landing'].includes(person.phase); }
+function departureQueueX(s, person) { return 3480 + s.departure.people.indexOf(person) * 15; }
+function departureAtTerminal(person) { return ['offsite', 'arrived', 'local', 'lost'].includes(person.phase); }
+function departureThreat(s, x, radius = 220) { return s.enemies.some(enemy => !enemy.dead && enemyPresent(s, enemy) && Math.abs(enemy.x - x) < radius); }
+function departureSupport(s) { return s.player.braced && Math.abs(s.player.speed) <= 3 && !s.player.move && s.player.feet.every(foot => foot.contact); }
+
+function refreshDepartureFacts(s) {
+  const d = s.departure, c = s.campaign, people = d.people.filter(departurePresent), patients = people.filter(person => person.role === 'patient');
+  const count = predicate => people.filter(predicate).length;
+  d.vann.available = people.some(person => person.role === 'crew' && person.alive);
+  d.technical.available = people.some(person => person.role === 'technician' && person.alive);
+  d.mara.available = d.people.find(person => person.role === 'mara').alive;
+  for (const [i, boat] of d.boats.entries()) {
+    boat.available = !boat.destroyed && (i ? d.quay.contacted && people.some(person => person.role === 'harbourmaster' && person.alive)
+      : d.vann.contacted && people.some(person => person.role === 'crew' && person.alive));
+    boat.boardingReady = boat.available && d.ramps[i].prepared && !d.ramps[i].destroyed;
+  }
+  c.controlsInspected = d.locks.filter(gate => gate.inspected).length; c.originsResolved = d.origins.filter(origin => origin.resolved).length;
+  c.quayContacted = d.quay.contacted; c.refugeContacted = d.refugeRadio.contacted; c.refugeAvailable = d.refugeRadio.contacted;
+  c.boardingOrdered = d.boarding.ordered; c.peopleTotal = people.length;
+  c.peopleAtQuay = count(person => ['quay', 'boarding'].includes(person.phase)); c.peopleAboard = count(person => person.phase === 'aboard');
+  c.peopleDeparted = count(person => person.departed); c.peopleEnRoute = count(person => ['en-route', 'landing'].includes(person.phase));
+  c.peopleArrived = count(person => person.phase === 'arrived'); c.peopleLocal = count(person => person.phase === 'local'); c.peopleLost = count(person => !person.alive);
+  c.patientsTotal = patients.length; c.patientsArrived = patients.filter(person => person.phase === 'arrived').length;
+  c.patientsLocal = patients.filter(person => person.phase === 'local').length; c.patientsLost = patients.filter(person => !person.alive).length;
+  c.boatsDeparted = d.boats.filter(boat => boat.departed).length; c.boatsArrived = d.boats.filter(boat => boat.arrived).length; c.boatsLost = d.boats.filter(boat => boat.destroyed).length;
+  c.intakeClosed = d.locks[0].opening <= .05; c.passageClosed = d.locks[1].opening <= .05; c.emergencySeal = d.locks[0].sealed;
+  c.closureCompleted = (c.intakeClosed || c.emergencySeal) && c.passageClosed;
+  c.accessMaintained = c.plan === 'open' && d.locks[1].opening >= .85 && !d.locks[1].destroyed && !d.locks[1].mechanism.destroyed;
+  const damageResolved = d.locks.some(gate => gate.destroyed || gate.mechanism.destroyed)
+    && d.locks.every(gate => !(gate.destroyed || gate.mechanism.destroyed) || gate.damageNoted);
+  c.execution = c.plan === 'unselected' ? 'pending' : damageResolved ? 'damaged' : c.accessMaintained ? 'open'
+    : c.closureCompleted ? c.boatsDeparted ? 'delayed' : 'immediate' : 'pending';
+  c.documentsInspected = d.registry.inspected; c.registryCopied = c.forcedContractsVerified = d.registry.copied;
+  c.manifestRead = c.controlsInspected === 2 && c.originsResolved === 3 && d.quay.resolved && d.refugeRadio.resolved && d.registry.inspected;
+  s.evidence.collected = c.manifestRead;
+  c.reportTransmitted = d.report.transmitted; c.reportFiled = c.reportTransmitted && s.decision.choice === 'defy';
+  c.vannContacted = d.vann.contacted; c.maraContacted = d.mara.contacted;
+  const mara = d.people.find(person => person.role === 'mara'); c.maraPresent = mara.phase !== 'offsite'; c.maraDeparted = mara.departed;
+  c.techniciansAssigned = d.people.filter(person => person.role === 'technician' && person.serviceAccepted).length;
+  if (s.decision.active || s.decision.resolved) s.decision.body = departureDecisionBody(s);
+}
+
+export function departureDecisionBody(s) {
+  const c = s.campaign, d = s.departure;
+  const documents = c.registryCopied ? 'Les pages copiées lient relogement, lieu d’accueil et obligation de travail. Il reste à établir qui a imposé ces clauses.'
+    : 'Le support est perdu : les ruines ne reconstituent ni les noms ni les obligations qui n’ont pas été copiés.';
+  const people = `${c.peopleTotal} personnes recensées : ${c.peopleAtQuay} à quai, ${c.peopleAboard} à bord, ${c.peopleEnRoute} en route, ${c.peopleArrived} arrivées au refuge, ${c.peopleLocal} à l’accueil local et ${c.peopleLost} perdues. ${c.peopleDeparted} départs sont acquis.`;
+  return `${documents}\n\n${people}\n\n${c.refugeAvailable ? 'Le refuge a confirmé 34 places, dont quatre adaptées aux brancards.' : 'Aucune capacité de refuge confirmée : l’accueil local demeure la destination sûre.'} Les deux bateaux gardent leurs places, leurs équipages et leurs fenêtres propres. ${d.people.filter(person => person.role === 'patient').length} patients nécessitent un brancard et un accompagnant à bord.\n\n${s.decision.resolved ? `Conduite retenue : ${c.plan === 'close' ? 'fermeture immédiate' : c.plan === 'window' ? 'une fenêtre puis fermeture' : 'accès maintenu'}. ${c.execution === 'pending' ? 'Les opérations ne sont pas terminées.' : c.execution === 'damaged' ? 'Les avaries sont constatées ; le bilan doit conserver leurs effets.' : c.execution === 'open' ? 'Le passage reste ouvert.' : 'Les deux accès ont été fermés.'} Le rapport ne modifie pas ce bilan.` : 'La fermeture immédiate conduit les personnes restantes vers l’accueil local. Une fenêtre exige les départs effectifs puis une nouvelle manœuvre de fermeture. Maintenir l’accès annonce un contrôle supplémentaire. Les équipages s’engagent pour cette traversée seulement.'}`;
+}
+
+function departureSolids(s) {
+  const d = s.departure;
+  return [...d.locks.flatMap(gate => [gate, gate.mechanism]), ...d.boats.filter(boat => !boat.departed), ...d.ramps,
+    d.quay, d.refugeRadio, d.registry];
+}
+
+function hitDeparturePerson(s, person, damage) {
+  if (!person.alive || person.safe || ['origin', 'offsite', 'en-route', 'landing'].includes(person.phase)) return;
+  person.hp = Math.max(0, person.hp - damage);
+  if (person.hp > 0) return;
+  person.alive = false; person.safe = false; person.phase = 'lost';
+  s.stats.collateral++; emit(s, 'radio', person.role === 'patient' ? 'Un brancard est perdu avant l’accueil. Le bilan conserve cette perte.' : 'Une personne d’Aval est perdue. Son nom reste dans le relevé, sa place ne crée aucun remplaçant.');
+}
+
+function hitDeparturePart(s, part, damage) {
+  if ('alive' in part) { if (departureExposed(part)) hitDeparturePerson(s, part, damage); refreshDepartureFacts(s); return; }
+  if (part.destroyed || part.departed) return;
+  part.hp = Math.max(0, part.hp - damage); part.flash = .2;
+  if (part.hp > 0) return;
+  const d = s.departure; part.destroyed = true;
+  const gate = d.locks.find(item => item === part || item.mechanism === part);
+  if (gate) {
+    gate.working = false; gate.progress = 0; gate.damageNoted = false;
+    if (gate === part) { gate.opening = 1; gate.mechanism.hp = 0; gate.mechanism.destroyed = true; }
+    emit(s, 'radio', gate === part ? 'Tess : « Le vantail est rompu. Il reste une brèche, pas une porte réparée. »'
+      : `Tess : « Le mécanisme d’${gate.kind === 'intake' ? 'amenée' : 'Aval'} est perdu. Il reste bloqué à son ouverture actuelle. »`);
+  }
+  if (d.boats.includes(part)) {
+    part.moving = false; part.phase = 'lost'; part.returning = false; part.arrived = false;
+    for (const person of departureBoatPeople(s, part)) if (person.phase === 'aboard') hitDeparturePerson(s, person, person.hp);
+    emit(s, 'radio', `${part.name} est perdu avant la sortie. Les personnes encore sur la passerelle restent à retirer vers l’accueil local.`);
+  }
+  if (d.ramps.includes(part)) { part.prepared = false; part.working = false; part.progress = 0; }
+  if (part === d.registry) { part.working = false; if (!part.inspected) part.progress = 0; }
+  if (part === d.quay || part === d.refugeRadio) { part.working = false; if (!part.resolved) part.progress = 0; }
+  particles(s, part.x, part.y, 'smoke', 10); refreshDepartureFacts(s);
+}
+
+function syncDepartureHydraulicReadouts(s) {
+  const d = s.departure;
+  d.tide = departureTideAt(s.elapsed);
+  d.current = Math.abs(d.tide.flow) + Math.abs(d.basin - d.tide.level) * .8;
+  d.locks[0].pressure = Math.abs(.75 - d.basin);
+  d.locks[1].pressure = Math.abs(d.basin - d.tide.level);
+}
+
+function updateDepartureHydraulics(s, dt) {
+  const d = s.departure, intake = d.locks[0], passage = d.locks[1];
+  d.tide = departureTideAt(s.elapsed);
+  const intakeOpening = intake.sealed ? Math.min(.08, intake.opening) : intake.opening;
+  d.basin = clamp(d.basin + dt * (.07 * intakeOpening * (.75 - d.basin) - .08 * passage.opening * (d.basin - d.tide.level)), 0, 1);
+  syncDepartureHydraulicReadouts(s);
+  for (const gate of d.locks) {
+    gate.flash = Math.max(0, gate.flash - dt); gate.mechanism.flash = Math.max(0, gate.mechanism.flash - dt);
+    if (gate.destroyed || gate.mechanism.destroyed) continue;
+    gate.fatigue = clamp(gate.fatigue + dt * (gate.working ? .2 + gate.pressure * 2 : gate.pressure > .34 ? .12 : 0), 0, 100);
+    if (gate.fatigue >= 85 && gate.pressure > .34) {
+      if (!s.notified[`aval-pressure-${gate.kind}`]) { s.notified[`aval-pressure-${gate.kind}`] = true; emit(s, 'pressure', 'Tess : « Le mécanisme fatigue sous la différence de niveau. Ferme l’amenée avant d’insister. »'); }
+      hitDeparturePart(s, gate.mechanism, dt * 8);
+    }
+  }
+}
+
+function departurePassageTarget(s) {
+  const d = s.departure, c = s.campaign;
+  if (c.plan === 'close') return 0;
+  if (c.plan === 'open') return 1;
+  if (c.plan === 'window' && d.boarding.assigned && !d.boats.some(boat => !boat.destroyed && !boat.departed && !boat.returned
+      && departureBoatPeople(s, boat).some(person => person.destination === 'refuge' && !departureAtTerminal(person)))) return 0;
+  return 1;
+}
+
+function departureReportReady(s) {
+  const d = s.departure;
+  return s.decision.resolved && s.campaign.execution !== 'pending' && d.boarding.assigned && d.shelter.prepared
+    && d.people.every(departureAtTerminal) && !d.locks.some(gate => gate.working || gate.sealWorking)
+    && (s.campaign.plan !== 'open' || d.alert.triggered);
+}
+
+function startDepartureWork(job) { if (!job.working) job.working = true; return true; }
+
+function interactDepartureMission(s) {
+  const d = s.departure, c = s.campaign, settings = s.mission.departure, near = x => Math.abs(s.player.x - x) < settings.interactionRadius;
+  for (const gate of d.locks) if (near(gate.controlX)) {
+    if (!gate.inspected || (gate.destroyed || gate.mechanism.destroyed) && !gate.damageNoted) {
+      if (!gate.scanning) { gate.scanning = true; gate.scanProgress = 0; } return true;
+    }
+    if (gate.kind === 'intake' && !d.technical.resolved) return startDepartureWork(d.technical);
+    if (gate.kind === 'intake' && (gate.destroyed || gate.mechanism.destroyed) && !gate.sealed) {
+      if (!gate.sealWorking) gate.sealWorking = true; return true;
+    }
+    if (gate.kind === 'passage' && !s.decision.resolved) return false;
+    if (gate.destroyed || gate.mechanism.destroyed) return false;
+    const target = gate.kind === 'intake' ? 0 : departurePassageTarget(s);
+    if (Math.abs(gate.opening - target) < .000001) return false;
+    if (!gate.working || gate.targetOpening !== target) { gate.working = true; gate.targetOpening = target; gate.startOpening = gate.opening; gate.progress = 0; }
+    return true;
+  }
+  const origin = d.origins.find(item => !item.resolved && near(item.x));
+  if (origin) return startDepartureWork(origin);
+  if (near(d.quay.x)) {
+    if (!d.quay.resolved) return startDepartureWork(d.quay);
+    if (s.decision.resolved && !d.boarding.assigned) {
+      const waiting = d.people.some(person => person.alive && !['technician', 'mara'].includes(person.role) && ['origin', 'joining'].includes(person.phase))
+        || d.people.some(person => person.role === 'mara' && person.phase === 'joining');
+      if (!d.shelter.prepared || !d.vann.resolved || !d.mara.resolved || waiting) {
+        emit(s, 'radio', !d.shelter.prepared ? 'Préparez l’accueil local avant de promettre les places.' : !d.vann.resolved || !d.mara.resolved ? 'Vérifiez encore les services de Rive-Courte et la liaison de Mara.' : 'La liste attend encore des personnes en trajet. Leur présence au quai doit précéder l’accord de destination.'); return false;
+      }
+      d.boarding.ordered = true; return startDepartureWork(d.boarding);
+    }
+  }
+  if (!d.refugeRadio.resolved && near(d.refugeRadio.x)) return startDepartureWork(d.refugeRadio);
+  if (near(settings.serviceX)) {
+    if (!d.vann.resolved) return startDepartureWork(d.vann);
+    if (!d.mara.resolved) return startDepartureWork(d.mara);
+  }
+  if (near(d.shelter.x)) {
+    if (!d.shelter.prepared) return startDepartureWork(d.shelter);
+    if (d.boarding.assigned && !d.report.transmitted && d.people.some(person => person.alive && !person.departed && person.role !== 'technician' && !departureAtTerminal(person))) {
+      d.boarding.recallOrdered = true; if (!d.boarding.working) d.boarding.progress = 0; return startDepartureWork(d.boarding);
+    }
+  }
+  const ramp = d.ramps.find(item => !item.prepared && !item.destroyed && near(item.x));
+  if (ramp) return startDepartureWork(ramp);
+  if (near(d.registry.x)) {
+    if (!d.registry.inspected) return startDepartureWork(d.registry);
+    if (!s.decision.resolved && c.manifestRead) { s.decision.body = departureDecisionBody(s); s.decision.active = true; emit(s, 'decision', s.decision.title); return true; }
+    if (departureReportReady(s) && !d.report.transmitted) return startDepartureWork(d.report);
+  }
+  return false;
+}
+
+function departureAllocate(s) {
+  const d = s.departure, c = s.campaign;
+  const ready = d.boats.filter(boat => boat.boardingReady && c.refugeAvailable && c.plan !== 'close');
+  const counts = new Map(ready.map(boat => [boat.id, { seats: 0, stretchers: 0, crew: 0 }]));
+  let reserved = 0, stretchers = 0;
+  const place = (person, boat, kind) => {
+    if (!boat || reserved >= d.refuge.capacity) return false;
+    const used = counts.get(boat.id), capacity = kind === 'crew' ? boat.crewCapacity : kind === 'stretchers' ? boat.stretcherCapacity : boat.seatCapacity;
+    if (used[kind] >= capacity || kind === 'stretchers' && stretchers >= d.refuge.stretcherCapacity) return false;
+    used[kind]++; reserved++; if (kind === 'stretchers') stretchers++;
+    person.met = true; person.consent = true; person.destination = 'refuge'; person.boatId = boat.id;
+    person.phase = 'boarding'; person.boardingProgress = 0; return true;
+  };
+  const people = d.people.filter(person => person.alive && person.phase === 'quay' && person.role !== 'technician');
+  for (const person of people.filter(person => ['crew', 'harbourmaster'].includes(person.role))) {
+    place(person, ready.find(boat => person.role === 'crew' ? boat.kind === 'rive-courte' : boat.kind === 'municipal'), 'crew');
+  }
+  // Every medical boat needs an actual accompanying person, separate from its
+  // operator and from the patient's stretcher reservation.
+  const carers = people.filter(person => ['staff', 'mara'].includes(person.role));
+  for (const boat of ready) {
+    const person = carers.find(person => !person.boatId); if (person) place(person, boat, 'seats');
+  }
+  for (const person of people.filter(person => person.role === 'patient')) {
+    const boat = ready.find(boat => counts.get(boat.id).stretchers < boat.stretcherCapacity
+      && departureBoatPeople(s, boat).some(person => ['staff', 'mara'].includes(person.role)));
+    place(person, boat, 'stretchers');
+  }
+  for (const person of people.filter(person => !person.boatId && !['patient', 'crew', 'harbourmaster'].includes(person.role))) {
+    place(person, ready.find(boat => counts.get(boat.id).seats < boat.seatCapacity), 'seats');
+  }
+  for (const person of people.filter(person => !person.boatId)) {
+    person.met = true; person.consent = true; person.destination = 'local'; person.phase = 'returning';
+  }
+  for (const boat of d.boats) {
+    boat.departureOrdered = departureBoatPeople(s, boat).length > 0;
+    if (boat.departureOrdered) boat.phase = 'boarding';
+  }
+  d.boarding.assigned = true;
+  emit(s, 'radio', `Quai d’Aval : « Accord confirmé pour chaque destination. ${reserved} places sont réservées au refuge, dont ${stretchers} brancards. Les autres personnes rejoignent l’accueil local. Regardez-les arriver avant de les compter. »`);
+}
+
+function recallDeparture(s) {
+  const d = s.departure;
+  for (const [index, boat] of d.boats.entries()) {
+    if (boat.departed || boat.destroyed) continue;
+    boat.departureOrdered = false; boat.returning = true; boat.phase = 'returning';
+    if (Math.abs(boat.x - s.mission.departure.boatXs[index]) < 1) { boat.returning = false; boat.returned = true; boat.phase = 'returned'; }
+  }
+  for (const person of d.people) {
+    if (!person.alive || person.safe || person.departed || person.phase === 'offsite' || person.role === 'technician') continue;
+    const boat = d.boats.find(boat => boat.id === person.boatId);
+    person.met = true; person.consent = true; person.destination = 'local';
+    if (person.phase !== 'aboard' || !boat || boat.returned || boat.destroyed) { person.phase = 'returning'; person.boatId = null; }
+  }
+  emit(s, 'radio', 'Sera : « Repli confirmé avec les personnes encore ici. Les bateaux reviennent au quai ; ceux qui sont déjà sortis gardent leur route. »');
+}
+
+function updateDepartureMission(s, dt) {
+  const d = s.departure, c = s.campaign, settings = s.mission.departure;
+  const near = x => Math.abs(s.player.x - x) < settings.interactionRadius;
+  const work = (job, x, duration, complete, supported = false) => {
+    if (!job.working) return;
+    if (!near(x) || supported && !departureSupport(s)) { job.working = false; job.progress = 0; return; }
+    job.progress = clamp(job.progress + dt / duration, 0, 1);
+    if (job.progress >= 1) { job.working = false; complete(); }
+  };
+  updateDepartureHydraulics(s, dt);
+  for (const gate of d.locks) {
+    if (gate.scanning) {
+      if (!near(gate.controlX)) { gate.scanning = false; gate.scanProgress = 0; }
+      else {
+        gate.scanProgress = clamp(gate.scanProgress + dt / ((gate.destroyed || gate.mechanism.destroyed) ? 2 : settings.inspectTime), 0, 1);
+        if (gate.scanProgress >= 1) {
+          gate.scanning = false; gate.inspected = true; gate.damageNoted = gate.destroyed || gate.mechanism.destroyed;
+          emit(s, 'radio', gate.damageNoted ? 'Tess : « Avarie relevée à cette commande. Le bilan gardera sa position réelle. »'
+            : gate.kind === 'intake' ? 'Tess : « Amenée : cette porte règle l’apport au bassin. La fermer ralentit le niveau, elle ne vide pas l’eau déjà présente. »'
+              : 'Tess : « Passage : cette porte ouvre la route des bateaux. Sa seule ouverture ne garantit pas une renverse praticable. »');
+        }
+      }
+    }
+    if (gate.working) {
+      if (!near(gate.controlX) || !departureSupport(s) || gate.destroyed || gate.mechanism.destroyed) { gate.working = false; gate.progress = 0; }
+      else {
+        const duration = gate.kind === 'intake' && d.people.some(person => person.role === 'technician' && person.alive && person.phase === 'duty') ? settings.assistedIntakeTime : settings.gateTime;
+        const gap = gate.targetOpening - gate.opening;
+        gate.opening = Math.abs(gap) <= dt / duration + 1e-9 ? gate.targetOpening : clamp(gate.opening + Math.sign(gap) * dt / duration, 0, 1);
+        gate.progress = clamp(Math.abs(gate.opening - gate.startOpening) / Math.max(.000001, Math.abs(gate.targetOpening - gate.startOpening)), 0, 1);
+        if (gate.opening === gate.targetOpening) {
+          gate.working = false; gate.progress = 1; if (gate.opening === 0) gate.closedOnce = true;
+          emit(s, 'gate', `${gate.kind === 'intake' ? 'Porte d’amenée' : 'Porte de passage'} ${gate.opening === 0 ? 'fermée' : 'ouverte'}. La pression continue d’évoluer.`);
+        }
+      }
+    }
+    if (gate.sealWorking) {
+      if (!near(gate.controlX) || !departureSupport(s)) { gate.sealWorking = false; gate.sealProgress = 0; }
+      else {
+        gate.sealProgress = clamp(gate.sealProgress + dt / settings.sealTime, 0, 1);
+        if (gate.sealProgress >= 1) { gate.sealWorking = false; gate.sealed = true; emit(s, 'gate', 'Obturation latérale posée. L’apport diminue ; le mécanisme détruit reste détruit.'); }
+      }
+    }
+  }
+  work(d.technical, d.technical.x, d.technical.available ? 2.5 : 2, () => {
+    d.technical.resolved = true; d.technical.contacted = d.technical.available;
+    for (const person of d.people.filter(person => person.role === 'technician' && person.alive)) {
+      person.met = true; person.consent = true; person.destination = 'local'; person.serviceAccepted = true; person.phase = 'joining';
+    }
+    emit(s, 'radio', d.technical.contacted ? 'Technicien : « Nous acceptons le poste d’amenée. Attendez notre arrivée à la commande. La grande porte reste à vous. »' : 'Tess : « Aucun technicien survivant à ce poste. La manœuvre manuelle reste possible. »');
+  });
+  for (const origin of d.origins) work(origin, origin.x, origin.total ? origin.sourceMission === 'MI07' && c.context.medicalDestination === 'imperial' ? settings.imperialContactTime : settings.contactTime : 2, () => {
+    origin.resolved = true; origin.contacted = d.people.some(person => person.sourceGroup === origin.id && person.alive); origin.invited = origin.contacted;
+    for (const person of d.people.filter(person => person.sourceGroup === origin.id && person.alive)) { person.met = true; person.phase = 'joining'; }
+    emit(s, 'radio', !origin.contacted ? 'La liaison confirme l’absence de survivants de ce groupe à rejoindre. Le relevé ne crée aucun remplaçant.'
+      : origin.sourceMission === 'MI07' && c.context.medicalDestination === 'imperial' ? 'Poste sanitaire : « Les personnes qui acceptent de rejoindre Aval sont libérées pour ce trajet. Le véhicule saisi reste au poste. La destination sera confirmée avec elles au quai. »'
+        : 'Liaison du quai : « Le groupe accepte de rejoindre le rendez-vous. L’accueil et les places doivent encore être confirmés avant l’embarquement. »');
+  });
+  work(d.quay, d.quay.x, settings.contactTime, () => {
+    const master = d.people.find(person => person.role === 'harbourmaster');
+    d.quay.resolved = true; d.quay.contacted = master.alive;
+    if (master.alive) { master.met = true; master.phase = 'joining'; }
+    emit(s, 'radio', master.alive ? 'Responsable d’Aval : « Rive-Courte a dix-huit sièges et deux brancards. Veille en a huit et deux. Je peux conduire Veille si sa passerelle tient. Il faut encore l’accord de Rive-Courte et du refuge. »'
+      : 'Le responsable du quai est perdu. Veille ne recevra pas un opérateur anonyme ; les capacités restantes et l’accueil local restent à vérifier.');
+  });
+  work(d.refugeRadio, d.refugeRadio.x, d.refugeRadio.destroyed ? 2 : settings.contactTime, () => {
+    d.refugeRadio.resolved = true; d.refugeRadio.contacted = !d.refugeRadio.destroyed;
+    emit(s, 'radio', d.refugeRadio.contacted ? 'Refuge en aval : « Trente-quatre places, quatre brancards compris. Nous confirmerons chaque arrivée au quai. Votre départ n’est pas encore notre accueil. »'
+      : 'La liaison du refuge est détruite avant confirmation. Aucune place distante ne peut être promise ; utilisez l’accueil local.');
+  });
+  work(d.vann, d.vann.x, d.vann.available ? settings.contactTime : 2, () => {
+    d.vann.resolved = true; d.vann.contacted = d.vann.available;
+    for (const person of d.people.filter(person => person.role === 'crew' && person.alive)) { person.met = true; person.phase = 'joining'; }
+    emit(s, 'radio', d.vann.contacted ? 'Vann : « Mon équipage accepte cette traversée. À la renverse seulement. Ce service ne vous donne pas tous nos voyages. »'
+      : 'Aucun équipage de Rive-Courte disponible par cette liaison. Sa coque vide ne fournit pas des marins de remplacement.');
+  });
+  work(d.mara, d.mara.x, settings.contactTime, () => {
+    d.mara.resolved = true; d.mara.contacted = d.mara.available;
+    const mara = d.people.find(person => person.role === 'mara');
+    if (mara.alive) { mara.met = true; mara.phase = 'joining'; }
+    emit(s, 'radio', 'Mara : « Je viens au quai depuis le poste de soins. Attendez-moi avant de m’attribuer un bateau ; je vérifierai ma place avec les autres. »');
+  });
+  work(d.shelter, d.shelter.x, settings.shelterTime, () => { d.shelter.prepared = true; emit(s, 'objective', 'Accueil local ouvert. Les personnes doivent encore l’atteindre.'); });
+  for (const ramp of d.ramps) work(ramp, ramp.x, settings.rampTime, () => { if (!ramp.destroyed) { ramp.prepared = true; emit(s, 'objective', 'Passerelle verrouillée au quai. Aucun passager n’est encore crédité à bord.'); } });
+  work(d.registry, d.registry.x, d.registry.destroyed ? 2 : settings.inspectTime, () => {
+    d.registry.inspected = true; if (!d.registry.destroyed) d.registry.copied = true;
+    emit(s, 'radio', d.registry.copied ? 'Sami : « Quartier d’origine, accueil annoncé, puis une clause de travail obligatoire. Je copie ces pages. Un nom manquant est une lacune, pas un décès prouvé. »'
+      : 'Sami : « Le registre a brûlé. Nous pouvons décrire les ruines, pas inventer les pages perdues. »');
+  });
+  work(d.boarding, d.boarding.recallOrdered ? d.shelter.x : d.quay.x, settings.allocationTime, () => d.boarding.recallOrdered ? recallDeparture(s) : departureAllocate(s));
+  work(d.report, d.registry.x, settings.reportTime, () => {
+    if (!departureReportReady(s)) { d.report.progress = 0; return; }
+    d.report.transmitted = true; c.phase = 'report';
+    emit(s, 'radio', s.decision.choice === 'defy' ? 'Sera : « Je conteste la fermeture. Je transmets les arrivées, les personnes restées, les avaries et les pages réellement copiées. »'
+      : s.decision.choice === 'delay' ? 'Sera : « La fermeture a suivi la fenêtre accordée. Voici les départs effectivement accomplis et les personnes restées à Aval. »'
+        : 'Sera : « Ordre de fermeture exécuté selon les moyens restants. Le bilan distingue le refuge, l’accueil local et les pertes. »');
+  });
+  if (d.alert.announced && !d.alert.triggered) {
+    d.alert.elapsed = Math.min(settings.alertDelay, d.alert.elapsed + dt);
+    if (d.alert.elapsed >= settings.alertDelay) { d.alert.triggered = true; emit(s, 'radio', 'Les deux drones de contrôle entrent sur le passage. Protégez les personnes encore exposées.'); }
+  }
+  for (const person of d.people) {
+    if (!person.alive || person.safe || ['origin', 'offsite', 'aboard', 'en-route'].includes(person.phase)) continue;
+    let target = person.x, speed = person.role === 'patient' ? 23 : 46;
+    if (person.phase === 'joining') target = person.role === 'technician' ? settings.intakeControlX + 60 : departureQueueX(s, person);
+    if (person.phase === 'duty') {
+      if (d.locks[0].opening === 0 || d.locks[0].sealed) person.phase = 'returning'; else continue;
+    }
+    if (person.phase === 'quay') continue;
+    if (person.phase === 'boarding') {
+      const boat = d.boats.find(boat => boat.id === person.boatId), ramp = d.ramps.find(ramp => ramp.boatId === person.boatId);
+      if (!boat || boat.destroyed || !ramp?.prepared || ramp.destroyed || !boat.available) continue;
+      target = ramp.x;
+      if (Math.abs(person.x - target) < 10) {
+        person.boardingProgress = clamp(person.boardingProgress + dt / (person.role === 'patient' ? settings.stretcherTime : settings.boardingTime), 0, 1);
+        if (person.boardingProgress >= 1) { person.phase = 'aboard'; emit(s, 'boarding', `${person.role === 'patient' ? 'Un brancard' : 'Une personne'} est effectivement embarqué sur ${boat.name}.`); }
+        continue;
+      }
+    }
+    if (person.phase === 'returning') target = person.role === 'technician' ? d.serviceShelter.x : d.shelter.x;
+    if (person.phase === 'landing') { target = d.refuge.x; speed = person.role === 'patient' ? 23 : 38; }
+    if (person.phase !== 'landing' && departureThreat(s, person.x)) continue;
+    const gap = target - person.x;
+    person.x += Math.sign(gap) * Math.min(Math.abs(gap), speed * dt);
+    person.y = terrainAt(person.x, s.planetId) - person.h / 2;
+    if (Math.abs(person.x - target) <= .01) {
+      person.x = target;
+      person.y = terrainAt(target, s.planetId) - person.h / 2;
+      if (person.phase === 'joining') person.phase = person.role === 'technician' ? 'duty' : 'quay';
+      else if (person.phase === 'returning' && (person.role === 'technician' || d.shelter.prepared)) {
+        person.phase = 'local'; person.safe = true; person.boatId = null; emit(s, 'arrival', 'Une personne entre réellement dans l’accueil local d’Aval.');
+      } else if (person.phase === 'landing') {
+        person.phase = 'arrived'; person.safe = true; emit(s, 'arrival', 'Refuge en aval : « Une personne de plus vient de franchir notre porte. Arrivée confirmée. »');
+      }
+    }
+  }
+  for (const [index, boat] of d.boats.entries()) {
+    boat.flash = Math.max(0, boat.flash - dt); boat.moving = false;
+    if (boat.destroyed || boat.arrived) continue;
+    const members = departureBoatPeople(s, boat);
+    const aboard = members.filter(person => ['aboard', 'en-route'].includes(person.phase));
+    // Active departures share a marked lane. The leading hull keeps a real
+    // clearance, rather than allowing both manifests to occupy one painted boat.
+    const ahead = d.boats.filter(other => other !== boat && !other.destroyed && other.departureOrdered
+      && !other.returning && !other.arrived && other.x > boat.x).sort((a, b) => a.x - b.x)[0];
+    const trafficLimit = ahead ? ahead.x - (ahead.w + boat.w) / 2 - 32 : Infinity;
+    if (boat.returning) {
+      const homeX = settings.boatXs[index];
+      boat.x = Math.max(homeX, boat.x - boat.speed * .65 * dt); boat.moving = boat.x > homeX;
+      if (boat.x <= homeX) {
+        boat.returning = false; boat.returned = true; boat.phase = 'returned';
+        for (const person of aboard) { person.phase = 'returning'; person.destination = 'local'; person.boatId = null; }
+      }
+    } else if (boat.departureOrdered && !boat.departed) {
+      const operator = members.some(person => (boat.kind === 'rive-courte' ? person.role === 'crew' : person.role === 'harbourmaster') && person.phase === 'aboard');
+      const companion = !members.some(person => person.role === 'patient') || members.some(person => ['staff', 'mara'].includes(person.role) && person.phase === 'aboard');
+      if (boat.available && operator && companion && members.length > 0 && members.every(person => person.phase === 'aboard') && !departureThreat(s, boat.x, 270)) {
+        const gate = d.locks[1], holdX = gate.x - boat.w / 2 - 65, open = departureWindow(s, boat);
+        let nextX = Math.max(boat.x, Math.min(boat.x + boat.speed * dt, trafficLimit));
+        if (!open && boat.x <= holdX) nextX = Math.min(nextX, holdX);
+        else if (!open && boat.x < gate.x + gate.w / 2 + boat.w / 2) nextX = boat.x;
+        boat.moving = nextX > boat.x; boat.x = nextX; boat.phase = boat.moving || boat.x > settings.boatXs[index] ? 'crossing' : 'waiting';
+        if (Math.abs(boat.x - gate.x) < (gate.w + boat.w) / 2 && gate.opening < .65) hitDeparturePart(s, boat, dt * 28);
+        else if (boat.x > gate.x && d.current > boat.currentLimit + .18) hitDeparturePart(s, boat, dt * 6);
+        if (!boat.destroyed && boat.x >= settings.exitX) {
+          boat.departed = true; boat.phase = 'en-route';
+          for (const person of members) { person.departed = true; person.phase = 'en-route'; }
+          emit(s, 'departure', `${boat.name} a quitté la zone des portes. Départ acquis ; le refuge doit encore confirmer l’arrivée.`);
+        }
+      }
+    } else if (boat.departed) {
+      const nextX = Math.max(boat.x, Math.min(settings.refugeDockXs[index], boat.x + boat.speed * dt, trafficLimit));
+      boat.moving = nextX > boat.x; boat.x = nextX;
+      if (boat.x >= settings.refugeDockXs[index]) {
+        boat.moving = false; boat.arrived = true; boat.phase = 'arrived';
+        for (const person of members) person.phase = 'landing';
+        emit(s, 'radio', `${boat.name} accoste au refuge. Les personnes débarquent encore vers la porte d’accueil.`);
+      }
+    }
+    boat.y = terrainAt(boat.x, s.planetId) - 35;
+    for (const [slot, person] of aboard.entries()) {
+      if (!['aboard', 'en-route', 'landing'].includes(person.phase)) continue;
+      person.x = boat.x - boat.w * .35 + (slot % 9) * 14; person.y = boat.y - 3 - Math.floor(slot / 9) * 4;
+    }
+  }
+  refreshDepartureFacts(s);
+  if (s.decision.resolved && !d.report.transmitted) c.phase = departureReportReady(s) ? 'report' : d.boarding.assigned ? 'passage' : 'boarding';
+}
+
+function departureInteraction(s) {
+  const d = s.departure, c = s.campaign, settings = s.mission.departure, near = x => Math.abs(s.player.x - x) < settings.interactionRadius;
+  for (const gate of d.locks) if (near(gate.controlX)) {
+    const name = gate.kind === 'intake' ? 'Amenée' : 'Passage';
+    if (!gate.inspected || (gate.destroyed || gate.mechanism.destroyed) && !gate.damageNoted) return gate.scanning ? `${name} · inspection ${Math.round(gate.scanProgress * 100)} %` : `E · Examiner ${name.toLowerCase()}, commande et marques de pression`;
+    if (gate.kind === 'intake' && !d.technical.resolved) return d.technical.working ? `Service d’amenée ${Math.round(d.technical.progress * 100)} %` : 'E · Demander le service des techniciens présents, ou constater leur absence';
+    if (gate.kind === 'intake' && (gate.destroyed || gate.mechanism.destroyed) && !gate.sealed) return gate.sealWorking ? `Obturation ${Math.round(gate.sealProgress * 100)} % · maintenir l’ancrage` : 'E + ancrage · Poser une obturation de secours (12 s)';
+    if (gate.destroyed || gate.mechanism.destroyed) return `${name} bloqué à ${Math.round(gate.opening * 100)} % · accueil local possible`;
+    if (gate.kind === 'passage' && !s.decision.resolved) return 'Compiler le relevé puis choisir la conduite avant cette manœuvre';
+    const target = gate.kind === 'intake' ? 0 : departurePassageTarget(s);
+    return gate.working ? `${name} ${Math.round(gate.progress * 100)} % · ancrage, pieds posés` : Math.abs(gate.opening - target) < .000001 ? `${name} ${target ? 'ouvert' : 'fermé'} · pression ${Math.round(gate.pressure * 100)} %` : `E + ancrage · ${target ? 'Ouvrir' : 'Fermer'} ${name.toLowerCase()}`;
+  }
+  const origin = d.origins.find(origin => !origin.resolved && near(origin.x));
+  if (origin) return origin.working ? `Liaison du groupe ${Math.round(origin.progress * 100)} %` : `E · Retrouver ${origin.total} personnes de ${origin.sourceMission === 'MI05' ? 'la traversée du chenal' : origin.sourceMission === 'MI06' ? 'l’abri de la digue' : 'l’accueil sanitaire'}`;
+  if (near(d.quay.x)) return !d.quay.resolved ? d.quay.working ? 'Consultation du responsable…' : 'E · Établir le bilan du quai et les capacités des bateaux'
+    : !s.decision.resolved ? 'Les destinations seront confirmées après le choix de conduite' : !d.boarding.assigned ? d.boarding.working ? `Accords et réservations ${Math.round(d.boarding.progress * 100)} %` : 'E · Confirmer les destinations avec les personnes réellement au quai' : 'Destinations confirmées · suivre embarquements, passage et accueils';
+  if (!d.refugeRadio.resolved && near(d.refugeRadio.x)) return d.refugeRadio.working ? 'Liaison du refuge en cours…' : 'E · Faire confirmer les places du refuge ou constater la liaison perdue';
+  if (near(settings.serviceX) && (!d.vann.resolved || !d.mara.resolved)) return !d.vann.resolved ? d.vann.working ? 'Accord de Rive-Courte en cours…' : 'E · Demander à Rive-Courte cette traversée' : d.mara.working ? 'Liaison de Mara en cours…' : 'E · Demander à Mara de rejoindre le quai';
+  if (near(d.shelter.x)) return !d.shelter.prepared ? d.shelter.working ? `Accueil local ${Math.round(d.shelter.progress * 100)} %` : 'E · Préparer l’accueil local'
+    : d.boarding.assigned && !d.report.transmitted ? d.boarding.working && d.boarding.recallOrdered ? `Accord de repli ${Math.round(d.boarding.progress * 100)} %` : 'E · Confirmer le repli local des personnes et bateaux encore ici' : 'Accueil local prêt · personnes comptées à leur arrivée';
+  const ramp = d.ramps.find(ramp => !ramp.prepared && !ramp.destroyed && near(ramp.x));
+  if (ramp) return ramp.working ? `Passerelle ${Math.round(ramp.progress * 100)} %` : 'E · Verrouiller la passerelle d’embarquement (4 s)';
+  if (near(d.registry.x)) return !d.registry.inspected ? d.registry.working ? `Registre ${Math.round(d.registry.progress * 100)} %` : 'E · Ouvrir et copier le registre, ou constater ses ruines'
+    : !s.decision.resolved ? c.manifestRead ? 'E · Choisir fermeture, fenêtre ou accès maintenu' : 'Terminer les liaisons et les deux inspections avant le relevé'
+      : departureReportReady(s) && !d.report.transmitted ? d.report.working ? `Rapport ${Math.round(d.report.progress * 100)} %` : 'E · Transmettre à Holt le bilan matériel achevé' : 'Le rapport attend les manœuvres et les arrivées réellement accomplies';
+  return d.report.transmitted ? `${c.peopleArrived} au refuge · ${c.peopleLocal} à Aval · ${c.peopleLost} perdus · rejoindre la sortie`
+    : `Courant ${Math.round(d.current * 100)} % · ${d.tide.slack ? 'renverse annoncée' : `renverse dans ${Math.ceil(d.tide.nextSlack)} s`} · vérifier chaque bateau`;
+}
+
 function updateWorld(s, dt) {
   const p = s.player;
   const e = s.evidence;
@@ -2235,6 +2896,7 @@ function updateWorld(s, dt) {
   if (s.missionId === 'MI05') updateChannelMission(s, dt);
   if (s.missionId === 'MI06') updateDikeMission(s, dt);
   if (s.missionId === 'MI07') updateAmbulanceMission(s, dt);
+  if (s.missionId === 'MI08') updateDepartureMission(s, dt);
   if (s.status !== 'playing') return;
   if (e.scanning && !e.collected) {
     if (Math.abs(p.x - e.x) > (s.missionId === 'MI04' ? s.mission.industrial.interactionRadius : 250)) { e.scanning = false; e.scanProgress = 0; emit(s, 'radio', 'Lecture interrompue : terminal hors de portée.'); }
@@ -2284,8 +2946,12 @@ function updateWorld(s, dt) {
     const hostileNear = s.enemies.some(e => !e.dead && e.kind !== 'air' && Math.abs(e.x - c.x) < 170);
     const deliveryX = s.mission.deliveryX ?? s.extraction.x - 40;
     const campaignWait = s.campaign && (s.campaign.passageWorking || c.waitTime > 0 || p.x - c.x < 105);
-    c.moving = c.hp > 0 && Math.abs(c.x - p.x) < 620 && !hostileNear && !c.arrived && !campaignWait;
-    if (c.moving) c.x = Math.min(deliveryX, c.x + dt * c.speed);
+    // A following driver waits behind an announced landing footprint instead
+    // of driving under a descending rear foot. This never moves a vehicle back
+    // or protects it when the walker deliberately lands on its current volume.
+    const landingLimit = Math.min(Infinity, ...p.feet.filter(f => f.phase === 'swing').map(f => f.targetX - 35 - c.w / 2));
+    c.moving = c.hp > 0 && Math.abs(c.x - p.x) < 620 && !hostileNear && !c.arrived && !campaignWait && c.x < landingLimit;
+    if (c.moving) c.x = Math.min(deliveryX, landingLimit, c.x + dt * c.speed);
     c.y = terrainAt(c.x, s.planetId) - c.h / 2;
     if (c.hp > 0 && c.x >= deliveryX) { c.arrived = true; c.moving = false; }
     if (s.campaign && c.arrived && !s.campaign.filtersDelivered) {
@@ -2321,6 +2987,7 @@ function updateWorld(s, dt) {
   else if (s.missionId === 'MI05') s.interaction = channelInteraction(s);
   else if (s.missionId === 'MI06') s.interaction = dikeInteraction(s);
   else if (s.missionId === 'MI07') s.interaction = ambulanceInteraction(s);
+  else if (s.missionId === 'MI08') s.interaction = departureInteraction(s);
   else if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     s.interaction = s.campaign.passageWorking ? `Déploiement des dalles ${Math.round(s.campaign.passageProgress * 100)} % · restez près du treuil` : 'E · Déployer les dalles de protection (4,5 s)';
   } else if (!e.collected && Math.abs(p.x - e.x) < 230) {
@@ -2331,6 +2998,11 @@ function updateWorld(s, dt) {
   if (p.hull <= 0) finish(s, false, 'Marcheur immobilisé. Votre équipage a déclenché la balise de secours.');
   else if (s.convoy && s.convoy.hp <= 0) finish(s, false, s.campaign ? s.campaign.filtersDelivered ? 'Le camion de Sami est perdu au poste. Les filtres ont été livrés, mais l’escorte a échoué. Reprenez le dernier point de contrôle pour retenter la mission.' : 'Le camion de Sami est perdu. Les filtres n’atteindront pas le poste des mineurs. Reprenez le dernier point de contrôle pour retenter l’escorte.' : 'Le transport est perdu. La route du bac se ferme.');
   else if (s.extraction.active && Math.abs(p.x - s.extraction.x) < s.extraction.radius) {
+    if (s.missionId === 'MI08') {
+      refreshDepartureFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
+      finish(s, true, `${c.peopleDeparted} départs acquis, ${c.peopleArrived} personnes arrivées au refuge, ${c.peopleLocal} à l’accueil local, ${c.peopleLost} perdues. ${c.boatsDeparted} bateaux sortis, ${c.boatsLost} perdus. ${c.registryCopied ? 'Les pages copiées du relogement sont conservées.' : 'Le registre perdu reste un constat de ruines.'} ${c.execution === 'open' ? 'Le passage reste ouvert.' : c.execution === 'damaged' ? 'Les avaries et leurs positions réelles sont consignées.' : 'Les accès sont fermés.'}`);
+      return;
+    }
     if (s.missionId === 'MI07') {
       refreshAmbulanceFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
       finish(s, true, `${c.patientsArrived} patients arrivés à ${c.destination === 'imperial' ? 'l’accueil médical impérial' : 'l’accueil civil'}, ${c.patientsLost} perdus. ${c.staffArrived} membres du personnel arrivés, ${c.staffLost} perdus. ${c.vehicleDestroyed ? 'Ambulance perdue.' : c.vehicleSeized ? 'Ambulance placée sous saisie.' : 'Ambulance conservée pour les soins.'} ${c.beaconRecovered ? 'Balise, attaches et journal récupérés.' : 'Aucune balise exploitable récupérée.'} Provenance de pose encore à recouper ; aucune nouvelle preuve PALINODE.`);
@@ -2379,6 +3051,18 @@ function updateWorld(s, dt) {
 
 function refreshObjectives(s) {
   const goals = [];
+  if (s.missionId === 'MI08') {
+    const c = s.campaign, d = s.departure;
+    goals.push({ id: 'controls', label: 'Inspecter les deux portes et leurs marques de pression', current: c.controlsInspected, target: 2, complete: c.controlsInspected === 2 });
+    goals.push({ id: 'origins', label: 'Retrouver les groupes par leur lieu d’origine', current: c.originsResolved, target: 3, complete: c.originsResolved === 3 });
+    goals.push({ id: 'sources', label: 'Vérifier le quai, le refuge et le registre, ou leurs pertes', current: Number(d.quay.resolved) + Number(d.refugeRadio.resolved) + Number(c.documentsInspected), target: 3, complete: d.quay.resolved && d.refugeRadio.resolved && c.documentsInspected });
+    goals.push({ id: 'choice', label: 'Choisir la conduite puis manœuvrer les portes', current: c.execution !== 'pending' ? 1 : 0, target: 1, complete: s.decision.resolved && c.execution !== 'pending' });
+    goals.push({ id: 'people', label: `${c.peopleArrived} au refuge · ${c.peopleLocal} à Aval · ${c.peopleLost} perdus`, current: c.peopleArrived + c.peopleLocal + c.peopleLost, target: c.peopleTotal, complete: d.boarding.assigned && d.people.every(departureAtTerminal) });
+    goals.push({ id: 'report', label: 'Transmettre le bilan après les opérations accomplies', current: c.reportTransmitted ? 1 : 0, target: 1, complete: c.reportTransmitted });
+    s.extraction.active = goals.every(goal => goal.complete);
+    goals.push({ id: 'extract', label: 'Rejoindre la sortie d’Aval', current: s.status === 'won' ? 1 : 0, target: 1, complete: s.status === 'won' });
+    s.objectives = goals; return;
+  }
   if (s.missionId === 'MI07') {
     const c = s.campaign;
     goals.push({ id: 'intercept', label: 'Appeler le transport et examiner son arrêt ou son épave', current: c.stopCalled && (c.vehicleStopped || c.vehicleDestroyed) ? 1 : 0, target: 1, complete: c.stopCalled && (c.vehicleStopped || c.vehicleDestroyed) });
@@ -2490,6 +3174,9 @@ export function updateGame(s, delta, input = {}) {
   if (dt === 0) return s;
   s.elapsed += dt;
   if (s.channel) s.channel.tide = channelTideAt(s.elapsed);
+  // An input interaction can open the decision and return before updateWorld.
+  // Keep every hydraulic readout at the new clock even on that paused frame.
+  if (s.departure) syncDepartureHydraulicReadouts(s);
   s.player.move = Math.sign(finite(input.move));
   s.player.braced = Boolean(input.brace);
   for (const action of ['stepA', 'stepB', 'interact', 'reload', 'repair']) {

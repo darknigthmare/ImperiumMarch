@@ -1,0 +1,868 @@
+{
+  "schema": "ordre-de-cendre.production-backlog-audit.v1",
+  "generatedAt": "2026-11-11T10:50:39.139Z",
+  "productVersion": "0.9.0",
+  "sourceHead": "03c69e73175d6e2d61f59f6f9ba8ee80da827103",
+  "sourceHashes": {
+    "tests/production-backlog.test.mjs": "aaa0bdcdfe0e22ab78f4a415977fe0d910302ac7b87c1353b6d6e35a258c253c",
+    "tools/audit-production-backlog.mjs": "3516be288a6f0b52da38b77c0c6fcbd600388e663a0f8e14857e04161e7a885a",
+    "src/simulation.mjs": "1b1072704ce600ecfed96c4b54459b55217d5d1d5fe6c1e581b613b63beb1870",
+    "src/content.mjs": "5dea60cf815deaf606ab419fff363a575082b883c8af7ec1cf6bbdbaf8143f16",
+    "src/campaign.mjs": "e3b960fd7ec90c49af82b1046ddbb95fba2f8d706051ae840941cfb0095f5272",
+    "src/main.mjs": "e72b9779b832cd2edeabe85f20578401d6fad71792b4c406e7f5cef75abc35eb"
+  },
+  "bibleSnapshotSha256": "ac79b57e0224048be8e23b3a19b33be9c5f664b2f5b6e7d067a1e1a0a6dff667",
+  "command": "node --test --test-reporter=tap tests/production-backlog.test.mjs",
+  "environment": {
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64",
+    "dependencies": "Node built-ins only"
+  },
+  "run": {
+    "tests": 16,
+    "passed": 16,
+    "failed": 0,
+    "skipped": 0,
+    "todo": 0,
+    "exitCode": 0,
+    "tapSha256": "138a624e00d9e4b5811504b7ed1c843faf0d41fd86d19694945205f38c850e29",
+    "testNames": [
+      "QA05: changing a campaign selection cannot refill an active sortie, including a reload checkpoint (public APIs)",
+      "QA08: an actual landing hurts its footprint once, leaves a nearby target intact and does not hurt while hovering (geometric unit fixture)",
+      "QA11: OP01 scan rejects remote use, resets on leaving range, then awards one copy (public controls)",
+      "QA12: OP01 relay order 0→1→2 reaches a gated extraction (public controls)",
+      "QA12: OP01 relay order 2→1→0 reaches a gated extraction (public controls)",
+      "QA12: OP01 relay order 1→0→2 reaches a gated extraction (public controls)",
+      "QA13: OP02 protected escort and unattended destruction have distinct terminal outcomes (public controls)",
+      "QA14: OP03 obey locks the choice and writes its own operation report (public controls plus isolated report)",
+      "QA14: OP03 defy locks the choice and writes its own operation report (public controls plus isolated report)",
+      "QA28: MI01 and OP02 transports receive real player bullets and direct rockets once (public controls)",
+      "QA28: both teams hit the same swept transport volume and splash has a finite radius (geometric unit fixtures)",
+      "QA08/QA28: a voluntary backwards landing damages the transport once; body proximity alone does not (public controls)",
+      "QA28: convoy footprint edges distinguish contact from a close miss (geometric unit fixtures)",
+      "QA28: the normal escort waits behind descending feet for all six chassis, including WK10 (public controls)",
+      "QA24: the same timed public combat sequence has equal collision results at 30, 60 and 120 Hz (documented tolerance)",
+      "QA11/QA24: one authentic public scan progresses and completes equivalently at 30, 60 and 120 Hz"
+    ]
+  },
+  "claimBoundary": {
+    "publicJourneyRule": "createGame/beginCampaignMission, commandGame and updateGame only; no field writes in public pilots. Deep copies preserve authentic states between probes.",
+    "geometricUnits": "Explicitly named geometric-unit diagnostics isolate target/projectile geometry. They are not presented as public journeys.",
+    "reportUnits": "Actual showResult source is executed with stub DOM/audio/persist adapters. No browser or full UI traversal is claimed.",
+    "humanValidation": false,
+    "fullNodeSuiteExecutedByThisTool": false,
+    "historicalFixturesRegenerated": false
+  },
+  "authorizedRuntimeCorrection": {
+    "file": "src/simulation.mjs",
+    "affected": [
+      "hitConvoy",
+      "stomp",
+      "explosion",
+      "updateProjectiles",
+      "updateWorld legacy convoy following"
+    ],
+    "isolatedFrom": [
+      "MI08 departure logic",
+      "campaign schema",
+      "content"
+    ],
+    "behavior": [
+      "Both projectile teams collide with the same transport volume; enemy damage still uses the selected difficulty multiplier.",
+      "Splash has finite range and never doubles the transport’s direct rocket damage.",
+      "Only a landed foot overlapping the actual horizontal footprint and ground-height band damages the transport.",
+      "The driver waits behind announced landing footprints; no rewind, health restoration or damage immunity was added.",
+      "The first player-caused hit emits a message explaining that losing the protected transport fails the escort."
+    ],
+    "preFixObservation": {
+      "provenance": "Observed during this work before the patch, not rerun by this tool.",
+      "seed": 20261111,
+      "walkerId": "WK01",
+      "difficulty": "story",
+      "steps": "For each MI01/op02 and bullet/rocket: brace, aim at the real convoy, fire once at frame 0, update 90 frames at 1/60 s.",
+      "resultBefore": "All four cases fired one shot and left convoy.hp at 640.",
+      "resultAfter": "Current assertions verify 22 direct bullet damage or 165 direct rocket damage, exactly once."
+    }
+  },
+  "criteria": [
+    {
+      "id": "QA05",
+      "area": "Munitions",
+      "scenario": "Vider, recharger, changer de sélection et reprendre la mission.",
+      "expected": "Réserves cohérentes; compteur jamais négatif ni augmenté par un changement de menu.",
+      "priority": "P0",
+      "status": "À produire",
+      "audit": {
+        "level": "partial",
+        "existing": [
+          {
+            "file": "tests/ammunition.test.mjs",
+            "scope": "Five tests already cover all starting stocks, partial and final reloads, complete exhaustion and one-time supplies."
+          }
+        ],
+        "added": "Six authentic MI01 starts, three real shots, mid-reload checkpoint serialization/restoration and 36 refused in-flight chassis selections preserve finite ammunition.",
+        "remaining": [
+          "The navigation handlers for pause → menu → different chassis/operation selection → resume are not invoked by this audit. A DOM flow can supply that final UI link."
+        ]
+      },
+      "evidence": [
+        {
+          "qa": [
+            "QA05"
+          ],
+          "kind": "public-api-checkpoint",
+          "cases": [
+            {
+              "walkerId": "WK01",
+              "ammo": 12,
+              "reserve": 93
+            },
+            {
+              "walkerId": "WK02",
+              "ammo": 20,
+              "reserve": 157
+            },
+            {
+              "walkerId": "WK05",
+              "ammo": 10,
+              "reserve": 77
+            },
+            {
+              "walkerId": "WK06",
+              "ammo": 12,
+              "reserve": 93
+            },
+            {
+              "walkerId": "WK09",
+              "ammo": 18,
+              "reserve": 141
+            },
+            {
+              "walkerId": "WK10",
+              "ammo": 14,
+              "reserve": 109
+            }
+          ],
+          "selectionAttempts": 36,
+          "menuClicksExercised": false
+        }
+      ]
+    },
+    {
+      "id": "QA08",
+      "area": "Piétinement",
+      "scenario": "Poser un pied sur une cible puis près d’une cible hors empreinte.",
+      "expected": "Dégâts au contact réel seulement; absence de dégâts en restant simplement à proximité.",
+      "priority": "P0",
+      "status": "À produire",
+      "audit": {
+        "level": "automated-criterion-demonstrated",
+        "existing": [
+          {
+            "file": "tests/simulation.test.mjs",
+            "scope": "Existing gait tests validate alternating groups and fixed planted feet, without the requested contact-versus-nearby damage contrast."
+          }
+        ],
+        "added": "One isolated enemy geometry proves airborne/no damage, landing damage, close miss and no repeated damage from idling. Two public backwards-step journeys prove damage on the actual transport landing.",
+        "remaining": []
+      },
+      "evidence": [
+        {
+          "qa": [
+            "QA08"
+          ],
+          "kind": "geometric-unit",
+          "landingX": 380,
+          "outsideDistance": 48,
+          "footprintHalfExtent": 47,
+          "kills": 1,
+          "repeatedProximityDamage": 0
+        },
+        {
+          "qa": [
+            "QA08",
+            "QA28"
+          ],
+          "kind": "public-controls",
+          "cases": [
+            {
+              "missionId": "MI01",
+              "landingX": 144,
+              "convoyX": 175.95,
+              "damage": 65
+            },
+            {
+              "missionId": "op02",
+              "landingX": 144,
+              "convoyX": 194.94999999999976,
+              "damage": 65
+            }
+          ],
+          "airborneDamage": 0,
+          "repeatedProximityDamage": 0
+        }
+      ]
+    },
+    {
+      "id": "QA11",
+      "area": "OP01",
+      "scenario": "Scanner hors portée, entrer à portée, interrompre puis terminer la copie.",
+      "expected": "Condition de distance réelle, progression claire et preuve attribuée une seule fois.",
+      "priority": "P0",
+      "status": "À produire",
+      "audit": {
+        "level": "automated-criterion-demonstrated",
+        "existing": [
+          {
+            "file": "tests/simulation.test.mjs",
+            "scope": "Remote rejection and successful scanning existed; those older tests remove threats directly and do not exercise interrupted scanning."
+          }
+        ],
+        "added": "A complete public approach starts the scan, leaves its 250-unit retention radius, resets progress, returns, completes it and retries five times without awarding another copy. Cadence tests also exercise the same authentic approach.",
+        "remaining": [
+          "Visual legibility of the progress indicator is not a human usability result; numerical progress is verified."
+        ]
+      },
+      "evidence": [
+        {
+          "qa": [
+            "QA11"
+          ],
+          "kind": "public-controls",
+          "partialProgress": 0.08333333333333336,
+          "cancellationRange": 250,
+          "completionProgress": 1,
+          "copiesAfterFiveRetries": 1
+        },
+        {
+          "qa": [
+            "QA11",
+            "QA24"
+          ],
+          "kind": "public-controls-at-emulated-frame-cadences",
+          "cases": [
+            {
+              "hz": 30,
+              "progressAtTwoSeconds": 0.8333333333333323,
+              "completionSeconds": 2.433333333333195,
+              "copies": 1
+            },
+            {
+              "hz": 60,
+              "progressAtTwoSeconds": 0.8333333333333314,
+              "completionSeconds": 2.4166666666665293,
+              "copies": 1
+            },
+            {
+              "hz": 120,
+              "progressAtTwoSeconds": 0.8333333333333309,
+              "completionSeconds": 2.4083333333331964,
+              "copies": 1
+            }
+          ],
+          "tolerances": {
+            "progressFraction": 1e-10,
+            "completionSeconds": "one update quantum at the selected cadence (maximum 1/30 s)",
+            "copies": 0
+          },
+          "sourceCheckpoint": "deep copy of a journey obtained entirely through pilotOperation public controls"
+        }
+      ]
+    },
+    {
+      "id": "QA12",
+      "area": "OP01",
+      "scenario": "Détruire les trois relais dans plusieurs ordres puis atteindre extraction.",
+      "expected": "Compteur exact et victoire au moment prévu; aucune dépendance à un ordre caché.",
+      "priority": "P0",
+      "status": "À produire",
+      "audit": {
+        "level": "automated-criterion-demonstrated",
+        "existing": [
+          {
+            "file": "tests/simulation.test.mjs",
+            "scope": "An eighteen-operation/chassis public matrix already proves ordinary completions. The older gate test directly marks relays destroyed and does not prove alternate real orders."
+          }
+        ],
+        "added": "Three public destruction orders (0→1→2, 2→1→0, 1→0→2), exact counters after every update, no early activation, active-but-unreached extraction and victory only inside the extraction radius.",
+        "remaining": [
+          "Three orders are covered; this is not a claim that all six permutations were run."
+        ]
+      },
+      "evidence": [
+        {
+          "qa": [
+            "QA12"
+          ],
+          "kind": "public-controls",
+          "requestedOrder": [
+            0,
+            1,
+            2
+          ],
+          "actualOrder": [
+            0,
+            1,
+            2
+          ],
+          "status": "won",
+          "extractionDistance": 108.9223810110825,
+          "elapsed": 69.68333333333067
+        },
+        {
+          "qa": [
+            "QA12"
+          ],
+          "kind": "public-controls",
+          "requestedOrder": [
+            2,
+            1,
+            0
+          ],
+          "actualOrder": [
+            2,
+            1,
+            0
+          ],
+          "status": "won",
+          "extractionDistance": 109.3273511955449,
+          "elapsed": 92.58333333332936
+        },
+        {
+          "qa": [
+            "QA12"
+          ],
+          "kind": "public-controls",
+          "requestedOrder": [
+            1,
+            0,
+            2
+          ],
+          "actualOrder": [
+            1,
+            0,
+            2
+          ],
+          "status": "won",
+          "extractionDistance": 109.66667278061595,
+          "elapsed": 72.83333333333049
+        }
+      ]
+    },
+    {
+      "id": "QA13",
+      "area": "OP02",
+      "scenario": "Protéger le convoi jusqu’à la fin puis rejouer en le laissant détruire.",
+      "expected": "Victoire et échec distincts; survivants et bilan corrects.",
+      "priority": "P0",
+      "status": "À produire",
+      "audit": {
+        "level": "partial",
+        "existing": [
+          {
+            "file": "tests/simulation.test.mjs",
+            "scope": "Public successful escorts existed. The older failure test assigns convoy.hp=0 directly."
+          }
+        ],
+        "added": "An actually protected OP02 escort wins with an arrived transport. A second public journey parks without firing and enemies destroy the transport while the walker survives. The actual isolated main report writes the successful record and no successful record for the loss.",
+        "remaining": [
+          "OP02 describes 47 families but has no individual occupant or family roster. convoy.cargo=0 is not a census. No survivor count or death count for those families is proved or invented.",
+          "The tested collateral count describes the independently modelled civilians; it does not establish the protected transport occupants’ fate."
+        ]
+      },
+      "evidence": [
+        {
+          "qa": [
+            "QA13"
+          ],
+          "kind": "public-controls-and-isolated-report",
+          "protected": {
+            "status": "won",
+            "arrived": true,
+            "hp": 640,
+            "collateral": 2
+          },
+          "abandoned": {
+            "status": "lost",
+            "arrived": false,
+            "hp": 0,
+            "walkerHp": 415.86900000000014,
+            "collateral": 0
+          },
+          "occupantRosterExists": false,
+          "familiesInNarrative": 47,
+          "peopleInferredFromFamilies": null
+        }
+      ]
+    },
+    {
+      "id": "QA14",
+      "area": "OP03",
+      "scenario": "Battre l’adversaire lourd puis tester chaque décision.",
+      "expected": "Choix différencié dans le rapport et la sauvegarde; pas de décision modifiable après validation sans rejouer.",
+      "priority": "P0",
+      "status": "À produire",
+      "audit": {
+        "level": "partial",
+        "existing": [
+          {
+            "file": "tests/simulation.test.mjs",
+            "scope": "Choice hostility/objective contrast existed with edited enemy state; the public operation matrix only chose defy."
+          }
+        ],
+        "added": "Both complete OP03 journeys now select and lock a choice publicly. Defy defeats Cerbère; obey leaves the boss alive and permits withdrawal. The unmodified main.showResult function is executed in an isolated VM to check distinct report text and actual operation record serialization.",
+        "remaining": [
+          "The literal scenario says defeat the boss then test each choice. The authored operation instead asks the choice first; obey permits withdrawal without killing Cerbère. Acceptance wording needs that distinction.",
+          "This audit stubs persist() and report DOM elements. It does not exercise the full decision dialog → result → localStorage → fresh application → operation archive chain. A DOM runtime flow can cover it without claiming a hardware/browser trial."
+        ]
+      },
+      "evidence": [
+        {
+          "qa": [
+            "QA14"
+          ],
+          "kind": "public-controls-and-isolated-report",
+          "choice": "obey",
+          "bossDead": false,
+          "status": "won",
+          "savedRecord": {
+            "completed": true,
+            "walker": "Pèlerin",
+            "time": 72.08333333333053,
+            "evidence": 1,
+            "collateral": 2,
+            "choice": "obey",
+            "kills": 9
+          },
+          "reportFunctionOnly": true,
+          "browserStorageExercised": false
+        },
+        {
+          "qa": [
+            "QA14"
+          ],
+          "kind": "public-controls-and-isolated-report",
+          "choice": "defy",
+          "bossDead": true,
+          "status": "won",
+          "savedRecord": {
+            "completed": true,
+            "walker": "Pèlerin",
+            "time": 78.78333333333015,
+            "evidence": 1,
+            "collateral": 2,
+            "choice": "defy",
+            "kills": 10
+          },
+          "reportFunctionOnly": true,
+          "browserStorageExercised": false
+        }
+      ]
+    },
+    {
+      "id": "QA24",
+      "area": "Temps",
+      "scenario": "Rejouer une séquence de simulation à plusieurs cadences de rendu.",
+      "expected": "Résultats de collision et de progression équivalents dans la tolérance documentée.",
+      "priority": "P1",
+      "status": "À produire",
+      "audit": {
+        "level": "automated-criterion-demonstrated-with-bounded-tolerance",
+        "existing": [
+          {
+            "file": "tests/simulation.test.mjs",
+            "scope": "Identical-seed/identical-delta determinism and invalid-delta clamping existed, without a comparison across cadences."
+          }
+        ],
+        "added": "A time-based ten-second public combat sequence and one authentic OP01 scan run at 30, 60 and 120 simulation updates per second, mirroring the application’s variable-delta update contract.",
+        "tolerance": {
+          "elapsedSeconds": 1e-9,
+          "combat": "Exact equality of shots, hits, kills, step-group count, ammunition, reserve, hull and final heat for the tested sequence.",
+          "positionWorldUnits": 10,
+          "scanProgressFraction": 1e-10,
+          "scanCompletionSeconds": "At most one update quantum beyond the 2.4-second scan duration (maximum 1/30 s)."
+        },
+        "remaining": [
+          "This is Node simulation at emulated frame intervals. It is not a browser frame-pacing, GPU performance, background-tab or sub-20-Hz test, nor a bit-identical claim for arbitrary variable-delta combat."
+        ]
+      },
+      "evidence": [
+        {
+          "qa": [
+            "QA24"
+          ],
+          "kind": "public-controls-at-emulated-frame-cadences",
+          "cases": [
+            {
+              "hz": 30,
+              "elapsed": 9.999999999999975,
+              "x": 745.6721581623092,
+              "hull": 564.289,
+              "heat": 0,
+              "shots": 4,
+              "hits": 3,
+              "kills": 1,
+              "steps": 8,
+              "ammo": 14,
+              "reserve": 144
+            },
+            {
+              "hz": 60,
+              "elapsed": 10.000000000000076,
+              "x": 738.4089497394709,
+              "hull": 564.289,
+              "heat": 0,
+              "shots": 4,
+              "hits": 3,
+              "kills": 1,
+              "steps": 8,
+              "ammo": 14,
+              "reserve": 144
+            },
+            {
+              "hz": 120,
+              "elapsed": 10.000000000000073,
+              "x": 737.4937851303297,
+              "hull": 564.289,
+              "heat": 0,
+              "shots": 4,
+              "hits": 3,
+              "kills": 1,
+              "steps": 8,
+              "ammo": 14,
+              "reserve": 144
+            }
+          ],
+          "positionSpread": 8.178373031979504,
+          "tolerances": {
+            "durationSeconds": 1e-9,
+            "positionWorldUnits": 10,
+            "shotsHitsKillsStepsAmmoHullHeat": 0
+          },
+          "realBrowserFramePacingMeasured": false,
+          "coversBelow20HzOrBackgroundTab": false
+        },
+        {
+          "qa": [
+            "QA11",
+            "QA24"
+          ],
+          "kind": "public-controls-at-emulated-frame-cadences",
+          "cases": [
+            {
+              "hz": 30,
+              "progressAtTwoSeconds": 0.8333333333333323,
+              "completionSeconds": 2.433333333333195,
+              "copies": 1
+            },
+            {
+              "hz": 60,
+              "progressAtTwoSeconds": 0.8333333333333314,
+              "completionSeconds": 2.4166666666665293,
+              "copies": 1
+            },
+            {
+              "hz": 120,
+              "progressAtTwoSeconds": 0.8333333333333309,
+              "completionSeconds": 2.4083333333331964,
+              "copies": 1
+            }
+          ],
+          "tolerances": {
+            "progressFraction": 1e-10,
+            "completionSeconds": "one update quantum at the selected cadence (maximum 1/30 s)",
+            "copies": 0
+          },
+          "sourceCheckpoint": "deep copy of a journey obtained entirely through pilotOperation public controls"
+        }
+      ]
+    },
+    {
+      "id": "QA28",
+      "area": "Civils",
+      "scenario": "Tirer, marcher et utiliser effets de zone près d’un transport protégé.",
+      "expected": "Même logique de collision; dommages et conséquences explicités sans immunité arbitraire.",
+      "priority": "P1",
+      "status": "À produire",
+      "audit": {
+        "level": "automated-prototype-collision-criterion-demonstrated",
+        "existing": [
+          {
+            "file": "tests/simulation.test.mjs",
+            "scope": "Civilian bullet accounting existed, but the legacy convoy ignored player fire, splash and foot impacts."
+          }
+        ],
+        "added": "MI01 and OP02 now use the same swept transport target for both teams, finite-radius splash excluding a directly-hit transport, and real landing contacts. Public direct shots, deliberate backwards steps and all-six-chassis safe following accompany geometric edge/radius fixtures. Friendly damage emits an explicit consequence warning.",
+        "remaining": [
+          "The unmodelled OP02 family census remains the separate QA13 limitation; this collision proof does not invent occupant casualties."
+        ]
+      },
+      "evidence": [
+        {
+          "qa": [
+            "QA28"
+          ],
+          "kind": "public-controls",
+          "cases": [
+            {
+              "missionId": "MI01",
+              "weapon": "bullet",
+              "damage": 22
+            },
+            {
+              "missionId": "MI01",
+              "weapon": "rocket",
+              "damage": 165
+            },
+            {
+              "missionId": "op02",
+              "weapon": "bullet",
+              "damage": 22
+            },
+            {
+              "missionId": "op02",
+              "weapon": "rocket",
+              "damage": 165
+            }
+          ],
+          "consequence": "finite convoy HP and escort failure at zero; one explicit friendly-damage warning"
+        },
+        {
+          "qa": [
+            "QA28"
+          ],
+          "kind": "geometric-unit",
+          "cases": [
+            {
+              "missionId": "MI01",
+              "kind": "swept-direct",
+              "team": "player",
+              "damage": 100
+            },
+            {
+              "missionId": "MI01",
+              "kind": "swept-direct",
+              "team": "enemy",
+              "damage": 50
+            },
+            {
+              "missionId": "MI01",
+              "kind": "ground-splash",
+              "team": "player",
+              "offset": 70,
+              "damage": 40.56467016347335
+            },
+            {
+              "missionId": "MI01",
+              "kind": "ground-splash",
+              "team": "player",
+              "offset": 200,
+              "damage": 0
+            },
+            {
+              "missionId": "MI01",
+              "kind": "ground-splash",
+              "team": "enemy",
+              "offset": 70,
+              "damage": 20.28233508173662
+            },
+            {
+              "missionId": "MI01",
+              "kind": "ground-splash",
+              "team": "enemy",
+              "offset": 200,
+              "damage": 0
+            },
+            {
+              "missionId": "op02",
+              "kind": "swept-direct",
+              "team": "player",
+              "damage": 100
+            },
+            {
+              "missionId": "op02",
+              "kind": "swept-direct",
+              "team": "enemy",
+              "damage": 50
+            },
+            {
+              "missionId": "op02",
+              "kind": "ground-splash",
+              "team": "player",
+              "offset": 70,
+              "damage": 41.30834712097658
+            },
+            {
+              "missionId": "op02",
+              "kind": "ground-splash",
+              "team": "player",
+              "offset": 200,
+              "damage": 0
+            },
+            {
+              "missionId": "op02",
+              "kind": "ground-splash",
+              "team": "enemy",
+              "offset": 70,
+              "damage": 20.65417356048829
+            },
+            {
+              "missionId": "op02",
+              "kind": "ground-splash",
+              "team": "enemy",
+              "offset": 200,
+              "damage": 0
+            }
+          ],
+          "baseBlastRadius": 90,
+          "transportRadiusAllowance": 56
+        },
+        {
+          "qa": [
+            "QA08",
+            "QA28"
+          ],
+          "kind": "public-controls",
+          "cases": [
+            {
+              "missionId": "MI01",
+              "landingX": 144,
+              "convoyX": 175.95,
+              "damage": 65
+            },
+            {
+              "missionId": "op02",
+              "landingX": 144,
+              "convoyX": 194.94999999999976,
+              "damage": 65
+            }
+          ],
+          "airborneDamage": 0,
+          "repeatedProximityDamage": 0
+        },
+        {
+          "qa": [
+            "QA28"
+          ],
+          "kind": "geometric-unit",
+          "cases": [
+            {
+              "missionId": "MI01",
+              "offset": 0,
+              "damage": 65
+            },
+            {
+              "missionId": "MI01",
+              "offset": 90.99,
+              "damage": 65
+            },
+            {
+              "missionId": "MI01",
+              "offset": 91.01,
+              "damage": 0
+            },
+            {
+              "missionId": "op02",
+              "offset": 0,
+              "damage": 65
+            },
+            {
+              "missionId": "op02",
+              "offset": 90.99,
+              "damage": 65
+            },
+            {
+              "missionId": "op02",
+              "offset": 91.01,
+              "damage": 0
+            }
+          ],
+          "footprintHalfExtent": 91
+        },
+        {
+          "qa": [
+            "QA28"
+          ],
+          "kind": "public-controls",
+          "cases": [
+            {
+              "missionId": "MI01",
+              "walkerId": "WK01",
+              "stepGroups": 7,
+              "convoyHp": 640
+            },
+            {
+              "missionId": "MI01",
+              "walkerId": "WK02",
+              "stepGroups": 9,
+              "convoyHp": 640
+            },
+            {
+              "missionId": "MI01",
+              "walkerId": "WK05",
+              "stepGroups": 6,
+              "convoyHp": 640
+            },
+            {
+              "missionId": "MI01",
+              "walkerId": "WK06",
+              "stepGroups": 6,
+              "convoyHp": 640
+            },
+            {
+              "missionId": "MI01",
+              "walkerId": "WK09",
+              "stepGroups": 7,
+              "convoyHp": 640
+            },
+            {
+              "missionId": "MI01",
+              "walkerId": "WK10",
+              "stepGroups": 8,
+              "convoyHp": 640
+            },
+            {
+              "missionId": "op02",
+              "walkerId": "WK01",
+              "stepGroups": 7,
+              "convoyHp": 640
+            },
+            {
+              "missionId": "op02",
+              "walkerId": "WK02",
+              "stepGroups": 9,
+              "convoyHp": 640
+            },
+            {
+              "missionId": "op02",
+              "walkerId": "WK05",
+              "stepGroups": 6,
+              "convoyHp": 640
+            },
+            {
+              "missionId": "op02",
+              "walkerId": "WK06",
+              "stepGroups": 6,
+              "convoyHp": 640
+            },
+            {
+              "missionId": "op02",
+              "walkerId": "WK09",
+              "stepGroups": 7,
+              "convoyHp": 640
+            },
+            {
+              "missionId": "op02",
+              "walkerId": "WK10",
+              "stepGroups": 8,
+              "convoyHp": 640
+            }
+          ],
+          "immunityAdded": false,
+          "healthRestored": false
+        }
+      ]
+    }
+  ]
+}
