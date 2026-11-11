@@ -1,0 +1,226 @@
+{
+  "applicationVersion": "0.7.0",
+  "saveVersion": 6,
+  "observedAt": "2026-11-11T08:13:50.532Z",
+  "url": "https://imperium-march.vercel.app/",
+  "publishedSourceCommit": "1f243c91ee6a1cc66b6d13b1619a935a61cff431",
+  "deploymentId": "dpl_E7NtUedX8jykNK9gvAdM5vh97Had",
+  "environment": {
+    "browser": "Chrome shared cloud browser",
+    "viewport": {
+      "height": 936,
+      "width": 1363
+    },
+    "browserNativeUi": true,
+    "inPageStateInjection": false,
+    "controls": "Page buttons, native file chooser, downloads, held keyboard input; read-only DOM for text and geometry."
+  },
+  "migration": {
+    "formatBefore": 5,
+    "formatAfter": 6,
+    "reportsPreserved": [
+      "MI01",
+      "MI02",
+      "MI03",
+      "MI04"
+    ],
+    "checkpointUnchanged": true,
+    "resourcesUnchanged": true,
+    "fleetUnchanged": true,
+    "checkpointElapsed": 7.698599999999782,
+    "captureRevisionBefore": 18,
+    "captureRevisionAfter": 20,
+    "revisionNote": "The reload invokes beforeunload and pagehide checkpoint capture; only the capture counter differs outside the two documented v6 world additions and format version.",
+    "beforeSha256": "6ce5ed8bf3949c763fa589215f7f04de396676e21cff88530c8f4b4eb34f759f",
+    "afterSha256": "8665da434488f7a9edd48c942710b2fcb121f7dac653f6c56dc57e2faf9c0ae1"
+  },
+  "historicImport": {
+    "source": "tests/fixtures/campaign-v5-mi05.json / completed",
+    "sourcePublicRevision": "613c07307f2712c5fac28d9403016906e94da168",
+    "reportsRetained": 5,
+    "missionUnlocked": "MI06",
+    "briefingObserved": {
+      "localResidents": 10,
+      "priorPassengers": 12,
+      "fuelLots": 2,
+      "technicianRoute": "quay"
+    }
+  },
+  "freshLaunch": {
+    "missionId": "MI06",
+    "walkerId": "WK09",
+    "elapsed": 0.3498999999999942,
+    "playerX": 318.17074488002606,
+    "steps": 1,
+    "fuel": 2,
+    "outcome": "Mission launched, one physical step recorded after D input, then paused and exported through UI."
+  },
+  "checkpointImport": {
+    "source": "docs/validation/v07-browser-valve-input.json",
+    "preparation": "beginCampaignMission on authentic v5 completed dossier, WK09 seed1847, pilotMI06 public controls until valve working and progress >0.35, then checkpointCampaign and serializeCampaign.",
+    "elapsed": 87.93333333332963,
+    "valveProgress": 0.3500000000000001,
+    "residentsAlreadySafe": 10,
+    "panelAlreadyLocked": true,
+    "auxiliaryAlreadyConnected": true,
+    "scope": "The inspections, evacuation, combat, panel and circuit choice were prepared by the Node public pilot before import. They were not replayed from spawn in Chrome."
+  },
+  "pauseReload": {
+    "before": {
+      "dike-fuel": "POMPE AUXILIAIRE ACTIVE · 2 LOTS UTILISÉS",
+      "dike-pressure": "PRESSION 30 % · FATIGUE 3 %",
+      "dike-residents": "10 / 10 À L’ABRI · 0 PERDUS · 2 TECHNICIENS",
+      "dike-support": "PANNEAU VERROUILLÉ",
+      "hud-interaction": "Manœuvre de vanne 35 % · rester à portée",
+      "hud-timer": "01:27",
+      "hull-value": "100%"
+    },
+    "after": {
+      "dike-fuel": "POMPE AUXILIAIRE ACTIVE · 2 LOTS UTILISÉS",
+      "dike-pressure": "PRESSION 30 % · FATIGUE 3 %",
+      "dike-residents": "10 / 10 À L’ABRI · 0 PERDUS · 2 TECHNICIENS",
+      "dike-support": "PANNEAU VERROUILLÉ",
+      "hud-interaction": "Manœuvre de vanne 35 % · rester à portée",
+      "hud-timer": "01:27",
+      "hull-value": "100%"
+    },
+    "displayedFieldsEqual": true,
+    "scope": "Equality of visible HUD fields at observation, including 35 percent valve progress. Exact full-state restoration is separately tested in Node."
+  },
+  "layout": {
+    "canvas": {
+      "bottom": 851.34375,
+      "height": 766.6875,
+      "right": 1363,
+      "width": 1363,
+      "x": 0,
+      "y": 84.65625
+    },
+    "dike": {
+      "bottom": 487.15625,
+      "height": 91.6875,
+      "right": 356.40625,
+      "width": 311.4375,
+      "x": 44.96875,
+      "y": 395.46875
+    },
+    "instruments": {
+      "bottom": 793.84375,
+      "height": 119.3125,
+      "right": 1318.03125,
+      "width": 1273.0625,
+      "x": 44.96875,
+      "y": 674.53125
+    },
+    "prompt": {
+      "bottom": 660.53125,
+      "height": 36.359375,
+      "right": 836.4609375,
+      "width": 309.921875,
+      "x": 526.5390625,
+      "y": 624.171875
+    },
+    "viewport": {
+      "height": 936,
+      "width": 1363
+    }
+  },
+  "promptToInstrumentGapPx": 14.0,
+  "completion": {
+    "valveCompletedThroughBrowser": true,
+    "extractionReachedByKeyboard": true,
+    "finalProgress": "6 / 6 RAPPORTS CLASSÉS",
+    "previousReportsComparedAndUnchanged": true,
+    "report": {
+      "missionId": "MI06",
+      "missionName": "Les maisons sous la ligne",
+      "walkerId": "WK09",
+      "walkerName": "H-6 Pèlerin",
+      "hull": 600,
+      "integrity": 1,
+      "elapsed": 115.54753333333076,
+      "collateral": 0,
+      "kills": 6,
+      "choice": "defy",
+      "partsGranted": 4,
+      "tessLine": "10 habitants ont rejoint l’abri. 0 sont morts ; leur bilan reste distinct des douze passagers du chenal. Les deux maisons sont restées habitables au départ. Le panneau a été verrouillé pendant le soutien du marcheur.",
+      "samiLine": "2 techniciens ont survécu au chantier ; 0 décès sont consignés. La dérivation vers les maisons est consignée au rapport. Deux lots ont alimenté la pompe auxiliaire pendant cette sortie.",
+      "thresholdsInspected": 2,
+      "evacuationOrdered": true,
+      "residentsTotal": 10,
+      "residentsSafe": 10,
+      "residentsLost": 0,
+      "homesTotal": 2,
+      "homesUninhabitable": 0,
+      "techniciansTotal": 2,
+      "techniciansAlive": 2,
+      "techniciansLost": 0,
+      "panelSecured": true,
+      "panelsLocked": 1,
+      "emergencyShoring": false,
+      "dikeFatigue": 2.9353333333334106,
+      "pumpsOnline": true,
+      "circuit": "diversion",
+      "auxiliaryUsed": true,
+      "fuelSpent": 2,
+      "manualIntervention": true,
+      "manifestRead": true,
+      "reportFiled": true,
+      "decisionLabel": "Dérivation des maisons accomplie et constat joint"
+    },
+    "resources": {
+      "parts": 30,
+      "fuel": 0
+    },
+    "cumulativeFuelSpent": 2,
+    "exportReimportValidated": true,
+    "workshopText": {
+      "workshop-dike": "Trois-Vannes : 10 habitants à l’abri, 0 perdus ; 0 logements inhabitables. 2 techniciens vivants. La dérivation a été accomplie. Cette dernière sortie a utilisé 2 lots de carburant.",
+      "workshop-fuel": "0 LOT DE CARBURANT EN RÉSERVE",
+      "workshop-fuel-used": "2 LOTS DÉJÀ UTILISÉS AUX TROIS-VANNES"
+    }
+  },
+  "evidenceFiles": {
+    "docs/validation/v07-browser-migration-before.json": {
+      "bytes": 19911,
+      "sha256": "6ce5ed8bf3949c763fa589215f7f04de396676e21cff88530c8f4b4eb34f759f"
+    },
+    "docs/validation/v07-browser-migration-after.json": {
+      "bytes": 20365,
+      "sha256": "8665da434488f7a9edd48c942710b2fcb121f7dac653f6c56dc57e2faf9c0ae1"
+    },
+    "docs/validation/v07-browser-completed.json": {
+      "bytes": 9260,
+      "sha256": "6e4033f0e9b7de79b76562ccaa2f101fd763d737919c4c6edd0ab7ad73ede7a8"
+    },
+    "docs/validation/v07-browser-launch.json": {
+      "bytes": 23513,
+      "sha256": "853ee9c5e942cafded8fa091d817421377a5042ce4595a5f8d1fca5ef69f0335"
+    },
+    "docs/validation/v07-browser-valve-input.json": {
+      "bytes": 33181,
+      "sha256": "e7c06af2059d232987830623181bd923dd4da864f12fc95ec67f2c87010c38ef"
+    },
+    "docs/previews/browser-v07-dike.jpg": {
+      "mimeType": "image/jpeg",
+      "width": 1363,
+      "height": 936,
+      "bytes": 91633,
+      "sha256": "a2c49a35aa27f484343201a9c9a1c4c3adb22dd7022e74e4e39ed0662075a9a2"
+    },
+    "docs/previews/browser-v07-report.jpg": {
+      "mimeType": "image/jpeg",
+      "width": 1363,
+      "height": 936,
+      "bytes": 79098,
+      "sha256": "2522732019e5d22fc28ceb040385d3fc4dc58c121e4111fdda985f9fd559de7e"
+    }
+  },
+  "limits": [
+    "One WK09 diversion continuation was completed in Chrome, starting from a public-pilot checkpoint; this is not a full six-chassis/two-circuit browser matrix.",
+    "The browser uses simulated time; no target-device frame-rate or performance conclusion is drawn from held-input wall time.",
+    "Audio, human difficulty, touch hardware, accessibility conformance and exhaustive console auditing were not validated.",
+    "Screenshots are native Chrome captures. The separate mi06-* PNG series is Canvas output and is not browser evidence."
+  ],
+  "finalBrowserState": "Campaign menu, six reports, MI06 first success retained; tab marked as deliverable."
+}

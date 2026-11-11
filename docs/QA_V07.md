@@ -17,10 +17,10 @@ La sixième mission poursuit Nacre aux Trois-Vannes. Cette validation distingue 
 | Classeur | 705 fiches, 4 811 cellules de source, 643 IDs antérieurs conservés, 126 formules | [workbook-v0.7-export.json](validation/workbook-v0.7-export.json) |
 | Scènes de MI06 | Sept rendus Canvas depuis des commandes publiques, snapshots complets indépendants | [mi06-render-manifest.json](previews/mi06-render-manifest.json) |
 | Relecture indépendante | Huit variantes, 589 sauvegardes/réimportations et 460 restaurations exactes ; empreintes des sources stables | [v07-campaign-audit.json](validation/v07-campaign-audit.json) |
-| Navigateur réel 0.7 | Contrôle à effectuer après publication ; les preuves 0.6 ne valent pas validation de MI06 | État suivi ci-dessous |
-| Publication 0.7 | SHA distant, Vercel et CI à confirmer après le gel des livrables | [Déploiement](DEPLOYMENT.md) |
+| Navigateur réel 0.7 | Migration et import v5, lancement MI06, pause/rechargement, reprise de vanne et extraction depuis un checkpoint public, six rapports | [v07-browser.json](validation/v07-browser.json) |
+| Publication 0.7 | 254 fichiers distants identiques, Vercel READY au SHA exact, CI Node 22 réussie, dix ressources HTTP 200 conformes | [v07-publication.json](validation/v07-publication.json) |
 
-Les commandes locales utilisent Node.js 24.22.1. Le projet, Vercel et la CI ciblent Node.js 22.x ; le résultat distant doit être observé séparément. Les contrôles et leurs limites de la [0.6](QA_V06.md) restent conservés.
+Les commandes locales utilisent Node.js 24.22.1. La CI du commit publié a également réussi les 176 tests, les 34 parcours UI et les constructions sous **Node.js 22.23.4**, version réellement relevée dans ses logs. Le projet et Vercel ciblent Node.js 22.x. Les contrôles et leurs limites de la [0.6](QA_V06.md) restent conservés.
 
 ## Règles MI06 vérifiées
 
@@ -64,9 +64,23 @@ Les sept scènes montrent inspection, évacuation, soutien, auxiliaire, dérivat
 
 ## Navigateur et publication
 
-La 0.7 attend ici son contrôle de production. Les contrôles Chrome de la 0.6 concernaient l’import v4, MI05, la marche, la pause, le rechargement et la reprise. Ils restent des preuves historiques limitées à cette version. Le Chromium local était bloqué avant navigation par `socket() Operation not permitted` ; le navigateur partagé autorisé fournit un environnement distinct.
+La publication applicative **1f243c91ee6a1cc66b6d13b1619a935a61cff431** correspond exactement à l’arbre local figé de la 0.7. Les 254 fichiers distants ont été comparés. Vercel a construit **dpl_E7NtUedX8jykNK9gvAdM5vh97Had**, état READY pour ce même SHA. La [CI 42983892773](https://github.com/darknigthmare/ImperiumMarch/actions/runs/42983892773) a réussi sous Node 22.23.4. Les dix ressources publiques contrôlées répondent HTTP 200 avec le contenu du snapshot. Le [reçu de publication](validation/v07-publication.json) ne remplace pas les observations de Chrome décrites ci-dessous.
 
-Le contrôle 0.7 doit identifier le code publié, les actions réellement exécutées, les valeurs visibles avant/après reprise et la disposition du HUD. Une réponse HTTP 200, un build Vercel READY ou une image Canvas ne démontrent pas à eux seuls le parcours de MI06.
+Chrome partagé a rechargé le domaine [imperium-march.vercel.app](https://imperium-march.vercel.app/) et affiché VERSION 0.7, six missions et la reprise MI05 du dossier existant. Ce dossier a été exporté par l’interface avant et après migration. La comparaison confirme l’identité des quatre rapports, du checkpoint complet, des ressources et de la flotte. En dehors du numéro de format et des deux ajouts de monde documentés, seul le compteur de captures passe de 18 à 20, en accord avec les captures `beforeunload` et `pagehide` lors du rechargement. Le temps du checkpoint reste exactement 7,698599999999782 secondes. Les [exports avant](validation/v07-browser-migration-before.json) et [après](validation/v07-browser-migration-after.json) sont conservés.
+
+L’import par le sélecteur natif du véritable dossier v5 terminé a ensuite préservé les cinq rapports et débloqué MI06. Le briefing annonce les dix habitants locaux, les douze anciens passagers distincts, la route du quai et les deux lots disponibles. Le lancement et une commande D ont produit une sortie MI06 vivante ; l’export de contrôle conserve un pas et une position de coque de 318,17. Cette séquence a été mise en pause.
+
+Pour contrôler le chantier avancé sans prétendre avoir joué tout le combat dans Chrome, un second dossier a été préparé avec `pilotMI06` et les commandes publiques dans Node, puis importé par la même interface. Il contient le Pèlerin à une vanne travaillée à 35 %, après inspections, évacuation, soutien et choix de dérivation. Ces actions antérieures appartiennent au pilote public, pas à la portion jouée dans Chrome. Le [dossier d’entrée](validation/v07-browser-valve-input.json) conserve cet état et sa provenance est détaillée dans le rapport.
+
+La pause, le rechargement puis le bouton Reprendre MI06 retrouvent les mêmes indications visibles : **01:27**, vanne **35 %**, panneau verrouillé, pression **30 %**, fatigue **3 %**, **10 habitants à l’abri**, **2 techniciens** et auxiliaire active avec **2 lots utilisés**. Cette comparaison porte sur les champs visibles du HUD ; les tests Node vérifient séparément la reprise exacte de l’état entier.
+
+La vanne a ensuite été achevée dans Chrome. L’objectif de remise en service est devenu accompli et le message de dérivation ouverte est apparu. Des commandes D ont conduit le marcheur à l’extraction. Le bilan indique **10 habitants sauvés, zéro perte, zéro logement inhabitable, deux techniciens vivants, panneau verrouillé et deux lots consommés**. Au hangar, la réserve affiche zéro et le compteur cumulé deux lots déjà utilisés. La campagne affiche six rapports. L’[export final du navigateur](validation/v07-browser-completed.json) est valide au format v6, conserve exactement les cinq rapports précédents et contient le sixième reçu, quatre pièces attribuées une fois et trente lots d’atelier au total.
+
+Le HUD a été inspecté dans un viewport de **1363 × 936**. Le prompt finit à 660,53 px et les jauges commencent à 674,53 px, soit **14 px d’espace**. L’instrument de digue reste dans la colonne d’objectifs, sans doublon fixe Canvas. La [capture réelle du chantier](previews/browser-v07-dike.jpg) et celle du [rapport](previews/browser-v07-report.jpg) proviennent des octets JPEG retournés par Chrome. Elles ne sont pas des rendus Skia.
+
+Cette vérification native couvre le Pèlerin et une fin de mission en dérivation depuis un point préparé. Elle ne prétend pas couvrir les six châssis, les deux choix ou l’intégralité de MI06 dans Chrome ; ces matrices sont contrôlées dans Node et dans le DOM modélisé. Les durées d’entrées maintenues ne sont pas une mesure de performances : l’horloge du jeu est simulée. L’audio, le matériel tactile, l’accessibilité et un audit exhaustif de console ne sont pas validés par ce parcours. Le Chromium local précédemment bloqué par `socket() Operation not permitted` n’a pas été utilisé comme preuve.
+
+Le [rapport navigateur complet](validation/v07-browser.json) conserve observations, géométrie, empreintes, dossier final et limites. La publication suivante ajoute ces preuves et la documentation ; aucun changement applicatif n’est requis par ce contrôle.
 
 ## Limites de livraison
 

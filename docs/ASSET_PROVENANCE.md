@@ -46,3 +46,8 @@ Les sept rendus MI06 sont reproductibles avec `tools/render-mi06-previews.mjs` :
 `docs/previews/mi06-render-manifest.json` conserve des snapshots complets copiés profondément. Le générateur compare l’état avant/après rendu et après poursuite pour détecter une mutation. Les maisons, seuils, abri, techniciens, couverts, panneau, auxiliaire, vanne et conduites sont dessinés par le code original du projet. Aucun nouvel asset image généré ni contenu extrait d’un jeu tiers n’est utilisé pour cette mission.
 
 La pompe et la vanne sont placées dans une couche devant les pattes pour rester visibles pendant l’interaction ; leur géométrie et leurs collisions ne changent pas. Ces fichiers sont des rendus Canvas de développement et ne comprennent pas les instruments HTML. Ils ne constituent pas des captures navigateur.
+
+
+## Captures natives de la 0.7
+
+`docs/previews/browser-v07-dike.jpg` et `browser-v07-report.jpg` sont les octets JPEG capturés dans Chrome sur le site publié, au viewport 1363 × 936. La première montre la vanne à 35 % après une reprise ; la seconde le rapport après manœuvre et extraction exécutées dans le navigateur. Le début de ce chantier provient d’un checkpoint atteint dans Node par les commandes publiques, puis importé via le sélecteur de fichier. `docs/validation/v07-browser.json` conserve cette limite, les empreintes et les observations. Ces deux images sont distinctes des sept rendus Canvas MI06.
