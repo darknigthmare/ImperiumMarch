@@ -1,0 +1,229 @@
+{
+  "version": "0.9.0",
+  "checkedAt": "2026-11-11T11:54:57.937010+00:00",
+  "scope": "Supplementary native Chrome confirmation of the two text fixes on the corrected publication, plus continuation from an actual prior native gate export through extraction and reload. No new mission or human-trial certification is inferred.",
+  "publication": {
+    "url": "https://imperium-march.vercel.app/",
+    "commit": "006b3ab517f335102a5dfd38be3272e263af75cf",
+    "localSourceCommit": "1fc6b2d519458ff8fae57f60c3493c04ade4eded",
+    "tree": "0c682cbf947aa62b8bda565482b3bde9a4f75217",
+    "deployment": "dpl_9SAPYJfTML8hm6qkSsym9Z4Hvxtw",
+    "state": "READY",
+    "githubCiRun": "43015073388",
+    "nodeVersion": "v22.23.4",
+    "ciTests": 291,
+    "ciUiFlows": 57,
+    "ciRasterCases": 5
+  },
+  "method": {
+    "browser": "Shared native Chrome on Linux, tab 3",
+    "controls": "Visible DOM buttons and native timed key presses; actual file import with confirmation and download events",
+    "applicationStateMutation": "No injected JavaScript state or test hooks",
+    "urlVerifiedInNativeHeader": true
+  },
+  "input": {
+    "path": "docs/validation/v09-browser-mi08-gate-after-reload.json",
+    "bytes": 55916,
+    "sha256": "cb5befc445bb25cc254acc45468189f145c71105b2294352bb97637964f227ac",
+    "origin": "Actual export/reload captured in the initial native session. That earlier session started from an explicitly prepared public-simulation checkpoint.",
+    "importsDuringThisContinuation": 1,
+    "additionalImportsBeforeResult": 0
+  },
+  "observations": [
+    {
+      "stage": "radio",
+      "displayedTime": "04:40",
+      "text": "Veille d’Aval a quitté la zone des portes. Départ acquis ; le refuge doit encore confirmer l’arrivée.",
+      "peopleDeparted": 10,
+      "peopleArrived": 0,
+      "peopleLocal": 2,
+      "source": "Live native AX observation transcribed in v09-browser-postfix-radio-observation.txt; this exact moment was not captured as PNG",
+      "passed": true
+    },
+    {
+      "stage": "laterDepartureCapture",
+      "displayedTime": "04:53",
+      "peopleDeparted": 34,
+      "peopleArrived": 8,
+      "peopleLocal": 2,
+      "proof": "docs/previews/browser-v09-postfix-departures.png",
+      "note": "Later than the corrected-radio observation; radio has advanced to the docking message."
+    },
+    {
+      "stage": "transmission",
+      "displayedTime": "05:20",
+      "text": "Bilan transmis à Holt · rejoindre la sortie",
+      "peopleDeparted": 34,
+      "peopleArrived": 34,
+      "peopleLocal": 2,
+      "peopleLost": 0,
+      "patientsArrived": 4,
+      "bothGatesClosed": true,
+      "proof": "docs/previews/browser-v09-postfix-transmitted.png",
+      "axProof": "docs/validation/v09-browser-postfix-transmitted.txt",
+      "passed": true
+    },
+    {
+      "stage": "result",
+      "displayedTime": "05:45",
+      "elapsed": 345.0496333334128,
+      "choice": "delay",
+      "peopleDeparted": 34,
+      "peopleArrived": 34,
+      "peopleLocal": 2,
+      "peopleLost": 0,
+      "patientsArrived": 4,
+      "boatsDeparted": 2,
+      "boatsArrived": 2,
+      "boatsLost": 0,
+      "reportTransmitted": true,
+      "proof": "docs/previews/browser-v09-postfix-result.png",
+      "axProof": "docs/validation/v09-browser-postfix-result.txt",
+      "passed": true,
+      "reportFiled": false,
+      "historicalAuthorityReportFiled": true
+    }
+  ],
+  "actions": [
+    "Reload corrected publication; import declared actual gate export and confirm replacement.",
+    "Reprendre MI08; Espace+E 4500 ms; Espace 6000 ms; observe corrected radio at 04:40.",
+    "Capture later departure state at 04:53, then Échap to pause.",
+    "Resume; Espace+E 9000 ms to close passage; D 6900 ms to the registry; observe all 34 arrived.",
+    "Espace+E 4300 ms to transmit; capture exact corrected prompt at 05:20; Échap.",
+    "Resume; D 14000 ms, then D 5000 ms; observe extraction and result at 05:45.",
+    "Return to command deck; export completed dossier; reload; export again; open Archives and Journal de vol; observe all eight reports.",
+    "Return to campaign; mark tab as deliverable. No active mission left running."
+  ],
+  "persistence": {
+    "reports": 8,
+    "priorSevenReportsExact": true,
+    "partsBefore": 34,
+    "partsAfter": 38,
+    "fuelBefore": 0,
+    "fuelAfter": 0,
+    "historicalFuelSpentBefore": 2,
+    "historicalFuelSpentAfter": 2,
+    "revisionBeforeReload": 148,
+    "revisionAfterReload": 148,
+    "reloadByteIdentical": true,
+    "exportSha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f",
+    "independentAudit": "docs/validation/v09-browser-postfix-export-audit.json",
+    "closingEffects": {
+      "parts": [
+        34,
+        38
+      ],
+      "tessTrust": [
+        58,
+        60
+      ],
+      "samiTrust": [
+        43,
+        45
+      ],
+      "suspicion": [
+        16,
+        17
+      ],
+      "revision": [
+        136,
+        148
+      ],
+      "stage": [
+        "mission",
+        "complete"
+      ],
+      "checkpointRemoved": true
+    },
+    "preservedScope": "Seven prior reports, Vesper, Nacre outside departure, fleet and maintenance log remain exact. Reward, trust, suspicion and campaign-closing counters have their documented MI08 changes."
+  },
+  "console": {
+    "capturedWarnErrorEntries": 41,
+    "extensionEntries": 41,
+    "applicationEntriesInCapture": 0,
+    "limit": 5000,
+    "limitReached": false,
+    "scope": "Captured log slice after reload, not the complete historic browser session."
+  },
+  "unchangedOpenLimits": {
+    "QA19": "Two prior focus-loss observations failed; not repeated or marked passed in this text-fix check.",
+    "QA20": "Independent small native window remains unverified.",
+    "QA29": "Interactive native Calc/Excel remains unverified.",
+    "humanTrials": "No human participant, physical gamepad, listening trial or target-hardware performance is invented."
+  },
+  "initialProofsPreserved": [
+    "docs/validation/v09-browser.json",
+    "docs/validation/v09-browser-export-audit.json",
+    "docs/validation/v09-browser-sanitary-panel.json"
+  ],
+  "artifacts": [
+    {
+      "path": "docs/validation/v09-browser-postfix-archives.txt",
+      "bytes": 6677,
+      "sha256": "3269d8a3d7e59960690d3d683f5953bc6444b1cc5e48558e13ccd6ef2e50e8d5"
+    },
+    {
+      "path": "docs/validation/v09-browser-postfix-completed-after-reload.json",
+      "bytes": 48326,
+      "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f"
+    },
+    {
+      "path": "docs/validation/v09-browser-postfix-completed.json",
+      "bytes": 48326,
+      "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f"
+    },
+    {
+      "path": "docs/validation/v09-browser-postfix-console.json",
+      "bytes": 9678,
+      "sha256": "dedb9b0acb557e70c475de96ecb1fb65b96137c5cc1b703f8360a0d4b751e8c6"
+    },
+    {
+      "path": "docs/validation/v09-browser-postfix-departures.txt",
+      "bytes": 3579,
+      "sha256": "30777caf004db666fe3b4c61e3508162a3d85c6358292d2dddfbf69d280ce9db"
+    },
+    {
+      "path": "docs/validation/v09-browser-postfix-radio-observation.txt",
+      "bytes": 863,
+      "sha256": "98892094f9c939b2eb333883ba080a622693135fb5bc0be3ce761c4cac498bca"
+    },
+    {
+      "path": "docs/validation/v09-browser-postfix-result.txt",
+      "bytes": 1972,
+      "sha256": "c6ea34c1a26e73b888502214c08d894b2dc135e532c15e15a6918438ccb3bca9"
+    },
+    {
+      "path": "docs/validation/v09-browser-postfix-transmitted.txt",
+      "bytes": 3634,
+      "sha256": "555f94bb301180126865555bbc30436934ba9a4675081afbd804cb2d0d87a280"
+    },
+    {
+      "path": "docs/previews/browser-v09-postfix-departures.png",
+      "bytes": 106422,
+      "sha256": "99cf1b31091fa422a688786ed2e7a557a40f202b77e462e4edc1c7154b5cfefa"
+    },
+    {
+      "path": "docs/previews/browser-v09-postfix-result.png",
+      "bytes": 81417,
+      "sha256": "285b246ecbf7e97cb2bd4e359b4e99f6fbf50f1e8000620419ede3284c8c3df8"
+    },
+    {
+      "path": "docs/previews/browser-v09-postfix-transmitted.png",
+      "bytes": 119396,
+      "sha256": "9249a0ead207bb29df4e31c27541f7a66dd9f67cb107352761a602e257dfc83b"
+    }
+  ],
+  "sourceFingerprints": [
+    {
+      "path": "src/controls.mjs",
+      "bytes": 6981,
+      "sha256": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32"
+    },
+    {
+      "path": "src/simulation.mjs",
+      "bytes": 233729,
+      "sha256": "a3ec0c6cdfee1b5d312bde8fb6db59dd8bfb711f39740aca729759d7bc1afd06"
+    }
+  ],
+  "passedWithinScope": true
+}

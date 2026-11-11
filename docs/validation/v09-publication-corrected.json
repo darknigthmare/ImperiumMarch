@@ -1,0 +1,597 @@
+{
+  "schema": 1,
+  "release": "0.9.0",
+  "phase": "Corrected application and received design workbook; deployment checks recorded independently of native browser reception",
+  "source": {
+    "snapshot": "/workspace/scratch/47882a75de66/publication-v09-corrected",
+    "localCommit": "1fc6b2d519458ff8fae57f60c3493c04ade4eded",
+    "localTree": "0c682cbf947aa62b8bda565482b3bde9a4f75217",
+    "files": 873,
+    "bytes": 88261974,
+    "deltaFiles": 126,
+    "added": 92,
+    "changed": 34,
+    "deleted": [],
+    "fingerprints": 474,
+    "releaseCheckSha256": "1d5cc5bb0ba7b9c71f24c17cf54f2fac0c1c554ee76e3505150ad33aca761466",
+    "manifestSha256": "e450689c80c3ad8f250ee74a4cfc8a322b612e695192236c34abe4b52c93ab49",
+    "knownBlobs": 928,
+    "additionalBlobs": 120,
+    "additionalBytes": 20998914,
+    "sourceHeadAfter": "1fc6b2d519458ff8fae57f60c3493c04ade4eded",
+    "sourceStatusAfter": ""
+  },
+  "github": {
+    "repository": "darknigthmare/ImperiumMarch",
+    "branch": "main",
+    "parent": "c044fbe32a28e2f83f8d8088d46b43034af49d48",
+    "commit": "006b3ab517f335102a5dfd38be3272e263af75cf",
+    "tree": "0c682cbf947aa62b8bda565482b3bde9a4f75217",
+    "url": "https://github.com/darknigthmare/ImperiumMarch/commit/006b3ab517f335102a5dfd38be3272e263af75cf",
+    "cas": {
+      "expectedSha": "c044fbe32a28e2f83f8d8088d46b43034af49d48",
+      "force": false,
+      "success": true
+    },
+    "wholeTree": {
+      "sha": "0c682cbf947aa62b8bda565482b3bde9a4f75217",
+      "files": 873,
+      "matches": true,
+      "truncated": false
+    },
+    "additionalBlobsUploaded": 120,
+    "uploadsRemaining": 0,
+    "knownBlobsAfter": 1048
+  },
+  "applicationChanges": [
+    "dist/Ordre_de_Cendre.html",
+    "src/controls.mjs",
+    "src/simulation.mjs"
+  ],
+  "vercel": {
+    "projectId": "prj_ggDB98oddkTTzVPiGQrtxnj7frcr",
+    "projectName": "imperium-march",
+    "teamId": "team_VrIjq2UWV6VaHZr7DdQFwvfu",
+    "nodeVersion": "22.x",
+    "configuration": {
+      "$schema": "https://openapi.vercel.sh/vercel.json",
+      "framework": null,
+      "installCommand": "",
+      "buildCommand": "npm run build:web",
+      "outputDirectory": "web-dist"
+    },
+    "deploymentId": "dpl_9SAPYJfTML8hm6qkSsym9Z4Hvxtw",
+    "url": "https://imperium-march-q7bnqqgjf-darknigthmares-projects.vercel.app",
+    "productionUrl": "https://imperium-march.vercel.app/",
+    "state": "READY",
+    "target": "production",
+    "source": "git",
+    "commit": "006b3ab517f335102a5dfd38be3272e263af75cf",
+    "aliases": [
+      "imperium-march.vercel.app",
+      "imperium-march-darknigthmares-projects.vercel.app",
+      "imperium-march-git-main-darknigthmares-projects.vercel.app"
+    ],
+    "createdAt": 1794397749819,
+    "buildingAt": 1794397751026,
+    "readyAt": 1794397763596,
+    "protection": {
+      "sso": {
+        "enabled": true,
+        "deploymentType": "all_except_custom_domains"
+      },
+      "password": {
+        "enabled": false,
+        "deploymentType": null
+      },
+      "trustedIps": {
+        "enabled": false,
+        "deploymentType": null,
+        "addresses": [],
+        "protectionMode": null
+      }
+    }
+  },
+  "ci": {
+    "runId": 43015073388,
+    "jobId": 130503987302,
+    "url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43015073388",
+    "headSha": "006b3ab517f335102a5dfd38be3272e263af75cf",
+    "status": "completed",
+    "conclusion": "success",
+    "nodeVersion": "v22.23.4",
+    "tests": 291,
+    "passed": 291,
+    "failed": 0,
+    "uiFlows": 57,
+    "rasterCases": 5,
+    "evidence": [
+      "node: v22.23.4",
+      "# tests 291",
+      "# pass 291",
+      "# fail 0",
+      "# skipped 0",
+      "Production SVG/Canvas raster validation passed: 5/5 cases, @napi-rs/canvas 0.1.100.",
+      "Project checks passed: 20 design sheets, 816 source rows, 6 playable chassis, 3 independent operations, 8 campaign missions.",
+      "UI STATE INTEGRATION PASSED: 57 flows against the actual offline application script in a modeled DOM."
+    ],
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run npm test",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Install pinned development-only raster validator",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Validate shared SVG and Canvas rendering",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run npm run check",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run npm run build",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run npm run check:ui",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run npm run check:ui-runtime",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run npm run build:web",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Post Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "http": {
+    "productionUrl": "https://imperium-march.vercel.app/",
+    "resources": [
+      {
+        "path": "index.html",
+        "url": "https://imperium-march.vercel.app/",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 21256,
+        "sha256": "5061cf364a44588fedfd259b4d6ce27b37fdbe040154a988f7151ee02e9d45e5",
+        "remoteCharacters": 21016,
+        "matches": true
+      },
+      {
+        "path": "src/audio.mjs",
+        "url": "https://imperium-march.vercel.app/src/audio.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "bytes": 24384,
+        "sha256": "a1fe78add6c0eac7961d937afd501295d5772af6f20191b377cadd8fc7282829",
+        "remoteCharacters": 24314,
+        "matches": true
+      },
+      {
+        "path": "src/campaign.mjs",
+        "url": "https://imperium-march.vercel.app/src/campaign.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "bytes": 129116,
+        "sha256": "e3b960fd7ec90c49af82b1046ddbb95fba2f8d706051ae840941cfb0095f5272",
+        "remoteCharacters": 128278,
+        "matches": true
+      },
+      {
+        "path": "src/content.mjs",
+        "url": "https://imperium-march.vercel.app/src/content.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "bytes": 29167,
+        "sha256": "5dea60cf815deaf606ab419fff363a575082b883c8af7ec1cf6bbdbaf8143f16",
+        "remoteCharacters": 28583,
+        "matches": true
+      },
+      {
+        "path": "src/controls.mjs",
+        "url": "https://imperium-march.vercel.app/src/controls.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "bytes": 6981,
+        "sha256": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32",
+        "remoteCharacters": 6937,
+        "matches": true
+      },
+      {
+        "path": "src/departure-validation.mjs",
+        "url": "https://imperium-march.vercel.app/src/departure-validation.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "bytes": 23208,
+        "sha256": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b",
+        "remoteCharacters": 23099,
+        "matches": true
+      },
+      {
+        "path": "src/main.mjs",
+        "url": "https://imperium-march.vercel.app/src/main.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "bytes": 92170,
+        "sha256": "e72b9779b832cd2edeabe85f20578401d6fad71792b4c406e7f5cef75abc35eb",
+        "remoteCharacters": 91011,
+        "matches": true
+      },
+      {
+        "path": "src/production-assets.mjs",
+        "url": "https://imperium-march.vercel.app/src/production-assets.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "bytes": 45583,
+        "sha256": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0",
+        "remoteCharacters": 45549,
+        "matches": true
+      },
+      {
+        "path": "src/renderer.mjs",
+        "url": "https://imperium-march.vercel.app/src/renderer.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "bytes": 134405,
+        "sha256": "3627328993c9e4152672d6edaa36933ab69a3ea22337359fcb9803ccda01bfa0",
+        "remoteCharacters": 133962,
+        "matches": true
+      },
+      {
+        "path": "src/simulation.mjs",
+        "url": "https://imperium-march.vercel.app/src/simulation.mjs",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8",
+        "bytes": 233729,
+        "sha256": "a3ec0c6cdfee1b5d312bde8fb6db59dd8bfb711f39740aca729759d7bc1afd06",
+        "remoteCharacters": 231361,
+        "matches": true
+      },
+      {
+        "path": "src/style.css",
+        "url": "https://imperium-march.vercel.app/src/style.css",
+        "status": 200,
+        "contentType": "text/css; charset=utf-8",
+        "bytes": 24414,
+        "sha256": "912f2616ef161e7f372a32fcf2418c868a1f698c9d09b7d0741e277b99919838",
+        "remoteCharacters": 24414,
+        "matches": true
+      },
+      {
+        "path": "src/ui.css",
+        "url": "https://imperium-march.vercel.app/src/ui.css",
+        "status": 200,
+        "contentType": "text/css; charset=utf-8",
+        "bytes": 14365,
+        "sha256": "177533d784ada32fecdacb8bd987d0aada274364e6f3f9685c6cb44eed040d12",
+        "remoteCharacters": 14365,
+        "matches": true
+      },
+      {
+        "path": "assets/emblem.svg",
+        "url": "https://imperium-march.vercel.app/assets/emblem.svg",
+        "status": 200,
+        "contentType": "image/svg+xml",
+        "bytes": 301,
+        "sha256": "42c7b9310070c4461852e55b97a7bd6cadc00d9f4fd194af18b14643e5b4f3ce",
+        "remoteCharacters": 301,
+        "matches": true
+      }
+    ],
+    "allPassed": true,
+    "verification": "Exact comparison of HTTP-decoded UTF-8 content with immutable snapshot bytes for the index, nine modules, two stylesheets and emblem. Transfer compression is not compared."
+  },
+  "releaseChecks": {
+    "path": "docs/validation/v09-release-checks.json",
+    "sha256": "1d5cc5bb0ba7b9c71f24c17cf54f2fac0c1c554ee76e3505150ad33aca761466",
+    "fingerprintsVerified": 474,
+    "localNodeVersion": "v24.22.1",
+    "localGates": {
+      "release": "0.9.0",
+      "saveVersion": 8,
+      "phase": "Application candidate after native reception and final workbook verification; two text fixes awaiting post-publication Chrome confirmation",
+      "checkedAt": "2026-11-11T11:44:35.469036+00:00",
+      "localBaseRevision": "01c4aed07788c574eeed421222c2de5fe3d25bdf",
+      "publicBaseRevision": "c044fbe32a28e2f83f8d8088d46b43034af49d48",
+      "nodeVersion": "v24.22.1",
+      "nodeTests": {
+        "passed": 291,
+        "failed": 0,
+        "skipped": 0,
+        "log": "docs/validation/v09-node-tests.txt"
+      },
+      "uiModel": {
+        "flows": 57,
+        "failed": 0,
+        "log": "docs/validation/v09-ui-runtime.txt",
+        "scope": "Actual offline application and real event handlers in modeled DOM, not a browser."
+      },
+      "independentAudit": {
+        "variants": 32,
+        "checkpointRoundtrips": 8915,
+        "restorations": 8915,
+        "deterministicContinuations": 795,
+        "path": "docs/validation/v09-campaign-audit.json"
+      },
+      "staticUI": {
+        "ids": 167,
+        "literalReferences": 156,
+        "views": 5,
+        "archiveTabs": 4,
+        "dialogs": 6
+      },
+      "raster": {
+        "cases": 5,
+        "passed": 5,
+        "minimumCoveragePercent": 98.28,
+        "maximumCoveragePercent": 99.9,
+        "package": "@napi-rs/canvas@0.1.100",
+        "log": "docs/validation/v09-assets-render.txt"
+      },
+      "catalogue": {
+        "records": 816,
+        "domains": 20,
+        "walkers": 6,
+        "operations": 3,
+        "campaignMissions": 8,
+        "statuses": {
+          "Conçu": 287,
+          "Prototype": 310,
+          "À produire": 83,
+          "Vérifié": 136
+        }
+      },
+      "productionAssets": {
+        "files": 354,
+        "bytes": 14135218,
+        "svg": 287,
+        "rigs": 6,
+        "pngSheets": 5,
+        "wav": 56
+      },
+      "media": {
+        "path": "assets/production/distribution-manifest.json",
+        "coverage": {
+          "registeredSourceMedia": 351,
+          "sourceMedia": 351,
+          "runtimeImageFiles": 3,
+          "productionGraphicsMedia": 292,
+          "productionAudioMedia": 56,
+          "observedWebMedia": 351,
+          "observedInlineOccurrences": 5,
+          "observedInlineDistinctHashes": 3,
+          "excludedDocumentationMedia": 203,
+          "unregisteredSourceMedia": 0,
+          "unregisteredWebMedia": 0,
+          "unregisteredInlineMedia": 0,
+          "productionWavsEmbedded": 0
+        },
+        "strictPassed": true
+      },
+      "canvasPreviews": {
+        "images": 17,
+        "manifest": "docs/previews/mi08-render-manifest.json",
+        "scope": "Canvas/Skia, not browser screenshots"
+      },
+      "workbook": {
+        "stage": "Final artifact verified; native interactive Calc/Excel QA29 remains open",
+        "path": "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+        "bytes": 181849,
+        "sha256": "af5c84c1a1efc9d78300f3443d0097fca0027596385db97358d97c7e6bdcf701",
+        "sourceJsonSha256": "fd20c64cec042c3dbbdb866146ab22c5b6a1235d4f78e30db1ec19d6c03251f2",
+        "sourceRecords": 816,
+        "sourceCellsReconciled": 5527,
+        "historicalIdsPreserved": 769,
+        "newIds": 47,
+        "sheets": 21,
+        "tables": 20,
+        "statusValidations": 20,
+        "conditionalRules": 80,
+        "frozenDataSheets": 20,
+        "formulaCells": 126,
+        "visuallyReviewedViews": 37,
+        "visuallyReviewedSheets": 10,
+        "formulaCachesClearedAndRecalculatedByLibreOffice": 126,
+        "nativeRecalculationValueDifferences": 0,
+        "nativeRecalculationScope": "LibreOffice headless on disposable copy; original unchanged; no interactive GUI use certified",
+        "proofs": [
+          "docs/validation/workbook-v0.9-export.json",
+          "docs/validation/workbook-v0.9-visual-review.json",
+          "docs/validation/workbook-v0.9-libreoffice.json",
+          "docs/validation/workbook-v0.9-baseline-check.json"
+        ]
+      },
+      "browser": {
+        "observedApplicationRevision": "c044fbe32a28e2f83f8d8088d46b43034af49d48",
+        "url": "https://imperium-march.vercel.app/",
+        "method": "Shared native Chrome on Linux, visible UI actions and actual application export/import; prepared checkpoints explicitly identified",
+        "receivedQA": [
+          "QA21",
+          "QA37",
+          "QA38",
+          "QA45",
+          "QA60"
+        ],
+        "initialProof": "docs/validation/v09-browser.json",
+        "exportAudit": "docs/validation/v09-browser-export-audit.json",
+        "sanitarySupplement": "docs/validation/v09-browser-sanitary-panel.json",
+        "initialArtifacts": 52,
+        "initialScreenshots": 18,
+        "supplementaryScreenshots": 1,
+        "actualMI08Continuation": {
+          "from": "Declared prepared partial-gate checkpoint",
+          "departed": 34,
+          "atRefuge": 34,
+          "local": 2,
+          "patientsAtRefuge": 4,
+          "boatsArrived": 2,
+          "lost": 0,
+          "reports": 8,
+          "partsBefore": 34,
+          "partsAfter": 38,
+          "fuelAfter": 0,
+          "historicalFuelSpent": 2,
+          "priorReportsExact": true,
+          "completedReloadByteIdentical": true
+        },
+        "openNativeQA": {
+          "QA19": "Two observed failures: held movement continued on tab/address-bar focus change; cause unresolved; not passed.",
+          "QA20": "Wide view and native zoom 125/150 observed; independent small native window remains unverified.",
+          "QA29": "No interactive Calc/Excel GUI verification; headless recalculation is a separate proof."
+        },
+        "pendingPostPublication": [
+          "Unicode word boundary: accented Départ radio text",
+          "Already transmitted report: Bilan transmis à Holt · rejoindre la sortie"
+        ],
+        "localChromium": "blocked before navigation by socket/ptrace restrictions",
+        "localFile": "file: protocol blocked by cloud browser policy; no workaround attempted",
+        "humanAndHardwareLimits": [
+          "Unguided comprehension",
+          "Physical gamepad",
+          "Human listening and final voice/mix",
+          "Target hardware performance",
+          "Accessibility trials with intended users"
+        ]
+      },
+      "productionBaseline": {
+        "rows": 133,
+        "criteriaPreserved": 133,
+        "statusChanges": 51,
+        "currentStatuses": {
+          "Prototype": 35,
+          "Vérifié": 16,
+          "À produire": 82
+        },
+        "recordsWithNewWorkDocumented": 75,
+        "proof": "docs/validation/production-v09-registry-check.json",
+        "scope": "Partial prototype reception preserves unmet original acceptance criteria; status counts are not a percentage of the game completed."
+      },
+      "textFixes": [
+        {
+          "path": "src/controls.mjs",
+          "scope": "Unicode-aware token boundaries protect accented words, combining marks, digits and apostrophes; eight control tests.",
+          "nativeConfirmation": "pending after publication"
+        },
+        {
+          "path": "src/simulation.mjs",
+          "scope": "Registry hint checks transmitted state before waiting/ready states; existing MI08 tests strengthened for three conduct choices.",
+          "nativeConfirmation": "pending after publication"
+        }
+      ]
+    }
+  },
+  "workbook": {
+    "stage": "Final artifact verified; native interactive Calc/Excel QA29 remains open",
+    "path": "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+    "bytes": 181849,
+    "sha256": "af5c84c1a1efc9d78300f3443d0097fca0027596385db97358d97c7e6bdcf701",
+    "sourceJsonSha256": "fd20c64cec042c3dbbdb866146ab22c5b6a1235d4f78e30db1ec19d6c03251f2",
+    "sourceRecords": 816,
+    "sourceCellsReconciled": 5527,
+    "historicalIdsPreserved": 769,
+    "newIds": 47,
+    "sheets": 21,
+    "tables": 20,
+    "statusValidations": 20,
+    "conditionalRules": 80,
+    "frozenDataSheets": 20,
+    "formulaCells": 126,
+    "visuallyReviewedViews": 37,
+    "visuallyReviewedSheets": 10,
+    "formulaCachesClearedAndRecalculatedByLibreOffice": 126,
+    "nativeRecalculationValueDifferences": 0,
+    "nativeRecalculationScope": "LibreOffice headless on disposable copy; original unchanged; no interactive GUI use certified",
+    "proofs": [
+      "docs/validation/workbook-v0.9-export.json",
+      "docs/validation/workbook-v0.9-visual-review.json",
+      "docs/validation/workbook-v0.9-libreoffice.json",
+      "docs/validation/workbook-v0.9-baseline-check.json"
+    ]
+  },
+  "openNativeQA": {
+    "QA19": "Two observed failures: held movement continued on tab/address-bar focus change; cause unresolved; not passed.",
+    "QA20": "Wide view and native zoom 125/150 observed; independent small native window remains unverified.",
+    "QA29": "No interactive Calc/Excel GUI verification; headless recalculation is a separate proof."
+  },
+  "scope": {
+    "publishedSnapshotOnly": true,
+    "receiptOutsideRepository": true,
+    "localRepositoryEdits": "Only docs/DEPLOYMENT.md is prepared for the next documentary follow-up. No local commit is created by publication.",
+    "nativeLimits": "CI, READY, raster comparisons and modeled DOM flows do not close native QA19, partial QA20 or interactive workbook QA29."
+  },
+  "recordedAt": "2026-11-11T11:53:22.504299+00:00",
+  "nativeTextConfirmationAtSourceFreeze": {
+    "status": "pending in immutable release-check manifest",
+    "checks": [
+      "Unicode word boundary: accented Départ radio text",
+      "Already transmitted report: Bilan transmis à Holt · rejoindre la sortie"
+    ]
+  },
+  "postDeploymentBrowserReportedByParent": {
+    "applicationCommit": "006b3ab517f335102a5dfd38be3272e263af75cf",
+    "unicodeRadio": {
+      "elapsed": "04:40",
+      "text": "Veille d’Aval a quitté la zone des portes. Départ acquis ; le refuge doit encore confirmer l’arrivée."
+    },
+    "transmittedRegistry": {
+      "elapsed": "05:20",
+      "text": "Bilan transmis à Holt · rejoindre la sortie"
+    },
+    "continuation": {
+      "from": "Native exported partial-gate point",
+      "resultElapsed": "05:45",
+      "atRefuge": 34,
+      "local": 2,
+      "lost": 0,
+      "patientsAtRefuge": 4,
+      "boatsArrived": 2,
+      "reports": 8,
+      "exportsBeforeAfterReloadByteIdentical": true
+    },
+    "evidenceStatus": "Parent reports native Chrome observations with PNG and accessibility evidence; files are being assembled for the documentary follow-up. Publication agent did not independently operate Chrome."
+  }
+}

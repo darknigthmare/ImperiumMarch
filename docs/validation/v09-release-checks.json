@@ -1,10 +1,10 @@
 {
   "release": "0.9.0",
   "saveVersion": 8,
-  "phase": "Application candidate after native reception and final workbook verification; two text fixes awaiting post-publication Chrome confirmation",
-  "checkedAt": "2026-11-11T11:44:35.469036+00:00",
-  "localBaseRevision": "01c4aed07788c574eeed421222c2de5fe3d25bdf",
-  "publicBaseRevision": "c044fbe32a28e2f83f8d8088d46b43034af49d48",
+  "phase": "Final documentary snapshot after native confirmation of the corrected application; application already published and CI passed, final documentary publication follows this receipt",
+  "checkedAt": "2026-11-11T12:01:29.898039+00:00",
+  "localBaseRevision": "1fc6b2d519458ff8fae57f60c3493c04ade4eded",
+  "publicBaseRevision": "006b3ab517f335102a5dfd38be3272e263af75cf",
   "nodeVersion": "v24.22.1",
   "nodeTests": {
     "passed": 291,
@@ -72,7 +72,7 @@
       "observedWebMedia": 351,
       "observedInlineOccurrences": 5,
       "observedInlineDistinctHashes": 3,
-      "excludedDocumentationMedia": 203,
+      "excludedDocumentationMedia": 206,
       "unregisteredSourceMedia": 0,
       "unregisteredWebMedia": 0,
       "unregisteredInlineMedia": 0,
@@ -114,7 +114,7 @@
     ]
   },
   "browser": {
-    "observedApplicationRevision": "c044fbe32a28e2f83f8d8088d46b43034af49d48",
+    "observedApplicationRevision": "006b3ab517f335102a5dfd38be3272e263af75cf",
     "url": "https://imperium-march.vercel.app/",
     "method": "Shared native Chrome on Linux, visible UI actions and actual application export/import; prepared checkpoints explicitly identified",
     "receivedQA": [
@@ -151,10 +151,7 @@
       "QA20": "Wide view and native zoom 125/150 observed; independent small native window remains unverified.",
       "QA29": "No interactive Calc/Excel GUI verification; headless recalculation is a separate proof."
     },
-    "pendingPostPublication": [
-      "Unicode word boundary: accented Départ radio text",
-      "Already transmitted report: Bilan transmis à Holt · rejoindre la sortie"
-    ],
+    "pendingPostPublication": [],
     "localChromium": "blocked before navigation by socket/ptrace restrictions",
     "localFile": "file: protocol blocked by cloud browser policy; no workaround attempted",
     "humanAndHardwareLimits": [
@@ -163,12 +160,26 @@
       "Human listening and final voice/mix",
       "Target hardware performance",
       "Accessibility trials with intended users"
-    ]
+    ],
+    "initialObservedApplicationRevision": "c044fbe32a28e2f83f8d8088d46b43034af49d48",
+    "postPublicationConfirmation": {
+      "proof": "docs/validation/v09-browser-postfix.json",
+      "independentExportAudit": "docs/validation/v09-browser-postfix-export-audit.json",
+      "nativeScreenshots": 3,
+      "primaryArtifacts": 11,
+      "radioTextObserved": "Départ acquis",
+      "transmittedPromptObserved": "Bilan transmis à Holt · rejoindre la sortie",
+      "departureTextDisplayedAt": "04:40",
+      "transmittedPromptDisplayedAt": "05:20",
+      "resultDisplayedAt": "05:45",
+      "reloadByteIdentical": true,
+      "qaStatusesUnchanged": true
+    }
   },
   "fingerprints": {
     "README.md": {
-      "bytes": 30565,
-      "sha256": "8778ed0fa9815be6505b4fb40a9b32352432bc35f5b849ef51de4699191a3aec"
+      "bytes": 30828,
+      "sha256": "835f006e55968e961eb9c10181c21ff91833d22b42ac6e4d473c29bb610f8eff"
     },
     "assets/art/key-art.png": {
       "bytes": 2621477,
@@ -419,12 +430,12 @@
       "sha256": "fe054462bdc63911a646828f56952f2a91f0960e0f0863908807aad8ca8749e7"
     },
     "assets/production/distribution-manifest.json": {
-      "bytes": 612266,
-      "sha256": "e5ccf6f14c1abadd1ce5d0699b8cd41a0043f345cd4370d910745465936bdcd0"
+      "bytes": 613330,
+      "sha256": "7a80738949055bf6a18b7266fbc586e4371fcf9c091ece35da0a553fe7e3625f"
     },
     "assets/production/distribution-report.md": {
       "bytes": 51081,
-      "sha256": "a1346dfc8bf02d4acd7e946aaf8a07388b6d5a7a99a8c440d91421d67ed50506"
+      "sha256": "e2ddcbd5c056e4885074238bd1e75e3910b99260cb19449468ac378ac877382c"
     },
     "assets/production/manifest.json": {
       "bytes": 239672,
@@ -1638,6 +1649,10 @@
       "bytes": 5245,
       "sha256": "f0b1f660f010893e1ffd8ff6fc7b70c5e7a71688acf7ffab2977cda1ee2691a3"
     },
+    "docs/DEPLOYMENT.md": {
+      "bytes": 18435,
+      "sha256": "cba57733df31fe11088e49e16be02f3880b1eefead864eb3cde221a71025c35f"
+    },
     "docs/ORDRE_DE_CENDRE_Bible.xlsx": {
       "bytes": 181849,
       "sha256": "af5c84c1a1efc9d78300f3443d0097fca0027596385db97358d97c7e6bdcf701"
@@ -1651,8 +1666,8 @@
       "sha256": "e2643432ea9e9b347f10574be715555d0480caf37a7fa7c67143ee75b135cfda"
     },
     "docs/QA_V09.md": {
-      "bytes": 16629,
-      "sha256": "ee9b0e0fce340f0f3439449655b7dfeb4e770465060b3e5ca075b8c41a6de669"
+      "bytes": 18589,
+      "sha256": "f87351bb17d5d1c662516751a1459f1d264baaa2551f02b27259b33370df9fc1"
     },
     "docs/previews/bible-v09-accueil-sanitaire.png": {
       "bytes": 58609,
@@ -1802,17 +1817,29 @@
       "bytes": 137829,
       "sha256": "1c3a01a9f0da751407aced660c5ed2ae7393b9d8806920ac3ae145a3a02affa9"
     },
+    "docs/previews/browser-v09-postfix-departures.png": {
+      "bytes": 106422,
+      "sha256": "99cf1b31091fa422a688786ed2e7a557a40f202b77e462e4edc1c7154b5cfefa"
+    },
+    "docs/previews/browser-v09-postfix-result.png": {
+      "bytes": 81417,
+      "sha256": "285b246ecbf7e97cb2bd4e359b4e99f6fbf50f1e8000620419ede3284c8c3df8"
+    },
+    "docs/previews/browser-v09-postfix-transmitted.png": {
+      "bytes": 119396,
+      "sha256": "9249a0ead207bb29df4e31c27541f7a66dd9f67cb107352761a602e257dfc83b"
+    },
     "docs/previews/mi08-render-manifest.json": {
       "bytes": 1441833,
       "sha256": "ab26441293cb47ab443c7385b8ec1ed04b8e93aa26d83397328f80bf90691cbd"
     },
     "docs/validation/production-v09-assets-receipt.json": {
       "bytes": 163340,
-      "sha256": "aa328be74ad79b780552be78f67381b3ff181ae0799009cd1e2bc92842bb0f43"
+      "sha256": "a10bb240798e157fe9d952d3d0b1518b81e7433a97ee3c5f66ce5b3761362ea7"
     },
     "docs/validation/production-v09-automatic-receipt.json": {
-      "bytes": 5676,
-      "sha256": "08513b8379923b1b6e0fe06646208931af0be22babe165a10bdb2dfc0ebf5f0a"
+      "bytes": 5774,
+      "sha256": "2da0a7b058d5a877621c9393b8c74670564c4e60109f3072a76a16363055f41f"
     },
     "docs/validation/production-v09-browser-receipt.json": {
       "bytes": 3685,
@@ -1820,11 +1847,11 @@
     },
     "docs/validation/production-v09-registry-check.json": {
       "bytes": 28162,
-      "sha256": "05ca2d1fce41a6c8ae245bb5a6b5a00d02d568da20483af3773977a276b224fc"
+      "sha256": "18c483dec191320e7c65a47ab9a4da58aa47d7a16cf13d492a93110e530df77d"
     },
     "docs/validation/production-v09-registry.json": {
       "bytes": 369973,
-      "sha256": "386a655fc4fe7e541e770ac65bf0a851efd64fa6bacccc1a7112474e387800c0"
+      "sha256": "96c99165d3294cedfed21a187ca222c943b9192dbd817fb8a7d2f5aa540260f6"
     },
     "docs/validation/v09-assets-render.txt": {
       "bytes": 317,
@@ -1834,6 +1861,46 @@
       "bytes": 341280,
       "sha256": "577574820c1dd95ab6bd889bce9f030a3c4f859b2f8dd346119a2d866c379518"
     },
+    "docs/validation/v09-browser-postfix-archives.txt": {
+      "bytes": 6677,
+      "sha256": "3269d8a3d7e59960690d3d683f5953bc6444b1cc5e48558e13ccd6ef2e50e8d5"
+    },
+    "docs/validation/v09-browser-postfix-completed-after-reload.json": {
+      "bytes": 48326,
+      "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f"
+    },
+    "docs/validation/v09-browser-postfix-completed.json": {
+      "bytes": 48326,
+      "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f"
+    },
+    "docs/validation/v09-browser-postfix-console.json": {
+      "bytes": 9678,
+      "sha256": "dedb9b0acb557e70c475de96ecb1fb65b96137c5cc1b703f8360a0d4b751e8c6"
+    },
+    "docs/validation/v09-browser-postfix-departures.txt": {
+      "bytes": 3579,
+      "sha256": "30777caf004db666fe3b4c61e3508162a3d85c6358292d2dddfbf69d280ce9db"
+    },
+    "docs/validation/v09-browser-postfix-export-audit.json": {
+      "bytes": 31937,
+      "sha256": "5a8a5a0ca9d18b342757d9bb3ec932560684d49dfe56f072ab0c6f3b0d481198"
+    },
+    "docs/validation/v09-browser-postfix-radio-observation.txt": {
+      "bytes": 863,
+      "sha256": "98892094f9c939b2eb333883ba080a622693135fb5bc0be3ce761c4cac498bca"
+    },
+    "docs/validation/v09-browser-postfix-result.txt": {
+      "bytes": 1972,
+      "sha256": "c6ea34c1a26e73b888502214c08d894b2dc135e532c15e15a6918438ccb3bca9"
+    },
+    "docs/validation/v09-browser-postfix-transmitted.txt": {
+      "bytes": 3634,
+      "sha256": "555f94bb301180126865555bbc30436934ba9a4675081afbd804cb2d0d87a280"
+    },
+    "docs/validation/v09-browser-postfix.json": {
+      "bytes": 8529,
+      "sha256": "ac6533b5f494c6e47388d0cb2de23ad295027e456187c04d67c682e00ec7af5a"
+    },
     "docs/validation/v09-browser-sanitary-panel.json": {
       "bytes": 1512,
       "sha256": "c03c05f48b285d8cc4b95ec6e13af931297ac2e42d47e11e4e165311dacf028e"
@@ -1841,6 +1908,10 @@
     "docs/validation/v09-browser.json": {
       "bytes": 16947,
       "sha256": "be671a9f82e6b3de2706f0bb51da7b809b8728d57ce9c0910fee984c74e6646d"
+    },
+    "docs/validation/v09-build-postfix.txt": {
+      "bytes": 107,
+      "sha256": "5b78c962051764536e77e45ba42cd2ba9ad7cb4d880802a0234f5b5f6f14c934"
     },
     "docs/validation/v09-build.txt": {
       "bytes": 338,
@@ -1856,7 +1927,7 @@
     },
     "docs/validation/v09-media-audit.txt": {
       "bytes": 590,
-      "sha256": "ff04958b3335245aa2df73ec56920a52caf994a2ebc1c87350d821008986a467"
+      "sha256": "6092ea725e78179c3a9d80c00f74f6a846791815b8cb4e20941eb9928dec6d64"
     },
     "docs/validation/v09-node-tests.txt": {
       "bytes": 40598,
@@ -1865,6 +1936,14 @@
     "docs/validation/v09-project-check.txt": {
       "bytes": 156,
       "sha256": "0fc7a4da5cb88db1d4c790827dc79475ee3d959aa72f72a8a7398c711ca106a1"
+    },
+    "docs/validation/v09-publication-corrected.json": {
+      "bytes": 21672,
+      "sha256": "ce8996d6d1323aaeef913cafd6e0e046eb6fd37ab7a2b07c097c6bd7a2c4f378"
+    },
+    "docs/validation/v09-release-checks-candidate.json": {
+      "bytes": 84603,
+      "sha256": "1d5cc5bb0ba7b9c71f24c17cf54f2fac0c1c554ee76e3505150ad33aca761466"
     },
     "docs/validation/v09-ui-runtime.txt": {
       "bytes": 5737,
@@ -2080,12 +2159,41 @@
     {
       "path": "src/controls.mjs",
       "scope": "Unicode-aware token boundaries protect accented words, combining marks, digits and apostrophes; eight control tests.",
-      "nativeConfirmation": "pending after publication"
+      "nativeConfirmation": "Observed on corrected published application; see docs/validation/v09-browser-postfix.json"
     },
     {
       "path": "src/simulation.mjs",
       "scope": "Registry hint checks transmitted state before waiting/ready states; existing MI08 tests strengthened for three conduct choices.",
-      "nativeConfirmation": "pending after publication"
+      "nativeConfirmation": "Observed on corrected published application; see docs/validation/v09-browser-postfix.json"
     }
-  ]
+  ],
+  "candidateReceipt": {
+    "path": "docs/validation/v09-release-checks-candidate.json",
+    "bytes": 84603,
+    "sha256": "1d5cc5bb0ba7b9c71f24c17cf54f2fac0c1c554ee76e3505150ad33aca761466"
+  },
+  "correctedApplicationPublication": {
+    "commit": "006b3ab517f335102a5dfd38be3272e263af75cf",
+    "tree": "0c682cbf947aa62b8bda565482b3bde9a4f75217",
+    "deployment": "dpl_9SAPYJfTML8hm6qkSsym9Z4Hvxtw",
+    "state": "READY",
+    "ciRun": "43015073388",
+    "ciJob": "130503987302",
+    "ciNodeVersion": "v22.23.4",
+    "ciNodePassed": 291,
+    "ciUiFlowsPassed": 57,
+    "ciRasterCasesPassed": 5,
+    "httpResourcesExact": 13,
+    "proof": "docs/validation/v09-publication-corrected.json"
+  },
+  "finalDocumentaryScope": {
+    "applicationBytesUnchangedFromReceivedCandidate": true,
+    "bibleJsonUnchanged": true,
+    "workbookUnchanged": true,
+    "bibleViewsUnchanged": 37,
+    "initialNativeProofsUnchanged": true,
+    "newNativeScreenshots": 3,
+    "mediaManifestUpdatedOnlyForDocumentaryInventory": true,
+    "lastPublicationReceiptStoredSeparatelyToAvoidSelfReference": true
+  }
 }

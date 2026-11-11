@@ -12,6 +12,8 @@ La réception est suivie dans le [registre des 133 exigences initiales](PRODUCTI
 
 Les résultats finaux sont inscrits après les suites exécutées sur sources figées. Les journaux de développement et les échecs corrigés restent distincts du résultat reçu. La CI utilise Node 22; les contrôles locaux de cette tranche utilisent Node v24.22.1.
 
+Le commit applicatif public `006b3ab517f335102a5dfd38be3272e263af75cf` a également passé la CI sous **Node v22.23.4** : 291 tests, 57 parcours DOM et cinq cas raster. Le déploiement Vercel associé est READY ; les treize ressources contrôlées sont identiques au snapshot publié. Le [dossier de déploiement](DEPLOYMENT.md) conserve les identifiants et les vérifications.
+
 | Contrôle | Portée et preuve attendue |
 | --- | --- |
 | Suite Node | **291/291 tests réussis**, zéro échec, ignoré ou todo. Simulation, migrations historiques, ressources, collisions, contrôles et intégrité des lots. |
@@ -93,11 +95,19 @@ Le [rapport natif](validation/v09-browser.json) et l’[audit des exports](valid
 
 La porte partielle conservée était ouverte à 77,291666… %, mais le travail avait déjà été interrompu avant l’export (`working=false`, `progress=0`). Ce contrôle prouve la conservation de la position physique, pas une manœuvre encore active. La reprise des travaux actifs reste couverte séparément par les tests de simulation.
 
+### Confirmation native des deux corrections textuelles
+
+Le [complément natif sur la publication corrigée](validation/v09-browser-postfix.json) utilise l’export réel `v09-browser-mi08-gate-after-reload.json`, avec un seul import déclaré avant la reprise. À 04:40, la radio affiche correctement « Départ acquis » dans le message de Veille d’Aval. L’observation d’accessibilité est transcrite dans le reçu ; la capture des départs est postérieure, à 04:53, et montre déjà un message d’accostage différent.
+
+Après fermeture des portes et arrivée des 34 personnes, la transmission affiche à 05:20 **« Bilan transmis à Holt · rejoindre la sortie »**, dans l’arbre d’accessibilité et la [capture native](previews/browser-v09-postfix-transmitted.png). La marche contrôlée jusqu’à la sortie produit le [résultat à 05:45](previews/browser-v09-postfix-result.png) : 34 au refuge, deux à Aval, quatre patients au refuge, deux bateaux arrivés et aucune perte. Aucun nouvel import n’intervient entre cette reprise et le résultat.
+
+Les deux exports finaux sont identiques octet pour octet après reload. Les sept rapports antérieurs sont exacts ; les pièces passent de 34 à 38, le carburant reste à zéro et les deux lots consommés antérieurement sont conservés. L’[audit distinct des exports](validation/v09-browser-postfix-export-audit.json) consigne ces comparaisons. La collecte de console de ce complément contient 41 avertissements/erreurs de l’extension et aucune entrée de l’application ; elle ne prétend pas représenter tout l’historique du navigateur.
+
 ### Contrôles natifs encore ouverts
 
 **QA19 n’est pas validée.** Lors d’un clic vers un autre onglet en maintenant D, puis d’un second essai vers la barre d’adresse, aucune pause n’a été constatée et la marche a continué jusqu’à l’extraction. Les gardes `blur`, `visibilitychange` et `document.hasFocus` existent dans le code livré ; la cause entre application et environnement d’entrée géré reste à établir. L’erreur de la façade DOM protégée sur `document.hasFocus` ne renseigne pas sur son état réel. Aucun correctif spéculatif ni réussite humaine n’est inventé.
 
-**QA20 reste ouverte** pour la petite fenêtre native, malgré les vues larges et le zoom reçus. **QA29 reste ouverte** pour l’usage interactif de Calc/Excel. Les deux corrections de texte issues du parcours natif sont rattachées à leurs tests et à la publication suivante. Les résultats des versions antérieures conservent leur version historique.
+**QA20 reste ouverte** pour la petite fenêtre native, malgré les vues larges et le zoom reçus. **QA29 reste ouverte** pour l’usage interactif de Calc/Excel. La confirmation des deux textes corrigés ne valide pas ces contrôles ni QA19. Les résultats des versions antérieures conservent leur version historique.
 
 ## Limites
 

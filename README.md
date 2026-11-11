@@ -61,9 +61,9 @@ npm run build:web
 
 Le [contrat MI08](docs/CAMPAIGN_MISSION_08.md), le [format de sauvegarde v8](docs/CAMPAIGN_SAVE_V8.md), les [commandes et le son](docs/CONTROLS_AUDIO_V09.md), le [lot graphique et audio](assets/production/README.md) et le [registre de production](docs/PRODUCTION_REGISTER_V09.md) détaillent cette livraison.
 
-![Résultat de MI08 dans Chrome : 34 personnes au refuge, deux à Aval et aucune perte](docs/previews/browser-v09-mi08-result.png)
+![Résultat de MI08 dans Chrome : 34 personnes au refuge, deux à Aval et aucune perte](docs/previews/browser-v09-postfix-result.png)
 
-*Capture native de la publication 0.9. Le parcours reprend une porte partiellement ouverte préparée par les commandes publiques, puis accomplit l’ouverture, les départs, la fermeture, les arrivées et le bilan dans Chrome. Les [observations et leurs limites](docs/validation/v09-browser.json), notamment l’anomalie de perte de focus, restent distinctes des [comparaisons exactes des exports](docs/validation/v09-browser-export-audit.json). Ce parcours ne constitue pas une partie intégrale depuis le début de MI08.*
+*Capture native de la publication 0.9 corrigée. Le parcours reprend un export réel de porte partiellement ouverte, issu du contrôle initial dont le départ avait été préparé par les commandes publiques. L’ouverture, les départs, la fermeture, les arrivées, la transmission et l’extraction sont ensuite accomplis dans Chrome, sans nouvel import. Les [deux corrections textuelles et ce résultat à 05:45](docs/validation/v09-browser-postfix.json) ont été observés sur la version publiée ; les exports finaux restent identiques après recharge. Ce parcours ne constitue pas une partie intégrale depuis le début de MI08. Les [observations initiales](docs/validation/v09-browser.json), dont l’anomalie de perte de focus encore ouverte, sont conservées séparément.*
 
 ## Une ambulance sans escorte — conservée depuis la 0.8
 

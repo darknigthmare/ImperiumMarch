@@ -1,0 +1,1136 @@
+{
+  "schema": "ordre-de-cendre.browser-postfix-export-audit.v1",
+  "generatedAt": "2026-11-11T11:58:03.437179+00:00",
+  "publication": {
+    "url": "https://imperium-march.vercel.app/",
+    "commit": "006b3ab517f335102a5dfd38be3272e263af75cf",
+    "localSourceCommit": "1fc6b2d519458ff8fae57f60c3493c04ade4eded",
+    "tree": "0c682cbf947aa62b8bda565482b3bde9a4f75217",
+    "deployment": "dpl_9SAPYJfTML8hm6qkSsym9Z4Hvxtw",
+    "state": "READY",
+    "githubCiRun": "43015073388",
+    "nodeVersion": "v22.23.4",
+    "ciTests": 291,
+    "ciUiFlows": 57,
+    "ciRasterCases": 5
+  },
+  "scope": {
+    "performed": "Read-only independent comparison of received exports and hashes; only this audit file is written. No browser control, injected application state or new mission run.",
+    "strictness": "Exact nested JSON values and keys, no numeric tolerance; object key order ignored. Duplicate object keys and non-JSON numeric constants are rejected when reading. Byte equality is reported separately.",
+    "canonicalHashMethod": "SHA-256 of UTF-8 json.dumps with sorted object keys, ensure_ascii=False, compact separators and unchanged array order.",
+    "operatorBoundary": "Root reports the native actions and absence of additional imports between the declared input and result. This file independently verifies received files and persisted facts; exports alone do not prove every input gesture.",
+    "textFixBoundary": "Radio at 04:40 is a live AX observation transcribed by root. The departure PNG is later at 04:53; the transmission AX/PNG are at 05:20. This audit checks their file identities, not a new visual observation.",
+    "openLimits": "QA19 focus observations, QA20 small native window and QA29 interactive office use remain open; no new status, human trial, physical gamepad, listening or target-hardware validation."
+  },
+  "inputs": [
+    {
+      "id": "entry",
+      "path": "docs/validation/v09-browser-mi08-gate-after-reload.json",
+      "bytes": 55916,
+      "sha256": "cb5befc445bb25cc254acc45468189f145c71105b2294352bb97637964f227ac",
+      "canonicalJsonSha256": "0bb238078d3dffe80311119e2940d0d87832bef32070eea5eaf943588e96a4f1"
+    },
+    {
+      "id": "completed",
+      "path": "docs/validation/v09-browser-postfix-completed.json",
+      "bytes": 48326,
+      "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f",
+      "canonicalJsonSha256": "9446795694786f2148194914c8f534447172854cff20cee09783d77ba6d06709"
+    },
+    {
+      "id": "afterReload",
+      "path": "docs/validation/v09-browser-postfix-completed-after-reload.json",
+      "bytes": 48326,
+      "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f",
+      "canonicalJsonSha256": "9446795694786f2148194914c8f534447172854cff20cee09783d77ba6d06709"
+    }
+  ],
+  "operatorReport": {
+    "path": "docs/validation/v09-browser-postfix.json",
+    "sha256": "ac6533b5f494c6e47388d0cb2de23ad295027e456187c04d67c682e00ec7af5a",
+    "artifactCount": 11,
+    "allArtifactHashesMatch": true,
+    "artifactChecks": [
+      {
+        "path": "docs/validation/v09-browser-postfix-archives.txt",
+        "bytes": 6677,
+        "sha256": "3269d8a3d7e59960690d3d683f5953bc6444b1cc5e48558e13ccd6ef2e50e8d5",
+        "matchesOperatorReport": true
+      },
+      {
+        "path": "docs/validation/v09-browser-postfix-completed-after-reload.json",
+        "bytes": 48326,
+        "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f",
+        "matchesOperatorReport": true
+      },
+      {
+        "path": "docs/validation/v09-browser-postfix-completed.json",
+        "bytes": 48326,
+        "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f",
+        "matchesOperatorReport": true
+      },
+      {
+        "path": "docs/validation/v09-browser-postfix-console.json",
+        "bytes": 9678,
+        "sha256": "dedb9b0acb557e70c475de96ecb1fb65b96137c5cc1b703f8360a0d4b751e8c6",
+        "matchesOperatorReport": true
+      },
+      {
+        "path": "docs/validation/v09-browser-postfix-departures.txt",
+        "bytes": 3579,
+        "sha256": "30777caf004db666fe3b4c61e3508162a3d85c6358292d2dddfbf69d280ce9db",
+        "matchesOperatorReport": true
+      },
+      {
+        "path": "docs/validation/v09-browser-postfix-radio-observation.txt",
+        "bytes": 863,
+        "sha256": "98892094f9c939b2eb333883ba080a622693135fb5bc0be3ce761c4cac498bca",
+        "matchesOperatorReport": true
+      },
+      {
+        "path": "docs/validation/v09-browser-postfix-result.txt",
+        "bytes": 1972,
+        "sha256": "c6ea34c1a26e73b888502214c08d894b2dc135e532c15e15a6918438ccb3bca9",
+        "matchesOperatorReport": true
+      },
+      {
+        "path": "docs/validation/v09-browser-postfix-transmitted.txt",
+        "bytes": 3634,
+        "sha256": "555f94bb301180126865555bbc30436934ba9a4675081afbd804cb2d0d87a280",
+        "matchesOperatorReport": true
+      },
+      {
+        "path": "docs/previews/browser-v09-postfix-departures.png",
+        "bytes": 106422,
+        "sha256": "99cf1b31091fa422a688786ed2e7a557a40f202b77e462e4edc1c7154b5cfefa",
+        "matchesOperatorReport": true
+      },
+      {
+        "path": "docs/previews/browser-v09-postfix-result.png",
+        "bytes": 81417,
+        "sha256": "285b246ecbf7e97cb2bd4e359b4e99f6fbf50f1e8000620419ede3284c8c3df8",
+        "matchesOperatorReport": true
+      },
+      {
+        "path": "docs/previews/browser-v09-postfix-transmitted.png",
+        "bytes": 119396,
+        "sha256": "9249a0ead207bb29df4e31c27541f7a66dd9f67cb107352761a602e257dfc83b",
+        "matchesOperatorReport": true
+      }
+    ]
+  },
+  "completedReload": {
+    "bytesEqual": true,
+    "jsonExactlyEqual": true,
+    "differences": [],
+    "bytesEach": 48326,
+    "sha256": "7d65257fc71f6c610d7467df92d18a3d805066134a942b576f7176691eadd64f",
+    "revisionBefore": 148,
+    "revisionAfter": 148,
+    "allTopLevelFieldsExactlyEqual": [
+      "format",
+      "version",
+      "revision",
+      "stage",
+      "activeMissionId",
+      "completed",
+      "resources",
+      "crew",
+      "authority",
+      "world",
+      "fleet",
+      "checkpoint",
+      "preDecisionCheckpoint",
+      "lastDebrief",
+      "maintenanceLog"
+    ]
+  },
+  "sevenPriorReceipts": [
+    {
+      "missionId": "MI01",
+      "exactlyEqual": true,
+      "beforeCanonicalSha256": "6cace10c82b0bc4f711c4d1fd2213ced0c36572b1ba03c0c822072b22a7e5e10",
+      "afterCanonicalSha256": "6cace10c82b0bc4f711c4d1fd2213ced0c36572b1ba03c0c822072b22a7e5e10"
+    },
+    {
+      "missionId": "MI02",
+      "exactlyEqual": true,
+      "beforeCanonicalSha256": "0c8f1a36b4769ba2ef4e8d1156e627ef5cd62b23b7b733c70be4addb547f83b7",
+      "afterCanonicalSha256": "0c8f1a36b4769ba2ef4e8d1156e627ef5cd62b23b7b733c70be4addb547f83b7"
+    },
+    {
+      "missionId": "MI03",
+      "exactlyEqual": true,
+      "beforeCanonicalSha256": "21273985bdc0aadfc5eb792a6e5df2f437765cee1bbeb400637f0ad2f55d6b91",
+      "afterCanonicalSha256": "21273985bdc0aadfc5eb792a6e5df2f437765cee1bbeb400637f0ad2f55d6b91"
+    },
+    {
+      "missionId": "MI04",
+      "exactlyEqual": true,
+      "beforeCanonicalSha256": "955cfce9a13de88b839351c2ddc5370be64c5fa99944914bd524dd455447e7ea",
+      "afterCanonicalSha256": "955cfce9a13de88b839351c2ddc5370be64c5fa99944914bd524dd455447e7ea"
+    },
+    {
+      "missionId": "MI05",
+      "exactlyEqual": true,
+      "beforeCanonicalSha256": "a7f3451f680af2f92a94350f6e6819077004f72ac553c8bdcda590ce3a108654",
+      "afterCanonicalSha256": "a7f3451f680af2f92a94350f6e6819077004f72ac553c8bdcda590ce3a108654"
+    },
+    {
+      "missionId": "MI06",
+      "exactlyEqual": true,
+      "beforeCanonicalSha256": "a584dc2dfa7d48f348f004baa677a6b831c03c873fed808120288e66f84e81a0",
+      "afterCanonicalSha256": "a584dc2dfa7d48f348f004baa677a6b831c03c873fed808120288e66f84e81a0"
+    },
+    {
+      "missionId": "MI07",
+      "exactlyEqual": true,
+      "beforeCanonicalSha256": "3b10bd283a05c8ccdcd8a0e39831a731d001ca864fb8f5655aef82acb6138edd",
+      "afterCanonicalSha256": "3b10bd283a05c8ccdcd8a0e39831a731d001ca864fb8f5655aef82acb6138edd"
+    }
+  ],
+  "completedMissionIds": [
+    "MI01",
+    "MI02",
+    "MI03",
+    "MI04",
+    "MI05",
+    "MI06",
+    "MI07",
+    "MI08"
+  ],
+  "resources": {
+    "entry": {
+      "parts": 34,
+      "fuel": 0
+    },
+    "completed": {
+      "parts": 38,
+      "fuel": 0
+    },
+    "afterReload": {
+      "parts": 38,
+      "fuel": 0
+    },
+    "partsGrantedByReceipt": 4,
+    "partsDelta": 4,
+    "reloadPartsDelta": 0,
+    "fuelSpentBefore": 2,
+    "fuelSpentAfter": 2,
+    "allOtherResourceFieldsExactlyPreserved": true
+  },
+  "historicalWorld": {
+    "vesperExactlyPreserved": true,
+    "nacreOutsideDepartureExactlyPreserved": true,
+    "vesperBeforeCanonicalSha256": "d2fb187a9fda96333ec6a9a0851420ecea046dcb78d074644c995d50bfa372b4",
+    "vesperAfterCanonicalSha256": "d2fb187a9fda96333ec6a9a0851420ecea046dcb78d074644c995d50bfa372b4",
+    "priorNacreBeforeCanonicalSha256": "3f6784a5c089cfc9e6b0c00b71f93e12c4a4d0bc96e16fc46f590757c10d8d28",
+    "priorNacreAfterCanonicalSha256": "3f6784a5c089cfc9e6b0c00b71f93e12c4a4d0bc96e16fc46f590757c10d8d28"
+  },
+  "individualPeople": {
+    "total": 36,
+    "uniqueIds": 36,
+    "refugeArrivals": 34,
+    "localArrivals": 2,
+    "losses": 0,
+    "patients": 4,
+    "patientRefugeArrivals": 4,
+    "localRoles": {
+      "technician": 2
+    },
+    "allTerminalAliveAndSafe": true,
+    "allRefugeArrivalsDeparted": true,
+    "sameIndividualsAsEntryCheckpoint": true,
+    "identityFieldsCompared": [
+      "id",
+      "sourceMission",
+      "sourceGroup",
+      "sourceKind",
+      "originalId",
+      "role"
+    ],
+    "sourceIdentitiesExactlyPreserved": true,
+    "roles": {
+      "refugee": 12,
+      "resident": 10,
+      "patient": 4,
+      "staff": 2,
+      "crew": 4,
+      "technician": 2,
+      "mara": 1,
+      "harbourmaster": 1
+    },
+    "byOrigin": {
+      "mi05-passengers": 12,
+      "mi06-residents": 10,
+      "mi07-medical": 6,
+      "mi05-crew": 4,
+      "mi06-technicians": 2,
+      "mara": 1,
+      "aval": 1
+    },
+    "refugeArrivalsByBoat": {
+      "aval-rive-courte": 24,
+      "aval-veille": 10
+    },
+    "refugeIds": [
+      "aval-refugee-survivor-1",
+      "aval-refugee-survivor-2",
+      "aval-refugee-survivor-3",
+      "aval-refugee-survivor-4",
+      "aval-refugee-survivor-5",
+      "aval-refugee-survivor-6",
+      "aval-refugee-survivor-7",
+      "aval-refugee-survivor-8",
+      "aval-refugee-survivor-9",
+      "aval-refugee-survivor-10",
+      "aval-refugee-survivor-11",
+      "aval-refugee-survivor-12",
+      "aval-resident-survivor-1",
+      "aval-resident-survivor-2",
+      "aval-resident-survivor-3",
+      "aval-resident-survivor-4",
+      "aval-resident-survivor-5",
+      "aval-resident-survivor-6",
+      "aval-resident-survivor-7",
+      "aval-resident-survivor-8",
+      "aval-resident-survivor-9",
+      "aval-resident-survivor-10",
+      "aval-patient-survivor-1",
+      "aval-patient-survivor-2",
+      "aval-patient-survivor-3",
+      "aval-patient-survivor-4",
+      "aval-staff-survivor-1",
+      "aval-staff-survivor-2",
+      "aval-crew-survivor-1",
+      "aval-crew-survivor-2",
+      "aval-crew-survivor-3",
+      "aval-crew-survivor-4",
+      "aval-mara",
+      "aval-harbourmaster"
+    ],
+    "localIds": [
+      "aval-technician-survivor-1",
+      "aval-technician-survivor-2"
+    ],
+    "patientIds": [
+      "aval-patient-survivor-1",
+      "aval-patient-survivor-2",
+      "aval-patient-survivor-3",
+      "aval-patient-survivor-4"
+    ]
+  },
+  "individualBoats": {
+    "total": 2,
+    "uniqueIds": 2,
+    "departed": 2,
+    "arrived": 2,
+    "lost": 0,
+    "boats": [
+      {
+        "id": "aval-rive-courte",
+        "kind": "rive-courte",
+        "name": "Rive-Courte",
+        "hp": 780,
+        "maxHp": 780,
+        "destroyed": false,
+        "phase": "arrived",
+        "departed": true,
+        "arrived": true,
+        "returned": false
+      },
+      {
+        "id": "aval-veille",
+        "kind": "municipal",
+        "name": "Veille d’Aval",
+        "hp": 665,
+        "maxHp": 680,
+        "destroyed": false,
+        "phase": "arrived",
+        "departed": true,
+        "arrived": true,
+        "returned": false
+      }
+    ]
+  },
+  "mi08Receipt": {
+    "choice": "delay",
+    "plan": "window",
+    "execution": "delayed",
+    "elapsed": 345.0496333334128,
+    "entryElapsed": 269.8329333334175,
+    "counts": {
+      "peopleTotal": 36,
+      "peopleDeparted": 34,
+      "peopleArrived": 34,
+      "peopleLocal": 2,
+      "peopleLost": 0,
+      "peopleAtQuay": 0,
+      "peopleAboard": 0,
+      "peopleEnRoute": 0,
+      "patientsTotal": 4,
+      "patientsArrived": 4,
+      "patientsLocal": 0,
+      "patientsLost": 0,
+      "boatsTotal": 2,
+      "boatsDeparted": 2,
+      "boatsArrived": 2,
+      "boatsLost": 0
+    },
+    "bothGatesClosed": true,
+    "closureCompleted": true,
+    "reportTransmitted": true,
+    "reportFiled": false,
+    "priorGlobalAuthorityReportFiledPreserved": true,
+    "registryCopied": true,
+    "receiptFactsExactlyEqualWorldDeparture": true,
+    "lastDebriefExactlyEqualsMi08Receipt": true,
+    "rosterExactlyEqualAcrossReceiptAndWorld": true
+  },
+  "documentedCompletionEffects": {
+    "revision": {
+      "before": 136,
+      "after": 148
+    },
+    "stage": {
+      "before": "mission",
+      "after": "complete"
+    },
+    "activeMissionId": {
+      "before": "MI08",
+      "after": null
+    },
+    "checkpointCleared": true,
+    "newReceipt": "MI08",
+    "lastDebriefReplacedByMi08": true,
+    "crew": {
+      "tess": {
+        "before": 58,
+        "after": 60,
+        "delta": 2
+      },
+      "sami": {
+        "before": 43,
+        "after": 45,
+        "delta": 2
+      }
+    },
+    "authoritySuspicion": {
+      "before": 16,
+      "after": 17,
+      "delta": 1
+    },
+    "basis": "src/campaign.mjs finishCampaignMission: successful MI08 adds four parts, +2 trust without loss and with copied registry, +1 suspicion for window plan; exact expected effects checked, not hidden by an all-fields-unchanged claim.",
+    "campaignModuleSha256": "e3b960fd7ec90c49af82b1046ddbb95fba2f8d706051ae840941cfb0095f5272"
+  },
+  "dossierOutsideMi08AndDocumentedCompletionEffects": {
+    "exactlyEqual": true,
+    "explicitlyExcludedChangedPaths": [
+      "/revision",
+      "/stage",
+      "/activeMissionId",
+      "/checkpoint",
+      "/lastDebrief",
+      "/completed/MI08",
+      "/world/nacre/departure",
+      "/resources/parts",
+      "/crew/tess/trust",
+      "/crew/sami/trust",
+      "/authority/suspicion"
+    ],
+    "protectedBeforeCanonicalSha256": "b0b432c1be44db3e6fc7c7b2355c874eb95da6dfd70408bae99855e3d76107f2",
+    "protectedAfterCanonicalSha256": "b0b432c1be44db3e6fc7c7b2355c874eb95da6dfd70408bae99855e3d76107f2",
+    "fleetExactlyPreserved": true,
+    "maintenanceLogExactlyPreserved": true,
+    "preDecisionCheckpointExactlyPreserved": true,
+    "unexpectedChangedPaths": [],
+    "allObservedChanges": [
+      {
+        "path": "/activeMissionId",
+        "kind": "changed",
+        "before": "MI08",
+        "after": null
+      },
+      {
+        "path": "/authority/suspicion",
+        "kind": "changed",
+        "before": 16,
+        "after": 17
+      },
+      {
+        "path": "/checkpoint",
+        "kind": "changed",
+        "before": {
+          "type": "dict",
+          "nodeCount": 2498,
+          "canonicalSha256": "7b068eed4189045ad3f1b7dc5e4541ccfbea9596978611d7625b1aab1d3dc407"
+        },
+        "after": null
+      },
+      {
+        "path": "/completed/MI08",
+        "kind": "added",
+        "after": {
+          "type": "dict",
+          "nodeCount": 656,
+          "canonicalSha256": "18ea52307a09b6fe93070117a005786bfde57ac583e01886ad296b26c1b03af8"
+        }
+      },
+      {
+        "path": "/crew/sami/trust",
+        "kind": "changed",
+        "before": 43,
+        "after": 45
+      },
+      {
+        "path": "/crew/tess/trust",
+        "kind": "changed",
+        "before": 58,
+        "after": 60
+      },
+      {
+        "path": "/lastDebrief/accessMaintained",
+        "kind": "added",
+        "after": false
+      },
+      {
+        "path": "/lastDebrief/beaconDestroyed",
+        "kind": "removed",
+        "before": false
+      },
+      {
+        "path": "/lastDebrief/beaconLogCopied",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/beaconRecovered",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/beaconResolved",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/boardingOrdered",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/boatsArrived",
+        "kind": "added",
+        "after": 2
+      },
+      {
+        "path": "/lastDebrief/boatsDeparted",
+        "kind": "added",
+        "after": 2
+      },
+      {
+        "path": "/lastDebrief/boatsLost",
+        "kind": "added",
+        "after": 0
+      },
+      {
+        "path": "/lastDebrief/boatsTotal",
+        "kind": "added",
+        "after": 2
+      },
+      {
+        "path": "/lastDebrief/cargoInspected",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/choice",
+        "kind": "changed",
+        "before": "defy",
+        "after": "delay"
+      },
+      {
+        "path": "/lastDebrief/closureCompleted",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/consentObtained",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/controlsInspected",
+        "kind": "added",
+        "after": 2
+      },
+      {
+        "path": "/lastDebrief/decisionLabel",
+        "kind": "changed",
+        "before": "Transfert civil et constat sanitaire joints au rapport",
+        "after": "Fenêtre de départ accomplie avant fermeture"
+      },
+      {
+        "path": "/lastDebrief/destination",
+        "kind": "removed",
+        "before": "clinic"
+      },
+      {
+        "path": "/lastDebrief/documentsInspected",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/elapsed",
+        "kind": "changed",
+        "before": 199.74753333336736,
+        "after": 345.0496333334128
+      },
+      {
+        "path": "/lastDebrief/emergencySeal",
+        "kind": "added",
+        "after": false
+      },
+      {
+        "path": "/lastDebrief/execution",
+        "kind": "added",
+        "after": "delayed"
+      },
+      {
+        "path": "/lastDebrief/fixingsPreserved",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/forcedContractsVerified",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/intakeClosed",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/kills",
+        "kind": "changed",
+        "before": 7,
+        "after": 6
+      },
+      {
+        "path": "/lastDebrief/maraDeparted",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/maraPresent",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/medicalCargoVerified",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/missionId",
+        "kind": "changed",
+        "before": "MI07",
+        "after": "MI08"
+      },
+      {
+        "path": "/lastDebrief/missionName",
+        "kind": "changed",
+        "before": "Une ambulance sans escorte",
+        "after": "La marée compte les absents"
+      },
+      {
+        "path": "/lastDebrief/originsResolved",
+        "kind": "added",
+        "after": 3
+      },
+      {
+        "path": "/lastDebrief/passageClosed",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/patientsLocal",
+        "kind": "added",
+        "after": 0
+      },
+      {
+        "path": "/lastDebrief/peopleAboard",
+        "kind": "added",
+        "after": 0
+      },
+      {
+        "path": "/lastDebrief/peopleArrived",
+        "kind": "added",
+        "after": 34
+      },
+      {
+        "path": "/lastDebrief/peopleAtQuay",
+        "kind": "added",
+        "after": 0
+      },
+      {
+        "path": "/lastDebrief/peopleDeparted",
+        "kind": "added",
+        "after": 34
+      },
+      {
+        "path": "/lastDebrief/peopleEnRoute",
+        "kind": "added",
+        "after": 0
+      },
+      {
+        "path": "/lastDebrief/peopleLocal",
+        "kind": "added",
+        "after": 2
+      },
+      {
+        "path": "/lastDebrief/peopleLost",
+        "kind": "added",
+        "after": 0
+      },
+      {
+        "path": "/lastDebrief/peopleTotal",
+        "kind": "added",
+        "after": 36
+      },
+      {
+        "path": "/lastDebrief/plan",
+        "kind": "added",
+        "after": "window"
+      },
+      {
+        "path": "/lastDebrief/provenanceVerified",
+        "kind": "removed",
+        "before": false
+      },
+      {
+        "path": "/lastDebrief/quayContacted",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/rampPrepared",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/receptionReady",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/refugeAvailable",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/refugeContacted",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/registryCopied",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/reportFiled",
+        "kind": "changed",
+        "before": true,
+        "after": false
+      },
+      {
+        "path": "/lastDebrief/reportTransmitted",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/roster",
+        "kind": "added",
+        "after": {
+          "type": "dict",
+          "nodeCount": 601,
+          "canonicalSha256": "b0a69c50aefb2866a6fb3a5e77f14b6f544e25015e582fd0ad28841ebf7a33c2"
+        }
+      },
+      {
+        "path": "/lastDebrief/route",
+        "kind": "removed",
+        "before": "main"
+      },
+      {
+        "path": "/lastDebrief/samiLine",
+        "kind": "changed",
+        "before": {
+          "type": "str",
+          "nodeCount": 1,
+          "canonicalSha256": "77dbf4c87a94f8f2091fb238bdeb164a64a5ca388fe126a92a5bf4e8e054bcee"
+        },
+        "after": {
+          "type": "str",
+          "nodeCount": 1,
+          "canonicalSha256": "c8a60071ceca25167f8ac22b793849d6fdb26f4ef673d294a41a8722187f9b32"
+        }
+      },
+      {
+        "path": "/lastDebrief/staffAlive",
+        "kind": "removed",
+        "before": 2
+      },
+      {
+        "path": "/lastDebrief/staffArrived",
+        "kind": "removed",
+        "before": 2
+      },
+      {
+        "path": "/lastDebrief/staffLost",
+        "kind": "removed",
+        "before": 0
+      },
+      {
+        "path": "/lastDebrief/staffTotal",
+        "kind": "removed",
+        "before": 2
+      },
+      {
+        "path": "/lastDebrief/stopCalled",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/stopCleared",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/technicalHelpRequested",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/techniciansAssigned",
+        "kind": "added",
+        "after": 2
+      },
+      {
+        "path": "/lastDebrief/tessLine",
+        "kind": "changed",
+        "before": {
+          "type": "str",
+          "nodeCount": 1,
+          "canonicalSha256": "69e553f1d9995fc8aa78245d44a0407f614392a69064fe0e165f512d0fd69025"
+        },
+        "after": "34 départs enregistrés, 34 arrivées au refuge, 2 personnes à l’accueil local et 0 pertes. Les 4 patients hérités ont chacun leur destination ; un bateau parti ne suffit pas à déclarer son arrivée."
+      },
+      {
+        "path": "/lastDebrief/transferOrdered",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/transferResolved",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/vannContacted",
+        "kind": "added",
+        "after": true
+      },
+      {
+        "path": "/lastDebrief/vehicleDestroyed",
+        "kind": "removed",
+        "before": false
+      },
+      {
+        "path": "/lastDebrief/vehicleRecovered",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/vehicleSeized",
+        "kind": "removed",
+        "before": false
+      },
+      {
+        "path": "/lastDebrief/vehicleStopped",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/witnessAvailable",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/witnessConsent",
+        "kind": "removed",
+        "before": true
+      },
+      {
+        "path": "/lastDebrief/witnessId",
+        "kind": "removed",
+        "before": "ambulance-driver"
+      },
+      {
+        "path": "/resources/parts",
+        "kind": "changed",
+        "before": 34,
+        "after": 38
+      },
+      {
+        "path": "/revision",
+        "kind": "changed",
+        "before": 136,
+        "after": 148
+      },
+      {
+        "path": "/stage",
+        "kind": "changed",
+        "before": "mission",
+        "after": "complete"
+      },
+      {
+        "path": "/world/nacre/departure/boardingOrdered",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/boatsArrived",
+        "kind": "changed",
+        "before": 0,
+        "after": 2
+      },
+      {
+        "path": "/world/nacre/departure/boatsDeparted",
+        "kind": "changed",
+        "before": 0,
+        "after": 2
+      },
+      {
+        "path": "/world/nacre/departure/boatsTotal",
+        "kind": "changed",
+        "before": 0,
+        "after": 2
+      },
+      {
+        "path": "/world/nacre/departure/closureCompleted",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/controlsInspected",
+        "kind": "changed",
+        "before": 0,
+        "after": 2
+      },
+      {
+        "path": "/world/nacre/departure/documentsInspected",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/execution",
+        "kind": "changed",
+        "before": "pending",
+        "after": "delayed"
+      },
+      {
+        "path": "/world/nacre/departure/forcedContractsVerified",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/intakeClosed",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/manifestRead",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/maraContacted",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/maraDeparted",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/maraPresent",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/originsResolved",
+        "kind": "changed",
+        "before": 0,
+        "after": 3
+      },
+      {
+        "path": "/world/nacre/departure/passageClosed",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/patientsArrived",
+        "kind": "changed",
+        "before": 0,
+        "after": 4
+      },
+      {
+        "path": "/world/nacre/departure/patientsTotal",
+        "kind": "changed",
+        "before": 0,
+        "after": 4
+      },
+      {
+        "path": "/world/nacre/departure/peopleArrived",
+        "kind": "changed",
+        "before": 0,
+        "after": 34
+      },
+      {
+        "path": "/world/nacre/departure/peopleDeparted",
+        "kind": "changed",
+        "before": 0,
+        "after": 34
+      },
+      {
+        "path": "/world/nacre/departure/peopleLocal",
+        "kind": "changed",
+        "before": 0,
+        "after": 2
+      },
+      {
+        "path": "/world/nacre/departure/peopleTotal",
+        "kind": "changed",
+        "before": 0,
+        "after": 36
+      },
+      {
+        "path": "/world/nacre/departure/plan",
+        "kind": "changed",
+        "before": "unselected",
+        "after": "window"
+      },
+      {
+        "path": "/world/nacre/departure/quayContacted",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/refugeAvailable",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/refugeContacted",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/registryCopied",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/reportTransmitted",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "/world/nacre/departure/roster/boats",
+        "kind": "changed",
+        "before": {
+          "type": "list",
+          "nodeCount": 1,
+          "canonicalSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "after": {
+          "type": "list",
+          "nodeCount": 23,
+          "canonicalSha256": "fad8c93bb549beed8aaff296a65182f45eb0137078d77622be5a648c11ef0ba4"
+        }
+      },
+      {
+        "path": "/world/nacre/departure/roster/people",
+        "kind": "changed",
+        "before": {
+          "type": "list",
+          "nodeCount": 1,
+          "canonicalSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "after": {
+          "type": "list",
+          "nodeCount": 577,
+          "canonicalSha256": "78fa58b277e9b54b2b1428303a626075dd1dbbadf112f12be20e3564be4b7308"
+        }
+      },
+      {
+        "path": "/world/nacre/departure/techniciansAssigned",
+        "kind": "changed",
+        "before": 0,
+        "after": 2
+      },
+      {
+        "path": "/world/nacre/departure/vannContacted",
+        "kind": "changed",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "protectedArtifactsReadOnly": [
+    {
+      "path": "data/bible.json",
+      "sha256": "fd20c64cec042c3dbbdb866146ab22c5b6a1235d4f78e30db1ec19d6c03251f2"
+    },
+    {
+      "path": "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+      "sha256": "af5c84c1a1efc9d78300f3443d0097fca0027596385db97358d97c7e6bdcf701"
+    },
+    {
+      "path": "docs/validation/production-v09-baseline.json",
+      "sha256": "11a290b1daa7faedbd227c4fcb50ae4a86296aba75cf34b3718e540a2df7affb"
+    },
+    {
+      "path": "docs/validation/v09-browser.json",
+      "sha256": "be671a9f82e6b3de2706f0bb51da7b809b8728d57ce9c0910fee984c74e6646d"
+    },
+    {
+      "path": "docs/validation/v09-browser-export-audit.json",
+      "sha256": "577574820c1dd95ab6bd889bce9f030a3c4f859b2f8dd346119a2d866c379518"
+    },
+    {
+      "path": "docs/validation/v09-browser-sanitary-panel.json",
+      "sha256": "c03c05f48b285d8cc4b95ec6e13af931297ac2e42d47e11e4e165311dacf028e"
+    }
+  ],
+  "passed": true
+}

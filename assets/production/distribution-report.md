@@ -1,6 +1,6 @@
 # Rapprochement exhaustif des médias distribués
 
-Snapshot : 2026-11-11T11:38:19.866Z. Révision de repère : 01c4aed07788c574eeed421222c2de5fe3d25bdf. Le relevé porte sur les fichiers courants, y compris les travaux non commités.
+Snapshot : 2026-11-11T11:56:06.356Z. Révision de repère : 1fc6b2d519458ff8fae57f60c3493c04ade4eded. Le relevé porte sur les fichiers courants, y compris les travaux non commités.
 
 ## Résultat
 
@@ -16,7 +16,7 @@ Les deux PNG historiques proviennent d’image_gen selon docs/ASSET_PROVENANCE.m
 
 Les nouveaux vecteurs et sons renvoient à leurs manifestes de production datés et versionnés, avec code source et hashes. Les WAV reproduisent la synthèse du runtime ; aucune voix humaine, aucun échantillon tiers ni validation humaine de mix n’est déclaré. Aucun fichier de police n’est distribué ; les noms de polices sont des fallbacks système.
 
-La page officielle Steam de **BE-A Walker** est enregistrée comme référence de conception non distribuée. Aucun fichier local de cette référence n’est documenté : il n’existe donc pas de hash local ou d’autorisation de redistribution à inventer. Tous les octets média effectivement observés sont rapprochés des fichiers originaux du projet. Les 203 médias de documentation sont recensés séparément et exclus des deux politiques de build.
+La page officielle Steam de **BE-A Walker** est enregistrée comme référence de conception non distribuée. Aucun fichier local de cette référence n’est documenté : il n’existe donc pas de hash local ou d’autorisation de redistribution à inventer. Tous les octets média effectivement observés sont rapprochés des fichiers originaux du projet. Les 206 médias de documentation sont recensés séparément et exclus des deux politiques de build.
 
 ## Médias réellement demandés par le jeu
 
