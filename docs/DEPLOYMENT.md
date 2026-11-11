@@ -68,7 +68,7 @@ La sauvegarde reste locale au navigateur et à l'adresse du site. Utiliser l'adr
 - Vérifier que la page d'accueil, les modules, les styles et les images sont présents dans la sortie web.
 - Après déploiement, contrôler le commit servi, la disponibilité des ressources et le lancement de la campagne dans un navigateur réel.
 
-Les tests courants sont documentés dans [QA_V06.md](QA_V06.md). Les rapports précédents restent conservés comme historique. Un déploiement prêt ne remplace pas une validation navigateur.
+Les tests courants sont documentés dans [QA_V08.md](QA_V08.md). Les rapports précédents restent conservés comme historique. Un déploiement prêt ne remplace pas une validation navigateur.
 
 
 ## Publication 0.7
@@ -83,8 +83,12 @@ Chrome a vérifié la migration du dossier v5 existant, importé une v5 terminé
 
 Les preuves navigateur et cette documentation sont ajoutées dans un commit de suivi. Elles ne modifient ni le code du jeu, ni le HTML autonome, ni le classeur ; leurs empreintes applicatives restent celles du snapshot testé.
 
-## Préparation de la 0.8
+## Publication initiale de la 0.8
 
 La tranche MI07 et le dossier v7 ont passé les contrôles locaux : 212 tests Node, 45 parcours UI dans le DOM modélisé, catalogue, contrôle statique, construction autonome et construction web. L’audit indépendant du dossier couvre dix-huit variantes ; il ne remplace pas la vérification du site publié.
 
-Les sources applicatives sont figées. La publication conserve le projet, les domaines, la protection Vercel et la configuration Node 22 existants. La mise à jour GitHub doit utiliser le SHA attendu de `main` sans forcer, puis confirmer l’arbre intégral, la CI et le déploiement du commit exact. Le contrôle natif de Chrome sera documenté après cette publication ; les neuf aperçus MI07 sont pour l’instant des rendus Canvas.
+Le commit **d79dd2fe832920794d1265271a4bf9cedaca9637**, enfant de `bc830013455bb8f71e1eaf0316173ac0e91746f8`, publie les **315 fichiers** du commit local `88c7af9f1019fd148c9a1078a860a7ad22998196`. L’arbre intégral `5b1e2580127d18018c8c19829102c71360f907b9` et les 36 empreintes sont identiques au snapshot testé. Le CAS de `main` a réussi sans force.
+
+Le déploiement **dpl_7ttsGENXRQfFvhtpLZrju2NcZZP8** est READY pour ce SHA exact, et la [CI 42992916724](https://github.com/darknigthmare/ImperiumMarch/actions/runs/42992916724) a réussi sous **Node 22.23.4**, avec 212 tests et 45 parcours UI. Les dix ressources HTTP renvoient 200 et leur contenu correspond exactement au snapshot. Le [reçu initial](validation/v08-publication-initial.json) conserve ces contrôles. Projet, domaines, protection Vercel et configuration Node sont conservés.
+
+Le [premier essai Chrome](validation/v08-browser-initial.json) a confirmé la migration entière du dossier v6, le lancement de MI07 et la reprise exacte du point de transfert après rechargement. Il a aussi identifié un chevauchement des cartes Canvas avec les objectifs HTML à gauche. Le correctif de placement et la vérification de fin de mission font l’objet du suivi de livraison ; cette observation initiale ne revendique pas encore la fin du parcours natif.

@@ -59,6 +59,10 @@ Les contrôles du véritable XLSX réconcilient ses fiches et cellules avec `dat
 
 La publication doit comparer le snapshot figé à l’arbre distant complet, confirmer la CI et le SHA exact du déploiement Vercel, puis vérifier les octets des ressources servies. Les observations réalisées dans Chrome partagé sont consignées séparément dans `docs/validation/v08-browser.json`, avec les points préparés, les actions réellement effectuées et les limites du parcours.
 
+Le [contrôle natif initial](validation/v08-browser-initial.json), sur le commit publié `d79dd2fe832920794d1265271a4bf9cedaca9637`, a confirmé la migration v6 vers v7 : l’ensemble du dossier historique est inchangé après rétablissement du numéro v6 et retrait du nouveau dossier sanitaire. Les six rapports, les ressources et le registre de carburant restent identiques. MI07 a été lancée par l’interface, puis un point de transfert atteint par commandes publiques dans Node a été importé par le sélecteur de fichier.
+
+Les exports réels avant et après rechargement conservent exactement le checkpoint complet, avec un travail de chariots à 36,664 %. Seul le compteur de captures passe de 117 à 119. La progression visible reprend ensuite avec les frames réellement exécutées. Cette première observation a aussi révélé deux cartes Canvas superposées au HUD gauche ; la [capture avant correction](previews/browser-v08-transfer-before-fix.jpg) conserve ce défaut. Sa correction et le contrôle final sont suivis séparément.
+
 ## Limites maintenues
 
 La jouabilité par commandes publiques et les invariants du dossier ne mesurent pas la compréhension spontanée d’un joueur. La lecture de la signature hostile, le consentement, la conservation de la balise, les états de rampe et la sécurité du transfert demandent encore un essai humain. La finition des animations, personnages, décors, effets, mixage et performance reste à produire ou à mesurer. Les témoins, les personnes de Nacre et les moyens de transport n’accomplissent pas automatiquement les scènes futures de MI08.

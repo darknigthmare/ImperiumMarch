@@ -1,7 +1,7 @@
 {
   "release": "0.8.0",
   "saveVersion": 7,
-  "checkedAt": "2026-11-11T09:04:25.020560+00:00",
+  "checkedAt": "2026-11-11T09:18:21.686405+00:00",
   "localBaseRevision": "1e7eadbf8bb97b37ad5753d8f2821d5085200e63",
   "publicBaseRevision": "bc830013455bb8f71e1eaf0316173ac0e91746f8",
   "nodeVersion": "v24.22.1",
@@ -27,7 +27,7 @@
     "dialogs": 6
   },
   "offline": {
-    "bytes": 9972270,
+    "bytes": 9972237,
     "modules": 6,
     "networkDependencies": 0
   },
@@ -69,7 +69,7 @@
     "manifest": "docs/previews/mi07-render-manifest.json",
     "scope": "Production Canvas renderer from public-control states, not browser screenshots."
   },
-  "publication": "Pending exact remote commit, CI and deployment verification; native Chrome proof follows publication.",
+  "publication": "Initial release verified in v08-publication-initial.json. Corrective release and final native proof follow in v08-publication.json and v08-browser.json.",
   "fingerprints": {
     "package.json": {
       "bytes": 662,
@@ -88,8 +88,8 @@
       "sha256": "aa86fec4b762d8bfd14675fb731fbc19252ccfbca2b3af1586e1ff858d5a32a2"
     },
     "src/renderer.mjs": {
-      "bytes": 120165,
-      "sha256": "e7233e65336e1db2d2e9ef7ffdaf4ca91eb55fb5b0b72fcf93d48dd853a6bd8c"
+      "bytes": 120132,
+      "sha256": "3b17ed183de185a8b589ac893c166f234560b01b9958c50f537f135a0ce03275"
     },
     "src/campaign.mjs": {
       "bytes": 124006,
@@ -112,8 +112,8 @@
       "sha256": "177533d784ada32fecdacb8bd987d0aada274364e6f3f9685c6cb44eed040d12"
     },
     "dist/Ordre_de_Cendre.html": {
-      "bytes": 9972270,
-      "sha256": "b329d8fcd5ce7d07557ab342eb6a0f5aa3e39a589794caf74ac7f2ae50df34b4"
+      "bytes": 9972237,
+      "sha256": "9b645c6a19eda13967226ce29dfd90932d99725b2cdf50e40d3d13ec455bb4d8"
     },
     "data/bible.json": {
       "bytes": 392418,
@@ -140,12 +140,12 @@
       "sha256": "bc20fe83c4b38762583646d1c6ed2b41e19e5321af37c4a7c5078c50b47df112"
     },
     "tools/render-mi07-previews.mjs": {
-      "bytes": 6747,
-      "sha256": "8cefe6e204ad8dc1a9860d559de178e4f4f44790998a552fe45512a4e2ce5501"
+      "bytes": 7039,
+      "sha256": "9caebe6d4bdee1fd1fb81cf50fa6c9152397ea99ac71acc0a6367a4969ce875e"
     },
     "docs/previews/mi07-render-manifest.json": {
-      "bytes": 439550,
-      "sha256": "ee651855f5b924afce6490341a039c9acd8ee7e896ed881a44471e3a9d07a36f"
+      "bytes": 439844,
+      "sha256": "c5fe91670d9525022e59fd387a7ce3efe3a1d3b4f38510438c94a5ea008042d2"
     },
     "tools/verify-bible-export.py": {
       "bytes": 8686,
@@ -180,40 +180,83 @@
       "sha256": "7c79efb68911f1519cdae2d788e259c424c8750af9a99167ae100bcac4ecc7e3"
     },
     "docs/previews/mi07-ambulance-wreck.png": {
-      "bytes": 255903,
-      "sha256": "85c749cd8f67de378db06a679190ca08237a8b2bae2da0b57c7de625da358831"
+      "bytes": 254218,
+      "sha256": "bb292e7b38837b91353bad93fd99a4890e835e339ea6367d933c0b3132fad9fa"
     },
     "docs/previews/mi07-beacon-removal.png": {
-      "bytes": 267215,
-      "sha256": "3cdba89f3fbc739deb8f85ba51ab2261e831e960c12c179580c67893f5813393"
+      "bytes": 268159,
+      "sha256": "941d8231c4c6ef099dd39096e21091259fbeb247515ada6dc7b731d9693300a7"
     },
     "docs/previews/mi07-consent-examination.png": {
-      "bytes": 260091,
-      "sha256": "97bb49cd523973c093e043a1cefce5d44ca93a9c33d23bcb74853f128517448b"
+      "bytes": 261162,
+      "sha256": "05e8495ab385bf98b665ac90110bd24a4ed83a4246898cda2afd87b6aa06d6e6"
     },
     "docs/previews/mi07-imperial-arrival.png": {
-      "bytes": 251281,
-      "sha256": "b5e5c407ccc7d2a1354186863fc6b5356edeca659df5e2bc7fe1247b81f3f0a0"
+      "bytes": 249375,
+      "sha256": "283b0168eef39743aafe205d4ec8af13857939b22e4725a0fd813d02f5e6d1fc"
     },
     "docs/previews/mi07-manual-tow.png": {
-      "bytes": 268282,
-      "sha256": "d4af3b67b25c5f0ff9011f275191c9828153fcdba5b330826bf8a71be789425b"
+      "bytes": 267373,
+      "sha256": "4bdfcb63488d7bc69f7356c696b776b000037037774661101e33270d648f02ed"
     },
     "docs/previews/mi07-patient-transfer.png": {
-      "bytes": 283381,
-      "sha256": "62617d20004c8603e018ed9af35b9f3b0159f1700e5a6c7bc2ce06fc3b2317af"
+      "bytes": 279569,
+      "sha256": "f9b879a0170298b621ebe40704b29a87ad8f6b61dbe070121bd1fb1c0cd5a53b"
     },
     "docs/previews/mi07-secondary-ramp.png": {
-      "bytes": 279590,
-      "sha256": "d36cae735b5641ad09fc3ff3bcd60eb979f4fb88c15149999d402bc9b995582e"
+      "bytes": 279842,
+      "sha256": "c7e5ef7e777381ff8dbe64e531a41c52a9e18c4dab1fd02b02c7e2bcb91a6412"
     },
     "docs/previews/mi07-seizure-arrival.png": {
-      "bytes": 282274,
-      "sha256": "d36be92e098e96bda49c0c4c490a00afdac027fbb11013147a80da2f6eac27bf"
+      "bytes": 282619,
+      "sha256": "33bc3aa344d8295fed32ceeed50af0cd8d7e6f0629d6cbba77027f03465dc632"
     },
     "docs/previews/mi07-stop-arrival.png": {
-      "bytes": 281351,
-      "sha256": "3022e0ff921f132a5ae085162f2da2e95789957baa118439ebd715683f993665"
+      "bytes": 283144,
+      "sha256": "8fdbc1995eebd9fbcf226d6bab5540b7e35678c941ea97d95de76ea2b5573b66"
     }
+  },
+  "visualCorrection": {
+    "initialLocalCommit": "88c7af9f1019fd148c9a1078a860a7ad22998196",
+    "initialPublicCommit": "d79dd2fe832920794d1265271a4bf9cedaca9637",
+    "reason": "Native Chrome revealed overlap of Canvas ambulance and cargo/beacon cards with the left HTML objectives.",
+    "change": "Central viewport card column x=880 on1600px canvas;65px cards,8px gaps, stack constrained to y=200..500.",
+    "changedFrozenFiles": [
+      "src/renderer.mjs",
+      "dist/Ordre_de_Cendre.html",
+      "tools/render-mi07-previews.mjs",
+      "docs/previews/mi07-render-manifest.json",
+      "docs/previews/mi07-ambulance-wreck.png",
+      "docs/previews/mi07-beacon-removal.png",
+      "docs/previews/mi07-consent-examination.png",
+      "docs/previews/mi07-imperial-arrival.png",
+      "docs/previews/mi07-manual-tow.png",
+      "docs/previews/mi07-patient-transfer.png",
+      "docs/previews/mi07-secondary-ramp.png",
+      "docs/previews/mi07-seizure-arrival.png",
+      "docs/previews/mi07-stop-arrival.png"
+    ],
+    "unchangedSimulationCampaignAndWorkbook": [
+      "src/simulation.mjs",
+      "src/campaign.mjs",
+      "src/content.mjs",
+      "src/main.mjs",
+      "data/bible.json",
+      "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+      "docs/validation/v08-campaign-audit.json",
+      "tests/helpers/mi07-driver.mjs",
+      "tests/fixtures/campaign-v6-mi06.json"
+    ],
+    "allNineCapturedStatesAndSceneMetadataIdentical": true,
+    "canvasRendersInspected": 9,
+    "requiredLocalGates": [
+      "npm run build",
+      "npm run check",
+      "npm run check:ui",
+      "npm run build:web"
+    ],
+    "allRequiredLocalGatesPassed": true,
+    "nodeAndUIEvidence": "Initial local212/45 and first publication CI212/45 remain unchanged. No gameplay or UI transition changed; corrected publication CI will execute the full suite again.",
+    "browserConfirmation": "Pending corrected publication; current native checkpoint preserved at74.332% handover."
   }
 }

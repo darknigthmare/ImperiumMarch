@@ -1,0 +1,184 @@
+{
+  "applicationVersion": "0.8.0",
+  "saveVersion": 7,
+  "observedAt": "2026-11-11T09:13:47.832Z",
+  "url": "https://imperium-march.vercel.app/",
+  "publishedSourceCommit": "d79dd2fe832920794d1265271a4bf9cedaca9637",
+  "deploymentId": "dpl_7ttsGENXRQfFvhtpLZrju2NcZZP8",
+  "environment": {
+    "browser": "Chrome shared cloud browser",
+    "viewport": {
+      "height": 936,
+      "width": 1363
+    },
+    "browserNativeUi": true,
+    "inPageStateInjection": false,
+    "controls": "Page controls, native file chooser and downloads, held D input, read-only DOM text and geometry."
+  },
+  "migration": {
+    "formatBefore": 6,
+    "formatAfter": 7,
+    "wholeHistoricalDossierUnchanged": true,
+    "onlyChanges": [
+      "version: 6 to 7",
+      "world.nacre.ambulance: unvisited default dossier"
+    ],
+    "reportsPreserved": [
+      "MI01",
+      "MI02",
+      "MI03",
+      "MI04",
+      "MI05",
+      "MI06"
+    ],
+    "resourcesUnchanged": true,
+    "resources": {
+      "parts": 30,
+      "fuel": 0
+    },
+    "cumulativeFuelSpent": 2,
+    "revisionBefore": 23,
+    "revisionAfter": 23
+  },
+  "freshLaunch": {
+    "missionId": "MI07",
+    "walkerId": "WK09",
+    "elapsed": 0.3667000000000007,
+    "playerX": 319.583912354909,
+    "steps": 1,
+    "scope": "MI07 briefing opened, deployed via page button, D held for 1500 ms, paused and exported through UI."
+  },
+  "checkpointImport": {
+    "source": "docs/validation/v08-browser-transfer-input.json",
+    "preparation": "Authentic native v6 completed dossier migrated with production campaign code. MI07 WK09 seed1847 normal assist; public pilot until handover progress >=0.35, repeated checkpoint capture, serialization and exact restoration verified.",
+    "elapsed": 174.38333333336425,
+    "handoverProgress": 0.3500000000000003,
+    "scope": "Interception, combat, inspection, beacon removal, witnesses, destination choice, ramp, reception and vehicle journey were prepared by public Node controls; they were not replayed from spawn in Chrome."
+  },
+  "pauseReload": {
+    "exactCheckpointUnchanged": true,
+    "entireDossierUnchangedExceptRevision": true,
+    "changedTopLevelFields": [
+      "revision"
+    ],
+    "revisionBefore": 117,
+    "revisionAfter": 119,
+    "handoverProgressBefore": 0.36664000000000047,
+    "handoverProgressAfter": 0.36664000000000047,
+    "comparison": "Real UI exports before and after page reload, before resuming simulation.",
+    "hudBefore": {
+      "ambulance-beacon": "BALISE RÉCUPÉRÉE · ORIGINE À RECOUPER",
+      "ambulance-cargo": "CARGAISON SANITAIRE VÉRIFIÉE",
+      "ambulance-people": "0 / 4 PATIENTS ARRIVÉS · 0 PERDUS · ÉQUIPE 2 / 2",
+      "ambulance-route": "RAMPE PRINCIPALE · PRÊTE · ACCUEIL CIVIL",
+      "ambulance-stage": "TRANSFERT SANITAIRE EN COURS",
+      "hud-interaction": "Chariots et constat 35 %",
+      "hud-timer": "02:54",
+      "hull-value": "100%"
+    },
+    "hudAfterResumingAndPausing": {
+      "ambulance-beacon": "BALISE RÉCUPÉRÉE · ORIGINE À RECOUPER",
+      "ambulance-cargo": "CARGAISON SANITAIRE VÉRIFIÉE",
+      "ambulance-people": "0 / 4 PATIENTS ARRIVÉS · 0 PERDUS · ÉQUIPE 2 / 2",
+      "ambulance-route": "RAMPE PRINCIPALE · PRÊTE · ACCUEIL CIVIL",
+      "ambulance-stage": "TRANSFERT SANITAIRE EN COURS",
+      "hud-interaction": "Chariots et constat 37 %",
+      "hud-timer": "02:54",
+      "hull-value": "100%"
+    },
+    "hudNote": "The displayed percentage advances from 35 to37 after actual frames around resume/pause. It is not claimed identical; exported checkpoints before resume are exactly identical."
+  },
+  "layout": {
+    "ambulance": {
+      "bottom": 532.6875,
+      "height": 110.859375,
+      "right": 380.875,
+      "width": 335.90625,
+      "x": 44.96875,
+      "y": 421.828125
+    },
+    "canvas": {
+      "bottom": 851.34375,
+      "height": 766.6875,
+      "right": 1363,
+      "width": 1363,
+      "x": 0,
+      "y": 84.65625
+    },
+    "instruments": {
+      "bottom": 793.84375,
+      "height": 119.3125,
+      "right": 1318.03125,
+      "width": 1273.0625,
+      "x": 44.96875,
+      "y": 674.53125
+    },
+    "prompt": {
+      "bottom": 660.53125,
+      "height": 36.359375,
+      "right": 780.8828125,
+      "width": 198.765625,
+      "x": 582.1171875,
+      "y": 624.171875
+    },
+    "viewport": {
+      "height": 936,
+      "width": 1363
+    }
+  },
+  "promptToInstrumentGapPx": 14.0,
+  "visualIssue": {
+    "observed": true,
+    "description": "Canvas ambulance-progress and cargo/beacon cards overlap the left HTML objectives and ambulance instrument. The world state and lower prompt are correct.",
+    "evidence": "docs/previews/browser-v08-transfer-before-fix.jpg",
+    "resolution": "Renderer correction pending at this observation; final browser proof records its verification."
+  },
+  "checkpointHeldForContinuation": {
+    "elapsed": 176.3499333333647,
+    "handoverProgress": 0.743320000000001,
+    "patientsArrived": 0,
+    "file": "docs/validation/v08-browser-before-visual-fix.json"
+  },
+  "completion": {
+    "missionFinishedInBrowserAtThisStage": false
+  },
+  "evidenceFiles": {
+    "docs/validation/v08-browser-migration-before.json": {
+      "bytes": 9260,
+      "sha256": "6e4033f0e9b7de79b76562ccaa2f101fd763d737919c4c6edd0ab7ad73ede7a8"
+    },
+    "docs/validation/v08-browser-migration-after.json": {
+      "bytes": 10047,
+      "sha256": "cfafcba2c5ecd699ba719528ee75f7d846170dd76ef3e354043c438c6ed41bb4"
+    },
+    "docs/validation/v08-browser-launch.json": {
+      "bytes": 26274,
+      "sha256": "c729aab3652b3fcd3e841fd0a365ba84827a27931f4a896fc362aecff2e14c44"
+    },
+    "docs/validation/v08-browser-transfer-input.json": {
+      "bytes": 67739,
+      "sha256": "3f8e855811cf5e789feb649dd192fcf428fc228e04141bb15ef40a2c19ec2806"
+    },
+    "docs/validation/v08-browser-transfer-paused.json": {
+      "bytes": 67336,
+      "sha256": "92152351e5e799ea1cadf0a3ae1fffc7dd9c067f826397842465e9a84d3410a9"
+    },
+    "docs/validation/v08-browser-transfer-reloaded.json": {
+      "bytes": 67336,
+      "sha256": "9b01a198efd794b55881bc27355ac82eca4ea69fc6ce0a9f11cf9297f6357444"
+    },
+    "docs/validation/v08-browser-before-visual-fix.json": {
+      "bytes": 62168,
+      "sha256": "73fdaac2f48bd880e688c9e25bbf40226773c54a272d5c262043937eda642321"
+    },
+    "docs/previews/browser-v08-transfer-before-fix.jpg": {
+      "bytes": 98183,
+      "sha256": "7fe04b2758f25e514302edc5d346278a0c69d83fd3bd09287fa01964cb3153b7"
+    }
+  },
+  "limits": [
+    "One desktop viewport and WK09 civil destination continuation; no mobile hardware, audio or performance certification.",
+    "Source-pilot checkpoints are explicitly distinguished from native browser actions.",
+    "This initial observation intentionally preserves the visual defect; corrected evidence follows in v08-browser.json."
+  ]
+}

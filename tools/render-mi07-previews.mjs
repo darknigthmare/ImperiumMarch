@@ -22,6 +22,7 @@ const create = (walkerId = 'WK09', history = 'completed') => beginCampaignMissio
   parseCampaign(JSON.stringify(fixture[history])), { missionId: 'MI07', walkerId }).game;
 const manifest = { version: '0.8.0', type: 'Canvas-only production renderer', renderer: '@napi-rs/canvas (Skia)',
   limitations: 'No browser, HTML HUD, CSS, dialogs, hardware input, human playtest, audio or performance certification.',
+  cardLayout: 'MI07 cards share a viewport column centered at x=880 on the 1600x900 canvas, with 8px gaps and the entire stack constrained to y=200..500. This reserves the HTML objectives/instrument area at left, radio area at right and lower gauges; browser confirmation remains separate.',
   provenance: 'All nine states start from the authentic v6 MI06 fixture and are reached with public movement, aiming, interaction and decision commands. Each complete simulation state is deeply cloned at capture; retained bytes are checked after later operations. Loss scenes use actual public fire, never health or outcome setters.',
   historicalFixture: 'tests/fixtures/campaign-v6-mi06.json', files: [] };
 const captureBytes = [];

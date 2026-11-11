@@ -434,7 +434,6 @@ export class Renderer {
     const c = this.ctx, a = s.ambulance, facts = s.campaign, v = a.vehicle;
     const entries = [];
     if (this.visible(v.x, 0)) {
-      const mainY = Math.max(290, Math.min(v.y - (facts.cargoInspected ? 240 : 165), Math.abs(s.player.x - v.x) < 300 ? s.player.y - (facts.cargoInspected ? 210 : 139) : v.y - 165));
       const work = a.consent.working ? `ACCORD À L’EXAMEN ${Math.round(a.consent.progress * 100)} %`
         : a.cargo.scanning ? `EXAMEN CAISSE ${Math.round(a.cargo.scanProgress * 100)} %`
         : a.beacon.working ? `BALISE ${Math.round(a.beacon.progress * 100)} %`
@@ -446,21 +445,23 @@ export class Renderer {
         : v.moving ? v.towing ? 'REMORQUAGE EN COURS' : 'DÉPLACEMENT SANITAIRE EN COURS'
         : v.stopReached ? 'ARRÊT RÉEL SOUS LE PORTIQUE' : 'ATTENTE DE L’APPEL ET D’UNE AIRE SÛRE';
       const status = `${facts.patientsArrived} arrivés · ${a.patients.filter(p => p.phase === 'transferring' && p.alive).length} en route · ${a.patients.filter(p => p.phase === 'aboard' && p.alive).length} à bord · ${facts.patientsLost} perdus`;
-      entries.push({ x: v.x, y: mainY,
-        title: 'AMBULANCE QUAI · 4 PATIENTS / 2 PERSONNELS', detail: work, sub: status, color: v.destroyed ? '#e1ac8b' : '#c2dec6', width: 352 });
-      if (facts.cargoInspected) entries.push({ x: v.x, y: mainY + 70, title: facts.medicalCargoVerified ? 'CAISSE SANITAIRE EXAMINÉE AVEC ACCORD' : 'CONSTAT · CONTENU NON VÉRIFIÉ',
+      entries.push({ title: 'AMBULANCE QUAI · 4 PATIENTS / 2 PERSONNELS', detail: work, sub: status, color: v.destroyed ? '#e1ac8b' : '#c2dec6', width: 352 });
+      if (facts.cargoInspected) entries.push({ title: facts.medicalCargoVerified ? 'CAISSE SANITAIRE EXAMINÉE AVEC ACCORD' : 'CONSTAT · CONTENU NON VÉRIFIÉ',
         detail: facts.beaconRecovered ? 'BALISE + ATTACHES + JOURNAL RÉCUPÉRÉS' : facts.beaconDestroyed ? 'BALISE DÉTRUITE · DONNÉES PERDUES' : 'BOÎTIER AJOUTÉ À DÉMONTER SÉPARÉMENT',
         sub: 'Provenance de pose encore à recouper', color: '#b1c9b5', width: 322, compact: true });
     }
     if (!a.ramp.prepared && this.visible(a.ramp.x, 80)) {
-      const y = Math.min(a.ramp.y - 130, Math.abs(s.player.x - a.ramp.x) < 400 ? s.player.y - 130 : 900);
-      entries.push({ x: a.ramp.x, y, title: `RAMPE ${facts.route === 'main' ? 'PRINCIPALE' : 'SECONDAIRE'}`,
+      entries.push({ title: `RAMPE ${facts.route === 'main' ? 'PRINCIPALE' : 'SECONDAIRE'}`,
         detail: a.ramp.working ? `TRAVAIL ${Math.round(a.ramp.progress * 100)} %` : 'E · PRÉPARER LE PASSAGE',
         sub: a.technical.contacted ? 'Aide du génie obtenue · 4 s' : 'Préparation locale · 8 s', color: '#e5c38a', width: 270 });
     }
-    if (a.signalAnnounced && !a.raidTriggered) entries.push({ x: s.player.x + 410, y: 335, title: 'SIGNAL DE SAISIE REÇU', detail: `DEUX DRONES ANNONCÉS · ${Math.ceil(s.mission.ambulance.seizureDelay - a.signalElapsed)} s`, sub: 'Protéger l’ambulance et ses personnes', color: '#e5c38a', width: 305 });
-    for (const entry of entries) {
-      const half = entry.width / 2, x = clamp(entry.x, this.cameraX + half + 12, this.cameraX + W - half - 12), y = Math.max(290, entry.y);
+    if (a.signalAnnounced && !a.raidTriggered) entries.push({ title: 'SIGNAL DE SAISIE REÇU', detail: `DEUX DRONES ANNONCÉS · ${Math.ceil(s.mission.ambulance.seizureDelay - a.signalElapsed)} s`, sub: 'Protéger l’ambulance et ses personnes', color: '#e5c38a', width: 305 });
+    // Keep the at-most-four cards in the viewport's central sky. Their former
+    // world positions could put them under the HTML objectives at left. This
+    // column also leaves the radio at right and the lower gauges unobstructed.
+    const stackHeight = entries.length * 73 - 8, top = clamp(350 - stackHeight / 2, 200, 500 - stackHeight);
+    for (const [index, entry] of entries.entries()) {
+      const half = entry.width / 2, x = this.cameraX + clamp(W * .55, W * .35 + half, W * .74 - half), y = top + index * 73;
       c.fillStyle = '#12333aee'; c.fillRect(x - half, y, entry.width, 65);
       line(c, x - half, y, x + half, y, entry.color, 1.5);
       label(c, entry.title, x, y + 18, entry.compact ? 9 : 10, entry.color, 'center');
