@@ -14,7 +14,7 @@ Cette livraison contient un **prototype de onze missions de campagne**, six mach
 
 ## Jouer à cette version
 
-**Le fichier autonome ci-dessous contient la version 0.12.** Le [suivi de publication](docs/DEPLOYMENT.md) identifie le commit GitHub effectivement reçu. Le [site en ligne](https://imperium-march.vercel.app/) sert encore la **0.10** : Vercel a refusé le déploiement 0.11 le 11 novembre 2026, avec un quota quotidien atteint et un délai de nouvelle tentative annoncé de 24 heures. Le [reçu de publication](docs/validation/v11-publication-initial.json) et le [constat HTTP](docs/validation/v11-http-initial.json) distinguent le code publié du site réellement servi.
+**La version 0.12 est disponible sur le [site en ligne](https://imperium-march.vercel.app/) et dans le fichier autonome ci-dessous.** Le commit GitHub [`e59dc2c51c68ec151cbc75a37a033c2650d3b95b`](https://github.com/darknigthmare/ImperiumMarch/commit/e59dc2c51c68ec151cbc75a37a033c2650d3b95b) correspond au snapshot contrôlé. Son déploiement automatique de production est READY ; les [28 ressources HTTP vérifiées](docs/validation/v12-http-initial.json) le 11 novembre 2026 à 20:30:47 UTC sont identiques aux octets attendus. Le [reçu de publication](docs/validation/v12-publication-initial.json) et le [suivi](docs/DEPLOYMENT.md) séparent cette disponibilité, la CI encore en attente et la réception native.
 
 Ouvrir [**dist/Ordre_de_Cendre.html**](dist/Ordre_de_Cendre.html) dans un navigateur de bureau récent, après l’avoir téléchargé ou extrait du pack. Le code, les styles et les images sont intégrés. Aucun serveur ni téléchargement complémentaire n’est nécessaire pour cette édition. Le son démarre après une interaction.
 
@@ -309,7 +309,9 @@ La [validation 0.12](docs/QA_V12.md) rassemble **516 tests Node réussis et 86 p
 
 Le classeur rassemble **905 fiches sur 21 onglets**, soit 32 ajouts. Les 873 identifiants précédents et les 133 critères initiaux restent conservés. Le [guide du classeur](docs/BIBLE_README.md) et le [registre de production](docs/PRODUCTION_REGISTER_V12.md) détaillent les preuves de réception.
 
-La réception native 0.12 reste **non effectuée** : le quota Vercel constaté en 0.11 est encore dans son délai de nouvelle tentative, et la politique du navigateur de contrôle refuse les URL locales `file://`. Aucune nouvelle tentative de contournement n’a été faite. Le [constat 0.12](docs/validation/native-v12/browser-reception.json) distingue cet état des tests automatisés et des réceptions historiques.
+La [réception partielle dans Chrome](docs/validation/native-v12/production-reception.json) distingue les migrations v9/v10 vers v11, l’essai d’écoute et la continuation depuis un **checkpoint d’échange préparé à 45 %**. Avec le **Pèlerin WK09, en difficulté Normal avec les aides actives**, le témoignage, le choix de remise en service, le retour physique à l’émetteur, les cinq secondes de travail, le rapport et l’extraction ont ensuite été accomplis dans le navigateur. Le résultat reçu à **05:47** conserve **11 rapports, 50 lots, Leth vivant, les trois sites intacts et aucune perte civile**. Les [deux exports finaux](docs/validation/native-v12/production-verification.json) sont identiques après rechargement. Cette réception porte sur des séquences déclarées, sans revendiquer une mission entière depuis son début ni un essai humain ; QA19, QA20 et QA29 restent ouvertes.
+
+Le [constat natif avant publication](docs/validation/native-v12/browser-reception.json) reste conservé avec son état historique `not_run`. Le quota de l’ancienne demande explicite 0.11 n’a pas empêché le déploiement automatique 0.12 reçu. Les nouvelles observations de production disposent de leurs propres preuves.
 
 La prochaine mission conçue est **MI12 — Le troisième relais**. Les autres missions, les contrats, les composants ennemis, les animations finales et les essais humains restent à produire.
 
@@ -327,6 +329,6 @@ Lors de la 0.9, Chrome a reçu la migration du dossier réel v7, les imports val
 
 La continuation native MI07 de la version 0.8 reste conservée dans son [rapport historique](docs/QA_V08.md) avec sa portée d’origine.
 
-Le site de jeu est [imperium-march.vercel.app](https://imperium-march.vercel.app/). Le [suivi de publication](docs/DEPLOYMENT.md) identifie le commit distant, le déploiement exact, la CI et les observations de navigateur effectivement réalisées. Les captures Canvas restent distinctes de ces observations.
+L’adresse du site est [imperium-march.vercel.app](https://imperium-march.vercel.app/). Le [suivi de publication](docs/DEPLOYMENT.md) identifie le commit distant, le déploiement exact, la date du contrôle HTTP, l’état de la CI et les observations de navigateur effectivement réalisées. Les captures Canvas restent distinctes de ces observations.
 
 Les prochains chantiers comprennent les quatre contrats de l’acte I, la suite de campagne à Thyr, les six autres châssis et la finition de la mission de référence. Les voix, l’animation finale, les essais humains et les performances sur matériel déclaré gardent leurs critères dans le registre de production.

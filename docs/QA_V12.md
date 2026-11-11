@@ -4,7 +4,7 @@ La réception porte sur le prototype MI01–MI11, les six châssis et les trois 
 
 ## Contrôles globaux sur les sources figées
 
-La [suite Node finale](validation/v12-node-validation.json) passe **516 tests sur 516**, sans échec, annulation, omission ni test à faire. Elle est exécutée sous **Node 24.22.1** ; les empreintes des entrées restent identiques pendant les 76,8 secondes de cette passe. Le moteur déclaré pour la publication est Node 22.x ; sa réception distante est consignée séparément après publication.
+La [suite Node finale](validation/v12-node-validation.json) passe **516 tests sur 516**, sans échec, annulation, omission ni test à faire. Elle est exécutée sous **Node 24.22.1** ; les empreintes des entrées restent identiques pendant les 76,8 secondes de cette passe. Le moteur déclaré pour la publication est Node 22.x. La [CI push 43095575253](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43095575253) correspond au commit public exact, mais sa [dernière observation reçue](validation/v12-ci-initial-last-observation.json) relève **`queued`, zéro job et aucune conclusion**, le **11 novembre 2026 à 20:53:18.665 UTC**. **Aucun résultat CI sous Node 22 n’est encore reçu pour la 0.12.**
 
 Le [reçu de construction](validation/v12-build-validation.json) confirme l’édition autonome de **10 507 813 octets**, vingt modules intégrés, 189 identifiants HTML et 178 références JavaScript littérales. La construction web et l’audit statique rapprochent **442 médias sources et 442 copies web**, sans entrée inconnue. Les trois fichiers image demandés par le jeu restent intégrés dans l’édition autonome ; les formes sont dessinées en code et les sons synthétisés.
 
@@ -62,10 +62,32 @@ Le registre initial compte désormais **37 Prototype, 16 Vérifié et 80 À prod
 
 Les 133 critères initiaux gardent leur exigence d’origine. AS13 est un **Prototype partiel**, limité à un interprète local et ses outils. Les Khelt complets, leurs animations finales et leurs voix restent ouverts. Le recalcul automatique ne vaut pas réception interactive dans Excel ou Calc ; QA29 n’est pas clôturée par celui-ci.
 
-## Réception native non effectuée
+## Publication GitHub et disponibilité web reçues
 
-Le [constat 0.12](validation/native-v12/browser-reception.json) n’enregistre **aucun nouvel essai natif**. Il référence deux contraintes déjà observées en 0.11 : Vercel a refusé la création du déploiement par HTTP 402, ressource `api-deployments-free-per-day`, avec `Retry-After: 86400` ; le navigateur de contrôle refuse les URL `file://` et a interdit un autre chemin local destiné à contourner ce refus.
+Le [reçu initial de publication](validation/v12-publication-initial.json) rattache le commit **`e59dc2c51c68ec151cbc75a37a033c2650d3b95b`** à l’arbre **`dda2a0df55f6fa7b48c0fbc9b43e5581fa9495b8`** : 1 441 fichiers comparés au snapshot local, avec 1 440 empreintes du contrôle de release et 200 nouveaux blobs uniques reçus. Le CAS de `main` a conservé le parent attendu, sans force.
 
-Le site observé demeure la 0.10. Aucune nouvelle demande explicite de déploiement n’est effectuée pendant le délai annoncé. Aucun serveur indirect, proxy, autre surface ou changement de sécurité n’est employé. Les observations natives 0.9 et 0.10 restent historiques et ne sont pas étendues à MI11.
+Le déploiement automatique **`dpl_635PJUowJFoZ6qGQy2th8YEh6bum`** est **READY**, cible production, pour ce même SHA. L’[observation Vercel](validation/v12-vercel-initial-observation.json) distingue l’intégration Git d’une nouvelle demande explicite : aucune création de déploiement, modification de configuration, de protection ou d’offre n’a été demandée. Les [28 ressources HTTP](validation/v12-http-initial.json) répondent 200 et leurs octets/SHA-256 correspondent exactement au snapshot, au contrôle achevé le 11 novembre à 20:30:47 UTC. Cette vérification utilise un accès HTTP authentifié ; elle ne revendique pas un contrôle anonyme.
 
-Migration native, interruption d’écoute, protection et pause de l’échange, décisions, opération, extraction, archives, recharge, petite fenêtre réelle, focus, manette physique et écoute sonore restent à recevoir dans l’environnement approprié. Le [protocole humain](PLAYTEST_VOICE_V12.md) possède un [formulaire non exécuté](validation/human-mi11-session-template-v12.json) ; PR91, QA190 et QA191 restent ouverts.
+Le quota HTTP 402 reçu en 0.11 reste un événement historique propre à la tentative explicite du 11 novembre. Il n’empêche pas le déploiement automatique 0.12 observé. La réussite de cet hébergement ne fournit aucun résultat à la CI encore en attente et ne reçoit pas les gestes d’une partie native.
+
+## Réception native partielle en production
+
+Le [constat antérieur à la publication](validation/native-v12/browser-reception.json), enregistré le 11 novembre à 19:37:55 UTC, garde son état **`not_run`**. Il conserve les contraintes alors connues : quota de la demande explicite Vercel 0.11 et refus des URL `file://` par le navigateur de contrôle. Ce document historique reste inchangé.
+
+La [réception de production](validation/native-v12/production-reception.json) consigne une intervention distincte dans Chrome sur la 0.12 publiée, avec le **Pèlerin H-6 — WK09**, la difficulté **Normal**, les **aides actives** (`assist: true`) et le choix **`defy` / remise en service**. Les migrations, l’écoute et la continuation de l’échange utilisent des points de départ distincts. La [vérification des exports](validation/native-v12/production-verification.json) rapproche les états conservés ; aucune préparation par le pilote de simulation n’est renommée en geste natif.
+
+| Séquence reçue | Actions et résultats observés | Portée du point de départ |
+| --- | --- | --- |
+| Migrations | Chrome a chargé la 0.12 et les dossiers v9/v10 ont été migrés exactement vers v11. | La provenance native du dossier v9 et la préparation historique du dossier v10 restent déclarées séparément dans le reçu. |
+| Écoute | Une écoute a été interrompue puis achevée dans Chrome. | Essai depuis son checkpoint préparé ; les trois écoutes complètes ne sont pas attribuées à cette séquence. |
+| Échange et reprise | Import à 45 %, progression jusqu’à 48,416 %, sauvegarde, rechargement, puis témoignage achevé dans Chrome. | Les conditions et acquisitions antérieures appartiennent au checkpoint. À la reprise, le checkpoint reste identique ; seule la révision du dossier passe de 196 à 198. |
+| Combat dans la reprise | Vingt-cinq tirs ajoutés et deux forces privées neutralisées pendant la continuation native. | Le checkpoint contenait déjà onze tirs et une force neutralisée ; les totaux finaux de trente-six tirs et trois forces neutralisées ne sont pas tous attribués au navigateur. |
+| Décision et émetteur | Choix de remise en service, retour physique à portée et cinq secondes de travail réellement effectuées. | La décision ne produit pas à elle seule la remise en service. |
+| Rapport et extraction | Trois secondes de rapport, marche jusqu’à l’extraction et victoire à 05:47. | Continuation de la même sortie après l’échange préparé, sans nouveau point de départ pour recevoir la fin. |
+| Bilan, archives et recharge | Onze rapports, 50 lots, TE01 conservé, trois sites intacts, Leth vivant à 420 HP, aucune perte civile ; les trois paires de traduction sont visibles dans les archives. | Les faits antérieurs conservés ne deviennent pas rétroactivement des actes observés dans Chrome. |
+
+Les exports [completed-native.json](validation/native-v12/completed-native.json) et [completed-reloaded.json](validation/native-v12/completed-reloaded.json) sont **identiques octet pour octet** : **118 188 octets**, SHA-256 **`02b4f04765e73d2319259aa1639aaa896b182b5e94ceee0dd90812608f185c11`**. Cette égalité finale est distincte du changement de révision observé lors de la reprise intermédiaire de l’échange.
+
+La portée native reçue reste partielle : un châssis, la remise en service et des séquences issues de checkpoints déclarés. Elle ne certifie pas une mission entière depuis son début, les autres choix ou les variantes de pertes. Les observations natives 0.9 et 0.10 gardent leur propre portée historique.
+
+Le [protocole humain](PLAYTEST_VOICE_V12.md) possède un [formulaire non exécuté](validation/human-mi11-session-template-v12.json). **PR91 et QA191 restent ouverts** : aucune session humaine n’a eu lieu. **QA190 reste À produire dans la Bible figée** : son attendu conserve le constat `not_run` d’avant publication ; les nouvelles preuves natives partielles sont apportées séparément, sans réécrire cet état historique. **QA19, QA20 et QA29 restent ouvertes** pour leurs contrôles propres de focus, petite fenêtre réelle et usage interactif du classeur. La manette physique et l’écoute sonore ne sont pas reçues par ce parcours. La Bible figée, ses statuts et ses anciens reçus ne sont pas réécrits par le suivi documentaire.

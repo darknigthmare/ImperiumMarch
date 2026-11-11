@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "release": "0.12.0",
+  "repository": "darknigthmare/ImperiumMarch",
+  "publicCommit": "e59dc2c51c68ec151cbc75a37a033c2650d3b95b",
+  "publicTree": "dda2a0df55f6fa7b48c0fbc9b43e5581fa9495b8",
+  "recordedAt": "2026-11-11T20:32:19.399Z",
+  "project": {
+    "id": "prj_ggDB98oddkTTzVPiGQrtxnj7frcr",
+    "name": "imperium-march",
+    "teamId": "team_VrIjq2UWV6VaHZr7DdQFwvfu",
+    "nodeVersion": "22.x"
+  },
+  "apiObservations": [
+    {
+      "operation": "get_project",
+      "startedAt": "2026-11-11T20:31:39.914Z",
+      "observedAt": "2026-11-11T20:31:41.273Z",
+      "latestDeploymentId": "dpl_635PJUowJFoZ6qGQy2th8YEh6bum"
+    },
+    {
+      "operation": "get_deployment",
+      "startedAt": "2026-11-11T20:31:39.914Z",
+      "observedAt": "2026-11-11T20:31:41.684Z"
+    }
+  ],
+  "deployment": {
+    "id": "dpl_635PJUowJFoZ6qGQy2th8YEh6bum",
+    "url": "https://imperium-march-l8479l43l-darknigthmares-projects.vercel.app/",
+    "state": "READY",
+    "readyState": "READY",
+    "target": "production",
+    "source": "git",
+    "createdAt": "2026-11-11T20:21:44.446Z",
+    "buildingAt": "2026-11-11T20:21:45.505Z",
+    "readyAt": "2026-11-11T20:22:03.180Z",
+    "git": {
+      "sha": "e59dc2c51c68ec151cbc75a37a033c2650d3b95b",
+      "ref": "main"
+    },
+    "aliases": [
+      "https://imperium-march.vercel.app/",
+      "https://imperium-march-darknigthmares-projects.vercel.app/",
+      "https://imperium-march-git-main-darknigthmares-projects.vercel.app/"
+    ]
+  },
+  "productionUrl": "https://imperium-march.vercel.app/",
+  "exactRequestedCommit": true,
+  "automaticGitDeploymentObserved": true,
+  "explicitDeploymentCreationRequested": false,
+  "projectConfigurationChanged": false,
+  "protectionConfigurationChanged": false,
+  "billingChanged": false,
+  "priorExplicitApiQuota": {
+    "receipt": "v11-vercel-initial-blocked.json",
+    "checkedAt": "2026-11-11T18:42:59.577Z",
+    "operation": "POST /v13/deployments",
+    "status": 402,
+    "code": "payment_required",
+    "resource": "api-deployments-free-per-day",
+    "retryAfterSeconds": 86400,
+    "retryAfterUntil": "2026-11-12T18:42:59.577Z",
+    "requestRetried": false,
+    "note": "Historical explicit deployment API refusal is preserved. A later Git-triggered deployment was independently observed READY. Its readiness does not assert that the explicit API quota has been reset."
+  },
+  "http": {
+    "receipt": "v12-http-initial-verification.json",
+    "bytes": 33452,
+    "sha256": "d314768357139f2f4dc69e75a400801d97178d366182768a43714f53d03349e8",
+    "observedAt": "2026-11-11T20:30:47.098Z",
+    "resourcesChecked": 28,
+    "statusCounts": {
+      "200": 28
+    },
+    "matchingRequestedSnapshot": 28,
+    "requestedReleaseVerified": true,
+    "authenticatedAccess": true,
+    "anonymousAccessTested": false,
+    "temporaryShareLinkCreatedOrReusedByAccessTool": true,
+    "temporaryAccessParametersPersisted": false
+  },
+  "nativeBrowser": false,
+  "humanPlaytest": false,
+  "scope": "Deployment identity and authenticated HTTP resource bytes only. A later native browser reception, if performed, requires its own receipt. No authentication token, temporary share URL, query parameter, cookie or authorization header is retained."
+}

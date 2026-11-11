@@ -1,0 +1,2817 @@
+{
+  "schema": "imperium-march-v12-native-export-reconciliation-1",
+  "observedAt": "2026-11-11T20:57:30.197Z",
+  "release": "0.12",
+  "publicCommit": "e59dc2c51c68ec151cbc75a37a033c2650d3b95b",
+  "publicTree": "dda2a0df55f6fa7b48c0fbc9b43e5581fa9495b8",
+  "method": "Read-only reconciliation of exports received from the separate actual production Chrome/Sky session; existing parseCampaign/serializeCampaign and pure voiceDerivedFacts only.",
+  "scope": {
+    "nativeBrowserControlledByThisVerifier": false,
+    "simulationAdvanced": false,
+    "engineTestsAdded": false,
+    "applicationCodeWritten": false,
+    "receivedExportsWritten": false,
+    "repositoryInputsReadOnly": true,
+    "outputArtifactOnly": true,
+    "initialBrowserReceptionOverwritten": false,
+    "humanPlaytest": false,
+    "inputsUnchanged": true
+  },
+  "complete": true,
+  "allReceivedChecksPassed": true,
+  "counts": {
+    "checks": 184,
+    "passed": 184,
+    "failed": 0
+  },
+  "pending": [],
+  "coverage": {
+    "nativeScenario": {
+      "walker": "WK09",
+      "difficulty": "normal",
+      "assist": true,
+      "choice": "defy",
+      "plan": "restore"
+    },
+    "fullMissionFromStartPlayedNatively": false,
+    "allChassisPlayedNatively": false,
+    "bothChoicesPlayedNatively": false,
+    "humanPlaytest": false
+  },
+  "migrations": [
+    {
+      "id": "v9-to-v11",
+      "source": "docs/validation/native-v12/production-baseline-v9.json",
+      "nativeExport": "docs/validation/native-v12/migrated-v9-to-v11.json",
+      "exactSerializedBytes": true,
+      "addedDomains": [
+        "chemical",
+        "voice"
+      ],
+      "summary": {
+        "version": 11,
+        "revision": 165,
+        "stage": "complete",
+        "reports": 9,
+        "resources": {
+          "parts": 42,
+          "fuel": 0
+        },
+        "activeMissionId": null,
+        "checkpoint": null
+      }
+    },
+    {
+      "id": "v10-to-v11",
+      "source": "docs/previews/mi10-completed-campaign.json",
+      "nativeExport": "docs/validation/native-v12/migrated-v10-to-v11.json",
+      "exactSerializedBytes": true,
+      "addedDomains": [
+        "voice"
+      ],
+      "summary": {
+        "version": 11,
+        "revision": 181,
+        "stage": "complete",
+        "reports": 10,
+        "resources": {
+          "parts": 46,
+          "fuel": 0
+        },
+        "activeMissionId": null,
+        "checkpoint": null
+      }
+    }
+  ],
+  "rejectedPreparation": {
+    "source": "tests/fixtures/campaign-v10-mi10.json",
+    "validatorResult": {
+      "rejected": true,
+      "error": "Sauvegarde invalide : format inconnu"
+    },
+    "operatorReported": "The first file selected was the fixture wrapper, not a player export. The production UI rejected it as format inconnu; the operator then imported the raw historical export.",
+    "evidenceLimit": "The retained accessibility snapshot shows the unchanged nine-report menu but does not retain the transient error toast. This preparation error is not counted as an application bug or a successful migration."
+  },
+  "nativeListening": {
+    "preparedSource": "docs/previews/mi11-listening-checkpoint.json",
+    "interrupted": {
+      "version": 11,
+      "revision": 188,
+      "stage": "mission",
+      "reports": 10,
+      "resources": {
+        "parts": 46,
+        "fuel": 0
+      },
+      "activeMissionId": "MI11",
+      "checkpoint": {
+        "missionId": "MI11",
+        "status": "playing",
+        "elapsed": 13.5469,
+        "phase": "listening",
+        "shots": 0,
+        "kills": 0,
+        "playerX": 564.8574817012096,
+        "braced": false,
+        "facts": {
+          "missionId": "MI11",
+          "phase": "listening",
+          "context": {
+            "chemicalRecorded": true,
+            "chemicalChoice": "defy",
+            "chemicalPt02": true,
+            "chemicalVillageHabitable": true,
+            "chemicalWaterRestored": true
+          },
+          "tutorial": {
+            "stepped": true,
+            "braced": true
+          },
+          "plan": "unselected",
+          "readingsTaken": 0,
+          "signalsRecorded": 0,
+          "sourceLocated": false,
+          "ridgeSurveyed": false,
+          "ridgeIntact": true,
+          "nestsTotal": 3,
+          "nestsIntact": 3,
+          "nestsDamaged": 0,
+          "nestsLost": 0,
+          "nestDisturbance": 0,
+          "emitterInspected": false,
+          "warningCopied": false,
+          "translationInspected": false,
+          "translationCopied": false,
+          "encounterResolved": false,
+          "lethMet": false,
+          "lethAlive": true,
+          "consentAsked": false,
+          "consentGranted": false,
+          "consentRefused": false,
+          "consentWithdrawn": false,
+          "testimonyStarted": false,
+          "testimonyRecorded": false,
+          "testimonyLost": false,
+          "testimonyResolved": false,
+          "te01Acquired": false,
+          "witnessAvailable": false,
+          "publicConsent": false,
+          "recruited": false,
+          "lethTrust": 0,
+          "alliancePossible": false,
+          "emitterSeized": false,
+          "emitterRestored": false,
+          "emitterOnline": false,
+          "emitterLost": false,
+          "operationsResolved": false,
+          "privateTriggered": false,
+          "privateReady": false,
+          "privateNeutralized": 0,
+          "manifestRead": false,
+          "reportTransmitted": false
+        },
+        "listening": [
+          {
+            "id": "voice-listening-1",
+            "sampled": false,
+            "detected": false,
+            "progress": 0,
+            "working": false,
+            "startedAt": null,
+            "completedAt": null,
+            "sampledAt": null
+          },
+          {
+            "id": "voice-listening-2",
+            "sampled": false,
+            "detected": false,
+            "progress": 0,
+            "working": false,
+            "startedAt": null,
+            "completedAt": null,
+            "sampledAt": null
+          },
+          {
+            "id": "voice-listening-3",
+            "sampled": false,
+            "detected": false,
+            "progress": 0,
+            "working": false,
+            "startedAt": null,
+            "completedAt": null,
+            "sampledAt": null
+          }
+        ],
+        "leth": {
+          "alive": true,
+          "met": false,
+          "consent": false,
+          "progress": 0,
+          "working": false,
+          "startedAt": null,
+          "completedAt": null,
+          "testimonyRecorded": false,
+          "testimonyAt": null,
+          "publicConsent": false,
+          "recruited": false
+        },
+        "enemies": [
+          {
+            "id": "voice-private-1",
+            "kind": "air",
+            "hp": 90,
+            "dead": false,
+            "x": 3960
+          },
+          {
+            "id": "voice-private-2",
+            "kind": "infantry",
+            "hp": 150,
+            "dead": false,
+            "x": 4430
+          },
+          {
+            "id": "voice-private-3",
+            "kind": "air",
+            "hp": 90,
+            "dead": false,
+            "x": 4820
+          }
+        ]
+      }
+    },
+    "completed": {
+      "version": 11,
+      "revision": 211,
+      "stage": "mission",
+      "reports": 10,
+      "resources": {
+        "parts": 46,
+        "fuel": 0
+      },
+      "activeMissionId": "MI11",
+      "checkpoint": {
+        "missionId": "MI11",
+        "status": "playing",
+        "elapsed": 175.0410000000067,
+        "phase": "listening",
+        "shots": 0,
+        "kills": 0,
+        "playerX": 564.8574817012096,
+        "braced": false,
+        "facts": {
+          "missionId": "MI11",
+          "phase": "listening",
+          "context": {
+            "chemicalRecorded": true,
+            "chemicalChoice": "defy",
+            "chemicalPt02": true,
+            "chemicalVillageHabitable": true,
+            "chemicalWaterRestored": true
+          },
+          "tutorial": {
+            "stepped": true,
+            "braced": true
+          },
+          "plan": "unselected",
+          "readingsTaken": 1,
+          "signalsRecorded": 1,
+          "sourceLocated": false,
+          "ridgeSurveyed": false,
+          "ridgeIntact": true,
+          "nestsTotal": 3,
+          "nestsIntact": 3,
+          "nestsDamaged": 0,
+          "nestsLost": 0,
+          "nestDisturbance": 0,
+          "emitterInspected": false,
+          "warningCopied": false,
+          "translationInspected": false,
+          "translationCopied": false,
+          "encounterResolved": false,
+          "lethMet": false,
+          "lethAlive": true,
+          "consentAsked": false,
+          "consentGranted": false,
+          "consentRefused": false,
+          "consentWithdrawn": false,
+          "testimonyStarted": false,
+          "testimonyRecorded": false,
+          "testimonyLost": false,
+          "testimonyResolved": false,
+          "te01Acquired": false,
+          "witnessAvailable": false,
+          "publicConsent": false,
+          "recruited": false,
+          "lethTrust": 0,
+          "alliancePossible": false,
+          "emitterSeized": false,
+          "emitterRestored": false,
+          "emitterOnline": false,
+          "emitterLost": false,
+          "operationsResolved": false,
+          "privateTriggered": false,
+          "privateReady": false,
+          "privateNeutralized": 0,
+          "manifestRead": false,
+          "reportTransmitted": false
+        },
+        "listening": [
+          {
+            "id": "voice-listening-1",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 153.44600000000167,
+            "completedAt": 157.4116000000027,
+            "sampledAt": 157.4116000000027
+          },
+          {
+            "id": "voice-listening-2",
+            "sampled": false,
+            "detected": false,
+            "progress": 0,
+            "working": false,
+            "startedAt": null,
+            "completedAt": null,
+            "sampledAt": null
+          },
+          {
+            "id": "voice-listening-3",
+            "sampled": false,
+            "detected": false,
+            "progress": 0,
+            "working": false,
+            "startedAt": null,
+            "completedAt": null,
+            "sampledAt": null
+          }
+        ],
+        "leth": {
+          "alive": true,
+          "met": false,
+          "consent": false,
+          "progress": 0,
+          "working": false,
+          "startedAt": null,
+          "completedAt": null,
+          "testimonyRecorded": false,
+          "testimonyAt": null,
+          "publicConsent": false,
+          "recruited": false
+        },
+        "enemies": [
+          {
+            "id": "voice-private-1",
+            "kind": "air",
+            "hp": 90,
+            "dead": false,
+            "x": 3960
+          },
+          {
+            "id": "voice-private-2",
+            "kind": "infantry",
+            "hp": 150,
+            "dead": false,
+            "x": 4430
+          },
+          {
+            "id": "voice-private-3",
+            "kind": "air",
+            "hp": 90,
+            "dead": false,
+            "x": 4820
+          }
+        ]
+      }
+    },
+    "operatorReported": "Native Sky hold Space 2000 ms then Space+e 6000 ms completed the first reading. Earlier short presses and tab pressKey attempts did not establish the necessary hold.",
+    "evidenceLimit": "JSON confirms data and chronology; native input actions are documented separately by the operator and linked captures."
+  },
+  "nativeExchange": {
+    "preparedSource": "docs/previews/mi11-exchange-checkpoint.json",
+    "preparedProgress": 0.4500000000000036,
+    "paused": {
+      "version": 11,
+      "revision": 196,
+      "stage": "mission",
+      "reports": 10,
+      "resources": {
+        "parts": 46,
+        "fuel": 0
+      },
+      "activeMissionId": "MI11",
+      "checkpoint": {
+        "missionId": "MI11",
+        "status": "playing",
+        "elapsed": 78.14986666666373,
+        "phase": "exchange",
+        "shots": 11,
+        "kills": 1,
+        "playerX": 3727.8560999754786,
+        "braced": false,
+        "facts": {
+          "missionId": "MI11",
+          "phase": "exchange",
+          "context": {
+            "chemicalRecorded": true,
+            "chemicalChoice": "defy",
+            "chemicalPt02": true,
+            "chemicalVillageHabitable": true,
+            "chemicalWaterRestored": true
+          },
+          "tutorial": {
+            "stepped": true,
+            "braced": true
+          },
+          "plan": "unselected",
+          "readingsTaken": 3,
+          "signalsRecorded": 3,
+          "sourceLocated": true,
+          "ridgeSurveyed": true,
+          "ridgeIntact": true,
+          "nestsTotal": 3,
+          "nestsIntact": 3,
+          "nestsDamaged": 0,
+          "nestsLost": 0,
+          "nestDisturbance": 27,
+          "emitterInspected": true,
+          "warningCopied": true,
+          "translationInspected": true,
+          "translationCopied": true,
+          "encounterResolved": true,
+          "lethMet": true,
+          "lethAlive": true,
+          "consentAsked": true,
+          "consentGranted": true,
+          "consentRefused": false,
+          "consentWithdrawn": false,
+          "testimonyStarted": true,
+          "testimonyRecorded": false,
+          "testimonyLost": false,
+          "testimonyResolved": false,
+          "te01Acquired": false,
+          "witnessAvailable": true,
+          "publicConsent": false,
+          "recruited": false,
+          "lethTrust": 30,
+          "alliancePossible": false,
+          "emitterSeized": false,
+          "emitterRestored": false,
+          "emitterOnline": false,
+          "emitterLost": false,
+          "operationsResolved": false,
+          "privateTriggered": true,
+          "privateReady": true,
+          "privateNeutralized": 1,
+          "manifestRead": true,
+          "reportTransmitted": false
+        },
+        "listening": [
+          {
+            "id": "voice-listening-1",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 4.133333333333324,
+            "completedAt": 8.133333333333317,
+            "sampledAt": 8.133333333333317
+          },
+          {
+            "id": "voice-listening-2",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 15.166666666667,
+            "completedAt": 19.16666666666686,
+            "sampledAt": 19.16666666666686
+          },
+          {
+            "id": "voice-listening-3",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 25.63333333333316,
+            "completedAt": 29.63333333333293,
+            "sampledAt": 29.63333333333293
+          }
+        ],
+        "leth": {
+          "alive": true,
+          "met": true,
+          "consent": true,
+          "progress": 0.484160000000013,
+          "working": true,
+          "startedAt": 68.46666666666407,
+          "completedAt": null,
+          "testimonyRecorded": false,
+          "testimonyAt": null,
+          "publicConsent": false,
+          "recruited": false
+        },
+        "enemies": [
+          {
+            "id": "voice-private-1",
+            "kind": "air",
+            "hp": 0,
+            "dead": true,
+            "x": 3960
+          },
+          {
+            "id": "voice-private-2",
+            "kind": "infantry",
+            "hp": 82,
+            "dead": false,
+            "x": 4430
+          },
+          {
+            "id": "voice-private-3",
+            "kind": "air",
+            "hp": 90,
+            "dead": false,
+            "x": 4683.603200000107
+          }
+        ]
+      }
+    },
+    "reloaded": {
+      "version": 11,
+      "revision": 198,
+      "stage": "mission",
+      "reports": 10,
+      "resources": {
+        "parts": 46,
+        "fuel": 0
+      },
+      "activeMissionId": "MI11",
+      "checkpoint": {
+        "missionId": "MI11",
+        "status": "playing",
+        "elapsed": 78.14986666666373,
+        "phase": "exchange",
+        "shots": 11,
+        "kills": 1,
+        "playerX": 3727.8560999754786,
+        "braced": false,
+        "facts": {
+          "missionId": "MI11",
+          "phase": "exchange",
+          "context": {
+            "chemicalRecorded": true,
+            "chemicalChoice": "defy",
+            "chemicalPt02": true,
+            "chemicalVillageHabitable": true,
+            "chemicalWaterRestored": true
+          },
+          "tutorial": {
+            "stepped": true,
+            "braced": true
+          },
+          "plan": "unselected",
+          "readingsTaken": 3,
+          "signalsRecorded": 3,
+          "sourceLocated": true,
+          "ridgeSurveyed": true,
+          "ridgeIntact": true,
+          "nestsTotal": 3,
+          "nestsIntact": 3,
+          "nestsDamaged": 0,
+          "nestsLost": 0,
+          "nestDisturbance": 27,
+          "emitterInspected": true,
+          "warningCopied": true,
+          "translationInspected": true,
+          "translationCopied": true,
+          "encounterResolved": true,
+          "lethMet": true,
+          "lethAlive": true,
+          "consentAsked": true,
+          "consentGranted": true,
+          "consentRefused": false,
+          "consentWithdrawn": false,
+          "testimonyStarted": true,
+          "testimonyRecorded": false,
+          "testimonyLost": false,
+          "testimonyResolved": false,
+          "te01Acquired": false,
+          "witnessAvailable": true,
+          "publicConsent": false,
+          "recruited": false,
+          "lethTrust": 30,
+          "alliancePossible": false,
+          "emitterSeized": false,
+          "emitterRestored": false,
+          "emitterOnline": false,
+          "emitterLost": false,
+          "operationsResolved": false,
+          "privateTriggered": true,
+          "privateReady": true,
+          "privateNeutralized": 1,
+          "manifestRead": true,
+          "reportTransmitted": false
+        },
+        "listening": [
+          {
+            "id": "voice-listening-1",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 4.133333333333324,
+            "completedAt": 8.133333333333317,
+            "sampledAt": 8.133333333333317
+          },
+          {
+            "id": "voice-listening-2",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 15.166666666667,
+            "completedAt": 19.16666666666686,
+            "sampledAt": 19.16666666666686
+          },
+          {
+            "id": "voice-listening-3",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 25.63333333333316,
+            "completedAt": 29.63333333333293,
+            "sampledAt": 29.63333333333293
+          }
+        ],
+        "leth": {
+          "alive": true,
+          "met": true,
+          "consent": true,
+          "progress": 0.484160000000013,
+          "working": true,
+          "startedAt": 68.46666666666407,
+          "completedAt": null,
+          "testimonyRecorded": false,
+          "testimonyAt": null,
+          "publicConsent": false,
+          "recruited": false
+        },
+        "enemies": [
+          {
+            "id": "voice-private-1",
+            "kind": "air",
+            "hp": 0,
+            "dead": true,
+            "x": 3960
+          },
+          {
+            "id": "voice-private-2",
+            "kind": "infantry",
+            "hp": 82,
+            "dead": false,
+            "x": 4430
+          },
+          {
+            "id": "voice-private-3",
+            "kind": "air",
+            "hp": 90,
+            "dead": false,
+            "x": 4683.603200000107
+          }
+        ]
+      }
+    },
+    "pauseReloadExactBytes": false,
+    "pauseReloadDifferences": [
+      {
+        "path": "$.revision",
+        "before": 196,
+        "after": 198
+      }
+    ],
+    "wholeCheckpointIdentical": true,
+    "completed": {
+      "version": 11,
+      "revision": 203,
+      "stage": "mission",
+      "reports": 10,
+      "resources": {
+        "parts": 46,
+        "fuel": 0
+      },
+      "activeMissionId": "MI11",
+      "checkpoint": {
+        "missionId": "MI11",
+        "status": "playing",
+        "elapsed": 94.56336666666303,
+        "phase": "assessment",
+        "shots": 28,
+        "kills": 2,
+        "playerX": 3727.8560999754786,
+        "braced": false,
+        "facts": {
+          "missionId": "MI11",
+          "phase": "assessment",
+          "context": {
+            "chemicalRecorded": true,
+            "chemicalChoice": "defy",
+            "chemicalPt02": true,
+            "chemicalVillageHabitable": true,
+            "chemicalWaterRestored": true
+          },
+          "tutorial": {
+            "stepped": true,
+            "braced": true
+          },
+          "plan": "unselected",
+          "readingsTaken": 3,
+          "signalsRecorded": 3,
+          "sourceLocated": true,
+          "ridgeSurveyed": true,
+          "ridgeIntact": true,
+          "nestsTotal": 3,
+          "nestsIntact": 3,
+          "nestsDamaged": 0,
+          "nestsLost": 0,
+          "nestDisturbance": 27,
+          "emitterInspected": true,
+          "warningCopied": true,
+          "translationInspected": true,
+          "translationCopied": true,
+          "encounterResolved": true,
+          "lethMet": true,
+          "lethAlive": true,
+          "consentAsked": true,
+          "consentGranted": true,
+          "consentRefused": false,
+          "consentWithdrawn": false,
+          "testimonyStarted": true,
+          "testimonyRecorded": true,
+          "testimonyLost": false,
+          "testimonyResolved": true,
+          "te01Acquired": true,
+          "witnessAvailable": true,
+          "publicConsent": false,
+          "recruited": false,
+          "lethTrust": 50,
+          "alliancePossible": false,
+          "emitterSeized": false,
+          "emitterRestored": false,
+          "emitterOnline": false,
+          "emitterLost": false,
+          "operationsResolved": false,
+          "privateTriggered": true,
+          "privateReady": true,
+          "privateNeutralized": 2,
+          "manifestRead": true,
+          "reportTransmitted": false
+        },
+        "listening": [
+          {
+            "id": "voice-listening-1",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 4.133333333333324,
+            "completedAt": 8.133333333333317,
+            "sampledAt": 8.133333333333317
+          },
+          {
+            "id": "voice-listening-2",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 15.166666666667,
+            "completedAt": 19.16666666666686,
+            "sampledAt": 19.16666666666686
+          },
+          {
+            "id": "voice-listening-3",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 25.63333333333316,
+            "completedAt": 29.63333333333293,
+            "sampledAt": 29.63333333333293
+          }
+        ],
+        "leth": {
+          "alive": true,
+          "met": true,
+          "consent": true,
+          "progress": 1,
+          "working": false,
+          "startedAt": 68.46666666666407,
+          "completedAt": 88.48116666666327,
+          "testimonyRecorded": true,
+          "testimonyAt": 88.48116666666327,
+          "publicConsent": false,
+          "recruited": false
+        },
+        "enemies": [
+          {
+            "id": "voice-private-1",
+            "kind": "air",
+            "hp": 0,
+            "dead": true,
+            "x": 3960
+          },
+          {
+            "id": "voice-private-2",
+            "kind": "infantry",
+            "hp": 0,
+            "dead": true,
+            "x": 4430
+          },
+          {
+            "id": "voice-private-3",
+            "kind": "air",
+            "hp": 90,
+            "dead": false,
+            "x": 4324.875200000151
+          }
+        ]
+      }
+    },
+    "defenseAccounting": {
+      "shotsAlreadyInPreparedCheckpoint": 11,
+      "totalShotsAtNativeCompletion": 28,
+      "shotsAddedAfterNativeReload": 17,
+      "privateNeutralizedAlreadyPrepared": 1,
+      "totalPrivateNeutralizedAtNativeCompletion": 2,
+      "additionalPrivateNeutralizedAfterReload": 1
+    }
+  },
+  "nativeRouteScope": {
+    "listeningPreparedCheckpointImported": true,
+    "exchangePreparedCheckpointImported": true,
+    "decisionPreparedCheckpointImported": false,
+    "extractionPreparedCheckpointImported": false,
+    "operatorReported": "After importing the 45-percent exchange checkpoint, the operator continued that actual native state through exchange completion, decision, emitter intervention, report and physical extraction. No decision or extraction checkpoint was imported."
+  },
+  "nativeCompletion": {
+    "choice": {
+      "version": 11,
+      "revision": 212,
+      "stage": "mission",
+      "reports": 10,
+      "resources": {
+        "parts": 46,
+        "fuel": 0
+      },
+      "activeMissionId": "MI11",
+      "checkpoint": {
+        "missionId": "MI11",
+        "status": "playing",
+        "elapsed": 127.57286666666116,
+        "phase": "operations",
+        "shots": 28,
+        "kills": 2,
+        "playerX": 3727.8560999754786,
+        "braced": false,
+        "facts": {
+          "missionId": "MI11",
+          "phase": "operations",
+          "context": {
+            "chemicalRecorded": true,
+            "chemicalChoice": "defy",
+            "chemicalPt02": true,
+            "chemicalVillageHabitable": true,
+            "chemicalWaterRestored": true
+          },
+          "tutorial": {
+            "stepped": true,
+            "braced": true
+          },
+          "plan": "restore",
+          "readingsTaken": 3,
+          "signalsRecorded": 3,
+          "sourceLocated": true,
+          "ridgeSurveyed": true,
+          "ridgeIntact": true,
+          "nestsTotal": 3,
+          "nestsIntact": 3,
+          "nestsDamaged": 0,
+          "nestsLost": 0,
+          "nestDisturbance": 27,
+          "emitterInspected": true,
+          "warningCopied": true,
+          "translationInspected": true,
+          "translationCopied": true,
+          "encounterResolved": true,
+          "lethMet": true,
+          "lethAlive": true,
+          "consentAsked": true,
+          "consentGranted": true,
+          "consentRefused": false,
+          "consentWithdrawn": false,
+          "testimonyStarted": true,
+          "testimonyRecorded": true,
+          "testimonyLost": false,
+          "testimonyResolved": true,
+          "te01Acquired": true,
+          "witnessAvailable": true,
+          "publicConsent": false,
+          "recruited": false,
+          "lethTrust": 50,
+          "alliancePossible": false,
+          "emitterSeized": false,
+          "emitterRestored": false,
+          "emitterOnline": false,
+          "emitterLost": false,
+          "operationsResolved": false,
+          "privateTriggered": true,
+          "privateReady": true,
+          "privateNeutralized": 2,
+          "manifestRead": true,
+          "reportTransmitted": false
+        },
+        "listening": [
+          {
+            "id": "voice-listening-1",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 4.133333333333324,
+            "completedAt": 8.133333333333317,
+            "sampledAt": 8.133333333333317
+          },
+          {
+            "id": "voice-listening-2",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 15.166666666667,
+            "completedAt": 19.16666666666686,
+            "sampledAt": 19.16666666666686
+          },
+          {
+            "id": "voice-listening-3",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 25.63333333333316,
+            "completedAt": 29.63333333333293,
+            "sampledAt": 29.63333333333293
+          }
+        ],
+        "leth": {
+          "alive": true,
+          "met": true,
+          "consent": true,
+          "progress": 1,
+          "working": false,
+          "startedAt": 68.46666666666407,
+          "completedAt": 88.48116666666327,
+          "testimonyRecorded": true,
+          "testimonyAt": 88.48116666666327,
+          "publicConsent": false,
+          "recruited": false
+        },
+        "enemies": [
+          {
+            "id": "voice-private-1",
+            "kind": "air",
+            "hp": 0,
+            "dead": true,
+            "x": 3960
+          },
+          {
+            "id": "voice-private-2",
+            "kind": "infantry",
+            "hp": 0,
+            "dead": true,
+            "x": 4430
+          },
+          {
+            "id": "voice-private-3",
+            "kind": "air",
+            "hp": 90,
+            "dead": false,
+            "x": 4238.480000000165
+          }
+        ]
+      }
+    },
+    "restored": {
+      "version": 11,
+      "revision": 234,
+      "stage": "mission",
+      "reports": 10,
+      "resources": {
+        "parts": 46,
+        "fuel": 0
+      },
+      "activeMissionId": "MI11",
+      "checkpoint": {
+        "missionId": "MI11",
+        "status": "playing",
+        "elapsed": 282.0443666666957,
+        "phase": "operations",
+        "shots": 36,
+        "kills": 3,
+        "playerX": 3182.447662125339,
+        "braced": false,
+        "facts": {
+          "missionId": "MI11",
+          "phase": "operations",
+          "context": {
+            "chemicalRecorded": true,
+            "chemicalChoice": "defy",
+            "chemicalPt02": true,
+            "chemicalVillageHabitable": true,
+            "chemicalWaterRestored": true
+          },
+          "tutorial": {
+            "stepped": true,
+            "braced": true
+          },
+          "plan": "restore",
+          "readingsTaken": 3,
+          "signalsRecorded": 3,
+          "sourceLocated": true,
+          "ridgeSurveyed": true,
+          "ridgeIntact": true,
+          "nestsTotal": 3,
+          "nestsIntact": 3,
+          "nestsDamaged": 0,
+          "nestsLost": 0,
+          "nestDisturbance": 27,
+          "emitterInspected": true,
+          "warningCopied": true,
+          "translationInspected": true,
+          "translationCopied": true,
+          "encounterResolved": true,
+          "lethMet": true,
+          "lethAlive": true,
+          "consentAsked": true,
+          "consentGranted": true,
+          "consentRefused": false,
+          "consentWithdrawn": false,
+          "testimonyStarted": true,
+          "testimonyRecorded": true,
+          "testimonyLost": false,
+          "testimonyResolved": true,
+          "te01Acquired": true,
+          "witnessAvailable": true,
+          "publicConsent": false,
+          "recruited": false,
+          "lethTrust": 70,
+          "alliancePossible": true,
+          "emitterSeized": false,
+          "emitterRestored": true,
+          "emitterOnline": true,
+          "emitterLost": false,
+          "operationsResolved": true,
+          "privateTriggered": true,
+          "privateReady": true,
+          "privateNeutralized": 3,
+          "manifestRead": true,
+          "reportTransmitted": false
+        },
+        "listening": [
+          {
+            "id": "voice-listening-1",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 4.133333333333324,
+            "completedAt": 8.133333333333317,
+            "sampledAt": 8.133333333333317
+          },
+          {
+            "id": "voice-listening-2",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 15.166666666667,
+            "completedAt": 19.16666666666686,
+            "sampledAt": 19.16666666666686
+          },
+          {
+            "id": "voice-listening-3",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 25.63333333333316,
+            "completedAt": 29.63333333333293,
+            "sampledAt": 29.63333333333293
+          }
+        ],
+        "leth": {
+          "alive": true,
+          "met": true,
+          "consent": true,
+          "progress": 1,
+          "working": false,
+          "startedAt": 68.46666666666407,
+          "completedAt": 88.48116666666327,
+          "testimonyRecorded": true,
+          "testimonyAt": 88.48116666666327,
+          "publicConsent": false,
+          "recruited": false
+        },
+        "enemies": [
+          {
+            "id": "voice-private-1",
+            "kind": "air",
+            "hp": 0,
+            "dead": true,
+            "x": 3960
+          },
+          {
+            "id": "voice-private-2",
+            "kind": "infantry",
+            "hp": 0,
+            "dead": true,
+            "x": 4430
+          },
+          {
+            "id": "voice-private-3",
+            "kind": "air",
+            "hp": 0,
+            "dead": true,
+            "x": 4238.480000000165
+          }
+        ]
+      }
+    },
+    "beforeExtraction": {
+      "version": 11,
+      "revision": 244,
+      "stage": "mission",
+      "reports": 10,
+      "resources": {
+        "parts": 46,
+        "fuel": 0
+      },
+      "activeMissionId": "MI11",
+      "checkpoint": {
+        "missionId": "MI11",
+        "status": "playing",
+        "elapsed": 339.759066666709,
+        "phase": "extraction",
+        "shots": 36,
+        "kills": 3,
+        "playerX": 5429.834926572573,
+        "braced": false,
+        "facts": {
+          "missionId": "MI11",
+          "phase": "extraction",
+          "context": {
+            "chemicalRecorded": true,
+            "chemicalChoice": "defy",
+            "chemicalPt02": true,
+            "chemicalVillageHabitable": true,
+            "chemicalWaterRestored": true
+          },
+          "tutorial": {
+            "stepped": true,
+            "braced": true
+          },
+          "plan": "restore",
+          "readingsTaken": 3,
+          "signalsRecorded": 3,
+          "sourceLocated": true,
+          "ridgeSurveyed": true,
+          "ridgeIntact": true,
+          "nestsTotal": 3,
+          "nestsIntact": 3,
+          "nestsDamaged": 0,
+          "nestsLost": 0,
+          "nestDisturbance": 27,
+          "emitterInspected": true,
+          "warningCopied": true,
+          "translationInspected": true,
+          "translationCopied": true,
+          "encounterResolved": true,
+          "lethMet": true,
+          "lethAlive": true,
+          "consentAsked": true,
+          "consentGranted": true,
+          "consentRefused": false,
+          "consentWithdrawn": false,
+          "testimonyStarted": true,
+          "testimonyRecorded": true,
+          "testimonyLost": false,
+          "testimonyResolved": true,
+          "te01Acquired": true,
+          "witnessAvailable": true,
+          "publicConsent": false,
+          "recruited": false,
+          "lethTrust": 70,
+          "alliancePossible": true,
+          "emitterSeized": false,
+          "emitterRestored": true,
+          "emitterOnline": true,
+          "emitterLost": false,
+          "operationsResolved": true,
+          "privateTriggered": true,
+          "privateReady": true,
+          "privateNeutralized": 3,
+          "manifestRead": true,
+          "reportTransmitted": true
+        },
+        "listening": [
+          {
+            "id": "voice-listening-1",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 4.133333333333324,
+            "completedAt": 8.133333333333317,
+            "sampledAt": 8.133333333333317
+          },
+          {
+            "id": "voice-listening-2",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 15.166666666667,
+            "completedAt": 19.16666666666686,
+            "sampledAt": 19.16666666666686
+          },
+          {
+            "id": "voice-listening-3",
+            "sampled": true,
+            "detected": true,
+            "progress": 1,
+            "working": false,
+            "startedAt": 25.63333333333316,
+            "completedAt": 29.63333333333293,
+            "sampledAt": 29.63333333333293
+          }
+        ],
+        "leth": {
+          "alive": true,
+          "met": true,
+          "consent": true,
+          "progress": 1,
+          "working": false,
+          "startedAt": 68.46666666666407,
+          "completedAt": 88.48116666666327,
+          "testimonyRecorded": true,
+          "testimonyAt": 88.48116666666327,
+          "publicConsent": false,
+          "recruited": false
+        },
+        "enemies": [
+          {
+            "id": "voice-private-1",
+            "kind": "air",
+            "hp": 0,
+            "dead": true,
+            "x": 3960
+          },
+          {
+            "id": "voice-private-2",
+            "kind": "infantry",
+            "hp": 0,
+            "dead": true,
+            "x": 4430
+          },
+          {
+            "id": "voice-private-3",
+            "kind": "air",
+            "hp": 0,
+            "dead": true,
+            "x": 4238.480000000165
+          }
+        ]
+      }
+    },
+    "final": {
+      "version": 11,
+      "revision": 245,
+      "stage": "complete",
+      "reports": 11,
+      "resources": {
+        "parts": 50,
+        "fuel": 0
+      },
+      "activeMissionId": null,
+      "checkpoint": null
+    },
+    "reloaded": {
+      "version": 11,
+      "revision": 245,
+      "stage": "complete",
+      "reports": 11,
+      "resources": {
+        "parts": 50,
+        "fuel": 0
+      },
+      "activeMissionId": null,
+      "checkpoint": null
+    },
+    "finalReport": {
+      "missionId": "MI11",
+      "missionName": "Une voix au ras du sol",
+      "walkerId": "WK09",
+      "walkerName": "H-6 Pèlerin",
+      "hull": 594.3004999999999,
+      "integrity": 0.9905008333333333,
+      "elapsed": 347.0573666667106,
+      "collateral": 0,
+      "kills": 3,
+      "choice": "defy",
+      "partsGranted": 4,
+      "tessLine": "3 signaux exploitables sur trois relevés. 3 sites de ponte restent intacts, 0 sont atteints et 0 sont perdus. L’émetteur transmet à nouveau les avis locaux.",
+      "samiLine": "TE01 conserve l’avis Khelt, sa traduction impériale et l’explication privée enregistrée avec l’accord de Leth. Leth demeure vivant sur ce site. Aucune diffusion publique ni aucun recrutement n’a été autorisé.",
+      "plan": "restore",
+      "sourceLocated": true,
+      "ridgeSurveyed": true,
+      "ridgeIntact": true,
+      "emitterInspected": true,
+      "warningCopied": true,
+      "translationInspected": true,
+      "translationCopied": true,
+      "encounterResolved": true,
+      "lethMet": true,
+      "lethAlive": true,
+      "consentAsked": true,
+      "consentGranted": true,
+      "consentRefused": false,
+      "consentWithdrawn": false,
+      "testimonyStarted": true,
+      "testimonyRecorded": true,
+      "testimonyLost": false,
+      "testimonyResolved": true,
+      "te01Acquired": true,
+      "witnessAvailable": true,
+      "publicConsent": false,
+      "recruited": false,
+      "alliancePossible": true,
+      "emitterSeized": false,
+      "emitterRestored": true,
+      "emitterOnline": true,
+      "emitterLost": false,
+      "operationsResolved": true,
+      "privateTriggered": true,
+      "privateReady": true,
+      "manifestRead": true,
+      "reportTransmitted": true,
+      "readingsTaken": 3,
+      "signalsRecorded": 3,
+      "nestsTotal": 3,
+      "nestsIntact": 3,
+      "nestsDamaged": 0,
+      "nestsLost": 0,
+      "nestDisturbance": 27,
+      "lethTrust": 70,
+      "privateNeutralized": 3,
+      "decisionLabel": "Liaison locale rétablie, sources et accord de Leth consignés"
+    },
+    "finalExportsExactlyEqual": true,
+    "finalExportSha256": "02b4f04765e73d2319259aa1639aaa896b182b5e94ceee0dd90812608f185c11",
+    "officialResourceDelta": {
+      "parts": 4,
+      "fuel": 0
+    },
+    "actualWork": {
+      "emitter": {
+        "startedAt": 275.72946666669424,
+        "completedAt": 280.7114666666954,
+        "stampDeltaSeconds": 4.982000000001165
+      },
+      "report": {
+        "startedAt": 335.4103666667079,
+        "completedAt": 338.40956666670866,
+        "stampDeltaSeconds": 2.9992000000007693
+      }
+    },
+    "extraction": {
+      "beforePlayerX": 5429.834926572573,
+      "exitX": 6100,
+      "radius": 110,
+      "beforeStatus": "playing",
+      "beforeElapsed": 339.759066666709,
+      "finalReceiptElapsed": 347.0573666667106,
+      "finalStage": "complete",
+      "finalPlayerPositionStored": false,
+      "evidenceLimit": "The official completed export does not retain the final player coordinates. The received before-extraction scene is still playing and outside the exit radius; the later completed receipt and native result capture corroborate the operator-observed physical extraction."
+    },
+    "defenseAccounting": {
+      "preparedShots": 11,
+      "totalShots": 36,
+      "nativeAdditionalShots": 25,
+      "preparedNeutralized": 1,
+      "totalNeutralized": 3,
+      "nativeAdditionalNeutralized": 2
+    }
+  },
+  "nativeEvidence": {
+    "observationTimesPath": "docs/validation/native-v12/ui-observation-times.json",
+    "firstRecordedAt": "2026-11-11T20:28:42.701Z",
+    "lastRecordedAt": "2026-11-11T20:51:36.733Z",
+    "recordedTimestamps": 61,
+    "accessibilitySnapshots": 67,
+    "screenshots": 13,
+    "screenImagesHashedNotVisuallyReplayedByVerifier": true,
+    "archiveFrenchPairsMatched": [
+      "evacuation",
+      "passage",
+      "ponte"
+    ]
+  },
+  "checks": [
+    {
+      "id": "docs/validation/native-v12/production-baseline-v9.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/migrated-v9-to-v11.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/migrated-v9-to-v11.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/previews/mi10-completed-campaign.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/migrated-v10-to-v11.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/migrated-v10-to-v11.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "v9-to-v11: exact structural migration",
+      "pass": true
+    },
+    {
+      "id": "v9-to-v11: native export equals serialized migration byte for byte",
+      "pass": true
+    },
+    {
+      "id": "v9-to-v11: only version and documented new Thyr domains were added",
+      "pass": true
+    },
+    {
+      "id": "v9-to-v11: historical receipt count",
+      "pass": true,
+      "observed": 9
+    },
+    {
+      "id": "v9-to-v11: stock preserved",
+      "pass": true,
+      "observed": {
+        "parts": 42,
+        "fuel": 0
+      }
+    },
+    {
+      "id": "v10-to-v11: exact structural migration",
+      "pass": true
+    },
+    {
+      "id": "v10-to-v11: native export equals serialized migration byte for byte",
+      "pass": true
+    },
+    {
+      "id": "v10-to-v11: only version and documented new Thyr domains were added",
+      "pass": true
+    },
+    {
+      "id": "v10-to-v11: historical receipt count",
+      "pass": true,
+      "observed": 10
+    },
+    {
+      "id": "v10-to-v11: stock preserved",
+      "pass": true,
+      "observed": {
+        "parts": 46,
+        "fuel": 0
+      }
+    },
+    {
+      "id": "fixture container is correctly rejected as a player export",
+      "pass": true
+    },
+    {
+      "id": "docs/previews/mi11-listening-checkpoint.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/previews/mi11-listening-checkpoint.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/previews/mi11-listening-checkpoint.json: stored facts match physical objects",
+      "pass": true
+    },
+    {
+      "id": "docs/previews/mi11-listening-checkpoint.json: pure derivation leaves checkpoint unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/listening-interrupted.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/listening-interrupted.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/listening-interrupted.json: stored facts match physical objects",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/listening-interrupted.json: pure derivation leaves checkpoint unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/listening-completed.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/listening-completed.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/listening-completed.json: stored facts match physical objects",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/listening-completed.json: pure derivation leaves checkpoint unchanged",
+      "pass": true
+    },
+    {
+      "id": "listening interrupted: official completed preserved",
+      "pass": true
+    },
+    {
+      "id": "listening interrupted: official resources preserved",
+      "pass": true
+    },
+    {
+      "id": "listening interrupted: official crew preserved",
+      "pass": true
+    },
+    {
+      "id": "listening interrupted: official authority preserved",
+      "pass": true
+    },
+    {
+      "id": "listening interrupted: official world preserved",
+      "pass": true
+    },
+    {
+      "id": "listening interrupted: official fleet preserved",
+      "pass": true
+    },
+    {
+      "id": "listening interrupted: official maintenanceLog preserved",
+      "pass": true
+    },
+    {
+      "id": "listening interrupted: ten historical reports unchanged",
+      "pass": true
+    },
+    {
+      "id": "listening interrupted: no shots, three intact nesting sites, living Leth, no premature TE01",
+      "pass": true
+    },
+    {
+      "id": "listening completed: official completed preserved",
+      "pass": true
+    },
+    {
+      "id": "listening completed: official resources preserved",
+      "pass": true
+    },
+    {
+      "id": "listening completed: official crew preserved",
+      "pass": true
+    },
+    {
+      "id": "listening completed: official authority preserved",
+      "pass": true
+    },
+    {
+      "id": "listening completed: official world preserved",
+      "pass": true
+    },
+    {
+      "id": "listening completed: official fleet preserved",
+      "pass": true
+    },
+    {
+      "id": "listening completed: official maintenanceLog preserved",
+      "pass": true
+    },
+    {
+      "id": "listening completed: ten historical reports unchanged",
+      "pass": true
+    },
+    {
+      "id": "listening completed: no shots, three intact nesting sites, living Leth, no premature TE01",
+      "pass": true
+    },
+    {
+      "id": "prepared listening was in progress before native interruption",
+      "pass": true
+    },
+    {
+      "id": "native listening interruption resets incomplete job and acquires nothing",
+      "pass": true
+    },
+    {
+      "id": "native listening restart acquires exactly one sample and signal",
+      "pass": true
+    },
+    {
+      "id": "first native reading is complete and other two remain untouched",
+      "pass": true
+    },
+    {
+      "id": "native listening restarts after interruption without locating source early",
+      "pass": true
+    },
+    {
+      "id": "docs/previews/mi11-exchange-checkpoint.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/previews/mi11-exchange-checkpoint.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/previews/mi11-exchange-checkpoint.json: stored facts match physical objects",
+      "pass": true
+    },
+    {
+      "id": "docs/previews/mi11-exchange-checkpoint.json: pure derivation leaves checkpoint unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/exchange-paused.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/exchange-paused.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/exchange-paused.json: stored facts match physical objects",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/exchange-paused.json: pure derivation leaves checkpoint unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/exchange-reloaded.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/exchange-reloaded.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/exchange-reloaded.json: stored facts match physical objects",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/exchange-reloaded.json: pure derivation leaves checkpoint unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/exchange-completed.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/exchange-completed.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/exchange-completed.json: stored facts match physical objects",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/exchange-completed.json: pure derivation leaves checkpoint unchanged",
+      "pass": true
+    },
+    {
+      "id": "exchange paused: official completed preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange paused: official resources preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange paused: official crew preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange paused: official authority preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange paused: official world preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange paused: official fleet preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange paused: official maintenanceLog preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange paused: all ten historical reports retained",
+      "pass": true
+    },
+    {
+      "id": "exchange reloaded: official completed preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange reloaded: official resources preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange reloaded: official crew preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange reloaded: official authority preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange reloaded: official world preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange reloaded: official fleet preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange reloaded: official maintenanceLog preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange reloaded: all ten historical reports retained",
+      "pass": true
+    },
+    {
+      "id": "exchange completed: official completed preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange completed: official resources preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange completed: official crew preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange completed: official authority preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange completed: official world preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange completed: official fleet preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange completed: official maintenanceLog preserved",
+      "pass": true
+    },
+    {
+      "id": "exchange completed: all ten historical reports retained",
+      "pass": true
+    },
+    {
+      "id": "exchange pause/reload keeps the entire checkpoint identical",
+      "pass": true
+    },
+    {
+      "id": "exchange pause/reload changes only dossier revision 196 to 198",
+      "pass": true,
+      "observed": [
+        {
+          "path": "$.revision",
+          "before": 196,
+          "after": 198
+        }
+      ]
+    },
+    {
+      "id": "exchange files correctly recorded as different bytes",
+      "pass": true
+    },
+    {
+      "id": "exchange not yet recorded at pause or reload",
+      "pass": true
+    },
+    {
+      "id": "native exchange completes living private testimony and TE01",
+      "pass": true
+    },
+    {
+      "id": "native exchange preserves original start and adds actual completion",
+      "pass": true
+    },
+    {
+      "id": "native exchange has no public consent or recruitment",
+      "pass": true
+    },
+    {
+      "id": "native exchange defense is represented by actual shots and casualties",
+      "pass": true
+    },
+    {
+      "id": "native exchange has not already operated emitter or transmitted report",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/emitter-choice.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/emitter-choice.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/emitter-choice.json: stored facts match physical objects",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/emitter-choice.json: pure derivation leaves checkpoint unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/emitter-restored.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/emitter-restored.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/emitter-restored.json: stored facts match physical objects",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/emitter-restored.json: pure derivation leaves checkpoint unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/before-extraction.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/before-extraction.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/before-extraction.json: stored facts match physical objects",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/before-extraction.json: pure derivation leaves checkpoint unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/completed-native.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/completed-native.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/completed-reloaded.json: accepted by existing campaign validator",
+      "pass": true
+    },
+    {
+      "id": "docs/validation/native-v12/completed-reloaded.json: validation leaves all fields unchanged",
+      "pass": true
+    },
+    {
+      "id": "native choice: official completed preserved",
+      "pass": true
+    },
+    {
+      "id": "native choice: official resources preserved",
+      "pass": true
+    },
+    {
+      "id": "native choice: official crew preserved",
+      "pass": true
+    },
+    {
+      "id": "native choice: official authority preserved",
+      "pass": true
+    },
+    {
+      "id": "native choice: official world preserved",
+      "pass": true
+    },
+    {
+      "id": "native choice: official fleet preserved",
+      "pass": true
+    },
+    {
+      "id": "native choice: official maintenanceLog preserved",
+      "pass": true
+    },
+    {
+      "id": "native choice: ten historical reports retained",
+      "pass": true
+    },
+    {
+      "id": "native choice: actual native testimony and copies retained",
+      "pass": true
+    },
+    {
+      "id": "native restored: official completed preserved",
+      "pass": true
+    },
+    {
+      "id": "native restored: official resources preserved",
+      "pass": true
+    },
+    {
+      "id": "native restored: official crew preserved",
+      "pass": true
+    },
+    {
+      "id": "native restored: official authority preserved",
+      "pass": true
+    },
+    {
+      "id": "native restored: official world preserved",
+      "pass": true
+    },
+    {
+      "id": "native restored: official fleet preserved",
+      "pass": true
+    },
+    {
+      "id": "native restored: official maintenanceLog preserved",
+      "pass": true
+    },
+    {
+      "id": "native restored: ten historical reports retained",
+      "pass": true
+    },
+    {
+      "id": "native restored: actual native testimony and copies retained",
+      "pass": true
+    },
+    {
+      "id": "native before extraction: official completed preserved",
+      "pass": true
+    },
+    {
+      "id": "native before extraction: official resources preserved",
+      "pass": true
+    },
+    {
+      "id": "native before extraction: official crew preserved",
+      "pass": true
+    },
+    {
+      "id": "native before extraction: official authority preserved",
+      "pass": true
+    },
+    {
+      "id": "native before extraction: official world preserved",
+      "pass": true
+    },
+    {
+      "id": "native before extraction: official fleet preserved",
+      "pass": true
+    },
+    {
+      "id": "native before extraction: official maintenanceLog preserved",
+      "pass": true
+    },
+    {
+      "id": "native before extraction: ten historical reports retained",
+      "pass": true
+    },
+    {
+      "id": "native before extraction: actual native testimony and copies retained",
+      "pass": true
+    },
+    {
+      "id": "native scenario is WK09 Normal with assistance enabled",
+      "pass": true
+    },
+    {
+      "id": "native decision selects restoration without performing it",
+      "pass": true
+    },
+    {
+      "id": "native pre-decision snapshot is unresolved and has no restoration",
+      "pass": true
+    },
+    {
+      "id": "native emitter operation has its own later start and completion",
+      "pass": true
+    },
+    {
+      "id": "native emitter operation restores the channel without capture or report",
+      "pass": true
+    },
+    {
+      "id": "native report is a subsequent completed operation",
+      "pass": true
+    },
+    {
+      "id": "native report unlocks extraction while player is still outside its radius",
+      "pass": true
+    },
+    {
+      "id": "native physical route has advanced actual step count",
+      "pass": true
+    },
+    {
+      "id": "native physical chronology is ordered through the final receipt",
+      "pass": true
+    },
+    {
+      "id": "native final state closes mission and adds the eleventh report",
+      "pass": true
+    },
+    {
+      "id": "native final receipt preserves historical MI01",
+      "pass": true
+    },
+    {
+      "id": "native final receipt preserves historical MI02",
+      "pass": true
+    },
+    {
+      "id": "native final receipt preserves historical MI03",
+      "pass": true
+    },
+    {
+      "id": "native final receipt preserves historical MI04",
+      "pass": true
+    },
+    {
+      "id": "native final receipt preserves historical MI05",
+      "pass": true
+    },
+    {
+      "id": "native final receipt preserves historical MI06",
+      "pass": true
+    },
+    {
+      "id": "native final receipt preserves historical MI07",
+      "pass": true
+    },
+    {
+      "id": "native final receipt preserves historical MI08",
+      "pass": true
+    },
+    {
+      "id": "native final receipt preserves historical MI09",
+      "pass": true
+    },
+    {
+      "id": "native final receipt preserves historical MI10",
+      "pass": true
+    },
+    {
+      "id": "native completion grants four lots exactly once",
+      "pass": true
+    },
+    {
+      "id": "native completion and reload exports are exactly identical bytes",
+      "pass": true
+    },
+    {
+      "id": "native completed export has received expected fingerprint",
+      "pass": true
+    },
+    {
+      "id": "native reload keeps all eleven reports and fifty lots",
+      "pass": true
+    },
+    {
+      "id": "native last debrief is the actual final receipt",
+      "pass": true
+    },
+    {
+      "id": "native pre-decision checkpoint is preserved through completion and reload",
+      "pass": true
+    },
+    {
+      "id": "native final Thyr voice dossier matches the final receipt",
+      "pass": true
+    },
+    {
+      "id": "native completion preserves all older world domains",
+      "pass": true
+    },
+    {
+      "id": "native final receipt preserves TE01 and living available Leth",
+      "pass": true
+    },
+    {
+      "id": "native final receipt gives no public consent or recruitment",
+      "pass": true
+    },
+    {
+      "id": "native final receipt preserves all three nesting sites",
+      "pass": true
+    },
+    {
+      "id": "native final receipt retains the actual restoration and report",
+      "pass": true
+    },
+    {
+      "id": "native final accounting is 36 shots with 11 inherited and 25 added",
+      "pass": true
+    },
+    {
+      "id": "native final accounting is three neutralized forces with one inherited and two added",
+      "pass": true
+    },
+    {
+      "id": "native observation timestamps are valid and chronological",
+      "pass": true
+    },
+    {
+      "id": "received native result shows actual five-minute-forty-seven-second completion and TE01",
+      "pass": true
+    },
+    {
+      "id": "received native reload menu shows eleven of eleven classified reports",
+      "pass": true
+    },
+    {
+      "id": "received native archive contains all three French source comparisons",
+      "pass": true
+    },
+    {
+      "id": "received native archive retains private permission and limits",
+      "pass": true
+    },
+    {
+      "id": "all received inputs and historical record remain byte-identical during verification",
+      "pass": true
+    }
+  ],
+  "inputs": [
+    {
+      "path": "docs/validation/native-v12/browser-reception.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/browser-reception.json",
+      "bytes": 2976,
+      "sha256": "3af202e6142a61bda32e0919baf3fc28ab2757bad2a5d2982eae90f623d6b572"
+    },
+    {
+      "path": "src/campaign.mjs",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/src/campaign.mjs",
+      "bytes": 144871,
+      "sha256": "7c36a5f828942566d85cf5ae4eb7343b25866a8ff938e841bd7268a8b99e037d"
+    },
+    {
+      "path": "src/voice-validation.mjs",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/src/voice-validation.mjs",
+      "bytes": 36791,
+      "sha256": "7cc3ecb9c4c3f02232795c44274e7eb5ed49d67962c0b2e72765378a582051ed"
+    },
+    {
+      "path": "src/voice-simulation.mjs",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/src/voice-simulation.mjs",
+      "bytes": 24309,
+      "sha256": "eefa4de80ef3fb60b8b0d07bdccec0ab2fb3ea465a44ba959deb1e221a7baff6"
+    },
+    {
+      "path": "src/simulation.mjs",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/src/simulation.mjs",
+      "bytes": 269625,
+      "sha256": "965f1c7fad967e8e9fd9d27d5c452ec0c62afb208e4e227c49193f67e8153f9a"
+    },
+    {
+      "path": "src/content.mjs",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/src/content.mjs",
+      "bytes": 38479,
+      "sha256": "e06339d3a5017568e395b8bce302716d5fb4800ea9a3f101f668d3a7c09ebf54"
+    },
+    {
+      "path": "docs/validation/native-v12/production-baseline-v9.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/production-baseline-v9.json",
+      "bytes": 73582,
+      "sha256": "de5ece01c690b27435878c0f84f7dfd7f86723500a23a3703e3f8ffce28e6898"
+    },
+    {
+      "path": "docs/validation/native-v12/migrated-v9-to-v11.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/migrated-v9-to-v11.json",
+      "bytes": 75345,
+      "sha256": "78503398d6b067f1d8d9cc1fcde99ae648212ef9918e4fa6be328ebd362b8067"
+    },
+    {
+      "path": "docs/previews/mi10-completed-campaign.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/previews/mi10-completed-campaign.json",
+      "bytes": 131193,
+      "sha256": "5b9cbb7be6f32e909df66d363b0b952db449be5e163872b41041f97a22809cc1"
+    },
+    {
+      "path": "docs/validation/native-v12/migrated-v10-to-v11.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/migrated-v10-to-v11.json",
+      "bytes": 132129,
+      "sha256": "a675124444042981829d34e7c9bb06238a03cc189685c4566d1ea991f33731b6"
+    },
+    {
+      "path": "tests/fixtures/campaign-v10-mi10.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/tests/fixtures/campaign-v10-mi10.json",
+      "bytes": 414403,
+      "sha256": "a917920f3e0469d00f31e00f1a242fc183e5d0ebc4f3b4db59066fa63668aa73"
+    },
+    {
+      "path": "docs/previews/mi11-listening-checkpoint.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/previews/mi11-listening-checkpoint.json",
+      "bytes": 109678,
+      "sha256": "e432d996138c195979363f6fc4999613e285507c88d36b1fdbdc4c030eaf3fd3"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-interrupted.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-interrupted.json",
+      "bytes": 109695,
+      "sha256": "7dedafec48817e29f28032c928c043a2935448aa9ea4dce1afeeac31bf83db86"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-completed.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-completed.json",
+      "bytes": 109839,
+      "sha256": "d3da89936d66a0f447d6bfcb03768eede0fad6f5f392cd4b7c315d3f633c6918"
+    },
+    {
+      "path": "docs/previews/mi11-exchange-checkpoint.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/previews/mi11-exchange-checkpoint.json",
+      "bytes": 118999,
+      "sha256": "944a6d999da6b033378599ef5315e349bd25b54052c46a6bb574926c62170ae8"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-paused.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-paused.json",
+      "bytes": 118620,
+      "sha256": "9ddc19602642590ac554d193f4ab82c171fce670b3285fc0423625da855e959b"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-reloaded.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-reloaded.json",
+      "bytes": 118620,
+      "sha256": "940a29d22e35c3a78a78554532250beb6c3e422812ae7f1d0d23c5b1e83b90ed"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-completed.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-completed.json",
+      "bytes": 122551,
+      "sha256": "777b5d7acc98ad2ac0de9a09c1ed819f0d1c6d5e6c4add4b787578da591d0c82"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-choice.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-choice.json",
+      "bytes": 144264,
+      "sha256": "5e4e33d134e9d75e6709caf6cd1c29216483a8a37042b9549b82ccbbb1c352a5"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-restored.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-restored.json",
+      "bytes": 143750,
+      "sha256": "3a56853bf9b082fe62c33f5be7555a22abcbfd9c6aea872c9e497e28e09df8de"
+    },
+    {
+      "path": "docs/validation/native-v12/before-extraction.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/before-extraction.json",
+      "bytes": 143389,
+      "sha256": "65e386a6be945b95edbb961c4304c08d59291d37ccdea812da00a9d0508395af"
+    },
+    {
+      "path": "docs/validation/native-v12/completed-native.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/completed-native.json",
+      "bytes": 118188,
+      "sha256": "02b4f04765e73d2319259aa1639aaa896b182b5e94ceee0dd90812608f185c11"
+    },
+    {
+      "path": "docs/validation/native-v12/completed-reloaded.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/completed-reloaded.json",
+      "bytes": 118188,
+      "sha256": "02b4f04765e73d2319259aa1639aaa896b182b5e94ceee0dd90812608f185c11"
+    },
+    {
+      "path": "docs/validation/native-v12/approaching-emitter-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/approaching-emitter-ax.txt",
+      "bytes": 3056,
+      "sha256": "ff33e3725e4ef92c048d4d2d872faf1d4dfd64d3387c0ac1f75a00c954077b5f"
+    },
+    {
+      "path": "docs/validation/native-v12/archives-after-mi11-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/archives-after-mi11-ax.txt",
+      "bytes": 2511,
+      "sha256": "8e8abd9d06be4739faeb43dbfdeddaa34ed92bf576eb6265ac4d51a386a725fc"
+    },
+    {
+      "path": "docs/validation/native-v12/archives-mi11.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/archives-mi11.png",
+      "bytes": 83186,
+      "sha256": "d36cdf30058ef33fcbe7a6a5dc3cafb8f5605af20f3244233aac0ddba6b5e4be"
+    },
+    {
+      "path": "docs/validation/native-v12/before-emitter-interaction-focus-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/before-emitter-interaction-focus-ax.txt",
+      "bytes": 3136,
+      "sha256": "553a01904b9c3932cee9a8296c13d4274b4c1c676bc172a6ef39a6b400332f5e"
+    },
+    {
+      "path": "docs/validation/native-v12/before-extraction-export-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/before-extraction-export-ax.txt",
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    {
+      "path": "docs/validation/native-v12/before-extraction-menu-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/before-extraction-menu-ax.txt",
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    {
+      "path": "docs/validation/native-v12/before-extraction-pause-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/before-extraction-pause-ax.txt",
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    {
+      "path": "docs/validation/native-v12/briefing-mi11-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/briefing-mi11-ax.txt",
+      "bytes": 2259,
+      "sha256": "ef8256846e9be09c7ec3af2ad958653595bb4b7a1d756f9fd47f453716189ab8"
+    },
+    {
+      "path": "docs/validation/native-v12/campaign-completed-native-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/campaign-completed-native-ax.txt",
+      "bytes": 7018,
+      "sha256": "1c16072f382d7476fa09f44131d39e6653020d915c3ddf9a66e4d1f948a47e03"
+    },
+    {
+      "path": "docs/validation/native-v12/campaign-completed-reloaded.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/campaign-completed-reloaded.png",
+      "bytes": 118477,
+      "sha256": "286a457f233f1786133f6614a80f90953aa4ed70760e2a064914854c212fb08e"
+    },
+    {
+      "path": "docs/validation/native-v12/completed-native-exported-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/completed-native-exported-ax.txt",
+      "bytes": 7123,
+      "sha256": "55f4e0aa0f8dc55a3cecfd47a1308aede545325d4a4a84eb3d51d7e0d5fb62bf"
+    },
+    {
+      "path": "docs/validation/native-v12/completed-native-reloaded-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/completed-native-reloaded-ax.txt",
+      "bytes": 7001,
+      "sha256": "4b4a79c7300e618c3615144e2e4a08936428c05a2c3e2725c78e30d3609d5533"
+    },
+    {
+      "path": "docs/validation/native-v12/completed-reloaded-exported-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/completed-reloaded-exported-ax.txt",
+      "bytes": 7045,
+      "sha256": "d4cf95b5d5ef4f8e98cc617ae2424edee8522d94159e894857b14fcadc479ff3"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-approach-keyboard-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-approach-keyboard-ax.txt",
+      "bytes": 3052,
+      "sha256": "379780af8fb6f9f92cd2afae87f9bbcdee807599315cd768f9a1e934ec49cae9"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-approach-letter-key-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-approach-letter-key-ax.txt",
+      "bytes": 3012,
+      "sha256": "52ba3601eb9cee93d66e3191b2e0da560eccaa0620b1f1e6ab9c8d186f153987"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-choice-export-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-choice-export-ax.txt",
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-choice-menu-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-choice-menu-ax.txt",
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-choice-pause-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-choice-pause-ax.txt",
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-choice-restore-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-choice-restore-ax.txt",
+      "bytes": 3254,
+      "sha256": "6058d2fff84bbfa6fef94002f16ed19b868a056d476cb0aeb8e4e27bc57e636c"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-decision-opened-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-decision-opened-ax.txt",
+      "bytes": 3006,
+      "sha256": "776720449631a2f74e29733f9ee944426dd1d4e434554541693675dc17adb3d2"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-decision-received-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-decision-received-ax.txt",
+      "bytes": 1296,
+      "sha256": "8e8a73fc69a96821b83d885a6a680645610b3c01c7d4eb3a8fd6f5d09e1345c9"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-decision.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-decision.png",
+      "bytes": 55495,
+      "sha256": "1fd2002eb329b9aadf3ff07944ab879f643c63f9753669129f0bc191dcf8b62e"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-in-reach-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-in-reach-ax.txt",
+      "bytes": 3144,
+      "sha256": "3de1d19ace49a7e2fd2620d15cc4fed3470b7ba8b68003191dcb40ef28cf4ad8"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-restored-export-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-restored-export-ax.txt",
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-restored-menu-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-restored-menu-ax.txt",
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-restored-native-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-restored-native-ax.txt",
+      "bytes": 2976,
+      "sha256": "f029d53f204ff9fe1ab4e78fc18545371978f4cf2bdd31cbbf56dd477f73a94c"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-restored-pause-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-restored-pause-ax.txt",
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-restored.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-restored.png",
+      "bytes": 96729,
+      "sha256": "e412aa07832417d3596154b38b6f3ab86c76d977333a988447dfd4145de63a8e"
+    },
+    {
+      "path": "docs/validation/native-v12/emitter-route-resumed-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/emitter-route-resumed-ax.txt",
+      "bytes": 3069,
+      "sha256": "5eab0f8e0c6f9e9933e23e4fa73a8670aea49f954add1a7f5950ca91bba59d81"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-after-reload-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-after-reload-ax.txt",
+      "bytes": 3112,
+      "sha256": "381c494dfa9209b796d73f28a41bd0a9fb2a54c0f825eee2bddad32df0198968"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-after-reload.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-after-reload.png",
+      "bytes": 105066,
+      "sha256": "8ceeaedec7d7cf8f8d83981e55b3290868aee2cb7bb6b385b51d858a4788cfd4"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-defense-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-defense-ax.txt",
+      "bytes": 3121,
+      "sha256": "1edad22c66b52cbb25b592f195c5826f6a38713522e67ef8a952e2a2befbff59"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-defense.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-defense.png",
+      "bytes": 98027,
+      "sha256": "a2713db6cbea15795fa447d25ffae81035cd06021866e408d6f5e6cc8eae2c37"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-finished-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-finished-ax.txt",
+      "bytes": 3243,
+      "sha256": "4dd4258f6d6fb306cf48d22035fdc126c1b321ebce18e21c79ddefd75409428b"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-finished-export-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-finished-export-ax.txt",
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-finished-menu-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-finished-menu-ax.txt",
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-finished-pause-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-finished-pause-ax.txt",
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-finished.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-finished.png",
+      "bytes": 107314,
+      "sha256": "28d04f8bb8b689e5ee8e85e56afa961e414b54f915e9c51eda08a2aff295aeab"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-import-after-timeout-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-import-after-timeout-ax.txt",
+      "bytes": 758,
+      "sha256": "a59b4f4c2aeab8c9d1377f162a1ef8226bdf9553417db2618b1b5a69514a77a1"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-import-dialog-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-import-dialog-ax.txt",
+      "bytes": 758,
+      "sha256": "a59b4f4c2aeab8c9d1377f162a1ef8226bdf9553417db2618b1b5a69514a77a1"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-imported-menu-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-imported-menu-ax.txt",
+      "bytes": 7083,
+      "sha256": "97f39de7ca9ed8be4bcba599b56effe75b8dedeb050b25b4d748352f6f085f20"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-pause-export-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-pause-export-ax.txt",
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-paused-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-paused-ax.txt",
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-paused-menu-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-paused-menu-ax.txt",
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-reload-export-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-reload-export-ax.txt",
+      "bytes": 7127,
+      "sha256": "397c930c70413dd76b840387b284c19ca6beb2868a0b3af5afca524adf1226ff"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-reloaded-menu-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-reloaded-menu-ax.txt",
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-resumed-initial-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-resumed-initial-ax.txt",
+      "bytes": 3112,
+      "sha256": "e92f3e404bcb23650c061fc8895eb37b8ba1b4c4741a0c1a30e60e39e2cc3671"
+    },
+    {
+      "path": "docs/validation/native-v12/exchange-resumed.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/exchange-resumed.png",
+      "bytes": 100474,
+      "sha256": "d9354b35e176943f2d2842284e4bd3540c8a0118004aae281d7e46368e4e507b"
+    },
+    {
+      "path": "docs/validation/native-v12/fixture-container-refusal-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/fixture-container-refusal-ax.txt",
+      "bytes": 6891,
+      "sha256": "b92dfa8af410d1e1c744d09a5254faceb0456b5ecb864b57efcc30beefa7eb37"
+    },
+    {
+      "path": "docs/validation/native-v12/hangar-after-mi11-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/hangar-after-mi11-ax.txt",
+      "bytes": 5686,
+      "sha256": "720e9b6ab899cbedf5b715d7ef7759fd4318815c5463156cc9925a7660a9cec5"
+    },
+    {
+      "path": "docs/validation/native-v12/journal-mi11-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/journal-mi11-ax.txt",
+      "bytes": 10052,
+      "sha256": "afa9f3bf6b7c0c50d079827b78833f1ad24c822c3ac9690ac0177a0e42812a0f"
+    },
+    {
+      "path": "docs/validation/native-v12/journal-mi11-expanded-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/journal-mi11-expanded-ax.txt",
+      "bytes": 12644,
+      "sha256": "5ea5ea99bd154ac22284f47295a6e4b9712b1fc5e0e18510f2a3c36891e9ccbf"
+    },
+    {
+      "path": "docs/validation/native-v12/journal-mi11-expanded-received-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/journal-mi11-expanded-received-ax.txt",
+      "bytes": 12644,
+      "sha256": "5ea5ea99bd154ac22284f47295a6e4b9712b1fc5e0e18510f2a3c36891e9ccbf"
+    },
+    {
+      "path": "docs/validation/native-v12/last-private-force-targeted-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/last-private-force-targeted-ax.txt",
+      "bytes": 3060,
+      "sha256": "bd6d5a92af1ee4142669500b33dd0c8ccd454c8375b92158b149f83447dec8cb"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-after-settling-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-after-settling-ax.txt",
+      "bytes": 3173,
+      "sha256": "5011ecad6caf7f0216a96200e75878263fa9eda570a8e9c8e11386fdea03254d"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-completed-menu-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-completed-menu-ax.txt",
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-completed-native-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-completed-native-ax.txt",
+      "bytes": 3133,
+      "sha256": "f342fbee1d9d71704f7b519e5f5a540ba3f4c94342669792550ab8ca0cfdd240"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-completed-native.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-completed-native.png",
+      "bytes": 137337,
+      "sha256": "01e5b8e61feac2593de753804af28a159c83a1e19f0a509dee9f1135df19908d"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-completed-pause-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-completed-pause-ax.txt",
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-export-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-export-ax.txt",
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-held-anchor-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-held-anchor-ax.txt",
+      "bytes": 3173,
+      "sha256": "cbb3ca2bf5b4e76be9fdcd0eedfd34ebf481fc93a9a3b8cec7f9ff3a93e11ec0"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-interrupted-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-interrupted-ax.txt",
+      "bytes": 3042,
+      "sha256": "b4f8d1f45167e5d6becf1ba2cb8d37e366d0fb5d3c414b51bf61170a01c2ff52"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-interrupted-menu-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-interrupted-menu-ax.txt",
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-native-keyboard-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-native-keyboard-ax.txt",
+      "bytes": 3173,
+      "sha256": "89036858b53a203f286f1a1a5eaf584b0c9660089d4e8ba6f1a67a0909b86ad4"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-overlapped-keys-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-overlapped-keys-ax.txt",
+      "bytes": 3173,
+      "sha256": "7435df22b80010be7c17acf5ca4b58133f124d96500bba4774b99ff5c76879a7"
+    },
+    {
+      "path": "docs/validation/native-v12/listening-restarted-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/listening-restarted-ax.txt",
+      "bytes": 3173,
+      "sha256": "e00a45e331fcf0049014f007e2410cc317b05db3b35e72573bd223fef4b96990"
+    },
+    {
+      "path": "docs/validation/native-v12/migration-v10-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/migration-v10-ax.txt",
+      "bytes": 6987,
+      "sha256": "2a1c8306314e321cb70f2040d87fe167ee6217e11626befa2b4d9a985a0378d0"
+    },
+    {
+      "path": "docs/validation/native-v12/migration-v9-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/migration-v9-ax.txt",
+      "bytes": 6918,
+      "sha256": "2ff7e51ba58ac833bf7054d31d735243e8d7fe2623ee5d927ecafa8694794f63"
+    },
+    {
+      "path": "docs/validation/native-v12/migration-v9.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/migration-v9.png",
+      "bytes": 108879,
+      "sha256": "7a082b769bb1c58a9bbad8b14d7aa1abc9c47a287322648c3a89f8206cc7b8bd"
+    },
+    {
+      "path": "docs/validation/native-v12/mission-result-after-control-timeout-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/mission-result-after-control-timeout-ax.txt",
+      "bytes": 2146,
+      "sha256": "0a67365e92cabb657e5279ac1754c08db6a088a4c6a27149fe9dad3d4023223e"
+    },
+    {
+      "path": "docs/validation/native-v12/mission-result.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/mission-result.png",
+      "bytes": 89332,
+      "sha256": "21875e4370c5fb546384fb26c23490aefb625698fa9a65ae314fa04bbfb75096"
+    },
+    {
+      "path": "docs/validation/native-v12/mission-start-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/mission-start-ax.txt",
+      "bytes": 3129,
+      "sha256": "b7401db0c874e9c7598aee86b61110354f823967a456cb0d5c566565678d93f2"
+    },
+    {
+      "path": "docs/validation/native-v12/mission-start.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/mission-start.png",
+      "bytes": 99264,
+      "sha256": "f9a57056c6fe5990fa0082ecb76a7755a6adcfa2520fb26f5b084cd896d6dba9"
+    },
+    {
+      "path": "docs/validation/native-v12/native-focus-after-escape-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/native-focus-after-escape-ax.txt",
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    {
+      "path": "docs/validation/native-v12/pause-after-listening-input-check-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/pause-after-listening-input-check-ax.txt",
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    {
+      "path": "docs/validation/native-v12/report-transmitted-native-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/report-transmitted-native-ax.txt",
+      "bytes": 2821,
+      "sha256": "25e305d7d0c5218da00bfd4a90f36611814e936df8fa7cb0ad363ad142e25ce2"
+    },
+    {
+      "path": "docs/validation/native-v12/report-transmitted.png",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/report-transmitted.png",
+      "bytes": 95887,
+      "sha256": "2050a95d2cc766140fc397b18a7319042e789b54c3a6f3320bcdee5c12cae4ec"
+    },
+    {
+      "path": "docs/validation/native-v12/report-within-range-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/report-within-range-ax.txt",
+      "bytes": 2971,
+      "sha256": "c6213e4bde223c959095b6333da63c0d3746c5508a90ff5961b6f0c2166af165"
+    },
+    {
+      "path": "docs/validation/native-v12/return-report-approach-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/return-report-approach-ax.txt",
+      "bytes": 3021,
+      "sha256": "37ac3f7bbea0d6050168982f84e0a8861d6cb5913bd407409398b3d313e818bf"
+    },
+    {
+      "path": "docs/validation/native-v12/translation-popup-dismissed-ax.txt",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/translation-popup-dismissed-ax.txt",
+      "bytes": 3056,
+      "sha256": "c140889910494a5d905e5fd42657a542ef5a3dca9d318b4f9cc0e0201ad1860d"
+    },
+    {
+      "path": "docs/validation/native-v12/ui-observation-times.json",
+      "absolutePath": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/ui-observation-times.json",
+      "bytes": 5728,
+      "sha256": "90b9469b52bc956937118a5eff9db9ccecdd1a4dd904ed6ab56dd1cbcef556c2"
+    }
+  ],
+  "script": {
+    "path": "/workspace/scratch/47882a75de66/ImperiumMarch/docs/validation/native-v12/verify-production-exports.mjs",
+    "portableEvidencePath": "docs/validation/native-v12/verify-production-exports.mjs",
+    "sha256": "0205b98d1143abb859a5ca86dcd66ad5cf058ddb5ba6c999f294a554acf333cf"
+  }
+}

@@ -1,0 +1,360 @@
+{
+  "schema": 1,
+  "release": "0.12.0",
+  "saveVersion": 11,
+  "phase": "initial_publication_reception",
+  "status": "github_published_production_http_verified_ci_pending",
+  "recordedAt": "2026-11-11T20:36:06.140Z",
+  "source": {
+    "snapshot": "/workspace/scratch/47882a75de66/publication-v12-reviewed",
+    "localCommit": "98c988bd6115088d5e6eead45e0027fdbf5519c8",
+    "tree": "dda2a0df55f6fa7b48c0fbc9b43e5581fa9495b8",
+    "files": 1441,
+    "bytes": 141731492,
+    "manifest": {
+      "path": "publication-v12-manifest.json",
+      "bytes": 508290,
+      "sha256": "932b4f2e24853c443e8702f17df32ed4cc449e4fc3559e5e1e24dfa6f6ef3dba"
+    },
+    "snapshotFilesAndGitBlobHashesReverified": 1441,
+    "releaseFingerprintCount": 1440,
+    "releaseFingerprintsReverified": true,
+    "sourceVerificationReceipt": {
+      "path": "publication-v12-source-verification.json",
+      "bytes": 1264,
+      "sha256": "b9e7c916bfb11bedbbb824fb961cc099079d42b27e01c0d427cbbb33a7e8ab3a"
+    }
+  },
+  "changes": {
+    "basePublicCommit": "c7f3273a60824ff4e968ea36ab956c6a41710df0",
+    "baseTree": "7942d22cfdb0b73e42ae0a427a3afbc986f29160",
+    "added": 173,
+    "modified": 32,
+    "deleted": [],
+    "protectedPriorPathsUnchanged": 672,
+    "historicalValidationFilesUnchanged": 295,
+    "priorPreparedSnapshot": "/workspace/scratch/47882a75de66/publication-v11-followup-reviewed"
+  },
+  "artifacts": [
+    {
+      "path": "data/bible.json",
+      "bytes": 499994,
+      "sha256": "b44100ba2d91fa2f50bfb2c75de8ff61182593d53a90cf165e524476c8d5bfc8"
+    },
+    {
+      "path": "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+      "bytes": 200597,
+      "sha256": "e5ffbac8f2bfc252247635eeb76654894a208d12b96ca0771ceba6c1a4644b53"
+    },
+    {
+      "path": "dist/Ordre_de_Cendre.html",
+      "bytes": 10507813,
+      "sha256": "9c750353adf4c61da6579dc2ee0428d32e49ae0d5e82087ac523f3ee66ca2bde"
+    },
+    {
+      "path": "assets/production/distribution-manifest.json",
+      "bytes": 840059,
+      "sha256": "a037f9099baab2c3cb453aa800b912d208d9e6815ef8ce30e919884df8a5321a"
+    },
+    {
+      "path": "docs/validation/v12-release-check.json",
+      "bytes": 239908,
+      "sha256": "e12900da7e7f4353a3130cea4fc5fe006fe90a275c4e14484065fb37e2b3eaf6"
+    }
+  ],
+  "github": {
+    "repository": "darknigthmare/ImperiumMarch",
+    "branch": "main",
+    "publicCommit": "e59dc2c51c68ec151cbc75a37a033c2650d3b95b",
+    "publicTree": "dda2a0df55f6fa7b48c0fbc9b43e5581fa9495b8",
+    "expectedParent": "c7f3273a60824ff4e968ea36ab956c6a41710df0",
+    "commitUrl": "https://github.com/darknigthmare/ImperiumMarch/commit/e59dc2c51c68ec151cbc75a37a033c2650d3b95b",
+    "casAccepted": true,
+    "force": false,
+    "headAfter": "e59dc2c51c68ec151cbc75a37a033c2650d3b95b",
+    "acceptedAt": "2026-11-11T20:21:42.809Z",
+    "treeComparison": {
+      "observedAt": "2026-11-11T20:21:16.737Z",
+      "sha": "dda2a0df55f6fa7b48c0fbc9b43e5581fa9495b8",
+      "files": 1441,
+      "bytes": 141731492,
+      "truncated": false,
+      "pathModeBlobShaExact": true
+    },
+    "newUniqueBlobs": 200,
+    "newBlobBytes": 30787326,
+    "failedBlobs": 0,
+    "confirmedBlobSetExactlyMatchesDelta": true,
+    "blobReceipt": {
+      "path": "v12-github-blob-upload.json",
+      "bytes": 44955,
+      "sha256": "101cf37b9a7da7081c65225c4dbd2fcb7c8e17a6931197f48358569e8015d408"
+    },
+    "casReceipt": {
+      "path": "v12-github-cas.json",
+      "bytes": 756,
+      "sha256": "3dd9292ea265e38e0fdfedc19a0f7273b09dbb722a7fb6b7dca610d39e40e2e7"
+    },
+    "transferNote": "The sequential-to-parallel handoff discarded transient in-memory confirmations; existing immutable blobs were idempotently re-created and their returned SHAs re-verified. This consolidated receipt contains the actual per-blob confirmations retained after that handoff."
+  },
+  "localValidation": {
+    "environment": {
+      "node": "v24.22.1",
+      "declaredNodeEngine": "22.x",
+      "browserUsed": false
+    },
+    "checks": {
+      "nodeTests": 516,
+      "nodeFailures": 0,
+      "campaignTestsIncludedInNode": 224,
+      "mi11CampaignTestsIncluded": 41,
+      "mi11SimulationTestsIncluded": 35,
+      "modeledDomFlows": 86,
+      "mi11ModeledDomFlows": 15,
+      "rasterComparisons": 90,
+      "canvasImages": 25,
+      "canvasPublicRuns": 18,
+      "preparedCampaignExports": 5,
+      "bibleSourceRecords": 905,
+      "workbookSheets": 21,
+      "bibleSourceCells": 6105,
+      "workbookFormulaCachesRecalculated": 126,
+      "webMediaReconciled": 442
+    },
+    "receipts": {
+      "docs/validation/v12-node-validation.json": {
+        "bytes": 87189,
+        "sha256": "ee3c4696e72032a069e0f1ba06d30de3d3e66443f662e9aa526d7df844465806"
+      },
+      "docs/validation/v12-ui-validation.json": {
+        "bytes": 24637,
+        "sha256": "c0401f115fdaccef2077e7365395ea7fffcec0fc054c929dac44e3f437fa702c"
+      },
+      "docs/validation/v12-build-validation.json": {
+        "bytes": 6709,
+        "sha256": "f9683832c9e6540418b5e6ae9b903315afadda9ed46f3901d1508861b4ae7f63"
+      },
+      "docs/validation/v12-raster-validation.json": {
+        "bytes": 1285,
+        "sha256": "8016eff2d326f91cf2cb2b187ca5b6d0ebc102b116e3831ca140dc5b111d3fac"
+      },
+      "docs/validation/v012-campaign-validation.json": {
+        "bytes": 9516,
+        "sha256": "a22c83e7edf54ef6e834b0aeaed593a37542165c9e73c89d0a2380677d714a84"
+      },
+      "docs/previews/mi11-simulation-validation.json": {
+        "bytes": 29679,
+        "sha256": "3c7d2abcce02258b53df5d57bbd34cfd3f2b7a2ec9b1615fa6f5fb3def0fd3fe"
+      },
+      "docs/previews/mi11-canvas-validation.json": {
+        "bytes": 9400,
+        "sha256": "da96614f3fe4d360bb399fb0a9c9ad499ba2090dd94cfee9e373e2668bc63f2b"
+      },
+      "docs/validation/v12-canvas-visual-review.json": {
+        "bytes": 6925,
+        "sha256": "48e25a8bc0a4afe22fb29cc36f1b61a0b3058944a46a975b328d25eb6490c229"
+      },
+      "docs/validation/workbook-v0.12-export.json": {
+        "bytes": 2057,
+        "sha256": "acfa74d3c7e975b7e2b52c29332a73620c0f1a9099181295c66b379826261b7f"
+      },
+      "docs/validation/workbook-v0.12-validation.json": {
+        "bytes": 8736,
+        "sha256": "90b97712ea268b98577c434502026af1929410867d726354dec5dcbb9314eeed"
+      },
+      "docs/validation/workbook-v0.12-baseline-check.json": {
+        "bytes": 4057,
+        "sha256": "50e7898429948d325b6d4f9929246100bd09d03ea35728d219df6f8fb2664f85"
+      },
+      "docs/validation/workbook-v0.12-libreoffice.json": {
+        "bytes": 15260,
+        "sha256": "b790ab5efee368f45f804e808468c5f26092757c25c1136b792c629fd629da86"
+      },
+      "docs/validation/workbook-v0.12-visual-review.json": {
+        "bytes": 51196,
+        "sha256": "ee2337e5b4cbe406f2de0fa7bcd8d6094078b0aa8d31d00bfea59860171ca5e5"
+      },
+      "docs/validation/production-v012-reference-audit.json": {
+        "bytes": 423065,
+        "sha256": "92d759808e778383317d514c19ab0cffa231c10ddac25a7da836a37343a7570a"
+      },
+      "docs/validation/production-v012-registry.json": {
+        "bytes": 534992,
+        "sha256": "93731ad4214f16888d7e76d198d38ebe98bd3276f48f3195214b3c0187e784d0"
+      },
+      "docs/validation/native-v12/browser-reception.json": {
+        "bytes": 2976,
+        "sha256": "3af202e6142a61bda32e0919baf3fc28ab2757bad2a5d2982eae90f623d6b572"
+      }
+    },
+    "releaseCheck": {
+      "path": "docs/validation/v12-release-check.json",
+      "bytes": 239908,
+      "sha256": "e12900da7e7f4353a3130cea4fc5fe006fe90a275c4e14484065fb37e2b3eaf6"
+    },
+    "scope": "These are local gates received before publication. They are not inferred GitHub Actions results."
+  },
+  "ci": {
+    "receipt": {
+      "path": "v12-ci-initial-pending.json",
+      "bytes": 2041,
+      "sha256": "7f511c3e23fd6557f9077bd9e4360cd531c5c50a441f10e9a10c669290b2a087"
+    },
+    "runId": 43095575253,
+    "runUrl": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43095575253",
+    "runAttempt": 1,
+    "event": "push",
+    "headSha": "e59dc2c51c68ec151cbc75a37a033c2650d3b95b",
+    "treeSha": "dda2a0df55f6fa7b48c0fbc9b43e5581fa9495b8",
+    "identityVerified": true,
+    "observedAt": "2026-11-11T20:34:41.549Z",
+    "status": "queued",
+    "conclusion": null,
+    "complete": false,
+    "resultsVerified": false,
+    "observedResults": null,
+    "expectedResults": {
+      "node": "v22.23.4",
+      "nodeTests": 516,
+      "modeledDomFlows": 86,
+      "rasterCases": 90,
+      "sourceRows": 905,
+      "campaignMissions": 11
+    },
+    "scope": "The actual push run is queued at this observation. Expected counts are targets only. No remote test result or Node runtime is claimed. A later CI receipt must be separate from this historical initial state."
+  },
+  "vercel": {
+    "receipt": {
+      "path": "v12-vercel-initial-observation.json",
+      "bytes": 3227,
+      "sha256": "7ed83d1bc74f4397d210d292233ce796c6a8dbbae20fd6bfae1563392a4a923c"
+    },
+    "project": {
+      "id": "prj_ggDB98oddkTTzVPiGQrtxnj7frcr",
+      "name": "imperium-march",
+      "teamId": "team_VrIjq2UWV6VaHZr7DdQFwvfu",
+      "nodeVersion": "22.x"
+    },
+    "deployment": {
+      "id": "dpl_635PJUowJFoZ6qGQy2th8YEh6bum",
+      "url": "https://imperium-march-l8479l43l-darknigthmares-projects.vercel.app/",
+      "state": "READY",
+      "readyState": "READY",
+      "target": "production",
+      "source": "git",
+      "createdAt": "2026-11-11T20:21:44.446Z",
+      "buildingAt": "2026-11-11T20:21:45.505Z",
+      "readyAt": "2026-11-11T20:22:03.180Z",
+      "git": {
+        "sha": "e59dc2c51c68ec151cbc75a37a033c2650d3b95b",
+        "ref": "main"
+      },
+      "aliases": [
+        "https://imperium-march.vercel.app/",
+        "https://imperium-march-darknigthmares-projects.vercel.app/",
+        "https://imperium-march-git-main-darknigthmares-projects.vercel.app/"
+      ]
+    },
+    "productionUrl": "https://imperium-march.vercel.app/",
+    "exactRequestedCommit": true,
+    "automaticGitDeploymentObserved": true,
+    "explicitDeploymentCreationRequested": false,
+    "configurationChanged": false,
+    "billingChanged": false,
+    "priorExplicitApiQuota": {
+      "receipt": "v11-vercel-initial-blocked.json",
+      "checkedAt": "2026-11-11T18:42:59.577Z",
+      "operation": "POST /v13/deployments",
+      "status": 402,
+      "code": "payment_required",
+      "resource": "api-deployments-free-per-day",
+      "retryAfterSeconds": 86400,
+      "retryAfterUntil": "2026-11-12T18:42:59.577Z",
+      "requestRetried": false,
+      "note": "Historical explicit deployment API refusal is preserved. A later Git-triggered deployment was independently observed READY. Its readiness does not assert that the explicit API quota has been reset."
+    }
+  },
+  "http": {
+    "receipt": {
+      "path": "v12-http-initial-verification.json",
+      "bytes": 33452,
+      "sha256": "d314768357139f2f4dc69e75a400801d97178d366182768a43714f53d03349e8"
+    },
+    "productionUrl": "https://imperium-march.vercel.app/",
+    "deploymentId": "dpl_635PJUowJFoZ6qGQy2th8YEh6bum",
+    "observedAt": "2026-11-11T20:30:47.098Z",
+    "resourcesChecked": 28,
+    "statusCounts": {
+      "200": 28
+    },
+    "matchingRequestedSnapshot": 28,
+    "requestedReleaseVerified": true,
+    "authenticatedAccess": true,
+    "anonymousAccessTested": false,
+    "scope": "28 textual application resources: index, source modules/styles and five media manifests. Decoded UTF-8 response bytes match the frozen snapshot. This does not claim a byte audit of every deployed binary asset.",
+    "temporaryAccessParametersPersisted": false
+  },
+  "nativeReception": {
+    "nativeBrowser": false,
+    "humanPlaytest": false,
+    "scope": "No native browser was used for this initial publication receipt. Any later reception through the real production HTTPS URL requires a separate receipt; the pre-publication not_run receipt remains unchanged."
+  },
+  "publicationMethod": "Immutable Git blobs and tree were verified against the approved snapshot before creating the public commit. main advanced from the expected public parent without force; the returned branch and recursive public tree were received. No explicit Vercel deployment was requested.",
+  "completion": {
+    "githubPublicationReceived": true,
+    "remoteTreeExactlyMatchesApprovedSnapshot": true,
+    "automaticProductionDeploymentReady": true,
+    "requestedReleaseServedOverAuthenticatedHttp": true,
+    "ciRunIdentityReceived": true,
+    "ciResultsReceived": false,
+    "nativeBrowserReceived": false,
+    "humanPlaytestPerformed": false,
+    "pending": [
+      "Exact push CI completion and results",
+      "Separate native production-browser reception",
+      "Human playtest"
+    ]
+  },
+  "receipts": [
+    {
+      "path": "publication-v12-source-verification.json",
+      "bytes": 1264,
+      "sha256": "b9e7c916bfb11bedbbb824fb961cc099079d42b27e01c0d427cbbb33a7e8ab3a"
+    },
+    {
+      "path": "publication-v12-manifest.json",
+      "bytes": 508290,
+      "sha256": "932b4f2e24853c443e8702f17df32ed4cc449e4fc3559e5e1e24dfa6f6ef3dba"
+    },
+    {
+      "path": "publication-v12-delta.json",
+      "bytes": 89955,
+      "sha256": "3f2da17d54e00790195eab41efc26c7053215858b388b2ac6de923b5477b2752"
+    },
+    {
+      "path": "v12-github-blob-upload.json",
+      "bytes": 44955,
+      "sha256": "101cf37b9a7da7081c65225c4dbd2fcb7c8e17a6931197f48358569e8015d408"
+    },
+    {
+      "path": "v12-github-cas.json",
+      "bytes": 756,
+      "sha256": "3dd9292ea265e38e0fdfedc19a0f7273b09dbb722a7fb6b7dca610d39e40e2e7"
+    },
+    {
+      "path": "v12-ci-initial-pending.json",
+      "bytes": 2041,
+      "sha256": "7f511c3e23fd6557f9077bd9e4360cd531c5c50a441f10e9a10c669290b2a087"
+    },
+    {
+      "path": "v12-vercel-initial-observation.json",
+      "bytes": 3227,
+      "sha256": "7ed83d1bc74f4397d210d292233ce796c6a8dbbae20fd6bfae1563392a4a923c"
+    },
+    {
+      "path": "v12-http-initial-verification.json",
+      "bytes": 33452,
+      "sha256": "d314768357139f2f4dc69e75a400801d97178d366182768a43714f53d03349e8"
+    }
+  ]
+}

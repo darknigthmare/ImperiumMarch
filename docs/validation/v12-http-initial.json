@@ -1,0 +1,896 @@
+{
+  "schema": 1,
+  "release": "0.12.0",
+  "repository": "darknigthmare/ImperiumMarch",
+  "publicCommit": "e59dc2c51c68ec151cbc75a37a033c2650d3b95b",
+  "publicTree": "dda2a0df55f6fa7b48c0fbc9b43e5581fa9495b8",
+  "productionUrl": "https://imperium-march.vercel.app/",
+  "deploymentId": "dpl_635PJUowJFoZ6qGQy2th8YEh6bum",
+  "startedAt": "2026-11-11T20:29:14.700Z",
+  "observedAt": "2026-11-11T20:30:47.098Z",
+  "method": "Authenticated Vercel HTTP responses decoded as UTF-8, re-encoded as UTF-8 and SHA-256 compared with the frozen approved snapshot. SHA-256 verifier checked against four reference vectors and Python hashlib for a multilingual UTF-8 sample. Query-free requested public URLs and allowlisted response metadata only are retained.",
+  "resourcesChecked": 28,
+  "expectedResources": 28,
+  "statusCounts": {
+    "200": 28
+  },
+  "matchingRequestedSnapshot": 28,
+  "requestedReleaseVerified": true,
+  "resources": [
+    {
+      "path": "index.html",
+      "url": "https://imperium-march.vercel.app/",
+      "observedAt": "2026-11-11T20:29:14.723Z",
+      "requestStartedAt": null,
+      "reusedInitialHomepageResponse": true,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "0",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:23:29 GMT",
+        "etag": "W/\"67f93efc4d1f355010b6c325a1cc7981\"",
+        "last-modified": "Wed, 11 Nov 2026 20:23:29 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "fra1:iad1::lsfbn-1794428608843-2399ff43c879"
+      },
+      "expected": {
+        "bytes": 22230,
+        "sha256": "fafeee49d4863c1e191c5998ea085ce36977cd2a19577a45a0bbd7f7b5e1088d"
+      },
+      "actual": {
+        "bytes": 22230,
+        "sha256": "fafeee49d4863c1e191c5998ea085ce36977cd2a19577a45a0bbd7f7b5e1088d"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/audio.mjs",
+      "url": "https://imperium-march.vercel.app/src/audio.mjs",
+      "observedAt": "2026-11-11T20:29:16.427Z",
+      "requestStartedAt": "2026-11-11T20:29:14.723Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "214",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:29:16 GMT",
+        "etag": "W/\"ea32e5d6413b57795da647d75d5accac\"",
+        "last-modified": "Wed, 11 Nov 2026 20:25:41 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::pjc6t-1794428956219-282f7b9c0357"
+      },
+      "expected": {
+        "bytes": 24384,
+        "sha256": "a1fe78add6c0eac7961d937afd501295d5772af6f20191b377cadd8fc7282829"
+      },
+      "actual": {
+        "bytes": 24384,
+        "sha256": "a1fe78add6c0eac7961d937afd501295d5772af6f20191b377cadd8fc7282829"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/campaign.mjs",
+      "url": "https://imperium-march.vercel.app/src/campaign.mjs",
+      "observedAt": "2026-11-11T20:29:18.306Z",
+      "requestStartedAt": "2026-11-11T20:29:14.723Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "213",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:29:17 GMT",
+        "etag": "W/\"7daacfd31ba734a921612a1f8aee4d88\"",
+        "last-modified": "Wed, 11 Nov 2026 20:25:44 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::4f2pb-1794428957867-c3dde8cca5e5"
+      },
+      "expected": {
+        "bytes": 144871,
+        "sha256": "7c36a5f828942566d85cf5ae4eb7343b25866a8ff938e841bd7268a8b99e037d"
+      },
+      "actual": {
+        "bytes": 144871,
+        "sha256": "7c36a5f828942566d85cf5ae4eb7343b25866a8ff938e841bd7268a8b99e037d"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/chemical-assets.mjs",
+      "url": "https://imperium-march.vercel.app/src/chemical-assets.mjs",
+      "observedAt": "2026-11-11T20:29:19.423Z",
+      "requestStartedAt": "2026-11-11T20:29:14.723Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "215",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:29:19 GMT",
+        "etag": "W/\"b7dfdad440073dc55f300cdf9d3e7d02\"",
+        "last-modified": "Wed, 11 Nov 2026 20:25:43 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::fzmvh-1794428959230-6288e1bbe3f1"
+      },
+      "expected": {
+        "bytes": 12290,
+        "sha256": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753"
+      },
+      "actual": {
+        "bytes": 12290,
+        "sha256": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/chemical-renderer.mjs",
+      "url": "https://imperium-march.vercel.app/src/chemical-renderer.mjs",
+      "observedAt": "2026-11-11T20:30:09.916Z",
+      "requestStartedAt": "2026-11-11T20:30:05.074Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "161",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:09 GMT",
+        "etag": "W/\"626490423b457ef0773da08d01c28b05\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:28 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::842w5-1794429009772-dfc89cea0ea4"
+      },
+      "expected": {
+        "bytes": 15060,
+        "sha256": "51e1e6d497b58304f849c6dc1c145221f23ee975202aa30bb7d8cbea8cef78f2"
+      },
+      "actual": {
+        "bytes": 15060,
+        "sha256": "51e1e6d497b58304f849c6dc1c145221f23ee975202aa30bb7d8cbea8cef78f2"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/chemical-simulation.mjs",
+      "url": "https://imperium-march.vercel.app/src/chemical-simulation.mjs",
+      "observedAt": "2026-11-11T20:30:11.514Z",
+      "requestStartedAt": "2026-11-11T20:30:05.074Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "161",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:11 GMT",
+        "etag": "W/\"7726b527896895782f2385d68ea2e5b4\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:29 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::khjcr-1794429011303-2c0a82730625"
+      },
+      "expected": {
+        "bytes": 23950,
+        "sha256": "778651c4accc7dd78189d5613d2e06896f16f0587651b7272b269d0d7a743f34"
+      },
+      "actual": {
+        "bytes": 23950,
+        "sha256": "778651c4accc7dd78189d5613d2e06896f16f0587651b7272b269d0d7a743f34"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/chemical-validation.mjs",
+      "url": "https://imperium-march.vercel.app/src/chemical-validation.mjs",
+      "observedAt": "2026-11-11T20:30:06.687Z",
+      "requestStartedAt": "2026-11-11T20:30:05.074Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "159",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:06 GMT",
+        "etag": "W/\"2297ac3b8d8c891c20213276baf03061\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:26 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::dz5j2-1794429006457-7eb08ac61c44"
+      },
+      "expected": {
+        "bytes": 42618,
+        "sha256": "ed00e720b26e66b310707e589f90146bdd1309c5812a9449856dcd7980abb3ba"
+      },
+      "actual": {
+        "bytes": 42618,
+        "sha256": "ed00e720b26e66b310707e589f90146bdd1309c5812a9449856dcd7980abb3ba"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/content.mjs",
+      "url": "https://imperium-march.vercel.app/src/content.mjs",
+      "observedAt": "2026-11-11T20:30:08.806Z",
+      "requestStartedAt": "2026-11-11T20:30:05.074Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "163",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:08 GMT",
+        "etag": "W/\"92326ea1c166918786e3fffa5e95ddc9\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:25 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::8jlc4-1794429008451-40c40cf9a135"
+      },
+      "expected": {
+        "bytes": 38479,
+        "sha256": "e06339d3a5017568e395b8bce302716d5fb4800ea9a3f101f668d3a7c09ebf54"
+      },
+      "actual": {
+        "bytes": 38479,
+        "sha256": "e06339d3a5017568e395b8bce302716d5fb4800ea9a3f101f668d3a7c09ebf54"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/controls.mjs",
+      "url": "https://imperium-march.vercel.app/src/controls.mjs",
+      "observedAt": "2026-11-11T20:30:18.498Z",
+      "requestStartedAt": "2026-11-11T20:30:12.432Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "162",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:18 GMT",
+        "etag": "W/\"7b3cc79de31fb9d6fbcfb13da3b7c79c\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:36 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::rwdv7-1794429018393-82e49796449d"
+      },
+      "expected": {
+        "bytes": 6981,
+        "sha256": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32"
+      },
+      "actual": {
+        "bytes": 6981,
+        "sha256": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/departure-validation.mjs",
+      "url": "https://imperium-march.vercel.app/src/departure-validation.mjs",
+      "observedAt": "2026-11-11T20:30:14.987Z",
+      "requestStartedAt": "2026-11-11T20:30:12.432Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "162",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:14 GMT",
+        "etag": "W/\"73c020227988239f0051bd6702538f0c\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:32 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::n48f8-1794429014613-0e3a2a7a46b9"
+      },
+      "expected": {
+        "bytes": 23208,
+        "sha256": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b"
+      },
+      "actual": {
+        "bytes": 23208,
+        "sha256": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/main.mjs",
+      "url": "https://imperium-march.vercel.app/src/main.mjs",
+      "observedAt": "2026-11-11T20:30:17.098Z",
+      "requestStartedAt": "2026-11-11T20:30:12.432Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "162",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:16 GMT",
+        "etag": "W/\"482dbe8f569ed87032abafb1c7c83c1c\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:34 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::p4mb6-1794429016697-73cb21355b9a"
+      },
+      "expected": {
+        "bytes": 120523,
+        "sha256": "ed75ea5b1cef4b13661108cbf5e000fd43e3a77f449a5c3b8d8af85452426ac1"
+      },
+      "actual": {
+        "bytes": 120523,
+        "sha256": "ed75ea5b1cef4b13661108cbf5e000fd43e3a77f449a5c3b8d8af85452426ac1"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/production-assets.mjs",
+      "url": "https://imperium-march.vercel.app/src/production-assets.mjs",
+      "observedAt": "2026-11-11T20:30:13.619Z",
+      "requestStartedAt": "2026-11-11T20:30:12.432Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "160",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:13 GMT",
+        "etag": "W/\"edbf2abbd3207c012bc2c1280a449b91\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:33 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::zrznm-1794429013367-c409b4042a83"
+      },
+      "expected": {
+        "bytes": 45583,
+        "sha256": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0"
+      },
+      "actual": {
+        "bytes": 45583,
+        "sha256": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/renderer.mjs",
+      "url": "https://imperium-march.vercel.app/src/renderer.mjs",
+      "observedAt": "2026-11-11T20:30:25.079Z",
+      "requestStartedAt": "2026-11-11T20:30:21.181Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "160",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:24 GMT",
+        "etag": "W/\"61763cc6746669d1c9fb3119ba7f90ad\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:43 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::4r26c-1794429024654-869def11fb18"
+      },
+      "expected": {
+        "bytes": 137403,
+        "sha256": "88831bbac02ef6171df94d0b8a3e853eb8f306474af6f58b351d067b35d946ad"
+      },
+      "actual": {
+        "bytes": 137403,
+        "sha256": "88831bbac02ef6171df94d0b8a3e853eb8f306474af6f58b351d067b35d946ad"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/simulation.mjs",
+      "url": "https://imperium-march.vercel.app/src/simulation.mjs",
+      "observedAt": "2026-11-11T20:30:22.740Z",
+      "requestStartedAt": "2026-11-11T20:30:21.181Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "162",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:22 GMT",
+        "etag": "W/\"3adea29d30264e9788bc85ac0999b423\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:39 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::hmmlz-1794429022200-a29869df3e13"
+      },
+      "expected": {
+        "bytes": 269625,
+        "sha256": "965f1c7fad967e8e9fd9d27d5c452ec0c62afb208e4e227c49193f67e8153f9a"
+      },
+      "actual": {
+        "bytes": 269625,
+        "sha256": "965f1c7fad967e8e9fd9d27d5c452ec0c62afb208e4e227c49193f67e8153f9a"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/style.css",
+      "url": "https://imperium-march.vercel.app/src/style.css",
+      "observedAt": "2026-11-11T20:30:23.604Z",
+      "requestStartedAt": "2026-11-11T20:30:21.181Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "162",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "text/css; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:23 GMT",
+        "etag": "W/\"8f36ff9d531b14442bec4dbce418d9f2\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:41 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::wppsk-1794429023490-a0bb858eed94"
+      },
+      "expected": {
+        "bytes": 25469,
+        "sha256": "3f3b33e3861c8d6bbf87cdc612c22242624792f4259134882e096f19d93e58f2"
+      },
+      "actual": {
+        "bytes": 25469,
+        "sha256": "3f3b33e3861c8d6bbf87cdc612c22242624792f4259134882e096f19d93e58f2"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/thyr-assets.mjs",
+      "url": "https://imperium-march.vercel.app/src/thyr-assets.mjs",
+      "observedAt": "2026-11-11T20:30:26.536Z",
+      "requestStartedAt": "2026-11-11T20:30:21.181Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "163",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:26 GMT",
+        "etag": "W/\"0af97e8259541b8e0da951871dda2c2c\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:42 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::lhx4h-1794429026434-282db444e0b8"
+      },
+      "expected": {
+        "bytes": 16284,
+        "sha256": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83"
+      },
+      "actual": {
+        "bytes": 16284,
+        "sha256": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/thyr-renderer.mjs",
+      "url": "https://imperium-march.vercel.app/src/thyr-renderer.mjs",
+      "observedAt": "2026-11-11T20:30:28.460Z",
+      "requestStartedAt": "2026-11-11T20:30:27.164Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "157",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:28 GMT",
+        "etag": "W/\"7f19ee8b2f4ba353f94b85715ce90d91\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:50 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::bkbxl-1794429028353-91410429ae52"
+      },
+      "expected": {
+        "bytes": 13888,
+        "sha256": "4b887111c090a90e2084699acf6e43ed0d2613ab73afdb1e4b6fe5eed0a01580"
+      },
+      "actual": {
+        "bytes": 13888,
+        "sha256": "4b887111c090a90e2084699acf6e43ed0d2613ab73afdb1e4b6fe5eed0a01580"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/thyr-validation.mjs",
+      "url": "https://imperium-march.vercel.app/src/thyr-validation.mjs",
+      "observedAt": "2026-11-11T20:30:29.671Z",
+      "requestStartedAt": "2026-11-11T20:30:27.164Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "160",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:29 GMT",
+        "etag": "W/\"49314cb920b86d11e4495e84f76b3514\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:49 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::g4x4w-1794429029558-4352541c2ed0"
+      },
+      "expected": {
+        "bytes": 28583,
+        "sha256": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a"
+      },
+      "actual": {
+        "bytes": 28583,
+        "sha256": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/ui.css",
+      "url": "https://imperium-march.vercel.app/src/ui.css",
+      "observedAt": "2026-11-11T20:30:33.518Z",
+      "requestStartedAt": "2026-11-11T20:30:27.164Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "160",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "text/css; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:33 GMT",
+        "etag": "W/\"8f9f6161aee65465d1fc4abee3728cf1\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:52 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::q6q4g-1794429033370-37235a4c3f6f"
+      },
+      "expected": {
+        "bytes": 15996,
+        "sha256": "c3ff6b010f9e070d3714fb1c6cadd52fcfc93af9a10dbef8cbb45bcf39c350ec"
+      },
+      "actual": {
+        "bytes": 15996,
+        "sha256": "c3ff6b010f9e070d3714fb1c6cadd52fcfc93af9a10dbef8cbb45bcf39c350ec"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/voice-assets.mjs",
+      "url": "https://imperium-march.vercel.app/src/voice-assets.mjs",
+      "observedAt": "2026-11-11T20:30:32.436Z",
+      "requestStartedAt": "2026-11-11T20:30:27.164Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "160",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:32 GMT",
+        "etag": "W/\"ba5692b29282404bc3b89899287f5a74\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:51 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::98vm2-1794429032333-1e294371a86f"
+      },
+      "expected": {
+        "bytes": 14431,
+        "sha256": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0"
+      },
+      "actual": {
+        "bytes": 14431,
+        "sha256": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/voice-renderer.mjs",
+      "url": "https://imperium-march.vercel.app/src/voice-renderer.mjs",
+      "observedAt": "2026-11-11T20:30:37.436Z",
+      "requestStartedAt": "2026-11-11T20:30:34.224Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "158",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:37 GMT",
+        "etag": "W/\"53cc73b9d6005233231bfdfafd352d0a\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:58 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::v6l9s-1794429037332-9ddcde6eee04"
+      },
+      "expected": {
+        "bytes": 12523,
+        "sha256": "0fe6bff453ef8c5afaa0d0c31d5fb538595f5e60e4a1a0eda79165ba5ce7b920"
+      },
+      "actual": {
+        "bytes": 12523,
+        "sha256": "0fe6bff453ef8c5afaa0d0c31d5fb538595f5e60e4a1a0eda79165ba5ce7b920"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/voice-simulation.mjs",
+      "url": "https://imperium-march.vercel.app/src/voice-simulation.mjs",
+      "observedAt": "2026-11-11T20:30:40.629Z",
+      "requestStartedAt": "2026-11-11T20:30:34.224Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "162",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:40 GMT",
+        "etag": "W/\"22b74d0a3cd5cc994a1e2d9d35567db7\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:57 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::dggfl-1794429040382-13755f814f95"
+      },
+      "expected": {
+        "bytes": 24309,
+        "sha256": "eefa4de80ef3fb60b8b0d07bdccec0ab2fb3ea465a44ba959deb1e221a7baff6"
+      },
+      "actual": {
+        "bytes": 24309,
+        "sha256": "eefa4de80ef3fb60b8b0d07bdccec0ab2fb3ea465a44ba959deb1e221a7baff6"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "src/voice-validation.mjs",
+      "url": "https://imperium-march.vercel.app/src/voice-validation.mjs",
+      "observedAt": "2026-11-11T20:30:38.999Z",
+      "requestStartedAt": "2026-11-11T20:30:34.224Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "159",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:38 GMT",
+        "etag": "W/\"2266194dd4e9bd352f076e20d3985008\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:59 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::74btc-1794429038657-a9e44243e59f"
+      },
+      "expected": {
+        "bytes": 36791,
+        "sha256": "7cc3ecb9c4c3f02232795c44274e7eb5ed49d67962c0b2e72765378a582051ed"
+      },
+      "actual": {
+        "bytes": 36791,
+        "sha256": "7cc3ecb9c4c3f02232795c44274e7eb5ed49d67962c0b2e72765378a582051ed"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "assets/production/distribution-manifest.json",
+      "url": "https://imperium-march.vercel.app/assets/production/distribution-manifest.json",
+      "observedAt": "2026-11-11T20:30:36.517Z",
+      "requestStartedAt": "2026-11-11T20:30:34.224Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "159",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/json; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:35 GMT",
+        "etag": "W/\"8a2622405f115f952f31a6124e0a6ed9\"",
+        "last-modified": "Wed, 11 Nov 2026 20:27:55 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::wg5sf-1794429035384-cfa777363a04"
+      },
+      "expected": {
+        "bytes": 840059,
+        "sha256": "a037f9099baab2c3cb453aa800b912d208d9e6815ef8ce30e919884df8a5321a"
+      },
+      "actual": {
+        "bytes": 840059,
+        "sha256": "a037f9099baab2c3cb453aa800b912d208d9e6815ef8ce30e919884df8a5321a"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "assets/production/manifest.json",
+      "url": "https://imperium-march.vercel.app/assets/production/manifest.json",
+      "observedAt": "2026-11-11T20:30:42.663Z",
+      "requestStartedAt": "2026-11-11T20:30:41.295Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "149",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/json; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:42 GMT",
+        "etag": "W/\"40f65376c9e6dfe8f32924c36813b14c\"",
+        "last-modified": "Wed, 11 Nov 2026 20:28:12 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::lmlrs-1794429042174-a5b2b8d51eb5"
+      },
+      "expected": {
+        "bytes": 239672,
+        "sha256": "85acc6291bc646bea2ab045a2e58b8d92a6fe291aa1d6c32b1805c5092e01128"
+      },
+      "actual": {
+        "bytes": 239672,
+        "sha256": "85acc6291bc646bea2ab045a2e58b8d92a6fe291aa1d6c32b1805c5092e01128"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "assets/thyr/manifest.json",
+      "url": "https://imperium-march.vercel.app/assets/thyr/manifest.json",
+      "observedAt": "2026-11-11T20:30:45.197Z",
+      "requestStartedAt": "2026-11-11T20:30:41.295Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "153",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/json; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:45 GMT",
+        "etag": "W/\"f631b3215616d3c3588dd66f815d4405\"",
+        "last-modified": "Wed, 11 Nov 2026 20:28:11 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::z9qz6-1794429045049-30caac0acf17"
+      },
+      "expected": {
+        "bytes": 23658,
+        "sha256": "be3109e516cafd525cfcaa0862e2c9209c119a20365f64ffe484e90d05311a02"
+      },
+      "actual": {
+        "bytes": 23658,
+        "sha256": "be3109e516cafd525cfcaa0862e2c9209c119a20365f64ffe484e90d05311a02"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "assets/chemical/manifest.json",
+      "url": "https://imperium-march.vercel.app/assets/chemical/manifest.json",
+      "observedAt": "2026-11-11T20:30:43.769Z",
+      "requestStartedAt": "2026-11-11T20:30:41.295Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "148",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/json; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:43 GMT",
+        "etag": "W/\"d2ade43a0d165543f5d43d97350f3b20\"",
+        "last-modified": "Wed, 11 Nov 2026 20:28:15 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::46f2d-1794429043665-717fbd3d61ad"
+      },
+      "expected": {
+        "bytes": 17901,
+        "sha256": "d375e3a158990153a29482a720543d0b1f27eddd98d0b159147049104acd5b1b"
+      },
+      "actual": {
+        "bytes": 17901,
+        "sha256": "d375e3a158990153a29482a720543d0b1f27eddd98d0b159147049104acd5b1b"
+      },
+      "exactExpectedBytes": true
+    },
+    {
+      "path": "assets/voice/manifest.json",
+      "url": "https://imperium-march.vercel.app/assets/voice/manifest.json",
+      "observedAt": "2026-11-11T20:30:46.439Z",
+      "requestStartedAt": "2026-11-11T20:30:41.295Z",
+      "reusedInitialHomepageResponse": false,
+      "status": 200,
+      "statusText": "OK",
+      "success": true,
+      "headers": {
+        "age": "152",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-encoding": "br",
+        "content-type": "application/json; charset=utf-8",
+        "date": "Wed, 11 Nov 2026 20:30:46 GMT",
+        "etag": "W/\"0c58915d800385c149e455c12e639bd1\"",
+        "last-modified": "Wed, 11 Nov 2026 20:28:14 GMT",
+        "server": "Vercel",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "fra1:iad1::r596g-1794429046078-eb02f2b7ef10"
+      },
+      "expected": {
+        "bytes": 20352,
+        "sha256": "12bde08f0a594896ff8f6e2dd573921e1e2d297e875f1fd5e45edfa67db6c2d0"
+      },
+      "actual": {
+        "bytes": 20352,
+        "sha256": "12bde08f0a594896ff8f6e2dd573921e1e2d297e875f1fd5e45edfa67db6c2d0"
+      },
+      "exactExpectedBytes": true
+    }
+  ],
+  "errors": [],
+  "authenticatedAccess": true,
+  "anonymousAccessTested": false,
+  "temporaryAccessParametersPersisted": false,
+  "nativeBrowser": false,
+  "humanPlaytest": false,
+  "deploymentCreationRequested": false
+}

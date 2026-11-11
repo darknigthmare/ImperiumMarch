@@ -1,0 +1,618 @@
+{
+  "schema": 1,
+  "release": "0.12.0",
+  "saveVersion": 11,
+  "phase": "production_native_reception",
+  "status": "received_with_declared_partial_scope",
+  "recordedAt": "2026-11-11T20:58:48.006352+00:00",
+  "url": "https://imperium-march.vercel.app/",
+  "publicCommit": "e59dc2c51c68ec151cbc75a37a033c2650d3b95b",
+  "publicTree": "dda2a0df55f6fa7b48c0fbc9b43e5581fa9495b8",
+  "deploymentId": "dpl_635PJUowJFoZ6qGQy2th8YEh6bum",
+  "identityProof": "../v12-publication-initial.json",
+  "httpProof": "../v12-http-initial.json",
+  "environment": {
+    "browser": "Chrome / Chromium, cloud browser cdp, browser 1, tab 3",
+    "operatingSystem": "Linux",
+    "captureDimensions": {
+      "mission-start.png": {
+        "width": 1363,
+        "height": 936
+      },
+      "exchange-resumed.png": {
+        "width": 1363,
+        "height": 936
+      },
+      "mission-result.png": {
+        "width": 1363,
+        "height": 936
+      },
+      "campaign-completed-reloaded.png": {
+        "width": 1348,
+        "height": 926
+      },
+      "listening-completed-native.png": {
+        "width": 1364,
+        "height": 1024
+      }
+    },
+    "geometryScope": "Dimensions vérifiées des PNG sauvegardés ; les captures de page et de bureau utilisent des cadres différents. Aucun redimensionnement de fenêtre n’est déduit de cette différence.",
+    "input": "Documented CUA page controls, native click holds and Sky keyboard holds.",
+    "walkerId": "WK09",
+    "walkerName": "H-6 Pèlerin",
+    "branch": "defy / restore",
+    "difficulty": "Normal",
+    "assist": true,
+    "productionAuthPromptObserved": false,
+    "qualification": "The Chrome page opened without an authentication prompt. The separate 28-file HTTP audit used authenticated access; no anonymous HTTP audit is claimed."
+  },
+  "scope": "Réception automatisée dans le vrai navigateur de production : migrations, interruption puis achèvement d’une écoute depuis un point préparé, reprise d’un échange préparé à 45 %, pause/rechargement, défense, témoignage, choix puis travail physique sur l’émetteur, rapport, extraction, archives et persistance finale. Ce n’est ni une partie intégrale depuis le début de MI11, ni un essai humain.",
+  "historicalReceipt": {
+    "path": "browser-reception.json",
+    "bytes": 2976,
+    "sha256": "3af202e6142a61bda32e0919baf3fc28ab2757bad2a5d2982eae90f623d6b572",
+    "preserved": true,
+    "scope": "Le constat not_run décrit la situation avant la mise en ligne. Il est conservé, sans réécriture rétroactive."
+  },
+  "preparedInputs": [
+    {
+      "path": "docs/previews/mi10-completed-campaign.json",
+      "use": "Import du dossier brut v10 historique à dix rapports, puis migration v11.",
+      "bytes": 131193,
+      "sha256": "5b9cbb7be6f32e909df66d363b0b952db449be5e163872b41041f97a22809cc1"
+    },
+    {
+      "path": "docs/previews/mi11-listening-checkpoint.json",
+      "use": "Point préparé au cours de la première écoute. Le relâchement l’interrompt puis les commandes natives permettent de l’achever.",
+      "bytes": 109678,
+      "sha256": "e432d996138c195979363f6fc4999613e285507c88d36b1fdbdc4c030eaf3fd3"
+    },
+    {
+      "path": "docs/previews/mi11-exchange-checkpoint.json",
+      "use": "Point préparé à 45 % de l’échange. Trois écoutes, les deux copies, la rencontre, le consentement, onze tirs et une force déjà neutralisée sont hérités de ce point.",
+      "bytes": 118999,
+      "sha256": "944a6d999da6b033378599ef5315e349bd25b54052c46a6bb574926c62170ae8"
+    }
+  ],
+  "actionsReceived": [
+    {
+      "step": "baseline_and_migrations",
+      "result": "Export du dossier v9 réellement présent avant rechargement de la 0.12 ; migration v9 vers v11 à neuf rapports et 42 lots. Import du dossier brut v10 puis migration à dix rapports et 46 lots. Contrôle des exports par le parseur public, sans progression simulée.",
+      "exports": [
+        "production-baseline-v9.json",
+        "migrated-v9-to-v11.json",
+        "migrated-v10-to-v11.json"
+      ]
+    },
+    {
+      "step": "briefing_and_start",
+      "result": "Briefing MI11 ouvert et départ natif observé avant les imports de points préparés.",
+      "evidence": [
+        "briefing-mi11-ax.txt",
+        "mission-start-ax.txt",
+        "mission-start.png"
+      ]
+    },
+    {
+      "step": "listening",
+      "result": "Depuis le point préparé, la première écoute est interrompue à zéro puis reprise avec ancrage et interaction maintenus jusqu’à un signal exploitable. Aucun tir et aucun TE01 acquis dans cette séquence.",
+      "exports": [
+        "listening-interrupted.json",
+        "listening-completed.json"
+      ]
+    },
+    {
+      "step": "exchange_pause_and_reload",
+      "result": "Depuis le second point préparé à 45 %, l’échange avance à environ 48,416 %, puis pause et export. Après rechargement, le checkpoint entier reste identique ; seule la révision du dossier passe de 196 à 198. Les deux fichiers ne sont donc pas identiques octet pour octet.",
+      "exports": [
+        "exchange-paused.json",
+        "exchange-reloaded.json"
+      ]
+    },
+    {
+      "step": "exchange_defense_and_testimony",
+      "result": "La reprise effective, les tirs natifs et la protection de l’échange permettent de conserver le témoignage et TE01. À ce stade, 28 tirs et deux forces neutralisées sont consignés, dont onze tirs et une neutralisation hérités du point préparé.",
+      "exports": [
+        "exchange-completed.json"
+      ]
+    },
+    {
+      "step": "choice_and_physical_work",
+      "result": "Le choix rétablir est sélectionné. L’export immédiat prouve que le choix ne rétablit pas encore l’émetteur. La dernière force est neutralisée, le marcheur revient physiquement à l’émetteur puis l’ancrage et l’interaction achèvent les travaux.",
+      "exports": [
+        "emitter-choice.json",
+        "emitter-restored.json"
+      ]
+    },
+    {
+      "step": "report_and_extraction",
+      "result": "Le marcheur rejoint le terminal, transmet le rapport, puis se déplace jusqu’à la zone d’extraction. L’export avant extraction conserve dix rapports et 46 lots ; le bilan final passe à onze rapports et 50 lots. Aucun point préparé de décision ou d’extraction n’a été importé.",
+      "exports": [
+        "before-extraction.json",
+        "completed-native.json"
+      ],
+      "evidence": [
+        "report-transmitted.png",
+        "mission-result.png"
+      ]
+    },
+    {
+      "step": "hangar_and_archives",
+      "result": "Retour à l’atelier : 50 lots, coque affichée à 99 %, six jambes et radiateur à 100 %, coût de réparation d’un lot non dépensé. L’archive MI11 expose les trois paires de textes, TE01, la survie de Leth et la portée privée du témoignage.",
+      "evidence": [
+        "archives-mi11.png",
+        "journal-mi11-expanded-received-ax.txt"
+      ]
+    },
+    {
+      "step": "final_reload",
+      "result": "Après un rechargement de production, onze rapports restent classés. Les deux exports finaux sont identiques octet pour octet, y compris la révision 245, les ressources, le rapport MI11 et les dix rapports précédents.",
+      "exports": [
+        "completed-native.json",
+        "completed-reloaded.json"
+      ],
+      "evidence": [
+        "campaign-completed-reloaded.png",
+        "completed-reloaded-exported-ax.txt"
+      ]
+    }
+  ],
+  "finalResult": {
+    "stage": "complete",
+    "reportCount": 11,
+    "resources": {
+      "parts": 50,
+      "fuel": 0
+    },
+    "revision": 245,
+    "elapsedSimulationSeconds": 347.0573666667106,
+    "elapsedShown": "05:47",
+    "hull": 594.3004999999999,
+    "hullIntegrity": 0.9905008333333333,
+    "signalsRecorded": 3,
+    "nestsIntact": 3,
+    "nestsDamaged": 0,
+    "nestsLost": 0,
+    "collateral": 0,
+    "testimonyRecorded": true,
+    "te01Acquired": true,
+    "lethAlive": true,
+    "lethHp": 420,
+    "witnessAvailable": true,
+    "emitterRestored": true,
+    "reportTransmitted": true,
+    "publicConsent": false,
+    "recruited": false,
+    "privateNeutralizedTotal": 3,
+    "privateNeutralizedInherited": 1,
+    "privateNeutralizedNativeAdditional": 2,
+    "shotsTotal": 36,
+    "shotsInherited": 11,
+    "shotsNativeAdditional": 25,
+    "partsGranted": 4,
+    "finalExportsIdenticalBytes": true
+  },
+  "observationTimeline": {
+    "path": "ui-observation-times.json",
+    "count": 61,
+    "firstRecordedObservation": {
+      "label": "listening-interrupted-menu",
+      "observedAt": "2026-11-11T20:28:42.701Z"
+    },
+    "lastRecordedObservation": {
+      "label": "completed-reloaded-exported",
+      "observedAt": "2026-11-11T20:51:36.733Z"
+    },
+    "scope": "Horodatages des observations sauvegardées par le helper après son initialisation ; les premières migrations et le lancement ont leurs captures/arbres mais ne sont pas tous dans cette liste."
+  },
+  "executionNotes": [
+    "Le premier fichier v10 choisi était le conteneur de test tests/fixtures/campaign-v10-mi10.json, pas un dossier brut. L’interface l’a correctement refusé comme format inconnu ; le dossier brut historique a ensuite été importé. Cette erreur de préparation n’est pas attribuée à l’application.",
+    "Des essais de touches maintenues via la première API n’ont pas établi l’ancrage prolongé. Les commandes natives Sky Espace puis Espace+E ont établi l’écoute. Les déplacements A et D ont ensuite fonctionné ; le déplacement par flèches n’est pas reçu par cette session.",
+    "Une fenêtre de traduction Chrome a été fermée pour rendre le clavier au jeu. Aucun réglage de traduction n’a été modifié. Ces manipulations ne constituent pas une réception du protocole complet de perte de focus QA19.",
+    "Le contrôle a subi un délai dépassé et une réinitialisation de la liaison pendant le déplacement final. Le même onglet a été repris et le bilan de victoire déjà présent a été observé, sans répétition aveugle de l’action.",
+    "Les fichiers exportés sont les téléchargements bruts du navigateur. Les captures PNG et arbres d’accessibilité sont copiés sans retouche. Aucun état interne du jeu n’a été injecté et aucune progression n’a été calculée pour remplacer les gestes de cette réception."
+  ],
+  "notReceived": [
+    "Partie native intégrale de MI11 depuis une mission fraîche, y compris acquisition native des trois écoutes et des deux copies.",
+    "Autres châssis et branche saisir dans le navigateur.",
+    "Refus, retrait du consentement, mort du témoin, destruction de l’émetteur et autres issues natives.",
+    "Cycle complet perte/retour de focus avec mouvement et tir maintenus (QA19).",
+    "Vraie petite fenêtre et gamme complète de zooms dans cette session (QA20).",
+    "Manette physique, réception audio par écoute et perception par une personne.",
+    "Classeur ouvert et manipulé dans une application bureautique graphique (QA29).",
+    "Essai humain sans guidage MI11, PR91 et QA191.",
+    "Résultat de la CI GitHub en file d’attente : les contrôles locaux ne lui sont pas attribués."
+  ],
+  "humanPlaytestPerformed": false,
+  "fullNativeMatrixReceived": false,
+  "applicationOrBibleModifiedForReception": false,
+  "newExplicitVercelDeploymentRequested": false,
+  "independentExportAudit": {
+    "path": "production-verification.json",
+    "counts": {
+      "checks": 184,
+      "passed": 184,
+      "failed": 0
+    },
+    "bytes": 95640,
+    "sha256": "1c27cef5259ad536a45aefc3beaa957dbbe07b5fdf0815e0abdb3ca704dc81bd"
+  },
+  "rawEvidence": {
+    "approaching-emitter-ax.txt": {
+      "bytes": 3056,
+      "sha256": "ff33e3725e4ef92c048d4d2d872faf1d4dfd64d3387c0ac1f75a00c954077b5f"
+    },
+    "archives-after-mi11-ax.txt": {
+      "bytes": 2511,
+      "sha256": "8e8abd9d06be4739faeb43dbfdeddaa34ed92bf576eb6265ac4d51a386a725fc"
+    },
+    "archives-mi11.png": {
+      "bytes": 83186,
+      "sha256": "d36cdf30058ef33fcbe7a6a5dc3cafb8f5605af20f3244233aac0ddba6b5e4be"
+    },
+    "before-emitter-interaction-focus-ax.txt": {
+      "bytes": 3136,
+      "sha256": "553a01904b9c3932cee9a8296c13d4274b4c1c676bc172a6ef39a6b400332f5e"
+    },
+    "before-extraction-export-ax.txt": {
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    "before-extraction-menu-ax.txt": {
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    "before-extraction-pause-ax.txt": {
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    "before-extraction.json": {
+      "bytes": 143389,
+      "sha256": "65e386a6be945b95edbb961c4304c08d59291d37ccdea812da00a9d0508395af"
+    },
+    "briefing-mi11-ax.txt": {
+      "bytes": 2259,
+      "sha256": "ef8256846e9be09c7ec3af2ad958653595bb4b7a1d756f9fd47f453716189ab8"
+    },
+    "campaign-completed-native-ax.txt": {
+      "bytes": 7018,
+      "sha256": "1c16072f382d7476fa09f44131d39e6653020d915c3ddf9a66e4d1f948a47e03"
+    },
+    "campaign-completed-reloaded.png": {
+      "bytes": 118477,
+      "sha256": "286a457f233f1786133f6614a80f90953aa4ed70760e2a064914854c212fb08e"
+    },
+    "completed-native-exported-ax.txt": {
+      "bytes": 7123,
+      "sha256": "55f4e0aa0f8dc55a3cecfd47a1308aede545325d4a4a84eb3d51d7e0d5fb62bf"
+    },
+    "completed-native-reloaded-ax.txt": {
+      "bytes": 7001,
+      "sha256": "4b4a79c7300e618c3615144e2e4a08936428c05a2c3e2725c78e30d3609d5533"
+    },
+    "completed-native.json": {
+      "bytes": 118188,
+      "sha256": "02b4f04765e73d2319259aa1639aaa896b182b5e94ceee0dd90812608f185c11"
+    },
+    "completed-reloaded-exported-ax.txt": {
+      "bytes": 7045,
+      "sha256": "d4cf95b5d5ef4f8e98cc617ae2424edee8522d94159e894857b14fcadc479ff3"
+    },
+    "completed-reloaded.json": {
+      "bytes": 118188,
+      "sha256": "02b4f04765e73d2319259aa1639aaa896b182b5e94ceee0dd90812608f185c11"
+    },
+    "emitter-approach-keyboard-ax.txt": {
+      "bytes": 3052,
+      "sha256": "379780af8fb6f9f92cd2afae87f9bbcdee807599315cd768f9a1e934ec49cae9"
+    },
+    "emitter-approach-letter-key-ax.txt": {
+      "bytes": 3012,
+      "sha256": "52ba3601eb9cee93d66e3191b2e0da560eccaa0620b1f1e6ab9c8d186f153987"
+    },
+    "emitter-choice-export-ax.txt": {
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    "emitter-choice-menu-ax.txt": {
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    "emitter-choice-pause-ax.txt": {
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    "emitter-choice-restore-ax.txt": {
+      "bytes": 3254,
+      "sha256": "6058d2fff84bbfa6fef94002f16ed19b868a056d476cb0aeb8e4e27bc57e636c"
+    },
+    "emitter-choice.json": {
+      "bytes": 144264,
+      "sha256": "5e4e33d134e9d75e6709caf6cd1c29216483a8a37042b9549b82ccbbb1c352a5"
+    },
+    "emitter-decision-opened-ax.txt": {
+      "bytes": 3006,
+      "sha256": "776720449631a2f74e29733f9ee944426dd1d4e434554541693675dc17adb3d2"
+    },
+    "emitter-decision-received-ax.txt": {
+      "bytes": 1296,
+      "sha256": "8e8a73fc69a96821b83d885a6a680645610b3c01c7d4eb3a8fd6f5d09e1345c9"
+    },
+    "emitter-decision.png": {
+      "bytes": 55495,
+      "sha256": "1fd2002eb329b9aadf3ff07944ab879f643c63f9753669129f0bc191dcf8b62e"
+    },
+    "emitter-in-reach-ax.txt": {
+      "bytes": 3144,
+      "sha256": "3de1d19ace49a7e2fd2620d15cc4fed3470b7ba8b68003191dcb40ef28cf4ad8"
+    },
+    "emitter-restored-export-ax.txt": {
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    "emitter-restored-menu-ax.txt": {
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    "emitter-restored-native-ax.txt": {
+      "bytes": 2976,
+      "sha256": "f029d53f204ff9fe1ab4e78fc18545371978f4cf2bdd31cbbf56dd477f73a94c"
+    },
+    "emitter-restored-pause-ax.txt": {
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    "emitter-restored.json": {
+      "bytes": 143750,
+      "sha256": "3a56853bf9b082fe62c33f5be7555a22abcbfd9c6aea872c9e497e28e09df8de"
+    },
+    "emitter-restored.png": {
+      "bytes": 96729,
+      "sha256": "e412aa07832417d3596154b38b6f3ab86c76d977333a988447dfd4145de63a8e"
+    },
+    "emitter-route-resumed-ax.txt": {
+      "bytes": 3069,
+      "sha256": "5eab0f8e0c6f9e9933e23e4fa73a8670aea49f954add1a7f5950ca91bba59d81"
+    },
+    "exchange-after-reload-ax.txt": {
+      "bytes": 3112,
+      "sha256": "381c494dfa9209b796d73f28a41bd0a9fb2a54c0f825eee2bddad32df0198968"
+    },
+    "exchange-after-reload.png": {
+      "bytes": 105066,
+      "sha256": "8ceeaedec7d7cf8f8d83981e55b3290868aee2cb7bb6b385b51d858a4788cfd4"
+    },
+    "exchange-completed.json": {
+      "bytes": 122551,
+      "sha256": "777b5d7acc98ad2ac0de9a09c1ed819f0d1c6d5e6c4add4b787578da591d0c82"
+    },
+    "exchange-defense-ax.txt": {
+      "bytes": 3121,
+      "sha256": "1edad22c66b52cbb25b592f195c5826f6a38713522e67ef8a952e2a2befbff59"
+    },
+    "exchange-defense.png": {
+      "bytes": 98027,
+      "sha256": "a2713db6cbea15795fa447d25ffae81035cd06021866e408d6f5e6cc8eae2c37"
+    },
+    "exchange-finished-ax.txt": {
+      "bytes": 3243,
+      "sha256": "4dd4258f6d6fb306cf48d22035fdc126c1b321ebce18e21c79ddefd75409428b"
+    },
+    "exchange-finished-export-ax.txt": {
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    "exchange-finished-menu-ax.txt": {
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    "exchange-finished-pause-ax.txt": {
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    "exchange-finished.png": {
+      "bytes": 107314,
+      "sha256": "28d04f8bb8b689e5ee8e85e56afa961e414b54f915e9c51eda08a2aff295aeab"
+    },
+    "exchange-import-after-timeout-ax.txt": {
+      "bytes": 758,
+      "sha256": "a59b4f4c2aeab8c9d1377f162a1ef8226bdf9553417db2618b1b5a69514a77a1"
+    },
+    "exchange-import-dialog-ax.txt": {
+      "bytes": 758,
+      "sha256": "a59b4f4c2aeab8c9d1377f162a1ef8226bdf9553417db2618b1b5a69514a77a1"
+    },
+    "exchange-imported-menu-ax.txt": {
+      "bytes": 7083,
+      "sha256": "97f39de7ca9ed8be4bcba599b56effe75b8dedeb050b25b4d748352f6f085f20"
+    },
+    "exchange-pause-export-ax.txt": {
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    "exchange-paused-ax.txt": {
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    "exchange-paused-menu-ax.txt": {
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    "exchange-paused.json": {
+      "bytes": 118620,
+      "sha256": "9ddc19602642590ac554d193f4ab82c171fce670b3285fc0423625da855e959b"
+    },
+    "exchange-reload-export-ax.txt": {
+      "bytes": 7127,
+      "sha256": "397c930c70413dd76b840387b284c19ca6beb2868a0b3af5afca524adf1226ff"
+    },
+    "exchange-reloaded-menu-ax.txt": {
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    "exchange-reloaded.json": {
+      "bytes": 118620,
+      "sha256": "940a29d22e35c3a78a78554532250beb6c3e422812ae7f1d0d23c5b1e83b90ed"
+    },
+    "exchange-resumed-initial-ax.txt": {
+      "bytes": 3112,
+      "sha256": "e92f3e404bcb23650c061fc8895eb37b8ba1b4c4741a0c1a30e60e39e2cc3671"
+    },
+    "exchange-resumed.png": {
+      "bytes": 100474,
+      "sha256": "d9354b35e176943f2d2842284e4bd3540c8a0118004aae281d7e46368e4e507b"
+    },
+    "fixture-container-refusal-ax.txt": {
+      "bytes": 6891,
+      "sha256": "b92dfa8af410d1e1c744d09a5254faceb0456b5ecb864b57efcc30beefa7eb37"
+    },
+    "hangar-after-mi11-ax.txt": {
+      "bytes": 5686,
+      "sha256": "720e9b6ab899cbedf5b715d7ef7759fd4318815c5463156cc9925a7660a9cec5"
+    },
+    "journal-mi11-ax.txt": {
+      "bytes": 10052,
+      "sha256": "afa9f3bf6b7c0c50d079827b78833f1ad24c822c3ac9690ac0177a0e42812a0f"
+    },
+    "journal-mi11-expanded-ax.txt": {
+      "bytes": 12644,
+      "sha256": "5ea5ea99bd154ac22284f47295a6e4b9712b1fc5e0e18510f2a3c36891e9ccbf"
+    },
+    "journal-mi11-expanded-received-ax.txt": {
+      "bytes": 12644,
+      "sha256": "5ea5ea99bd154ac22284f47295a6e4b9712b1fc5e0e18510f2a3c36891e9ccbf"
+    },
+    "last-private-force-targeted-ax.txt": {
+      "bytes": 3060,
+      "sha256": "bd6d5a92af1ee4142669500b33dd0c8ccd454c8375b92158b149f83447dec8cb"
+    },
+    "listening-after-settling-ax.txt": {
+      "bytes": 3173,
+      "sha256": "5011ecad6caf7f0216a96200e75878263fa9eda570a8e9c8e11386fdea03254d"
+    },
+    "listening-completed-menu-ax.txt": {
+      "bytes": 7083,
+      "sha256": "e6c0561861703e1ae0d856e57799231f52e37cd6821bbaf7d9f3c720a780ea72"
+    },
+    "listening-completed-native-ax.txt": {
+      "bytes": 3133,
+      "sha256": "f342fbee1d9d71704f7b519e5f5a540ba3f4c94342669792550ab8ca0cfdd240"
+    },
+    "listening-completed-native.png": {
+      "bytes": 137337,
+      "sha256": "01e5b8e61feac2593de753804af28a159c83a1e19f0a509dee9f1135df19908d"
+    },
+    "listening-completed-pause-ax.txt": {
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    "listening-completed.json": {
+      "bytes": 109839,
+      "sha256": "d3da89936d66a0f447d6bfcb03768eede0fad6f5f392cd4b7c315d3f633c6918"
+    },
+    "listening-export-ax.txt": {
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    "listening-held-anchor-ax.txt": {
+      "bytes": 3173,
+      "sha256": "cbb3ca2bf5b4e76be9fdcd0eedfd34ebf481fc93a9a3b8cec7f9ff3a93e11ec0"
+    },
+    "listening-interrupted-ax.txt": {
+      "bytes": 3042,
+      "sha256": "b4f8d1f45167e5d6becf1ba2cb8d37e366d0fb5d3c414b51bf61170a01c2ff52"
+    },
+    "listening-interrupted-menu-ax.txt": {
+      "bytes": 7127,
+      "sha256": "0f0b957927bdfdd881b3cad87488773a19581bdb97cade3b471395d24d8b611c"
+    },
+    "listening-interrupted.json": {
+      "bytes": 109695,
+      "sha256": "7dedafec48817e29f28032c928c043a2935448aa9ea4dce1afeeac31bf83db86"
+    },
+    "listening-native-keyboard-ax.txt": {
+      "bytes": 3173,
+      "sha256": "89036858b53a203f286f1a1a5eaf584b0c9660089d4e8ba6f1a67a0909b86ad4"
+    },
+    "listening-overlapped-keys-ax.txt": {
+      "bytes": 3173,
+      "sha256": "7435df22b80010be7c17acf5ca4b58133f124d96500bba4774b99ff5c76879a7"
+    },
+    "listening-restarted-ax.txt": {
+      "bytes": 3173,
+      "sha256": "e00a45e331fcf0049014f007e2410cc317b05db3b35e72573bd223fef4b96990"
+    },
+    "migrated-v10-to-v11.json": {
+      "bytes": 132129,
+      "sha256": "a675124444042981829d34e7c9bb06238a03cc189685c4566d1ea991f33731b6"
+    },
+    "migrated-v9-to-v11.json": {
+      "bytes": 75345,
+      "sha256": "78503398d6b067f1d8d9cc1fcde99ae648212ef9918e4fa6be328ebd362b8067"
+    },
+    "migration-v10-ax.txt": {
+      "bytes": 6987,
+      "sha256": "2a1c8306314e321cb70f2040d87fe167ee6217e11626befa2b4d9a985a0378d0"
+    },
+    "migration-v9-ax.txt": {
+      "bytes": 6918,
+      "sha256": "2ff7e51ba58ac833bf7054d31d735243e8d7fe2623ee5d927ecafa8694794f63"
+    },
+    "migration-v9.png": {
+      "bytes": 108879,
+      "sha256": "7a082b769bb1c58a9bbad8b14d7aa1abc9c47a287322648c3a89f8206cc7b8bd"
+    },
+    "mission-result-after-control-timeout-ax.txt": {
+      "bytes": 2146,
+      "sha256": "0a67365e92cabb657e5279ac1754c08db6a088a4c6a27149fe9dad3d4023223e"
+    },
+    "mission-result.png": {
+      "bytes": 89332,
+      "sha256": "21875e4370c5fb546384fb26c23490aefb625698fa9a65ae314fa04bbfb75096"
+    },
+    "mission-start-ax.txt": {
+      "bytes": 3129,
+      "sha256": "b7401db0c874e9c7598aee86b61110354f823967a456cb0d5c566565678d93f2"
+    },
+    "mission-start.png": {
+      "bytes": 99264,
+      "sha256": "f9a57056c6fe5990fa0082ecb76a7755a6adcfa2520fb26f5b084cd896d6dba9"
+    },
+    "native-focus-after-escape-ax.txt": {
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    "pause-after-listening-input-check-ax.txt": {
+      "bytes": 664,
+      "sha256": "f5042f72d98f25183da114f656e1e892e23c92dc462d52ff4dba073202ad4b8e"
+    },
+    "production-baseline-v9.json": {
+      "bytes": 73582,
+      "sha256": "de5ece01c690b27435878c0f84f7dfd7f86723500a23a3703e3f8ffce28e6898"
+    },
+    "report-transmitted-native-ax.txt": {
+      "bytes": 2821,
+      "sha256": "25e305d7d0c5218da00bfd4a90f36611814e936df8fa7cb0ad363ad142e25ce2"
+    },
+    "report-transmitted.png": {
+      "bytes": 95887,
+      "sha256": "2050a95d2cc766140fc397b18a7319042e789b54c3a6f3320bcdee5c12cae4ec"
+    },
+    "report-within-range-ax.txt": {
+      "bytes": 2971,
+      "sha256": "c6213e4bde223c959095b6333da63c0d3746c5508a90ff5961b6f0c2166af165"
+    },
+    "return-report-approach-ax.txt": {
+      "bytes": 3021,
+      "sha256": "37ac3f7bbea0d6050168982f84e0a8861d6cb5913bd407409398b3d313e818bf"
+    },
+    "translation-popup-dismissed-ax.txt": {
+      "bytes": 3056,
+      "sha256": "c140889910494a5d905e5fd42657a542ef5a3dca9d318b4f9cc0e0201ad1860d"
+    },
+    "ui-observation-times.json": {
+      "bytes": 5728,
+      "sha256": "90b9469b52bc956937118a5eff9db9ccecdd1a4dd904ed6ab56dd1cbcef556c2"
+    }
+  }
+}

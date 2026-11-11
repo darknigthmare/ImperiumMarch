@@ -1,0 +1,78 @@
+Browser tab: 3, Title: "ORDRE DE CENDRE — ImperiumMarch", URL: "https://imperium-march.vercel.app/".
+1 AXWebArea ORDRE DE CENDRE — ImperiumMarch, URL: imperium-march.vercel.app/
+	2 container Description: Mission en cours, ID: game-screen
+		3 container playfield
+			4 image ID: game-canvas, Description: Champ de bataille. Q / A / ← et D / → pour marcher, souris pour viser, clic pour tirer. T pour réparer le radiateur à l’arrêt. Échap pour la pause.
+			5 container hud
+				6 container
+					7 text VII
+					8 text THYR / MISSION 11
+					9 heading Une voix au ras du sol, Value: 2, ID: hud-title
+						10 text Une voix au ras du sol
+					11 text 00:17
+					12 button Description: Mettre en pause, Help: Pause (Échap), ID: pause-button
+				13 container
+					14 text ORDRES DE MISSION
+					15 content list hud-objectives
+						16 container
+							17 text ◇ Relever les trois points de vibration ou constater leur perte 0/3
+						18 container
+							19 text ◇ Comparer l’avis original et la traduction impériale 0/2
+						20 container
+							21 text ◇ Rencontrer Leth et demander son accord
+					22 container Description: Écoutes, ponte et témoignage de Leth, ID: voice-instrument
+						23 text RELEVER LES TROIS ÉCOUTES
+						24 text 0 / 3 RELEVÉS · 0 SIGNAUX · ORIGINE À RECHERCHER
+						25 text 3 / 3 SITES INTACTS · PASSAGE À RELEVER
+						26 text RENCONTRE À ÉTABLIR
+						27 text ÉCHANGE À ACCOMPLIR · 0 / 2 SOURCES COPIÉES
+						28 text ÉMETTEUR EN PLACE · AUCUNE DIFFUSION PUBLIQUE AUTORISÉE
+				29 container radio
+					30 text CANAL DE BORD
+					31 text Liaison rétablie. Ordre reçu. Appuis au sol.
+				32 container mission-intro
+					33 text THYR // VALLÉE DES RÉSONANCES · 16:10
+					34 heading Une voix au ras du sol, Value: 2, ID: intro-title
+						35 text Une voix au ras du sol
+					36 text LIAISON ÉTABLIE
+				37 container
+					38 text E — Écouter les vibrations — ancrage, appuis immobiles et silence
+					39 text H-6 PÈLERIN / 6 APPUIS
+					40 text 100%
+					41 text INTÉGRITÉ COQUE
+					42 container leg-status
+						43 text A1
+						44 text B2
+						45 text A3
+						46 text B4
+						47 text A5
+						48 text B6
+					49 text TEMPÉRATURE
+					50 text 0%
+					51 text STABILITÉ
+					52 text 96%
+					53 text RADIATEUR
+					54 text 100 %
+					55 text DISSIPATION 100 % · 2 KITS
+					56 button (disabled) RADIATEUR PRÊT, Help: Répare 60 points en 4 secondes sans marcher ni tirer ; consomme un kit à la fin., ID: radiator-repair
+					57 text DOUBLE CANON P-17
+					58 text 18
+					59 text / 18
+					60 text RÉSERVE 144 / 144
+					61 text ROQUETTES 08 / 8
+				62 container keyboard-hints
+					63 text Q / A / ←
+					64 text MARCHE ←
+					65 text D / →
+					66 text MARCHE →
+					67 text Espace
+					68 text ANCRAGE
+					69 text V
+					70 text PURGE
+					71 text T
+					72 text RADIATEUR
+					73 text E
+					74 text INTERACTION
+					75 text ASSISTANCE AUX APPUIS ACTIVE
+
+The focused UI element is 4 image ID: game-canvas, Description: Champ de bataille. Q / A / ← et D / → pour marcher, souris pour viser, clic pour tirer. T pour réparer le radiateur à l’arrêt. Échap pour la pause.
