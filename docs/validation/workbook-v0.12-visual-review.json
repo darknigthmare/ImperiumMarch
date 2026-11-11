@@ -1,0 +1,1599 @@
+{
+  "version": "0.12.0",
+  "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+  "sourceSha256": "b44100ba2d91fa2f50bfb2c75de8ff61182593d53a90cf165e524476c8d5bfc8",
+  "workbookSha256": "e5ffbac8f2bfc252247635eeb76654894a208d12b96ca0771ceba6c1a4644b53",
+  "renderer": "@oai/artifact-tool workbook.render, PNG scale 1",
+  "method": "Assistant individually inspected all 48 candidate workbook PNG outputs through view_image. The final export regenerated all 48; 43 were byte-identical to the inspected candidate and the five changed views were individually reopened and inspected after final export.",
+  "newlyRenderedViews": 48,
+  "retainedHistoricalViews": 0,
+  "visuallyInspectedViews": 48,
+  "sheetsRepresented": 21,
+  "rangeViews": 27,
+  "finalViewsByteIdenticalToReviewedCandidate": 43,
+  "finalChangedViewsIndividuallyInspected": 5,
+  "candidateReview": {
+    "reviewedAt": "2026-11-11T19:41:53.253Z",
+    "sourceSha256": "fa81356b40ab08bbf9c2447bfde5763797639429fafd216465c3f586fd5dc530",
+    "workbookSha256": "8543e7f52db920edeff2efb037a178a5b2a2865f744857c89d6da167caa8bf74",
+    "reviewRecordSha256": "ce26d3c2145773c5c36736e2b17e666b47eefaa2a78ec9f12493249fef46600b",
+    "individuallyInspectedViews": 48
+  },
+  "observations": [
+    "The summary reconciles 905 records: 278 Conçu, 374 Prototype, 88 À produire and 165 Vérifié. Eleven prototype missions and twenty-one remaining mission designs are shown.",
+    "All twenty-one overview headers show version 0.12.0 and their current counts. Campagne and Prototype scope labels were checked.",
+    "Twenty-seven bounded views cover changed or added data rows outside the overview. PL03 is visible in Planètes A1:H9. All nineteen changed historical rows and thirty-two additions have explicit view coverage.",
+    "All inspected cells wrap within their assigned columns; no visible clipping, overlap, blank render, formula error or truncated status.",
+    "AS13 is a partial portrait production. PR18, PR91, QA190 and QA191 retain their explicit open scope. QA180–QA189 identify received automated or workbook controls; QA29 native workbook interaction remains open.",
+    "Final changed QA views show 224 campaign tests including 41 MI11 cases, 86 modeled DOM routes, the bounded Canvas review, and the independent workbook controls. These receipts do not claim native game play or a human session."
+  ],
+  "changedDataRows": [
+    {
+      "sheet": "Planètes",
+      "row": 9,
+      "id": "PL03",
+      "fields": [
+        "terrain"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/06-Planetes.png"
+      ]
+    },
+    {
+      "sheet": "Personnages",
+      "row": 12,
+      "id": "PN06",
+      "fields": [
+        "arc",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-personnages-12-12.png"
+      ]
+    },
+    {
+      "sheet": "Campagne",
+      "row": 17,
+      "id": "MI11",
+      "fields": [
+        "play",
+        "truth",
+        "consequence",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-campagne-17-17.png"
+      ]
+    },
+    {
+      "sheet": "Narration",
+      "row": 13,
+      "id": "NA07",
+      "fields": [
+        "rule",
+        "sources",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-narration-13-13.png"
+      ]
+    },
+    {
+      "sheet": "Narration",
+      "row": 80,
+      "id": "NA74",
+      "fields": [
+        "sources"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-narration-80-80.png"
+      ]
+    },
+    {
+      "sheet": "Assets",
+      "row": 19,
+      "id": "AS13",
+      "fields": [
+        "spec",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-assets-19-19.png"
+      ]
+    },
+    {
+      "sheet": "Assets",
+      "row": 24,
+      "id": "AS18",
+      "fields": [
+        "spec"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-assets-24-24.png"
+      ]
+    },
+    {
+      "sheet": "Production",
+      "row": 24,
+      "id": "PR18",
+      "fields": [
+        "deliverable"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-production-24-24.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 31,
+      "id": "QA25",
+      "fields": [
+        "expected"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-31-31.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 28,
+      "id": "PX22",
+      "fields": [
+        "implemented"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-28-28.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 31,
+      "id": "PX25",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-31-31.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 33,
+      "id": "PX27",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-33-34.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 34,
+      "id": "PX28",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-33-34.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 36,
+      "id": "PX30",
+      "fields": [
+        "implemented",
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-36-37.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 37,
+      "id": "PX31",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-36-37.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 77,
+      "id": "PX71",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-77-77.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 94,
+      "id": "PX88",
+      "fields": [
+        "path"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-94-95.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 95,
+      "id": "PX89",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-94-95.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 100,
+      "id": "PX94",
+      "fields": [
+        "limits"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-100-100.png"
+      ]
+    }
+  ],
+  "addedDataRows": [
+    {
+      "sheet": "Systèmes",
+      "row": 111,
+      "id": "SY105",
+      "fields": [
+        "id",
+        "system",
+        "design",
+        "counterplay",
+        "acceptance",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-systemes-111-113.png"
+      ]
+    },
+    {
+      "sheet": "Systèmes",
+      "row": 112,
+      "id": "SY106",
+      "fields": [
+        "id",
+        "system",
+        "design",
+        "counterplay",
+        "acceptance",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-systemes-111-113.png"
+      ]
+    },
+    {
+      "sheet": "Systèmes",
+      "row": 113,
+      "id": "SY107",
+      "fields": [
+        "id",
+        "system",
+        "design",
+        "counterplay",
+        "acceptance",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-systemes-111-113.png"
+      ]
+    },
+    {
+      "sheet": "Systèmes",
+      "row": 114,
+      "id": "SY108",
+      "fields": [
+        "id",
+        "system",
+        "design",
+        "counterplay",
+        "acceptance",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-systemes-114-116.png"
+      ]
+    },
+    {
+      "sheet": "Systèmes",
+      "row": 115,
+      "id": "SY109",
+      "fields": [
+        "id",
+        "system",
+        "design",
+        "counterplay",
+        "acceptance",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-systemes-114-116.png"
+      ]
+    },
+    {
+      "sheet": "Systèmes",
+      "row": 116,
+      "id": "SY110",
+      "fields": [
+        "id",
+        "system",
+        "design",
+        "counterplay",
+        "acceptance",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-systemes-114-116.png"
+      ]
+    },
+    {
+      "sheet": "Systèmes",
+      "row": 117,
+      "id": "SY111",
+      "fields": [
+        "id",
+        "system",
+        "design",
+        "counterplay",
+        "acceptance",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-systemes-117-117.png"
+      ]
+    },
+    {
+      "sheet": "Narration",
+      "row": 89,
+      "id": "NA83",
+      "fields": [
+        "id",
+        "type",
+        "name",
+        "rule",
+        "sources",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-narration-89-91.png"
+      ]
+    },
+    {
+      "sheet": "Narration",
+      "row": 90,
+      "id": "NA84",
+      "fields": [
+        "id",
+        "type",
+        "name",
+        "rule",
+        "sources",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-narration-89-91.png"
+      ]
+    },
+    {
+      "sheet": "Narration",
+      "row": 91,
+      "id": "NA85",
+      "fields": [
+        "id",
+        "type",
+        "name",
+        "rule",
+        "sources",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-narration-89-91.png"
+      ]
+    },
+    {
+      "sheet": "Narration",
+      "row": 92,
+      "id": "NA86",
+      "fields": [
+        "id",
+        "type",
+        "name",
+        "rule",
+        "sources",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-narration-92-92.png"
+      ]
+    },
+    {
+      "sheet": "Production",
+      "row": 95,
+      "id": "PR89",
+      "fields": [
+        "id",
+        "workstream",
+        "deliverable",
+        "depends",
+        "acceptance",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-production-95-97.png"
+      ]
+    },
+    {
+      "sheet": "Production",
+      "row": 96,
+      "id": "PR90",
+      "fields": [
+        "id",
+        "workstream",
+        "deliverable",
+        "depends",
+        "acceptance",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-production-95-97.png"
+      ]
+    },
+    {
+      "sheet": "Production",
+      "row": 97,
+      "id": "PR91",
+      "fields": [
+        "id",
+        "workstream",
+        "deliverable",
+        "depends",
+        "acceptance",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-production-95-97.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 186,
+      "id": "QA180",
+      "fields": [
+        "id",
+        "area",
+        "scenario",
+        "expected",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-186-188.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 187,
+      "id": "QA181",
+      "fields": [
+        "id",
+        "area",
+        "scenario",
+        "expected",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-186-188.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 188,
+      "id": "QA182",
+      "fields": [
+        "id",
+        "area",
+        "scenario",
+        "expected",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-186-188.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 189,
+      "id": "QA183",
+      "fields": [
+        "id",
+        "area",
+        "scenario",
+        "expected",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-189-191.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 190,
+      "id": "QA184",
+      "fields": [
+        "id",
+        "area",
+        "scenario",
+        "expected",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-189-191.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 191,
+      "id": "QA185",
+      "fields": [
+        "id",
+        "area",
+        "scenario",
+        "expected",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-189-191.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 192,
+      "id": "QA186",
+      "fields": [
+        "id",
+        "area",
+        "scenario",
+        "expected",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-192-194.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 193,
+      "id": "QA187",
+      "fields": [
+        "id",
+        "area",
+        "scenario",
+        "expected",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-192-194.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 194,
+      "id": "QA188",
+      "fields": [
+        "id",
+        "area",
+        "scenario",
+        "expected",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-192-194.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 195,
+      "id": "QA189",
+      "fields": [
+        "id",
+        "area",
+        "scenario",
+        "expected",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-195-197.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 196,
+      "id": "QA190",
+      "fields": [
+        "id",
+        "area",
+        "scenario",
+        "expected",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-195-197.png"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 197,
+      "id": "QA191",
+      "fields": [
+        "id",
+        "area",
+        "scenario",
+        "expected",
+        "priority",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-qa-195-197.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 105,
+      "id": "PX99",
+      "fields": [
+        "id",
+        "link",
+        "name",
+        "implemented",
+        "limits",
+        "path",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-105-107.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 106,
+      "id": "PX100",
+      "fields": [
+        "id",
+        "link",
+        "name",
+        "implemented",
+        "limits",
+        "path",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-105-107.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 107,
+      "id": "PX101",
+      "fields": [
+        "id",
+        "link",
+        "name",
+        "implemented",
+        "limits",
+        "path",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-105-107.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 108,
+      "id": "PX102",
+      "fields": [
+        "id",
+        "link",
+        "name",
+        "implemented",
+        "limits",
+        "path",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-108-110.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 109,
+      "id": "PX103",
+      "fields": [
+        "id",
+        "link",
+        "name",
+        "implemented",
+        "limits",
+        "path",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-108-110.png"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 110,
+      "id": "PX104",
+      "fields": [
+        "id",
+        "link",
+        "name",
+        "implemented",
+        "limits",
+        "path",
+        "status"
+      ],
+      "reviewedViews": [
+        "docs/previews/bible-v012/bible-v012-prototype-108-110.png"
+      ]
+    }
+  ],
+  "views": [
+    {
+      "sheet": "Synthèse",
+      "range": "A1:G32",
+      "path": "docs/previews/bible-v012/00-Synthese.png",
+      "sha256": "f274bcd91d53a634cfc999e074e77d83ea54125ed47ba1a0d336a512bfdcf8e8",
+      "dimensions": [
+        1250,
+        999
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": false,
+      "candidateSha256": "301def6f24689110179b9f4a70163b7c1afaa168e216b1c761f6173b4f453d01",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Final changed view individually reopened with view_image and inspected after final export."
+    },
+    {
+      "sheet": "Vision",
+      "range": "A1:E9",
+      "path": "docs/previews/bible-v012/01-Vision.png",
+      "sha256": "210cdae00ad83f32bc53e6d61dd99d887c4107b913f91960022a6524c381dbcb",
+      "dimensions": [
+        1740,
+        377
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "210cdae00ad83f32bc53e6d61dd99d887c4107b913f91960022a6524c381dbcb",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Systèmes",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/02-Systemes.png",
+      "sha256": "53074decbe3e937b1ae4d1d5a8fc0250f44fa3d3b2c899eeac520da2cfc00e0c",
+      "dimensions": [
+        2500,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "53074decbe3e937b1ae4d1d5a8fc0250f44fa3d3b2c899eeac520da2cfc00e0c",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Marcheurs",
+      "range": "A1:J9",
+      "path": "docs/previews/bible-v012/03-Marcheurs.png",
+      "sha256": "ca99bd5adc4855208d080a596517008e9125ff7607ad69ae69c3b3926c9b3fc5",
+      "dimensions": [
+        2830,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "ca99bd5adc4855208d080a596517008e9125ff7607ad69ae69c3b3926c9b3fc5",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Armes",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/04-Armes.png",
+      "sha256": "cd33dda898879699980a0cb41394cc55cdd3030952af878da27448e84d557f15",
+      "dimensions": [
+        2500,
+        377
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "cd33dda898879699980a0cb41394cc55cdd3030952af878da27448e84d557f15",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Modules",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/05-Modules.png",
+      "sha256": "2807b3e6f33661cef5fcd1b3d426219053925c7c2f506e8f2e03aaef7d8251e1",
+      "dimensions": [
+        2280,
+        332
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "2807b3e6f33661cef5fcd1b3d426219053925c7c2f506e8f2e03aaef7d8251e1",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Planètes",
+      "range": "A1:H9",
+      "path": "docs/previews/bible-v012/06-Planetes.png",
+      "sha256": "ff0a2e1ae32d9eb9da7e5b1e4b9b04ba8a2e0225669dd8a77c1926d918a1a198",
+      "dimensions": [
+        2990,
+        489
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "ff0a2e1ae32d9eb9da7e5b1e4b9b04ba8a2e0225669dd8a77c1926d918a1a198",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Factions",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/07-Factions.png",
+      "sha256": "3048c607cf3657e9b99d7f3e7d1530807917ecdc5793b4e24f7f30a3dbb0a60b",
+      "dimensions": [
+        2830,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "3048c607cf3657e9b99d7f3e7d1530807917ecdc5793b4e24f7f30a3dbb0a60b",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Personnages",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/08-Personnages.png",
+      "sha256": "84ff10f2b501e89ee7158866ee25e1368547d36512eafb0af41c5387a460c4c7",
+      "dimensions": [
+        2230,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "84ff10f2b501e89ee7158866ee25e1368547d36512eafb0af41c5387a460c4c7",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Campagne",
+      "range": "A1:I9",
+      "path": "docs/previews/bible-v012/09-Campagne.png",
+      "sha256": "f11293ca1748d58373171009f5f3dd206467473961cbee51acb054ad4bf3cd47",
+      "dimensions": [
+        3330,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "f11293ca1748d58373171009f5f3dd206467473961cbee51acb054ad4bf3cd47",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Contrats",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/10-Contrats.png",
+      "sha256": "3bf1e61393cb19c4e9ef4414fb2b4cf875336287438f3f2289c327cdbb518ed9",
+      "dimensions": [
+        2270,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "3bf1e61393cb19c4e9ef4414fb2b4cf875336287438f3f2289c327cdbb518ed9",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Ennemis",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/11-Ennemis.png",
+      "sha256": "d88555f94a6156cf7042b17cef96a361fe2fa9e4ffc7d5d1b567c3d0b922fc66",
+      "dimensions": [
+        2430,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "d88555f94a6156cf7042b17cef96a361fe2fa9e4ffc7d5d1b567c3d0b922fc66",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Véhicules",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/12-Vehicules.png",
+      "sha256": "3e1024afe494c86f8288f9b29db08ea4cec30910e483730b6c14639340b909b5",
+      "dimensions": [
+        2390,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "3e1024afe494c86f8288f9b29db08ea4cec30910e483730b6c14639340b909b5",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Faune",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/13-Faune.png",
+      "sha256": "c243b8a20efe708c9a75d5f4937d84f25c74531e994e091612a2ea74e4898bac",
+      "dimensions": [
+        2500,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "c243b8a20efe708c9a75d5f4937d84f25c74531e994e091612a2ea74e4898bac",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Flore",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/14-Flore.png",
+      "sha256": "4cc3d6fcba9cd356148ba81621459a0d2d5777666d5ba5caa31a247f6974e6ef",
+      "dimensions": [
+        2530,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "4cc3d6fcba9cd356148ba81621459a0d2d5777666d5ba5caa31a247f6974e6ef",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Narration",
+      "range": "A1:F9",
+      "path": "docs/previews/bible-v012/15-Narration.png",
+      "sha256": "8ff96786a2a76bd5597956fcc37a69170cda5029b1cbf82581117f58bcb610f9",
+      "dimensions": [
+        2040,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "8ff96786a2a76bd5597956fcc37a69170cda5029b1cbf82581117f58bcb610f9",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Assets",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/16-Assets.png",
+      "sha256": "577454460138883aac1fdc456715ceec8798b372eff04e82171a2622da21f5d6",
+      "dimensions": [
+        2380,
+        508
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "577454460138883aac1fdc456715ceec8798b372eff04e82171a2622da21f5d6",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Production",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/17-Production.png",
+      "sha256": "920a491239bc5e710a06528843401eb0be506fd27ceeeb954038c1162dcde346",
+      "dimensions": [
+        2260,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "920a491239bc5e710a06528843401eb0be506fd27ceeeb954038c1162dcde346",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "QA",
+      "range": "A1:F9",
+      "path": "docs/previews/bible-v012/18-QA.png",
+      "sha256": "f8aaa45d9f0114b1cc06dd54f2de385fe673a453095404238dd8760528f44eb0",
+      "dimensions": [
+        1910,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "f8aaa45d9f0114b1cc06dd54f2de385fe673a453095404238dd8760528f44eb0",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Sources",
+      "range": "A1:F9",
+      "path": "docs/previews/bible-v012/19-Sources.png",
+      "sha256": "d43073d750cd9c98a79d7347601e1c590d176567f8586c6ea26f5ea22028bcdc",
+      "dimensions": [
+        2160,
+        396
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "d43073d750cd9c98a79d7347601e1c590d176567f8586c6ea26f5ea22028bcdc",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A1:G9",
+      "path": "docs/previews/bible-v012/20-Prototype.png",
+      "sha256": "586233d570b0434c620d626351f632bba73eeee08a14efdd93303184d909a542",
+      "dimensions": [
+        2480,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "586233d570b0434c620d626351f632bba73eeee08a14efdd93303184d909a542",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Systèmes",
+      "range": "A111:G113",
+      "path": "docs/previews/bible-v012/bible-v012-systemes-111-113.png",
+      "sha256": "a423e870c643fd559d2f773820516dbb586399dc0b47da3aa604bf570d5e1c2b",
+      "dimensions": [
+        2500,
+        321
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "a423e870c643fd559d2f773820516dbb586399dc0b47da3aa604bf570d5e1c2b",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Systèmes",
+      "range": "A114:G116",
+      "path": "docs/previews/bible-v012/bible-v012-systemes-114-116.png",
+      "sha256": "42f6d8da5f73b13338eb7814abb07b177b90135559ad1eb507245b92bb8d36d9",
+      "dimensions": [
+        2500,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "42f6d8da5f73b13338eb7814abb07b177b90135559ad1eb507245b92bb8d36d9",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Systèmes",
+      "range": "A117:G117",
+      "path": "docs/previews/bible-v012/bible-v012-systemes-117-117.png",
+      "sha256": "73070f86c08e9aa1374e837fc1fe59b77712a5276631db084c91cb8253710df7",
+      "dimensions": [
+        2500,
+        108
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "73070f86c08e9aa1374e837fc1fe59b77712a5276631db084c91cb8253710df7",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Personnages",
+      "range": "A12:G12",
+      "path": "docs/previews/bible-v012/bible-v012-personnages-12-12.png",
+      "sha256": "a17e7f16d1b56873fb97350999893ead62026a47f3dd3f2ec641399dbe794dee",
+      "dimensions": [
+        2230,
+        164
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "a17e7f16d1b56873fb97350999893ead62026a47f3dd3f2ec641399dbe794dee",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Campagne",
+      "range": "A17:I17",
+      "path": "docs/previews/bible-v012/bible-v012-campagne-17-17.png",
+      "sha256": "36fa102332cf24a81c575492dae0a7efc9d5d2a165c373aa6be7da885778edc0",
+      "dimensions": [
+        3330,
+        127
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "36fa102332cf24a81c575492dae0a7efc9d5d2a165c373aa6be7da885778edc0",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Narration",
+      "range": "A13:F13",
+      "path": "docs/previews/bible-v012/bible-v012-narration-13-13.png",
+      "sha256": "15ec133c9c74636bab4e4a0bbb85c96f06e5ebef3b800f6d928d98268de384bd",
+      "dimensions": [
+        2040,
+        145
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "15ec133c9c74636bab4e4a0bbb85c96f06e5ebef3b800f6d928d98268de384bd",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Narration",
+      "range": "A80:F80",
+      "path": "docs/previews/bible-v012/bible-v012-narration-80-80.png",
+      "sha256": "7c4cb324bc72884c6b87cad7b3e6f99b12a74aef0d951b3b7859a1917b7a13fb",
+      "dimensions": [
+        2040,
+        108
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "7c4cb324bc72884c6b87cad7b3e6f99b12a74aef0d951b3b7859a1917b7a13fb",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Narration",
+      "range": "A89:F91",
+      "path": "docs/previews/bible-v012/bible-v012-narration-89-91.png",
+      "sha256": "d5c004a56b60a028e3ee9390daece0f113c78bdf7bdcf7329c473a7e271978a2",
+      "dimensions": [
+        2040,
+        340
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "d5c004a56b60a028e3ee9390daece0f113c78bdf7bdcf7329c473a7e271978a2",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Narration",
+      "range": "A92:F92",
+      "path": "docs/previews/bible-v012/bible-v012-narration-92-92.png",
+      "sha256": "56188fb723b0775089a034235c2cc46196952c313eab051edcdda37d52c4ab98",
+      "dimensions": [
+        2040,
+        108
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "56188fb723b0775089a034235c2cc46196952c313eab051edcdda37d52c4ab98",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Assets",
+      "range": "A19:G19",
+      "path": "docs/previews/bible-v012/bible-v012-assets-19-19.png",
+      "sha256": "9816da7e33a9c400a0220d8396bc438caf0ddf6a315b965f7aff6f909b95954d",
+      "dimensions": [
+        2380,
+        164
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "9816da7e33a9c400a0220d8396bc438caf0ddf6a315b965f7aff6f909b95954d",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Assets",
+      "range": "A24:G24",
+      "path": "docs/previews/bible-v012/bible-v012-assets-24-24.png",
+      "sha256": "1d41bd8bf382cd37f78acfcecb92fa4394fc329e58c624bde4e1dc81668a1ae4",
+      "dimensions": [
+        2380,
+        295
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "1d41bd8bf382cd37f78acfcecb92fa4394fc329e58c624bde4e1dc81668a1ae4",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Production",
+      "range": "A24:G24",
+      "path": "docs/previews/bible-v012/bible-v012-production-24-24.png",
+      "sha256": "ff4340e088807ab9d1a0a26a68f86cfb5e2eb4162e10535567bc989959a5ab09",
+      "dimensions": [
+        2260,
+        108
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "ff4340e088807ab9d1a0a26a68f86cfb5e2eb4162e10535567bc989959a5ab09",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Production",
+      "range": "A95:G97",
+      "path": "docs/previews/bible-v012/bible-v012-production-95-97.png",
+      "sha256": "ffadfc61f0d3196b32cf5c1e6bbd9b1c120ddf97b5e99f7150f223ea9271cf98",
+      "dimensions": [
+        2260,
+        247
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "ffadfc61f0d3196b32cf5c1e6bbd9b1c120ddf97b5e99f7150f223ea9271cf98",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "QA",
+      "range": "A31:F31",
+      "path": "docs/previews/bible-v012/bible-v012-qa-31-31.png",
+      "sha256": "387709c1f0948ebe1f89e2a09ae1a1570f6e6d501c6da5992a8c8c23652cf202",
+      "dimensions": [
+        1910,
+        201
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": false,
+      "candidateSha256": "d937c83b2dd0c2a5139c14cff24cec60a01990acb7fbec273931706c9c4ca4f1",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Final changed view individually reopened with view_image and inspected after final export."
+    },
+    {
+      "sheet": "QA",
+      "range": "A186:F188",
+      "path": "docs/previews/bible-v012/bible-v012-qa-186-188.png",
+      "sha256": "a27d133e5627892563c8014047e4911820ff8c074e0c28a74d015884ce06d008",
+      "dimensions": [
+        1910,
+        396
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": false,
+      "candidateSha256": "e8207bbefcd40a8ec9e180295a47670dfbf329006a95af1c42c7257bb895d15f",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Final changed view individually reopened with view_image and inspected after final export."
+    },
+    {
+      "sheet": "QA",
+      "range": "A189:F191",
+      "path": "docs/previews/bible-v012/bible-v012-qa-189-191.png",
+      "sha256": "952f474e52146981fb12a7c61418d784f875908ea01d602570ba8cde80419446",
+      "dimensions": [
+        1910,
+        359
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "952f474e52146981fb12a7c61418d784f875908ea01d602570ba8cde80419446",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "QA",
+      "range": "A192:F194",
+      "path": "docs/previews/bible-v012/bible-v012-qa-192-194.png",
+      "sha256": "7df920fd25c1b0bb52f24e8694df0acd53ce9d45f994a76dc8911ab4a1e17371",
+      "dimensions": [
+        1910,
+        415
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": false,
+      "candidateSha256": "e1844a146865b60df6722fdadd62c80eac4e16bb76d7c6b9f9bf2d5d018df9b1",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Final changed view individually reopened with view_image and inspected after final export."
+    },
+    {
+      "sheet": "QA",
+      "range": "A195:F197",
+      "path": "docs/previews/bible-v012/bible-v012-qa-195-197.png",
+      "sha256": "e7a62c21fd5c399e1a8d1c13dcc7479eb9f574218f658a1c5a4099dd7ad5e4b0",
+      "dimensions": [
+        1910,
+        415
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": false,
+      "candidateSha256": "983e9126c5b2d3801144c141b38579c697ddcd6b574c7c6e1a037baa515c79ad",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Final changed view individually reopened with view_image and inspected after final export."
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A28:G28",
+      "path": "docs/previews/bible-v012/bible-v012-prototype-28-28.png",
+      "sha256": "cae4d0f06005f6ac04d27265c62d6fd9a7a9f0bc6808063b2cb580ebec2d7ddd",
+      "dimensions": [
+        2480,
+        127
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "cae4d0f06005f6ac04d27265c62d6fd9a7a9f0bc6808063b2cb580ebec2d7ddd",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A31:G31",
+      "path": "docs/previews/bible-v012/bible-v012-prototype-31-31.png",
+      "sha256": "f8474a509d3acb2d321915ed06b51df19ecff6f7f1c5712325cdde32dc8116af",
+      "dimensions": [
+        2480,
+        108
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "f8474a509d3acb2d321915ed06b51df19ecff6f7f1c5712325cdde32dc8116af",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A33:G34",
+      "path": "docs/previews/bible-v012/bible-v012-prototype-33-34.png",
+      "sha256": "914a294840e458ae9258a4ec46057dd8256b21b872d964b1644815b241fe044f",
+      "dimensions": [
+        2480,
+        196
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "914a294840e458ae9258a4ec46057dd8256b21b872d964b1644815b241fe044f",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A36:G37",
+      "path": "docs/previews/bible-v012/bible-v012-prototype-36-37.png",
+      "sha256": "181c3d0b2db4704c824f9333b202008a1d56226834107518e0ab60b3bdc9a6d4",
+      "dimensions": [
+        2480,
+        215
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "181c3d0b2db4704c824f9333b202008a1d56226834107518e0ab60b3bdc9a6d4",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A77:G77",
+      "path": "docs/previews/bible-v012/bible-v012-prototype-77-77.png",
+      "sha256": "fe99dee58dd8662e2377f5f2dec1c6786f12a2bab665e46e7874e461f1db05f0",
+      "dimensions": [
+        2480,
+        71
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "fe99dee58dd8662e2377f5f2dec1c6786f12a2bab665e46e7874e461f1db05f0",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A94:G95",
+      "path": "docs/previews/bible-v012/bible-v012-prototype-94-95.png",
+      "sha256": "6d479fec6a53a2d20c034e796991e270a37f4fdf43a7125b5e92000497568e9f",
+      "dimensions": [
+        2480,
+        196
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "6d479fec6a53a2d20c034e796991e270a37f4fdf43a7125b5e92000497568e9f",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A100:G100",
+      "path": "docs/previews/bible-v012/bible-v012-prototype-100-100.png",
+      "sha256": "9cb0d7330fb33da44c2cde45abbc8c0931bfe855a5fdc6449b65e88d3da41777",
+      "dimensions": [
+        2480,
+        108
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "9cb0d7330fb33da44c2cde45abbc8c0931bfe855a5fdc6449b65e88d3da41777",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A105:G107",
+      "path": "docs/previews/bible-v012/bible-v012-prototype-105-107.png",
+      "sha256": "2bd64cd23fbfa6583c9042730838f2a24dc5061d19b81931e081b5833b4c0399",
+      "dimensions": [
+        2480,
+        303
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "2bd64cd23fbfa6583c9042730838f2a24dc5061d19b81931e081b5833b4c0399",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    },
+    {
+      "sheet": "Prototype",
+      "range": "A108:G110",
+      "path": "docs/previews/bible-v012/bible-v012-prototype-108-110.png",
+      "sha256": "ded48aa29bf441d2108fb8162ece91b72bbacad82f5129aeb60c5f629000c0a6",
+      "dimensions": [
+        2480,
+        284
+      ],
+      "method": "newly_rendered",
+      "visualReview": "passed",
+      "reviewedAt": "2026-11-11T20:03:07.157521+00:00",
+      "samePixelsAsVisuallyReviewedCandidate": true,
+      "candidateSha256": "ded48aa29bf441d2108fb8162ece91b72bbacad82f5129aeb60c5f629000c0a6",
+      "candidateReviewedAt": "2026-11-11T19:41:53.253Z",
+      "reviewMethod": "Byte-identical to the individually inspected candidate view; final export hash compared."
+    }
+  ],
+  "scopeLimit": "Visual inspection of generated workbook PNGs only; not an interactive spreadsheet, game-native or human playtest reception.",
+  "passed": true
+}

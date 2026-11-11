@@ -55,7 +55,8 @@ for before, after in zip(old['sheets'], source['sheets']):
 
 tracked = git('ls-tree', '-r', '--name-only', revision).decode().splitlines()
 protected = [p for p in tracked if p.startswith(('docs/validation/', 'tests/fixtures/', 'docs/previews/bible-v'))
-             or p in ['data/production-v010-receipts.json', 'docs/PRODUCTION_REGISTER_V09.md', 'docs/PRODUCTION_REGISTER_V10.md']]
+             or (p.startswith('data/production-v') and p.endswith('-receipts.json'))
+             or (p.startswith('docs/PRODUCTION_REGISTER_V') and p.endswith('.md'))]
 for name in protected:
     assert (root/name).is_file(), f'Missing historical file: {name}'
     assert (root/name).read_bytes() == git('show', revision+':'+name), f'Historical bytes changed: {name}'

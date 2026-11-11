@@ -1,8 +1,8 @@
 # ORDRE DE CENDRE — Campagne et continuité
 
-**Version de conception 0.11.0 · 11 novembre 2026**
+**Version de conception 0.12.0 · 11 novembre 2026**
 
-Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI10 sont jouables au stade prototype, avec progression, dossier v10 et reprise. Les 22 missions MI11–MI32 et les seize contrats restent conçus. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.9](NACRE_CONSEQUENCES_V09.md) précise les quatre sorties jouables, leurs populations et leurs arrivées distinctes. Les contrats de [MI09](CAMPAIGN_MISSION_09.md) et [MI10](CAMPAIGN_MISSION_10.md) décrivent les deux sorties locales de Thyr.
+Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI11 sont jouables au stade prototype, avec progression, dossier v11 et reprise. Les 21 missions MI12–MI32 et les seize contrats restent conçus. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.9](NACRE_CONSEQUENCES_V09.md) précise les quatre sorties jouables, leurs populations et leurs arrivées distinctes. Les contrats de [MI09](CAMPAIGN_MISSION_09.md), [MI10](CAMPAIGN_MISSION_10.md) et [MI11](CAMPAIGN_MISSION_11.md) décrivent les trois sorties locales de Thyr.
 
 La campagne suit Sera Vey depuis ses premières opérations d’occupation jusqu’à une confrontation avec l’autorité qui les ordonnait. La défection est l’axe du récit. Les décisions déterminent qui part avec elle, ce qu’elle peut prouver, ce qu’elle laisse derrière elle et la forme du pouvoir après la bataille.
 
@@ -203,15 +203,17 @@ Le [contrat MI07](CAMPAIGN_MISSION_07.md) décrit les interactions, les pertes e
 
 #### MI11 — Une voix au ras du sol
 
-**Lieu :** Thyr (PL03) · **État :** Conçu
+**Lieu :** Thyr (PL03) · **État :** Prototype jouable 0.12, après le premier rapport de MI10
 
 **Ordre reçu.** Capturer un émetteur Khelt dans une vallée hostile.
 
-**Déroulement jouable.** Rechercher une source par vibrations, éviter un site de ponte et protéger l’interprète pendant un échange.
+**Déroulement jouable.** Effectuer trois écoutes ancrées et silencieuses, reconnaître une corniche au-dessus de trois nids, puis identifier la source. L’avis d’évacuation et la traduction impériale demandent des copies distinctes. Rencontrer Leth, demander son accord limité et protéger un échange de vingt secondes sont trois actes séparés. Trois forces privées arrivent après le délai déclenché par la rencontre ou une perte matérielle.
 
-**Ce que la mission révèle.** Leth transmet des avis d’évacuation ignorés par les autorités; la traduction impériale inversait plusieurs termes.
+**Ce que la mission révèle.** Leth transmet des avis d’évacuation reçus puis déformés. Trois restitutions françaises confrontent la traduction impériale au sens qu’il explique : quitter les cultures devient y retenir les habitants, ouvrir le passage aux familles devient le fermer, éloigner les machines lourdes de la ponte devient les y avancer. Ces exemples restent locaux et n’inventent pas une langue Khelt complète. TE01 exige trois signaux exploitables, les deux copies et l’enregistrement consenti achevé. Un constat de perte, une copie isolée ou une simple rencontre ne suffit pas à obtenir cette preuve. Elle ne révèle pas toutes les commandes industrielles ou politiques.
 
-**Ce qui reste après la mission.** Alliance d’interprétation possible; preuve testimoniale TE01 et confiance de Leth.
+**Ce qui reste après la mission.** Le dossier conserve relevés, état de la corniche et des nids, sources copiées, Leth vivant ou perdu, accord limité, enregistrement, confiance et sort de l’émetteur. La saisie et la remise en service exigent cinq secondes d’intervention après le choix. Le rapport vient ensuite, puis l’extraction physique. Leth reste sur ce site; aucun embarquement ni transfert depuis MI09 ou MI10 n’est inventé.
+
+Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après accord et avant la fin provoque un retrait qui ne s’efface pas en revenant sur place. Les copies et un enregistrement déjà achevé résistent aux pertes ultérieures de leurs sources; le témoin perdu ou retiré ne reste pas disponible. Une coopération possible n’est ni une alliance militaire, ni un recrutement ou une permission de diffusion publique. Le [contrat MI11](CAMPAIGN_MISSION_11.md) et le [dossier v11](CAMPAIGN_SAVE_V11.md) détaillent les opérations et la continuité des dix rapports précédents.
 
 #### MI12 — Le troisième relais
 

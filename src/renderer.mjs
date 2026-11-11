@@ -2,6 +2,7 @@ import { terrainAt, radiatorBounds, channelSurfaceAt, departureGateBounds, depar
 import { drawProductionPart, productionLegPose } from './production-assets.mjs';
 import { drawLivingRouteSite, drawLivingRouteActors, drawLivingRouteLabels } from './thyr-renderer.mjs';
 import { drawChemicalSite, drawChemicalLabels } from './chemical-renderer.mjs';
+import { drawVoiceSite, drawVoiceActor, drawVoiceLabels } from './voice-renderer.mjs';
 import { WALKERS } from './content.mjs';
 
 const W = 1600, H = 900;
@@ -140,11 +141,12 @@ export class Renderer {
     if (s.departure) this.drawDepartureSite(s, t);
     if (s.livingRoute) drawLivingRouteSite(this, s, t);
     if (s.chemical) drawChemicalSite(this, s, t);
+    if (s.voice) drawVoiceSite(this, s, t);
     for (const r of s.relays) if (this.visible(r.x, 150)) this.drawRelay(r, s);
-    if (!s.train && !s.industrial && !s.dike && !s.ambulance && !s.departure && !s.livingRoute && !s.chemical) this.drawEvidence(s, t);
+    if (!s.train && !s.industrial && !s.dike && !s.ambulance && !s.departure && !s.livingRoute && !s.chemical && !s.voice) this.drawEvidence(s, t);
     this.drawExtraction(s, t);
     for (const item of s.pickups) if (!item.collected && this.visible(item.x, 100)) this.drawSupply(item, t);
-    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped) && (!e.id.startsWith('seizure-drone-') || s.ambulance?.raidTriggered) && (!e.id.startsWith('aval-control-drone-') || s.departure?.alert.triggered) && (!e.id.startsWith('thyr-sniper-') || s.livingRoute?.alert.triggered) && (!e.id.startsWith('chemical-private-') || s.chemical?.alert.ready));
+    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped) && (!e.id.startsWith('seizure-drone-') || s.ambulance?.raidTriggered) && (!e.id.startsWith('aval-control-drone-') || s.departure?.alert.triggered) && (!e.id.startsWith('thyr-sniper-') || s.livingRoute?.alert.triggered) && (!e.id.startsWith('chemical-private-') || s.chemical?.alert.ready) && (!e.id.startsWith('voice-private-') || s.voice?.alert.ready));
     for (const e of visibleEnemies) this.drawTelegraph(e, s, t);
     for (const civilian of s.civilians) if (civilian.alive && !civilian.safe && this.visible(civilian.x, 100)) this.drawHuman(civilian, t, true);
     if (s.convoy && this.visible(s.convoy.x, 200)) this.drawConvoy(s.convoy, t);
@@ -157,6 +159,7 @@ export class Renderer {
     if (s.ambulance) { this.drawAmbulanceVehicle(s, t); this.drawAmbulancePeople(s, t); }
     if (s.departure) { this.drawDepartureBoats(s, t); this.drawDeparturePeople(s, t); }
     if (s.livingRoute) drawLivingRouteActors(this, s, t);
+    if (s.voice) drawVoiceActor(this, s);
     for (const e of visibleEnemies) if (e.kind === 'air') this.drawEnemy(e, s, t);
     this.drawShots(s);
     this.drawParticles(s);
@@ -170,6 +173,7 @@ export class Renderer {
     if (s.departure) this.drawDepartureLabels(s);
     if (s.livingRoute) drawLivingRouteLabels(this, s);
     if (s.chemical) drawChemicalLabels(this, s);
+    if (s.voice) drawVoiceLabels(this, s);
     c.restore();
     this.drawAtmosphere(s, t);
     this.drawMarkers(s);
@@ -1297,7 +1301,7 @@ export class Renderer {
   }
 
   drawCampaignLandmarks(s, t) {
-    if (s.channel || s.dike || s.ambulance || s.departure || s.livingRoute || s.chemical) return;
+    if (s.channel || s.dike || s.ambulance || s.departure || s.livingRoute || s.chemical || s.voice) return;
     if (s.train) { this.drawRailHarpoons(s, t); return; }
     if (s.network) { this.drawNetworkStations(s, t); return; }
     if (s.industrial) { this.drawIndustrialStation(s, t); return; }
@@ -1836,7 +1840,7 @@ export class Renderer {
       circle(c, toX(s.mission.passage.stationX), by, 4, s.campaign.passageSecured ? '#91bea8' : '#d4ae73');
       line(c, toX(s.mission.passage.pipeFrom), by + 5, toX(s.mission.passage.pipeTo), by + 5, s.campaign.pipeIntact ? '#afb68a' : '#d88e6b', 3);
     }
-    if (!s.livingRoute && !s.chemical) { const ex = toX(s.evidence.x); poly(c, [[ex, by - 5], [ex + 4, by], [ex, by + 5], [ex - 4, by]], s.evidence.collected ? '#91bea8' : '#e6c284'); }
+    if (!s.livingRoute && !s.chemical && !s.voice) { const ex = toX(s.evidence.x); poly(c, [[ex, by - 5], [ex + 4, by], [ex, by + 5], [ex - 4, by]], s.evidence.collected ? '#91bea8' : '#e6c284'); }
     if (s.convoy) { c.fillStyle = '#91d2c4'; c.fillRect(toX(s.convoy.x) - 3, by - 3, 6, 6); }
     if (s.train) {
       for (const h of s.train.harpoons) circle(c, toX(h.x), by, 4, h.released ? '#91bea8' : '#d4ae73');
@@ -1889,6 +1893,13 @@ export class Renderer {
       for (const canal of s.chemical.canals) line(c, toX(canal.x - canal.w / 2), by + 5, toX(canal.x + canal.w / 2), by + 5, canal.destroyed || canal.contamination >= s.mission.chemical.contaminationLimit ? '#d99b77' : '#a4d3bf', 3);
       circle(c, toX(s.chemical.sampler.x), by - 5, 4, s.chemical.sampler.collected ? '#c9dfa7' : s.chemical.sampler.lost ? '#d99b77' : '#dfc687');
       for (const plume of s.chemical.plumes) if (plume.phase === 'flowing') circle(c, toX(plume.x), by + 9, 1.5, '#d3c576');
+    }
+    if (s.voice) {
+      const d = s.voice;
+      for (const point of d.listening) circle(c, toX(point.x), by, 3, point.detected ? '#c5dfb3' : point.destroyed ? '#d89f7f' : '#a3b7a3');
+      if (d.ridge.surveyed) line(c, toX(s.mission.voice.ridgeStart), by + 6, toX(s.mission.voice.ridgeEnd), by + 6, d.ridge.destroyed ? '#d89f7f' : '#c4d29d', 3);
+      if (s.campaign.sourceLocated) { c.fillStyle = d.emitter.destroyed ? '#d89f7f' : d.emitter.seized ? '#b5bc9e' : '#a5d5bd'; c.fillRect(toX(d.emitter.x) - 3, by - 5, 6, 10); }
+      if (d.leth.met || d.leth.encountered) circle(c, toX(d.leth.x), by - 7, 3, d.leth.alive ? '#d9d6ad' : '#ca8e70');
     }
     const px = toX(s.player.x); poly(c, [[px, by - 8], [px + 5, by - 15], [px - 5, by - 15]], '#e2c893');
     const exitX = toX(s.extraction.x); line(c, exitX, by - 7, exitX, by + 7, s.extraction.active ? '#c6dfb1' : '#657b73', 2);

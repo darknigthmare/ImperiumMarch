@@ -7,7 +7,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - `data/bible.json` est la source des fiches de conception et du classeur. Garder les IDs stables.
 - `docs/BIBLE_FR.md`, `docs/CAMPAIGN_FR.md` et `docs/ART_DIRECTION.md` développent le canon du projet.
 - `src/content.mjs` décrit uniquement les données actuellement utilisées par le prototype.
-- `src/campaign.mjs` gère les dossiers MI01–MI10, leur progression et la migration des sauvegardes v1/v2/v3/v4/v5/v6/v7/v8/v9 vers v10 ; les opérations OP01–OP03 restent indépendantes.
+- `src/campaign.mjs` gère les dossiers MI01–MI11, leur progression et la migration des sauvegardes v1/v2/v3/v4/v5/v6/v7/v8/v9/v10 vers v11 ; les opérations OP01–OP03 restent indépendantes.
 - L’onglet Prototype précise la différence entre le comportement actuel et le comportement final conçu.
 
 ## Développement
@@ -24,7 +24,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 
 - Ne pas marquer une fiche finie parce qu’une description existe. Conçu, Prototype et Vérifié décrivent des niveaux différents.
 - Les trois opérations de prototype ne sont pas les 32 missions de la campagne finale.
-- MI01–MI10 sont jouables au stade prototype depuis les 0.2 à 0.11 ; les 22 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
+- MI01–MI11 sont jouables au stade prototype depuis les 0.2 à 0.12 ; les 21 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
 - Ne pas présenter une image de concept comme une capture du jeu, un rendu Canvas comme une capture navigateur ou un test statique comme un clic exécuté.
 - Une nouvelle vérification navigateur doit préciser l’environnement réel et les parcours effectués.
 - Les références de gameplay servent la conception ; conserver les noms, assets, silhouettes et récits originaux du projet.
@@ -98,3 +98,18 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - Le rapport exige inspections ou constats, prélèvement ou perte actée, opérations de cuves résolues, trois forces arrivées puis neutralisées, fin de l’écoulement et disposition réelle de l’eau. Il précède une extraction physique.
 - La fixture `campaign-v9-mi09.json` vient des exports Chrome figés de la 0.10 publique, avec attestation `docs/validation/v011-historic-v9.json`. Ne régénérer aucune fixture v1–v9 depuis le code courant. La migration v10 ajoute seulement `world.thyr.chemical` vide et la version ; elle conserve stage, checkpoints, neuf rapports et ressources.
 - `src/chemical-assets.mjs` partage ses formes entre SVG et Canvas. Les planches d’assets, scènes Canvas, tests de DOM modélisé et observations natives restent quatre types de preuve distincts. Les preuves 0.9 et 0.10 sont historiques et ne doivent pas être réécrites pour les faire décrire la 0.11.
+
+
+## Voix de Thyr — 0.12
+
+- MI11 suit le premier rapport MI10. Son domaine `voice` n’existe que dans cette mission ; il ne transfère aucun habitant ou animal de Nacre, MI09 ou MI10. Les trois nids sont des sites locaux, sans effectif de population déduit de leur dessin.
+- Trois relevés vibratoires demandent ancrage, pieds immobiles, silence et quatre secondes. Un constat de poste perdu n’est pas un signal enregistré. La corniche reconnue fournit le vrai sol des pieds via `voiceSurfaceAt` ; son dessin suit la même surface.
+- Rencontre, accord privé, échange protégé de vingt secondes et disponibilité ultérieure de Leth sont des faits séparés. Leth reste sur le site. Un refus ou retrait ne fabrique pas de paroles ; aucune autorisation publique ni recrutement n’est accordé.
+- Le signal source, le texte impérial et le témoignage sont recueillis séparément. `VOICE_TRANSLATION_PAIRS` contient trois restitutions françaises : révéler chaque colonne uniquement après acquisition de sa source. Ne pas les présenter comme une transcription linguistique khelte.
+- TE01 exige trois signaux exploitables, les deux copies et un témoignage consenti achevé. Les copies et le témoignage acquis survivent à la perte des originaux ou du témoin ; sa disponibilité future et sa coopération restent réévaluées. TE01 ne démontre ni les ordres industriels de MI12, ni la chaîne globale PALINODE, ni une défection avant MI16.
+- Le choix `obey`/`defy` fixe saisie/remise en service sans opérer l’émetteur. Cinq secondes de travail réel sont nécessaires sur le matériel intact. Le signal vibratoire existe au début ; `emitterOnline` décrit le canal d’avis rétabli après intervention.
+- Les trois forces privées sont absentes des comportements, cibles, collisions et du rendu avant `voice.alert.ready`. Elles arrivent six secondes après l’événement matériel d’alerte. Les pertes et leurs dates sont persistantes.
+- La migration v10→v11 ajoute seulement `world.thyr.voice` vide et la version. La fixture v10 provient des exports préparés par commandes publiques de la 0.11 figée, attestés dans `docs/validation/v012-historic-v10.json` ; ce n’est pas une fixture native. Préserver les dix rapports, ressources, checkpoints et toutes les fixtures v1–v10.
+- Le premier rapport attribue quatre lots une seule fois ; une relecture ne le remplace pas. Une défaite est terminale. `voice-validation.mjs` réconcilie les corps, travaux, dates, copies, permissions, pertes et reçus, y compris les changements entre checkpoints.
+- `voice-assets.mjs` partage les formes SVG/Canvas. AS13 reçoit seulement un interprète local et ses outils au stade Prototype ; les Khelt complets, leurs voix et animations finales restent à produire.
+- La 0.12 conserve les preuves natives historiques sans les renommer. Le blocage Vercel et la restriction URL `file://` de la 0.11 ne sont pas des essais 0.12 réussis. Ne pas tenter un autre chemin local pour contourner cette restriction.

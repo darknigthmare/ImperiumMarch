@@ -1,0 +1,1037 @@
+{
+  "version": "0.12.0",
+  "mission": "MI11",
+  "recordedAt": "2026-11-11T19:28:56.239932+00:00",
+  "scope": "Deterministic simulation tests through public gameplay inputs, explicit isolated damage injections for consent edge cases, and shared-system regressions. Not a browser or human reception.",
+  "command": "node --test --test-reporter=tap tests/mi11-simulation.test.mjs tests/mi10-simulation.test.mjs tests/mi09-simulation.test.mjs tests/simulation.test.mjs tests/radiator.test.mjs",
+  "tests": {
+    "total": 120,
+    "passed": 120,
+    "failed": 0,
+    "mi11": 35,
+    "sharedAndPriorMissionRegressions": 85
+  },
+  "publicFullRuns": 12,
+  "chassis": [
+    "WK01",
+    "WK02",
+    "WK05",
+    "WK06",
+    "WK09",
+    "WK10"
+  ],
+  "choices": [
+    "obey",
+    "defy"
+  ],
+  "periodicPublicRunCheckpoints": 572,
+  "runs": [
+    {
+      "scenario": "MI11 public controls",
+      "walkerId": "WK01",
+      "choice": "obey",
+      "elapsed": 130.2333333333291,
+      "raisedContact": true,
+      "protectedExchange": true,
+      "checkpoints": 44,
+      "facts": {
+        "missionId": "MI11",
+        "phase": "complete",
+        "context": {
+          "chemicalRecorded": false,
+          "chemicalChoice": "none",
+          "chemicalPt02": false,
+          "chemicalVillageHabitable": false,
+          "chemicalWaterRestored": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        },
+        "plan": "seize",
+        "readingsTaken": 3,
+        "signalsRecorded": 3,
+        "sourceLocated": true,
+        "ridgeSurveyed": true,
+        "ridgeIntact": true,
+        "nestsTotal": 3,
+        "nestsIntact": 3,
+        "nestsDamaged": 0,
+        "nestsLost": 0,
+        "nestDisturbance": 12,
+        "emitterInspected": true,
+        "warningCopied": true,
+        "translationInspected": true,
+        "translationCopied": true,
+        "encounterResolved": true,
+        "lethMet": true,
+        "lethAlive": true,
+        "consentAsked": true,
+        "consentGranted": true,
+        "consentRefused": false,
+        "consentWithdrawn": false,
+        "testimonyStarted": true,
+        "testimonyRecorded": true,
+        "testimonyLost": false,
+        "testimonyResolved": true,
+        "te01Acquired": true,
+        "witnessAvailable": true,
+        "publicConsent": false,
+        "recruited": false,
+        "lethTrust": 35,
+        "alliancePossible": false,
+        "emitterSeized": true,
+        "emitterRestored": false,
+        "emitterOnline": false,
+        "emitterLost": false,
+        "operationsResolved": true,
+        "privateTriggered": true,
+        "privateReady": true,
+        "privateNeutralized": 3,
+        "manifestRead": true,
+        "reportTransmitted": true
+      },
+      "nests": [
+        {
+          "id": "voice-nest-1",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-2",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-3",
+          "hp": 120
+        }
+      ]
+    },
+    {
+      "scenario": "MI11 public controls",
+      "walkerId": "WK01",
+      "choice": "defy",
+      "elapsed": 130.2333333333291,
+      "raisedContact": true,
+      "protectedExchange": true,
+      "checkpoints": 44,
+      "facts": {
+        "missionId": "MI11",
+        "phase": "complete",
+        "context": {
+          "chemicalRecorded": false,
+          "chemicalChoice": "none",
+          "chemicalPt02": false,
+          "chemicalVillageHabitable": false,
+          "chemicalWaterRestored": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        },
+        "plan": "restore",
+        "readingsTaken": 3,
+        "signalsRecorded": 3,
+        "sourceLocated": true,
+        "ridgeSurveyed": true,
+        "ridgeIntact": true,
+        "nestsTotal": 3,
+        "nestsIntact": 3,
+        "nestsDamaged": 0,
+        "nestsLost": 0,
+        "nestDisturbance": 12,
+        "emitterInspected": true,
+        "warningCopied": true,
+        "translationInspected": true,
+        "translationCopied": true,
+        "encounterResolved": true,
+        "lethMet": true,
+        "lethAlive": true,
+        "consentAsked": true,
+        "consentGranted": true,
+        "consentRefused": false,
+        "consentWithdrawn": false,
+        "testimonyStarted": true,
+        "testimonyRecorded": true,
+        "testimonyLost": false,
+        "testimonyResolved": true,
+        "te01Acquired": true,
+        "witnessAvailable": true,
+        "publicConsent": false,
+        "recruited": false,
+        "lethTrust": 70,
+        "alliancePossible": true,
+        "emitterSeized": false,
+        "emitterRestored": true,
+        "emitterOnline": true,
+        "emitterLost": false,
+        "operationsResolved": true,
+        "privateTriggered": true,
+        "privateReady": true,
+        "privateNeutralized": 3,
+        "manifestRead": true,
+        "reportTransmitted": true
+      },
+      "nests": [
+        {
+          "id": "voice-nest-1",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-2",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-3",
+          "hp": 120
+        }
+      ]
+    },
+    {
+      "scenario": "MI11 public controls",
+      "walkerId": "WK02",
+      "choice": "obey",
+      "elapsed": 123.94999999999425,
+      "raisedContact": true,
+      "protectedExchange": true,
+      "checkpoints": 42,
+      "facts": {
+        "missionId": "MI11",
+        "phase": "complete",
+        "context": {
+          "chemicalRecorded": false,
+          "chemicalChoice": "none",
+          "chemicalPt02": false,
+          "chemicalVillageHabitable": false,
+          "chemicalWaterRestored": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        },
+        "plan": "seize",
+        "readingsTaken": 3,
+        "signalsRecorded": 3,
+        "sourceLocated": true,
+        "ridgeSurveyed": true,
+        "ridgeIntact": true,
+        "nestsTotal": 3,
+        "nestsIntact": 3,
+        "nestsDamaged": 0,
+        "nestsLost": 0,
+        "nestDisturbance": 13,
+        "emitterInspected": true,
+        "warningCopied": true,
+        "translationInspected": true,
+        "translationCopied": true,
+        "encounterResolved": true,
+        "lethMet": true,
+        "lethAlive": true,
+        "consentAsked": true,
+        "consentGranted": true,
+        "consentRefused": false,
+        "consentWithdrawn": false,
+        "testimonyStarted": true,
+        "testimonyRecorded": true,
+        "testimonyLost": false,
+        "testimonyResolved": true,
+        "te01Acquired": true,
+        "witnessAvailable": true,
+        "publicConsent": false,
+        "recruited": false,
+        "lethTrust": 35,
+        "alliancePossible": false,
+        "emitterSeized": true,
+        "emitterRestored": false,
+        "emitterOnline": false,
+        "emitterLost": false,
+        "operationsResolved": true,
+        "privateTriggered": true,
+        "privateReady": true,
+        "privateNeutralized": 3,
+        "manifestRead": true,
+        "reportTransmitted": true
+      },
+      "nests": [
+        {
+          "id": "voice-nest-1",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-2",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-3",
+          "hp": 120
+        }
+      ]
+    },
+    {
+      "scenario": "MI11 public controls",
+      "walkerId": "WK02",
+      "choice": "defy",
+      "elapsed": 123.94999999999425,
+      "raisedContact": true,
+      "protectedExchange": true,
+      "checkpoints": 42,
+      "facts": {
+        "missionId": "MI11",
+        "phase": "complete",
+        "context": {
+          "chemicalRecorded": false,
+          "chemicalChoice": "none",
+          "chemicalPt02": false,
+          "chemicalVillageHabitable": false,
+          "chemicalWaterRestored": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        },
+        "plan": "restore",
+        "readingsTaken": 3,
+        "signalsRecorded": 3,
+        "sourceLocated": true,
+        "ridgeSurveyed": true,
+        "ridgeIntact": true,
+        "nestsTotal": 3,
+        "nestsIntact": 3,
+        "nestsDamaged": 0,
+        "nestsLost": 0,
+        "nestDisturbance": 13,
+        "emitterInspected": true,
+        "warningCopied": true,
+        "translationInspected": true,
+        "translationCopied": true,
+        "encounterResolved": true,
+        "lethMet": true,
+        "lethAlive": true,
+        "consentAsked": true,
+        "consentGranted": true,
+        "consentRefused": false,
+        "consentWithdrawn": false,
+        "testimonyStarted": true,
+        "testimonyRecorded": true,
+        "testimonyLost": false,
+        "testimonyResolved": true,
+        "te01Acquired": true,
+        "witnessAvailable": true,
+        "publicConsent": false,
+        "recruited": false,
+        "lethTrust": 70,
+        "alliancePossible": true,
+        "emitterSeized": false,
+        "emitterRestored": true,
+        "emitterOnline": true,
+        "emitterLost": false,
+        "operationsResolved": true,
+        "privateTriggered": true,
+        "privateReady": true,
+        "privateNeutralized": 3,
+        "manifestRead": true,
+        "reportTransmitted": true
+      },
+      "nests": [
+        {
+          "id": "voice-nest-1",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-2",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-3",
+          "hp": 120
+        }
+      ]
+    },
+    {
+      "scenario": "MI11 public controls",
+      "walkerId": "WK05",
+      "choice": "obey",
+      "elapsed": 153.95000000001465,
+      "raisedContact": true,
+      "protectedExchange": true,
+      "checkpoints": 52,
+      "facts": {
+        "missionId": "MI11",
+        "phase": "complete",
+        "context": {
+          "chemicalRecorded": false,
+          "chemicalChoice": "none",
+          "chemicalPt02": false,
+          "chemicalVillageHabitable": false,
+          "chemicalWaterRestored": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        },
+        "plan": "seize",
+        "readingsTaken": 3,
+        "signalsRecorded": 3,
+        "sourceLocated": true,
+        "ridgeSurveyed": true,
+        "ridgeIntact": true,
+        "nestsTotal": 3,
+        "nestsIntact": 3,
+        "nestsDamaged": 0,
+        "nestsLost": 0,
+        "nestDisturbance": 27,
+        "emitterInspected": true,
+        "warningCopied": true,
+        "translationInspected": true,
+        "translationCopied": true,
+        "encounterResolved": true,
+        "lethMet": true,
+        "lethAlive": true,
+        "consentAsked": true,
+        "consentGranted": true,
+        "consentRefused": false,
+        "consentWithdrawn": false,
+        "testimonyStarted": true,
+        "testimonyRecorded": true,
+        "testimonyLost": false,
+        "testimonyResolved": true,
+        "te01Acquired": true,
+        "witnessAvailable": true,
+        "publicConsent": false,
+        "recruited": false,
+        "lethTrust": 35,
+        "alliancePossible": false,
+        "emitterSeized": true,
+        "emitterRestored": false,
+        "emitterOnline": false,
+        "emitterLost": false,
+        "operationsResolved": true,
+        "privateTriggered": true,
+        "privateReady": true,
+        "privateNeutralized": 3,
+        "manifestRead": true,
+        "reportTransmitted": true
+      },
+      "nests": [
+        {
+          "id": "voice-nest-1",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-2",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-3",
+          "hp": 120
+        }
+      ]
+    },
+    {
+      "scenario": "MI11 public controls",
+      "walkerId": "WK05",
+      "choice": "defy",
+      "elapsed": 153.95000000001465,
+      "raisedContact": true,
+      "protectedExchange": true,
+      "checkpoints": 52,
+      "facts": {
+        "missionId": "MI11",
+        "phase": "complete",
+        "context": {
+          "chemicalRecorded": false,
+          "chemicalChoice": "none",
+          "chemicalPt02": false,
+          "chemicalVillageHabitable": false,
+          "chemicalWaterRestored": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        },
+        "plan": "restore",
+        "readingsTaken": 3,
+        "signalsRecorded": 3,
+        "sourceLocated": true,
+        "ridgeSurveyed": true,
+        "ridgeIntact": true,
+        "nestsTotal": 3,
+        "nestsIntact": 3,
+        "nestsDamaged": 0,
+        "nestsLost": 0,
+        "nestDisturbance": 27,
+        "emitterInspected": true,
+        "warningCopied": true,
+        "translationInspected": true,
+        "translationCopied": true,
+        "encounterResolved": true,
+        "lethMet": true,
+        "lethAlive": true,
+        "consentAsked": true,
+        "consentGranted": true,
+        "consentRefused": false,
+        "consentWithdrawn": false,
+        "testimonyStarted": true,
+        "testimonyRecorded": true,
+        "testimonyLost": false,
+        "testimonyResolved": true,
+        "te01Acquired": true,
+        "witnessAvailable": true,
+        "publicConsent": false,
+        "recruited": false,
+        "lethTrust": 70,
+        "alliancePossible": true,
+        "emitterSeized": false,
+        "emitterRestored": true,
+        "emitterOnline": true,
+        "emitterLost": false,
+        "operationsResolved": true,
+        "privateTriggered": true,
+        "privateReady": true,
+        "privateNeutralized": 3,
+        "manifestRead": true,
+        "reportTransmitted": true
+      },
+      "nests": [
+        {
+          "id": "voice-nest-1",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-2",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-3",
+          "hp": 120
+        }
+      ]
+    },
+    {
+      "scenario": "MI11 public controls",
+      "walkerId": "WK06",
+      "choice": "obey",
+      "elapsed": 142.43333333333882,
+      "raisedContact": true,
+      "protectedExchange": true,
+      "checkpoints": 48,
+      "facts": {
+        "missionId": "MI11",
+        "phase": "complete",
+        "context": {
+          "chemicalRecorded": false,
+          "chemicalChoice": "none",
+          "chemicalPt02": false,
+          "chemicalVillageHabitable": false,
+          "chemicalWaterRestored": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        },
+        "plan": "seize",
+        "readingsTaken": 3,
+        "signalsRecorded": 3,
+        "sourceLocated": true,
+        "ridgeSurveyed": true,
+        "ridgeIntact": true,
+        "nestsTotal": 3,
+        "nestsIntact": 3,
+        "nestsDamaged": 0,
+        "nestsLost": 0,
+        "nestDisturbance": 21,
+        "emitterInspected": true,
+        "warningCopied": true,
+        "translationInspected": true,
+        "translationCopied": true,
+        "encounterResolved": true,
+        "lethMet": true,
+        "lethAlive": true,
+        "consentAsked": true,
+        "consentGranted": true,
+        "consentRefused": false,
+        "consentWithdrawn": false,
+        "testimonyStarted": true,
+        "testimonyRecorded": true,
+        "testimonyLost": false,
+        "testimonyResolved": true,
+        "te01Acquired": true,
+        "witnessAvailable": true,
+        "publicConsent": false,
+        "recruited": false,
+        "lethTrust": 35,
+        "alliancePossible": false,
+        "emitterSeized": true,
+        "emitterRestored": false,
+        "emitterOnline": false,
+        "emitterLost": false,
+        "operationsResolved": true,
+        "privateTriggered": true,
+        "privateReady": true,
+        "privateNeutralized": 3,
+        "manifestRead": true,
+        "reportTransmitted": true
+      },
+      "nests": [
+        {
+          "id": "voice-nest-1",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-2",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-3",
+          "hp": 120
+        }
+      ]
+    },
+    {
+      "scenario": "MI11 public controls",
+      "walkerId": "WK06",
+      "choice": "defy",
+      "elapsed": 142.43333333333882,
+      "raisedContact": true,
+      "protectedExchange": true,
+      "checkpoints": 48,
+      "facts": {
+        "missionId": "MI11",
+        "phase": "complete",
+        "context": {
+          "chemicalRecorded": false,
+          "chemicalChoice": "none",
+          "chemicalPt02": false,
+          "chemicalVillageHabitable": false,
+          "chemicalWaterRestored": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        },
+        "plan": "restore",
+        "readingsTaken": 3,
+        "signalsRecorded": 3,
+        "sourceLocated": true,
+        "ridgeSurveyed": true,
+        "ridgeIntact": true,
+        "nestsTotal": 3,
+        "nestsIntact": 3,
+        "nestsDamaged": 0,
+        "nestsLost": 0,
+        "nestDisturbance": 21,
+        "emitterInspected": true,
+        "warningCopied": true,
+        "translationInspected": true,
+        "translationCopied": true,
+        "encounterResolved": true,
+        "lethMet": true,
+        "lethAlive": true,
+        "consentAsked": true,
+        "consentGranted": true,
+        "consentRefused": false,
+        "consentWithdrawn": false,
+        "testimonyStarted": true,
+        "testimonyRecorded": true,
+        "testimonyLost": false,
+        "testimonyResolved": true,
+        "te01Acquired": true,
+        "witnessAvailable": true,
+        "publicConsent": false,
+        "recruited": false,
+        "lethTrust": 70,
+        "alliancePossible": true,
+        "emitterSeized": false,
+        "emitterRestored": true,
+        "emitterOnline": true,
+        "emitterLost": false,
+        "operationsResolved": true,
+        "privateTriggered": true,
+        "privateReady": true,
+        "privateNeutralized": 3,
+        "manifestRead": true,
+        "reportTransmitted": true
+      },
+      "nests": [
+        {
+          "id": "voice-nest-1",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-2",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-3",
+          "hp": 120
+        }
+      ]
+    },
+    {
+      "scenario": "MI11 public controls",
+      "walkerId": "WK09",
+      "choice": "obey",
+      "elapsed": 136.93333333333445,
+      "raisedContact": true,
+      "protectedExchange": true,
+      "checkpoints": 46,
+      "facts": {
+        "missionId": "MI11",
+        "phase": "complete",
+        "context": {
+          "chemicalRecorded": false,
+          "chemicalChoice": "none",
+          "chemicalPt02": false,
+          "chemicalVillageHabitable": false,
+          "chemicalWaterRestored": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        },
+        "plan": "seize",
+        "readingsTaken": 3,
+        "signalsRecorded": 3,
+        "sourceLocated": true,
+        "ridgeSurveyed": true,
+        "ridgeIntact": true,
+        "nestsTotal": 3,
+        "nestsIntact": 3,
+        "nestsDamaged": 0,
+        "nestsLost": 0,
+        "nestDisturbance": 27,
+        "emitterInspected": true,
+        "warningCopied": true,
+        "translationInspected": true,
+        "translationCopied": true,
+        "encounterResolved": true,
+        "lethMet": true,
+        "lethAlive": true,
+        "consentAsked": true,
+        "consentGranted": true,
+        "consentRefused": false,
+        "consentWithdrawn": false,
+        "testimonyStarted": true,
+        "testimonyRecorded": true,
+        "testimonyLost": false,
+        "testimonyResolved": true,
+        "te01Acquired": true,
+        "witnessAvailable": true,
+        "publicConsent": false,
+        "recruited": false,
+        "lethTrust": 35,
+        "alliancePossible": false,
+        "emitterSeized": true,
+        "emitterRestored": false,
+        "emitterOnline": false,
+        "emitterLost": false,
+        "operationsResolved": true,
+        "privateTriggered": true,
+        "privateReady": true,
+        "privateNeutralized": 3,
+        "manifestRead": true,
+        "reportTransmitted": true
+      },
+      "nests": [
+        {
+          "id": "voice-nest-1",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-2",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-3",
+          "hp": 120
+        }
+      ]
+    },
+    {
+      "scenario": "MI11 public controls",
+      "walkerId": "WK09",
+      "choice": "defy",
+      "elapsed": 136.93333333333445,
+      "raisedContact": true,
+      "protectedExchange": true,
+      "checkpoints": 46,
+      "facts": {
+        "missionId": "MI11",
+        "phase": "complete",
+        "context": {
+          "chemicalRecorded": false,
+          "chemicalChoice": "none",
+          "chemicalPt02": false,
+          "chemicalVillageHabitable": false,
+          "chemicalWaterRestored": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        },
+        "plan": "restore",
+        "readingsTaken": 3,
+        "signalsRecorded": 3,
+        "sourceLocated": true,
+        "ridgeSurveyed": true,
+        "ridgeIntact": true,
+        "nestsTotal": 3,
+        "nestsIntact": 3,
+        "nestsDamaged": 0,
+        "nestsLost": 0,
+        "nestDisturbance": 27,
+        "emitterInspected": true,
+        "warningCopied": true,
+        "translationInspected": true,
+        "translationCopied": true,
+        "encounterResolved": true,
+        "lethMet": true,
+        "lethAlive": true,
+        "consentAsked": true,
+        "consentGranted": true,
+        "consentRefused": false,
+        "consentWithdrawn": false,
+        "testimonyStarted": true,
+        "testimonyRecorded": true,
+        "testimonyLost": false,
+        "testimonyResolved": true,
+        "te01Acquired": true,
+        "witnessAvailable": true,
+        "publicConsent": false,
+        "recruited": false,
+        "lethTrust": 70,
+        "alliancePossible": true,
+        "emitterSeized": false,
+        "emitterRestored": true,
+        "emitterOnline": true,
+        "emitterLost": false,
+        "operationsResolved": true,
+        "privateTriggered": true,
+        "privateReady": true,
+        "privateNeutralized": 3,
+        "manifestRead": true,
+        "reportTransmitted": true
+      },
+      "nests": [
+        {
+          "id": "voice-nest-1",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-2",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-3",
+          "hp": 120
+        }
+      ]
+    },
+    {
+      "scenario": "MI11 public controls",
+      "walkerId": "WK10",
+      "choice": "obey",
+      "elapsed": 160.7166666666867,
+      "raisedContact": true,
+      "protectedExchange": true,
+      "checkpoints": 54,
+      "facts": {
+        "missionId": "MI11",
+        "phase": "complete",
+        "context": {
+          "chemicalRecorded": false,
+          "chemicalChoice": "none",
+          "chemicalPt02": false,
+          "chemicalVillageHabitable": false,
+          "chemicalWaterRestored": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        },
+        "plan": "seize",
+        "readingsTaken": 3,
+        "signalsRecorded": 3,
+        "sourceLocated": true,
+        "ridgeSurveyed": true,
+        "ridgeIntact": true,
+        "nestsTotal": 3,
+        "nestsIntact": 3,
+        "nestsDamaged": 0,
+        "nestsLost": 0,
+        "nestDisturbance": 38,
+        "emitterInspected": true,
+        "warningCopied": true,
+        "translationInspected": true,
+        "translationCopied": true,
+        "encounterResolved": true,
+        "lethMet": true,
+        "lethAlive": true,
+        "consentAsked": true,
+        "consentGranted": true,
+        "consentRefused": false,
+        "consentWithdrawn": false,
+        "testimonyStarted": true,
+        "testimonyRecorded": true,
+        "testimonyLost": false,
+        "testimonyResolved": true,
+        "te01Acquired": true,
+        "witnessAvailable": true,
+        "publicConsent": false,
+        "recruited": false,
+        "lethTrust": 35,
+        "alliancePossible": false,
+        "emitterSeized": true,
+        "emitterRestored": false,
+        "emitterOnline": false,
+        "emitterLost": false,
+        "operationsResolved": true,
+        "privateTriggered": true,
+        "privateReady": true,
+        "privateNeutralized": 3,
+        "manifestRead": true,
+        "reportTransmitted": true
+      },
+      "nests": [
+        {
+          "id": "voice-nest-1",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-2",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-3",
+          "hp": 120
+        }
+      ]
+    },
+    {
+      "scenario": "MI11 public controls",
+      "walkerId": "WK10",
+      "choice": "defy",
+      "elapsed": 160.7166666666867,
+      "raisedContact": true,
+      "protectedExchange": true,
+      "checkpoints": 54,
+      "facts": {
+        "missionId": "MI11",
+        "phase": "complete",
+        "context": {
+          "chemicalRecorded": false,
+          "chemicalChoice": "none",
+          "chemicalPt02": false,
+          "chemicalVillageHabitable": false,
+          "chemicalWaterRestored": false
+        },
+        "tutorial": {
+          "stepped": true,
+          "braced": true
+        },
+        "plan": "restore",
+        "readingsTaken": 3,
+        "signalsRecorded": 3,
+        "sourceLocated": true,
+        "ridgeSurveyed": true,
+        "ridgeIntact": true,
+        "nestsTotal": 3,
+        "nestsIntact": 3,
+        "nestsDamaged": 0,
+        "nestsLost": 0,
+        "nestDisturbance": 38,
+        "emitterInspected": true,
+        "warningCopied": true,
+        "translationInspected": true,
+        "translationCopied": true,
+        "encounterResolved": true,
+        "lethMet": true,
+        "lethAlive": true,
+        "consentAsked": true,
+        "consentGranted": true,
+        "consentRefused": false,
+        "consentWithdrawn": false,
+        "testimonyStarted": true,
+        "testimonyRecorded": true,
+        "testimonyLost": false,
+        "testimonyResolved": true,
+        "te01Acquired": true,
+        "witnessAvailable": true,
+        "publicConsent": false,
+        "recruited": false,
+        "lethTrust": 70,
+        "alliancePossible": true,
+        "emitterSeized": false,
+        "emitterRestored": true,
+        "emitterOnline": true,
+        "emitterLost": false,
+        "operationsResolved": true,
+        "privateTriggered": true,
+        "privateReady": true,
+        "privateNeutralized": 3,
+        "manifestRead": true,
+        "reportTransmitted": true
+      },
+      "nests": [
+        {
+          "id": "voice-nest-1",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-2",
+          "hp": 120
+        },
+        {
+          "id": "voice-nest-3",
+          "hp": 120
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    "An anchored, still machine and quiet interval are required for each four-second listening operation.",
+    "Two recordings cannot locate the emitter; a lost listening point records an absence, not a recovered signal.",
+    "Surveyed ramp geometry provides the actual feet surfaces above nesting volumes for all six chassis.",
+    "Unprotected footfalls and a destroyed ridge damage nests; subsequent survey cannot heal old damage.",
+    "Private units have no physical presence before an actual event and six elapsed seconds.",
+    "Meeting Leth, obtaining private permission and completing twenty seconds of protected exchange are separate events.",
+    "Damage before consent yields refusal; damage after consent withdraws cooperation, including after an already retained testimony.",
+    "Missing copies, loss of Leth, loss of originals, dialogue pause, exact JSON continuation and terminal defeat preserve the appropriate facts.",
+    "Imperial wording appears after copying its receiver; Leth’s three explained meanings appear only after his completed private exchange.",
+    "The two decisions select a plan; a five-second anchored operation on the emitter is still required.",
+    "Leth remains on the site. No public dissemination, recruitment, population transfer or count of eggs as persons is invented."
+  ],
+  "sourceHashes": {
+    "src/simulation.mjs": {
+      "bytes": 269625,
+      "sha256": "965f1c7fad967e8e9fd9d27d5c452ec0c62afb208e4e227c49193f67e8153f9a"
+    },
+    "src/voice-simulation.mjs": {
+      "bytes": 24309,
+      "sha256": "eefa4de80ef3fb60b8b0d07bdccec0ab2fb3ea465a44ba959deb1e221a7baff6"
+    },
+    "src/content.mjs": {
+      "bytes": 38479,
+      "sha256": "e06339d3a5017568e395b8bce302716d5fb4800ea9a3f101f668d3a7c09ebf54"
+    },
+    "tests/mi11-simulation.test.mjs": {
+      "bytes": 18157,
+      "sha256": "4ad93e30d1f7bfba4b1490052e1eba8cb4d23b1148f614ad5d817a17de42a545"
+    },
+    "tests/helpers/mi11-driver.mjs": {
+      "bytes": 6450,
+      "sha256": "05de3ff21ce7422264111f4156be5695bad399753173311979054f2b602648f3"
+    }
+  },
+  "log": {
+    "preparedPath": "/workspace/scratch/47882a75de66/mi11-simulation-regressions.tap",
+    "bytes": 61783,
+    "sha256": "39658159e593c1937a4fd3ed12638382205f6f191006a7f021a41bd54be62844"
+  },
+  "nativeBrowser": false,
+  "humanPlaytest": false,
+  "limitations": [
+    "Source fingerprints were recorded after this completed targeted run; the root release gate must verify its final frozen sources separately.",
+    "The public pilot avoids setting position, health, time or outcome. Two isolated damage-injection tests explicitly identify their narrower unit scope.",
+    "These results do not close focus, small-window, controller hardware, art-final or human-comprehension criteria."
+  ]
+}

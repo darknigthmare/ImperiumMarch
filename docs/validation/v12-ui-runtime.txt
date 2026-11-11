@@ -1,0 +1,93 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> imperium-march@0.12.0 check:ui-runtime
+> node tools/test-ui-runtime.mjs
+
+PASS cold start, five views, six selectable chassis and independent simulation launch
+PASS pause writes an exact campaign checkpoint; a new script context resumes it
+PASS switching to a simulation preserves the campaign and its resume button
+PASS decision, debrief, pipe repair and replay leave one official dossier
+PASS MI02 is locked initially; a real v1 MI01 dossier unlocks it and resumes its own train
+PASS MI02 decision uses its own wording and a reload preserves the signed report before extraction
+PASS MI02 extraction records both missions, displays its own debrief and keeps separate archive entries
+PASS MI03 unlocks only after MI02, migrates a historical v2 dossier and resumes a new chassis exactly
+PASS MI03 identification work survives pause and reload without becoming a filter or train objective
+PASS MI03 obey decision, extraction, world facts and three archive reports stay consistent
+PASS MI03 defy decision, extraction, world facts and three archive reports stay consistent
+PASS MI04 requires MI03 and the migrated historical dossier exposes concrete inherited briefing conditions
+PASS MI04 a partly opened valve survives pause and exact reload, then visibly completes
+PASS MI04 obey records the technical copy, contact and four reports without replay rewards
+PASS MI04 defy records the technical copy, contact and four reports without replay rewards
+PASS MI04 lost-journal UI keeps a neutral decision and records a loss without granting PT01
+PASS radiator controls show damage, pause repair, preserve finite kits and cancel on movement
+PASS an exhausted finite reserve remains empty after UI reload and displays an explicit resupply hint
+PASS unsupported saves remain untouched until an explicit new dossier
+PASS storage refusal is visible during play; session progression remains usable
+PASS an asynchronous import returns an active mission to the menu safely
+PASS importing a genuine v4 Vesper dossier unlocks Nacre in the delivered interface
+PASS Nacre tide and bridge work freeze on pause and restore through the delivered save wiring
+PASS MI05 obey debrief, archives, workshop fuel and replay keep the first report
+PASS MI05 defy debrief, archives, workshop fuel and replay keep the first report
+PASS the UI records a lost civil boat and skipped fuel without granting either arrival or stock
+PASS a genuine v5 import unlocks MI06 with its actual stock and ten distinct local residents
+PASS auxiliary work freezes on pause, resumes exactly and saves its debit before the eight-second interval
+PASS partial panel locking pauses exactly and needs renewed keyboard anchoring on resume
+PASS a refused immediate auxiliary save keeps the session debit and a visible storage warning
+PASS an auxiliary destroyed before connection is shown as lost while its two lots remain in reserve
+PASS MI06 obey requires the actual valve operation, then persists housing, people, fuel and a pure replay
+PASS MI06 defy requires the actual valve operation, then persists housing, people, fuel and a pure replay
+PASS the UI immediately persists a terminal MI06 loss and restarts without refunding its consumed auxiliary
+PASS MI07 migration imports an authentic paid v6 valve without rewriting its scene or earlier reports
+PASS MI07 main briefing uses authentic dike support and introduces four new patients without altering fuel
+PASS MI07 secondary briefing uses authentic dike support and introduces four new patients without altering fuel
+PASS MI07 partial cargo examination freezes on pause and resumes its exact physical progress after reload
+PASS MI07 partial beacon dismantling freezes on pause and resumes its exact physical progress after reload
+PASS MI07 partial ramp preparation freezes on pause and resumes its exact physical progress after reload
+PASS MI07 obey selects a destination without arrivals, then transfers physically through UI and preserves the first report on replay
+PASS MI07 defy selects a destination without arrivals, then transfers physically through UI and preserves the first report on replay
+PASS MI07 report keeps an obtained witness agreement while identifying that witness as deceased
+PASS MI07 terminal loss persists immediately, reopens as a report and requires an explicit fresh sortie
+PASS MI07 a touch interaction can be paused and saved before the next animation frame
+PASS MI08 imports a genuine v7 dossier with seven unchanged reports and exposes its inherited briefing
+PASS MI08 gate work pauses, imports and restores exactly without continuing absent keyboard anchoring
+PASS MI08 obey UI selects a plan without arrivals, records the physical result and preserves it during replay
+PASS MI08 delay UI selects a plan without arrivals, records the physical result and preserves it during replay
+PASS MI08 defy UI selects a plan without arrivals, records the physical result and preserves it during replay
+PASS MI09 migrates the native v8 dossier, preserves eight reports and presents the Thyr briefing and instrument
+PASS MI09 imported partial work releases absent anchoring and remains exactly resumable
+PASS MI09 obey UI keeps choice separate from physical travel, files the roster and preserves replay
+PASS MI09 defy UI keeps choice separate from physical travel, files the roster and preserves replay
+PASS MI10 migrates the authentic v9 dossier, retains nine reports and opens the chemical briefing
+PASS MI10 sampling resumes from real progress, pauses exactly and remains uncollected during pause
+PASS MI10 imported canal work requires a newly held anchor rather than completing on resume
+PASS MI10 obey choice performs no tank work; final UI keeps PT02, water facts and a single reward
+PASS MI10 defy choice performs no tank work; final UI keeps PT02, water facts and a single reward
+PASS Enter assigned to fullscreen leaves button activation available and operates from the Canvas
+PASS key rebinding reports conflicts, persists valid keys and keeps Escape cancellation
+PASS rebound movement drives the real simulation; old keys release and navigation cancels capture
+PASS focus navigation releases movement while HUD repair and button activation stay available
+PASS focus exits suspend held movement and fire until an explicit resume and fresh inputs
+PASS Tab and browser modifier shortcuts release commands without consuming native navigation
+PASS a remapped pause reacts once per press and cannot resume a background document
+PASS lost pointer capture stops fire while a separate held movement key stays active
+PASS synthetic standard-gamepad input drives the actual application and releases after pause or disconnect
+PASS QA05 menu selections preserve ammunition and partial reload until its real completion
+PASS QA14/QA16 OP03 obey traverses UI decision, report, persisted archive and a fresh operation
+PASS QA14/QA16 OP03 defy traverses UI decision, report, persisted archive and a fresh operation
+PASS MI11 migrates the historic v10 simulation dossier, keeps ten reports and resources, and opens the voice briefing and HUD
+PASS MI11 interrupted listening requires a fresh anchor and interaction, preserves a pause exactly and records only the completed signal
+PASS MI11 meeting and private consent complete through separate UI interactions without anticipating testimony or TE01
+PASS MI11 exchange pauses with exact progress and real threat timing, then continues after a fresh dossier resume
+PASS MI11 leaving Leth through UI interrupts the exchange, keeps consent and copies, and requires a return and a new recording start
+PASS MI11 obey selects no automatic emitter operation; physical work, extraction, one reward, sourced archives and replay stay distinct
+PASS MI11 defy selects no automatic emitter operation; physical work, extraction, one reward, sourced archives and replay stay distinct
+PASS MI11 lost imperial translation extracts with explicit absences and reveals only the French wording actually acquired
+PASS MI11 refused private recording extracts with explicit absences and reveals only the French wording actually acquired
+PASS MI11 lost translation and refused recording extracts with explicit absences and reveals only the French wording actually acquired
+PASS MI11 loss of Leth after recording preserves TE01 and both wordings while the UI withdraws future witness availability
+PASS MI11 early meeting keeps missing sources ahead of the consent instruction until both copies are actually made
+PASS MI11 early witness loss first requires source inspections and then a physical loss report before directing the pilot to orders
+PASS MI11 public no-fire defeat resumes as a loss and describes the intact emitter in place without an invented restoration or reward
+PASS MI11 withdrawal before recording files the actual damaged passage and no testimony instead of inventing a conserved recording
+UI STATE INTEGRATION PASSED: 86 flows against the actual offline application script in a modeled DOM.
+LIMIT: no browser, CSS layout, native focus/dialog behavior, real download, audio or physical touch validation.

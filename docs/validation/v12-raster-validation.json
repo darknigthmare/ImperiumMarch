@@ -1,0 +1,45 @@
+{
+  "version": "0.12.0",
+  "command": [
+    "npm",
+    "run",
+    "check:assets-render"
+  ],
+  "startedAt": "2026-11-11T19:51:15.909290+00:00",
+  "elapsedSeconds": 4.047,
+  "exitCode": 0,
+  "cases": 90,
+  "passed": 90,
+  "minimumCoverage": 0.92,
+  "renderer": "@napi-rs/canvas 0.1.100",
+  "sourceHashes": {
+    "tools/test-assets-render.mjs": {
+      "bytes": 4141,
+      "sha256": "31b111f0b0fc98dda11b7ee0266b5dfcc60e1041e6d23d483aa7501471be1075"
+    },
+    "src/voice-assets.mjs": {
+      "bytes": 14431,
+      "sha256": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0"
+    },
+    "src/chemical-assets.mjs": {
+      "bytes": 12290,
+      "sha256": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753"
+    },
+    "src/thyr-assets.mjs": {
+      "bytes": 16284,
+      "sha256": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83"
+    },
+    "src/production-assets.mjs": {
+      "bytes": 45583,
+      "sha256": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0"
+    }
+  },
+  "inputsUnchanged": true,
+  "log": {
+    "path": "docs/validation/v12-assets-render.txt",
+    "bytes": 5009,
+    "sha256": "eb8c8fc827895437c4f66bba7a583c16d5a00f6a238e4a1c99a6ddd7d9585302"
+  },
+  "nativeBrowser": false,
+  "humanArtReview": false
+}

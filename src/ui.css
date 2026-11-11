@@ -41,4 +41,10 @@
 .chemical-instrument{margin-top:12px;padding:10px 12px;border-left:2px solid #bdc38c;background:#142f2aee;color:#d3dfc0;font:clamp(8px,.65vw,11px)/1.55 var(--mono);text-shadow:none}
 .chemical-instrument strong{font-weight:500;color:#e3d8aa}.chemical-instrument p{margin:5px 0 0}.chemical-instrument p:last-child{color:#a9d3c3}
 .chemical-instrument.chemical-warning{border-left-color:#dfa477}.chemical-warning #chemical-leak,.chemical-warning #chemical-water{color:#e6be91}
+.voice-instrument{margin-top:11px;padding:10px 12px;border-left:2px solid #9ed3bc;background:#142f2aee;color:#d3dfc0;font:clamp(8px,.65vw,11px)/1.5 var(--mono);text-shadow:none}
+.voice-instrument strong{font-weight:500;color:#dce2bd}.voice-instrument p{margin:5px 0 0}.voice-instrument p:last-child{color:#acd4c1}
+.voice-instrument.voice-warning{border-left-color:#dfa477}.voice-warning #voice-consent,.voice-warning #voice-nests{color:#e6be91}
+.voice-dossiers .dossier-detail{border-color:#9ed3bc66;background:#18322bcc}.chapter-card[data-chapter="MI11"]{border-top:2px solid #9ed3bc}
+.high-contrast .voice-instrument{color:#fff;border-color:#fff}.high-contrast .voice-instrument strong{color:#e5ffb4}.high-contrast .voice-warning #voice-consent,.high-contrast .voice-warning #voice-nests{color:#ffd2a3}
+@media(max-width:760px){.voice-instrument{padding:6px;margin-top:7px;font-size:7px;line-height:1.45}.voice-instrument p{margin-top:3px}}
 @media(max-width:760px){.chemical-instrument{padding:6px;margin-top:7px;font-size:7px;line-height:1.45}.chemical-instrument p{margin-top:3px}}

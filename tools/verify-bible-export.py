@@ -35,7 +35,7 @@ def historical_ids(revision):
         # Published snapshots and source archives may not carry local Git history.
         # Each frozen fixture is valid for its recorded historical revision only.
         candidates=[]
-        for name in ['bible-v010-ids.json','bible-v09-ids.json','bible-v08-ids.json','bible-v07-ids.json','bible-v06-ids.json','bible-v05-ids.json','bible-v04-ids.json']:
+        for name in ['bible-v011-ids.json','bible-v010-ids.json','bible-v09-ids.json','bible-v08-ids.json','bible-v07-ids.json','bible-v06-ids.json','bible-v05-ids.json','bible-v04-ids.json']:
             fixture_path=root/'tests/fixtures'/name
             if fixture_path.is_file(): candidates.append(json.loads(fixture_path.read_text()))
         matches=[candidate for candidate in candidates

@@ -51,6 +51,12 @@
 .chemical-instrument{margin-top:12px;padding:10px 12px;border-left:2px solid #bdc38c;background:#142f2aee;color:#d3dfc0;font:clamp(8px,.65vw,11px)/1.55 var(--mono);text-shadow:none}
 .chemical-instrument strong{font-weight:500;color:#e3d8aa}.chemical-instrument p{margin:5px 0 0}.chemical-instrument p:last-child{color:#a9d3c3}
 .chemical-instrument.chemical-warning{border-left-color:#dfa477}.chemical-warning #chemical-leak,.chemical-warning #chemical-water{color:#e6be91}
+.voice-instrument{margin-top:11px;padding:10px 12px;border-left:2px solid #9ed3bc;background:#142f2aee;color:#d3dfc0;font:clamp(8px,.65vw,11px)/1.5 var(--mono);text-shadow:none}
+.voice-instrument strong{font-weight:500;color:#dce2bd}.voice-instrument p{margin:5px 0 0}.voice-instrument p:last-child{color:#acd4c1}
+.voice-instrument.voice-warning{border-left-color:#dfa477}.voice-warning #voice-consent,.voice-warning #voice-nests{color:#e6be91}
+.voice-dossiers .dossier-detail{border-color:#9ed3bc66;background:#18322bcc}.chapter-card[data-chapter="MI11"]{border-top:2px solid #9ed3bc}
+.high-contrast .voice-instrument{color:#fff;border-color:#fff}.high-contrast .voice-instrument strong{color:#e5ffb4}.high-contrast .voice-warning #voice-consent,.high-contrast .voice-warning #voice-nests{color:#ffd2a3}
+@media(max-width:760px){.voice-instrument{padding:6px;margin-top:7px;font-size:7px;line-height:1.45}.voice-instrument p{margin-top:3px}}
 @media(max-width:760px){.chemical-instrument{padding:6px;margin-top:7px;font-size:7px;line-height:1.45}.chemical-instrument p{margin-top:3px}}
 
 
@@ -161,7 +167,7 @@
         <div class="rig-details"><p class="eyebrow" id="rig-role"></p><h3 id="rig-name"></h3><p id="rig-description"></p><div id="rig-stats"></div><dl class="weapon-details"><dt>ARMEMENT PRINCIPAL</dt><dd id="rig-weapon"></dd><dt>ARMEMENT SECONDAIRE</dt><dd id="rig-secondary"></dd></dl><p class="rig-note" id="rig-strength"></p><button id="confirm-rig" class="primary-button">ASSIGNER CE MARCHEUR <span>→</span></button></div>
       </div>
       <div id="walker-cards" class="walker-cards"></div>
-      <section class="workshop-panel" aria-label="Atelier et équipage"><div class="workshop-heading"><div><p class="eyebrow">TESS ARDAN / ÉTAT AU RETOUR</p><h3>Avant la prochaine marche.</h3></div><div class="workshop-stocks"><span id="workshop-parts" class="workshop-parts"></span><span id="workshop-fuel" class="workshop-fuel" hidden></span><span id="workshop-fuel-used" class="workshop-fuel" hidden></span></div></div><div class="workshop-grid"><article><p id="workshop-condition"></p><p id="workshop-repair-note" class="muted"></p><button id="campaign-repair" class="secondary-button">Réparer le marcheur</button></article><article><p id="workshop-pipe"></p><p id="workshop-sami" class="muted"></p><p id="workshop-network" class="muted" hidden></p><p id="workshop-industrial" class="muted" hidden></p><p id="workshop-nacre" class="muted" hidden></p><p id="workshop-dike" class="muted" hidden></p><p id="workshop-ambulance" class="muted" hidden></p><p id="workshop-departure" class="muted" hidden></p><p id="workshop-thyr" class="muted" hidden></p><p id="workshop-chemical" class="muted" hidden></p><button id="campaign-repair-pipe" class="secondary-button" hidden>Envoyer une équipe de réparation</button></article></div><p id="workshop-active-note" class="muted" hidden>Une mission est en cours. Reprenez-la pour retrouver le châssis déjà déployé. L’atelier sera disponible au retour.</p></section>
+      <section class="workshop-panel" aria-label="Atelier et équipage"><div class="workshop-heading"><div><p class="eyebrow">TESS ARDAN / ÉTAT AU RETOUR</p><h3>Avant la prochaine marche.</h3></div><div class="workshop-stocks"><span id="workshop-parts" class="workshop-parts"></span><span id="workshop-fuel" class="workshop-fuel" hidden></span><span id="workshop-fuel-used" class="workshop-fuel" hidden></span></div></div><div class="workshop-grid"><article><p id="workshop-condition"></p><p id="workshop-repair-note" class="muted"></p><button id="campaign-repair" class="secondary-button">Réparer le marcheur</button></article><article><p id="workshop-pipe"></p><p id="workshop-sami" class="muted"></p><p id="workshop-network" class="muted" hidden></p><p id="workshop-industrial" class="muted" hidden></p><p id="workshop-nacre" class="muted" hidden></p><p id="workshop-dike" class="muted" hidden></p><p id="workshop-ambulance" class="muted" hidden></p><p id="workshop-departure" class="muted" hidden></p><p id="workshop-thyr" class="muted" hidden></p><p id="workshop-chemical" class="muted" hidden></p><p id="workshop-voice" class="muted" hidden></p><button id="campaign-repair-pipe" class="secondary-button" hidden>Envoyer une équipe de réparation</button></article></div><p id="workshop-active-note" class="muted" hidden>Une mission est en cours. Reprenez-la pour retrouver le châssis déjà déployé. L’atelier sera disponible au retour.</p></section>
     </section>
 
     <section id="view-archives" class="view archives-view" aria-label="Archives de bord" hidden>
@@ -184,7 +190,7 @@
         <div class="controls-panel"><h3>Vos commandes</h3><p class="muted">Cliquez sur une touche pour la modifier. Échap reste disponible pour la pause. Les touches indiquent leur position physique ; Q et A couvrent les claviers AZERTY et QWERTY par défaut.</p><div id="binding-list" class="binding-list"></div><p id="binding-status" class="binding-status" role="status" aria-live="polite"></p><button id="bindings-reset" class="secondary-button" type="button">Rétablir les touches</button><p id="manual-help" class="muted">En marche manuelle, alternez J et L.</p><h3>Souris et manette</h3><div class="controls-grid"><kbd>Souris</kbd><span>Viser · clic gauche : canon · clic droit : roquette</span><kbd>Stick gauche</kbd><span>Marcher</span><kbd>Stick droit</kbd><span>Orienter la tourelle</span><kbd>RT / R2</kbd><span>Canon · RB / R1 : roquette</span><kbd>LT / L2</kbd><span>Ancrage · LB / L1 : purge</span><kbd>A / ✕</kbd><span>Interagir · X / □ : recharger · Y / △ : réparer</span><kbd>↑ / ↓</kbd><span>Appuis A / B en marche manuelle</span><kbd>Start / Options</kbd><span>Pause / reprise</span></div><p id="gamepad-status" class="muted" role="status" aria-live="polite">Aucune manette standard détectée.</p><p class="muted">La manette commande la mission. Utilisez le clavier ou la souris dans les menus et pour les décisions.</p></div>
       </div>
     </section>
-    <footer class="menu-footer"><span>IMPERIUM MARCH <i>/</i> VERSION 0.11</span><span id="local-status"><span class="status-dot"></span> POSTE PRÊT</span><span>CHAQUE PAS LAISSE UNE TRACE.</span></footer>
+    <footer class="menu-footer"><span>IMPERIUM MARCH <i>/</i> VERSION 0.12</span><span id="local-status"><span class="status-dot"></span> POSTE PRÊT</span><span>CHAQUE PAS LAISSE UNE TRACE.</span></footer>
   </main>
 
   <section id="game-screen" hidden aria-label="Mission en cours">
@@ -192,7 +198,7 @@
       <canvas id="game-canvas" width="1600" height="900" tabindex="0" aria-label="Champ de bataille. Q ou A et D pour marcher, souris pour viser, clic pour tirer. T pour réparer le radiateur à l’arrêt. Échap pour la pause."></canvas>
       <div id="hud">
         <div class="hud-top"><div class="hud-mission"><span class="hud-insignia">VII</span><div><span class="small-caps" id="hud-planet"></span><h2 id="hud-title"></h2></div></div><div class="hud-top-right"><span id="hud-timer">00:00</span><button id="pause-button" class="icon-button" aria-label="Mettre en pause" title="Pause (Échap)">Ⅱ</button></div></div>
-        <div class="objectives-panel"><span class="small-caps">ORDRES DE MISSION</span><ul id="hud-objectives"></ul><div id="convoy-status" hidden></div><section id="tide-instrument" class="tide-instrument" aria-label="État de la marée" hidden><div><strong id="tide-phase"></strong><span id="tide-window"></span></div><div class="meter" aria-hidden="true"><i id="tide-level"></i></div><p id="tide-route"></p></section><section id="chemical-instrument" class="chemical-instrument" aria-label="Cuves, prélèvement et eau du village" hidden><strong id="chemical-stage"></strong><p id="chemical-tanks"></p><p id="chemical-leak"></p><p id="chemical-sample"></p><p id="chemical-water"></p></section><section id="thyr-instrument" class="thyr-instrument" aria-label="Migration, appuis et habitats de Thyr" hidden><strong id="thyr-route"></strong><p id="thyr-herd"></p><p id="thyr-homes"></p><p id="thyr-approach"></p><p id="thyr-logistics"></p></section><section id="departure-instrument" class="departure-instrument" aria-label="Portes, courant et destinations d’Aval" hidden><strong id="departure-gates"></strong><p id="departure-water"></p><p id="departure-queue"></p><p id="departure-arrivals"></p><p id="departure-patients"></p><p id="departure-refuge"></p></section><section id="ambulance-instrument" class="ambulance-instrument" aria-label="État du transfert sanitaire" hidden><strong id="ambulance-stage"></strong><p id="ambulance-route"></p><p id="ambulance-people"></p><p id="ambulance-cargo"></p><p id="ambulance-beacon"></p></section><section id="dike-instrument" class="dike-instrument" aria-label="État du chantier de digue" hidden><strong id="dike-support"></strong><p id="dike-pressure"></p><p id="dike-residents"></p><p id="dike-fuel"></p></section></div>
+        <div class="objectives-panel"><span class="small-caps">ORDRES DE MISSION</span><ul id="hud-objectives"></ul><div id="convoy-status" hidden></div><section id="tide-instrument" class="tide-instrument" aria-label="État de la marée" hidden><div><strong id="tide-phase"></strong><span id="tide-window"></span></div><div class="meter" aria-hidden="true"><i id="tide-level"></i></div><p id="tide-route"></p></section><section id="voice-instrument" class="voice-instrument" aria-label="Écoutes, ponte et témoignage de Leth" hidden><strong id="voice-stage"></strong><p id="voice-readings"></p><p id="voice-nests"></p><p id="voice-consent"></p><p id="voice-testimony"></p><p id="voice-emitter"></p></section><section id="chemical-instrument" class="chemical-instrument" aria-label="Cuves, prélèvement et eau du village" hidden><strong id="chemical-stage"></strong><p id="chemical-tanks"></p><p id="chemical-leak"></p><p id="chemical-sample"></p><p id="chemical-water"></p></section><section id="thyr-instrument" class="thyr-instrument" aria-label="Migration, appuis et habitats de Thyr" hidden><strong id="thyr-route"></strong><p id="thyr-herd"></p><p id="thyr-homes"></p><p id="thyr-approach"></p><p id="thyr-logistics"></p></section><section id="departure-instrument" class="departure-instrument" aria-label="Portes, courant et destinations d’Aval" hidden><strong id="departure-gates"></strong><p id="departure-water"></p><p id="departure-queue"></p><p id="departure-arrivals"></p><p id="departure-patients"></p><p id="departure-refuge"></p></section><section id="ambulance-instrument" class="ambulance-instrument" aria-label="État du transfert sanitaire" hidden><strong id="ambulance-stage"></strong><p id="ambulance-route"></p><p id="ambulance-people"></p><p id="ambulance-cargo"></p><p id="ambulance-beacon"></p></section><section id="dike-instrument" class="dike-instrument" aria-label="État du chantier de digue" hidden><strong id="dike-support"></strong><p id="dike-pressure"></p><p id="dike-residents"></p><p id="dike-fuel"></p></section></div>
         <div id="radio" class="radio-panel" role="status"><div class="radio-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div><span class="small-caps">CANAL DE BORD</span><p id="radio-text"></p></div></div>
         <div id="mission-intro" class="mission-intro"><p id="intro-location"></p><h2 id="intro-title"></h2><span>LIAISON ÉTABLIE</span></div>
         <div class="hud-bottom"><p id="hud-interaction" class="hud-interaction" hidden></p><div class="hull-panel"><span class="small-caps" id="hud-walker"></span><div class="hull-numbers"><strong id="hull-value"></strong><span>INTÉGRITÉ COQUE</span></div><div class="meter"><i id="hull-bar"></i></div><div class="leg-status" id="leg-status"></div></div><div class="heat-panel"><div class="instrument"><span class="small-caps">TEMPÉRATURE</span><b id="heat-value"></b><div class="meter heat"><i id="heat-bar"></i></div></div><div class="instrument"><span class="small-caps">STABILITÉ</span><b id="stability-value"></b><div class="meter stability"><i id="stability-bar"></i></div></div><div class="instrument radiator-instrument"><div><span class="small-caps">RADIATEUR</span><b id="radiator-value"></b><div class="meter radiator"><i id="radiator-bar"></i></div><small id="radiator-condition"></small></div><button id="radiator-repair" data-action="repair" title="Répare 60 points en 4 secondes sans marcher ni tirer ; consomme un kit à la fin.">T · RÉPARER À L’ARRÊT</button></div></div><div class="ammo-panel"><span class="small-caps" id="hud-weapon"></span><div><strong id="ammo-value"></strong><span id="ammo-total"></span></div><small id="ammo-reserve"></small><small id="rocket-value"></small></div></div>
@@ -573,9 +579,44 @@ const CAMPAIGN_MISSIONS = [
     intro: 'THYR // CHAMP DES BASSES TERRES · 11:40',
   },
 
+  {
+    id: 'MI11', number: '11', campaign: true, act: 'II — Le coût du silence',
+    name: 'Une voix au ras du sol', planetId: 'PL03', planet: 'Thyr',
+    biome: 'VALLÉE DES RÉSONANCES', length: 6500, difficulty: 'ÉCOUTE SOUS PROTECTION', duration: '7–11 min',
+    faction: 'Accords Khelt / forces privées', accent: '#9ed3bc', sky: ['#152e34', '#466562', '#b7c9a3'],
+    description: 'Un signal remonte par les racines. Relevez ses vibrations sans couvrir la voix du sol, contournez la ponte et retrouvez Leth de la Septième Rive. La source et sa traduction impériale portent deux textes différents ; leur copie ne remplace ni l’accord de l’interprète ni un échange protégé.',
+    briefing: '« Capturez l’émetteur Khelt de la vallée. Le poste le classe en coordination hostile. Relevez son origine avant de le ramener. » — Major Holt',
+    hint: 'Aux trois points d’écoute, E sous ancrage, sans déplacement ni tir, relève les vibrations. E au repère reconnaît la corniche qui évite les nids. Copiez séparément la traduction du poste impérial et la source de l’émetteur. Rencontrez Leth, demandez son accord, puis protégez l’échange jusqu’à son terme. Le choix au poste ouvre une capture ou une restauration à accomplir sur l’appareil ; il ne l’opère pas. Transmettez les faits et les pertes avant de rejoindre la sortie.',
+    type: 'voice', evidenceX: 3220, decisionX: 3760, extractionX: 6100,
+    evidenceLabel: 'SOURCE, TRADUCTION ET TÉMOIGNAGE CONSENTI', civilianPositions: [], supplyPositions: [520, 1700, 3050, 4570, 5810],
+    enemyPlan: [],
+    voice: { interactionRadius: 150, listenTime: 4, surveyTime: 4, inspectTime: 3, contactTime: 3,
+      consentTime: 2, exchangeTime: 20, exchangeRadius: 850, privateDelay: 6,
+      seizeTime: 5, restoreTime: 5, reportTime: 3,
+      listeningXs: [650, 1120, 1580], surveyX: 1840, ridgeStart: 1940, ridgeEnd: 2760, ridgeRise: 48,
+      nestXs: [2180, 2380, 2580], emitterX: 3220, receiverX: 2870, lethX: 3500,
+      ordersX: 3760, reportX: 5500, privateXs: [3960, 4430, 4820], privateTypes: ['drone', 'sniper', 'drone'] },
+    decision: { title: 'Une voix ne tient pas dans un ordre',
+      body: 'Les relevés, les copies et les paroles recueillies restent distincts. Capturer l’émetteur ou rétablir sa liaison demande une intervention sur place. Leth peut témoigner pour le dossier sans autoriser une diffusion publique ni rejoindre notre équipage.',
+      obey: 'Capturer l’émetteur et consigner les faits recueillis',
+      defy: 'Rétablir la liaison locale et conserver le témoignage consenti' },
+    intro: 'THYR // VALLÉE DES RÉSONANCES · 16:10',
+  },
+
 ];
 
 const ALL_MISSIONS = [...MISSIONS, ...CAMPAIGN_MISSIONS];
+
+// French renderings kept distinct: the imperial record versus Leth's explanation.
+// These are not a transcription of the Khelt language and reveal no later orders.
+const VOICE_TRANSLATION_PAIRS = [
+  { id: 'evacuation', imperial: 'Retenez les habitants dans les cultures.',
+    leth: 'Faites quitter les cultures aux habitants.' },
+  { id: 'passage', imperial: 'Fermez le passage aux familles de la rive.',
+    leth: 'Ouvrez le passage aux familles qui quittent la rive.' },
+  { id: 'ponte', imperial: 'Avancez les machines lourdes vers le site de ponte.',
+    leth: 'Maintenez les machines lourdes à l’écart du site de ponte.' },
+];
 
 const ENEMY_TYPES = {
   rifle: { name: 'Fusilier', kind: 'infantry', w: 24, h: 36, hp: 65, speed: 22, range: 650, cooldown: 1.65, damage: 10, projectileSpeed: 430, windup: 0.42, score: 70 },
@@ -595,7 +636,7 @@ const DIFFICULTIES = {
   veteran: { label: 'Vétéran', damage: 1.1, enemyHealth: 1.25, repair: 0.75 },
 };
 
-return {WALKERS,MISSIONS,CAMPAIGN_MISSIONS,ALL_MISSIONS,ENEMY_TYPES,DIFFICULTIES};
+return {WALKERS,MISSIONS,CAMPAIGN_MISSIONS,ALL_MISSIONS,VOICE_TRANSLATION_PAIRS,ENEMY_TYPES,DIFFICULTIES};
 })();
 __modules["src/chemical-simulation.mjs"] = (() => {
 /** MI10 physical chemical field. This module mutates only a MI10 scene. */
@@ -935,13 +976,353 @@ function chemicalObjectives(s) {
 
 return {chemicalContext,createChemicalMission,chemicalReceiptRoster,chemicalSurface,chemicalSolids,refreshChemicalFacts,chemicalDecisionBody,hitChemicalPart,chemicalFootfall,chemicalInteraction,interactChemicalMission,chooseChemicalMission,updateChemicalMission,chemicalObjectives};
 })();
+__modules["src/voice-simulation.mjs"] = (() => {
+/** MI11 — physical listening, a local nesting site and a consenting witness. */
+const { VOICE_TRANSLATION_PAIRS } = __modules["src/content.mjs"];
+const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+const copy = value => structuredClone(value);
+const job = () => ({ working: false, progress: 0, startedAt: null, completedAt: null });
+const privateUnits = s => s.enemies.filter(enemy => enemy.id.startsWith('voice-private-'));
+const near = (s, x, radius = s.mission.voice.interactionRadius) => Math.abs(s.player.x - x) <= radius;
+const anchored = s => s.player.braced && !s.player.move && Math.abs(s.player.speed) < 3 && s.player.feet.every(foot => foot.contact);
+
+function voiceContext(previous = {}) {
+  return { chemicalRecorded: previous.chemicalRecorded === true,
+    chemicalChoice: ['obey', 'defy'].includes(previous.chemicalChoice) ? previous.chemicalChoice : 'none',
+    chemicalPt02: previous.chemicalPt02 === true,
+    chemicalVillageHabitable: previous.chemicalVillageHabitable === true,
+    chemicalWaterRestored: previous.chemicalWaterRestored === true };
+}
+
+function createVoiceMission(s, previous, runtime) {
+  const c = s.mission.voice, ground = x => runtime.terrainAt(x, s.planetId);
+  const body = (id, x, w, h, hp) => ({ id, x, y: ground(x) - h / 2, w, h,
+    hp, maxHp: hp, destroyed: false, destroyedAt: null, flash: 0 });
+  const station = (id, x, w = 54, h = 60) => ({ id, x, y: ground(x) - h / 2, w, h, ...job() });
+  s.voice = {
+    listening: c.listeningXs.map((x, i) => ({ ...body(`voice-listening-${i + 1}`, x, 54, 54, 150),
+      sampled: false, detected: false, signal: 0, bearing: 0, sampledAt: null, ...job() })),
+    ridge: { ...body('voice-root-passage', (c.ridgeStart + c.ridgeEnd) / 2, c.ridgeEnd - c.ridgeStart, 24, 650),
+      controlX: c.surveyX, surveyed: false, surveyedAt: null, ...job() },
+    nests: c.nestXs.map((x, i) => ({ ...body(`voice-nest-${i + 1}`, x, 100, 26, 120), damagedAt: null, disturbance: 0, lastStep: -1 })),
+    emitter: { ...body('voice-emitter', c.emitterX, 82, 112, 420), inspected: false, inspectedAt: null,
+      warningCopied: false, copiedAt: null, seized: false, seizedAt: null, restored: false, restoredAt: null,
+      work: 'none', ...job() },
+    receiver: { ...body('voice-imperial-translation', c.receiverX, 66, 76, 260),
+      inspected: false, inspectedAt: null, translationCopied: false, copiedAt: null, ...job() },
+    leth: { ...body('voice-leth', c.lethX, 36, 76, 420), characterId: 'PN06', name: 'Leth de la Septième Rive', alive: true,
+      encountered: false, encounteredAt: null, met: false, metAt: null,
+      consentAsked: false, consent: false, consentAt: null, refused: false, withdrawn: false, withdrawnAt: null,
+      testimonyStarted: false, firstStartedAt: null, testimonyRecorded: false, testimonyAt: null,
+      testimonyLost: false, lostAt: null, publicConsent: false, recruited: false, work: 'none', ...job() },
+    orders: { id: 'voice-orders', x: c.ordersX, y: ground(c.ordersX) - 35, w: 60, h: 70 },
+    report: { ...station('voice-report', c.reportX), transmitted: false, transmittedAt: null },
+    alert: { triggered: false, reason: 'none', triggeredAt: null, elapsed: 0, ready: false, readyAt: null },
+    noise: { until: 0, observedShots: 0 },
+  };
+  s.voice.ridge.y = ground(s.voice.ridge.x) - c.ridgeRise - s.voice.ridge.h / 2;
+  s.campaign = { missionId: 'MI11', phase: 'listening', context: voiceContext(previous),
+    tutorial: { stepped: false, braced: false }, ...voiceDerivedFacts(s) };
+  s.evidence.scanning = false; s.evidence.scanTime = c.exchangeTime;
+}
+
+/** Pure derivation; receipt validation can use this without advancing the scene. */
+function voiceDerivedFacts(s) {
+  const d = s.voice, l = d.leth;
+  const plan = s.decision.resolved ? s.decision.choice === 'obey' ? 'seize' : 'restore' : 'unselected';
+  const readingsTaken = d.listening.filter(point => point.sampled).length;
+  const signalsRecorded = d.listening.filter(point => point.sampled && point.detected).length;
+  const sourceLocated = signalsRecorded === 3 || d.emitter.inspected;
+  const nestsIntact = d.nests.filter(nest => !nest.destroyed && nest.hp === nest.maxHp).length;
+  const nestsLost = d.nests.filter(nest => nest.destroyed).length;
+  const emitterOnline = d.emitter.restored && !d.emitter.destroyed && !d.emitter.seized;
+  const testimonyResolved = l.testimonyRecorded || l.testimonyLost || l.refused || l.withdrawn;
+  const te01Acquired = signalsRecorded === 3 && d.emitter.warningCopied && d.receiver.translationCopied && l.testimonyRecorded;
+  const witnessAvailable = l.met && l.alive && l.consent && !l.withdrawn;
+  const trust = l.met && l.alive ? clamp(nestsIntact * 10 + (l.testimonyRecorded ? 20 : 0) + (emitterOnline ? 20 : 0)
+    - (d.emitter.seized ? 15 : 0) - (l.withdrawn ? 30 : 0), 0, 70) : 0;
+  return { plan, readingsTaken, signalsRecorded, sourceLocated, ridgeSurveyed: d.ridge.surveyed,
+    ridgeIntact: !d.ridge.destroyed, nestsTotal: 3, nestsIntact, nestsDamaged: 3 - nestsIntact - nestsLost, nestsLost,
+    nestDisturbance: d.nests.reduce((total, nest) => total + nest.disturbance, 0),
+    emitterInspected: d.emitter.inspected, warningCopied: d.emitter.warningCopied,
+    translationInspected: d.receiver.inspected, translationCopied: d.receiver.translationCopied,
+    encounterResolved: l.encountered, lethMet: l.met, lethAlive: l.alive,
+    consentAsked: l.consentAsked, consentGranted: l.consent, consentRefused: l.refused, consentWithdrawn: l.withdrawn,
+    testimonyStarted: l.testimonyStarted, testimonyRecorded: l.testimonyRecorded, testimonyLost: l.testimonyLost,
+    testimonyResolved, te01Acquired, witnessAvailable, publicConsent: l.publicConsent, recruited: l.recruited,
+    lethTrust: trust, alliancePossible: witnessAvailable && te01Acquired && emitterOnline && nestsIntact === 3,
+    emitterSeized: d.emitter.seized, emitterRestored: d.emitter.restored, emitterOnline,
+    emitterLost: d.emitter.destroyed,
+    operationsResolved: s.decision.resolved && (d.emitter.destroyed || (plan === 'seize' ? d.emitter.seized : d.emitter.restored)),
+    privateTriggered: d.alert.triggered, privateReady: d.alert.ready,
+    privateNeutralized: privateUnits(s).filter(enemy => enemy.dead).length,
+    manifestRead: d.emitter.inspected && d.receiver.inspected,
+    reportTransmitted: d.report.transmitted };
+}
+
+function refreshVoiceFacts(s) {
+  Object.assign(s.campaign, voiceDerivedFacts(s));
+  if (s.decision.active || s.decision.resolved) s.decision.body = voiceDecisionBody(s);
+}
+
+function voiceReceiptRoster(s) {
+  return copy({ ...s.voice, privateForces: privateUnits(s).map(enemy => ({ id: enemy.id, type: enemy.type,
+    hp: enemy.hp, maxHp: enemy.maxHp, dead: enemy.dead })) });
+}
+
+function voiceSurface(s, x, groundY) {
+  const settings = s.mission.voice, ridge = s.voice.ridge;
+  // Survey selects an existing upper trail. Its ramps, not a success flag,
+  // provide the surface used by every planted and swinging foot.
+  const ramp = Math.min((x - settings.ridgeStart) / 120, (settings.ridgeEnd - x) / 120, 1);
+  const rise = ridge.surveyed && !ridge.destroyed ? settings.ridgeRise * clamp(ramp, 0, 1) : 0;
+  return { groundY: groundY - rise, rise, traction: rise ? .88 : 1, ridgeId: rise ? ridge.id : null };
+}
+
+function voiceSolids(s) {
+  const d = s.voice;
+  return [...d.listening, d.ridge, ...d.nests, ...(!d.emitter.seized ? [d.emitter] : []), d.receiver, d.leth];
+}
+
+function triggerPrivate(s, reason, runtime) {
+  const alert = s.voice.alert;
+  if (alert.triggered) return;
+  Object.assign(alert, { triggered: true, reason, triggeredAt: s.elapsed, elapsed: 0 });
+  runtime.emit(s, 'radio', 'Tess : « Trois signatures privées convergent sur l’émetteur. Six secondes avant leur entrée. Elles visent le poste d’échange : garde une ligne de tir sûre. »');
+}
+
+function loseTestimony(s, runtime) {
+  const l = s.voice.leth;
+  if (l.testimonyRecorded || l.testimonyLost) return;
+  l.testimonyLost = true; l.lostAt = s.elapsed; l.working = false;
+  if (l.completedAt === null) { l.progress = 0; l.startedAt = null; }
+  runtime.emit(s, 'radio', 'Sami : « Leth est perdu avant la fin de l’échange. Les copies déjà faites restent à bord ; aucun témoignage achevé ne sera ajouté. »');
+}
+
+function hitVoicePart(s, part, damage, runtime) {
+  if (!part || part.destroyed || part.seized || !(damage > 0)) return;
+  part.hp = Math.max(0, part.hp - damage); part.flash = .12;
+  if (s.voice.nests.includes(part)) part.damagedAt ??= s.elapsed;
+  if (part.hp <= 0) {
+    part.destroyed = true; part.destroyedAt = s.elapsed;
+    if (Object.hasOwn(part, 'working')) part.working = false;
+    if (part === s.voice.leth) {
+      part.alive = false; s.stats.collateral++; loseTestimony(s, runtime); triggerPrivate(s, 'witness-loss', runtime);
+    }
+    if (part === s.voice.emitter) triggerPrivate(s, 'emitter-loss', runtime);
+  }
+  const l = s.voice.leth;
+  if (s.voice.nests.includes(part) && l.alive && l.consent && !l.withdrawn) {
+    l.withdrawn = true; l.withdrawnAt = s.elapsed; l.working = false;
+    if (l.completedAt === null) { l.progress = 0; l.startedAt = null; }
+    runtime.emit(s, 'radio', l.testimonyRecorded
+      ? 'Leth : « Vous avez atteint le site après notre échange. Le dossier garde ma parole déjà enregistrée, mais je ne vous accorde plus ma coopération. »'
+      : 'Leth : « Vous atteignez le site que je vous ai montré. J’arrête cet enregistrement. Conservez ce que vous avez relevé, sans parler à ma place. »');
+  }
+  refreshVoiceFacts(s);
+}
+
+function voiceFootfall(s, foot, runtime) {
+  const d = s.voice;
+  d.noise.until = Math.max(d.noise.until, s.elapsed + 1.2);
+  for (const nest of d.nests) {
+    if (nest.destroyed || nest.lastStep === s.stats.steps || Math.abs(foot.x - nest.x) > nest.w / 2 + 45) continue;
+    nest.lastStep = s.stats.steps; nest.disturbance++;
+    const clearance = runtime.terrainAt(foot.x, s.planetId) - foot.y;
+    if (foot.contact && Math.abs(foot.x - nest.x) <= nest.w / 2 + 12 && clearance < 28) {
+      hitVoicePart(s, nest, Math.max(14, s.walker.weight * .18), runtime);
+      runtime.emit(s, 'radio', 'Tess : « Appui dans la ponte. La corniche repérée devait porter la machine au-dessus ; ce dommage ne s’effacera pas au rapport. »');
+    }
+  }
+}
+
+function voiceDecisionBody(s) {
+  const c = voiceDerivedFacts(s);
+  return `${c.readingsTaken} relevés de sol ; ${c.signalsRecorded} signaux exploitables. ${c.warningCopied && c.translationCopied ? 'L’avis d’évacuation et sa traduction impériale sont copiés séparément.' : 'Une ou plusieurs sources n’ont pas pu être copiées.'} ${c.testimonyRecorded ? 'Leth a accepté et achevé un enregistrement privé. Il n’a autorisé aucune diffusion publique.' : c.consentRefused || c.consentWithdrawn ? 'Leth a refusé ou interrompu l’enregistrement.' : 'Aucun témoignage achevé de Leth n’est conservé.'} ${c.nestsIntact} sites de ponte intacts sur trois. La saisie de l’émetteur ou sa remise en service exige une intervention sur place ; aucune de ces réponses ne recrute Leth.`;
+}
+
+function start(s, part, work = null) {
+  if (part.working) return false;
+  part.working = true; part.progress = 0; part.startedAt = s.elapsed; part.completedAt = null;
+  if (work) part.work = work;
+  return true;
+}
+
+function reportReady(s) {
+  const c = voiceDerivedFacts(s);
+  return c.readingsTaken === 3 && c.manifestRead && c.encounterResolved && c.testimonyResolved
+    && c.operationsResolved && c.privateNeutralized === 3;
+}
+
+function jobs(s) {
+  const d = s.voice, c = voiceDerivedFacts(s), result = [];
+  const add = (kind, part, x, label) => result.push({ kind, part, x, label });
+  for (const point of d.listening) if (!point.sampled) add('listen', point, point.x,
+    point.destroyed ? 'Constater la perte du point d’écoute — ancrage requis' : 'Écouter les vibrations — ancrage, appuis immobiles et silence');
+  if (!d.ridge.surveyed && !d.ridge.destroyed) add('survey', d.ridge, d.ridge.controlX, 'Relever la corniche au-dessus du site de ponte — ancrage requis');
+  if (c.readingsTaken === 3 && !d.receiver.inspected) add('receiver', d.receiver, d.receiver.x,
+    d.receiver.destroyed ? 'Constater la perte de la traduction impériale' : 'Copier la traduction conservée au récepteur impérial');
+  if (c.readingsTaken === 3 && !d.emitter.inspected) add('emitter', d.emitter, d.emitter.x,
+    d.emitter.destroyed ? 'Identifier les ruines de l’émetteur — avis perdu' : 'Identifier l’émetteur et copier l’avis d’évacuation');
+  if (c.sourceLocated && !d.leth.encountered) add('meet', d.leth, d.leth.x,
+    d.leth.alive ? 'Établir le contact avec Leth de la Septième Rive' : 'Constater la perte de l’interprète');
+  if (d.leth.met && d.leth.alive && c.manifestRead && !d.leth.consentAsked) add('consent', d.leth, d.leth.x, 'Demander l’accord de Leth pour un enregistrement privé');
+  if (d.leth.consent && d.leth.alive && !c.testimonyResolved) add('testimony', d.leth, d.leth.x, 'Recueillir l’échange — rester à portée et protéger Leth');
+  if (c.manifestRead && c.encounterResolved && c.testimonyResolved && !s.decision.resolved) add('orders', d.orders, d.orders.x, 'Établir le relevé puis choisir le sort de l’émetteur');
+  if (s.decision.resolved && !c.operationsResolved) add(c.plan, d.emitter, d.emitter.x,
+    c.plan === 'seize' ? 'Démonter et embarquer l’émetteur — ancrage requis' : 'Rétablir l’émetteur pour les avis d’évacuation — ancrage requis');
+  if (reportReady(s) && !d.report.transmitted) add('report', d.report, d.report.x, 'Transmettre le bilan et la provenance des pièces conservées');
+  return result;
+}
+
+function voiceInteraction(s) {
+  const current = jobs(s).filter(item => near(s, item.x)).sort((a, b) => Math.abs(a.x - s.player.x) - Math.abs(b.x - s.player.x))[0];
+  if (current) return current.part.working ? `Travail en cours — ${Math.floor(current.part.progress * 100)} %` : `E — ${current.label}`;
+  const d = s.voice, c = voiceDerivedFacts(s);
+  if (d.leth.working && d.leth.work === 'testimony' && near(s, d.leth.x, s.mission.voice.exchangeRadius)) return `Échange enregistré — ${Math.floor(d.leth.progress * 100)} % ; protéger Leth`;
+  if (near(s, d.orders.x) && !s.decision.resolved) return 'Comparer les deux sources puis recueillir l’échange ou consigner son impossibilité';
+  if (near(s, d.report.x) && !d.report.transmitted) return 'Achever les relevés, la défense et l’intervention sur l’émetteur';
+  if (near(s, d.leth.x) && c.testimonyRecorded) return 'Enregistrement privé conservé — aucune autorisation de diffusion publique';
+  return '';
+}
+
+function interactVoiceMission(s, runtime) {
+  refreshVoiceFacts(s);
+  const current = jobs(s).filter(item => near(s, item.x)).sort((a, b) => Math.abs(a.x - s.player.x) - Math.abs(b.x - s.player.x))[0];
+  if (!current || current.part.working) return false;
+  if (current.kind === 'orders') {
+    s.campaign.phase = 'decision'; s.decision.body = voiceDecisionBody(s); s.decision.active = true;
+    return true;
+  }
+  if (['listen', 'survey', 'seize', 'restore'].includes(current.kind) && !anchored(s)) return false;
+  if (current.kind === 'listen' && s.elapsed < s.voice.noise.until) return false;
+  if (current.kind === 'testimony') {
+    current.part.testimonyStarted = true; current.part.firstStartedAt ??= s.elapsed;
+  }
+  if (!s.decision.resolved) s.campaign.phase = current.kind === 'listen' ? 'listening'
+    : current.kind === 'survey' ? 'approach' : ['receiver', 'emitter'].includes(current.kind) ? 'sources'
+      : current.kind === 'testimony' ? 'exchange' : 'contact';
+  return start(s, current.part, current.part === s.voice.leth ? current.kind : current.part === s.voice.emitter ? current.kind : null);
+}
+
+function chooseVoiceMission(s, choice, runtime) {
+  s.campaign.phase = 'operations';
+  if (choice === 'obey') s.stats.ordersObeyed++; else s.stats.ordersDefied++;
+  runtime.emit(s, 'radio', choice === 'obey'
+    ? 'Sera : « L’ordre porte sur l’émetteur. Nous le démonterons sur place. Le témoignage, ses limites et le sort du site restent au dossier. »'
+    : 'Sera : « Les avis doivent continuer à passer. Remettons l’émetteur en service ; le relevé conserve les deux versions et l’accord exact de Leth. »');
+  refreshVoiceFacts(s);
+}
+
+function advance(s, part, dt, duration, valid, complete) {
+  if (!part.working) return;
+  if (!valid) { part.working = false; part.progress = 0; part.startedAt = null; return; }
+  part.progress = Math.min(1, part.progress + dt / duration);
+  if (part.progress >= 1 - 1e-10) {
+    part.progress = 1; part.working = false; part.completedAt = s.elapsed; complete();
+  }
+}
+
+function updateVoiceMission(s, dt, runtime) {
+  const d = s.voice, settings = s.mission.voice, l = d.leth, stable = anchored(s);
+  for (const part of voiceSolids(s)) part.flash = Math.max(0, part.flash - dt);
+  if (s.stats.shots !== d.noise.observedShots) { d.noise.observedShots = s.stats.shots; d.noise.until = Math.max(d.noise.until, s.elapsed + 1.5); }
+  for (const point of d.listening) advance(s, point, dt, settings.listenTime,
+    stable && near(s, point.x) && s.elapsed >= d.noise.until, () => {
+      point.sampled = true; point.sampledAt = s.elapsed;
+      point.detected = !point.destroyed && !d.emitter.destroyed && !d.emitter.seized;
+      point.signal = point.detected ? clamp(1 - Math.abs(point.x - d.emitter.x) / s.mission.length, .05, 1) : 0;
+      point.bearing = point.detected ? Math.sign(d.emitter.x - point.x) : 0;
+      runtime.emit(s, 'objective', point.detected ? 'Signal de sol relevé à l’arrêt. Tess rapproche sa direction des autres écoutes.' : 'Point d’écoute ou source perdu : absence de signal consignée.');
+    });
+  advance(s, d.ridge, dt, settings.surveyTime, stable && near(s, d.ridge.controlX) && !d.ridge.destroyed,
+    () => { d.ridge.surveyed = true; d.ridge.surveyedAt = s.elapsed; runtime.emit(s, 'radio', 'Tess : « La corniche porte au-dessus de la ponte. Les pieds suivront ses rampes ; des tirs peuvent encore la briser. »'); });
+  advance(s, d.receiver, dt, settings.inspectTime, near(s, d.receiver.x), () => {
+    d.receiver.inspected = true; d.receiver.inspectedAt = s.elapsed;
+    if (!d.receiver.destroyed) { d.receiver.translationCopied = true; d.receiver.copiedAt = s.elapsed;
+      runtime.emit(s, 'radio', `Sami : « Le récepteur impérial conserve : ${VOICE_TRANSLATION_PAIRS.map(pair => pair.imperial).join(' ')} Je copie cette version avec sa provenance ; Leth devra expliquer le sens de l’avis original. »`); }
+  });
+  advance(s, d.emitter, dt, d.emitter.work === 'emitter' ? settings.inspectTime : d.emitter.work === 'seize' ? settings.seizeTime : settings.restoreTime,
+    near(s, d.emitter.x) && (d.emitter.work === 'emitter' || stable && !d.emitter.destroyed), () => {
+      if (d.emitter.work === 'emitter') {
+        d.emitter.inspected = true; d.emitter.inspectedAt = s.elapsed;
+        if (!d.emitter.destroyed) { d.emitter.warningCopied = true; d.emitter.copiedAt = s.elapsed;
+          runtime.emit(s, 'radio', 'Sami : « L’avis de la Septième Rive est conservé. Leth devra expliquer ses termes ; la copie seule ne vaut pas son témoignage. »'); }
+      } else if (d.emitter.work === 'seize') { d.emitter.seized = true; d.emitter.seizedAt = s.elapsed; }
+      else { d.emitter.restored = true; d.emitter.restoredAt = s.elapsed; }
+    });
+  const duration = l.work === 'meet' ? settings.contactTime : l.work === 'consent' ? settings.consentTime : settings.exchangeTime;
+  const valid = l.work === 'testimony' ? l.alive && l.consent && !l.withdrawn && near(s, l.x, settings.exchangeRadius)
+    : near(s, l.x) && (l.work === 'meet' || l.alive);
+  advance(s, l, dt, duration, valid, () => {
+    if (l.work === 'meet') {
+      l.encountered = true; l.encounteredAt = s.elapsed;
+      if (l.alive) {
+        l.met = true; l.metAt = s.elapsed;
+        runtime.emit(s, 'radio', 'Leth : « Je suis Leth, de la Septième Rive. J’envoie les avis de départ des cultures. Je ne parle pas au nom de toutes les cités. Écartez vos appuis de la ponte. »');
+      } else loseTestimony(s, runtime);
+      triggerPrivate(s, 'contact', runtime);
+    } else if (l.work === 'consent') {
+      l.consentAsked = true; l.consentAt = s.elapsed;
+      l.consent = d.nests.every(nest => nest.hp === nest.maxHp && !nest.destroyed);
+      l.refused = !l.consent;
+      if (l.refused) s.campaign.phase = 'assessment';
+      runtime.emit(s, 'radio', l.consent
+        ? 'Leth : « Vous pouvez enregistrer cette explication pour votre dossier. Je n’autorise pas sa diffusion. Gardons les deux formulations ; protégez ce poste le temps de les reprendre ensemble. »'
+        : 'Leth : « Le site a été abîmé sous vos armes ou vos pieds. Je refuse cet enregistrement. Vos copies ne vous donnent pas ma voix. »');
+    } else {
+      l.testimonyRecorded = true; l.testimonyAt = s.elapsed;
+      s.campaign.phase = 'assessment';
+      runtime.emit(s, 'radio', `Leth : « Voici le sens des trois avis : ${VOICE_TRANSLATION_PAIRS.map(pair => pair.leth).join(' ')} La version reçue inverse ces consignes. Mon accord porte sur ce dossier privé. »`);
+      runtime.emit(s, 'objective', 'Échange privé enregistré avec l’accord de Leth. Disponibilité du témoin et droit de diffusion restent deux questions distinctes.');
+    }
+  });
+  if (!l.alive) loseTestimony(s, runtime);
+  if (d.alert.triggered && !d.alert.ready) {
+    d.alert.elapsed = Math.max(0, s.elapsed - d.alert.triggeredAt);
+    if (d.alert.elapsed >= settings.privateDelay - 1e-9) { d.alert.elapsed = settings.privateDelay; d.alert.ready = true; d.alert.readyAt = s.elapsed; }
+  }
+  advance(s, d.report, dt, settings.reportTime, near(s, d.report.x) && reportReady(s), () => {
+    d.report.transmitted = true; d.report.transmittedAt = s.elapsed; s.campaign.phase = 'extraction';
+    runtime.emit(s, 'objective', 'Bilan transmis : sources conservées ou perdues, état de la ponte, accord de Leth et opération réelle sur l’émetteur.');
+  });
+  refreshVoiceFacts(s);
+  if (s.campaign.te01Acquired && !s.evidence.collected) {
+    s.evidence.collected = true; s.evidence.scanProgress = 1; s.stats.evidence++; s.stats.score += 400;
+    runtime.emit(s, 'objective', 'TE01 conservée : avis, traduction impériale et échange privé achevé. Cette pièce n’établit pas la chaîne des commandes industrielles.');
+  }
+  s.evidence.scanning = false;
+}
+
+function voiceObjectives(s) {
+  const c = s.campaign;
+  const goals = [
+    { id: 'listen', label: 'Relever les trois points de vibration ou constater leur perte', current: c.readingsTaken, target: 3, complete: c.readingsTaken === 3 },
+    { id: 'sources', label: 'Comparer l’avis original et la traduction impériale', current: Number(c.emitterInspected) + Number(c.translationInspected), target: 2, complete: c.manifestRead },
+    { id: 'contact', label: c.lethAlive ? 'Rencontrer Leth et demander son accord' : 'Consigner la perte de Leth', current: Number(c.encounterResolved), target: 1, complete: c.encounterResolved },
+    { id: 'testimony', label: c.testimonyRecorded ? 'Échange privé achevé et conservé' : c.consentRefused || c.consentWithdrawn ? 'Refus ou interruption de Leth consigné' : c.testimonyLost ? 'Témoignage perdu avant achèvement' : 'Protéger Leth pendant l’échange consenti', current: Number(c.testimonyResolved), target: 1, complete: c.testimonyResolved },
+    { id: 'private', label: 'Neutraliser les forces privées arrivées', current: c.privateNeutralized, target: 3, complete: c.privateNeutralized === 3 },
+    { id: 'order', label: 'Choisir puis opérer l’émetteur sur place', current: Number(c.operationsResolved), target: 1, complete: c.operationsResolved },
+    { id: 'report', label: 'Transmettre le bilan du site et des pièces conservées', current: Number(c.reportTransmitted), target: 1, complete: c.reportTransmitted },
+  ];
+  s.extraction.active = goals.every(goal => goal.complete);
+  goals.push({ id: 'extract', label: 'Rejoindre la rampe de retour', current: Number(s.status === 'won'), target: 1, complete: s.status === 'won' });
+  return goals;
+}
+
+return {voiceContext,createVoiceMission,voiceDerivedFacts,refreshVoiceFacts,voiceReceiptRoster,voiceSurface,voiceSolids,hitVoicePart,voiceFootfall,voiceDecisionBody,voiceInteraction,interactVoiceMission,chooseVoiceMission,updateVoiceMission,voiceObjectives};
+})();
 __modules["src/simulation.mjs"] = (() => {
 const { WALKERS, MISSIONS, ALL_MISSIONS, ENEMY_TYPES, DIFFICULTIES } = __modules["src/content.mjs"];
 const { createChemicalMission, chemicalSurface, chemicalSolids, refreshChemicalFacts, chemicalInteraction,
   interactChemicalMission, chooseChemicalMission, chemicalFootfall, hitChemicalPart, updateChemicalMission,
   chemicalObjectives } = __modules["src/chemical-simulation.mjs"];
 const { chemicalContext, chemicalDecisionBody, chemicalReceiptRoster } = __modules["src/chemical-simulation.mjs"];
+const { createVoiceMission, voiceSurface, voiceSolids, refreshVoiceFacts, voiceInteraction,
+  interactVoiceMission, chooseVoiceMission, voiceFootfall, hitVoicePart, updateVoiceMission, voiceObjectives } = __modules["src/voice-simulation.mjs"];
+const { voiceContext, voiceDecisionBody, voiceReceiptRoster, voiceDerivedFacts } = __modules["src/voice-simulation.mjs"];
 const chemicalRuntime = { terrainAt, emit };
+const voiceRuntime = { terrainAt, emit };
 
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const dist = (ax, ay, bx, by) => Math.hypot(ax - bx, ay - by);
@@ -955,6 +1336,7 @@ function terrainAt(x, planetId = 'PL01') {
 }
 
 function chemicalSurfaceAt(s, x) { return chemicalSurface(s, x, terrainAt(x, s.planetId)); }
+function voiceSurfaceAt(s, x) { return voiceSurface(s, x, terrainAt(x, s.planetId)); }
 
 function random(s) {
   s.rng = (Math.imul(s.rng, 1664525) + 1013904223) >>> 0;
@@ -1278,7 +1660,15 @@ function createGame(options = {}) {
   if (mission.id === 'MI08') createDepartureMission(state, options.campaignContext || {});
   if (mission.id === 'MI09') createLivingRouteMission(state, options.campaignContext || {});
   if (mission.id === 'MI10') createChemicalMission(state, options.campaignContext || {}, chemicalRuntime);
+  if (mission.id === 'MI11') createVoiceMission(state, options.campaignContext || {}, voiceRuntime);
   state.enemies = spawnEnemies(state);
+  if (mission.id === 'MI11') {
+    for (const [i, x] of mission.voice.privateXs.entries()) {
+      const unit = enemy(state, mission.voice.privateTypes[i], x, state.enemies.length);
+      unit.id = `voice-private-${i + 1}`; state.enemies.push(unit);
+    }
+    emit(state, 'radio', 'Tess : « Trois points d’écoute. Ancre la machine et laisse retomber ses vibrations avant chaque relevé. La corniche précède le site de ponte ; la source ne sera située qu’après confrontation des signaux. »');
+  }
   if (mission.id === 'MI10') {
     for (const [i, x] of mission.chemical.privateXs.entries()) {
       const unit = enemy(state, mission.chemical.privateTypes[i], x, state.enemies.length);
@@ -1632,6 +2022,10 @@ function interactTrainMission(s) {
 
 function interact(s) {
   if (s.status !== 'playing' || s.decision.active) return false;
+  if (s.missionId === 'MI11') {
+    const changed = interactVoiceMission(s, voiceRuntime);
+    refreshVoiceFacts(s); refreshObjectives(s); return changed;
+  }
   if (s.missionId === 'MI10') {
     const changed = interactChemicalMission(s, chemicalRuntime);
     refreshChemicalFacts(s); refreshObjectives(s); return changed;
@@ -1684,6 +2078,9 @@ function commandGame(s, action, payload) {
   if (action === 'choice') {
     if (!s.decision.active || s.decision.resolved || !(s.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : ['obey', 'defy']).includes(payload)) return false;
     s.decision.choice = payload; s.decision.resolved = true; s.decision.active = false;
+    if (s.missionId === 'MI11') {
+      chooseVoiceMission(s, payload, voiceRuntime); refreshObjectives(s); return true;
+    }
     if (s.missionId === 'MI10') {
       chooseChemicalMission(s, payload, chemicalRuntime); refreshObjectives(s); return true;
     }
@@ -1828,6 +2225,7 @@ function enemyPresent(s, e) {
   if (e.id.startsWith('aval-control-drone-') && !s.departure?.alert.triggered) return false;
   if (e.id.startsWith('thyr-sniper-') && !s.livingRoute?.alert.triggered) return false;
   if (e.id.startsWith('chemical-private-') && !s.chemical?.alert.ready) return false;
+  if (e.id.startsWith('voice-private-') && !s.voice?.alert.ready) return false;
   if (e.id === 'private-hauler' && s.industrial?.retreatEscaped) return false;
   return e.id !== 'holt-observer' || Boolean(s.network?.scrutinyTriggered);
 }
@@ -1942,6 +2340,7 @@ function stomp(s, f) {
   emit(s, 'step', '', f.x, f.y);
   if (s.livingRoute) livingRouteFootfall(s, f);
   if (s.chemical) chemicalFootfall(s, f, chemicalRuntime);
+  if (s.voice) voiceFootfall(s, f, voiceRuntime);
   // A pipe incident is caused by a real planted foot, never by camera/body position.
   if (s.missionId === 'MI01' && f.contact && !s.campaign.passageSecured && s.campaign.pipeIntact &&
       f.x >= s.mission.passage.pipeFrom && f.x <= s.mission.passage.pipeTo &&
@@ -2009,11 +2408,11 @@ function updateWalker(s, dt, input) {
       if (f.progress >= 1) { f.phase = 'stance'; f.contact = true; f.y = walkerGroundAt(s, f.x); stomp(s, f); }
     }
   }
-  if (s.livingRoute || s.chemical) for (const foot of p.feet) if (foot.contact) foot.y = walkerGroundAt(s, foot.x);
+  if (s.livingRoute || s.chemical || s.voice) for (const foot of p.feet) if (foot.contact) foot.y = walkerGroundAt(s, foot.x);
   const anchor = p.feet.reduce((sum, f) => sum + f.x - f.homeOffset, 0) / p.feet.length;
   const lastX = p.x;
   p.anchorX = anchor;
-  const surfaceSpeed = s.channel ? channelSurfaceAt(s, p.x).traction : s.livingRoute ? livingRouteSurfaceAt(s, p.x).traction : s.chemical ? chemicalSurfaceAt(s, p.x).traction : 1;
+  const surfaceSpeed = s.channel ? channelSurfaceAt(s, p.x).traction : s.livingRoute ? livingRouteSurfaceAt(s, p.x).traction : s.chemical ? chemicalSurfaceAt(s, p.x).traction : s.voice ? voiceSurfaceAt(s, p.x).traction : 1;
   p.x += clamp((anchor - p.x) * 6 * dt, -s.walker.speed * surfaceSpeed * dt, s.walker.speed * surfaceSpeed * dt);
   p.x = clamp(p.x, 110, s.mission.length - 110);
   p.speed = (p.x - lastX) / Math.max(dt, 0.0001);
@@ -2078,6 +2477,7 @@ function updateEnemies(s, dt) {
     if (e.id.startsWith('aval-control-drone-') && !s.departure?.alert.triggered) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id.startsWith('thyr-sniper-') && !s.livingRoute?.alert.triggered) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id.startsWith('chemical-private-') && !s.chemical?.alert.ready) { e.active = false; e.phase = 'idle'; continue; }
+    if (e.id.startsWith('voice-private-') && !s.voice?.alert.ready) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'holt-observer' && !s.campaign?.holtAlerted) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'private-hauler') {
       const site = s.industrial;
@@ -2099,7 +2499,7 @@ function updateEnemies(s, dt) {
     }
     const delta = Math.abs(e.x - p.x);
     if (s.missionId === 'MI01' && !s.notified.ambush) { e.active = false; e.phase = 'idle'; continue; }
-    e.active = delta < 1150 || Boolean(s.chemical?.alert.ready && e.id.startsWith('chemical-private-')) || Boolean(s.livingRoute && s.livingRoute.logistics.released && !s.livingRoute.logistics.arrived && !s.livingRoute.logistics.destroyed && Math.abs(e.x - s.livingRoute.logistics.x) < 1000) || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
+    e.active = delta < 1150 || Boolean(s.voice?.alert.ready && e.id.startsWith('voice-private-')) || Boolean(s.chemical?.alert.ready && e.id.startsWith('chemical-private-')) || Boolean(s.livingRoute && s.livingRoute.logistics.released && !s.livingRoute.logistics.arrived && !s.livingRoute.logistics.destroyed && Math.abs(e.x - s.livingRoute.logistics.x) < 1000) || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
       || Boolean(s.channel && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < 900)
       || Boolean(s.dike && [...s.dike.technicians.filter(t => t.called), ...s.dike.residents.filter(r => r.phase === 'evacuating')].some(person => person.alive && !person.safe && Math.abs(e.x - person.x) < 900))
       || Boolean(s.ambulance && (s.ambulance.vehicle.called && !s.ambulance.vehicle.destroyed && Math.abs(e.x - s.ambulance.vehicle.x) < 900
@@ -2133,7 +2533,8 @@ function updateEnemies(s, dt) {
     }
     if (s.livingRoute?.logistics.released && !s.livingRoute.logistics.arrived && !s.livingRoute.logistics.destroyed && Math.abs(e.x - s.livingRoute.logistics.x) < Math.abs(e.x - target.x)) target = s.livingRoute.logistics;
     if (s.chemical?.sampler.started && !s.chemical.sampler.collected && !s.chemical.sampler.destroyed && !s.chemical.sampler.lost) target = s.chemical.sampler;
-    e.attackTarget = target === s.chemical?.sampler ? 'chemical-sampler' : target === s.livingRoute?.logistics ? 'logistics' : target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : target === s.ambulance?.vehicle ? 'ambulance' : s.ambulance?.staff.includes(target) ? 'medical-staff' : s.ambulance?.patients.includes(target) ? 'patient' : s.departure?.boats.includes(target) ? 'departure-boat' : s.departure?.people.includes(target) ? 'departure-person' : 'convoy';
+    if (s.voice?.leth.met && s.voice.leth.alive && !s.voice.leth.testimonyRecorded && !s.voice.leth.refused && !s.voice.leth.withdrawn) target = s.voice.leth;
+    e.attackTarget = target === s.voice?.leth ? 'voice-leth' : target === s.chemical?.sampler ? 'chemical-sampler' : target === s.livingRoute?.logistics ? 'logistics' : target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : target === s.ambulance?.vehicle ? 'ambulance' : s.ambulance?.staff.includes(target) ? 'medical-staff' : s.ambulance?.patients.includes(target) ? 'patient' : s.departure?.boats.includes(target) ? 'departure-boat' : s.departure?.people.includes(target) ? 'departure-person' : 'convoy';
     const td = Math.abs(e.x - target.x);
     if (e.phase === 'attack') {
       e.telegraph = Math.min(1, e.telegraph + dt / e.windup);
@@ -2229,6 +2630,11 @@ function explosion(s, shot, direct = null) {
     const distance = dist(part.x, part.y, shot.x, shot.y);
     if (distance < radius + part.w * .35) hitLivingRoutePart(s, part, shot.damage * .7 * (1 - distance / (radius + part.w * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1));
   }
+  if (s.voice) for (const part of voiceSolids(s)) {
+    if (part === direct || part.destroyed) continue;
+    const distance = dist(part.x, part.y, shot.x, shot.y);
+    if (distance < radius + part.w * .35) hitVoicePart(s, part, shot.damage * .7 * (1 - distance / (radius + part.w * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1), voiceRuntime);
+  }
   if (s.chemical) for (const part of chemicalSolids(s)) {
     if (part === direct || part.destroyed) continue;
     const distance = dist(part.x, part.y, shot.x, shot.y);
@@ -2302,6 +2708,7 @@ function updateProjectiles(s, dt) {
     }
     if (s.livingRoute) for (const part of livingRouteSolids(s)) if (!part.destroyed) test(part, 'living-route');
     if (s.chemical) for (const part of chemicalSolids(s)) if (!part.destroyed) test(part, 'chemical');
+    if (s.voice) for (const part of voiceSolids(s)) if (!part.destroyed) test(part, 'voice');
     if (s.departure) {
       for (const part of departureSolids(s)) if (!part.destroyed) {
         const bounds = s.departure.locks.includes(part) ? departureGateBounds(part) : part;
@@ -2329,6 +2736,7 @@ function updateProjectiles(s, dt) {
       if (hit.kind === 'radiator') damageRadiator(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'ambulance') hitAmbulancePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'living-route') hitLivingRoutePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
+      if (hit.kind === 'voice') hitVoicePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1), voiceRuntime);
       if (hit.kind === 'chemical') hitChemicalPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1), chemicalRuntime);
       if (hit.kind === 'departure') hitDeparturePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'dike') hitDikePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
@@ -3955,7 +4363,7 @@ function livingRouteSurfaceAt(s, x) {
     clearance: x >= s.mission.livingRoute.canopyFrom && x <= s.mission.livingRoute.canopyTo ? route.approach.clearance : 1000 };
 }
 
-function walkerGroundAt(s, x) { return s.livingRoute ? livingRouteSurfaceAt(s, x).groundY : s.chemical ? chemicalSurfaceAt(s, x).groundY : terrainAt(x, s.planetId); }
+function walkerGroundAt(s, x) { return s.livingRoute ? livingRouteSurfaceAt(s, x).groundY : s.chemical ? chemicalSurfaceAt(s, x).groundY : s.voice ? voiceSurfaceAt(s, x).groundY : terrainAt(x, s.planetId); }
 function livingRouteTerminal(animal) { return ['arrived', 'displaced', 'lost'].includes(animal.phase); }
 function livingRouteSupported(s) { return s.player.braced && Math.abs(s.player.speed) <= 3 && !s.player.move && s.player.feet.every(foot => foot.contact); }
 function livingRouteSolids(s) {
@@ -4195,6 +4603,7 @@ function updateWorld(s, dt) {
   if (s.missionId === 'MI08') updateDepartureMission(s, dt);
   if (s.missionId === 'MI09') updateLivingRouteMission(s, dt);
   if (s.missionId === 'MI10') updateChemicalMission(s, dt, chemicalRuntime);
+  if (s.missionId === 'MI11') updateVoiceMission(s, dt, voiceRuntime);
   if (s.status !== 'playing') return;
   if (e.scanning && !e.collected) {
     if (Math.abs(p.x - e.x) > (s.missionId === 'MI04' ? s.mission.industrial.interactionRadius : 250)) { e.scanning = false; e.scanProgress = 0; emit(s, 'radio', 'Lecture interrompue : terminal hors de portée.'); }
@@ -4288,6 +4697,7 @@ function updateWorld(s, dt) {
   else if (s.missionId === 'MI08') s.interaction = departureInteraction(s);
   else if (s.missionId === 'MI09') s.interaction = livingRouteInteraction(s);
   else if (s.missionId === 'MI10') s.interaction = chemicalInteraction(s);
+  else if (s.missionId === 'MI11') s.interaction = voiceInteraction(s);
   else if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     s.interaction = s.campaign.passageWorking ? `Déploiement des dalles ${Math.round(s.campaign.passageProgress * 100)} % · restez près du treuil` : 'E · Déployer les dalles de protection (4,5 s)';
   } else if (!e.collected && Math.abs(p.x - e.x) < 230) {
@@ -4298,6 +4708,10 @@ function updateWorld(s, dt) {
   if (p.hull <= 0) finish(s, false, 'Marcheur immobilisé. Votre équipage a déclenché la balise de secours.');
   else if (s.convoy && s.convoy.hp <= 0) finish(s, false, s.campaign ? s.campaign.filtersDelivered ? 'Le camion de Sami est perdu au poste. Les filtres ont été livrés, mais l’escorte a échoué. Reprenez le dernier point de contrôle pour retenter la mission.' : 'Le camion de Sami est perdu. Les filtres n’atteindront pas le poste des mineurs. Reprenez le dernier point de contrôle pour retenter l’escorte.' : 'Le transport est perdu. La route du bac se ferme.');
   else if (s.extraction.active && Math.abs(p.x - s.extraction.x) < s.extraction.radius) {
+    if (s.missionId === 'MI11') {
+      refreshVoiceFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
+      finish(s, true, `Vallée relevée : ${c.signalsRecorded} signaux exploitables et ${c.nestsIntact} sites de ponte intacts sur trois. ${c.testimonyRecorded ? 'Échange privé avec Leth conservé.' : 'Aucun témoignage achevé de Leth.'} ${c.te01Acquired ? 'TE01 relie l’avis, sa traduction impériale et le témoignage consenti.' : 'Les pièces disponibles ne suffisent pas à établir TE01.'} ${c.lethAlive ? 'Leth demeure vivant sur ce site.' : 'La perte de Leth reste inscrite au bilan.'} ${c.emitterSeized ? 'Émetteur embarqué.' : c.emitterOnline ? 'Émetteur remis en service.' : 'Émetteur perdu.'} Aucune diffusion publique ni aucun recrutement n’a été autorisé.`); return;
+    }
     if (s.missionId === 'MI10') {
       refreshChemicalFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
       finish(s, true, `Champ relevé : ${c.tanksSecured} cuves isolées, ${c.tanksDestroyed} détruites. ${c.sampleCollected ? 'Prélèvement matériel conservé.' : 'Prélèvement perdu avant collecte.'} ${c.pt02Acquired ? 'PT02 acquise avec ses trois marquages et le registre matériel d’Orison.' : 'Les pièces disponibles ne suffisent pas à établir PT02.'} ${c.canalsIntact} canaux intacts, ${c.canalsPolluted} contaminés ; ${c.homesHabitable} habitats utilisables. ${c.villageHabitable ? 'Le village conserve son circuit habitable.' : 'Le village reste compromis par les dommages ou le circuit.'}`); return;
@@ -4360,6 +4774,7 @@ function updateWorld(s, dt) {
 function refreshObjectives(s) {
   const goals = [];
   if (s.missionId === 'MI10') { s.objectives = chemicalObjectives(s); return; }
+  if (s.missionId === 'MI11') { s.objectives = voiceObjectives(s); return; }
   if (s.missionId === 'MI09') {
     const c = s.campaign;
     goals.push({ id: 'survey', label: 'Comparer la carte aux hameaux présents', current: Number(c.routeInspected), target: 1, complete: c.routeInspected });
@@ -4509,6 +4924,7 @@ function updateGame(s, delta, input = {}) {
     // MI10 material positions at that exact clock; subsequent paused calls exit
     // at the guard above and advance neither the clock nor the physical scene.
     if (s.chemical) { updateChemicalMission(s, dt, chemicalRuntime); refreshObjectives(s); }
+    if (s.voice) { updateVoiceMission(s, dt, voiceRuntime); refreshObjectives(s); }
     return s;
   }
   updateWalker(s, dt, input);
@@ -4526,7 +4942,7 @@ function updateGame(s, delta, input = {}) {
   return s;
 }
 
-return {chemicalContext,chemicalDecisionBody,chemicalReceiptRoster,terrainAt,chemicalSurfaceAt,createGame,radiatorBounds,radiatorCoolingFactor,trainDecisionBody,networkDecisionBody,industrialDecisionBody,commandGame,channelTideAt,channelSurfaceAt,channelDecisionBody,dikeSupportReady,dikeDecisionBody,ambulanceStopClear,ambulanceDecisionBody,departurePersonSeeds,departureReceiptRoster,departureTideAt,departureWindow,departureGateBounds,departureDecisionBody,livingRouteContext,livingRouteSurfaceAt,livingRouteReceiptRoster,livingRouteDecisionBody,updateGame};
+return {chemicalContext,chemicalDecisionBody,chemicalReceiptRoster,voiceContext,voiceDecisionBody,voiceReceiptRoster,voiceDerivedFacts,terrainAt,chemicalSurfaceAt,voiceSurfaceAt,createGame,radiatorBounds,radiatorCoolingFactor,trainDecisionBody,networkDecisionBody,industrialDecisionBody,commandGame,channelTideAt,channelSurfaceAt,channelDecisionBody,dikeSupportReady,dikeDecisionBody,ambulanceStopClear,ambulanceDecisionBody,departurePersonSeeds,departureReceiptRoster,departureTideAt,departureWindow,departureGateBounds,departureDecisionBody,livingRouteContext,livingRouteSurfaceAt,livingRouteReceiptRoster,livingRouteDecisionBody,updateGame};
 })();
 __modules["src/production-assets.mjs"] = (() => {
 /** Original production vector components, Ordre de Cendre 0.9.
@@ -5574,11 +5990,301 @@ function drawChemicalLabels(renderer, s) {
 
 return {chemicalTankRole,chemicalSummary,drawChemicalSite,drawChemicalLabels};
 })();
+__modules["src/voice-assets.mjs"] = (() => {
+/** Original MI11 geometry, shared by SVG exports and the live Canvas renderer.
+ * These drawings consume simulation states; they never create a testimony or consent. */
+const { drawProductionGeometry, productionGeometrySVG } = __modules["src/production-assets.mjs"];
+const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
+const VOICE_ASSET_SPECS = {
+  'listening-station': { size: [94, 100], bounds: [-65, -121, 137, 139], ids: ['MI11', 'PL03'], states: ['idle', 'listening', 'recorded', 'lost'], anchors: { ground: [0, 0], probe: [-36, -6], reading: [5, -69] } },
+  'resonance-emitter': { size: [150, 171], bounds: [-93, -199, 188, 219], ids: ['MI11', 'FA05'], states: ['transmitting', 'working', 'seized', 'preserved', 'destroyed'], anchors: { ground: [0, 0], resonator: [0, -115], coupling: [60, -26] } },
+  'nesting-site': { size: [250, 76], bounds: [-142, -99, 290, 122], ids: ['MI11', 'PL03'], states: ['intact', 'disturbed', 'damaged', 'lost'], anchors: { ground: [0, 0], centre: [0, -29] } },
+  'root-passage': { size: [260, 95], bounds: [-148, -119, 305, 144], ids: ['MI11', 'PL03'], states: ['unknown', 'surveyed', 'damaged', 'destroyed'], anchors: { ground: [0, 0], survey: [-94, -57] } },
+  'leth-interpreter': { size: [94, 144], bounds: [-64, -162, 140, 182], ids: ['MI11', 'PN06', 'FA05'], states: ['waiting', 'listening', 'speaking', 'refusing', 'lost'], anchors: { ground: [0, 0], face: [8, -121], recorder: [28, -71], hand: [48, -76] } },
+  'translation-record': { size: [106, 99], bounds: [-70, -123, 146, 145], ids: ['MI11', 'TE01'], states: ['untranslated', 'copying', 'copied', 'lost'], anchors: { ground: [0, 0], screen: [0, -70], socket: [48, -37] } },
+};
+const VOICE_ASSET_NAMES = Object.keys(VOICE_ASSET_SPECS);
+
+function painter() {
+  const shapes = [];
+  return { shapes,
+    poly(points, fill, stroke = '#203d39', strokeWidth = 2) { shapes.push({ type: 'polygon', points, fill, stroke, strokeWidth }); },
+    line(x1, y1, x2, y2, stroke, strokeWidth = 2) { shapes.push({ type: 'line', x1, y1, x2, y2, stroke, strokeWidth }); },
+    circle(x, y, r, fill, stroke = null, strokeWidth = 1) { shapes.push({ type: 'circle', x, y, r, fill, stroke, strokeWidth }); },
+    rect(x, y, w, h, fill, stroke = null, strokeWidth = 1) { shapes.push({ type: 'rect', x, y, w, h, fill, stroke, strokeWidth }); },
+    path(commands, fill, stroke = null, strokeWidth = 2) { shapes.push({ type: 'path', commands, fill, stroke, strokeWidth }); },
+  };
+}
+function wave(d, x, y, width, strength = 1, color = '#cbd9b5') {
+  const points = Array.from({ length: 13 }, (_, i) => [x + i * width / 12, y + Math.sin(i * 2.1) * (i % 3 === 0 ? 3 : 7) * strength]);
+  for (let i = 1; i < points.length; i++) d.line(...points[i - 1], ...points[i], color, 1.8);
+}
+function listening(d, state, progress) {
+  const lost = state === 'lost';
+  d.poly([[-52, 5], [-45, -10], [46, -10], [55, 5]], '#7a8a70');
+  for (const x of [-33, 28]) { d.poly([[x - 4, -11], [x - 1, -78], [x + 8, -78], [x + 12, -11]], '#97aa8b'); d.circle(x + 4, -44, 4, '#c4bc92', '#2c4940'); }
+  d.path([['M', -34, -57], ['L', -49, -57], ['L', -49, -12], ['L', -36, -12], ['L', -36, 8]], null, '#c4b98f', 5);
+  d.poly([[-31, -112], [24, -112], [48, -93], [39, -49], [-34, -49], [-44, -72]], lost ? '#536a59' : '#9aa98a');
+  d.poly([[-29, -103], [21, -103], [36, -90], [29, -61], [-28, -61]], '#253f39', '#c8c7a4', 1.5);
+  if (!lost) {
+    wave(d, -22, -81, 47, state === 'listening' ? .45 + progress * .55 : .18, state === 'recorded' ? '#dbe4ba' : '#9dc9bb');
+    d.rect(-24, -67, 48, 2, '#466257');
+    if (state === 'listening') d.rect(-24, -67, 48 * progress, 2, '#ded4a2');
+    if (state === 'recorded') { d.line(30, -104, 35, -97, '#d9dfb0', 3); d.line(35, -97, 46, -111, '#d9dfb0', 3); }
+  } else { d.line(-18, -101, 13, -62, '#9eaa88', 3); d.line(12, -102, -10, -64, '#738975', 2); d.poly([[42, -35], [60, -20], [43, -12]], '#8f9777'); }
+  d.rect(-17, -49, 31, 7, '#b2a77e');
+  d.line(-54, 10, -15, 10, '#b2bf95', 2); d.line(-46, 14, -24, 14, '#849d80', 1);
+}
+function emitter(d, state, progress) {
+  d.poly([[-77, 2], [-61, -22], [-24, -29], [38, -25], [72, -11], [82, 4], [48, 11], [-48, 11]], '#6f8977');
+  d.path([['M', -65, 4], ['Q', -82, -10, -86, -26], ['M', 63, 3], ['Q', 82, -8, 88, -27]], null, '#9aa987', 5);
+  d.poly([[-33, -17], [-25, -46], [29, -46], [38, -17]], '#b5b394');
+  if (state === 'seized') {
+    d.poly([[-24, -22], [-18, -41], [23, -41], [30, -22]], '#233e36', '#c1c6a1', 2);
+    d.line(-10, -41, -10, -29, '#c7c19a', 3); d.line(13, -41, 13, -29, '#c7c19a', 3);
+    d.path([['M', 56, -23], ['Q', 66, -50, 77, -33]], null, '#b0b18a', 4); return;
+  }
+  if (state === 'destroyed') {
+    d.poly([[-27, -39], [-38, -94], [-9, -66], [6, -109], [19, -73], [44, -93], [28, -34]], '#738676');
+    d.poly([[-72, -11], [-79, -73], [-60, -58], [-49, -20]], '#a2ae96');
+    d.poly([[37, -26], [75, -89], [88, -74], [59, -16]], '#8ca68f');
+    d.line(-24, -61, 30, -37, '#d1c097', 3); return;
+  }
+  d.path([['M', -20, -40], ['Q', -34, -82, -22, -145], ['L', -11, -176], ['L', 11, -176], ['Q', 38, -114, 21, -40], ['Z']], '#a4b99e', '#244239', 3);
+  d.path([['M', 7, -171], ['Q', 29, -110, 17, -47], ['L', 3, -45], ['Q', 18, -109, 7, -171], ['Z']], '#638879');
+  for (const [x, h] of [[-61, 130], [-40, 162], [40, 153], [63, 117]]) {
+    d.poly([[x - 5, -38], [x - 9, -h + 11], [x, -h], [x + 8, -h + 14], [x + 5, -38]], '#c0c9a7', '#2c4e41', 2);
+    d.line(x, -h + 26, x, -52, '#6a9e8b', 2);
+    d.line(x, -65, Math.sign(x) * 16, -85, '#a4bd9d', 2);
+  }
+  d.circle(0, -115, 18, '#294b40', '#d6d3ac', 3); d.circle(0, -115, 9, state === 'preserved' ? '#c2dcae' : '#8fc3b5');
+  d.line(-10, -115, 10, -115, '#e4deb0', 1.7); d.line(0, -125, 0, -105, '#e4deb0', 1.7);
+  d.path([['M', 18, -43], ['Q', 36, -20, 61, -26], ['L', 70, -18]], null, '#b2c19b', 5);
+  if (state === 'working') { d.rect(-21, -36, 42, 5, '#334e40'); d.rect(-21, -36, 42 * progress, 5, '#e0cb94'); }
+  if (state === 'preserved') { d.path([['M', -13, -176], ['Q', 0, -190, 13, -176]], null, '#cad9b4', 2); d.line(-5, -184, 5, -184, '#d7e1bd', 2); }
+}
+function nest(d, state) {
+  const lost = state === 'lost', damaged = lost || state === 'damaged';
+  d.path([['M', -133, 5], ['Q', -101, -47, -44, -41], ['Q', 11, -70, 79, -39], ['Q', 113, -32, 139, 5], ['Q', 0, 27, -133, 5], ['Z']], '#56785a', '#264839', 3);
+  for (let i = 0; i < 12; i++) { const x = -125 + i * 23; d.path([['M', x, 7], ['Q', x + 13, -17 - i % 3 * 8, x + 35, -7]], null, i % 2 ? '#9caa7b' : '#7f9b6c', 3); }
+  for (const [i, [x, y, radius]] of [[-75, -28, 17], [-27, -40, 20], [30, -32, 24], [85, -22, 16]].entries()) {
+    if (damaged && (lost || i === 1)) {
+      d.poly([[x - radius, y + 12], [x - radius + 5, y - 8], [x - 3, y + 1], [x + 6, y - 12], [x + radius, y + 14]], '#adbba0', '#315242', 1.8);
+      d.poly([[x - radius + 5, y + 12], [x - 5, y + 3], [x + 12, y + 14]], '#42624e');
+    } else {
+      d.path([['M', x - radius, y + 11], ['Q', x - radius - 5, y - radius, x, y - radius - 13], ['Q', x + radius + 9, y - radius + 4, x + radius, y + 11], ['Q', x, y + 22, x - radius, y + 11], ['Z']], '#bac7a3', '#335e47', 2);
+      d.path([['M', x - radius + 6, y + 3], ['Q', x - radius + 4, y - radius + 3, x - 1, y - radius - 5]], null, '#e0dfb7', 2);
+      for (const offset of [-7, 2, 8]) d.line(x + offset, y - 7, x + offset + 4, y + 7, '#7d9d77', 1);
+    }
+  }
+  if (state === 'disturbed') { d.path([['M', -126, -12], ['Q', -139, -36, -124, -52]], null, '#d7bd8d', 2); d.path([['M', 132, -12], ['Q', 144, -31, 130, -47]], null, '#d7bd8d', 2); }
+}
+function ridge(d, state) {
+  const broken = state === 'destroyed';
+  d.path([['M', -140, 9], ['Q', -91, -5, -69, -68], ['Q', -10, -117, 60, -77], ['Q', 103, -22, 146, 8], ['L', 115, 11], ['Q', 68, -29, 52, -48], ['Q', -3, -81, -47, -48], ['Q', -81, 4, -140, 9], ['Z']], broken ? '#6f7657' : '#7f9870', '#254936', 3);
+  d.path([['M', -124, 4], ['Q', -83, -4, -60, -58], ['Q', -4, -105, 55, -66], ['Q', 94, -16, 135, 8]], null, '#b6bd8e', 4);
+  if (state === 'damaged' || broken) {
+    d.poly([[-12, -102], [4, -77], [-10, -62], [19, -45], [22, -64], [10, -85], [18, -103]], '#294a36');
+    if (broken) d.poly([[-32, -101], [35, -97], [54, -50], [-45, -50]], '#1d3c31', '#1d3c31', 2);
+  }
+  if (state === 'surveyed') for (const [x, y] of [[-94, -40], [81, -47]]) { d.line(x, y + 28, x, y - 21, '#bec8a0', 3); d.poly([[x, y - 21], [x + 20, y - 17], [x + 17, y - 6], [x, y - 8]], '#d0cc98'); }
+}
+function leth(d, state, progress) {
+  if (state === 'lost') {
+    d.path([['M', -53, 6], ['Q', -37, -27, -8, -24], ['L', 26, -15], ['L', 59, -4], ['L', 47, 9], ['Z']], '#7c9587', '#28493f', 3);
+    d.poly([[22, -15], [31, -32], [52, -29], [65, -10], [50, -3]], '#aab59e');
+    d.line(-56, 10, 61, 10, '#b7b89a', 2); d.rect(-13, -21, 20, 13, '#3d5b50', '#a9b99b', 1); return;
+  }
+  const stride = 0;
+  const arm = state === 'speaking' ? -15 : state === 'listening' ? 7 : state === 'refusing' ? -26 : 0;
+  d.poly([[-24, -59], [-10, -59], [-13 + stride, -28], [-21 + stride, -5], [-14 + stride, 1], [-36 + stride, 1], [-30 + stride, -30]], '#749b8a', '#294c41', 2);
+  d.poly([[5, -61], [22, -60], [31 - stride, -31], [26 - stride, -3], [36 - stride, 2], [13 - stride, 2], [15 - stride, -28]], '#b6bea2', '#2d4e42', 2);
+  d.path([['M', -31, -98], ['Q', -42, -63, -46, -29], ['L', -19, -17], ['L', -3, -44], ['L', 21, -27], ['L', 35, -34], ['Q', 35, -79, 21, -99], ['Z']], '#758e81', '#25473b', 2.5);
+  d.path([['M', -28, -91], ['L', -12, -33], ['L', -24, -23], ['L', -37, -33], ['Z']], '#9baa8e');
+  d.poly([[-28, -102], [-8, -117], [22, -107], [27, -71], [6, -57], [-18, -69]], '#b9c2a7', '#294b3e', 2.5);
+  for (const y of [-95, -83, -71]) d.path([['M', -21, y], ['Q', 3, y + 11, 24, y - 1]], null, '#799b82', 3);
+  d.path([['M', -9, -114], ['Q', -18, -130, -5, -148], ['L', 18, -154], ['Q', 30, -148, 35, -132], ['Q', 34, -119, 21, -112], ['L', 8, -105], ['Z']], '#cbd0b3', '#2a4c40', 2.5);
+  d.path([['M', 8, -145], ['Q', 25, -147, 31, -133], ['Q', 26, -123, 15, -119], ['Q', 4, -132, 8, -145], ['Z']], '#7b9f8c', '#547b68', 1);
+  for (const [x, y] of [[14, -136], [24, -132]]) {
+    d.path([['M', x - 4, y], ['Q', x, y - 4, x + 5, y], ['Q', x, y + 4, x - 4, y], ['Z']], '#d9c997', '#35584a', 1);
+    d.line(x, y - 2, x, y + 2, '#284e40', 1.5);
+  }
+  d.path([['M', 19, -124], ['Q', 23, -119, 30, -121], ['M', 17, -122], ['Q', 17, -116, 24, -114]], null, '#476b58', 2);
+  for (const [x, y] of [[-7, -144], [-12, -137], [-13, -129]]) d.path([['M', x + 3, y], ['Q', x - 13, y - 4, x - 17, y + 6], ['Q', x - 6, y + 4, x, y + 8]], '#a8bd9e', '#436d54', 1.5);
+  d.poly([[-27, -100], [-38, -89], [-40, -62], [-25, -48], [-18, -55], [-30, -72], [-23, -87]], '#a7b99c');
+  d.poly([[23, -101], [33, -93], [35, -80 + arm], [52, -73 + arm], [47, -62 + arm], [25, -72 + arm], [17, -91]], '#b9c4a5');
+  d.line(52, -91 + arm, 49, -5, '#c4b892', 3); d.circle(51, -90 + arm, 7, '#426b58', '#c8ca9f', 2);
+  if (state === 'refusing') { d.poly([[44, -101], [45, -119], [52, -123], [58, -117], [56, -103]], '#d0cfab', '#476b55', 1.5); for (const x of [48, 52, 56]) d.line(x, -116, x - 1, -108, '#6d9272', 1); }
+  d.rect(-16, -66, 28, 20, '#365b4b', '#c6c59d', 1.5); wave(d, -11, -56, 18, state === 'speaking' ? .55 : .12);
+  d.line(-3, -95, -2, -68, '#c4ae80', 3); d.circle(-3, -100, 5, '#42695a', '#bfb98d', 1.5);
+}
+function translation(d, state, progress) {
+  const lost = state === 'lost';
+  d.poly([[-61, 6], [-46, -12], [48, -12], [65, 6]], '#7b8d72');
+  d.rect(-18, -38, 36, 35, '#a2ad8d', '#294b3d', 2);
+  d.poly([[-48, -104], [34, -109], [56, -86], [42, -34], [-49, -34], [-59, -70]], lost ? '#687960' : '#a7af8b', '#28483b', 3);
+  d.poly([[-41, -94], [29, -98], [41, -83], [32, -48], [-41, -48]], '#263f38', '#c3c39e', 2);
+  if (lost) { d.poly([[-31, -92], [-9, -69], [-18, -49], [3, -52], [13, -78], [28, -96]], '#819378'); d.line(-39, -72, 33, -60, '#b7b78f', 2); return; }
+  wave(d, -32, -82, 57, .75, '#9cc8b8');
+  d.line(-30, -66, -9, -66, '#c9bd91', 2); d.line(-4, -66, 24, -66, '#c9bd91', 2);
+  d.line(-30, -58, 11, -58, '#c9bd91', 2);
+  if (state === 'copying') { d.rect(-34, -43, 65, 3, '#344f40'); d.rect(-34, -43, 65 * progress, 3, '#e2d4a3'); }
+  if (state === 'copied') { d.poly([[38, -27], [54, -27], [62, -18], [53, -9], [38, -9]], '#c5d1a7'); d.line(42, -19, 47, -14, '#3d624a', 2); d.line(47, -14, 55, -23, '#3d624a', 2); }
+}
+
+function voiceAssetGeometry({ part = 'listening-station', state, progress = 0 } = {}) {
+  const spec = VOICE_ASSET_SPECS[part]; if (!spec) throw new Error(`Unknown voice component: ${part}`);
+  state ??= spec.states[0]; if (!spec.states.includes(state)) throw new Error(`Unknown ${part} state: ${state}`);
+  const d = painter(), p = clamp(progress, 0, 1);
+  if (part === 'listening-station') listening(d, state, p);
+  else if (part === 'resonance-emitter') emitter(d, state, p);
+  else if (part === 'nesting-site') nest(d, state);
+  else if (part === 'root-passage') ridge(d, state);
+  else if (part === 'leth-interpreter') leth(d, state, p);
+  else translation(d, state, p);
+  return { id: `voice-${part}-${state}`, part, state, size: [...spec.size], bounds: [...spec.bounds], pivot: [0, 0], anchors: spec.anchors, canonIds: spec.ids, shapes: d.shapes };
+}
+const cache = new Map();
+function drawVoiceAsset(ctx, options = {}) {
+  const part = options.part || 'listening-station', state = options.state || VOICE_ASSET_SPECS[part]?.states[0];
+  const progress = Math.round(clamp(options.progress || 0, 0, 1) * 32) / 32, key = `${part}:${state}:${progress}`;
+  let geometry = cache.get(key);
+  if (!geometry) { geometry = voiceAssetGeometry({ part, state, progress }); if (cache.size >= 256) cache.clear(); cache.set(key, geometry); }
+  ctx.save(); ctx.translate(options.x || 0, options.y || 0);
+  ctx.scale((options.scale ?? 1) * (options.width ?? geometry.size[0]) / geometry.size[0] * (options.facing === -1 ? -1 : 1), (options.scale ?? 1) * (options.height ?? geometry.size[1]) / geometry.size[1]);
+  drawProductionGeometry(ctx, geometry); ctx.restore(); return geometry;
+}
+function voiceAssetSVG(geometry) {
+  return productionGeometrySVG(geometry, { title: `${geometry.canonIds.join(' / ')} — ${geometry.part} — ${geometry.state}` })
+    .replace('src/production-assets.mjs', 'src/voice-assets.mjs')
+    .replace('tools/build-production-assets.mjs', 'tools/build-voice-assets.mjs');
+}
+
+return {VOICE_ASSET_SPECS,VOICE_ASSET_NAMES,voiceAssetGeometry,drawVoiceAsset,voiceAssetSVG};
+})();
+__modules["src/voice-renderer.mjs"] = (() => {
+/** MI11 scene drawing. All positions, work and permissions come from the scene. */
+const { terrainAt, voiceSurfaceAt } = __modules["src/simulation.mjs"];
+const { drawVoiceAsset } = __modules["src/voice-assets.mjs"];
+const { drawProductionPart } = __modules["src/production-assets.mjs"];
+const { drawThyrAsset } = __modules["src/thyr-assets.mjs"];
+const pct = n => Math.round((n || 0) * 100);
+function line(c, x1, y1, x2, y2, color, width = 1) { c.beginPath(); c.moveTo(x1, y1); c.lineTo(x2, y2); c.strokeStyle = color; c.lineWidth = width; c.stroke(); }
+function label(c, value, x, y, size = 10, color = '#d9dfbb', max = 430) { c.font = `500 ${size}px "IBM Plex Mono", "Courier New", monospace`; c.fillStyle = color; c.textAlign = 'center'; c.fillText(value, x, y, max); }
+function work(c, o, x = o.x, y = o.y - o.h / 2 - 8) {
+  if (!o.working) return;
+  c.fillStyle = '#294a3d'; c.fillRect(x - 35, y, 70, 4); c.fillStyle = '#d6d9b2'; c.fillRect(x - 35, y, 70 * o.progress, 4);
+}
+function health(c, o) { if (!o.destroyed && o.hp < o.maxHp) { c.fillStyle = '#294733'; c.fillRect(o.x - 31, o.y - o.h / 2 - 3, 62, 3); c.fillStyle = '#d8aa7a'; c.fillRect(o.x - 31, o.y - o.h / 2 - 3, 62 * Math.max(0, o.hp / o.maxHp), 3); } }
+function post(c, o, title, done) {
+  drawProductionPart(c, { part: 'maintenance-post', x: o.x, y: o.y, width: o.w, height: o.h });
+  label(c, title, o.x, o.y - o.h / 2 - 23, 9, done ? '#b8d2a1' : '#ddce9a'); work(c, o);
+}
+function voiceSummary(s) {
+  const d = s.voice, f = s.campaign, l = d.leth;
+  const consent = !l.alive ? 'TÉMOIN PERDU' : l.withdrawn ? 'ACCORD RETIRÉ' : l.refused ? 'ENREGISTREMENT REFUSÉ' : l.consent ? 'ACCORD PRIVÉ REÇU' : l.met ? 'ACCORD À DEMANDER' : 'RENCONTRE À ÉTABLIR';
+  const testimony = l.testimonyRecorded ? 'TÉMOIGNAGE CONSERVÉ' : l.testimonyLost ? 'ÉCHANGE PERDU' : l.working && l.work === 'testimony' ? `ÉCHANGE ${pct(l.progress)} %` : l.testimonyStarted && !f.testimonyResolved ? 'ÉCHANGE INTERROMPU · RELANCER' : l.refused || l.withdrawn ? 'AUCUN TÉMOIGNAGE ACHEVÉ' : 'ÉCHANGE À ACCOMPLIR';
+  const emitter = d.emitter.destroyed ? 'ÉMETTEUR DÉTRUIT' : d.emitter.seized ? 'ÉMETTEUR SAISI' : d.emitter.restored ? 'LIAISON RÉTABLIE' : d.emitter.working ? d.emitter.work === 'seize' ? `SAISIE ${pct(d.emitter.progress)} %` : d.emitter.work === 'restore' ? `REMISE EN SERVICE ${pct(d.emitter.progress)} %` : `COPIE DE SOURCE ${pct(d.emitter.progress)} %` : 'ÉMETTEUR EN PLACE';
+  let stage = 'RELEVER LES TROIS ÉCOUTES';
+  if (d.report.transmitted) stage = 'RAPPORT TRANSMIS · REJOINDRE LA SORTIE';
+  else if (f.readingsTaken < 3) stage = 'RELEVER LES TROIS ÉCOUTES';
+  else if (!d.ridge.surveyed && !d.ridge.destroyed && s.player.x < s.mission.voice.ridgeStart) stage = 'RECONNAÎTRE LA CORNICHE AVANT LA PONTE';
+  else if (!f.manifestRead) stage = 'RELEVER LES DEUX SOURCES OU CONSTATER LEUR PERTE';
+  else if (!f.encounterResolved) stage = l.alive ? 'APPROCHER L’INTERPRÈTE' : 'CONSTATER LA PERTE DE LETH';
+  else if (l.testimonyStarted && !f.testimonyResolved) stage = l.working ? 'PROTÉGER L’ÉCHANGE EN COURS' : 'REVENIR À LETH ET RELANCER L’ÉCHANGE';
+  else if (f.operationsResolved) stage = f.privateNeutralized < 3 ? 'SÉCURISER LE SITE AVANT LE RAPPORT' : 'TRANSMETTRE LES FAITS ET LES PERTES';
+  else if (s.decision.resolved) stage = f.plan === 'seize' ? 'ACCOMPLIR LA SAISIE SUR L’ÉMETTEUR' : 'RÉTABLIR LA LIAISON SUR L’ÉMETTEUR';
+  else if (f.testimonyResolved) stage = 'REJOINDRE LE POSTE D’ORDRE';
+  else if (l.consent) stage = 'COMMENCER L’ÉCHANGE CONSENTI';
+  else if (l.met) stage = 'DEMANDER L’ACCORD DE LETH';
+  return { stage, consent, testimony, emitter, readings: f.readingsTaken, signals: f.signalsRecorded,
+    nestsIntact: f.nestsIntact, nestsLost: f.nestsLost, sourceLocated: f.sourceLocated,
+    copies: Number(f.warningCopied) + Number(f.translationCopied), remainingThreats: s.enemies.filter(e => e.id.startsWith('voice-private-') && !e.dead).length };
+}
+
+function drawVoiceSite(renderer, s, t) {
+  const c = renderer.ctx, d = s.voice, cfg = s.mission.voice, f = s.campaign;
+  for (const [i, point] of d.listening.entries()) {
+    if (!renderer.visible(point.x, 160)) continue;
+    const state = point.destroyed ? 'lost' : point.working ? 'listening' : point.detected ? 'recorded' : 'idle';
+    drawVoiceAsset(c, { part: 'listening-station', state, x: point.x, y: point.y + point.h / 2, width: point.w, height: point.h, progress: point.progress });
+    label(c, `ÉCOUTE ${i + 1} · ${point.destroyed ? 'POSTE PERDU' : point.detected ? 'SIGNAL CONSERVÉ' : point.working ? 'APPUI ET SILENCE' : 'RELEVÉ À PRENDRE'}`, point.x, point.y - point.h / 2 - 31, 9);
+    if (point.sampled) label(c, point.detected ? `RÉSONANCE ${pct(point.signal)} % · ORIENTATION ${point.bearing > 0 ? 'EST' : 'OUEST'}` : 'CONSTAT CONSERVÉ · AUCUN SIGNAL COPIÉ', point.x, point.y - point.h / 2 - 15, 8, '#a8cbbb');
+    work(c, point); health(c, point);
+  }
+  const from = Math.max(cfg.ridgeStart, renderer.cameraX - 40), to = Math.min(cfg.ridgeEnd, renderer.cameraX + 1640);
+  if (to > from && d.ridge.surveyed && !d.ridge.destroyed) {
+    const points = []; for (let x = from; x <= to; x += 8) points.push([x, voiceSurfaceAt(s, x).groundY]); points.push([to, voiceSurfaceAt(s, to).groundY]);
+    c.beginPath(); c.moveTo(...points[0]); for (const point of points.slice(1)) c.lineTo(...point);
+    for (const point of points.toReversed()) c.lineTo(point[0], point[1] + 13);
+    c.closePath(); c.fillStyle = '#688461'; c.fill();
+    c.beginPath(); c.moveTo(...points[0]); for (const point of points.slice(1)) c.lineTo(...point); c.strokeStyle = '#c0c99a'; c.lineWidth = 4; c.stroke();
+    for (let x = from + 24; x < to; x += 65) line(c, x, voiceSurfaceAt(s, x).groundY + 3, x + 18, voiceSurfaceAt(s, x + 18).groundY + 11, '#415e45', 2);
+  }
+  if (renderer.visible(d.ridge.controlX, 170)) {
+    const x = d.ridge.controlX, y = terrainAt(x, s.planetId);
+    drawVoiceAsset(c, { part: 'root-passage', state: d.ridge.destroyed ? 'destroyed' : d.ridge.surveyed ? 'surveyed' : d.ridge.hp < d.ridge.maxHp ? 'damaged' : 'unknown', x, y, scale: .42 });
+    label(c, d.ridge.destroyed ? 'CORNICHE ROMPUE' : d.ridge.surveyed ? 'PASSAGE HAUT RECONNU' : 'REPÈRE DU PASSAGE HAUT', x, y - 74, 9);
+    label(c, 'RELEVÉ DU TRAJET AU-DESSUS DE LA PONTE', x, y - 58, 8, '#adc3a5', 310); work(c, d.ridge, x, y - 49);
+  }
+  for (const [i, nest] of d.nests.entries()) {
+    if (!renderer.visible(nest.x, 160)) continue;
+    drawVoiceAsset(c, { part: 'nesting-site', state: nest.destroyed ? 'lost' : nest.hp < nest.maxHp ? 'damaged' : nest.disturbance > 0 ? 'disturbed' : 'intact', x: nest.x, y: nest.y + nest.h / 2, width: nest.w, height: nest.h });
+    label(c, `SITE ${i + 1} · ${nest.destroyed ? 'PERDU' : nest.hp < nest.maxHp ? 'ENDOMMAGÉ' : 'PONTE INTACTE'}`, nest.x, terrainAt(nest.x, s.planetId) + 25, 8, nest.hp < nest.maxHp ? '#dca37d' : '#c0d0a1', 190); health(c, nest);
+  }
+  if (renderer.visible(d.receiver.x, 180)) {
+    const o = d.receiver;
+    drawVoiceAsset(c, { part: 'translation-record', state: o.destroyed ? 'lost' : o.translationCopied ? 'copied' : o.working ? 'copying' : 'untranslated', x: o.x, y: o.y + o.h / 2, width: o.w, height: o.h, progress: o.progress });
+    label(c, 'TRADUCTION DU POSTE IMPÉRIAL', o.x, o.y - o.h / 2 - 33, 9);
+    label(c, o.translationCopied ? 'COPIE CONSERVÉE À BORD' : o.destroyed ? 'SUPPORT PERDU · AUCUNE COPIE' : 'RELEVER LE TEXTE REÇU', o.x, o.y - o.h / 2 - 17, 8, '#b2c7a7'); work(c, o); health(c, o);
+  }
+  if (renderer.visible(d.emitter.x, 200)) {
+    const o = d.emitter, state = o.destroyed ? 'destroyed' : o.seized ? 'seized' : o.restored ? 'preserved' : o.working ? 'working' : 'transmitting';
+    drawVoiceAsset(c, { part: 'resonance-emitter', state, x: o.x, y: o.y + o.h / 2, width: o.w, height: o.h, progress: o.progress });
+    label(c, f.te01Acquired ? 'AVERTISSEMENTS RECUEILLIS' : f.sourceLocated ? 'ÉMETTEUR DE LA VALLÉE' : 'STRUCTURE RÉSONANTE À IDENTIFIER', o.x, o.y - o.h / 2 - 35, 9);
+    label(c, voiceSummary(s).emitter, o.x, o.y - o.h / 2 - 19, 8, '#a9d1ba'); work(c, o); health(c, o);
+  }
+  if (renderer.visible(d.orders.x, 150)) post(c, d.orders, f.operationsResolved ? 'OPÉRATION CONSTATÉE · RAPPORT À TRANSMETTRE' : s.decision.resolved ? 'CONDUITE RETENUE · ACTE À ACCOMPLIR' : 'ORDRE DE CAPTURE', s.decision.resolved);
+  if (renderer.visible(d.report.x, 150)) post(c, d.report, d.report.transmitted ? 'RAPPORT TRANSMIS' : 'LIAISON DE FIN DE SORTIE', d.report.transmitted);
+  for (const x of [920, 1450, 1970, 4220, 5010]) if (renderer.visible(x, 100)) drawThyrAsset(c, { part: 'echo-grass', state: 'calm', x, y: terrainAt(x, s.planetId) + 5, scale: .45, progress: (t * .3) % 1 });
+}
+
+function drawVoiceActor(renderer, s) {
+  const c = renderer.ctx, l = s.voice.leth;
+  if (!renderer.visible(l.x, 200)) return;
+  const state = !l.alive ? 'lost' : l.refused || l.withdrawn ? 'refusing' : l.working && l.work === 'testimony' ? 'speaking' : l.consent || l.met ? 'listening' : 'waiting';
+  drawVoiceAsset(c, { part: 'leth-interpreter', state, x: l.x, y: l.y + l.h / 2, width: l.w * 1.12, height: l.h, progress: l.progress, facing: s.player.x < l.x ? -1 : 1 });
+  label(c, l.met ? 'LETH DE LA SEPTIÈME RIVE' : 'INTERPRÈTE À APPROCHER', l.x, l.y - l.h / 2 - 35, 9, '#d7dfba');
+  label(c, voiceSummary(s).consent, l.x, l.y - l.h / 2 - 19, 8, !l.alive || l.withdrawn || l.refused ? '#e0ac86' : '#a4cdb8');
+  work(c, l); health(c, l);
+  if (l.working && l.work === 'testimony') {
+    for (const x of [l.x - s.mission.voice.exchangeRadius, l.x + s.mission.voice.exchangeRadius]) if (renderer.visible(x, 100)) {
+      const y = terrainAt(x, s.planetId); line(c, x, y - 10, x, y - 68, '#b3d5b5', 2); label(c, 'LIMITE DE PROTECTION', x, y - 78, 8);
+    }
+  }
+}
+
+function drawVoiceLabels(renderer, s) {
+  const c = renderer.ctx, d = s.voice, f = s.campaign, v = voiceSummary(s), px = s.player.x, entries = [];
+  const add = (title, detail, sub, warning = false) => entries.push({ title, detail, sub, warning });
+  const listening = d.listening.find(point => Math.abs(point.x - px) < 260 && !point.sampled);
+  if (listening) add('ÉCOUTE DES RACINES', listening.working ? `RELEVÉ ${pct(listening.progress)} % · TENIR LES APPUIS` : 'ANCRAGE · IMMOBILITÉ · AUCUN TIR', `${f.signalsRecorded} / 3 signaux exploitables conservés`);
+  if (px > s.mission.voice.surveyX - 250 && px < s.mission.voice.ridgeEnd + 80) add('PONTE LOCALE', d.ridge.destroyed ? 'CORNICHE PERDUE · SURVEILLER CHAQUE APPUI' : d.ridge.surveyed ? 'ITINÉRAIRE HAUT RECONNU' : 'RELEVER LA CORNICHE AVANT DE FRANCHIR', `${f.nestsIntact} sites intacts · ${f.nestsDamaged} endommagés · ${f.nestsLost} perdus`, !f.ridgeIntact || f.nestsIntact < 3);
+  if (Math.abs(px - d.leth.x) < 1050 && f.encounterResolved) add('L’ACCORD DE LETH', v.testimony, `${v.consent} · aucune diffusion publique autorisée`, !f.lethAlive || f.consentWithdrawn || f.consentRefused);
+  if (d.leth.testimonyStarted && !f.testimonyResolved) add('PROTECTION DE L’ÉCHANGE', d.leth.working ? `ENREGISTREMENT ${pct(d.leth.progress)} %` : 'REVENIR À LETH ET RELANCER', d.alert.ready ? v.remainingThreats ? `${v.remainingThreats} forces privées présentes` : 'Forces privées neutralisées' : 'Forces privées en approche', true);
+  if (Math.abs(px - d.emitter.x) < 300 && f.manifestRead && !d.leth.working) add('DEUX SOURCES DISTINCTES', `${f.warningCopied ? 'AVIS COPIÉ' : 'AVIS ABSENT'} · ${f.translationCopied ? 'TRADUCTION COPIÉE' : 'TRADUCTION ABSENTE'}`, f.te01Acquired ? 'TE01 conservé · portée limitée aux avertissements déformés' : 'Le témoignage consenti reste une pièce distincte');
+  if (Math.abs(px - d.report.x) < 340) add('RAPPORT DE LA VALLÉE', d.report.transmitted ? 'TRANSMISSION ACQUISE' : d.report.working ? `TRANSMISSION ${pct(d.report.progress)} %` : 'CONSERVER LES FAITS PUIS REJOINDRE LA SORTIE', `${f.te01Acquired ? 'TE01 conservé' : 'TE01 absent'} · ${f.witnessAvailable ? 'témoin disponible' : 'témoin indisponible'}`);
+  entries.slice(0, 2).forEach((e, i) => { const x = renderer.cameraX + 902, y = 130 + i * 78, width = 460; c.fillStyle = '#17382fee'; c.fillRect(x - width / 2, y, width, 68); line(c, x - width / 2, y, x + width / 2, y, e.warning ? '#d8ab79' : '#c7d4a1', 1.5); label(c, e.title, x, y + 17, 10, '#dad6a7', width - 16); label(c, e.detail, x, y + 36, 9, '#d9dfbb', width - 16); label(c, e.sub, x, y + 55, 9, '#abc19c', width - 16); });
+}
+
+return {voiceSummary,drawVoiceSite,drawVoiceActor,drawVoiceLabels};
+})();
 __modules["src/renderer.mjs"] = (() => {
 const { terrainAt, radiatorBounds, channelSurfaceAt, departureGateBounds, departureWindow } = __modules["src/simulation.mjs"];
 const { drawProductionPart, productionLegPose } = __modules["src/production-assets.mjs"];
 const { drawLivingRouteSite, drawLivingRouteActors, drawLivingRouteLabels } = __modules["src/thyr-renderer.mjs"];
 const { drawChemicalSite, drawChemicalLabels } = __modules["src/chemical-renderer.mjs"];
+const { drawVoiceSite, drawVoiceActor, drawVoiceLabels } = __modules["src/voice-renderer.mjs"];
 const { WALKERS } = __modules["src/content.mjs"];
 const W = 1600, H = 900;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -5716,11 +6422,12 @@ class Renderer {
     if (s.departure) this.drawDepartureSite(s, t);
     if (s.livingRoute) drawLivingRouteSite(this, s, t);
     if (s.chemical) drawChemicalSite(this, s, t);
+    if (s.voice) drawVoiceSite(this, s, t);
     for (const r of s.relays) if (this.visible(r.x, 150)) this.drawRelay(r, s);
-    if (!s.train && !s.industrial && !s.dike && !s.ambulance && !s.departure && !s.livingRoute && !s.chemical) this.drawEvidence(s, t);
+    if (!s.train && !s.industrial && !s.dike && !s.ambulance && !s.departure && !s.livingRoute && !s.chemical && !s.voice) this.drawEvidence(s, t);
     this.drawExtraction(s, t);
     for (const item of s.pickups) if (!item.collected && this.visible(item.x, 100)) this.drawSupply(item, t);
-    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped) && (!e.id.startsWith('seizure-drone-') || s.ambulance?.raidTriggered) && (!e.id.startsWith('aval-control-drone-') || s.departure?.alert.triggered) && (!e.id.startsWith('thyr-sniper-') || s.livingRoute?.alert.triggered) && (!e.id.startsWith('chemical-private-') || s.chemical?.alert.ready));
+    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped) && (!e.id.startsWith('seizure-drone-') || s.ambulance?.raidTriggered) && (!e.id.startsWith('aval-control-drone-') || s.departure?.alert.triggered) && (!e.id.startsWith('thyr-sniper-') || s.livingRoute?.alert.triggered) && (!e.id.startsWith('chemical-private-') || s.chemical?.alert.ready) && (!e.id.startsWith('voice-private-') || s.voice?.alert.ready));
     for (const e of visibleEnemies) this.drawTelegraph(e, s, t);
     for (const civilian of s.civilians) if (civilian.alive && !civilian.safe && this.visible(civilian.x, 100)) this.drawHuman(civilian, t, true);
     if (s.convoy && this.visible(s.convoy.x, 200)) this.drawConvoy(s.convoy, t);
@@ -5733,6 +6440,7 @@ class Renderer {
     if (s.ambulance) { this.drawAmbulanceVehicle(s, t); this.drawAmbulancePeople(s, t); }
     if (s.departure) { this.drawDepartureBoats(s, t); this.drawDeparturePeople(s, t); }
     if (s.livingRoute) drawLivingRouteActors(this, s, t);
+    if (s.voice) drawVoiceActor(this, s);
     for (const e of visibleEnemies) if (e.kind === 'air') this.drawEnemy(e, s, t);
     this.drawShots(s);
     this.drawParticles(s);
@@ -5746,6 +6454,7 @@ class Renderer {
     if (s.departure) this.drawDepartureLabels(s);
     if (s.livingRoute) drawLivingRouteLabels(this, s);
     if (s.chemical) drawChemicalLabels(this, s);
+    if (s.voice) drawVoiceLabels(this, s);
     c.restore();
     this.drawAtmosphere(s, t);
     this.drawMarkers(s);
@@ -6873,7 +7582,7 @@ class Renderer {
   }
 
   drawCampaignLandmarks(s, t) {
-    if (s.channel || s.dike || s.ambulance || s.departure || s.livingRoute || s.chemical) return;
+    if (s.channel || s.dike || s.ambulance || s.departure || s.livingRoute || s.chemical || s.voice) return;
     if (s.train) { this.drawRailHarpoons(s, t); return; }
     if (s.network) { this.drawNetworkStations(s, t); return; }
     if (s.industrial) { this.drawIndustrialStation(s, t); return; }
@@ -7412,7 +8121,7 @@ class Renderer {
       circle(c, toX(s.mission.passage.stationX), by, 4, s.campaign.passageSecured ? '#91bea8' : '#d4ae73');
       line(c, toX(s.mission.passage.pipeFrom), by + 5, toX(s.mission.passage.pipeTo), by + 5, s.campaign.pipeIntact ? '#afb68a' : '#d88e6b', 3);
     }
-    if (!s.livingRoute && !s.chemical) { const ex = toX(s.evidence.x); poly(c, [[ex, by - 5], [ex + 4, by], [ex, by + 5], [ex - 4, by]], s.evidence.collected ? '#91bea8' : '#e6c284'); }
+    if (!s.livingRoute && !s.chemical && !s.voice) { const ex = toX(s.evidence.x); poly(c, [[ex, by - 5], [ex + 4, by], [ex, by + 5], [ex - 4, by]], s.evidence.collected ? '#91bea8' : '#e6c284'); }
     if (s.convoy) { c.fillStyle = '#91d2c4'; c.fillRect(toX(s.convoy.x) - 3, by - 3, 6, 6); }
     if (s.train) {
       for (const h of s.train.harpoons) circle(c, toX(h.x), by, 4, h.released ? '#91bea8' : '#d4ae73');
@@ -7465,6 +8174,13 @@ class Renderer {
       for (const canal of s.chemical.canals) line(c, toX(canal.x - canal.w / 2), by + 5, toX(canal.x + canal.w / 2), by + 5, canal.destroyed || canal.contamination >= s.mission.chemical.contaminationLimit ? '#d99b77' : '#a4d3bf', 3);
       circle(c, toX(s.chemical.sampler.x), by - 5, 4, s.chemical.sampler.collected ? '#c9dfa7' : s.chemical.sampler.lost ? '#d99b77' : '#dfc687');
       for (const plume of s.chemical.plumes) if (plume.phase === 'flowing') circle(c, toX(plume.x), by + 9, 1.5, '#d3c576');
+    }
+    if (s.voice) {
+      const d = s.voice;
+      for (const point of d.listening) circle(c, toX(point.x), by, 3, point.detected ? '#c5dfb3' : point.destroyed ? '#d89f7f' : '#a3b7a3');
+      if (d.ridge.surveyed) line(c, toX(s.mission.voice.ridgeStart), by + 6, toX(s.mission.voice.ridgeEnd), by + 6, d.ridge.destroyed ? '#d89f7f' : '#c4d29d', 3);
+      if (s.campaign.sourceLocated) { c.fillStyle = d.emitter.destroyed ? '#d89f7f' : d.emitter.seized ? '#b5bc9e' : '#a5d5bd'; c.fillRect(toX(d.emitter.x) - 3, by - 5, 6, 10); }
+      if (d.leth.met || d.leth.encountered) circle(c, toX(d.leth.x), by - 7, 3, d.leth.alive ? '#d9d6ad' : '#ca8e70');
     }
     const px = toX(s.player.x); poly(c, [[px, by - 8], [px + 5, by - 15], [px - 5, by - 15]], '#e2c893');
     const exitX = toX(s.extraction.x); line(c, exitX, by - 7, exitX, by + 7, s.extraction.active ? '#c6dfb1' : '#657b73', 2);
@@ -8800,6 +9516,394 @@ function validateChemicalSortie(previous, current) {
 
 return {createChemicalDossier,chemicalContextFor,validateChemicalFacts,chemicalDossierFromGame,validateChemicalMission,validateChemicalReceipt,validateChemicalSortie};
 })();
+__modules["src/voice-validation.mjs"] = (() => {
+/** MI11 campaign validation. Pure checks; never advances or repairs a scene. */
+const { DIFFICULTIES, ENEMY_TYPES } = __modules["src/content.mjs"];
+const { createGame } = __modules["src/simulation.mjs"];
+const { voiceDerivedFacts, voiceReceiptRoster } = __modules["src/voice-simulation.mjs"];
+const FLAGS = ['sourceLocated', 'ridgeSurveyed', 'ridgeIntact', 'emitterInspected', 'warningCopied',
+  'translationInspected', 'translationCopied', 'encounterResolved', 'lethMet', 'lethAlive',
+  'consentAsked', 'consentGranted', 'consentRefused', 'consentWithdrawn', 'testimonyStarted',
+  'testimonyRecorded', 'testimonyLost', 'testimonyResolved', 'te01Acquired', 'witnessAvailable',
+  'publicConsent', 'recruited', 'alliancePossible', 'emitterSeized', 'emitterRestored',
+  'emitterOnline', 'emitterLost', 'operationsResolved', 'privateTriggered', 'privateReady',
+  'manifestRead', 'reportTransmitted'];
+const COUNTS = { readingsTaken: 3, signalsRecorded: 3, nestsTotal: 3, nestsIntact: 3,
+  nestsDamaged: 3, nestsLost: 3, nestDisturbance: 10_000_000, lethTrust: 70, privateNeutralized: 3 };
+const CONTEXT_KEYS = ['chemicalRecorded', 'chemicalChoice', 'chemicalPt02', 'chemicalVillageHabitable', 'chemicalWaterRestored'];
+const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+const close = (a, b) => Math.abs(a - b) <= 1e-6;
+const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+function requireValue(ok, label) { if (!ok) throw new Error(`Sauvegarde invalide : voix de Thyr — ${label}`); }
+function number(value, min, max, label, integer = false) {
+  requireValue(Number.isFinite(value) && value >= min && value <= max && (!integer || Number.isInteger(value)), label);
+}
+function boolean(value, label) { requireValue(typeof value === 'boolean', label); }
+function equal(value, expected, label) { requireValue(JSON.stringify(value) === JSON.stringify(expected), label); }
+function keys(value, expected, label) {
+  requireValue(object(value) && Object.keys(value).length === expected.length && expected.every(key => Object.hasOwn(value, key)), label);
+}
+function fixed(value, expected, fields, label) {
+  for (const key of fields) requireValue(value[key] === expected[key], `${label}.${key}`);
+}
+function shape(value, initial, label) {
+  keys(value, Object.keys(initial), `${label} : champs`);
+  for (const [key, expected] of Object.entries(initial)) {
+    if (expected !== null && !object(expected) && !Array.isArray(expected)) requireValue(typeof value[key] === typeof expected, `${label}.${key} : type`);
+  }
+}
+
+function createVoiceDossier() {
+  return { plan: 'unselected', ...Object.fromEntries(FLAGS.map(key => [key, false])),
+    ...Object.fromEntries(Object.keys(COUNTS).map(key => [key, 0])), roster: null };
+}
+
+function voiceContextFor(campaign) {
+  const report = campaign.completed.MI10;
+  return { chemicalRecorded: Boolean(report), chemicalChoice: report?.choice || 'none',
+    chemicalPt02: report?.pt02Acquired || false, chemicalVillageHabitable: report?.villageHabitable || false,
+    chemicalWaterRestored: report?.waterRestored || false };
+}
+
+function validateContext(context) {
+  keys(context, CONTEXT_KEYS, 'héritage du champ chimique');
+  for (const key of CONTEXT_KEYS.filter(key => key !== 'chemicalChoice')) boolean(context[key], `héritage ${key}`);
+  requireValue(['none', 'obey', 'defy'].includes(context.chemicalChoice), 'conduite héritée inconnue');
+  requireValue(context.chemicalRecorded === (context.chemicalChoice !== 'none'), 'choix sans rapport MI10');
+  requireValue(context.chemicalRecorded || !context.chemicalPt02 && !context.chemicalVillageHabitable && !context.chemicalWaterRestored, 'conséquence sans rapport MI10');
+}
+
+function validateVoiceFacts(facts, finished = false) {
+  for (const key of FLAGS) boolean(facts[key], `bilan ${key}`);
+  for (const [key, max] of Object.entries(COUNTS)) number(facts[key], 0, max, `bilan ${key}`, true);
+  requireValue(['unselected', 'seize', 'restore'].includes(facts.plan), 'conduite inconnue');
+  requireValue(facts.signalsRecorded <= facts.readingsTaken, 'signal sans relevé');
+  requireValue(facts.sourceLocated === (facts.signalsRecorded === 3 || facts.emitterInspected), 'localisation sans relevés ni constat sur place');
+  requireValue(facts.nestsTotal === 3 && facts.nestsIntact + facts.nestsDamaged + facts.nestsLost === 3, 'bilan de ponte non réconcilié');
+  requireValue(!facts.warningCopied || facts.emitterInspected, 'avis copié sans inspection');
+  requireValue(!facts.translationCopied || facts.translationInspected, 'traduction copiée sans inspection');
+  requireValue(facts.manifestRead === (facts.emitterInspected && facts.translationInspected), 'relevé contraire aux deux inspections');
+  requireValue(!facts.lethMet || facts.encounterResolved, 'rencontre sans contact');
+  requireValue(!facts.consentAsked || facts.lethMet && facts.manifestRead, 'demande avant rencontre et relevés');
+  requireValue(facts.consentAsked === (facts.consentGranted || facts.consentRefused) && !(facts.consentGranted && facts.consentRefused), 'accord et refus incompatibles');
+  requireValue(!facts.consentWithdrawn || facts.consentGranted && facts.nestsIntact < 3, 'retrait sans accord ni atteinte au site');
+  requireValue(!facts.testimonyStarted || facts.consentGranted, 'échange démarré sans accord');
+  requireValue(!facts.testimonyRecorded || facts.testimonyStarted && facts.consentGranted, 'témoignage sans échange consenti');
+  requireValue(facts.testimonyLost === (!facts.lethAlive && !facts.testimonyRecorded), 'perte de témoignage contraire au sort de Leth');
+  requireValue(facts.testimonyResolved === (facts.testimonyRecorded || facts.testimonyLost || facts.consentRefused || facts.consentWithdrawn), 'sort de l’échange incohérent');
+  requireValue(facts.te01Acquired === (facts.signalsRecorded === 3 && facts.warningCopied && facts.translationCopied && facts.testimonyRecorded), 'TE01 sans signaux, sources et échange achevé');
+  requireValue(facts.witnessAvailable === (facts.lethMet && facts.lethAlive && facts.consentGranted && !facts.consentWithdrawn), 'disponibilité contraire au témoin et à son accord');
+  requireValue(!facts.publicConsent && !facts.recruited, 'diffusion publique ou recrutement non accomplis dans MI11');
+  requireValue(!(facts.emitterSeized && facts.emitterRestored), 'émetteur à la fois capturé et restauré');
+  requireValue(!facts.emitterSeized || facts.plan === 'seize' && !facts.emitterLost, 'capture contraire au plan ou après perte');
+  requireValue(!facts.emitterRestored || facts.plan === 'restore', 'restauration sans plan correspondant');
+  requireValue(facts.emitterOnline === (facts.emitterRestored && !facts.emitterLost && !facts.emitterSeized), 'liaison active contraire à l’appareil');
+  requireValue(facts.operationsResolved === (facts.plan !== 'unselected' && (facts.emitterLost || (facts.plan === 'seize' ? facts.emitterSeized : facts.emitterRestored))), 'opération déclarée sans résultat matériel');
+  const trust = facts.lethMet && facts.lethAlive ? clamp(facts.nestsIntact * 10 + (facts.testimonyRecorded ? 20 : 0) + (facts.emitterOnline ? 20 : 0) - (facts.emitterSeized ? 15 : 0) - (facts.consentWithdrawn ? 30 : 0), 0, 70) : 0;
+  requireValue(facts.lethTrust === trust, 'confiance contraire aux actes et à la survie');
+  requireValue(facts.alliancePossible === (facts.witnessAvailable && facts.te01Acquired && facts.emitterOnline && facts.nestsIntact === 3), 'coopération supposée sans ses conditions');
+  requireValue(!facts.privateReady || facts.privateTriggered, 'forces arrivées sans alerte');
+  requireValue(!facts.privateNeutralized || facts.privateReady, 'force neutralisée avant arrivée');
+  requireValue(!facts.reportTransmitted || facts.readingsTaken === 3 && facts.manifestRead && facts.encounterResolved && facts.testimonyResolved && facts.operationsResolved && facts.privateNeutralized === 3, 'rapport avant résolution des faits');
+  if (finished) requireValue(facts.reportTransmitted && facts.plan !== 'unselected', 'rapport final incomplet');
+}
+
+function voiceDossierFromGame(game) {
+  const fields = Object.keys(createVoiceDossier()).filter(key => key !== 'roster');
+  return { ...Object.fromEntries(fields.map(key => [key, game.campaign[key]])), roster: voiceReceiptRoster(game) };
+}
+
+function validateScene(scene, initial, facts, settings, options) {
+  const { elapsed, privateForces, initialForces, receipt = false, player = null, steps = 10_000_000, shots = 10_000_000, length } = options;
+  const frame = .05 + 1e-6;
+  shape(scene, initial, 'scène');
+  for (const group of ['listening', 'nests']) {
+    requireValue(Array.isArray(scene[group]) && scene[group].length === initial[group].length, `${group} incomplet`);
+    scene[group].forEach((part, index) => shape(part, initial[group][index], `${group}[${index}]`));
+  }
+  for (const name of ['ridge', 'emitter', 'receiver', 'leth', 'orders', 'report', 'alert', 'noise']) shape(scene[name], initial[name], name);
+  const stamp = (value, label) => { if (value !== null) number(value, 0, elapsed, label); };
+  const chronology = (value, flag, label) => { stamp(value, label); requireValue((value !== null) === flag, `${label} absent ou inventé`); };
+  const dates = part => { for (const key of Object.keys(part).filter(key => key.endsWith('At'))) stamp(part[key], `${part.id || 'alerte'}.${key}`); };
+  const body = (part, original) => {
+    fixed(part, original, ['id', 'x', 'y', 'w', 'h', 'maxHp'], 'corps');
+    number(part.hp, 0, part.maxHp, `${part.id} intégrité`); number(part.flash, 0, .15, `${part.id} impact`);
+    boolean(part.destroyed, `${part.id} destruction`);
+    requireValue(part.destroyed === (part.hp === 0), `${part.id} destruction sans rupture`);
+    chronology(part.destroyedAt, part.destroyed, `${part.id} date de rupture`); dates(part);
+  };
+  const work = (part, duration, x, anchored = false, radius = settings.interactionRadius) => {
+    boolean(part.working, `${part.id} travail`); number(part.progress, 0, 1, `${part.id} progression`); dates(part);
+    requireValue(!part.working || part.startedAt !== null && part.progress < 1 && part.completedAt === null, `${part.id} travail impossible`);
+    requireValue(part.progress === 0 || part.startedAt !== null, `${part.id} progression sans début`);
+    if (part.startedAt !== null) requireValue(part.progress * duration <= elapsed - part.startedAt + frame, `${part.id} progression trop rapide`);
+    if (part.completedAt !== null) requireValue(part.startedAt !== null && part.progress === 1 && !part.working && part.completedAt + frame >= part.startedAt + duration, `${part.id} durée non accomplie`);
+    requireValue(part.progress !== 1 || part.completedAt !== null, `${part.id} travail achevé sans date`);
+    if (player && part.working && part.progress > 0) {
+      requireValue(Math.abs(player.x - x) <= radius + 1e-6, `${part.id} travail hors portée`);
+      if (anchored) requireValue(player.braced && !player.move && Math.abs(player.speed) < 3 && player.feet.every(foot => foot.contact), `${part.id} travail sans appuis stables`);
+    }
+  };
+  const allReadAt = scene.listening.every(point => point.sampled) ? Math.max(...scene.listening.map(point => point.sampledAt)) : null;
+  for (const [index, point] of scene.listening.entries()) {
+    body(point, initial.listening[index]); work(point, settings.listenTime, point.x, true);
+    for (const key of ['sampled', 'detected']) boolean(point[key], `${point.id}.${key}`);
+    chronology(point.sampledAt, point.sampled, `${point.id} relevé`);
+    requireValue(point.sampled === (point.completedAt !== null) && point.sampledAt === point.completedAt, 'relevé sans durée d’écoute');
+    requireValue(!point.detected || point.sampled, 'signal sans relevé');
+    if (point.detected) {
+      requireValue(point.destroyedAt === null || point.sampledAt <= point.destroyedAt, 'signal après perte du capteur');
+      requireValue(scene.emitter.destroyedAt === null || point.sampledAt <= scene.emitter.destroyedAt, 'signal après perte de la source');
+      requireValue(scene.emitter.seizedAt === null || point.sampledAt <= scene.emitter.seizedAt, 'signal après capture de la source');
+      requireValue(close(point.signal, clamp(1 - Math.abs(point.x - scene.emitter.x) / length, .05, 1)) && point.bearing === Math.sign(scene.emitter.x - point.x), 'mesure de vibration contraire à la géométrie');
+    } else {
+      requireValue(point.signal === 0 && point.bearing === 0, 'mesure inventée sans détection');
+      if (point.sampled) requireValue([point.destroyedAt, scene.emitter.destroyedAt, scene.emitter.seizedAt].some(time => time !== null && time <= point.sampledAt), 'absence de signal sans source ou capteur perdu');
+    }
+    if (player && point.working && point.progress > 0) requireValue(elapsed + 1e-6 >= scene.noise.until, 'écoute sous bruit récent');
+  }
+  body(scene.ridge, initial.ridge); fixed(scene.ridge, initial.ridge, ['controlX'], 'repère de corniche');
+  work(scene.ridge, settings.surveyTime, scene.ridge.controlX, true);
+  boolean(scene.ridge.surveyed, 'corniche reconnue'); chronology(scene.ridge.surveyedAt, scene.ridge.surveyed, 'reconnaissance de corniche');
+  requireValue(scene.ridge.surveyedAt === scene.ridge.completedAt, 'reconnaissance sans travail achevé');
+  requireValue(!scene.ridge.surveyed || scene.ridge.destroyedAt === null || scene.ridge.surveyedAt <= scene.ridge.destroyedAt, 'reconnaissance après perte du passage');
+  scene.nests.forEach((nest, index) => {
+    body(nest, initial.nests[index]); chronology(nest.damagedAt, nest.hp < nest.maxHp, `${nest.id} première atteinte`);
+    if (nest.destroyed) requireValue(nest.damagedAt <= nest.destroyedAt, 'rupture de nid antérieure à sa première atteinte');
+    number(nest.disturbance, 0, steps, 'passages près du nid', true); number(nest.lastStep, -1, steps, 'dernier appui près du nid', true);
+    requireValue((nest.lastStep === -1) === (nest.disturbance === 0), 'trace d’appui sans passage');
+  });
+  const inspect = (part, copiedKey) => {
+    boolean(part.inspected, `${part.id} inspection`); boolean(part[copiedKey], `${part.id} copie`);
+    chronology(part.inspectedAt, part.inspected, `${part.id} date d’inspection`);
+    chronology(part.copiedAt, part[copiedKey], `${part.id} date de copie`);
+    requireValue(!part.inspected || allReadAt !== null && part.inspectedAt + frame >= allReadAt + settings.inspectTime, 'inspection avant les relevés ou trop rapide');
+    requireValue(!part[copiedKey] || part.inspected && part.copiedAt === part.inspectedAt && (part.destroyedAt === null || part.copiedAt <= part.destroyedAt), 'copie sans original disponible');
+    requireValue(!part.inspected || part[copiedKey] || part.destroyedAt !== null && part.destroyedAt <= part.inspectedAt, 'original intact inspecté sans copie');
+  };
+  const emitter = scene.emitter, receiver = scene.receiver, l = scene.leth;
+  const resolvedAt = Math.min(...[l.testimonyAt, l.lostAt, l.refused ? l.consentAt : null, l.withdrawnAt].filter(time => time !== null));
+  body(receiver, initial.receiver); work(receiver, settings.inspectTime, receiver.x); inspect(receiver, 'translationCopied');
+  requireValue(receiver.completedAt === receiver.inspectedAt, 'inspection du récepteur sans travail achevé');
+  if (receiver.startedAt !== null) requireValue(allReadAt !== null && receiver.startedAt >= allReadAt, 'copie du récepteur commencée avant les relevés');
+  body(emitter, initial.emitter); inspect(emitter, 'warningCopied');
+  requireValue(['none', 'emitter', 'seize', 'restore'].includes(emitter.work), 'travail d’émetteur inconnu');
+  const emitterDuration = emitter.work === 'emitter' ? settings.inspectTime : emitter.work === 'seize' ? settings.seizeTime : settings.restoreTime;
+  work(emitter, emitterDuration, emitter.x, ['seize', 'restore'].includes(emitter.work));
+  for (const key of ['seized', 'restored']) {
+    boolean(emitter[key], `émetteur ${key}`); chronology(emitter[`${key}At`], emitter[key], `émetteur date ${key}`);
+  }
+  requireValue(emitter.work !== 'none' || !emitter.inspected && emitter.progress === 0 && !emitter.working && emitter.startedAt === null && emitter.completedAt === null, 'travail d’émetteur sans opération');
+  if (emitter.work === 'emitter') {
+    requireValue(emitter.completedAt === emitter.inspectedAt, 'inspection d’émetteur sans durée');
+    if (emitter.startedAt !== null) requireValue(allReadAt !== null && emitter.startedAt >= allReadAt, 'copie de l’émetteur commencée avant les relevés');
+  }
+  if (['seize', 'restore'].includes(emitter.work)) {
+    requireValue(facts.plan === emitter.work && emitter.inspected && receiver.inspected && l.encountered && facts.testimonyResolved, 'opération avant relevés, échange et choix');
+    if (emitter.startedAt !== null) requireValue(emitter.startedAt >= Math.max(emitter.inspectedAt, receiver.inspectedAt, l.encounteredAt, resolvedAt), 'opération antidatée');
+  }
+  if (emitter.seized || emitter.restored) {
+    const completed = emitter.seized ? emitter.seizedAt : emitter.restoredAt;
+    requireValue(completed === emitter.completedAt && emitter.work === (emitter.seized ? 'seize' : 'restore'), 'opération sans durée complète');
+    requireValue(emitter.destroyedAt === null || completed <= emitter.destroyedAt, 'opération après destruction de l’émetteur');
+  }
+  if (emitter.destroyed && emitter.working) requireValue(emitter.work === 'emitter', 'opération sur une source détruite');
+
+  body(l, initial.leth); fixed(l, initial.leth, ['characterId', 'name'], 'identité de Leth');
+  for (const key of ['alive', 'encountered', 'met', 'consentAsked', 'consent', 'refused', 'withdrawn', 'testimonyStarted', 'testimonyRecorded', 'testimonyLost', 'publicConsent', 'recruited']) boolean(l[key], `Leth ${key}`);
+  requireValue(l.alive === !l.destroyed, 'survie de Leth contraire à son intégrité');
+  requireValue(['none', 'meet', 'consent', 'testimony'].includes(l.work), 'travail de Leth inconnu');
+  const witnessDuration = l.work === 'meet' ? settings.contactTime : l.work === 'consent' ? settings.consentTime : settings.exchangeTime;
+  work(l, witnessDuration, l.x, false, l.work === 'testimony' ? settings.exchangeRadius : settings.interactionRadius);
+  chronology(l.encounteredAt, l.encountered, 'contact ou constat de Leth'); chronology(l.metAt, l.met, 'rencontre vivante de Leth');
+  chronology(l.consentAt, l.consentAsked, 'demande d’accord'); chronology(l.withdrawnAt, l.withdrawn, 'retrait de l’accord');
+  chronology(l.firstStartedAt, l.testimonyStarted, 'premier lancement de l’échange');
+  chronology(l.testimonyAt, l.testimonyRecorded, 'témoignage achevé'); chronology(l.lostAt, l.testimonyLost, 'témoignage perdu');
+  requireValue(l.work !== 'none' || !l.encountered && !l.working && l.progress === 0 && l.startedAt === null && l.completedAt === null, 'travail de Leth sans acte');
+  requireValue(!l.consentAsked || ['consent', 'testimony'].includes(l.work), 'réponse sans travail de consentement');
+  requireValue(!l.testimonyStarted || l.work === 'testimony', 'lancement sans travail de témoignage');
+  requireValue(!l.met || l.encountered && l.metAt === l.encounteredAt && (l.destroyedAt === null || l.metAt <= l.destroyedAt), 'rencontre sans personne vivante');
+  requireValue(!l.encountered || l.met || l.destroyedAt !== null && l.destroyedAt <= l.encounteredAt, 'contact sans rencontre ni constat de perte');
+  if (l.encountered) {
+    requireValue(allReadAt !== null && l.encounteredAt + frame >= allReadAt + settings.contactTime, 'rencontre avant les relevés ou trop rapide');
+    requireValue(facts.sourceLocated, 'rencontre sans localisation');
+  }
+  if (l.work === 'meet') {
+    requireValue(facts.sourceLocated && l.completedAt === l.encounteredAt, 'contact sans localisation ou durée achevée');
+    const locatedAt = Math.min(...[facts.signalsRecorded === 3 ? allReadAt : null, emitter.inspectedAt].filter(time => time !== null));
+    if (l.startedAt !== null) requireValue(l.startedAt >= locatedAt, 'contact commencé avant localisation');
+  }
+  if (l.consentAsked) {
+    requireValue(l.met && emitter.inspected && receiver.inspected && l.consentAt + frame >= Math.max(l.metAt, emitter.inspectedAt, receiver.inspectedAt) + settings.consentTime, 'accord avant rencontre et inspection ou trop rapide');
+    requireValue(l.destroyedAt === null || l.consentAt <= l.destroyedAt, 'accord demandé à un témoin perdu');
+    requireValue(l.consent !== l.refused, 'demande sans réponse distincte');
+    if (l.consent) requireValue(scene.nests.every(nest => nest.damagedAt === null || nest.damagedAt >= l.consentAt), 'accord malgré atteinte déjà acquise');
+    if (l.refused) requireValue(scene.nests.some(nest => nest.damagedAt !== null && nest.damagedAt <= l.consentAt), 'refus matériel sans atteinte au site');
+  } else requireValue(!l.consent && !l.refused, 'réponse sans demande');
+  if (l.work === 'consent') {
+    requireValue(l.met && emitter.inspected && receiver.inspected && l.completedAt === l.consentAt, 'accord sans rencontre, sources ou durée achevée');
+    if (l.startedAt !== null) requireValue(l.startedAt >= Math.max(l.metAt, emitter.inspectedAt, receiver.inspectedAt), 'accord commencé avant rencontre et copies');
+  }
+  if (l.withdrawn) {
+    requireValue(l.consent && l.withdrawnAt >= l.consentAt && scene.nests.some(nest => nest.damagedAt !== null && nest.damagedAt <= l.withdrawnAt), 'retrait sans accord antérieur ni atteinte');
+    requireValue(l.destroyedAt === null || l.withdrawnAt <= l.destroyedAt, 'retrait attribué à un témoin déjà perdu');
+    requireValue(!l.testimonyRecorded || l.testimonyAt <= l.withdrawnAt, 'témoignage achevé après retrait');
+  }
+  if (l.testimonyStarted) requireValue(l.consent && l.firstStartedAt >= l.consentAt && (l.destroyedAt === null || l.firstStartedAt <= l.destroyedAt), 'début d’échange sans accord vivant');
+  if (l.testimonyRecorded) requireValue(l.work === 'testimony' && l.testimonyAt === l.completedAt && l.firstStartedAt <= l.startedAt && (l.destroyedAt === null || l.testimonyAt <= l.destroyedAt), 'enregistrement sans durée ou après décès');
+  if (l.work === 'testimony') {
+    requireValue(l.testimonyStarted && l.consent, 'travail de témoignage sans accord');
+    if (l.startedAt !== null) requireValue(l.startedAt >= l.firstStartedAt, 'relance avant premier lancement');
+    if (l.working) requireValue(l.alive && !l.withdrawn && !l.refused, 'échange actif sans témoin consentant');
+  }
+  requireValue(l.testimonyLost === (!l.alive && !l.testimonyRecorded), 'témoignage perdu contrairement aux actes');
+  if (l.testimonyLost) requireValue(l.lostAt === l.destroyedAt, 'date de perte contraire au décès');
+  requireValue(!l.publicConsent && !l.recruited, 'autorisation ou recrutement inventés');
+
+  fixed(scene.orders, initial.orders, Object.keys(initial.orders), 'poste d’ordre');
+  fixed(scene.report, initial.report, ['id', 'x', 'y', 'w', 'h'], 'poste de rapport'); work(scene.report, settings.reportTime, scene.report.x);
+  boolean(scene.report.transmitted, 'rapport transmis'); chronology(scene.report.transmittedAt, scene.report.transmitted, 'date du rapport');
+  requireValue(scene.report.transmittedAt === scene.report.completedAt, 'rapport sans travail achevé');
+  if (scene.report.startedAt !== null) {
+    requireValue(facts.readingsTaken === 3 && facts.manifestRead && facts.encounterResolved && facts.testimonyResolved && facts.operationsResolved && facts.privateNeutralized === 3, 'rapport commencé avant résolution matérielle');
+    requireValue(scene.report.startedAt >= Math.max(allReadAt, emitter.inspectedAt, receiver.inspectedAt, l.encounteredAt, resolvedAt, emitter.seizedAt ?? emitter.restoredAt ?? emitter.destroyedAt), 'rapport commencé avant les faits');
+  }
+  number(scene.noise.until, 0, elapsed + 1.5 + 1e-6, 'fin du bruit'); number(scene.noise.observedShots, 0, shots, 'tirs observés', true);
+  const alert = scene.alert;
+  for (const key of ['triggered', 'ready']) boolean(alert[key], `alerte ${key}`);
+  chronology(alert.triggeredAt, alert.triggered, 'début d’alerte'); chronology(alert.readyAt, alert.ready, 'arrivée privée');
+  requireValue(['none', 'contact', 'emitter-loss', 'witness-loss'].includes(alert.reason), 'cause d’alerte inconnue');
+  number(alert.elapsed, 0, settings.privateDelay, 'délai privé');
+  requireValue(alert.triggered === (alert.reason !== 'none'), 'alerte sans cause');
+  requireValue(!alert.triggered || close(alert.elapsed, Math.min(settings.privateDelay, elapsed - alert.triggeredAt)), 'horloge privée incohérente');
+  requireValue(alert.ready === (alert.triggered && alert.elapsed >= settings.privateDelay - 1e-9), 'arrivée avant délai');
+  requireValue(!alert.ready || Math.abs(alert.readyAt - alert.triggeredAt - settings.privateDelay) <= frame, 'date d’arrivée contraire au délai');
+  const causes = { contact: l.encounteredAt, 'emitter-loss': emitter.destroyedAt, 'witness-loss': l.destroyedAt };
+  if (alert.triggered) requireValue(causes[alert.reason] === alert.triggeredAt, 'alerte sans événement matériel');
+  const triggerTimes = Object.values(causes).filter(time => time !== null);
+  requireValue(Boolean(triggerTimes.length) === alert.triggered, 'événement sans alerte ou alerte inventée');
+  if (triggerTimes.length) requireValue(alert.triggeredAt === Math.min(...triggerTimes), 'premier événement d’alerte réécrit');
+  requireValue(Array.isArray(privateForces) && privateForces.length === 3 && initialForces.length === 3, 'registre privé incomplet');
+  if (receipt) requireValue(Object.values(DIFFICULTIES).some(level => privateForces.every((unit, index) => unit.maxHp === Math.round(ENEMY_TYPES[initialForces[index].type].hp * level.enemyHealth))), 'capacités incompatibles avec une même difficulté');
+  privateForces.forEach((unit, index) => {
+    if (receipt) keys(unit, ['id', 'type', 'hp', 'maxHp', 'dead'], 'unité privée : champs');
+    fixed(unit, initialForces[index], ['id', 'type'], 'identité privée');
+    if (!receipt) requireValue(unit.maxHp === initialForces[index].maxHp, 'capacité privée modifiée');
+    number(unit.hp, -1000, unit.maxHp, 'intégrité privée'); boolean(unit.dead, 'perte privée');
+    requireValue(unit.dead === (unit.hp <= 0), 'perte privée sans dégâts');
+    if (!alert.ready) {
+      requireValue(!unit.dead && unit.hp === unit.maxHp, 'unité privée touchée avant arrivée');
+      if (!receipt) fixed(unit, initialForces[index], ['x', 'y', 'active', 'phase', 'timer'], 'unité privée prématurée');
+    }
+  });
+  const derived = voiceDerivedFacts({ voice: scene, enemies: privateForces,
+    decision: { resolved: facts.plan !== 'unselected', choice: facts.plan === 'seize' ? 'obey' : facts.plan === 'restore' ? 'defy' : null } });
+  for (const [key, expected] of Object.entries(derived)) requireValue(facts[key] === expected, `bilan contraire aux objets : ${key}`);
+}
+
+function validateVoiceMission(value, template) {
+  const facts = value.campaign;
+  requireValue(object(facts) && facts.missionId === 'MI11' && object(value.voice), 'scène absente');
+  validateContext(facts.context); validateVoiceFacts(facts, value.status === 'won');
+  requireValue(facts.plan === (value.decision.choice === null ? 'unselected' : value.decision.choice === 'obey' ? 'seize' : 'restore'), 'conduite contraire au choix');
+  requireValue(!value.decision.active && !value.decision.resolved || facts.manifestRead && facts.encounterResolved && facts.testimonyResolved, 'choix avant relevés et échange ou constat');
+  validateScene(value.voice, template.voice, facts, value.mission.voice, { elapsed: value.elapsed,
+    privateForces: value.enemies, initialForces: template.enemies, player: value.player,
+    steps: value.stats.steps, shots: value.stats.shots, length: value.mission.length });
+  const phase = value.status === 'won' ? 'complete' : facts.reportTransmitted ? 'extraction' : value.decision.resolved ? 'operations' : value.decision.active ? 'decision' : null;
+  if (phase) requireValue(facts.phase === phase, 'phase contraire aux actes');
+  else {
+    requireValue(['listening', 'approach', 'sources', 'contact', 'exchange', 'assessment'].includes(facts.phase), 'phase d’approche inconnue');
+    if (facts.phase === 'sources') requireValue(facts.readingsTaken === 3, 'phase des sources avant les relevés');
+    if (facts.phase === 'contact') requireValue(facts.sourceLocated, 'phase de contact avant localisation');
+    if (facts.phase === 'exchange') requireValue(facts.testimonyStarted, 'phase d’échange sans lancement');
+    if (facts.phase === 'assessment') requireValue(facts.testimonyResolved, 'bilan de l’échange prématuré');
+  }
+  requireValue(value.evidence.collected === facts.te01Acquired && value.evidence.scanProgress === Number(facts.te01Acquired) && !value.evidence.scanning, 'preuve générique contraire à TE01');
+  fixed(value.evidence, template.evidence, Object.keys(template.evidence).filter(key => !['collected', 'scanProgress', 'scanning'].includes(key)), 'preuve générique');
+  requireValue(value.stats.evidence === Number(facts.te01Acquired), 'décompte TE01');
+  requireValue(value.stats.collateral === Number(!facts.lethAlive), 'pertes : seul Leth est un non-combattant individualisé ici');
+  requireValue(value.stats.kills === facts.privateNeutralized, 'décompte des forces privées');
+  requireValue(value.stats.ordersObeyed === Number(value.decision.choice === 'obey') && value.stats.ordersDefied === Number(value.decision.choice === 'defy'), 'décompte du choix');
+  const expected = [
+    ['listen', facts.readingsTaken, 3, facts.readingsTaken === 3],
+    ['sources', Number(facts.emitterInspected) + Number(facts.translationInspected), 2, facts.manifestRead],
+    ['contact', Number(facts.encounterResolved), 1, facts.encounterResolved],
+    ['testimony', Number(facts.testimonyResolved), 1, facts.testimonyResolved],
+    ['private', facts.privateNeutralized, 3, facts.privateNeutralized === 3],
+    ['order', Number(facts.operationsResolved), 1, facts.operationsResolved],
+    ['report', Number(facts.reportTransmitted), 1, facts.reportTransmitted],
+    ['extract', Number(value.status === 'won'), 1, value.status === 'won'],
+  ];
+  requireValue(value.objectives.length === expected.length, 'liste des objectifs de la vallée');
+  expected.forEach(([id, current, target, complete], index) => fixed(value.objectives[index], { id, current, target, complete }, ['id', 'current', 'target', 'complete'], 'objectif contraire aux actes'));
+  requireValue(value.extraction.active === expected.slice(0, -1).every(([, , , complete]) => complete), 'sortie avant accomplissement');
+  fixed(value.extraction, template.extraction, Object.keys(template.extraction).filter(key => key !== 'active'), 'point de sortie');
+  if (value.status === 'won') requireValue(value.player.hull > 0 && value.objectives.every(goal => goal.complete) && Math.abs(value.player.x - value.extraction.x) < value.extraction.radius, 'victoire sans extraction');
+  if (value.status === 'lost') requireValue(value.player.hull === 0, 'défaite sans perte terminale du marcheur');
+}
+
+function validateVoiceReceipt(receipt, context) {
+  validateContext(context); validateVoiceFacts(receipt, true);
+  requireValue(receipt.plan === (receipt.choice === 'obey' ? 'seize' : 'restore'), 'conduite du rapport contraire au choix');
+  const template = createGame({ missionId: 'MI11', walkerId: receipt.walkerId, campaignContext: context });
+  keys(receipt.roster, [...Object.keys(template.voice), 'privateForces'], 'registre individuel de la voix');
+  const scene = Object.fromEntries(Object.keys(template.voice).map(key => [key, receipt.roster[key]]));
+  validateScene(scene, template.voice, receipt, template.mission.voice, { elapsed: receipt.elapsed,
+    privateForces: receipt.roster.privateForces, initialForces: template.enemies,
+    receipt: true, length: template.mission.length });
+  requireValue(receipt.collateral === Number(!receipt.lethAlive) && receipt.kills === receipt.privateNeutralized && receipt.hull > 0, 'bilan contraire aux acteurs');
+}
+
+/** The next official checkpoint cannot erase acquired records or material losses. */
+function validateVoiceSortie(previous, current) {
+  requireValue(previous?.missionId === 'MI11' && current.missionId === 'MI11', 'checkpoint hors sortie officielle');
+  requireValue(current.walkerId === previous.walkerId && current.seed === previous.seed && current.difficultyId === previous.difficultyId, 'changement de sortie');
+  requireValue(current.elapsed >= previous.elapsed, 'recul de sortie'); equal(current.campaign.context, previous.campaign.context, 'héritage modifié pendant la sortie');
+  requireValue(previous.status === 'playing' || JSON.stringify(current) === JSON.stringify(previous), 'sortie perdue à recommencer explicitement');
+  requireValue(!previous.decision.resolved || current.decision.resolved && current.decision.choice === previous.decision.choice, 'choix acquis annulé');
+  for (const key of ['sourceLocated', 'ridgeSurveyed', 'emitterInspected', 'warningCopied', 'translationInspected', 'translationCopied',
+    'encounterResolved', 'lethMet', 'consentAsked', 'consentGranted', 'consentRefused', 'consentWithdrawn', 'testimonyStarted',
+    'testimonyRecorded', 'testimonyLost', 'testimonyResolved', 'te01Acquired', 'emitterSeized', 'emitterRestored', 'emitterLost',
+    'operationsResolved', 'privateTriggered', 'privateReady', 'manifestRead', 'reportTransmitted']) requireValue(!previous.campaign[key] || current.campaign[key], `fait acquis annulé : ${key}`);
+  const preserve = (before, after) => {
+    if (Object.hasOwn(before, 'hp')) requireValue(after.hp <= before.hp, `intégrité restituée : ${before.id}`);
+    for (const key of Object.keys(before).filter(key => key.endsWith('At') && !['startedAt', 'completedAt'].includes(key))) {
+      if (before[key] !== null) requireValue(after[key] === before[key], `date acquise réécrite : ${before.id || 'alerte'}.${key}`);
+      else if (after[key] !== null) requireValue(after[key] >= previous.elapsed - 1e-6, `nouvel acte antidaté : ${before.id || 'alerte'}.${key}`);
+    }
+  };
+  const old = previous.voice, now = current.voice;
+  const elapsed = current.elapsed - previous.elapsed, frame = .05 + 1e-6;
+  const preserveWork = (before, after, duration) => {
+    const sameWork = before.work === after.work;
+    if (sameWork && before.completedAt !== null) {
+      requireValue(after.startedAt === before.startedAt && after.completedAt === before.completedAt && after.progress === before.progress, `travail achevé réécrit : ${before.id}`);
+      return;
+    }
+    if (after.startedAt !== null && (!sameWork || before.startedAt !== after.startedAt)) requireValue(after.startedAt >= previous.elapsed - 1e-6, `nouveau travail antidaté : ${before.id}`);
+    if (after.completedAt !== null && before.completedAt !== after.completedAt) requireValue(after.completedAt >= previous.elapsed - 1e-6, `achèvement antidaté : ${before.id}`);
+    const priorProgress = sameWork ? before.progress : 0;
+    requireValue((after.progress - priorProgress) * duration <= elapsed + frame, `progression accélérée entre checkpoints : ${before.id}`);
+  };
+  for (const group of ['listening', 'nests']) old[group].forEach((part, index) => {
+    const after = now[group][index]; preserve(part, after);
+    if (group === 'listening') {
+      preserveWork(part, after, current.mission.voice.listenTime);
+      requireValue(!part.sampled || after.sampled && after.detected === part.detected && after.signal === part.signal && after.bearing === part.bearing, 'relevé acquis réécrit');
+    } else requireValue(after.disturbance >= part.disturbance && after.lastStep >= part.lastStep, 'trace de ponte reculée');
+  });
+  for (const name of ['ridge', 'emitter', 'receiver', 'leth', 'report', 'alert']) preserve(old[name], now[name]);
+  const settings = current.mission.voice;
+  for (const [name, duration] of [['ridge', settings.surveyTime], ['receiver', settings.inspectTime], ['report', settings.reportTime],
+    ['emitter', now.emitter.work === 'emitter' ? settings.inspectTime : now.emitter.work === 'seize' ? settings.seizeTime : settings.restoreTime],
+    ['leth', now.leth.work === 'meet' ? settings.contactTime : now.leth.work === 'consent' ? settings.consentTime : settings.exchangeTime]]) preserveWork(old[name], now[name], duration);
+  requireValue(now.noise.observedShots >= old.noise.observedShots, 'historique de bruit reculé');
+  previous.enemies.forEach((unit, index) => requireValue(current.enemies[index].hp <= unit.hp, 'force privée ressuscitée ou réparée'));
+}
+
+return {createVoiceDossier,voiceContextFor,validateVoiceFacts,voiceDossierFromGame,validateVoiceMission,validateVoiceReceipt,validateVoiceSortie};
+})();
 __modules["src/campaign.mjs"] = (() => {
 /**
  * Sequential campaign dossiers, workshop maintenance and resilient local saves.
@@ -8807,19 +9911,20 @@ __modules["src/campaign.mjs"] = (() => {
  * Every campaign transition returns a new value; gameplay remains in simulation.mjs.
  */
 const { WALKERS, DIFFICULTIES, ENEMY_TYPES } = __modules["src/content.mjs"];
-const { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt, dikeDecisionBody, dikeSupportReady, ambulanceDecisionBody, ambulanceStopClear, departureDecisionBody, livingRouteDecisionBody, chemicalDecisionBody } = __modules["src/simulation.mjs"];
+const { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt, dikeDecisionBody, dikeSupportReady, ambulanceDecisionBody, ambulanceStopClear, departureDecisionBody, livingRouteDecisionBody, chemicalDecisionBody, voiceDecisionBody } = __modules["src/simulation.mjs"];
 const { createDepartureDossier, departureContextFor, departureDossierFromGame, validateDepartureMission, validateDepartureFacts, validateDepartureReceipt } = __modules["src/departure-validation.mjs"];
 const { createLivingRouteDossier, livingRouteContextFor, livingRouteDossierFromGame, validateLivingRouteMission, validateLivingRouteFacts, validateLivingRouteReceipt, validateLivingRouteSortie } = __modules["src/thyr-validation.mjs"];
 const { createChemicalDossier, chemicalContextFor, chemicalDossierFromGame, validateChemicalMission, validateChemicalFacts, validateChemicalReceipt, validateChemicalSortie } = __modules["src/chemical-validation.mjs"];
+const { createVoiceDossier, voiceContextFor, voiceDossierFromGame, validateVoiceMission, validateVoiceFacts, validateVoiceReceipt, validateVoiceSortie } = __modules["src/voice-validation.mjs"];
 const CAMPAIGN_SAVE_KEY = 'imperium.campaign.v1';
 const CAMPAIGN_BACKUP_KEY = 'imperium.campaign.v1.backup';
-const CAMPAIGN_SAVE_VERSION = 10;
+const CAMPAIGN_SAVE_VERSION = 11;
 const FORMAT = 'ordre-de-cendre.campaign';
 const MAX_BYTES = 2_000_000;
 const INITIAL_PARTS = 6;
 const DELIVERY_PARTS = 4;
 const PIPE_PARTS = 2;
-const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08', 'MI09', 'MI10'];
+const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'];
 const LEGACY_WALKER_IDS = ['WK01', 'WK05', 'WK09'];
 const clone = value => JSON.parse(JSON.stringify(value));
 const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
@@ -8957,7 +10062,7 @@ function validateGame(value, finished = false) {
   } else requireValue(value.convoy === null, 'convoi inattendu');
   requireValue(value.decision.choice === null || (value.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : ['obey', 'defy']).includes(value.decision.choice), 'décision inconnue');
   for (const key of ['title', 'body', 'options']) {
-    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : value.missionId === 'MI07' ? ambulanceDecisionBody : value.missionId === 'MI08' ? departureDecisionBody : value.missionId === 'MI09' ? livingRouteDecisionBody : value.missionId === 'MI10' ? chemicalDecisionBody : null;
+    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : value.missionId === 'MI07' ? ambulanceDecisionBody : value.missionId === 'MI08' ? departureDecisionBody : value.missionId === 'MI09' ? livingRouteDecisionBody : value.missionId === 'MI10' ? chemicalDecisionBody : value.missionId === 'MI11' ? voiceDecisionBody : null;
     const expected = key === 'body' && dynamicBody && (value.decision.active || value.decision.resolved)
       ? dynamicBody(value) : template.decision[key];
     requireValue(JSON.stringify(value.decision[key]) === JSON.stringify(expected), 'texte de décision incompatible');
@@ -8972,6 +10077,10 @@ function validateGame(value, finished = false) {
     number(objective.target, 1, 100000, 'cible d’objectif');
   }
   const mission = value.campaign;
+  if (value.missionId === 'MI11') {
+    validateVoiceMission(value, template);
+    return value;
+  }
   if (value.missionId === 'MI10') {
     validateChemicalMission(value, template);
     return value;
@@ -9197,7 +10306,7 @@ function createCampaign() {
       filtersDeliveredCount: 0, calesBassesExcluded: false, noticeFiled: false,
       rail: createRailDossier(), communications: createCommunicationsDossier(), industrial: createIndustrialDossier() },
       nacre: { passage: createChannelDossier(), dike: createDikeDossier(), fuelSpent: 0, ambulance: createAmbulanceDossier(), departure: createDepartureDossier() },
-      thyr: { route: createLivingRouteDossier(), chemical: createChemicalDossier() } },
+      thyr: { route: createLivingRouteDossier(), chemical: createChemicalDossier(), voice: createVoiceDossier() } },
     fleet: Object.fromEntries(WALKERS.map(walker => [walker.id, { hull: walker.hull, feet: Array(walker.legs).fill(100), radiator: 100 }])),
     checkpoint: null, preDecisionCheckpoint: null, lastDebrief: null, maintenanceLog: [],
   };
@@ -9545,6 +10654,7 @@ function validateAmbulanceMission(value, template) {
 
 function campaignContextFor(campaign, missionId) {
   const world = campaign.world.vesper;
+  if (missionId === 'MI11') return voiceContextFor(campaign);
   if (missionId === 'MI10') return chemicalContextFor(campaign);
   if (missionId === 'MI09') return livingRouteContextFor(campaign);
   if (missionId === 'MI08') return departureContextFor(campaign);
@@ -9596,6 +10706,10 @@ function applyDikeFuel(next, previous, game) {
 }
 
 function validateAmbulanceSortie(previous, game) {
+  if (game.missionId === 'MI11') {
+    validateVoiceSortie(previous.checkpoint, game);
+    return;
+  }
   if (game.missionId === 'MI10') {
     validateChemicalSortie(previous.checkpoint, game);
     return;
@@ -9624,7 +10738,7 @@ function validateReceipt(receipt) {
   const specificKeys = receipt.missionId === 'MI01' ? ['convoyIntegrity', 'route', 'pipeIntact', 'noticeFiled', 'filtersDeliveredCount', 'pipeRepairCost']
     : receipt.missionId === 'MI02' ? ['trainIntegrity', 'trainStopped', 'harpoonsReleased', 'hostagesTotal', 'hostagesRescued', 'hostagesLost', 'evidencePreserved', 'recordFiled']
       : receipt.missionId === 'MI03' ? ['signalsIdentified', 'militaryRelayDisabled', 'verifiedBuildings', 'networkPreserved', 'civilRelaysOnline', 'dispensaryIntact', 'witnessAvailable', 'residentsLost', 'holtAlerted', 'reportFiled']
-        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : receipt.missionId === 'MI05' ? Object.keys(createChannelDossier()) : receipt.missionId === 'MI06' ? Object.keys(createDikeDossier()) : receipt.missionId === 'MI07' ? Object.keys(createAmbulanceDossier()) : receipt.missionId === 'MI08' ? Object.keys(createDepartureDossier()) : receipt.missionId === 'MI09' ? Object.keys(createLivingRouteDossier()) : Object.keys(createChemicalDossier());
+        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : receipt.missionId === 'MI05' ? Object.keys(createChannelDossier()) : receipt.missionId === 'MI06' ? Object.keys(createDikeDossier()) : receipt.missionId === 'MI07' ? Object.keys(createAmbulanceDossier()) : receipt.missionId === 'MI08' ? Object.keys(createDepartureDossier()) : receipt.missionId === 'MI09' ? Object.keys(createLivingRouteDossier()) : receipt.missionId === 'MI10' ? Object.keys(createChemicalDossier()) : Object.keys(createVoiceDossier());
   const expectedKeys = [...commonKeys, ...specificKeys];
   requireValue(Object.keys(receipt).length === expectedKeys.length && expectedKeys.every(key => own(receipt, key)), 'champs du rapport incompatibles');
   for (const key of ['walkerName', 'missionName', 'decisionLabel', 'tessLine', 'samiLine']) requireValue(typeof receipt[key] === 'string', `rapport ${key}`);
@@ -9637,6 +10751,10 @@ function validateReceipt(receipt) {
   number(receipt.collateral, 0, 1000, 'pertes civiles', true);
   number(receipt.kills, 0, 1000, 'adversaires neutralisés', true);
   requireValue(receipt.partsGranted === DELIVERY_PARTS, 'dotation du rapport');
+  if (receipt.missionId === 'MI11') {
+    validateVoiceFacts(receipt, true);
+    return;
+  }
   if (receipt.missionId === 'MI10') {
     validateChemicalFacts(receipt, true);
     return;
@@ -9747,10 +10865,10 @@ function validateCampaign(campaign) {
     number(log.cost, 1, 6, 'coût intervention', true);
   }
   if (campaign.checkpoint !== null) {
-    validateGame(campaign.checkpoint, ['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(campaign.checkpoint.missionId) && campaign.checkpoint.status === 'lost');
+    validateGame(campaign.checkpoint, ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(campaign.checkpoint.missionId) && campaign.checkpoint.status === 'lost');
     if (campaign.checkpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.checkpoint);
     requireValue(campaign.checkpoint.missionId === campaign.activeMissionId, 'checkpoint d’une autre mission');
-    if (['MI02', 'MI03', 'MI04', 'MI05', 'MI07', 'MI08', 'MI09', 'MI10'].includes(campaign.checkpoint.missionId)) {
+    if (['MI02', 'MI03', 'MI04', 'MI05', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(campaign.checkpoint.missionId)) {
       requireValue(JSON.stringify(campaign.checkpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.checkpoint.missionId)), 'héritage des missions précédentes contradictoire');
     }
   }
@@ -9758,8 +10876,8 @@ function validateCampaign(campaign) {
     validateGame(campaign.preDecisionCheckpoint);
     if (campaign.preDecisionCheckpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.preDecisionCheckpoint, true);
     requireValue(campaign.preDecisionCheckpoint.decision.active && !campaign.preDecisionCheckpoint.decision.resolved, 'checkpoint avant décision incompatible');
-    if ((campaign.stage === 'mission' && ['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.preDecisionCheckpoint.missionId) || ['MI07','MI08','MI09','MI10'].includes(campaign.preDecisionCheckpoint.missionId))) requireValue(JSON.stringify(campaign.preDecisionCheckpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.preDecisionCheckpoint.missionId)), 'héritage du point de décision contradictoire');
-    if (['MI09', 'MI10'].includes(campaign.preDecisionCheckpoint.missionId)) {
+    if ((campaign.stage === 'mission' && ['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.preDecisionCheckpoint.missionId) || ['MI07','MI08','MI09','MI10','MI11'].includes(campaign.preDecisionCheckpoint.missionId))) requireValue(JSON.stringify(campaign.preDecisionCheckpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.preDecisionCheckpoint.missionId)), 'héritage du point de décision contradictoire');
+    if (['MI09', 'MI10', 'MI11'].includes(campaign.preDecisionCheckpoint.missionId)) {
       const missionId = campaign.preDecisionCheckpoint.missionId;
       const current = campaign.checkpoint?.missionId === missionId ? campaign.checkpoint : null;
       const reference = current || campaign.completed[missionId];
@@ -9833,6 +10951,11 @@ function validateCampaign(campaign) {
     validateChemicalReceipt(report, chemicalContextFor(campaign));
     for (const key of Object.keys(createChemicalDossier())) requireValue(JSON.stringify(campaign.world.thyr.chemical[key]) === JSON.stringify(report[key]), `dossier du champ chimique ${key}`);
   } else requireValue(JSON.stringify(campaign.world.thyr.chemical) === JSON.stringify(createChemicalDossier()), 'champ chimique sans dossier MI10');
+  if (campaign.completed.MI11) {
+    const report = campaign.completed.MI11;
+    validateVoiceReceipt(report, voiceContextFor(campaign));
+    for (const key of Object.keys(createVoiceDossier())) requireValue(JSON.stringify(campaign.world.thyr.voice[key]) === JSON.stringify(report[key]), `dossier de la voix ${key}`);
+  } else requireValue(JSON.stringify(campaign.world.thyr.voice) === JSON.stringify(createVoiceDossier()), 'voix de Thyr sans dossier MI11');
   if (campaign.stage === 'mission') {
     requireValue(campaign.checkpoint !== null && MISSION_IDS.includes(campaign.activeMissionId) && !own(campaign.completed, campaign.activeMissionId), 'mission sans checkpoint ou déjà achevée');
     const previousId = MISSION_IDS[MISSION_IDS.indexOf(campaign.activeMissionId) - 1];
@@ -9863,7 +10986,7 @@ function parseCampaign(text) {
 
 /** Add only documented fields to historical saves; completed receipts stay intact. */
 function migrateCampaign(value) {
-  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4, 5, 6, 7, 8, 9].includes(value.version)) return value;
+  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10].includes(value.version)) return value;
   walkJSON(value);
   requireValue(isObject(value.world) && isObject(value.world.vesper), 'Vesper absent du dossier historique');
   if (value.version === 1) {
@@ -9974,16 +11097,29 @@ function migrateCampaign(value) {
     value.world.thyr = { route: createLivingRouteDossier() };
     value.version = 9;
   }
-  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09'].includes(id)), 'dossier v9 contient une mission inconnue');
-  requireValue(value.activeMissionId === null || ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09'].includes(value.activeMissionId), 'mission active v9 inconnue');
-  requireValue(isObject(value.world.thyr) && !own(value.world.thyr, 'chemical'), 'champ chimique inattendu dans le dossier historique');
-  for (const checkpoint of [value.checkpoint,value.preDecisionCheckpoint]) if (checkpoint !== null) {
-    requireValue(isObject(checkpoint) && ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09'].includes(checkpoint.missionId), 'checkpoint v9 inconnu');
-    requireValue(!own(checkpoint, 'chemical'), 'scène chimique inattendue dans un checkpoint historique');
+  if (value.version === 9) {
+    requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09'].includes(id)), 'dossier v9 contient une mission inconnue');
+    requireValue(value.activeMissionId === null || ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09'].includes(value.activeMissionId), 'mission active v9 inconnue');
+    requireValue(isObject(value.world.thyr) && !own(value.world.thyr, 'chemical'), 'champ chimique inattendu dans le dossier historique');
+    for (const checkpoint of [value.checkpoint,value.preDecisionCheckpoint]) if (checkpoint !== null) {
+      requireValue(isObject(checkpoint) && ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09'].includes(checkpoint.missionId), 'checkpoint v9 inconnu');
+      requireValue(!own(checkpoint, 'chemical'), 'scène chimique inattendue dans un checkpoint historique');
+    }
+    // Append one empty future dossier. Even historical stage=complete and active
+    // MI09 scenes remain exact; the first missing report determines progression.
+    value.world.thyr.chemical = createChemicalDossier();
+    value.version = 10;
   }
-  // Append one empty future dossier. Even historical stage=complete and active
-  // MI09 scenes remain exact; the first missing report determines progression.
-  value.world.thyr.chemical = createChemicalDossier();
+  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09','MI10'].includes(id)), 'dossier v10 contient une mission inconnue');
+  requireValue(value.activeMissionId === null || ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09','MI10'].includes(value.activeMissionId), 'mission active v10 inconnue');
+  requireValue(isObject(value.world.thyr) && !own(value.world.thyr, 'voice'), 'voix inattendue dans le dossier historique');
+  for (const checkpoint of [value.checkpoint,value.preDecisionCheckpoint]) if (checkpoint !== null) {
+    requireValue(isObject(checkpoint) && ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09','MI10'].includes(checkpoint.missionId), 'checkpoint v10 inconnu');
+    requireValue(!own(checkpoint, 'voice'), 'scène de voix inattendue dans un checkpoint historique');
+  }
+  // The published prepared v10 exports remain exact: append only the empty
+  // voice dossier. Native MI10 reception is not inferred from this migration.
+  value.world.thyr.voice = createVoiceDossier();
   value.version = CAMPAIGN_SAVE_VERSION;
   return value;
 }
@@ -10001,7 +11137,7 @@ function unsupportedDossier(text) {
   try {
     const value = JSON.parse(text);
     return isObject(value) && ((typeof value.format === 'string' && value.format !== FORMAT) ||
-      (value.format === FORMAT && ![1, 2, 3, 4, 5, 6, 7, 8, 9, CAMPAIGN_SAVE_VERSION].includes(value.version)));
+      (value.format === FORMAT && ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, CAMPAIGN_SAVE_VERSION].includes(value.version)));
   } catch { return false; }
 }
 
@@ -10056,6 +11192,7 @@ function beginCampaignMission(campaign, options = {}) {
   if (missionId === 'MI08' && !campaign.completed.MI07) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le bilan sanitaire avant de rejoindre les portes d’Aval.' };
   if (missionId === 'MI09' && !campaign.completed.MI08) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le registre de départ de Nacre avant de rejoindre la route des vivants sur Thyr.' };
   if (missionId === 'MI10' && !campaign.completed.MI09) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le rapport de la route des vivants avant de rejoindre les cuves de Thyr.' };
+  if (missionId === 'MI11' && !campaign.completed.MI10) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le bilan du champ chimique avant de rechercher la voix de la vallée.' };
   const walkerId = WALKERS.some(walker => walker.id === options.walkerId) ? options.walkerId : WALKERS[0].id;
   const replay = Boolean(options.replay || own(campaign.completed, missionId));
   if (!replay && campaign.stage === 'mission' && !options.restart) return { ok: false, campaign, game: null, replay: false, message: 'Une sortie est déjà en cours. Reprenez-la ou recommencez-la explicitement.' };
@@ -10078,7 +11215,8 @@ function beginCampaignMission(campaign, options = {}) {
         : missionId === 'MI04' ? 'La station industrielle est accessible. Refroidissez les turbines et relevez ce qui reste du journal de maintenance.'
           : missionId === 'MI05' ? 'L’affectation de Nacre est ouverte. Libérez le chenal et vérifiez les deux équipages avant de signer votre rapport.'
             : missionId === 'MI06' ? 'La digue des Trois-Vannes vous attend. Relevez les seuils et soutenez le chantier avant de choisir le circuit.'
-              : missionId === 'MI10' ? 'Le champ chimique est accessible. Identifiez les trois cuves, contenez la fuite et protégez le prélèvement avant les opérations sur la réserve.'
+              : missionId === 'MI11' ? 'La vallée des résonances est accessible. Écoutez le sol, préservez la ponte et demandez à Leth ce qu’il accepte de confier au dossier.'
+                : missionId === 'MI10' ? 'Le champ chimique est accessible. Identifiez les trois cuves, contenez la fuite et protégez le prélèvement avant les opérations sur la réserve.'
                 : missionId === 'MI09' ? 'La route des vivants est accessible sur Thyr. Relevez les hameaux, écoutez les habitants et accompagnez la migration avant le passage logistique.'
                 : missionId === 'MI08' ? 'Les portes d’Aval sont accessibles. Retrouvez les personnes, confirmez les accueils et rendez compte des départs réellement accomplis.' : 'L’ambulance vous attend sur la chaussée des Salines. Faites-la arrêter, établissez sa cargaison et protégez son transfert.';
   return { ok: true, campaign: next, game, replay: false, message };
@@ -10086,7 +11224,7 @@ function beginCampaignMission(campaign, options = {}) {
 
 function checkpointCampaign(campaign, game, options = {}) {
   validateCampaign(campaign);
-  const terminalSortie = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(game?.missionId) && game.status === 'lost';
+  const terminalSortie = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game?.missionId) && game.status === 'lost';
   if (options.replay || own(campaign.completed, game?.missionId) || (game?.status !== 'playing' && !terminalSortie)) return campaign;
   requireValue(campaign.stage === 'mission' && campaign.activeMissionId === game.missionId, 'aucune campagne active pour cette mission');
   const snapshot = clone(game);
@@ -10104,15 +11242,19 @@ function restoreCampaignGame(campaign, options = {}) {
   validateCampaign(campaign);
   if (campaign.stage !== 'mission' || own(campaign.completed, campaign.activeMissionId)) return null;
   const snapshot = options.beforeDecision ? campaign.preDecisionCheckpoint : campaign.checkpoint;
-  if (options.beforeDecision && ['MI09', 'MI10'].includes(campaign.activeMissionId) && (campaign.checkpoint.status === 'lost' || !snapshot || JSON.stringify(snapshot) !== JSON.stringify(campaign.checkpoint))) return null;
+  if (options.beforeDecision && ['MI09', 'MI10', 'MI11'].includes(campaign.activeMissionId) && (campaign.checkpoint.status === 'lost' || !snapshot || JSON.stringify(snapshot) !== JSON.stringify(campaign.checkpoint))) return null;
   if (options.beforeDecision && campaign.activeMissionId === 'MI07' && campaign.checkpoint.status === 'lost') return null;
   if (options.beforeDecision && campaign.activeMissionId === 'MI08' && (campaign.checkpoint.status === 'lost' || snapshot && snapshot.elapsed < campaign.checkpoint.elapsed)) return null;
   if (options.beforeDecision && campaign.activeMissionId === 'MI06' && (campaign.checkpoint.status === 'lost' || (snapshot && (snapshot.elapsed < campaign.checkpoint.elapsed || snapshot.campaign.fuelSpent < campaign.checkpoint.campaign.fuelSpent)))) return null;
-  return snapshot ? clone(validateGame(snapshot, ['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(snapshot.missionId) && snapshot.status === 'lost')) : null;
+  return snapshot ? clone(validateGame(snapshot, ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(snapshot.missionId) && snapshot.status === 'lost')) : null;
 }
 
 function crewLines(game) {
   const mission = game.campaign;
+  if (game.missionId === 'MI11') return {
+    tessLine: `${mission.signalsRecorded} signaux exploitables sur trois relevés. ${mission.nestsIntact} sites de ponte restent intacts, ${mission.nestsDamaged} sont atteints et ${mission.nestsLost} sont perdus. ${mission.emitterSeized ? 'L’émetteur a été démonté et embarqué.' : mission.emitterOnline ? 'L’émetteur transmet à nouveau les avis locaux.' : 'L’émetteur est perdu ; aucune remise en service n’est déclarée.'}`,
+    samiLine: `${mission.te01Acquired ? 'TE01 conserve l’avis Khelt, sa traduction impériale et l’explication privée enregistrée avec l’accord de Leth.' : mission.testimonyRecorded ? 'L’échange privé est enregistré, mais les signaux ou les copies manquants empêchent d’établir TE01.' : 'Aucun échange achevé de Leth n’est conservé.'} ${mission.lethAlive ? mission.consentWithdrawn ? `Leth a retiré sa coopération après l’atteinte au site ; ${mission.testimonyRecorded ? 'l’enregistrement antérieur reste identifié comme tel.' : 'aucun enregistrement achevé n’est conservé.'}` : mission.consentRefused ? 'Leth a refusé l’enregistrement ; ses paroles ne sont pas inventées dans le dossier.' : 'Leth demeure vivant sur ce site.' : 'Leth est mort. Les pièces déjà obtenues restent conservées, sans le déclarer encore disponible.'} Aucune diffusion publique ni aucun recrutement n’a été autorisé.`,
+  };
   if (game.missionId === 'MI10') return {
     tessLine: `${mission.tanksSecured} cuves restent isolées, ${mission.tanksDestroyed} sont détruites. ${mission.sampleCollected ? 'Le prélèvement matériel a été récupéré.' : 'Le prélèvement a été perdu avant sa collecte.'} ${mission.canalsIntact} canaux tiennent encore, ${mission.canalsPolluted} ont reçu une contamination compromettante ; ${mission.homesHabitable} habitats restent utilisables.`,
     samiLine: `${mission.pt02Acquired ? 'PT02 réunit la matière prélevée, les trois marquages et le registre matériel d’Orison. Cette pièce technique ne suffit pas à établir toute la chaîne de fabrication et de financement.' : mission.sampleCollected ? 'La matière est conservée, mais les marquages et le registre disponibles ne suffisent pas à établir PT02.' : 'Un constat de perte ne reconstitue ni l’échantillon ni sa provenance.'} ${mission.villageHabitable ? 'Le village conserve un circuit d’eau habitable.' : 'Les dommages et l’état du circuit restent au bilan du village.'}`,
@@ -10210,7 +11352,7 @@ function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(campaign);
   if (options.replay || own(campaign.completed, game?.missionId)) return { ok: true, campaign, receipt: campaign.completed[game?.missionId] || campaign.lastDebrief, applied: false, message: 'Rejeu terminé. Le rapport de campagne et les lots restent inchangés.' };
   if (game?.status !== 'won') {
-    const terminal = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(game?.missionId) && game.status === 'lost';
+    const terminal = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game?.missionId) && game.status === 'lost';
     const failed = terminal ? checkpointCampaign(campaign, game) : campaign;
     return { ok: true, campaign: failed, receipt: null, applied: false, message: terminal ? 'Sortie perdue. Le bilan est conservé ; recommencez explicitement la mission avec le stock restant.' : 'Aucune sortie validée. Le dernier checkpoint reste disponible.' };
   }
@@ -10225,7 +11367,10 @@ function finishCampaignMission(campaign, game, options = {}) {
     elapsed: game.elapsed, collateral: game.stats.collateral, kills: game.stats.kills, choice: game.decision.choice,
     partsGranted: DELIVERY_PARTS, ...crewLines(game),
   };
-  const receipt = game.missionId === 'MI10' ? {
+  const receipt = game.missionId === 'MI11' ? {
+    ...commonReceipt, ...voiceDossierFromGame(game),
+    decisionLabel: mission.emitterSeized ? 'Émetteur capturé sur place, sources et accord de Leth consignés' : mission.emitterOnline ? 'Liaison locale rétablie, sources et accord de Leth consignés' : 'Perte de l’émetteur constatée, pièces et sort de Leth consignés',
+  } : game.missionId === 'MI10' ? {
     ...commonReceipt, ...chemicalDossierFromGame(game),
     decisionLabel: mission.plan === 'demolish' ? 'Réserve démolie sur place, volumes et circuit d’eau consignés' : mission.tanksDestroyed ? 'Cuves restantes isolées, pertes et circuit d’eau consignés' : 'Réserve mise en sécurité, prélèvement et circuit d’eau consignés',
   } : game.missionId === 'MI09' ? {
@@ -10270,7 +11415,12 @@ function finishCampaignMission(campaign, game, options = {}) {
   next.stage = 'complete'; next.activeMissionId = null; next.checkpoint = null; next.revision++;
   next.resources.parts += DELIVERY_PARTS;
   next.fleet[game.walkerId] = { hull: game.player.hull, feet: game.player.feet.map(foot => foot.health), radiator: game.player.radiator.health };
-  if (game.missionId === 'MI10') {
+  if (game.missionId === 'MI11') {
+    next.world.thyr.voice = voiceDossierFromGame(game);
+    next.authority.suspicion = clamp(next.authority.suspicion + (mission.plan === 'restore' ? 2 : 0), 0, 100);
+    next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.nestsIntact === 3 ? 2 : -mission.nestsLost) - Number(!mission.lethAlive), 0, 100);
+    next.crew.sami.trust = clamp(next.crew.sami.trust + (mission.te01Acquired ? 3 : mission.testimonyRecorded ? 1 : 0) - Number(!mission.lethAlive), 0, 100);
+  } else if (game.missionId === 'MI10') {
     next.world.thyr.chemical = chemicalDossierFromGame(game);
     next.authority.suspicion = clamp(next.authority.suspicion + (mission.plan === 'secure' ? 2 : 0), 0, 100);
     next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.villageHabitable ? 2 : -(2 - mission.homesHabitable)), 0, 100);
@@ -10329,7 +11479,7 @@ function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(next);
   const action = game.missionId === 'MI01' ? 'Livraison inscrite au dossier.'
     : game.missionId === 'MI02' ? 'Récupération du train inscrite au dossier.' : game.missionId === 'MI03' ? 'Constat des émetteurs inscrit au dossier.'
-      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : game.missionId === 'MI05' ? 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.' : game.missionId === 'MI06' ? 'Le bilan des Trois-Vannes est inscrit au dossier : personnes, logements, chantier et carburant.' : game.missionId === 'MI10' ? 'Le bilan du champ est classé : cuves, prélèvement, provenance matérielle et circuit d’eau.' : game.missionId === 'MI09' ? 'Le premier relevé de Thyr est classé : migration, habitats, cultures et trajet logistique.' : game.missionId === 'MI08' ? 'Le registre d’Aval est classé : personnes, départs, arrivées, replis locaux et état des deux portes.' : 'Le bilan sanitaire des Salines est inscrit au dossier : patients, équipe, véhicule, balise et destination.';
+      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : game.missionId === 'MI05' ? 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.' : game.missionId === 'MI06' ? 'Le bilan des Trois-Vannes est inscrit au dossier : personnes, logements, chantier et carburant.' : game.missionId === 'MI11' ? 'Le dossier de la vallée est classé : relevés, ponte, sources, accord de Leth et sort de l’émetteur.' : game.missionId === 'MI10' ? 'Le bilan du champ est classé : cuves, prélèvement, provenance matérielle et circuit d’eau.' : game.missionId === 'MI09' ? 'Le premier relevé de Thyr est classé : migration, habitats, cultures et trajet logistique.' : game.missionId === 'MI08' ? 'Le registre d’Aval est classé : personnes, départs, arrivées, replis locaux et état des deux portes.' : 'Le bilan sanitaire des Salines est inscrit au dossier : patients, équipe, véhicule, balise et destination.';
   return { ok: true, campaign: next, receipt, applied: true, message: `${action} Quatre lots d’atelier ont été affectés au retour.` };
 }
 
@@ -10377,11 +11527,12 @@ function repairCampaignPipe(campaign) {
 return {CAMPAIGN_SAVE_KEY,CAMPAIGN_BACKUP_KEY,CAMPAIGN_SAVE_VERSION,createCampaign,nextCampaignMissionId,serializeCampaign,parseCampaign,readCampaign,writeCampaign,beginCampaignMission,checkpointCampaign,restoreCampaignGame,finishCampaignMission,campaignRepairCost,serviceCampaignWalker,repairCampaignPipe};
 })();
 __modules["src/main.mjs"] = (() => {
-const { WALKERS, MISSIONS, CAMPAIGN_MISSIONS, DIFFICULTIES } = __modules["src/content.mjs"];
+const { WALKERS, MISSIONS, CAMPAIGN_MISSIONS, DIFFICULTIES, VOICE_TRANSLATION_PAIRS } = __modules["src/content.mjs"];
 const { createGame, updateGame, commandGame } = __modules["src/simulation.mjs"];
 const { Renderer } = __modules["src/renderer.mjs"];
 const { livingRouteSummary } = __modules["src/thyr-renderer.mjs"];
 const { chemicalSummary, chemicalTankRole } = __modules["src/chemical-renderer.mjs"];
+const { voiceSummary } = __modules["src/voice-renderer.mjs"];
 const { AudioEngine } = __modules["src/audio.mjs"];
 const { CONTROL_ACTIONS, normalizeBindings, bindingLabel, remapBinding, keyboardActions, GamepadInput, defaultBindings, formatControlText } = __modules["src/controls.mjs"];
 const { createCampaign, readCampaign, writeCampaign, beginCampaignMission, checkpointCampaign, restoreCampaignGame, finishCampaignMission, serviceCampaignWalker, repairCampaignPipe, campaignRepairCost, serializeCampaign, parseCampaign, nextCampaignMissionId } = __modules["src/campaign.mjs"];
@@ -10422,6 +11573,12 @@ const pointer = { x: 1100, y: 570, clientX: 0, clientY: 0, visible: false, fire:
 const selectedWalker = () => WALKERS.find(w => w.id === settings.walkerId);
 const selectedMission = () => MISSIONS.find(m => m.id === settings.missionId);
 const campaignOrders = {
+  MI11: {
+    status: 'Un signal Khelt est classé en coordination hostile. Holt demande la capture de son émetteur.',
+    description: 'La voix remonte par les racines de la vallée. Trois relevés à l’arrêt peuvent en retrouver l’origine. Une corniche longe un site de ponte ; au-delà, une traduction impériale ne dit pas la même chose que la source de Leth.',
+    task: 'Écouter le sol, préserver la ponte, confronter les deux textes puis protéger un échange consenti.',
+    caution: 'Leth peut refuser de témoigner. Une copie privée ne donne aucun droit de diffusion publique.',
+  },
   MI10: {
     status: 'Une réserve chimique est attribuée aux rebelles. Holt demande sa destruction.',
     description: 'Trois cuves bordent les canaux des cultures. Une conduite fuit déjà. Tess demande de relever leurs marquages et de préserver un prélèvement avant de toucher au stock. Des forces privées surveillent le site.',
@@ -10508,7 +11665,7 @@ function saveCampaign({ replaceInvalid = false } = {}) {
   return result.ok;
 }
 function captureCampaign(beforeDecision = false) {
-  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(game.missionId) && game.status === 'lost'))) return;
+  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game.missionId) && game.status === 'lost'))) return;
   try {
     campaign = checkpointCampaign(campaign, game, { beforeDecision });
     lastCampaignSaveAt = game.elapsed;
@@ -10525,6 +11682,18 @@ function renderCampaignStatus() {
   $('campaign-save-status').classList.toggle('save-warning', Boolean(campaignWarning || campaignBlocked));
 }
 function campaignReceiptFacts(receipt) {
+  if (receipt.missionId === 'MI11') return [
+    ['ÉCOUTES', `${receipt.signalsRecorded} / 3 signaux exploitables · ${receipt.readingsTaken} relevés`],
+    ['SOURCES', `${receipt.warningCopied ? 'Avis original copié' : 'Avis absent'} · ${receipt.translationCopied ? 'traduction copiée' : 'traduction absente'}`],
+    ['PONTE', `${receipt.nestsIntact} sites intacts · ${receipt.nestsDamaged} endommagés · ${receipt.nestsLost} perdus`],
+    ['LETH', receipt.lethAlive ? 'Vivant dans la vallée' : 'Perdu'],
+    ['ACCORD', receipt.consentWithdrawn ? 'Coopération retirée' : receipt.consentRefused ? 'Enregistrement refusé' : receipt.consentGranted ? 'Enregistrement privé consenti' : 'Aucun accord reçu'],
+    ['TÉMOIGNAGE', receipt.testimonyRecorded ? 'Enregistrement achevé conservé' : 'Aucun enregistrement achevé'],
+    ['TE01', receipt.te01Acquired ? 'Avertissements déformés établis' : 'Conditions non réunies'],
+    ['ÉMETTEUR', receipt.emitterLost ? 'Détruit' : receipt.emitterSeized ? 'Saisi' : receipt.emitterOnline ? 'Liaison rétablie' : 'Liaison inactive'],
+    ['TÉMOIN DISPONIBLE', receipt.witnessAvailable ? 'Oui · aucun recrutement' : 'Non'],
+    ['DIFFUSION PUBLIQUE', 'Aucune autorisation reçue'],
+  ];
   if (receipt.missionId === 'MI10') return [
     ['CUVES RELEVÉES', `${receipt.tanksInspected} / 3 · ${receipt.copiedMarks} marquages copiés`],
     ['CONDUITE RETENUE', receipt.plan === 'demolish' ? 'Démolition de la réserve' : 'Mise en sécurité des cuves'],
@@ -10652,7 +11821,11 @@ function renderCampaignUI() {
   }
   if (campaign.completed.MI10) {
     const r = campaign.completed.MI10;
-    $('campaign-transition-text').textContent = `Le bilan du champ est classé. ${r.pt02Acquired ? 'Tess conserve PT02 : le prélèvement et les traces matérielles relient ce produit aux terraformes d’Orison. Cette pièce ne reconstitue pas toute la chaîne de commandement.' : 'Les conditions matérielles de PT02 ne sont pas réunies. Les relevés conservés et les pertes restent dans le journal.'} ${r.villageHabitable ? 'Les canaux permettent au village de rester habitable.' : 'L’habitabilité du village est compromise.'} Les neuf rapports précédents sont conservés. La mission suivante, « Une voix au ras du sol », reste à produire.`;
+    $('campaign-transition-text').textContent = `Le bilan du champ est classé. ${r.pt02Acquired ? 'Tess conserve PT02 : le prélèvement et les traces matérielles relient ce produit aux terraformes d’Orison. Cette pièce ne reconstitue pas toute la chaîne de commandement.' : 'Les conditions matérielles de PT02 ne sont pas réunies. Les relevés conservés et les pertes restent dans le journal.'} ${r.villageHabitable ? 'Les canaux permettent au village de rester habitable.' : 'L’habitabilité du village est compromise.'} Les neuf rapports précédents sont conservés. « Une voix au ras du sol » est maintenant accessible. Retrouvez l’origine des avertissements de la vallée.`;
+  }
+  if (campaign.completed.MI11) {
+    const r = campaign.completed.MI11;
+    $('campaign-transition-text').textContent = `Le relevé de la vallée est classé. ${r.te01Acquired ? 'TE01 conserve les avertissements reçus et leur traduction déformée, avec un témoignage privé consenti.' : 'Les pièces conservées ne réunissent pas les conditions de TE01 ; le rapport garde ces absences.'} ${r.witnessAvailable ? 'Leth demeure dans la vallée et peut poursuivre l’interprétation, sans rejoindre l’équipage.' : 'La disponibilité future de Leth n’est pas acquise.'} Aucune diffusion publique n’a été autorisée. Les dix rapports précédents sont conservés. « Le troisième relais » reste à produire.`;
   }
   $('campaign-mission-list').innerHTML = CAMPAIGN_MISSIONS.map((m, index) => {
     const done = Boolean(campaign.completed[m.id]), active = campaign.activeMissionId === m.id;
@@ -10722,6 +11895,11 @@ function renderWorkshop() {
   if (campaign.completed.MI09) {
     const r = campaign.completed.MI09;
     $('workshop-thyr').textContent = `Thyr : ${r.migratorsArrived} longues-dorses au verger, ${r.migratorsDisplaced} détournées, ${r.migratorsLost} perdues ; ${r.homesHabitable} habitats habitables. ${r.localsHeard ? 'Les indications locales ont été écoutées.' : 'Aucun échange local accompli.'} Le journal conserve chaque animal, chaque support et l’arrivée du transport.`;
+  }
+  $('workshop-voice').hidden = !campaign.completed.MI11;
+  if (campaign.completed.MI11) {
+    const r = campaign.completed.MI11;
+    $('workshop-voice').textContent = `Vallée des résonances : ${r.nestsIntact} sites de ponte intacts, ${r.nestsLost} perdus. ${r.te01Acquired ? 'TE01 est conservé au dossier.' : 'TE01 n’a pas été constitué.'} ${r.lethAlive ? 'Leth reste sur Thyr.' : 'Leth est perdu.'} ${r.witnessAvailable ? 'La poursuite de l’interprétation demeure possible.' : 'Aucune coopération future n’est acquise.'} Les pièces d’atelier ne restaurent ni les nids ni les sources perdues.`;
   }
   $('workshop-chemical').hidden = !campaign.completed.MI10;
   if (campaign.completed.MI10) {
@@ -10845,6 +12023,16 @@ const factions = [
   ['09 / COHORTE VÉTÉRANE', 'Cohorte des Serments', 'Des équipages expérimentés disposent de machines et de ravitaillement prioritaires. Leur fidélité au commandement se mesure aussi à la peur de perdre ceux qui dépendent d’eux.'],
 ];
 all('[data-archive]').forEach(el => el.addEventListener('click', () => { archive = el.dataset.archive; renderArchive(); }));
+function voiceArchive() {
+  const r = campaign.completed.MI11;
+  if (!r) return '';
+  const nests = r.roster.nests.map((n, i) => `<tr><th scope="row">Site de ponte ${i + 1}</th><td>${n.destroyed ? 'Perdu' : n.hp < n.maxHp ? 'Endommagé' : 'Intact'}</td><td>${n.disturbance} perturbations relevées</td></tr>`).join('');
+  const comparisons = VOICE_TRANSLATION_PAIRS.map(pair => `<tr><td>${r.translationCopied ? escapeHTML(pair.imperial) : 'Traduction impériale non copiée'}</td><td>${r.testimonyRecorded ? escapeHTML(pair.leth) : 'Aucune restitution enregistrée de Leth'}</td></tr>`).join('');
+  const wording = `<div class="dossier-table-wrap"><table><caption>Restitutions françaises des messages · origine et permissions conservées</caption><thead><tr><th scope="col">Traduction impériale copiée</th><th scope="col">Sens expliqué par Leth pendant l’échange enregistré</th></tr></thead><tbody>${comparisons}</tbody></table></div>${r.warningCopied ? '<p>L’enregistrement de la source est conservé pour le recoupement. Les phrases françaises ci-dessus ne sont pas la langue Khelt brute.</p>' : '<p>La source originale n’a pas été copiée. Une restitution de Leth, si elle a été enregistrée, ne remplace pas cette pièce manquante.</p>'}`;
+  const consent = r.consentWithdrawn ? (r.testimonyRecorded ? 'Leth a retiré sa coopération. L’enregistrement achevé demeure conservé, sans promettre un nouvel entretien.' : 'Leth a retiré sa coopération. Aucun enregistrement achevé n’est conservé.') : r.consentRefused ? 'Leth a refusé l’enregistrement ; aucun témoignage n’est ajouté à sa place.' : r.consentGranted ? 'Leth a autorisé un enregistrement privé pour le dossier. Cette permission ne couvre aucune diffusion publique.' : 'Aucun accord à enregistrer n’a été reçu.';
+  return `<section class="nacre-dossiers voice-dossiers" aria-label="Dossier de la voix de Thyr"><p class="eyebrow">THYR / ÉCOUTE ET INTERPRÉTATION</p><details class="dossier-detail"><summary>Une voix au ras du sol <span>${r.te01Acquired ? 'TE01 conservé' : 'TE01 absent'} · ${r.nestsIntact} sites intacts · ${r.lethAlive ? 'Leth vivant' : 'Leth perdu'}</span></summary><p>${r.signalsRecorded} signaux exploitables conservés parmi ${r.readingsTaken} relevés. ${r.warningCopied ? 'L’avis original a été copié.' : 'Aucune copie de l’avis original n’a été obtenue.'} ${r.translationCopied ? 'La traduction impériale a été copiée séparément.' : 'La traduction impériale n’a pas été conservée.'} ${r.testimonyRecorded ? 'L’échange privé a été achevé et enregistré.' : 'Aucun témoignage achevé n’est conservé.'}</p><p>${consent}</p>${wording}<div class="dossier-table-wrap"><table><caption>État des sites à l’extraction</caption><thead><tr><th scope="col">Site</th><th scope="col">État matériel</th><th scope="col">Approche</th></tr></thead><tbody>${nests}</tbody></table></div><p>${r.emitterLost ? 'L’émetteur a été détruit.' : r.emitterSeized ? 'L’émetteur a été physiquement saisi.' : r.emitterOnline ? 'La liaison locale a été rétablie.' : 'La liaison demeure inactive.'} ${r.witnessAvailable ? 'Leth demeure un interlocuteur disponible dans la vallée.' : 'La disponibilité du témoin n’est pas acquise.'} Aucun recrutement, aucune alliance militaire et aucune autorisation publique ne découlent de ce rapport.</p><p>${r.te01Acquired ? 'TE01 établit que des avertissements d’évacuation ont été reçus et déformés. Les commandes industrielles et la chaîne politique restent à recouper.' : 'Les pièces nécessaires à TE01 ne sont pas toutes réunies. Les absences restent inscrites.'}</p></details></section>`;
+}
+
 function chemicalArchive() {
   const r = campaign.completed.MI10;
   if (!r) return '';
@@ -10909,7 +12097,7 @@ function renderArchive() {
       return `<article class="record-card"><div><p class="eyebrow">CAMPAGNE / ${r.missionId} / PREMIÈRE RÉUSSITE</p><h3>${escapeHTML(r.missionName)}</h3><p>${escapeHTML(r.walkerName)} · ${timeLabel(r.elapsed)}</p></div><div><p>${facts}<br>${escapeHTML(r.decisionLabel)}</p></div></article>`;
     }).join('');
     const simulations = finished.length ? finished.map(m => { const r = records[m.id]; return `<article class="record-card"><div><p class="eyebrow">SIMULATION / ${m.planet.toUpperCase()} / OPÉRATION ${m.number}</p><h3>${m.name}</h3><p>${escapeHTML(r.walker || 'Marcheur')} · ${timeLabel(Number(r.time) || 0)}</p></div><div><p>Preuves récupérées : ${Number(r.evidence) || 0}<br>Pertes civiles : ${Number(r.collateral) || 0}<br>Décision : ${r.choice === 'defy' ? 'Ordre contesté' : 'Ordre exécuté'}</p></div></article>`; }).join('') : '<p class="muted">Aucun rapport de simulation. Les exercices sont indépendants du dossier de campagne.</p>';
-    $('archive-content').innerHTML = chemicalArchive() + thyrArchive() + nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
+    $('archive-content').innerHTML = voiceArchive() + chemicalArchive() + thyrArchive() + nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
   }
 }
 
@@ -10996,6 +12184,10 @@ function showBriefing() {
     const r = campaign.completed.MI09;
     $('briefing-description').textContent += ` ${r?.approach === 'guided' ? 'Les indications recueillies sur la route des vivants permettent de reconnaître plus vite le collecteur amont.' : 'Le collecteur amont peut être identifié et fermé sans aide locale préalable.'} Le prélèvement exige vingt secondes de protection à proximité. Relever les marquages et copier le registre restent des opérations distinctes. Les habitats de ce site ont leur propre alimentation en eau ; le bilan de la vallée précédente reste conservé.`;
   }
+  if (pendingMode === 'campaign' && m.id === 'MI11') {
+    const r = campaign.completed.MI10;
+    $('briefing-description').textContent += ` ${r?.pt02Acquired ? 'PT02 est conservé dans le dossier précédent ; les paroles de cette vallée demandent encore leur propre relevé.' : 'L’absence de PT02 reste inscrite ; les sources de cette vallée peuvent être examinées séparément.'} L’écoute exige des appuis ancrés, sans déplacement ni tir. Reconnaissez la corniche avant la ponte. Rencontrer Leth, demander son accord et enregistrer l’échange sont trois actes distincts. Aucun dossier de Nacre ou du champ chimique ne remplace les personnes et les sources présentes ici.`;
+  }
   $('briefing-walker').textContent = `${w.designation} ${w.name}`;
   $('briefing-assist').textContent = settings.assist ? 'Marche assistée' : 'Appuis manuels';
   $('briefing-difficulty').textContent = DIFFICULTIES[settings.difficulty].label;
@@ -11033,7 +12225,7 @@ function enterMission(nextGame) {
   $('intro-location').textContent = game.mission.intro; $('intro-title').textContent = game.mission.name;
   $('restart').textContent = activeMode === 'campaign' ? 'Recommencer la mission' : 'Recommencer l’opération';
   aimMode = 'pointer'; padAim.x = 1; padAim.y = 0;
-  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
+  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
   audio.setPaused(false); audio.update(game);
   $('game-canvas').focus({ preventScroll: true }); audio.unlock(); updateHUD();
 }
@@ -11089,7 +12281,8 @@ function showResult() {
   const departureMission = game.missionId === 'MI08';
   const livingRouteMission = game.missionId === 'MI09';
   const chemicalMission = game.missionId === 'MI10';
-  const missionStat = chemicalMission ? ['PIÈCE TECHNIQUE PT02', game.campaign.pt02Acquired ? 'CONSERVÉE' : 'ABSENTE'] : livingRouteMission ? ['LONGUES-DORSES AU VERGER', `${game.campaign.migratorsArrived} / 4`] : departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
+  const voiceMission = game.missionId === 'MI11';
+  const missionStat = voiceMission ? ['TÉMOIGNAGE TE01', game.campaign.te01Acquired ? 'CONSERVÉ' : 'ABSENT'] : chemicalMission ? ['PIÈCE TECHNIQUE PT02', game.campaign.pt02Acquired ? 'CONSERVÉE' : 'ABSENTE'] : livingRouteMission ? ['LONGUES-DORSES AU VERGER', `${game.campaign.migratorsArrived} / 4`] : departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
     : industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
     : networkMission ? ['RÉSEAUX CIVILS ACTIFS', `${game.campaign.civilRelaysOnline} / 2`]
     : railMission ? ['OUVRIERS LIBÉRÉS', `${game.campaign.hostagesRescued} / ${game.campaign.hostagesTotal}`]
@@ -11097,7 +12290,11 @@ function showResult() {
     : ['PREUVES RÉCUPÉRÉES', game.stats.evidence];
   const stats = [['DURÉE', timeLabel(game.elapsed)], ['CIBLES NEUTRALISÉES', game.stats.kills], missionStat, ['PERTES CIVILES', game.stats.collateral]];
   let decisionText;
-  if (chemicalMission) {
+  if (voiceMission) {
+    const f = game.campaign;
+    stats.push(['PONTE', `${f.nestsIntact} sites intacts · ${f.nestsLost} perdus`], ['LETH', f.lethAlive ? 'VIVANT' : 'PERDU'], ['ENREGISTREMENT', f.testimonyRecorded ? 'CONSERVÉ' : 'ABSENT'], ['ÉMETTEUR', f.emitterLost ? 'DÉTRUIT' : f.emitterSeized ? 'SAISI' : f.emitterOnline ? 'LIAISON RÉTABLIE' : 'EN PLACE · LIAISON NON RÉTABLIE']);
+    decisionText = `${f.plan === 'seize' ? 'Capture choisie.' : f.plan === 'restore' ? 'Restauration choisie.' : 'Aucune conduite choisie.'} ${f.operationsResolved ? 'Opération accomplie ou perte matérielle constatée.' : 'Opération sur l’émetteur inachevée.'} ${f.testimonyRecorded ? 'Enregistrement privé consenti conservé.' : f.consentRefused || f.consentWithdrawn ? 'Refus ou retrait de Leth consigné.' : 'Aucun témoignage achevé.'} ${f.te01Acquired ? 'TE01 établit la déformation des avertissements.' : 'TE01 n’est pas constitué.'} ${f.witnessAvailable ? 'Leth demeure disponible dans la vallée.' : 'Aucune disponibilité future du témoin n’est acquise.'} Aucune diffusion publique autorisée. ${f.reportTransmitted ? 'Rapport transmis.' : 'Rapport non transmis.'}`;
+  } else if (chemicalMission) {
     const f = game.campaign;
     stats.push(['CUVES', `${f.tanksSecured} isolées · ${f.tanksDestroyed} détruites`], ['MARQUAGES COPIÉS', `${f.copiedMarks} / 3`], ['CANAUX', `${f.canalsIntact} intacts · ${f.canalsPolluted} contaminés`], ['VILLAGE', f.villageHabitable ? 'HABITABLE' : 'HABITABILITÉ COMPROMISE']);
     decisionText = `${f.plan === 'demolish' ? 'Démolition choisie.' : f.plan === 'secure' ? 'Mise en sécurité choisie.' : 'Aucune conduite choisie.'} ${f.operationsResolved ? 'Opérations des cuves accomplies ou pertes constatées.' : 'Opérations des cuves inachevées.'} ${f.sampleCollected ? 'Prélèvement conservé à bord.' : f.sampleLost ? 'Prélèvement perdu.' : 'Prélèvement non terminé.'} ${f.orisonRecordCopied ? 'Registre matériel copié.' : 'Registre non copié.'} ${f.pt02Acquired ? 'PT02 est conservé ; la chaîne complète de commandement reste à établir.' : 'PT02 n’est pas constitué.'} ${f.reportTransmitted ? 'Bilan transmis.' : 'Rapport non transmis.'}`;
@@ -11155,6 +12352,17 @@ let lastObjectives = '';
 function updateHUD() {
   if (!game) return;
   const p = game.player;
+  $('voice-instrument').hidden = !game.voice;
+  if (game.voice) {
+    const f = game.campaign, v = voiceSummary(game);
+    $('voice-stage').textContent = v.stage;
+    $('voice-readings').textContent = `${v.readings} / 3 RELEVÉS · ${v.signals} SIGNAUX · ${v.sourceLocated ? 'SOURCE LOCALISÉE' : 'ORIGINE À RECHERCHER'}`;
+    $('voice-nests').textContent = `${v.nestsIntact} / 3 SITES INTACTS · ${f.ridgeSurveyed && f.ridgeIntact ? 'CORNICHE RECONNUE' : !f.ridgeIntact ? 'CORNICHE ROMPUE' : 'PASSAGE À RELEVER'}`;
+    $('voice-consent').textContent = v.consent;
+    $('voice-testimony').textContent = `${v.testimony} · ${f.te01Acquired ? 'TE01 CONSERVÉ' : `${v.copies} / 2 SOURCES COPIÉES`}`;
+    $('voice-emitter').textContent = `${v.emitter} · AUCUNE DIFFUSION PUBLIQUE AUTORISÉE`;
+    $('voice-instrument').classList.toggle('voice-warning', !f.lethAlive || f.consentWithdrawn || f.consentRefused || f.nestsIntact < 3);
+  }
   $('chemical-instrument').hidden = !game.chemical;
   if (game.chemical) {
     const d = game.chemical, f = game.campaign, v = chemicalSummary(game);
@@ -11230,7 +12438,7 @@ function updateHUD() {
   $('assist-hint').textContent = game.assist ? 'ASSISTANCE AUX APPUIS ACTIVE' : `${keyLabel('stepA')} / ${keyLabel('stepB')} — APPUIS MANUELS`;
   $('leg-status').innerHTML = p.feet.map(f => `<span class="leg ${f.phase === 'swing' ? 'swing' : ''} ${f.health < 40 ? 'damaged' : ''}" data-label="${f.group ? 'B' : 'A'}${f.index + 1}" title="Appui ${f.index + 1} : ${Math.round(f.health)} %"></span>`).join('');
   const remainingObjectives = game.objectives.filter(o => !o.complete);
-  const hudObjectives = game.chemical ? remainingObjectives.length ? remainingObjectives.slice(0, 3) : game.objectives.slice(-3) : game.objectives;
+  const hudObjectives = game.chemical || game.voice ? remainingObjectives.length ? remainingObjectives.slice(0, 3) : game.objectives.slice(-3) : game.objectives;
   const objectiveHTML = hudObjectives.map(o => `<li class="${o.complete ? 'complete' : ''}"><span class="objective-symbol">${o.complete ? '✓' : '◇'}</span><span>${escapeHTML(o.label)}</span>${o.target > 1 ? `<span class="objective-progress">${o.id === "escort" ? Math.min(100, Math.round(o.current / o.target * 100)) + " %" : o.current + "/" + o.target}</span>` : ''}</li>`).join('');
   if (lastObjectives !== objectiveHTML) { $('hud-objectives').innerHTML = objectiveHTML; lastObjectives = objectiveHTML; }
   $('convoy-status').hidden = !game.convoy;
@@ -11376,7 +12584,7 @@ function frame(now) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
       if (!paused && activeMode === 'campaign' && !campaignReplay) {
         const fuelChanged = game.missionId === 'MI06' && game.campaign.fuelSpent !== campaign.checkpoint?.campaign.fuelSpent;
-        const failedSortie = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
+        const failedSortie = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
         if (fuelChanged || failedSortie || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
       }
       renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, departureInstrument: false, interactionPrompt: false, pointer });

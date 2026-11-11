@@ -1,0 +1,67 @@
+{
+  "version": "0.12.0",
+  "recordedAt": "2026-11-11T19:37:55.186923+00:00",
+  "status": "not_run",
+  "newNativeBrowserAttempt": false,
+  "claim": "No native browser reception of MI11 or save v11 occurred in this release.",
+  "inheritedConstraints": [
+    {
+      "kind": "deployment_quota",
+      "observedInVersion": "0.11.0",
+      "httpStatus": 402,
+      "resource": "api-deployments-free-per-day",
+      "observedAt": "2026-11-11T18:42:59.577Z",
+      "retryAfterSeconds": 86400,
+      "notBefore": "2026-11-12T18:42:59.577Z",
+      "effect": "The Vercel site last examined served 0.10. No retry, paid plan change or security change is made during the announced interval."
+    },
+    {
+      "kind": "browser_url_policy",
+      "observedInVersion": "0.11.0",
+      "schemeDenied": "file://",
+      "effect": "The authorized browser refused the standalone local URL and prohibited obtaining the same outcome through another local surface, server or proxy. No workaround is attempted."
+    }
+  ],
+  "preparedEvidence": {
+    "source": "docs/previews/mi11-canvas-validation.json",
+    "exports": [
+      "docs/previews/mi11-listening-checkpoint.json",
+      "docs/previews/mi11-exchange-checkpoint.json",
+      "docs/previews/mi11-decision-checkpoint.json",
+      "docs/previews/mi11-before-extraction-checkpoint.json",
+      "docs/previews/mi11-completed-campaign.json"
+    ],
+    "scope": "Public simulation commands and campaign APIs. These exports prepare future native reception and are not native exports."
+  },
+  "notReceived": [
+    "native migration v10 to v11",
+    "native listening interruption and restart",
+    "native protected exchange pause and resume",
+    "native decision and emitter operation",
+    "native extraction, archive and reload",
+    "responsive HTML/CSS and native focus",
+    "physical gamepad and audio listening",
+    "unguided human playtest"
+  ],
+  "historicalReferences": [
+    {
+      "path": "docs/validation/native-v11/browser-reception.json",
+      "bytes": 3109,
+      "sha256": "a1c7d3078f9abcb4b3dfcf1af28bf2e8e289b927334a6148d21b55d650271b43"
+    },
+    {
+      "path": "docs/validation/v11-publication-initial.json",
+      "bytes": 11746,
+      "sha256": "0f68d878911e69d5868cf1965b245947f37f5d9490f0b58c613f059530bee0f6"
+    },
+    {
+      "path": "docs/validation/v11-http-initial.json",
+      "bytes": 16858,
+      "sha256": "76075e4d1a2066f93c8d899d490863feda44696f7f5f096ed5ddbc5fedec67a4"
+    }
+  ],
+  "historicalBrowserFilesChanged": false,
+  "nextAuthorizedStep": "After quota expiry and availability of an authorized HTTP(S) deployment, observe the actual publication and perform native reception separately. Do not infer that reception from Node, DOM-model, raster or Canvas checks.",
+  "newExplicitDeploymentAttempt": false,
+  "automaticDeploymentStatus": "Not observed for 0.12 at the time of this receipt; any automatic Git integration result must be identified separately from an explicit deployment request."
+}

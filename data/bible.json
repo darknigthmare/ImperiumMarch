@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.11.0",
+    "version": "0.12.0",
     "date": "2026-11-11",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "Bible de conception et registre de production. MI01–MI04 forment Vesper, MI05–MI08 couvrent Nacre et MI09–MI10 ouvrent Thyr avec la route des vivants puis le terrain chimique. Dix missions, six châssis, trois opérations indépendantes et dossier v10 sont disponibles au stade prototype. MI11–MI32 et les seize contrats restent conçus. Les 133 critères À produire de la 0.8 et les 845 IDs de la 0.10 restent conservés. Réception partielle, contrôle automatique, navigateur et essai humain gardent des portées distinctes.",
+    "scope": "Bible de conception et registre de production. MI01–MI04 forment Vesper, MI05–MI08 couvrent Nacre et MI09–MI11 poursuivent Thyr par la route des vivants, le terrain chimique et la rencontre de Leth. Onze missions, six châssis, trois opérations indépendantes et dossier v11 sont disponibles au stade prototype. MI12–MI32 et les seize contrats restent conçus. Les 133 critères À produire de la 0.8 et les 873 IDs de la 0.11 restent conservés. Contrôle automatique, rendu Canvas, navigateur et essai humain gardent des portées distinctes.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Livrable partiel disponible. L’onglet Prototype et les reçus de production précisent son intégration, sa portée et les critères encore ouverts.",
@@ -17,7 +17,7 @@
     "balanceDisclaimer": "Dimensions, charges et valeurs de gameplay décrites ici sont des hypothèses à calibrer.",
     "qualityDisclaimer": "AAA est une ambition de qualité, pas une description du niveau de finition du prototype.",
     "sheetCount": 20,
-    "recordCount": 873,
+    "recordCount": 905,
     "release": {
       "playableCampaignMissions": [
         "MI01",
@@ -29,7 +29,8 @@
         "MI07",
         "MI08",
         "MI09",
-        "MI10"
+        "MI10",
+        "MI11"
       ],
       "standaloneOperations": [
         "OP01",
@@ -37,8 +38,8 @@
         "OP03"
       ],
       "campaignMissionDesigns": 32,
-      "remainingCampaignMissionDesigns": 22,
-      "saveFormatVersion": 10,
+      "remainingCampaignMissionDesigns": 21,
+      "saveFormatVersion": 11,
       "playableWalkerIds": [
         "WK01",
         "WK02",
@@ -66,14 +67,14 @@
         "QA": 39
       },
       "path": "docs/validation/production-v09-baseline.json",
-      "registry": "docs/validation/production-v011-registry.json",
+      "registry": "docs/validation/production-v012-registry.json",
       "rule": "Le statut Prototype atteste une réception partielle. Le critère original et le reste sont conservés; seul un contrôle exécuté reçoit Vérifié."
     },
     "previousRelease": {
-      "version": "0.10.0",
-      "recordCount": 845,
-      "sourceRevision": "4846d0270b2976877f9b202848bfde6d2127fb1d",
-      "ids": "tests/fixtures/bible-v010-ids.json"
+      "version": "0.11.0",
+      "recordCount": 873,
+      "sourceRevision": "c7f3273a60824ff4e968ea36ab956c6a41710df0",
+      "ids": "tests/fixtures/bible-v011-ids.json"
     }
   },
   "sheets": [
@@ -1282,6 +1283,69 @@
           "acceptance": "Migration sur export natif v9 authentique, reprise exacte, reçus contradictoires refusés et ancienne perte terminale conservée.",
           "priority": "P0",
           "status": "Prototype"
+        },
+        {
+          "id": "SY105",
+          "system": "Écoute des vibrations",
+          "design": "Trois signaux exploitables localisent la source. Chaque point permet une écoute ou un constat de perte distinct. L’écoute exige une coque immobile, ancrée et des pieds posés, sans bruit récent de tir. Le travail suit l’horloge de la mission.",
+          "counterplay": "Marcher, désancrer ou tirer interrompt la prise en cours. Les relevés achevés restent acquis. Une source non localisée ne fournit pas de parole comprise ou de preuve.",
+          "acceptance": "Éprouver interruption, reprise et trois relevés sans doublon. Les six châssis doivent pouvoir écouter avec leurs appuis réels.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY106",
+          "system": "Corniche et site de ponte",
+          "design": "Un relevé de passage sélectionne une corniche existante. Ses rampes portent les vrais pieds du marcheur au-dessus de trois nids fragiles, distincts du témoin.",
+          "counterplay": "Les appuis au sol, tirs et explosions peuvent endommager la ponte. Reconnaître le passage ne répare aucun nid; une image ne doit pas inventer un appui absent de la simulation.",
+          "acceptance": "Comparer surface et vrais pieds des six châssis. Préserver les dommages et les distinguer d’un refus de Leth ou de la perte de l’émetteur.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY107",
+          "system": "Rencontre et accord de Leth",
+          "design": "Leth doit être rencontré vivant, puis donner un accord privé avant l’enregistrement. Une ponte dégradée avant l’accord provoque un refus; un dommage après l’accord retire la coopération. Un enregistrement déjà achevé reste conservé après ce retrait.",
+          "counterplay": "Être à portée n’est pas avoir échangé. Une rencontre ne vaut pas accord. Leth peut rester vivant sans être disponible; sa réponse ne parle pas pour toutes les cités Khelt.",
+          "acceptance": "Éprouver rencontre, accord, refus, retrait et perte. Aucun texte ne doit attribuer un témoignage, un recrutement ou un consentement public non acquis.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY108",
+          "system": "Avertissements et traduction copiés",
+          "design": "La source des avertissements et la traduction impériale possèdent des copies séparées. Trois restitutions françaises confrontent évacuation des cultures, passage des familles et éloignement des machines lourdes de la ponte au sens impérial inversé. Leth explique le sens local lors de son témoignage consenti.",
+          "counterplay": "Un original détruit avant copie ne révèle aucun texte. Une copie achevée survit à la perte de sa source. Les trois relevés de vibrations ne remplacent aucune copie.",
+          "acceptance": "Refuser TE01 si l’une des deux copies manque; conserver les pièces déjà acquises après dommage. Ne pas étendre ce constat à toute la chaîne politique.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY109",
+          "system": "Échange exposé et témoin protégé",
+          "design": "L’enregistrement consenti exige vingt secondes effectives auprès de Leth. Trois forces privées n’agissent qu’après leur délai d’arrivée de six secondes suivant la rencontre ou une perte déclenchante.",
+          "counterplay": "Sortir de portée interrompt le travail en cours et demande une nouvelle tentative complète. Une perte avant l’achèvement empêche le témoignage. Après acquisition, la perte retire le témoin disponible sans effacer l’enregistrement.",
+          "acceptance": "Éprouver attente, arrivée, protection, interruption et les deux ordres temporels de perte. L’ennemi absent reste invisible, inactif et hors des cibles.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY110",
+          "system": "Émetteur capturé ou préservé",
+          "design": "La décision fixe une capture ou une remise en service. Une intervention de cinq secondes sur l’émetteur réalise ensuite le plan. Le rapport précède une extraction physique.",
+          "counterplay": "Le choix ne déplace aucun équipement et ne rend pas vivant un témoin perdu. Un émetteur détruit garde une issue de perte constatée; les dommages après décision restent dans le bilan.",
+          "acceptance": "Éprouver les deux conduites sur les six châssis. Distinguer ordre, opération achevée, témoin disponible, preuve conservée et sortie effectivement atteinte.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY111",
+          "system": "Dossier de la voix de Thyr",
+          "design": "Le format v11 ajoute world.thyr.voice vide aux dossiers v10. Les dix rapports, anciennes scènes, ressources et marqueurs d’étape restent conservés; MI11 vient du premier rapport manquant.",
+          "counterplay": "Le reçu distingue relevés, corniche, nids, copies, Leth, accord, témoignage, menace et émetteur. La relecture ne remplace pas le premier rapport et ne redonne pas sa dotation.",
+          "acceptance": "Migration depuis les octets historiques 0.11, reprises exactes et refus des reçus contradictoires. Les exports v10 préparés sont explicitement distincts d’une réception native.",
+          "priority": "P0",
+          "status": "Prototype"
         }
       ]
     },
@@ -1950,7 +2014,7 @@
           "name": "Thyr",
           "biome": "Forêts de colonnes vivantes, vallées cultivées, maisons suspendues et pistes sous canopée.",
           "society": "Communautés humaines et Khelt entretiennent des sols symbiotiques; les récoltes se synchronisent avec la faune.",
-          "terrain": "Racines porteuses, clairières et branches basses. MI09 applique hauteur réelle des coques, contournement et cadence des appuis. MI10 ajoute cuves, écoulement chimique, collecteur et canaux endommageables. Feu de forêt et écologie globale restent conçus.",
+          "terrain": "Racines porteuses, clairières et branches basses. MI09 applique hauteur réelle et cadence des appuis. MI10 ajoute cuves, écoulements, collecteur et canaux. MI11 emploie des écoutes au sol et une corniche portant les pieds au-dessus de la ponte. Feu de forêt et écologie globale restent conçus.",
           "reveal": "Les relevés de stérilité sont fabriqués pour justifier l’expulsion et la destruction des mémoires de culture.",
           "missions": "MI09–MI12",
           "status": "Prototype"
@@ -2222,9 +2286,9 @@
           "name": "Leth de la Septième Rive",
           "role": "Interprète Khelt",
           "desire": "Veut que ses concitoyens soient entendus sans réduire leurs cités à une seule voix.",
-          "arc": "Aide à préserver les archives mais s’oppose à leur captation comme simple munition de propagande.",
+          "arc": "MI11 introduit Leth sur Thyr. Rencontre, accord à un enregistrement limité, échange protégé et disponibilité ultérieure sont distincts. Leth peut refuser après dégradation de la ponte. Sa contribution n’engage aucune cité entière et ne vaut ni recrutement ni consentement à diffusion publique. Son travail ultérieur sur les archives reste conçu.",
           "faction": "FA05",
-          "status": "Conçu"
+          "status": "Prototype"
         },
         {
           "id": "PN07",
@@ -2302,7 +2366,7 @@
     },
     {
       "name": "Campagne",
-      "description": "32 missions principales : MI01–MI10 jouables au stade prototype, 22 autres conçues. MI09 ouvre Thyr, MI10 y traite le terrain chimique. OP01–OP03 restent autonomes.",
+      "description": "32 missions principales : MI01–MI11 jouables au stade prototype, 21 autres conçues. Thyr relie route vivante, terrain chimique et témoignage de Leth. OP01–OP03 restent autonomes.",
       "columns": [
         {
           "key": "id",
@@ -2467,10 +2531,10 @@
           "planet": "PL03",
           "title": "Une voix au ras du sol",
           "order": "Capturer un émetteur Khelt dans une vallée hostile.",
-          "play": "Rechercher une source par vibrations, éviter un site de ponte et protéger l’interprète pendant un échange.",
-          "truth": "Leth transmet des avis d’évacuation ignorés par les autorités; la traduction impériale inversait plusieurs termes.",
-          "consequence": "Alliance d’interprétation possible; preuve testimoniale TE01 et confiance de Leth.",
-          "status": "Conçu"
+          "play": "Effectuer trois écoutes au sol, reconnaître une corniche évitant les nids, copier séparément avertissements et traduction impériale, rencontrer Leth et protéger un échange consenti. Capturer ou préserver l’émetteur exige ensuite une opération, un rapport et une extraction.",
+          "truth": "TE01 exige trois signaux exploitables, les deux copies et le témoignage consenti achevé. Leth transmet des avertissements d’évacuation reçus puis déformés par la traduction impériale. Le constat n’établit pas toute la chaîne industrielle ou politique.",
+          "consequence": "Copies et enregistrement acquis demeurent conservés après perte des originaux. État de la ponte, émetteur, Leth vivant et disponible, confiance et possibilité de coopération restent séparés. Aucune alliance militaire, diffusion publique ou défection automatique.",
+          "status": "Prototype"
         },
         {
           "id": "MI12",
@@ -4070,9 +4134,9 @@
           "id": "NA07",
           "type": "Relation",
           "name": "Confiance de Leth",
-          "rule": "Suit restitution, consentement à diffusion et respect des sites; ne se confond pas avec l’alliance militaire de Hadr.",
-          "sources": "MI11, MI21–MI24, CT11.",
-          "status": "Conçu"
+          "rule": "Dans MI11, la confiance suit les dommages à la ponte et le sort matériel de l’émetteur. Rencontre, consentement limité, témoignage conservé et disponibilité future sont distincts. La possibilité de coopération ne constitue ni alliance militaire de Hadr ni permission de diffusion publique.",
+          "sources": "MI11 au stade prototype. La restitution des archives, les accords de diffusion de MI21–MI24 et CT11 restent conçus.",
+          "status": "Prototype"
         },
         {
           "id": "NA08",
@@ -4607,7 +4671,7 @@
           "type": "État",
           "name": "Ceux qui restent à Aval",
           "rule": "Accueil local et refuge en aval sont deux destinations réelles. Les deux techniciens terminent leur service dans une niche distincte. Le bilan ne présente pas toute personne non embarquée comme morte ou disparue.",
-          "sources": "MI08; recensement individuel, arrivées et replis. MI09 ouvre une scène locale sur Thyr sans déplacer ce recensement. MI11–MI32 et CT03/CT04 restent conçus.",
+          "sources": "MI08; recensement individuel, arrivées et replis. MI09 ouvre une scène locale sur Thyr sans déplacer ce recensement. MI12–MI32 et CT03/CT04 restent conçus.",
           "status": "Prototype"
         },
         {
@@ -4672,6 +4736,38 @@
           "name": "Thyr après la route",
           "rule": "MI10 reprend seulement les faits de MI09 : conduite, approche, passage préservé et récoltes fragilisées. Un guidage effectivement reçu peut accélérer le collecteur; aucun animal, habitant de Nacre ou témoin n’est transféré artificiellement.",
           "sources": "MI09; MI10; SY97; SY104. Le contexte local ne crée ni alliance globale ni rencontre non jouée.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA83",
+          "type": "Preuve testimoniale",
+          "name": "TE01 — la voix conservée",
+          "rule": "TE01 exige trois signaux exploitables, les copies de l’avertissement et de sa traduction impériale, ainsi qu’un enregistrement consenti et achevé avec Leth. Un constat de perte ne remplace pas un signal. La déformation locale des avis n’établit pas tous les détails des commandes industrielles.",
+          "sources": "MI11; SY105; SY107–SY109. TE01 ne crée ni PO01 ni défection avant MI16.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA84",
+          "type": "Relation",
+          "name": "Témoin, confiance et coopération",
+          "rule": "Leth vivant, rencontré, consentant, enregistré et disponible sont des faits distincts. Le respect de la ponte et le sort de l’émetteur influencent une relation locale. Une coopération possible ne constitue ni alliance militaire, recrutement ou permission de publier.",
+          "sources": "MI11; PN06; NA07; SY107; SY110. Les accords des cités FA05 restent indépendants.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA85",
+          "type": "Conservation",
+          "name": "Un témoignage après la perte de sa source",
+          "rule": "Une copie ou un enregistrement achevé demeure à bord après destruction de l’original ou perte ultérieure de Leth. La preuve conserve sa provenance; le rapport ne présente pas le témoin mort ou retiré comme disponible.",
+          "sources": "MI11; SY108–SY111; reçu physique et ordre temporel des acquisitions.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA86",
+          "type": "Continuité locale",
+          "name": "Thyr après le champ chimique",
+          "rule": "MI11 reprend les conséquences consignées de MI10 dans ses propos locaux. La collecte de PT02, l’eau et l’état des cuves ne créent ni rencontre antérieure avec Leth, ni population transférée, ni consentement anticipé.",
+          "sources": "MI10; MI11; SY104; SY111. Les dix rapports précédents restent inchangés.",
           "status": "Prototype"
         }
       ]
@@ -4829,10 +4925,10 @@
           "id": "AS13",
           "category": "Aliens",
           "deliverable": "Khelt — langue visuelle",
-          "spec": "Anatomie, vêtements, gestes, technologies et architecture développés ensemble.",
+          "spec": "Anatomie, vêtements, gestes, technologies et architecture développés ensemble. Réception partielle 0.12 : un interprète original, Leth, possède cinq états SVG/Canvas et des outils locaux intégrés. Les planches et scènes ont été relues. Anatomie complète, diversité des cités, gestes et animations finaux, voix jouées et architecture restent à produire.",
           "acceptance": "Aucune équivalence simpliste avec peuple humain réel ou tribu primitive générique.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS14",
@@ -4874,7 +4970,7 @@
           "id": "AS18",
           "category": "Décors",
           "deliverable": "Kit Thyr",
-          "spec": "Canopée, colonnes-mères, hameaux suspendus, racines et pistes modulaires. Réception 0.10 : onze composants partagés SVG/Canvas, trente-cinq SVG et deux planches PNG. Supports, habitats, migrateurs, colonies, barrière, carte et jalons ont des variantes explicites. FL08 est décorative et FL09 seulement réactive visuellement; matières finales et lecture humaine restent ouvertes. Réception 0.11 : six composants chimiques et vingt-quatre états SVG partagés avec le Canvas, pour cuves, canaux, prélèvement, registre, vannes et maisons.",
+          "spec": "Canopée, colonnes-mères, hameaux suspendus, racines et pistes modulaires. Réception 0.10 : onze composants partagés SVG/Canvas, trente-cinq SVG et deux planches PNG. Supports, habitats, migrateurs, colonies, barrière, carte et jalons ont des variantes explicites. FL08 est décorative et FL09 seulement réactive visuellement; matières finales et lecture humaine restent ouvertes. Réception 0.11 : six composants chimiques et vingt-quatre états SVG partagés avec le Canvas, pour cuves, canaux, prélèvement, registre, vannes et maisons. Réception 0.12 : six composants de la vallée, vingt-six états SVG et deux planches PNG pour écoutes, émetteur, ponte, corniche, Leth et traduction. Les scènes Canvas ont été relues; art final et essai humain restent ouverts.",
           "acceptance": "Arbres porteurs raccordés aux bâtiments; aucune porte flottante.",
           "priority": "P0",
           "status": "Prototype"
@@ -5474,7 +5570,7 @@
         {
           "id": "PR18",
           "workstream": "Acte II",
-          "deliverable": "MI09–MI16 et CT05–CT08, départ de l’Empire. Réceptions 0.10–0.11 : MI09 et MI10 ouvrent Thyr au stade prototype. MI11–MI16, les quatre contrats et la défection de MI16 restent à produire.",
+          "deliverable": "MI09–MI16 et CT05–CT08, départ de l’Empire. Réceptions 0.10–0.12 : MI09, MI10 et MI11 ouvrent Thyr au stade prototype. MI12–MI16, les quatre contrats et la défection de MI16 restent à produire.",
           "depends": "PR17; AS18; AS19",
           "acceptance": "Défection cohérente avec équipage, stocks et sources conservées.",
           "priority": "P1",
@@ -6109,6 +6205,33 @@
           "acceptance": "La personne distingue intention, opération accomplie, copie de provenance, échantillon et pollution persistante; hésitations et aides sont consignées.",
           "priority": "P1",
           "status": "À produire"
+        },
+        {
+          "id": "PR89",
+          "workstream": "MI11 — vallée résonante",
+          "deliverable": "Trois écoutes, corniche et ponte, avertissements et traduction, Leth, échange protégé, émetteur, rapport et extraction.",
+          "depends": "MI11; PN06; AS13; AS18; SY105–SY110; NA83–NA86",
+          "acceptance": "Deux conduites par opérations physiques, six châssis, sources et pertes persistantes. TE01 n’est acquise qu’après témoignage et pièces réelles.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR90",
+          "workstream": "Thyr — dossier de la voix",
+          "deliverable": "Dossier v11, migration depuis les exports préparés v10 authentiques, reçu strict et relecture indépendante.",
+          "depends": "PR87; PR89; SY111; QA180; QA187",
+          "acceptance": "Dix rapports et anciennes scènes conservés. Pas de connaissance, opération, témoin disponible ou dotation ajoutés par falsification ou relecture.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR91",
+          "workstream": "Essai humain — vallée résonante",
+          "deliverable": "Sessions sans guidage sur matériel déclaré pour écoute, ponte, consentement, copies, échange et sort de l’émetteur. Protocole docs/PLAYTEST_VOICE_V12.md et fiche vierge préparés; aucune session reçue.",
+          "depends": "PR89; AS13; AS18; QA191",
+          "acceptance": "La personne distingue localisation, traduction, accord limité, preuve conservée et disponibilité de Leth. Les hésitations, aides et erreurs sont consignées.",
+          "priority": "P1",
+          "status": "À produire"
         }
       ]
     },
@@ -6344,7 +6467,7 @@
           "id": "QA25",
           "area": "Intégrité bible",
           "scenario": "Vérifier IDs et références de tous onglets.",
-          "expected": "Aucun ID dupliqué et chaque référence pointe vers une entrée existante ou une plage explicitée. Réception 0.11 : 873 IDs uniques, références et symboles résolus; sept mutations incorrectes rejetées et sept baselines authentiques contrôlées sans Git. Preuves : docs/validation/production-v011-reference-audit.json et production-v011-reference-probes.json. Les réceptions 0.9–0.10 restent archivées. Résoudre un lien ne certifie ni gameplay ni finition.",
+          "expected": "Aucun ID dupliqué et chaque référence pointe vers une entrée existante ou une plage explicitée. Réception 0.12 : 905 IDs uniques, références et symboles résolus; sept mutations incorrectes rejetées et huit baselines authentiques contrôlées sans Git. Preuves : docs/validation/production-v012-reference-audit.json et production-v012-reference-probes.json. Les réceptions 0.9–0.11 restent archivées. Résoudre un lien ne certifie ni gameplay ni finition.",
           "priority": "P0",
           "status": "Vérifié"
         },
@@ -7579,6 +7702,102 @@
           "expected": "Distinguer inspection et copie, choix et opération, échantillon et provenance, village habitable et effectif humain. Protocole docs/PLAYTEST_CHEMICAL_V11.md et fiche human-mi10-session-template-v11.json vierge. Consigner hésitations, aides et contradictions; aucune session déduite des scripts.",
           "priority": "P1",
           "status": "À produire"
+        },
+        {
+          "id": "QA180",
+          "area": "Dossier v11",
+          "scenario": "Migrer les variantes v10 historiques puis relire checkpoints, rapports, ressources et ancien marqueur d’étape.",
+          "expected": "Seuls version et dossier de voix vide sont ajoutés. Les dix premiers rapports et toutes anciennes scènes restent identiques. Les exports v10 sont préparés, non natifs. Contrôle automatique reçu : docs/validation/v012-campaign-validation.json (224 tests, dont 41 pour MI11). Aucun geste natif ou essai humain n’est revendiqué.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA181",
+          "area": "MI11 — écoute",
+          "scenario": "Comparer une écoute immobile, un départ avant terme, un tir récent et la reprise sur chaque point.",
+          "expected": "Trois relevés distincts sont nécessaires. Aucun doublon ni progression pendant pause, déplacement ou bruit invalidant. Les appuis réels conditionnent l’écoute. Contrôle automatique reçu : docs/previews/mi11-simulation-validation.json. Aucun geste natif ni essai humain n’en est déduit.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA182",
+          "area": "MI11 — ponte et corniche",
+          "scenario": "Parcourir le site avec six châssis, avec et sans relevé de corniche; contrôler tirs, explosions et appuis.",
+          "expected": "Le renderer suit la même surface que les pieds. Les trois nids gardent leurs dégâts; aucune reconnaissance tardive ne répare une perte. Contrôle automatique reçu : docs/previews/mi11-simulation-validation.json. Aucun geste natif ni essai humain n’en est déduit. Comparaison graphique : docs/previews/mi11-canvas-validation.json.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA183",
+          "area": "MI11 — consentement",
+          "scenario": "Rencontrer Leth puis demander l’accord, avec ponte préservée, dégradée, témoin retiré ou perdu.",
+          "expected": "Aucun accord sans rencontre valide. Refus, retrait et perte restent distincts. Ni recrutement ni consentement public ne sont attribués. Contrôle automatique reçu : docs/previews/mi11-simulation-validation.json. Aucun geste natif ni essai humain n’en est déduit.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA184",
+          "area": "MI11 — TE01",
+          "scenario": "Retirer successivement écoute, copie d’avertissement, traduction et enregistrement; perdre les originaux avant et après acquisition.",
+          "expected": "TE01 exige tous les prérequis matériels et le témoignage consenti achevé. Copies et enregistrement acquis persistent après la perte de leur source. Contrôle automatique reçu : docs/previews/mi11-simulation-validation.json. Aucun geste natif ni essai humain n’en est déduit.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA185",
+          "area": "MI11 — échange exposé",
+          "scenario": "Observer délai d’arrivée des forces privées, échange protégé, interruption puis perte de Leth avant ou après la fin.",
+          "expected": "Trois forces restent hors du monde actif avant six secondes. Les vingt secondes d’échange sont effectives. Un témoignage conservé ne ressuscite pas son auteur. Contrôle automatique reçu : docs/previews/mi11-simulation-validation.json. Aucun geste natif ni essai humain n’en est déduit.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA186",
+          "area": "MI11 — ordre et émetteur",
+          "scenario": "Choisir capture ou préservation puis effectuer, interrompre ou perdre l’opération sur l’émetteur.",
+          "expected": "Le choix seul ne déplace ni ne restaure l’équipement. Cinq secondes de travail sont nécessaires; pertes et dégâts tardifs restent consignés. Contrôle automatique reçu : docs/previews/mi11-simulation-validation.json. Aucun geste natif ni essai humain n’en est déduit.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA187",
+          "area": "MI11 — reçu et relecture",
+          "scenario": "Falsifier reçu, horloge, acquisition et disponibilité; reprendre travaux et rejouer après premier rapport.",
+          "expected": "Les contradictions sont refusées. La reprise conserve exactement les états; onze rapports possibles et une seule dotation par mission. Contrôle automatique reçu : docs/validation/v012-campaign-validation.json (224 tests, dont 41 pour MI11). Aucun geste natif ou essai humain n’est revendiqué.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA188",
+          "area": "MI11 — rendu et interface",
+          "scenario": "Comparer composants SVG/Canvas, scènes issues des commandes publiques et transitions de briefing, accord, décision, bilan et archives.",
+          "expected": "Les éléments visibles correspondent aux états de la simulation. Les scènes Canvas, parcours DOM modélisés et observations natives gardent des preuves distinctes. Reçus : docs/validation/v12-assets-render.txt (90 comparaisons), v12-ui-runtime.txt (86 parcours) et docs/previews/mi11-canvas-validation.json (25 scènes). La revue visuelle bornée reste consignée dans v12-canvas-visual-review.json; navigateur et essais humains restent ouverts.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA189",
+          "area": "Bible — réception 0.12",
+          "scenario": "Régénérer, recalculer et comparer source, références, 873 IDs historiques, formules, styles et plages modifiées.",
+          "expected": "Les 133 critères initiaux et anciens reçus restent intacts. Les 126 formules, filtres, validations et volets sont contrôlés; QA29 interactive reste séparée. Export, références, mise en page, 48 vues relues et recalcul LibreOffice indépendant reçus dans docs/validation/workbook-v0.12-*. Les fichiers finaux sont contrôlés après consolidation des statuts.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA190",
+          "area": "MI11 — réception native",
+          "scenario": "Dans un navigateur réel, migrer un dossier, lancer la vallée, interrompre puis reprendre un échange, décider, extraire et réimporter.",
+          "expected": "Consigner gestes, captures, exports et environnement. Les checkpoints préparés ne constituent pas des actions natives; aucune réception déduite des tests automatiques. Constat 0.12 : docs/validation/native-v12/browser-reception.json, not_run, aucun nouvel essai; blocages 0.11 conservés.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA191",
+          "area": "Essai humain — vallée résonante",
+          "scenario": "Faire parcourir MI11 sans guidage sur matériel déclaré en observant écoute, ponte, copies, accord et opération de l’émetteur.",
+          "expected": "La personne distingue localisation et traduction, rencontre et accord, preuve conservée et témoin disponible. Consigner hésitations, aides et contradictions sans déduire une session des scripts. Protocole docs/PLAYTEST_VOICE_V12.md et fiche human-mi11-session-template-v12.json vierge.",
+          "priority": "P1",
+          "status": "À produire"
         }
       ]
     },
@@ -7662,7 +7881,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.11.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "description": "Portée présente dans le code de la version 0.12.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -7894,7 +8113,7 @@
           "id": "PX22",
           "link": "SY26",
           "name": "Résultats et réglages locaux",
-          "implemented": "Réglages et rapports des opérations autonomes conservés séparément. MI01–MI10 possèdent un dossier de campagne v10 et des reprises. Le dossier d’Aval garde ses personnes et bateaux; les dossiers de Thyr décrivent route vivante et terrain chimique locaux distincts.",
+          "implemented": "Réglages et rapports des opérations autonomes conservés séparément. MI01–MI11 possèdent un dossier de campagne v11 et des reprises. Aval garde ses personnes et bateaux; Thyr conserve route, terrain chimique et rencontre de Leth dans trois dossiers locaux distincts.",
           "limits": "Les rapports OP01–OP03 ne deviennent pas des réussites de campagne. Une relecture ne réécrit pas les résultats et ressources officiels.",
           "path": "src/main.mjs; src/campaign.mjs",
           "status": "Prototype"
@@ -7922,7 +8141,7 @@
           "link": "MI01; PN02; PN14; PR29",
           "name": "MI01 — Le couloir quarante-deux",
           "implemented": "Escorte de filtres sur Vesper, apprentissage des appuis, embuscade antichar, livraison au poste des mineurs, lecture du manifeste puis choix du bordereau.",
-          "limits": "MI01 est complétée par MI02–MI10. MI11–MI32, mise en scène finale, doublage et performance cible restent à produire ou valider. Aucun dossier PALINODE révélé dans MI01.",
+          "limits": "MI01 est complétée par MI02–MI11. MI12–MI32, mise en scène finale, doublage et performance cible restent à produire ou valider. Aucun dossier PALINODE révélé dans MI01.",
           "path": "src/content.mjs; src/simulation.mjs",
           "status": "Prototype"
         },
@@ -7940,7 +8159,7 @@
           "link": "SY24; PN02; PN14; PR31",
           "name": "Retour d’équipage et dossier de Vesper",
           "implemented": "Livraison de 24 caisses si le transport arrive, état de la conduite, pertes civiles, notice de Sami et répliques contextuelles de Tess/Sami conservés. Une réussite reçoit une seule dotation.",
-          "limits": "Dossier étendu à MI01–MI10. Les pactes, mondes suivants et quatre fins restent conçus. Rejouer ne réécrit ni premier dossier ni ressources.",
+          "limits": "Dossier étendu à MI01–MI11. Les pactes, mondes suivants et quatre fins restent conçus. Rejouer ne réécrit ni premier dossier ni ressources.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -7949,7 +8168,7 @@
           "link": "SY26; PR30",
           "name": "Reprise de mission et décision",
           "implemented": "État de mission versionné, sauvegarde de la simulation en cours et point de reprise conservé avant le choix du bordereau. Restauration explicite du même monde et des objectifs.",
-          "limits": "Portée de sauvegarde : MI01–MI10. Compatibilité suivie version par version. Le changement de fichier ou de navigateur peut changer l’emplacement du stockage local.",
+          "limits": "Portée de sauvegarde : MI01–MI11. Compatibilité suivie version par version. Le changement de fichier ou de navigateur peut changer l’emplacement du stockage local.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -7966,8 +8185,8 @@
           "id": "PX30",
           "link": "SY25; PR21; PR31",
           "name": "Atelier et réparation locale",
-          "implemented": "Six lots initiaux et quatre par première réussite de MI01–MI10. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
-          "limits": "Dix dotations de première réussite; aucune en relecture. Une nouvelle sortie renouvelle munitions et deux kits. Le carburant de MI05 consommé à MI06 ne revient pas. Modules, pièces rares et économie complète restent à produire.",
+          "implemented": "Six lots initiaux et quatre par première réussite de MI01–MI11. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
+          "limits": "Onze dotations de première réussite; aucune en relecture. Une nouvelle sortie renouvelle munitions et deux kits. Le carburant de MI05 consommé à MI06 ne revient pas. Modules, pièces rares et économie complète restent à produire.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -7976,7 +8195,7 @@
           "link": "MI02; VE17; PR33",
           "name": "MI02 — La dette sous la poussière",
           "implemented": "Reprise du train détourné sur le viaduc : deux harpons à libérer, poursuite, freinage, ouverture du wagon, lecture et choix de rapport avant extraction.",
-          "limits": "Seconde mission sur 32, complétée par MI03–MI10. Itinéraire latéral unique, assaut de prototype et retour textuel. MI11–MI32, mise en scène et finition du niveau restent à produire.",
+          "limits": "Seconde mission sur 32, complétée par MI03–MI11. Itinéraire latéral unique, assaut de prototype et retour textuel. MI12–MI32, mise en scène et finition du niveau restent à produire.",
           "path": "src/content.mjs; src/simulation.mjs; docs/CAMPAIGN_MISSION_02.md",
           "status": "Prototype"
         },
@@ -8336,7 +8555,7 @@
           "link": "MI07; PR61",
           "name": "MI07 — Une ambulance sans escorte",
           "implemented": "Septième mission après MI06 : arrêt, accord, examens, balise, rampe héritée et transfert sanitaire.",
-          "limits": "MI08–MI10 prolongent la campagne. MI11–MI32, contrats locaux, navigation amphibie et finition restent conçus.",
+          "limits": "MI08–MI11 prolongent la campagne. MI12–MI32, contrats locaux, navigation amphibie et finition restent conçus.",
           "path": "src/content.mjs; src/simulation.mjs; src/campaign.mjs",
           "status": "Prototype"
         },
@@ -8490,7 +8709,7 @@
           "name": "Registre de réception",
           "implemented": "Les 133 critères initiaux disposent d’une baseline immuable, d’un audit par ID, de preuves et d’un reste. Les références symboliques sont résolues explicitement.",
           "limits": "Une réception partielle ne clôt pas un critère d’art final ou d’essai humain; les compteurs ne mesurent pas le pourcentage du jeu fini.",
-          "path": "docs/validation/production-v011-registry.json; docs/validation/production-v09-baseline.json; tools/verify-bible-export.py",
+          "path": "docs/validation/production-v012-registry.json; docs/validation/production-v09-baseline.json; tools/verify-bible-export.py",
           "status": "Prototype"
         },
         {
@@ -8498,7 +8717,7 @@
           "link": "MI09; PR83; SY93–SY96",
           "name": "MI09 — La route des vivants",
           "implemented": "Neuvième mission après MI08 : écoute, approche adaptée, relevé, projecteurs, deux conduites de migration, tireurs puis trajet logistique et rapport.",
-          "limits": "MI10 prolonge Thyr. MI11–MI32 et contrats restent conçus. MI09 ne fournit pas de réglage libre de hauteur, de forêt générale, d’effectif humain local, de PT02, de TE01 ou de défection.",
+          "limits": "MI10 et MI11 prolongent Thyr. MI12–MI32 et contrats restent conçus. MI09 ne fournit pas de réglage libre de hauteur, de forêt générale, d’effectif humain local, de PT02, de TE01 ou de défection.",
           "path": "src/content.mjs; src/simulation.mjs; docs/CAMPAIGN_MISSION_09.md",
           "status": "Prototype"
         },
@@ -8543,7 +8762,7 @@
           "link": "MI10; PR86; SY99–SY103",
           "name": "MI10 — Le champ que personne n’a semé",
           "implemented": "Dixième mission : trois relevés, registre, fuite, prélèvement défendu, démolition ou isolation, canaux, remise en eau et rapport.",
-          "limits": "MI11–MI32 et seize contrats restent conçus. Le refus local ne vaut pas défection; TE01 et la chaîne politique complète ne sont pas révélées.",
+          "limits": "MI11 poursuit Thyr par la rencontre de Leth. MI12–MI32 et seize contrats restent conçus. Le refus local de MI10 ne vaut pas défection; cette mission ne révèle ni TE01 ni la chaîne politique complète.",
           "path": "src/content.mjs; src/chemical-simulation.mjs; docs/CAMPAIGN_MISSION_10.md",
           "status": "Prototype"
         },
@@ -8581,6 +8800,60 @@
           "implemented": "Migration v9 additive, dix premiers rapports possibles, reprise du terrain chimique et validation des opérations, masses, copies et issues.",
           "limits": "Les anciennes scènes et le carburant restent conservés. Une relecture ne remplace pas le premier rapport; stockage local toujours lié au navigateur.",
           "path": "src/campaign.mjs; src/chemical-validation.mjs; docs/CAMPAIGN_SAVE_V10.md; tests/fixtures/campaign-v9-mi09.json",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX99",
+          "link": "MI11; PN06; PR89",
+          "name": "MI11 — Une voix au ras du sol",
+          "implemented": "Onzième mission après MI10 : trois écoutes, corniche, ponte, source des avertissements, traduction impériale, rencontre de Leth, échange exposé puis émetteur et rapport.",
+          "limits": "MI12–MI32 et seize contrats restent conçus. Aucun recrutement, alliance militaire, diffusion publique ou défection n’est joué dans cette sortie.",
+          "path": "src/content.mjs; src/voice-simulation.mjs; docs/CAMPAIGN_MISSION_11.md",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX100",
+          "link": "SY105; SY106; QA181; QA182",
+          "name": "Vibrations et appuis au-dessus de la ponte",
+          "implemented": "Trois écoutes immobiles et une corniche physique relient la recherche de source aux vrais contacts des pieds. Trois nids gardent leurs dommages.",
+          "limits": "La mécanique représente une recherche locale. Elle ne simule pas toute la propagation du son, l’écologie ou les phases de développement d’une espèce.",
+          "path": "src/voice-simulation.mjs; src/simulation.mjs; tests/mi11-simulation.test.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX101",
+          "link": "SY107–SY109; NA83–NA85; TE01",
+          "name": "Témoignage de Leth et pièces conservées",
+          "implemented": "Rencontre, accord privé, copies, échange de vingt secondes, pertes et disponibilité du témoin restent séparés. Trois restitutions françaises confrontent le sens impérial au sens expliqué par Leth. TE01 demande trois signaux exploitables, les deux copies et l’enregistrement achevé. Leth reste sur le site, sans embarquement.",
+          "limits": "Leth ne représente pas toute une espèce. L’enregistrement ne vaut pas consentement à diffusion publique; les voix et l’interprétation finale restent à produire.",
+          "path": "src/voice-simulation.mjs; src/voice-validation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX102",
+          "link": "SY110; PR89; QA186",
+          "name": "Sort matériel de l’émetteur",
+          "implemented": "La capture et la remise en service suivent une décision puis une intervention de cinq secondes. Le bilan conserve l’état réel avant l’extraction physique.",
+          "limits": "Les opérations ne reconstituent ni source perdue ni témoin disparu. Le matériel capturé ne devient pas un équipement de flotte librement utilisable.",
+          "path": "src/voice-simulation.mjs; src/content.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX103",
+          "link": "AS13; AS18; QA188",
+          "name": "Éléments de la vallée et de Leth",
+          "implemented": "Six composants partagés SVG/Canvas, vingt-six états SVG et deux planches PNG représentent les écoutes, la corniche, la ponte, l’émetteur, la traduction et Leth. Les cinq états de Leth et les scènes intégrées ont été relus.",
+          "limits": "La réception graphique est suivie séparément du gameplay, du navigateur et de la lecture humaine. Le lot ne clôt pas la langue visuelle complète des cités Khelt.",
+          "path": "src/voice-assets.mjs; src/voice-renderer.mjs; assets/voice/manifest.json",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX104",
+          "link": "SY111; PR90; QA180; QA187",
+          "name": "Sauvegarde v11 et reçu de témoignage",
+          "implemented": "Migration v10 additive, onze premiers rapports possibles, reprise de la vallée et validation des acquisitions, consentements, opérations et pertes.",
+          "limits": "Les fixtures v10 sont des exports préparés attestés, sans réception native MI10. Une relecture ne remplace pas le premier rapport; le stockage local reste lié au navigateur.",
+          "path": "src/campaign.mjs; src/voice-validation.mjs; docs/CAMPAIGN_SAVE_V11.md; tests/fixtures/campaign-v10-mi10.json",
           "status": "Prototype"
         }
       ]

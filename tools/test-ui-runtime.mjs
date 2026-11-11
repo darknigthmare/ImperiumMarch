@@ -21,7 +21,8 @@ import { pilotMI07 } from '../tests/helpers/mi07-driver.mjs';
 import { pilotMI08 } from '../tests/helpers/mi08-driver.mjs';
 import { pilotMI09 } from '../tests/helpers/mi09-driver.mjs';
 import { pilotMI10 } from '../tests/helpers/mi10-driver.mjs';
-import { WALKERS } from '../src/content.mjs';
+import { pilotMI11, moveMI11, fireAtMI11 } from '../tests/helpers/mi11-driver.mjs';
+import { WALKERS, VOICE_TRANSLATION_PAIRS } from '../src/content.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const source = readFileSync(resolve(root, 'dist/Ordre_de_Cendre.html'), 'utf8');
@@ -331,7 +332,7 @@ for (const choice of ['obey', 'defy']) await check(`MI03 ${choice} decision, ext
   assert.equal(fresh.ids.get('workshop-network').hidden, false);
   await fresh.data('view', 'campaign');
   assert.match(fresh.ids.get('campaign-debrief').innerHTML, /MI03 \/ RAPPORT/);
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 10 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 11 RAPPORTS CLASSÉS');
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
   for (const id of ['MI01', 'MI02', 'MI03']) assert.match(fresh.ids.get('archive-content').innerHTML, new RegExp(`CAMPAGNE / ${id}`));
   await fresh.data('view', 'campaign'); await fresh.data('chapter', 'MI03'); await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
@@ -406,7 +407,7 @@ for (const choice of ['obey', 'defy']) await check(`MI04 ${choice} records the t
   assert.equal(fresh.ids.get('workshop-industrial').hidden, false);
   assert.match(fresh.ids.get('workshop-condition').textContent, /radiateur/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 10 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 11 RAPPORTS CLASSÉS');
   assert.equal(fresh.ids.get('campaign-transition').hidden, false);
   assert.match(fresh.ids.get('campaign-transition-text').textContent, /Nacre/);
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
@@ -527,7 +528,7 @@ await check('importing a genuine v4 Vesper dossier unlocks Nacre in the delivere
   assert.match(h.ids.get('campaign-import-summary').textContent, /MI04/);
   await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Le prix du passage');
-  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 10 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 11 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v4Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /journal de Vesper/);
@@ -588,7 +589,7 @@ for (const choice of ['obey', 'defy']) await check(`MI05 ${choice} debrief, arch
   assert.match(fresh.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI05/);
   assert.match(fresh.ids.get('archive-content').innerHTML, /Vann Ostre/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 10 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 11 RAPPORTS CLASSÉS');
   await fresh.data('chapter', 'MI05');
   await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
   assert.equal(fresh.snapshot().campaignReplay, true);
@@ -623,7 +624,7 @@ await check('a genuine v5 import unlocks MI06 with its actual stock and ten dist
   h.ids.get('campaign-file').files = [{ size: raw.length, text: async () => raw }];
   await h.ids.get('campaign-file').dispatch('change'); await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Les maisons sous la ligne');
-  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 10 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 11 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v5Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /dix habitants/);
@@ -739,7 +740,7 @@ for (const choice of ['obey', 'defy']) await check(`MI06 ${choice} requires the 
   await h.data('view', 'archives'); await h.data('archive', 'records');
   assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI06/);
   await h.data('view', 'campaign');
-  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 10 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 11 RAPPORTS CLASSÉS');
   await h.data('chapter', 'MI06'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().campaignReplay, true);
   assert.equal(h.snapshot().game.campaign.context.fuelAvailable, 2);
@@ -812,7 +813,7 @@ for (const [variant, route, routeText] of [['completed', 'main', 'PRINCIPALE'], 
   const h = harness(); await importAmbulanceDossier(h, v6Dossier[variant]);
   const prior = h.snapshot().campaign;
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Une ambulance sans escorte');
-  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 10 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 11 RAPPORTS CLASSÉS');
   await h.click('campaign-deploy');
   const briefing = h.ids.get('briefing-description').textContent;
   assert.match(briefing, /quatre patients et deux membres/);
@@ -947,7 +948,7 @@ for (const choice of ['obey', 'defy']) await check(`MI07 ${choice} selects a des
   await h.data('view', 'archives'); await h.data('archive', 'records');
   assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI07/);
   await h.data('view', 'campaign');
-  assert.equal(h.ids.get('campaign-progress').textContent, '7 / 10 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '7 / 11 RAPPORTS CLASSÉS');
   assert.match(h.ids.get('campaign-debrief').innerHTML, /À recouper/);
   await h.data('chapter', 'MI07'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().campaignReplay, true);
@@ -1057,7 +1058,7 @@ function departurePoint(kind, choice = 'delay') {
 await check('MI08 imports a genuine v7 dossier with seven unchanged reports and exposes its inherited briefing',async()=>{
   const h=harness();await importAmbulanceDossier(h,v7Dossier.completed);
   const s=h.snapshot();assert.equal(s.campaign.version,CAMPAIGN_SAVE_VERSION);assert.deepEqual(s.campaign.completed,v7Dossier.completed.completed);
-  assert.equal(h.ids.get('campaign-progress').textContent,'7 / 10 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent,'7 / 11 RAPPORTS CLASSÉS');
   await h.click('campaign-deploy');assert.match(h.ids.get('briefing-title').textContent,/marée compte/);
   assert.match(h.ids.get('briefing-description').textContent,/12 passagers.*10 habitants.*4 patients/);
   await h.click('launch');assert.equal(h.snapshot().game.missionId,'MI08');
@@ -1178,7 +1179,7 @@ await check('MI10 migrates the authentic v9 dossier, retains nine reports and op
   assert.deepEqual(h.snapshot().campaign.completed, v9Dossier.completed.completed);
   assert.deepEqual(h.snapshot().campaign.resources, v9Dossier.completed.resources);
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Le champ que personne n’a semé');
-  assert.match(h.ids.get('campaign-progress').textContent, /9 \/ 10/);
+  assert.match(h.ids.get('campaign-progress').textContent, /9 \/ 11/);
   await h.click('campaign-deploy'); assert.match(h.ids.get('briefing-description').textContent, /vingt secondes/);
   await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().game.missionId, 'MI10'); assert.equal(h.ids.get('chemical-instrument').hidden, false);
@@ -1449,6 +1450,446 @@ for(const choice of ['obey','defy'])await check(`QA14/QA16 OP03 ${choice} traver
   await fresh.data('view','operations');await fresh.data('mission','op01');await fresh.click('deploy');await fresh.click('launch');
   const next=fresh.snapshot().game;assert.equal(next.missionId,'op01');assert.equal(next.elapsed,0);assert.equal(next.projectiles.length,0);assert.equal(next.enemies.some(e=>e.dead),false);
   assert.equal(fresh.values.get('imperium.records.v1'),stored);
+});
+
+// MI11 uses a v10 fixture produced by the immutable 0.11 simulation, not a
+// native browser export. Public commands prepare each named checkpoint; the
+// delivered application's handlers then drive the asserted UI transitions.
+// Switching from a decision checkpoint to an extraction checkpoint is explicit:
+// these paths do not claim an uninterrupted full playthrough through the UI.
+const v10Dossier = JSON.parse(readFileSync(resolve(root, 'tests/fixtures/campaign-v10-mi10.json'), 'utf8'));
+const voicePoints = new Map();
+function voicePoint(stage, choice = 'defy', variant = {}) {
+  const key = JSON.stringify([stage, choice, variant]);
+  if (!voicePoints.has(key)) {
+    const started = beginCampaignMission(parseCampaign(JSON.stringify(v10Dossier.completed)), { missionId: 'MI11', walkerId: 'WK09', difficulty: 'story', seed: 2017 });
+    assert.equal(started.ok, true);
+    const stops = {
+      listening: s => s.voice.listening[0].working && s.voice.listening[0].progress > .35,
+      meeting: s => s.voice.leth.work === 'meet' && s.voice.leth.working && s.voice.leth.progress > .35,
+      exchange: s => s.voice.leth.work === 'testimony' && s.voice.leth.working && s.voice.leth.progress > .05,
+      decision: s => s.decision.active,
+      extraction: s => s.campaign.reportTransmitted && s.player.x > 5930,
+    };
+    const stopAt = stops[stage]; assert.equal(typeof stopAt, 'function');
+    pilotMI11(started.game, { choice, ...variant, stopAt });
+    assert.ok(stopAt(started.game), `MI11 public pilot reached ${key}`);
+    assert.equal(started.game.status, 'playing');
+    const checkpoint = checkpointCampaign(started.campaign, started.game, { beforeDecision: stage === 'decision' });
+    assert.deepEqual(checkpoint.checkpoint, started.game);
+    voicePoints.set(key, checkpoint);
+  }
+  return structuredClone(voicePoints.get(key));
+}
+
+function voiceUIUntil(h, predicate, maxFrames, label) {
+  for (let frame = 0; frame < maxFrames; frame += 6) {
+    if (predicate(h.snapshot().game)) return;
+    h.frames(Math.min(6, maxFrames - frame));
+  }
+  assert.ok(predicate(h.snapshot().game), label);
+}
+
+async function moveVoiceThroughUI(h, x) {
+  const code = h.snapshot().game.player.x > x ? 'KeyQ' : 'KeyD';
+  await h.key('Space', false); await h.key(code);
+  voiceUIUntil(h, s => Math.abs(s.player.x - x) < 15, 1800, `MI11 keyboard movement reached ${x}`);
+  await h.key(code, false); await h.key('Space'); h.frames(30);
+  voiceUIUntil(h, s => s.player.braced && !s.player.move && Math.abs(s.player.speed) < 3 && s.player.feet.every(foot => foot.contact), 240, 'MI11 keyboard anchoring settles every real foot');
+}
+
+async function interactVoiceThroughUI(h) {
+  await h.key('KeyE'); h.frames(1); await h.key('KeyE', false);
+}
+
+async function extractVoiceThroughUI(h, { lateChoice = false } = {}) {
+  const before = h.snapshot();
+  assert.equal(before.game.status, 'playing'); assert.equal(before.game.voice.report.transmitted, true);
+  assert.ok(Math.abs(before.game.player.x - before.game.extraction.x) >= before.game.extraction.radius, 'the prepared checkpoint is outside the extraction zone');
+  assert.equal(Object.keys(before.campaign.completed).length, 10);
+  assert.deepEqual(before.campaign.resources, v10Dossier.completed.resources);
+  await h.key('KeyD');
+  voiceUIUntil(h, s => s.status === 'won', 900, 'MI11 reaches the real extraction through the keyboard handler');
+  await h.key('KeyD', false);
+  const finished = h.snapshot();
+  assert.equal(finished.campaignWarning, ''); assert.equal(h.ids.get('result-dialog').open, true);
+  assert.ok(Math.abs(finished.game.player.x - finished.game.extraction.x) < finished.game.extraction.radius);
+  assert.ok(finished.game.player.x > before.game.player.x, 'actual travel crosses the extraction boundary');
+  assert.equal(Object.keys(finished.campaign.completed).length, 11);
+  assert.equal(finished.campaign.resources.parts, before.campaign.resources.parts + 4);
+  assert.equal(finished.campaign.resources.fuel, before.campaign.resources.fuel);
+  assert.deepEqual(Object.fromEntries(Object.entries(finished.campaign.completed).filter(([id]) => id !== 'MI11')), v10Dossier.completed.completed);
+  assert.match(h.ids.get('result-stats').innerHTML, /TÉMOIGNAGE TE01/);
+  assert.match(h.ids.get('result-stats').innerHTML, /PONTE/);
+  const official = JSON.stringify(finished.campaign);
+  h.frames(120);
+  if (lateChoice) await h.data('choice', finished.game.decision.choice === 'obey' ? 'defy' : 'obey');
+  assert.equal(JSON.stringify(h.snapshot().campaign), official, 'continued frames and any previously rendered late choice cannot pay or rewrite a second report');
+  const stored = parseCampaign(h.values.get(CAMPAIGN_SAVE_KEY));
+  assert.deepEqual(stored.completed.MI11, finished.campaign.completed.MI11);
+  assert.equal(stored.resources.parts, before.campaign.resources.parts + 4);
+  return finished;
+}
+
+function assertVoiceArchiveSources(html, { translationCopied, testimonyRecorded }) {
+  assert.match(html, /Restitutions françaises des messages/);
+  assert.equal(VOICE_TRANSLATION_PAIRS.length, 3);
+  for (const pair of VOICE_TRANSLATION_PAIRS) {
+    assert.equal(html.includes(pair.imperial), translationCopied, `${pair.id}: imperial wording requires a copied receiver`);
+    assert.equal(html.includes(pair.leth), testimonyRecorded, `${pair.id}: Leth's wording requires a completed recording`);
+  }
+  if (!translationCopied) assert.equal((html.match(/<td>Traduction impériale non copiée<\/td>/g) || []).length, 3);
+  if (!testimonyRecorded) assert.equal((html.match(/<td>Aucune restitution enregistrée de Leth<\/td>/g) || []).length, 3);
+  assert.match(html, /aucune autorisation publique/);
+}
+
+await check('MI11 migrates the historic v10 simulation dossier, keeps ten reports and resources, and opens the voice briefing and HUD', async () => {
+  const raw = JSON.stringify(v10Dossier.completed), h = harness(new Map([[CAMPAIGN_SAVE_KEY, raw]]));
+  const migrated = h.snapshot().campaign;
+  assert.equal(migrated.version, CAMPAIGN_SAVE_VERSION); assert.equal(migrated.version, 11);
+  assert.equal(Object.keys(migrated.completed).length, 10);
+  for (const field of ['completed', 'resources', 'stage', 'fleet', 'crew', 'authority', 'maintenanceLog']) assert.deepEqual(migrated[field], v10Dossier.completed[field]);
+  assert.deepEqual(migrated.world.nacre, v10Dossier.completed.world.nacre);
+  assert.deepEqual(migrated.world.thyr.route, v10Dossier.completed.world.thyr.route);
+  assert.deepEqual(migrated.world.thyr.chemical, v10Dossier.completed.world.thyr.chemical);
+  assert.equal(h.ids.get('campaign-order-title').textContent, 'Une voix au ras du sol');
+  assert.equal(h.ids.get('campaign-progress').textContent, '10 / 11 RAPPORTS CLASSÉS');
+  await h.click('campaign-deploy');
+  assert.match(h.ids.get('briefing-description').textContent, /PT02 est conservé/);
+  assert.match(h.ids.get('briefing-description').textContent, /appuis ancrés, sans déplacement ni tir/);
+  assert.match(h.ids.get('briefing-description').textContent, /Rencontrer Leth, demander son accord et enregistrer l’échange sont trois actes distincts/);
+  await h.click('launch'); h.frames(2);
+  assert.equal(h.snapshot().game.missionId, 'MI11'); assert.equal(h.ids.get('voice-instrument').hidden, false);
+  assert.equal(h.ids.get('voice-readings').textContent, '0 / 3 RELEVÉS · 0 SIGNAUX · ORIGINE À RECHERCHER');
+  assert.match(h.ids.get('voice-nests').textContent, /3 \/ 3 SITES INTACTS.*PASSAGE À RELEVER/);
+  assert.equal(h.ids.get('voice-consent').textContent, 'RENCONTRE À ÉTABLIR');
+  assert.match(h.ids.get('voice-testimony').textContent, /ÉCHANGE À ACCOMPLIR.*0 \/ 2 SOURCES COPIÉES/);
+  assert.match(h.ids.get('voice-emitter').textContent, /AUCUNE DIFFUSION PUBLIQUE AUTORISÉE/);
+  assert.equal((h.ids.get('hud-objectives').innerHTML.match(/<li /g) || []).length, 3);
+  for (const id of ['chemical-instrument', 'thyr-instrument', 'departure-instrument']) assert.equal(h.ids.get(id).hidden, true);
+  assert.equal(h.snapshot().game.campaign.sourceLocated, false);
+  assert.equal(h.snapshot().game.campaign.te01Acquired, false);
+  assert.equal(h.snapshot().campaignWarning, '');
+});
+
+await check('MI11 interrupted listening requires a fresh anchor and interaction, preserves a pause exactly and records only the completed signal', async () => {
+  const point = voicePoint('listening'), h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]]));
+  await h.click('campaign-resume'); assert.deepEqual(h.snapshot().game, point.checkpoint);
+  h.frames(8);
+  assert.equal(h.snapshot().game.voice.listening[0].working, false);
+  assert.equal(h.snapshot().game.voice.listening[0].progress, 0);
+  assert.equal(h.snapshot().game.voice.listening[0].sampled, false);
+  await h.click('pause-button'); const paused = h.snapshot(); h.frames(120);
+  assert.deepEqual(h.snapshot().game, paused.game); assert.equal(paused.campaignWarning, '');
+  const fresh = harness(h.values); await fresh.click('campaign-resume'); assert.deepEqual(fresh.snapshot().game, paused.game);
+  fresh.frames(260); assert.equal(fresh.snapshot().game.campaign.readingsTaken, 0);
+  await fresh.key('Space'); fresh.frames(20); await interactVoiceThroughUI(fresh);
+  voiceUIUntil(fresh, s => s.voice.listening[0].sampled, 300, 'fresh anchoring and E complete the four-second listening operation');
+  await fresh.key('Space', false); fresh.frames(8); // Let the 100 ms HUD refresh display the completed operation.
+  const end = fresh.snapshot().game;
+  assert.equal(end.campaign.readingsTaken, 1); assert.equal(end.campaign.signalsRecorded, 1);
+  assert.equal(end.campaign.sourceLocated, false); assert.equal(end.campaign.te01Acquired, false);
+  assert.match(fresh.ids.get('voice-readings').textContent, /1 \/ 3 RELEVÉS · 1 SIGNAUX · ORIGINE À RECHERCHER/);
+  await fresh.click('pause-button'); assert.equal(fresh.snapshot().campaignWarning, '');
+});
+
+await check('MI11 meeting and private consent complete through separate UI interactions without anticipating testimony or TE01', async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(voicePoint('meeting'))]]));
+  await h.click('campaign-resume');
+  voiceUIUntil(h, s => s.voice.leth.met, 150, 'the physical meeting completes');
+  h.frames(8);
+  const met = h.snapshot().game;
+  assert.equal(met.voice.leth.consentAsked, false); assert.equal(met.voice.leth.testimonyStarted, false);
+  assert.equal(met.campaign.testimonyRecorded, false); assert.equal(met.campaign.te01Acquired, false);
+  assert.equal(h.ids.get('voice-consent').textContent, 'ACCORD À DEMANDER');
+  assert.match(h.ids.get('voice-testimony').textContent, /2 \/ 2 SOURCES COPIÉES/);
+  await interactVoiceThroughUI(h);
+  voiceUIUntil(h, s => s.voice.leth.consent, 150, 'a separate two-second request obtains private consent');
+  h.frames(8);
+  const agreed = h.snapshot().game;
+  assert.ok(agreed.voice.leth.consentAt > agreed.voice.leth.metAt);
+  assert.equal(agreed.campaign.consentGranted, true);
+  assert.equal(agreed.voice.leth.testimonyStarted, false); assert.equal(agreed.campaign.testimonyRecorded, false);
+  assert.equal(agreed.campaign.te01Acquired, false); assert.equal(agreed.campaign.publicConsent, false); assert.equal(agreed.campaign.recruited, false);
+  assert.equal(h.ids.get('voice-consent').textContent, 'ACCORD PRIVÉ REÇU');
+  assert.equal(h.ids.get('voice-stage').textContent, 'COMMENCER L’ÉCHANGE CONSENTI');
+  await h.click('pause-button'); assert.equal(h.snapshot().campaignWarning, '');
+  const fresh = harness(h.values); await fresh.click('campaign-resume'); assert.deepEqual(fresh.snapshot().game, agreed);
+});
+
+await check('MI11 exchange pauses with exact progress and real threat timing, then continues after a fresh dossier resume', async () => {
+  const point = voicePoint('exchange'), h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]]));
+  await h.click('campaign-resume'); assert.deepEqual(h.snapshot().game, point.checkpoint);
+  h.frames(12); assert.ok(h.snapshot().game.voice.leth.progress > point.checkpoint.voice.leth.progress);
+  assert.match(h.ids.get('voice-testimony').textContent, /ÉCHANGE \d+ %/);
+  await h.click('pause-button'); const paused = h.snapshot(); h.frames(900);
+  assert.deepEqual(h.snapshot().game, paused.game);
+  assert.equal(paused.game.campaign.testimonyRecorded, false); assert.equal(paused.game.campaign.te01Acquired, false);
+  assert.equal(paused.campaignWarning, '');
+  const fresh = harness(h.values); await fresh.click('campaign-resume'); assert.deepEqual(fresh.snapshot().game, paused.game);
+  fresh.frames(12);
+  assert.ok(fresh.snapshot().game.voice.leth.progress > paused.game.voice.leth.progress);
+  assert.ok(fresh.snapshot().game.voice.alert.elapsed > paused.game.voice.alert.elapsed);
+  assert.equal(fresh.snapshot().game.campaign.te01Acquired, false);
+  await fresh.click('pause-button'); assert.equal(fresh.snapshot().campaignWarning, '');
+});
+
+await check('MI11 leaving Leth through UI interrupts the exchange, keeps consent and copies, and requires a return and a new recording start', async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(voicePoint('exchange'))]]));
+  await h.click('campaign-resume');
+  const firstStartedAt = h.snapshot().game.voice.leth.firstStartedAt;
+  await moveVoiceThroughUI(h, 2615);
+  const outside = h.snapshot().game;
+  assert.ok(Math.abs(outside.player.x - outside.voice.leth.x) > outside.mission.voice.exchangeRadius);
+  assert.equal(outside.voice.leth.alive, true); assert.equal(outside.voice.leth.working, false); assert.equal(outside.voice.leth.progress, 0);
+  assert.equal(outside.campaign.consentGranted, true); assert.equal(outside.campaign.testimonyRecorded, false); assert.equal(outside.campaign.te01Acquired, false);
+  assert.equal(outside.campaign.warningCopied, true); assert.equal(outside.campaign.translationCopied, true);
+  assert.equal(outside.campaign.privateReady, true, 'the threats have really arrived while the pilot leaves');
+  assert.match(h.ids.get('voice-testimony').textContent, /ÉCHANGE INTERROMPU · RELANCER/);
+  h.frames(30); assert.equal(h.snapshot().game.voice.leth.progress, 0);
+  await h.click('pause-button'); const stopped = h.snapshot(); h.frames(60);
+  assert.deepEqual(h.snapshot().game, stopped.game); assert.equal(stopped.campaignWarning, '');
+  const fresh = harness(h.values); await fresh.click('campaign-resume'); assert.deepEqual(fresh.snapshot().game, stopped.game);
+  await moveVoiceThroughUI(fresh, 3390);
+  assert.equal(fresh.snapshot().game.voice.leth.working, false, 'returning to protection range is not a new recording request');
+  await interactVoiceThroughUI(fresh); fresh.frames(15);
+  const restarted = fresh.snapshot().game;
+  assert.equal(restarted.voice.leth.working, true); assert.equal(restarted.voice.leth.work, 'testimony');
+  assert.ok(restarted.voice.leth.progress > 0 && restarted.voice.leth.progress < .05);
+  assert.equal(restarted.voice.leth.firstStartedAt, firstStartedAt); assert.ok(restarted.voice.leth.startedAt > firstStartedAt);
+  assert.equal(restarted.campaign.testimonyRecorded, false); assert.equal(restarted.campaign.te01Acquired, false);
+  assert.equal(restarted.campaign.nestsIntact, 3);
+  await fresh.click('pause-button'); assert.equal(fresh.snapshot().campaignWarning, '');
+});
+
+for (const choice of ['obey', 'defy']) await check(`MI11 ${choice} selects no automatic emitter operation; physical work, extraction, one reward, sourced archives and replay stay distinct`, async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(voicePoint('decision'))]]));
+  await h.click('campaign-resume'); h.frames(1); assert.equal(h.ids.get('decision-dialog').open, true);
+  const before = h.snapshot().game; h.frames(120); assert.deepEqual(h.snapshot().game, before);
+  await h.data('choice', choice);
+  const chosen = h.snapshot().game;
+  assert.equal(chosen.decision.choice, choice); assert.equal(chosen.campaign.plan, choice === 'obey' ? 'seize' : 'restore');
+  assert.deepEqual(chosen.voice, before.voice); assert.equal(chosen.campaign.operationsResolved, false);
+  assert.equal(chosen.campaign.emitterSeized, false); assert.equal(chosen.campaign.emitterRestored, false);
+  assert.equal(h.ids.get('decision-dialog').open, false); assert.equal(h.snapshot().campaignWarning, '');
+  await moveVoiceThroughUI(h, chosen.voice.emitter.x + 110); await interactVoiceThroughUI(h);
+  assert.equal(h.snapshot().game.voice.emitter.working, true, JSON.stringify({ x: h.snapshot().game.player.x, braced: h.snapshot().game.player.braced, speed: h.snapshot().game.player.speed, contacts: h.snapshot().game.player.feet.map(foot => foot.contact), interaction: h.snapshot().game.interaction, paused: h.snapshot().paused }));
+  h.frames(120); assert.equal(h.snapshot().game.campaign.operationsResolved, false, 'two seconds do not complete the five-second emitter operation');
+  voiceUIUntil(h, s => s.campaign.operationsResolved, 210, 'the chosen emitter operation physically completes under anchoring');
+  h.frames(8);
+  const operated = h.snapshot().game;
+  assert.equal(operated.campaign.emitterSeized, choice === 'obey');
+  assert.equal(operated.campaign.emitterRestored, choice === 'defy');
+  assert.equal(operated.campaign.emitterOnline, choice === 'defy');
+  assert.equal(operated.campaign.reportTransmitted, false);
+  assert.match(h.ids.get('voice-emitter').textContent, choice === 'obey' ? /ÉMETTEUR SAISI/ : /LIAISON RÉTABLIE/);
+  await h.click('pause-button'); await h.click('to-menu');
+  // A separately prepared endpoint narrows this UI check to physical extraction
+  // and report filing; the uninterrupted full route belongs to simulation tests.
+  await importAmbulanceDossier(h, voicePoint('extraction', choice)); await h.click('campaign-resume');
+  const finished = await extractVoiceThroughUI(h, { lateChoice: true }), receipt = finished.campaign.completed.MI11;
+  assert.equal(receipt.choice, choice); assert.equal(receipt.te01Acquired, true); assert.equal(receipt.testimonyRecorded, true);
+  assert.equal(receipt.emitterSeized, choice === 'obey'); assert.equal(receipt.emitterOnline, choice === 'defy');
+  assert.equal(receipt.nestsIntact, 3); assert.equal(receipt.witnessAvailable, true);
+  assert.equal(receipt.publicConsent, false); assert.equal(receipt.recruited, false);
+  const official = JSON.stringify(finished.campaign), stored = h.values.get(CAMPAIGN_SAVE_KEY);
+  await h.click('result-menu'); assert.equal(h.ids.get('campaign-progress').textContent, '11 / 11 RAPPORTS CLASSÉS');
+  await h.data('view', 'archives'); await h.data('archive', 'records');
+  const html = h.ids.get('archive-content').innerHTML;
+  assertVoiceArchiveSources(html, receipt);
+  assert.match(html, /Site de ponte 3/); assert.match(html, /TE01 établit que des avertissements d’évacuation ont été reçus et déformés/);
+  assert.match(html, /Les commandes industrielles et la chaîne politique restent à recouper/);
+  assert.match(html, /Dossier du champ de Thyr/); assert.match(html, /Registre des personnes d’Aval/);
+  await h.data('view', 'hangar'); assert.equal(h.ids.get('workshop-voice').hidden, false);
+  assert.match(h.ids.get('workshop-voice').textContent, /TE01 est conservé.*Leth reste sur Thyr/);
+  const fresh = harness(h.values); assert.equal(fresh.ids.get('campaign-progress').textContent, '11 / 11 RAPPORTS CLASSÉS');
+  await fresh.data('chapter', 'MI11'); await fresh.click('campaign-deploy'); await fresh.click('launch');
+  assert.equal(fresh.snapshot().campaignReplay, true); assert.equal(fresh.snapshot().game.missionId, 'MI11');
+  await fresh.key('KeyD'); fresh.frames(120); await fresh.key('KeyD', false); await fresh.click('pause-button');
+  assert.equal(JSON.stringify(fresh.snapshot().campaign), official, 'launching, advancing and pausing a replay cannot replace the first dossier');
+  assert.equal(fresh.values.get(CAMPAIGN_SAVE_KEY), stored, 'replay cannot write a new reward or replace persisted reports');
+});
+
+for (const scenario of [
+  { name: 'lost imperial translation', variant: { destroyReceiverBeforeCopy: true }, translationCopied: false, testimonyRecorded: true },
+  { name: 'refused private recording', variant: { skipRidge: true }, translationCopied: true, testimonyRecorded: false },
+  { name: 'lost translation and refused recording', variant: { destroyReceiverBeforeCopy: true, skipRidge: true }, translationCopied: false, testimonyRecorded: false },
+]) await check(`MI11 ${scenario.name} extracts with explicit absences and reveals only the French wording actually acquired`, async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(voicePoint('extraction', 'defy', scenario.variant))]]));
+  await h.click('campaign-resume');
+  const finished = await extractVoiceThroughUI(h), receipt = finished.campaign.completed.MI11;
+  assert.equal(receipt.translationCopied, scenario.translationCopied); assert.equal(receipt.testimonyRecorded, scenario.testimonyRecorded);
+  assert.equal(receipt.te01Acquired, false); assert.equal(receipt.publicConsent, false); assert.equal(receipt.recruited, false);
+  if (!scenario.translationCopied) assert.equal(receipt.roster.receiver.destroyed, true);
+  if (!scenario.testimonyRecorded) {
+    assert.equal(receipt.consentRefused, true); assert.equal(receipt.witnessAvailable, false);
+    assert.ok(receipt.nestsDamaged + receipt.nestsLost > 0);
+    assert.equal(receipt.lethAlive, true, 'a refusal is not a dead or silently recruited witness');
+  }
+  await h.click('result-menu'); await h.data('view', 'archives'); await h.data('archive', 'records');
+  const html = h.ids.get('archive-content').innerHTML;
+  assertVoiceArchiveSources(html, receipt);
+  assert.match(html, /TE01 absent/); assert.match(html, /Les absences restent inscrites/);
+  if (!scenario.testimonyRecorded) assert.match(html, /Leth a refusé l’enregistrement ; aucun témoignage n’est ajouté à sa place/);
+  const fresh = harness(h.values); await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
+  assertVoiceArchiveSources(fresh.ids.get('archive-content').innerHTML, receipt);
+  assert.deepEqual(fresh.snapshot().campaign.completed.MI11, receipt);
+  assert.equal(fresh.snapshot().campaign.resources.parts, v10Dossier.completed.resources.parts + 4);
+});
+
+await check('MI11 loss of Leth after recording preserves TE01 and both wordings while the UI withdraws future witness availability', async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(voicePoint('extraction', 'defy', { destroyLethAfterExchange: true }))]]));
+  await h.click('campaign-resume'); h.frames(1);
+  assert.equal(h.ids.get('voice-consent').textContent, 'TÉMOIN PERDU');
+  assert.match(h.ids.get('voice-testimony').textContent, /TÉMOIGNAGE CONSERVÉ.*TE01 CONSERVÉ/);
+  const finished = await extractVoiceThroughUI(h), receipt = finished.campaign.completed.MI11;
+  assert.equal(receipt.lethAlive, false); assert.equal(receipt.witnessAvailable, false); assert.equal(receipt.alliancePossible, false);
+  assert.equal(receipt.te01Acquired, true); assert.equal(receipt.testimonyRecorded, true); assert.equal(receipt.collateral, 1);
+  assert.equal(receipt.publicConsent, false); assert.equal(receipt.recruited, false);
+  await h.click('result-menu'); await h.data('view', 'archives'); await h.data('archive', 'records');
+  const html = h.ids.get('archive-content').innerHTML;
+  assertVoiceArchiveSources(html, receipt);
+  assert.match(html, /Leth perdu/); assert.match(html, /La disponibilité du témoin n’est pas acquise/);
+  await h.data('view', 'hangar'); assert.match(h.ids.get('workshop-voice').textContent, /TE01 est conservé.*Leth est perdu/);
+  assert.match(h.ids.get('workshop-voice').textContent, /Aucune coopération future n’est acquise/);
+});
+
+// Unusual but physically reachable orders of events must guide the player to
+// the missing act. No body, damage, permission, clock or result is assigned.
+function voiceUnusualPoint(kind) {
+  const started = beginCampaignMission(parseCampaign(JSON.stringify(v10Dossier.completed)), { missionId: 'MI11', walkerId: 'WK09', difficulty: kind === 'no-fire-loss' ? 'normal' : 'story', seed: 2017 });
+  assert.equal(started.ok, true);
+  const s = started.game;
+  if (kind === 'no-fire-loss') {
+    pilotMI11(s, { noFire: true }); assert.equal(s.status, 'lost');
+  } else if (kind === 'withdrawal') {
+    pilotMI11(s, { stopAt: state => state.voice.leth.consent });
+    assert.equal(s.voice.leth.testimonyStarted, false);
+    fireAtMI11(s, 'voice-root-passage'); moveMI11(s, 2750);
+    assert.equal(s.campaign.consentWithdrawn, true); assert.equal(s.campaign.testimonyRecorded, false);
+    pilotMI11(s, { stopAt: state => state.campaign.reportTransmitted && state.player.x > 5930 });
+    assert.equal(s.status, 'playing'); assert.equal(s.campaign.reportTransmitted, true);
+  } else {
+    assert.ok(['early-meeting', 'early-loss'].includes(kind));
+    pilotMI11(s, { stopAt: state => state.voice.ridge.surveyed });
+    assert.equal(s.campaign.readingsTaken, 3);
+    if (kind === 'early-loss') {
+      fireAtMI11(s, s.voice.leth.id);
+      assert.equal(s.voice.leth.alive, false); assert.equal(s.campaign.encounterResolved, false);
+    } else {
+      moveMI11(s, s.voice.leth.x - 100);
+      for (let frame = 0; frame < 60; frame++) updateGame(s, 1 / 60, { brace: true });
+      assert.equal(commandGame(s, 'interact'), true);
+      for (let frame = 0; frame < 240 && !s.voice.leth.met; frame++) updateGame(s, 1 / 60, { brace: true });
+      assert.equal(s.voice.leth.met, true); assert.equal(s.voice.leth.consentAsked, false);
+    }
+    assert.equal(s.status, 'playing'); assert.equal(s.campaign.manifestRead, false);
+    assert.equal(s.campaign.warningCopied, false); assert.equal(s.campaign.translationCopied, false);
+  }
+  const point = checkpointCampaign(started.campaign, s);
+  assert.deepEqual(point.checkpoint, s);
+  assert.deepEqual(parseCampaign(serializeCampaign(point)).checkpoint, s);
+  return point;
+}
+
+async function copyVoiceSourcesThroughUI(h) {
+  for (const part of ['receiver', 'emitter']) {
+    // Aim for the post's centre before braking, leaving clearance on either
+    // side for the real foot-settling drift within the interaction radius.
+    await moveVoiceThroughUI(h, h.snapshot().game.voice[part].x);
+    await interactVoiceThroughUI(h);
+    const started = h.snapshot();
+    assert.equal(started.game.voice[part].working, true, JSON.stringify({ part, x: started.game.player.x, targetX: started.game.voice[part].x, interaction: started.game.interaction, paused: started.paused, status: started.game.status }));
+    voiceUIUntil(h, s => s.voice[part].inspected, 240, `MI11 ${part} is physically copied through E`);
+    h.frames(8);
+    if (part === 'receiver') {
+      assert.equal(h.snapshot().game.campaign.manifestRead, false);
+      assert.equal(h.ids.get('voice-stage').textContent, 'RELEVER LES DEUX SOURCES OU CONSTATER LEUR PERTE');
+    }
+  }
+  const s = h.snapshot().game;
+  assert.equal(s.campaign.manifestRead, true); assert.equal(s.campaign.warningCopied, true); assert.equal(s.campaign.translationCopied, true);
+  assert.equal(s.campaign.testimonyRecorded, false); assert.equal(s.campaign.te01Acquired, false);
+}
+
+await check('MI11 early meeting keeps missing sources ahead of the consent instruction until both copies are actually made', async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(voiceUnusualPoint('early-meeting'))]]));
+  await h.click('campaign-resume'); h.frames(8);
+  assert.equal(h.snapshot().game.voice.leth.met, true); assert.equal(h.snapshot().game.campaign.manifestRead, false);
+  assert.equal(h.ids.get('voice-stage').textContent, 'RELEVER LES DEUX SOURCES OU CONSTATER LEUR PERTE');
+  await interactVoiceThroughUI(h); h.frames(150);
+  assert.equal(h.snapshot().game.voice.leth.consentAsked, false, 'a meeting alone cannot open consent before the two sources');
+  assert.equal(h.snapshot().game.campaign.te01Acquired, false);
+  await copyVoiceSourcesThroughUI(h);
+  assert.equal(h.ids.get('voice-stage').textContent, 'DEMANDER L’ACCORD DE LETH');
+  await moveVoiceThroughUI(h, h.snapshot().game.voice.leth.x - 100); await interactVoiceThroughUI(h);
+  voiceUIUntil(h, s => s.voice.leth.consent, 150, 'the newly available request obtains private consent'); h.frames(8);
+  assert.equal(h.ids.get('voice-stage').textContent, 'COMMENCER L’ÉCHANGE CONSENTI');
+  assert.equal(h.snapshot().game.voice.leth.testimonyStarted, false); assert.equal(h.snapshot().game.campaign.te01Acquired, false);
+  await h.click('pause-button'); assert.equal(h.snapshot().campaignWarning, '');
+});
+
+await check('MI11 early witness loss first requires source inspections and then a physical loss report before directing the pilot to orders', async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(voiceUnusualPoint('early-loss'))]]));
+  await h.click('campaign-resume'); h.frames(8);
+  assert.equal(h.snapshot().game.voice.leth.alive, false); assert.equal(h.snapshot().game.campaign.encounterResolved, false);
+  assert.equal(h.ids.get('voice-consent').textContent, 'TÉMOIN PERDU');
+  assert.equal(h.ids.get('voice-stage').textContent, 'RELEVER LES DEUX SOURCES OU CONSTATER LEUR PERTE');
+  await copyVoiceSourcesThroughUI(h);
+  assert.equal(h.snapshot().game.campaign.encounterResolved, false);
+  assert.equal(h.ids.get('voice-stage').textContent, 'CONSTATER LA PERTE DE LETH');
+  await moveVoiceThroughUI(h, h.snapshot().game.voice.leth.x - 100); await interactVoiceThroughUI(h);
+  voiceUIUntil(h, s => s.campaign.encounterResolved, 240, 'the pilot physically records the loss of the interpreter'); h.frames(8);
+  assert.equal(h.ids.get('voice-stage').textContent, 'REJOINDRE LE POSTE D’ORDRE');
+  const s = h.snapshot().game;
+  assert.equal(s.voice.leth.met, false); assert.equal(s.voice.leth.alive, false); assert.equal(s.stats.collateral, 1);
+  assert.equal(s.campaign.testimonyRecorded, false); assert.equal(s.campaign.te01Acquired, false);
+  assert.equal(s.campaign.consentGranted, false); assert.equal(s.campaign.witnessAvailable, false);
+  await h.click('pause-button'); assert.equal(h.snapshot().campaignWarning, '');
+});
+
+await check('MI11 public no-fire defeat resumes as a loss and describes the intact emitter in place without an invented restoration or reward', async () => {
+  const point = voiceUnusualPoint('no-fire-loss'), h = harness();
+  assert.ok(point.checkpoint.voice.emitter.hp > 0);
+  assert.equal(point.checkpoint.campaign.emitterSeized, false); assert.equal(point.checkpoint.campaign.emitterRestored, false);
+  await importAmbulanceDossier(h, point);
+  assert.equal(h.ids.get('campaign-resume').hidden, false); assert.equal(h.ids.get('campaign-resume').disabled, false);
+  assert.equal(h.ids.get('campaign-resume').textContent, 'Voir le bilan de MI11');
+  await h.click('campaign-resume'); h.frames(8);
+  const lost = h.snapshot();
+  assert.equal(lost.game.status, 'lost'); assert.equal(h.ids.get('result-dialog').open, true);
+  assert.equal(lost.campaignWarning, ''); assert.deepEqual(lost.game, point.checkpoint);
+  assert.match(h.ids.get('result-stats').innerHTML, /EN PLACE · LIAISON NON RÉTABLIE/);
+  assert.doesNotMatch(h.ids.get('result-stats').innerHTML, />INACTIF</);
+  assert.deepEqual(lost.campaign.completed, v10Dossier.completed.completed);
+  assert.deepEqual(lost.campaign.resources, v10Dossier.completed.resources);
+  h.frames(300); assert.deepEqual(h.snapshot().game, lost.game);
+  await h.click('result-menu');
+  const fresh = harness(h.values); await fresh.click('campaign-resume'); fresh.frames(8);
+  assert.equal(fresh.snapshot().game.status, 'lost'); assert.deepEqual(fresh.snapshot().game, lost.game);
+  assert.match(fresh.ids.get('result-stats').innerHTML, /EN PLACE · LIAISON NON RÉTABLIE/);
+  assert.deepEqual(fresh.snapshot().campaign.resources, v10Dossier.completed.resources);
+});
+
+await check('MI11 withdrawal before recording files the actual damaged passage and no testimony instead of inventing a conserved recording', async () => {
+  const point = voiceUnusualPoint('withdrawal'), h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]]));
+  await h.click('campaign-resume'); h.frames(8);
+  assert.equal(h.ids.get('voice-consent').textContent, 'ACCORD RETIRÉ');
+  assert.match(h.ids.get('voice-testimony').textContent, /AUCUN TÉMOIGNAGE ACHEVÉ/);
+  const finished = await extractVoiceThroughUI(h), receipt = finished.campaign.completed.MI11;
+  assert.equal(receipt.consentGranted, true); assert.equal(receipt.consentWithdrawn, true);
+  assert.equal(receipt.testimonyStarted, false); assert.equal(receipt.testimonyRecorded, false); assert.equal(receipt.te01Acquired, false);
+  assert.equal(receipt.lethAlive, true); assert.equal(receipt.witnessAvailable, false); assert.equal(receipt.ridgeIntact, false);
+  assert.ok(receipt.nestsDamaged + receipt.nestsLost > 0);
+  await h.click('result-menu'); await h.data('view', 'archives'); await h.data('archive', 'records');
+  const html = h.ids.get('archive-content').innerHTML;
+  assertVoiceArchiveSources(html, receipt);
+  assert.match(html, /Leth a retiré sa coopération\. Aucun enregistrement achevé n’est conservé\./);
+  assert.doesNotMatch(html, /L’enregistrement achevé demeure conservé|Un enregistrement déjà achevé demeure conservé/);
+  assert.match(h.snapshot().campaign.completed.MI11.samiLine, /retiré/);
+  const fresh = harness(h.values); await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
+  assert.match(fresh.ids.get('archive-content').innerHTML, /Leth a retiré sa coopération\. Aucun enregistrement achevé n’est conservé\./);
+  assert.deepEqual(fresh.snapshot().campaign.completed.MI11, receipt);
 });
 
 console.log(`UI STATE INTEGRATION PASSED: ${checks} flows against the actual offline application script in a modeled DOM.`);

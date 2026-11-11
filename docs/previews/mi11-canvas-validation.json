@@ -1,0 +1,214 @@
+{
+  "version": "0.12.0",
+  "scope": "MI11 Canvas validation only",
+  "generatedBy": "node tools/render-mi11-previews.mjs",
+  "manifest": "docs/previews/mi11-scenes.json",
+  "imageCount": 25,
+  "completedRuns": 18,
+  "campaignExports": 5,
+  "sourceHashes": {
+    "src/content.mjs": "e06339d3a5017568e395b8bce302716d5fb4800ea9a3f101f668d3a7c09ebf54",
+    "src/simulation.mjs": "965f1c7fad967e8e9fd9d27d5c452ec0c62afb208e4e227c49193f67e8153f9a",
+    "src/voice-simulation.mjs": "eefa4de80ef3fb60b8b0d07bdccec0ab2fb3ea465a44ba959deb1e221a7baff6",
+    "src/renderer.mjs": "88831bbac02ef6171df94d0b8a3e853eb8f306474af6f58b351d067b35d946ad",
+    "src/voice-renderer.mjs": "0fe6bff453ef8c5afaa0d0c31d5fb538595f5e60e4a1a0eda79165ba5ce7b920",
+    "src/voice-assets.mjs": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0",
+    "src/campaign.mjs": "7c36a5f828942566d85cf5ae4eb7343b25866a8ff938e841bd7268a8b99e037d",
+    "src/voice-validation.mjs": "7cc3ecb9c4c3f02232795c44274e7eb5ed49d67962c0b2e72765378a582051ed",
+    "tests/helpers/mi11-driver.mjs": "05de3ff21ce7422264111f4156be5695bad399753173311979054f2b602648f3",
+    "tools/render-mi11-previews.mjs": "b9b9b314fb0f0212d0a91b208d095ae90dfba5473e6055de5980dcfc1fdeb33d",
+    "tests/fixtures/campaign-v10-mi10.json": "a917920f3e0469d00f31e00f1a242fc183e5d0ebc4f3b4db59066fa63668aa73"
+  },
+  "historicalFixture": "tests/fixtures/campaign-v10-mi10.json",
+  "checks": {
+    "publicControlsOnly": true,
+    "deepSnapshotsUnchangedAfterContinuation": true,
+    "rendererDoesNotMutateState": true,
+    "capturesAcceptedByCampaignValidator": true,
+    "completedReceiptsRoundTripExactly": true,
+    "sixChassisBothPlansComplete": true,
+    "physicalRaisedFeetObservedForEveryChassis": true,
+    "refusalAndWitnessLossDoNotInventTestimony": true,
+    "retainedCopiesSeparateFromLivingWitness": true
+  },
+  "nativeBrowserExamined": false,
+  "humanPlaytestPerformed": false,
+  "images": [
+    {
+      "file": "mi11-arrival.png",
+      "title": "Début de mission : trois écoutes à recueillir, aucun accord ni témoignage acquis",
+      "walkerId": "WK09",
+      "elapsed": 0,
+      "sha256": "0c3c45b2bdee71641236b76f71fd2a25c9e3911ecd628fa3694a6f6b7c332383"
+    },
+    {
+      "file": "mi11-listening.png",
+      "title": "Écoute réellement en cours : ancrage, pieds immobiles et silence",
+      "walkerId": "WK09",
+      "elapsed": 6.349999999999983,
+      "sha256": "09f0fe324371bcd78be3422ecd7690b1a0d6b07c940c9dbd91682882e40fc36f"
+    },
+    {
+      "file": "mi11-ridge-survey.png",
+      "title": "Reconnaissance en cours du passage haut : la ponte ne reçoit aucun soin automatique",
+      "walkerId": "WK09",
+      "elapsed": 35.666666666665925,
+      "sha256": "df72f144c3b0fcfffcb282d4d27e14947f4561a8de1db913334681ea2583029a"
+    },
+    {
+      "file": "mi11-ridge-contact.png",
+      "title": "Pieds réellement portés par la corniche reconnue au-dessus de la ponte",
+      "walkerId": "WK09",
+      "elapsed": 38.61666666666576,
+      "sha256": "dcf98e76e9b1014f52ab2d1a2aac5e8ef37ccacac35a531fc83d1860af530669"
+    },
+    {
+      "file": "mi11-translation-copy.png",
+      "title": "Copie du texte impérial en cours : les paroles de Leth restent inconnues",
+      "walkerId": "WK09",
+      "elapsed": 52.483333333331636,
+      "sha256": "314c4307411fdaac42c4d06d584f69d6db88846209da9de9cfa2a5fed0757dbf"
+    },
+    {
+      "file": "mi11-warning-copy.png",
+      "title": "Copie distincte du signal source, avant le témoignage de l’interprète",
+      "walkerId": "WK09",
+      "elapsed": 59.299999999997915,
+      "sha256": "7cb8323f36b3690a043952b12ae83487bf0d9d78a5b80ebe801d078aa34f08a1"
+    },
+    {
+      "file": "mi11-first-meeting.png",
+      "title": "Rencontre accomplie : aucun accord ni témoignage n’en découle automatiquement",
+      "walkerId": "WK09",
+      "elapsed": 66.46666666666418,
+      "sha256": "62eb883774501fe30cd952539f6a38ffc6537473767d0471e0f9495a005c4bdb"
+    },
+    {
+      "file": "mi11-private-consent.png",
+      "title": "Demande d’accord privé en cours : aucune autorisation de diffusion publique",
+      "walkerId": "WK09",
+      "elapsed": 67.56666666666412,
+      "sha256": "d2bcb14ba767f4c268d9bf08b2cd5bef9b4692e6fe1e9809057ec91494801954"
+    },
+    {
+      "file": "mi11-protected-exchange.png",
+      "title": "Échange consenti réellement en cours avec les forces privées présentes",
+      "walkerId": "WK09",
+      "elapsed": 77.46666666666356,
+      "sha256": "a69323425953714f18ff62415c7335f8c5c137be6a1921871f55b06543581d90"
+    },
+    {
+      "file": "mi11-decision.png",
+      "title": "Choix de conduite ouvert : la saisie ou la remise en service exige encore un acte physique",
+      "walkerId": "WK09",
+      "elapsed": 88.46666666666293,
+      "sha256": "54a3d3e61b3ce6b95fd53b923dcf249950359eeeddd3e7dc221fb835e5d962e3"
+    },
+    {
+      "file": "mi11-restoration.png",
+      "title": "Remise en service progressive du canal des avis sur l’émetteur encore intact",
+      "walkerId": "WK09",
+      "elapsed": 98.91666666666234,
+      "sha256": "c95ae4dbda5e7aa9cc1941d4dca196f93ced8ac41ee1d066d99a9853d2dfb366"
+    },
+    {
+      "file": "mi11-report.png",
+      "title": "Transmission réelle des copies, du témoignage et des pertes constatées",
+      "walkerId": "WK09",
+      "elapsed": 128.7499999999946,
+      "sha256": "22ee9a3c28342970fe7bccf434e902967c51bc2d801a5d210d7d12eab04cadd6"
+    },
+    {
+      "file": "mi11-before-extraction.png",
+      "title": "Rapport acquis ; sortie encore à rejoindre ; Leth demeure sur le site",
+      "walkerId": "WK09",
+      "elapsed": 135.3166666666665,
+      "sha256": "5e31846e5b6acce8f6e0cd0dd84041d62676fac104174a75d3a06aa50374d727"
+    },
+    {
+      "file": "mi11-seizure.png",
+      "title": "Saisie matérielle en cours : la décision seule n’avait pas démonté l’émetteur",
+      "walkerId": "WK01",
+      "elapsed": 94.03333333332928,
+      "sha256": "fb9b30438d2744c9f16f02b16ea46ea19b0e167c59a254708b3aa8eea3a44847"
+    },
+    {
+      "file": "mi11-emitter-seized.png",
+      "title": "Émetteur retiré de son socle ; copies et témoignage conservés, liaison coupée",
+      "walkerId": "WK01",
+      "elapsed": 96.28333333332915,
+      "sha256": "4f8eaad03ce6d4356f2f39c9547b462326759e814749f108ad4fdbff530281df"
+    },
+    {
+      "file": "mi11-consent-refused.png",
+      "title": "Ponte atteinte lors du passage au sol : refus constaté, aucune parole inventée",
+      "walkerId": "WK01",
+      "elapsed": 60.316666666664524,
+      "sha256": "7dd5797a127d7d2aec372b9cc068ff68d88a02c9a26a0d5ad2562b6a410978a9"
+    },
+    {
+      "file": "mi11-witness-lost-before.png",
+      "title": "Leth tué par des tirs avant l’échange : aucun témoignage ni TE01 reconstitué",
+      "walkerId": "WK01",
+      "elapsed": 66.2166666666642,
+      "sha256": "3c9cce0dbd7b1467b6bec9694e543e41e0b0f112a12e0c7e84511bd18d908733"
+    },
+    {
+      "file": "mi11-witness-lost-after.png",
+      "title": "Témoin perdu après l’enregistrement : TE01 demeure, disponibilité future disparue",
+      "walkerId": "WK01",
+      "elapsed": 89.79999999999619,
+      "sha256": "d416b75699b985fb17091b32b910b60c98419ff5b679c7b6302766f30049ddce"
+    },
+    {
+      "file": "mi11-copies-after-destruction.png",
+      "title": "Originaux détruits après copie : archives conservées, aucune remise en service possible",
+      "walkerId": "WK01",
+      "elapsed": 91.31666666666277,
+      "sha256": "d53f8cf4e7472ce8c1e03355e3a9ba508460da1b6a14ff5cdffec8429b60aae1"
+    },
+    {
+      "file": "mi11-chassis-wk01.png",
+      "title": "M-12 Vigie : appuis réels sur la corniche au-dessus de la ponte",
+      "walkerId": "WK01",
+      "elapsed": 38.18333333333245,
+      "sha256": "e5968c1ffc58c65b80672f4034656cc8dba0d80093bfe3c0b6cf3842256b8929"
+    },
+    {
+      "file": "mi11-chassis-wk02.png",
+      "title": "C-5 Caracal : appuis réels sur la corniche au-dessus de la ponte",
+      "walkerId": "WK02",
+      "elapsed": 36.66666666666587,
+      "sha256": "c26d54365eb9832c0ccef3e60ddcc4b52026ac0acbfdc7bc6fde91213483c650"
+    },
+    {
+      "file": "mi11-chassis-wk05.png",
+      "title": "Q-40 Bastion : appuis réels sur la corniche au-dessus de la ponte",
+      "walkerId": "WK05",
+      "elapsed": 44.36666666666543,
+      "sha256": "8bfa4d3cd64679e4f0cda0669a5d7fbe0f8007edfad21c6be74d8a453a6f67f2"
+    },
+    {
+      "file": "mi11-chassis-wk06.png",
+      "title": "A-17 Arpenteur : appuis réels sur la corniche au-dessus de la ponte",
+      "walkerId": "WK06",
+      "elapsed": 40.21666666666567,
+      "sha256": "426a8f1198206c4332b133de30c1c8fb6237f7ba5855ce5f5fa8114808ef42f7"
+    },
+    {
+      "file": "mi11-chassis-wk09.png",
+      "title": "H-6 Pèlerin : appuis réels sur la corniche au-dessus de la ponte",
+      "walkerId": "WK09",
+      "elapsed": 38.61666666666576,
+      "sha256": "dcf98e76e9b1014f52ab2d1a2aac5e8ef37ccacac35a531fc83d1860af530669"
+    },
+    {
+      "file": "mi11-chassis-wk10.png",
+      "title": "CL-4 Cloporte : appuis réels sur la corniche au-dessus de la ponte",
+      "walkerId": "WK10",
+      "elapsed": 45.89999999999868,
+      "sha256": "4c2c63beba4ad4a0db12d086fbb13642185352adb1d56e37de737e41afaf4109"
+    }
+  ],
+  "limitations": "No browser, HTML HUD, CSS, native focus, human playtest, hardware controller, audio listening or performance certification."
+}

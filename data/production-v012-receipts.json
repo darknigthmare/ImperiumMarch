@@ -1,0 +1,130 @@
+{
+  "version": "0.12.0",
+  "scope": "Réceptions additives sur les 133 critères initiaux, après contrôle des preuves effectives. Tous les reçus jusqu’à la 0.11 sont conservés intégralement. Les nouveaux IDs de la Bible ne changent pas le dénominateur.",
+  "records": [
+    {
+      "id": "AS13",
+      "state": "partial_prototype_portrait_received",
+      "statusBasis": "Un portrait original de Leth, décliné en cinq états et intégré au renderer, a été relu sur les planches et les scènes Canvas. Cette réception porte sur ce personnage local ; anatomie complète, vêtements et gestes finaux, diversité des cités et architecture Khelt restent à produire.",
+      "workPerformed": [
+        "Leth de la Septième Rive possède un portrait vectoriel original partagé entre SVG et Canvas, avec cinq états : attente, écoute, parole, refus et perte. Les états visibles suivent rencontre, accord privé, témoignage et survie."
+      ],
+      "deliverables": [
+        "src/voice-assets.mjs",
+        "src/voice-renderer.mjs",
+        "assets/voice/manifest.json"
+      ],
+      "evidence": [
+        "docs/validation/v12-assets-render.txt",
+        "docs/previews/mi11-canvas-validation.json",
+        "docs/validation/v12-canvas-visual-review.json"
+      ],
+      "remainingWork": "Produire et recevoir l’anatomie complète, les vêtements, les gestes finaux, les technologies et l’architecture des cités Khelt. Un portrait de prototype ne clôt pas une langue visuelle, une culture ni sa diversité ; aucune équivalence avec un peuple humain n’est affirmée."
+    },
+    {
+      "id": "AS18",
+      "state": "partial_work_received",
+      "workPerformed": [
+        "Six composants de la vallée résonante, vingt-six états SVG et deux planches PNG partagent leur géométrie avec le rendu : écoutes, émetteur, ponte, corniche, Leth et traduction impériale. Les états de terrain, copies, accord et perte proviennent de la simulation."
+      ],
+      "deliverables": [
+        "src/voice-assets.mjs",
+        "src/voice-renderer.mjs",
+        "assets/voice/manifest.json"
+      ],
+      "evidence": [
+        "docs/validation/v12-assets-render.txt",
+        "docs/previews/mi11-canvas-validation.json",
+        "docs/validation/v12-canvas-visual-review.json"
+      ],
+      "remainingWork": "Art final, architecture étendue, diversité biologique et lecture en mouvement de Thyr restent à recevoir. Ce lot local ne clôt pas le kit complet ni un essai humain."
+    },
+    {
+      "id": "PR18",
+      "state": "partial_work_received",
+      "workPerformed": [
+        "MI11 prolonge MI09 et MI10 par trois écoutes au sol, une corniche au-dessus de trois nids, deux copies, une rencontre et un témoignage de Leth réellement consentis. TE01 exige les trois signaux exploitables et les trois acquisitions ; un choix ouvre une opération de cinq secondes sur l’émetteur.",
+        "Le dossier v11 migre les exports v10 préparés et authentiques de la publication 0.11 sans réécrire les dix premiers rapports, les ressources, stage ni les anciennes scènes. Copies et témoignage acquis survivent à la perte de leur source ; disponibilité du témoin reste distincte.",
+        "La réception automatisée couvre 120 tests de simulation, 224 tests de campagne dont 41 pour MI11, et 86 parcours DOM modélisés dont 15 pour MI11. Ces contrôles n’attribuent aucune réception native ni session humaine."
+      ],
+      "deliverables": [
+        "docs/CAMPAIGN_MISSION_11.md",
+        "docs/CAMPAIGN_SAVE_V11.md",
+        "src/voice-simulation.mjs",
+        "src/voice-validation.mjs",
+        "tests/mi11-simulation.test.mjs",
+        "tests/campaign-v11.test.mjs"
+      ],
+      "evidence": [
+        "docs/previews/mi11-simulation-validation.json",
+        "docs/validation/v012-historic-v10.json",
+        "docs/validation/v012-campaign-validation.json",
+        "docs/validation/v12-ui-runtime.txt",
+        "docs/validation/v12-ui-validation.json"
+      ],
+      "remainingWork": "MI12–MI16, CT05–CT08 et la défection de MI16 restent à produire. Les trois missions locales de Thyr ne clôturent pas l’Acte II. Les essais humains MI09, MI10 et MI11 ainsi que la réception native MI11 restent ouverts."
+    },
+    {
+      "id": "PR02",
+      "state": "workbook_received_native_interaction_pending",
+      "workPerformed": [
+        "La Bible 0.12 porte le référentiel à 905 fiches : 873 identifiants historiques conservés et 32 fiches ajoutées pour MI11, le dossier v11 et leurs réceptions.",
+        "Le classeur conserve ses vingt et un onglets, vingt tables et cent vingt-six formules. Les cellules source, références, styles, volets, validations et plages modifiées sont contrôlés ; un recalcul LibreOffice sans caches reste distinct de l’usage interactif.",
+        "Les 6 105 cellules source concordent; 6 694 cellules non modifiées et 854 anciennes lignes gardent leur mise en page. Les 48 vues sont relues, avec cinq vues finales rouvertes après consolidation. Le recalcul final reconstruit 126 caches en 35,922 secondes, sans écart ni modification du XLSX livré."
+      ],
+      "deliverables": [
+        "data/bible.json",
+        "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+        "tests/fixtures/bible-v011-ids.json",
+        "tools/build-bible.mjs",
+        "tools/build-production-register.mjs",
+        "tools/verify-bible-baseline.py",
+        "tools/verify-bible-layout.py",
+        "data/bible-v012-previews.json",
+        "tools/recalculate-bible-libreoffice.py",
+        "docs/BIBLE_README.md",
+        "docs/BIBLE_REFERENCES.md",
+        "docs/BIBLE_FR.md"
+      ],
+      "evidence": [
+        "docs/validation/workbook-v0.12-export.json",
+        "docs/validation/workbook-v0.12-libreoffice.json",
+        "docs/validation/workbook-v0.12-visual-review.json",
+        "docs/validation/workbook-v0.12-layout.json",
+        "docs/validation/workbook-v0.12-baseline-check.json",
+        "docs/validation/workbook-v0.12-candidate-libreoffice.json",
+        "docs/validation/workbook-v0.12-libreoffice-execution-context.json"
+      ],
+      "remainingWork": "QA29 reste ouverte pour tri, filtres, volets et édition dans une application bureautique interactive. Aucun essai Excel desktop ni résultat humain n’est déduit du recalcul headless."
+    },
+    {
+      "id": "QA25",
+      "state": "reference_audit_received",
+      "workPerformed": [
+        "Audit des références de la source 0.12 : identifiants, plages fermées et symboles canoniques résolus. Sept mutations incorrectes sont rejetées ; huit baselines historiques fonctionnent sans Git et une révision inconnue reste refusée."
+      ],
+      "deliverables": [
+        "tools/verify-bible-export.py",
+        "tools/audit-bible-references.py",
+        "tests/fixtures/bible-v011-ids.json"
+      ],
+      "evidence": [
+        "docs/validation/production-v012-reference-audit.json",
+        "docs/validation/production-v012-reference-probes.json"
+      ],
+      "remainingWork": "Ce contrôle établit la cohérence documentaire de cette source. Aucun gameplay, art final ou essai humain ne découle de la résolution des références."
+    },
+    {
+      "id": "QA26",
+      "state": "scope_clarification_only",
+      "workPerformed": [
+        "Portée documentaire portée à onze missions jouables. Aucun nouveau contrôle des quatre fins n’est reçu."
+      ],
+      "deliverables": [
+        "docs/QA_V12.md"
+      ],
+      "evidence": [],
+      "remainingWork": "Produire et tester les combinaisons des fins et états contradictoires. MI01–MI11 ne couvrent pas FI01–FI04."
+    }
+  ]
+}

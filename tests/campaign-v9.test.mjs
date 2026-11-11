@@ -23,7 +23,7 @@ const disk = text => {
 };
 
 test('v9 migration adds only unvisited Thyr to authentic native v8 exports', () => {
-  assert.equal(CAMPAIGN_SAVE_VERSION, 10);
+  assert.equal(CAMPAIGN_SAVE_VERSION, 11);
   assert.equal(hash(fixtureBytes), '19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007');
   assert.equal(history.provenance.sourceRevision, '2bb8d7a708e4fab5ab34b3cac10f2418b60fe037');
   assert.equal(history.provenance.verifiedHistoricBlobs, 889);

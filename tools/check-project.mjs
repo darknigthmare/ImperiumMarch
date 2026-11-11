@@ -25,7 +25,7 @@ for (const legs of [2, 4, 6]) {
   assert.ok(Math.max(...family.map(w => w.height)) - Math.min(...family.map(w => w.height)) > 60);
 }
 assert.deepEqual(MISSIONS.map(m => m.planetId), ['PL01', 'PL02', 'PL03']);
-assert.deepEqual(CAMPAIGN_MISSIONS.map(m => m.id), ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08', 'MI09', 'MI10']);
+assert.deepEqual(CAMPAIGN_MISSIONS.map(m => m.id), ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11']);
 assert.equal(new Set(ALL_MISSIONS.map(m => m.id)).size, ALL_MISSIONS.length);
 for (const mission of CAMPAIGN_MISSIONS) {
   if (mission.id === 'MI01') {
@@ -60,6 +60,19 @@ for (const mission of CAMPAIGN_MISSIONS) {
     assert.ok(c.canalXs.at(-1) < c.waterX && c.waterX < c.reportX && c.reportX < mission.extractionX);
     assert.ok(c.sampleTime > c.privateDelay && c.privateDelay > 0);
     assert.equal(c.sourceTankIndex, 2); assert.deepEqual(c.privateTypes, ['drone', 'sniper', 'buggy']);
+  }
+  if (mission.id === 'MI11') {
+    const v = mission.voice;
+    assert.equal(mission.type, 'voice');
+    assert.equal(v.listeningXs.length, 3); assert.equal(v.nestXs.length, 3);
+    assert.ok(v.listeningXs.at(-1) < v.surveyX && v.surveyX < v.ridgeStart);
+    assert.ok(v.nestXs.every(x => x > v.ridgeStart && x < v.ridgeEnd));
+    assert.ok(v.ridgeEnd < v.receiverX && v.receiverX < v.emitterX && v.emitterX < v.lethX);
+    assert.ok(v.lethX < v.ordersX && v.ordersX < v.reportX && v.reportX < mission.extractionX);
+    assert.ok(v.ridgeRise > 0 && v.exchangeTime > v.privateDelay && v.privateDelay > 0);
+    assert.ok(v.listenTime > 0 && v.consentTime > 0 && v.seizeTime > 0 && v.restoreTime > 0);
+    assert.equal(v.privateXs.length, 3); assert.equal(v.privateTypes.length, 3);
+    assert.deepEqual(mission.civilianPositions, []);
   }
   assert.ok(mission.extractionX < mission.length);
   assert.equal(bible.sheets.flatMap(sheet => sheet.rows).find(row => row.id === mission.id)?.status, 'Prototype');

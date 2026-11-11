@@ -1,0 +1,52 @@
+{
+  "version": "0.12.0",
+  "recordedAt": "2026-11-11T20:04:21.327128+00:00",
+  "scope": "Observed execution history for the independent workbook recalculation; not native GUI or human reception.",
+  "candidateWorkbookSha256": "8543e7f52db920edeff2efb037a178a5b2a2865f744857c89d6da167caa8bf74",
+  "attempts": [
+    {
+      "kind": "canonical_control",
+      "budgetSeconds": 55,
+      "outcome": "timed_out",
+      "processGroupKilled": true,
+      "reportWritten": false,
+      "evidenceType": "assistant-observed exec result with TimeoutExpired at 55 seconds"
+    },
+    {
+      "kind": "headless_backend_diagnostic",
+      "commandBudgetSeconds": 50,
+      "distinctProfile": true,
+      "outcome": "cancelled",
+      "exitCode": 130,
+      "evidenceType": "assistant-observed exec cancellation; no conversion outcome received"
+    },
+    {
+      "kind": "canonical_candidate_control",
+      "receipt": "docs/validation/workbook-v0.12-candidate-libreoffice.json",
+      "budgetSeconds": 180,
+      "elapsedSeconds": 150.213,
+      "outcome": "passed",
+      "formulaCachesCleared": 126,
+      "sourceCellsCompared": 6105,
+      "originalUnchanged": true
+    },
+    {
+      "kind": "canonical_final_control",
+      "receipt": "docs/validation/workbook-v0.12-libreoffice.json",
+      "receiptSha256": "b790ab5efee368f45f804e808468c5f26092757c25c1136b792c629fd629da86",
+      "workbookSha256": "e5ffbac8f2bfc252247635eeb76654894a208d12b96ca0771ceba6c1a4644b53",
+      "sourceSha256": "b44100ba2d91fa2f50bfb2c75de8ff61182593d53a90cf165e524476c8d5bfc8",
+      "budgetSeconds": 180,
+      "elapsedSeconds": 35.922,
+      "outcome": "passed",
+      "formulaCachesCleared": 126,
+      "sourceCellsCompared": 6105,
+      "structuralDifferences": [],
+      "originalUnchanged": true
+    }
+  ],
+  "resolution": "The candidate conversion completed in 150.213 seconds on an isolated profile; the final conversion completed in 35.922 seconds on another isolated profile. The execution budget is explicit and defaults to 180 seconds, with short progress intervals. No formula, cell, structure, preservation or scope criterion was relaxed.",
+  "finalControl": "docs/validation/workbook-v0.12-libreoffice.json",
+  "nativeGuiReceived": false,
+  "humanTestReceived": false
+}

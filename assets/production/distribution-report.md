@@ -1,12 +1,12 @@
 # Rapprochement exhaustif des médias distribués
 
-Snapshot : 2026-11-11T18:23:06.250Z. Révision de repère : 073003075bf8921aab25b1a9200b9d360c1ab391. Le relevé porte sur les fichiers courants, y compris les travaux non commités.
+Snapshot : 2026-11-11T20:05:48.761Z. Révision de repère : f75e674313120094b9540603fbfa571d5df2f1d2. Le relevé porte sur les fichiers courants, y compris les travaux non commités.
 
 ## Résultat
 
-414 médias sources possèdent une entrée. Les artefacts actuellement observés contiennent 414 médias web et 5 occurrences inline (3 contenus distincts). **0 média non rapproché ou anomalie de provenance.** La source du jeu demande trois fichiers image : illustration du menu, panorama Vesper et emblème. Les formes de production sont du code Canvas ; le son est synthétisé. Aucun WAV de production n’est embarqué dans le HTML observé.
+442 médias sources possèdent une entrée. Les artefacts actuellement observés contiennent 442 médias web et 5 occurrences inline (3 contenus distincts). **0 média non rapproché ou anomalie de provenance.** La source du jeu demande trois fichiers image : illustration du menu, panorama Vesper et emblème. Les formes de production sont du code Canvas ; le son est synthétisé. Aucun WAV de production n’est embarqué dans le HTML observé.
 
-Éditions observées : source UI 0.11, HTML autonome 0.11, web 0.11. **Synchronisation des builds : oui.**
+Éditions observées : source UI 0.12, HTML autonome 0.12, web 0.12. **Synchronisation des builds : oui.**
 
 Les médias copiés et le graphe des modules sont synchronisés avec la source observée.
 
@@ -18,9 +18,11 @@ Le lot de Thyr ajoute onze composants, trente-cinq SVG et deux planches PNG, iss
 
 Le champ chimique de MI10 ajoute six composants, vingt-quatre SVG et deux planches PNG. Les formes de src/chemical-assets.mjs sont partagées avec src/chemical-renderer.mjs ; les nappes et pontages suivent les objets de la simulation. Aucun effectif d’habitants n’est déduit de ces dessins.
 
+MI11 ajoute six composants, vingt-six SVG et deux planches PNG. Les postes d’écoute, l’émetteur résonant, les sites de ponte, la corniche, Leth et le support de traduction partagent leur géométrie avec le renderer. Les appuis, pertes, copies et permissions viennent de la simulation. Cette représentation locale de Leth ne clôt pas la production de toute la civilisation Khelt.
+
 Les nouveaux vecteurs et sons renvoient à leurs manifestes de production datés et versionnés, avec code source et hashes. Les WAV reproduisent la synthèse du runtime ; aucune voix humaine, aucun échantillon tiers ni validation humaine de mix n’est déclaré. Aucun fichier de police n’est distribué ; les noms de polices sont des fallbacks système.
 
-La page officielle Steam de **BE-A Walker** est enregistrée comme référence de conception non distribuée. Aucun fichier local de cette référence n’est documenté : il n’existe donc pas de hash local ou d’autorisation de redistribution à inventer. Tous les octets média effectivement observés sont rapprochés des fichiers originaux du projet. Les 354 médias de documentation sont recensés séparément et exclus des deux politiques de build.
+La page officielle Steam de **BE-A Walker** est enregistrée comme référence de conception non distribuée. Aucun fichier local de cette référence n’est documenté : il n’existe donc pas de hash local ou d’autorisation de redistribution à inventer. Tous les octets média effectivement observés sont rapprochés des fichiers originaux du projet. Les 427 médias de documentation sont recensés séparément et exclus des deux politiques de build.
 
 ## Médias réellement demandés par le jeu
 
@@ -450,6 +452,34 @@ La page officielle Steam de **BE-A Walker** est enregistrée comme référence d
 | assets/thyr/suspended-home-damaged.svg | 0.10.0 | thyr-vector | Thyr reusable vector: suspended-home; damaged | non | oui |
 | assets/thyr/suspended-home-destroyed.svg | 0.10.0 | thyr-vector | Thyr reusable vector: suspended-home; destroyed | non | oui |
 | assets/thyr/suspended-home-normal.svg | 0.10.0 | thyr-vector | Thyr reusable vector: suspended-home; normal | non | oui |
+| assets/voice/leth-interpreter-listening.svg | 0.12.0 | voice-vector | MI11 reusable vector: leth-interpreter; listening | non | oui |
+| assets/voice/leth-interpreter-lost.svg | 0.12.0 | voice-vector | MI11 reusable vector: leth-interpreter; lost | non | oui |
+| assets/voice/leth-interpreter-refusing.svg | 0.12.0 | voice-vector | MI11 reusable vector: leth-interpreter; refusing | non | oui |
+| assets/voice/leth-interpreter-speaking.svg | 0.12.0 | voice-vector | MI11 reusable vector: leth-interpreter; speaking | non | oui |
+| assets/voice/leth-interpreter-waiting.svg | 0.12.0 | voice-vector | MI11 reusable vector: leth-interpreter; waiting | non | oui |
+| assets/voice/listening-station-idle.svg | 0.12.0 | voice-vector | MI11 reusable vector: listening-station; idle | non | oui |
+| assets/voice/listening-station-listening.svg | 0.12.0 | voice-vector | MI11 reusable vector: listening-station; listening | non | oui |
+| assets/voice/listening-station-lost.svg | 0.12.0 | voice-vector | MI11 reusable vector: listening-station; lost | non | oui |
+| assets/voice/listening-station-recorded.svg | 0.12.0 | voice-vector | MI11 reusable vector: listening-station; recorded | non | oui |
+| assets/voice/nesting-site-damaged.svg | 0.12.0 | voice-vector | MI11 reusable vector: nesting-site; damaged | non | oui |
+| assets/voice/nesting-site-disturbed.svg | 0.12.0 | voice-vector | MI11 reusable vector: nesting-site; disturbed | non | oui |
+| assets/voice/nesting-site-intact.svg | 0.12.0 | voice-vector | MI11 reusable vector: nesting-site; intact | non | oui |
+| assets/voice/nesting-site-lost.svg | 0.12.0 | voice-vector | MI11 reusable vector: nesting-site; lost | non | oui |
+| assets/voice/previews/voice-kit.png | 0.12.0 | voice-vector | Authoring sheet; varied scales stated in its labels and nominal dimensions in manifest | non | oui |
+| assets/voice/previews/voice-states.png | 0.12.0 | voice-vector | Authored states on a bench, not a browser or gameplay reception | non | oui |
+| assets/voice/resonance-emitter-destroyed.svg | 0.12.0 | voice-vector | MI11 reusable vector: resonance-emitter; destroyed | non | oui |
+| assets/voice/resonance-emitter-preserved.svg | 0.12.0 | voice-vector | MI11 reusable vector: resonance-emitter; preserved | non | oui |
+| assets/voice/resonance-emitter-seized.svg | 0.12.0 | voice-vector | MI11 reusable vector: resonance-emitter; seized | non | oui |
+| assets/voice/resonance-emitter-transmitting.svg | 0.12.0 | voice-vector | MI11 reusable vector: resonance-emitter; transmitting | non | oui |
+| assets/voice/resonance-emitter-working.svg | 0.12.0 | voice-vector | MI11 reusable vector: resonance-emitter; working | non | oui |
+| assets/voice/root-passage-damaged.svg | 0.12.0 | voice-vector | MI11 reusable vector: root-passage; damaged | non | oui |
+| assets/voice/root-passage-destroyed.svg | 0.12.0 | voice-vector | MI11 reusable vector: root-passage; destroyed | non | oui |
+| assets/voice/root-passage-surveyed.svg | 0.12.0 | voice-vector | MI11 reusable vector: root-passage; surveyed | non | oui |
+| assets/voice/root-passage-unknown.svg | 0.12.0 | voice-vector | MI11 reusable vector: root-passage; unknown | non | oui |
+| assets/voice/translation-record-copied.svg | 0.12.0 | voice-vector | MI11 reusable vector: translation-record; copied | non | oui |
+| assets/voice/translation-record-copying.svg | 0.12.0 | voice-vector | MI11 reusable vector: translation-record; copying | non | oui |
+| assets/voice/translation-record-lost.svg | 0.12.0 | voice-vector | MI11 reusable vector: translation-record; lost | non | oui |
+| assets/voice/translation-record-untranslated.svg | 0.12.0 | voice-vector | MI11 reusable vector: translation-record; untranslated | non | oui |
 
 ## Reproduction
 

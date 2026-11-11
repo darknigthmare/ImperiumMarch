@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "generatedAt": "2026-11-11T18:23:06.250Z",
+  "generatedAt": "2026-11-11T20:05:48.761Z",
   "scope": "Exhaustive media inventory of source assets/, actual media files under web-dist/, and all data:...;base64 media in the observed offline HTML. Code-generated media and excluded reference/documentation media are recorded separately.",
   "repository": {
-    "head": "073003075bf8921aab25b1a9200b9d360c1ab391",
-    "packageVersion": "0.11.0",
-    "sourceUIVersion": "0.11",
+    "head": "f75e674313120094b9540603fbfa571d5df2f1d2",
+    "packageVersion": "0.12.0",
+    "sourceUIVersion": "0.12",
     "workingTree": "Current files, including uncommitted work. HEAD is an identification point, not a claim that these files are committed."
   },
   "tool": "tools/audit-media-provenance.mjs",
@@ -19,24 +19,28 @@
     "offline": {
       "file": "dist/Ordre_de_Cendre.html",
       "present": true,
-      "bytes": 10394368,
-      "sha256": "5617690ab88a55a522897aeee1e91b923ef3395074970e3b9b094037d192459b",
-      "uiVersion": "0.11",
+      "bytes": 10507813,
+      "sha256": "9c750353adf4c61da6579dc2ee0428d32e49ae0d5e82087ac523f3ee66ca2bde",
+      "uiVersion": "0.12",
       "modules": [
         "src/content.mjs",
         "src/chemical-simulation.mjs",
+        "src/voice-simulation.mjs",
         "src/simulation.mjs",
         "src/production-assets.mjs",
         "src/thyr-assets.mjs",
         "src/thyr-renderer.mjs",
         "src/chemical-assets.mjs",
         "src/chemical-renderer.mjs",
+        "src/voice-assets.mjs",
+        "src/voice-renderer.mjs",
         "src/renderer.mjs",
         "src/audio.mjs",
         "src/controls.mjs",
         "src/departure-validation.mjs",
         "src/thyr-validation.mjs",
         "src/chemical-validation.mjs",
+        "src/voice-validation.mjs",
         "src/campaign.mjs",
         "src/main.mjs"
       ],
@@ -97,8 +101,8 @@
     "web": {
       "entry": "web-dist/index.html",
       "present": true,
-      "indexSha256": "8c6400db3ae01299edad2a9f8160acecd373331bb03de8e9d3b9465c82f15082",
-      "uiVersion": "0.11",
+      "indexSha256": "fafeee49d4863c1e191c5998ea085ce36977cd2a19577a45a0bbd7f7b5e1088d",
+      "uiVersion": "0.12",
       "files": [
         {
           "file": "web-dist/assets/art/key-art.png",
@@ -3411,6 +3415,230 @@
           "sha256": "25a133fd78de25d44059ce94dc168c8b637f322b617ce8e1e1069a6ca3ed511c",
           "registered": true,
           "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/leth-interpreter-listening.svg",
+          "source": "assets/voice/leth-interpreter-listening.svg",
+          "bytes": 5262,
+          "sha256": "90affec6aa7fc58509c5c90e809c8fd5c89dcd17d1da2e2317056d3ac5a3f78d",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/leth-interpreter-lost.svg",
+          "source": "assets/voice/leth-interpreter-lost.svg",
+          "bytes": 1033,
+          "sha256": "79d3e9bf098144a1614fd4df4b7c8cdcf14ed96e338ec00c7aa99073a48e899e",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/leth-interpreter-refusing.svg",
+          "source": "assets/voice/leth-interpreter-refusing.svg",
+          "bytes": 5693,
+          "sha256": "5ea97b7b9a9e39039d6ba47832a8d9fae42da4b9d2def36b2e524f1541882639",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/leth-interpreter-speaking.svg",
+          "source": "assets/voice/leth-interpreter-speaking.svg",
+          "bytes": 5263,
+          "sha256": "bb4c8227b096dcf4413ab07da6e9f151a744354952d3f06aa6f6dd5f6aa0a061",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/leth-interpreter-waiting.svg",
+          "source": "assets/voice/leth-interpreter-waiting.svg",
+          "bytes": 5256,
+          "sha256": "5f4237ecc3b3e0a16d8c9d6fdc8790a7784a0104e16dd2173324446733ca9975",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/listening-station-idle.svg",
+          "source": "assets/voice/listening-station-idle.svg",
+          "bytes": 3751,
+          "sha256": "a420538f777cbadf8fc1db5e15604256a239ab59dfeb310cee1091a71daaaced",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/listening-station-listening.svg",
+          "source": "assets/voice/listening-station-listening.svg",
+          "bytes": 3887,
+          "sha256": "6c72645ec38c9449ecb452cda8fdc07c151680cf9d738aaff33dd192c393e741",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/listening-station-lost.svg",
+          "source": "assets/voice/listening-station-lost.svg",
+          "bytes": 2147,
+          "sha256": "dd4933e63fd963e9f6a4ebb3ed780c5f1e95c81043596c9f1bed5d525990e1a0",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/listening-station-recorded.svg",
+          "source": "assets/voice/listening-station-recorded.svg",
+          "bytes": 3959,
+          "sha256": "6dafc7fb23d178eec69bba9d43c068b157b397a376b8def7a9bfe033a9448e88",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/nesting-site-damaged.svg",
+          "source": "assets/voice/nesting-site-damaged.svg",
+          "bytes": 3805,
+          "sha256": "f2c2a46275e9fedc20af7eae0807ef0449ce17f258435cadb7228856f7b10bc2",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/nesting-site-disturbed.svg",
+          "source": "assets/voice/nesting-site-disturbed.svg",
+          "bytes": 4326,
+          "sha256": "697a352f675f4a56bac96e5151bd7540f966c7fdaa15264e9e8ceade5bbe6b57",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/nesting-site-intact.svg",
+          "source": "assets/voice/nesting-site-intact.svg",
+          "bytes": 4100,
+          "sha256": "26338716289672902cf1ad6b5fefd88503b2d78bf09e7483a558af1b8d88bb7c",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/nesting-site-lost.svg",
+          "source": "assets/voice/nesting-site-lost.svg",
+          "bytes": 2914,
+          "sha256": "a1fa3102dac5a0eb835f9f60ecb36733a66e2beabf9aadf71137bdb6d57ef8ad",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/previews/voice-kit.png",
+          "source": "assets/voice/previews/voice-kit.png",
+          "bytes": 167348,
+          "sha256": "c787ea499ebf5bed2c983553c15b2724a73838b5e81ee9fd086d1d5bda503656",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/previews/voice-states.png",
+          "source": "assets/voice/previews/voice-states.png",
+          "bytes": 183029,
+          "sha256": "aff710cab37c6697d7c11e9d587276b2864cdb0dc77b176220a078d8dbdc5fc4",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/resonance-emitter-destroyed.svg",
+          "source": "assets/voice/resonance-emitter-destroyed.svg",
+          "bytes": 1452,
+          "sha256": "2e6c82305f01adbfed1f3c21fee81b907426d0eb21acc3fe8e3318bbd198a038",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/resonance-emitter-preserved.svg",
+          "source": "assets/voice/resonance-emitter-preserved.svg",
+          "bytes": 3288,
+          "sha256": "0e245ab071a41a0712de93a851badfbd0274005ca40969dcf82dcd14e194bbbc",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/resonance-emitter-seized.svg",
+          "source": "assets/voice/resonance-emitter-seized.svg",
+          "bytes": 1380,
+          "sha256": "4d046a734357c750bc7aeffbb29efc1ba9489a32685226d2fa3347d04951e86c",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/resonance-emitter-transmitting.svg",
+          "source": "assets/voice/resonance-emitter-transmitting.svg",
+          "bytes": 3092,
+          "sha256": "28e1c19b720c83df19687132670e0df375f5b2026701ccb1632b0557429aee04",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/resonance-emitter-working.svg",
+          "source": "assets/voice/resonance-emitter-working.svg",
+          "bytes": 3307,
+          "sha256": "73263d897c7a53aaaf95092191de3f1faff4d2bdd46e8085dd70aac31ed7ac1d",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/root-passage-damaged.svg",
+          "source": "assets/voice/root-passage-damaged.svg",
+          "bytes": 1027,
+          "sha256": "b20df8f4191e1e32e8231052e0e4273cd7a7a035e03cbb558c372ecee014ad22",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/root-passage-destroyed.svg",
+          "source": "assets/voice/root-passage-destroyed.svg",
+          "bytes": 1156,
+          "sha256": "b6d4396035f8e268da4c38ee9cc5f17b831393e6d24d6eb00d1e54ffe6cd5108",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/root-passage-surveyed.svg",
+          "source": "assets/voice/root-passage-surveyed.svg",
+          "bytes": 1327,
+          "sha256": "a675e315f94150b38b0a70547b3d68b9f075178f9bea29a3fb08368c161da6d2",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/root-passage-unknown.svg",
+          "source": "assets/voice/root-passage-unknown.svg",
+          "bytes": 883,
+          "sha256": "1aac7f74b9b9afb3ecbcbfa0bdada9f4fedd563e7f28754b7ddbcbc4ed1bfce0",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/translation-record-copied.svg",
+          "source": "assets/voice/translation-record-copied.svg",
+          "bytes": 3266,
+          "sha256": "6f77a1727323a503514047c1b14800af67fe8c65802a785d782372f5efaeabb2",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/translation-record-copying.svg",
+          "source": "assets/voice/translation-record-copying.svg",
+          "bytes": 3182,
+          "sha256": "afe7c137d9d3c193d7d5536ca74c3b454d99135d2ac95712dd5dd660c876dd98",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/translation-record-lost.svg",
+          "source": "assets/voice/translation-record-lost.svg",
+          "bytes": 1299,
+          "sha256": "9ea204d1a8943885dd409c94ce692586af3fa04619e353613a9c8c1e158a2573",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/voice/translation-record-untranslated.svg",
+          "source": "assets/voice/translation-record-untranslated.svg",
+          "bytes": 2965,
+          "sha256": "0acdd43b47bac9825f7b46d296a4553a2edb7d8e804f2f8b51e9d1bd55e8c3c1",
+          "registered": true,
+          "sourceHashMatches": true
         }
       ],
       "missingExpectedMedia": []
@@ -3542,6 +3770,24 @@
         "Village drawings contain no invented occupants or population counts.",
         "This lot does not finish the fauna, flora or all environments of Thyr."
       ]
+    },
+    "voice-vector": {
+      "source": "assets/voice/manifest.json",
+      "sourceSha256": "12bde08f0a594896ff8f6e2dd573921e1e2d297e875f1fd5e45edfa67db6c2d0",
+      "code": "src/voice-assets.mjs",
+      "codeSha256": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0",
+      "version": "0.12.0",
+      "date": "2026-11-11",
+      "authorOrGenerator": "Original code and geometry authored by OpenAI assistant for Darknigthmare",
+      "method": "Original code-native vector geometry shared by SVG exports and Canvas runtime; no generated, traced, stock or third-party artwork.",
+      "rightsDeclaration": "Original project vector code; no third-party artwork declared.",
+      "rightsStatus": "Project originality declaration, no separate license grant asserted.",
+      "limitations": [
+        "Authoring sheets use varied scales and are not gameplay captures or human art approval.",
+        "TE01 requires the physical and consent conditions recorded in the campaign receipt, independently of visual state.",
+        "Nest drawings represent local sites, not a human population or a count of Khelt citizens.",
+        "Leth is one original prototype portrayal, not the complete anatomy, motion, culture or architectural production for all Khelt cities."
+      ]
     }
   },
   "entries": [
@@ -3606,7 +3852,7 @@
       "sourceReferences": [
         {
           "source": "src/renderer.mjs",
-          "line": 103,
+          "line": 104,
           "kind": "module literal image URL"
         }
       ],
@@ -22524,9 +22770,1560 @@
           "runtimeRequested": false
         }
       }
+    },
+    {
+      "file": "assets/voice/leth-interpreter-listening.svg",
+      "extension": "svg",
+      "bytes": 5262,
+      "sha256": "90affec6aa7fc58509c5c90e809c8fd5c89dcd17d1da2e2317056d3ac5a3f78d",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: leth-interpreter; listening",
+      "canonIds": [
+        "MI11",
+        "PN06",
+        "FA05"
+      ],
+      "nominalSize": [
+        94,
+        144
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "face": [
+          8,
+          -121
+        ],
+        "recorder": [
+          28,
+          -71
+        ],
+        "hand": [
+          48,
+          -76
+        ]
+      },
+      "state": "listening",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/leth-interpreter-listening.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/leth-interpreter-lost.svg",
+      "extension": "svg",
+      "bytes": 1033,
+      "sha256": "79d3e9bf098144a1614fd4df4b7c8cdcf14ed96e338ec00c7aa99073a48e899e",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: leth-interpreter; lost",
+      "canonIds": [
+        "MI11",
+        "PN06",
+        "FA05"
+      ],
+      "nominalSize": [
+        94,
+        144
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "face": [
+          8,
+          -121
+        ],
+        "recorder": [
+          28,
+          -71
+        ],
+        "hand": [
+          48,
+          -76
+        ]
+      },
+      "state": "lost",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/leth-interpreter-lost.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/leth-interpreter-refusing.svg",
+      "extension": "svg",
+      "bytes": 5693,
+      "sha256": "5ea97b7b9a9e39039d6ba47832a8d9fae42da4b9d2def36b2e524f1541882639",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: leth-interpreter; refusing",
+      "canonIds": [
+        "MI11",
+        "PN06",
+        "FA05"
+      ],
+      "nominalSize": [
+        94,
+        144
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "face": [
+          8,
+          -121
+        ],
+        "recorder": [
+          28,
+          -71
+        ],
+        "hand": [
+          48,
+          -76
+        ]
+      },
+      "state": "refusing",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/leth-interpreter-refusing.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/leth-interpreter-speaking.svg",
+      "extension": "svg",
+      "bytes": 5263,
+      "sha256": "bb4c8227b096dcf4413ab07da6e9f151a744354952d3f06aa6f6dd5f6aa0a061",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: leth-interpreter; speaking",
+      "canonIds": [
+        "MI11",
+        "PN06",
+        "FA05"
+      ],
+      "nominalSize": [
+        94,
+        144
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "face": [
+          8,
+          -121
+        ],
+        "recorder": [
+          28,
+          -71
+        ],
+        "hand": [
+          48,
+          -76
+        ]
+      },
+      "state": "speaking",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/leth-interpreter-speaking.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/leth-interpreter-waiting.svg",
+      "extension": "svg",
+      "bytes": 5256,
+      "sha256": "5f4237ecc3b3e0a16d8c9d6fdc8790a7784a0104e16dd2173324446733ca9975",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: leth-interpreter; waiting",
+      "canonIds": [
+        "MI11",
+        "PN06",
+        "FA05"
+      ],
+      "nominalSize": [
+        94,
+        144
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "face": [
+          8,
+          -121
+        ],
+        "recorder": [
+          28,
+          -71
+        ],
+        "hand": [
+          48,
+          -76
+        ]
+      },
+      "state": "waiting",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/leth-interpreter-waiting.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/listening-station-idle.svg",
+      "extension": "svg",
+      "bytes": 3751,
+      "sha256": "a420538f777cbadf8fc1db5e15604256a239ab59dfeb310cee1091a71daaaced",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: listening-station; idle",
+      "canonIds": [
+        "MI11",
+        "PL03"
+      ],
+      "nominalSize": [
+        94,
+        100
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "probe": [
+          -36,
+          -6
+        ],
+        "reading": [
+          5,
+          -69
+        ]
+      },
+      "state": "idle",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/listening-station-idle.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/listening-station-listening.svg",
+      "extension": "svg",
+      "bytes": 3887,
+      "sha256": "6c72645ec38c9449ecb452cda8fdc07c151680cf9d738aaff33dd192c393e741",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: listening-station; listening",
+      "canonIds": [
+        "MI11",
+        "PL03"
+      ],
+      "nominalSize": [
+        94,
+        100
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "probe": [
+          -36,
+          -6
+        ],
+        "reading": [
+          5,
+          -69
+        ]
+      },
+      "state": "listening",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/listening-station-listening.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/listening-station-lost.svg",
+      "extension": "svg",
+      "bytes": 2147,
+      "sha256": "dd4933e63fd963e9f6a4ebb3ed780c5f1e95c81043596c9f1bed5d525990e1a0",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: listening-station; lost",
+      "canonIds": [
+        "MI11",
+        "PL03"
+      ],
+      "nominalSize": [
+        94,
+        100
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "probe": [
+          -36,
+          -6
+        ],
+        "reading": [
+          5,
+          -69
+        ]
+      },
+      "state": "lost",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/listening-station-lost.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/listening-station-recorded.svg",
+      "extension": "svg",
+      "bytes": 3959,
+      "sha256": "6dafc7fb23d178eec69bba9d43c068b157b397a376b8def7a9bfe033a9448e88",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: listening-station; recorded",
+      "canonIds": [
+        "MI11",
+        "PL03"
+      ],
+      "nominalSize": [
+        94,
+        100
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "probe": [
+          -36,
+          -6
+        ],
+        "reading": [
+          5,
+          -69
+        ]
+      },
+      "state": "recorded",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/listening-station-recorded.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/nesting-site-damaged.svg",
+      "extension": "svg",
+      "bytes": 3805,
+      "sha256": "f2c2a46275e9fedc20af7eae0807ef0449ce17f258435cadb7228856f7b10bc2",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: nesting-site; damaged",
+      "canonIds": [
+        "MI11",
+        "PL03"
+      ],
+      "nominalSize": [
+        250,
+        76
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "centre": [
+          0,
+          -29
+        ]
+      },
+      "state": "damaged",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/nesting-site-damaged.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/nesting-site-disturbed.svg",
+      "extension": "svg",
+      "bytes": 4326,
+      "sha256": "697a352f675f4a56bac96e5151bd7540f966c7fdaa15264e9e8ceade5bbe6b57",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: nesting-site; disturbed",
+      "canonIds": [
+        "MI11",
+        "PL03"
+      ],
+      "nominalSize": [
+        250,
+        76
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "centre": [
+          0,
+          -29
+        ]
+      },
+      "state": "disturbed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/nesting-site-disturbed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/nesting-site-intact.svg",
+      "extension": "svg",
+      "bytes": 4100,
+      "sha256": "26338716289672902cf1ad6b5fefd88503b2d78bf09e7483a558af1b8d88bb7c",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: nesting-site; intact",
+      "canonIds": [
+        "MI11",
+        "PL03"
+      ],
+      "nominalSize": [
+        250,
+        76
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "centre": [
+          0,
+          -29
+        ]
+      },
+      "state": "intact",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/nesting-site-intact.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/nesting-site-lost.svg",
+      "extension": "svg",
+      "bytes": 2914,
+      "sha256": "a1fa3102dac5a0eb835f9f60ecb36733a66e2beabf9aadf71137bdb6d57ef8ad",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: nesting-site; lost",
+      "canonIds": [
+        "MI11",
+        "PL03"
+      ],
+      "nominalSize": [
+        250,
+        76
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "centre": [
+          0,
+          -29
+        ]
+      },
+      "state": "lost",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/nesting-site-lost.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/previews/voice-kit.png",
+      "extension": "png",
+      "bytes": 167348,
+      "sha256": "c787ea499ebf5bed2c983553c15b2724a73838b5e81ee9fd086d1d5bda503656",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Authoring sheet; varied scales stated in its labels and nominal dimensions in manifest",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/previews/voice-kit.png",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/previews/voice-states.png",
+      "extension": "png",
+      "bytes": 183029,
+      "sha256": "aff710cab37c6697d7c11e9d587276b2864cdb0dc77b176220a078d8dbdc5fc4",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "Authored states on a bench, not a browser or gameplay reception",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/previews/voice-states.png",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/resonance-emitter-destroyed.svg",
+      "extension": "svg",
+      "bytes": 1452,
+      "sha256": "2e6c82305f01adbfed1f3c21fee81b907426d0eb21acc3fe8e3318bbd198a038",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: resonance-emitter; destroyed",
+      "canonIds": [
+        "MI11",
+        "FA05"
+      ],
+      "nominalSize": [
+        150,
+        171
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "resonator": [
+          0,
+          -115
+        ],
+        "coupling": [
+          60,
+          -26
+        ]
+      },
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/resonance-emitter-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/resonance-emitter-preserved.svg",
+      "extension": "svg",
+      "bytes": 3288,
+      "sha256": "0e245ab071a41a0712de93a851badfbd0274005ca40969dcf82dcd14e194bbbc",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: resonance-emitter; preserved",
+      "canonIds": [
+        "MI11",
+        "FA05"
+      ],
+      "nominalSize": [
+        150,
+        171
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "resonator": [
+          0,
+          -115
+        ],
+        "coupling": [
+          60,
+          -26
+        ]
+      },
+      "state": "preserved",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/resonance-emitter-preserved.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/resonance-emitter-seized.svg",
+      "extension": "svg",
+      "bytes": 1380,
+      "sha256": "4d046a734357c750bc7aeffbb29efc1ba9489a32685226d2fa3347d04951e86c",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: resonance-emitter; seized",
+      "canonIds": [
+        "MI11",
+        "FA05"
+      ],
+      "nominalSize": [
+        150,
+        171
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "resonator": [
+          0,
+          -115
+        ],
+        "coupling": [
+          60,
+          -26
+        ]
+      },
+      "state": "seized",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/resonance-emitter-seized.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/resonance-emitter-transmitting.svg",
+      "extension": "svg",
+      "bytes": 3092,
+      "sha256": "28e1c19b720c83df19687132670e0df375f5b2026701ccb1632b0557429aee04",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: resonance-emitter; transmitting",
+      "canonIds": [
+        "MI11",
+        "FA05"
+      ],
+      "nominalSize": [
+        150,
+        171
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "resonator": [
+          0,
+          -115
+        ],
+        "coupling": [
+          60,
+          -26
+        ]
+      },
+      "state": "transmitting",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/resonance-emitter-transmitting.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/resonance-emitter-working.svg",
+      "extension": "svg",
+      "bytes": 3307,
+      "sha256": "73263d897c7a53aaaf95092191de3f1faff4d2bdd46e8085dd70aac31ed7ac1d",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: resonance-emitter; working",
+      "canonIds": [
+        "MI11",
+        "FA05"
+      ],
+      "nominalSize": [
+        150,
+        171
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "resonator": [
+          0,
+          -115
+        ],
+        "coupling": [
+          60,
+          -26
+        ]
+      },
+      "state": "working",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/resonance-emitter-working.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/root-passage-damaged.svg",
+      "extension": "svg",
+      "bytes": 1027,
+      "sha256": "b20df8f4191e1e32e8231052e0e4273cd7a7a035e03cbb558c372ecee014ad22",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: root-passage; damaged",
+      "canonIds": [
+        "MI11",
+        "PL03"
+      ],
+      "nominalSize": [
+        260,
+        95
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "survey": [
+          -94,
+          -57
+        ]
+      },
+      "state": "damaged",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/root-passage-damaged.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/root-passage-destroyed.svg",
+      "extension": "svg",
+      "bytes": 1156,
+      "sha256": "b6d4396035f8e268da4c38ee9cc5f17b831393e6d24d6eb00d1e54ffe6cd5108",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: root-passage; destroyed",
+      "canonIds": [
+        "MI11",
+        "PL03"
+      ],
+      "nominalSize": [
+        260,
+        95
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "survey": [
+          -94,
+          -57
+        ]
+      },
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/root-passage-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/root-passage-surveyed.svg",
+      "extension": "svg",
+      "bytes": 1327,
+      "sha256": "a675e315f94150b38b0a70547b3d68b9f075178f9bea29a3fb08368c161da6d2",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: root-passage; surveyed",
+      "canonIds": [
+        "MI11",
+        "PL03"
+      ],
+      "nominalSize": [
+        260,
+        95
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "survey": [
+          -94,
+          -57
+        ]
+      },
+      "state": "surveyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/root-passage-surveyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/root-passage-unknown.svg",
+      "extension": "svg",
+      "bytes": 883,
+      "sha256": "1aac7f74b9b9afb3ecbcbfa0bdada9f4fedd563e7f28754b7ddbcbc4ed1bfce0",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: root-passage; unknown",
+      "canonIds": [
+        "MI11",
+        "PL03"
+      ],
+      "nominalSize": [
+        260,
+        95
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "survey": [
+          -94,
+          -57
+        ]
+      },
+      "state": "unknown",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/root-passage-unknown.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/translation-record-copied.svg",
+      "extension": "svg",
+      "bytes": 3266,
+      "sha256": "6f77a1727323a503514047c1b14800af67fe8c65802a785d782372f5efaeabb2",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: translation-record; copied",
+      "canonIds": [
+        "MI11",
+        "TE01"
+      ],
+      "nominalSize": [
+        106,
+        99
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -70
+        ],
+        "socket": [
+          48,
+          -37
+        ]
+      },
+      "state": "copied",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/translation-record-copied.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/translation-record-copying.svg",
+      "extension": "svg",
+      "bytes": 3182,
+      "sha256": "afe7c137d9d3c193d7d5536ca74c3b454d99135d2ac95712dd5dd660c876dd98",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: translation-record; copying",
+      "canonIds": [
+        "MI11",
+        "TE01"
+      ],
+      "nominalSize": [
+        106,
+        99
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -70
+        ],
+        "socket": [
+          48,
+          -37
+        ]
+      },
+      "state": "copying",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/translation-record-copying.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/translation-record-lost.svg",
+      "extension": "svg",
+      "bytes": 1299,
+      "sha256": "9ea204d1a8943885dd409c94ce692586af3fa04619e353613a9c8c1e158a2573",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: translation-record; lost",
+      "canonIds": [
+        "MI11",
+        "TE01"
+      ],
+      "nominalSize": [
+        106,
+        99
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -70
+        ],
+        "socket": [
+          48,
+          -37
+        ]
+      },
+      "state": "lost",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/translation-record-lost.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/voice/translation-record-untranslated.svg",
+      "extension": "svg",
+      "bytes": 2965,
+      "sha256": "0acdd43b47bac9825f7b46d296a4553a2edb7d8e804f2f8b51e9d1bd55e8c3c1",
+      "provenanceId": "voice-vector",
+      "version": "0.12.0",
+      "dateEvidence": {
+        "manifestDate": "2026-11-11"
+      },
+      "usage": "MI11 reusable vector: translation-record; untranslated",
+      "canonIds": [
+        "MI11",
+        "TE01"
+      ],
+      "nominalSize": [
+        106,
+        99
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -70
+        ],
+        "socket": [
+          48,
+          -37
+        ]
+      },
+      "state": "untranslated",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/voice/translation-record-untranslated.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
     }
   ],
   "codeGeneratedMedia": [
+    {
+      "file": "src/voice-assets.mjs",
+      "sha256": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0",
+      "provenanceId": "voice-vector",
+      "use": "Shared original MI11 geometry and drawing. Physical state and consent belong to the simulation.",
+      "observedOfflineModule": true,
+      "observedWebCodeCopy": true
+    },
+    {
+      "file": "src/voice-renderer.mjs",
+      "sha256": "0fe6bff453ef8c5afaa0d0c31d5fb538595f5e60e4a1a0eda79165ba5ce7b920",
+      "provenanceId": "voice-vector",
+      "use": "Shared original MI11 geometry and drawing. Physical state and consent belong to the simulation.",
+      "observedOfflineModule": true,
+      "observedWebCodeCopy": true
+    },
     {
       "file": "src/chemical-assets.mjs",
       "sha256": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753",
@@ -22577,7 +24374,7 @@
     },
     {
       "file": "src/renderer.mjs",
-      "sha256": "d2b6265303223f8aad34a844307795d12cc6ad83ab9237fb7b7309303906f7a1",
+      "sha256": "88831bbac02ef6171df94d0b8a3e853eb8f306474af6f58b351d067b35d946ad",
       "provenanceEvidence": "docs/ASSET_PROVENANCE.md",
       "use": "Original procedural drawing of world, particles, actors and remaining scenery.",
       "observedOfflineModule": true,
@@ -23307,6 +25104,390 @@
       "file": "docs/previews/bible-v011/bible-v011-systemes-108-110.png",
       "bytes": 90928,
       "sha256": "0e11e6453d2194d370559b5bad200bb3a3cbc0766df690ee728019cf3730aad7",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/00-Synthese.png",
+      "bytes": 129494,
+      "sha256": "f274bcd91d53a634cfc999e074e77d83ea54125ed47ba1a0d336a512bfdcf8e8",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/01-Vision.png",
+      "bytes": 71741,
+      "sha256": "210cdae00ad83f32bc53e6d61dd99d887c4107b913f91960022a6524c381dbcb",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/02-Systemes.png",
+      "bytes": 82892,
+      "sha256": "53074decbe3e937b1ae4d1d5a8fc0250f44fa3d3b2c899eeac520da2cfc00e0c",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/03-Marcheurs.png",
+      "bytes": 84801,
+      "sha256": "ca99bd5adc4855208d080a596517008e9125ff7607ad69ae69c3b3926c9b3fc5",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/04-Armes.png",
+      "bytes": 84976,
+      "sha256": "cd33dda898879699980a0cb41394cc55cdd3030952af878da27448e84d557f15",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/05-Modules.png",
+      "bytes": 64154,
+      "sha256": "2807b3e6f33661cef5fcd1b3d426219053925c7c2f506e8f2e03aaef7d8251e1",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/06-Planetes.png",
+      "bytes": 127225,
+      "sha256": "ff0a2e1ae32d9eb9da7e5b1e4b9b04ba8a2e0225669dd8a77c1926d918a1a198",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/07-Factions.png",
+      "bytes": 85641,
+      "sha256": "3048c607cf3657e9b99d7f3e7d1530807917ecdc5793b4e24f7f30a3dbb0a60b",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/08-Personnages.png",
+      "bytes": 80895,
+      "sha256": "84ff10f2b501e89ee7158866ee25e1368547d36512eafb0af41c5387a460c4c7",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/09-Campagne.png",
+      "bytes": 107036,
+      "sha256": "f11293ca1748d58373171009f5f3dd206467473961cbee51acb054ad4bf3cd47",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/10-Contrats.png",
+      "bytes": 69047,
+      "sha256": "3bf1e61393cb19c4e9ef4414fb2b4cf875336287438f3f2289c327cdbb518ed9",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/11-Ennemis.png",
+      "bytes": 69957,
+      "sha256": "d88555f94a6156cf7042b17cef96a361fe2fa9e4ffc7d5d1b567c3d0b922fc66",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/12-Vehicules.png",
+      "bytes": 82782,
+      "sha256": "3e1024afe494c86f8288f9b29db08ea4cec30910e483730b6c14639340b909b5",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/13-Faune.png",
+      "bytes": 69778,
+      "sha256": "c243b8a20efe708c9a75d5f4937d84f25c74531e994e091612a2ea74e4898bac",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/14-Flore.png",
+      "bytes": 67618,
+      "sha256": "4cc3d6fcba9cd356148ba81621459a0d2d5777666d5ba5caa31a247f6974e6ef",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/15-Narration.png",
+      "bytes": 71584,
+      "sha256": "8ff96786a2a76bd5597956fcc37a69170cda5029b1cbf82581117f58bcb610f9",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/16-Assets.png",
+      "bytes": 112347,
+      "sha256": "577454460138883aac1fdc456715ceec8798b372eff04e82171a2622da21f5d6",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/17-Production.png",
+      "bytes": 71308,
+      "sha256": "920a491239bc5e710a06528843401eb0be506fd27ceeeb954038c1162dcde346",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/18-QA.png",
+      "bytes": 63864,
+      "sha256": "f8aaa45d9f0114b1cc06dd54f2de385fe673a453095404238dd8760528f44eb0",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/19-Sources.png",
+      "bytes": 93821,
+      "sha256": "d43073d750cd9c98a79d7347601e1c590d176567f8586c6ea26f5ea22028bcdc",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/20-Prototype.png",
+      "bytes": 93770,
+      "sha256": "586233d570b0434c620d626351f632bba73eeee08a14efdd93303184d909a542",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-assets-19-19.png",
+      "bytes": 37950,
+      "sha256": "9816da7e33a9c400a0220d8396bc438caf0ddf6a315b965f7aff6f909b95954d",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-assets-24-24.png",
+      "bytes": 74289,
+      "sha256": "1d41bd8bf382cd37f78acfcecb92fa4394fc329e58c624bde4e1dc81668a1ae4",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-campagne-17-17.png",
+      "bytes": 48507,
+      "sha256": "36fa102332cf24a81c575492dae0a7efc9d5d2a165c373aa6be7da885778edc0",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-narration-13-13.png",
+      "bytes": 31994,
+      "sha256": "15ec133c9c74636bab4e4a0bbb85c96f06e5ebef3b800f6d928d98268de384bd",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-narration-80-80.png",
+      "bytes": 30607,
+      "sha256": "7c4cb324bc72884c6b87cad7b3e6f99b12a74aef0d951b3b7859a1917b7a13fb",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-narration-89-91.png",
+      "bytes": 88489,
+      "sha256": "d5c004a56b60a028e3ee9390daece0f113c78bdf7bdcf7329c473a7e271978a2",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-narration-92-92.png",
+      "bytes": 27114,
+      "sha256": "56188fb723b0775089a034235c2cc46196952c313eab051edcdda37d52c4ab98",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-personnages-12-12.png",
+      "bytes": 37488,
+      "sha256": "a17e7f16d1b56873fb97350999893ead62026a47f3dd3f2ec641399dbe794dee",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-production-24-24.png",
+      "bytes": 29803,
+      "sha256": "ff4340e088807ab9d1a0a26a68f86cfb5e2eb4162e10535567bc989959a5ab09",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-production-95-97.png",
+      "bytes": 84847,
+      "sha256": "ffadfc61f0d3196b32cf5c1e6bbd9b1c120ddf97b5e99f7150f223ea9271cf98",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-prototype-100-100.png",
+      "bytes": 36032,
+      "sha256": "9cb0d7330fb33da44c2cde45abbc8c0931bfe855a5fdc6449b65e88d3da41777",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-prototype-105-107.png",
+      "bytes": 104209,
+      "sha256": "2bd64cd23fbfa6583c9042730838f2a24dc5061d19b81931e081b5833b4c0399",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-prototype-108-110.png",
+      "bytes": 102108,
+      "sha256": "ded48aa29bf441d2108fb8162ece91b72bbacad82f5129aeb60c5f629000c0a6",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-prototype-28-28.png",
+      "bytes": 36288,
+      "sha256": "cae4d0f06005f6ac04d27265c62d6fd9a7a9f0bc6808063b2cb580ebec2d7ddd",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-prototype-31-31.png",
+      "bytes": 32269,
+      "sha256": "f8474a509d3acb2d321915ed06b51df19ecff6f7f1c5712325cdde32dc8116af",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-prototype-33-34.png",
+      "bytes": 57653,
+      "sha256": "914a294840e458ae9258a4ec46057dd8256b21b872d964b1644815b241fe044f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-prototype-36-37.png",
+      "bytes": 69313,
+      "sha256": "181c3d0b2db4704c824f9333b202008a1d56226834107518e0ab60b3bdc9a6d4",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-prototype-77-77.png",
+      "bytes": 23902,
+      "sha256": "fe99dee58dd8662e2377f5f2dec1c6786f12a2bab665e46e7874e461f1db05f0",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-prototype-94-95.png",
+      "bytes": 70834,
+      "sha256": "6d479fec6a53a2d20c034e796991e270a37f4fdf43a7125b5e92000497568e9f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-qa-186-188.png",
+      "bytes": 106660,
+      "sha256": "a27d133e5627892563c8014047e4911820ff8c074e0c28a74d015884ce06d008",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-qa-189-191.png",
+      "bytes": 97839,
+      "sha256": "952f474e52146981fb12a7c61418d784f875908ea01d602570ba8cde80419446",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-qa-192-194.png",
+      "bytes": 113953,
+      "sha256": "7df920fd25c1b0bb52f24e8694df0acd53ce9d45f994a76dc8911ab4a1e17371",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-qa-195-197.png",
+      "bytes": 108745,
+      "sha256": "e7a62c21fd5c399e1a8d1c13dcc7479eb9f574218f658a1c5a4099dd7ad5e4b0",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-qa-31-31.png",
+      "bytes": 45153,
+      "sha256": "387709c1f0948ebe1f89e2a09ae1a1570f6e6d501c6da5992a8c8c23652cf202",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-systemes-111-113.png",
+      "bytes": 96832,
+      "sha256": "a423e870c643fd559d2f773820516dbb586399dc0b47da3aa604bf570d5e1c2b",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-systemes-114-116.png",
+      "bytes": 108088,
+      "sha256": "42f6d8da5f73b13338eb7814abb07b177b90135559ad1eb507245b92bb8d36d9",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v012/bible-v012-systemes-117-117.png",
+      "bytes": 33256,
+      "sha256": "73070f86c08e9aa1374e837fc1fe59b77712a5276631db084c91cb8253710df7",
       "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
       "copiedInWeb": false,
       "embeddedInOffline": false
@@ -25264,6 +27445,206 @@
       "embeddedInOffline": false
     },
     {
+      "file": "docs/previews/mi11-arrival.png",
+      "bytes": 343194,
+      "sha256": "0c3c45b2bdee71641236b76f71fd2a25c9e3911ecd628fa3694a6f6b7c332383",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-before-extraction.png",
+      "bytes": 348766,
+      "sha256": "5e31846e5b6acce8f6e0cd0dd84041d62676fac104174a75d3a06aa50374d727",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-chassis-wk01.png",
+      "bytes": 365022,
+      "sha256": "e5968c1ffc58c65b80672f4034656cc8dba0d80093bfe3c0b6cf3842256b8929",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-chassis-wk02.png",
+      "bytes": 341681,
+      "sha256": "c26d54365eb9832c0ccef3e60ddcc4b52026ac0acbfdc7bc6fde91213483c650",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-chassis-wk05.png",
+      "bytes": 356319,
+      "sha256": "8bfa4d3cd64679e4f0cda0669a5d7fbe0f8007edfad21c6be74d8a453a6f67f2",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-chassis-wk06.png",
+      "bytes": 401245,
+      "sha256": "426a8f1198206c4332b133de30c1c8fb6237f7ba5855ce5f5fa8114808ef42f7",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-chassis-wk09.png",
+      "bytes": 377025,
+      "sha256": "dcf98e76e9b1014f52ab2d1a2aac5e8ef37ccacac35a531fc83d1860af530669",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-chassis-wk10.png",
+      "bytes": 349823,
+      "sha256": "4c2c63beba4ad4a0db12d086fbb13642185352adb1d56e37de737e41afaf4109",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-consent-refused.png",
+      "bytes": 341884,
+      "sha256": "7dd5797a127d7d2aec372b9cc068ff68d88a02c9a26a0d5ad2562b6a410978a9",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-copies-after-destruction.png",
+      "bytes": 351428,
+      "sha256": "d53f8cf4e7472ce8c1e03355e3a9ba508460da1b6a14ff5cdffec8429b60aae1",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-decision.png",
+      "bytes": 356397,
+      "sha256": "54a3d3e61b3ce6b95fd53b923dcf249950359eeeddd3e7dc221fb835e5d962e3",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-emitter-seized.png",
+      "bytes": 347712,
+      "sha256": "4f8eaad03ce6d4356f2f39c9547b462326759e814749f108ad4fdbff530281df",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-first-meeting.png",
+      "bytes": 367266,
+      "sha256": "62eb883774501fe30cd952539f6a38ffc6537473767d0471e0f9495a005c4bdb",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-listening.png",
+      "bytes": 355870,
+      "sha256": "09f0fe324371bcd78be3422ecd7690b1a0d6b07c940c9dbd91682882e40fc36f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-private-consent.png",
+      "bytes": 359285,
+      "sha256": "d2bcb14ba767f4c268d9bf08b2cd5bef9b4692e6fe1e9809057ec91494801954",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-protected-exchange.png",
+      "bytes": 368995,
+      "sha256": "a69323425953714f18ff62415c7335f8c5c137be6a1921871f55b06543581d90",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-report.png",
+      "bytes": 351096,
+      "sha256": "22ee9a3c28342970fe7bccf434e902967c51bc2d801a5d210d7d12eab04cadd6",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-restoration.png",
+      "bytes": 370088,
+      "sha256": "c95ae4dbda5e7aa9cc1941d4dca196f93ced8ac41ee1d066d99a9853d2dfb366",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-ridge-contact.png",
+      "bytes": 377025,
+      "sha256": "dcf98e76e9b1014f52ab2d1a2aac5e8ef37ccacac35a531fc83d1860af530669",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-ridge-survey.png",
+      "bytes": 372446,
+      "sha256": "df72f144c3b0fcfffcb282d4d27e14947f4561a8de1db913334681ea2583029a",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-seizure.png",
+      "bytes": 355690,
+      "sha256": "fb9b30438d2744c9f16f02b16ea46ea19b0e167c59a254708b3aa8eea3a44847",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-translation-copy.png",
+      "bytes": 374779,
+      "sha256": "314c4307411fdaac42c4d06d584f69d6db88846209da9de9cfa2a5fed0757dbf",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-warning-copy.png",
+      "bytes": 359007,
+      "sha256": "7cb8323f36b3690a043952b12ae83487bf0d9d78a5b80ebe801d078aa34f08a1",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-witness-lost-after.png",
+      "bytes": 347698,
+      "sha256": "d416b75699b985fb17091b32b910b60c98419ff5b679c7b6302766f30049ddce",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/mi11-witness-lost-before.png",
+      "bytes": 350649,
+      "sha256": "3c9cce0dbd7b1467b6bec9694e543e41e0b0f112a12e0c7e84511bd18d908733",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
       "file": "docs/previews/scene-nacre-bastion.png",
       "bytes": 225745,
       "sha256": "312fcd1beb3b89de4116ce56d2f4022fa9787e56b034cbc7ac8b5a40f42f3810",
@@ -25455,17 +27836,18 @@
     "note": "System font names are fallbacks, not distributed font binaries. Preview rendering uses installed fonts; that does not add a font file to the game."
   },
   "coverage": {
-    "registeredSourceMedia": 414,
-    "sourceMedia": 414,
+    "registeredSourceMedia": 442,
+    "sourceMedia": 442,
     "runtimeImageFiles": 3,
     "productionGraphicsMedia": 292,
     "productionAudioMedia": 56,
     "thyrGraphicsMedia": 37,
     "chemicalGraphicsMedia": 26,
-    "observedWebMedia": 414,
+    "voiceGraphicsMedia": 28,
+    "observedWebMedia": 442,
     "observedInlineOccurrences": 5,
     "observedInlineDistinctHashes": 3,
-    "excludedDocumentationMedia": 354,
+    "excludedDocumentationMedia": 427,
     "unregisteredSourceMedia": 0,
     "unregisteredWebMedia": 0,
     "unregisteredInlineMedia": 0,

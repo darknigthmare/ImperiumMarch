@@ -8,6 +8,7 @@ import {
   nextCampaignMissionId, CAMPAIGN_SAVE_VERSION, CAMPAIGN_SAVE_KEY, CAMPAIGN_BACKUP_KEY,
 } from '../src/campaign.mjs';
 import { createChemicalDossier } from '../src/chemical-validation.mjs';
+import { createVoiceDossier } from '../src/voice-validation.mjs';
 import { commandGame, updateGame, chemicalReceiptRoster, terrainAt } from '../src/simulation.mjs';
 import { WALKERS, DIFFICULTIES, ENEMY_TYPES } from '../src/content.mjs';
 import { pilotMI10, moveMI10, fireAtMI10 } from './helpers/mi10-driver.mjs';
@@ -51,8 +52,8 @@ function editReceipt(save, edit) {
   return save;
 }
 
-test('v10 appends only an empty chemical dossier to both authentic native v9 exports', () => {
-  assert.equal(CAMPAIGN_SAVE_VERSION, 10);
+test('v9 migration preserves both native exports and adds only empty chemical and voice dossiers', () => {
+  assert.equal(CAMPAIGN_SAVE_VERSION, 11);
   assert.equal(fixtureBytes.length, 246853);
   assert.equal(hash(fixtureBytes), 'd5f6f49a02e8fb40f5bf830c7fcb40c5e2677dff3e2b0e0dbb7ea1a48ce42084');
   assert.equal(history.provenance.sourceRevision, '4846d0270b2976877f9b202848bfde6d2127fb1d');
@@ -60,9 +61,10 @@ test('v10 appends only an empty chemical dossier to both authentic native v9 exp
   assert.equal(history.provenance.verifiedHistoricBlobs, 1099);
   for (const variant of ['live', 'completed']) {
     const original = history[variant], migrated = after(variant), previous = clone(migrated);
-    previous.version = 9; delete previous.world.thyr.chemical;
+    previous.version = 9; delete previous.world.thyr.chemical; delete previous.world.thyr.voice;
     assert.deepEqual(previous, original, variant);
     assert.deepEqual(migrated.world.thyr.chemical, createChemicalDossier());
+    assert.deepEqual(migrated.world.thyr.voice, createVoiceDossier());
     assert.deepEqual(parseCampaign(serializeCampaign(migrated)), migrated);
     const path = history.provenance.nativeVariants[variant].path;
     const native = readFileSync(new URL(`../${path}`, import.meta.url));
@@ -80,12 +82,13 @@ test('all eight older fixtures retain their bytes and all eighteen historical va
     assert.equal(bytes.length, expected.bytes, path); assert.equal(hash(bytes), expected.sha256, path);
     for (const variant of ['live', 'completed']) {
       const source = JSON.parse(bytes)[variant], migrated = parseCampaign(JSON.stringify(source));
-      assert.equal(migrated.version, 10); assert.deepEqual(migrated.completed, source.completed);
+      assert.equal(migrated.version, CAMPAIGN_SAVE_VERSION); assert.deepEqual(migrated.completed, source.completed);
       assert.deepEqual(parseCampaign(serializeCampaign(migrated)), migrated);
       assert.deepEqual(migrated.world.thyr.chemical, createChemicalDossier());
+      assert.deepEqual(migrated.world.thyr.voice, createVoiceDossier());
     }
   }
-  for (const variant of ['live', 'completed']) assert.equal(after(variant).version, 10);
+  for (const variant of ['live', 'completed']) assert.equal(after(variant).version, CAMPAIGN_SAVE_VERSION);
 });
 
 test('historical stage complete still selects the first missing report, including MI09 before MI10', () => {
@@ -97,13 +100,13 @@ test('historical stage complete still selects the first missing report, includin
   assert.equal(beginCampaignMission(save, { missionId: 'MI10' }).ok, false);
 });
 
-test('reading v9 never writes; its first write preserves the original and version 11 stays protected', () => {
+test('reading v9 never writes; its first write preserves the original and future version 12 stays protected', () => {
   const original = JSON.stringify(history.live), storage = disk(original), loaded = readCampaign(storage);
   assert.equal(loaded.blocked, false); assert.equal(storage.getItem(CAMPAIGN_SAVE_KEY), original);
   assert.equal(storage.getItem(CAMPAIGN_BACKUP_KEY), null);
   assert.equal(writeCampaign(storage, loaded.campaign).ok, true);
   assert.equal(storage.getItem(CAMPAIGN_BACKUP_KEY), original);
-  const future = JSON.stringify({ ...createCampaign(), version: 11 });
+  const future = JSON.stringify({ ...createCampaign(), version: CAMPAIGN_SAVE_VERSION + 1 });
   storage.values.set(CAMPAIGN_SAVE_KEY, future);
   const blocked = readCampaign(storage); assert.equal(blocked.blocked, true);
   assert.equal(writeCampaign(storage, blocked.campaign).ok, false);
@@ -248,7 +251,7 @@ for (const choice of ['obey', 'defy']) test(`MI10 ${choice} records its complete
   for (const key of ['vesper', 'nacre']) assert.deepEqual(saved.world[key], history.completed.world[key]);
   assert.deepEqual(saved.world.thyr.route, history.completed.world.thyr.route);
   assert.equal(saved.resources.parts, 46); assert.equal(saved.resources.fuel, 0);
-  assert.equal(nextCampaignMissionId(saved), null);
+  assert.equal(nextCampaignMissionId(saved), 'MI11');
   const text = serializeCampaign(saved);
   assert.equal(finishCampaignMission(saved, game).applied, false); assert.equal(serializeCampaign(saved), text);
   game.chemical.tanks[0].hp = 0; assert.equal(serializeCampaign(saved), text);

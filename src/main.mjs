@@ -1,8 +1,9 @@
-import { WALKERS, MISSIONS, CAMPAIGN_MISSIONS, DIFFICULTIES } from './content.mjs';
+import { WALKERS, MISSIONS, CAMPAIGN_MISSIONS, DIFFICULTIES, VOICE_TRANSLATION_PAIRS } from './content.mjs';
 import { createGame, updateGame, commandGame } from './simulation.mjs';
 import { Renderer } from './renderer.mjs';
 import { livingRouteSummary } from './thyr-renderer.mjs';
 import { chemicalSummary, chemicalTankRole } from './chemical-renderer.mjs';
+import { voiceSummary } from './voice-renderer.mjs';
 import { AudioEngine } from './audio.mjs';
 import { CONTROL_ACTIONS, normalizeBindings, bindingLabel, remapBinding, keyboardActions, GamepadInput, defaultBindings, formatControlText } from './controls.mjs';
 import { createCampaign, readCampaign, writeCampaign, beginCampaignMission, checkpointCampaign, restoreCampaignGame, finishCampaignMission, serviceCampaignWalker, repairCampaignPipe, campaignRepairCost, serializeCampaign, parseCampaign, nextCampaignMissionId } from './campaign.mjs';
@@ -44,6 +45,12 @@ const pointer = { x: 1100, y: 570, clientX: 0, clientY: 0, visible: false, fire:
 const selectedWalker = () => WALKERS.find(w => w.id === settings.walkerId);
 const selectedMission = () => MISSIONS.find(m => m.id === settings.missionId);
 const campaignOrders = {
+  MI11: {
+    status: 'Un signal Khelt est classé en coordination hostile. Holt demande la capture de son émetteur.',
+    description: 'La voix remonte par les racines de la vallée. Trois relevés à l’arrêt peuvent en retrouver l’origine. Une corniche longe un site de ponte ; au-delà, une traduction impériale ne dit pas la même chose que la source de Leth.',
+    task: 'Écouter le sol, préserver la ponte, confronter les deux textes puis protéger un échange consenti.',
+    caution: 'Leth peut refuser de témoigner. Une copie privée ne donne aucun droit de diffusion publique.',
+  },
   MI10: {
     status: 'Une réserve chimique est attribuée aux rebelles. Holt demande sa destruction.',
     description: 'Trois cuves bordent les canaux des cultures. Une conduite fuit déjà. Tess demande de relever leurs marquages et de préserver un prélèvement avant de toucher au stock. Des forces privées surveillent le site.',
@@ -130,7 +137,7 @@ function saveCampaign({ replaceInvalid = false } = {}) {
   return result.ok;
 }
 function captureCampaign(beforeDecision = false) {
-  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(game.missionId) && game.status === 'lost'))) return;
+  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game.missionId) && game.status === 'lost'))) return;
   try {
     campaign = checkpointCampaign(campaign, game, { beforeDecision });
     lastCampaignSaveAt = game.elapsed;
@@ -147,6 +154,18 @@ function renderCampaignStatus() {
   $('campaign-save-status').classList.toggle('save-warning', Boolean(campaignWarning || campaignBlocked));
 }
 function campaignReceiptFacts(receipt) {
+  if (receipt.missionId === 'MI11') return [
+    ['ÉCOUTES', `${receipt.signalsRecorded} / 3 signaux exploitables · ${receipt.readingsTaken} relevés`],
+    ['SOURCES', `${receipt.warningCopied ? 'Avis original copié' : 'Avis absent'} · ${receipt.translationCopied ? 'traduction copiée' : 'traduction absente'}`],
+    ['PONTE', `${receipt.nestsIntact} sites intacts · ${receipt.nestsDamaged} endommagés · ${receipt.nestsLost} perdus`],
+    ['LETH', receipt.lethAlive ? 'Vivant dans la vallée' : 'Perdu'],
+    ['ACCORD', receipt.consentWithdrawn ? 'Coopération retirée' : receipt.consentRefused ? 'Enregistrement refusé' : receipt.consentGranted ? 'Enregistrement privé consenti' : 'Aucun accord reçu'],
+    ['TÉMOIGNAGE', receipt.testimonyRecorded ? 'Enregistrement achevé conservé' : 'Aucun enregistrement achevé'],
+    ['TE01', receipt.te01Acquired ? 'Avertissements déformés établis' : 'Conditions non réunies'],
+    ['ÉMETTEUR', receipt.emitterLost ? 'Détruit' : receipt.emitterSeized ? 'Saisi' : receipt.emitterOnline ? 'Liaison rétablie' : 'Liaison inactive'],
+    ['TÉMOIN DISPONIBLE', receipt.witnessAvailable ? 'Oui · aucun recrutement' : 'Non'],
+    ['DIFFUSION PUBLIQUE', 'Aucune autorisation reçue'],
+  ];
   if (receipt.missionId === 'MI10') return [
     ['CUVES RELEVÉES', `${receipt.tanksInspected} / 3 · ${receipt.copiedMarks} marquages copiés`],
     ['CONDUITE RETENUE', receipt.plan === 'demolish' ? 'Démolition de la réserve' : 'Mise en sécurité des cuves'],
@@ -274,7 +293,11 @@ function renderCampaignUI() {
   }
   if (campaign.completed.MI10) {
     const r = campaign.completed.MI10;
-    $('campaign-transition-text').textContent = `Le bilan du champ est classé. ${r.pt02Acquired ? 'Tess conserve PT02 : le prélèvement et les traces matérielles relient ce produit aux terraformes d’Orison. Cette pièce ne reconstitue pas toute la chaîne de commandement.' : 'Les conditions matérielles de PT02 ne sont pas réunies. Les relevés conservés et les pertes restent dans le journal.'} ${r.villageHabitable ? 'Les canaux permettent au village de rester habitable.' : 'L’habitabilité du village est compromise.'} Les neuf rapports précédents sont conservés. La mission suivante, « Une voix au ras du sol », reste à produire.`;
+    $('campaign-transition-text').textContent = `Le bilan du champ est classé. ${r.pt02Acquired ? 'Tess conserve PT02 : le prélèvement et les traces matérielles relient ce produit aux terraformes d’Orison. Cette pièce ne reconstitue pas toute la chaîne de commandement.' : 'Les conditions matérielles de PT02 ne sont pas réunies. Les relevés conservés et les pertes restent dans le journal.'} ${r.villageHabitable ? 'Les canaux permettent au village de rester habitable.' : 'L’habitabilité du village est compromise.'} Les neuf rapports précédents sont conservés. « Une voix au ras du sol » est maintenant accessible. Retrouvez l’origine des avertissements de la vallée.`;
+  }
+  if (campaign.completed.MI11) {
+    const r = campaign.completed.MI11;
+    $('campaign-transition-text').textContent = `Le relevé de la vallée est classé. ${r.te01Acquired ? 'TE01 conserve les avertissements reçus et leur traduction déformée, avec un témoignage privé consenti.' : 'Les pièces conservées ne réunissent pas les conditions de TE01 ; le rapport garde ces absences.'} ${r.witnessAvailable ? 'Leth demeure dans la vallée et peut poursuivre l’interprétation, sans rejoindre l’équipage.' : 'La disponibilité future de Leth n’est pas acquise.'} Aucune diffusion publique n’a été autorisée. Les dix rapports précédents sont conservés. « Le troisième relais » reste à produire.`;
   }
   $('campaign-mission-list').innerHTML = CAMPAIGN_MISSIONS.map((m, index) => {
     const done = Boolean(campaign.completed[m.id]), active = campaign.activeMissionId === m.id;
@@ -344,6 +367,11 @@ function renderWorkshop() {
   if (campaign.completed.MI09) {
     const r = campaign.completed.MI09;
     $('workshop-thyr').textContent = `Thyr : ${r.migratorsArrived} longues-dorses au verger, ${r.migratorsDisplaced} détournées, ${r.migratorsLost} perdues ; ${r.homesHabitable} habitats habitables. ${r.localsHeard ? 'Les indications locales ont été écoutées.' : 'Aucun échange local accompli.'} Le journal conserve chaque animal, chaque support et l’arrivée du transport.`;
+  }
+  $('workshop-voice').hidden = !campaign.completed.MI11;
+  if (campaign.completed.MI11) {
+    const r = campaign.completed.MI11;
+    $('workshop-voice').textContent = `Vallée des résonances : ${r.nestsIntact} sites de ponte intacts, ${r.nestsLost} perdus. ${r.te01Acquired ? 'TE01 est conservé au dossier.' : 'TE01 n’a pas été constitué.'} ${r.lethAlive ? 'Leth reste sur Thyr.' : 'Leth est perdu.'} ${r.witnessAvailable ? 'La poursuite de l’interprétation demeure possible.' : 'Aucune coopération future n’est acquise.'} Les pièces d’atelier ne restaurent ni les nids ni les sources perdues.`;
   }
   $('workshop-chemical').hidden = !campaign.completed.MI10;
   if (campaign.completed.MI10) {
@@ -467,6 +495,16 @@ const factions = [
   ['09 / COHORTE VÉTÉRANE', 'Cohorte des Serments', 'Des équipages expérimentés disposent de machines et de ravitaillement prioritaires. Leur fidélité au commandement se mesure aussi à la peur de perdre ceux qui dépendent d’eux.'],
 ];
 all('[data-archive]').forEach(el => el.addEventListener('click', () => { archive = el.dataset.archive; renderArchive(); }));
+function voiceArchive() {
+  const r = campaign.completed.MI11;
+  if (!r) return '';
+  const nests = r.roster.nests.map((n, i) => `<tr><th scope="row">Site de ponte ${i + 1}</th><td>${n.destroyed ? 'Perdu' : n.hp < n.maxHp ? 'Endommagé' : 'Intact'}</td><td>${n.disturbance} perturbations relevées</td></tr>`).join('');
+  const comparisons = VOICE_TRANSLATION_PAIRS.map(pair => `<tr><td>${r.translationCopied ? escapeHTML(pair.imperial) : 'Traduction impériale non copiée'}</td><td>${r.testimonyRecorded ? escapeHTML(pair.leth) : 'Aucune restitution enregistrée de Leth'}</td></tr>`).join('');
+  const wording = `<div class="dossier-table-wrap"><table><caption>Restitutions françaises des messages · origine et permissions conservées</caption><thead><tr><th scope="col">Traduction impériale copiée</th><th scope="col">Sens expliqué par Leth pendant l’échange enregistré</th></tr></thead><tbody>${comparisons}</tbody></table></div>${r.warningCopied ? '<p>L’enregistrement de la source est conservé pour le recoupement. Les phrases françaises ci-dessus ne sont pas la langue Khelt brute.</p>' : '<p>La source originale n’a pas été copiée. Une restitution de Leth, si elle a été enregistrée, ne remplace pas cette pièce manquante.</p>'}`;
+  const consent = r.consentWithdrawn ? (r.testimonyRecorded ? 'Leth a retiré sa coopération. L’enregistrement achevé demeure conservé, sans promettre un nouvel entretien.' : 'Leth a retiré sa coopération. Aucun enregistrement achevé n’est conservé.') : r.consentRefused ? 'Leth a refusé l’enregistrement ; aucun témoignage n’est ajouté à sa place.' : r.consentGranted ? 'Leth a autorisé un enregistrement privé pour le dossier. Cette permission ne couvre aucune diffusion publique.' : 'Aucun accord à enregistrer n’a été reçu.';
+  return `<section class="nacre-dossiers voice-dossiers" aria-label="Dossier de la voix de Thyr"><p class="eyebrow">THYR / ÉCOUTE ET INTERPRÉTATION</p><details class="dossier-detail"><summary>Une voix au ras du sol <span>${r.te01Acquired ? 'TE01 conservé' : 'TE01 absent'} · ${r.nestsIntact} sites intacts · ${r.lethAlive ? 'Leth vivant' : 'Leth perdu'}</span></summary><p>${r.signalsRecorded} signaux exploitables conservés parmi ${r.readingsTaken} relevés. ${r.warningCopied ? 'L’avis original a été copié.' : 'Aucune copie de l’avis original n’a été obtenue.'} ${r.translationCopied ? 'La traduction impériale a été copiée séparément.' : 'La traduction impériale n’a pas été conservée.'} ${r.testimonyRecorded ? 'L’échange privé a été achevé et enregistré.' : 'Aucun témoignage achevé n’est conservé.'}</p><p>${consent}</p>${wording}<div class="dossier-table-wrap"><table><caption>État des sites à l’extraction</caption><thead><tr><th scope="col">Site</th><th scope="col">État matériel</th><th scope="col">Approche</th></tr></thead><tbody>${nests}</tbody></table></div><p>${r.emitterLost ? 'L’émetteur a été détruit.' : r.emitterSeized ? 'L’émetteur a été physiquement saisi.' : r.emitterOnline ? 'La liaison locale a été rétablie.' : 'La liaison demeure inactive.'} ${r.witnessAvailable ? 'Leth demeure un interlocuteur disponible dans la vallée.' : 'La disponibilité du témoin n’est pas acquise.'} Aucun recrutement, aucune alliance militaire et aucune autorisation publique ne découlent de ce rapport.</p><p>${r.te01Acquired ? 'TE01 établit que des avertissements d’évacuation ont été reçus et déformés. Les commandes industrielles et la chaîne politique restent à recouper.' : 'Les pièces nécessaires à TE01 ne sont pas toutes réunies. Les absences restent inscrites.'}</p></details></section>`;
+}
+
 function chemicalArchive() {
   const r = campaign.completed.MI10;
   if (!r) return '';
@@ -531,7 +569,7 @@ function renderArchive() {
       return `<article class="record-card"><div><p class="eyebrow">CAMPAGNE / ${r.missionId} / PREMIÈRE RÉUSSITE</p><h3>${escapeHTML(r.missionName)}</h3><p>${escapeHTML(r.walkerName)} · ${timeLabel(r.elapsed)}</p></div><div><p>${facts}<br>${escapeHTML(r.decisionLabel)}</p></div></article>`;
     }).join('');
     const simulations = finished.length ? finished.map(m => { const r = records[m.id]; return `<article class="record-card"><div><p class="eyebrow">SIMULATION / ${m.planet.toUpperCase()} / OPÉRATION ${m.number}</p><h3>${m.name}</h3><p>${escapeHTML(r.walker || 'Marcheur')} · ${timeLabel(Number(r.time) || 0)}</p></div><div><p>Preuves récupérées : ${Number(r.evidence) || 0}<br>Pertes civiles : ${Number(r.collateral) || 0}<br>Décision : ${r.choice === 'defy' ? 'Ordre contesté' : 'Ordre exécuté'}</p></div></article>`; }).join('') : '<p class="muted">Aucun rapport de simulation. Les exercices sont indépendants du dossier de campagne.</p>';
-    $('archive-content').innerHTML = chemicalArchive() + thyrArchive() + nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
+    $('archive-content').innerHTML = voiceArchive() + chemicalArchive() + thyrArchive() + nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
   }
 }
 
@@ -618,6 +656,10 @@ function showBriefing() {
     const r = campaign.completed.MI09;
     $('briefing-description').textContent += ` ${r?.approach === 'guided' ? 'Les indications recueillies sur la route des vivants permettent de reconnaître plus vite le collecteur amont.' : 'Le collecteur amont peut être identifié et fermé sans aide locale préalable.'} Le prélèvement exige vingt secondes de protection à proximité. Relever les marquages et copier le registre restent des opérations distinctes. Les habitats de ce site ont leur propre alimentation en eau ; le bilan de la vallée précédente reste conservé.`;
   }
+  if (pendingMode === 'campaign' && m.id === 'MI11') {
+    const r = campaign.completed.MI10;
+    $('briefing-description').textContent += ` ${r?.pt02Acquired ? 'PT02 est conservé dans le dossier précédent ; les paroles de cette vallée demandent encore leur propre relevé.' : 'L’absence de PT02 reste inscrite ; les sources de cette vallée peuvent être examinées séparément.'} L’écoute exige des appuis ancrés, sans déplacement ni tir. Reconnaissez la corniche avant la ponte. Rencontrer Leth, demander son accord et enregistrer l’échange sont trois actes distincts. Aucun dossier de Nacre ou du champ chimique ne remplace les personnes et les sources présentes ici.`;
+  }
   $('briefing-walker').textContent = `${w.designation} ${w.name}`;
   $('briefing-assist').textContent = settings.assist ? 'Marche assistée' : 'Appuis manuels';
   $('briefing-difficulty').textContent = DIFFICULTIES[settings.difficulty].label;
@@ -655,7 +697,7 @@ function enterMission(nextGame) {
   $('intro-location').textContent = game.mission.intro; $('intro-title').textContent = game.mission.name;
   $('restart').textContent = activeMode === 'campaign' ? 'Recommencer la mission' : 'Recommencer l’opération';
   aimMode = 'pointer'; padAim.x = 1; padAim.y = 0;
-  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
+  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
   audio.setPaused(false); audio.update(game);
   $('game-canvas').focus({ preventScroll: true }); audio.unlock(); updateHUD();
 }
@@ -711,7 +753,8 @@ function showResult() {
   const departureMission = game.missionId === 'MI08';
   const livingRouteMission = game.missionId === 'MI09';
   const chemicalMission = game.missionId === 'MI10';
-  const missionStat = chemicalMission ? ['PIÈCE TECHNIQUE PT02', game.campaign.pt02Acquired ? 'CONSERVÉE' : 'ABSENTE'] : livingRouteMission ? ['LONGUES-DORSES AU VERGER', `${game.campaign.migratorsArrived} / 4`] : departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
+  const voiceMission = game.missionId === 'MI11';
+  const missionStat = voiceMission ? ['TÉMOIGNAGE TE01', game.campaign.te01Acquired ? 'CONSERVÉ' : 'ABSENT'] : chemicalMission ? ['PIÈCE TECHNIQUE PT02', game.campaign.pt02Acquired ? 'CONSERVÉE' : 'ABSENTE'] : livingRouteMission ? ['LONGUES-DORSES AU VERGER', `${game.campaign.migratorsArrived} / 4`] : departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
     : industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
     : networkMission ? ['RÉSEAUX CIVILS ACTIFS', `${game.campaign.civilRelaysOnline} / 2`]
     : railMission ? ['OUVRIERS LIBÉRÉS', `${game.campaign.hostagesRescued} / ${game.campaign.hostagesTotal}`]
@@ -719,7 +762,11 @@ function showResult() {
     : ['PREUVES RÉCUPÉRÉES', game.stats.evidence];
   const stats = [['DURÉE', timeLabel(game.elapsed)], ['CIBLES NEUTRALISÉES', game.stats.kills], missionStat, ['PERTES CIVILES', game.stats.collateral]];
   let decisionText;
-  if (chemicalMission) {
+  if (voiceMission) {
+    const f = game.campaign;
+    stats.push(['PONTE', `${f.nestsIntact} sites intacts · ${f.nestsLost} perdus`], ['LETH', f.lethAlive ? 'VIVANT' : 'PERDU'], ['ENREGISTREMENT', f.testimonyRecorded ? 'CONSERVÉ' : 'ABSENT'], ['ÉMETTEUR', f.emitterLost ? 'DÉTRUIT' : f.emitterSeized ? 'SAISI' : f.emitterOnline ? 'LIAISON RÉTABLIE' : 'EN PLACE · LIAISON NON RÉTABLIE']);
+    decisionText = `${f.plan === 'seize' ? 'Capture choisie.' : f.plan === 'restore' ? 'Restauration choisie.' : 'Aucune conduite choisie.'} ${f.operationsResolved ? 'Opération accomplie ou perte matérielle constatée.' : 'Opération sur l’émetteur inachevée.'} ${f.testimonyRecorded ? 'Enregistrement privé consenti conservé.' : f.consentRefused || f.consentWithdrawn ? 'Refus ou retrait de Leth consigné.' : 'Aucun témoignage achevé.'} ${f.te01Acquired ? 'TE01 établit la déformation des avertissements.' : 'TE01 n’est pas constitué.'} ${f.witnessAvailable ? 'Leth demeure disponible dans la vallée.' : 'Aucune disponibilité future du témoin n’est acquise.'} Aucune diffusion publique autorisée. ${f.reportTransmitted ? 'Rapport transmis.' : 'Rapport non transmis.'}`;
+  } else if (chemicalMission) {
     const f = game.campaign;
     stats.push(['CUVES', `${f.tanksSecured} isolées · ${f.tanksDestroyed} détruites`], ['MARQUAGES COPIÉS', `${f.copiedMarks} / 3`], ['CANAUX', `${f.canalsIntact} intacts · ${f.canalsPolluted} contaminés`], ['VILLAGE', f.villageHabitable ? 'HABITABLE' : 'HABITABILITÉ COMPROMISE']);
     decisionText = `${f.plan === 'demolish' ? 'Démolition choisie.' : f.plan === 'secure' ? 'Mise en sécurité choisie.' : 'Aucune conduite choisie.'} ${f.operationsResolved ? 'Opérations des cuves accomplies ou pertes constatées.' : 'Opérations des cuves inachevées.'} ${f.sampleCollected ? 'Prélèvement conservé à bord.' : f.sampleLost ? 'Prélèvement perdu.' : 'Prélèvement non terminé.'} ${f.orisonRecordCopied ? 'Registre matériel copié.' : 'Registre non copié.'} ${f.pt02Acquired ? 'PT02 est conservé ; la chaîne complète de commandement reste à établir.' : 'PT02 n’est pas constitué.'} ${f.reportTransmitted ? 'Bilan transmis.' : 'Rapport non transmis.'}`;
@@ -777,6 +824,17 @@ let lastObjectives = '';
 function updateHUD() {
   if (!game) return;
   const p = game.player;
+  $('voice-instrument').hidden = !game.voice;
+  if (game.voice) {
+    const f = game.campaign, v = voiceSummary(game);
+    $('voice-stage').textContent = v.stage;
+    $('voice-readings').textContent = `${v.readings} / 3 RELEVÉS · ${v.signals} SIGNAUX · ${v.sourceLocated ? 'SOURCE LOCALISÉE' : 'ORIGINE À RECHERCHER'}`;
+    $('voice-nests').textContent = `${v.nestsIntact} / 3 SITES INTACTS · ${f.ridgeSurveyed && f.ridgeIntact ? 'CORNICHE RECONNUE' : !f.ridgeIntact ? 'CORNICHE ROMPUE' : 'PASSAGE À RELEVER'}`;
+    $('voice-consent').textContent = v.consent;
+    $('voice-testimony').textContent = `${v.testimony} · ${f.te01Acquired ? 'TE01 CONSERVÉ' : `${v.copies} / 2 SOURCES COPIÉES`}`;
+    $('voice-emitter').textContent = `${v.emitter} · AUCUNE DIFFUSION PUBLIQUE AUTORISÉE`;
+    $('voice-instrument').classList.toggle('voice-warning', !f.lethAlive || f.consentWithdrawn || f.consentRefused || f.nestsIntact < 3);
+  }
   $('chemical-instrument').hidden = !game.chemical;
   if (game.chemical) {
     const d = game.chemical, f = game.campaign, v = chemicalSummary(game);
@@ -852,7 +910,7 @@ function updateHUD() {
   $('assist-hint').textContent = game.assist ? 'ASSISTANCE AUX APPUIS ACTIVE' : `${keyLabel('stepA')} / ${keyLabel('stepB')} — APPUIS MANUELS`;
   $('leg-status').innerHTML = p.feet.map(f => `<span class="leg ${f.phase === 'swing' ? 'swing' : ''} ${f.health < 40 ? 'damaged' : ''}" data-label="${f.group ? 'B' : 'A'}${f.index + 1}" title="Appui ${f.index + 1} : ${Math.round(f.health)} %"></span>`).join('');
   const remainingObjectives = game.objectives.filter(o => !o.complete);
-  const hudObjectives = game.chemical ? remainingObjectives.length ? remainingObjectives.slice(0, 3) : game.objectives.slice(-3) : game.objectives;
+  const hudObjectives = game.chemical || game.voice ? remainingObjectives.length ? remainingObjectives.slice(0, 3) : game.objectives.slice(-3) : game.objectives;
   const objectiveHTML = hudObjectives.map(o => `<li class="${o.complete ? 'complete' : ''}"><span class="objective-symbol">${o.complete ? '✓' : '◇'}</span><span>${escapeHTML(o.label)}</span>${o.target > 1 ? `<span class="objective-progress">${o.id === "escort" ? Math.min(100, Math.round(o.current / o.target * 100)) + " %" : o.current + "/" + o.target}</span>` : ''}</li>`).join('');
   if (lastObjectives !== objectiveHTML) { $('hud-objectives').innerHTML = objectiveHTML; lastObjectives = objectiveHTML; }
   $('convoy-status').hidden = !game.convoy;
@@ -998,7 +1056,7 @@ function frame(now) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
       if (!paused && activeMode === 'campaign' && !campaignReplay) {
         const fuelChanged = game.missionId === 'MI06' && game.campaign.fuelSpent !== campaign.checkpoint?.campaign.fuelSpent;
-        const failedSortie = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
+        const failedSortie = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
         if (fuelChanged || failedSortie || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
       }
       renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, departureInstrument: false, interactionPrompt: false, pointer });

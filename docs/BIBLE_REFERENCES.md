@@ -21,7 +21,7 @@ Les codes suivants sont des noms d’opérations ou de sources dans la fiction. 
 | PO01 | Source politique conçue | MI22 | Ordre et archive d’Ilex. |
 | PO02 | Source politique conçue | MI26 | Preuve financière de Méridien. |
 | PO03 | Source politique conçue | MI30 | Lien entre direction et programme sur Orthe. |
-| TE01 | Source testimoniale conçue | MI11 | Témoignage de Leth. |
+| TE01 | Source testimoniale | MI11 | Trois signaux exploitables, copies de l’avertissement et de sa traduction, puis témoignage privé consenti et achevé avec Leth. |
 | TE02 | Source testimoniale conçue | MI15 | Témoignage d’Aline. |
 
 Les familles PT, PO et TE ne sont pas acceptées globalement : seuls ces treize symboles déclarés peuvent résoudre une référence. Les fins FI01–FI04 sont de véritables fiches de l’onglet Narration et suivent le contrôle ordinaire des IDs.
@@ -35,12 +35,20 @@ Le contrôle peut être exécuté sans ouvrir ni réécrire le classeur :
 ```bash
 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-export.py . \
   --references-only \
-  --reference-report docs/validation/production-v011-reference-audit.json
+  --reference-report docs/validation/production-v012-reference-audit.json
 ```
 
-L’export complet exécute le même contrôle avant la comparaison ZIP/XML. Sa baseline par défaut suit `meta.previousRelease.sourceRevision`. Pour la 0.11, il s’agit de la publication authentique `4846d0270b2976877f9b202848bfde6d2127fb1d`, version 0.10. La fixture `tests/fixtures/bible-v010-ids.json` conserve les 845 IDs dans leur ordre de feuille, le blob Git et le SHA-256 de la source publiée. Elle provient du commit local immuable `073003075bf8921aab25b1a9200b9d360c1ab391`; l’arbre commun avec la publication est `ef7b912c27fa672f1930c980ee529c165e3f77ec`.
+L’export complet exécute le même contrôle avant la comparaison ZIP/XML. Sa baseline par défaut suit `meta.previousRelease.sourceRevision`. Pour la 0.12, il s’agit de la publication authentique `c7f3273a60824ff4e968ea36ab956c6a41710df0`, version 0.11. La fixture `tests/fixtures/bible-v011-ids.json` conserve les 873 IDs dans leur ordre de feuille, le blob Git et le SHA-256 de la source publiée. Elle provient du commit local immuable `f75e674313120094b9540603fbfa571d5df2f1d2`; l’arbre commun avec la publication est `7942d22cfdb0b73e42ae0a427a3afbc986f29160`.
 
-Les baselines 0.9, 0.8, 0.7, 0.6, 0.5 et 0.4 restent disponibles pour leurs révisions exactes lorsque l’historique Git manque. Une révision absente inconnue est refusée. Le [contrôle de conservation 0.11](validation/workbook-v0.11-baseline-check.json) compare la nouvelle fixture au snapshot authentique, préserve les 845 IDs et les 133 critères initiaux, puis identifie les 28 nouveaux IDs. Les reçus 0.9 et 0.10 gardent leurs propres sources et empreintes.
+Les baselines 0.10, 0.9, 0.8, 0.7, 0.6, 0.5 et 0.4 restent disponibles pour leurs révisions exactes lorsque l’historique Git manque. Une révision absente inconnue est refusée. Le [contrôle de conservation 0.12](validation/workbook-v0.12-baseline-check.json) compare la nouvelle fixture au snapshot authentique, préserve les 873 IDs et les 133 critères initiaux, puis identifie les 32 nouveaux IDs. Tous les anciens reçus gardent leurs propres sources et empreintes.
+
+## Réception des références 0.12
+
+L’[audit 0.12](validation/production-v012-reference-audit.json) résout les **905 IDs**, **1 404 occurrences** et **2 151 références développées**, dans **5 247 champs textuels**. Il examine **115 plages fermées** et une paire abrégée; aucune référence irrésolue ni aucun ID dupliqué n’est relevé. TE01 reste lié à sa déclaration canonique dans MI11 et à ses conditions de récit, sans assimiler sa présence dans la Bible à une preuve acquise dans une partie.
+
+Les [sondes négatives 0.12](validation/production-v012-reference-probes.json) rejettent les sept mutations incorrectes : ID absent, trou dans une plage, plage descendante, préfixes incompatibles, doublon, déclaration symbolique supprimée et partenaire abrégé inexistant. Les **huit baselines authentiques** sont également acceptées dans une copie sans Git. Le neuvième cas de cette série refuse une révision inconnue; il ne constitue pas une neuvième baseline.
+
+La source courante conserve les **873 IDs de la 0.11** et ajoute **32 fiches**. Le contrôle de conservation compare les anciens reçus et les 133 critères initiaux séparément. Les nouvelles lignes ne changent pas le dénominateur du registre. Les rapports 0.11 et antérieurs restent inchangés, avec leur source et leur portée historiques.
 
 ## Réception des références 0.11
 

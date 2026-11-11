@@ -1,11 +1,18 @@
-import json, hashlib, shutil, subprocess, tempfile, zipfile, posixpath, os, signal, re
+import argparse, datetime, json, hashlib, shutil, subprocess, tempfile, zipfile, posixpath, os, signal, re, sys, time
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
 root=Path(__file__).resolve().parents[1]
-original=root/'docs/ORDRE_DE_CENDRE_Bible.xlsx'
+parser=argparse.ArgumentParser(description='Recalculate an exact Bible export in LibreOffice using a disposable copy without formula caches.')
+parser.add_argument('--workbook',type=Path,default=root/'docs/ORDRE_DE_CENDRE_Bible.xlsx')
+parser.add_argument('--source',type=Path,default=root/'data/bible.json')
+parser.add_argument('--timeout',type=int,default=180,help='Execution budget in seconds; verification criteria remain unchanged.')
+args=parser.parse_args()
+if args.timeout<=0:parser.error('--timeout must be positive')
+original=args.workbook.resolve()
+source_path=args.source.resolve()
 outdir=root/'docs/validation'
-source=json.loads((root/'data/bible.json').read_text())
+source=json.loads(source_path.read_text())
 receipt_suffix=os.environ.get('BIBLE_RECEIPT_SUFFIX','')
 assert not receipt_suffix or re.fullmatch(r'[a-z0-9][a-z0-9-]*',receipt_suffix), 'Invalid BIBLE_RECEIPT_SUFFIX'
 release='.'.join(source['meta']['version'].split('.')[:2])+('-'+receipt_suffix if receipt_suffix else '')
@@ -73,16 +80,27 @@ for name,values in initial['sheets'].items():
 version=subprocess.run(['soffice','--version'],text=True,capture_output=True,check=True).stdout.strip()
 cmd=['soffice','-env:UserInstallation='+ (work/'profile').as_uri(),'--headless','--convert-to','xlsx:Calc MS Excel 2007 XML','--outdir',str(work/'output'),str(copy)]
 proc=subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,start_new_session=True)
-try:stdout,stderr=proc.communicate(timeout=55)
-except subprocess.TimeoutExpired:
- os.killpg(proc.pid,signal.SIGKILL);stdout,stderr=proc.communicate();raise RuntimeError('LibreOffice exceeded 55 seconds: '+stderr)
+started=time.monotonic();timed_out=False
+while True:
+ remaining=args.timeout-(time.monotonic()-started)
+ if remaining<=0:
+  timed_out=True
+  try:os.killpg(proc.pid,signal.SIGKILL)
+  except ProcessLookupError:pass
+  stdout,stderr=proc.communicate();break
+ try:
+  stdout,stderr=proc.communicate(timeout=min(30,remaining));break
+ except subprocess.TimeoutExpired:
+  print(f'LibreOffice recalculation still running after {time.monotonic()-started:.0f} seconds (budget {args.timeout}s).',file=sys.stderr,flush=True)
 result=work/'output'/original.name
 report={'version':source['meta']['version'],'method':'LibreOffice headless Calc XLSX import and export, disposable copy with all 126 formula caches removed; no interactive GUI test.',
+ 'recordedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+ 'workbookPath':str(original),'sourceJsonPath':str(source_path),'timeoutSeconds':args.timeout,'timedOut':timed_out,'elapsedSeconds':round(time.monotonic()-started,3),
  'nativeApplication':version,'command':cmd,'exitCode':proc.returncode,'stdout':stdout,'stderr':stderr,
- 'originalSha256Before':before,'originalSha256After':sha(original),'sourceJsonSha256':sha(root/'data/bible.json'),
+ 'originalSha256Before':before,'originalSha256After':sha(original),'sourceJsonSha256':sha(source_path),
  'formulaCachesClearedInTestCopy':cleared,'testInputSha256':sha(copy),'originalUnchanged':before==sha(original),
  'scopeLimit':'Does not certify native GUI sorting/filtering, freeze-pane use, user editing, Excel desktop, game UI, human usability or hardware.'}
-if proc.returncode==0 and result.exists():
+if not timed_out and proc.returncode==0 and result.exists():
  final=inspect(result); diffs=[]
  for name in set(initial['sheets'])|set(final['sheets']):
   left=initial['sheets'].get(name,{});right=final['sheets'].get(name,{})
@@ -98,15 +116,17 @@ if proc.returncode==0 and result.exists():
     if expected!=actual:sourceDiffs.append({'sheet':s['name'],'cell':col(j)+str(i),'expected':expected,'actual':actual})
     count+=1
  formulaDiffs=[{'cell':k,'before':v,'after':final['formulas'].get(k)} for k,v in initial['formulas'].items() if final['formulas'].get(k,{}).get('value')!=v['value']]
+ structuralDiffs=[name for name in set(initial['structural'])|set(final['structural']) if initial['structural'].get(name)!=final['structural'].get(name)]
+ if initial['tableFiles']!=final['tableFiles']:structuralDiffs.append('tableFiles')
  report.update(outputSha256=sha(result),sheetCount=len(final['sheets']),formulaCells=len(final['formulas']),
   populatedFormulaCaches=sum(v['value'] is not None for v in final['formulas'].values()),
   errorCells=final['errors'],sourceCellsCompared=count,sourceCellDifferences=sourceDiffs,allCellValueDifferences=diffs,
-  formulaResultDifferences=formulaDiffs,formulaExpressionsChanged=[k for k,v in initial['formulas'].items() if final['formulas'].get(k,{}).get('formula')!=v['formula']],
+  formulaResultDifferences=formulaDiffs,formulaExpressionsChanged=[k for k,v in initial['formulas'].items() if final['formulas'].get(k,{}).get('formula')!=v['formula']],structuralDifferences=structuralDiffs,
   structuralBefore={'tableFiles':initial['tableFiles'],'sheets':initial['structural']},
   structuralAfter={'tableFiles':final['tableFiles'],'sheets':final['structural']},
-  passed=not diffs and not sourceDiffs and not formulaDiffs and not final['errors'] and len(final['formulas'])==126 and report['originalUnchanged'])
+  passed=not diffs and not sourceDiffs and not formulaDiffs and not structuralDiffs and not final['errors'] and len(final['formulas'])==126 and report['originalUnchanged'])
 else: report['passed']=False
 (outdir/f'workbook-v{release}-libreoffice.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 (outdir/f'workbook-v{release}-libreoffice.txt').write_text((version+'\n'+'\n'.join(cmd)+'\n'+stdout+'\n'+stderr).rstrip()+'\n')
-print(json.dumps({k:report.get(k) for k in ['passed','nativeApplication','formulaCachesClearedInTestCopy','populatedFormulaCaches','sourceCellsCompared','sourceCellDifferences','formulaResultDifferences','allCellValueDifferences','originalUnchanged']},ensure_ascii=False))
+print(json.dumps({k:report.get(k) for k in ['passed','nativeApplication','elapsedSeconds','formulaCachesClearedInTestCopy','populatedFormulaCaches','sourceCellsCompared','sourceCellDifferences','formulaResultDifferences','allCellValueDifferences','structuralDifferences','originalUnchanged']},ensure_ascii=False))
 assert report['passed'], f'Native copy inspection found differences; see workbook-v{release}-libreoffice.json'

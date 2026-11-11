@@ -353,9 +353,44 @@ export const CAMPAIGN_MISSIONS = [
     intro: 'THYR // CHAMP DES BASSES TERRES · 11:40',
   },
 
+  {
+    id: 'MI11', number: '11', campaign: true, act: 'II — Le coût du silence',
+    name: 'Une voix au ras du sol', planetId: 'PL03', planet: 'Thyr',
+    biome: 'VALLÉE DES RÉSONANCES', length: 6500, difficulty: 'ÉCOUTE SOUS PROTECTION', duration: '7–11 min',
+    faction: 'Accords Khelt / forces privées', accent: '#9ed3bc', sky: ['#152e34', '#466562', '#b7c9a3'],
+    description: 'Un signal remonte par les racines. Relevez ses vibrations sans couvrir la voix du sol, contournez la ponte et retrouvez Leth de la Septième Rive. La source et sa traduction impériale portent deux textes différents ; leur copie ne remplace ni l’accord de l’interprète ni un échange protégé.',
+    briefing: '« Capturez l’émetteur Khelt de la vallée. Le poste le classe en coordination hostile. Relevez son origine avant de le ramener. » — Major Holt',
+    hint: 'Aux trois points d’écoute, E sous ancrage, sans déplacement ni tir, relève les vibrations. E au repère reconnaît la corniche qui évite les nids. Copiez séparément la traduction du poste impérial et la source de l’émetteur. Rencontrez Leth, demandez son accord, puis protégez l’échange jusqu’à son terme. Le choix au poste ouvre une capture ou une restauration à accomplir sur l’appareil ; il ne l’opère pas. Transmettez les faits et les pertes avant de rejoindre la sortie.',
+    type: 'voice', evidenceX: 3220, decisionX: 3760, extractionX: 6100,
+    evidenceLabel: 'SOURCE, TRADUCTION ET TÉMOIGNAGE CONSENTI', civilianPositions: [], supplyPositions: [520, 1700, 3050, 4570, 5810],
+    enemyPlan: [],
+    voice: { interactionRadius: 150, listenTime: 4, surveyTime: 4, inspectTime: 3, contactTime: 3,
+      consentTime: 2, exchangeTime: 20, exchangeRadius: 850, privateDelay: 6,
+      seizeTime: 5, restoreTime: 5, reportTime: 3,
+      listeningXs: [650, 1120, 1580], surveyX: 1840, ridgeStart: 1940, ridgeEnd: 2760, ridgeRise: 48,
+      nestXs: [2180, 2380, 2580], emitterX: 3220, receiverX: 2870, lethX: 3500,
+      ordersX: 3760, reportX: 5500, privateXs: [3960, 4430, 4820], privateTypes: ['drone', 'sniper', 'drone'] },
+    decision: { title: 'Une voix ne tient pas dans un ordre',
+      body: 'Les relevés, les copies et les paroles recueillies restent distincts. Capturer l’émetteur ou rétablir sa liaison demande une intervention sur place. Leth peut témoigner pour le dossier sans autoriser une diffusion publique ni rejoindre notre équipage.',
+      obey: 'Capturer l’émetteur et consigner les faits recueillis',
+      defy: 'Rétablir la liaison locale et conserver le témoignage consenti' },
+    intro: 'THYR // VALLÉE DES RÉSONANCES · 16:10',
+  },
+
 ];
 
 export const ALL_MISSIONS = [...MISSIONS, ...CAMPAIGN_MISSIONS];
+
+// French renderings kept distinct: the imperial record versus Leth's explanation.
+// These are not a transcription of the Khelt language and reveal no later orders.
+export const VOICE_TRANSLATION_PAIRS = [
+  { id: 'evacuation', imperial: 'Retenez les habitants dans les cultures.',
+    leth: 'Faites quitter les cultures aux habitants.' },
+  { id: 'passage', imperial: 'Fermez le passage aux familles de la rive.',
+    leth: 'Ouvrez le passage aux familles qui quittent la rive.' },
+  { id: 'ponte', imperial: 'Avancez les machines lourdes vers le site de ponte.',
+    leth: 'Maintenez les machines lourdes à l’écart du site de ponte.' },
+];
 
 export const ENEMY_TYPES = {
   rifle: { name: 'Fusilier', kind: 'infantry', w: 24, h: 36, hp: 65, speed: 22, range: 650, cooldown: 1.65, damage: 10, projectileSpeed: 430, windup: 0.42, score: 70 },

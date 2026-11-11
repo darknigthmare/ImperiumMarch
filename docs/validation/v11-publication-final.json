@@ -1,0 +1,466 @@
+{
+  "schema": 1,
+  "release": "0.11.0",
+  "phase": "final_documentation_followup",
+  "status": "github_and_ci_complete_external_reception_blocked",
+  "source": {
+    "snapshot": "/workspace/scratch/47882a75de66/publication-v11-followup-reviewed",
+    "localCommit": "f75e674313120094b9540603fbfa571d5df2f1d2",
+    "localTree": "7942d22cfdb0b73e42ae0a427a3afbc986f29160",
+    "files": 1268,
+    "bytes": 123695204,
+    "parent": "47677e93dae9f214b763564cf8a357dd196c2b28",
+    "parentTree": "a1c40fc9e0946fe29a417ccd494b415b8653861a",
+    "added": 9,
+    "changed": 4,
+    "deleted": [],
+    "releaseCheck": "docs/validation/v11-release-checks-final.json",
+    "fingerprints": 211,
+    "releaseCheckSha256": "ca67654828356116d40b11721990146c62b5e54a828fa3b570caec7f55ea4b92",
+    "mediaManifestSha256": "3aad2e5bc19c058117e394c2393745def1e79a14a7c3da21c033342cd6a03250",
+    "excludedDocumentationMedia": 354,
+    "manifestSha256": "0eab20594015fa782ce56783162b1f94c5da37908d57456036cc80a0512b1949",
+    "httpResources": 23,
+    "protectedPriorPathsUnchanged": 303,
+    "frozenApplicationAndBiblePathsUnchanged": 548,
+    "explicitVercelDeploymentAuthorized": false,
+    "soleNewAuditTool": "tools/verify-native-v11.mjs",
+    "soleNewAuditToolSha256": "5a447136f3d3f5c47f95a7b59b1591e6d30ece740f5f97376d508a2e0e06682b",
+    "historicalValidationFilesUnchanged": 287,
+    "knownBlobsBefore": 1234,
+    "additionalBlobs": 13,
+    "additionalBytes": 449774,
+    "sourceHeadAfter": "f75e674313120094b9540603fbfa571d5df2f1d2",
+    "sourceStatusAfter": ""
+  },
+  "changes": {
+    "added": [
+      "docs/validation/native-v11/browser-reception.json",
+      "docs/validation/native-v11/export-verification-pending.json",
+      "docs/validation/v11-ci-initial-verification.json",
+      "docs/validation/v11-ci-initial.log",
+      "docs/validation/v11-http-initial.json",
+      "docs/validation/v11-publication-initial.json",
+      "docs/validation/v11-release-checks-final.json",
+      "docs/validation/v11-vercel-initial-blocked.json",
+      "tools/verify-native-v11.mjs"
+    ],
+    "changed": [
+      "README.md",
+      "docs/DEPLOYMENT.md",
+      "docs/PRODUCTION_V11.md",
+      "docs/QA_V11.md"
+    ],
+    "deleted": [],
+    "applicationAndBiblePathsUnchanged": 548,
+    "protectedHistoricalPathsUnchanged": 303,
+    "historicalValidationFilesUnchanged": 287,
+    "runtimeResourceFingerprintsUnchanged": 23,
+    "soleNewAuditTool": {
+      "path": "tools/verify-native-v11.mjs",
+      "sha256": "5a447136f3d3f5c47f95a7b59b1591e6d30ece740f5f97376d508a2e0e06682b",
+      "browserOperated": false,
+      "simulationAdvanced": false,
+      "inputsModified": false,
+      "nativeExportPhases": "pending"
+    },
+    "initialTrackedFiles": 1259,
+    "unchangedTrackedFiles": 1255,
+    "automatedInputHashesUnchanged": 82,
+    "currentRegistryProofsMatched": 14,
+    "nativeBaselinePreserved": {
+      "bytes": 73582,
+      "sha256": "de5ece01c690b27435878c0f84f7dfd7f86723500a23a3703e3f8ffce28e6898"
+    }
+  },
+  "github": {
+    "repository": "darknigthmare/ImperiumMarch",
+    "branch": "main",
+    "parent": "47677e93dae9f214b763564cf8a357dd196c2b28",
+    "commit": "c7f3273a60824ff4e968ea36ab956c6a41710df0",
+    "commitUrl": "https://github.com/darknigthmare/ImperiumMarch/commit/c7f3273a60824ff4e968ea36ab956c6a41710df0",
+    "tree": "7942d22cfdb0b73e42ae0a427a3afbc986f29160",
+    "treeComparison": {
+      "observedAt": "2026-11-11T18:59:59.319Z",
+      "sha": "7942d22cfdb0b73e42ae0a427a3afbc986f29160",
+      "files": 1268,
+      "truncated": false,
+      "pathModeBlobShaExact": true,
+      "expectedParent": "47677e93dae9f214b763564cf8a357dd196c2b28"
+    },
+    "blobs": {
+      "confirmed": 13,
+      "total": 13,
+      "bytes": 449774,
+      "failures": []
+    },
+    "cas": {
+      "observedAt": "2026-11-11T19:00:14.241Z",
+      "repository": "darknigthmare/ImperiumMarch",
+      "branch": "main",
+      "expectedParent": "47677e93dae9f214b763564cf8a357dd196c2b28",
+      "publicCommit": "c7f3273a60824ff4e968ea36ab956c6a41710df0",
+      "publicTree": "7942d22cfdb0b73e42ae0a427a3afbc986f29160",
+      "force": false,
+      "casResponse": {
+        "success": true
+      },
+      "headAfter": "c7f3273a60824ff4e968ea36ab956c6a41710df0"
+    },
+    "ci": {
+      "schema": 1,
+      "release": "0.11.0",
+      "phase": "final",
+      "scope": "Read-only independent GitHub Actions reception for the exact published final 0.11 commit. No workflow dispatch, rerun, cancellation, repository mutation, Vercel call or native-browser claim.",
+      "repository": "darknigthmare/ImperiumMarch",
+      "branch": "main",
+      "headSha": "c7f3273a60824ff4e968ea36ab956c6a41710df0",
+      "treeSha": "7942d22cfdb0b73e42ae0a427a3afbc986f29160",
+      "workflow": {
+        "path": ".github/workflows/ci.yml",
+        "name": "Validate prototype and design data",
+        "sourceCommit": "c7f3273a60824ff4e968ea36ab956c6a41710df0",
+        "sourceUrl": "https://raw.githubusercontent.com/darknigthmare/ImperiumMarch/c7f3273a60824ff4e968ea36ab956c6a41710df0/.github/workflows/ci.yml",
+        "sha256": "4d5f0d9d7f747093d609a0223cb926ca127bd949b4fa9c13bf4332029da3f9a3",
+        "bytes": 717,
+        "unchangedFromInitial": true
+      },
+      "runId": 43083066864,
+      "runUrl": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43083066864",
+      "event": "push",
+      "runAttempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "createdAt": "2026-11-11T19:00:15Z",
+      "runStartedAt": "2026-11-11T19:00:15Z",
+      "updatedAt": "2026-11-11T19:01:55Z",
+      "jobId": 130740363406,
+      "jobName": "validate",
+      "nodeVersion": "v22.23.4",
+      "tests": {
+        "total": 440,
+        "passed": 440,
+        "failed": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "raster": {
+        "passed": 64,
+        "total": 64,
+        "validator": "@napi-rs/canvas@0.1.100"
+      },
+      "modeledDomFlows": 71,
+      "projectCheck": {
+        "designSheets": 20,
+        "sourceRows": 873,
+        "playableChassis": 6,
+        "independentOperations": 3,
+        "campaignMissions": 10
+      },
+      "offlineBuild": {
+        "reportedMiB": 9.91,
+        "modules": 16,
+        "noRemoteDependencies": true
+      },
+      "staticUiAudit": {
+        "uniqueHtmlIds": 181,
+        "literalJsIdReferences": 170,
+        "views": 5,
+        "archiveTabs": 4,
+        "dialogs": 6
+      },
+      "offlineBundleAuditPassed": true,
+      "webBuildPassed": true,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Install pinned development-only raster validator",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Validate shared SVG and Canvas rendering",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npm run check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run npm run check:ui",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run npm run check:ui-runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run npm run build:web",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23
+        }
+      ],
+      "log": {
+        "path": "/workspace/scratch/47882a75de66/v11-ci-final-job-130740363406.log",
+        "bytes": 242566,
+        "sha256": "75bf55284611d58c106057abf2d2e9764dfe3c9272cf3954dffd1ecc05dd5c8c",
+        "exactDecodedToolText": true,
+        "utf8BomPreserved": true,
+        "lineEndingsAndTrailingWhitespacePreserved": true,
+        "crlfPairs": 0,
+        "lfBytes": 3029,
+        "linesWithTrailingHorizontalWhitespace": 17
+      },
+      "evidence": [
+        "2026-11-11T19:00:30.7807601Z node: v22.23.4",
+        "2026-11-11T19:01:08.8946855Z # tests 440",
+        "2026-11-11T19:01:08.8947068Z # pass 440",
+        "2026-11-11T19:01:08.8947173Z # fail 0",
+        "2026-11-11T19:01:10.7307355Z Production SVG/Canvas raster validation passed: 64/64 cases, @napi-rs/canvas 0.1.100.",
+        "2026-11-11T19:01:10.8718490Z Project checks passed: 20 design sheets, 873 source rows, 6 playable chassis, 3 independent operations, 10 campaign missions.",
+        "2026-11-11T19:01:11.0683221Z Offline game built: dist/Ordre_de_Cendre.html (9.91 MiB), 16 modules, no remote dependencies.",
+        "2026-11-11T19:01:11.2542004Z STATIC UI AUDIT PASSED: 181 unique HTML IDs; 170 literal JS ID references; 5 views; 4 archive tabs; 6 dialogs.",
+        "2026-11-11T19:01:11.2543049Z OFFLINE BUNDLE AUDIT PASSED: one inline script compiled by vm.Script without executing; all HTML/CSS/Canvas assets embedded; no unresolved imports or resource requests.",
+        "2026-11-11T19:01:53.1928133Z UI STATE INTEGRATION PASSED: 71 flows against the actual offline application script in a modeled DOM.",
+        "2026-11-11T19:01:53.3481538Z Web game built: web-dist/index.html, src/ and assets/. No runtime dependencies."
+      ],
+      "initialCiEvidenceUnchanged": true,
+      "nativeBrowser": false,
+      "humanPlaytest": false,
+      "observedAt": "2026-11-11T19:02:48.211Z"
+    },
+    "ciReceipt": {
+      "path": "/workspace/scratch/47882a75de66/v11-ci-final-verification.json",
+      "bytes": 5663,
+      "sha256": "04a4a10ac081ebddd2b89f209c8625b0bda51aa58fb01a766b936f5ae06915f2"
+    }
+  },
+  "initialPublication": {
+    "receipt": {
+      "path": "/workspace/scratch/47882a75de66/v11-publication-initial-receipt.json",
+      "bytes": 11746,
+      "sha256": "0f68d878911e69d5868cf1965b245947f37f5d9490f0b58c613f059530bee0f6"
+    },
+    "publicCommit": "47677e93dae9f214b763564cf8a357dd196c2b28",
+    "sourceTree": "a1c40fc9e0946fe29a417ccd494b415b8653861a",
+    "ciReceipt": {
+      "path": "/workspace/scratch/47882a75de66/v11-ci-initial-verification.json",
+      "bytes": 5280,
+      "sha256": "b2d26601e0dadabc97bd8512d69ea9d84d6c564f5782678b43b327765f2cf7ba"
+    },
+    "ciRunUrl": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43080098248",
+    "ciConclusion": "success",
+    "completedAt": "2026-11-11T18:47:26.707568+00:00"
+  },
+  "vercel": {
+    "phase": "initial_observation_referenced_only",
+    "productionUrl": "https://imperium-march.vercel.app/",
+    "projectId": "prj_ggDB98oddkTTzVPiGQrtxnj7frcr",
+    "teamId": "team_VrIjq2UWV6VaHZr7DdQFwvfu",
+    "blockerRecordedAt": "2026-11-11T18:42:59.577Z",
+    "blockerReceipt": {
+      "path": "/workspace/scratch/47882a75de66/v11-vercel-initial-blocked.json",
+      "bytes": 1938,
+      "sha256": "1a458eecdea407ded3600a8f98ee2196effd8ac90d907d172227c355f9b71ecf"
+    },
+    "blocker": {
+      "httpStatus": 402,
+      "code": "payment_required",
+      "resource": "api-deployments-free-per-day",
+      "retryAfterSeconds": 86400
+    },
+    "explicitDeploymentRequestedDuringFinalFollowup": false,
+    "configurationChangedDuringFinalFollowup": false,
+    "billingChangedDuringFinalFollowup": false,
+    "noFurtherDeploymentAttemptAfterQuotaRejection": true,
+    "lastObservedProduction": {
+      "id": "dpl_DtEwQsxmwa9a816U6zDTK1aq5A4n",
+      "state": "READY",
+      "commit": "4846d0270b2976877f9b202848bfde6d2127fb1d",
+      "release": "0.10.0"
+    },
+    "finalFollowupFreshVercelCheckPerformed": false,
+    "release011ReadyObserved": false,
+    "note": "No new deployment or fresh Vercel state check was requested for this GitHub-only follow-up. The quota refusal and previous 0.10 production state are retained with their original observation time."
+  },
+  "http": {
+    "phase": "initial_observation_referenced_only",
+    "verificationFile": {
+      "path": "/workspace/scratch/47882a75de66/v11-http-initial-verification.json",
+      "bytes": 16858,
+      "sha256": "76075e4d1a2066f93c8d899d490863feda44696f7f5f096ed5ddbc5fedec67a4"
+    },
+    "recordedAt": "2026-11-11T18:47:26.706277+00:00",
+    "requestTimes": {
+      "first": "2026-11-11T18:44:53.492Z",
+      "last": "2026-11-11T18:45:32.085Z"
+    },
+    "resourcesChecked": 23,
+    "statusCounts": {
+      "200": 18,
+      "404": 5
+    },
+    "matchingInitial011Snapshot": 9,
+    "matchingPrevious010Snapshot": 18,
+    "requestedReleaseVerified": false,
+    "observedRelease": "0.10.0",
+    "finalFollowupHttpRequestsPerformed": false,
+    "interpretation": "The 18 resources already present in production are byte-identical to the immutable 0.10 snapshot. The five new chemical resources return 404. Any match with requested 0.11 is an unchanged legacy resource, not evidence of a 0.11 deployment.",
+    "scope": "This is the dated initial authenticated resource-content observation, not a new HTTP observation, native reception or anonymous-access test. All 23 expected application fingerprints are unchanged in the final GitHub tree."
+  },
+  "nativeReception": {
+    "receipt": {
+      "path": "/workspace/scratch/47882a75de66/publication-v11-followup-reviewed/docs/validation/native-v11/browser-reception.json",
+      "bytes": 3109,
+      "sha256": "a1c7d3078f9abcb4b3dfcf1af28bf2e8e289b927334a6148d21b55d650271b43"
+    },
+    "recordedAt": "2026-11-11T18:49:39.651856+00:00",
+    "status": "blocked",
+    "nativeMI10Received": false,
+    "nativeOffline011Received": false,
+    "humanPlaytest": false,
+    "blockers": [
+      {
+        "kind": "deployment",
+        "evidence": "docs/validation/v11-vercel-initial-blocked.json",
+        "httpStatus": 402,
+        "resource": "api-deployments-free-per-day",
+        "retryAfterSeconds": 86400,
+        "publicSiteStillVersion": "0.10"
+      },
+      {
+        "kind": "browser_url_policy",
+        "tool": "mcp__cua_repl.js",
+        "operation": "cua.createBrowserTab",
+        "requestedUrl": "file:///workspace/shared/native-v11/Ordre_de_Cendre.html",
+        "allowedProtocols": [
+          "http:",
+          "https:"
+        ],
+        "requestRejected": true,
+        "observedError": "Browser Use rejected this action due to browser security policy. The requested URL protocol is not allowed. The URL policy gate did not grant access.",
+        "workaroundAttempted": false,
+        "note": "No 0.11 page was observed; the request was rejected by the browser tool before a playable page could be inspected."
+      }
+    ],
+    "verificationPendingReceipt": {
+      "path": "/workspace/scratch/47882a75de66/publication-v11-followup-reviewed/docs/validation/native-v11/export-verification-pending.json",
+      "bytes": 14276,
+      "sha256": "ff96a4285a23debf2d10a1c38575e4d75fbd5458d7323e085817c7e42204b839"
+    },
+    "verificationPhases": {
+      "migration": "pending",
+      "sampling": "pending",
+      "choice": "pending",
+      "completion": "pending",
+      "reload": "pending"
+    },
+    "existingOpenCriteria": [
+      "QA19",
+      "QA20",
+      "QA29",
+      "PR85",
+      "QA169",
+      "PR88",
+      "QA179"
+    ]
+  },
+  "scope": {
+    "repositoryFilesModifiedDuringPublication": false,
+    "applicationSourceFrozen": true,
+    "oldEvidencePreserved": true,
+    "sourceTreeExact": true,
+    "nativePlaytestClaim": false,
+    "humanPlaytestClaim": false
+  },
+  "sourceVerificationReceipt": {
+    "path": "/workspace/scratch/47882a75de66/publication-v11-followup-source-verification.json",
+    "sha256": "f63f502779169578fc0c33a1dc37d114735abf08bc601e870f90fe95fc83f6a2",
+    "bytes": 1335
+  },
+  "publicationMethod": {
+    "immutableBlobsVerifiedByGitSha": true,
+    "baseTreeUsed": "a1c40fc9e0946fe29a417ccd494b415b8653861a",
+    "remoteTreeComparedInFull": true,
+    "parentVerifiedBeforeCommit": true,
+    "parentRecheckedImmediatelyBeforeCas": true,
+    "casForce": false,
+    "remoteHeadReadBackAfterCas": true,
+    "authenticatedGitCliUsed": false,
+    "explicitVercelDeploymentInFinalPhase": false
+  },
+  "completion": {
+    "githubPublished": true,
+    "ciSucceeded": true,
+    "sourceTreeExact": true,
+    "finalDocumentationFollowupComplete": true,
+    "vercelProduction011ReadyObserved": false,
+    "http011SnapshotVerified": false,
+    "native011Received": false,
+    "humanPlaytest": false,
+    "externalReceptionBlocked": true,
+    "blockers": [
+      "Initial Vercel production attempt refused by daily deployment quota (HTTP 402, api-deployments-free-per-day). No explicit deployment retry or configuration change during the final GitHub-only follow-up.",
+      "Native local standalone opening refused by browser URL policy (file:// unsupported). No alternate surface or indirect server used; no native 0.11 exports exist."
+    ]
+  },
+  "completedAt": "2026-11-11T19:03:53.620Z"
+}

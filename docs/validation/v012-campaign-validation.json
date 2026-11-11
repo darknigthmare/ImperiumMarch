@@ -1,0 +1,265 @@
+{
+  "schema": 1,
+  "release": "0.12.0",
+  "saveVersion": 11,
+  "proofType": "Executed public-command simulation and deterministic campaign persistence tests; no native browser or human playtest.",
+  "command": "node --test --test-reporter=tap tests/campaign*.test.mjs",
+  "observedAt": "2026-11-11T19:46:35.915167+00:00",
+  "nodeVersion": "v24.22.1",
+  "exitCode": 0,
+  "tests": 224,
+  "passed": 224,
+  "failed": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "todo": 0,
+  "durationMs": 34315.745767,
+  "mi11Tests": 41,
+  "existingCampaignTests": 183,
+  "tap": {
+    "path": "docs/validation/v012-campaign-tests.tap",
+    "bytes": 54403,
+    "sha256": "34225ffa014cc0fddb8c4d3cc8edd2e57966305c4175de7f6fa78143583fa68a"
+  },
+  "coverage": {
+    "normalDifficultyMatrix": {
+      "walkers": [
+        "WK01",
+        "WK02",
+        "WK05",
+        "WK06",
+        "WK09",
+        "WK10"
+      ],
+      "choices": [
+        "obey",
+        "defy"
+      ],
+      "acceptedReceipts": 12,
+      "allThreeNestsIntact": true,
+      "te01Acquired": true
+    },
+    "degradedPublicRoutes": [
+      "warning lost before copy",
+      "translation lost before copy",
+      "Leth lost before exchange",
+      "Leth lost after exchange",
+      "originals lost after recording",
+      "ridge destroyed after survey",
+      "unprotected nesting route"
+    ],
+    "partialRestores": [
+      "quiet listening",
+      "ridge survey",
+      "consent request",
+      "protected testimony",
+      "physical seizure"
+    ],
+    "additionalMaterialChecks": [
+      "Leth lost after consent but before testimony keeps the prior completed consent job",
+      "late nesting damage keeps recorded TE01 and withdraws current cooperation",
+      "withdrawal before testimony starts preserves copies but creates no recording; the final receipt explicitly says that no completed recording is retained",
+      "no-fire defeat remains terminal; explicit restart is independent",
+      "actual job interruption and restart are accepted",
+      "decision sets the plan without completing the physical operation"
+    ],
+    "adversarialChecks": [
+      "future mission in v10",
+      "invented identity, capacity or population",
+      "copies and TE01 without their prerequisites",
+      "public dissemination permission or recruitment",
+      "early private forces",
+      "shortened work duration",
+      "partial job begun before prerequisites",
+      "backdated or accelerated work between checkpoints",
+      "receipt aggregate contrary to the individual roster",
+      "old decision checkpoint after later events",
+      "terminal loss changed into a living sortie"
+    ],
+    "firstReportImmutable": true,
+    "workshopPartsGrantedOnce": 4,
+    "historicalTenReportsPreserved": true,
+    "noFuelCreatedOrSpent": true,
+    "historicalFixtures": 10,
+    "historicalVariants": 20,
+    "previousFixtureBytesUnchanged": 9,
+    "v10MigrationOnlyAddsVoiceAndVersion": true,
+    "historicalV10Source": {
+      "publicCommit": "c7f3273a60824ff4e968ea36ab956c6a41710df0",
+      "tree": "7942d22cfdb0b73e42ae0a427a3afbc986f29160",
+      "verifiedHistoricBlobs": 1268,
+      "nativeReception": false,
+      "preparedExports": true
+    }
+  },
+  "sourceHashes": {
+    "src/campaign.mjs": {
+      "bytes": 144871,
+      "sha256": "7c36a5f828942566d85cf5ae4eb7343b25866a8ff938e841bd7268a8b99e037d"
+    },
+    "src/chemical-simulation.mjs": {
+      "bytes": 23950,
+      "sha256": "778651c4accc7dd78189d5613d2e06896f16f0587651b7272b269d0d7a743f34"
+    },
+    "src/chemical-validation.mjs": {
+      "bytes": 42618,
+      "sha256": "ed00e720b26e66b310707e589f90146bdd1309c5812a9449856dcd7980abb3ba"
+    },
+    "src/content.mjs": {
+      "bytes": 38479,
+      "sha256": "e06339d3a5017568e395b8bce302716d5fb4800ea9a3f101f668d3a7c09ebf54"
+    },
+    "src/departure-validation.mjs": {
+      "bytes": 23208,
+      "sha256": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b"
+    },
+    "src/simulation.mjs": {
+      "bytes": 269625,
+      "sha256": "965f1c7fad967e8e9fd9d27d5c452ec0c62afb208e4e227c49193f67e8153f9a"
+    },
+    "src/thyr-validation.mjs": {
+      "bytes": 28583,
+      "sha256": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a"
+    },
+    "src/voice-simulation.mjs": {
+      "bytes": 24309,
+      "sha256": "eefa4de80ef3fb60b8b0d07bdccec0ab2fb3ea465a44ba959deb1e221a7baff6"
+    },
+    "src/voice-validation.mjs": {
+      "bytes": 36791,
+      "sha256": "7cc3ecb9c4c3f02232795c44274e7eb5ed49d67962c0b2e72765378a582051ed"
+    },
+    "tests/campaign-mission.test.mjs": {
+      "bytes": 10305,
+      "sha256": "eb44eeaf98cf078aaa6596c1eb8b0c7def6e55af67800190989059dc36ce16f9"
+    },
+    "tests/campaign-progression.test.mjs": {
+      "bytes": 18736,
+      "sha256": "5dd1df2402f5e85cf3f77b30cc0a6275c62d67078ea7d9ee5eaed03c299d2c6d"
+    },
+    "tests/campaign-save.test.mjs": {
+      "bytes": 16538,
+      "sha256": "cc31b7bfa40293f317a62f869626d4ddf549c6069e7d244e1cd85385008da7a8"
+    },
+    "tests/campaign-v10.test.mjs": {
+      "bytes": 30313,
+      "sha256": "5a61f9cc21a6bf5d184595c2cbd381e0e5e30843c28578c0b44b6851725ec770"
+    },
+    "tests/campaign-v11.test.mjs": {
+      "bytes": 26848,
+      "sha256": "e8716d1dab51ea75d4e53366018e9249e2279a64b9dc6b845500138fb970dce8"
+    },
+    "tests/campaign-v3.test.mjs": {
+      "bytes": 18713,
+      "sha256": "1cc38bd5b0705fdc1c752b11369a54e14582107c484c2a3fe46864a631505ccf"
+    },
+    "tests/campaign-v4.test.mjs": {
+      "bytes": 24902,
+      "sha256": "a587d80248198011d9568864f2cf46ce8eb2f79425ec683bc69e2561ff19dff0"
+    },
+    "tests/campaign-v5.test.mjs": {
+      "bytes": 10075,
+      "sha256": "4dc1321b78d3873d7bc8790c18f0ecf504a455b47cb7d3a5a4f2014ad9f38e5b"
+    },
+    "tests/campaign-v6.test.mjs": {
+      "bytes": 15441,
+      "sha256": "54e2ad3cb05dd1506d63fa01400c4daefab13a22fdfcec959eb525ab995d79b6"
+    },
+    "tests/campaign-v7.test.mjs": {
+      "bytes": 11799,
+      "sha256": "52f9605b60b3a97626dfd1d1aefb66f072f8673ffd8e48964693498ea69e8a95"
+    },
+    "tests/campaign-v8.test.mjs": {
+      "bytes": 11067,
+      "sha256": "62457c1d2774316e23fc0b838b4758cd08b5b2ddcc15f98a8612eb5f98f372e2"
+    },
+    "tests/campaign-v9.test.mjs": {
+      "bytes": 19973,
+      "sha256": "3e3c6c0ee53fae9d029cf1c23ce866fc8ca5dfbfd5ee11b362bbd2545a2684e2"
+    },
+    "tests/fixtures/campaign-v1-mi01.json": {
+      "bytes": 37769,
+      "sha256": "c6bad07aede50fe980460dc67a307bf69804d170abeeb643477358d36c02a22b"
+    },
+    "tests/fixtures/campaign-v10-mi10.json": {
+      "bytes": 414403,
+      "sha256": "a917920f3e0469d00f31e00f1a242fc183e5d0ebc4f3b4db59066fa63668aa73"
+    },
+    "tests/fixtures/campaign-v2-mi02.json": {
+      "bytes": 131152,
+      "sha256": "9024310b7c33e39ed73ac30a03b7db5103be73ee472e95804c4214054ebe5cf2"
+    },
+    "tests/fixtures/campaign-v3-mi03.json": {
+      "bytes": 124642,
+      "sha256": "22793763d19477737abf7193590f00863ce32fd2fc14b1a0a49b273c81180288"
+    },
+    "tests/fixtures/campaign-v4-mi04.json": {
+      "bytes": 123266,
+      "sha256": "d34af557cc5cb280e803c289a193cbebfc1dd43146890c193a880b83381bbede"
+    },
+    "tests/fixtures/campaign-v5-mi05.json": {
+      "bytes": 150965,
+      "sha256": "7c79efb68911f1519cdae2d788e259c424c8750af9a99167ae100bcac4ecc7e3"
+    },
+    "tests/fixtures/campaign-v6-mi06.json": {
+      "bytes": 231369,
+      "sha256": "e7ea0548ce459ef3a7d378a1892b7bfde4c591630eaec1e67c99c8b75e95b12c"
+    },
+    "tests/fixtures/campaign-v7-mi07.json": {
+      "bytes": 416347,
+      "sha256": "8ca58deb11f4048039cda3a54157f7eddb2dd6af6a34450a3d177b3bdfa67a5c"
+    },
+    "tests/fixtures/campaign-v8-mi08.json": {
+      "bytes": 182074,
+      "sha256": "19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007"
+    },
+    "tests/fixtures/campaign-v9-mi09.json": {
+      "bytes": 246853,
+      "sha256": "d5f6f49a02e8fb40f5bf830c7fcb40c5e2677dff3e2b0e0dbb7ea1a48ce42084"
+    },
+    "tests/helpers/mi02-driver.mjs": {
+      "bytes": 2837,
+      "sha256": "48a4b776f66010d94345e55a381b94897d628ad1c7c982eb756d7ee4b1080305"
+    },
+    "tests/helpers/mi03-driver.mjs": {
+      "bytes": 2440,
+      "sha256": "7215097131e8a26da02122ee066687cedf88d72aa6172b41915fa23279107d48"
+    },
+    "tests/helpers/mi04-driver.mjs": {
+      "bytes": 2950,
+      "sha256": "c10509d1f233642fc129cd7903607a61c7d59fcf25773e110edd97bb66e71ab3"
+    },
+    "tests/helpers/mi05-driver.mjs": {
+      "bytes": 3837,
+      "sha256": "ec4f6edfba77046bb6c4137f09540c370787fef4ff4ca9ae68f2ab34216117fe"
+    },
+    "tests/helpers/mi06-driver.mjs": {
+      "bytes": 6111,
+      "sha256": "c77171a3e903de9843168e7bf40c1e67cb1e46311876e448300e4137fe6edb99"
+    },
+    "tests/helpers/mi07-driver.mjs": {
+      "bytes": 6702,
+      "sha256": "2d465771f34b997e8681e74730b0249a34c184fd3370ec7418cfc5839695120c"
+    },
+    "tests/helpers/mi08-driver.mjs": {
+      "bytes": 8994,
+      "sha256": "07b577d7ad7cd860bfcd4604d19744e976f988e01a2435f6e2dc5e415a4f2088"
+    },
+    "tests/helpers/mi09-driver.mjs": {
+      "bytes": 5822,
+      "sha256": "9a5fc59291594f13491128f77b6cf15fd6768ec87308d7239ce723f4df5ab1a4"
+    },
+    "tests/helpers/mi10-driver.mjs": {
+      "bytes": 7146,
+      "sha256": "0f032cad84030513bf9a2d543ef4018f1481ef58a207173ff031c2b71102303c"
+    },
+    "tests/helpers/mi11-driver.mjs": {
+      "bytes": 6450,
+      "sha256": "05de3ff21ce7422264111f4156be5695bad399753173311979054f2b602648f3"
+    }
+  },
+  "nativeBrowser": false,
+  "humanPlaytest": false,
+  "vercelAttempted": false,
+  "publicationPerformed": false
+}
