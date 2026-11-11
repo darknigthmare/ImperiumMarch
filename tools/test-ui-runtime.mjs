@@ -10,13 +10,14 @@ import { readFileSync } from 'node:fs';
 import { Script, createContext } from 'node:vm';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { beginCampaignMission, checkpointCampaign, createCampaign, serializeCampaign, parseCampaign, CAMPAIGN_SAVE_KEY } from '../src/campaign.mjs';
+import { beginCampaignMission, checkpointCampaign, finishCampaignMission, createCampaign, serializeCampaign, parseCampaign, CAMPAIGN_SAVE_KEY } from '../src/campaign.mjs';
 import { commandGame, updateGame } from '../src/simulation.mjs';
 import { pilotMI02 } from '../tests/helpers/mi02-driver.mjs';
 import { pilotMI03 } from '../tests/helpers/mi03-driver.mjs';
 import { pilotMI04 } from '../tests/helpers/mi04-driver.mjs';
 import { pilotMI05 } from '../tests/helpers/mi05-driver.mjs';
 import { pilotMI06 } from '../tests/helpers/mi06-driver.mjs';
+import { pilotMI07 } from '../tests/helpers/mi07-driver.mjs';
 import { WALKERS } from '../src/content.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -311,7 +312,7 @@ for (const choice of ['obey', 'defy']) await check(`MI03 ${choice} decision, ext
   assert.equal(fresh.ids.get('workshop-network').hidden, false);
   await fresh.data('view', 'campaign');
   assert.match(fresh.ids.get('campaign-debrief').innerHTML, /MI03 \/ RAPPORT/);
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 6 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 7 RAPPORTS CLASSÉS');
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
   for (const id of ['MI01', 'MI02', 'MI03']) assert.match(fresh.ids.get('archive-content').innerHTML, new RegExp(`CAMPAGNE / ${id}`));
   await fresh.data('view', 'campaign'); await fresh.data('chapter', 'MI03'); await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
@@ -386,7 +387,7 @@ for (const choice of ['obey', 'defy']) await check(`MI04 ${choice} records the t
   assert.equal(fresh.ids.get('workshop-industrial').hidden, false);
   assert.match(fresh.ids.get('workshop-condition').textContent, /radiateur/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 6 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 7 RAPPORTS CLASSÉS');
   assert.equal(fresh.ids.get('campaign-transition').hidden, false);
   assert.match(fresh.ids.get('campaign-transition-text').textContent, /Nacre/);
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
@@ -501,7 +502,7 @@ await check('importing a genuine v4 Vesper dossier unlocks Nacre in the delivere
   assert.match(h.ids.get('campaign-import-summary').textContent, /MI04/);
   await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Le prix du passage');
-  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 6 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 7 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v4Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /journal de Vesper/);
@@ -562,7 +563,7 @@ for (const choice of ['obey', 'defy']) await check(`MI05 ${choice} debrief, arch
   assert.match(fresh.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI05/);
   assert.match(fresh.ids.get('archive-content').innerHTML, /Vann Ostre/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 6 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 7 RAPPORTS CLASSÉS');
   await fresh.data('chapter', 'MI05');
   await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
   assert.equal(fresh.snapshot().campaignReplay, true);
@@ -597,7 +598,7 @@ await check('a genuine v5 import unlocks MI06 with its actual stock and ten dist
   h.ids.get('campaign-file').files = [{ size: raw.length, text: async () => raw }];
   await h.ids.get('campaign-file').dispatch('change'); await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Les maisons sous la ligne');
-  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 6 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 7 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v5Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /dix habitants/);
@@ -713,7 +714,7 @@ for (const choice of ['obey', 'defy']) await check(`MI06 ${choice} requires the 
   await h.data('view', 'archives'); await h.data('archive', 'records');
   assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI06/);
   await h.data('view', 'campaign');
-  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 6 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 7 RAPPORTS CLASSÉS');
   await h.data('chapter', 'MI06'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().campaignReplay, true);
   assert.equal(h.snapshot().game.campaign.context.fuelAvailable, 2);
@@ -748,6 +749,268 @@ await check('the UI immediately persists a terminal MI06 loss and restarts witho
   assert.equal(h.snapshot().game.campaign.context.fuelAvailable, 0);
   assert.equal(h.snapshot().campaign.world.nacre.fuelSpent, 2);
   assert.match(h.ids.get('dike-fuel').textContent, /SANS CARBURANT/);
+});
+
+const v6Dossier = JSON.parse(readFileSync(resolve(root, 'tests/fixtures/campaign-v6-mi06.json'), 'utf8'));
+const ambulanceStart = (variant = 'completed') => beginCampaignMission(parseCampaign(JSON.stringify(v6Dossier[variant])), { missionId: 'MI07', walkerId: 'WK09', seed: 1847 });
+async function importAmbulanceDossier(h, dossier) {
+  const raw = JSON.stringify(dossier);
+  h.ids.get('campaign-file').files = [{ size: raw.length, text: async () => raw }];
+  await h.ids.get('campaign-file').dispatch('change');
+  assert.equal(h.ids.get('campaign-import-dialog').open, true);
+  await h.click('campaign-confirm-import');
+  assert.equal(h.ids.get('campaign-import-dialog').open, false);
+}
+
+await check('MI07 migration imports an authentic paid v6 valve without rewriting its scene or earlier reports', async () => {
+  const h = harness(); await importAmbulanceDossier(h, v6Dossier.live);
+  const migrated = h.snapshot().campaign;
+  assert.equal(migrated.version, 7);
+  assert.deepEqual(migrated.checkpoint, v6Dossier.live.checkpoint);
+  assert.deepEqual(migrated.preDecisionCheckpoint, v6Dossier.live.preDecisionCheckpoint);
+  assert.deepEqual(migrated.completed, v6Dossier.live.completed);
+  assert.deepEqual(migrated.resources, v6Dossier.live.resources);
+  assert.equal(migrated.world.nacre.fuelSpent, 2);
+  assert.equal(migrated.world.nacre.ambulance.patientsTotal, 0);
+  await h.click('campaign-resume');
+  assert.deepEqual(h.snapshot().game, v6Dossier.live.checkpoint);
+  await h.click('pause-button'); h.frames(180);
+  assert.deepEqual(h.snapshot().game, v6Dossier.live.checkpoint);
+  const saved = parseCampaign(h.values.get(CAMPAIGN_SAVE_KEY));
+  assert.deepEqual(saved.checkpoint, v6Dossier.live.checkpoint);
+  assert.equal(saved.world.nacre.fuelSpent, 2);
+  assert.equal(h.ids.get('ambulance-instrument').hidden, true);
+  assert.equal(h.ids.get('dike-instrument').hidden, false);
+});
+
+for (const [variant, route, routeText] of [['completed', 'main', 'PRINCIPALE'], ['manualCompleted', 'secondary', 'SECONDAIRE']]) await check(`MI07 ${route} briefing uses authentic dike support and introduces four new patients without altering fuel`, async () => {
+  const h = harness(); await importAmbulanceDossier(h, v6Dossier[variant]);
+  const prior = h.snapshot().campaign;
+  assert.equal(h.ids.get('campaign-order-title').textContent, 'Une ambulance sans escorte');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 7 RAPPORTS CLASSÉS');
+  await h.click('campaign-deploy');
+  const briefing = h.ids.get('briefing-description').textContent;
+  assert.match(briefing, /quatre patients et deux membres/);
+  assert.match(briefing, route === 'main' ? /rampe principale/ : /rampe secondaire/);
+  assert.match(briefing, /65 %|trajet sera plus long/);
+  await h.click('launch'); h.frames(2);
+  const state = h.snapshot();
+  assert.equal(state.game.missionId, 'MI07');
+  assert.equal(state.game.campaign.route, route);
+  assert.equal(state.game.campaign.patientsTotal, 4);
+  assert.equal(state.game.campaign.staffTotal, 2);
+  assert.equal(state.game.campaign.patientsArrived, 0);
+  assert.equal(state.game.campaign.consentObtained, false);
+  assert.equal(state.game.campaign.beaconRecovered, false);
+  assert.deepEqual(state.campaign.resources, prior.resources);
+  assert.equal(state.campaign.world.nacre.fuelSpent, prior.world.nacre.fuelSpent);
+  assert.deepEqual(state.campaign.completed, prior.completed);
+  assert.equal(h.ids.get('ambulance-instrument').hidden, false);
+  assert.equal(h.ids.get('dike-instrument').hidden, true);
+  assert.equal(h.ids.get('tide-instrument').hidden, true);
+  assert.match(h.ids.get('ambulance-route').textContent, new RegExp(routeText));
+  assert.match(h.ids.get('ambulance-people').textContent, /0 \/ 4 PATIENTS ARRIVÉS/);
+});
+
+for (const job of [
+  { label: 'cargo examination', object: 'cargo', active: 'scanning', progress: 'scanProgress', done: 'inspected', fact: 'medicalCargoVerified' },
+  { label: 'beacon dismantling', object: 'beacon', active: 'working', progress: 'progress', done: 'recovered', fact: 'beaconRecovered' },
+  { label: 'ramp preparation', object: 'ramp', active: 'working', progress: 'progress', done: 'prepared', fact: 'rampPrepared' },
+]) await check(`MI07 partial ${job.label} freezes on pause and resumes its exact physical progress after reload`, async () => {
+  const start = ambulanceStart();
+  pilotMI07(start.game, { stopAt: state => state.ambulance[job.object][job.active] && state.ambulance[job.object][job.progress] > 0.35 });
+  const part = start.game.ambulance[job.object];
+  assert.equal(start.game.status, 'playing');
+  assert.ok(part[job.progress] > 0.35 && part[job.progress] < 1, `${job.label} reached through public controls`);
+  assert.equal(part[job.done], false);
+  const dossier = checkpointCampaign(start.campaign, start.game);
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(dossier)]]));
+  await h.click('campaign-resume'); await h.click('pause-button');
+  const paused = h.snapshot().game;
+  h.frames(180); assert.deepEqual(h.snapshot().game, paused);
+  const fresh = harness(h.values); await fresh.click('campaign-resume');
+  assert.deepEqual(fresh.snapshot().game, paused);
+  await fresh.key('Space');
+  for (let frame = 0; frame < 600 && !fresh.snapshot().game.ambulance[job.object][job.done]; frame += 6) fresh.frames(6);
+  await fresh.key('Space', false);
+  assert.equal(fresh.snapshot().game.ambulance[job.object][job.done], true);
+  assert.equal(fresh.snapshot().game.campaign[job.fact], true);
+  assert.equal(fresh.snapshot().game.campaign.provenanceVerified, false);
+  assert.deepEqual(fresh.snapshot().campaign.resources, dossier.resources);
+  assert.equal(fresh.snapshot().campaign.world.nacre.fuelSpent, dossier.world.nacre.fuelSpent);
+  await fresh.click('pause-button');
+  const saved = parseCampaign(fresh.values.get(CAMPAIGN_SAVE_KEY));
+  assert.equal(saved.checkpoint.ambulance[job.object][job.done], true);
+});
+
+// Continue from a public-control checkpoint through real keyboard and touch-button
+// events. This helper reads snapshots to choose inputs; it never edits the app state.
+async function finishAmbulanceThroughUI(h) {
+  const held = new Map(), fireButton = h.document.querySelector('[data-hold="fire"]');
+  const setKey = async (code, down) => {
+    if (Boolean(held.get(code)) === down) return;
+    await h.key(code, down); held.set(code, down);
+  };
+  const setFire = async down => {
+    if (Boolean(held.get('fire')) === down) return;
+    await fireButton.dispatch(down ? 'pointerdown' : 'pointerup', { pointerId: 7, pointerType: 'touch' });
+    held.set('fire', down);
+  };
+  for (let frame = 0; frame < 30000; frame += 6) {
+    const s = h.snapshot().game;
+    if (s.status !== 'playing') break;
+    const a = s.ambulance, c = s.campaign, p = s.player;
+    const reception = a.receptions.find(r => r.kind === c.destination);
+    const job = !a.mara.contacted ? { x: a.mara.x }
+      : a.technical.available && !a.technical.contacted ? { x: a.technical.x }
+      : !a.ramp.prepared ? { x: a.ramp.x }
+      : !reception.ready || !a.handover.ordered ? { x: reception.x }
+      : !a.handover.completed && (a.vehicle.arrived || a.vehicle.destroyed) ? { x: reception.x }
+      : null;
+    const destination = c.transferResolved ? s.extraction.x : job ? job.x - 115 : reception.x - 115;
+    let move = Math.abs(destination - p.x) > 28 ? Math.sign(destination - p.x) : 0;
+    const enemy = s.enemies.filter(e => !e.dead && e.active && Math.abs(e.x - p.x) < 1000)
+      .sort((x, y) => Math.abs(x.x - p.x) - Math.abs(y.x - p.x))[0];
+    if (enemy && Math.abs(enemy.x - p.x) < 650) move = 0;
+    const vent = p.heat > 75 || p.overheated;
+    await setKey('KeyD', move > 0); await setKey('KeyA', move < 0);
+    await setKey('Space', move === 0); await setKey('KeyV', vent);
+    await setFire(Boolean(enemy) && !vent);
+    const interact = job && Math.abs(p.x - job.x) < 168;
+    if (interact) await h.key('KeyE');
+    h.frames(2);
+    if (interact) await h.key('KeyE', false);
+    h.frames(4);
+  }
+  for (const code of ['KeyD', 'KeyA', 'Space', 'KeyV']) await setKey(code, false);
+  await setFire(false);
+  assert.equal(h.snapshot().game.status, 'won', 'keyboard/touch continuation reached extraction');
+}
+
+for (const choice of ['obey', 'defy']) await check(`MI07 ${choice} selects a destination without arrivals, then transfers physically through UI and preserves the first report on replay`, async () => {
+  const start = ambulanceStart();
+  pilotMI07(start.game, { stopAt: s => s.decision.active });
+  assert.equal(start.game.decision.active, true);
+  const dossier = checkpointCampaign(start.campaign, start.game, { beforeDecision: true });
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(dossier)]]));
+  await h.click('campaign-resume'); h.frames(2);
+  assert.equal(h.ids.get('decision-title').textContent, 'Une signature sous le châssis');
+  await h.data('choice', choice);
+  const chosen = h.snapshot().game;
+  assert.equal(chosen.campaign.destination, choice === 'defy' ? 'clinic' : 'imperial');
+  assert.equal(chosen.campaign.transferOrdered, false);
+  assert.equal(chosen.campaign.transferResolved, false);
+  assert.equal(chosen.campaign.patientsArrived, 0);
+  h.frames(60);
+  assert.equal(h.snapshot().game.campaign.patientsArrived, 0);
+  assert.equal(h.snapshot().game.campaign.vehicleRecovered, false);
+  await finishAmbulanceThroughUI(h);
+  const completed = h.snapshot().campaign, report = completed.completed.MI07;
+  assert.equal(report.patientsArrived, 4); assert.equal(report.patientsLost, 0);
+  assert.equal(report.staffAlive, 2); assert.equal(report.staffArrived, 2);
+  assert.equal(report.vehicleRecovered, true); assert.equal(report.vehicleSeized, choice === 'obey');
+  assert.equal(report.beaconRecovered, true); assert.equal(report.provenanceVerified, false);
+  assert.deepEqual(completed.resources, { ...dossier.resources, parts: dossier.resources.parts + 4 });
+  assert.equal(completed.world.nacre.fuelSpent, dossier.world.nacre.fuelSpent);
+  assert.deepEqual(completed.world.nacre.dike, dossier.world.nacre.dike);
+  for (const id of ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06']) assert.deepEqual(completed.completed[id], dossier.completed[id]);
+  assert.match(h.ids.get('result-stats').innerHTML, /PATIENTS ARRIVÉS/);
+  assert.match(h.ids.get('result-stats').innerHTML, choice === 'obey' ? /arrivé puis saisi/ : /conservé pour les soins/);
+  await h.click('next-operation');
+  assert.match(h.ids.get('workshop-ambulance').textContent, /4 patients arrivés/);
+  assert.equal(h.ids.get('workshop-fuel').textContent, '0 LOT DE CARBURANT EN RÉSERVE');
+  await h.data('view', 'archives'); await h.data('archive', 'records');
+  assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI07/);
+  await h.data('view', 'campaign');
+  assert.equal(h.ids.get('campaign-progress').textContent, '7 / 7 RAPPORTS CLASSÉS');
+  assert.match(h.ids.get('campaign-debrief').innerHTML, /À recouper/);
+  await h.data('chapter', 'MI07'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
+  assert.equal(h.snapshot().campaignReplay, true);
+  assert.equal(h.snapshot().game.campaign.patientsArrived, 0);
+  assert.deepEqual(h.snapshot().campaign, completed);
+});
+
+await check('MI07 report keeps an obtained witness agreement while identifying that witness as deceased', async () => {
+  const start = ambulanceStart();
+  pilotMI07(start.game, { stopAt: state => state.campaign.witnessConsent });
+  assert.equal(start.game.campaign.witnessConsent, true);
+  assert.equal(start.game.campaign.witnessAvailable, true);
+  const witnessId = start.game.campaign.witnessId;
+  // The public pilot deliberately fires at the staff. No health or dossier
+  // fields are assigned; the ensuing report distinguishes agreement from life.
+  pilotMI07(start.game, { killStaff: true, stopAt: state => state.campaign.staffAlive === 0 });
+  assert.equal(start.game.campaign.staffAlive, 0);
+  assert.equal(start.game.campaign.witnessConsent, true);
+  assert.equal(start.game.campaign.witnessId, witnessId);
+  assert.equal(start.game.campaign.witnessAvailable, false);
+  pilotMI07(start.game);
+  assert.equal(start.game.status, 'won');
+  const completed = finishCampaignMission(start.campaign, start.game).campaign;
+  const h = harness(); await importAmbulanceDossier(h, completed);
+  assert.equal(h.snapshot().campaign.completed.MI07.witnessConsent, true);
+  assert.equal(h.snapshot().campaign.completed.MI07.witnessAvailable, false);
+  assert.match(h.ids.get('campaign-debrief').innerHTML, /Recueilli · témoin décédé/);
+  assert.match(h.ids.get('campaign-debrief').innerHTML, /Cette personne est morte depuis cet accord/);
+  await h.data('view', 'hangar');
+  assert.match(h.ids.get('workshop-ambulance').textContent, /0 membres de l’équipe vivants/);
+  assert.match(h.ids.get('workshop-ambulance').textContent, /accord à témoigner a été recueilli/);
+});
+
+await check('MI07 terminal loss persists immediately, reopens as a report and requires an explicit fresh sortie', async () => {
+  const start = ambulanceStart(), before = normalized(start.campaign);
+  const p = start.game.player, x = p.x, y = p.y - p.height / 2 - 80;
+  // Controlled collision calibration, not a claimed natural combat death.
+  // Production damage resolves the impact; hull, phase and outcome are not set.
+  start.game.projectiles.push({ id: `ui-ambulance-terminal-${start.game.entityId++}`, team: 'enemy', type: 'bullet',
+    x, y, prevX: x, prevY: y, vx: 0, vy: 6000, damage: 5000, radius: 2, life: 1, trail: [] });
+  const live = checkpointCampaign(start.campaign, start.game);
+  const first = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(live)]]));
+  await first.click('campaign-resume'); first.frames(60);
+  assert.equal(first.snapshot().game.status, 'lost');
+  const failed = parseCampaign(first.values.get(CAMPAIGN_SAVE_KEY));
+  assert.equal(failed.checkpoint.status, 'lost');
+  assert.ok(failed.checkpoint.elapsed - live.checkpoint.elapsed < 8);
+  assert.equal(failed.completed.MI07, undefined);
+  assert.deepEqual(failed.resources, before.resources);
+  assert.equal(failed.world.nacre.fuelSpent, before.world.nacre.fuelSpent);
+  assert.deepEqual(failed.world.nacre.dike, before.world.nacre.dike);
+  const h = harness(first.values);
+  assert.equal(h.ids.get('campaign-resume').textContent, 'Voir le bilan de MI07');
+  await h.click('campaign-resume'); h.frames(2);
+  assert.equal(h.snapshot().game.status, 'lost');
+  assert.equal(h.ids.get('result-dialog').open, true);
+  assert.equal(h.ids.get('result-title').textContent, 'Liaison perdue.');
+  await h.click('replay'); h.frames(2);
+  assert.equal(h.snapshot().game.status, 'playing');
+  assert.equal(h.snapshot().campaignReplay, false);
+  assert.equal(h.snapshot().game.campaign.stopCalled, false);
+  assert.equal(h.snapshot().game.campaign.patientsArrived, 0);
+  assert.equal(h.snapshot().game.campaign.beaconRecovered, false);
+  assert.deepEqual(h.snapshot().campaign.resources, before.resources);
+  assert.equal(h.snapshot().campaign.world.nacre.fuelSpent, before.world.nacre.fuelSpent);
+});
+
+await check('MI07 a touch interaction can be paused and saved before the next animation frame', async () => {
+  const start = ambulanceStart();
+  pilotMI07(start.game, { stopAt: s => !s.ambulance.vehicle.called && s.player.x > s.mission.ambulance.callX - 174 });
+  assert.equal(start.game.ambulance.vehicle.called, false);
+  assert.ok(Math.abs(start.game.player.x - start.game.mission.ambulance.callX) < 175);
+  const live = checkpointCampaign(start.campaign, start.game);
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(live)]]));
+  await h.click('campaign-resume');
+  const elapsed = h.snapshot().game.elapsed;
+  await h.data('action', 'interact');
+  await h.click('pause-button');
+  assert.equal(h.snapshot().game.elapsed, elapsed);
+  assert.equal(h.snapshot().game.ambulance.vehicle.called, true);
+  assert.equal(h.snapshot().game.campaign.stopCalled, true);
+  assert.equal(h.snapshot().campaignWarning, '');
+  const saved = parseCampaign(h.values.get(CAMPAIGN_SAVE_KEY));
+  assert.equal(saved.checkpoint.elapsed, elapsed);
+  assert.equal(saved.checkpoint.campaign.stopCalled, true);
+  assert.deepEqual(saved.checkpoint, h.snapshot().game);
+  const fresh = harness(h.values); await fresh.click('campaign-resume');
+  assert.deepEqual(fresh.snapshot().game, saved.checkpoint);
 });
 
 console.log(`UI STATE INTEGRATION PASSED: ${checks} flows against the actual offline application script in a modeled DOM.`);

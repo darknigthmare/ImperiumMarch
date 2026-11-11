@@ -1,0 +1,219 @@
+{
+  "release": "0.8.0",
+  "saveVersion": 7,
+  "checkedAt": "2026-11-11T09:04:25.020560+00:00",
+  "localBaseRevision": "1e7eadbf8bb97b37ad5753d8f2821d5085200e63",
+  "publicBaseRevision": "bc830013455bb8f71e1eaf0316173ac0e91746f8",
+  "nodeVersion": "v24.22.1",
+  "nodeTests": {
+    "passed": 212,
+    "failed": 0,
+    "skipped": 0,
+    "newGameplay": 22,
+    "newSave": 14,
+    "log": "docs/validation/v08-node-tests.txt"
+  },
+  "uiModel": {
+    "flows": 45,
+    "failed": 0,
+    "log": "docs/validation/v08-ui-runtime.txt",
+    "scope": "Actual offline script in a modeled DOM; no browser or CSS execution."
+  },
+  "staticUI": {
+    "ids": 150,
+    "literalReferences": 139,
+    "views": 5,
+    "archiveTabs": 4,
+    "dialogs": 6
+  },
+  "offline": {
+    "bytes": 9972270,
+    "modules": 6,
+    "networkDependencies": 0
+  },
+  "catalogue": {
+    "records": 769,
+    "domains": 20,
+    "walkers": 6,
+    "operations": 3,
+    "campaignMissions": 7
+  },
+  "independentAudit": {
+    "routes": 18,
+    "checkpointRoundTrips": 3054,
+    "exactRestorations": 1878,
+    "path": "docs/validation/v08-campaign-audit.json"
+  },
+  "workbook": {
+    "workbook": "ORDRE_DE_CENDRE_Bible.xlsx",
+    "version": "0.8.0",
+    "sha256": "726c2d8a3464af1cd934574942da5c2ccc0cbfc0dcf12d5874fa26deb30835cb",
+    "sourceRecords": 769,
+    "sourceCellsCompared": 5225,
+    "historicalRevision": "1e7eadb",
+    "historicalIdsPreserved": 705,
+    "addedIds": 64,
+    "sheets": 21,
+    "namedTables": 20,
+    "calculatedFormulaCells": 126,
+    "errorCells": 0,
+    "summaryCachesReconciled": true,
+    "statusValidationRanges": 20,
+    "conditionalFormatRules": 80,
+    "frozenDataSheets": 20,
+    "engineScope": "Recalcul et test de modification de statut exécutés dans @oai/artifact-tool. Contrôle du fichier XLSX exporté par lecture XML; aucune exécution native dans Excel ni LibreOffice.",
+    "visualScope": "Synthèse et vues des domaines ajoutés ou modifiés, avec aperçus des lignes nouvelles. Mise en page des autres tables conservée. Pas de validation navigateur ni de comportement natif Excel."
+  },
+  "canvasPreviews": {
+    "images": 9,
+    "manifest": "docs/previews/mi07-render-manifest.json",
+    "scope": "Production Canvas renderer from public-control states, not browser screenshots."
+  },
+  "publication": "Pending exact remote commit, CI and deployment verification; native Chrome proof follows publication.",
+  "fingerprints": {
+    "package.json": {
+      "bytes": 662,
+      "sha256": "017861078ce2af3314ac7ce400e5171608fffb50359e229850a5b567b39e1bfc"
+    },
+    "index.html": {
+      "bytes": 20253,
+      "sha256": "d817b30a6a0645504b7aa858136b1b3d3b8aea231daf15825c3961b47dc77a28"
+    },
+    "src/content.mjs": {
+      "bytes": 26145,
+      "sha256": "211b06c1ad103095b4609cac1b01ba4c8d1e9d5484444f1cdf0603982d7c5424"
+    },
+    "src/simulation.mjs": {
+      "bytes": 177338,
+      "sha256": "aa86fec4b762d8bfd14675fb731fbc19252ccfbca2b3af1586e1ff858d5a32a2"
+    },
+    "src/renderer.mjs": {
+      "bytes": 120165,
+      "sha256": "e7233e65336e1db2d2e9ef7ffdaf4ca91eb55fb5b0b72fcf93d48dd853a6bd8c"
+    },
+    "src/campaign.mjs": {
+      "bytes": 124006,
+      "sha256": "a352c886a39bb80afaee37a53fbe917af8222a4a5c35642995212e79dba8df60"
+    },
+    "src/main.mjs": {
+      "bytes": 75155,
+      "sha256": "75ddf1a76f70d6f9061ef725ee12380f44b442858a12cf53087b9738aa0a75a5"
+    },
+    "src/audio.mjs": {
+      "bytes": 3760,
+      "sha256": "3184994081dc55329e23ee016a6eba8cbc2e40641c274df6cb443e23295efd92"
+    },
+    "src/style.css": {
+      "bytes": 21664,
+      "sha256": "8090bbab3b4d0b9c920625a94b023e7197065ae742e959827b2c0b35876e5c35"
+    },
+    "src/ui.css": {
+      "bytes": 14365,
+      "sha256": "177533d784ada32fecdacb8bd987d0aada274364e6f3f9685c6cb44eed040d12"
+    },
+    "dist/Ordre_de_Cendre.html": {
+      "bytes": 9972270,
+      "sha256": "b329d8fcd5ce7d07557ab342eb6a0f5aa3e39a589794caf74ac7f2ae50df34b4"
+    },
+    "data/bible.json": {
+      "bytes": 392418,
+      "sha256": "91c50ed7bd1dcf4fa267de68a1708535848af8fb48901b9e18f043d048c7b8ef"
+    },
+    "docs/ORDRE_DE_CENDRE_Bible.xlsx": {
+      "bytes": 168792,
+      "sha256": "726c2d8a3464af1cd934574942da5c2ccc0cbfc0dcf12d5874fa26deb30835cb"
+    },
+    "tests/helpers/mi07-driver.mjs": {
+      "bytes": 6702,
+      "sha256": "2d465771f34b997e8681e74730b0249a34c184fd3370ec7418cfc5839695120c"
+    },
+    "tests/mi07-mission.test.mjs": {
+      "bytes": 22754,
+      "sha256": "938c21da9caf258157d7ec6ef9a1c1564824bbfe809af336cf57f1d63bd8fba0"
+    },
+    "tests/campaign-v7.test.mjs": {
+      "bytes": 11581,
+      "sha256": "7655ba51f30e03c7f0dab18ee006fdb890dcad5a2a43be5026856e317d4d881f"
+    },
+    "tools/test-ui-runtime.mjs": {
+      "bytes": 68493,
+      "sha256": "bc20fe83c4b38762583646d1c6ed2b41e19e5321af37c4a7c5078c50b47df112"
+    },
+    "tools/render-mi07-previews.mjs": {
+      "bytes": 6747,
+      "sha256": "8cefe6e204ad8dc1a9860d559de178e4f4f44790998a552fe45512a4e2ce5501"
+    },
+    "docs/previews/mi07-render-manifest.json": {
+      "bytes": 439550,
+      "sha256": "ee651855f5b924afce6490341a039c9acd8ee7e896ed881a44471e3a9d07a36f"
+    },
+    "tools/verify-bible-export.py": {
+      "bytes": 8686,
+      "sha256": "68c9d002e9149b83a3498e5931d7c2e6f0f6d75d011417dfaed1ce07480828de"
+    },
+    "tests/fixtures/campaign-v6-mi06.json": {
+      "bytes": 231369,
+      "sha256": "e7ea0548ce459ef3a7d378a1892b7bfde4c591630eaec1e67c99c8b75e95b12c"
+    },
+    "tests/fixtures/bible-v07-ids.json": {
+      "bytes": 12883,
+      "sha256": "18147eecdcef2c37609df8e1f1e0dc0a6c8b53f4ad1b6b11d2396fe92b312bfa"
+    },
+    "tests/fixtures/campaign-v1-mi01.json": {
+      "bytes": 37769,
+      "sha256": "c6bad07aede50fe980460dc67a307bf69804d170abeeb643477358d36c02a22b"
+    },
+    "tests/fixtures/campaign-v2-mi02.json": {
+      "bytes": 131152,
+      "sha256": "9024310b7c33e39ed73ac30a03b7db5103be73ee472e95804c4214054ebe5cf2"
+    },
+    "tests/fixtures/campaign-v3-mi03.json": {
+      "bytes": 124642,
+      "sha256": "22793763d19477737abf7193590f00863ce32fd2fc14b1a0a49b273c81180288"
+    },
+    "tests/fixtures/campaign-v4-mi04.json": {
+      "bytes": 123266,
+      "sha256": "d34af557cc5cb280e803c289a193cbebfc1dd43146890c193a880b83381bbede"
+    },
+    "tests/fixtures/campaign-v5-mi05.json": {
+      "bytes": 150965,
+      "sha256": "7c79efb68911f1519cdae2d788e259c424c8750af9a99167ae100bcac4ecc7e3"
+    },
+    "docs/previews/mi07-ambulance-wreck.png": {
+      "bytes": 255903,
+      "sha256": "85c749cd8f67de378db06a679190ca08237a8b2bae2da0b57c7de625da358831"
+    },
+    "docs/previews/mi07-beacon-removal.png": {
+      "bytes": 267215,
+      "sha256": "3cdba89f3fbc739deb8f85ba51ab2261e831e960c12c179580c67893f5813393"
+    },
+    "docs/previews/mi07-consent-examination.png": {
+      "bytes": 260091,
+      "sha256": "97bb49cd523973c093e043a1cefce5d44ca93a9c33d23bcb74853f128517448b"
+    },
+    "docs/previews/mi07-imperial-arrival.png": {
+      "bytes": 251281,
+      "sha256": "b5e5c407ccc7d2a1354186863fc6b5356edeca659df5e2bc7fe1247b81f3f0a0"
+    },
+    "docs/previews/mi07-manual-tow.png": {
+      "bytes": 268282,
+      "sha256": "d4af3b67b25c5f0ff9011f275191c9828153fcdba5b330826bf8a71be789425b"
+    },
+    "docs/previews/mi07-patient-transfer.png": {
+      "bytes": 283381,
+      "sha256": "62617d20004c8603e018ed9af35b9f3b0159f1700e5a6c7bc2ce06fc3b2317af"
+    },
+    "docs/previews/mi07-secondary-ramp.png": {
+      "bytes": 279590,
+      "sha256": "d36cae735b5641ad09fc3ff3bcd60eb979f4fb88c15149999d402bc9b995582e"
+    },
+    "docs/previews/mi07-seizure-arrival.png": {
+      "bytes": 282274,
+      "sha256": "d36be92e098e96bda49c0c4c490a00afdac027fbb11013147a80da2f6eac27bf"
+    },
+    "docs/previews/mi07-stop-arrival.png": {
+      "bytes": 281351,
+      "sha256": "3022e0ff921f132a5ae085162f2da2e95789957baa118439ebd715683f993665"
+    }
+  }
+}

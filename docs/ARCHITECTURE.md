@@ -1,4 +1,4 @@
-# Architecture de la version 0.7
+# Architecture de la version 0.8
 
 ## Intention
 
@@ -10,9 +10,9 @@ Le jeu fonctionne sans bibliothèque externe. Il peut être lancé en modules de
 
 | Fichier | Responsabilité |
 | --- | --- |
-| `src/content.mjs` | Six marcheurs, trois opérations indépendantes, six missions de campagne MI01–MI06, difficultés et définitions ennemies. |
+| `src/content.mjs` | Six marcheurs, trois opérations indépendantes, sept missions de campagne MI01–MI07, difficultés et définitions ennemies. |
 | `src/simulation.mjs` | État de mission, mouvement, appuis, combat, interactions, objectifs, événements et résultat. Aucun DOM. |
-| `src/campaign.mjs` | Dossiers MI01–MI06, progression, migrations v1/v2/v3/v4/v5 vers v6, validation, checkpoints, restauration, attributions uniques d’atelier et de carburant, réparations. Aucun DOM ; stockage fourni explicitement. |
+| `src/campaign.mjs` | Dossiers MI01–MI07, progression, migrations v1/v2/v3/v4/v5/v6 vers v7, validation, checkpoints, restauration, attributions uniques d’atelier et de carburant, réparations. Aucun DOM ; stockage fourni explicitement. |
 | `src/renderer.mjs` | Canvas 2D : cinématique inverse des jambes, châssis, ennemis, environnement, particules et repères spatiaux. |
 | `src/audio.mjs` | Sons procéduraux déclenchés par les événements, déverrouillés par un geste utilisateur. |
 | `src/main.mjs` | Cinq écrans, entrées, HUD, dialogues, dossier de campagne, atelier, import/export et autosauvegarde. |
@@ -97,12 +97,12 @@ Les clés locales séparent les anciens réglages/rapports de la campagne :
 
 - `imperium.settings.v1` : difficulté, aides, confort, volume et sélection.
 - `imperium.records.v1` : dernier rapport victorieux de chaque opération.
-- `imperium.campaign.v1` : dossier de campagne au format v6, mission MI01 à MI06 en cours, point avant décision, résultats et atelier.
+- `imperium.campaign.v1` : dossier de campagne au format v7, mission MI01 à MI07 en cours, point avant décision, résultats et atelier.
 - `imperium.campaign.v1.backup` : précédent dossier complet validé.
 
 `campaign.mjs` conserve des données JSON bornées, avec vérification du format, de la version, des IDs et des structures de simulation. L’interface sauvegarde toutes les huit secondes simulées, à la pause, au retour, avant/après une décision et lors des événements de fermeture disponibles. La graine, le générateur, les projectiles et contacts sont inclus. Une fermeture brutale peut perdre les secondes postérieures à la dernière écriture.
 
-`parseCampaign` migre les formats historiques v1, v2, v3, v4 et v5 vers v6. Les étapes conservent les rapports, ressources, états de mission et stocks antérieurs. V1 reçoit les champs ferroviaires ; v1/v2 reçoivent le dossier de communications, les trois nouveaux châssis et huit magasins en réserve. La migration v3→v4 ajoute le dossier industriel vierge, le radiateur à 100 dans la flotte et les checkpoints, deux kits et aucun travail de réparation lancé. La migration v4→v5 ajoute uniquement `world.nacre.passage` vierge, `resources.fuel: 0` et le nouveau numéro de format ; elle ne réécrit aucun checkpoint, reçu, stock, dommage ni état de radiateur de Vesper. Les fixtures historiques sont produites par leurs révisions d’origine : la v3 provient de `c81a360` et `tests/fixtures/campaign-v4-mi04.json` de `d7d76b61ee9e97e27c611e06905f32f70633cb8e`. Cette dernière contient un vrai dossier MI04 en cours et un dossier MI04 terminé. Aucune fixture n’est régénérée depuis le code actuel. Une version antérieure à v5 contenant déjà un résultat de Nacre, un champ carburant ou un checkpoint MI05 est refusée.
+`parseCampaign` migre les formats historiques v1, v2, v3, v4, v5 et v6 vers v7. Les étapes conservent les rapports, ressources, états de mission et stocks antérieurs. V1 reçoit les champs ferroviaires ; v1/v2 reçoivent le dossier de communications, les trois nouveaux châssis et huit magasins en réserve. La migration v3→v4 ajoute le dossier industriel vierge, le radiateur à 100 dans la flotte et les checkpoints, deux kits et aucun travail de réparation lancé. La migration v4→v5 ajoute uniquement `world.nacre.passage` vierge, `resources.fuel: 0` et le nouveau numéro de format ; elle ne réécrit aucun checkpoint, reçu, stock, dommage ni état de radiateur de Vesper. Les fixtures historiques sont produites par leurs révisions d’origine : la v3 provient de `c81a360` et `tests/fixtures/campaign-v4-mi04.json` de `d7d76b61ee9e97e27c611e06905f32f70633cb8e`. Cette dernière contient un vrai dossier MI04 en cours et un dossier MI04 terminé. Aucune fixture n’est régénérée depuis le code actuel. Une version antérieure à v5 contenant déjà un résultat de Nacre, un champ carburant ou un checkpoint MI05 est refusée.
 
 Le contexte de MI04 copie les faits du monde validé au départ. Le reçu final et `world.vesper.industrial` conservent refroidissement, aide, inspection, journal, PT01, besoin d’autre source, contact effectué, rapport et état du poste. La copie d’un journal reste acquise après destruction de l’original. Le choix administratif ne la supprime pas. Le contexte du checkpoint doit correspondre au dossier officiel, ce qui empêche un import contradictoire de créer un contact ou des renforts. Le contrat historique de ce format reste dans [CAMPAIGN_SAVE_V4.md](CAMPAIGN_SAVE_V4.md). En v5, `world.nacre.passage` et `completed.MI05` conservent les mêmes faits de passage : treuils, inspections, copies et contact, arrivées et pertes, carburant chargé et mode de rapport. Le contexte de MI05 doit correspondre aux faits officiels de Vesper ; la marée doit correspondre exactement à l’horloge du checkpoint. Avant la validation officielle de MI05, le dossier de Nacre reste vierge et `resources.fuel` reste à zéro, même si le checkpoint contient un transfert de carburant déjà effectué.
 
@@ -110,7 +110,7 @@ Le contexte de MI04 copie les faits du monde validé au départ. Le reçu final 
 
 L’écriture principale emploie un remplacement atomique `localStorage.setItem`, précédé de la conservation du dernier dossier valide. Une panne de la deuxième écriture laisse la première copie lisible. Une corruption JSON permet le repli sur une copie compatible. Une version future, un format étranger ou un dossier dépassant la taille autorisée bloque l’écrasement automatique même avec une ancienne copie valide. Créer un dossier ou importer explicitement autorise son remplacement. Ce contrôle protège des incompatibilités et corruptions ordinaires ; il ne constitue pas un système anti-triche.
 
-Les opérations restent indépendantes. Une défaite ne valide pas une sortie. Le premier succès de chacune des six missions MI01–MI06 inscrit un rapport et attribue quatre lots d’atelier ; les validations répétées et relectures n’en attribuent aucun. Les six lots initiaux et les six dotations donnent un maximum de **30 lots d’atelier avant dépenses**. Les zéro ou deux lots de carburant de MI05 sont une ressource distincte, attribuée une seule fois selon le transfert réellement accompli. Les réparations débitent les lots disponibles, sont refusées en sortie et conservent l’incident historique. Le dossier conserve les résultats de Vesper pendant MI05. Les missions du chenal et de la digue sont exécutées. MI07–MI08 doivent encore utiliser leurs conséquences ; les autres missions de la campagne restent à produire.
+Les opérations restent indépendantes. Une défaite ne valide pas une sortie. Le premier succès de chacune des sept missions MI01–MI07 inscrit un rapport et attribue quatre lots d’atelier ; les validations répétées et relectures n’en attribuent aucun. Les six lots initiaux et les sept dotations donnent un maximum de **34 lots d’atelier avant dépenses**. Les zéro ou deux lots de carburant de MI05 sont une ressource distincte, attribuée une seule fois selon le transfert réellement accompli. Les réparations débitent les lots disponibles, sont refusées en sortie et conservent l’incident historique. Le dossier conserve les résultats de Vesper pendant MI05. Les missions du chenal, de la digue et de l’ambulance sont exécutées. MI08 doit encore utiliser leurs conséquences ; les autres missions de la campagne restent à produire.
 
 ## Construction autonome
 
@@ -118,11 +118,11 @@ Les opérations restent indépendantes. Une défaite ne valide pas une sortie. L
 
 `tools/test-ui.mjs` compile le script autonome avec `vm.Script`, vérifie les correspondances d’IDs et l’absence de ressources distantes. Cela valide sa cohérence statique, pas l’exécution du DOM ou les interactions du navigateur.
 
-`tools/test-ui-runtime.mjs` exécute ce même script et ses gestionnaires dans un petit modèle de DOM avec stockage simulé. Ses parcours vérifient les liaisons d’état et les transitions. Les appels Canvas y sont neutralisés ; aucune conclusion CSS, audio, téléchargement ou dialogue natif n’en découle. `tools/test-browser.mjs` fournit le contrôle Chromium séparé, disponible sur un environnement autorisé. Les résultats et limites de la 0.7 figurent dans [QA_V07.md](QA_V07.md). Les rapports 0.2, 0.3, 0.4, 0.5 et 0.6 restent conservés comme historique. `tools/render-mi05-previews.mjs` produit séparément des images du Canvas de production depuis des états atteints par commandes publiques ; son manifeste copie profondément chaque état. Ces images ne certifient ni le navigateur ni le HUD HTML.
+`tools/test-ui-runtime.mjs` exécute ce même script et ses gestionnaires dans un petit modèle de DOM avec stockage simulé. Ses parcours vérifient les liaisons d’état et les transitions. Les appels Canvas y sont neutralisés ; aucune conclusion CSS, audio, téléchargement ou dialogue natif n’en découle. `tools/test-browser.mjs` fournit le contrôle Chromium séparé, disponible sur un environnement autorisé. Les résultats et limites de la 0.8 figurent dans [QA_V08.md](QA_V08.md). Les rapports 0.2, 0.3, 0.4, 0.5, 0.6 et 0.7 restent conservés comme historique. `tools/render-mi05-previews.mjs` produit séparément des images du Canvas de production depuis des états atteints par commandes publiques ; son manifeste copie profondément chaque état. Ces images ne certifient ni le navigateur ni le HUD HTML.
 
 ## Prochaine tranche
 
-MI07 — **Une ambulance sans escorte** reste **Conçu**. La campagne jouable s’arrête après MI06 ; MI07–MI32 ne sont pas des missions exécutables. La suite doit aussi compléter les essais auprès de joueurs, le premier composant ennemi, les doctrines d’escouade, les animations définitives et l’inventaire détaillé. Aucun port vers un moteur natif n’est présumé terminé.
+MI08 — **La marée compte les absents** reste **Conçu**. La campagne jouable s’arrête après MI07 ; les 25 missions MI08–MI32 ne sont pas encore exécutables. La suite doit aussi compléter les essais auprès de joueurs, le premier composant ennemi, les doctrines d’escouade, les animations définitives et l’inventaire détaillé. Aucun port vers un moteur natif n’est présumé terminé.
 
 Le navigateur place le prompt contextuel dans le HUD HTML, au-dessus de la hauteur effective du panneau inférieur. Il transmet `interactionPrompt:false` au renderer pour éviter un chevauchement avec les jauges. Les rendus Canvas autonomes gardent leur prompt par défaut.
 
@@ -131,3 +131,14 @@ Le HUD de MI06 lit les faits de `state.dike` : soutien, pression, fatigue, perso
 La migration v5→v6 ajoute uniquement `world.nacre.dike` non visité et `world.nacre.fuelSpent: 0`, puis change le numéro. Les cinq anciens rapports et leurs checkpoints restent identiques. La fixture historique v5 provient du snapshot public `613c07307f2712c5fac28d9403016906e94da168`. Une MI05 encore en cours peut contenir deux lots prélevés dans son checkpoint tout en ayant zéro réserve officielle ; la migration conserve cette distinction.
 
 L’interface sauvegarde aussi à l’achèvement du raccordement et à la défaite de MI06. Un refus du stockage laisse un avertissement visible ; cette écriture immédiate ne promet pas de persistance si le navigateur refuse l’accès. Une relecture ne modifie jamais le stock ni le premier rapport.
+
+
+## L’ambulance de MI07
+
+`ambulance` est propre à MI07. Les scènes historiques ne reçoivent aucun objet sanitaire. La nouvelle sortie copie les faits conservés de MI06 dans son contexte et en déduit la rampe, sans convertir ses habitants en patients ni ses techniciens disponibles en intervenants déjà rencontrés.
+
+La simulation porte le mouvement du véhicule, son arrêt, l’accord à l’examen, l’inspection de la caisse, les travaux sur la balise et la rampe, l’arrivée des drones et le transfert. Le renderer lit ces objets ; il ne réalise aucune arrivée ni récupération. Les identités des quatre patients et des deux membres de l’équipe sont stables pendant la sortie.
+
+Les faits sanitaires rejoignent `world.nacre.ambulance` uniquement au premier rapport réussi. Les relectures sont indépendantes. Le HUD HTML présente l’étape, la route, les personnes, la cargaison et la balise. Le résultat et l’atelier distinguent le véhicule, les personnes et les pièces récupérées. Une perte matérielle reste constatable sans reconstituer les données détruites.
+
+Le dossier v7 ajoute seulement l’ambulance non visitée aux anciennes sauvegardes v6. Les invariants du carburant MI06 restent identiques. Les détails de validation et les limites sont documentés dans [CAMPAIGN_SAVE_V7.md](CAMPAIGN_SAVE_V7.md).

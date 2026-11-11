@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.7.0",
+    "version": "0.8.0",
     "date": "2026-11-11",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "Bible de conception et suivi de production. MI01–MI04 forment le premier arc jouable de Vesper. MI05 ouvre Nacre avec chenal et passage civil. MI06 met en jeu une digue, deux techniciens, dix habitants et deux maisons distincts, un circuit hydraulique et une réserve de carburant réellement consommable. Six châssis, munitions finies, radiateur réparable et dossier v6 sont disponibles. Les 26 autres missions principales restent conçues, dont MI07–MI08 détaillées dans le contrat de Nacre. OP01–OP03 gardent leurs rapports indépendants. Consulter Prototype pour la portée implémentée.",
+    "scope": "Bible de conception et suivi de production. MI01–MI04 forment le premier arc jouable de Vesper. MI05 ouvre le chenal de Nacre, MI06 met en jeu la digue et MI07 suit une ambulance sur la chaussée des Salines. Arrêt protégé, consentement, inspections, balise, rampe et transfert restent des actes distincts. Six châssis, munitions finies, radiateur réparable et dossier v7 sont disponibles. Les 25 autres missions principales restent conçues, dont MI08 détaillée dans le contrat de Nacre. OP01–OP03 gardent leurs rapports indépendants. Consulter Prototype pour la portée implémentée.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Présent en partie dans une version jouable; l’onglet Prototype précise la portée et les règles cibles encore absentes.",
@@ -17,7 +17,7 @@
     "balanceDisclaimer": "Dimensions, charges et valeurs de gameplay décrites ici sont des hypothèses à calibrer.",
     "qualityDisclaimer": "AAA est une ambition de qualité, pas une description du niveau de finition du prototype.",
     "sheetCount": 20,
-    "recordCount": 705,
+    "recordCount": 769,
     "release": {
       "playableCampaignMissions": [
         "MI01",
@@ -25,7 +25,8 @@
         "MI03",
         "MI04",
         "MI05",
-        "MI06"
+        "MI06",
+        "MI07"
       ],
       "standaloneOperations": [
         "OP01",
@@ -33,8 +34,8 @@
         "OP03"
       ],
       "campaignMissionDesigns": 32,
-      "remainingCampaignMissionDesigns": 26,
-      "saveFormatVersion": 6,
+      "remainingCampaignMissionDesigns": 25,
+      "saveFormatVersion": 7,
       "playableWalkerIds": [
         "WK01",
         "WK02",
@@ -265,6 +266,20 @@
           "theme": "Le coût survit à l’échec",
           "decision": "Une dépense effectivement engagée reste engagée même quand la mission échoue. L’archive d’une sortie et le stock actuel répondent à deux questions différentes.",
           "acceptance": "Le joueur comprend le coût avant branchement, retrouve le stock après recommencement et peut continuer sans la réserve. La relecture demeure isolée du dossier officiel.",
+          "status": "Conçu"
+        },
+        {
+          "id": "VI27",
+          "theme": "Un accord possède un objet",
+          "decision": "Consentir à un examen, à un transfert ou à un témoignage sont des décisions différentes. Une aide reçue ne donne pas à Sera une autorité générale sur la personne.",
+          "acceptance": "Les dialogues et le dossier nomment ce qui est autorisé. Une observation médicale ne publie pas les noms des patients et ne vaut pas recrutement.",
+          "status": "Conçu"
+        },
+        {
+          "id": "VI28",
+          "theme": "L’histoire change la route",
+          "decision": "Une infrastructure endommagée doit transformer un trajet ou un travail, pas seulement une phrase de briefing. Le repli garde un coût visible et une issue praticable.",
+          "acceptance": "Deux états du panneau produisent deux accès sanitaires différents. La route longue ne recrée ni technicien, ni matériel, ni stock perdu.",
           "status": "Conçu"
         }
       ]
@@ -853,11 +868,11 @@
         {
           "id": "SY61",
           "system": "Examen d’un transport",
-          "design": "Cible MI07 : arrêt protégé, échange avec le personnel, examen de cargaison et démontage de balise constituent quatre actes distincts.",
-          "counterplay": "Tirer sur le marquage risque les passagers. Prévoir constat de perte et provenance partielle sans reconstruire un témoignage absent.",
-          "acceptance": "La balise n’est attribuée qu’après récupération physique; sa signature seule ne révèle pas le commanditaire.",
+          "design": "À MI07, arrêt protégé, accord du personnel, examen de la caisse et démontage de la balise sont des actions distinctes. Le transfert exige ensuite une route préparée et une arrivée.",
+          "counterplay": "Détruire le véhicule ou la balise laisse un constat limité. La présence d’un marquage hostile ne donne pas le droit d’inventer des armes ou un auteur.",
+          "acceptance": "La récupération exige le démontage accompli; la copie ou l’objet obtenu reste distinct de la source encore intacte. La provenance de pose demeure non vérifiée.",
           "priority": "P1",
-          "status": "Conçu"
+          "status": "Prototype"
         },
         {
           "id": "SY62",
@@ -955,6 +970,96 @@
           "design": "Le premier résultat conserve circuit choisi, travaux, occupants, logements, intervenants et carburant de la sortie. Les ressources actuelles restent séparées de cette archive.",
           "counterplay": "Comparer constat de fin et dépense cumulée, notamment après une tentative perdue puis un succès sans carburant.",
           "acceptance": "L’archive peut indiquer zéro lot pour la sortie victorieuse alors que le registre officiel garde deux lots dépensés auparavant. Aucun double crédit ni effet de rapport sur les morts.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY73",
+          "system": "Arrêt protégé",
+          "design": "L’appel d’arrêt de MI07 et l’arrivée du véhicule dans l’aire prévue sont deux états. Une menace ou un obstacle doit être résolu avant que l’arrêt soit utilisable.",
+          "counterplay": "La zone sûre est annoncée avant l’engagement. Appeler ne téléporte pas l’ambulance au poste.",
+          "acceptance": "Arrêt obtenu par une action puis un déplacement réel; aucun examen en marche.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY74",
+          "system": "Accord à l’examen",
+          "design": "Un échange de deux secondes autorise l’examen de la caisse. Après constat, un autre échange facultatif de 2,5 secondes recueille le consentement à témoigner et l’identité de son auteur.",
+          "counterplay": "Consentement à l’examen et consentement à témoigner ne se confondent pas. Si le témoin meurt ensuite, son accord historique reste mais sa disponibilité disparaît.",
+          "acceptance": "Aucun transfert de consentement vers l’autre membre du personnel. La source locale ne publie pas les dossiers de soins et ne donne pas de recrutement.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY75",
+          "system": "Caisse sanitaire",
+          "design": "L’examen matériel constate le contenu de la caisse. Le marquage reçu par Holt ne tient pas lieu d’observation.",
+          "counterplay": "Une destruction avant examen ne crée pas le relevé perdu. Un constat acquis n’est pas effacé par un dommage ultérieur.",
+          "acceptance": "Les états examiné, contenu constaté et véhicule encore intact restent indépendants.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY76",
+          "system": "Balise et démontage",
+          "design": "Une seule opération de cinq secondes démonte le boîtier intact sous ancrage, coque immobile et tous les pieds en contact. Son achèvement conserve balise, attaches et journal local.",
+          "counterplay": "Une perte de stabilité annule le travail incomplet. Sur un boîtier détruit, un constat de deux secondes résout l’objectif sans fournir de journal.",
+          "acceptance": "Aucune phase d’inspection supplémentaire inventée. Récupération unique, source retirée des dégâts, provenance de pose toujours non vérifiée.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY77",
+          "system": "Rampe héritée",
+          "design": "Route principale si verrou MI06 achevé, sans étai et fatigue inférieure à 65; sinon route secondaire, avec accueil 550 unités plus loin. Des maisons inhabitables déplacent aussi l’accueil civil de 180 unités.",
+          "counterplay": "L’étai ne prouve pas la capacité du passage à porter le transport. La préparation de rampe et celle de l’accueil viennent après le choix de destination.",
+          "acceptance": "L’état du quartier modifie concrètement le trajet. La route secondaire et la préparation manuelle gardent une issue sans ressources nouvelles.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY78",
+          "system": "Aide réellement demandée",
+          "design": "Un technicien survivant de MI06 peut être joint par radio au poste de MI07. L’échange de 2,5 s donne un guidage ramenant la préparation de rampe de huit à quatre secondes.",
+          "counterplay": "Sans survivant ou sans appel accompli, la préparation manuelle reste possible. Aucun technicien physique supplémentaire n’est créé.",
+          "acceptance": "Disponibilité, liaison accomplie et aide sont séparées. Un simple dossier indiquant un survivant ne réduit pas la durée.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY79",
+          "system": "Transfert sanitaire",
+          "design": "Le véhicule rejoint la destination choisie à 48 unités/s avec sa conductrice. Sans elle, un attelage au treuil de cinq secondes permet un remorquage à 28 unités/s avec le marcheur à moins de 480 unités.",
+          "counterplay": "Hors portée, le remorquage attend. L’attelage interrompu ne coûte rien. Une épave ne se répare pas par ce repli; les personnes déjà sorties peuvent être secourues à pied.",
+          "acceptance": "Le quai n’est pas encore l’accueil : le déploiement des chariots puis le trajet individuel déterminent les arrivées. Aucun choix ne les crédite à l’avance.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY80",
+          "system": "Occupants de l’ambulance",
+          "design": "Quatre patients et deux membres du personnel sont six entités individuelles. Les occupants embarqués sont protégés par la carrosserie; le personnel sort à l’arrêt puis remonte. Détruire le véhicule tue seulement les personnes encore à bord.",
+          "counterplay": "Au quai, déploiement des chariots : cinq secondes avec soignant vivant, neuf sans lui. Patients à 24 unités/s tant qu’il vit, 18 sinon; personnel à 32. Les arrivés quittent les collisions.",
+          "acceptance": "Quai atteint, déploiement, trajet et arrivée à la porte sont distincts. Pertes et secours individuels ne modifient ni la population de MI05 ni celle de MI06.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY81",
+          "system": "Constat sans source intacte",
+          "design": "Un véhicule ou une balise détruits restent constatables selon ce qui subsiste. La mission continue sans exiger l’inspection impossible d’un objet intact.",
+          "counterplay": "Le repli ne révèle ni cargaison inconnue, ni journal jamais récupéré, ni interlocuteur perdu.",
+          "acceptance": "Copie acquise et source encore vivante sont deux faits; perte avant et après relevé produit deux archives différentes.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY82",
+          "system": "Destination et restitution",
+          "design": "Obéir transfère vers le poste impérial et permet la saisie du véhicule survivant. Contester la désignation accompagne vers l’accueil civil et conserve le véhicule qui y arrive.",
+          "counterplay": "La disposition choisie n’annule aucun dommage, ne reconstitue personne et ne certifie pas la provenance de pose.",
+          "acceptance": "Premier rapport immuable, états de transfert réels, aucune nouvelle dotation en relecture et aucun carburant produit.",
           "priority": "P0",
           "status": "Prototype"
         }
@@ -1615,7 +1720,7 @@
           "name": "Nacre",
           "biome": "Archipels, récifs lumineux, digues habitées, plateformes et docks de récupération.",
           "society": "Les communes de marée dépendent des pompes; pirates prédateurs et capitaines de secours se disputent les routes.",
-          "terrain": "La 0.7 ajoute au chenal une digue, un panneau soutenu par les appuis, des pompes et deux maisons exposées à l’eau. Les dégâts et travaux restent locaux; résistance générale des quais, fluides volumétriques et marées de tout l’archipel restent conçus.",
+          "terrain": "Le chenal, la digue et la chaussée sanitaire fournissent trois situations locales : marée, soutien du panneau et rampe héritée. Les dommages et trajets viennent de la simulation. Résistance générale des quais, fluides volumétriques et marées de tout l’archipel restent conçus.",
           "reveal": "Les inondations servent à transformer des habitants sans titre en main-d’œuvre sous contrat.",
           "missions": "MI05–MI08",
           "status": "Prototype"
@@ -1906,7 +2011,7 @@
           "name": "Mara Eren",
           "role": "Médecin de Nacre",
           "desire": "Défend le maintien des soins, même à ceux qui ont détruit son dispensaire.",
-          "arc": "À MI06, Mara intervient par radio après un constat réel sur les maisons. Elle n’est pas un personnage vulnérable physiquement présent. Secours et logements perdus restent distincts; aucun recrutement, témoignage politique complet ou lien général de confiance n’est attribué.",
+          "arc": "À MI06, Mara intervient à la radio après constat des maisons. À MI07, un appel facultatif lui transmet le relevé réellement compilé, y compris un constat de perte. Aucun personnage physique Mara vulnérable, recrutement ou consentement général des patients n’est attribué.",
           "faction": "FA08",
           "status": "Prototype"
         },
@@ -1977,7 +2082,7 @@
     },
     {
       "name": "Campagne",
-      "description": "32 missions principales : MI01–MI06 jouables au stade prototype, 26 autres conçues. MI07–MI08 possèdent un contrat de production détaillé. OP01–OP03 restent autonomes.",
+      "description": "32 missions principales : MI01–MI07 jouables au stade prototype, 25 autres conçues. MI08 possède un contrat de production détaillé. OP01–OP03 restent autonomes.",
       "columns": [
         {
           "key": "id",
@@ -2098,10 +2203,10 @@
           "planet": "PL02",
           "title": "Une ambulance sans escorte",
           "order": "Intercepter à la chaussée des Salines un transport classé comme dépôt mobile de munitions.",
-          "play": "Cible conçue : rejoindre une ambulance, lui ménager une zone d’arrêt sans collision, obtenir l’accord à l’examen, observer la balise ajoutée et protéger le transfert au dock contre des drones de saisie. Extraire la balise préserve les fils et sa provenance.",
-          "truth": "Le marquage hostile vient d’un équipement impérial posé sur un véhicule sanitaire. Sa présence établit une fausse désignation locale, sans identifier seule son auteur ni la chaîne de PALINODE.",
-          "consequence": "Patient arrivé, personnel vivant, balise récupérée, provenance vérifiée et consentement à témoigner restent distincts. Cible conçue : MI06 détermine le service et la voie d’accueil utilisables; les habitants évacués de la digue ne deviennent pas spontanément les passagers de l’ambulance.",
-          "status": "Conçu"
+          "play": "Rejoindre l’Ambulance Quai, dégager son arrêt et obtenir l’accord à l’examen de la caisse. Démonter la balise sous ancrage ou constater sa perte, compiler le relevé puis choisir la destination. Préparer rampe et accueil, ordonner le transfert, déployer les chariots et protéger l’arrivée des personnes.",
+          "truth": "La caisse sanitaire et le boîtier de désignation sont deux sources différentes. La balise récupérée conserve un relevé local; l’auteur de sa pose et sa provenance complète restent à vérifier. Aucun PT ou PO n’est attribué.",
+          "consequence": "Quatre patients, une conductrice et un soignant nouveaux; arrivée, pertes, véhicule, cargo constaté, balise et contacts sont séparés. Un consentement à témoigner doit être demandé et reste lié à son auteur. La route et l’accueil consomment l’état de MI06; aucun carburant n’est créé.",
+          "status": "Prototype"
         },
         {
           "id": "MI08",
@@ -2109,9 +2214,9 @@
           "planet": "PL02",
           "title": "La marée compte les absents",
           "order": "Fermer les portes de la digue d’Aval pour l’opération impériale de contrôle de l’archipel.",
-          "play": "Cible conçue : surveiller une pression montante, manœuvrer deux portes, couvrir les bateaux réellement prêts et choisir l’instant de fermeture. Fermer une porte ne détruit pas l’autre; chaque embarcation garde une destination et une place au refuge.",
+          "play": "Cible conçue : régler une porte d’amenée et une porte de passage, identifier les capacités des bateaux et l’accueil, observer embarquement et départ, puis réaliser la fermeture choisie. Chaque porte garde son mécanisme, ses dégâts et son état.",
           "truth": "Les documents consultés lient le relogement à des contrats forcés. Sera peut laisser partir Mara et les familles présentes; une fermeture administrative ne rend pas le courant ni les habitants abstraits.",
-          "consequence": "Bateaux sortis, personnes restées, pertes, porte endommagée et refuge accessible forment des faits distincts. Cible conçue : personnes et capacités d’accueil héritées de MI06–MI07 gardent leur identité. La désobéissance locale précède toujours la défection militaire de MI16.",
+          "consequence": "Départ, trajet et arrivée au refuge restent distincts, avec une place et une origine par personne. Les groupes de MI05, MI06 et MI07 ne sont pas fusionnés. Une porte bloquée conserve une issue de constat et d’accueil local. La désobéissance locale ne remplace pas MI16.",
           "status": "Conçu"
         },
         {
@@ -2988,10 +3093,10 @@
           "id": "VE02",
           "name": "Ambulance Quai",
           "faction": "FA08",
-          "role": "Véhicule sanitaire amphibie.",
-          "encounter": "Attend un accès sécurisé pour charger; peut emprunter une voie d’eau basse.",
-          "weakness": "Blindage léger et portes latérales vulnérables au souffle.",
-          "status": "Conçu"
+          "role": "Véhicule sanitaire; roulage routier dans MI07. Capacité amphibie conçue.",
+          "encounter": "Arrêt demandé dans une aire protégée, examen avec accord, puis transfert par une rampe préparée vers un poste médical impérial ou un accueil civil.",
+          "weakness": "Véhicule et occupants exposés pendant le trajet. Les capacités amphibies et les compartiments finaux restent à produire.",
+          "status": "Prototype"
         },
         {
           "id": "VE03",
@@ -3882,7 +3987,7 @@
           "type": "Structure",
           "name": "Actes, constats et rapport",
           "rule": "Suivre séparément ce que Sera fait, ce qu’elle observe et ce qu’elle déclare. Aucun texte de bilan ne dépasse les informations disponibles.",
-          "sources": "MI01–MI06; contrats de mission; archive de campagne.",
+          "sources": "MI01–MI07; contrats de mission; archive de campagne.",
           "status": "Conçu"
         },
         {
@@ -3954,7 +4059,7 @@
           "type": "Fin",
           "name": "Résolution et priorité",
           "rule": "Vérifier d’abord une issue jouable valide, puis dossier/diffusion, services/pactes et voie de retrait pour départager FI01–FI04.",
-          "sources": "Finale MI32; aucune fin implémentée dans la 0.7.",
+          "sources": "Finale MI32; aucune fin implémentée dans la 0.8.",
           "status": "Conçu"
         },
         {
@@ -4042,7 +4147,7 @@
           "type": "Structure",
           "name": "Mémoire d’une relecture",
           "rule": "Un ancien chapitre rejoué conserve son horizon de connaissance. Les faits du dossier officiel avancé n’autorisent pas une révélation prématurée dans cette scène.",
-          "sources": "Relectures MI01–MI06; dossiers historiques et ressources officiels isolés de la simulation rejouée.",
+          "sources": "Relectures MI01–MI07; dossiers historiques et ressources officiels isolés de la simulation rejouée.",
           "status": "Conçu"
         },
         {
@@ -4087,11 +4192,11 @@
         },
         {
           "id": "NA46",
-          "type": "Source conçue",
+          "type": "Source locale",
           "name": "La balise ajoutée",
-          "rule": "Le personnel de l’ambulance ne sait pas qui a donné l’ordre de pose. La balise récupérée, ses fixations et son journal donnent une provenance à vérifier dans une autre scène.",
-          "sources": "MI07; aucune nouvelle preuve PT ou PO ajoutée automatiquement à la chaîne actuelle.",
-          "status": "Conçu"
+          "rule": "La caisse observée et la balise ajoutée sont consignées séparément. Le démontage achevé conserve la balise, ses attaches et son journal local. Il ne prouve pas qui a ordonné la pose; provenanceVerified reste faux.",
+          "sources": "MI07; récupération effective, source intacte ou détruite et constat distincts. Aucun nouveau PT ou PO automatique.",
+          "status": "Prototype"
         },
         {
           "id": "NA47",
@@ -4130,7 +4235,7 @@
           "type": "Relation",
           "name": "Mara reste médecin",
           "rule": "La voix radio de Mara suit une inspection réelle. Elle parle des maisons et habitants qu’elle peut connaître. Ni personnage vulnérable Mara, ni recrutement, ni témoignage politique, ni confiance universelle n’est attribué.",
-          "sources": "PN07; MI06; les relations complètes de MI07–MI08 restent conçues.",
+          "sources": "PN07; MI06 et appel facultatif MI07. Relations complètes et engagements futurs encore conçus.",
           "status": "Prototype"
         },
         {
@@ -4154,16 +4259,16 @@
           "type": "État",
           "name": "Le carburant déjà engagé",
           "rule": "Une tentative perdue peut avoir consommé la réserve. Tess et l’atelier parlent du stock présent; le rapport de la tentative suivante décrit son propre travail. Aucun personnage ne prétend avoir récupéré les lots en quittant le niveau.",
-          "sources": "Dossier v6; registre de dépense et sorties officielles séparés.",
+          "sources": "Dossier courant; registre de dépense et sorties officielles séparés.",
           "status": "Prototype"
         },
         {
           "id": "NA55",
-          "type": "Transition conçue",
+          "type": "Transition",
           "name": "Une place pour le brancard",
-          "rule": "MI07 doit identifier une aire d’accueil à partir du verrou ou de l’étai, de la fatigue et des techniciens survivants de MI06. Une voie secondaire reste possible lorsque la route principale ne supporte pas le transport. Les dix habitants de la digue ne deviennent pas la cargaison de l’ambulance.",
-          "sources": "MI06 vers MI07; service, présence et consentement séparés.",
-          "status": "Conçu"
+          "rule": "L’accueil de MI07 utilise la rampe principale si le verrou de MI06 est achevé, sans étai et avec une fatigue inférieure à 65; sinon la voie secondaire est plus longue. Un technicien doit être réellement interrogé pour apporter son aide. Les habitants de la digue restent distincts des patients.",
+          "sources": "MI06 vers MI07; état matériel, interlocuteur disponible et échange accompli séparés.",
+          "status": "Prototype"
         },
         {
           "id": "NA56",
@@ -4171,6 +4276,70 @@
           "name": "Des personnes derrière le bilan",
           "rule": "La première version simule dix personnes distinctes marchant jusqu’à un abri, puis agrège leur bilan. La finition doit leur donner noms, accueil incarné et vie ultérieure sans modifier les faits déjà inscrits.",
           "sources": "MI06 puis épilogues de Nacre; silhouettes finales et accueil individuel à produire.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA57",
+          "type": "Ordre",
+          "name": "Une signature reçue",
+          "rule": "Holt transmet une désignation de dépôt mobile de munitions. Le joueur doit établir ce que contient le véhicule; la couleur de l’alerte ne constitue pas une preuve matérielle.",
+          "sources": "MI07; ordre, caisse et balise ont des sources distinctes.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA58",
+          "type": "Population",
+          "name": "Six personnes nouvelles",
+          "rule": "Les quatre patients, la conductrice et le soignant sont introduits par MI07. Ils ne sont pas prélevés sur les dix habitants de MI06 ou les douze passagers de MI05.",
+          "sources": "MI07; bilan sanitaire propre, origines conservées vers MI08.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA59",
+          "type": "Consentement",
+          "name": "Ce que l’examen autorise",
+          "rule": "L’accord à l’examen ne vaut pas témoignage. Un échange facultatif distinct recueille ce consentement avec son auteur; la perte de cet auteur retire sa disponibilité sans transférer l’accord à quelqu’un d’autre.",
+          "sources": "MI07; accord de 2 s, consentement à témoigner de 2,5 s, aucune publication des données de soins ni recrutement.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA60",
+          "type": "Source locale",
+          "name": "L’objet et son auteur",
+          "rule": "La balise récupérée, ses attaches et son journal peuvent être décrits. Le responsable de sa pose reste inconnu; une technologie impériale ne suffit pas à identifier une personne qui a donné l’ordre.",
+          "sources": "MI07; provenanceVerified faux, aucune attribution PT ou PO.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA61",
+          "type": "Contact",
+          "name": "Un survivant ne répond pas d’avance",
+          "rule": "Un technicien vivant au bilan de MI06 peut répondre à une liaison au poste. Seul l’appel achevé donne son guidage pour la rampe; aucune nouvelle entité physique de technicien n’est créée.",
+          "sources": "MI06 vers MI07; contact radio de 2,5 s, aide à la rampe de 4 s au lieu de 8.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA62",
+          "type": "Dialogue conçu",
+          "name": "Les noms restent au soin",
+          "rule": "La transmission à Mara doit garder la portée du relevé compilé, y compris lorsqu’il ne contient qu’une perte. Elle distingue le véhicule des données personnelles des patients. Sa réponse n’implique ni recrutement ni présence physique.",
+          "sources": "PN07; finition de l’appel MI07, voix enregistrées à produire.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA63",
+          "type": "Transition conçue",
+          "name": "Une place pour chaque arrivée",
+          "rule": "MI08 doit retrouver les patients et le personnel réellement accueillis, selon leur accord et les capacités de transport. Un véhicule saisi n’est pas disponible au quai civil sans nouvelle scène.",
+          "sources": "MI07 vers MI08; destination, disponibilité et retour identifiés.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA64",
+          "type": "Écriture conçue",
+          "name": "Ceux qui restent sur le quai",
+          "rule": "Fermer le passage ne transforme pas automatiquement toutes les personnes restantes en victimes. Un accueil local, une attente ou une perte doivent découler d’états matériels observés.",
+          "sources": "MI08; portes, embarquement, accueil et rapport à produire.",
           "status": "Conçu"
         }
       ]
@@ -4717,6 +4886,60 @@
           "deliverable": "Archives de Nacre",
           "spec": "Présentation finale rapprochant personnes, logements, service et dépense de la sortie, avec accès séparé au stock courant et au cumul officiel.",
           "acceptance": "Le joueur distingue zéro carburant utilisé dans cette sortie et deux lots déjà dépensés auparavant. Couleur et icône ne sont pas les seuls supports de sens.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS57",
+          "category": "Prototype Nacre",
+          "deliverable": "Kit procédural de la chaussée",
+          "spec": "Ambulance routière, boîtier, aire d’arrêt, rampe et indicateurs de transfert reliés aux états de simulation.",
+          "acceptance": "Aucun véhicule arrivé avant son état réel; aucun boîtier récupéré encore présenté comme une source active.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "AS58",
+          "category": "Personnages",
+          "deliverable": "Patients et personnel sanitaire",
+          "spec": "Silhouettes et gestes distincts pour quatre patients, une conductrice et un soignant, dans les limites des états exposés.",
+          "acceptance": "Origine et présence lisibles; aucun personnage final revendiqué à partir d’un compteur agrégé.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS59",
+          "category": "Animation",
+          "deliverable": "Arrêt et transfert sanitaire",
+          "spec": "Ralentissement, immobilisation, accès latéral et transfert adaptés aux lieux et au terrain.",
+          "acceptance": "Contact au sol, accès sans traversée de coque et accueil compréhensible pour les six châssis.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS60",
+          "category": "Accessoire",
+          "deliverable": "Balise fixée et démontée",
+          "spec": "Attaches cohérentes avec la carrosserie, emplacement lisible, dégâts localisés et version récupérée identifiable.",
+          "acceptance": "Pièce fixée, démontage en cours, récupération et perte sont visuellement distincts. Le journal n’est pas représenté par un objet intact après destruction; aucune phase supplémentaire d’examen n’est promise.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS61",
+          "category": "Interface finale",
+          "deliverable": "Dossier sanitaire et provenance",
+          "spec": "Présentation séparée des personnes, cargo constaté, récupération, destination et provenance encore inconnue.",
+          "acceptance": "Un état inconnu reste inconnu; les données de soins ne sont pas converties en liste publique de témoins.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "AS62",
+          "category": "Audio Nacre",
+          "deliverable": "Appel, accord et alerte de saisie",
+          "spec": "Voix de personnel, liaison Mara, moteurs et alerte annonçant le danger sans masquer l’interaction.",
+          "acceptance": "Le dialogue correspond à un interlocuteur disponible; sous-titres et signaux visuels portent la même information.",
           "priority": "P1",
           "status": "À produire"
         }
@@ -5308,9 +5531,9 @@
           "workstream": "MI07 — ambulance",
           "deliverable": "Interception, arrêt protégé, examen, démontage de balise et arrivée sanitaire.",
           "depends": "SY61; AS49; MI06",
-          "acceptance": "Aucune preuve attribuée avant récupération; patient, personnel, véhicule et consentement restent distincts.",
+          "acceptance": "Arrêt, accord, examen, démontage et arrivée constatés séparément. Quatre patients et deux membres du personnel ne sont pas les habitants de la digue. La provenance de pose reste ouverte.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "PR62",
@@ -5405,11 +5628,11 @@
         {
           "id": "PR72",
           "workstream": "Héritage vers MI07",
-          "deliverable": "Choix d’une aire d’arrêt et d’accueil sanitaire à partir du verrou, de l’étai et de la fatigue de la digue, avec voie secondaire praticable.",
+          "deliverable": "Préparation d’une rampe et localisation de l’accueil à partir du verrou, de l’étai, de la fatigue et des logements de MI06, avec voie secondaire praticable.",
           "depends": "SY61; NA55; MI06; PR61",
-          "acceptance": "Deux dossiers différant par le seul état du panneau produisent un changement concret. Aucun habitant de MI06 transformé implicitement en patient de MI07; les techniciens n’aident que si une scène établit leur accord.",
+          "acceptance": "Verrou, étai et fatigue déterminent réellement la route. Une aide technique nécessite un interlocuteur vivant et un échange. Les quatre patients sont nouveaux; aucun habitant de MI06 n’est transféré implicitement.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "PR73",
@@ -5426,6 +5649,78 @@
           "deliverable": "Art, mouvement, son et feedback de pression cohérents sur le panneau, les conduites et les maisons.",
           "depends": "AS48; AS52–AS54; PR46",
           "acceptance": "Les ruptures sont annoncées et localisées. Aucun fluide général ou modèle de résistance de quai déclaré livré par les seuls états locaux.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "PR75",
+          "workstream": "Dossier v7",
+          "deliverable": "Septième rapport, état sanitaire, migration v6 et reprise des travaux de MI07.",
+          "depends": "SY26; SY82; PX77",
+          "acceptance": "Anciennes archives et dépense de carburant conservées. L’ambulance est absente avant MI07; premier résultat et dotation uniques.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR76",
+          "workstream": "Interface ambulance",
+          "deliverable": "Briefing hérité, suivi des actions, retour, archives et relecture de MI07.",
+          "depends": "SY73–SY82; PX78",
+          "acceptance": "Arrêt, accord, examens, rampe et transfert distingués; refus d’action expliqué sans résultat fictif.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR77",
+          "workstream": "Validation ambulance",
+          "deliverable": "Parcours des six châssis, états de perte, sources et reprise déterministe.",
+          "depends": "PR61; QA116–QA131",
+          "acceptance": "Preuves de simulation conservées et stimuli négatifs déclarés; aucune victoire injectée présentée comme parcours.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR78",
+          "workstream": "Validation dossier v7",
+          "deliverable": "Fixture v6 historique, migrations, relectures isolées et intégrité des états hérités.",
+          "depends": "PR75; QA132–QA134",
+          "acceptance": "Source historique authentique; carburant, registre de dépense et rapports antérieurs inchangés.",
+          "priority": "P0",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR79",
+          "workstream": "Finition ambulance",
+          "deliverable": "Art, gestes d’arrêt, accès sanitaire, balise et audio final de la chaussée.",
+          "depends": "AS49; AS58–AS62",
+          "acceptance": "Matériel, collisions et actions restent concordants. Le kit procédural ne clôt pas les assets finaux.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "PR80",
+          "workstream": "Essai humain sanitaire",
+          "deliverable": "Sessions sans guidage sur arrêt, accord, sources, rampe et destination.",
+          "depends": "PR61; PR76; QA137",
+          "acceptance": "Matériel et observations documentés; aucune confusion entre choix et arrivée ou entre balise et auteur.",
+          "priority": "P0",
+          "status": "À produire"
+        },
+        {
+          "id": "PR81",
+          "workstream": "MI08 — services et portes",
+          "deliverable": "Porte d’amenée, porte de passage, commandes, états de blocage et issues de repli.",
+          "depends": "MI06; MI07; SY62; PR62",
+          "acceptance": "Chaque mécanisme a ses dégâts et son effet. Une source ou une porte détruite laisse un bilan terminable sans restauration fictive.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "PR82",
+          "workstream": "MI08 — personnes et accueil",
+          "deliverable": "Listes de personnes par origine, capacités de brancards, embarquement, départ et confirmation d’arrivée.",
+          "depends": "NA63; NA64; PR62; AS50",
+          "acceptance": "Aucune duplication entre quai, bateau et refuge. Une destination annoncée n’est pas une arrivée observée.",
           "priority": "P1",
           "status": "À produire"
         }
@@ -6386,6 +6681,182 @@
           "expected": "Les personnes distinguent soutien et verrou, décision et travaux, habitants et logements, dépense immédiate et rapport. Essai humain séparé des scripts.",
           "priority": "P1",
           "status": "À produire"
+        },
+        {
+          "id": "QA116",
+          "area": "Progression — ambulance",
+          "scenario": "Ouvrir MI07 après plusieurs résultats MI06, avec ou sans PT01, réserve ou techniciens.",
+          "expected": "Déblocage après rapport MI06 et contextes main/secondary contrôlés sur deux variantes historiques authentiques, sans crédit de carburant. Les six personnes sont nouvelles. Preuves : tests/campaign-v7.test.mjs et tests/mi07-mission.test.mjs; portée Node.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA117",
+          "area": "MI07 — six châssis",
+          "scenario": "Finir les deux dispositions de transfert avec chacun des six châssis par commandes publiques.",
+          "expected": "Douze parcours publics complets : six châssis, deux destinations, quatre patients et deux membres du personnel réellement admis, véhicule saisi ou conservé selon le choix. Six autres parcours aboutissent sans personnel ni aide technique, au treuil. Preuve : tests/mi07-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA118",
+          "area": "Arrêt protégé",
+          "scenario": "Appeler le véhicule, conserver une barrière ou une menace proche, puis dégager les deux barrières et observer son arrêt.",
+          "expected": "Appel réel, barrières à dégager, interruption et remise à zéro, progression du véhicule puis arrêt au portique contrôlés. Ni accord ni constat anticipés pendant le trajet. Preuve : tests/mi07-mission.test.mjs; commandes publiques et simulation Node.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA119",
+          "area": "Accord à l’examen",
+          "scenario": "Obtenir l’accord d’examen de deux secondes, puis demander séparément le témoignage de 2,5 secondes et perdre son auteur.",
+          "expected": "Accord temporisé distinct de l’examen et du témoignage. Perdre l’auteur du consentement conserve son identité et retire sa disponibilité, sans transfert vers le collègue vivant. Preuve : tests/mi07-mission.test.mjs; perte ciblée par projectile de calibration et collision réelle.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA120",
+          "area": "Examen matériel",
+          "scenario": "Interrompre puis accomplir l’examen de la caisse avec accord, et comparer source détruite ou personnel indisponible.",
+          "expected": "Caisse détruite avant examen : constat sans contenu médical inventé, mission terminable. Après examen autorisé, sa destruction conserve le relevé. Accord et examen partiels sont repris exactement. Preuves : tests/mi07-mission.test.mjs et tests/campaign-v7.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA121",
+          "area": "Balise — récupération",
+          "scenario": "Démonter le boîtier sous ancrage, retirer l’ancrage avant cinq secondes puis reprendre le travail.",
+          "expected": "Aucun journal avant achèvement. Retirer l’ancrage annule le démontage incomplet; reprise et récupération de la balise, des attaches et du journal contrôlées. L’objet récupéré sort des dégâts et provenanceVerified reste faux. Preuve : tests/mi07-mission.test.mjs.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA122",
+          "area": "Balise — destruction",
+          "scenario": "Détruire le boîtier avant démontage, puis comparer avec une ambulance perdue après récupération de la balise.",
+          "expected": "Destruction du boîtier par tirs publics : constat terminable, aucune attache ni journal attribué. Détruire ensuite le véhicule après une récupération réussie ne reprend pas la balise acquise. Preuve : tests/mi07-mission.test.mjs; dégâts tardifs ciblés déclarés.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA123",
+          "area": "Ambulance — ruines",
+          "scenario": "Détruire le véhicule avant accord ou inspection, puis poursuivre le constat et le rapport.",
+          "expected": "Véhicule détruit avant arrêt : quatre patients et deux membres du personnel perdus, zéro arrivée, aucun accord ni contenu sanitaire inventé. Les deux destinations gardent une fin de constat. Preuve : tests/mi07-mission.test.mjs; parcours publics avec tirs réels.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA124",
+          "area": "Transfert et personnes",
+          "scenario": "Observer arrivée au quai, déploiement des chariots et trajet individuel; comparer soignant vivant ou perdu et toucher une personne en trajet.",
+          "expected": "Véhicule au quai et chariots déployés donnent encore zéro patient arrivé. Déplacement individuel observé, perte en trajet et protection après admission contrôlées. Voie sans soignant également terminée. Preuve : tests/mi07-mission.test.mjs; impact ciblé déclaré pour la perte isolée.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA125",
+          "area": "Héritage — rampe",
+          "scenario": "Comparer verrou sans étai et fatigue 64, seuil 65, étai et logements inhabitables.",
+          "expected": "Seuils 64,99/65, verrou absent et étai testés; accueil civil déplacé de 180 unités si les logements sont inhabitables. Deux vrais héritages sont terminés et sauvegardés. Preuves : tests/mi07-mission.test.mjs, tests/campaign-v7.test.mjs et v08-campaign-audit.json.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA126",
+          "area": "Technicien — contact",
+          "scenario": "Comparer survivant de MI06 sans appel, contact radio de 2,5 s accompli et absence de survivant.",
+          "expected": "Un survivant sans appel ne donne aucune aide. L’échange accompli réduit le travail de rampe de huit à quatre secondes, durées mesurées. Absence de technicien compatible avec la réussite des six châssis. Preuve : tests/mi07-mission.test.mjs; liaison radio seulement.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA127",
+          "area": "Dégâts et géométrie",
+          "scenario": "Faire atteindre véhicule, caisse, balise et personnes exposées par les collisions des deux équipes.",
+          "expected": "Projectiles des deux équipes contrôlés sur coque, caisse, balise et personnel exposé. Les embarqués sont protégés individuellement; les pertes suivent les collisions réelles. Preuve : tests/mi07-mission.test.mjs; stimuli négatifs de calibration explicitement déclarés.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA128",
+          "area": "Saisie — menace",
+          "scenario": "Récupérer ou détruire la balise; reprendre pendant le délai puis observer l’arrivée des deux drones.",
+          "expected": "Signal unique et délai de dix secondes contrôlés. Les drones restent absents des dégâts et des appels de rendu avant arrivée; ils apparaissent ensuite. Preuve : tests/mi07-mission.test.mjs, avec sonde du renderer. Ce contrôle ne constitue pas une capture navigateur.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA129",
+          "area": "Après décision et remorquage",
+          "scenario": "Choisir puis perdre la conductrice hors du véhicule; atteler, interrompre, reprendre et sortir de portée pendant le remorquage.",
+          "expected": "La décision gèle le temps et ne prépare ni rampe, ni accueil, ni transfert. Conductrice perdue : attelage local interrompu puis repris, véhicule immobile si marcheur éloigné, arrivée au treuil obtenue. Preuve : tests/mi07-mission.test.mjs; impact négatif ciblé déclaré.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA130",
+          "area": "MI07 — reprise",
+          "scenario": "Reprendre des actions partielles et un véhicule en mouvement, puis comparer les états à entrées identiques.",
+          "expected": "Quatre travaux partiels (accord, caisse, balise, rampe) traversent le JSON et reprennent exactement jusqu’au même résultat. Captures profondément indépendantes; audit de 18 routes avec reprises périodiques. Preuves : tests/campaign-v7.test.mjs et v08-campaign-audit.json.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA131",
+          "area": "Limites de preuve et de stock",
+          "scenario": "Finir avec et sans balise ou appel Mara; comparer preuves et ressources de campagne.",
+          "expected": "Témoin, Mara et aide technique peuvent être omis individuellement. Zéro point PALINODE, provenance de pose non certifiée et carburant officiel inchangé. Preuves : tests/mi07-mission.test.mjs, tests/campaign-v7.test.mjs et audit indépendant des deux héritages.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA132",
+          "area": "Migration — dossier v6",
+          "scenario": "Importer des fixtures v6 authentiques en cours et terminées, puis tenter un état falsifié.",
+          "expected": "Trois variantes v6 authentiques issues du commit public bc830013 sont migrées sans modifier les faits antérieurs. Lecture sans écriture, secours original, format futur et falsifications contrôlés. Preuve : tests/campaign-v7.test.mjs; aucune fixture reconstruite depuis le code courant.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA133",
+          "area": "Rapport et relecture MI07",
+          "scenario": "Valider le premier résultat, rejouer chaque choix, puis revenir à une campagne officielle en cours.",
+          "expected": "Deux routes et deux destinations : premier résultat immuable, quatre lots une seule fois et relecture complète isolée. Dossiers MI01–MI06, carburant, dépense et checkpoint officiels préservés. Preuve : tests/campaign-v7.test.mjs; portée Node.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA134",
+          "area": "Interface — ambulance",
+          "scenario": "Exécuter lancement, pause, reprise, examens, décisions, retour, archives et relecture par les gestionnaires.",
+          "expected": "45 parcours dans le DOM modélisé, dont MI07 et interaction tactile suivie d’une pause avant nouvelle frame, exécutent les vrais gestionnaires. Preuve : docs/validation/v08-ui-runtime.txt. Aucun contrôle CSS, Chrome réel ou essai humain attribué à cette suite.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA135",
+          "area": "Bible — continuité 0.8",
+          "scenario": "Comparer JSON, Excel, formules, identifiants de la 0.7 et vues des lignes modifiées.",
+          "expected": "769 fiches et 5 225 cellules réconciliées; 705 IDs de la 0.7 préservés. 126 formules sans erreur, modification de statut puis restauration, 20 tables/validations/volets et 80 règles. Preuves : workbook-v0.8-export.json, baseline-check et visual-review; aucun Excel natif.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA136",
+          "area": "Rendu — ambulance",
+          "scenario": "Rendre les états clés de la chaussée depuis des captures indépendantes de la simulation.",
+          "expected": "Neuf vues Canvas du renderer de production, états atteints par commandes publiques depuis la fixture v6 authentique puis copiés profondément. Manifeste : docs/previews/mi07-render-manifest.json. Relecture visuelle distincte d’un navigateur, du HUD HTML et d’un essai humain.",
+          "priority": "P0",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA137",
+          "area": "Essai humain — ambulance",
+          "scenario": "Faire jouer sans consigne extérieure sur un matériel déclaré.",
+          "expected": "Les personnes comprennent arrêt, accord, examen, récupération, route et arrivée. L’essai humain reste distinct des scripts.",
+          "priority": "P1",
+          "status": "À produire"
         }
       ]
     },
@@ -6469,7 +6940,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.7.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "description": "Portée présente dans le code de la version 0.8.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -6540,7 +7011,7 @@
           "link": "NA17",
           "name": "OP01 — Les voix sous la cendre",
           "implemented": "Relais destructibles, registre à scanner à proximité, décision sur une bande puis extraction.",
-          "limits": "Extrait autonome de validation; ne remplace pas MI01–MI06 ni leurs civils, dialogues et variantes finales.",
+          "limits": "Extrait autonome de validation; ne remplace pas MI01–MI07 ni leurs civils, dialogues et variantes finales.",
           "path": "src/content.mjs; src/simulation.mjs",
           "status": "Prototype"
         },
@@ -6701,7 +7172,7 @@
           "id": "PX22",
           "link": "SY26",
           "name": "Résultats et réglages locaux",
-          "implemented": "Réglages et derniers rapports des opérations autonomes conservés séparément. MI01–MI06 disposent d’un dossier de campagne et de points de reprise.",
+          "implemented": "Réglages et derniers rapports des opérations autonomes conservés séparément. MI01–MI07 disposent d’un dossier de campagne et de points de reprise.",
           "limits": "Les rapports OP01–OP03 ne deviennent pas des réussites de campagne. Une relecture ne réécrit pas les résultats et ressources officiels.",
           "path": "src/main.mjs; src/campaign.mjs",
           "status": "Prototype"
@@ -6729,7 +7200,7 @@
           "link": "MI01; PN02; PN14; PR29",
           "name": "MI01 — Le couloir quarante-deux",
           "implemented": "Escorte de filtres sur Vesper, apprentissage des appuis, embuscade antichar, livraison au poste des mineurs, lecture du manifeste puis choix du bordereau.",
-          "limits": "MI01 est complétée par MI02–MI06. MI07–MI32, mise en scène finale, doublage et performance cible restent à produire ou valider. Aucun dossier PALINODE révélé dans MI01.",
+          "limits": "MI01 est complétée par MI02–MI07. MI08–MI32, mise en scène finale, doublage et performance cible restent à produire ou valider. Aucun dossier PALINODE révélé dans MI01.",
           "path": "src/content.mjs; src/simulation.mjs",
           "status": "Prototype"
         },
@@ -6747,7 +7218,7 @@
           "link": "SY24; PN02; PN14; PR31",
           "name": "Retour d’équipage et dossier de Vesper",
           "implemented": "Livraison de 24 caisses si le transport arrive, état de la conduite, pertes civiles, notice de Sami et répliques contextuelles de Tess/Sami conservés. Une réussite reçoit une seule dotation.",
-          "limits": "Dossier étendu à MI01–MI06. Les pactes, autres mondes et quatre fins restent conçus. Rejouer ne réécrit ni premier dossier ni ressources.",
+          "limits": "Dossier étendu à MI01–MI07. Les pactes, autres mondes et quatre fins restent conçus. Rejouer ne réécrit ni premier dossier ni ressources.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -6756,7 +7227,7 @@
           "link": "SY26; PR30",
           "name": "Reprise de mission et décision",
           "implemented": "État de mission versionné, sauvegarde de la simulation en cours et point de reprise conservé avant le choix du bordereau. Restauration explicite du même monde et des objectifs.",
-          "limits": "Portée de sauvegarde : MI01–MI06. Compatibilité suivie version par version. Le changement de fichier ou de navigateur peut changer l’emplacement du stockage local.",
+          "limits": "Portée de sauvegarde : MI01–MI07. Compatibilité suivie version par version. Le changement de fichier ou de navigateur peut changer l’emplacement du stockage local.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -6764,7 +7235,7 @@
           "id": "PX29",
           "link": "SY26; PR30",
           "name": "Sauvegarde portable et récupération",
-          "implemented": "Copie principale et secours valide. Import/export JSON contrôlé. Les formats historiques v1 à v5 sont migrés vers v6 avec conservation des acquis. Erreurs de stockage, corruption et format inconnu signalés.",
+          "implemented": "Copie principale et secours valide. Import/export JSON contrôlé. Les formats historiques v1 à v6 sont migrés vers v7 avec conservation des acquis. Erreurs de stockage, corruption et format inconnu signalés.",
           "limits": "Migration définie pour les seuls formats connus. Un format futur ou étranger reste protégé contre l’écrasement automatique. Pas de synchronisation en ligne; transfert par export manuel.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
@@ -6773,8 +7244,8 @@
           "id": "PX30",
           "link": "SY25; PR21; PR31",
           "name": "Atelier et réparation locale",
-          "implemented": "Six lots initiaux, quatre pour chaque première réussite de MI01–MI06. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
-          "limits": "Dotations limitées aux six missions principales jouables; une relecture ne verse aucun lot supplémentaire. Chaque nouvelle sortie renouvelle munitions et deux kits. Modules, pièces rares et économie de campagne complète à produire.",
+          "implemented": "Six lots initiaux, quatre pour chaque première réussite de MI01–MI07. Devis coque/appuis/radiateur plafonné à six lots. Conduite réparée contre deux lots, incident conservé.",
+          "limits": "Dotations limitées aux sept missions principales jouables; une relecture ne verse aucun lot supplémentaire. Chaque nouvelle sortie renouvelle munitions et deux kits. Modules, pièces rares et économie de campagne complète à produire.",
           "path": "src/campaign.mjs; src/main.mjs",
           "status": "Prototype"
         },
@@ -6783,7 +7254,7 @@
           "link": "MI02; VE17; PR33",
           "name": "MI02 — La dette sous la poussière",
           "implemented": "Reprise du train détourné sur le viaduc : deux harpons à libérer, poursuite, freinage, ouverture du wagon, lecture et choix de rapport avant extraction.",
-          "limits": "Seconde mission sur 32, complétée par MI03–MI06. Itinéraire latéral unique, assaut de prototype et retour textuel. MI07–MI32, mise en scène et finition du niveau restent à produire.",
+          "limits": "Seconde mission sur 32, complétée par MI03–MI07. Itinéraire latéral unique, assaut de prototype et retour textuel. MI08–MI32, mise en scène et finition du niveau restent à produire.",
           "path": "src/content.mjs; src/simulation.mjs; docs/CAMPAIGN_MISSION_02.md",
           "status": "Prototype"
         },
@@ -6818,9 +7289,9 @@
           "id": "PX35",
           "link": "SY26; PR28; PR34",
           "name": "Migrations historiques et reprise de campagne",
-          "implemented": "Dossier v6 sous les mêmes clés de stockage. Les formats v1 à v5 conservent rapports, ressources, usure et checkpoints. Les migrations ajoutent les champs absents de leur version source sans jouer MI06 rétroactivement.",
+          "implemented": "Dossier v7 sous les mêmes clés de stockage. Les formats v1 à v6 conservent rapports, ressources, usure et checkpoints. La migration v6 ajoute l’ambulance non visitée sans rejouer MI07 ni réattribuer du carburant.",
           "limits": "Versions historiques connues seulement. Magasin, roquettes, rechargement et résultats existants conservés. Les champs inexistants reçoivent des valeurs initiales documentées; transfert entre appareils par export/import.",
-          "path": "src/campaign.mjs; tests/campaign-v6.test.mjs",
+          "path": "src/campaign.mjs; tests/campaign-v7.test.mjs; fixtures historiques",
           "status": "Prototype"
         },
         {
@@ -6918,7 +7389,7 @@
           "link": "SY26; PR40",
           "name": "Héritage du format v3",
           "implemented": "La 0.4 a introduit MI03 et le format v3. La 0.5 lit ce véritable format via un fixture historique, puis préserve ses rapports et ressources en v4.",
-          "limits": "Le format courant est v6, détaillé dans PX69. Les 26 missions suivantes et les fins restent conçues.",
+          "limits": "Le format courant est v7, détaillé dans PX77. Les 25 missions suivantes et les fins restent conçues.",
           "path": "src/campaign.mjs; tests/fixtures/campaign-v3-mi03.json",
           "status": "Prototype"
         },
@@ -6999,7 +7470,7 @@
           "link": "MI05; PR57",
           "name": "MI05 — Le prix du passage",
           "implemented": "Cinquième mission après MI04, deux treuils, inspections séparées, issue du bateau, décision et extraction. Disponible avec ou sans PT01.",
-          "limits": "MI05 est le premier niveau de Nacre; MI06 poursuit la digue. MI07–MI08, contrats locaux et transfert spatial mis en scène restent conçus.",
+          "limits": "MI05 est le premier niveau de Nacre; MI06 poursuit la digue et MI07 suit l’ambulance. MI08, contrats locaux et transfert spatial mis en scène restent conçus.",
           "path": "src/content.mjs; src/simulation.mjs; src/campaign.mjs",
           "status": "Prototype"
         },
@@ -7052,7 +7523,7 @@
           "id": "PX61",
           "link": "SY26; PR58",
           "name": "Héritage du format v5",
-          "implemented": "La 0.6 a ajouté le cinquième rapport, le carburant et l’état du passage de Nacre. La 0.7 conserve ces champs en v6, sans réécrire les faits de MI05.",
+          "implemented": "La 0.6 a ajouté le cinquième rapport, le carburant et l’état du passage de Nacre. Les formats suivants conservent ces champs sans réécrire les faits de MI05.",
           "limits": "La migration ne joue pas MI06 et n’invente aucune dépense antérieure. Synchronisation serveur et formats futurs absents.",
           "path": "src/campaign.mjs; tests/campaign-v5.test.mjs",
           "status": "Prototype"
@@ -7071,7 +7542,7 @@
           "link": "MI06; PR60",
           "name": "MI06 — Les maisons sous la ligne",
           "implemented": "Sixième mission après MI05, chantier de digue, deux maisons, deux techniciens, choix de circuit puis opérations matérielles et extraction.",
-          "limits": "MI07–MI08 et contrats locaux restent conçus. Ce chantier ne constitue pas une simulation hydraulique générale de Nacre.",
+          "limits": "MI08 et contrats locaux restent conçus. Ce chantier ne constitue pas une simulation hydraulique générale de Nacre.",
           "path": "src/content.mjs; src/simulation.mjs; src/campaign.mjs",
           "status": "Prototype"
         },
@@ -7135,6 +7606,78 @@
           "name": "Lire le chantier",
           "implemented": "Rendu et interface exposent soutien, intervenants, pompes, maisons et réserve; le retour distingue personnes, logements, dépense de sortie et cumul officiel.",
           "limits": "Art procédural et interface de prototype. Finition AS48/AS52–AS56 et compréhension humaine QA115 restent ouvertes.",
+          "path": "src/renderer.mjs; src/main.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX71",
+          "link": "MI07; PR61",
+          "name": "MI07 — Une ambulance sans escorte",
+          "implemented": "Septième mission après MI06 : arrêt, accord, examens, balise, rampe héritée et transfert sanitaire.",
+          "limits": "MI08–MI32, contrats locaux, navigation amphibie et finition restent conçus.",
+          "path": "src/content.mjs; src/simulation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX72",
+          "link": "SY73; SY74",
+          "name": "Arrêt et accord",
+          "implemented": "Le véhicule rejoint un arrêt protégé; un échange de deux secondes autorise l’examen. Un témoignage facultatif exige un autre échange de 2,5 secondes avec un membre du personnel.",
+          "limits": "Les deux accords ont leur portée et leur auteur. Aucun recrutement ni publication des dossiers de soins; la perte du témoin retire sa disponibilité.",
+          "path": "src/simulation.mjs; src/content.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX73",
+          "link": "SY75; SY81",
+          "name": "Sources et constats",
+          "implemented": "Caisse, boîtier et état du véhicule sont constatés séparément. Les ruines gardent une issue limitée.",
+          "limits": "Une source perdue ne fournit pas ses données intactes. La connaissance complète de PALINODE n’est pas donnée.",
+          "path": "src/simulation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX74",
+          "link": "SY76; NA46; NA60",
+          "name": "Récupération locale de balise",
+          "implemented": "Cinq secondes sous ancrage et appuis posés démontent la balise. Un boîtier détruit demande deux secondes de constat, sans données récupérées.",
+          "limits": "Provenance de pose non vérifiée. Aucun auteur, PT ou PO automatique; la récupération déjà achevée reste acquise après perte du véhicule.",
+          "path": "src/simulation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX75",
+          "link": "SY77; SY78; PR72",
+          "name": "Rampe et technicien",
+          "implemented": "Verrou, étai et fatigue de MI06 déterminent l’accès. Un contact radio de 2,5 s avec un survivant réduit le travail de rampe de huit à quatre secondes.",
+          "limits": "Deux routes locales et aide par liaison. Aucun technicien physique supplémentaire ni modèle général de charge des quais.",
+          "path": "src/simulation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX76",
+          "link": "SY79; SY80; SY82",
+          "name": "Accueil sanitaire",
+          "implemented": "Six personnes individuelles suivent le transfert puis rejoignent l’accueil. Sans conductrice, attelage et remorquage conservent une voie; sans soignant, le déploiement et le trajet des patients sont plus longs.",
+          "limits": "Six entités locales; soins détaillés, identité finale et vie après accueil restent à produire. Le treuil ne répare pas un véhicule détruit.",
+          "path": "src/simulation.mjs; src/campaign.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX77",
+          "link": "SY26; PR75",
+          "name": "Format v7 et archive sanitaire",
+          "implemented": "Septième rapport et état de l’ambulance, migration v6, reprise des actions et relecture isolée.",
+          "limits": "Versions historiques connues seulement. Aucun carburant attribué par MI07, aucune dépense MI06 effacée.",
+          "path": "src/campaign.mjs; tests/campaign-v7.test.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX78",
+          "link": "SY27; PR76; AS57",
+          "name": "Lire l’arrêt et le transfert",
+          "implemented": "Rendu et interface exposent les étapes, le constat disponible, la route et l’issue sanitaire.",
+          "limits": "Kit procédural et interface de prototype; art, audio et compréhension humaine QA137 encore ouverts.",
           "path": "src/renderer.mjs; src/main.mjs",
           "status": "Prototype"
         }

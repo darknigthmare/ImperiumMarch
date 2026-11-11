@@ -45,6 +45,8 @@
 
 .dike-instrument{margin-top:14px;padding:10px 12px;border-left:2px solid #b5cdb5;background:#10282ee8;color:#d5dfc7;font:clamp(8px,.65vw,11px)/1.6 var(--mono);text-shadow:none}.dike-instrument strong{font-weight:500;color:#ebd2a6}.dike-instrument p{margin:5px 0 0}.dike-instrument p:last-child{color:#a5d6ca}
 
+.ambulance-instrument{margin-top:14px;padding:10px 12px;border-left:2px solid #dabba0;background:#202c32ed;color:#dce1d6;font:clamp(8px,.65vw,11px)/1.6 var(--mono);text-shadow:none}.ambulance-instrument strong{font-weight:500;color:#f1d3b6}.ambulance-instrument p{margin:5px 0 0}.ambulance-instrument p:last-child{color:#a5d6ca}
+
 
 /* Campaign, crew and field dossier. The same palette as the command deck. */
 .campaign-view{flex:1;padding-bottom:12px}.campaign-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:70px;align-items:center;min-height:570px}.campaign-intro .hero-copy{padding-top:46px;padding-bottom:32px}.campaign-dossier{position:relative;margin-top:44px;padding:32px;border:1px solid var(--line);background:linear-gradient(135deg,#152225ec,#172123de);max-width:440px;justify-self:end;overflow:hidden}.campaign-dossier h2{font-size:32px;line-height:1.1;font-weight:400;letter-spacing:-.8px;margin:32px 0 20px;position:relative}.campaign-dossier>p:not(.eyebrow){font-size:13px;color:#b4bdb1;line-height:1.8}.dossier-index{position:absolute;right:22px;top:20px;font:88px var(--display);line-height:1;color:#d2ae8718;pointer-events:none}.campaign-orders{margin:26px 0 18px;border-top:1px solid var(--line)}.campaign-orders>div{padding:15px 0;border-bottom:1px solid var(--line)}.campaign-orders dt{font:8px var(--mono);letter-spacing:1.5px;color:var(--copper);margin-bottom:7px}.campaign-orders dd{margin:0;color:#c1cabb;font-size:12px;line-height:1.6}.campaign-state{padding-left:12px;border-left:2px solid var(--cyan);font-size:11px!important;margin:20px 0 0}.campaign-file-actions{display:flex;align-items:center;justify-content:space-between;gap:25px;border-top:1px solid var(--line);padding-top:22px;margin-top:28px}.campaign-file-actions .small-caps{color:var(--copper);margin-bottom:7px}.campaign-file-actions .muted{font-size:11px;max-width:600px;margin-bottom:0}.campaign-file-buttons{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-end;flex-shrink:0}.campaign-file-buttons button{font-size:11px}.save-warning{color:#edbb8e!important}.campaign-debrief{border:1px solid var(--line);background:#152123de;padding:28px;margin-top:18px}.debrief-heading h3{font-size:22px;font-weight:400;margin-bottom:25px}.debrief-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;border-block:1px solid var(--line);padding:20px 0}.debrief-facts>span{font:8px var(--mono);letter-spacing:1px;color:#91a798}.debrief-facts strong{display:block;font:13px var(--body);color:var(--paper);margin-top:10px;letter-spacing:0;line-height:1.5}.crew-lines{display:grid;grid-template-columns:1fr 1fr;gap:35px}.crew-lines blockquote{margin:24px 0 8px;font:14px var(--body);line-height:1.8;color:#c8c9b7}.crew-lines blockquote>span{display:block;font:8px var(--mono);color:var(--copper);letter-spacing:1.4px;margin-bottom:9px}.workshop-panel{margin-top:32px;padding:28px;border:1px solid var(--line);background:#132021cc}.workshop-heading{display:flex;align-items:center;justify-content:space-between;gap:20px}.workshop-heading h3{font-weight:400;font-size:23px;margin-bottom:18px}.workshop-parts{font:12px var(--mono);color:var(--copper);white-space:nowrap}.workshop-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}.workshop-grid article>p:first-child{font-size:13px;line-height:1.7;color:#cbd0be}.workshop-grid article{padding-top:18px;border-top:1px solid var(--line)}.workshop-grid .muted{font-size:12px}.workshop-grid .secondary-button{font-size:11px;line-height:1.6}.workshop-panel>#workshop-active-note{margin:20px 0 0;color:var(--copper)}.simulation-title{font:clamp(52px,5.5vw,88px)/.95 var(--display);letter-spacing:1px;margin-bottom:28px}.simulation-title span{color:#d2ae87}
@@ -114,7 +116,7 @@
           <p id="campaign-status" class="campaign-state" role="status">Affectation reçue. Le hangar vous attend.</p>
         </aside>
       </div>
-      <section class="campaign-chapters" aria-label="Ordres de Vesper et Nacre"><div class="section-label"><span>VESPER → NACRE / ORDRES DE CAMPAGNE</span><span id="campaign-progress">0 / 6 RAPPORTS CLASSÉS</span></div><div id="campaign-mission-list" class="chapter-list"></div></section>
+      <section class="campaign-chapters" aria-label="Ordres de Vesper et Nacre"><div class="section-label"><span>VESPER → NACRE / ORDRES DE CAMPAGNE</span><span id="campaign-progress">0 / 7 RAPPORTS CLASSÉS</span></div><div id="campaign-mission-list" class="chapter-list"></div></section>
       <section id="campaign-debrief" class="campaign-debrief" aria-label="Retour de mission" hidden></section>
       <section id="campaign-transition" class="campaign-transition" aria-label="Fin de l’affectation Vesper" hidden><p class="eyebrow">VESPER / AFFECTATION TERMINÉE</p><h3>Ce que vous emportez.</h3><p id="campaign-transition-text"></p></section>
       <button class="text-button" id="campaign-open-workshop" hidden>Rejoindre l’équipage au hangar →</button>
@@ -142,7 +144,7 @@
         <div class="rig-details"><p class="eyebrow" id="rig-role"></p><h3 id="rig-name"></h3><p id="rig-description"></p><div id="rig-stats"></div><dl class="weapon-details"><dt>ARMEMENT PRINCIPAL</dt><dd id="rig-weapon"></dd><dt>ARMEMENT SECONDAIRE</dt><dd id="rig-secondary"></dd></dl><p class="rig-note" id="rig-strength"></p><button id="confirm-rig" class="primary-button">ASSIGNER CE MARCHEUR <span>→</span></button></div>
       </div>
       <div id="walker-cards" class="walker-cards"></div>
-      <section class="workshop-panel" aria-label="Atelier et équipage"><div class="workshop-heading"><div><p class="eyebrow">TESS ARDAN / ÉTAT AU RETOUR</p><h3>Avant la prochaine marche.</h3></div><div class="workshop-stocks"><span id="workshop-parts" class="workshop-parts"></span><span id="workshop-fuel" class="workshop-fuel" hidden></span><span id="workshop-fuel-used" class="workshop-fuel" hidden></span></div></div><div class="workshop-grid"><article><p id="workshop-condition"></p><p id="workshop-repair-note" class="muted"></p><button id="campaign-repair" class="secondary-button">Réparer le marcheur</button></article><article><p id="workshop-pipe"></p><p id="workshop-sami" class="muted"></p><p id="workshop-network" class="muted" hidden></p><p id="workshop-industrial" class="muted" hidden></p><p id="workshop-nacre" class="muted" hidden></p><p id="workshop-dike" class="muted" hidden></p><button id="campaign-repair-pipe" class="secondary-button" hidden>Envoyer une équipe de réparation</button></article></div><p id="workshop-active-note" class="muted" hidden>Une mission est en cours. Reprenez-la pour retrouver le châssis déjà déployé. L’atelier sera disponible au retour.</p></section>
+      <section class="workshop-panel" aria-label="Atelier et équipage"><div class="workshop-heading"><div><p class="eyebrow">TESS ARDAN / ÉTAT AU RETOUR</p><h3>Avant la prochaine marche.</h3></div><div class="workshop-stocks"><span id="workshop-parts" class="workshop-parts"></span><span id="workshop-fuel" class="workshop-fuel" hidden></span><span id="workshop-fuel-used" class="workshop-fuel" hidden></span></div></div><div class="workshop-grid"><article><p id="workshop-condition"></p><p id="workshop-repair-note" class="muted"></p><button id="campaign-repair" class="secondary-button">Réparer le marcheur</button></article><article><p id="workshop-pipe"></p><p id="workshop-sami" class="muted"></p><p id="workshop-network" class="muted" hidden></p><p id="workshop-industrial" class="muted" hidden></p><p id="workshop-nacre" class="muted" hidden></p><p id="workshop-dike" class="muted" hidden></p><p id="workshop-ambulance" class="muted" hidden></p><button id="campaign-repair-pipe" class="secondary-button" hidden>Envoyer une équipe de réparation</button></article></div><p id="workshop-active-note" class="muted" hidden>Une mission est en cours. Reprenez-la pour retrouver le châssis déjà déployé. L’atelier sera disponible au retour.</p></section>
     </section>
 
     <section id="view-archives" class="view archives-view" aria-label="Archives de bord" hidden>
@@ -165,7 +167,7 @@
         <div class="controls-panel"><h3>Prendre les commandes</h3><div class="controls-grid"><kbd>Q / A</kbd><span>Reculer</span><kbd>D</kbd><span>Avancer</span><kbd>J · L</kbd><span>Appuis A · B</span><kbd>Souris</kbd><span>Orienter la tourelle</span><kbd>Clic gauche</kbd><span>Tir principal</span><kbd>Clic droit</kbd><span>Roquette</span><kbd>Espace</kbd><span>Ancrer le châssis</span><kbd>V</kbd><span>Purger la chaleur</span><kbd>R</kbd><span>Recharger</span><kbd>T</kbd><span>Réparer le radiateur à l’arrêt</span><kbd>E</kbd><span>Scanner / interagir</span><kbd>Échap</kbd><span>Pause</span><kbd>F</kbd><span>Plein écran</span></div><p class="muted">En marche manuelle, maintenez la direction puis alternez J et L. Les quadrupèdes déplacent leurs diagonales ; les hexapodes leurs tripodes.</p></div>
       </div>
     </section>
-    <footer class="menu-footer"><span>IMPERIUM MARCH <i>/</i> VERSION 0.7</span><span id="local-status"><span class="status-dot"></span> POSTE PRÊT</span><span>CHAQUE PAS LAISSE UNE TRACE.</span></footer>
+    <footer class="menu-footer"><span>IMPERIUM MARCH <i>/</i> VERSION 0.8</span><span id="local-status"><span class="status-dot"></span> POSTE PRÊT</span><span>CHAQUE PAS LAISSE UNE TRACE.</span></footer>
   </main>
 
   <section id="game-screen" hidden aria-label="Mission en cours">
@@ -173,7 +175,7 @@
       <canvas id="game-canvas" width="1600" height="900" tabindex="0" aria-label="Champ de bataille. Q ou A et D pour marcher, souris pour viser, clic pour tirer. T pour réparer le radiateur à l’arrêt. Échap pour la pause."></canvas>
       <div id="hud">
         <div class="hud-top"><div class="hud-mission"><span class="hud-insignia">VII</span><div><span class="small-caps" id="hud-planet"></span><h2 id="hud-title"></h2></div></div><div class="hud-top-right"><span id="hud-timer">00:00</span><button id="pause-button" class="icon-button" aria-label="Mettre en pause" title="Pause (Échap)">Ⅱ</button></div></div>
-        <div class="objectives-panel"><span class="small-caps">ORDRES DE MISSION</span><ul id="hud-objectives"></ul><div id="convoy-status" hidden></div><section id="tide-instrument" class="tide-instrument" aria-label="État de la marée" hidden><div><strong id="tide-phase"></strong><span id="tide-window"></span></div><div class="meter" aria-hidden="true"><i id="tide-level"></i></div><p id="tide-route"></p></section><section id="dike-instrument" class="dike-instrument" aria-label="État du chantier de digue" hidden><strong id="dike-support"></strong><p id="dike-pressure"></p><p id="dike-residents"></p><p id="dike-fuel"></p></section></div>
+        <div class="objectives-panel"><span class="small-caps">ORDRES DE MISSION</span><ul id="hud-objectives"></ul><div id="convoy-status" hidden></div><section id="tide-instrument" class="tide-instrument" aria-label="État de la marée" hidden><div><strong id="tide-phase"></strong><span id="tide-window"></span></div><div class="meter" aria-hidden="true"><i id="tide-level"></i></div><p id="tide-route"></p></section><section id="ambulance-instrument" class="ambulance-instrument" aria-label="État du transfert sanitaire" hidden><strong id="ambulance-stage"></strong><p id="ambulance-route"></p><p id="ambulance-people"></p><p id="ambulance-cargo"></p><p id="ambulance-beacon"></p></section><section id="dike-instrument" class="dike-instrument" aria-label="État du chantier de digue" hidden><strong id="dike-support"></strong><p id="dike-pressure"></p><p id="dike-residents"></p><p id="dike-fuel"></p></section></div>
         <div id="radio" class="radio-panel" role="status"><div class="radio-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div><span class="small-caps">CANAL DE BORD</span><p id="radio-text"></p></div></div>
         <div id="mission-intro" class="mission-intro"><p id="intro-location"></p><h2 id="intro-title"></h2><span>LIAISON ÉTABLIE</span></div>
         <div class="hud-bottom"><p id="hud-interaction" class="hud-interaction" hidden></p><div class="hull-panel"><span class="small-caps" id="hud-walker"></span><div class="hull-numbers"><strong id="hull-value"></strong><span>INTÉGRITÉ COQUE</span></div><div class="meter"><i id="hull-bar"></i></div><div class="leg-status" id="leg-status"></div></div><div class="heat-panel"><div class="instrument"><span class="small-caps">TEMPÉRATURE</span><b id="heat-value"></b><div class="meter heat"><i id="heat-bar"></i></div></div><div class="instrument"><span class="small-caps">STABILITÉ</span><b id="stability-value"></b><div class="meter stability"><i id="stability-bar"></i></div></div><div class="instrument radiator-instrument"><div><span class="small-caps">RADIATEUR</span><b id="radiator-value"></b><div class="meter radiator"><i id="radiator-bar"></i></div><small id="radiator-condition"></small></div><button id="radiator-repair" data-action="repair" title="Répare 60 points en 4 secondes sans marcher ni tirer ; consomme un kit à la fin.">T · RÉPARER À L’ARRÊT</button></div></div><div class="ammo-panel"><span class="small-caps" id="hud-weapon"></span><div><strong id="ammo-value"></strong><span id="ammo-total"></span></div><small id="ammo-reserve"></small><small id="rocket-value"></small></div></div>
@@ -445,6 +447,32 @@ const CAMPAIGN_MISSIONS = [
       body: 'Le circuit impérial libère le quai privé mais fait monter l’eau derrière les maisons. La dérivation locale demande davantage de travail et préserve les logements encore debout. Les habitants ne sont à l’abri que lorsqu’ils y sont réellement arrivés.',
       obey: 'Appliquer le seuil impérial au quai privé', defy: 'Ouvrir la dérivation et joindre le constat' },
     intro: 'NACRE // DIGUE DES TROIS-VANNES · 13:40',
+  },
+
+  {
+    id: 'MI07', number: '07', campaign: true, act: 'I — Le poids de l’ordre',
+    name: 'Une ambulance sans escorte', planetId: 'PL02', planet: 'Nacre',
+    biome: 'CHAUSSÉE DES SALINES', length: 6250, difficulty: 'TRANSFERT SANITAIRE', duration: '6–10 min',
+    faction: 'Compagnies de secours libres / saisie impériale', accent: '#aad4c3', sky: ['#182c37', '#587a7f', '#d8d3b8'],
+    description: 'Interceptez une signature hostile et laissez une ambulance rejoindre une aire d’arrêt dégagée. Obtenez l’accord de son responsable, examinez sa caisse et démontez la balise rapportée. Quatre patients, une conductrice et un soignant ont leur propre trajet, distinct des personnes secourues à la digue.',
+    briefing: '« Chaussée des Salines. Interceptez le transport désigné comme dépôt mobile de munitions et livrez-le au poste impérial. » — Major Holt',
+    hint: 'E appelle le transport puis dégage chaque barrière. Attendez son arrêt, échangez avec le responsable et examinez la caisse. Le démontage séparé préserve les attaches et le journal de la balise ; la détruire les perd. Les drones arrivent après leur signal. Après le choix, préparez la rampe et l’accueil, ordonnez le transfert puis accompagnez le véhicule. Sans conductrice, le treuil permet un remorquage réel. Les pertes restent constatables.',
+    type: 'ambulance', evidenceX: 2820, decisionX: 2820, extractionX: 5950,
+    evidenceLabel: 'RELEVÉ DE LA CHAUSSÉE', civilianPositions: [], supplyPositions: [980, 2490, 3650, 5460],
+    enemyPlan: [[660, 'rifle'], [1620, 'drone'], [2180, 'rocket'], [3500, 'skimmer'], [4400, 'rifle']],
+    ambulance: { interactionRadius: 175, callX: 1240, startX: 880, stopX: 1840,
+      barrierXs: [1710, 1950], technicalX: 3050, maraX: 2980,
+      mainRampX: 3150, secondaryRampX: 3700, imperialX: 4070, clinicX: 4670,
+      secondaryDistance: 550, displacedClinicDistance: 180,
+      barrierTime: 3, consentTime: 2, cargoTime: 3, beaconTime: 5, wreckTime: 2,
+      witnessTime: 2.5, technicalTime: 2.5, maraTime: 3, rampTime: 8, assistedRampTime: 4,
+      receptionTime: 4, dryReceptionTime: 7, handoverTime: 5, manualHandoverTime: 9,
+      towTime: 5, vehicleSpeed: 48, towSpeed: 28, seizureDelay: 10 },
+    decision: { title: 'Une signature sous le châssis',
+      body: 'Le transport et ses personnes ne deviennent pas des munitions parce qu’une balise les désigne. Le relevé doit séparer l’examen autorisé, la pièce effectivement récupérée et ce qui reste inconnu. Choisir une destination ne réalise pas le transfert.',
+      obey: 'Acheminer au poste médical impérial et placer le véhicule sous saisie',
+      defy: 'Acheminer à l’accueil civil et conserver le véhicule sanitaire' },
+    intro: 'NACRE // CHAUSSÉE DES SALINES · 16:10',
   },
 
 ];
@@ -744,7 +772,71 @@ function createGame(options = {}) {
       pressure: 0, waterLevel: .1, floodingElapsed: 0,
     };
   }
+  if (mission.id === 'MI07') {
+    const previous = options.campaignContext || {}, settings = mission.ambulance;
+    const context = { pumpsOnline: previous.pumpsOnline === true, panelsLocked: previous.panelsLocked === 1 ? 1 : 0,
+      emergencyShoring: previous.emergencyShoring === true, dikeFatigue: clamp(finite(previous.dikeFatigue), 0, 100),
+      techniciansAlive: Number.isInteger(previous.techniciansAlive) ? clamp(previous.techniciansAlive, 0, 2) : 0,
+      homesUninhabitable: Number.isInteger(previous.homesUninhabitable) ? clamp(previous.homesUninhabitable, 0, 2) : 0,
+      residentsSafe: Number.isInteger(previous.residentsSafe) ? clamp(previous.residentsSafe, 0, 10) : 0,
+      residentsLost: Number.isInteger(previous.residentsLost) ? clamp(previous.residentsLost, 0, 10) : 0,
+      circuit: previous.circuit === 'imperial' ? 'imperial' : 'diversion' };
+    const route = context.panelsLocked === 1 && !context.emergencyShoring && context.dikeFatigue < 65 ? 'main' : 'secondary';
+    state.campaign = { missionId: 'MI07', phase: 'approach', stopCalled: false, stopCleared: false,
+      vehicleStopped: false, consentObtained: false, cargoInspected: false, medicalCargoVerified: false,
+      beaconResolved: false, beaconRecovered: false, beaconDestroyed: false, fixingsPreserved: false,
+      beaconLogCopied: false, provenanceVerified: false, witnessConsent: false, witnessId: null, witnessAvailable: false,
+      maraContacted: false, technicalHelpRequested: false, rampPrepared: false, receptionReady: false,
+      transferOrdered: false, transferResolved: false, vehicleDestroyed: false, vehicleRecovered: false,
+      vehicleSeized: false, manifestRead: false, reportFiled: false,
+      patientsTotal: 4, patientsArrived: 0, patientsLost: 0, staffTotal: 2, staffAlive: 2, staffLost: 0, staffArrived: 0,
+      destination: 'unselected', route, context, tutorial: { stepped: false, braced: false } };
+    const solid = (id, x, w, h, hp) => ({ id, x, y: terrainAt(x, mission.planetId) - h / 2,
+      w, h, hp, maxHp: hp, destroyed: false, flash: 0 });
+    const ground = terrainAt(settings.startX, mission.planetId);
+    const conversation = () => ({ working: false, progress: 0, obtained: false, responsibleId: null });
+    const reception = (kind, baseX) => {
+      const x = baseX + (route === 'secondary' ? settings.secondaryDistance : 0)
+        + (kind === 'clinic' && context.homesUninhabitable > 0 ? settings.displacedClinicDistance : 0);
+      return { id: `salines-${kind}-reception`, kind, x, y: terrainAt(x, mission.planetId) - 70,
+        w: 138, h: 140, working: false, progress: 0, ready: false };
+    };
+    const rampX = route === 'main' ? settings.mainRampX : settings.secondaryRampX;
+    state.ambulance = {
+      vehicle: { ...solid('ambulance-quai', settings.startX, 176, 78, 700), y: ground - 58,
+        speed: settings.vehicleSpeed, called: false, moving: false, stopReached: false, arrived: false,
+        towing: false, towWorking: false, towProgress: 0 },
+      cargo: { ...solid('ambulance-medical-case', settings.startX + 24, 74, 32, 160), y: ground - 113,
+        inspected: false, verified: false, scanning: false, scanProgress: 0 },
+      beacon: { ...solid('ambulance-added-beacon', settings.startX - 99, 26, 20, 80), y: ground - 32,
+        resolved: false, recovered: false, working: false, progress: 0 },
+      staff: ['driver', 'medic'].map((role, i) => ({ id: `ambulance-${role}`, role,
+        x: settings.startX + (i ? 30 : -30), y: ground - 59, w: 19, h: 34,
+        hp: 90, maxHp: 90, alive: true, safe: false, phase: 'aboard' })),
+      patients: Array.from({ length: 4 }, (_, i) => ({ id: `ambulance-patient-${i + 1}`,
+        x: settings.startX + (i - 1.5) * 24, y: ground - 56, w: 26, h: 24,
+        hp: 60, maxHp: 60, alive: true, safe: false, phase: 'aboard' })),
+      barriers: settings.barrierXs.map((x, i) => ({ ...solid(`salines-barrier-${i + 1}`, x, 78, 52, 180),
+        cleared: false, working: false, progress: 0 })),
+      consent: conversation(), witness: conversation(),
+      technical: { id: 'salines-technical-radio', x: settings.technicalX, y: terrainAt(settings.technicalX, mission.planetId) - 34,
+        available: context.techniciansAlive > 0, working: false, progress: 0, contacted: false },
+      mara: { id: 'salines-mara-radio', x: settings.maraX, y: terrainAt(settings.maraX, mission.planetId) - 34,
+        working: false, progress: 0, contacted: false },
+      ramp: { id: `salines-${route}-ramp`, x: rampX, y: terrainAt(rampX, mission.planetId), w: 240, h: 28,
+        route, working: false, progress: 0, prepared: false },
+      receptions: [reception('imperial', settings.imperialX), reception('clinic', settings.clinicX)],
+      handover: { ordered: false, working: false, progress: 0, completed: false },
+      signalAnnounced: false, signalElapsed: 0, raidTriggered: false,
+    };
+  }
   state.enemies = spawnEnemies(state);
+  if (mission.id === 'MI07') {
+    for (const [i, x] of [3010, 3370].entries()) {
+      const drone = enemy(state, 'drone', x, state.enemies.length);
+      drone.id = `seizure-drone-${i + 1}`; state.enemies.push(drone);
+    }
+  }
   if (mission.id === 'MI03') {
     const observer = enemy(state, 'drone', 3200, state.enemies.length);
     observer.id = 'holt-observer';
@@ -792,6 +884,13 @@ function createGame(options = {}) {
   if (mission.id === 'MI06') {
     emit(state, 'radio', 'Mara, poste médical des Trois-Vannes : « Avant les pompes, regarde la marque blanche sur les portes. La fenêtre en dessous, c’est une cuisine. Dix personnes vivent encore dans ces deux maisons. »');
     emit(state, 'radio', state.campaign.context.fuelAvailable === 2 ? 'Tess : « Les deux lots chargés au dock peuvent tenir la pompe auxiliaire. Ils seront consommés au branchement achevé. On garde aussi la commande manuelle. »' : 'Tess : « Pas de carburant en réserve. Le panneau et les vannes restent accessibles à la commande manuelle ; il faudra tenir plus longtemps. »');
+  }
+  if (mission.id === 'MI07') {
+    emit(state, 'radio', 'Holt : « La signature désigne un dépôt de munitions mobile. Interceptez le transport aux Salines. »');
+    emit(state, 'radio', 'Tess : « Je vois un véhicule sanitaire. Dégage le portique et appelle-le avant de décider ce qu’il transporte. Les quatre patients et les deux membres du personnel viennent de cette ambulance. »');
+    emit(state, 'radio', state.campaign.route === 'main'
+      ? 'Tess : « Le panneau de la digue est verrouillé sans étai, sous soixante-cinq pour cent de fatigue. La rampe principale supporte ce transport. »'
+      : 'Tess : « L’appui de la digue impose la rampe secondaire. Le trajet sera plus long ; aucun carburant du chantier ne sera recréé. »');
   }
   return state;
 }
@@ -1063,6 +1162,10 @@ function interact(s) {
   if (s.missionId === 'MI03') return interactNetworkMission(s);
   if (s.missionId === 'MI04') return interactIndustrialMission(s);
   if (s.missionId === 'MI05') return interactChannelMission(s);
+  if (s.missionId === 'MI07') {
+    const changed = interactAmbulanceMission(s);
+    refreshAmbulanceFacts(s); refreshObjectives(s); return changed;
+  }
   if (s.missionId === 'MI06') return interactDikeMission(s);
   const p = s.player;
   if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
@@ -1095,6 +1198,14 @@ function commandGame(s, action, payload) {
   if (action === 'choice') {
     if (!s.decision.active || s.decision.resolved || !['obey', 'defy'].includes(payload)) return false;
     s.decision.choice = payload; s.decision.resolved = true; s.decision.active = false;
+    if (s.missionId === 'MI07') {
+      s.campaign.destination = payload === 'defy' ? 'clinic' : 'imperial';
+      s.campaign.reportFiled = payload === 'defy'; s.campaign.phase = 'transfer';
+      if (payload === 'defy') s.stats.ordersDefied++; else s.stats.ordersObeyed++;
+      refreshAmbulanceFacts(s);
+      emit(s, 'radio', payload === 'defy' ? 'Sera : « Accueil civil. Déployons la rampe et préparons la place de soins ; le transfert n’a pas encore eu lieu. »' : 'Holt : « Poste médical impérial confirmé. Achevez le trajet ; le véhicule survivant sera saisi après arrivée. »');
+      refreshObjectives(s); return true;
+    }
     if (s.missionId === 'MI06') {
       s.campaign.circuit = payload === 'defy' ? 'diversion' : 'imperial';
       s.campaign.reportFiled = payload === 'defy'; s.campaign.phase = 'operation';
@@ -1196,6 +1307,7 @@ function destroyEnemy(s, e) {
 
 function enemyPresent(s, e) {
   // The controller has a fixed save slot before arrival, not a physical target.
+  if (e.id.startsWith('seizure-drone-') && !s.ambulance?.raidTriggered) return false;
   if (e.id === 'private-hauler' && s.industrial?.retreatEscaped) return false;
   return e.id !== 'holt-observer' || Boolean(s.network?.scrutinyTriggered);
 }
@@ -1434,6 +1546,7 @@ function updateEnemies(s, dt) {
   for (const e of s.enemies) {
     e.flash = Math.max(0, e.flash - dt);
     if (e.dead) continue;
+    if (e.id.startsWith('seizure-drone-') && !s.ambulance?.raidTriggered) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'holt-observer' && !s.campaign?.holtAlerted) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'private-hauler') {
       const site = s.industrial;
@@ -1457,7 +1570,9 @@ function updateEnemies(s, dt) {
     if (s.missionId === 'MI01' && !s.notified.ambush) { e.active = false; e.phase = 'idle'; continue; }
     e.active = delta < 1150 || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
       || Boolean(s.channel && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < 900)
-      || Boolean(s.dike && [...s.dike.technicians.filter(t => t.called), ...s.dike.residents.filter(r => r.phase === 'evacuating')].some(person => person.alive && !person.safe && Math.abs(e.x - person.x) < 900));
+      || Boolean(s.dike && [...s.dike.technicians.filter(t => t.called), ...s.dike.residents.filter(r => r.phase === 'evacuating')].some(person => person.alive && !person.safe && Math.abs(e.x - person.x) < 900))
+      || Boolean(s.ambulance && (s.ambulance.vehicle.called && !s.ambulance.vehicle.destroyed && Math.abs(e.x - s.ambulance.vehicle.x) < 900
+        || [...s.ambulance.staff, ...s.ambulance.patients].some(person => person.alive && !person.safe && person.phase !== 'aboard' && Math.abs(e.x - person.x) < 900)));
     if (!e.active) { e.phase = 'idle'; continue; }
     if (e.type === 'boss' && !s.bossReleased) { e.phase = 'guard'; continue; }
     if (e.type === 'boss' && s.decision.choice === 'obey') { e.active = false; e.phase = 'standdown'; e.telegraph = 0; continue; }
@@ -1471,7 +1586,14 @@ function updateEnemies(s, dt) {
         .sort((a, b) => Math.abs(e.x - a.x) - Math.abs(e.x - b.x))[0];
       if (person) target = person;
     }
-    e.attackTarget = target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : 'convoy';
+    if (s.ambulance) {
+      const a = s.ambulance;
+      if (a.vehicle.called && !a.vehicle.destroyed && Math.abs(e.x - a.vehicle.x) < Math.abs(e.x - target.x)) target = a.vehicle;
+      const person = [...a.staff, ...a.patients].filter(person => person.alive && !person.safe && person.phase !== 'aboard' && Math.abs(e.x - person.x) < Math.abs(e.x - target.x))
+        .sort((u, v) => Math.abs(e.x - u.x) - Math.abs(e.x - v.x))[0];
+      if (person) target = person;
+    }
+    e.attackTarget = target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : target === s.ambulance?.vehicle ? 'ambulance' : s.ambulance?.staff.includes(target) ? 'medical-staff' : s.ambulance?.patients.includes(target) ? 'patient' : 'convoy';
     const td = Math.abs(e.x - target.x);
     if (e.phase === 'attack') {
       e.telegraph = Math.min(1, e.telegraph + dt / e.windup);
@@ -1487,7 +1609,8 @@ function updateEnemies(s, dt) {
         // Low raiders cannot drive through the chantier's actual volumes. A
         // walker straddles the worksite; infantry and skimmers must fire across
         // cover or wait at the panel until that obstruction is destroyed.
-        if (s.dike && e.kind !== 'air') for (const part of [...s.dike.houses, ...s.dike.covers, s.dike.panel, s.dike.auxiliary]) {
+        const obstructions = s.dike ? [...s.dike.houses, ...s.dike.covers, s.dike.panel, s.dike.auxiliary] : s.ambulance ? s.ambulance.barriers.filter(b => !b.cleared) : [];
+        if (e.kind !== 'air') for (const part of obstructions) {
           if (part.destroyed) continue;
           if (direction < 0 && e.x > part.x) nextX = Math.max(nextX, part.x + part.w / 2 + e.w / 2 + 4);
           else if (direction > 0 && e.x < part.x) nextX = Math.min(nextX, part.x - part.w / 2 - e.w / 2 - 4);
@@ -1549,6 +1672,12 @@ function explosion(s, shot, direct = null) {
     if (d < radius + post.w / 2) hitMaintenancePost(s,
       shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1) * 0.55 * Math.max(0.25, 1 - d / (radius + post.w / 2)));
   }
+  if (s.ambulance) for (const part of [s.ambulance.vehicle, s.ambulance.cargo, s.ambulance.beacon, ...s.ambulance.barriers,
+    ...s.ambulance.staff, ...s.ambulance.patients]) {
+    if (part === direct || part.destroyed || part.recovered || part.cleared || part.alive === false || part.safe || part.phase === 'aboard') continue;
+    const distance = dist(part.x, part.y, shot.x, shot.y);
+    if (distance < radius + (part.w || 20) * .35) hitAmbulancePart(s, part, shot.damage * .75 * (1 - distance / (radius + (part.w || 20) * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1));
+  }
   if (s.dike) for (const part of [...s.dike.houses, ...s.dike.covers, s.dike.panel, s.dike.auxiliary,
     ...s.dike.technicians, ...s.dike.residents.filter(r => r.phase !== 'home')]) {
     if (part === direct || part.destroyed || part.alive === false || part.safe) continue;
@@ -1604,6 +1733,11 @@ function updateProjectiles(s, dt) {
     if (s.train) for (const part of [s.train, ...s.train.wagons]) if (!part.destroyed) test(part, 'train');
     if (s.network) for (const station of s.network.stations) if (!station.destroyed) test(station, 'network');
     if (s.industrial && !s.industrial.post.destroyed) test(s.industrial.post, 'maintenance');
+    if (s.ambulance) {
+      const a = s.ambulance;
+      for (const item of [a.vehicle, a.cargo, a.beacon, ...a.barriers]) if (!item.destroyed && !item.recovered && !item.cleared) test(item, 'ambulance');
+      for (const person of [...a.staff, ...a.patients]) if (person.alive && !person.safe && person.phase !== 'aboard') test(person, 'ambulance');
+    }
     if (s.dike) {
       for (const item of [...s.dike.houses, ...s.dike.covers, s.dike.panel, s.dike.auxiliary]) if (!item.destroyed) test(item, 'dike');
       for (const person of [...s.dike.technicians, ...s.dike.residents]) if (person.alive && !person.safe && person.phase !== 'home') test(person, 'dike');
@@ -1622,6 +1756,7 @@ function updateProjectiles(s, dt) {
       if (hit.kind === 'civilian') hitCivilian(s, hit.entity, shot.damage);
       if (hit.kind === 'player') damagePlayer(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'radiator') damageRadiator(s, shot.damage, shot.x, shot.y);
+      if (hit.kind === 'ambulance') hitAmbulancePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'dike') hitDikePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'channel') hitChannelPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'maintenance') hitMaintenancePost(s, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
@@ -2312,6 +2447,284 @@ function dikeInteraction(s) {
   return c.pumpsOnline ? `${c.residentsSafe} habitants à l’abri · ${c.residentsLost} perdus · ${c.homesUninhabitable} logements inhabitables` : 'Relever les seuils · couvrir les techniciens · tenir le panneau';
 }
 
+function ambulanceStopClear(s) {
+  if (!s.ambulance) return false;
+  return s.ambulance.barriers.every(b => b.cleared || b.destroyed)
+    && !s.enemies.some(e => !e.dead && enemyPresent(s, e) && Math.abs(e.x - s.mission.ambulance.stopX) < 420);
+}
+
+const ambulanceReception = s => s.ambulance.receptions.find(r => r.kind === s.campaign.destination) || null;
+
+function ambulanceDecisionBody(s) {
+  const c = s.campaign;
+  const cargo = c.medicalCargoVerified ? 'La caisse sanitaire a été examinée avec l’accord du responsable ; son contenu médical est établi.'
+    : c.cargoInspected ? 'Le constat a été effectué sans pouvoir vérifier le contenu médical de la caisse.' : 'La caisse n’a pas encore été examinée.';
+  const beacon = c.beaconRecovered ? 'La balise ajoutée, ses attaches et son journal ont été récupérés par démontage.'
+    : c.beaconDestroyed ? 'La balise est détruite ; ni ses attaches ni son journal ne sont récupérés.' : 'La balise reste à examiner séparément.';
+  const witness = c.witnessConsent ? c.witnessAvailable ? 'Un membre du personnel a accepté de témoigner et reste vivant.' : 'Un consentement a été donné, mais son auteur est depuis décédé.' : 'Aucun consentement à témoigner n’a été obtenu.';
+  return `${cargo} ${beacon} La pièce ne permet pas d’identifier l’auteur de la pose ni une chaîne PALINODE : la provenance reste à recouper. ${c.patientsArrived} patients arrivés à l’accueil, ${c.patientsLost} perdus ; ${c.staffAlive} membres du personnel vivants, ${c.staffLost} perdus. ${witness} ${c.maraContacted ? 'Mara a été effectivement jointe à la radio.' : 'Aucun relevé n’a été transmis à Mara.'} ${c.route === 'main' ? 'Le verrou de la digue permet la rampe principale.' : 'L’état de la digue impose la rampe secondaire, plus longue.'} ${c.destination === 'unselected' ? 'Le poste médical impérial saisira le véhicule survivant ; l’accueil civil le conservera pour les soins. Le choix doit encore être suivi du transfert.' : c.transferResolved ? `Le transfert vers ${c.destination === 'imperial' ? 'le poste médical impérial' : 'l’accueil civil'} est terminé. ${c.vehicleDestroyed ? 'Le véhicule est perdu.' : c.vehicleSeized ? 'Le véhicule a été placé sous saisie.' : 'Le véhicule sanitaire reste disponible à l’accueil civil.'}` : `Destination ${c.destination === 'imperial' ? 'impériale' : 'civile'} retenue ; le transfert matériel reste à achever.`}`;
+}
+
+function refreshAmbulanceFacts(s) {
+  const a = s.ambulance, c = s.campaign, reception = ambulanceReception(s);
+  c.stopCalled = a.vehicle.called; c.stopCleared = ambulanceStopClear(s); c.vehicleStopped = a.vehicle.stopReached;
+  c.consentObtained = a.consent.obtained; c.cargoInspected = a.cargo.inspected; c.medicalCargoVerified = a.cargo.verified;
+  c.beaconResolved = a.beacon.resolved; c.beaconRecovered = a.beacon.recovered; c.beaconDestroyed = a.beacon.destroyed;
+  c.fixingsPreserved = a.beacon.recovered; c.beaconLogCopied = a.beacon.recovered; c.provenanceVerified = false;
+  c.witnessConsent = a.witness.obtained; c.witnessId = a.witness.responsibleId;
+  c.witnessAvailable = c.witnessConsent && a.staff.some(p => p.id === c.witnessId && p.alive);
+  c.maraContacted = a.mara.contacted; c.technicalHelpRequested = a.technical.contacted;
+  c.rampPrepared = a.ramp.prepared; c.receptionReady = Boolean(reception?.ready); c.transferOrdered = a.handover.ordered;
+  c.patientsArrived = a.patients.filter(p => p.safe).length; c.patientsLost = a.patients.filter(p => !p.alive).length;
+  c.staffAlive = a.staff.filter(p => p.alive).length; c.staffLost = c.staffTotal - c.staffAlive; c.staffArrived = a.staff.filter(p => p.safe).length;
+  c.vehicleDestroyed = a.vehicle.destroyed; c.vehicleRecovered = a.vehicle.arrived && !a.vehicle.destroyed;
+  c.vehicleSeized = c.vehicleRecovered && c.destination === 'imperial';
+  c.transferResolved = a.handover.completed && c.patientsArrived + c.patientsLost === c.patientsTotal && c.staffArrived + c.staffLost === c.staffTotal;
+  s.stats.evidence = 0;
+  if (s.decision.active || s.decision.resolved) s.decision.body = ambulanceDecisionBody(s);
+}
+
+function syncAmbulanceParts(s) {
+  const a = s.ambulance, v = a.vehicle, ground = terrainAt(v.x, s.planetId);
+  v.y = ground - 58;
+  a.cargo.x = v.x + 24; a.cargo.y = ground - 113;
+  a.beacon.x = v.x - 99; a.beacon.y = ground - 32;
+  for (const person of [...a.staff, ...a.patients]) if (person.phase === 'aboard') {
+    person.x = v.x + (person.role ? person.role === 'driver' ? -30 : 30 : (a.patients.indexOf(person) - 1.5) * 24);
+    person.y = ground - (person.role ? 59 : 56);
+  }
+}
+
+function announceAmbulanceSeizure(s) {
+  const a = s.ambulance;
+  if (a.signalAnnounced) return;
+  a.signalAnnounced = true; a.signalElapsed = 0;
+  emit(s, 'radio', 'Tess : « Le boîtier a émis une rupture de liaison. Deux drones de saisie sont annoncés à l’est dans dix secondes. Leur arrivée ne nous dira pas qui a posé la pièce. »');
+}
+
+function hitAmbulancePerson(s, person, damage) {
+  if (!person.alive || person.safe) return;
+  person.hp = Math.max(0, person.hp - damage);
+  if (person.hp > 0) return;
+  person.alive = false; person.safe = false; person.phase = 'lost'; s.stats.collateral++;
+  emit(s, 'radio', person.role ? 'Tess : « Un membre du personnel est perdu. Le remorquage et les chariots au treuil restent possibles ; cette personne ne reviendra pas. »' : 'Tess : « Un patient est perdu. Ne le compte pas parmi les arrivées. »');
+}
+
+function hitAmbulancePart(s, part, damage) {
+  const a = s.ambulance;
+  if ('alive' in part) { hitAmbulancePerson(s, part, damage); refreshAmbulanceFacts(s); return; }
+  if (part.destroyed || part.recovered || part.cleared) return;
+  part.hp = Math.max(0, part.hp - damage); part.flash = .1; particles(s, part.x, part.y, 'spark', 4);
+  if (part.hp > 0) return;
+  part.destroyed = true;
+  if (part === a.vehicle) {
+    part.moving = false; part.towWorking = false; part.towProgress = part.towing ? 1 : 0;
+    for (const p of [...a.staff, ...a.patients]) if (p.phase === 'aboard') hitAmbulancePerson(s, p, p.hp);
+    hitAmbulancePart(s, a.cargo, a.cargo.hp); hitAmbulancePart(s, a.beacon, a.beacon.hp);
+    emit(s, 'objective', 'Ambulance détruite. Les personnes déjà sorties restent distinctes des occupants ; un constat local des sources perdues permet de poursuivre.');
+  } else if (part === a.cargo) {
+    part.scanning = false; part.scanProgress = part.inspected ? 1 : 0;
+    emit(s, 'objective', part.verified ? 'Caisse sanitaire détruite après examen. Le constat déjà effectué est conservé.' : 'Caisse détruite avant examen. Aucun contenu médical ne sera inventé dans le dossier.');
+  } else if (part === a.beacon) {
+    part.working = false; part.progress = part.resolved ? 1 : 0; announceAmbulanceSeizure(s);
+    emit(s, 'objective', 'Balise détruite. Relevez sa perte sur place ; ses attaches et son journal sont perdus.');
+  } else if (a.barriers.includes(part)) { part.cleared = true; part.working = false; part.progress = 1; }
+  particles(s, part.x, part.y, 'smoke', 10); refreshAmbulanceFacts(s);
+}
+
+function ambulanceThreatNear(s, x, radius) {
+  return s.enemies.some(e => !e.dead && enemyPresent(s, e) && Math.abs(e.x - x) < radius);
+}
+
+function interactAmbulanceMission(s) {
+  const a = s.ambulance, c = s.campaign, p = s.player, settings = s.mission.ambulance;
+  const near = x => Math.abs(p.x - x) < settings.interactionRadius;
+  if (!a.vehicle.called && near(settings.callX)) {
+    a.vehicle.called = true; c.phase = 'interception';
+    emit(s, 'radio', a.vehicle.destroyed ? 'Tess : « La balise d’appel ne reçoit plus de réponse. Relevons l’épave et ce qui manque, sans faire arriver un véhicule détruit. »' : 'Conductrice : « Sous le portique, je peux m’arrêter. Dégagez les deux barrières et les tirs autour de l’aire ; ici, chaque joint soulève le brancard. »');
+    return true;
+  }
+  const barrier = a.barriers.find(b => !b.cleared && !b.destroyed && near(b.x));
+  if (barrier) { barrier.working = true; return true; }
+  if (a.vehicle.called && !a.vehicle.destroyed && !a.staff.find(t => t.role === 'driver').alive && !a.vehicle.towing && near(a.vehicle.x)) {
+    a.vehicle.towWorking = true; emit(s, 'radio', 'Tess : « On peut accrocher l’ambulance au treuil. Cinq secondes à portée, puis reste proche pendant le remorquage. »'); return true;
+  }
+  if (a.vehicle.stopReached || a.vehicle.destroyed) {
+    const responsible = a.staff.find(t => t.alive && !t.safe);
+    if (!a.consent.obtained && !a.cargo.inspected && !a.cargo.destroyed && responsible && near(a.vehicle.x)) {
+      a.consent.working = true; c.phase = 'examination'; return true;
+    }
+    if (!a.cargo.inspected && near(a.cargo.x)) {
+      if (!a.cargo.destroyed && responsible && !a.consent.obtained) return false;
+      a.cargo.scanning = true; c.phase = 'examination'; return true;
+    }
+    if (a.cargo.inspected && !a.beacon.resolved && near(a.beacon.x)) {
+      if (!a.beacon.destroyed && (p.move || !p.braced || Math.abs(p.speed) > 3 || p.feet.some(f => !f.contact))) {
+        emit(s, 'radio', 'Tess : « Arrête les appuis et maintiens l’ancrage avant le démontage. Il faut préserver les attaches. »'); return false;
+      }
+      a.beacon.working = true; return true;
+    }
+    if (a.cargo.inspected && !a.witness.obtained && (!a.handover.ordered || a.handover.completed) && responsible && near(a.vehicle.x + 185)) {
+      a.witness.working = true; return true;
+    }
+  }
+  if (near(s.evidence.x) && (!c.manifestRead || !s.decision.resolved)) {
+    if (!a.vehicle.called || !a.cargo.inspected || !a.beacon.resolved) { emit(s, 'radio', 'Tess : « Il manque le constat de la caisse ou de la balise. Une source perdue se relève sur place ; elle ne se recrée pas au terminal. »'); return false; }
+    if (!c.manifestRead) { s.evidence.scanning = true; return true; }
+    s.decision.body = ambulanceDecisionBody(s); s.decision.active = true; emit(s, 'decision', s.decision.title); return true;
+  }
+  if (c.manifestRead && !a.mara.contacted && near(a.mara.x)) { a.mara.working = true; return true; }
+  if (a.technical.available && !a.technical.contacted && near(a.technical.x)) { a.technical.working = true; return true; }
+  if (s.decision.resolved && !a.ramp.prepared && near(a.ramp.x)) { a.ramp.working = true; return true; }
+  const reception = ambulanceReception(s);
+  if (reception && near(reception.x)) {
+    if (!reception.ready) { reception.working = true; return true; }
+    if (!a.ramp.prepared) { emit(s, 'radio', 'Tess : « L’accueil est prêt. Il faut encore déployer la rampe retenue avant d’engager les chariots. »'); return false; }
+    if (!a.handover.ordered) {
+      a.handover.ordered = true; c.phase = 'transfer';
+      emit(s, 'radio', c.destination === 'imperial' ? 'Poste impérial : « L’accueil médical est prêt. Amenez les patients ; le véhicule survivant restera sous saisie. »' : 'Accueil civil : « La rampe est ouverte. Les patients entreront au poste ; l’ambulance restera affectée aux soins. »');
+      return true;
+    }
+  }
+  if (a.handover.ordered && !a.handover.completed && (a.vehicle.arrived || a.vehicle.destroyed)
+      && (near(a.vehicle.x) || reception && near(reception.x))) { a.handover.working = true; return true; }
+  return false;
+}
+
+function updateAmbulanceMission(s, dt) {
+  const a = s.ambulance, c = s.campaign, p = s.player, settings = s.mission.ambulance;
+  const near = x => Math.abs(p.x - x) < settings.interactionRadius;
+  refreshAmbulanceFacts(s);
+  for (const item of [a.vehicle, a.cargo, a.beacon, ...a.barriers]) item.flash = Math.max(0, item.flash - dt);
+  for (const b of a.barriers) if (b.working) {
+    if (!near(b.x)) { b.working = false; b.progress = 0; }
+    else { b.progress = Math.min(1, b.progress + dt / settings.barrierTime); if (b.progress >= 1) { b.working = false; b.cleared = true; emit(s, 'objective', 'Barrière déplacée hors de l’aire. Son volume ne bloque plus l’ambulance.'); } }
+  }
+  if (a.vehicle.towWorking) {
+    if (!near(a.vehicle.x)) { a.vehicle.towWorking = false; a.vehicle.towProgress = 0; }
+    else { a.vehicle.towProgress = Math.min(1, a.vehicle.towProgress + dt / settings.towTime); if (a.vehicle.towProgress >= 1) { a.vehicle.towWorking = false; a.vehicle.towing = true; emit(s, 'objective', 'Attelage au treuil terminé. Le véhicule ne suivra que si le marcheur reste proche.'); } }
+  }
+  const responsible = a.staff.find(t => t.alive && !t.safe);
+  for (const [job, x, duration, text] of [[a.consent, a.vehicle.x, settings.consentTime, 'Responsable sanitaire : « Vous pouvez examiner la caisse de soins et le boîtier extérieur. Cela ne vous autorise pas à diffuser les dossiers des patients. »'],
+    [a.witness, a.vehicle.x + 185, settings.witnessTime, 'Responsable sanitaire : « J’accepte de décrire ce que nous avons vu. Nous ne savons pas qui a fixé ce boîtier ; ne nous faites pas dire un nom. »']]) if (job.working) {
+    if (!near(x) || !responsible || a.vehicle.moving) { job.working = false; job.progress = 0; }
+    else { job.progress = Math.min(1, job.progress + dt / duration); if (job.progress >= 1) { job.working = false; job.obtained = true; job.responsibleId = responsible.id; emit(s, 'radio', text); } }
+  }
+  if (a.cargo.scanning) {
+    if (!near(a.cargo.x) || a.vehicle.moving) { a.cargo.scanning = false; a.cargo.scanProgress = 0; }
+    else {
+      a.cargo.scanProgress = Math.min(1, a.cargo.scanProgress + dt / (a.cargo.destroyed || !a.consent.obtained ? settings.wreckTime : settings.cargoTime));
+      if (a.cargo.scanProgress >= 1) {
+        a.cargo.scanning = false; a.cargo.inspected = true; a.cargo.verified = !a.cargo.destroyed && a.consent.obtained;
+        emit(s, 'objective', a.cargo.verified ? 'Caisse examinée avec accord : pansements, matériel de soin et aucun stock de munitions dans cette caisse. Le boîtier ajouté reste à démonter séparément.' : 'Constat extérieur effectué. Aucun contenu médical n’est affirmé sans source examinable et accord du responsable.');
+      }
+    }
+  }
+  if (a.beacon.working) {
+    const stable = !p.move && p.braced && Math.abs(p.speed) <= 3 && p.feet.every(f => f.contact);
+    if (!near(a.beacon.x) || a.vehicle.moving || !a.beacon.destroyed && !stable) { a.beacon.working = false; a.beacon.progress = 0; }
+    else {
+      a.beacon.progress = Math.min(1, a.beacon.progress + dt / (a.beacon.destroyed ? settings.wreckTime : settings.beaconTime));
+      if (a.beacon.progress >= 1) {
+        a.beacon.working = false; a.beacon.resolved = true; a.beacon.recovered = !a.beacon.destroyed; announceAmbulanceSeizure(s);
+        emit(s, 'objective', a.beacon.recovered ? 'Balise démontée, attaches préservées et journal copié. Matériel de désignation impérial constaté ; auteur de la pose et provenance à recouper.' : 'Perte de la balise constatée. Aucune attache ni donnée de journal récupérée.');
+      }
+    }
+  }
+  for (const [job, duration, text] of [[a.technical, settings.technicalTime, 'Technicien du chantier, radio : « Je vous guide sur les raccords de cette rampe. Le verrou d’hier ne remplace pas le déploiement d’aujourd’hui. »'],
+    [a.mara, settings.maraTime, 'Mara, radio : « Je reçois votre relevé. Gardez la pièce si vous l’avez ; les noms des patients restent sur le dossier de soins. Je n’ai pas vu poser ce boîtier. »']]) if (job.working) {
+    if (!near(job.x)) { job.working = false; job.progress = 0; }
+    else { job.progress = Math.min(1, job.progress + dt / duration); if (job.progress >= 1) { job.working = false; job.contacted = true; emit(s, 'radio', text); } }
+  }
+  if (a.ramp.working) {
+    if (!near(a.ramp.x)) { a.ramp.working = false; a.ramp.progress = 0; }
+    else { a.ramp.progress = Math.min(1, a.ramp.progress + dt / (a.technical.contacted ? settings.assistedRampTime : settings.rampTime)); if (a.ramp.progress >= 1) { a.ramp.working = false; a.ramp.prepared = true; emit(s, 'objective', `Rampe ${c.route === 'main' ? 'principale' : 'secondaire'} déployée. Il faut préparer l’accueil puis engager le transfert.`); } }
+  }
+  for (const r of a.receptions) if (r.working) {
+    if (!near(r.x) || r.kind !== c.destination) { r.working = false; r.progress = 0; }
+    else { r.progress = Math.min(1, r.progress + dt / (c.context.pumpsOnline ? settings.receptionTime : settings.dryReceptionTime)); if (r.progress >= 1) { r.working = false; r.ready = true; emit(s, 'objective', 'Accueil raccordé et place de soins ouverte. E pour ordonner le transfert matériel.'); } }
+  }
+  if (a.signalAnnounced && !a.raidTriggered) {
+    a.signalElapsed = Math.min(settings.seizureDelay, a.signalElapsed + dt);
+    if (a.signalElapsed >= settings.seizureDelay) { a.raidTriggered = true; emit(s, 'radio', 'Tess : « Les deux drones de saisie entrent sur la chaussée. Ils peuvent toucher le véhicule et les personnes exposées. »'); }
+  }
+  const reception = ambulanceReception(s), driver = a.staff.find(t => t.role === 'driver');
+  const transferReady = a.handover.ordered && a.ramp.prepared && reception?.ready;
+  for (const t of a.staff) if (t.alive && !t.safe && t.phase !== 'aboard' && t.phase !== 'transferring') {
+    if (transferReady && a.vehicle.destroyed) t.phase = 'transferring';
+    else {
+      const destination = a.vehicle.x + (transferReady ? t.role === 'driver' ? -30 : 30 : t.role === 'driver' ? -125 : 125);
+      t.x += clamp(destination - t.x, -dt * 32, dt * 32); t.y = terrainAt(t.x, s.planetId) - t.h / 2;
+      if (transferReady && Math.abs(t.x - destination) < 3) t.phase = 'aboard';
+    }
+  }
+  a.vehicle.moving = false;
+  if (a.vehicle.called && !a.vehicle.destroyed && !a.vehicle.arrived && (driver.alive || a.vehicle.towing)) {
+    const destination = a.vehicle.stopReached ? transferReady ? reception.x - 180 : null : settings.stopX;
+    const crewBoarded = a.staff.every(t => !t.alive || t.phase === 'aboard');
+    const canMove = destination !== null && (a.vehicle.stopReached ? transferReady && crewBoarded : ambulanceStopClear(s))
+      && !ambulanceThreatNear(s, a.vehicle.x, 300) && (!a.vehicle.towing || Math.abs(p.x - a.vehicle.x) < 480);
+    if (canMove) {
+      a.vehicle.moving = Math.abs(destination - a.vehicle.x) > 1;
+      a.vehicle.x += clamp(destination - a.vehicle.x, -dt * (a.vehicle.towing ? settings.towSpeed : a.vehicle.speed), dt * (a.vehicle.towing ? settings.towSpeed : a.vehicle.speed));
+      if (Math.abs(a.vehicle.x - destination) <= 1) {
+        a.vehicle.x = destination; a.vehicle.moving = false;
+        if (!a.vehicle.stopReached) {
+          a.vehicle.stopReached = true; for (const t of a.staff) if (t.alive) t.phase = 'outside';
+          emit(s, 'objective', 'Ambulance effectivement arrêtée sous le portique. E près du véhicule pour demander l’accord à l’examen.');
+        } else { a.vehicle.arrived = true; emit(s, 'objective', 'Ambulance arrivée au quai d’accueil. Les patients sont encore à bord ; E pour installer le transfert des chariots.'); }
+      }
+    }
+  }
+  syncAmbulanceParts(s);
+  if (a.handover.working) {
+    if (!reception || !a.ramp.prepared || !reception.ready || !near(a.vehicle.x) && !near(reception.x)) { a.handover.working = false; a.handover.progress = 0; }
+    else {
+      const duration = a.vehicle.destroyed ? settings.wreckTime : a.staff.find(t => t.role === 'medic').alive ? settings.handoverTime : settings.manualHandoverTime;
+      a.handover.progress = Math.min(1, a.handover.progress + dt / duration);
+      if (a.handover.progress >= 1) {
+        a.handover.working = false; a.handover.completed = true;
+        for (const person of [...a.staff, ...a.patients]) if (person.alive && !person.safe) person.phase = 'transferring';
+        emit(s, 'objective', a.vehicle.destroyed ? 'Constat du véhicule perdu transmis. Toute personne encore vivante doit rejoindre réellement l’accueil.' : 'Chariots engagés vers l’accueil. Leur départ du véhicule n’est pas encore une arrivée au poste.');
+      }
+    }
+  }
+  if (transferReady) for (const person of [...a.staff, ...a.patients]) if (person.alive && !person.safe && person.phase === 'transferring') {
+    const speed = person.role ? 32 : a.staff.some(t => t.alive && t.role === 'medic') ? 24 : 18;
+    if (!ambulanceThreatNear(s, person.x, 280)) person.x = Math.min(reception.x, person.x + dt * speed);
+    person.y = terrainAt(person.x, s.planetId) - person.h / 2;
+    if (person.x >= reception.x) { person.safe = true; person.phase = 'arrived'; emit(s, 'objective', person.role ? 'Un membre du personnel entre dans le poste d’accueil.' : 'Un patient est effectivement arrivé au poste de soins.'); }
+  }
+  refreshAmbulanceFacts(s);
+  if (c.transferResolved) c.phase = 'report';
+}
+
+function ambulanceInteraction(s) {
+  const a = s.ambulance, c = s.campaign, p = s.player, settings = s.mission.ambulance, near = x => Math.abs(p.x - x) < settings.interactionRadius;
+  if (!a.vehicle.called && near(settings.callX)) return 'E · Appeler le transport vers le portique';
+  const b = a.barriers.find(b => !b.cleared && !b.destroyed && near(b.x));
+  if (b) return b.working ? `Dégagement ${Math.round(b.progress * 100)} % · rester à portée` : 'E · Déplacer la barrière hors de l’aire (3 s)';
+  if (!a.vehicle.destroyed && !a.staff[0].alive && !a.vehicle.towing && near(a.vehicle.x)) return a.vehicle.towWorking ? `Attelage ${Math.round(a.vehicle.towProgress * 100)} %` : 'E · Atteler l’ambulance au treuil (5 s)';
+  if (a.vehicle.stopReached || a.vehicle.destroyed) {
+    if (!a.consent.obtained && !a.cargo.inspected && !a.cargo.destroyed && c.staffAlive && near(a.vehicle.x)) return a.consent.working ? `Accord à l’examen ${Math.round(a.consent.progress * 100)} %` : 'E · Demander l’accord du responsable sanitaire (2 s)';
+    if (!a.cargo.inspected && near(a.cargo.x)) return a.cargo.scanning ? `Examen de la caisse ${Math.round(a.cargo.scanProgress * 100)} %` : a.cargo.destroyed || !c.consentObtained ? 'E · Constater la caisse sans contenu vérifiable (2 s)' : 'E · Examiner la caisse sanitaire (3 s)';
+    if (a.cargo.inspected && !a.beacon.resolved && near(a.beacon.x)) return a.beacon.working ? `Balise ${Math.round(a.beacon.progress * 100)} % · maintenir l’ancrage` : a.beacon.destroyed ? 'E · Constater la perte de la balise (2 s)' : 'E + ancrage · Démonter la balise, préserver attaches et journal (5 s)';
+    if (a.cargo.inspected && !a.witness.obtained && (!a.handover.ordered || a.handover.completed) && c.staffAlive && near(a.vehicle.x + 185)) return a.witness.working ? `Échange ${Math.round(a.witness.progress * 100)} %` : 'E · Demander un consentement à témoigner (facultatif)';
+  }
+  if (near(s.evidence.x) && (!c.manifestRead || !s.decision.resolved)) return !c.cargoInspected || !c.beaconResolved ? 'Relever la caisse et la balise, ou leurs pertes, avant le dossier' : !c.manifestRead ? s.evidence.scanning ? 'Compilation du relevé local…' : 'E · Compiler le relevé de la chaussée' : 'E · Choisir la destination sanitaire';
+  if (!a.mara.contacted && c.manifestRead && near(a.mara.x)) return a.mara.working ? `Liaison Mara ${Math.round(a.mara.progress * 100)} %` : 'E · Transmettre réellement le relevé à Mara (facultatif)';
+  if (a.technical.available && !a.technical.contacted && near(a.technical.x)) return a.technical.working ? `Conseil technique ${Math.round(a.technical.progress * 100)} %` : 'E · Demander l’aide du technicien survivant (facultatif)';
+  if (!a.ramp.prepared && near(a.ramp.x)) return a.ramp.working ? `Rampe ${Math.round(a.ramp.progress * 100)} %` : `E · Préparer la rampe ${c.route === 'main' ? 'principale' : 'secondaire'}`;
+  const reception = ambulanceReception(s);
+  if (reception && near(reception.x)) {
+    if (!reception.ready) return reception.working ? `Accueil ${Math.round(reception.progress * 100)} %` : 'E · Préparer le poste d’accueil';
+    if (!a.handover.ordered) return a.ramp.prepared ? 'E · Ordonner le transfert vers cet accueil' : 'Déployer la rampe retenue avant le transfert';
+  }
+  if (a.handover.ordered && !a.handover.completed && (a.vehicle.arrived || a.vehicle.destroyed) && (near(a.vehicle.x) || reception && near(reception.x))) return a.handover.working ? `Chariots et constat ${Math.round(a.handover.progress * 100)} %` : a.vehicle.destroyed ? 'E · Transmettre le constat du véhicule perdu' : 'E · Engager les chariots vers l’accueil';
+  if (a.vehicle.called && !a.vehicle.stopReached && !a.vehicle.destroyed) return c.stopCleared ? 'Attendre l’arrivée réelle sous le portique' : 'Dégager les deux barrières et les menaces de l’aire';
+  return c.transferResolved ? `${c.patientsArrived} patients arrivés · ${c.patientsLost} perdus · rejoindre la sortie` : a.handover.ordered ? 'Protéger le trajet réel du transport et des personnes' : 'Arrêt · accord · caisse · balise · destination · transfert';
+}
+
 function updateWorld(s, dt) {
   const p = s.player;
   const e = s.evidence;
@@ -2321,6 +2734,7 @@ function updateWorld(s, dt) {
   if (s.missionId === 'MI04') updateIndustrialMission(s, dt);
   if (s.missionId === 'MI05') updateChannelMission(s, dt);
   if (s.missionId === 'MI06') updateDikeMission(s, dt);
+  if (s.missionId === 'MI07') updateAmbulanceMission(s, dt);
   if (s.status !== 'playing') return;
   if (e.scanning && !e.collected) {
     if (Math.abs(p.x - e.x) > (s.missionId === 'MI04' ? s.mission.industrial.interactionRadius : 250)) { e.scanning = false; e.scanProgress = 0; emit(s, 'radio', 'Lecture interrompue : terminal hors de portée.'); }
@@ -2328,7 +2742,10 @@ function updateWorld(s, dt) {
       e.scanProgress = Math.min(1, e.scanProgress + dt / e.scanTime);
       if (e.scanProgress >= 1) {
         e.collected = true; e.scanning = false;
-        if (s.missionId === 'MI06') {
+        if (s.missionId === 'MI07') {
+          s.campaign.manifestRead = true; s.campaign.phase = 'decision'; refreshAmbulanceFacts(s);
+          emit(s, 'radio', 'Tess : « Le relevé distingue les faits examinés et les sources perdues. Choisissez la destination ; la rampe, l’accueil et le transfert restent à réaliser. »');
+        } else if (s.missionId === 'MI06') {
           s.campaign.manifestRead = true; s.campaign.phase = 'routing';
           refreshDikeFacts(s);
           emit(s, 'objective', 'Niveaux relevés et panneau sécurisé. — E : choisir le circuit, puis actionner réellement la vanne.');
@@ -2403,6 +2820,7 @@ function updateWorld(s, dt) {
   else if (s.missionId === 'MI04') s.interaction = industrialInteraction(s);
   else if (s.missionId === 'MI05') s.interaction = channelInteraction(s);
   else if (s.missionId === 'MI06') s.interaction = dikeInteraction(s);
+  else if (s.missionId === 'MI07') s.interaction = ambulanceInteraction(s);
   else if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     s.interaction = s.campaign.passageWorking ? `Déploiement des dalles ${Math.round(s.campaign.passageProgress * 100)} % · restez près du treuil` : 'E · Déployer les dalles de protection (4,5 s)';
   } else if (!e.collected && Math.abs(p.x - e.x) < 230) {
@@ -2413,6 +2831,11 @@ function updateWorld(s, dt) {
   if (p.hull <= 0) finish(s, false, 'Marcheur immobilisé. Votre équipage a déclenché la balise de secours.');
   else if (s.convoy && s.convoy.hp <= 0) finish(s, false, s.campaign ? s.campaign.filtersDelivered ? 'Le camion de Sami est perdu au poste. Les filtres ont été livrés, mais l’escorte a échoué. Reprenez le dernier point de contrôle pour retenter la mission.' : 'Le camion de Sami est perdu. Les filtres n’atteindront pas le poste des mineurs. Reprenez le dernier point de contrôle pour retenter l’escorte.' : 'Le transport est perdu. La route du bac se ferme.');
   else if (s.extraction.active && Math.abs(p.x - s.extraction.x) < s.extraction.radius) {
+    if (s.missionId === 'MI07') {
+      refreshAmbulanceFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
+      finish(s, true, `${c.patientsArrived} patients arrivés à ${c.destination === 'imperial' ? 'l’accueil médical impérial' : 'l’accueil civil'}, ${c.patientsLost} perdus. ${c.staffArrived} membres du personnel arrivés, ${c.staffLost} perdus. ${c.vehicleDestroyed ? 'Ambulance perdue.' : c.vehicleSeized ? 'Ambulance placée sous saisie.' : 'Ambulance conservée pour les soins.'} ${c.beaconRecovered ? 'Balise, attaches et journal récupérés.' : 'Aucune balise exploitable récupérée.'} Provenance de pose encore à recouper ; aucune nouvelle preuve PALINODE.`);
+      return;
+    }
     if (s.missionId === 'MI06') {
       refreshDikeFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
       finish(s, true, `Pompes en service : ${c.circuit === 'imperial' ? 'seuil impérial appliqué' : 'dérivation locale ouverte'}. ${c.residentsSafe} habitants à l’abri, ${c.residentsLost} perdu${c.residentsLost > 1 ? 's' : ''}. ${c.homesUninhabitable} logement${c.homesUninhabitable > 1 ? 's' : ''} inhabitable${c.homesUninhabitable > 1 ? 's' : ''}. ${c.techniciansAlive} technicien${c.techniciansAlive > 1 ? 's' : ''} vivant${c.techniciansAlive > 1 ? 's' : ''}. ${c.emergencyShoring ? 'Passage assuré par un étai de secours.' : 'Panneau verrouillé.'} ${c.fuelSpent} lots de carburant dépensés.`);
@@ -2456,6 +2879,18 @@ function updateWorld(s, dt) {
 
 function refreshObjectives(s) {
   const goals = [];
+  if (s.missionId === 'MI07') {
+    const c = s.campaign;
+    goals.push({ id: 'intercept', label: 'Appeler le transport et examiner son arrêt ou son épave', current: c.stopCalled && (c.vehicleStopped || c.vehicleDestroyed) ? 1 : 0, target: 1, complete: c.stopCalled && (c.vehicleStopped || c.vehicleDestroyed) });
+    goals.push({ id: 'case', label: 'Examiner la caisse avec accord ou constater sa perte', current: c.cargoInspected ? 1 : 0, target: 1, complete: c.cargoInspected });
+    goals.push({ id: 'beacon', label: 'Démonter la balise ou relever sa destruction', current: c.beaconResolved ? 1 : 0, target: 1, complete: c.beaconResolved });
+    goals.push({ id: 'destination', label: 'Compiler le relevé et choisir la destination sanitaire', current: s.decision.resolved ? 1 : 0, target: 1, complete: s.decision.resolved });
+    goals.push({ id: 'ramp', label: `Préparer la rampe ${c.route === 'main' ? 'principale' : 'secondaire'} et l’accueil`, current: Number(c.rampPrepared) + Number(c.receptionReady), target: 2, complete: c.rampPrepared && c.receptionReady });
+    goals.push({ id: 'transfer', label: `${c.patientsArrived} patients arrivés, ${c.patientsLost} perdus ; personnel ${c.staffArrived} arrivé / ${c.staffLost} perdu`, current: c.patientsArrived + c.patientsLost + c.staffArrived + c.staffLost, target: 6, complete: c.transferResolved });
+    s.extraction.active = goals.every(g => g.complete);
+    goals.push({ id: 'extract', label: 'Rejoindre la sortie de la chaussée', current: s.status === 'won' ? 1 : 0, target: 1, complete: s.status === 'won' });
+    s.objectives = goals; return;
+  }
   if (s.missionId === 'MI06') {
     const c = s.campaign;
     goals.push({ id: 'thresholds', label: 'Relever les seuils des deux maisons ou leurs ruines', current: c.thresholdsInspected, target: 2, complete: c.thresholdsInspected === 2 });
@@ -2577,7 +3012,7 @@ function updateGame(s, delta, input = {}) {
   return s;
 }
 
-return {terrainAt,createGame,radiatorBounds,radiatorCoolingFactor,trainDecisionBody,networkDecisionBody,industrialDecisionBody,commandGame,channelTideAt,channelSurfaceAt,channelDecisionBody,dikeSupportReady,dikeDecisionBody,updateGame};
+return {terrainAt,createGame,radiatorBounds,radiatorCoolingFactor,trainDecisionBody,networkDecisionBody,industrialDecisionBody,commandGame,channelTideAt,channelSurfaceAt,channelDecisionBody,dikeSupportReady,dikeDecisionBody,ambulanceStopClear,ambulanceDecisionBody,updateGame};
 })();
 __modules["src/renderer.mjs"] = (() => {
 const { terrainAt, radiatorBounds, channelSurfaceAt } = __modules["src/simulation.mjs"];
@@ -2813,11 +3248,12 @@ class Renderer {
     if (s.campaign) this.drawCampaignLandmarks(s, t);
     if (s.channel) this.drawChannel(s, t);
     if (s.dike) this.drawDike(s, t);
+    if (s.ambulance) this.drawAmbulanceSite(s, t);
     for (const r of s.relays) if (this.visible(r.x, 150)) this.drawRelay(r, s);
-    if (!s.train && !s.industrial && !s.dike) this.drawEvidence(s, t);
+    if (!s.train && !s.industrial && !s.dike && !s.ambulance) this.drawEvidence(s, t);
     this.drawExtraction(s, t);
     for (const item of s.pickups) if (!item.collected && this.visible(item.x, 100)) this.drawSupply(item, t);
-    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped));
+    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped) && (!e.id.startsWith('seizure-drone-') || s.ambulance?.raidTriggered));
     for (const e of visibleEnemies) this.drawTelegraph(e, s, t);
     for (const civilian of s.civilians) if (civilian.alive && !civilian.safe && this.visible(civilian.x, 100)) this.drawHuman(civilian, t, true);
     if (s.convoy && this.visible(s.convoy.x, 200)) this.drawConvoy(s.convoy, t);
@@ -2827,6 +3263,7 @@ class Renderer {
     drawWalker(c, s.player, s.walker, t);
     this.drawRadiator(s, t);
     if (s.dike) { this.drawDikeControls(s, t); this.drawDikePeople(s, t); }
+    if (s.ambulance) { this.drawAmbulanceVehicle(s, t); this.drawAmbulancePeople(s, t); }
     for (const e of visibleEnemies) if (e.kind === 'air') this.drawEnemy(e, s, t);
     this.drawShots(s);
     this.drawParticles(s);
@@ -2836,12 +3273,216 @@ class Renderer {
     if (s.industrial) this.drawIndustrialLabels(s);
     if (s.channel) this.drawChannelLabels(s);
     if (s.dike) this.drawDikeLabels(s);
+    if (s.ambulance) this.drawAmbulanceLabels(s);
     c.restore();
     this.drawAtmosphere(s, t);
     this.drawMarkers(s);
     if (s.channel && options.tideInstrument !== false) this.drawChannelTide(s);
     if (options.pointer?.visible) this.drawReticle(options.pointer, s);
     if (s.interaction && options.interactionPrompt !== false) this.drawInteraction(s);
+  }
+
+  drawAmbulanceSite(s, t) {
+    const c = this.ctx, a = s.ambulance, facts = s.campaign, settings = s.mission.ambulance;
+    const mint = '#b3dbc9', ochre = '#e8c58d';
+    const ground = terrainAt(settings.stopX, s.planetId);
+    if (this.visible(settings.stopX, 400)) {
+      for (const side of [-1, 1]) {
+        const x = settings.stopX + side * 190;
+        line(c, x, ground, x, ground - 235, '#34565a', 12);
+        line(c, x - 2, ground - 235, x - 2, ground - 5, '#6c8c80', 2);
+      }
+      line(c, settings.stopX - 190, ground - 235, settings.stopX + 190, ground - 235, '#637f75', 12);
+      label(c, 'PORTIQUE DES SALINES', settings.stopX, ground - 247, 11, '#bed1bd', 'center');
+      for (let x = settings.stopX - 158; x <= settings.stopX + 160; x += 36) line(c, x - 7, terrainAt(x, s.planetId) + 7, x + 7, terrainAt(x, s.planetId) + 1, facts.stopCleared ? mint : ochre, 4);
+      label(c, facts.stopCleared ? 'AIRE D’ARRÊT DÉGAGÉE' : 'AIRE À DÉGAGER', settings.stopX, ground + 31, 9, facts.stopCleared ? mint : ochre, 'center');
+    }
+    for (const b of a.barriers) if (this.visible(b.x, 100)) {
+      const y = b.y + b.h / 2;
+      if (b.cleared) {
+        line(c, b.x - 38, y + 14, b.x + 38, y + 14, b.destroyed ? '#6d796c' : '#b9b58d', 8);
+        if (b.destroyed) for (let i = 0; i < 4; i++) line(c, b.x - 31 + i * 20, y + 11, b.x - 25 + i * 20, y + 19, '#607a70', 5);
+      } else {
+        plate(c, [[b.x - b.w / 2, y], [b.x - b.w / 2, y - b.h], [b.x + b.w / 2, y - b.h], [b.x + b.w / 2, y]], '#9b9c80', '#344f50');
+        for (let x = b.x - 30; x < b.x + 30; x += 20) line(c, x - 6, y - 6, x + 12, y - b.h + 6, '#c7b477', 8);
+        if (b.working) { c.fillStyle = mint; c.fillRect(b.x - 37, y - b.h - 9, 74 * b.progress, 4); }
+        label(c, b.working ? `DÉGAGEMENT ${Math.round(b.progress * 100)} %` : 'E · DÉGAGER', b.x, y - b.h - 18, 8, ochre, 'center');
+      }
+    }
+    const callX = settings.callX, cy = terrainAt(callX, s.planetId);
+    if (this.visible(callX, 100)) {
+      plate(c, [[callX - 24, cy], [callX - 24, cy - 65], [callX + 24, cy - 65], [callX + 24, cy]], '#8fa48b', '#29494b');
+      line(c, callX + 9, cy - 62, callX + 9, cy - 106, '#a2b9a4', 3);
+      circle(c, callX, cy - 42, 11, a.vehicle.called ? '#a5d6bc' : '#d9bd84');
+      label(c, a.vehicle.called ? 'APPEL TRANSMIS' : 'E · APPEL DU TRANSPORT', callX, cy - 119, 9, mint, 'center');
+    }
+    const ex = s.evidence.x, ey = terrainAt(ex, s.planetId);
+    if (this.visible(ex, 130)) {
+      plate(c, [[ex - 35, ey], [ex - 35, ey - 84], [ex + 35, ey - 84], [ex + 35, ey]], '#8c9e85', '#2b4d4f');
+      c.fillStyle = '#152e37'; c.fillRect(ex - 25, ey - 73, 50, 38);
+      for (let i = 0; i < 5; i++) line(c, ex - 19, ey - 65 + i * 5, ex + 13 + i % 2 * 6, ey - 65 + i * 5, facts.manifestRead ? mint : ochre, 1);
+      label(c, 'RELEVÉ LOCAL', ex, ey - 101, 9, mint, 'center');
+      if (s.evidence.scanning) { c.fillStyle = mint; c.fillRect(ex - 30, ey - 92, 60 * s.evidence.scanProgress, 4); }
+    }
+    for (const radio of [a.mara, a.technical]) if (this.visible(radio.x, 100)) {
+      const isMara = radio === a.mara, y = terrainAt(radio.x, s.planetId);
+      const available = isMara || radio.available;
+      plate(c, [[radio.x - 20, y], [radio.x - 20, y - 47], [radio.x + 20, y - 47], [radio.x + 20, y]], available ? '#7e9d88' : '#566f65', '#29474a');
+      line(c, radio.x + 9, y - 46, radio.x + 9, y - 83, '#99b5a2', 2);
+      circle(c, radio.x, y - 28, 8, radio.contacted ? mint : available ? ochre : '#3c5654');
+      label(c, isMara ? 'MARA · RADIO' : available ? 'GÉNIE · RADIO' : 'GÉNIE ABSENT', radio.x + (isMara ? -20 : 18), y - (isMara ? 101 : 124), 8, available ? mint : '#839b8b', 'center');
+      if (radio.working) { c.fillStyle = mint; c.fillRect(radio.x - 20, y - 58, 40 * radio.progress, 4); }
+    }
+    const ramp = a.ramp;
+    if (this.visible(ramp.x, 230)) {
+      const left = ramp.x - ramp.w / 2, right = ramp.x + ramp.w / 2;
+      c.fillStyle = '#24474d'; c.fillRect(left, ramp.y + 2, ramp.w, ramp.h);
+      if (ramp.prepared) {
+        for (let x = left; x < right; x += 20) {
+          line(c, x, terrainAt(x, s.planetId), x + 18, terrainAt(x + 18, s.planetId), '#afc7a7', 8);
+          line(c, x + 2, terrainAt(x, s.planetId) + 6, x + 16, terrainAt(x, s.planetId) + 6, '#5b7e71', 2);
+        }
+      } else {
+        plate(c, [[ramp.x - 43, ramp.y - 2], [ramp.x - 43, ramp.y - 34], [ramp.x + 43, ramp.y - 34], [ramp.x + 43, ramp.y - 2]], '#9ea78b', '#3a5b59');
+        for (let x = left; x <= right; x += 35) line(c, x - 7, ramp.y + 3, x + 7, ramp.y + 3, ochre, 3);
+      }
+      label(c, `RAMPE ${facts.route === 'main' ? 'PRINCIPALE' : 'SECONDAIRE'}`, ramp.x, ramp.y + 49, 10, ramp.prepared ? mint : ochre, 'center');
+      if (ramp.prepared) label(c, facts.route === 'main' ? 'DÉPLOYÉE · PANNEAU VERROUILLÉ' : 'DÉPLOYÉE · DÉTOUR SÉCURISÉ', ramp.x, ramp.y + 66, 9, mint, 'center');
+    }
+    for (const reception of a.receptions) if (this.visible(reception.x, 300)) {
+      const x = reception.x, y = reception.y + reception.h / 2, half = reception.w / 2;
+      const selected = facts.destination === reception.kind, color = reception.kind === 'clinic' ? mint : '#d3bd94';
+      c.save(); c.globalAlpha = facts.destination === 'unselected' || selected ? 1 : .5;
+      plate(c, [[x - half, y], [x - half, y - reception.h], [x + half, y - reception.h], [x + half, y]], '#8ea38d', '#30575a');
+      plate(c, [[x - half - 10, y - reception.h], [x - half + 4, y - reception.h - 17], [x + half - 4, y - reception.h - 17], [x + half + 10, y - reception.h]], '#a3b29a', '#486d67');
+      c.fillStyle = '#163039'; c.fillRect(x - 29, y - 85, 58, 85);
+      line(c, x - 29, y - 85, x + 29, y - 85, reception.ready ? color : '#728e7c', 4);
+      c.fillStyle = color; c.fillRect(x - 4, y - 127, 8, 25); c.fillRect(x - 13, y - 118, 26, 8);
+      const title = reception.kind === 'imperial' ? 'POSTE MÉDICAL IMPÉRIAL' : facts.context.homesUninhabitable > 0 ? 'PONTON MÉDICAL DE REPLI' : 'ACCUEIL CIVIL DU QUAI';
+      label(c, title, x, y - reception.h - 32, 11, color, 'center');
+      label(c, selected ? reception.ready ? `${facts.patientsArrived} / 4 PATIENTS ARRIVÉS` : reception.working ? `PRÉPARATION ${Math.round(reception.progress * 100)} %` : 'E · PRÉPARER L’ACCUEIL' : 'DESTINATION NON RETENUE', x, y - reception.h - 49, 9, color, 'center');
+      const bayX = x - 180;
+      for (let sx = bayX - 80; sx < bayX + 80; sx += 30) line(c, sx - 7, terrainAt(sx, s.planetId) + 9, sx + 7, terrainAt(sx, s.planetId) + 2, color, 3);
+      label(c, 'QUAI · PUIS TRANSFERT À LA PORTE', bayX, terrainAt(bayX, s.planetId) + 31, 8, color, 'center');
+      c.restore();
+    }
+  }
+
+  drawAmbulanceVehicle(s, t) {
+    const c = this.ctx, a = s.ambulance, v = a.vehicle, x = v.x, y = v.y;
+    if (!this.visible(x, 240)) return;
+    this.drawShadow(x, terrainAt(x, s.planetId), 112, 11);
+    if (v.destroyed) {
+      poly(c, [[x - 90, y + 54], [x - 84, y - 5], [x - 55, y + 8], [x - 23, y - 20], [x + 12, y + 15], [x + 48, y - 12], [x + 84, y + 10], [x + 89, y + 54]], '#485d58', '#9f9c7d', 3);
+      line(c, x - 72, y + 30, x + 75, y + 47, '#7b8070', 8);
+    } else {
+      for (const side of [-1, 1]) {
+        circle(c, x + side * 58, terrainAt(x, s.planetId) - 11, 12, '#172b32', '#889a85', 3);
+        circle(c, x + side * 58, terrainAt(x, s.planetId) - 11, 5, '#c1b98f');
+      }
+      plate(c, [[x - v.w / 2, y + v.h / 2], [x - v.w / 2, y - v.h / 2 + 13], [x - 70, y - v.h / 2], [x + 56, y - v.h / 2], [x + v.w / 2, y - 14], [x + v.w / 2, y + v.h / 2]], '#c0c5a7', '#547b72');
+      c.fillStyle = '#203d47'; c.fillRect(x - 72, y - 27, 40, 26);
+      poly(c, [[x + 46, y - 27], [x + 57, y - 27], [x + 76, y - 11], [x + 76, y - 1], [x + 46, y - 1]], '#6c9e9b', '#203b43', 2);
+      line(c, x - 77, y + 21, x + 76, y + 21, '#b9dbbb', 7);
+      c.fillStyle = '#bde3c3'; c.fillRect(x - 2, y - 22, 8, 27); c.fillRect(x - 11, y - 13, 26, 8);
+      for (let i = 0; i < 4; i++) {
+        c.fillStyle = a.patients[i].alive ? a.patients[i].phase === 'aboard' ? '#e4d0a2' : '#6d9584' : '#526a62';
+        c.fillRect(x - 65 + i * 10, y - 19, 6, 12);
+      }
+      label(c, 'QUAI · SOINS', x + 3, y + 34, 8, '#183b42', 'center');
+      if (v.hp < v.maxHp * .7) { line(c, x + 21, y - 26, x + 5, y + 18, '#314b4a', 3); line(c, x - 70, y - 4, x - 48, y + 14, '#314b4a', 3); }
+      if (v.flash) { c.fillStyle = '#ffe2b85c'; c.fillRect(x - v.w / 2, y - v.h / 2, v.w, v.h); }
+      c.fillStyle = '#193740'; c.fillRect(x - 70, y - 50, 140, 4);
+      c.fillStyle = v.hp > v.maxHp * .4 ? '#a2d6b8' : '#dba077'; c.fillRect(x - 70, y - 50, 140 * v.hp / v.maxHp, 4);
+    }
+    const cargo = a.cargo;
+    if (!cargo.destroyed) {
+      plate(c, [[cargo.x - cargo.w / 2, cargo.y + cargo.h / 2], [cargo.x - cargo.w / 2, cargo.y - cargo.h / 2], [cargo.x + cargo.w / 2, cargo.y - cargo.h / 2], [cargo.x + cargo.w / 2, cargo.y + cargo.h / 2]], '#a5b89b', '#355e5c');
+      line(c, cargo.x - 25, cargo.y - 12, cargo.x - 25, cargo.y + 12, '#d6d1a5', 4);
+      line(c, cargo.x + 25, cargo.y - 12, cargo.x + 25, cargo.y + 12, '#d6d1a5', 4);
+      label(c, cargo.verified ? 'SOINS' : '?', cargo.x, cargo.y + 4, 9, '#dfe5bf', 'center');
+      if (cargo.scanning) { c.fillStyle = '#b1d8b5'; c.fillRect(cargo.x - 37, cargo.y - 22, 74 * cargo.scanProgress, 3); }
+    } else {
+      line(c, cargo.x - 29, cargo.y + 13, cargo.x + 24, cargo.y + 15, '#718778', 6);
+      line(c, cargo.x - 14, cargo.y + 9, cargo.x + 3, cargo.y + 17, '#b0aa80', 4);
+    }
+    const beacon = a.beacon;
+    if (!beacon.recovered) {
+      line(c, v.x - 84, v.y + 13, beacon.x + 9, beacon.y - 6, '#aeb99e', 4);
+      plate(c, [[beacon.x - beacon.w / 2, beacon.y + beacon.h / 2], [beacon.x - beacon.w / 2, beacon.y - beacon.h / 2], [beacon.x + beacon.w / 2, beacon.y - beacon.h / 2], [beacon.x + beacon.w / 2, beacon.y + beacon.h / 2]], beacon.destroyed ? '#4d5a51' : '#b09a67', '#304849');
+      if (!beacon.destroyed) {
+        circle(c, beacon.x, beacon.y - 1, 4, '#ebc28b');
+        line(c, beacon.x + 7, beacon.y - 9, beacon.x + 7, beacon.y - 18, '#c9ccae', 2);
+      } else line(c, beacon.x - 7, beacon.y - 6, beacon.x + 7, beacon.y + 6, '#1c3439', 3);
+      if (beacon.working) { c.fillStyle = '#b9dbbe'; c.fillRect(beacon.x - 30, beacon.y + 16, 60 * beacon.progress, 3); }
+    } else {
+      line(c, v.x - 91, v.y + 18, v.x - 83, v.y + 18, '#d3dfbf', 3);
+    }
+    if (v.towing && !v.destroyed && !v.arrived) {
+      line(c, x + (s.player.x > x ? 80 : -80), y + 22, s.player.x, s.player.y + s.player.height / 2, '#c6b780', 3);
+      label(c, 'TREUIL', (x + s.player.x) / 2, y + 12, 8, '#d7c89e', 'center');
+    }
+  }
+
+  drawAmbulancePeople(s, t) {
+    const c = this.ctx, a = s.ambulance;
+    for (const person of a.staff) {
+      if (!this.visible(person.x, 60) || person.safe || person.phase === 'aboard') continue;
+      if (!person.alive) { line(c, person.x - 11, person.y + 14, person.x + 12, person.y + 14, '#9b9b81', 4); continue; }
+      this.drawHuman(person, t, true, null);
+      const offset = person.role === 'driver' ? 0 : 14;
+      label(c, person.role === 'driver' ? 'CONDUCTRICE' : 'SOIGNANT', person.x, person.y - person.h / 2 - 16 - offset, 8, '#c0dacc', 'center');
+      if (person.hp < person.maxHp) { c.fillStyle = '#d0b18a'; c.fillRect(person.x - 13, person.y - person.h / 2 - 8, 26 * person.hp / person.maxHp, 3); }
+    }
+    for (const person of a.patients) {
+      if (!this.visible(person.x, 50) || person.safe || person.phase === 'aboard') continue;
+      const x = person.x, y = person.y;
+      if (!person.alive) { line(c, x - 13, y + 9, x + 13, y + 9, '#91947b', 5); continue; }
+      line(c, x - 15, y + 5, x + 15, y + 5, '#bdc9a8', 4);
+      for (const side of [-1, 1]) circle(c, x + side * 9, y + 10, 3, '#1b343c', '#a9bc9d', 1);
+      c.fillStyle = '#82a99a'; c.fillRect(x - 9, y - 4, 19, 9);
+      circle(c, x - 11, y - 3, 4, '#d0c49e');
+      line(c, x - 14, y - 8, x - 14, y + 4, '#9cb9a1', 2);
+    }
+  }
+
+  drawAmbulanceLabels(s) {
+    const c = this.ctx, a = s.ambulance, facts = s.campaign, v = a.vehicle;
+    const entries = [];
+    if (this.visible(v.x, 0)) {
+      const mainY = Math.max(290, Math.min(v.y - (facts.cargoInspected ? 240 : 165), Math.abs(s.player.x - v.x) < 300 ? s.player.y - (facts.cargoInspected ? 210 : 139) : v.y - 165));
+      const work = a.consent.working ? `ACCORD À L’EXAMEN ${Math.round(a.consent.progress * 100)} %`
+        : a.cargo.scanning ? `EXAMEN CAISSE ${Math.round(a.cargo.scanProgress * 100)} %`
+        : a.beacon.working ? `BALISE ${Math.round(a.beacon.progress * 100)} %`
+        : a.witness.working ? `CONSENTEMENT À TÉMOIGNER ${Math.round(a.witness.progress * 100)} %`
+        : v.towWorking ? `ATTELAGE ${Math.round(v.towProgress * 100)} %`
+        : a.handover.working ? `CHARIOTS ${Math.round(a.handover.progress * 100)} %`
+        : v.destroyed ? 'VÉHICULE PERDU · CONSTAT POSSIBLE'
+        : v.arrived ? facts.vehicleSeized ? 'ARRIVÉE AU POSTE · VÉHICULE SOUS SAISIE' : 'ARRIVÉE CIVILE · VÉHICULE CONSERVÉ'
+        : v.moving ? v.towing ? 'REMORQUAGE EN COURS' : 'DÉPLACEMENT SANITAIRE EN COURS'
+        : v.stopReached ? 'ARRÊT RÉEL SOUS LE PORTIQUE' : 'ATTENTE DE L’APPEL ET D’UNE AIRE SÛRE';
+      const status = `${facts.patientsArrived} arrivés · ${a.patients.filter(p => p.phase === 'transferring' && p.alive).length} en route · ${a.patients.filter(p => p.phase === 'aboard' && p.alive).length} à bord · ${facts.patientsLost} perdus`;
+      entries.push({ x: v.x, y: mainY,
+        title: 'AMBULANCE QUAI · 4 PATIENTS / 2 PERSONNELS', detail: work, sub: status, color: v.destroyed ? '#e1ac8b' : '#c2dec6', width: 352 });
+      if (facts.cargoInspected) entries.push({ x: v.x, y: mainY + 70, title: facts.medicalCargoVerified ? 'CAISSE SANITAIRE EXAMINÉE AVEC ACCORD' : 'CONSTAT · CONTENU NON VÉRIFIÉ',
+        detail: facts.beaconRecovered ? 'BALISE + ATTACHES + JOURNAL RÉCUPÉRÉS' : facts.beaconDestroyed ? 'BALISE DÉTRUITE · DONNÉES PERDUES' : 'BOÎTIER AJOUTÉ À DÉMONTER SÉPARÉMENT',
+        sub: 'Provenance de pose encore à recouper', color: '#b1c9b5', width: 322, compact: true });
+    }
+    if (!a.ramp.prepared && this.visible(a.ramp.x, 80)) {
+      const y = Math.min(a.ramp.y - 130, Math.abs(s.player.x - a.ramp.x) < 400 ? s.player.y - 130 : 900);
+      entries.push({ x: a.ramp.x, y, title: `RAMPE ${facts.route === 'main' ? 'PRINCIPALE' : 'SECONDAIRE'}`,
+        detail: a.ramp.working ? `TRAVAIL ${Math.round(a.ramp.progress * 100)} %` : 'E · PRÉPARER LE PASSAGE',
+        sub: a.technical.contacted ? 'Aide du génie obtenue · 4 s' : 'Préparation locale · 8 s', color: '#e5c38a', width: 270 });
+    }
+    if (a.signalAnnounced && !a.raidTriggered) entries.push({ x: s.player.x + 410, y: 335, title: 'SIGNAL DE SAISIE REÇU', detail: `DEUX DRONES ANNONCÉS · ${Math.ceil(s.mission.ambulance.seizureDelay - a.signalElapsed)} s`, sub: 'Protéger l’ambulance et ses personnes', color: '#e5c38a', width: 305 });
+    for (const entry of entries) {
+      const half = entry.width / 2, x = clamp(entry.x, this.cameraX + half + 12, this.cameraX + W - half - 12), y = Math.max(290, entry.y);
+      c.fillStyle = '#12333aee'; c.fillRect(x - half, y, entry.width, 65);
+      line(c, x - half, y, x + half, y, entry.color, 1.5);
+      label(c, entry.title, x, y + 18, entry.compact ? 9 : 10, entry.color, 'center');
+      label(c, entry.detail, x, y + 36, 9, '#d2ddbe', 'center');
+      label(c, entry.sub, x, y + 53, 9, '#a8c9b8', 'center');
+    }
   }
 
   drawDike(s, t) {
@@ -3362,7 +4003,7 @@ class Renderer {
 
   drawShadow(x, y, width, height) { const c = this.ctx; c.fillStyle = '#10202b45'; c.beginPath(); c.ellipse(x, y + 3, width, height, 0, 0, TAU); c.fill(); }
 
-  drawHuman(e, t, civilian = false) {
+  drawHuman(e, t, civilian = false, civilianLabel = 'CIVIL') {
     const c = this.ctx, x = e.x, y = e.y, dir = civilian ? (e.fleeing ? 1 : -1) : e.facing || -1;
     this.drawShadow(x, y + e.h / 2, 13, 4);
     c.save(); c.translate(x, y); c.scale(dir, 1);
@@ -3383,7 +4024,7 @@ class Renderer {
     circle(c, 0, -15, 5, '#c6ad88');
     if (!civilian) { poly(c, [[-6, -17], [-4, -22], [4, -22], [7, -17]], '#455a56'); line(c, 1, -16, 5, -16, '#d6ac68', 2); }
     c.restore();
-    if (civilian) { label(c, 'CIVIL', x, y - 30, 9, '#b6dfd1', 'center'); }
+    if (civilian && civilianLabel) { label(c, civilianLabel, x, y - 30, 9, '#b6dfd1', 'center'); }
   }
 
   drawEnemy(e, s, t) {
@@ -3540,7 +4181,7 @@ class Renderer {
   }
 
   drawCampaignLandmarks(s, t) {
-    if (s.channel || s.dike) return;
+    if (s.channel || s.dike || s.ambulance) return;
     if (s.train) { this.drawRailHarpoons(s, t); return; }
     if (s.network) { this.drawNetworkStations(s, t); return; }
     if (s.industrial) { this.drawIndustrialStation(s, t); return; }
@@ -4101,6 +4742,15 @@ class Renderer {
       for (const w of s.channel.winches) circle(c, toX(w.x), by, 3, w.released ? '#9fd5bd' : '#e3b476');
       const boat = s.channel.boat; c.fillStyle = boat.destroyed ? '#d58c73' : '#9cd9ce'; c.fillRect(toX(boat.x) - 4, by - 4, 8, 7);
     }
+    if (s.ambulance) {
+      const a = s.ambulance;
+      circle(c, toX(a.vehicle.x), by, 5, a.vehicle.destroyed ? '#dca085' : '#bed8b9');
+      circle(c, toX(a.ramp.x), by + 6, 3, a.ramp.prepared ? '#a9d3bb' : '#e2c486');
+      for (const reception of a.receptions) {
+        line(c, toX(reception.x), by - 6, toX(reception.x), by + 6, reception.kind === s.campaign.destination ? '#b0d8bd' : '#6e8f7d', 3);
+      }
+      for (const p of a.patients) if (p.alive && !p.safe && p.phase === 'transferring') circle(c, toX(p.x), by - 7, 2, '#e0d0a2');
+    }
     if (s.dike) {
       for (const house of s.dike.houses) {
         c.fillStyle = house.destroyed || house.flooded ? '#dc997b' : house.inspected ? '#a2d3bb' : '#e3c184';
@@ -4259,16 +4909,16 @@ __modules["src/campaign.mjs"] = (() => {
  * Every campaign transition returns a new value; gameplay remains in simulation.mjs.
  */
 const { WALKERS, DIFFICULTIES, ENEMY_TYPES } = __modules["src/content.mjs"];
-const { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt, dikeDecisionBody, dikeSupportReady } = __modules["src/simulation.mjs"];
+const { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt, dikeDecisionBody, dikeSupportReady, ambulanceDecisionBody, ambulanceStopClear } = __modules["src/simulation.mjs"];
 const CAMPAIGN_SAVE_KEY = 'imperium.campaign.v1';
 const CAMPAIGN_BACKUP_KEY = 'imperium.campaign.v1.backup';
-const CAMPAIGN_SAVE_VERSION = 6;
+const CAMPAIGN_SAVE_VERSION = 7;
 const FORMAT = 'ordre-de-cendre.campaign';
 const MAX_BYTES = 2_000_000;
 const INITIAL_PARTS = 6;
 const DELIVERY_PARTS = 4;
 const PIPE_PARTS = 2;
-const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06'];
+const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07'];
 const LEGACY_WALKER_IDS = ['WK01', 'WK05', 'WK09'];
 const clone = value => JSON.parse(JSON.stringify(value));
 const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
@@ -4406,7 +5056,7 @@ function validateGame(value, finished = false) {
   } else requireValue(value.convoy === null, 'convoi inattendu');
   requireValue(value.decision.choice === null || ['obey', 'defy'].includes(value.decision.choice), 'décision inconnue');
   for (const key of ['title', 'body', 'options']) {
-    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : null;
+    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : value.missionId === 'MI07' ? ambulanceDecisionBody : null;
     const expected = key === 'body' && dynamicBody && (value.decision.active || value.decision.resolved)
       ? dynamicBody(value) : template.decision[key];
     requireValue(JSON.stringify(value.decision[key]) === JSON.stringify(expected), 'texte de décision incompatible');
@@ -4421,6 +5071,10 @@ function validateGame(value, finished = false) {
     number(objective.target, 1, 100000, 'cible d’objectif');
   }
   const mission = value.campaign;
+  if (value.missionId === 'MI07') {
+    validateAmbulanceMission(value, template);
+    return value;
+  }
   if (value.missionId === 'MI06') {
     validateDikeMission(value, template);
     return value;
@@ -4629,7 +5283,7 @@ function createCampaign() {
     world: { vesper: { pipeIntact: true, pipeRepaired: false, servicesInterrupted: false, filtersDelivered: false,
       filtersDeliveredCount: 0, calesBassesExcluded: false, noticeFiled: false,
       rail: createRailDossier(), communications: createCommunicationsDossier(), industrial: createIndustrialDossier() },
-      nacre: { passage: createChannelDossier(), dike: createDikeDossier(), fuelSpent: 0 } },
+      nacre: { passage: createChannelDossier(), dike: createDikeDossier(), fuelSpent: 0, ambulance: createAmbulanceDossier() } },
     fleet: Object.fromEntries(WALKERS.map(walker => [walker.id, { hull: walker.hull, feet: Array(walker.legs).fill(100), radiator: 100 }])),
     checkpoint: null, preDecisionCheckpoint: null, lastDebrief: null, maintenanceLog: [],
   };
@@ -4840,8 +5494,144 @@ function validateDikeMission(value, template) {
   if (value.status === 'won') requireValue(facts.phase === 'complete' && value.decision.resolved && value.objectives.every(item => item.complete), 'victoire de digue sans objectifs accomplis');
 }
 
+const AMBULANCE_FLAGS = ['stopCalled', 'stopCleared', 'vehicleStopped', 'consentObtained', 'cargoInspected',
+  'medicalCargoVerified', 'beaconResolved', 'beaconRecovered', 'beaconDestroyed', 'fixingsPreserved', 'beaconLogCopied',
+  'provenanceVerified', 'witnessConsent', 'witnessAvailable', 'maraContacted', 'technicalHelpRequested', 'rampPrepared',
+  'receptionReady', 'transferOrdered', 'transferResolved', 'vehicleDestroyed', 'vehicleRecovered',
+  'vehicleSeized', 'manifestRead', 'reportFiled'];
+const AMBULANCE_CONTEXT_KEYS = ['pumpsOnline', 'panelsLocked', 'emergencyShoring', 'dikeFatigue',
+  'techniciansAlive', 'homesUninhabitable', 'residentsSafe', 'residentsLost', 'circuit'];
+
+function createAmbulanceDossier() {
+  return { ...Object.fromEntries(AMBULANCE_FLAGS.map(key => [key, false])),
+    patientsTotal: 0, patientsArrived: 0, patientsLost: 0, staffTotal: 0, staffAlive: 0, staffLost: 0, staffArrived: 0,
+    destination: 'unselected', route: 'unselected', witnessId: null };
+}
+
+function validateAmbulanceFacts(facts, finished = false) {
+  for (const key of AMBULANCE_FLAGS) boolean(facts[key], `ambulance ${key}`);
+  requireValue(facts.patientsTotal === 4 && facts.staffTotal === 2, 'effectifs sanitaires');
+  for (const key of ['patientsArrived', 'patientsLost']) number(facts[key], 0, 4, `ambulance ${key}`, true);
+  for (const key of ['staffAlive', 'staffLost', 'staffArrived']) number(facts[key], 0, 2, `ambulance ${key}`, true);
+  requireValue(facts.patientsArrived + facts.patientsLost <= 4, 'bilan des patients impossible');
+  requireValue(facts.staffAlive + facts.staffLost === 2 && facts.staffArrived <= facts.staffAlive, 'bilan du personnel contradictoire');
+  requireValue(['unselected', 'imperial', 'clinic'].includes(facts.destination), 'destination sanitaire');
+  requireValue(['main', 'secondary'].includes(facts.route), 'rampe sanitaire');
+  requireValue(facts.witnessId === null || ['ambulance-driver', 'ambulance-medic'].includes(facts.witnessId), 'identité du témoin sanitaire');
+  requireValue(facts.witnessConsent === (facts.witnessId !== null) && (!facts.witnessAvailable || facts.witnessConsent), 'accord et disponibilité du témoin contradictoires');
+  requireValue(!facts.witnessAvailable || facts.staffAlive > 0, 'témoin disponible sans personnel vivant');
+  requireValue(!facts.medicalCargoVerified || (facts.consentObtained && facts.cargoInspected), 'cargaison vérifiée sans accord ni inspection');
+  requireValue(facts.fixingsPreserved === facts.beaconRecovered && facts.beaconLogCopied === facts.beaconRecovered, 'balise sans attaches ni journal');
+  requireValue(!facts.beaconRecovered || (facts.beaconResolved && facts.cargoInspected), 'récupération sans examen et démontage achevés');
+  requireValue(!facts.provenanceVerified, 'la provenance complète de la pose reste à recouper après MI07');
+  requireValue(!facts.vehicleRecovered || (!facts.vehicleDestroyed && facts.destination !== 'unselected'), 'véhicule récupéré sans destination');
+  requireValue(!facts.beaconRecovered || !facts.beaconDestroyed, 'balise récupérée déjà détruite');
+  requireValue(!facts.vehicleSeized || (facts.vehicleRecovered && facts.destination === 'imperial'), 'saisie sans arrivée impériale');
+  requireValue(!facts.transferOrdered || facts.destination !== 'unselected', 'transfert sans destination');
+  requireValue(!facts.rampPrepared || facts.destination !== 'unselected', 'rampe préparée avant le choix');
+  requireValue(!facts.maraContacted || facts.manifestRead, 'relevé transmis sans constat établi');
+  if (finished) requireValue(facts.stopCalled && facts.cargoInspected && facts.beaconResolved && facts.manifestRead && facts.rampPrepared && facts.receptionReady && facts.transferOrdered && facts.transferResolved && facts.patientsArrived + facts.patientsLost === 4, 'dossier sanitaire incomplet');
+}
+
+function validateAmbulanceMission(value, template) {
+  const facts = value.campaign, site = value.ambulance, initial = template.ambulance;
+  requireValue(isObject(facts) && facts.missionId === 'MI07' && isObject(site), 'scène sanitaire absente');
+  requireValue(['approach', 'interception', 'examination', 'decision', 'transfer', 'report', 'complete'].includes(facts.phase), 'phase sanitaire');
+  validateAmbulanceFacts(facts, value.status === 'won');
+  for (const key of ['pumpsOnline', 'emergencyShoring']) boolean(facts.context[key], `héritage sanitaire ${key}`);
+  for (const [key, max] of [['panelsLocked', 1], ['techniciansAlive', 2], ['homesUninhabitable', 2], ['residentsSafe', 10], ['residentsLost', 10]]) number(facts.context[key], 0, max, `héritage sanitaire ${key}`, true);
+  number(facts.context.dikeFatigue, 0, 100, 'fatigue héritée');
+  requireValue(['imperial', 'diversion'].includes(facts.context.circuit) && facts.context.pumpsOnline && facts.context.residentsSafe + facts.context.residentsLost === 10, 'bilan de digue hérité incomplet');
+  const route = facts.context.panelsLocked === 1 && !facts.context.emergencyShoring && facts.context.dikeFatigue < 65 ? 'main' : 'secondary';
+  requireValue(facts.route === route && site.ramp.route === route, 'rampe contraire à la charge héritée');
+  for (const group of ['staff', 'patients', 'barriers', 'receptions']) {
+    requireValue(Array.isArray(site[group]) && site[group].length === initial[group].length, `collection sanitaire ${group}`);
+    for (let i = 0; i < site[group].length; i++) {
+      const item = site[group][i], original = initial[group][i];
+      matchesShape(item, original, `${group}[${i}]`);
+      for (const key of ['id', 'role', 'kind', 'w', 'h', 'maxHp']) if (own(original, key)) requireValue(item[key] === original[key], `identité sanitaire ${group}.${key}`);
+      if (['barriers', 'receptions'].includes(group)) for (const key of ['x', 'y']) requireValue(item[key] === original[key], `position sanitaire ${group}.${key}`);
+      else { number(item.x, 0, value.mission.length, `position sanitaire ${group}`); number(item.y, -1000, 2000, `hauteur sanitaire ${group}`); }
+    }
+  }
+  for (const key of ['vehicle', 'cargo', 'beacon', 'technical', 'mara', 'ramp']) {
+    matchesShape(site[key], initial[key], `ambulance ${key}`);
+    for (const field of ['id', 'w', 'h', 'maxHp', 'speed', 'available']) if (own(initial[key], field)) requireValue(site[key][field] === initial[key][field], `identité sanitaire ${key}.${field}`);
+    if (['technical', 'mara', 'ramp'].includes(key)) for (const field of ['x', 'y']) requireValue(site[key][field] === initial[key][field], `position sanitaire ${key}.${field}`);
+    else { number(site[key].x, 0, value.mission.length, `position sanitaire ${key}`); number(site[key].y, -1000, 2000, `hauteur sanitaire ${key}`); }
+  }
+  for (const item of [site.vehicle, site.cargo, site.beacon, ...site.barriers]) {
+    number(item.hp, 0, item.maxHp, 'intégrité sanitaire'); boolean(item.destroyed, 'destruction sanitaire');
+    requireValue(item.destroyed === (item.hp === 0), 'destruction sanitaire contradictoire');
+    number(item.flash, 0, 10, 'impact sanitaire');
+  }
+  for (const item of [...site.staff, ...site.patients]) {
+    number(item.hp, 0, item.maxHp, 'santé sanitaire');
+    boolean(item.alive, 'survie sanitaire'); boolean(item.safe, 'arrivée sanitaire');
+    const phases = own(item, 'role') ? ['aboard', 'outside', 'transferring', 'arrived', 'lost'] : ['aboard', 'transferring', 'arrived', 'lost'];
+    requireValue(phases.includes(item.phase), 'phase des personnes sanitaires');
+    requireValue(item.alive === (item.hp > 0) && (item.phase === 'lost') === !item.alive, 'survie sanitaire contradictoire');
+    requireValue(item.safe === (item.phase === 'arrived') && (!item.safe || item.alive), 'arrivée sanitaire contradictoire');
+  }
+  for (const name of ['consent', 'witness']) {
+    const act = site[name]; matchesShape(act, initial[name], `accord ${name}`);
+    for (const key of ['working', 'obtained']) boolean(act[key], `accord ${name}.${key}`);
+    number(act.progress, 0, 1, `accord ${name} progression`);
+    requireValue(act.responsibleId === null || site.staff.some(person => person.id === act.responsibleId), 'responsable sanitaire inconnu');
+    requireValue(!act.obtained || (act.progress === 1 && act.responsibleId !== null && !act.working), 'accord sanitaire inachevé');
+  }
+  for (const [item, doneKey] of [[site.technical, 'contacted'], [site.mara, 'contacted'], [site.ramp, 'prepared'], [site.handover, 'completed'], ...site.receptions.map(item => [item, 'ready']), ...site.barriers.map(item => [item, 'cleared'])]) {
+    boolean(item.working, 'travail sanitaire actif'); boolean(item[doneKey], `travail sanitaire ${doneKey}`);
+    number(item.progress, 0, 1, 'travail sanitaire progression');
+    requireValue(!item.working || !item[doneKey], 'travail sanitaire achevé encore actif');
+  }
+  const { vehicle, cargo, beacon } = site;
+  requireValue(vehicle.y === terrainAt(vehicle.x, value.planetId) - 58, 'hauteur du véhicule sanitaire');
+  requireValue(cargo.x === vehicle.x + 24 && cargo.y === terrainAt(vehicle.x, value.planetId) - 113 && beacon.x === vehicle.x - 99 && beacon.y === terrainAt(vehicle.x, value.planetId) - 32, 'caisse ou balise séparée du véhicule');
+  for (const key of ['called', 'moving', 'stopReached', 'arrived', 'towing', 'towWorking']) boolean(vehicle[key], `véhicule ${key}`);
+  number(vehicle.towProgress, 0, 1, 'préparation du remorquage');
+  requireValue(!vehicle.moving || (!vehicle.destroyed && !vehicle.arrived), 'véhicule indisponible en mouvement');
+  for (const key of ['inspected', 'verified', 'scanning']) boolean(cargo[key], `caisse ${key}`);
+  number(cargo.scanProgress, 0, 1, 'inspection sanitaire');
+  for (const key of ['resolved', 'recovered', 'working']) boolean(beacon[key], `balise ${key}`);
+  number(beacon.progress, 0, 1, 'démontage de balise');
+  for (const key of ['signalAnnounced', 'raidTriggered']) boolean(site[key], `signal sanitaire ${key}`);
+  number(site.signalElapsed, 0, value.elapsed, 'horloge du signal sanitaire');
+  requireValue(!site.raidTriggered || site.signalAnnounced, 'drones sans signal annoncé');
+  number(site.signalElapsed, 0, value.mission.ambulance.seizureDelay, 'délai des drones sanitaires');
+  requireValue(site.raidTriggered === (site.signalElapsed >= value.mission.ambulance.seizureDelay), 'arrivée des drones contraire au signal');
+  if (!site.raidTriggered) for (const drone of value.enemies.filter(item => item.id.startsWith('seizure-drone-'))) {
+    const original = template.enemies.find(item => item.id === drone.id);
+    requireValue(!drone.dead && !drone.active && drone.hp === drone.maxHp && drone.x === original.x && drone.y === original.y, 'drone de saisie présent avant son arrivée');
+  }
+  requireValue(facts.stopCalled === vehicle.called && facts.vehicleStopped === vehicle.stopReached, 'interception contradictoire');
+  requireValue(facts.stopCleared === ambulanceStopClear(value), 'aire d’arrêt contradictoire');
+  requireValue(facts.consentObtained === site.consent.obtained && facts.witnessConsent === site.witness.obtained && facts.witnessId === site.witness.responsibleId, 'accord sanitaire contradictoire');
+  requireValue(facts.witnessAvailable === (facts.witnessConsent && site.staff.some(person => person.id === facts.witnessId && person.alive)), 'disponibilité du témoin contradictoire');
+  requireValue(facts.cargoInspected === cargo.inspected && facts.medicalCargoVerified === cargo.verified, 'relevé de cargaison contradictoire');
+  requireValue(facts.beaconResolved === beacon.resolved && facts.beaconRecovered === beacon.recovered && facts.beaconDestroyed === beacon.destroyed, 'relevé de balise contradictoire');
+  requireValue(facts.technicalHelpRequested === site.technical.contacted && (!site.technical.contacted || site.technical.available), 'aide technique sans échange disponible');
+  requireValue(facts.maraContacted === site.mara.contacted && facts.rampPrepared === site.ramp.prepared, 'travaux sanitaires contradictoires');
+  requireValue(facts.patientsArrived === site.patients.filter(item => item.safe).length && facts.patientsLost === site.patients.filter(item => !item.alive).length, 'bilan des patients contradictoire');
+  requireValue(facts.staffAlive === site.staff.filter(item => item.alive).length && facts.staffLost === site.staff.filter(item => !item.alive).length && facts.staffArrived === site.staff.filter(item => item.safe).length, 'bilan de l’équipe sanitaire contradictoire');
+  requireValue(facts.vehicleDestroyed === vehicle.destroyed, 'perte du véhicule contradictoire');
+  requireValue(facts.vehicleRecovered === (vehicle.arrived && !vehicle.destroyed) && facts.vehicleSeized === (facts.vehicleRecovered && facts.destination === 'imperial'), 'récupération ou saisie sans arrivée physique');
+  boolean(site.handover.ordered, 'ordre de transfert sanitaire');
+  requireValue(facts.transferOrdered === site.handover.ordered, 'transfert sans ordre réel');
+  const reception = site.receptions.find(item => item.kind === facts.destination);
+  requireValue(facts.receptionReady === Boolean(reception?.ready), 'accueil sanitaire contradictoire');
+  requireValue(!vehicle.arrived || (vehicle.stopReached && reception?.ready && site.ramp.prepared && site.handover.ordered && vehicle.x === reception.x - 180), 'arrivée de véhicule sans trajet ni accueil');
+  for (const person of [...site.staff, ...site.patients]) if (person.safe) requireValue(reception?.ready && site.ramp.prepared && site.handover.ordered && person.x === reception.x, 'personne arrivée hors du poste sanitaire');
+  requireValue(facts.transferResolved === (facts.patientsArrived + facts.patientsLost === 4 && facts.staffArrived + facts.staffLost === 2 && site.handover.completed), 'bilan sanitaire avant arrivée ou constat');
+  requireValue(facts.destination === (value.decision.choice === 'defy' ? 'clinic' : value.decision.choice === 'obey' ? 'imperial' : 'unselected'), 'destination contraire à la décision');
+  requireValue(facts.reportFiled === (value.decision.choice === 'defy') && facts.manifestRead === value.evidence.collected, 'rapport sanitaire contradictoire');
+  requireValue(value.stats.evidence === 0, 'la balise ne crée aucune preuve PALINODE');
+  if (value.status === 'won') requireValue(facts.phase === 'complete' && value.decision.resolved && value.objectives.every(item => item.complete), 'victoire sanitaire sans objectifs accomplis');
+}
+
 function campaignContextFor(campaign, missionId) {
   const world = campaign.world.vesper;
+  if (missionId === 'MI07') return Object.fromEntries(AMBULANCE_CONTEXT_KEYS.map(key => [key, campaign.world.nacre.dike[key]]));
   if (missionId === 'MI06') {
     const passage = campaign.world.nacre.passage;
     return { fuelAvailable: campaign.resources.fuel, ...Object.fromEntries(['channelOpen', 'refugeesPassed', 'refugeesLost', 'smugglerVerified', 'bargeCiviliansLost'].map(key => [key, passage[key]])) };
@@ -4888,6 +5678,14 @@ function applyDikeFuel(next, previous, game) {
   requireValue(next.world.nacre.fuelSpent <= 2, 'dépense de carburant supérieure à la collecte');
 }
 
+function validateAmbulanceSortie(previous, game) {
+  if (game.missionId !== 'MI07') return;
+  const old = previous.checkpoint;
+  requireValue(old?.missionId === 'MI07' && game.walkerId === old.walkerId && game.seed === old.seed && game.difficultyId === old.difficultyId, 'changement de sortie sanitaire');
+  requireValue(JSON.stringify(game.campaign.context) === JSON.stringify(old.campaign.context), 'héritage sanitaire modifié pendant la sortie');
+  requireValue(old.status === 'playing' || JSON.stringify(game) === JSON.stringify(old), 'sortie sanitaire perdue à recommencer explicitement');
+}
+
 /** A finished sortie returns to the hangar; completion is tracked per mission. */
 function nextCampaignMissionId(campaign) {
   if (campaign?.stage === 'mission' && MISSION_IDS.includes(campaign.activeMissionId)) return campaign.activeMissionId;
@@ -4900,7 +5698,7 @@ function validateReceipt(receipt) {
   const specificKeys = receipt.missionId === 'MI01' ? ['convoyIntegrity', 'route', 'pipeIntact', 'noticeFiled', 'filtersDeliveredCount', 'pipeRepairCost']
     : receipt.missionId === 'MI02' ? ['trainIntegrity', 'trainStopped', 'harpoonsReleased', 'hostagesTotal', 'hostagesRescued', 'hostagesLost', 'evidencePreserved', 'recordFiled']
       : receipt.missionId === 'MI03' ? ['signalsIdentified', 'militaryRelayDisabled', 'verifiedBuildings', 'networkPreserved', 'civilRelaysOnline', 'dispensaryIntact', 'witnessAvailable', 'residentsLost', 'holtAlerted', 'reportFiled']
-        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : receipt.missionId === 'MI05' ? Object.keys(createChannelDossier()) : Object.keys(createDikeDossier());
+        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : receipt.missionId === 'MI05' ? Object.keys(createChannelDossier()) : receipt.missionId === 'MI06' ? Object.keys(createDikeDossier()) : Object.keys(createAmbulanceDossier());
   const expectedKeys = [...commonKeys, ...specificKeys];
   requireValue(Object.keys(receipt).length === expectedKeys.length && expectedKeys.every(key => own(receipt, key)), 'champs du rapport incompatibles');
   for (const key of ['walkerName', 'missionName', 'decisionLabel', 'tessLine', 'samiLine']) requireValue(typeof receipt[key] === 'string', `rapport ${key}`);
@@ -4913,6 +5711,11 @@ function validateReceipt(receipt) {
   number(receipt.collateral, 0, 1000, 'pertes civiles', true);
   number(receipt.kills, 0, 1000, 'adversaires neutralisés', true);
   requireValue(receipt.partsGranted === DELIVERY_PARTS, 'dotation du rapport');
+  if (receipt.missionId === 'MI07') {
+    validateAmbulanceFacts(receipt, true);
+    requireValue(receipt.reportFiled === (receipt.choice === 'defy') && receipt.destination === (receipt.choice === 'defy' ? 'clinic' : 'imperial'), 'rapport sanitaire contraire à la destination');
+    return;
+  }
   if (receipt.missionId === 'MI06') {
     validateDikeFacts(receipt, true);
     requireValue(receipt.reportFiled === (receipt.choice === 'defy') && receipt.circuit === (receipt.choice === 'defy' ? 'diversion' : 'imperial'), 'rapport de digue contradictoire');
@@ -5006,10 +5809,10 @@ function validateCampaign(campaign) {
     number(log.cost, 1, 6, 'coût intervention', true);
   }
   if (campaign.checkpoint !== null) {
-    validateGame(campaign.checkpoint, campaign.checkpoint.missionId === 'MI06' && campaign.checkpoint.status === 'lost');
+    validateGame(campaign.checkpoint, ['MI06', 'MI07'].includes(campaign.checkpoint.missionId) && campaign.checkpoint.status === 'lost');
     if (campaign.checkpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.checkpoint);
     requireValue(campaign.checkpoint.missionId === campaign.activeMissionId, 'checkpoint d’une autre mission');
-    if (['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.checkpoint.missionId)) {
+    if (['MI02', 'MI03', 'MI04', 'MI05', 'MI07'].includes(campaign.checkpoint.missionId)) {
       requireValue(JSON.stringify(campaign.checkpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.checkpoint.missionId)), 'héritage des missions précédentes contradictoire');
     }
   }
@@ -5017,7 +5820,7 @@ function validateCampaign(campaign) {
     validateGame(campaign.preDecisionCheckpoint);
     if (campaign.preDecisionCheckpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.preDecisionCheckpoint, true);
     requireValue(campaign.preDecisionCheckpoint.decision.active && !campaign.preDecisionCheckpoint.decision.resolved, 'checkpoint avant décision incompatible');
-    if (campaign.stage === 'mission' && ['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.preDecisionCheckpoint.missionId)) requireValue(JSON.stringify(campaign.preDecisionCheckpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.preDecisionCheckpoint.missionId)), 'héritage du point de décision contradictoire');
+    if ((campaign.stage === 'mission' && ['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.preDecisionCheckpoint.missionId) || campaign.preDecisionCheckpoint.missionId === 'MI07')) requireValue(JSON.stringify(campaign.preDecisionCheckpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.preDecisionCheckpoint.missionId)), 'héritage du point de décision contradictoire');
   }
   for (const [id, receipt] of Object.entries(campaign.completed)) {
     validateReceipt(receipt);
@@ -5061,6 +5864,14 @@ function validateCampaign(campaign) {
     for (const key of Object.keys(createDikeDossier())) requireValue(campaign.world.nacre.dike[key] === report[key], `dossier de digue ${key}`);
     requireValue(report.fuelSpent <= campaign.world.nacre.fuelSpent, 'dépense du rapport supérieure au registre');
   } else requireValue(JSON.stringify(campaign.world.nacre.dike) === JSON.stringify(createDikeDossier()), 'résultat de digue sans dossier MI06');
+  if (campaign.completed.MI07) {
+    const report = campaign.completed.MI07;
+    for (const key of Object.keys(createAmbulanceDossier())) requireValue(campaign.world.nacre.ambulance[key] === report[key], `dossier sanitaire ${key}`);
+    const dike = campaign.world.nacre.dike;
+    const route = dike.panelsLocked === 1 && !dike.emergencyShoring && dike.dikeFatigue < 65 ? 'main' : 'secondary';
+    requireValue(report.route === route, 'rampe contraire au dossier de digue');
+    requireValue(!report.technicalHelpRequested || dike.techniciansAlive > 0, 'aide technique sans survivant du chantier');
+  } else requireValue(JSON.stringify(campaign.world.nacre.ambulance) === JSON.stringify(createAmbulanceDossier()), 'résultat sanitaire sans dossier MI07');
   if (campaign.stage === 'mission') {
     requireValue(campaign.checkpoint !== null && MISSION_IDS.includes(campaign.activeMissionId) && !own(campaign.completed, campaign.activeMissionId), 'mission sans checkpoint ou déjà achevée');
     const previousId = MISSION_IDS[MISSION_IDS.indexOf(campaign.activeMissionId) - 1];
@@ -5091,7 +5902,7 @@ function parseCampaign(text) {
 
 /** Add only documented fields to historical saves; completed receipts stay intact. */
 function migrateCampaign(value) {
-  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4, 5].includes(value.version)) return value;
+  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4, 5, 6].includes(value.version)) return value;
   walkJSON(value);
   requireValue(isObject(value.world) && isObject(value.world.vesper), 'Vesper absent du dossier historique');
   if (value.version === 1) {
@@ -5155,15 +5966,28 @@ function migrateCampaign(value) {
     value.resources.fuel = 0;
     value.version = 5;
   }
-  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(id)), 'dossier v5 contient une mission inconnue');
-  requireValue(value.activeMissionId === null || ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(value.activeMissionId), 'mission active v5 inconnue');
-  requireValue(isObject(value.world.nacre) && !own(value.world.nacre, 'dike') && !own(value.world.nacre, 'fuelSpent'), 'digue ou dépense inattendue dans le dossier historique');
-  for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
-    requireValue(isObject(checkpoint) && ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(checkpoint.missionId), 'checkpoint v5 inconnu');
-    requireValue(!own(checkpoint, 'dike'), 'chantier inattendu dans un checkpoint historique');
+  if (value.version === 5) {
+    requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(id)), 'dossier v5 contient une mission inconnue');
+    requireValue(value.activeMissionId === null || ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(value.activeMissionId), 'mission active v5 inconnue');
+    requireValue(isObject(value.world.nacre) && !own(value.world.nacre, 'dike') && !own(value.world.nacre, 'fuelSpent'), 'digue ou dépense inattendue dans le dossier historique');
+    for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
+      requireValue(isObject(checkpoint) && ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(checkpoint.missionId), 'checkpoint v5 inconnu');
+      requireValue(!own(checkpoint, 'dike'), 'chantier inattendu dans un checkpoint historique');
+    }
+    value.world.nacre.dike = createDikeDossier();
+    value.world.nacre.fuelSpent = 0;
+    value.version = 6;
   }
-  value.world.nacre.dike = createDikeDossier();
-  value.world.nacre.fuelSpent = 0;
+  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06'].includes(id)), 'dossier v6 contient une mission inconnue');
+  requireValue(value.activeMissionId === null || ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06'].includes(value.activeMissionId), 'mission active v6 inconnue');
+  requireValue(isObject(value.world.nacre) && !own(value.world.nacre, 'ambulance'), 'ambulance inattendue dans le dossier historique');
+  for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
+    requireValue(isObject(checkpoint) && ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06'].includes(checkpoint.missionId), 'checkpoint v6 inconnu');
+    requireValue(!own(checkpoint, 'ambulance'), 'ambulance inattendue dans un checkpoint historique');
+  }
+  // Preserve MI06's exact scene, workshop, fuel ledger and receipts. No people,
+  // recovered beacon or supplies are fabricated when the next chapter opens.
+  value.world.nacre.ambulance = createAmbulanceDossier();
   value.version = CAMPAIGN_SAVE_VERSION;
   return value;
 }
@@ -5181,7 +6005,7 @@ function unsupportedDossier(text) {
   try {
     const value = JSON.parse(text);
     return isObject(value) && ((typeof value.format === 'string' && value.format !== FORMAT) ||
-      (value.format === FORMAT && ![1, 2, 3, 4, 5, CAMPAIGN_SAVE_VERSION].includes(value.version)));
+      (value.format === FORMAT && ![1, 2, 3, 4, 5, 6, CAMPAIGN_SAVE_VERSION].includes(value.version)));
   } catch { return false; }
 }
 
@@ -5232,6 +6056,7 @@ function beginCampaignMission(campaign, options = {}) {
   if (missionId === 'MI04' && !campaign.completed.MI03) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le constat des émetteurs avant de rejoindre la station industrielle.' };
   if (missionId === 'MI05' && !campaign.completed.MI04) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le dossier de Vesper avant de rejoindre le chenal de Nacre.' };
   if (missionId === 'MI06' && !campaign.completed.MI05) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le rapport du chenal avant de rejoindre les maisons des Trois-Vannes.' };
+  if (missionId === 'MI07' && !campaign.completed.MI06) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le bilan de la digue avant de rejoindre l’ambulance sur la chaussée des Salines.' };
   const walkerId = WALKERS.some(walker => walker.id === options.walkerId) ? options.walkerId : WALKERS[0].id;
   const replay = Boolean(options.replay || own(campaign.completed, missionId));
   if (!replay && campaign.stage === 'mission' && !options.restart) return { ok: false, campaign, game: null, replay: false, message: 'Une sortie est déjà en cours. Reprenez-la ou recommencez-la explicitement.' };
@@ -5253,17 +6078,19 @@ function beginCampaignMission(campaign, options = {}) {
       : missionId === 'MI03' ? 'Les émetteurs de Vesper sont accessibles. Identifiez chaque signal avant de rendre votre compte rendu.'
         : missionId === 'MI04' ? 'La station industrielle est accessible. Refroidissez les turbines et relevez ce qui reste du journal de maintenance.'
           : missionId === 'MI05' ? 'L’affectation de Nacre est ouverte. Libérez le chenal et vérifiez les deux équipages avant de signer votre rapport.'
-            : 'La digue des Trois-Vannes vous attend. Relevez les seuils et soutenez le chantier avant de choisir le circuit.';
+            : missionId === 'MI06' ? 'La digue des Trois-Vannes vous attend. Relevez les seuils et soutenez le chantier avant de choisir le circuit.'
+              : 'L’ambulance vous attend sur la chaussée des Salines. Faites-la arrêter, établissez sa cargaison et protégez son transfert.';
   return { ok: true, campaign: next, game, replay: false, message };
 }
 
 function checkpointCampaign(campaign, game, options = {}) {
   validateCampaign(campaign);
-  const terminalDike = game?.missionId === 'MI06' && game.status === 'lost';
-  if (options.replay || own(campaign.completed, game?.missionId) || (game?.status !== 'playing' && !terminalDike)) return campaign;
+  const terminalSortie = ['MI06', 'MI07'].includes(game?.missionId) && game.status === 'lost';
+  if (options.replay || own(campaign.completed, game?.missionId) || (game?.status !== 'playing' && !terminalSortie)) return campaign;
   requireValue(campaign.stage === 'mission' && campaign.activeMissionId === game.missionId, 'aucune campagne active pour cette mission');
   const snapshot = clone(game);
-  validateGame(snapshot, terminalDike);
+  validateGame(snapshot, terminalSortie);
+  validateAmbulanceSortie(campaign, snapshot);
   const next = clone(campaign);
   applyDikeFuel(next, campaign, snapshot);
   next.checkpoint = snapshot; next.revision++;
@@ -5276,12 +6103,19 @@ function restoreCampaignGame(campaign, options = {}) {
   validateCampaign(campaign);
   if (campaign.stage !== 'mission' || own(campaign.completed, campaign.activeMissionId)) return null;
   const snapshot = options.beforeDecision ? campaign.preDecisionCheckpoint : campaign.checkpoint;
+  if (options.beforeDecision && campaign.activeMissionId === 'MI07' && campaign.checkpoint.status === 'lost') return null;
   if (options.beforeDecision && campaign.activeMissionId === 'MI06' && (campaign.checkpoint.status === 'lost' || (snapshot && (snapshot.elapsed < campaign.checkpoint.elapsed || snapshot.campaign.fuelSpent < campaign.checkpoint.campaign.fuelSpent)))) return null;
-  return snapshot ? clone(validateGame(snapshot, snapshot.missionId === 'MI06' && snapshot.status === 'lost')) : null;
+  return snapshot ? clone(validateGame(snapshot, ['MI06', 'MI07'].includes(snapshot.missionId) && snapshot.status === 'lost')) : null;
 }
 
 function crewLines(game) {
   const mission = game.campaign;
+  if (game.missionId === 'MI07') {
+    const people = `${mission.patientsArrived} patients sont arrivés à l’accueil, ${mission.patientsLost} sont morts. ${mission.staffAlive} membres de l’équipe sanitaire ont survécu ; ${mission.staffArrived} ont rejoint l’accueil.`;
+    const beacon = mission.beaconRecovered ? 'La balise, ses attaches et son journal sont conservés. Leur origine matérielle n’établit pas encore qui a ordonné la pose.' : 'La balise n’a pas été récupérée. Le constat ne recrée pas son journal.';
+    const consent = mission.witnessConsent ? `L’accord à témoigner a été recueilli pendant la sortie.${mission.witnessAvailable ? ' Cette personne est encore vivante.' : ' Cette personne est morte depuis cet accord.'}` : 'Aucun accord à témoigner n’a été recueilli.';
+    return { tessLine: `${people} ${beacon}`, samiLine: `${mission.destination === 'clinic' ? 'Le transfert a été dirigé vers l’accueil civil.' : 'Le transfert a été dirigé vers le poste médical impérial.'} ${mission.vehicleDestroyed ? 'Le véhicule a été détruit.' : mission.vehicleSeized ? 'Le véhicule arrivé a été saisi.' : mission.vehicleRecovered ? 'Le véhicule est conservé pour les soins.' : 'Le véhicule n’a pas été récupéré.'} ${consent} ${mission.maraContacted ? 'Mara a effectivement reçu le relevé par radio.' : 'Aucun relevé n’a été transmis à Mara.'}` };
+  }
   if (game.missionId === 'MI06') {
     const shelter = `${mission.residentsSafe} habitants ont rejoint l’abri. ${mission.residentsLost} sont morts ; leur bilan reste distinct des douze passagers du chenal.`;
     const homes = mission.homesUninhabitable ? `${mission.homesUninhabitable} logement${mission.homesUninhabitable > 1 ? 's sont inhabitables' : ' est inhabitable'}. Évacuer les familles n’a pas rendu leurs maisons utilisables.` : 'Les deux maisons sont restées habitables au départ.';
@@ -5361,11 +6195,13 @@ function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(campaign);
   if (options.replay || own(campaign.completed, game?.missionId)) return { ok: true, campaign, receipt: campaign.completed[game?.missionId] || campaign.lastDebrief, applied: false, message: 'Rejeu terminé. Le rapport de campagne et les lots restent inchangés.' };
   if (game?.status !== 'won') {
-    const failed = game?.missionId === 'MI06' && game.status === 'lost' ? checkpointCampaign(campaign, game) : campaign;
-    return { ok: true, campaign: failed, receipt: null, applied: false, message: game?.missionId === 'MI06' && game.status === 'lost' ? 'Sortie perdue. La consommation déjà effectuée reste inscrite ; recommencez la mission avec le stock restant.' : 'Aucune sortie validée. Le dernier checkpoint reste disponible.' };
+    const terminal = ['MI06', 'MI07'].includes(game?.missionId) && game.status === 'lost';
+    const failed = terminal ? checkpointCampaign(campaign, game) : campaign;
+    return { ok: true, campaign: failed, receipt: null, applied: false, message: terminal ? 'Sortie perdue. Le bilan est conservé ; recommencez explicitement la mission avec le stock restant.' : 'Aucune sortie validée. Le dernier checkpoint reste disponible.' };
   }
   requireValue(campaign.stage === 'mission' && campaign.activeMissionId === game.missionId, 'aucune sortie officielle en cours pour cette mission');
   validateGame(clone(game), true);
+  validateAmbulanceSortie(campaign, game);
   const next = clone(campaign), mission = game.campaign;
   applyDikeFuel(next, campaign, game);
   const commonReceipt = {
@@ -5374,7 +6210,10 @@ function finishCampaignMission(campaign, game, options = {}) {
     elapsed: game.elapsed, collateral: game.stats.collateral, kills: game.stats.kills, choice: game.decision.choice,
     partsGranted: DELIVERY_PARTS, ...crewLines(game),
   };
-  const receipt = game.missionId === 'MI06' ? {
+  const receipt = game.missionId === 'MI07' ? {
+    ...commonReceipt, ...Object.fromEntries(Object.keys(createAmbulanceDossier()).map(key => [key, mission[key]])),
+    decisionLabel: mission.reportFiled ? 'Transfert civil et constat sanitaire joints au rapport' : 'Transfert sous contrôle du poste médical impérial',
+  } : game.missionId === 'MI06' ? {
     ...commonReceipt, ...Object.fromEntries(Object.keys(createDikeDossier()).map(key => [key, mission[key]])),
     decisionLabel: mission.reportFiled ? 'Dérivation des maisons accomplie et constat joint' : 'Circuit impérial accompli au quai privé',
   } : game.missionId === 'MI05' ? {
@@ -5407,7 +6246,12 @@ function finishCampaignMission(campaign, game, options = {}) {
   next.stage = 'complete'; next.activeMissionId = null; next.checkpoint = null; next.revision++;
   next.resources.parts += DELIVERY_PARTS;
   next.fleet[game.walkerId] = { hull: game.player.hull, feet: game.player.feet.map(foot => foot.health), radiator: game.player.radiator.health };
-  if (game.missionId === 'MI06') {
+  if (game.missionId === 'MI07') {
+    next.world.nacre.ambulance = Object.fromEntries(Object.keys(createAmbulanceDossier()).map(key => [key, mission[key]]));
+    next.authority.suspicion = clamp(next.authority.suspicion + (mission.reportFiled ? 3 : 0), 0, 100);
+    next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.medicalCargoVerified ? 2 : 0) - mission.patientsLost - mission.staffLost, 0, 100);
+    next.crew.sami.trust = clamp(next.crew.sami.trust + (mission.reportFiled ? 2 : 0) - mission.patientsLost - mission.staffLost, 0, 100);
+  } else if (game.missionId === 'MI06') {
     next.world.nacre.dike = Object.fromEntries(Object.keys(createDikeDossier()).map(key => [key, mission[key]]));
     next.authority.suspicion = clamp(next.authority.suspicion + (mission.reportFiled ? 3 : 0), 0, 100);
     next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.residentsLost ? -mission.residentsLost : 2) - mission.techniciansLost, 0, 100);
@@ -5446,7 +6290,7 @@ function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(next);
   const action = game.missionId === 'MI01' ? 'Livraison inscrite au dossier.'
     : game.missionId === 'MI02' ? 'Récupération du train inscrite au dossier.' : game.missionId === 'MI03' ? 'Constat des émetteurs inscrit au dossier.'
-      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : game.missionId === 'MI05' ? 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.' : 'Le bilan des Trois-Vannes est inscrit au dossier : personnes, logements, chantier et carburant.';
+      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : game.missionId === 'MI05' ? 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.' : game.missionId === 'MI06' ? 'Le bilan des Trois-Vannes est inscrit au dossier : personnes, logements, chantier et carburant.' : 'Le bilan sanitaire des Salines est inscrit au dossier : patients, équipe, véhicule, balise et destination.';
   return { ok: true, campaign: next, receipt, applied: true, message: `${action} Quatre lots d’atelier ont été affectés au retour.` };
 }
 
@@ -5561,6 +6405,12 @@ const campaignOrders = {
     task: 'Relever les seuils, tenir le panneau, couvrir les techniciens et achever le circuit choisi.',
     caution: 'Ancrez tous les appuis pour soutenir la digue. Les personnes évacuées et les logements préservés ont des bilans distincts.',
   },
+  MI07: {
+    status: 'Holt désigne un dépôt mobile de munitions. Une conductrice demande une aire sûre pour arrêter son ambulance.',
+    description: 'Sous la caisse sanitaire, Tess aperçoit un boîtier récemment fixé. Faites arrêter le véhicule, échangez avec son équipe et examinez ce que la signature hostile prétend identifier.',
+    task: 'Protéger l’arrêt, établir la cargaison, relever la balise et accompagner les patients vers un accueil.',
+    caution: 'La rampe dépend de la digue. Le choix de destination exige ensuite un transfert réel ; les tirs menacent aussi les patients et leur équipe.',
+  },
   MI05: {
     status: 'Le chenal de Nacre est bloqué. Deux barges portent le même pavillon ; leurs équipages ne font pas le même travail.',
     description: 'Le bateau civil attend une fenêtre de marée devant les câbles du blocus. Depuis la digue, deux équipages vous appellent. Vérifiez ce qu’ils transportent avant de décider qui couvrir.',
@@ -5585,7 +6435,7 @@ function saveCampaign({ replaceInvalid = false } = {}) {
   return result.ok;
 }
 function captureCampaign(beforeDecision = false) {
-  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(game.missionId === 'MI06' && game.status === 'lost'))) return;
+  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07'].includes(game.missionId) && game.status === 'lost'))) return;
   try {
     campaign = checkpointCampaign(campaign, game, { beforeDecision });
     lastCampaignSaveAt = game.elapsed;
@@ -5602,6 +6452,18 @@ function renderCampaignStatus() {
   $('campaign-save-status').classList.toggle('save-warning', Boolean(campaignWarning || campaignBlocked));
 }
 function campaignReceiptFacts(receipt) {
+  if (receipt.missionId === 'MI07') return [
+    ['PATIENTS ARRIVÉS', `${receipt.patientsArrived} / ${receipt.patientsTotal}`],
+    ['PATIENTS PERDUS', receipt.patientsLost],
+    ['ÉQUIPE SANITAIRE', `${receipt.staffAlive} vivants · ${receipt.staffArrived} arrivés`],
+    ['CARGAISON', receipt.medicalCargoVerified ? 'Matériel sanitaire vérifié' : 'Constat sans cargaison vérifiable'],
+    ['BALISE', receipt.beaconRecovered ? 'Pièce, attaches et journal conservés' : 'Perdue · constat conservé'],
+    ['ORIGINE DE LA POSE', 'À recouper'],
+    ['RAMPE / DESTINATION', `${receipt.route === 'main' ? 'Principale' : 'Secondaire'} · ${receipt.destination === 'clinic' ? 'Accueil civil' : 'Poste médical impérial'}`],
+    ['VÉHICULE', receipt.vehicleDestroyed ? 'Détruit' : receipt.vehicleSeized ? 'Arrivé puis saisi' : receipt.vehicleRecovered ? 'Conservé pour les soins' : 'Non récupéré'],
+    ['ACCORD À TÉMOIGNER', receipt.witnessConsent ? receipt.witnessAvailable ? 'Recueilli · témoin vivant' : 'Recueilli · témoin décédé' : 'Non recueilli'],
+    ['CONTACT DE MARA', receipt.maraContacted ? 'Relevé transmis par radio' : 'Aucune transmission'],
+  ];
   if (receipt.missionId === 'MI06') return [
     ['HABITANTS À L’ABRI', `${receipt.residentsSafe} / ${receipt.residentsTotal}`],
     ['HABITANTS PERDUS', receipt.residentsLost],
@@ -5676,7 +6538,7 @@ function renderCampaignUI() {
       : 'Le journal du poste a été perdu. Le bilan de Vesper conserve cette absence ; une autre source technique reste à trouver.';
     const passage = campaign.completed.MI05;
     $('campaign-transition-text').textContent = `${inherited} ${passage
-      ? campaign.completed.MI06 ? `Aux Trois-Vannes, ${campaign.completed.MI06.residentsSafe} habitants sont à l’abri et ${campaign.completed.MI06.homesUninhabitable} logements sont inhabitables. Le dossier garde ces deux bilans. La prochaine affectation sur la chaussée des Salines reste en préparation.` : `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai. La digue des Trois-Vannes est maintenant accessible dans « Les maisons sous la ligne ». ${campaign.resources.fuel} lots de carburant restent disponibles ; une solution manuelle existe sans réserve.`
+      ? campaign.completed.MI07 ? `Sur la chaussée des Salines, ${campaign.completed.MI07.patientsArrived} patients sont arrivés et ${campaign.completed.MI07.patientsLost} sont morts. Le dossier sanitaire garde leur destination, l’équipe et la balise séparément. La sortie de Nacre aux portes d’Aval reste en préparation.` : campaign.completed.MI06 ? `Aux Trois-Vannes, ${campaign.completed.MI06.residentsSafe} habitants sont à l’abri et ${campaign.completed.MI06.homesUninhabitable} logements sont inhabitables. La chaussée des Salines est maintenant accessible dans « Une ambulance sans escorte ». Le chantier détermine la rampe utilisable.` : `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai. La digue des Trois-Vannes est maintenant accessible dans « Les maisons sous la ligne ». ${campaign.resources.fuel} lots de carburant restent disponibles ; une solution manuelle existe sans réserve.`
       : 'Votre nouvelle affectation est ouverte : rejoignez le chenal de Nacre dans « Le prix du passage ». Le départ reste possible avec ou sans le journal.'}`;
   }
   $('campaign-mission-list').innerHTML = CAMPAIGN_MISSIONS.map((m, index) => {
@@ -5731,6 +6593,11 @@ function renderWorkshop() {
   if (campaign.completed.MI06) {
     const report = campaign.completed.MI06;
     $('workshop-dike').textContent = `Trois-Vannes : ${report.residentsSafe} habitants à l’abri, ${report.residentsLost} perdus ; ${report.homesUninhabitable} logements inhabitables. ${report.techniciansAlive} techniciens vivants. ${report.circuit === 'diversion' ? 'La dérivation a été accomplie.' : 'Le circuit impérial du quai a été accompli.'} Cette dernière sortie a utilisé ${report.fuelSpent} lots de carburant.`;
+  }
+  $('workshop-ambulance').hidden = !campaign.completed.MI07;
+  if (campaign.completed.MI07) {
+    const report = campaign.completed.MI07;
+    $('workshop-ambulance').textContent = `Salines : ${report.patientsArrived} patients arrivés, ${report.patientsLost} perdus ; ${report.staffAlive} membres de l’équipe vivants. ${report.destination === 'clinic' ? 'Accueil civil.' : 'Poste médical impérial.'} ${report.beaconRecovered ? 'Balise, attaches et journal conservés ; origine de la pose à recouper.' : 'Balise perdue ; aucune donnée recréée.'} ${report.witnessConsent ? 'Un accord à témoigner a été recueilli.' : 'Aucun accord à témoigner recueilli.'}`;
   }
   $('campaign-repair-pipe').hidden = !campaign.completed?.MI01 || world.pipeIntact || world.pipeRepaired;
   $('campaign-repair-pipe').textContent = 'Réparer la conduite · 2 lots';
@@ -5906,6 +6773,11 @@ function showBriefing() {
     const fuel = pendingReplay && campaign.completed.MI06 ? campaign.resources.fuel + campaign.completed.MI06.fuelSpent : campaign.resources.fuel;
     $('briefing-description').textContent += ` ${passage.channelOpen && passage.refugeesPassed === 12 ? 'Le passage accompli permet aux techniciens d’arriver par le quai.' : 'Le passage du chenal n’a pas été sûr : les techniciens prennent la passerelle haute.'} ${fuel === 2 ? 'Deux lots peuvent alimenter une pompe auxiliaire après branchement. Ils seront réellement dépensés à l’achèvement, même si la sortie échoue ensuite.' : 'Aucun lot n’est disponible. La dérivation manuelle reste praticable.'} Les dix habitants de ce chantier ne sont pas les douze passagers du chenal.`;
   }
+  if (pendingMode === 'campaign' && m.id === 'MI07') {
+    const dike = campaign.world.nacre.dike;
+    const mainRamp = dike.panelsLocked === 1 && !dike.emergencyShoring && dike.dikeFatigue < 65;
+    $('briefing-description').textContent += ` ${mainRamp ? 'Le panneau verrouillé, sous le seuil de fatigue de 65 %, permet la rampe principale.' : 'L’état du panneau impose la rampe secondaire : le trajet sera plus long à protéger.'} ${dike.techniciansAlive ? `${dike.techniciansAlive} technicien${dike.techniciansAlive > 1 ? 's ont survécu' : ' a survécu'} à la digue ; demandez leur aide sur place.` : 'Aucun technicien de la digue ne peut aider ; la préparation manuelle reste possible.'} L’ambulance transporte quatre patients et deux membres d’équipe, distincts des personnes des missions précédentes. Aucun carburant supplémentaire n’est attribué.`;
+  }
   $('briefing-walker').textContent = `${w.designation} ${w.name}`;
   $('briefing-assist').textContent = settings.assist ? 'Marche assistée' : 'Appuis manuels';
   $('briefing-difficulty').textContent = DIFFICULTIES[settings.difficulty].label;
@@ -5991,7 +6863,8 @@ function showResult() {
   const industrialMission = game.missionId === 'MI04';
   const channelMission = game.missionId === 'MI05';
   const dikeMission = game.missionId === 'MI06';
-  const missionStat = dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
+  const ambulanceMission = game.missionId === 'MI07';
+  const missionStat = ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
     : industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
     : networkMission ? ['RÉSEAUX CIVILS ACTIFS', `${game.campaign.civilRelaysOnline} / 2`]
     : railMission ? ['OUVRIERS LIBÉRÉS', `${game.campaign.hostagesRescued} / ${game.campaign.hostagesTotal}`]
@@ -5999,7 +6872,10 @@ function showResult() {
     : ['PREUVES RÉCUPÉRÉES', game.stats.evidence];
   const stats = [['DURÉE', timeLabel(game.elapsed)], ['CIBLES NEUTRALISÉES', game.stats.kills], missionStat, ['PERTES CIVILES', game.stats.collateral]];
   let decisionText;
-  if (dikeMission) {
+  if (ambulanceMission) {
+    const f = game.campaign;
+    decisionText = `${f.destination === 'clinic' ? 'Accueil civil choisi.' : f.destination === 'imperial' ? 'Poste médical impérial choisi.' : 'Destination encore indéterminée.'} ${f.patientsArrived} patients arrivés, ${f.patientsLost} perdus ; ${f.staffAlive} membres de l’équipe vivants. ${f.beaconRecovered ? 'Balise, attaches et journal conservés ; origine de la pose à recouper.' : 'Aucune balise récupérée.'} ${f.vehicleDestroyed ? 'Véhicule détruit.' : f.vehicleSeized ? 'Véhicule arrivé puis saisi.' : f.vehicleRecovered ? 'Véhicule conservé pour les soins.' : 'Transfert non achevé.'}`;
+  } else if (dikeMission) {
     const facts = game.campaign;
     decisionText = `${facts.circuit === 'diversion' ? 'Dérivation des maisons choisie.' : facts.circuit === 'imperial' ? 'Réglage impérial du quai choisi.' : 'Circuit encore indéterminé.'} ${facts.pumpsOnline ? 'La manœuvre de vanne est achevée.' : 'La remise en service n’est pas achevée.'} ${facts.residentsSafe} habitants à l’abri, ${facts.residentsLost} perdus ; ${facts.homesUninhabitable} logements inhabitables. ${facts.fuelSpent} lots utilisés pendant cette sortie.`;
   } else if (channelMission) {
@@ -6042,6 +6918,15 @@ let lastObjectives = '';
 function updateHUD() {
   if (!game) return;
   const p = game.player;
+  $('ambulance-instrument').hidden = !game.ambulance;
+  if (game.ambulance) {
+    const f = game.campaign;
+    $('ambulance-stage').textContent = f.transferResolved ? 'BILAN DU TRANSFERT ÉTABLI' : f.vehicleDestroyed ? 'VÉHICULE PERDU · CONSTATS POSSIBLES' : f.transferOrdered ? 'TRANSFERT SANITAIRE EN COURS' : f.vehicleStopped ? 'AMBULANCE À L’ARRÊT' : f.stopCalled ? 'ARRÊT DEMANDÉ · DÉGAGEZ L’AIRE' : 'AMBULANCE · APPEL À ÉTABLIR';
+    $('ambulance-route').textContent = `RAMPE ${f.route === 'main' ? 'PRINCIPALE' : 'SECONDAIRE'} · ${f.rampPrepared ? 'PRÊTE' : 'À PRÉPARER'} · ${f.destination === 'clinic' ? 'ACCUEIL CIVIL' : f.destination === 'imperial' ? 'POSTE IMPÉRIAL' : 'DESTINATION À CHOISIR'}`;
+    $('ambulance-people').textContent = `${f.patientsArrived} / 4 PATIENTS ARRIVÉS · ${f.patientsLost} PERDUS · ÉQUIPE ${f.staffAlive} / 2`;
+    $('ambulance-cargo').textContent = f.medicalCargoVerified ? 'CARGAISON SANITAIRE VÉRIFIÉE' : f.cargoInspected ? 'CONSTAT SANS CARGAISON VÉRIFIABLE' : f.consentObtained ? 'ACCORD REÇU · CAISSE À INSPECTER' : 'ACCORD À L’EXAMEN À OBTENIR';
+    $('ambulance-beacon').textContent = f.beaconRecovered ? 'BALISE RÉCUPÉRÉE · ORIGINE À RECOUPER' : f.beaconDestroyed ? 'BALISE PERDUE · CONSTAT À CONSERVER' : 'BOÎTIER AJOUTÉ · DÉMONTAGE À ACCOMPLIR';
+  }
   $('dike-instrument').hidden = !game.dike;
   if (game.dike) {
     const site = game.dike, facts = game.campaign;
@@ -6175,8 +7060,8 @@ function frame(now) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
       if (!paused && activeMode === 'campaign' && !campaignReplay) {
         const fuelChanged = game.missionId === 'MI06' && game.campaign.fuelSpent !== campaign.checkpoint?.campaign.fuelSpent;
-        const failedDike = game.missionId === 'MI06' && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
-        if (fuelChanged || failedDike || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
+        const failedSortie = ['MI06', 'MI07'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
+        if (fuelChanged || failedSortie || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
       }
       renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, interactionPrompt: false, pointer });
       if (!paused) events();

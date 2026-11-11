@@ -4,17 +4,17 @@
  * Every campaign transition returns a new value; gameplay remains in simulation.mjs.
  */
 import { WALKERS, DIFFICULTIES, ENEMY_TYPES } from './content.mjs';
-import { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt, dikeDecisionBody, dikeSupportReady } from './simulation.mjs';
+import { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt, dikeDecisionBody, dikeSupportReady, ambulanceDecisionBody, ambulanceStopClear } from './simulation.mjs';
 
 export const CAMPAIGN_SAVE_KEY = 'imperium.campaign.v1';
 export const CAMPAIGN_BACKUP_KEY = 'imperium.campaign.v1.backup';
-export const CAMPAIGN_SAVE_VERSION = 6;
+export const CAMPAIGN_SAVE_VERSION = 7;
 const FORMAT = 'ordre-de-cendre.campaign';
 const MAX_BYTES = 2_000_000;
 const INITIAL_PARTS = 6;
 const DELIVERY_PARTS = 4;
 const PIPE_PARTS = 2;
-const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06'];
+const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07'];
 const LEGACY_WALKER_IDS = ['WK01', 'WK05', 'WK09'];
 const clone = value => JSON.parse(JSON.stringify(value));
 const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
@@ -152,7 +152,7 @@ function validateGame(value, finished = false) {
   } else requireValue(value.convoy === null, 'convoi inattendu');
   requireValue(value.decision.choice === null || ['obey', 'defy'].includes(value.decision.choice), 'décision inconnue');
   for (const key of ['title', 'body', 'options']) {
-    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : null;
+    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : value.missionId === 'MI07' ? ambulanceDecisionBody : null;
     const expected = key === 'body' && dynamicBody && (value.decision.active || value.decision.resolved)
       ? dynamicBody(value) : template.decision[key];
     requireValue(JSON.stringify(value.decision[key]) === JSON.stringify(expected), 'texte de décision incompatible');
@@ -167,6 +167,10 @@ function validateGame(value, finished = false) {
     number(objective.target, 1, 100000, 'cible d’objectif');
   }
   const mission = value.campaign;
+  if (value.missionId === 'MI07') {
+    validateAmbulanceMission(value, template);
+    return value;
+  }
   if (value.missionId === 'MI06') {
     validateDikeMission(value, template);
     return value;
@@ -375,7 +379,7 @@ export function createCampaign() {
     world: { vesper: { pipeIntact: true, pipeRepaired: false, servicesInterrupted: false, filtersDelivered: false,
       filtersDeliveredCount: 0, calesBassesExcluded: false, noticeFiled: false,
       rail: createRailDossier(), communications: createCommunicationsDossier(), industrial: createIndustrialDossier() },
-      nacre: { passage: createChannelDossier(), dike: createDikeDossier(), fuelSpent: 0 } },
+      nacre: { passage: createChannelDossier(), dike: createDikeDossier(), fuelSpent: 0, ambulance: createAmbulanceDossier() } },
     fleet: Object.fromEntries(WALKERS.map(walker => [walker.id, { hull: walker.hull, feet: Array(walker.legs).fill(100), radiator: 100 }])),
     checkpoint: null, preDecisionCheckpoint: null, lastDebrief: null, maintenanceLog: [],
   };
@@ -586,8 +590,144 @@ function validateDikeMission(value, template) {
   if (value.status === 'won') requireValue(facts.phase === 'complete' && value.decision.resolved && value.objectives.every(item => item.complete), 'victoire de digue sans objectifs accomplis');
 }
 
+const AMBULANCE_FLAGS = ['stopCalled', 'stopCleared', 'vehicleStopped', 'consentObtained', 'cargoInspected',
+  'medicalCargoVerified', 'beaconResolved', 'beaconRecovered', 'beaconDestroyed', 'fixingsPreserved', 'beaconLogCopied',
+  'provenanceVerified', 'witnessConsent', 'witnessAvailable', 'maraContacted', 'technicalHelpRequested', 'rampPrepared',
+  'receptionReady', 'transferOrdered', 'transferResolved', 'vehicleDestroyed', 'vehicleRecovered',
+  'vehicleSeized', 'manifestRead', 'reportFiled'];
+const AMBULANCE_CONTEXT_KEYS = ['pumpsOnline', 'panelsLocked', 'emergencyShoring', 'dikeFatigue',
+  'techniciansAlive', 'homesUninhabitable', 'residentsSafe', 'residentsLost', 'circuit'];
+
+function createAmbulanceDossier() {
+  return { ...Object.fromEntries(AMBULANCE_FLAGS.map(key => [key, false])),
+    patientsTotal: 0, patientsArrived: 0, patientsLost: 0, staffTotal: 0, staffAlive: 0, staffLost: 0, staffArrived: 0,
+    destination: 'unselected', route: 'unselected', witnessId: null };
+}
+
+function validateAmbulanceFacts(facts, finished = false) {
+  for (const key of AMBULANCE_FLAGS) boolean(facts[key], `ambulance ${key}`);
+  requireValue(facts.patientsTotal === 4 && facts.staffTotal === 2, 'effectifs sanitaires');
+  for (const key of ['patientsArrived', 'patientsLost']) number(facts[key], 0, 4, `ambulance ${key}`, true);
+  for (const key of ['staffAlive', 'staffLost', 'staffArrived']) number(facts[key], 0, 2, `ambulance ${key}`, true);
+  requireValue(facts.patientsArrived + facts.patientsLost <= 4, 'bilan des patients impossible');
+  requireValue(facts.staffAlive + facts.staffLost === 2 && facts.staffArrived <= facts.staffAlive, 'bilan du personnel contradictoire');
+  requireValue(['unselected', 'imperial', 'clinic'].includes(facts.destination), 'destination sanitaire');
+  requireValue(['main', 'secondary'].includes(facts.route), 'rampe sanitaire');
+  requireValue(facts.witnessId === null || ['ambulance-driver', 'ambulance-medic'].includes(facts.witnessId), 'identité du témoin sanitaire');
+  requireValue(facts.witnessConsent === (facts.witnessId !== null) && (!facts.witnessAvailable || facts.witnessConsent), 'accord et disponibilité du témoin contradictoires');
+  requireValue(!facts.witnessAvailable || facts.staffAlive > 0, 'témoin disponible sans personnel vivant');
+  requireValue(!facts.medicalCargoVerified || (facts.consentObtained && facts.cargoInspected), 'cargaison vérifiée sans accord ni inspection');
+  requireValue(facts.fixingsPreserved === facts.beaconRecovered && facts.beaconLogCopied === facts.beaconRecovered, 'balise sans attaches ni journal');
+  requireValue(!facts.beaconRecovered || (facts.beaconResolved && facts.cargoInspected), 'récupération sans examen et démontage achevés');
+  requireValue(!facts.provenanceVerified, 'la provenance complète de la pose reste à recouper après MI07');
+  requireValue(!facts.vehicleRecovered || (!facts.vehicleDestroyed && facts.destination !== 'unselected'), 'véhicule récupéré sans destination');
+  requireValue(!facts.beaconRecovered || !facts.beaconDestroyed, 'balise récupérée déjà détruite');
+  requireValue(!facts.vehicleSeized || (facts.vehicleRecovered && facts.destination === 'imperial'), 'saisie sans arrivée impériale');
+  requireValue(!facts.transferOrdered || facts.destination !== 'unselected', 'transfert sans destination');
+  requireValue(!facts.rampPrepared || facts.destination !== 'unselected', 'rampe préparée avant le choix');
+  requireValue(!facts.maraContacted || facts.manifestRead, 'relevé transmis sans constat établi');
+  if (finished) requireValue(facts.stopCalled && facts.cargoInspected && facts.beaconResolved && facts.manifestRead && facts.rampPrepared && facts.receptionReady && facts.transferOrdered && facts.transferResolved && facts.patientsArrived + facts.patientsLost === 4, 'dossier sanitaire incomplet');
+}
+
+function validateAmbulanceMission(value, template) {
+  const facts = value.campaign, site = value.ambulance, initial = template.ambulance;
+  requireValue(isObject(facts) && facts.missionId === 'MI07' && isObject(site), 'scène sanitaire absente');
+  requireValue(['approach', 'interception', 'examination', 'decision', 'transfer', 'report', 'complete'].includes(facts.phase), 'phase sanitaire');
+  validateAmbulanceFacts(facts, value.status === 'won');
+  for (const key of ['pumpsOnline', 'emergencyShoring']) boolean(facts.context[key], `héritage sanitaire ${key}`);
+  for (const [key, max] of [['panelsLocked', 1], ['techniciansAlive', 2], ['homesUninhabitable', 2], ['residentsSafe', 10], ['residentsLost', 10]]) number(facts.context[key], 0, max, `héritage sanitaire ${key}`, true);
+  number(facts.context.dikeFatigue, 0, 100, 'fatigue héritée');
+  requireValue(['imperial', 'diversion'].includes(facts.context.circuit) && facts.context.pumpsOnline && facts.context.residentsSafe + facts.context.residentsLost === 10, 'bilan de digue hérité incomplet');
+  const route = facts.context.panelsLocked === 1 && !facts.context.emergencyShoring && facts.context.dikeFatigue < 65 ? 'main' : 'secondary';
+  requireValue(facts.route === route && site.ramp.route === route, 'rampe contraire à la charge héritée');
+  for (const group of ['staff', 'patients', 'barriers', 'receptions']) {
+    requireValue(Array.isArray(site[group]) && site[group].length === initial[group].length, `collection sanitaire ${group}`);
+    for (let i = 0; i < site[group].length; i++) {
+      const item = site[group][i], original = initial[group][i];
+      matchesShape(item, original, `${group}[${i}]`);
+      for (const key of ['id', 'role', 'kind', 'w', 'h', 'maxHp']) if (own(original, key)) requireValue(item[key] === original[key], `identité sanitaire ${group}.${key}`);
+      if (['barriers', 'receptions'].includes(group)) for (const key of ['x', 'y']) requireValue(item[key] === original[key], `position sanitaire ${group}.${key}`);
+      else { number(item.x, 0, value.mission.length, `position sanitaire ${group}`); number(item.y, -1000, 2000, `hauteur sanitaire ${group}`); }
+    }
+  }
+  for (const key of ['vehicle', 'cargo', 'beacon', 'technical', 'mara', 'ramp']) {
+    matchesShape(site[key], initial[key], `ambulance ${key}`);
+    for (const field of ['id', 'w', 'h', 'maxHp', 'speed', 'available']) if (own(initial[key], field)) requireValue(site[key][field] === initial[key][field], `identité sanitaire ${key}.${field}`);
+    if (['technical', 'mara', 'ramp'].includes(key)) for (const field of ['x', 'y']) requireValue(site[key][field] === initial[key][field], `position sanitaire ${key}.${field}`);
+    else { number(site[key].x, 0, value.mission.length, `position sanitaire ${key}`); number(site[key].y, -1000, 2000, `hauteur sanitaire ${key}`); }
+  }
+  for (const item of [site.vehicle, site.cargo, site.beacon, ...site.barriers]) {
+    number(item.hp, 0, item.maxHp, 'intégrité sanitaire'); boolean(item.destroyed, 'destruction sanitaire');
+    requireValue(item.destroyed === (item.hp === 0), 'destruction sanitaire contradictoire');
+    number(item.flash, 0, 10, 'impact sanitaire');
+  }
+  for (const item of [...site.staff, ...site.patients]) {
+    number(item.hp, 0, item.maxHp, 'santé sanitaire');
+    boolean(item.alive, 'survie sanitaire'); boolean(item.safe, 'arrivée sanitaire');
+    const phases = own(item, 'role') ? ['aboard', 'outside', 'transferring', 'arrived', 'lost'] : ['aboard', 'transferring', 'arrived', 'lost'];
+    requireValue(phases.includes(item.phase), 'phase des personnes sanitaires');
+    requireValue(item.alive === (item.hp > 0) && (item.phase === 'lost') === !item.alive, 'survie sanitaire contradictoire');
+    requireValue(item.safe === (item.phase === 'arrived') && (!item.safe || item.alive), 'arrivée sanitaire contradictoire');
+  }
+  for (const name of ['consent', 'witness']) {
+    const act = site[name]; matchesShape(act, initial[name], `accord ${name}`);
+    for (const key of ['working', 'obtained']) boolean(act[key], `accord ${name}.${key}`);
+    number(act.progress, 0, 1, `accord ${name} progression`);
+    requireValue(act.responsibleId === null || site.staff.some(person => person.id === act.responsibleId), 'responsable sanitaire inconnu');
+    requireValue(!act.obtained || (act.progress === 1 && act.responsibleId !== null && !act.working), 'accord sanitaire inachevé');
+  }
+  for (const [item, doneKey] of [[site.technical, 'contacted'], [site.mara, 'contacted'], [site.ramp, 'prepared'], [site.handover, 'completed'], ...site.receptions.map(item => [item, 'ready']), ...site.barriers.map(item => [item, 'cleared'])]) {
+    boolean(item.working, 'travail sanitaire actif'); boolean(item[doneKey], `travail sanitaire ${doneKey}`);
+    number(item.progress, 0, 1, 'travail sanitaire progression');
+    requireValue(!item.working || !item[doneKey], 'travail sanitaire achevé encore actif');
+  }
+  const { vehicle, cargo, beacon } = site;
+  requireValue(vehicle.y === terrainAt(vehicle.x, value.planetId) - 58, 'hauteur du véhicule sanitaire');
+  requireValue(cargo.x === vehicle.x + 24 && cargo.y === terrainAt(vehicle.x, value.planetId) - 113 && beacon.x === vehicle.x - 99 && beacon.y === terrainAt(vehicle.x, value.planetId) - 32, 'caisse ou balise séparée du véhicule');
+  for (const key of ['called', 'moving', 'stopReached', 'arrived', 'towing', 'towWorking']) boolean(vehicle[key], `véhicule ${key}`);
+  number(vehicle.towProgress, 0, 1, 'préparation du remorquage');
+  requireValue(!vehicle.moving || (!vehicle.destroyed && !vehicle.arrived), 'véhicule indisponible en mouvement');
+  for (const key of ['inspected', 'verified', 'scanning']) boolean(cargo[key], `caisse ${key}`);
+  number(cargo.scanProgress, 0, 1, 'inspection sanitaire');
+  for (const key of ['resolved', 'recovered', 'working']) boolean(beacon[key], `balise ${key}`);
+  number(beacon.progress, 0, 1, 'démontage de balise');
+  for (const key of ['signalAnnounced', 'raidTriggered']) boolean(site[key], `signal sanitaire ${key}`);
+  number(site.signalElapsed, 0, value.elapsed, 'horloge du signal sanitaire');
+  requireValue(!site.raidTriggered || site.signalAnnounced, 'drones sans signal annoncé');
+  number(site.signalElapsed, 0, value.mission.ambulance.seizureDelay, 'délai des drones sanitaires');
+  requireValue(site.raidTriggered === (site.signalElapsed >= value.mission.ambulance.seizureDelay), 'arrivée des drones contraire au signal');
+  if (!site.raidTriggered) for (const drone of value.enemies.filter(item => item.id.startsWith('seizure-drone-'))) {
+    const original = template.enemies.find(item => item.id === drone.id);
+    requireValue(!drone.dead && !drone.active && drone.hp === drone.maxHp && drone.x === original.x && drone.y === original.y, 'drone de saisie présent avant son arrivée');
+  }
+  requireValue(facts.stopCalled === vehicle.called && facts.vehicleStopped === vehicle.stopReached, 'interception contradictoire');
+  requireValue(facts.stopCleared === ambulanceStopClear(value), 'aire d’arrêt contradictoire');
+  requireValue(facts.consentObtained === site.consent.obtained && facts.witnessConsent === site.witness.obtained && facts.witnessId === site.witness.responsibleId, 'accord sanitaire contradictoire');
+  requireValue(facts.witnessAvailable === (facts.witnessConsent && site.staff.some(person => person.id === facts.witnessId && person.alive)), 'disponibilité du témoin contradictoire');
+  requireValue(facts.cargoInspected === cargo.inspected && facts.medicalCargoVerified === cargo.verified, 'relevé de cargaison contradictoire');
+  requireValue(facts.beaconResolved === beacon.resolved && facts.beaconRecovered === beacon.recovered && facts.beaconDestroyed === beacon.destroyed, 'relevé de balise contradictoire');
+  requireValue(facts.technicalHelpRequested === site.technical.contacted && (!site.technical.contacted || site.technical.available), 'aide technique sans échange disponible');
+  requireValue(facts.maraContacted === site.mara.contacted && facts.rampPrepared === site.ramp.prepared, 'travaux sanitaires contradictoires');
+  requireValue(facts.patientsArrived === site.patients.filter(item => item.safe).length && facts.patientsLost === site.patients.filter(item => !item.alive).length, 'bilan des patients contradictoire');
+  requireValue(facts.staffAlive === site.staff.filter(item => item.alive).length && facts.staffLost === site.staff.filter(item => !item.alive).length && facts.staffArrived === site.staff.filter(item => item.safe).length, 'bilan de l’équipe sanitaire contradictoire');
+  requireValue(facts.vehicleDestroyed === vehicle.destroyed, 'perte du véhicule contradictoire');
+  requireValue(facts.vehicleRecovered === (vehicle.arrived && !vehicle.destroyed) && facts.vehicleSeized === (facts.vehicleRecovered && facts.destination === 'imperial'), 'récupération ou saisie sans arrivée physique');
+  boolean(site.handover.ordered, 'ordre de transfert sanitaire');
+  requireValue(facts.transferOrdered === site.handover.ordered, 'transfert sans ordre réel');
+  const reception = site.receptions.find(item => item.kind === facts.destination);
+  requireValue(facts.receptionReady === Boolean(reception?.ready), 'accueil sanitaire contradictoire');
+  requireValue(!vehicle.arrived || (vehicle.stopReached && reception?.ready && site.ramp.prepared && site.handover.ordered && vehicle.x === reception.x - 180), 'arrivée de véhicule sans trajet ni accueil');
+  for (const person of [...site.staff, ...site.patients]) if (person.safe) requireValue(reception?.ready && site.ramp.prepared && site.handover.ordered && person.x === reception.x, 'personne arrivée hors du poste sanitaire');
+  requireValue(facts.transferResolved === (facts.patientsArrived + facts.patientsLost === 4 && facts.staffArrived + facts.staffLost === 2 && site.handover.completed), 'bilan sanitaire avant arrivée ou constat');
+  requireValue(facts.destination === (value.decision.choice === 'defy' ? 'clinic' : value.decision.choice === 'obey' ? 'imperial' : 'unselected'), 'destination contraire à la décision');
+  requireValue(facts.reportFiled === (value.decision.choice === 'defy') && facts.manifestRead === value.evidence.collected, 'rapport sanitaire contradictoire');
+  requireValue(value.stats.evidence === 0, 'la balise ne crée aucune preuve PALINODE');
+  if (value.status === 'won') requireValue(facts.phase === 'complete' && value.decision.resolved && value.objectives.every(item => item.complete), 'victoire sanitaire sans objectifs accomplis');
+}
+
 function campaignContextFor(campaign, missionId) {
   const world = campaign.world.vesper;
+  if (missionId === 'MI07') return Object.fromEntries(AMBULANCE_CONTEXT_KEYS.map(key => [key, campaign.world.nacre.dike[key]]));
   if (missionId === 'MI06') {
     const passage = campaign.world.nacre.passage;
     return { fuelAvailable: campaign.resources.fuel, ...Object.fromEntries(['channelOpen', 'refugeesPassed', 'refugeesLost', 'smugglerVerified', 'bargeCiviliansLost'].map(key => [key, passage[key]])) };
@@ -634,6 +774,14 @@ function applyDikeFuel(next, previous, game) {
   requireValue(next.world.nacre.fuelSpent <= 2, 'dépense de carburant supérieure à la collecte');
 }
 
+function validateAmbulanceSortie(previous, game) {
+  if (game.missionId !== 'MI07') return;
+  const old = previous.checkpoint;
+  requireValue(old?.missionId === 'MI07' && game.walkerId === old.walkerId && game.seed === old.seed && game.difficultyId === old.difficultyId, 'changement de sortie sanitaire');
+  requireValue(JSON.stringify(game.campaign.context) === JSON.stringify(old.campaign.context), 'héritage sanitaire modifié pendant la sortie');
+  requireValue(old.status === 'playing' || JSON.stringify(game) === JSON.stringify(old), 'sortie sanitaire perdue à recommencer explicitement');
+}
+
 /** A finished sortie returns to the hangar; completion is tracked per mission. */
 export function nextCampaignMissionId(campaign) {
   if (campaign?.stage === 'mission' && MISSION_IDS.includes(campaign.activeMissionId)) return campaign.activeMissionId;
@@ -646,7 +794,7 @@ function validateReceipt(receipt) {
   const specificKeys = receipt.missionId === 'MI01' ? ['convoyIntegrity', 'route', 'pipeIntact', 'noticeFiled', 'filtersDeliveredCount', 'pipeRepairCost']
     : receipt.missionId === 'MI02' ? ['trainIntegrity', 'trainStopped', 'harpoonsReleased', 'hostagesTotal', 'hostagesRescued', 'hostagesLost', 'evidencePreserved', 'recordFiled']
       : receipt.missionId === 'MI03' ? ['signalsIdentified', 'militaryRelayDisabled', 'verifiedBuildings', 'networkPreserved', 'civilRelaysOnline', 'dispensaryIntact', 'witnessAvailable', 'residentsLost', 'holtAlerted', 'reportFiled']
-        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : receipt.missionId === 'MI05' ? Object.keys(createChannelDossier()) : Object.keys(createDikeDossier());
+        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : receipt.missionId === 'MI05' ? Object.keys(createChannelDossier()) : receipt.missionId === 'MI06' ? Object.keys(createDikeDossier()) : Object.keys(createAmbulanceDossier());
   const expectedKeys = [...commonKeys, ...specificKeys];
   requireValue(Object.keys(receipt).length === expectedKeys.length && expectedKeys.every(key => own(receipt, key)), 'champs du rapport incompatibles');
   for (const key of ['walkerName', 'missionName', 'decisionLabel', 'tessLine', 'samiLine']) requireValue(typeof receipt[key] === 'string', `rapport ${key}`);
@@ -659,6 +807,11 @@ function validateReceipt(receipt) {
   number(receipt.collateral, 0, 1000, 'pertes civiles', true);
   number(receipt.kills, 0, 1000, 'adversaires neutralisés', true);
   requireValue(receipt.partsGranted === DELIVERY_PARTS, 'dotation du rapport');
+  if (receipt.missionId === 'MI07') {
+    validateAmbulanceFacts(receipt, true);
+    requireValue(receipt.reportFiled === (receipt.choice === 'defy') && receipt.destination === (receipt.choice === 'defy' ? 'clinic' : 'imperial'), 'rapport sanitaire contraire à la destination');
+    return;
+  }
   if (receipt.missionId === 'MI06') {
     validateDikeFacts(receipt, true);
     requireValue(receipt.reportFiled === (receipt.choice === 'defy') && receipt.circuit === (receipt.choice === 'defy' ? 'diversion' : 'imperial'), 'rapport de digue contradictoire');
@@ -752,10 +905,10 @@ function validateCampaign(campaign) {
     number(log.cost, 1, 6, 'coût intervention', true);
   }
   if (campaign.checkpoint !== null) {
-    validateGame(campaign.checkpoint, campaign.checkpoint.missionId === 'MI06' && campaign.checkpoint.status === 'lost');
+    validateGame(campaign.checkpoint, ['MI06', 'MI07'].includes(campaign.checkpoint.missionId) && campaign.checkpoint.status === 'lost');
     if (campaign.checkpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.checkpoint);
     requireValue(campaign.checkpoint.missionId === campaign.activeMissionId, 'checkpoint d’une autre mission');
-    if (['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.checkpoint.missionId)) {
+    if (['MI02', 'MI03', 'MI04', 'MI05', 'MI07'].includes(campaign.checkpoint.missionId)) {
       requireValue(JSON.stringify(campaign.checkpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.checkpoint.missionId)), 'héritage des missions précédentes contradictoire');
     }
   }
@@ -763,7 +916,7 @@ function validateCampaign(campaign) {
     validateGame(campaign.preDecisionCheckpoint);
     if (campaign.preDecisionCheckpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.preDecisionCheckpoint, true);
     requireValue(campaign.preDecisionCheckpoint.decision.active && !campaign.preDecisionCheckpoint.decision.resolved, 'checkpoint avant décision incompatible');
-    if (campaign.stage === 'mission' && ['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.preDecisionCheckpoint.missionId)) requireValue(JSON.stringify(campaign.preDecisionCheckpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.preDecisionCheckpoint.missionId)), 'héritage du point de décision contradictoire');
+    if ((campaign.stage === 'mission' && ['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.preDecisionCheckpoint.missionId) || campaign.preDecisionCheckpoint.missionId === 'MI07')) requireValue(JSON.stringify(campaign.preDecisionCheckpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.preDecisionCheckpoint.missionId)), 'héritage du point de décision contradictoire');
   }
   for (const [id, receipt] of Object.entries(campaign.completed)) {
     validateReceipt(receipt);
@@ -807,6 +960,14 @@ function validateCampaign(campaign) {
     for (const key of Object.keys(createDikeDossier())) requireValue(campaign.world.nacre.dike[key] === report[key], `dossier de digue ${key}`);
     requireValue(report.fuelSpent <= campaign.world.nacre.fuelSpent, 'dépense du rapport supérieure au registre');
   } else requireValue(JSON.stringify(campaign.world.nacre.dike) === JSON.stringify(createDikeDossier()), 'résultat de digue sans dossier MI06');
+  if (campaign.completed.MI07) {
+    const report = campaign.completed.MI07;
+    for (const key of Object.keys(createAmbulanceDossier())) requireValue(campaign.world.nacre.ambulance[key] === report[key], `dossier sanitaire ${key}`);
+    const dike = campaign.world.nacre.dike;
+    const route = dike.panelsLocked === 1 && !dike.emergencyShoring && dike.dikeFatigue < 65 ? 'main' : 'secondary';
+    requireValue(report.route === route, 'rampe contraire au dossier de digue');
+    requireValue(!report.technicalHelpRequested || dike.techniciansAlive > 0, 'aide technique sans survivant du chantier');
+  } else requireValue(JSON.stringify(campaign.world.nacre.ambulance) === JSON.stringify(createAmbulanceDossier()), 'résultat sanitaire sans dossier MI07');
   if (campaign.stage === 'mission') {
     requireValue(campaign.checkpoint !== null && MISSION_IDS.includes(campaign.activeMissionId) && !own(campaign.completed, campaign.activeMissionId), 'mission sans checkpoint ou déjà achevée');
     const previousId = MISSION_IDS[MISSION_IDS.indexOf(campaign.activeMissionId) - 1];
@@ -837,7 +998,7 @@ export function parseCampaign(text) {
 
 /** Add only documented fields to historical saves; completed receipts stay intact. */
 function migrateCampaign(value) {
-  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4, 5].includes(value.version)) return value;
+  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4, 5, 6].includes(value.version)) return value;
   walkJSON(value);
   requireValue(isObject(value.world) && isObject(value.world.vesper), 'Vesper absent du dossier historique');
   if (value.version === 1) {
@@ -901,15 +1062,28 @@ function migrateCampaign(value) {
     value.resources.fuel = 0;
     value.version = 5;
   }
-  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(id)), 'dossier v5 contient une mission inconnue');
-  requireValue(value.activeMissionId === null || ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(value.activeMissionId), 'mission active v5 inconnue');
-  requireValue(isObject(value.world.nacre) && !own(value.world.nacre, 'dike') && !own(value.world.nacre, 'fuelSpent'), 'digue ou dépense inattendue dans le dossier historique');
-  for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
-    requireValue(isObject(checkpoint) && ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(checkpoint.missionId), 'checkpoint v5 inconnu');
-    requireValue(!own(checkpoint, 'dike'), 'chantier inattendu dans un checkpoint historique');
+  if (value.version === 5) {
+    requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(id)), 'dossier v5 contient une mission inconnue');
+    requireValue(value.activeMissionId === null || ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(value.activeMissionId), 'mission active v5 inconnue');
+    requireValue(isObject(value.world.nacre) && !own(value.world.nacre, 'dike') && !own(value.world.nacre, 'fuelSpent'), 'digue ou dépense inattendue dans le dossier historique');
+    for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
+      requireValue(isObject(checkpoint) && ['MI01', 'MI02', 'MI03', 'MI04', 'MI05'].includes(checkpoint.missionId), 'checkpoint v5 inconnu');
+      requireValue(!own(checkpoint, 'dike'), 'chantier inattendu dans un checkpoint historique');
+    }
+    value.world.nacre.dike = createDikeDossier();
+    value.world.nacre.fuelSpent = 0;
+    value.version = 6;
   }
-  value.world.nacre.dike = createDikeDossier();
-  value.world.nacre.fuelSpent = 0;
+  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06'].includes(id)), 'dossier v6 contient une mission inconnue');
+  requireValue(value.activeMissionId === null || ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06'].includes(value.activeMissionId), 'mission active v6 inconnue');
+  requireValue(isObject(value.world.nacre) && !own(value.world.nacre, 'ambulance'), 'ambulance inattendue dans le dossier historique');
+  for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
+    requireValue(isObject(checkpoint) && ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06'].includes(checkpoint.missionId), 'checkpoint v6 inconnu');
+    requireValue(!own(checkpoint, 'ambulance'), 'ambulance inattendue dans un checkpoint historique');
+  }
+  // Preserve MI06's exact scene, workshop, fuel ledger and receipts. No people,
+  // recovered beacon or supplies are fabricated when the next chapter opens.
+  value.world.nacre.ambulance = createAmbulanceDossier();
   value.version = CAMPAIGN_SAVE_VERSION;
   return value;
 }
@@ -927,7 +1101,7 @@ function unsupportedDossier(text) {
   try {
     const value = JSON.parse(text);
     return isObject(value) && ((typeof value.format === 'string' && value.format !== FORMAT) ||
-      (value.format === FORMAT && ![1, 2, 3, 4, 5, CAMPAIGN_SAVE_VERSION].includes(value.version)));
+      (value.format === FORMAT && ![1, 2, 3, 4, 5, 6, CAMPAIGN_SAVE_VERSION].includes(value.version)));
   } catch { return false; }
 }
 
@@ -978,6 +1152,7 @@ export function beginCampaignMission(campaign, options = {}) {
   if (missionId === 'MI04' && !campaign.completed.MI03) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le constat des émetteurs avant de rejoindre la station industrielle.' };
   if (missionId === 'MI05' && !campaign.completed.MI04) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le dossier de Vesper avant de rejoindre le chenal de Nacre.' };
   if (missionId === 'MI06' && !campaign.completed.MI05) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le rapport du chenal avant de rejoindre les maisons des Trois-Vannes.' };
+  if (missionId === 'MI07' && !campaign.completed.MI06) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le bilan de la digue avant de rejoindre l’ambulance sur la chaussée des Salines.' };
   const walkerId = WALKERS.some(walker => walker.id === options.walkerId) ? options.walkerId : WALKERS[0].id;
   const replay = Boolean(options.replay || own(campaign.completed, missionId));
   if (!replay && campaign.stage === 'mission' && !options.restart) return { ok: false, campaign, game: null, replay: false, message: 'Une sortie est déjà en cours. Reprenez-la ou recommencez-la explicitement.' };
@@ -999,17 +1174,19 @@ export function beginCampaignMission(campaign, options = {}) {
       : missionId === 'MI03' ? 'Les émetteurs de Vesper sont accessibles. Identifiez chaque signal avant de rendre votre compte rendu.'
         : missionId === 'MI04' ? 'La station industrielle est accessible. Refroidissez les turbines et relevez ce qui reste du journal de maintenance.'
           : missionId === 'MI05' ? 'L’affectation de Nacre est ouverte. Libérez le chenal et vérifiez les deux équipages avant de signer votre rapport.'
-            : 'La digue des Trois-Vannes vous attend. Relevez les seuils et soutenez le chantier avant de choisir le circuit.';
+            : missionId === 'MI06' ? 'La digue des Trois-Vannes vous attend. Relevez les seuils et soutenez le chantier avant de choisir le circuit.'
+              : 'L’ambulance vous attend sur la chaussée des Salines. Faites-la arrêter, établissez sa cargaison et protégez son transfert.';
   return { ok: true, campaign: next, game, replay: false, message };
 }
 
 export function checkpointCampaign(campaign, game, options = {}) {
   validateCampaign(campaign);
-  const terminalDike = game?.missionId === 'MI06' && game.status === 'lost';
-  if (options.replay || own(campaign.completed, game?.missionId) || (game?.status !== 'playing' && !terminalDike)) return campaign;
+  const terminalSortie = ['MI06', 'MI07'].includes(game?.missionId) && game.status === 'lost';
+  if (options.replay || own(campaign.completed, game?.missionId) || (game?.status !== 'playing' && !terminalSortie)) return campaign;
   requireValue(campaign.stage === 'mission' && campaign.activeMissionId === game.missionId, 'aucune campagne active pour cette mission');
   const snapshot = clone(game);
-  validateGame(snapshot, terminalDike);
+  validateGame(snapshot, terminalSortie);
+  validateAmbulanceSortie(campaign, snapshot);
   const next = clone(campaign);
   applyDikeFuel(next, campaign, snapshot);
   next.checkpoint = snapshot; next.revision++;
@@ -1022,12 +1199,19 @@ export function restoreCampaignGame(campaign, options = {}) {
   validateCampaign(campaign);
   if (campaign.stage !== 'mission' || own(campaign.completed, campaign.activeMissionId)) return null;
   const snapshot = options.beforeDecision ? campaign.preDecisionCheckpoint : campaign.checkpoint;
+  if (options.beforeDecision && campaign.activeMissionId === 'MI07' && campaign.checkpoint.status === 'lost') return null;
   if (options.beforeDecision && campaign.activeMissionId === 'MI06' && (campaign.checkpoint.status === 'lost' || (snapshot && (snapshot.elapsed < campaign.checkpoint.elapsed || snapshot.campaign.fuelSpent < campaign.checkpoint.campaign.fuelSpent)))) return null;
-  return snapshot ? clone(validateGame(snapshot, snapshot.missionId === 'MI06' && snapshot.status === 'lost')) : null;
+  return snapshot ? clone(validateGame(snapshot, ['MI06', 'MI07'].includes(snapshot.missionId) && snapshot.status === 'lost')) : null;
 }
 
 function crewLines(game) {
   const mission = game.campaign;
+  if (game.missionId === 'MI07') {
+    const people = `${mission.patientsArrived} patients sont arrivés à l’accueil, ${mission.patientsLost} sont morts. ${mission.staffAlive} membres de l’équipe sanitaire ont survécu ; ${mission.staffArrived} ont rejoint l’accueil.`;
+    const beacon = mission.beaconRecovered ? 'La balise, ses attaches et son journal sont conservés. Leur origine matérielle n’établit pas encore qui a ordonné la pose.' : 'La balise n’a pas été récupérée. Le constat ne recrée pas son journal.';
+    const consent = mission.witnessConsent ? `L’accord à témoigner a été recueilli pendant la sortie.${mission.witnessAvailable ? ' Cette personne est encore vivante.' : ' Cette personne est morte depuis cet accord.'}` : 'Aucun accord à témoigner n’a été recueilli.';
+    return { tessLine: `${people} ${beacon}`, samiLine: `${mission.destination === 'clinic' ? 'Le transfert a été dirigé vers l’accueil civil.' : 'Le transfert a été dirigé vers le poste médical impérial.'} ${mission.vehicleDestroyed ? 'Le véhicule a été détruit.' : mission.vehicleSeized ? 'Le véhicule arrivé a été saisi.' : mission.vehicleRecovered ? 'Le véhicule est conservé pour les soins.' : 'Le véhicule n’a pas été récupéré.'} ${consent} ${mission.maraContacted ? 'Mara a effectivement reçu le relevé par radio.' : 'Aucun relevé n’a été transmis à Mara.'}` };
+  }
   if (game.missionId === 'MI06') {
     const shelter = `${mission.residentsSafe} habitants ont rejoint l’abri. ${mission.residentsLost} sont morts ; leur bilan reste distinct des douze passagers du chenal.`;
     const homes = mission.homesUninhabitable ? `${mission.homesUninhabitable} logement${mission.homesUninhabitable > 1 ? 's sont inhabitables' : ' est inhabitable'}. Évacuer les familles n’a pas rendu leurs maisons utilisables.` : 'Les deux maisons sont restées habitables au départ.';
@@ -1107,11 +1291,13 @@ export function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(campaign);
   if (options.replay || own(campaign.completed, game?.missionId)) return { ok: true, campaign, receipt: campaign.completed[game?.missionId] || campaign.lastDebrief, applied: false, message: 'Rejeu terminé. Le rapport de campagne et les lots restent inchangés.' };
   if (game?.status !== 'won') {
-    const failed = game?.missionId === 'MI06' && game.status === 'lost' ? checkpointCampaign(campaign, game) : campaign;
-    return { ok: true, campaign: failed, receipt: null, applied: false, message: game?.missionId === 'MI06' && game.status === 'lost' ? 'Sortie perdue. La consommation déjà effectuée reste inscrite ; recommencez la mission avec le stock restant.' : 'Aucune sortie validée. Le dernier checkpoint reste disponible.' };
+    const terminal = ['MI06', 'MI07'].includes(game?.missionId) && game.status === 'lost';
+    const failed = terminal ? checkpointCampaign(campaign, game) : campaign;
+    return { ok: true, campaign: failed, receipt: null, applied: false, message: terminal ? 'Sortie perdue. Le bilan est conservé ; recommencez explicitement la mission avec le stock restant.' : 'Aucune sortie validée. Le dernier checkpoint reste disponible.' };
   }
   requireValue(campaign.stage === 'mission' && campaign.activeMissionId === game.missionId, 'aucune sortie officielle en cours pour cette mission');
   validateGame(clone(game), true);
+  validateAmbulanceSortie(campaign, game);
   const next = clone(campaign), mission = game.campaign;
   applyDikeFuel(next, campaign, game);
   const commonReceipt = {
@@ -1120,7 +1306,10 @@ export function finishCampaignMission(campaign, game, options = {}) {
     elapsed: game.elapsed, collateral: game.stats.collateral, kills: game.stats.kills, choice: game.decision.choice,
     partsGranted: DELIVERY_PARTS, ...crewLines(game),
   };
-  const receipt = game.missionId === 'MI06' ? {
+  const receipt = game.missionId === 'MI07' ? {
+    ...commonReceipt, ...Object.fromEntries(Object.keys(createAmbulanceDossier()).map(key => [key, mission[key]])),
+    decisionLabel: mission.reportFiled ? 'Transfert civil et constat sanitaire joints au rapport' : 'Transfert sous contrôle du poste médical impérial',
+  } : game.missionId === 'MI06' ? {
     ...commonReceipt, ...Object.fromEntries(Object.keys(createDikeDossier()).map(key => [key, mission[key]])),
     decisionLabel: mission.reportFiled ? 'Dérivation des maisons accomplie et constat joint' : 'Circuit impérial accompli au quai privé',
   } : game.missionId === 'MI05' ? {
@@ -1153,7 +1342,12 @@ export function finishCampaignMission(campaign, game, options = {}) {
   next.stage = 'complete'; next.activeMissionId = null; next.checkpoint = null; next.revision++;
   next.resources.parts += DELIVERY_PARTS;
   next.fleet[game.walkerId] = { hull: game.player.hull, feet: game.player.feet.map(foot => foot.health), radiator: game.player.radiator.health };
-  if (game.missionId === 'MI06') {
+  if (game.missionId === 'MI07') {
+    next.world.nacre.ambulance = Object.fromEntries(Object.keys(createAmbulanceDossier()).map(key => [key, mission[key]]));
+    next.authority.suspicion = clamp(next.authority.suspicion + (mission.reportFiled ? 3 : 0), 0, 100);
+    next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.medicalCargoVerified ? 2 : 0) - mission.patientsLost - mission.staffLost, 0, 100);
+    next.crew.sami.trust = clamp(next.crew.sami.trust + (mission.reportFiled ? 2 : 0) - mission.patientsLost - mission.staffLost, 0, 100);
+  } else if (game.missionId === 'MI06') {
     next.world.nacre.dike = Object.fromEntries(Object.keys(createDikeDossier()).map(key => [key, mission[key]]));
     next.authority.suspicion = clamp(next.authority.suspicion + (mission.reportFiled ? 3 : 0), 0, 100);
     next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.residentsLost ? -mission.residentsLost : 2) - mission.techniciansLost, 0, 100);
@@ -1192,7 +1386,7 @@ export function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(next);
   const action = game.missionId === 'MI01' ? 'Livraison inscrite au dossier.'
     : game.missionId === 'MI02' ? 'Récupération du train inscrite au dossier.' : game.missionId === 'MI03' ? 'Constat des émetteurs inscrit au dossier.'
-      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : game.missionId === 'MI05' ? 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.' : 'Le bilan des Trois-Vannes est inscrit au dossier : personnes, logements, chantier et carburant.';
+      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : game.missionId === 'MI05' ? 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.' : game.missionId === 'MI06' ? 'Le bilan des Trois-Vannes est inscrit au dossier : personnes, logements, chantier et carburant.' : 'Le bilan sanitaire des Salines est inscrit au dossier : patients, équipe, véhicule, balise et destination.';
   return { ok: true, campaign: next, receipt, applied: true, message: `${action} Quatre lots d’atelier ont été affectés au retour.` };
 }
 

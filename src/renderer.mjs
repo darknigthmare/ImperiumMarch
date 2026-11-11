@@ -232,11 +232,12 @@ export class Renderer {
     if (s.campaign) this.drawCampaignLandmarks(s, t);
     if (s.channel) this.drawChannel(s, t);
     if (s.dike) this.drawDike(s, t);
+    if (s.ambulance) this.drawAmbulanceSite(s, t);
     for (const r of s.relays) if (this.visible(r.x, 150)) this.drawRelay(r, s);
-    if (!s.train && !s.industrial && !s.dike) this.drawEvidence(s, t);
+    if (!s.train && !s.industrial && !s.dike && !s.ambulance) this.drawEvidence(s, t);
     this.drawExtraction(s, t);
     for (const item of s.pickups) if (!item.collected && this.visible(item.x, 100)) this.drawSupply(item, t);
-    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped));
+    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped) && (!e.id.startsWith('seizure-drone-') || s.ambulance?.raidTriggered));
     for (const e of visibleEnemies) this.drawTelegraph(e, s, t);
     for (const civilian of s.civilians) if (civilian.alive && !civilian.safe && this.visible(civilian.x, 100)) this.drawHuman(civilian, t, true);
     if (s.convoy && this.visible(s.convoy.x, 200)) this.drawConvoy(s.convoy, t);
@@ -246,6 +247,7 @@ export class Renderer {
     drawWalker(c, s.player, s.walker, t);
     this.drawRadiator(s, t);
     if (s.dike) { this.drawDikeControls(s, t); this.drawDikePeople(s, t); }
+    if (s.ambulance) { this.drawAmbulanceVehicle(s, t); this.drawAmbulancePeople(s, t); }
     for (const e of visibleEnemies) if (e.kind === 'air') this.drawEnemy(e, s, t);
     this.drawShots(s);
     this.drawParticles(s);
@@ -255,12 +257,216 @@ export class Renderer {
     if (s.industrial) this.drawIndustrialLabels(s);
     if (s.channel) this.drawChannelLabels(s);
     if (s.dike) this.drawDikeLabels(s);
+    if (s.ambulance) this.drawAmbulanceLabels(s);
     c.restore();
     this.drawAtmosphere(s, t);
     this.drawMarkers(s);
     if (s.channel && options.tideInstrument !== false) this.drawChannelTide(s);
     if (options.pointer?.visible) this.drawReticle(options.pointer, s);
     if (s.interaction && options.interactionPrompt !== false) this.drawInteraction(s);
+  }
+
+  drawAmbulanceSite(s, t) {
+    const c = this.ctx, a = s.ambulance, facts = s.campaign, settings = s.mission.ambulance;
+    const mint = '#b3dbc9', ochre = '#e8c58d';
+    const ground = terrainAt(settings.stopX, s.planetId);
+    if (this.visible(settings.stopX, 400)) {
+      for (const side of [-1, 1]) {
+        const x = settings.stopX + side * 190;
+        line(c, x, ground, x, ground - 235, '#34565a', 12);
+        line(c, x - 2, ground - 235, x - 2, ground - 5, '#6c8c80', 2);
+      }
+      line(c, settings.stopX - 190, ground - 235, settings.stopX + 190, ground - 235, '#637f75', 12);
+      label(c, 'PORTIQUE DES SALINES', settings.stopX, ground - 247, 11, '#bed1bd', 'center');
+      for (let x = settings.stopX - 158; x <= settings.stopX + 160; x += 36) line(c, x - 7, terrainAt(x, s.planetId) + 7, x + 7, terrainAt(x, s.planetId) + 1, facts.stopCleared ? mint : ochre, 4);
+      label(c, facts.stopCleared ? 'AIRE D’ARRÊT DÉGAGÉE' : 'AIRE À DÉGAGER', settings.stopX, ground + 31, 9, facts.stopCleared ? mint : ochre, 'center');
+    }
+    for (const b of a.barriers) if (this.visible(b.x, 100)) {
+      const y = b.y + b.h / 2;
+      if (b.cleared) {
+        line(c, b.x - 38, y + 14, b.x + 38, y + 14, b.destroyed ? '#6d796c' : '#b9b58d', 8);
+        if (b.destroyed) for (let i = 0; i < 4; i++) line(c, b.x - 31 + i * 20, y + 11, b.x - 25 + i * 20, y + 19, '#607a70', 5);
+      } else {
+        plate(c, [[b.x - b.w / 2, y], [b.x - b.w / 2, y - b.h], [b.x + b.w / 2, y - b.h], [b.x + b.w / 2, y]], '#9b9c80', '#344f50');
+        for (let x = b.x - 30; x < b.x + 30; x += 20) line(c, x - 6, y - 6, x + 12, y - b.h + 6, '#c7b477', 8);
+        if (b.working) { c.fillStyle = mint; c.fillRect(b.x - 37, y - b.h - 9, 74 * b.progress, 4); }
+        label(c, b.working ? `DÉGAGEMENT ${Math.round(b.progress * 100)} %` : 'E · DÉGAGER', b.x, y - b.h - 18, 8, ochre, 'center');
+      }
+    }
+    const callX = settings.callX, cy = terrainAt(callX, s.planetId);
+    if (this.visible(callX, 100)) {
+      plate(c, [[callX - 24, cy], [callX - 24, cy - 65], [callX + 24, cy - 65], [callX + 24, cy]], '#8fa48b', '#29494b');
+      line(c, callX + 9, cy - 62, callX + 9, cy - 106, '#a2b9a4', 3);
+      circle(c, callX, cy - 42, 11, a.vehicle.called ? '#a5d6bc' : '#d9bd84');
+      label(c, a.vehicle.called ? 'APPEL TRANSMIS' : 'E · APPEL DU TRANSPORT', callX, cy - 119, 9, mint, 'center');
+    }
+    const ex = s.evidence.x, ey = terrainAt(ex, s.planetId);
+    if (this.visible(ex, 130)) {
+      plate(c, [[ex - 35, ey], [ex - 35, ey - 84], [ex + 35, ey - 84], [ex + 35, ey]], '#8c9e85', '#2b4d4f');
+      c.fillStyle = '#152e37'; c.fillRect(ex - 25, ey - 73, 50, 38);
+      for (let i = 0; i < 5; i++) line(c, ex - 19, ey - 65 + i * 5, ex + 13 + i % 2 * 6, ey - 65 + i * 5, facts.manifestRead ? mint : ochre, 1);
+      label(c, 'RELEVÉ LOCAL', ex, ey - 101, 9, mint, 'center');
+      if (s.evidence.scanning) { c.fillStyle = mint; c.fillRect(ex - 30, ey - 92, 60 * s.evidence.scanProgress, 4); }
+    }
+    for (const radio of [a.mara, a.technical]) if (this.visible(radio.x, 100)) {
+      const isMara = radio === a.mara, y = terrainAt(radio.x, s.planetId);
+      const available = isMara || radio.available;
+      plate(c, [[radio.x - 20, y], [radio.x - 20, y - 47], [radio.x + 20, y - 47], [radio.x + 20, y]], available ? '#7e9d88' : '#566f65', '#29474a');
+      line(c, radio.x + 9, y - 46, radio.x + 9, y - 83, '#99b5a2', 2);
+      circle(c, radio.x, y - 28, 8, radio.contacted ? mint : available ? ochre : '#3c5654');
+      label(c, isMara ? 'MARA · RADIO' : available ? 'GÉNIE · RADIO' : 'GÉNIE ABSENT', radio.x + (isMara ? -20 : 18), y - (isMara ? 101 : 124), 8, available ? mint : '#839b8b', 'center');
+      if (radio.working) { c.fillStyle = mint; c.fillRect(radio.x - 20, y - 58, 40 * radio.progress, 4); }
+    }
+    const ramp = a.ramp;
+    if (this.visible(ramp.x, 230)) {
+      const left = ramp.x - ramp.w / 2, right = ramp.x + ramp.w / 2;
+      c.fillStyle = '#24474d'; c.fillRect(left, ramp.y + 2, ramp.w, ramp.h);
+      if (ramp.prepared) {
+        for (let x = left; x < right; x += 20) {
+          line(c, x, terrainAt(x, s.planetId), x + 18, terrainAt(x + 18, s.planetId), '#afc7a7', 8);
+          line(c, x + 2, terrainAt(x, s.planetId) + 6, x + 16, terrainAt(x, s.planetId) + 6, '#5b7e71', 2);
+        }
+      } else {
+        plate(c, [[ramp.x - 43, ramp.y - 2], [ramp.x - 43, ramp.y - 34], [ramp.x + 43, ramp.y - 34], [ramp.x + 43, ramp.y - 2]], '#9ea78b', '#3a5b59');
+        for (let x = left; x <= right; x += 35) line(c, x - 7, ramp.y + 3, x + 7, ramp.y + 3, ochre, 3);
+      }
+      label(c, `RAMPE ${facts.route === 'main' ? 'PRINCIPALE' : 'SECONDAIRE'}`, ramp.x, ramp.y + 49, 10, ramp.prepared ? mint : ochre, 'center');
+      if (ramp.prepared) label(c, facts.route === 'main' ? 'DÉPLOYÉE · PANNEAU VERROUILLÉ' : 'DÉPLOYÉE · DÉTOUR SÉCURISÉ', ramp.x, ramp.y + 66, 9, mint, 'center');
+    }
+    for (const reception of a.receptions) if (this.visible(reception.x, 300)) {
+      const x = reception.x, y = reception.y + reception.h / 2, half = reception.w / 2;
+      const selected = facts.destination === reception.kind, color = reception.kind === 'clinic' ? mint : '#d3bd94';
+      c.save(); c.globalAlpha = facts.destination === 'unselected' || selected ? 1 : .5;
+      plate(c, [[x - half, y], [x - half, y - reception.h], [x + half, y - reception.h], [x + half, y]], '#8ea38d', '#30575a');
+      plate(c, [[x - half - 10, y - reception.h], [x - half + 4, y - reception.h - 17], [x + half - 4, y - reception.h - 17], [x + half + 10, y - reception.h]], '#a3b29a', '#486d67');
+      c.fillStyle = '#163039'; c.fillRect(x - 29, y - 85, 58, 85);
+      line(c, x - 29, y - 85, x + 29, y - 85, reception.ready ? color : '#728e7c', 4);
+      c.fillStyle = color; c.fillRect(x - 4, y - 127, 8, 25); c.fillRect(x - 13, y - 118, 26, 8);
+      const title = reception.kind === 'imperial' ? 'POSTE MÉDICAL IMPÉRIAL' : facts.context.homesUninhabitable > 0 ? 'PONTON MÉDICAL DE REPLI' : 'ACCUEIL CIVIL DU QUAI';
+      label(c, title, x, y - reception.h - 32, 11, color, 'center');
+      label(c, selected ? reception.ready ? `${facts.patientsArrived} / 4 PATIENTS ARRIVÉS` : reception.working ? `PRÉPARATION ${Math.round(reception.progress * 100)} %` : 'E · PRÉPARER L’ACCUEIL' : 'DESTINATION NON RETENUE', x, y - reception.h - 49, 9, color, 'center');
+      const bayX = x - 180;
+      for (let sx = bayX - 80; sx < bayX + 80; sx += 30) line(c, sx - 7, terrainAt(sx, s.planetId) + 9, sx + 7, terrainAt(sx, s.planetId) + 2, color, 3);
+      label(c, 'QUAI · PUIS TRANSFERT À LA PORTE', bayX, terrainAt(bayX, s.planetId) + 31, 8, color, 'center');
+      c.restore();
+    }
+  }
+
+  drawAmbulanceVehicle(s, t) {
+    const c = this.ctx, a = s.ambulance, v = a.vehicle, x = v.x, y = v.y;
+    if (!this.visible(x, 240)) return;
+    this.drawShadow(x, terrainAt(x, s.planetId), 112, 11);
+    if (v.destroyed) {
+      poly(c, [[x - 90, y + 54], [x - 84, y - 5], [x - 55, y + 8], [x - 23, y - 20], [x + 12, y + 15], [x + 48, y - 12], [x + 84, y + 10], [x + 89, y + 54]], '#485d58', '#9f9c7d', 3);
+      line(c, x - 72, y + 30, x + 75, y + 47, '#7b8070', 8);
+    } else {
+      for (const side of [-1, 1]) {
+        circle(c, x + side * 58, terrainAt(x, s.planetId) - 11, 12, '#172b32', '#889a85', 3);
+        circle(c, x + side * 58, terrainAt(x, s.planetId) - 11, 5, '#c1b98f');
+      }
+      plate(c, [[x - v.w / 2, y + v.h / 2], [x - v.w / 2, y - v.h / 2 + 13], [x - 70, y - v.h / 2], [x + 56, y - v.h / 2], [x + v.w / 2, y - 14], [x + v.w / 2, y + v.h / 2]], '#c0c5a7', '#547b72');
+      c.fillStyle = '#203d47'; c.fillRect(x - 72, y - 27, 40, 26);
+      poly(c, [[x + 46, y - 27], [x + 57, y - 27], [x + 76, y - 11], [x + 76, y - 1], [x + 46, y - 1]], '#6c9e9b', '#203b43', 2);
+      line(c, x - 77, y + 21, x + 76, y + 21, '#b9dbbb', 7);
+      c.fillStyle = '#bde3c3'; c.fillRect(x - 2, y - 22, 8, 27); c.fillRect(x - 11, y - 13, 26, 8);
+      for (let i = 0; i < 4; i++) {
+        c.fillStyle = a.patients[i].alive ? a.patients[i].phase === 'aboard' ? '#e4d0a2' : '#6d9584' : '#526a62';
+        c.fillRect(x - 65 + i * 10, y - 19, 6, 12);
+      }
+      label(c, 'QUAI · SOINS', x + 3, y + 34, 8, '#183b42', 'center');
+      if (v.hp < v.maxHp * .7) { line(c, x + 21, y - 26, x + 5, y + 18, '#314b4a', 3); line(c, x - 70, y - 4, x - 48, y + 14, '#314b4a', 3); }
+      if (v.flash) { c.fillStyle = '#ffe2b85c'; c.fillRect(x - v.w / 2, y - v.h / 2, v.w, v.h); }
+      c.fillStyle = '#193740'; c.fillRect(x - 70, y - 50, 140, 4);
+      c.fillStyle = v.hp > v.maxHp * .4 ? '#a2d6b8' : '#dba077'; c.fillRect(x - 70, y - 50, 140 * v.hp / v.maxHp, 4);
+    }
+    const cargo = a.cargo;
+    if (!cargo.destroyed) {
+      plate(c, [[cargo.x - cargo.w / 2, cargo.y + cargo.h / 2], [cargo.x - cargo.w / 2, cargo.y - cargo.h / 2], [cargo.x + cargo.w / 2, cargo.y - cargo.h / 2], [cargo.x + cargo.w / 2, cargo.y + cargo.h / 2]], '#a5b89b', '#355e5c');
+      line(c, cargo.x - 25, cargo.y - 12, cargo.x - 25, cargo.y + 12, '#d6d1a5', 4);
+      line(c, cargo.x + 25, cargo.y - 12, cargo.x + 25, cargo.y + 12, '#d6d1a5', 4);
+      label(c, cargo.verified ? 'SOINS' : '?', cargo.x, cargo.y + 4, 9, '#dfe5bf', 'center');
+      if (cargo.scanning) { c.fillStyle = '#b1d8b5'; c.fillRect(cargo.x - 37, cargo.y - 22, 74 * cargo.scanProgress, 3); }
+    } else {
+      line(c, cargo.x - 29, cargo.y + 13, cargo.x + 24, cargo.y + 15, '#718778', 6);
+      line(c, cargo.x - 14, cargo.y + 9, cargo.x + 3, cargo.y + 17, '#b0aa80', 4);
+    }
+    const beacon = a.beacon;
+    if (!beacon.recovered) {
+      line(c, v.x - 84, v.y + 13, beacon.x + 9, beacon.y - 6, '#aeb99e', 4);
+      plate(c, [[beacon.x - beacon.w / 2, beacon.y + beacon.h / 2], [beacon.x - beacon.w / 2, beacon.y - beacon.h / 2], [beacon.x + beacon.w / 2, beacon.y - beacon.h / 2], [beacon.x + beacon.w / 2, beacon.y + beacon.h / 2]], beacon.destroyed ? '#4d5a51' : '#b09a67', '#304849');
+      if (!beacon.destroyed) {
+        circle(c, beacon.x, beacon.y - 1, 4, '#ebc28b');
+        line(c, beacon.x + 7, beacon.y - 9, beacon.x + 7, beacon.y - 18, '#c9ccae', 2);
+      } else line(c, beacon.x - 7, beacon.y - 6, beacon.x + 7, beacon.y + 6, '#1c3439', 3);
+      if (beacon.working) { c.fillStyle = '#b9dbbe'; c.fillRect(beacon.x - 30, beacon.y + 16, 60 * beacon.progress, 3); }
+    } else {
+      line(c, v.x - 91, v.y + 18, v.x - 83, v.y + 18, '#d3dfbf', 3);
+    }
+    if (v.towing && !v.destroyed && !v.arrived) {
+      line(c, x + (s.player.x > x ? 80 : -80), y + 22, s.player.x, s.player.y + s.player.height / 2, '#c6b780', 3);
+      label(c, 'TREUIL', (x + s.player.x) / 2, y + 12, 8, '#d7c89e', 'center');
+    }
+  }
+
+  drawAmbulancePeople(s, t) {
+    const c = this.ctx, a = s.ambulance;
+    for (const person of a.staff) {
+      if (!this.visible(person.x, 60) || person.safe || person.phase === 'aboard') continue;
+      if (!person.alive) { line(c, person.x - 11, person.y + 14, person.x + 12, person.y + 14, '#9b9b81', 4); continue; }
+      this.drawHuman(person, t, true, null);
+      const offset = person.role === 'driver' ? 0 : 14;
+      label(c, person.role === 'driver' ? 'CONDUCTRICE' : 'SOIGNANT', person.x, person.y - person.h / 2 - 16 - offset, 8, '#c0dacc', 'center');
+      if (person.hp < person.maxHp) { c.fillStyle = '#d0b18a'; c.fillRect(person.x - 13, person.y - person.h / 2 - 8, 26 * person.hp / person.maxHp, 3); }
+    }
+    for (const person of a.patients) {
+      if (!this.visible(person.x, 50) || person.safe || person.phase === 'aboard') continue;
+      const x = person.x, y = person.y;
+      if (!person.alive) { line(c, x - 13, y + 9, x + 13, y + 9, '#91947b', 5); continue; }
+      line(c, x - 15, y + 5, x + 15, y + 5, '#bdc9a8', 4);
+      for (const side of [-1, 1]) circle(c, x + side * 9, y + 10, 3, '#1b343c', '#a9bc9d', 1);
+      c.fillStyle = '#82a99a'; c.fillRect(x - 9, y - 4, 19, 9);
+      circle(c, x - 11, y - 3, 4, '#d0c49e');
+      line(c, x - 14, y - 8, x - 14, y + 4, '#9cb9a1', 2);
+    }
+  }
+
+  drawAmbulanceLabels(s) {
+    const c = this.ctx, a = s.ambulance, facts = s.campaign, v = a.vehicle;
+    const entries = [];
+    if (this.visible(v.x, 0)) {
+      const mainY = Math.max(290, Math.min(v.y - (facts.cargoInspected ? 240 : 165), Math.abs(s.player.x - v.x) < 300 ? s.player.y - (facts.cargoInspected ? 210 : 139) : v.y - 165));
+      const work = a.consent.working ? `ACCORD À L’EXAMEN ${Math.round(a.consent.progress * 100)} %`
+        : a.cargo.scanning ? `EXAMEN CAISSE ${Math.round(a.cargo.scanProgress * 100)} %`
+        : a.beacon.working ? `BALISE ${Math.round(a.beacon.progress * 100)} %`
+        : a.witness.working ? `CONSENTEMENT À TÉMOIGNER ${Math.round(a.witness.progress * 100)} %`
+        : v.towWorking ? `ATTELAGE ${Math.round(v.towProgress * 100)} %`
+        : a.handover.working ? `CHARIOTS ${Math.round(a.handover.progress * 100)} %`
+        : v.destroyed ? 'VÉHICULE PERDU · CONSTAT POSSIBLE'
+        : v.arrived ? facts.vehicleSeized ? 'ARRIVÉE AU POSTE · VÉHICULE SOUS SAISIE' : 'ARRIVÉE CIVILE · VÉHICULE CONSERVÉ'
+        : v.moving ? v.towing ? 'REMORQUAGE EN COURS' : 'DÉPLACEMENT SANITAIRE EN COURS'
+        : v.stopReached ? 'ARRÊT RÉEL SOUS LE PORTIQUE' : 'ATTENTE DE L’APPEL ET D’UNE AIRE SÛRE';
+      const status = `${facts.patientsArrived} arrivés · ${a.patients.filter(p => p.phase === 'transferring' && p.alive).length} en route · ${a.patients.filter(p => p.phase === 'aboard' && p.alive).length} à bord · ${facts.patientsLost} perdus`;
+      entries.push({ x: v.x, y: mainY,
+        title: 'AMBULANCE QUAI · 4 PATIENTS / 2 PERSONNELS', detail: work, sub: status, color: v.destroyed ? '#e1ac8b' : '#c2dec6', width: 352 });
+      if (facts.cargoInspected) entries.push({ x: v.x, y: mainY + 70, title: facts.medicalCargoVerified ? 'CAISSE SANITAIRE EXAMINÉE AVEC ACCORD' : 'CONSTAT · CONTENU NON VÉRIFIÉ',
+        detail: facts.beaconRecovered ? 'BALISE + ATTACHES + JOURNAL RÉCUPÉRÉS' : facts.beaconDestroyed ? 'BALISE DÉTRUITE · DONNÉES PERDUES' : 'BOÎTIER AJOUTÉ À DÉMONTER SÉPARÉMENT',
+        sub: 'Provenance de pose encore à recouper', color: '#b1c9b5', width: 322, compact: true });
+    }
+    if (!a.ramp.prepared && this.visible(a.ramp.x, 80)) {
+      const y = Math.min(a.ramp.y - 130, Math.abs(s.player.x - a.ramp.x) < 400 ? s.player.y - 130 : 900);
+      entries.push({ x: a.ramp.x, y, title: `RAMPE ${facts.route === 'main' ? 'PRINCIPALE' : 'SECONDAIRE'}`,
+        detail: a.ramp.working ? `TRAVAIL ${Math.round(a.ramp.progress * 100)} %` : 'E · PRÉPARER LE PASSAGE',
+        sub: a.technical.contacted ? 'Aide du génie obtenue · 4 s' : 'Préparation locale · 8 s', color: '#e5c38a', width: 270 });
+    }
+    if (a.signalAnnounced && !a.raidTriggered) entries.push({ x: s.player.x + 410, y: 335, title: 'SIGNAL DE SAISIE REÇU', detail: `DEUX DRONES ANNONCÉS · ${Math.ceil(s.mission.ambulance.seizureDelay - a.signalElapsed)} s`, sub: 'Protéger l’ambulance et ses personnes', color: '#e5c38a', width: 305 });
+    for (const entry of entries) {
+      const half = entry.width / 2, x = clamp(entry.x, this.cameraX + half + 12, this.cameraX + W - half - 12), y = Math.max(290, entry.y);
+      c.fillStyle = '#12333aee'; c.fillRect(x - half, y, entry.width, 65);
+      line(c, x - half, y, x + half, y, entry.color, 1.5);
+      label(c, entry.title, x, y + 18, entry.compact ? 9 : 10, entry.color, 'center');
+      label(c, entry.detail, x, y + 36, 9, '#d2ddbe', 'center');
+      label(c, entry.sub, x, y + 53, 9, '#a8c9b8', 'center');
+    }
   }
 
   drawDike(s, t) {
@@ -781,7 +987,7 @@ export class Renderer {
 
   drawShadow(x, y, width, height) { const c = this.ctx; c.fillStyle = '#10202b45'; c.beginPath(); c.ellipse(x, y + 3, width, height, 0, 0, TAU); c.fill(); }
 
-  drawHuman(e, t, civilian = false) {
+  drawHuman(e, t, civilian = false, civilianLabel = 'CIVIL') {
     const c = this.ctx, x = e.x, y = e.y, dir = civilian ? (e.fleeing ? 1 : -1) : e.facing || -1;
     this.drawShadow(x, y + e.h / 2, 13, 4);
     c.save(); c.translate(x, y); c.scale(dir, 1);
@@ -802,7 +1008,7 @@ export class Renderer {
     circle(c, 0, -15, 5, '#c6ad88');
     if (!civilian) { poly(c, [[-6, -17], [-4, -22], [4, -22], [7, -17]], '#455a56'); line(c, 1, -16, 5, -16, '#d6ac68', 2); }
     c.restore();
-    if (civilian) { label(c, 'CIVIL', x, y - 30, 9, '#b6dfd1', 'center'); }
+    if (civilian && civilianLabel) { label(c, civilianLabel, x, y - 30, 9, '#b6dfd1', 'center'); }
   }
 
   drawEnemy(e, s, t) {
@@ -959,7 +1165,7 @@ export class Renderer {
   }
 
   drawCampaignLandmarks(s, t) {
-    if (s.channel || s.dike) return;
+    if (s.channel || s.dike || s.ambulance) return;
     if (s.train) { this.drawRailHarpoons(s, t); return; }
     if (s.network) { this.drawNetworkStations(s, t); return; }
     if (s.industrial) { this.drawIndustrialStation(s, t); return; }
@@ -1519,6 +1725,15 @@ export class Renderer {
       for (const bank of s.channel.banks) line(c, toX(bank.from), by + 6, toX(bank.to), by + 6, bank.bridgeRaised ? '#a9d6bf' : s.channel.tide.walkable ? '#ccb483' : '#85d2d2', 3);
       for (const w of s.channel.winches) circle(c, toX(w.x), by, 3, w.released ? '#9fd5bd' : '#e3b476');
       const boat = s.channel.boat; c.fillStyle = boat.destroyed ? '#d58c73' : '#9cd9ce'; c.fillRect(toX(boat.x) - 4, by - 4, 8, 7);
+    }
+    if (s.ambulance) {
+      const a = s.ambulance;
+      circle(c, toX(a.vehicle.x), by, 5, a.vehicle.destroyed ? '#dca085' : '#bed8b9');
+      circle(c, toX(a.ramp.x), by + 6, 3, a.ramp.prepared ? '#a9d3bb' : '#e2c486');
+      for (const reception of a.receptions) {
+        line(c, toX(reception.x), by - 6, toX(reception.x), by + 6, reception.kind === s.campaign.destination ? '#b0d8bd' : '#6e8f7d', 3);
+      }
+      for (const p of a.patients) if (p.alive && !p.safe && p.phase === 'transferring') circle(c, toX(p.x), by - 7, 2, '#e0d0a2');
     }
     if (s.dike) {
       for (const house of s.dike.houses) {

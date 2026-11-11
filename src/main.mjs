@@ -66,6 +66,12 @@ const campaignOrders = {
     task: 'Relever les seuils, tenir le panneau, couvrir les techniciens et achever le circuit choisi.',
     caution: 'Ancrez tous les appuis pour soutenir la digue. Les personnes évacuées et les logements préservés ont des bilans distincts.',
   },
+  MI07: {
+    status: 'Holt désigne un dépôt mobile de munitions. Une conductrice demande une aire sûre pour arrêter son ambulance.',
+    description: 'Sous la caisse sanitaire, Tess aperçoit un boîtier récemment fixé. Faites arrêter le véhicule, échangez avec son équipe et examinez ce que la signature hostile prétend identifier.',
+    task: 'Protéger l’arrêt, établir la cargaison, relever la balise et accompagner les patients vers un accueil.',
+    caution: 'La rampe dépend de la digue. Le choix de destination exige ensuite un transfert réel ; les tirs menacent aussi les patients et leur équipe.',
+  },
   MI05: {
     status: 'Le chenal de Nacre est bloqué. Deux barges portent le même pavillon ; leurs équipages ne font pas le même travail.',
     description: 'Le bateau civil attend une fenêtre de marée devant les câbles du blocus. Depuis la digue, deux équipages vous appellent. Vérifiez ce qu’ils transportent avant de décider qui couvrir.',
@@ -90,7 +96,7 @@ function saveCampaign({ replaceInvalid = false } = {}) {
   return result.ok;
 }
 function captureCampaign(beforeDecision = false) {
-  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(game.missionId === 'MI06' && game.status === 'lost'))) return;
+  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07'].includes(game.missionId) && game.status === 'lost'))) return;
   try {
     campaign = checkpointCampaign(campaign, game, { beforeDecision });
     lastCampaignSaveAt = game.elapsed;
@@ -107,6 +113,18 @@ function renderCampaignStatus() {
   $('campaign-save-status').classList.toggle('save-warning', Boolean(campaignWarning || campaignBlocked));
 }
 function campaignReceiptFacts(receipt) {
+  if (receipt.missionId === 'MI07') return [
+    ['PATIENTS ARRIVÉS', `${receipt.patientsArrived} / ${receipt.patientsTotal}`],
+    ['PATIENTS PERDUS', receipt.patientsLost],
+    ['ÉQUIPE SANITAIRE', `${receipt.staffAlive} vivants · ${receipt.staffArrived} arrivés`],
+    ['CARGAISON', receipt.medicalCargoVerified ? 'Matériel sanitaire vérifié' : 'Constat sans cargaison vérifiable'],
+    ['BALISE', receipt.beaconRecovered ? 'Pièce, attaches et journal conservés' : 'Perdue · constat conservé'],
+    ['ORIGINE DE LA POSE', 'À recouper'],
+    ['RAMPE / DESTINATION', `${receipt.route === 'main' ? 'Principale' : 'Secondaire'} · ${receipt.destination === 'clinic' ? 'Accueil civil' : 'Poste médical impérial'}`],
+    ['VÉHICULE', receipt.vehicleDestroyed ? 'Détruit' : receipt.vehicleSeized ? 'Arrivé puis saisi' : receipt.vehicleRecovered ? 'Conservé pour les soins' : 'Non récupéré'],
+    ['ACCORD À TÉMOIGNER', receipt.witnessConsent ? receipt.witnessAvailable ? 'Recueilli · témoin vivant' : 'Recueilli · témoin décédé' : 'Non recueilli'],
+    ['CONTACT DE MARA', receipt.maraContacted ? 'Relevé transmis par radio' : 'Aucune transmission'],
+  ];
   if (receipt.missionId === 'MI06') return [
     ['HABITANTS À L’ABRI', `${receipt.residentsSafe} / ${receipt.residentsTotal}`],
     ['HABITANTS PERDUS', receipt.residentsLost],
@@ -181,7 +199,7 @@ function renderCampaignUI() {
       : 'Le journal du poste a été perdu. Le bilan de Vesper conserve cette absence ; une autre source technique reste à trouver.';
     const passage = campaign.completed.MI05;
     $('campaign-transition-text').textContent = `${inherited} ${passage
-      ? campaign.completed.MI06 ? `Aux Trois-Vannes, ${campaign.completed.MI06.residentsSafe} habitants sont à l’abri et ${campaign.completed.MI06.homesUninhabitable} logements sont inhabitables. Le dossier garde ces deux bilans. La prochaine affectation sur la chaussée des Salines reste en préparation.` : `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai. La digue des Trois-Vannes est maintenant accessible dans « Les maisons sous la ligne ». ${campaign.resources.fuel} lots de carburant restent disponibles ; une solution manuelle existe sans réserve.`
+      ? campaign.completed.MI07 ? `Sur la chaussée des Salines, ${campaign.completed.MI07.patientsArrived} patients sont arrivés et ${campaign.completed.MI07.patientsLost} sont morts. Le dossier sanitaire garde leur destination, l’équipe et la balise séparément. La sortie de Nacre aux portes d’Aval reste en préparation.` : campaign.completed.MI06 ? `Aux Trois-Vannes, ${campaign.completed.MI06.residentsSafe} habitants sont à l’abri et ${campaign.completed.MI06.homesUninhabitable} logements sont inhabitables. La chaussée des Salines est maintenant accessible dans « Une ambulance sans escorte ». Le chantier détermine la rampe utilisable.` : `À Nacre, ${passage.refugeesPassed} passagers ont rejoint le quai. La digue des Trois-Vannes est maintenant accessible dans « Les maisons sous la ligne ». ${campaign.resources.fuel} lots de carburant restent disponibles ; une solution manuelle existe sans réserve.`
       : 'Votre nouvelle affectation est ouverte : rejoignez le chenal de Nacre dans « Le prix du passage ». Le départ reste possible avec ou sans le journal.'}`;
   }
   $('campaign-mission-list').innerHTML = CAMPAIGN_MISSIONS.map((m, index) => {
@@ -236,6 +254,11 @@ function renderWorkshop() {
   if (campaign.completed.MI06) {
     const report = campaign.completed.MI06;
     $('workshop-dike').textContent = `Trois-Vannes : ${report.residentsSafe} habitants à l’abri, ${report.residentsLost} perdus ; ${report.homesUninhabitable} logements inhabitables. ${report.techniciansAlive} techniciens vivants. ${report.circuit === 'diversion' ? 'La dérivation a été accomplie.' : 'Le circuit impérial du quai a été accompli.'} Cette dernière sortie a utilisé ${report.fuelSpent} lots de carburant.`;
+  }
+  $('workshop-ambulance').hidden = !campaign.completed.MI07;
+  if (campaign.completed.MI07) {
+    const report = campaign.completed.MI07;
+    $('workshop-ambulance').textContent = `Salines : ${report.patientsArrived} patients arrivés, ${report.patientsLost} perdus ; ${report.staffAlive} membres de l’équipe vivants. ${report.destination === 'clinic' ? 'Accueil civil.' : 'Poste médical impérial.'} ${report.beaconRecovered ? 'Balise, attaches et journal conservés ; origine de la pose à recouper.' : 'Balise perdue ; aucune donnée recréée.'} ${report.witnessConsent ? 'Un accord à témoigner a été recueilli.' : 'Aucun accord à témoigner recueilli.'}`;
   }
   $('campaign-repair-pipe').hidden = !campaign.completed?.MI01 || world.pipeIntact || world.pipeRepaired;
   $('campaign-repair-pipe').textContent = 'Réparer la conduite · 2 lots';
@@ -411,6 +434,11 @@ function showBriefing() {
     const fuel = pendingReplay && campaign.completed.MI06 ? campaign.resources.fuel + campaign.completed.MI06.fuelSpent : campaign.resources.fuel;
     $('briefing-description').textContent += ` ${passage.channelOpen && passage.refugeesPassed === 12 ? 'Le passage accompli permet aux techniciens d’arriver par le quai.' : 'Le passage du chenal n’a pas été sûr : les techniciens prennent la passerelle haute.'} ${fuel === 2 ? 'Deux lots peuvent alimenter une pompe auxiliaire après branchement. Ils seront réellement dépensés à l’achèvement, même si la sortie échoue ensuite.' : 'Aucun lot n’est disponible. La dérivation manuelle reste praticable.'} Les dix habitants de ce chantier ne sont pas les douze passagers du chenal.`;
   }
+  if (pendingMode === 'campaign' && m.id === 'MI07') {
+    const dike = campaign.world.nacre.dike;
+    const mainRamp = dike.panelsLocked === 1 && !dike.emergencyShoring && dike.dikeFatigue < 65;
+    $('briefing-description').textContent += ` ${mainRamp ? 'Le panneau verrouillé, sous le seuil de fatigue de 65 %, permet la rampe principale.' : 'L’état du panneau impose la rampe secondaire : le trajet sera plus long à protéger.'} ${dike.techniciansAlive ? `${dike.techniciansAlive} technicien${dike.techniciansAlive > 1 ? 's ont survécu' : ' a survécu'} à la digue ; demandez leur aide sur place.` : 'Aucun technicien de la digue ne peut aider ; la préparation manuelle reste possible.'} L’ambulance transporte quatre patients et deux membres d’équipe, distincts des personnes des missions précédentes. Aucun carburant supplémentaire n’est attribué.`;
+  }
   $('briefing-walker').textContent = `${w.designation} ${w.name}`;
   $('briefing-assist').textContent = settings.assist ? 'Marche assistée' : 'Appuis manuels';
   $('briefing-difficulty').textContent = DIFFICULTIES[settings.difficulty].label;
@@ -496,7 +524,8 @@ function showResult() {
   const industrialMission = game.missionId === 'MI04';
   const channelMission = game.missionId === 'MI05';
   const dikeMission = game.missionId === 'MI06';
-  const missionStat = dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
+  const ambulanceMission = game.missionId === 'MI07';
+  const missionStat = ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
     : industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
     : networkMission ? ['RÉSEAUX CIVILS ACTIFS', `${game.campaign.civilRelaysOnline} / 2`]
     : railMission ? ['OUVRIERS LIBÉRÉS', `${game.campaign.hostagesRescued} / ${game.campaign.hostagesTotal}`]
@@ -504,7 +533,10 @@ function showResult() {
     : ['PREUVES RÉCUPÉRÉES', game.stats.evidence];
   const stats = [['DURÉE', timeLabel(game.elapsed)], ['CIBLES NEUTRALISÉES', game.stats.kills], missionStat, ['PERTES CIVILES', game.stats.collateral]];
   let decisionText;
-  if (dikeMission) {
+  if (ambulanceMission) {
+    const f = game.campaign;
+    decisionText = `${f.destination === 'clinic' ? 'Accueil civil choisi.' : f.destination === 'imperial' ? 'Poste médical impérial choisi.' : 'Destination encore indéterminée.'} ${f.patientsArrived} patients arrivés, ${f.patientsLost} perdus ; ${f.staffAlive} membres de l’équipe vivants. ${f.beaconRecovered ? 'Balise, attaches et journal conservés ; origine de la pose à recouper.' : 'Aucune balise récupérée.'} ${f.vehicleDestroyed ? 'Véhicule détruit.' : f.vehicleSeized ? 'Véhicule arrivé puis saisi.' : f.vehicleRecovered ? 'Véhicule conservé pour les soins.' : 'Transfert non achevé.'}`;
+  } else if (dikeMission) {
     const facts = game.campaign;
     decisionText = `${facts.circuit === 'diversion' ? 'Dérivation des maisons choisie.' : facts.circuit === 'imperial' ? 'Réglage impérial du quai choisi.' : 'Circuit encore indéterminé.'} ${facts.pumpsOnline ? 'La manœuvre de vanne est achevée.' : 'La remise en service n’est pas achevée.'} ${facts.residentsSafe} habitants à l’abri, ${facts.residentsLost} perdus ; ${facts.homesUninhabitable} logements inhabitables. ${facts.fuelSpent} lots utilisés pendant cette sortie.`;
   } else if (channelMission) {
@@ -547,6 +579,15 @@ let lastObjectives = '';
 function updateHUD() {
   if (!game) return;
   const p = game.player;
+  $('ambulance-instrument').hidden = !game.ambulance;
+  if (game.ambulance) {
+    const f = game.campaign;
+    $('ambulance-stage').textContent = f.transferResolved ? 'BILAN DU TRANSFERT ÉTABLI' : f.vehicleDestroyed ? 'VÉHICULE PERDU · CONSTATS POSSIBLES' : f.transferOrdered ? 'TRANSFERT SANITAIRE EN COURS' : f.vehicleStopped ? 'AMBULANCE À L’ARRÊT' : f.stopCalled ? 'ARRÊT DEMANDÉ · DÉGAGEZ L’AIRE' : 'AMBULANCE · APPEL À ÉTABLIR';
+    $('ambulance-route').textContent = `RAMPE ${f.route === 'main' ? 'PRINCIPALE' : 'SECONDAIRE'} · ${f.rampPrepared ? 'PRÊTE' : 'À PRÉPARER'} · ${f.destination === 'clinic' ? 'ACCUEIL CIVIL' : f.destination === 'imperial' ? 'POSTE IMPÉRIAL' : 'DESTINATION À CHOISIR'}`;
+    $('ambulance-people').textContent = `${f.patientsArrived} / 4 PATIENTS ARRIVÉS · ${f.patientsLost} PERDUS · ÉQUIPE ${f.staffAlive} / 2`;
+    $('ambulance-cargo').textContent = f.medicalCargoVerified ? 'CARGAISON SANITAIRE VÉRIFIÉE' : f.cargoInspected ? 'CONSTAT SANS CARGAISON VÉRIFIABLE' : f.consentObtained ? 'ACCORD REÇU · CAISSE À INSPECTER' : 'ACCORD À L’EXAMEN À OBTENIR';
+    $('ambulance-beacon').textContent = f.beaconRecovered ? 'BALISE RÉCUPÉRÉE · ORIGINE À RECOUPER' : f.beaconDestroyed ? 'BALISE PERDUE · CONSTAT À CONSERVER' : 'BOÎTIER AJOUTÉ · DÉMONTAGE À ACCOMPLIR';
+  }
   $('dike-instrument').hidden = !game.dike;
   if (game.dike) {
     const site = game.dike, facts = game.campaign;
@@ -680,8 +721,8 @@ function frame(now) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
       if (!paused && activeMode === 'campaign' && !campaignReplay) {
         const fuelChanged = game.missionId === 'MI06' && game.campaign.fuelSpent !== campaign.checkpoint?.campaign.fuelSpent;
-        const failedDike = game.missionId === 'MI06' && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
-        if (fuelChanged || failedDike || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
+        const failedSortie = ['MI06', 'MI07'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
+        if (fuelChanged || failedSortie || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
       }
       renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, interactionPrompt: false, pointer });
       if (!paused) events();

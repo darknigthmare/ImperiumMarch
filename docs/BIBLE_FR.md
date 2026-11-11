@@ -2,7 +2,7 @@
 
 ## Chaque pas laisse une trace.
 
-**Nom de code :** ImperiumMarch · **Version de conception :** 0.7.0 · **Date :** 11 novembre 2026
+**Nom de code :** ImperiumMarch · **Version de conception :** 0.8.0 · **Date :** 11 novembre 2026
 
 **ORDRE DE CENDRE** est un jeu d’action tactique en 2D dans lequel le joueur pilote les machines d’occupation de l’Empire d’Orthe. D’abord chargé de « pacifier » ses mondes périphériques, il découvre que les catastrophes justifiant ces interventions sont en partie organisées par ceux qui prétendent les réparer. Sa machine ne change pas soudainement de nature lorsqu’il refuse un ordre : elle reste lourde, dangereuse et dépendante de pièces fabriquées par l’Empire. Il doit apprendre à s’en servir pour autre chose que contraindre.
 
@@ -10,7 +10,7 @@ La signature du jeu est le rapport entre **appui, puissance et responsabilité**
 
 La qualité AAA est une **ambition de direction et de finition**. Cette version constitue une fondation de production, avec un prototype jouable et une bible étendue. Elle ne représente pas une campagne finale ni un jeu commercial terminé. La source structurée est [data/bible.json](../data/bible.json). L’onglet **Prototype** du classeur décrit précisément les éléments présents et leurs limites; les autres onglets comprennent aussi les règles prévues pour la suite.
 
-**Portée exécutée en 0.7 :** MI01–MI04 constituent le premier arc jouable de Vesper. MI05, « Le prix du passage », ouvre Nacre avec marée, passerelles, barges, douze réfugiés et carburant facultatif. MI06, « Les maisons sous la ligne », poursuit la digue : soutien du panneau avec les appuis, deux techniciens, dix nouveaux habitants marchant vers un abri, deux maisons et un circuit hydraulique à réaliser après la décision. Le carburant de MI05 peut y être consommé; sa dépense officielle survit à une défaite ou un recommencement. Six châssis, leurs réserves finies et un radiateur réparable restent disponibles. Les 26 autres missions principales sont conçues. La [production 0.7](PRODUCTION_V07.md) définit cette portée. Le [concept complet](CONCEPT_COMPLET_V04.md) présente l’ensemble du jeu; [Vesper](VESPER_CONSEQUENCES_V05.md) et [Nacre 0.7](NACRE_CONSEQUENCES_V07.md) précisent les conséquences. Les bilans antérieurs conservent leur portée historique.
+**Portée exécutée en 0.8 :** MI01–MI04 constituent le premier arc jouable de Vesper. MI05 ouvre le chenal de Nacre, MI06 poursuit la digue et MI07 accompagne une ambulance sur la chaussée des Salines. Les six châssis gardent leurs réserves finies et leur radiateur réparable. La campagne conserve ses conséquences dans un dossier v7; le carburant engagé à MI06 ne revient pas lors du passage à MI07. Les 25 autres missions principales restent conçues. La [production 0.8](PRODUCTION_V08.md) définit cette portée. Le [concept complet](CONCEPT_COMPLET_V04.md) présente l’ensemble du jeu; [Vesper](VESPER_CONSEQUENCES_V05.md) et [Nacre 0.8](NACRE_CONSEQUENCES_V08.md) précisent les conséquences. Les bilans antérieurs conservent leur portée historique.
 
 ## 1. Le contrat avec le joueur
 
@@ -61,6 +61,14 @@ MI06 donne une fonction matérielle à l’ancrage. La machine doit être immobi
 Les deux techniciens se déplacent réellement et peuvent être perdus. Des abris destructibles interceptent les projectiles. Sans intervenant, un étai manuel conserve une issue plus longue, y compris après la destruction du panneau. L’étai sécurise un passage sans rendre intacte la structure détruite. Le [contrat MI06](CAMPAIGN_MISSION_06.md) fixe les durées et conditions locales.
 
 Le même niveau distingue un appel de secours et une arrivée. Dix habitants nouveaux, répartis dans deux maisons, rejoignent un abri sous le risque des tirs. Une personne arrivée sort des collisions; sa maison peut ensuite être perdue. Le choix du circuit ne déplace pas ces personnes. Cette séparation rend possible un bilan où tous les habitants sont sauvés et où leurs deux logements restent inhabitables.
+
+### Un passage doit être praticable
+
+MI07 utilise l’état conservé du panneau de MI06. Un verrou achevé, sans étai et avec une fatigue inférieure à 65 ouvre la route principale. Dans les autres cas, l’ambulance prend une voie secondaire plus longue. Un survivant du chantier n’aide pas par le seul fait d’exister dans le dossier : un échange réel doit établir sa contribution.
+
+L’Ambulance Quai introduit quatre patients, une conductrice et un soignant. L’appel d’arrêt, l’accord à l’examen, le constat de la caisse et le démontage du boîtier sont des actions différentes. Le marquage hostile transmis par Holt ne remplace pas une inspection. Une source détruite garde une issue de constat, avec les données effectivement obtenues avant sa perte.
+
+Le choix conduit au poste médical impérial ou à l’accueil civil. Le véhicule doit encore rejoindre cette destination. L’arrivée des personnes et la disponibilité de l’ambulance sont des résultats distincts; la récupération de sa balise ne prouve pas l’identité de celui qui l’a posée. Le [contrat MI07](CAMPAIGN_MISSION_07.md) précise ce fonctionnement. Le modèle reste routier; les capacités amphibies conçues de VE02 ne sont pas livrées par cette mission.
 
 ### Les avaries
 
@@ -156,7 +164,7 @@ Le major Daren Holt croit à la chaîne de commandement parce qu’il l’a vue 
 
 Ilan Rusk veut rentrer avec un nom honorable auprès de sa famille. Mara Eren veut des lits, des routes et des personnes vivantes. Nima Sol exige une preuve recoupable. Leth demande que sa culture ne devienne pas seulement une pièce dans une histoire humaine. Chacun doit pouvoir remercier Sera pour un acte et lui en reprocher un autre sans contradiction artificielle.
 
-Dans la 0.7, Mara intervient à la radio après l’inspection des seuils de MI06. Le prototype ne simule pas un personnage physique Mara exposé aux tirs et ne la recrute pas. Sa voix établit un constat local; les relations, la confiance complète et ses engagements futurs restent à construire par des scènes et des actes.
+Mara intervient à la radio après l’inspection des seuils de MI06; un appel facultatif de MI07 lui transmet réellement le relevé compilé, y compris un constat de perte. Le prototype ne simule pas un personnage physique Mara exposé aux tirs et ne la recrute pas. Un contact accompli ne vaut ni accord des patients à témoigner, ni confiance générale, ni engagement à rejoindre Sera. Un membre du personnel peut donner séparément son consentement à témoigner; cet accord garde l’identité de son auteur et sa disponibilité dépend de sa survie.
 
 ## 12. Choix, confiance et fins
 
@@ -184,7 +192,7 @@ L’estimation de calendrier et de financement doit être fondée sur la vitesse
 
 ## 14. Utilisation de la bible Excel
 
-La version 0.7 du classeur contient 705 fiches dans vingt feuilles de contenu source, plus une synthèse. Les 643 identifiants de la 0.6 restent présents. Les IDs permettent de relier une mission à sa planète, un système à une validation ou un châssis à son armement. Les textes sont volontairement concrets : une ligne de production possède un livrable et un critère de clôture.
+La version 0.8 du classeur contient 769 fiches dans vingt feuilles de contenu source, plus une synthèse. Les 705 identifiants de la 0.7 restent présents. Les IDs permettent de relier une mission à sa planète, un système à une validation ou un châssis à son armement. Les textes sont volontairement concrets : une ligne de production possède un livrable et un critère de clôture.
 
 **Conçu** signifie spécifié; **Prototype** signifie présent dans la portée détaillée de l’onglet éponyme; **À produire** désigne le travail identifié mais non livré; **Vérifié** doit toujours se rapporter à un contrôle réellement exécuté. Un test prévu dans QA ne devient pas vérifié parce que le code existe. Un asset illustré ne devient pas une animation intégrée parce qu’il est beau.
 

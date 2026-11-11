@@ -51,3 +51,14 @@ La pompe et la vanne sont placées dans une couche devant les pattes pour rester
 ## Captures natives de la 0.7
 
 `docs/previews/browser-v07-dike.jpg` et `browser-v07-report.jpg` sont les octets JPEG capturés dans Chrome sur le site publié, au viewport 1363 × 936. La première montre la vanne à 35 % après une reprise ; la seconde le rapport après manœuvre et extraction exécutées dans le navigateur. Le début de ce chantier provient d’un checkpoint atteint dans Node par les commandes publiques, puis importé via le sélecteur de fichier. `docs/validation/v07-browser.json` conserve cette limite, les empreintes et les observations. Ces deux images sont distinctes des sept rendus Canvas MI06.
+
+
+## Scènes sanitaires — version 0.8
+
+Les neuf rendus MI07 sont reproductibles avec `tools/render-mi07-previews.mjs` : arrêt, accord et examen, démontage, arrivée des drones, transfert des patients, rampe secondaire, arrivée impériale, épave et remorquage. Les fichiers portent le préfixe `mi07-` et sont répertoriés dans `docs/previews/mi07-render-manifest.json`.
+
+Ils partent des deux dossiers de digue de la fixture historique v6 authentique, puis utilisent les seules commandes publiques du pilote MI07. Les dégâts des variantes destructives proviennent des tirs, sans affectation directe d’une santé, d’une arrivée ou d’un résultat. Le manifeste conserve neuf snapshots complets copiés profondément ; le générateur vérifie leur indépendance et l’absence de mutation par le renderer.
+
+Le véhicule, la caisse, la balise, les deux membres d’équipe, les quatre chariots, les barrières, les radios, la rampe et les postes d’accueil sont dessinés par le code original du projet. Les volumes visibles suivent la simulation. La troisième ligne du panneau distingue arrivés, en route, à bord et perdus. Le libellé de rampe est porté au-dessus des grandes jambes pour conserver sa lisibilité, sans déplacer l’objet physique.
+
+Ces images sont des rendus Canvas avec le prompt intégré par défaut. Elles ne comprennent pas les instruments HTML et ne certifient ni CSS, ni navigateur, ni performance. Aucun nouvel asset généré par image, aucune police embarquée et aucun élément extrait d’un autre jeu n’ont été ajoutés pour MI07.

@@ -3,7 +3,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 
 root=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else Path(__file__).resolve().parents[1]
-baseline=sys.argv[2] if len(sys.argv)>2 else 'c598bad'
+baseline=sys.argv[2] if len(sys.argv)>2 else '1e7eadb'
 file=root/'docs/ORDRE_DE_CENDRE_Bible.xlsx'
 source=json.loads((root/'data/bible.json').read_text())
 ns={'s':'http://schemas.openxmlformats.org/spreadsheetml/2006/main','r':'http://schemas.openxmlformats.org/officeDocument/2006/relationships'}
@@ -26,7 +26,7 @@ def historical_ids(revision):
         # Published snapshots and source archives may not carry local Git history.
         # Each frozen fixture is valid for its recorded historical revision only.
         candidates=[]
-        for name in ['bible-v06-ids.json','bible-v05-ids.json','bible-v04-ids.json']:
+        for name in ['bible-v07-ids.json','bible-v06-ids.json','bible-v05-ids.json','bible-v04-ids.json']:
             fixture_path=root/'tests/fixtures'/name
             if fixture_path.is_file(): candidates.append(json.loads(fixture_path.read_text()))
         matches=[candidate for candidate in candidates

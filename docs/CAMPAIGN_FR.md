@@ -1,8 +1,8 @@
 # ORDRE DE CENDRE — Campagne et continuité
 
-**Version de conception 0.7.0 · 11 novembre 2026**
+**Version de conception 0.8.0 · 11 novembre 2026**
 
-Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI06 sont jouables au stade prototype, avec progression, dossier et reprise. Les 26 missions MI07–MI32 restent conçues. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.7](NACRE_CONSEQUENCES_V07.md) précise MI05–MI06 jouables et la production encore ouverte de MI07–MI08.
+Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI07 sont jouables au stade prototype, avec progression, dossier et reprise. Les 25 missions MI08–MI32 restent conçues. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.8](NACRE_CONSEQUENCES_V08.md) précise MI05–MI07 jouables et la production encore ouverte de MI08.
 
 La campagne suit Sera Vey depuis ses premières opérations d’occupation jusqu’à une confrontation avec l’autorité qui les ordonnait. La défection est l’axe du récit. Les décisions déterminent qui part avec elle, ce qu’elle peut prouver, ce qu’elle laisse derrière elle et la forme du pouvoir après la bataille.
 
@@ -149,15 +149,19 @@ La pompe auxiliaire consomme deux lots au branchement accompli. Son aide est fac
 
 #### MI07 — Une ambulance sans escorte
 
-**Lieu :** Nacre (PL02), chaussée des Salines · **État :** Conçu
+**Lieu :** Nacre (PL02), chaussée des Salines · **État :** Prototype
 
 **Ordre reçu.** Intercepter un transport désigné comme dépôt mobile de munitions.
 
-**Déroulement à produire.** Rejoindre l’ambulance, dégager une aire d’arrêt, obtenir l’accord à l’examen et inspecter la caisse ainsi que le boîtier ajouté sous le châssis. Protéger le démontage de la balise et le transfert sanitaire contre des drones de saisie. La rampe et son repli doivent consommer l’état réel du panneau de MI06 : verrou, étai et fatigue. L’ambulance introduit sa propre population, distincte des habitants de la digue.
+**Déroulement jouable.** Rejoindre l’Ambulance Quai, dégager son arrêt, obtenir l’accord du personnel puis examiner la caisse. Démonter la balise sous ancrage ou constater sa perte, compiler le relevé et choisir une destination. Préparer ensuite la rampe et l’accueil, ordonner le transfert puis déployer les chariots jusqu’à l’arrivée effective des personnes.
 
-**Ce que la mission révèle.** La signature hostile provient d’une balise impériale ajoutée au transport. Sa récupération et ses attaches donnent une provenance locale à vérifier. La pièce seule ne révèle ni l’auteur de sa pose ni les décideurs de PALINODE.
+**Ce que la mission révèle.** Le constat sanitaire et la désignation reçue sont deux sources différentes. Le boîtier récupéré conserve ses attaches et son journal local; il ne révèle ni l’auteur de sa pose ni les décideurs de PALINODE. La provenance reste non vérifiée, avec ou sans récupération.
 
-**Ce qui reste après la mission.** Patient arrivé, personnel vivant, véhicule, balise, provenance et consentement à témoigner sont distincts. Une destruction impose un constat sans données recréées. Le relevé ne remplace pas fictivement le journal PT01 perdu sur Vesper.
+**Ce qui reste après la mission.** Quatre patients, une conductrice et un soignant sont six entités nouvelles. Leur arrivée, leurs pertes, l’état et la disponibilité du véhicule, les constats, la balise et les contacts sont consignés séparément. Le témoignage facultatif garde son propre accord et l’identité de son auteur; sa perte retire sa disponibilité. Une destruction ne reconstitue ni donnée ni interlocuteur.
+
+**Portée jouable de la 0.8.** La route principale exige le verrou de MI06, sans étai et avec une fatigue inférieure à 65; la route secondaire reste praticable dans les autres cas. Un technicien survivant doit être réellement joint par radio pour guider la préparation. Des maisons inhabitables déplacent l’accueil civil. L’accord à l’examen ne vaut pas consentement à témoigner ou recrutement. Obéir conduit au poste impérial et à la saisie du véhicule survivant; contester la désignation accompagne vers l’accueil civil. Sans conductrice, le remorquage garde une voie; sans soignant, les chariots sont plus lents. L’arrivée du véhicule au quai ne crédite pas encore les personnes à la porte d’accueil.
+
+Le [contrat MI07](CAMPAIGN_MISSION_07.md) décrit les interactions, les pertes et la reprise. Les capacités amphibies de VE02 et la finition restent conçues. Aucun PT ou PO automatique n’est attribué; la mission ne recrée aucun carburant et ne rembourse aucune dépense de MI06.
 
 #### MI08 — La marée compte les absents
 
@@ -169,7 +173,7 @@ La pompe auxiliaire consomme deux lots au branchement accompli. Son aide est fac
 
 **Ce que la mission révèle.** Les registres de relogement consultés imposent des contrats forcés. Sera peut couvrir le départ de Mara et des familles présentes. L’ordre, son exécution et le rapport à Holt restent trois actes distincts.
 
-**Ce qui reste après la mission.** Personnes arrivées, restées ou perdues, maisons, pompes, portes, refuge et documents alimentent des suites séparées. La désobéissance locale de Nacre ne remplace pas la défection opérationnelle prévue à MI16. Le [contrat de Nacre 0.7](NACRE_CONSEQUENCES_V07.md) détaille les héritages jouables de MI05–MI06 et les scènes, interruptions et limites de MI07–MI08, qui restent conçues.
+**Ce qui reste après la mission.** Personnes arrivées, restées ou perdues, maisons, pompes, portes, refuge et documents alimentent des suites séparées. La désobéissance locale de Nacre ne remplace pas la défection opérationnelle prévue à MI16. Le [contrat de Nacre 0.8](NACRE_CONSEQUENCES_V08.md) détaille les héritages jouables de MI05–MI07 et les scènes, dommages, interruptions et issues de MI08, qui reste conçue.
 
 ### Acte II — Le coût du silence
 

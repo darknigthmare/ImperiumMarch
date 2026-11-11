@@ -47,8 +47,8 @@ function pilot(s, { route = 'secured', choice = 'defy', stopAt = null, maxFrames
 
 test('MI01 is a separate campaign mission and does not replace the three operations', () => {
   assert.deepEqual(MISSIONS.map(m => m.id), ['op01', 'op02', 'op03']);
-  assert.deepEqual(CAMPAIGN_MISSIONS.map(m => m.id), ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06']);
-  assert.equal(ALL_MISSIONS.length, 9);
+  assert.deepEqual(CAMPAIGN_MISSIONS.map(m => m.id), ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07']);
+  assert.equal(ALL_MISSIONS.length, 10);
   const s = createGame({ missionId: 'MI01' });
   assert.equal(s.missionId, 'MI01');
   assert.equal(s.campaign.missionId, 'MI01');

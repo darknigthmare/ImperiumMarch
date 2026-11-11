@@ -50,7 +50,7 @@ test('authentic public v5 dossiers migrate without rewriting MI01–MI05 or cred
     assert.equal(migrated.world.nacre.dike.residentsTotal, 0);
     const previousShape = clone(migrated);
     previousShape.version = 5;
-    delete previousShape.world.nacre.dike; delete previousShape.world.nacre.fuelSpent;
+    delete previousShape.world.nacre.ambulance; delete previousShape.world.nacre.dike; delete previousShape.world.nacre.fuelSpent;
     assert.deepEqual(previousShape, old);
     assert.deepEqual(parseCampaign(serializeCampaign(migrated)), migrated);
   }
@@ -181,7 +181,7 @@ test('all six campaign chassis finish both circuits with one report, one grant a
     assert.equal(finished.completed.MI06.pumpsOnline, true);
     assert.equal(finished.resources.parts, source.resources.parts + 4);
     assert.equal(finished.resources.fuel + finished.world.nacre.fuelSpent, 2);
-    assert.equal(nextCampaignMissionId(finished), null);
+    assert.equal(nextCampaignMissionId(finished), 'MI07');
     assert.deepEqual(Object.fromEntries(Object.keys(oldReports).map(id => [id, finished.completed[id]])), oldReports);
     assert.deepEqual(finished.world.vesper, source.world.vesper);
     assert.deepEqual(finished.world.nacre.passage, source.world.nacre.passage);

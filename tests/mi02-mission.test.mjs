@@ -9,7 +9,7 @@ function advance(s, seconds, input = {}) {
 }
 
 test('MI02 declares a separate moving train and carries the actual Vesper dossier without PALINODE knowledge', () => {
-  assert.deepEqual(CAMPAIGN_MISSIONS.map(mission => mission.id), ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06']);
+  assert.deepEqual(CAMPAIGN_MISSIONS.map(mission => mission.id), ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07']);
   const context = { pipeIntact: false, pipeRepaired: true, servicesInterrupted: false, noticeFiled: true };
   const s = createGame({ missionId: 'MI02', campaignContext: context });
   assert.equal(s.convoy, null);

@@ -82,3 +82,9 @@ Vercel a automatiquement construit **dpl_E7NtUedX8jykNK9gvAdM5vh97Had**, état *
 Chrome a vérifié la migration du dossier v5 existant, importé une v5 terminée, débloqué et lancé MI06, puis repris un point de vanne produit par les commandes publiques. Après pause et rechargement, il a achevé la dérivation et l’extraction. Le hangar et l’export final conservent six rapports, dix habitants sauvés, deux techniciens, zéro logement perdu et les deux lots consommés. Le [rapport navigateur](validation/v07-browser.json) distingue explicitement les actions préparées dans Node et celles réellement exécutées dans Chrome. Le [reçu de publication](validation/v07-publication.json) conserve le lien entre SHA, arbre, Vercel, CI et ressources.
 
 Les preuves navigateur et cette documentation sont ajoutées dans un commit de suivi. Elles ne modifient ni le code du jeu, ni le HTML autonome, ni le classeur ; leurs empreintes applicatives restent celles du snapshot testé.
+
+## Préparation de la 0.8
+
+La tranche MI07 et le dossier v7 ont passé les contrôles locaux : 212 tests Node, 45 parcours UI dans le DOM modélisé, catalogue, contrôle statique, construction autonome et construction web. L’audit indépendant du dossier couvre dix-huit variantes ; il ne remplace pas la vérification du site publié.
+
+Les sources applicatives sont figées. La publication conserve le projet, les domaines, la protection Vercel et la configuration Node 22 existants. La mise à jour GitHub doit utiliser le SHA attendu de `main` sans forcer, puis confirmer l’arbre intégral, la CI et le déploiement du commit exact. Le contrôle natif de Chrome sera documenté après cette publication ; les neuf aperçus MI07 sont pour l’instant des rendus Canvas.

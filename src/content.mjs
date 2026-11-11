@@ -246,6 +246,32 @@ export const CAMPAIGN_MISSIONS = [
     intro: 'NACRE // DIGUE DES TROIS-VANNES · 13:40',
   },
 
+  {
+    id: 'MI07', number: '07', campaign: true, act: 'I — Le poids de l’ordre',
+    name: 'Une ambulance sans escorte', planetId: 'PL02', planet: 'Nacre',
+    biome: 'CHAUSSÉE DES SALINES', length: 6250, difficulty: 'TRANSFERT SANITAIRE', duration: '6–10 min',
+    faction: 'Compagnies de secours libres / saisie impériale', accent: '#aad4c3', sky: ['#182c37', '#587a7f', '#d8d3b8'],
+    description: 'Interceptez une signature hostile et laissez une ambulance rejoindre une aire d’arrêt dégagée. Obtenez l’accord de son responsable, examinez sa caisse et démontez la balise rapportée. Quatre patients, une conductrice et un soignant ont leur propre trajet, distinct des personnes secourues à la digue.',
+    briefing: '« Chaussée des Salines. Interceptez le transport désigné comme dépôt mobile de munitions et livrez-le au poste impérial. » — Major Holt',
+    hint: 'E appelle le transport puis dégage chaque barrière. Attendez son arrêt, échangez avec le responsable et examinez la caisse. Le démontage séparé préserve les attaches et le journal de la balise ; la détruire les perd. Les drones arrivent après leur signal. Après le choix, préparez la rampe et l’accueil, ordonnez le transfert puis accompagnez le véhicule. Sans conductrice, le treuil permet un remorquage réel. Les pertes restent constatables.',
+    type: 'ambulance', evidenceX: 2820, decisionX: 2820, extractionX: 5950,
+    evidenceLabel: 'RELEVÉ DE LA CHAUSSÉE', civilianPositions: [], supplyPositions: [980, 2490, 3650, 5460],
+    enemyPlan: [[660, 'rifle'], [1620, 'drone'], [2180, 'rocket'], [3500, 'skimmer'], [4400, 'rifle']],
+    ambulance: { interactionRadius: 175, callX: 1240, startX: 880, stopX: 1840,
+      barrierXs: [1710, 1950], technicalX: 3050, maraX: 2980,
+      mainRampX: 3150, secondaryRampX: 3700, imperialX: 4070, clinicX: 4670,
+      secondaryDistance: 550, displacedClinicDistance: 180,
+      barrierTime: 3, consentTime: 2, cargoTime: 3, beaconTime: 5, wreckTime: 2,
+      witnessTime: 2.5, technicalTime: 2.5, maraTime: 3, rampTime: 8, assistedRampTime: 4,
+      receptionTime: 4, dryReceptionTime: 7, handoverTime: 5, manualHandoverTime: 9,
+      towTime: 5, vehicleSpeed: 48, towSpeed: 28, seizureDelay: 10 },
+    decision: { title: 'Une signature sous le châssis',
+      body: 'Le transport et ses personnes ne deviennent pas des munitions parce qu’une balise les désigne. Le relevé doit séparer l’examen autorisé, la pièce effectivement récupérée et ce qui reste inconnu. Choisir une destination ne réalise pas le transfert.',
+      obey: 'Acheminer au poste médical impérial et placer le véhicule sous saisie',
+      defy: 'Acheminer à l’accueil civil et conserver le véhicule sanitaire' },
+    intro: 'NACRE // CHAUSSÉE DES SALINES · 16:10',
+  },
+
 ];
 
 export const ALL_MISSIONS = [...MISSIONS, ...CAMPAIGN_MISSIONS];

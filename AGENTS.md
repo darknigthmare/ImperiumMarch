@@ -7,7 +7,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - `data/bible.json` est la source des fiches de conception et du classeur. Garder les IDs stables.
 - `docs/BIBLE_FR.md`, `docs/CAMPAIGN_FR.md` et `docs/ART_DIRECTION.md` développent le canon du projet.
 - `src/content.mjs` décrit uniquement les données actuellement utilisées par le prototype.
-- `src/campaign.mjs` gère les dossiers MI01–MI06, leur progression et la migration des sauvegardes v1/v2/v3/v4/v5 vers v6 ; les opérations OP01–OP03 restent indépendantes.
+- `src/campaign.mjs` gère les dossiers MI01–MI07, leur progression et la migration des sauvegardes v1/v2/v3/v4/v5/v6 vers v7 ; les opérations OP01–OP03 restent indépendantes.
 - L’onglet Prototype précise la différence entre le comportement actuel et le comportement final conçu.
 
 ## Développement
@@ -24,7 +24,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 
 - Ne pas marquer une fiche finie parce qu’une description existe. Conçu, Prototype et Vérifié décrivent des niveaux différents.
 - Les trois opérations de prototype ne sont pas les 32 missions de la campagne finale.
-- MI01–MI06 sont jouables au stade prototype depuis les 0.2 à 0.7 ; les 26 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
+- MI01–MI07 sont jouables au stade prototype depuis les 0.2 à 0.8 ; les 25 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
 - Ne pas présenter une image de concept comme une capture du jeu, un rendu Canvas comme une capture navigateur ou un test statique comme un clic exécuté.
 - Une nouvelle vérification navigateur doit préciser l’environnement réel et les parcours effectués.
 - Les références de gameplay servent la conception ; conserver les noms, assets, silhouettes et récits originaux du projet.
@@ -58,3 +58,9 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - En v6, `resources.fuel` est le stock disponible, `world.nacre.fuelSpent` la dépense cumulée et `campaign.fuelSpent` le coût de la sortie. Le stock plus la dépense cumulée égale les lots acquis en MI05. Le raccordement consomme exactement deux lots après quatre secondes, jamais avant ; destruction, défaite et redémarrage ne les restituent pas.
 - MI06 peut conserver un checkpoint terminal `lost`, qui ne se restaure jamais en partie vivante. Une relecture reste indépendante. Un point avant décision antérieur à l’horloge officielle de MI06 n’est pas offert comme reprise jouable, même si son coût est identique ; il ne peut jamais restituer les lots consommés.
 - La fixture `campaign-v5-mi05.json` provient de l’arbre public immuable `613c07307f2712c5fac28d9403016906e94da168` de la 0.6. Ne pas la régénérer depuis le code courant. La migration ajoute uniquement la digue non visitée et le compteur de dépense nul, sans modifier MI01–MI05.
+
+- La 0.8 ajoute MI07 après le bilan MI06. Ses quatre patients, sa conductrice et son soignant sont distincts des personnes des deux missions précédentes. Le consentement à l’examen, l’inspection, la récupération de balise, l’accord à témoigner et un appel à Mara sont des actes séparés.
+- La rampe principale exige un panneau verrouillé, sans étai et avec fatigue strictement inférieure à 65 %. La route secondaire reste praticable dans les autres cas. Aucun stock n’est créé ; un technicien survivant ne fournit d’aide qu’après un échange réel.
+- Le choix de destination exige ensuite un trajet. Patients arrivés, personnel vivant, personnel arrivé, véhicule récupéré ou saisi restent distincts. Les dégâts après décision restent inscrits jusqu’au bilan.
+- La pièce, les attaches et le journal de balise exigent un démontage accompli. Une destruction permet un constat sans reconstitution. `provenanceVerified` reste faux dans MI07 ; aucune nouvelle preuve PT ou PO n’est attribuée.
+- La fixture `campaign-v6-mi06.json` provient du code public immuable `bc830013455bb8f71e1eaf0316173ac0e91746f8` de la 0.7. La migration v7 ajoute seulement `world.nacre.ambulance` non visité et conserve les scènes MI01–MI06 et le registre de carburant. Ne pas régénérer cette fixture depuis les modules courants.
