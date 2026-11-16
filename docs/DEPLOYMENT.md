@@ -1,5 +1,13 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Préparation de publication 0.15.7
+
+La reprise part du `main` public `154f32961123325e40fd29b29d97b979330243ab`, arbre `ac67a90e02ef4bf35051397968a66fcd220353d0`, version 0.15.6. Les anciens fichiers locaux d’une tranche 0.15.7 non publiée n’ont pas été retrouvés. Le [nouveau lot reconstruit](PRODUCTION_V15_7.md) ajoute **13 atlas et 81 cellules** à Vesper, MI09 et MI13, pour un total vérifié de **71 atlas / 542 cellules**. La réconciliation du comptage établit 504 cellules utilisées et 38 références, sans modifier les rapports historiques ci-dessous.
+
+Les sources, PNG originaux, métadonnées, Bible et preuves restent suivis dans Git. Le ZIP autonome dépassant désormais la limite d’un fichier Git, il devient un fichier joint de Release. Le [contrat de distribution](OFFLINE_DISTRIBUTION.md) exige un HTML identique au manifeste relu, puis une vérification indépendante de l’archive et des trois fichiers joints avant publication. Aucune réduction des images n’est appliquée.
+
+Cette section décrit la préparation. Le reçu de publication doit identifier la PR, les contrôles distants, le commit exact, le déploiement Vercel et les fichiers effectivement disponibles. Les protections, domaines et paramètres du projet Vercel existant sont conservés.
+
 ## Publication 0.15.6 accomplie
 
 La [PR #5](https://github.com/darknigthmare/ImperiumMarch/pull/5) est fusionnée sur `main` au commit **`036d6efa4be74361450f75b284e3268a12af6f50`**. Son arbre **`41f45209670e932ea17e5f0c37ac7ba8c7dd33fb`** correspond exactement au snapshot local vérifié **`70091ebca39890ee9cb19e6cbd28187301739df5`**. Le delta compte **157 ajouts, 15 modifications et aucune suppression**. Les treize nouveaux atlas apportent **75 cellules utilisées au rendu** ; les onze lots réunis contiennent **58 atlas / 461 cellules**, dont 431 cellules de rendu et 30 références historiques.

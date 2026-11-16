@@ -1,0 +1,1082 @@
+{
+  "version": "0.15.7",
+  "createdUtc": "2026-11-16T20:43:51.844Z",
+  "completed": true,
+  "type": "Original PNG decoding, imposed diagnostic states and public-input Vesper Canvas scenes",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "atlases": [
+    {
+      "id": "outposts",
+      "path": "assets/painted/vesper/outposts.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 2127211,
+      "sha256": "006660927ca7c7776ed8adb3d717af9eb51dfc7a81605eef3e0f70474569a571",
+      "clearPixels": 859097
+    },
+    {
+      "id": "housing",
+      "path": "assets/painted/vesper/housing.png",
+      "size": [
+        1783,
+        882
+      ],
+      "bytes": 1439288,
+      "sha256": "a727f6c3c2d6975bbb86d24d38f8fcd5bb542447cd0c09c646abec6809d40a35",
+      "clearPixels": 854917
+    },
+    {
+      "id": "military",
+      "path": "assets/painted/vesper/military.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1433118,
+      "sha256": "744931b68b98d3edc31c448d7cd0d4945d4e34740124a7d448a9075ec8d901e1",
+      "clearPixels": 1365023
+    },
+    {
+      "id": "dispensary",
+      "path": "assets/painted/vesper/dispensary.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1941543,
+      "sha256": "3f519abdf39e7e4d02b441f7255588921bb06b8e5548ce4271b206ee738826f2",
+      "clearPixels": 939375
+    },
+    {
+      "id": "machinery",
+      "path": "assets/painted/vesper/machinery.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1771003,
+      "sha256": "f88258844299c89f41ac985d9d59d8e1d69f8430370b4bf149f70b076d6349cf",
+      "clearPixels": 1090521
+    },
+    {
+      "id": "civilworks",
+      "path": "assets/painted/vesper/civilworks.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 2008828,
+      "sha256": "5a2b3924f2719fcc38f92a5d52b716ceb72b8be100241c26492759812f9f7de1",
+      "clearPixels": 1008830
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "outposts",
+      "name": "depot",
+      "part": "depot",
+      "state": "normal",
+      "source": [
+        15,
+        150,
+        673,
+        310
+      ],
+      "target": [
+        -114.68161435,
+        -121.790849673,
+        229.3632287,
+        122.581699346
+      ],
+      "solidPixels": 158301
+    },
+    {
+      "atlas": "outposts",
+      "name": "filter-crate",
+      "part": "filter-crate",
+      "state": "normal",
+      "source": [
+        746,
+        299,
+        310,
+        166
+      ],
+      "target": [
+        -12.156862745,
+        -14.172839506,
+        24.31372549,
+        14.345679012
+      ],
+      "solidPixels": 46921
+    },
+    {
+      "atlas": "outposts",
+      "name": "maintenance",
+      "part": "maintenance",
+      "state": "normal",
+      "source": [
+        1121,
+        31,
+        380,
+        432
+      ],
+      "target": [
+        -75.602094241,
+        -161.882352941,
+        151.204188482,
+        162.635294118
+      ],
+      "solidPixels": 144517
+    },
+    {
+      "atlas": "outposts",
+      "name": "maintenance-damaged",
+      "part": "maintenance",
+      "state": "damaged",
+      "source": [
+        76,
+        546,
+        386,
+        429
+      ],
+      "target": [
+        -76.795811518,
+        -160.752941176,
+        153.591623037,
+        161.505882353
+      ],
+      "solidPixels": 145164
+    },
+    {
+      "atlas": "outposts",
+      "name": "maintenance-destroyed",
+      "part": "maintenance",
+      "state": "destroyed",
+      "source": [
+        555,
+        779,
+        487,
+        195
+      ],
+      "target": [
+        -96.890052356,
+        -72.658823529,
+        193.780104712,
+        73.411764706
+      ],
+      "solidPixels": 71626
+    },
+    {
+      "atlas": "outposts",
+      "name": "record-terminal",
+      "part": "record-terminal",
+      "state": "normal",
+      "source": [
+        1205,
+        702,
+        219,
+        270
+      ],
+      "target": [
+        -21.390697674,
+        -59.443609023,
+        42.781395349,
+        59.887218045
+      ],
+      "solidPixels": 46784
+    },
+    {
+      "atlas": "housing",
+      "name": "active",
+      "part": "housing",
+      "state": "active",
+      "source": [
+        25,
+        27,
+        526,
+        376
+      ],
+      "target": [
+        -85.651340996,
+        -193.19205298,
+        171.302681992,
+        194.225165563
+      ],
+      "solidPixels": 149480
+    },
+    {
+      "atlas": "housing",
+      "name": "disabled",
+      "part": "housing",
+      "state": "disabled",
+      "source": [
+        626,
+        26,
+        525,
+        377
+      ],
+      "target": [
+        -85.488505747,
+        -193.708609272,
+        170.977011494,
+        194.741721854
+      ],
+      "solidPixels": 149199
+    },
+    {
+      "atlas": "housing",
+      "name": "damaged",
+      "part": "housing",
+      "state": "damaged",
+      "source": [
+        1229,
+        25,
+        526,
+        378
+      ],
+      "target": [
+        -85.651340996,
+        -194.225165563,
+        171.302681992,
+        195.258278146
+      ],
+      "solidPixels": 146897
+    },
+    {
+      "atlas": "housing",
+      "name": "disabled-damaged",
+      "part": "housing",
+      "state": "disabled-damaged",
+      "source": [
+        28,
+        468,
+        525,
+        377
+      ],
+      "target": [
+        -85.488505747,
+        -193.708609272,
+        170.977011494,
+        194.741721854
+      ],
+      "solidPixels": 146758
+    },
+    {
+      "atlas": "housing",
+      "name": "destroyed",
+      "part": "housing",
+      "state": "destroyed",
+      "source": [
+        627,
+        663,
+        524,
+        182
+      ],
+      "target": [
+        -85.325670498,
+        -92.98013245,
+        170.651340996,
+        94.013245033
+      ],
+      "solidPixels": 44165
+    },
+    {
+      "atlas": "military",
+      "name": "active",
+      "part": "military",
+      "state": "active",
+      "source": [
+        189,
+        13,
+        171,
+        481
+      ],
+      "target": [
+        -32.766467066,
+        -198.414225941,
+        65.532934132,
+        199.242677824
+      ],
+      "solidPixels": 36408
+    },
+    {
+      "atlas": "military",
+      "name": "disabled",
+      "part": "military",
+      "state": "disabled",
+      "source": [
+        678,
+        12,
+        170,
+        482
+      ],
+      "target": [
+        -32.574850299,
+        -198.828451883,
+        65.149700599,
+        199.656903766
+      ],
+      "solidPixels": 36178
+    },
+    {
+      "atlas": "military",
+      "name": "damaged",
+      "part": "military",
+      "state": "damaged",
+      "source": [
+        1158,
+        12,
+        171,
+        482
+      ],
+      "target": [
+        -32.766467066,
+        -198.828451883,
+        65.532934132,
+        199.656903766
+      ],
+      "solidPixels": 36657
+    },
+    {
+      "atlas": "military",
+      "name": "disabled-damaged",
+      "part": "military",
+      "state": "disabled-damaged",
+      "source": [
+        189,
+        524,
+        172,
+        482
+      ],
+      "target": [
+        -32.958083832,
+        -198.828451883,
+        65.916167665,
+        199.656903766
+      ],
+      "solidPixels": 37153
+    },
+    {
+      "atlas": "military",
+      "name": "destroyed",
+      "part": "military",
+      "state": "destroyed",
+      "source": [
+        680,
+        834,
+        181,
+        173
+      ],
+      "target": [
+        -34.682634731,
+        -70.832635983,
+        69.365269461,
+        71.661087866
+      ],
+      "solidPixels": 16984
+    },
+    {
+      "atlas": "dispensary",
+      "name": "active",
+      "part": "dispensary",
+      "state": "active",
+      "source": [
+        23,
+        73,
+        465,
+        362
+      ],
+      "target": [
+        -80.694143167,
+        -215.765472313,
+        161.388286334,
+        216.964169381
+      ],
+      "solidPixels": 132939
+    },
+    {
+      "atlas": "dispensary",
+      "name": "disabled",
+      "part": "dispensary",
+      "state": "disabled",
+      "source": [
+        536,
+        73,
+        465,
+        362
+      ],
+      "target": [
+        -80.694143167,
+        -215.765472313,
+        161.388286334,
+        216.964169381
+      ],
+      "solidPixels": 133058
+    },
+    {
+      "atlas": "dispensary",
+      "name": "damaged",
+      "part": "dispensary",
+      "state": "damaged",
+      "source": [
+        1048,
+        73,
+        465,
+        362
+      ],
+      "target": [
+        -80.694143167,
+        -215.765472313,
+        161.388286334,
+        216.964169381
+      ],
+      "solidPixels": 133244
+    },
+    {
+      "atlas": "dispensary",
+      "name": "disabled-damaged",
+      "part": "dispensary",
+      "state": "disabled-damaged",
+      "source": [
+        24,
+        585,
+        464,
+        362
+      ],
+      "target": [
+        -80.520607375,
+        -215.765472313,
+        161.041214751,
+        216.964169381
+      ],
+      "solidPixels": 132650
+    },
+    {
+      "atlas": "dispensary",
+      "name": "destroyed",
+      "part": "dispensary",
+      "state": "destroyed",
+      "source": [
+        535,
+        748,
+        466,
+        199
+      ],
+      "target": [
+        -80.867678959,
+        -118.071661238,
+        161.735357918,
+        119.270358306
+      ],
+      "solidPixels": 59857
+    },
+    {
+      "atlas": "machinery",
+      "name": "pump-disconnected",
+      "part": "pump",
+      "state": "disconnected",
+      "source": [
+        65,
+        70,
+        397,
+        200
+      ],
+      "target": [
+        -36.366412214,
+        -50.510204082,
+        72.732824427,
+        51.020408163
+      ],
+      "solidPixels": 60073
+    },
+    {
+      "atlas": "machinery",
+      "name": "pump-connected",
+      "part": "pump",
+      "state": "connected",
+      "source": [
+        577,
+        70,
+        397,
+        200
+      ],
+      "target": [
+        -36.366412214,
+        -50.510204082,
+        72.732824427,
+        51.020408163
+      ],
+      "solidPixels": 60033
+    },
+    {
+      "atlas": "machinery",
+      "name": "turbine-hot",
+      "part": "turbine",
+      "state": "hot",
+      "source": [
+        1139,
+        11,
+        283,
+        305
+      ],
+      "target": [
+        -42.580645161,
+        -109.203045685,
+        91.290322581,
+        109.923857868
+      ],
+      "solidPixels": 61976
+    },
+    {
+      "atlas": "machinery",
+      "name": "turbine-cooled",
+      "part": "turbine",
+      "state": "cooled",
+      "source": [
+        116,
+        352,
+        282,
+        306
+      ],
+      "target": [
+        -42.258064516,
+        -109.01010101,
+        90.967741935,
+        109.727272727
+      ],
+      "solidPixels": 61952
+    },
+    {
+      "atlas": "machinery",
+      "name": "turbine-rotor",
+      "part": "turbine-rotor",
+      "state": "normal",
+      "source": [
+        627,
+        364,
+        278,
+        273
+      ],
+      "target": [
+        -36.525547445,
+        -35.474452555,
+        73.051094891,
+        71.737226277
+      ],
+      "solidPixels": 46199
+    },
+    {
+      "atlas": "machinery",
+      "name": "radio-unavailable",
+      "part": "radio",
+      "state": "unavailable",
+      "source": [
+        1184,
+        350,
+        174,
+        300
+      ],
+      "target": [
+        -22.517647059,
+        -107.36026936,
+        45.035294118,
+        108.080808081
+      ],
+      "solidPixels": 32506
+    },
+    {
+      "atlas": "machinery",
+      "name": "radio-available",
+      "part": "radio",
+      "state": "available",
+      "source": [
+        160,
+        691,
+        174,
+        302
+      ],
+      "target": [
+        -22.517647059,
+        -108.080808081,
+        45.035294118,
+        108.801346801
+      ],
+      "solidPixels": 32592
+    },
+    {
+      "atlas": "machinery",
+      "name": "radio-contacted",
+      "part": "radio",
+      "state": "contacted",
+      "source": [
+        672,
+        691,
+        174,
+        302
+      ],
+      "target": [
+        -22.517647059,
+        -108.080808081,
+        45.035294118,
+        108.801346801
+      ],
+      "solidPixels": 32615
+    },
+    {
+      "atlas": "civilworks",
+      "name": "slab-winch",
+      "part": "slab-winch",
+      "state": "normal",
+      "source": [
+        34,
+        111,
+        461,
+        214
+      ],
+      "target": [
+        -38.538293217,
+        -46.281690141,
+        74.647702407,
+        46.718309859
+      ],
+      "solidPixels": 68237
+    },
+    {
+      "atlas": "civilworks",
+      "name": "slab-wheel",
+      "part": "slab-wheel",
+      "state": "normal",
+      "source": [
+        633,
+        71,
+        270,
+        271
+      ],
+      "target": [
+        -16.240601504,
+        -16.360902256,
+        32.481203008,
+        32.601503759
+      ],
+      "solidPixels": 33901
+    },
+    {
+      "atlas": "civilworks",
+      "name": "harpoon-latched",
+      "part": "harpoon",
+      "state": "latched",
+      "source": [
+        1040,
+        92,
+        468,
+        233
+      ],
+      "target": [
+        -41.372844828,
+        -52.855932203,
+        81.698275862,
+        53.313559322
+      ],
+      "solidPixels": 70443
+    },
+    {
+      "atlas": "civilworks",
+      "name": "harpoon-released",
+      "part": "harpoon",
+      "state": "released",
+      "source": [
+        33,
+        442,
+        465,
+        233
+      ],
+      "target": [
+        -38.405172414,
+        -52.411764706,
+        81.174568966,
+        52.865546218
+      ],
+      "solidPixels": 70408
+    },
+    {
+      "atlas": "civilworks",
+      "name": "harpoon-reel",
+      "part": "harpoon-reel",
+      "state": "normal",
+      "source": [
+        625,
+        413,
+        283,
+        287
+      ],
+      "target": [
+        -18.451612903,
+        -18.322580645,
+        36.516129032,
+        37.032258065
+      ],
+      "solidPixels": 62004
+    },
+    {
+      "atlas": "civilworks",
+      "name": "terminal-exposed",
+      "part": "ground-terminal",
+      "state": "exposed",
+      "source": [
+        1040,
+        527,
+        463,
+        145
+      ],
+      "target": [
+        -18.156862745,
+        -25.354609929,
+        36.31372549,
+        25.709219858
+      ],
+      "solidPixels": 52186
+    },
+    {
+      "atlas": "civilworks",
+      "name": "terminal-protected",
+      "part": "ground-terminal",
+      "state": "protected",
+      "source": [
+        33,
+        815,
+        464,
+        145
+      ],
+      "target": [
+        -18.156521739,
+        -25.354609929,
+        36.313043478,
+        25.709219858
+      ],
+      "solidPixels": 52078
+    },
+    {
+      "atlas": "civilworks",
+      "name": "pipe",
+      "part": "pipe",
+      "state": "normal",
+      "source": [
+        540,
+        853,
+        456,
+        81
+      ],
+      "target": [
+        -40.353982301,
+        -13.337662338,
+        80.707964602,
+        13.675324675
+      ],
+      "solidPixels": 27805
+    },
+    {
+      "atlas": "civilworks",
+      "name": "slab",
+      "part": "slab",
+      "state": "normal",
+      "source": [
+        1040,
+        873,
+        472,
+        50
+      ],
+      "target": [
+        -14.11965812,
+        -13.565217391,
+        28.239316239,
+        14.130434783
+      ],
+      "solidPixels": 21131
+    }
+  ],
+  "views": [
+    {
+      "file": "vesper-source-cells.png",
+      "width": 1800,
+      "height": 1960,
+      "sha256": "05927c6d1523c78be9686b2d4730f90be76def43d6306270ef417781b658be6e",
+      "type": "38 selected source crops on alternating backgrounds, no gameplay claim"
+    },
+    {
+      "file": "network-states-diagnostic.png",
+      "width": 2000,
+      "height": 1170,
+      "sha256": "6b27daee9bdb0d1c91fbe9dceb0bdf8ef96ec920e8f0c9918a8bf9bf8956a99b",
+      "type": "Imposed independent station states; cyan bounds mark actual projectile body; terminals remain independent"
+    },
+    {
+      "file": "controls-diagnostic.png",
+      "width": 1800,
+      "height": 1080,
+      "sha256": "40919327ed0400f6b2e233a200955f035f4a4af7a0d60b45adc20bd30253ad15",
+      "type": "Imposed pump, turbine, radio and harpoon states; rotors and reels drawn by runtime composite functions"
+    },
+    {
+      "file": "maintenance-states-diagnostic.png",
+      "width": 1800,
+      "height": 440,
+      "sha256": "b1c05dbf17883929a82af26da2c3a70f053d4f8ec68526f691fc99ef1c246fa5",
+      "type": "Imposed maintenance damage/copy states; ruins retain scale and no terminal survives a destroyed source"
+    },
+    {
+      "file": "pipe-and-delivery-diagnostic.png",
+      "width": 1800,
+      "height": 990,
+      "sha256": "1f5f2d78635ccb39231a70d85a9b1c3c104bb9736c4acb1aa8d4b68d626f2755",
+      "type": "Imposed pipe rupture/slab progress/delivery states; no delivery is inferred from a building sprite"
+    },
+    {
+      "file": "mi01-winch-working.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "3cdb7746a911ef403a793f4c768374b365100eff64a3031a8880b045162f0d03",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "MI01 slab winch working above 45 percent",
+      "missionId": "MI01",
+      "walkerId": "WK01",
+      "elapsed": 7.649999999999978,
+      "status": "playing",
+      "playerX": 814.0253275013849,
+      "cameraX": 286.02532750138494,
+      "stateFile": "mi01-winch-working.state.json",
+      "stateSha256": "3ab905dcea06a5737b403ea0d6c6d796cf6b674093f006baeeec49be99c13f2a",
+      "atlasDrawCalls": {
+        "civilworks": 78
+      }
+    },
+    {
+      "file": "mi01-protected-passage.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "bcc58098d936c5f746c64462cb15802ea02f52d7c6ba82aadde8749d4e674f46",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "MI01 slabs locked and player at the physical pipe",
+      "missionId": "MI01",
+      "walkerId": "WK01",
+      "elapsed": 14.850000000000318,
+      "status": "playing",
+      "playerX": 1141.0087965282544,
+      "cameraX": 613.0087965282544,
+      "stateFile": "mi01-protected-passage.state.json",
+      "stateSha256": "6aa8478227718180b5a9f8aaf571bbe5701b8adf094a245561858d259ffbecae",
+      "atlasDrawCalls": {
+        "civilworks": 105
+      }
+    },
+    {
+      "file": "mi01-filters-delivered.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "0c76906ba641568d789c975d03f70044583f815ae888930fdfea109ddb4da377",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "MI01 all 24 filter crates actually delivered",
+      "missionId": "MI01",
+      "walkerId": "WK01",
+      "elapsed": 80.03333333333008,
+      "status": "playing",
+      "playerX": 4656.04439467768,
+      "cameraX": 3700,
+      "stateFile": "mi01-filters-delivered.state.json",
+      "stateSha256": "e833d186293c697ead7db0ffca398ee75c0f240dfabd65656218b8ecb3bf5140",
+      "atlasDrawCalls": {
+        "outposts": 25
+      }
+    },
+    {
+      "file": "mi02-second-harpoon.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "1ba792e2d073e303f10a6faca4f255114063b7a15c6a3b0336db024e3b3a6842",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "MI02 second harpoon release in progress through public controls",
+      "missionId": "MI02",
+      "walkerId": "WK01",
+      "elapsed": 18.50000000000023,
+      "status": "playing",
+      "playerX": 1571.743807084217,
+      "cameraX": 1043.743807084217,
+      "stateFile": "mi02-second-harpoon.state.json",
+      "stateSha256": "7d886001e1a86d3d285afef78ceaebd0cabdec3524eefd86b7abae7f52669f12",
+      "atlasDrawCalls": {
+        "civilworks": 4
+      }
+    },
+    {
+      "file": "mi03-dispensary-inspection.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "9191066222e6db1ce59c3b3cd311fa5e8d7dbf9afa09ae59c05c25e61765e5d0",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "MI03 actual dispensary inspection above 45 percent",
+      "missionId": "MI03",
+      "walkerId": "WK01",
+      "elapsed": 30.633333333332875,
+      "status": "playing",
+      "playerX": 2458.014879844529,
+      "cameraX": 1930.0148798445289,
+      "stateFile": "mi03-dispensary-inspection.state.json",
+      "stateSha256": "2a7fa883c0339ff5407df36ecf4ad374dabf88b555b927f3cd662ff4a6c6ab21",
+      "atlasDrawCalls": {
+        "dispensary": 1,
+        "civilworks": 2,
+        "housing": 1
+      }
+    },
+    {
+      "file": "mi03-housing-verified.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "b02286e280728566d581dcb261a4939c3734547d0c1401a904389c8aa273b5c0",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "MI03 residential terminal secured by completed inspection",
+      "missionId": "MI03",
+      "walkerId": "WK01",
+      "elapsed": 52.69999999999829,
+      "status": "playing",
+      "playerX": 3652.9627417054144,
+      "cameraX": 3124.9627417054144,
+      "stateFile": "mi03-housing-verified.state.json",
+      "stateSha256": "afa6d3a370785a444258db5eb7b499d50c6dedfbe977ec4476216823a58b5c1b",
+      "atlasDrawCalls": {
+        "housing": 1,
+        "civilworks": 1
+      }
+    },
+    {
+      "file": "mi04-pump-connection.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "249c233b33a5d08738cf655799b236dbe7bf46b3b5048c8dbc0847778ea42072",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "MI04 actual coolant pump connection above 45 percent",
+      "missionId": "MI04",
+      "walkerId": "WK01",
+      "elapsed": 7.349999999999979,
+      "status": "playing",
+      "playerX": 814.023518153938,
+      "cameraX": 286.02351815393797,
+      "stateFile": "mi04-pump-connection.state.json",
+      "stateSha256": "bf6471680672726c8b2639fe70a6a69bfa2c41f24c3d637018965d6984c8a256",
+      "atlasDrawCalls": {
+        "machinery": 3
+      }
+    },
+    {
+      "file": "mi04-turbine-cooling.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "00242aaf0ac6190d0cd7a8bc032e7cecf98d727cf61b49f925c23b4718c6363b",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "MI04 first turbine cooling in progress",
+      "missionId": "MI04",
+      "walkerId": "WK01",
+      "elapsed": 18.58333333333356,
+      "status": "playing",
+      "playerX": 1438.7697051665145,
+      "cameraX": 910.7697051665145,
+      "stateFile": "mi04-turbine-cooling.state.json",
+      "stateSha256": "a06dcaa6c2c3bd0985bab99764e7d6bbaf42c0f682e7c05c5203aafe1dc9f59a",
+      "atlasDrawCalls": {
+        "machinery": 3
+      }
+    },
+    {
+      "file": "mi04-maintenance-copy.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "b84c57a3a0ddab137f3e7199e72b4a0d2f6991f3ff17822f9044489ff2209672",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "MI04 actual maintenance log copy acquired",
+      "missionId": "MI04",
+      "walkerId": "WK01",
+      "elapsed": 57.24999999999803,
+      "status": "playing",
+      "playerX": 3966.6231863833973,
+      "cameraX": 3438.6231863833973,
+      "stateFile": "mi04-maintenance-copy.state.json",
+      "stateSha256": "b02a5cea204bd4845e5bfad1f9d44344eef514a87351f0b3b531fbfb4d6084c2",
+      "atlasDrawCalls": {
+        "machinery": 1,
+        "outposts": 2
+      }
+    }
+  ],
+  "publicRuns": [
+    {
+      "missionId": "MI01",
+      "status": "playing",
+      "elapsed": 80.03333333333008,
+      "filtersDelivered": true,
+      "pipeIntact": true,
+      "completeMissionClaimed": false
+    },
+    {
+      "missionId": "MI02",
+      "status": "playing",
+      "elapsed": 18.50000000000023,
+      "harpoonsReleased": 1,
+      "completeMissionClaimed": false
+    },
+    {
+      "missionId": "MI03",
+      "status": "playing",
+      "elapsed": 52.69999999999829,
+      "signalsIdentified": 3,
+      "completeMissionClaimed": false
+    },
+    {
+      "missionId": "MI04",
+      "status": "playing",
+      "elapsed": 57.24999999999803,
+      "campaignContext": {
+        "pipeIntact": false,
+        "servicesInterrupted": true,
+        "railHostagesRescued": 3,
+        "dispensaryIntact": true,
+        "witnessAvailable": true,
+        "civilRelaysOnline": 2
+      },
+      "coolantRestored": true,
+      "turbinesCooled": 2,
+      "logRecovered": true,
+      "witnessContacted": true,
+      "completeMissionClaimed": false
+    }
+  ],
+  "sourceHashes": {
+    "src/painted-vesper.mjs": "93447fce2ca3f2e4413bc67fd66f2a051bdab774d8b500ac7913909846c1bbe5",
+    "src/painted-vesper-layout.mjs": "c7e6b1d0808bde034ddd7368fe48691816197be9cb35362984d90690bebc7b56",
+    "src/renderer.mjs": "ddd08fb24e5a42d06777f6013036f413ccc208272eae118516f272ad00080dc7",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "assets/painted/vesper/manifest.json": "4c7f64a6a4e78fd886ae3bb3b4ecc89c063d0ebd39a59e66e776aa36e8254892",
+    "assets/painted/vesper/prompts.json": "4ce4d2372a3c761c6b0d9e64d209970e8c6a61189ef69c5b1f68eafe63d9a285",
+    "tools/index-painted-vesper.py": "90f0a088aae0f1d7c1e5f3414e8a10e71936ec3b86f0a3ae74ee6862623de1d0",
+    "tools/test-painted-vesper.mjs": "d672af22fee5e75a8e390edbaba022fad35d42858ef8f5f34897fd2f943a4cbc",
+    "tests/painted-vesper.test.mjs": "1581b3f3b47dfa6753f3efeb6db8d91171e39d03d577ae98d3189810aa8b6f2a",
+    "tests/helpers/mi02-driver.mjs": "48a4b776f66010d94345e55a381b94897d628ad1c7c982eb756d7ee4b1080305",
+    "tests/helpers/mi03-driver.mjs": "7215097131e8a26da02122ee066687cedf88d72aa6172b41915fa23279107d48",
+    "tests/helpers/mi04-driver.mjs": "c10509d1f233642fc129cd7903607a61c7d59fcf25773e110edd97bb66e71ab3"
+  },
+  "limitations": [
+    "The labelled diagnostic panels impose presentation states on separate game copies; they are not mission completions.",
+    "Public-input scene snapshots are reached using createGame, updateGame and commandGame without editing live game facts.",
+    "MI04 starts with an explicitly configured campaignContext; this is not a replay of an independently completed MI01–MI03 dossier.",
+    "The Canvas renderer omits the browser DOM, native input, audio and hardware performance evidence.",
+    "No human readability, final animation, browser or new mission acceptance criterion is closed."
+  ],
+  "counts": {
+    "atlases": 6,
+    "cells": 38,
+    "diagnosticViews": 5,
+    "publicInputViews": 9,
+    "views": 14
+  }
+}

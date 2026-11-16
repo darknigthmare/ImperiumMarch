@@ -1,0 +1,264 @@
+name: Publish the complete offline game
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Exact version tag, for example v0.15.7'
+        required: true
+        type: string
+      commit:
+        description: 'Full 40-character commit SHA to build and publish'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: offline-release-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'darknigthmare/ImperiumMarch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - name: Resolve the exact tag and commit
+        id: target
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          GH_API: ${{ github.api_url }}
+          RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+          RELEASE_COMMIT: ${{ inputs.commit || github.sha }}
+          RELEASE_EVENT: ${{ github.event_name }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { appendFileSync } from 'node:fs';
+          const { GH_TOKEN, GH_REPO, GH_API, RELEASE_TAG: tag, RELEASE_COMMIT: sha, RELEASE_EVENT } = process.env;
+          if (!/^v\d+\.\d+\.\d+(?:-[0-9A-Za-z]+(?:[.-][0-9A-Za-z]+)*)?$/.test(tag)) throw new Error('Invalid version tag.');
+          if (!/^[0-9a-f]{40}$/i.test(sha)) throw new Error('A full commit SHA is required.');
+          async function get(path, missing = false) {
+            const response = await fetch(`${GH_API}/repos/${GH_REPO}/${path}`, {
+              headers: { Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
+            });
+            if (missing && response.status === 404) return null;
+            if (!response.ok) throw new Error(`GitHub source lookup failed (${response.status}).`);
+            return response.json();
+          }
+          const commit = await get(`commits/${sha}`);
+          if (commit.sha !== sha.toLowerCase()) throw new Error('Commit resolution changed the requested SHA.');
+          const ref = await get(`git/ref/tags/${encodeURIComponent(tag)}`, true);
+          if (!ref && RELEASE_EVENT !== 'workflow_dispatch') throw new Error('The pushed tag no longer exists.');
+          if (ref) {
+            let object = ref.object;
+            for (let depth = 0; object.type === 'tag' && depth < 8; depth++) object = (await get(`git/tags/${object.sha}`)).object;
+            if (object.type !== 'commit' || object.sha !== commit.sha) throw new Error('Existing tag points to another source commit.');
+          }
+          appendFileSync(process.env.GITHUB_OUTPUT, `tag=${tag}\nsha=${commit.sha}\n`);
+          NODE
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.target.outputs.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+
+      - name: Retain the reviewed HTML fingerprint
+        env:
+          RELEASE_TAG: ${{ steps.target.outputs.tag }}
+          RELEASE_COMMIT: ${{ steps.target.outputs.sha }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          import { execFileSync } from 'node:child_process';
+          import { join } from 'node:path';
+          const version = JSON.parse(readFileSync('package.json', 'utf8')).version;
+          if (`v${version}` !== process.env.RELEASE_TAG) throw new Error('Tag does not match package.json version.');
+          if (execFileSync('git', ['rev-parse', 'HEAD'], {encoding:'utf8'}).trim() !== process.env.RELEASE_COMMIT) throw new Error('Wrong checkout.');
+          const source = readFileSync('dist/Ordre_de_Cendre.manifest.json');
+          const manifest = JSON.parse(source);
+          if (manifest.source?.version !== version || !/^[0-9a-f]{64}$/.test(manifest.html?.sha256 || '')) throw new Error('Missing reviewed manifest for this version.');
+          writeFileSync(join(process.env.RUNNER_TEMP, 'reviewed-offline-manifest.json'), source);
+          NODE
+
+      - run: npm test
+      - run: npm run check
+      - run: npm run build
+      - run: npm run check:ui
+      - run: npm run check:ui-runtime
+
+      - name: Verify exact HTML, ZIP integrity and release provenance
+        env:
+          RELEASE_TAG: ${{ steps.target.outputs.tag }}
+          RELEASE_COMMIT: ${{ steps.target.outputs.sha }}
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { readFileSync, writeFileSync } from 'node:fs';
+          import { join } from 'node:path';
+          import { verifyOfflinePackage } from './tools/build-offline-package.mjs';
+          const manifest = JSON.parse(readFileSync('dist/Ordre_de_Cendre.manifest.json', 'utf8'));
+          const reviewed = JSON.parse(readFileSync(join(process.env.RUNNER_TEMP, 'reviewed-offline-manifest.json'), 'utf8'));
+          const receipt = verifyOfflinePackage();
+          assert.equal(receipt.htmlFileCompared, true);
+          assert.deepEqual(manifest.html, reviewed.html, 'The rebuilt HTML must match the reviewed HTML byte for byte.');
+          assert.equal(manifest.source.commit, process.env.RELEASE_COMMIT);
+          assert.equal(manifest.source.workingTree, 'clean');
+          assert.equal(`v${manifest.source.version}`, process.env.RELEASE_TAG);
+          assert.ok(manifest.zip.bytes < 2 * 1024 ** 3, 'A GitHub Release asset must be smaller than 2 GiB.');
+          const notes = [
+            `# Ordre de Cendre ${manifest.source.version}`,
+            '',
+            'Édition hors ligne complète du prototype. Extraire le ZIP, puis ouvrir Ordre_de_Cendre.html dans un navigateur de bureau.',
+            'Le ZIP contient un seul HTML autonome, avec le code et tous les PNG intégrés sans réduction des images.',
+            '',
+            `Source : ${manifest.source.commit}`,
+            `HTML : ${manifest.html.bytes} octets ; SHA-256 ${manifest.html.sha256}`,
+            `ZIP : ${manifest.zip.bytes} octets ; SHA-256 ${manifest.zip.sha256}`,
+            `CRC32 de l’HTML : ${manifest.html.crc32}`,
+            '',
+            'Le manifeste joint identifie le commit exact et les empreintes des octets publiés. Les empreintes du ZIP peuvent différer entre versions de zlib ; l’HTML reconstruit est comparé au manifeste relu dans le dépôt.',
+            '',
+            'Contrôles de cette publication : tests Node, données de conception, HTML autonome, DOM modélisé, CRC et SHA-256. Ces contrôles ne constituent pas un essai humain ou une nouvelle réception native.',
+          ].join('\n') + '\n';
+          writeFileSync(join(process.env.RUNNER_TEMP, 'offline-release-notes.md'), notes);
+          writeFileSync(join(process.env.RUNNER_TEMP, 'offline-release-verification.json'), JSON.stringify(receipt, null, 2) + '\n');
+          console.log(JSON.stringify(receipt, null, 2));
+          NODE
+          python3 - <<'PY'
+          import hashlib, json, pathlib, zipfile
+          folder = pathlib.Path('dist')
+          manifest = json.loads((folder / 'Ordre_de_Cendre.manifest.json').read_text())
+          with zipfile.ZipFile(folder / 'Ordre_de_Cendre.zip') as archive:
+              assert archive.namelist() == ['Ordre_de_Cendre.html']
+              assert archive.testzip() is None
+              entry = archive.getinfo('Ordre_de_Cendre.html')
+              html = archive.read(entry)
+              assert hashlib.sha256(html).hexdigest() == manifest['html']['sha256']
+              assert html == (folder / 'Ordre_de_Cendre.html').read_bytes()
+              assert f'{entry.CRC:08x}' == manifest['html']['crc32']
+          print('Independent Python ZIP extraction, CRC and SHA-256 passed.')
+          PY
+
+      - name: Retain the verified package as an Actions artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: offline-${{ steps.target.outputs.tag }}-${{ steps.target.outputs.sha }}
+          path: |
+            dist/Ordre_de_Cendre.zip
+            dist/Ordre_de_Cendre.manifest.json
+            dist/Ordre_de_Cendre.sha256
+            ${{ runner.temp }}/offline-release-verification.json
+          compression-level: 0
+          retention-days: 14
+          if-no-files-found: error
+
+      - name: Attach the verified files and publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          GH_API: ${{ github.api_url }}
+          RELEASE_TAG: ${{ steps.target.outputs.tag }}
+          RELEASE_COMMIT: ${{ steps.target.outputs.sha }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync, appendFileSync } from 'node:fs';
+          import { createHash } from 'node:crypto';
+          import { execFileSync } from 'node:child_process';
+          import { join, basename } from 'node:path';
+          const { GH_TOKEN, GH_REPO, GH_API, RELEASE_TAG: tag, RELEASE_COMMIT: sha } = process.env;
+          const files = ['dist/Ordre_de_Cendre.zip', 'dist/Ordre_de_Cendre.manifest.json', 'dist/Ordre_de_Cendre.sha256'];
+          const expected = files.map(path => {
+            const bytes = readFileSync(path);
+            return { name: basename(path), size: bytes.length, digest: `sha256:${createHash('sha256').update(bytes).digest('hex')}` };
+          });
+          const gh = args => execFileSync('gh', [...args, '--repo', GH_REPO], { stdio: 'inherit' });
+          async function get(path, missing = false) {
+            const response = await fetch(`${GH_API}/repos/${GH_REPO}/${path}`, {
+              headers: { Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
+            });
+            if (missing && response.status === 404) return null;
+            if (!response.ok) throw new Error(`GitHub release lookup failed (${response.status}).`);
+            return response.json();
+          }
+          async function verifyTag() {
+            const ref = await get(`git/ref/tags/${encodeURIComponent(tag)}`, true);
+            if (!ref) return false;
+            let object = ref.object;
+            for (let depth = 0; object.type === 'tag' && depth < 8; depth++) object = (await get(`git/tags/${object.sha}`)).object;
+            if (object.type !== 'commit' || object.sha !== sha) throw new Error('Release tag changed to another source commit.');
+            return true;
+          }
+          const releasePath = `releases/tags/${encodeURIComponent(tag)}`;
+          async function findRelease() {
+            // The by-tag REST endpoint documents published releases. Drafts
+            // must be found in the authenticated, paginated release listing.
+            const published = await get(releasePath, true);
+            if (published) return published;
+            const matches = [];
+            for (let page = 1; ; page++) {
+              const batch = await get(`releases?per_page=100&page=${page}`);
+              matches.push(...batch.filter(item => item.tag_name === tag));
+              if (batch.length < 100) break;
+            }
+            if (matches.length > 1) throw new Error('Several drafts use this version tag; no release was changed.');
+            return matches[0] || null;
+          }
+          let tagExists = await verifyTag();
+          let release = await findRelease();
+          if (!release) {
+            // A manual run may name a new tag. Create that exact ref only after
+            // all checks; a draft release alone need not materialize its tag.
+            if (!tagExists) {
+              const response = await fetch(`${GH_API}/repos/${GH_REPO}/git/refs`, {
+                method: 'POST',
+                headers: { Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github+json',
+                  'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ref: `refs/tags/${tag}`, sha }),
+              });
+              if (!response.ok && response.status !== 422) throw new Error(`Tag creation failed (${response.status}).`);
+              tagExists = await verifyTag();
+              if (!tagExists) throw new Error('The exact release tag could not be created.');
+            }
+            const prerelease = tag.includes('-') ? ['--prerelease'] : [];
+            gh(['release', 'create', tag, '--verify-tag', '--title', `Ordre de Cendre ${tag.slice(1)}`,
+              '--notes-file', join(process.env.RUNNER_TEMP, 'offline-release-notes.md'), '--draft', ...prerelease]);
+            release = await findRelease();
+            if (!release) throw new Error('The newly created draft could not be found.');
+          }
+          if (!await verifyTag()) throw new Error('Existing draft has no verifiable source tag.');
+          // A failed upload can leave a draft. Resume only missing assets after
+          // checking every existing expected asset; never use --clobber.
+          const missing = [];
+          for (const wanted of expected) {
+            const asset = release.assets.find(item => item.name === wanted.name);
+            if (!asset) { missing.push(files.find(path => basename(path) === wanted.name)); continue; }
+            if (asset.state !== 'uploaded' || asset.size !== wanted.size || asset.digest !== wanted.digest)
+              throw new Error(`Release asset differs: ${wanted.name}. No existing asset was overwritten.`);
+          }
+          if (missing.length) {
+            if (!release.draft) throw new Error('The published release is incomplete. No published asset was changed.');
+            gh(['release', 'upload', tag, ...missing]);
+            release = await get(`releases/${release.id}`);
+          }
+          for (const wanted of expected) {
+            const asset = release.assets.find(item => item.name === wanted.name);
+            if (!asset || asset.state !== 'uploaded' || asset.size !== wanted.size || asset.digest !== wanted.digest)
+              throw new Error(`Uploaded asset could not be verified: ${wanted.name}. The draft remains unpublished.`);
+          }
+          if (!await verifyTag()) throw new Error('Release tag is missing after upload.');
+          if (release.draft) gh(['release', 'edit', tag, '--draft=false']);
+          release = await get(`releases/${release.id}`);
+          if (release.draft) throw new Error('Release is still a draft.');
+          appendFileSync(process.env.GITHUB_STEP_SUMMARY,
+            `## Complete offline game published\n\n[${tag}](${release.html_url})\n\nSource commit: \`${sha}\`\n\nZIP, manifest and SHA-256 file verified before publication.\n`);
+          NODE

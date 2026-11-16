@@ -1,0 +1,109 @@
+{
+  "version": "0.15.7",
+  "createdUtc": "2026-11-16T20:48:41.156678+00:00",
+  "completed": true,
+  "type": "Local automated checks; not browser or human reception",
+  "node": "v24.22.1",
+  "baseCommit": "154f32961123325e40fd29b29d97b979330243ab",
+  "sourceState": "modified working tree; fingerprints identify received files",
+  "sourceHashes": {
+    "package.json": "774d30851666cd48c208e1c9b73e6fa2d0536d8e8597a776eff1e4ab142f9d52",
+    "index.html": "ed15722931114820d62a43d3ca13c31b4839c1c89a1ebce15def60485365a6f3",
+    "src/main.mjs": "455a361cd4803529895ded219bc212be45d416288542d993cf8d4ee8d14fd4d6",
+    "src/renderer.mjs": "ddd08fb24e5a42d06777f6013036f413ccc208272eae118516f272ad00080dc7",
+    "src/thyr-renderer.mjs": "3fb4421c5ebe1273cf8f55b837d45f762f730a493e9124e7b8beb32ae8b06a68",
+    "src/foundry-renderer.mjs": "54a722ca7cbdcc25cfb08609d366137bcf11ee47d1306fcec11f6f876e035625",
+    "src/painted-vesper.mjs": "93447fce2ca3f2e4413bc67fd66f2a051bdab774d8b500ac7913909846c1bbe5",
+    "src/painted-route.mjs": "c939daa2d174c6ede3fdcccef364d71c82fce1f8244cadcfec43d308e30b1268",
+    "src/painted-foundry-sites.mjs": "516ba9dd30e68f274753811beeda0371ecc05fb10f20277337a7736cab1b2128",
+    "src/painted-vesper-layout.mjs": "c7e6b1d0808bde034ddd7368fe48691816197be9cb35362984d90690bebc7b56",
+    "src/painted-route-layout.mjs": "cb7be733e16a4a444dc9ba2de3ef40d7fbb3e01ec5f7dc76eb8034f61b00d3c5",
+    "src/painted-foundry-sites-layout.mjs": "7a5d768474a3d194172c17f4d3e935d4dcbe4fbf333224d320bb128e3455028c",
+    "tools/build-offline-package.mjs": "9f2e169a8102afde15d5b4f8ceb6060d6fef7ccc9d2a0d4f92ab17b98f9c3966",
+    "data/bible.json": "929803c8fa34ce1b19cdcce3e071d0eb03ebed2a3865848923f692d1a5f2be50",
+    "docs/ORDRE_DE_CENDRE_Bible.xlsx": "90ae1f03b1b92670f6ac0686ae86faede979ab5d613b3e8ce312401bf699e1e8",
+    "dist/Ordre_de_Cendre.manifest.json": "eedcc0c71f28761836baedf8bd820ed8294f9be5ff0e90b1c8470c62d11d16c4"
+  },
+  "checks": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "completed": true,
+      "log": "v0157-local/tests.txt",
+      "logSha256": "388468be305a6d472d79a4cdbf7d33b85a0dd8663ea30aae5323d153d9df27ba",
+      "summary": "ℹ tests 795"
+    },
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "completed": true,
+      "log": "v0157-local/content.txt",
+      "logSha256": "56610ee2f29c349a035674f0528000a7c3d6c4e712429a78f758f7527d578317",
+      "summary": "Project checks passed: 20 design sheets, 1007 source rows, 6 playable chassis, 3 independent operations, 14 campaign missions."
+    },
+    {
+      "command": "npm run check:assets-render",
+      "exitCode": 0,
+      "completed": true,
+      "log": "v0157-local/svg-canvas.txt",
+      "logSha256": "8282d0384b58f5ba657b681a1263833a6e3b3be22cd8e801c51d1c196bd36a54",
+      "summary": "Production SVG/Canvas raster validation passed: 174/174 cases, @napi-rs/canvas 0.1.100."
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "completed": true,
+      "log": "v0157-local/offline-build.txt",
+      "logSha256": "6cb8a72bde58f263c977e0cb64455e83ff71ab4c9f44ade9b6317b0f4e26d059",
+      "summary": "Offline game built: dist/Ordre_de_Cendre.html (162.58 MiB), 62 modules, no remote dependencies."
+    },
+    {
+      "command": "npm run check:offline-package",
+      "exitCode": 0,
+      "completed": true,
+      "log": "v0157-local/offline-verify.txt",
+      "logSha256": "7abab8fa2c384ccc8db66a2fdf5db0bce20d8596fd685959e96ac66f15133698",
+      "summary": "  \"status\": \"verified\","
+    },
+    {
+      "command": "npm run check:ui",
+      "exitCode": 0,
+      "completed": true,
+      "log": "v0157-local/ui-static.txt",
+      "logSha256": "7d0544b746e51f0eaef4fe7fa3269cec468fda01423ed8b61b031db3ee450d86",
+      "summary": "OFFLINE BUNDLE AUDIT PASSED: one inline script compiled by vm.Script without executing; all HTML/CSS/Canvas assets embedded; no unresolved imports or resource requests."
+    },
+    {
+      "command": "npm run check:ui-runtime",
+      "exitCode": 0,
+      "completed": true,
+      "log": "v0157-local/ui-modeled-dom.txt",
+      "logSha256": "afbf6edb211ecb950f62e06c3efb46f3d1f4170e3b03c106b14cffd48c99c42f",
+      "summary": "UI STATE INTEGRATION PASSED: 108 flows against the actual offline application script in a modeled DOM."
+    },
+    {
+      "command": "npm run build:web",
+      "exitCode": 0,
+      "completed": true,
+      "log": "v0157-local/web-build.txt",
+      "logSha256": "1e7985d59d54b3bbdda8b822a83b411c2f7767b3921e627da0d888a237b36398",
+      "summary": "Web game built: web-dist/index.html, src/ and assets/. No runtime dependencies."
+    }
+  ],
+  "totals": {
+    "nodeTests": 795,
+    "failedTests": 0,
+    "svgCanvasCases": 174,
+    "modeledDomFlows": 108,
+    "paintedAtlases": 71,
+    "paintedCells": 542,
+    "newAtlasCount": 13,
+    "newCells": 81,
+    "newCanvasViews": 30
+  },
+  "limitations": [
+    "No successful Chromium or human execution is inferred from these checks. See QA_BROWSER_V15_7.md for the environment blockers and later remote reception.",
+    "Canvas scenes and state diagnostics are described in their individual receipts.",
+    "A remote CI, merge, Release and Vercel deployment must identify their own commits."
+  ]
+}

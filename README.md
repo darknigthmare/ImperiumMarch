@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.15.6 · Français**
+**Nom de code : ImperiumMarch · Version 0.15.7 · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -12,15 +12,15 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 Cette livraison contient un **prototype de quatorze missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant **v14**. MI12 achève la tranche de Thyr ; MI13 et MI14 ouvrent Kharon par un convoi industriel puis un atelier en grève. La Bible contient **1 007 fiches sur 21 onglets**. Les dix-huit missions MI15–MI32, les seize contrats et la qualité de production visée restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
 
-La **0.15.6 peint les installations de Nacre et de Thyr** : treize nouveaux atlas transparents et 75 cellules utilisées pour les digues, pompes, maisons, accueils, quais, cuves, appareils chimiques, postes d’écoute, émetteur et sites de ponte. Le total atteint **58 planches et 461 cellules**. Le [bilan 0.15.6](docs/PRODUCTION_V15_6.md) détaille les trois lots et leurs réceptions. La campagne reste à quatorze missions ; la sauvegarde reste v14. Les bilans [transports et relais](docs/PRODUCTION_V15_5.md), [Thyr et Cerbère](docs/PRODUCTION_V15_4.md), [marcheurs](docs/PRODUCTION_V15_3.md), [combat](docs/PRODUCTION_V15_2.md), [atelier](docs/PRODUCTION_V15_1.md) et [reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves historiques.
+La **0.15.7 peint les installations de Vesper, de la route vivante et de Kharon** : treize nouveaux atlas transparents et 81 cellules pour les bâtiments, turbines, pompes, radio, treuils, harpons, barrière, camion, vannes, grues, consoles et ponts thermiques. Le total atteint **71 planches et 542 cellules**, dont 504 utilisées au rendu et 38 références. Le [bilan 0.15.7](docs/PRODUCTION_V15_7.md) détaille les trois lots et la correction du décompte historique. La campagne reste à quatorze missions ; la sauvegarde reste v14. Les bilans [installations de Nacre et Thyr](docs/PRODUCTION_V15_6.md), [transports et relais](docs/PRODUCTION_V15_5.md), [Thyr et Cerbère](docs/PRODUCTION_V15_4.md), [marcheurs](docs/PRODUCTION_V15_3.md), [combat](docs/PRODUCTION_V15_2.md), [atelier](docs/PRODUCTION_V15_1.md) et [reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves historiques.
 
 ## Jouer à cette version
 
 Le jeu dispose d’un [site en ligne](https://imperium-march.vercel.app/) et d’un fichier autonome. Le [suivi de publication](docs/DEPLOYMENT.md) identifie le commit distant et le déploiement effectivement contrôlé ; les rapports de [consolidation MI14](docs/QA_V15.md), des [sprites de l’atelier](docs/QA_PAINTED_MI14.md) du [combat peint](docs/QA_PAINTED_COMBAT.md) et des [marcheurs peints](docs/QA_PAINTED_WALKERS.md) indiquent la portée des essais. Une construction locale, un push GitHub et un déploiement disponible sont des étapes distinctes.
 
-La **0.15.6 est publiée** par la [PR #5](https://github.com/darknigthmare/ImperiumMarch/pull/5). La CI de la PR et celle du commit fusionné reçoivent 765 tests, 174 comparaisons SVG/Canvas, onze lots peints et 108 parcours du DOM modélisé. Le [contrôle Chrome](docs/QA_NATIVE_V15_6.md) reçoit trois reprises courtes, MI06, MI10 et MI11, avec sa limite de visibilité sur la vanne de Nacre. Le dossier et les réglages présents avant cet essai sont restaurés ; le réexport est identique octet pour octet. Le [reçu de publication](docs/validation/v0156-publication.json) rattache ces preuves au déploiement de production.
+La **0.15.7 est préparée depuis la 0.15.6 publiée** par la [PR #5](https://github.com/darknigthmare/ImperiumMarch/pull/5). Le suivi de publication distingue les tests locaux, la CI distante, le déploiement Vercel et la disponibilité réelle du ZIP. Les réceptions de la 0.15.6 restent dans son [reçu historique](docs/validation/v0156-publication.json) et son [rapport Chrome](docs/QA_NATIVE_V15_6.md).
 
-Télécharger [**dist/Ordre_de_Cendre.zip**](dist/Ordre_de_Cendre.zip), extraire `Ordre_de_Cendre.html`, puis ouvrir ce fichier dans un navigateur de bureau récent. Le code, les styles et les images sont intégrés. Aucun serveur ni téléchargement complémentaire n’est nécessaire pour cette édition. Le son démarre après une interaction. Le ZIP conserve l’HTML complet et les images originales ; `npm run build` régénère les deux fichiers.
+Pour cette version, **Ordre_de_Cendre.zip sera distribué avec la Release GitHub** : l’archive complète dépasse désormais la limite des fichiers Git. Extraire `Ordre_de_Cendre.html`, puis ouvrir ce fichier dans un navigateur de bureau récent. Le code, les styles et les images sont intégrés. Aucun serveur ni téléchargement complémentaire n’est nécessaire pour cette édition. Le son démarre après une interaction. Le ZIP conserve l’HTML complet et les images originales ; `npm run build` régénère les deux fichiers. Le [guide de distribution](docs/OFFLINE_DISTRIBUTION.md) décrit le manifeste et les empreintes fournis avec l’archive.
 
 1. **Campagne** : ouvrir le dossier de Sera et parcourir **MI01 à MI14**, chacune débloquée par le premier rapport de la mission précédente.
 2. **Hangar** : choisir parmi six châssis. Au retour, lire les réactions de Tess et Sami et réparer avec les pièces disponibles.
@@ -33,7 +33,7 @@ Les sources sont publiées sur [darknigthmare/ImperiumMarch](https://github.com/
 
 ### Développement local
 
-Depuis le dossier des sources extraites du pack, avec Node.js 22.x :
+Depuis le dossier des sources du dépôt, avec Node.js 22.x :
 
 ```sh
 npm start
@@ -57,6 +57,10 @@ npm run check:nacre
 npm run check:nacre-sites
 npm run check:chemical
 npm run check:voice
+npm run check:vesper
+npm run check:route
+npm run check:foundry-sites
+npm run check:offline-package
 npm run build:web
 ```
 
@@ -75,6 +79,18 @@ npm run check:assets-render
 ```
 
 Les outils `render-mi12/mi13/mi14-previews` produisent des scènes Canvas et des états atteints par commandes publiques. Ils ne remplacent pas un essai navigateur. Le [guide du classeur](docs/BIBLE_README.md) décrit la régénération du XLSX à partir de `data/bible.json`.
+
+## 0.15.7 — Les sites de Vesper à Kharon
+
+Les bâtiments MI03 possèdent leurs cinq états de fonctionnement, coupure et dommage. La protection de leur borne reste distincte de la santé des murs. MI01 reçoit son treuil, ses dalles, sa conduite et ses filtres livrés ; MI02 garde des tambours séparés et des câbles attachés au train réel. Les pompes, turbines, radio et maintenance de MI04 suivent leurs opérations existantes.
+
+La route vivante MI09 reçoit une barrière articulée, ses postes, sa carte et le camion logistique. Les deux habitats affichés sur la carte viennent de la simulation. Dans MI13, vannes, grues, consoles, manifeste et ponts thermiques suivent l’état des sites, sans déplacer les charges ni les surfaces physiques.
+
+![Les logements de Vesper après vérification de leur usage civil.](docs/validation/painted-vesper-v0157/mi03-housing-verified.png)
+
+*Scène Canvas atteinte par commandes publiques du pilote MI03. Les pieds, le bâtiment et son terminal conservent leurs positions simulées. Cette image n’est pas une capture de navigateur.*
+
+Les [originaux Vesper](assets/painted/vesper/README.md), [route MI09](assets/painted/route/README.md) et [installations MI13](assets/painted/foundry-sites/README.md) conservent prompts et métadonnées. Le [bilan de production](docs/PRODUCTION_V15_7.md) relie les trente vues Canvas, leurs états, la Bible actualisée et la nouvelle distribution hors ligne. Les autres décors, les animations finales et les missions MI15–MI32 restent à produire.
 
 ## 0.15.6 — Les installations et leurs états
 

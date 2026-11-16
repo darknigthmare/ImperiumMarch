@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "version": "0.15.7",
+  "generator": "image_gen built-in",
+  "canonIds": [
+    "MI09",
+    "PL03"
+  ],
+  "atlasCount": 3,
+  "frameCount": 20,
+  "runtimeFrameCount": 18,
+  "referenceFrameCount": 2,
+  "files": [
+    {
+      "id": "barrier",
+      "path": "assets/painted/route/barrier.png",
+      "bytes": 1072045,
+      "sha256": "42d374a79c965f206fb91dd9e72190531e01216fba3c57fae80ed1a4b518b8ff",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.691005,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "terminals",
+      "path": "assets/painted/route/terminals.png",
+      "bytes": 782911,
+      "sha256": "dcb8ca83d5864ae88d73173eb814b974242368e67be95d74ab9fc96edfccc354",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "frames": 8,
+      "runtimeFrames": 7,
+      "referenceFrames": 1,
+      "transparentFraction": 0.788492,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "logistics",
+      "path": "assets/painted/route/logistics.png",
+      "bytes": 1439985,
+      "sha256": "32efd04a0ae5040110a018f501003fe16f7d3bfe3285fd47431979941537e1cf",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 5,
+      "referenceFrames": 1,
+      "transparentFraction": 0.490634,
+      "originalBytesUnchanged": true
+    }
+  ],
+  "scope": "MI09 barrier pieces, surveyed map, working terminals, route markers, logistics truck and floodlight. Existing state only.",
+  "pixelPolicy": "Original selected RGBA PNG bytes retained. Alpha reads and measured rectangles only; no pixel edits.",
+  "layoutPolicy": "The barrier row boundaries are measured (0,418,815,1254), not assumed equal. Shared terminal and truck state scales keep wrecks short.",
+  "referencePolicy": "The isolated wheel is a reference: complete truck images already contain both wheels. The ruined terminal is also a reference: MI09 job terminals have no simulated health or loss. No new destruction or duplicate wheel overlay is added.",
+  "physicalPolicy": "Barrier arm rotates around the historical hinge at [-76,-77] using actual opening. Foot contacts, terrain, beings and saved state remain unchanged."
+}

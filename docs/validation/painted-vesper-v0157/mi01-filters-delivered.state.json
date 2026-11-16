@@ -1,0 +1,1335 @@
+{
+  "version": 1,
+  "mission": {
+    "id": "MI01",
+    "number": "01",
+    "campaign": true,
+    "act": "I — Le poids de l’ordre",
+    "name": "Le couloir quarante-deux",
+    "planetId": "PL01",
+    "planet": "Vesper",
+    "biome": "ROUTE DES MINEURS",
+    "length": 5200,
+    "difficulty": "PREMIÈRE AFFECTATION",
+    "duration": "3–6 min",
+    "faction": "Pillards du couloir",
+    "accent": "#e9ad67",
+    "sky": [
+      "#1c2a37",
+      "#8e6b5e",
+      "#dab38b"
+    ],
+    "description": "Ouvrez la route du camion de Sami Pell. Ses vingt-quatre caisses de filtres sont attendues au poste des mineurs. Une conduite fragile traverse le passage ; les dalles du génie permettent de la protéger avant l’embuscade.",
+    "briefing": "« Couloir quarante-deux, vous tenez l’accès. Le poste attend ces filtres depuis trois jours. » — Major Holt",
+    "hint": "D : avancer ; Q/A : reculer. Près du treuil des dalles, arrêtez-vous et appuyez sur E pour sécuriser la conduite. Le camion suit derrière vous. Après la livraison, lisez le manifeste au poste avec E.",
+    "type": "escort",
+    "evidenceX": 4660,
+    "extractionX": 4930,
+    "decisionX": 4660,
+    "deliveryX": 4480,
+    "convoyLabel": "SAMI · FILTRES",
+    "cargoCount": 24,
+    "evidenceLabel": "MANIFESTE DES FILTRES",
+    "civilianPositions": [
+      2760,
+      2910,
+      4540
+    ],
+    "supplyPositions": [
+      2430,
+      3650
+    ],
+    "enemyPlan": [
+      [
+        1810,
+        "rocket"
+      ],
+      [
+        2150,
+        "rifle"
+      ],
+      [
+        2590,
+        "buggy"
+      ],
+      [
+        3070,
+        "rifle"
+      ],
+      [
+        3360,
+        "rocket"
+      ],
+      [
+        3810,
+        "drone"
+      ],
+      [
+        4140,
+        "rifle"
+      ]
+    ],
+    "ambushTriggerX": 1390,
+    "passage": {
+      "stationX": 840,
+      "radius": 165,
+      "pipeFrom": 1110,
+      "pipeTo": 1300,
+      "workTime": 4.5,
+      "incidentDelay": 8,
+      "repairCost": 2
+    },
+    "decision": {
+      "title": "Une rue absente du manifeste",
+      "body": "Les vingt-quatre caisses sont déchargées au poste. Sami relève un nom absent : « Les Cales-Basses n’ont rien sur la feuille. Ils ont pourtant le même air que nous. » Holt répond : « Votre secteur s’arrête à la borne quarante-deux. Restez dans votre ordre. » Vous pouvez clore la livraison prévue ou joindre le signalement au compte rendu. Aucun filtre supplémentaire n’est disponible aujourd’hui.",
+      "obey": "Clore le bordereau prévu",
+      "defy": "Joindre le signalement de Sami"
+    },
+    "intro": "VESPER // COULOIR QUARANTE-DEUX · 06:14"
+  },
+  "walker": {
+    "id": "WK01",
+    "name": "Vigie",
+    "designation": "M-12",
+    "role": "ÉCLAIREUR D’ASSAUT",
+    "legs": 2,
+    "profile": "Bipède haut",
+    "height": 180,
+    "width": 126,
+    "hull": 520,
+    "stride": 118,
+    "stepTime": 0.62,
+    "speed": 86,
+    "cooling": 16,
+    "armor": 0.12,
+    "damage": 22,
+    "fireRate": 0.18,
+    "shotHeat": 8,
+    "ammo": 12,
+    "rockets": 10,
+    "color": "#e5b16c",
+    "silhouette": "biped",
+    "weight": 34,
+    "description": "Un poste de tir élevé, une foulée longue. Ses deux genoux restent son point faible.",
+    "weapon": "Autocanon V-22",
+    "secondary": "Roquettes à charge creuse",
+    "strength": "Vue dégagée · tir précis",
+    "weakness": "Appuis exposés"
+  },
+  "missionId": "MI01",
+  "walkerId": "WK01",
+  "planetId": "PL01",
+  "difficultyId": "story",
+  "difficulty": {
+    "label": "Récit",
+    "damage": 0.5,
+    "enemyHealth": 0.78,
+    "repair": 1.25
+  },
+  "seed": 1577,
+  "rng": 710744392,
+  "assist": true,
+  "elapsed": 80.03333333333008,
+  "status": "playing",
+  "outcome": "",
+  "player": {
+    "x": 4656.04439467768,
+    "y": 513.403961734037,
+    "width": 126,
+    "height": 70,
+    "groundY": 693.4039617340486,
+    "facing": 1,
+    "aimAngle": 2.8918810944272972,
+    "hull": 520,
+    "maxHull": 520,
+    "armor": 0.12,
+    "heat": 0,
+    "energy": 100,
+    "stability": 99.99905211563443,
+    "ammo": 2,
+    "maxAmmo": 12,
+    "reserveAmmo": 96,
+    "maxReserveAmmo": 96,
+    "radiator": {
+      "health": 100,
+      "maxHealth": 100,
+      "repairKits": 2,
+      "maxRepairKits": 2,
+      "repairProgress": 0,
+      "repairing": false
+    },
+    "rockets": 10,
+    "maxRockets": 10,
+    "reloadTime": 0,
+    "venting": false,
+    "braced": true,
+    "overheated": false,
+    "speed": 4.747562343254685e-9,
+    "feet": [
+      {
+        "id": "foot-0",
+        "index": 0,
+        "group": 0,
+        "side": "back",
+        "homeOffset": -38,
+        "x": 4657.188214030099,
+        "y": 693.4273581834658,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 4500.6665864389815,
+        "fromY": 689.3700852537364,
+        "targetX": 4657.188214030099,
+        "targetY": 693.4273581834658,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-1",
+        "index": 1,
+        "group": 1,
+        "side": "front",
+        "homeOffset": 38,
+        "x": 4654.900575326685,
+        "y": 693.3802572043359,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 4498.3242691158075,
+        "fromY": 689.3253209436715,
+        "targetX": 4654.900575326685,
+        "targetY": 693.3802572043359,
+        "health": 100,
+        "maxHealth": 100
+      }
+    ],
+    "stepCooldown": 0,
+    "lastGroup": 0,
+    "fireCooldown": 0,
+    "rocketCooldown": 0,
+    "flash": 0,
+    "aimX": 4085.7333333333154,
+    "aimY": 669.1483826197374,
+    "move": 0,
+    "anchorX": 4656.044394678392
+  },
+  "enemies": [
+    {
+      "name": "Lancier antichar",
+      "kind": "infantry",
+      "w": 26,
+      "h": 38,
+      "hp": 0,
+      "speed": 14,
+      "range": 790,
+      "cooldown": 4.4,
+      "damage": 43,
+      "projectileSpeed": 255,
+      "windup": 1.2,
+      "score": 130,
+      "type": "rocket",
+      "id": "enemy-0",
+      "x": 1810,
+      "spawnX": 1810,
+      "y": 650.9633190561867,
+      "maxHp": 62,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 1.8278096341838461,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 2.000594921745833
+    },
+    {
+      "name": "Fusilier",
+      "kind": "infantry",
+      "w": 24,
+      "h": 36,
+      "hp": 0,
+      "speed": 22,
+      "range": 650,
+      "cooldown": 1.65,
+      "damage": 10,
+      "projectileSpeed": 430,
+      "windup": 0.42,
+      "score": 70,
+      "type": "rifle",
+      "id": "enemy-1",
+      "x": 2114.4333333333216,
+      "spawnX": 2150,
+      "y": 670.6661050417356,
+      "maxHp": 51,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 0.392291812909148,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 0.26814082509594295
+    },
+    {
+      "name": "Buggy de raid",
+      "kind": "vehicle",
+      "w": 85,
+      "h": 44,
+      "hp": 0,
+      "speed": 35,
+      "range": 740,
+      "cooldown": 2.8,
+      "damage": 21,
+      "projectileSpeed": 400,
+      "windup": 0.7,
+      "score": 230,
+      "type": "buggy",
+      "id": "enemy-2",
+      "x": 2491.416666666641,
+      "spawnX": 2590,
+      "y": 667.0268929662519,
+      "maxHp": 172,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": -1.2139349254469076,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0.14,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 4.786812572128873
+    },
+    {
+      "name": "Fusilier",
+      "kind": "infantry",
+      "w": 24,
+      "h": 36,
+      "hp": 0,
+      "speed": 22,
+      "range": 650,
+      "cooldown": 1.65,
+      "damage": 10,
+      "projectileSpeed": 430,
+      "windup": 0.42,
+      "score": 70,
+      "type": "rifle",
+      "id": "enemy-3",
+      "x": 3017.1999999999825,
+      "spawnX": 3070,
+      "y": 661.1733030640759,
+      "maxHp": 51,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": -1.4217483339831245,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 2.5965661867526215
+    },
+    {
+      "name": "Lancier antichar",
+      "kind": "infantry",
+      "w": 26,
+      "h": 38,
+      "hp": 0,
+      "speed": 14,
+      "range": 790,
+      "cooldown": 4.4,
+      "damage": 43,
+      "projectileSpeed": 255,
+      "windup": 1.2,
+      "score": 130,
+      "type": "rocket",
+      "id": "enemy-4",
+      "x": 3323.833333333366,
+      "spawnX": 3360,
+      "y": 653.1039448322513,
+      "maxHp": 62,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": -0.28024633613725203,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 1.1188585820937942
+    },
+    {
+      "name": "Drone de veille",
+      "kind": "air",
+      "w": 48,
+      "h": 26,
+      "hp": 0,
+      "speed": 24,
+      "range": 710,
+      "cooldown": 2.25,
+      "damage": 13,
+      "projectileSpeed": 340,
+      "windup": 0.65,
+      "score": 120,
+      "type": "drone",
+      "id": "enemy-5",
+      "x": 3678.79999999997,
+      "spawnX": 3810,
+      "y": 476.66149918588485,
+      "maxHp": 70,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0.33333333333333337,
+      "attackTarget": "player",
+      "timer": -4.022520798879356,
+      "flash": 0,
+      "phase": "attack",
+      "armor": 0,
+      "targetX": 2984.822805231876,
+      "targetY": 505.0829758113797,
+      "dronePhase": 4.312510114727716
+    },
+    {
+      "name": "Fusilier",
+      "kind": "infantry",
+      "w": 24,
+      "h": 36,
+      "hp": 0,
+      "speed": 22,
+      "range": 650,
+      "cooldown": 1.65,
+      "damage": 10,
+      "projectileSpeed": 430,
+      "windup": 0.42,
+      "score": 70,
+      "type": "rifle",
+      "id": "enemy-6",
+      "x": 4085.3666666666486,
+      "spawnX": 4140,
+      "y": 669.1299899167718,
+      "maxHp": 51,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": -1.4353314523895593,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 5.664335169358768
+    }
+  ],
+  "projectiles": [],
+  "particles": [],
+  "events": [
+    {
+      "id": 41,
+      "type": "reload",
+      "text": "Rechargement du magasin.",
+      "time": 21.9666666666667
+    },
+    {
+      "id": 42,
+      "type": "step",
+      "text": "",
+      "time": 22.450000000000006,
+      "x": 1668.787332282676,
+      "y": 669.7470710168099
+    },
+    {
+      "id": 43,
+      "type": "explosion",
+      "text": "",
+      "time": 23.01666666666664,
+      "x": 2491.416666666641,
+      "y": 667.0268929662519
+    },
+    {
+      "id": 44,
+      "type": "explosion",
+      "text": "",
+      "time": 23.01666666666664,
+      "x": 2443.916666666641,
+      "y": 649.387301894884
+    },
+    {
+      "id": 45,
+      "type": "reload",
+      "text": "Magasin chargé : 12 coups. Réserve : 84.",
+      "time": 23.783333333333264
+    },
+    {
+      "id": 46,
+      "type": "step",
+      "text": "",
+      "time": 23.966666666666587,
+      "x": 1688.1873060913067,
+      "y": 669.4068618284159
+    },
+    {
+      "id": 47,
+      "type": "step",
+      "text": "",
+      "time": 25.183333333333184,
+      "x": 1833.6072337406897,
+      "y": 670.7630723491586
+    },
+    {
+      "id": 48,
+      "type": "step",
+      "text": "",
+      "time": 26.633333333333102,
+      "x": 1840.4308226940914,
+      "y": 671.0380833911496
+    },
+    {
+      "id": 49,
+      "type": "step",
+      "text": "",
+      "time": 27.96666666666636,
+      "x": 1992.3845200941275,
+      "y": 680.8173869824511
+    },
+    {
+      "id": 50,
+      "type": "step",
+      "text": "",
+      "time": 29.36666666666628,
+      "x": 1995.8879086287195,
+      "y": 681.080698019487
+    },
+    {
+      "id": 51,
+      "type": "shot",
+      "text": "",
+      "time": 30.116666666666237,
+      "x": 2093.7147017743155,
+      "y": 521.9273328464967
+    },
+    {
+      "id": 52,
+      "type": "shot",
+      "text": "",
+      "time": 30.29999999999956,
+      "x": 2101.156298843789,
+      "y": 524.0636227226995
+    },
+    {
+      "id": 53,
+      "type": "shot",
+      "text": "",
+      "time": 30.483333333332883,
+      "x": 2116.827518771505,
+      "y": 526.6914611648036
+    },
+    {
+      "id": 54,
+      "type": "shot",
+      "text": "",
+      "time": 30.666666666666206,
+      "x": 2132.583462672408,
+      "y": 526.6536831975129
+    },
+    {
+      "id": 55,
+      "type": "step",
+      "text": "",
+      "time": 30.73333333333287,
+      "x": 2149.563324231649,
+      "y": 690.0428777946702
+    },
+    {
+      "id": 56,
+      "type": "shot",
+      "text": "",
+      "time": 30.84999999999953,
+      "x": 2148.3718891364097,
+      "y": 526.204976137899
+    },
+    {
+      "id": 57,
+      "type": "shot",
+      "text": "",
+      "time": 31.033333333332852,
+      "x": 2163.2322106403453,
+      "y": 527.7209661190853
+    },
+    {
+      "id": 58,
+      "type": "shot",
+      "text": "",
+      "time": 31.216666666666175,
+      "x": 2169.705074475166,
+      "y": 528.1246088077357
+    },
+    {
+      "id": 59,
+      "type": "explosion",
+      "text": "",
+      "time": 31.283333333332838,
+      "x": 3017.1999999999825,
+      "y": 661.1733030640759
+    },
+    {
+      "id": 60,
+      "type": "step",
+      "text": "",
+      "time": 32.11666666666613,
+      "x": 2152.1795687833956,
+      "y": 690.1253255637754
+    },
+    {
+      "id": 61,
+      "type": "step",
+      "text": "",
+      "time": 33.483333333332716,
+      "x": 2306.282151729212,
+      "y": 690.6820489781459
+    },
+    {
+      "id": 62,
+      "type": "step",
+      "text": "",
+      "time": 34.849999999999305,
+      "x": 2308.6328122415275,
+      "y": 690.6453793276324
+    },
+    {
+      "id": 63,
+      "type": "shot",
+      "text": "",
+      "time": 35.06666666666596,
+      "x": 2392.2476126258252,
+      "y": 531.011630365075
+    },
+    {
+      "id": 64,
+      "type": "shot",
+      "text": "",
+      "time": 35.24999999999928,
+      "x": 2402.768790718937,
+      "y": 530.9773899475098
+    },
+    {
+      "id": 65,
+      "type": "shot",
+      "text": "",
+      "time": 35.433333333332605,
+      "x": 2406.1730440639035,
+      "y": 530.4578483620305
+    },
+    {
+      "id": 66,
+      "type": "shot",
+      "text": "",
+      "time": 35.61666666666593,
+      "x": 2407.232786423363,
+      "y": 530.5364899244801
+    },
+    {
+      "id": 67,
+      "type": "shot",
+      "text": "",
+      "time": 35.79999999999925,
+      "x": 2414.4373294224965,
+      "y": 533.6523215043372
+    },
+    {
+      "id": 68,
+      "type": "reload",
+      "text": "Rechargement du magasin.",
+      "time": 35.79999999999925
+    },
+    {
+      "id": 69,
+      "type": "objective",
+      "text": "Dépôt de campagne consommé : réparations, jusqu’à trois magasins en réserve et deux roquettes.",
+      "time": 36.216666666665894
+    },
+    {
+      "id": 70,
+      "type": "step",
+      "text": "",
+      "time": 36.23333333333256,
+      "x": 2462.923752685004,
+      "y": 688.8740134384585
+    },
+    {
+      "id": 71,
+      "type": "explosion",
+      "text": "",
+      "time": 36.23333333333256,
+      "x": 3323.833333333366,
+      "y": 653.1039448322513
+    },
+    {
+      "id": 72,
+      "type": "step",
+      "text": "",
+      "time": 37.59999999999915,
+      "x": 2465.182388575654,
+      "y": 688.8788479165605
+    },
+    {
+      "id": 73,
+      "type": "reload",
+      "text": "Magasin chargé : 12 coups. Réserve : 84.",
+      "time": 37.616666666665814
+    },
+    {
+      "id": 74,
+      "type": "step",
+      "text": "",
+      "time": 38.96666666666574,
+      "x": 2619.458206640546,
+      "y": 691.6075602754494
+    },
+    {
+      "id": 75,
+      "type": "step",
+      "text": "",
+      "time": 40.34999999999899,
+      "x": 2621.785193507816,
+      "y": 691.6661333014915
+    },
+    {
+      "id": 76,
+      "type": "step",
+      "text": "",
+      "time": 41.71666666666558,
+      "x": 2776.0265376844072,
+      "y": 693.0371583521977
+    },
+    {
+      "id": 77,
+      "type": "shot",
+      "text": "",
+      "time": 42.96666666666551,
+      "x": 2832.4909243426987,
+      "y": 518.5225743666194
+    },
+    {
+      "id": 78,
+      "type": "step",
+      "text": "",
+      "time": 43.099999999998836,
+      "x": 2778.370170468581,
+      "y": 692.995052440205
+    },
+    {
+      "id": 79,
+      "type": "shot",
+      "text": "",
+      "time": 43.14999999999883,
+      "x": 2848.3094605287715,
+      "y": 517.6857926804041
+    },
+    {
+      "id": 80,
+      "type": "shot",
+      "text": "",
+      "time": 43.333333333332156,
+      "x": 2864.0731610347902,
+      "y": 517.1691988681688
+    },
+    {
+      "id": 81,
+      "type": "shot",
+      "text": "",
+      "time": 43.51666666666548,
+      "x": 2873.7314695310047,
+      "y": 517.7178412307208
+    },
+    {
+      "id": 82,
+      "type": "shot",
+      "text": "",
+      "time": 43.6999999999988,
+      "x": 2876.7824410465646,
+      "y": 518.553741062662
+    },
+    {
+      "id": 83,
+      "type": "shot",
+      "text": "",
+      "time": 43.883333333332125,
+      "x": 2877.9514547919107,
+      "y": 518.9347621319351
+    },
+    {
+      "id": 84,
+      "type": "shot",
+      "text": "",
+      "time": 44.06666666666545,
+      "x": 2887.9393965388,
+      "y": 520.5075700247947
+    },
+    {
+      "id": 85,
+      "type": "shot",
+      "text": "",
+      "time": 44.24999999999877,
+      "x": 2903.7405366774915,
+      "y": 522.7980329845512
+    },
+    {
+      "id": 86,
+      "type": "shot",
+      "text": "",
+      "time": 44.433333333332094,
+      "x": 2919.501201274384,
+      "y": 520.0766511563969
+    },
+    {
+      "id": 87,
+      "type": "step",
+      "text": "",
+      "time": 44.466666666665425,
+      "x": 2932.603528320285,
+      "y": 685.441456767449
+    },
+    {
+      "id": 88,
+      "type": "shot",
+      "text": "",
+      "time": 44.61666666666542,
+      "x": 2935.263986311902,
+      "y": 518.17218459268
+    },
+    {
+      "id": 89,
+      "type": "shot",
+      "text": "",
+      "time": 44.79999999999874,
+      "x": 2948.9891437592482,
+      "y": 516.3893741077734
+    },
+    {
+      "id": 90,
+      "type": "shot",
+      "text": "",
+      "time": 44.98333333333206,
+      "x": 2954.1016687805272,
+      "y": 515.6890023701353
+    },
+    {
+      "id": 91,
+      "type": "reload",
+      "text": "Rechargement du magasin.",
+      "time": 44.98333333333206
+    },
+    {
+      "id": 92,
+      "type": "step",
+      "text": "",
+      "time": 45.833333333332014,
+      "x": 2934.8914696661077,
+      "y": 685.2761281617211
+    },
+    {
+      "id": 93,
+      "type": "reload",
+      "text": "Magasin chargé : 12 coups. Réserve : 72.",
+      "time": 46.799999999998626
+    },
+    {
+      "id": 94,
+      "type": "shot",
+      "text": "",
+      "time": 46.799999999998626,
+      "x": 3042.909504590053,
+      "y": 508.98960242126395
+    },
+    {
+      "id": 95,
+      "type": "shot",
+      "text": "",
+      "time": 46.98333333333195,
+      "x": 3058.542882472429,
+      "y": 506.9569300658393
+    },
+    {
+      "id": 96,
+      "type": "shot",
+      "text": "",
+      "time": 47.16666666666527,
+      "x": 3074.5121720078937,
+      "y": 507.2884012208321
+    },
+    {
+      "id": 97,
+      "type": "step",
+      "text": "",
+      "time": 47.21666666666527,
+      "x": 3089.2126175879953,
+      "y": 674.6301135451185
+    },
+    {
+      "id": 98,
+      "type": "explosion",
+      "text": "",
+      "time": 47.33333333333193,
+      "x": 3678.79999999997,
+      "y": 476.66149918588485
+    },
+    {
+      "id": 99,
+      "type": "step",
+      "text": "",
+      "time": 48.58333333333186,
+      "x": 3091.4567627463175,
+      "y": 674.5138818680331
+    },
+    {
+      "id": 100,
+      "type": "shot",
+      "text": "",
+      "time": 48.666666666665186,
+      "x": 3163.337960714408,
+      "y": 518.5996808214588
+    },
+    {
+      "id": 101,
+      "type": "shot",
+      "text": "",
+      "time": 48.84999999999851,
+      "x": 3178.6959637697482,
+      "y": 518.7404011405556
+    },
+    {
+      "id": 102,
+      "type": "shot",
+      "text": "",
+      "time": 49.03333333333183,
+      "x": 3186.5206085443833,
+      "y": 517.9865101979076
+    },
+    {
+      "id": 103,
+      "type": "shot",
+      "text": "",
+      "time": 49.216666666665155,
+      "x": 3188.9813818898856,
+      "y": 517.6904717848009
+    },
+    {
+      "id": 104,
+      "type": "shot",
+      "text": "",
+      "time": 49.39999999999848,
+      "x": 3190.0658002964747,
+      "y": 518.7952464933381
+    },
+    {
+      "id": 105,
+      "type": "shot",
+      "text": "",
+      "time": 49.5833333333318,
+      "x": 3201.0718252880306,
+      "y": 521.0370070120126
+    },
+    {
+      "id": 106,
+      "type": "shot",
+      "text": "",
+      "time": 49.766666666665124,
+      "x": 3216.991276723476,
+      "y": 519.8679844804612
+    },
+    {
+      "id": 107,
+      "type": "explosion",
+      "text": "",
+      "time": 49.83333333333179,
+      "x": 4085.3666666666486,
+      "y": 669.1299899167718
+    },
+    {
+      "id": 108,
+      "type": "step",
+      "text": "",
+      "time": 49.96666666666511,
+      "x": 3245.7990464755076,
+      "y": 671.1721660657416
+    },
+    {
+      "id": 109,
+      "type": "step",
+      "text": "",
+      "time": 51.3333333333317,
+      "x": 3248.0330514784832,
+      "y": 671.1842573293927
+    },
+    {
+      "id": 110,
+      "type": "step",
+      "text": "",
+      "time": 52.716666666664956,
+      "x": 3402.3802191054665,
+      "y": 673.1215857712132
+    },
+    {
+      "id": 111,
+      "type": "radio",
+      "text": "Victime civile confirmée. Cette perte restera dans votre rapport.",
+      "time": 52.716666666664956
+    },
+    {
+      "id": 112,
+      "type": "step",
+      "text": "",
+      "time": 54.083333333331545,
+      "x": 3404.6118812671284,
+      "y": 673.1381857438463
+    },
+    {
+      "id": 113,
+      "type": "step",
+      "text": "",
+      "time": 55.449999999998134,
+      "x": 3558.9006358593188,
+      "y": 671.557768426845
+    },
+    {
+      "id": 114,
+      "type": "step",
+      "text": "",
+      "time": 56.83333333333139,
+      "x": 3561.221392096769,
+      "y": 671.4987535983362
+    },
+    {
+      "id": 115,
+      "type": "objective",
+      "text": "Dépôt de campagne consommé : réparations, jusqu’à trois magasins en réserve et deux roquettes.",
+      "time": 57.816666666664666
+    },
+    {
+      "id": 116,
+      "type": "step",
+      "text": "",
+      "time": 58.19999999999798,
+      "x": 3715.465725148773,
+      "y": 668.254526841673
+    },
+    {
+      "id": 117,
+      "type": "step",
+      "text": "",
+      "time": 59.58333333333123,
+      "x": 3717.8079183815116,
+      "y": 668.2458637875276
+    },
+    {
+      "id": 118,
+      "type": "step",
+      "text": "",
+      "time": 60.94999999999782,
+      "x": 3872.0419667962797,
+      "y": 672.674180763577
+    },
+    {
+      "id": 119,
+      "type": "step",
+      "text": "",
+      "time": 62.31666666666441,
+      "x": 3874.3295769507445,
+      "y": 672.8109307477739
+    },
+    {
+      "id": 120,
+      "type": "step",
+      "text": "",
+      "time": 63.699999999997665,
+      "x": 4028.6508843845663,
+      "y": 683.7587176823255
+    },
+    {
+      "id": 121,
+      "type": "step",
+      "text": "",
+      "time": 65.06666666666426,
+      "x": 4030.894953023931,
+      "y": 683.909329597982
+    },
+    {
+      "id": 122,
+      "type": "step",
+      "text": "",
+      "time": 66.44999999999752,
+      "x": 4185.237273607443,
+      "y": 690.2091351221148
+    },
+    {
+      "id": 123,
+      "type": "step",
+      "text": "",
+      "time": 67.8166666666641,
+      "x": 4187.471260931138,
+      "y": 690.2339407058045
+    },
+    {
+      "id": 124,
+      "type": "step",
+      "text": "",
+      "time": 69.1833333333307,
+      "x": 4341.758900384644,
+      "y": 689.1576353705321
+    },
+    {
+      "id": 125,
+      "type": "step",
+      "text": "",
+      "time": 70.56666666666395,
+      "x": 4344.080193707148,
+      "y": 689.127561551229
+    },
+    {
+      "id": 126,
+      "type": "step",
+      "text": "",
+      "time": 71.93333333333054,
+      "x": 4498.3242691158075,
+      "y": 689.3253209436715
+    },
+    {
+      "id": 127,
+      "type": "step",
+      "text": "",
+      "time": 73.31666666666379,
+      "x": 4500.6665864389815,
+      "y": 689.3700852537364
+    },
+    {
+      "id": 128,
+      "type": "step",
+      "text": "",
+      "time": 74.68333333333038,
+      "x": 4654.900575326685,
+      "y": 693.3802572043359
+    },
+    {
+      "id": 129,
+      "type": "step",
+      "text": "",
+      "time": 76.04999999999697,
+      "x": 4657.188214030099,
+      "y": 693.4273581834658
+    },
+    {
+      "id": 130,
+      "type": "objective",
+      "text": "Sami : « Poste quarante-deux, les filtres sont là. Vingt-quatre caisses. On vérifie le manifeste près du poste. »",
+      "time": 80.03333333333008
+    }
+  ],
+  "eventId": 130,
+  "entityId": 47,
+  "relays": [],
+  "convoy": {
+    "x": 4480,
+    "y": 657.01680247156,
+    "w": 112,
+    "h": 64,
+    "hp": 640,
+    "maxHp": 640,
+    "speed": 57,
+    "moving": false,
+    "arrived": true,
+    "label": "SAMI · FILTRES",
+    "cargo": 24,
+    "waitTime": 0
+  },
+  "civilians": [
+    {
+      "id": "civilian-1",
+      "x": 2760.516666666667,
+      "y": 676.2567433080457,
+      "w": 18,
+      "h": 34,
+      "hp": 28,
+      "alive": true,
+      "safe": true,
+      "fleeing": true
+    },
+    {
+      "id": "civilian-2",
+      "x": 3414.266666666874,
+      "y": 656.1984527898562,
+      "w": 18,
+      "h": 34,
+      "hp": -40,
+      "alive": false,
+      "safe": false,
+      "fleeing": true
+    },
+    {
+      "id": "civilian-3",
+      "x": 5002.41666666645,
+      "y": 662.9228991488262,
+      "w": 18,
+      "h": 34,
+      "hp": 50,
+      "alive": true,
+      "safe": false,
+      "fleeing": true
+    }
+  ],
+  "evidence": {
+    "id": "MI01-evidence",
+    "x": 4660,
+    "y": 645.4835337681812,
+    "collected": false,
+    "scanning": false,
+    "scanProgress": 0,
+    "scanTime": 2.4,
+    "label": "MANIFESTE DES FILTRES"
+  },
+  "pickups": [
+    {
+      "id": "supply-0",
+      "x": 2430,
+      "y": 668.9421226990013,
+      "type": "repair",
+      "collected": true
+    },
+    {
+      "id": "supply-1",
+      "x": 3650,
+      "y": 649.1859225440164,
+      "type": "repair",
+      "collected": true
+    }
+  ],
+  "decision": {
+    "active": false,
+    "resolved": false,
+    "choice": null,
+    "title": "Une rue absente du manifeste",
+    "body": "Les vingt-quatre caisses sont déchargées au poste. Sami relève un nom absent : « Les Cales-Basses n’ont rien sur la feuille. Ils ont pourtant le même air que nous. » Holt répond : « Votre secteur s’arrête à la borne quarante-deux. Restez dans votre ordre. » Vous pouvez clore la livraison prévue ou joindre le signalement au compte rendu. Aucun filtre supplémentaire n’est disponible aujourd’hui.",
+    "options": [
+      {
+        "id": "obey",
+        "label": "Clore le bordereau prévu"
+      },
+      {
+        "id": "defy",
+        "label": "Joindre le signalement de Sami"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "passage",
+      "label": "Franchir la conduite ; dalles disponibles au treuil",
+      "current": 1,
+      "target": 1,
+      "complete": true
+    },
+    {
+      "id": "escort",
+      "label": "Livrer les 24 caisses de filtres au poste",
+      "current": 4480,
+      "target": 4480,
+      "complete": true
+    },
+    {
+      "id": "evidence",
+      "label": "Après livraison, lire le manifeste avec Sami",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    },
+    {
+      "id": "order",
+      "label": "Classer le compte rendu de livraison",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    },
+    {
+      "id": "extract",
+      "label": "Rejoindre la rampe de retour au hangar",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    }
+  ],
+  "extraction": {
+    "x": 4930,
+    "y": 685.2485552621168,
+    "active": false,
+    "radius": 110
+  },
+  "stats": {
+    "kills": 7,
+    "shots": 47,
+    "hits": 22,
+    "steps": 59,
+    "collateral": 1,
+    "damageTaken": 0,
+    "evidence": 0,
+    "ordersObeyed": 0,
+    "ordersDefied": 0,
+    "score": 820
+  },
+  "interaction": "E · Vérifier le manifeste avec Sami",
+  "cameraShake": 0,
+  "lastStepGroup": 0,
+  "checkpointText": "Ordre reçu. Appuis au sol.",
+  "inputHeld": {
+    "stepA": false,
+    "stepB": false,
+    "interact": false,
+    "reload": false,
+    "repair": false
+  },
+  "notified": {
+    "sami": true,
+    "pipe": true,
+    "ambush": true
+  },
+  "nextStep": 0,
+  "bossReleased": false,
+  "campaign": {
+    "missionId": "MI01",
+    "phase": "delivery",
+    "route": "secured",
+    "pipeIntact": true,
+    "pipeDamage": 0,
+    "passageSecured": true,
+    "passageProgress": 1,
+    "passageWorking": false,
+    "filtersDelivered": true,
+    "filtersDeliveredCount": 24,
+    "manifestRead": false,
+    "noticeFiled": false,
+    "repairCost": 0,
+    "deliveryTime": 80.03333333333008,
+    "convoyIntegrity": 1,
+    "tutorial": {
+      "stepped": true,
+      "braced": true
+    }
+  }
+}

@@ -1,0 +1,550 @@
+{
+  "version": "0.15.7",
+  "createdUtc": "2026-11-16T20:40:14.173Z",
+  "type": "MI09 original PNG decoding, state diagnostics and public-input Canvas scenes",
+  "completed": true,
+  "nativeBrowserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "sourceHashes": {
+    "src/painted-route.mjs": "c939daa2d174c6ede3fdcccef364d71c82fce1f8244cadcfec43d308e30b1268",
+    "src/painted-route-layout.mjs": "cb7be733e16a4a444dc9ba2de3ef40d7fbb3e01ec5f7dc76eb8034f61b00d3c5",
+    "src/thyr-renderer.mjs": "3fb4421c5ebe1273cf8f55b837d45f762f730a493e9124e7b8beb32ae8b06a68",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "tools/index-painted-route.py": "38a14999b361b8f2e8834ddb9529bfa77ec4a60e762b94826181315fcf179e63",
+    "tools/test-painted-route.mjs": "33dc720af71159253675a46320e3ed8a6fd4f85fc8e9c5214caf68d7422e20fe",
+    "tests/helpers/mi09-driver.mjs": "9a5fc59291594f13491128f77b6cf15fd6768ec87308d7239ce723f4df5ab1a4"
+  },
+  "atlases": [
+    {
+      "id": "terminals",
+      "sha256": "dcb8ca83d5864ae88d73173eb814b974242368e67be95d74ab9fc96edfccc354",
+      "bytes": 782911,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "transparentFraction": 0.7884918182072551
+    },
+    {
+      "id": "barrier",
+      "sha256": "42d374a79c965f206fb91dd9e72190531e01216fba3c57fae80ed1a4b518b8ff",
+      "bytes": 1072045,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "transparentFraction": 0.6910047338151091
+    },
+    {
+      "id": "logistics",
+      "sha256": "32efd04a0ae5040110a018f501003fe16f7d3bfe3285fd47431979941537e1cf",
+      "bytes": 1439985,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "transparentFraction": 0.4906341175542888
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "terminals",
+      "name": "map-concealed",
+      "source": [
+        139,
+        12,
+        353,
+        286
+      ],
+      "target": [
+        -49.561604585,
+        -112.794326241,
+        99.123209169,
+        113.588652482
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 71824
+    },
+    {
+      "atlas": "terminals",
+      "name": "map-surveyed",
+      "source": [
+        766,
+        12,
+        353,
+        287
+      ],
+      "target": [
+        -49.561604585,
+        -112.791519435,
+        99.123209169,
+        113.583038869
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 71773
+    },
+    {
+      "atlas": "terminals",
+      "name": "terminal-idle",
+      "source": [
+        244,
+        318,
+        158,
+        299
+      ],
+      "target": [
+        -19.493506494,
+        -70.474576271,
+        38.987012987,
+        70.949152542
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 26882
+    },
+    {
+      "atlas": "terminals",
+      "name": "terminal-working",
+      "source": [
+        871,
+        318,
+        157,
+        299
+      ],
+      "target": [
+        -19.37012987,
+        -70.474576271,
+        38.74025974,
+        70.949152542
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 28319
+    },
+    {
+      "atlas": "terminals",
+      "name": "terminal-done",
+      "source": [
+        244,
+        632,
+        157,
+        299
+      ],
+      "target": [
+        -19.37012987,
+        -70.474576271,
+        38.74025974,
+        70.949152542
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 28440
+    },
+    {
+      "atlas": "terminals",
+      "name": "terminal-destroyed",
+      "source": [
+        849,
+        725,
+        185,
+        201
+      ],
+      "target": [
+        -22.824675325,
+        -47.220338983,
+        45.649350649,
+        47.694915254
+      ],
+      "usage": "reference",
+      "occupiedPixels": 20307
+    },
+    {
+      "atlas": "terminals",
+      "name": "marker-imperial",
+      "source": [
+        264,
+        956,
+        170,
+        289
+      ],
+      "target": [
+        -31.234939759,
+        -97.680701754,
+        62.469879518,
+        98.361403509
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 13052
+    },
+    {
+      "atlas": "terminals",
+      "name": "marker-local",
+      "source": [
+        820,
+        952,
+        233,
+        294
+      ],
+      "target": [
+        -34.593886463,
+        -97.668965517,
+        69.187772926,
+        98.337931034
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 18409
+    },
+    {
+      "atlas": "barrier",
+      "name": "pedestal",
+      "source": [
+        201,
+        24,
+        198,
+        375
+      ],
+      "target": [
+        -95.453608247,
+        -101.13028169,
+        34.701030928,
+        101.672535211
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 40114
+    },
+    {
+      "atlas": "barrier",
+      "name": "arm",
+      "source": [
+        636,
+        170,
+        595,
+        89
+      ],
+      "target": [
+        -13.056363636,
+        -8.282352941,
+        180.663636364,
+        16.752941176
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 33047
+    },
+    {
+      "atlas": "barrier",
+      "name": "pedestal-broken",
+      "source": [
+        198,
+        447,
+        200,
+        346
+      ],
+      "target": [
+        -93.525773196,
+        -96.431266846,
+        35.051546392,
+        96.991913747
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 35840
+    },
+    {
+      "atlas": "barrier",
+      "name": "arm-broken",
+      "source": [
+        627,
+        658,
+        603,
+        82
+      ],
+      "target": [
+        -82.195431472,
+        -43.076923077,
+        170.390862944,
+        44.153846154
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 28360
+    },
+    {
+      "atlas": "barrier",
+      "name": "control",
+      "source": [
+        143,
+        832,
+        317,
+        392
+      ],
+      "target": [
+        -28.357827476,
+        -52.268041237,
+        56.715654952,
+        52.536082474
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 93754
+    },
+    {
+      "atlas": "barrier",
+      "name": "control-broken",
+      "source": [
+        746,
+        833,
+        349,
+        390
+      ],
+      "target": [
+        -28.324637681,
+        -50.259067358,
+        56.649275362,
+        50.518134715
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 97416
+    },
+    {
+      "atlas": "logistics",
+      "name": "truck-normal",
+      "source": [
+        44,
+        54,
+        544,
+        312
+      ],
+      "target": [
+        -63.466666667,
+        -68.441558442,
+        126.933333333,
+        68.883116883
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 126645
+    },
+    {
+      "atlas": "logistics",
+      "name": "truck-damaged",
+      "source": [
+        670,
+        54,
+        548,
+        312
+      ],
+      "target": [
+        -63.933333333,
+        -68.441558442,
+        127.866666667,
+        68.883116883
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 127137
+    },
+    {
+      "atlas": "logistics",
+      "name": "truck-destroyed",
+      "source": [
+        34,
+        493,
+        562,
+        280
+      ],
+      "target": [
+        -65.566666667,
+        -61.376623377,
+        131.133333333,
+        61.818181818
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 109542
+    },
+    {
+      "atlas": "logistics",
+      "name": "wheel-reference",
+      "source": [
+        775,
+        447,
+        330,
+        332
+      ],
+      "target": [
+        -13.159509202,
+        -26.158536585,
+        26.319018405,
+        26.317073171
+      ],
+      "usage": "reference",
+      "occupiedPixels": 82196
+    },
+    {
+      "atlas": "logistics",
+      "name": "light-off",
+      "source": [
+        218,
+        846,
+        191,
+        381
+      ],
+      "target": [
+        -22.470588235,
+        -138.732095491,
+        44.941176471,
+        139.464190981
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 30133
+    },
+    {
+      "atlas": "logistics",
+      "name": "light-on",
+      "source": [
+        845,
+        845,
+        191,
+        382
+      ],
+      "target": [
+        -22.470588235,
+        -138.73015873,
+        44.941176471,
+        139.46031746
+      ],
+      "usage": "runtime",
+      "occupiedPixels": 30205
+    }
+  ],
+  "views": [
+    {
+      "file": "route-state-board.png",
+      "size": [
+        1920,
+        1700
+      ],
+      "sha256": "a49b5422877bd7c085d705875ffbd1a5cceb4eb8b76205b0db7aa0449a941127",
+      "diagnostic": true,
+      "states": 18,
+      "scope": "Explicit states and nominal sizes, not gameplay screenshots."
+    },
+    {
+      "file": "route-barrier-hinge.png",
+      "size": [
+        1920,
+        400
+      ],
+      "sha256": "c9fc5df2667cba090d058072a7ba91581a626dfcba885f6b388193c4206c5fcc",
+      "diagnostic": true,
+      "scope": "Five real opening fractions, same authored hinge [-76,-77]."
+    },
+    {
+      "file": "mi09-arrival.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "2fc5727e3857148c1124727a2c140b4c81d7916ff080bf0a570e2a762c0439a2",
+      "publicInputs": true,
+      "missionId": "MI09",
+      "walkerId": "WK09",
+      "elapsed": 0,
+      "playerX": 300,
+      "stateSha256": "92e5d7dda7e130467d72f37b22da890a7474b53a4d934f5c1b4e42917ae8028b"
+    },
+    {
+      "file": "mi09-contact-working.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "6cb472c2e223542a81b3ca518e073238eb162809e84f57b429f7da88e8268248",
+      "publicInputs": true,
+      "missionId": "MI09",
+      "walkerId": "WK09",
+      "elapsed": 2.8999999999999946,
+      "playerX": 471.4345994616693,
+      "stateSha256": "7e92f976d08f2e9cbaffc3872fdd86397c84a21f3b14f1df1e60b1695551b076"
+    },
+    {
+      "file": "mi09-map-surveyed.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "8e6aa27d621bbbebbcf7767cabc56234a3634c4baed9447c079f80c6bdc8e8ad",
+      "publicInputs": true,
+      "missionId": "MI09",
+      "walkerId": "WK09",
+      "elapsed": 41.63333333333225,
+      "playerX": 2622.6185349993375,
+      "stateSha256": "f8902b12a2d3e4913f0c39cf9602fd0d79bc6c4c8fd8e82e3b8df40e80211ed4"
+    },
+    {
+      "file": "mi09-barrier-working.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "29ec65c8ac44279ee827428aaceb66b41c527cb3234ab7dcbc95dfde8618d27d",
+      "publicInputs": true,
+      "missionId": "MI09",
+      "walkerId": "WK09",
+      "elapsed": 49.299999999998484,
+      "playerX": 2268.3783607392807,
+      "stateSha256": "d1c330b56d68ecc89c319ad3f1a6bf7298901d81d51854dabe913c5bdbae62ad"
+    },
+    {
+      "file": "mi09-truck-moving.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "c9be785778fed94a90094813d1816a7f2ab428b2d3eeee96ef425a49571cc54e",
+      "publicInputs": true,
+      "missionId": "MI09",
+      "walkerId": "WK09",
+      "elapsed": 114.3499999999948,
+      "playerX": 2995.3627525607158,
+      "stateSha256": "de7faa4e9f66cf993b0aa6183ca161313d1f1bed2e4b886553aecea1339353d8"
+    },
+    {
+      "file": "mi09-report-sent.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "470e4fb2acd039e96e6fff3cf62b43c2607f3a58eb87de3d986f395fa0b16a21",
+      "publicInputs": true,
+      "missionId": "MI09",
+      "walkerId": "WK09",
+      "elapsed": 160.41666666668647,
+      "playerX": 5744.247699560568,
+      "stateSha256": "cd5d84d1cd0f4685d1b8ace07beb14dc48cdd4406bb1d4fb2a80304b64fc38fd"
+    }
+  ],
+  "limitations": [
+    "Canvas/Skia reception is not browser interaction or human playtest.",
+    "State board inputs are explicitly diagnostic; mission scenes use unchanged public movement/action commands.",
+    "The original barrier PNG needs measured unequal row boundaries. No original pixels are changed.",
+    "The surveyed map keeps its painted frame, masks decorative town groups inside the screen with the concealed map texture, and draws only the two simulated homes.",
+    "The isolated truck wheel remains a reference, since all truck bodies contain both wheels. The ruined terminal is also a reference: MI09 job terminals have no simulated health.",
+    "No contacts, beings, jobs, evidence or saved state fields are added."
+  ],
+  "publicRun": {
+    "ticks": 9792,
+    "status": "won",
+    "scenes": [
+      "arrival",
+      "contact-working",
+      "map-surveyed",
+      "barrier-working",
+      "truck-moving",
+      "report-sent"
+    ],
+    "elapsed": 163.18333333335534,
+    "reportTransmitted": true,
+    "arrived": 4,
+    "logisticsArrived": true
+  },
+  "counts": {
+    "atlases": 3,
+    "cells": 20,
+    "runtimeCells": 18,
+    "referenceCells": 2,
+    "views": 8,
+    "publicScenes": 6
+  }
+}
