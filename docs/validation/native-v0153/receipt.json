@@ -1,0 +1,306 @@
+{
+  "schema": 1,
+  "version": "0.15.3",
+  "status": "passed-bounded-native-smoke",
+  "applicationCommit": "259351ed8fd460b040097c266fb32a82543723d2",
+  "applicationTree": "6ebf63194e986953958b081dab5085f9a961bd46",
+  "productionDeployment": "dpl_2hEB15dADhifa4xcPNdCfsyxd7Aa",
+  "productionReadyAt": "2026-11-16T12:17:39.626Z",
+  "url": "https://imperium-march.vercel.app/",
+  "environment": {
+    "browser": "Chrome partagé, cloud cdp",
+    "tabId": "99",
+    "automation": "cua_repl",
+    "interactionScope": "Interface visible, arbres d’accessibilité et captures. Aucun accès à l’état interne du jeu."
+  },
+  "startedCaptureUtc": "2026-11-16T12:19:35.683Z",
+  "finishedUtc": "2026-11-16T12:21:23.147Z",
+  "gitVerification": {
+    "method": "git fetch --filter=blob:none origin main puis comparaison du commit et de son arbre",
+    "commit": "259351ed8fd460b040097c266fb32a82543723d2",
+    "tree": "6ebf63194e986953958b081dab5085f9a961bd46"
+  },
+  "visibleVersion": "0.15.3",
+  "campaignReportsObserved": "0 / 14",
+  "hangar": {
+    "chassis": [
+      "WK01 Vigie",
+      "WK02 Caracal",
+      "WK05 Bastion",
+      "WK06 Arpenteur",
+      "WK09 Pèlerin",
+      "WK10 Cloporte"
+    ],
+    "visuallyChecked": 6,
+    "observations": "Six silhouettes peintes distinctes, fond transparent, assemblage visible sur le sol du hangar. Les six sélections sont reçues, mais seule celle d’Arpenteur est assignée."
+  },
+  "simulation": {
+    "name": "Le dernier bac",
+    "number": 2,
+    "chassis": "A-17 Arpenteur",
+    "observations": [
+      "Deployment from visible briefing succeeded",
+      "Right input changed the visible walker pose and convoy changed from waiting to moving",
+      "Convoy progress visibly changed from 3% to 5%",
+      "Mouse click changed the visible aim direction; ammunition remained 12/12, no successful shot claimed",
+      "Pause dialog appeared and Resume returned to the live battlefield",
+      "Left input changed the visible facing and leg pose",
+      "Final live tab is paused"
+    ],
+    "requestedInputDurationsMs": {
+      "right": [
+        1200,
+        3000
+      ],
+      "left": [
+        1200
+      ],
+      "click": [
+        250
+      ]
+    },
+    "limitations": [
+      "Input durations are requested values, not measured event timing",
+      "Visible in-game clock reached 00:01; this is a short smoke test, not a performance benchmark",
+      "No mission completed, no campaign save imported or reset, no human playtest",
+      "09-simulation-initial and 12-simulation-pause captures show a prior compositor frame and are not used as proof of their requested states"
+    ]
+  },
+  "consoleSample": {
+    "maxEntriesRequested": 20,
+    "entriesReturned": 20,
+    "allEntriesAreBrowserExtensionMetadataErrors": true,
+    "applicationOriginErrorsInThisSample": 0,
+    "scope": "Échantillon limité à vingt erreurs capturées ; ne constitue pas une recherche exhaustive des erreurs de l’application."
+  },
+  "screenshots": [
+    {
+      "file": "01-campaign-v0153.jpg",
+      "originalCaptureName": "01-campaign-v0153.jpg",
+      "capturedUtc": "2026-11-16T12:19:35.683Z",
+      "bytes": 198111,
+      "sha256": "ffbe6a6d6d2f241f5ecefe8764b6f8615dc58480adc723c0dff075efd6b3fc8d",
+      "dimensions": [
+        1348,
+        1669
+      ],
+      "format": "JPEG",
+      "bytesUnchanged": true
+    },
+    {
+      "file": "02-hangar-wk01-vigie.jpg",
+      "originalCaptureName": "02-hangar-wk01-vigie.jpg",
+      "capturedUtc": "2026-11-16T12:19:37.490Z",
+      "bytes": 123759,
+      "sha256": "88e13736a9e9202ce05fd9b746185083362486d5bb479ab72ec662f59c4e38c4",
+      "dimensions": [
+        1348,
+        1259
+      ],
+      "format": "JPEG",
+      "bytesUnchanged": true
+    },
+    {
+      "file": "03-hangar-wk02-caracal.jpg",
+      "originalCaptureName": "03-hangar-wk02-caracal.jpg",
+      "capturedUtc": "2026-11-16T12:19:51.932Z",
+      "bytes": 123996,
+      "sha256": "189d3611916c05576cae88685b3f04d722e71e73ec96c15924d7032c7f15c248",
+      "dimensions": [
+        1348,
+        1259
+      ],
+      "format": "JPEG",
+      "bytesUnchanged": true
+    },
+    {
+      "file": "04-hangar-wk05-bastion.jpg",
+      "originalCaptureName": "04-hangar-wk05-bastion.jpg",
+      "capturedUtc": "2026-11-16T12:19:54.301Z",
+      "bytes": 125411,
+      "sha256": "db37bc0b9b8c438608cb4447de9790c2bc3f51b71efd6a78de7d48412f54838b",
+      "dimensions": [
+        1348,
+        1259
+      ],
+      "format": "JPEG",
+      "bytesUnchanged": true
+    },
+    {
+      "file": "05-hangar-wk06-arpenteur.jpg",
+      "originalCaptureName": "05-hangar-wk06-arpenteur.jpg",
+      "capturedUtc": "2026-11-16T12:19:56.716Z",
+      "bytes": 130713,
+      "sha256": "0fa19d6f26e1e143a80bb82649f5c54ee711746f4cf0840b16a516a6605a07e6",
+      "dimensions": [
+        1348,
+        1259
+      ],
+      "format": "JPEG",
+      "bytesUnchanged": true
+    },
+    {
+      "file": "06-hangar-wk09-pelerin.jpg",
+      "originalCaptureName": "06-hangar-wk09-pelerin.jpg",
+      "capturedUtc": "2026-11-16T12:19:59.120Z",
+      "bytes": 129025,
+      "sha256": "2aabbb94c72ab8168fe24cb20171396a236dc48ac57fcaf65079f8e5bd258bae",
+      "dimensions": [
+        1348,
+        1259
+      ],
+      "format": "JPEG",
+      "bytesUnchanged": true
+    },
+    {
+      "file": "07-hangar-wk10-cloporte.jpg",
+      "originalCaptureName": "07-hangar-wk10-cloporte.jpg",
+      "capturedUtc": "2026-11-16T12:20:01.568Z",
+      "bytes": 126592,
+      "sha256": "4427d1042a6f5739a14f26599cfd3c054e88c13fa5f49e497af2c08c544ffe6d",
+      "dimensions": [
+        1348,
+        1259
+      ],
+      "format": "JPEG",
+      "bytesUnchanged": true
+    },
+    {
+      "file": "08-simulation-briefing.jpg",
+      "originalCaptureName": "08-simulation-briefing.jpg",
+      "capturedUtc": "2026-11-16T12:20:19.715Z",
+      "bytes": 53636,
+      "sha256": "07e1982ad838eaad8b0f1bcd59c2c782f225f9ec460796894a4d9b1b52318c16",
+      "dimensions": [
+        1363,
+        936
+      ],
+      "format": "JPEG",
+      "bytesUnchanged": true
+    },
+    {
+      "file": "10-simulation-after-movement.jpg",
+      "originalCaptureName": "10-simulation-after-movement.jpg",
+      "capturedUtc": "2026-11-16T12:20:33.199Z",
+      "bytes": 87395,
+      "sha256": "d7b044a2c9569c9f88807e8e377b7866df27139223feaa2cae84145061a36f47",
+      "dimensions": [
+        1363,
+        936
+      ],
+      "format": "JPEG",
+      "bytesUnchanged": true
+    },
+    {
+      "file": "11-simulation-walk-and-aim.jpg",
+      "originalCaptureName": "11-simulation-walk-and-fire.jpg",
+      "capturedUtc": "2026-11-16T12:20:45.291Z",
+      "bytes": 88596,
+      "sha256": "382e96b79e95156df5b27aef2b81f61ca858805271d783c2d37052d63d790944",
+      "dimensions": [
+        1363,
+        936
+      ],
+      "format": "JPEG",
+      "bytesUnchanged": true
+    },
+    {
+      "file": "13-simulation-paused-confirmed.jpg",
+      "originalCaptureName": "13-simulation-paused-confirmed.jpg",
+      "capturedUtc": "2026-11-16T12:21:00.006Z",
+      "bytes": 32912,
+      "sha256": "d1acd2bbd4ecf9ee5582f66c3ecbf7a1d228f1d9bf9349a97661c13dfc6ded2c",
+      "dimensions": [
+        1363,
+        936
+      ],
+      "format": "JPEG",
+      "bytesUnchanged": true
+    },
+    {
+      "file": "14-simulation-resumed.jpg",
+      "originalCaptureName": "14-simulation-resumed.jpg",
+      "capturedUtc": "2026-11-16T12:21:02.288Z",
+      "bytes": 87660,
+      "sha256": "17da0cb73be38328bad655ae43f90537d3745bfa1403dae2a61f7a589970bb67",
+      "dimensions": [
+        1363,
+        936
+      ],
+      "format": "JPEG",
+      "bytesUnchanged": true
+    }
+  ],
+  "accessibilityEvidence": [
+    {
+      "file": "03-hangar-wk02-caracal.txt",
+      "bytes": 3568,
+      "sha256": "d974caed7552bbaea2097788dc08e4bb86de62a72506455e6bfce036b897b5d8"
+    },
+    {
+      "file": "04-hangar-wk05-bastion.txt",
+      "bytes": 3560,
+      "sha256": "84f8ab2bd64f4db1e4b1896f8f3ac87b5c44e23bd89201b8faa601d5e155762f"
+    },
+    {
+      "file": "05-hangar-wk06-arpenteur.txt",
+      "bytes": 3592,
+      "sha256": "0567f77fb6535c162676d50dbf8dfde9eede4c1084478dad82b6fc47779b5269"
+    },
+    {
+      "file": "06-hangar-wk09-pelerin.txt",
+      "bytes": 3586,
+      "sha256": "875ab8e797fa73a729c94c3f71471f27a5d48197313db89f12a2e6e4f5e366f4"
+    },
+    {
+      "file": "07-hangar-wk10-cloporte.txt",
+      "bytes": 3586,
+      "sha256": "1072c99eef067b1b6959f992bc4744adf12c6959855658424f9570e117167152"
+    },
+    {
+      "file": "08-simulation-briefing.txt",
+      "bytes": 1265,
+      "sha256": "296235604982fef814a0ea410ebbe2ab188ba49b4df34f19eb13641e69e73a4b"
+    },
+    {
+      "file": "11-simulation-walk-and-aim.txt",
+      "bytes": 2746,
+      "sha256": "2900e11ab8a6584ef01c16da2362d4696bc166b0f7d7a8d9875ae8a23fa30565"
+    },
+    {
+      "file": "12-simulation-pause.txt",
+      "bytes": 669,
+      "sha256": "0d08ea073b182234f8613f674fd2b8e333a1e9b40b476de2af8fc8b860819549"
+    },
+    {
+      "file": "14-simulation-resumed.txt",
+      "bytes": 2746,
+      "sha256": "33c585676bb822337762c6f9556cd3924a3601553764825125937b87fe39acab"
+    },
+    {
+      "file": "15-final-paused.txt",
+      "bytes": 669,
+      "sha256": "0d08ea073b182234f8613f674fd2b8e333a1e9b40b476de2af8fc8b860819549"
+    }
+  ],
+  "excludedScreenshots": [
+    {
+      "file": "09-simulation-initial.jpg",
+      "reason": "La capture montre encore le briefing alors que l’accessibilité a déjà changé. Elle ne prouve pas le champ de bataille."
+    },
+    {
+      "file": "12-simulation-pause.jpg",
+      "reason": "La capture montre la dernière trame du jeu alors que l’accessibilité indique déjà la pause. La capture 13 reçoit visuellement le dialogue."
+    }
+  ],
+  "limitations": [
+    "Contrôle visuel et fonctionnel court, pas de mission achevée.",
+    "Les durées de touches sont des requêtes ; elles ne mesurent ni le temps effectivement maintenu ni les performances.",
+    "L’horloge visible atteint 00:01 ; aucune mesure de fluidité ou de cadence n’est déduite.",
+    "Le clic modifie la visée, mais les munitions restent à 12/12 ; aucun tir réussi n’est revendiqué.",
+    "Pas de réception mobile, de manette physique ni de session humaine.",
+    "Les 108 parcours automatisés sont ceux du DOM modélisé ; ils ne deviennent pas 108 parcours Chrome.",
+    "Le reçu local release-v0153/receipt.json reste antérieur à cette observation et conserve nativeBrowserExecuted:false."
+  ],
+  "finalTabState": "Simulation 02 en pause, onglet marqué comme résultat consultable."
+}

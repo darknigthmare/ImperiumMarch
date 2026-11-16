@@ -37,6 +37,8 @@ Le [rapport QA](QA_PAINTED_WALKERS.md) reçoit les **96 cellules**, les ancres, 
 
 Les contrôles globaux de simulation, catalogue, interface, SVG/Canvas et construction sont consignés dans ce rapport. L’édition autonome contient **39 modules et les 23 atlas**, sans téléchargement complémentaire. La publication distante est reçue séparément dans le [suivi de déploiement](DEPLOYMENT.md).
 
+La [PR #3](https://github.com/darknigthmare/ImperiumMarch/pull/3) est fusionnée et la production sert la 0.15.3. Les CI de la PR et de `main` ont réussi. Le [contrôle Chrome après publication](validation/native-v0153/receipt.json) reçoit les six hangars peints et un essai court de l’Arpenteur dans « Le dernier bac », avec marche, visée et pause/reprise. Il ne revendique ni tir confirmé, ni mission achevée, ni réception humaine.
+
 ## Bible et suite
 
 La [Bible Excel](ORDRE_DE_CENDRE_Bible.xlsx) conserve **1 007 identifiants, 21 onglets, 126 formules et tous ses statuts**. Dix-huit fiches enregistrent le lot et ses limites. Les 133 critères initiaux sont préservés ; les détails de comparaison, formules et aperçus sont dans le [complément Bible](BIBLE_V15_3.md).

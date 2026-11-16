@@ -58,7 +58,15 @@ Les cycles complets AS06–AS09, les changements de hauteur, le Pèlerin à cinq
 
 ## Navigateur
 
-Les contrôles Canvas, le DOM modélisé et l’analyse statique ne sont pas une réception native. Le blocage de lancement du Chromium local consigné en 0.15.2 reste historique ; cette tranche ne relance pas ce chemin bloqué. Une réception du site public après publication doit être décrite dans un reçu 0.15.3 distinct, avec le parcours effectivement observé.
+Les contrôles Canvas, le DOM modélisé et l’analyse statique gardent leur portée propre. Le blocage de lancement du Chromium local consigné en 0.15.2 reste historique ; cette tranche ne relance pas ce chemin bloqué. Le reçu local de prépublication conserve `nativeBrowserExecuted:false` : l’observation suivante est une preuve ultérieure distincte.
+
+Après le passage READY de la production sur `259351ed8fd460b040097c266fb32a82543723d2`, **Chrome partagé** a chargé le site public et son pied de page **0.15.3**. Le [reçu natif](validation/native-v0153/receipt.json) conserve douze JPEG originaux, leurs empreintes et dix relevés d’accessibilité. Les six sélections du hangar ont été examinées : Vigie, Caracal, Bastion, Arpenteur, Pèlerin et Cloporte apparaissent avec leurs pièces peintes, sans rectangle opaque autour de leurs silhouettes.
+
+L’Arpenteur a ensuite été assigné puis déployé depuis le briefing de **Simulation 02 — Le dernier bac**. Les entrées droite et gauche produisent des poses différentes et un retournement visible ; le convoi passe de « vous attend » à « en mouvement », avec une progression affichée de 3 à 5 %. Le changement de visée, le dialogue de pause, la reprise et le retour en pause sont observés. La [vue après reprise](validation/native-v0153/14-simulation-resumed.jpg) montre les sprites du marcheur, du convoi et des combattants dans le navigateur.
+
+L’essai est court : l’horloge du jeu affiche 00:01. Les durées de touches demandées ne sont pas des mesures de temps effectivement joué ou de fluidité. Un clic change la visée, mais le magasin reste à 12/12 : **aucun tir réussi n’est revendiqué**. Aucun objectif final, import ou remise à zéro de sauvegarde, contrôle mobile, manette physique ou essai humain n’est reçu. Deux captures de transition, où le compositeur montre encore l’écran précédent, sont écartées de la preuve visuelle. L’échantillon limité de console contient vingt erreurs de métadonnées d’une extension du navigateur ; aucune conclusion exhaustive sur les erreurs applicatives n’en est déduite.
+
+Les CI de la PR et de `main` ont également réussi sous Node 22.23.4. Le [reçu de publication](validation/v0153-publication.json) et le [suivi de déploiement](DEPLOYMENT.md) les rattachent à l’arbre livré ; ils ne transforment pas les 108 parcours de DOM modélisé en parcours Chrome.
 
 ## Reproduction
 

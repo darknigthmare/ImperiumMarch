@@ -1,5 +1,19 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Publication 0.15.3 accomplie
+
+La [PR #3](https://github.com/darknigthmare/ImperiumMarch/pull/3) est fusionnée sur `main` au commit **`259351ed8fd460b040097c266fb32a82543723d2`**. Son arbre **`6ebf63194e986953958b081dab5085f9a961bd46`** est identique au snapshot local testé **`c859be17875305cdfdb9d6b7c0dd42bbc2006d7c`**. Le lot modifie 148 chemins, sans suppression, et ajoute les six marcheurs peints au jeu existant.
+
+La [CI de la PR](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43864382509), sur le HEAD exact `70bf235a074b4090f44e9bf5ceab56eb8ff14ae0`, et la [CI de main](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43865206068), sur le commit fusionné, ont toutes deux réussi sous **Node 22.23.4** : **706 tests, 174 cas SVG/Canvas, les trois lots d’atlas, 108 parcours du DOM modélisé et les deux constructions**. Le [reçu de publication](validation/v0153-publication.json) rattache ces résultats à leurs commits.
+
+L’HTML de **61 591 567 octets** a été reconstruit par la [run de matérialisation](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43863942197), puis comparé au SHA-256 local **`706d5593a1cd0dabafdc04e2d01fe34ea9e5dccf163c69a669d6bebfe6fd68f3`**. Seul ce fichier a été commité par cette étape ; la workflow temporaire a été retirée avant la comparaison de l’arbre final et la fusion. Les images conservent leurs octets originaux.
+
+Vercel a reçu le commit fusionné exact dans le déploiement **`dpl_2hEB15dADhifa4xcPNdCfsyxd7Aa`**, cible **production**, état **READY le 16 novembre 2026 à 12:17:39 UTC**. L’alias [imperium-march.vercel.app](https://imperium-march.vercel.app/) lui est associé. La configuration, les domaines et les protections restent inchangés.
+
+Chrome partagé a ensuite affiché la **0.15.3**, les quatorze ordres de campagne et les **six châssis peints dans le hangar**. Un déploiement de l’**Arpenteur dans Simulation 02 — Le dernier bac** reçoit les poses de marche, le changement de direction et de visée, le passage du convoi de l’attente au mouvement, puis la pause et la reprise. Le [reçu natif et ses douze captures](validation/native-v0153/receipt.json) précisent la portée : l’horloge visible atteint 00:01, aucun tir réussi ni mission achevée n’est revendiqué. Ce contrôle court ne constitue ni une mesure de performance ni un essai humain.
+
+Ce suivi documentaire ajoute les preuves de publication et de navigateur. Il conserve les octets de l’application, des atlas, de l’HTML autonome et de la Bible de la livraison reçue. Les reçus antérieurs, dont celui de prépublication locale, gardent leur périmètre historique.
+
 ## Préparation de publication 0.15.3
 
 La tranche locale du 16 novembre 2026 ajoute six atlas de pièces peintes pour les six marcheurs existants : 96 cellules, soit 23 atlas et 228 cellules au total. Le [rapport QA](QA_PAINTED_WALKERS.md) reçoit 706 tests, 108 parcours du DOM modélisé, 174 cas SVG/Canvas et les trois lots de PNG. Les 19 vues de marcheurs chargent les 23 atlas ; la Bible garde 1007 fiches et ses statuts.
