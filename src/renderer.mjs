@@ -15,6 +15,9 @@ import { cerbereWeaponPose } from './cerbere-weapon-pose.mjs';
 import { drawCerbere } from './painted-cerbere.mjs';
 import { drawPaintedTrainCar, trainCouplerPose } from './painted-transport.mjs';
 import { drawPaintedNacreBoat, drawPaintedNacreAmbulance, drawPaintedNacreEquipment } from './painted-nacre.mjs';
+import { drawPaintedNacreSitePart, drawPaintedNacreSiteGate, drawPaintedNacreSiteGateControl,
+  drawPaintedNacreSitePump, drawPaintedNacreSiteValve, drawPaintedNacreSiteLatch, drawPaintedNacreSiteWinch,
+  drawPaintedNacreSiteDeck, drawPaintedNacreSiteDepartureRamp, nacreSiteDamageState } from './painted-nacre-sites.mjs';
 
 const W = 1600, H = 900;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -239,9 +242,9 @@ export class Renderer {
     for (const gate of d.locks) if (this.visible(gate.x, 380)) {
       const box = departureGateBounds(gate), mech = gate.mechanism;
       line(c, mech.x + 24, mech.y - 18, gate.x - 38, gate.y - 170, mech.destroyed ? '#7a6a55' : '#c3b683', 2);
-      drawProductionPart(c, { part: 'gate', x: gate.x, y: gate.y, width: gate.w, height: gate.h,
+      if (!drawPaintedNacreSiteGate(c, gate, { leafY: box.y })) drawProductionPart(c, { part: 'gate', x: gate.x, y: gate.y, width: gate.w, height: gate.h,
         state: gate.destroyed ? 'destroyed' : gate.hp < gate.maxHp * .5 ? 'damaged' : gate.working ? 'working' : 'normal', progress: gate.opening });
-      drawProductionPart(c, { part: 'gate-mechanism', x: mech.x, y: mech.y, width: mech.w, height: mech.h,
+      if (!drawPaintedNacreSiteGateControl(c, mech, gate.progress)) drawProductionPart(c, { part: 'gate-mechanism', x: mech.x, y: mech.y, width: mech.w, height: mech.h,
         state: mech.destroyed ? 'destroyed' : gate.working ? 'working' : 'normal', progress: gate.progress });
       const color = gate.destroyed || mech.destroyed ? '#e1a178' : gate.working ? '#f0cf8d' : '#c4d5ae';
       circle(c, mech.x, mech.y - 34, 4, color, '#1b3c40', 1.5);
@@ -267,7 +270,8 @@ export class Renderer {
     }
     for (const [index, origin] of d.origins.entries()) if (this.visible(origin.x, 140)) {
       const y = terrainAt(origin.x, s.planetId);
-      drawProductionPart(c, { part: index === 1 ? 'house-b' : 'house-a', x: origin.x, y: y - 48, width: 108, height: 96 });
+      if (!drawPaintedNacreSitePart(c, { part: index === 1 ? 'house-b' : 'house-a', x: origin.x, y, width: 108, height: 96 }))
+        drawProductionPart(c, { part: index === 1 ? 'house-b' : 'house-a', x: origin.x, y: y - 48, width: 108, height: 96 });
       c.fillStyle = '#163940'; c.fillRect(origin.x - 30, y - 93, 60, 17);
       label(c, index === 0 ? 'CHENAL' : index === 1 ? 'DIGUE' : 'SOINS', origin.x, y - 81, 8, '#d1d0a6', 'center');
       circle(c, origin.x + 42, y - 70, 3, origin.resolved ? '#b2d8b4' : '#e1bb77');
@@ -292,15 +296,20 @@ export class Renderer {
       circle(c, settings.serviceX, y - 28, 6, d.vann.contacted && d.mara.contacted ? '#bce1ae' : '#d4b57b');
     }
     for (const building of [d.serviceShelter, d.shelter, d.refuge]) if (this.visible(building.x, 230)) {
-      drawProductionPart(c, { part: 'refuge', x: building.x, y: building.y, width: building.w, height: building.h,
+      const paintedRefuge = drawPaintedNacreSitePart(c, { part: 'refuge', x: building.x, y: building.y + building.h / 2, width: building.w, height: building.h });
+      if (!paintedRefuge) drawProductionPart(c, { part: 'refuge', x: building.x, y: building.y, width: building.w, height: building.h,
         state: building === d.refuge ? d.refugeRadio.contacted ? 'receiving' : 'normal' : building.prepared ? 'receiving' : 'normal' });
+      else circle(c, building.x, building.y - building.h / 2 + 11, 3,
+        (building === d.refuge ? d.refugeRadio.contacted : building.prepared) ? '#c7ddb6' : '#637c70', '#25464b', 1);
       const color = building === d.refuge ? '#c7ddb6' : '#e2c792';
       label(c, building === d.refuge ? 'REFUGE EN AVAL' : building === d.serviceShelter ? 'RELAIS D’AMENÉE' : 'ACCUEIL D’AVAL', building.x, building.y - building.h / 2 - 10, 9, color, 'center');
     }
-    for (const x of [...settings.boatXs, ...settings.refugeDockXs]) if (this.visible(x, 160))
-      drawProductionPart(c, { part: 'dock', x, y: terrainAt(x, s.planetId) + 16, width: 240, height: 88 });
+    for (const x of [...settings.boatXs, ...settings.refugeDockXs]) if (this.visible(x, 160)) {
+      if (!drawPaintedNacreSitePart(c, { part: 'dock', x, y: terrainAt(x, s.planetId) + 16, width: 240, height: 88 }))
+        drawProductionPart(c, { part: 'dock', x, y: terrainAt(x, s.planetId) + 16, width: 240, height: 88 });
+    }
     for (const ramp of d.ramps) if (this.visible(ramp.x, 120)) {
-      drawProductionPart(c, { part: 'ramp', x: ramp.x, y: ramp.y, width: ramp.w, height: ramp.h,
+      if (!drawPaintedNacreSiteDepartureRamp(c, ramp)) drawProductionPart(c, { part: 'ramp', x: ramp.x, y: ramp.y, width: ramp.w, height: ramp.h,
         state: ramp.destroyed ? 'destroyed' : ramp.prepared ? 'prepared' : ramp.working ? 'working' : 'normal', progress: ramp.progress });
       if (ramp.working) {
         c.fillStyle = '#193b40'; c.fillRect(ramp.x - 40, ramp.y - 26, 80, 4);
@@ -497,11 +506,14 @@ export class Renderer {
       c.fillStyle = '#24474d'; c.fillRect(left, ramp.y + 2, ramp.w, ramp.h);
       if (ramp.prepared) {
         for (let x = left; x < right; x += 20) {
+          if (!drawPaintedNacreSiteDeck(c, x, terrainAt(x, s.planetId), x + 18, terrainAt(x + 18, s.planetId))) {
           line(c, x, terrainAt(x, s.planetId), x + 18, terrainAt(x + 18, s.planetId), '#afc7a7', 8);
           line(c, x + 2, terrainAt(x, s.planetId) + 6, x + 16, terrainAt(x, s.planetId) + 6, '#5b7e71', 2);
+          }
         }
       } else {
-        plate(c, [[ramp.x - 43, ramp.y - 2], [ramp.x - 43, ramp.y - 34], [ramp.x + 43, ramp.y - 34], [ramp.x + 43, ramp.y - 2]], '#9ea78b', '#3a5b59');
+        if (!drawPaintedNacreSitePart(c, { part: 'ramp-folded', x: ramp.x, y: ramp.y - 2 }))
+          plate(c, [[ramp.x - 43, ramp.y - 2], [ramp.x - 43, ramp.y - 34], [ramp.x + 43, ramp.y - 34], [ramp.x + 43, ramp.y - 2]], '#9ea78b', '#3a5b59');
         for (let x = left; x <= right; x += 35) line(c, x - 7, ramp.y + 3, x + 7, ramp.y + 3, ochre, 3);
       }
       label(c, `RAMPE ${facts.route === 'main' ? 'PRINCIPALE' : 'SECONDAIRE'}`, ramp.x, ramp.y + 49, 10, ramp.prepared ? mint : ochre, 'center');
@@ -511,11 +523,14 @@ export class Renderer {
       const x = reception.x, y = reception.y + reception.h / 2, half = reception.w / 2;
       const selected = facts.destination === reception.kind, color = reception.kind === 'clinic' ? mint : '#d3bd94';
       c.save(); c.globalAlpha = facts.destination === 'unselected' || selected ? 1 : .5;
+      const paintedReception = drawPaintedNacreSitePart(c, { part: reception.kind, x, y, width: reception.w, height: reception.h });
+      if (!paintedReception) {
       plate(c, [[x - half, y], [x - half, y - reception.h], [x + half, y - reception.h], [x + half, y]], '#8ea38d', '#30575a');
       plate(c, [[x - half - 10, y - reception.h], [x - half + 4, y - reception.h - 17], [x + half - 4, y - reception.h - 17], [x + half + 10, y - reception.h]], '#a3b29a', '#486d67');
       c.fillStyle = '#163039'; c.fillRect(x - 29, y - 85, 58, 85);
-      line(c, x - 29, y - 85, x + 29, y - 85, reception.ready ? color : '#728e7c', 4);
       c.fillStyle = color; c.fillRect(x - 4, y - 127, 8, 25); c.fillRect(x - 13, y - 118, 26, 8);
+      }
+      line(c, x - 29, y - 85, x + 29, y - 85, reception.ready ? color : '#728e7c', 4);
       const title = reception.kind === 'imperial' ? 'POSTE MÉDICAL IMPÉRIAL' : facts.context.homesUninhabitable > 0 ? 'PONTON MÉDICAL DE REPLI' : 'ACCUEIL CIVIL DU QUAI';
       label(c, title, x, y - reception.h - 32, 11, color, 'center');
       label(c, selected ? reception.ready ? `${facts.patientsArrived} / 4 PATIENTS ARRIVÉS` : reception.working ? `PRÉPARATION ${Math.round(reception.progress * 100)} %` : 'E · PRÉPARER L’ACCUEIL' : 'DESTINATION NON RETENUE', x, y - reception.h - 49, 9, color, 'center');
@@ -678,11 +693,13 @@ export class Renderer {
     const shelterX = settings.shelterX, shelterGround = terrainAt(shelterX, s.planetId);
     if (this.visible(shelterX, 170)) {
       // Arrivals disappear through this doorway; sheltered people are no longer exposed actors.
+      if (!drawPaintedNacreSitePart(c, { part: 'quay-shelter', x: shelterX, y: shelterGround })) {
       plate(c, [[shelterX - 71, shelterGround], [shelterX - 71, shelterGround - 102], [shelterX + 71, shelterGround - 102], [shelterX + 71, shelterGround]], '#6e8c80', '#24484d');
       plate(c, [[shelterX - 80, shelterGround - 100], [shelterX - 62, shelterGround - 118], [shelterX + 65, shelterGround - 118], [shelterX + 80, shelterGround - 100]], '#adbaa2', '#4c716c');
       c.fillStyle = '#132c35'; c.fillRect(shelterX - 23, shelterGround - 74, 46, 74);
       line(c, shelterX - 24, shelterGround - 74, shelterX - 24, shelterGround, mint, 3);
       c.fillStyle = mint; c.fillRect(shelterX + 36, shelterGround - 86, 8, 24); c.fillRect(shelterX + 28, shelterGround - 78, 24, 8);
+      }
       label(c, 'ABRI DU QUAI OUEST', shelterX, shelterGround - 138, 11, '#c5e1ce', 'center');
       label(c, `${facts.residentsSafe} / ${facts.residentsTotal} ARRIVÉS`, shelterX, shelterGround - 122, 10, mint, 'center');
       label(c, 'MARA · RADIO', shelterX - 47, shelterGround - 18, 7, '#b3cabc', 'center');
@@ -691,6 +708,9 @@ export class Renderer {
       if (!this.visible(house.x, 230)) continue;
       const half = house.w / 2, ground = house.y + house.h / 2, top = ground - house.h;
       c.save();
+      const paintedHouse = drawPaintedNacreSitePart(c, { part: house.id === 'house-white-mark' ? 'house-a' : 'house-b',
+        state: nacreSiteDamageState(house, .75), x: house.x, y: ground, width: house.w, height: house.h });
+      if (!paintedHouse) {
       if (house.destroyed) {
         poly(c, [[house.x - half, ground], [house.x - half, ground - 33], [house.x - 48, ground - 16], [house.x - 21, ground - 61], [house.x + 5, ground - 24], [house.x + 43, ground - 44], [house.x + half, ground - 21], [house.x + half, ground]], '#3d5251', '#889a86', 2);
         for (let i = 0; i < 5; i++) line(c, house.x - 66 + i * 29, ground - 5, house.x - 59 + i * 29, ground - 27 - hash(house.x + i) * 25, '#b0ab8a', 3);
@@ -711,6 +731,7 @@ export class Renderer {
           line(c, house.x - 10, top + 26, house.x + 6, ground - 76, '#273e42', 3);
           line(c, house.x + 6, ground - 76, house.x - 2, ground - 40, '#273e42', 3);
         }
+      }
       }
       // The painted prescription and basin surface share the simulated flood threshold (.65).
       const markY = ground - 126 * .65, waterY = ground - 126 * site.waterLevel;
@@ -748,6 +769,9 @@ export class Renderer {
       }
       const supportGround = terrainAt(panel.supportX, s.planetId);
       label(c, 'ZONE D’APPUI', panel.supportX, supportGround + 35, 10, panel.supported ? mint : '#cabb8d', 'center');
+      const paintedPanel = drawPaintedNacreSitePart(c, { part: 'panel', state: nacreSiteDamageState(panel),
+        x: panel.x, y: panel.y, width: panel.w, height: panel.h });
+      if (!paintedPanel) {
       if (!panel.destroyed) {
         const half = panel.w / 2, top = panel.y - panel.h / 2;
         plate(c, [[panel.x - half, ground], [panel.x - half, top], [panel.x + half, top], [panel.x + half, ground]], '#9ca98c', '#345552');
@@ -763,6 +787,13 @@ export class Renderer {
       } else {
         poly(c, [[panel.x - 45, ground], [panel.x - 37, ground - 24], [panel.x - 9, ground - 8], [panel.x + 13, ground - 41], [panel.x + 43, ground - 12], [panel.x + 45, ground]], '#3b5351', '#9e9d7f', 3);
         line(c, panel.x - 27, ground - 9, panel.x + 24, ground - 54, '#647d70', 8);
+      }
+      } else if (!panel.destroyed) {
+        if (!drawPaintedNacreSiteLatch(c, panel)) {
+          circle(c, panel.x - panel.w / 2 + 5, panel.y - 8, 10, '#203d43', panel.locked ? mint : ochre, 2);
+          line(c, panel.x - panel.w / 2 - 4, panel.y - 8, panel.x - panel.w / 2 + (panel.locked ? 16 : 4), panel.y - (panel.locked ? 8 : 22), panel.locked ? mint : ochre, 4);
+        } else circle(c, panel.x - panel.w / 2 + 5, panel.y - 8, 10, null, panel.locked ? mint : ochre, 1.5);
+        if (panel.flash) glow(c, panel.x, panel.y, 100, '#ffd8ac55');
       }
       if (panel.supported) {
         const attachmentX = s.player.x + s.player.width * .38, attachmentY = s.player.y + 32;
@@ -788,15 +819,18 @@ export class Renderer {
     const auxiliary = site.auxiliary;
     if (this.visible(auxiliary.x, 120)) {
       const x = auxiliary.x, y = auxiliary.y, half = auxiliary.w / 2;
+      const paintedPump = drawPaintedNacreSitePump(c, auxiliary, t, { reducedMotion: this.combatReducedMotion });
+      if (!paintedPump) {
       plate(c, [[x - half, y + auxiliary.h / 2], [x - half, y - auxiliary.h / 2], [x + half, y - auxiliary.h / 2], [x + half, y + auxiliary.h / 2]], auxiliary.destroyed ? '#53635c' : '#88977d', '#2f4c4b');
       circle(c, x - 6, y - 2, 23, '#1b353c', auxiliary.active ? mint : '#9b9f7d', 3);
       c.save(); c.translate(x - 6, y - 2); c.rotate(auxiliary.active ? t * 3.4 : .4);
       for (let i = 0; i < 4; i++) { c.rotate(TAU / 4); poly(c, [[3, -4], [17, -8], [20, -1], [5, 7]], auxiliary.destroyed ? '#414a44' : '#afae86', '#203a3e', 1); }
       c.restore(); circle(c, x - 6, y - 2, 6, '#809c88');
+      }
       line(c, x + 18, y + 8, x + 30, y + 8, '#1e363b', 9);
       line(c, x + 30, y + 8, x + 37, y + 31, '#1e363b', 7);
       c.fillStyle = auxiliary.connected ? '#adceb0' : '#9a8661'; c.fillRect(x - 30, y - 29, 13, 7);
-      if (auxiliary.destroyed) { line(c, x - half + 8, y - 24, x + 18, y + 22, '#1b2f33', 6); }
+      if (auxiliary.destroyed && !paintedPump) { line(c, x - half + 8, y - 24, x + 18, y + 22, '#1b2f33', 6); }
       if (auxiliary.flash) glow(c, x, y, 60, '#ffdbad44');
     }
     const valve = site.valve;
@@ -810,6 +844,7 @@ export class Renderer {
         poly(c, [[arrowX, bottom - 20], [arrowX + side * 11, bottom - 15], [arrowX, bottom - 10]], active ? mint : '#8eaa92');
         label(c, side < 0 ? 'DÉRIVATION' : 'QUAI PRIVÉ', valve.x + side * 93, bottom + 17, 8, active ? mint : '#b0c2ab', 'center');
       }
+      if (!drawPaintedNacreSiteValve(c, valve, t, { reducedMotion: this.combatReducedMotion })) {
       plate(c, [[valve.x - half, bottom], [valve.x - half, top], [valve.x + half, top], [valve.x + half, bottom]], '#809d88', '#294a4d');
       c.fillStyle = '#172f39'; c.fillRect(valve.x - 22, top + 8, 44, 17);
       for (let i = 0; i < 4; i++) line(c, valve.x - 17, top + 12 + i * 3, valve.x + 15, top + 12 + i * 3, facts.manifestRead ? mint : ochre, 1);
@@ -819,6 +854,7 @@ export class Renderer {
         const a = angle + i * TAU / 3;
         line(c, valve.x, valve.y + 11, valve.x + Math.cos(a) * 16, valve.y + 11 + Math.sin(a) * 16, valve.completed ? mint : ochre, 3);
       }
+      } else circle(c, valve.x, valve.y + 11, 20, null, valve.completed ? mint : ochre, 1.5);
     }
   }
 
@@ -917,8 +953,10 @@ export class Renderer {
         if (bank.bridgeRaised) {
           const supportY = terrainAt(x, s.planetId);
           line(c, x, supportY + 36, x, supportY - 3, '#28494b', 8);
+          if (!drawPaintedNacreSiteDeck(c, x - 13, terrainAt(x - 13, s.planetId) - 3, x + 14, terrainAt(x + 14, s.planetId) - 3)) {
           line(c, x - 13, terrainAt(x - 13, s.planetId) - 3, x + 14, terrainAt(x + 14, s.planetId) - 3, '#d1ceaa', 8);
           line(c, x - 10, terrainAt(x - 10, s.planetId) - 7, x + 10, terrainAt(x + 10, s.planetId) - 7, '#f1dfb2', 2);
+          }
         }
       }
       const sx = bank.stationX, sy = terrainAt(sx, s.planetId);
@@ -932,10 +970,12 @@ export class Renderer {
       if (!w.released) { line(c, w.x, w.y + 3, b.x, b.y - 15, '#172e36', 5); line(c, w.x, w.y, b.x, b.y - 18, '#ceb878', 2); }
       const g = terrainAt(w.x, s.planetId);
       line(c, w.x - 16, g, w.x - 11, w.y + 20, '#3a5e63', 10); line(c, w.x + 16, g, w.x + 11, w.y + 20, '#3a5e63', 10);
+      if (!drawPaintedNacreSiteWinch(c, w)) {
       c.fillStyle = w.destroyed ? '#283d42' : '#5a7974'; c.fillRect(w.x - w.w / 2, w.y - w.h / 2, w.w, w.h);
       c.strokeStyle = w.released ? '#83cbb9' : '#e4bd7e'; c.lineWidth = 2; c.strokeRect(w.x - w.w / 2, w.y - w.h / 2, w.w, w.h);
       circle(c, w.x, w.y, 13, '#233f45', w.released ? '#83cbb9' : '#e4bd7e', 2);
       line(c, w.x - 8, w.y, w.x + 8, w.y, '#d2c49d', 3);
+      } else if (!w.destroyed) circle(c, w.x, w.y, 14, null, w.released ? '#83cbb9' : '#e4bd7e', 1.5);
       if (w.flash) { c.fillStyle = '#ffe4ad88'; c.fillRect(w.x - w.w / 2, w.y - w.h / 2, w.w, w.h); }
     }
     for (const b of [...site.barges, site.boat]) {

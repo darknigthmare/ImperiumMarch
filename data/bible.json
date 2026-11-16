@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.15.5",
+    "version": "0.15.6",
     "date": "2026-11-16",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs, tous les statuts et les 133 critères initiaux sont conservés. Treize atlas de transport, Nacre et relais ajoutent 80 cellules, dont 77 utilisées au rendu et trois références; le total peint atteint 45 atlas et 386 cellules. Pièces et états ne créent aucun individu ni règle. Roues, appuis, dégâts, arrivées et décisions suivent la simulation existante. Factions complètes, autres environnements, animations finales et réception humaine restent ouverts.",
+    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs, tous les statuts et les 133 critères initiaux sont conservés. 13 atlas ajoutent 75 cellules utilisées au rendu des infrastructures de Nacre, du terrain chimique MI10 et des appareils et nids MI11; le total peint atteint 58 atlas et 461 cellules. Aucun individu, état ou règle supplémentaire n’est créé. Marée, surfaces d’appui, ouvertures, dégâts, pollution et interventions gardent leur simulation. Autres environnements, animations finales et réception humaine restent ouverts.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Livrable partiel disponible. L’onglet Prototype et les reçus de production précisent son intégration, sa portée et les critères encore ouverts.",
@@ -5287,7 +5287,7 @@
           "id": "AS17",
           "category": "Décors",
           "deliverable": "Kit Nacre",
-          "spec": "Mer en plusieurs plans, marées, digues, quais, villages, mangroves et silhouettes navales. Le kit vectoriel 0.9 de marée et refuge est conservé. 0.15.5 : six atlas/30 cellules pour ambulance, matériel et quatre embarcations; 29 servent au rendu, une balise récupérée reste référence. Coques vides et occupants séparés suivent les états existants. Mer en plusieurs plans, mangroves, matières animées et environnement complet restent à finir.",
+          "spec": "Mer en plusieurs plans, marées, digues, quais, villages, mangroves et silhouettes navales. Kit vectoriel 0.9 conservé. Les six atlas/30 cellules 0.15.5 d’ambulance, matériel et bateaux restent disponibles, dont une balise de référence. 0.15.6 ajoute 5 atlas/30 cellules de panneaux, hydraulique, maisons, accueils, quais, rampes et treuils. Eau, ouvertures et personnes restent séparées des matières peintes. Mer en plusieurs plans, mangroves, animations finales et réception humaine restent ouvertes.",
           "acceptance": "Niveau d’eau et zones praticables correspondent au gameplay.",
           "priority": "P0",
           "status": "Prototype"
@@ -5296,7 +5296,7 @@
           "id": "AS18",
           "category": "Décors",
           "deliverable": "Kit Thyr",
-          "spec": "Canopée, colonnes-mères, hameaux, racines et pistes. Exports conservés : 0.10, onze composants/35 SVG/deux planches; 0.11, six composants chimiques/24 SVG; 0.12, six composants vallée/26 SVG/deux planches. 0.15.4 : huit atlas/62 cellules pour supports, faune, végétation et Leth. 0.15.5 : MI12 ajoute trois atlas/30 cellules de Prétoire, mâts et consoles, dont deux références. Les états existants restent distincts des dessins; art final, écologie générale et réception humaine sont ouverts.",
+          "spec": "Canopée, colonnes-mères, hameaux, racines et pistes. Kits conservés : 0.10, onze composants/35 SVG/deux planches; 0.11, six composants chimiques/24 SVG; 0.12, six composants vallée/26 SVG/deux planches. Les huit atlas/62 cellules de Thyr 0.15.4 et trois atlas/30 cellules du relais 0.15.5 restent disponibles. 0.15.6 ajoute 5 atlas/24 cellules chimiques et 3 atlas/21 cellules d’appareils et nids MI11. Les états restent simulés; art final, écologie générale et réception humaine sont ouverts.",
           "acceptance": "Arbres porteurs raccordés aux bâtiments; aucune porte flottante.",
           "priority": "P0",
           "status": "Prototype"
@@ -5404,7 +5404,7 @@
           "id": "AS30",
           "category": "Production",
           "deliverable": "Registre de provenance",
-          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. Les manifestes historiques sont conservés. 0.15.5 documente treize atlas/80 cellules de transport, Nacre et relais : prompts, PNG originaux inchangés, dimensions, empreintes et usages. Les 77 cellules au rendu et trois références restent distinguées. Les champs historiques inconnus restent inconnus; PR26 reste ouvert.",
+          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. Les manifestes historiques restent conservés. 0.15.6 documente 13 atlas/75 cellules pour Nacre, MI10 et MI11 : prompts, sorties PNG retenues inchangées, dimensions, empreintes et usages. Les 75 cellules sont utilisées au rendu. Cases vides et sources non retenues ne sont pas comptées. Les champs historiques inconnus restent inconnus; PR26 reste ouvert.",
           "acceptance": "Tout asset livré possède une entrée; aucun média de référence embarqué sans autorisation.",
           "priority": "P0",
           "status": "Prototype"
@@ -5476,7 +5476,7 @@
           "id": "AS38",
           "category": "Production",
           "deliverable": "Manifestes d’intégration",
-          "spec": "Registre de provenance, pivots, échelle, usage, variantes et dépendances. Rigs et manifestes antérieurs conservés. 0.15.5 : treize atlas/80 cellules avec rectangles, ancres et distinction usage/référence. Roues, appuis réels du Prétoire, composants, deux caisses et quilles suivent leurs positions existantes; les conditions d’apparition restent actives. Repli vectoriel disponible. Chaque future substitution garde sa réception propre.",
+          "spec": "Registre de provenance, pivots, échelle, usage, variantes et dépendances. Rigs et manifestes antérieurs conservés. 0.15.6 : 13 atlas/75 cellules avec rectangles et ancres mesurés. Matières de Nacre, pièces chimiques et appareils MI11 suivent leurs objets existants; eau, progression, personnes et conditions d’apparition demeurent distinctes. Les contacts et ouvertures restent ceux de la simulation. Repli vectoriel disponible; chaque future substitution garde sa réception propre.",
           "acceptance": "Un asset peut être remplacé sans perdre collision, position du son ou identité de la source.",
           "priority": "P1",
           "status": "Prototype"
@@ -5530,7 +5530,7 @@
           "id": "AS44",
           "category": "Nacre",
           "deliverable": "Repères de marée et matières des bancs",
-          "spec": "Graduations fixes, eau mobile, vase découverte et tablier posé lisibles avec les trois familles de marcheurs. L’animation suit le niveau simulé. 0.9 : Repère de marée vectoriel normal/dégradé avec ancres de niveau. Limite : Matières de vase/tablier et lecture du risque sans seule couleur en combat restent à finaliser.",
+          "spec": "Graduations fixes, eau mobile, vase découverte et tablier posé lisibles avec les trois familles de marcheurs. Le repère de marée vectoriel 0.9 et ses ancres de niveau sont conservés. 0.15.6 peint les matières des rampes et platelages; aucun nouveau repère de marée n’est ajouté. Eau et indications de submersion suivent le niveau simulé. Matières animées de vase et compréhension du risque sans seule couleur en combat restent à recevoir.",
           "acceptance": "Lecture sans dépendre seulement de la couleur. Le contact sûr et le risque submergé restent visibles dans un cadrage de combat.",
           "priority": "P0",
           "status": "Prototype"
@@ -5539,7 +5539,7 @@
           "id": "AS45",
           "category": "Nacre",
           "deliverable": "Barges Saisie et Rive-Courte",
-          "spec": "Deux coques aux usages identifiables, treuils séparés, documents et poste radio. Le kit vectoriel 0.9 est conservé. 0.15.5 ajoute quatre cellules peintes de Saisie et six de Rive-Courte; les coques vides suivent les dégâts existants, avec treuils et constats toujours distincts. Les dessins ne créent ni équipage ni traction supplémentaire. Réception intégrée des équipages et animations finales encore ouvertes.",
+          "spec": "Deux coques aux usages identifiables, treuils séparés, documents et poste radio. Les quatre cellules de Saisie et six de Rive-Courte 0.15.5 sont conservées. 0.15.6 ajoute les matières des treuils et quais; câbles, libération et dommages gardent leurs états existants. Les coques restent vides, avec occupants simulés séparés. Aucun équipage ni effort de traction n’est ajouté. Réception intégrée des équipages et animations finales encore ouvertes.",
           "acceptance": "Une coque préservée et un treuil coupé se reconnaissent. Une épave ne montre pas de personnel vivant ni une radio disponible.",
           "priority": "P1",
           "status": "Prototype"
@@ -5548,7 +5548,7 @@
           "id": "AS46",
           "category": "Nacre",
           "deliverable": "Dock et bateau de passage",
-          "spec": "Accès, défenses, marques de niveau, cabine de ferry et aire d’accueil. Le dock vectoriel est conservé. 0.15.5 : quatre cellules peintes du bateau de passage suivent attente, déplacement et dégâts existants; les douze passagers restent issus du bilan simulé. Débarquement lisible, animation individuelle et absence de chevauchement doivent encore être observés en réception humaine.",
+          "spec": "Accès, défenses, marques de niveau, cabine de ferry et aire d’accueil. Les quatre cellules du bateau de passage 0.15.5 restent disponibles. 0.15.6 ajoute les matières des quais et des accès; eau, attente, déplacement, dégâts et douze passagers restent déterminés par la simulation. Les dessins ne créditent aucune arrivée. Débarquement lisible, animation individuelle et absence de chevauchement restent à observer en réception humaine.",
           "acceptance": "Le bateau atteint le dock sans se superposer au quai. Une personne comptée à l’arrivée possède une sortie lisible.",
           "priority": "P1",
           "status": "Prototype"
@@ -5566,7 +5566,7 @@
           "id": "AS48",
           "category": "Nacre",
           "deliverable": "Digue, panneau et pompe de MI06",
-          "spec": "Panneau articulé avec points d’appui, verrous, canal de dérivation, conduites et seuils sur façades. Techniciens avec trajet d’intervention. 0.9 : Panneau, pompe et vanne vectoriels avec variantes et points d’ancrage. Limite : Lecture intégrée du soutien/verrou/pression et gestes détaillés des techniciens restent à finir.",
+          "spec": "Panneau articulé avec points d’appui, verrous, canal de dérivation, conduites et seuils sur façades. Le kit vectoriel 0.9 est conservé. 0.15.6 ajoute panneau et pièces hydrauliques peints selon leurs états existants; soutien, verrouillage, pression et progression restent distincts des images. Les techniciens gardent leurs trajets simulés. Lecture humaine du chantier et gestes détaillés des intervenants restent à recevoir.",
           "acceptance": "Le soutien, le verrouillage et la perte de pression se comprennent depuis la vue jouable.",
           "priority": "P1",
           "status": "Prototype"
@@ -5575,7 +5575,7 @@
           "id": "AS49",
           "category": "Nacre",
           "deliverable": "Ambulance inspectable de MI07",
-          "spec": "Véhicule avec postes de soin, accès patient, attaches de balise et dégâts. 0.15.5 : quatre cellules d’ambulance, dont une roue séparée, et six de matériel; cinq de matériel sont utilisées, la balise récupérée reste référence. Après retrait, seule l’attache existante demeure. Les six occupants et les progrès de soin restent séparés. Accès des six châssis, gestes sanitaires et finition des personnes restent à recevoir.",
+          "spec": "Ambulance, accès patient, balise et dégâts. Les quatre cellules d’ambulance et six de matériel 0.15.5 restent disponibles, avec roue séparée et balise récupérée de référence. 0.15.6 ajoute les matières de la rampe et des postes d’accueil. Les six occupants, soins et transferts restent séparés; aucun personnel n’est peint dans les bâtiments. Accès des six châssis, gestes sanitaires et finition des personnes restent à recevoir.",
           "acceptance": "Inspection et transfert possèdent une zone d’approche sûre pour chaque châssis. La balise ne flotte pas hors de la carrosserie.",
           "priority": "P1",
           "status": "Prototype"
@@ -5584,7 +5584,7 @@
           "id": "AS50",
           "category": "Nacre",
           "deliverable": "Portes d’Aval et départ de MI08",
-          "spec": "Deux portes, pression, refuge et départs distincts. Le kit vectoriel 0.9 est conservé, ainsi que ses dix-sept scènes Canvas et sa continuation Chrome historiques. 0.15.5 : Rive-Courte et Veille d’Aval reçoivent six cellules chacune; coques vides, occupants et passerelles restent séparés, avec positions et arrivées simulées. Les gestes finaux et la compréhension humaine restent ouverts; les dessins seuls ne prouvent aucune arrivée.",
+          "spec": "Deux portes, pression, refuge et départs distincts. Kit vectoriel 0.9 et ses réceptions historiques conservés, ainsi que les six cellules de Rive-Courte et six de Veille d’Aval 0.15.5. 0.15.6 ajoute vantaux, mécanismes, quais, rampes et bâtiments d’accueil peints. Ouverture continue, pression, préparation et personnes gardent leurs états simulés. Les images ne prouvent aucune arrivée; gestes finaux et compréhension humaine restent ouverts.",
           "acceptance": "Les portes, personnes et bateaux visibles correspondent à leurs états persistants. Aucune foule générique ne remplace le bilan.",
           "priority": "P1",
           "status": "Prototype"
@@ -5602,7 +5602,7 @@
           "id": "AS52",
           "category": "Nacre",
           "deliverable": "Maisons des Trois-Vannes",
-          "spec": "Deux façades originales, seuils visibles, variantes sèche, exposée, inondée et détruite; accès au secours séparé de la silhouette de tir. 0.9 : Deux façades originales avec variantes sèche, exposée, inondée et détruite. Limite : Contrôler occupations/évacuations dans le renderer intégré et achever les animations de secours.",
+          "spec": "Deux façades originales, seuils visibles et accès au secours séparé de la silhouette de tir. Les variantes vectorielles 0.9 sont conservées. 0.15.6 ajoute six cellules peintes pour les deux maisons; eau, exposition et seuils restent indiqués selon les niveaux simulés. Les façades ne contiennent aucun occupant peint : évacuation, logement perdu et pertes de personnes demeurent séparés. Animations de secours et compréhension humaine restent ouvertes.",
           "acceptance": "La maison vide ne paraît pas encore habitée après une évacuation. Logement perdu et personnes perdues ne partagent pas la même animation.",
           "priority": "P1",
           "status": "Prototype"
@@ -5842,7 +5842,7 @@
         {
           "id": "PR12",
           "workstream": "Art prototype",
-          "deliverable": "Identité visuelle, environnements et silhouettes lisibles. Réception partielle 0.15.5 : treize atlas transport/Nacre/relais et 80 cellules, portant le total peint à 45 atlas et 386 cellules. Le nouveau lot distingue 77 cellules au rendu et trois références. Ces pièces et états ne sont pas autant d’unités ou de cycles complets. Factions complètes, autres biomes, animations finales et réception humaine restent ouverts.",
+          "deliverable": "Identité visuelle, environnements et silhouettes lisibles. Réception partielle 0.15.6 : 13 atlas/75 cellules de Nacre, du terrain chimique MI10 et des appareils MI11, portant le total peint à 58 atlas et 461 cellules. Toutes les nouvelles cellules servent au rendu des états existants. Ces pièces et états ne sont pas autant d’unités ou de cycles complets. Autres biomes, animations finales et réception humaine restent ouverts.",
           "depends": "AS01–AS04; AS16–AS18",
           "acceptance": "Captures à plusieurs résolutions, contraste et unités identifiables.",
           "priority": "P0",
@@ -6508,7 +6508,7 @@
         {
           "id": "PR86",
           "workstream": "MI10 — terrain chimique",
-          "deliverable": "Trois cuves, copies matérielles, fuite, prélèvement défendu, forces privées, collecteur, canaux et rapport.",
+          "deliverable": "Trois cuves, copies matérielles, fuite, prélèvement défendu, forces privées, collecteur, canaux et rapport. 0.15.6 ajoute 5 atlas/24 cellules pour six familles du terrain : cuves, prélèvement, registre, vannes, canaux et maisons. Pollution, masses, provenance et opérations gardent leur simulation. Le kit vectoriel reste disponible; les peintures ne terminent aucun critère humain.",
           "depends": "MI10; AS18; SY99–SY103; NA79–NA82",
           "acceptance": "Deux conduites par opérations physiques sur six châssis. PT02 conditionnée par matière et provenance; pollution et destruction persistent.",
           "priority": "P0",
@@ -6535,7 +6535,7 @@
         {
           "id": "PR89",
           "workstream": "MI11 — vallée résonante",
-          "deliverable": "Trois écoutes, corniche et ponte, avertissements et traduction, Leth, échange protégé, émetteur, rapport et extraction.",
+          "deliverable": "Trois écoutes, corniche et ponte, avertissements et traduction, Leth, échange protégé, émetteur, rapport et extraction. 0.15.6 ajoute 3 atlas/21 cellules pour les appareils et nids. Les huit cellules de Leth 0.15.4 restent conservées. Contacts physiques, dommages, décisions, consentement et pièces acquises gardent leurs règles. Réception graphique et compréhension humaine restent distinctes.",
           "depends": "MI11; PN06; AS13; AS18; SY105–SY110; NA83–NA86",
           "acceptance": "Deux conduites par opérations physiques, six châssis, sources et pertes persistantes. TE01 n’est acquise qu’après témoignage et pièces réelles.",
           "priority": "P0",
@@ -8608,7 +8608,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.15.5. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "description": "Portée présente dans le code de la version 0.15.6. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -8858,9 +8858,9 @@
           "id": "PX24",
           "link": "PR12; AS01",
           "name": "Direction visuelle initiale",
-          "implemented": "Illustration de titre, panorama Vesper, silhouettes articulées et ambiances distinctes. Treize atlas transport/Nacre/relais ajoutent 80 cellules aux lots antérieurs : 45 atlas, 386 cellules au total. Découpe, ancres, 77 usages de rendu et trois références du nouveau lot sont documentés; chargement asynchrone et repli vectoriel.",
+          "implemented": "Illustration de titre, panorama Vesper, silhouettes articulées et ambiances distinctes. 13 atlas de Nacre, du terrain chimique et des appareils MI11 ajoutent 75 cellules aux lots antérieurs : 58 atlas/461 cellules au total. Les 75 cellules nouvelles ont un usage de rendu documenté. PNG retenus inchangés, découpes et ancres mesurées; chargement asynchrone et repli vectoriel.",
           "limits": "Art au stade Prototype. Pièces, états et références ne constituent ni unités supplémentaires ni cycles complets. Factions complètes, autres biomes, écologie générale et campagne entièrement peinte restent à produire. Réceptions graphique, navigateur et humaine distinctes.",
-          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-transport.mjs ; src/painted-nacre.mjs ; src/painted-relay.mjs",
+          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-nacre-sites.mjs ; src/painted-chemical.mjs ; src/painted-voice.mjs",
           "status": "Prototype"
         },
         {
@@ -9155,9 +9155,9 @@
           "id": "PX57",
           "link": "SY54; AS43",
           "name": "Deux passerelles sûres",
-          "implemented": "Pose locale de quatre secondes; un tablier achevé offre une traversée permanente au-dessus de son banc.",
+          "implemented": "Pose locale de quatre secondes; un tablier achevé offre une traversée permanente au-dessus de son banc. La matière peinte 0.15.6 suit ce tablier existant; progression et surface d’appui restent déterminées par la simulation.",
           "limits": "Pas de placement libre, d’inventaire de ponts ou de génie complet. Les positions et longueurs sont écrites pour MI05.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/renderer.mjs ; src/painted-nacre-sites.mjs",
           "status": "Prototype"
         },
         {
@@ -9200,9 +9200,9 @@
           "id": "PX62",
           "link": "SY27; PR59",
           "name": "Lecture du chenal",
-          "implemented": "Eau, bancs, tabliers, treuils, barges et bateau suivent leur état simulé. Ordre, interactions et bilan exposent les faits disponibles.",
-          "limits": "Rendu procédural et UI de prototype. Art final AS44–AS47 et compréhension humaine QA95 restent ouverts.",
-          "path": "src/renderer.mjs; src/main.mjs",
+          "implemented": "Eau, bancs, tabliers, treuils, barges et bateau suivent leur état simulé. Les coques peintes 0.15.5 sont complétées en 0.15.6 par les matières des tabliers, treuils et quais. Eau, câbles, passagers et progrès restent séparés. Ordre, interactions et bilan exposent les faits disponibles.",
+          "limits": "Peinture et interface de prototype. Repères précis conservés; matières animées, équipages, audio local AS47 et compréhension humaine QA95 restent ouverts.",
+          "path": "src/renderer.mjs ; src/main.mjs ; src/painted-nacre.mjs ; src/painted-nacre-sites.mjs",
           "status": "Prototype"
         },
         {
@@ -9218,9 +9218,9 @@
           "id": "PX64",
           "link": "SY05; SY60",
           "name": "Soutien et verrouillage",
-          "implemented": "Une posture de travail avec appuis et ancrage maintient le panneau pendant son intervention. Le verrouillage accompli reste distinct du soutien temporaire.",
+          "implemented": "Une posture de travail avec appuis et ancrage maintient le panneau pendant son intervention. Le verrouillage accompli reste distinct du soutien temporaire. Le panneau peint 0.15.6 garde son point d’appui existant; les indications de soutien et d’intervention restent dynamiques.",
           "limits": "Dispositif local et positions écrites pour MI06. Pas de manipulation libre d’objets ni de génie universel par points d’attache.",
-          "path": "src/simulation.mjs; src/renderer.mjs",
+          "path": "src/simulation.mjs ; src/renderer.mjs ; src/painted-nacre-sites.mjs",
           "status": "Prototype"
         },
         {
@@ -9245,9 +9245,9 @@
           "id": "PX67",
           "link": "SY66; SY70; SY71",
           "name": "Circuit réellement exécuté",
-          "implemented": "Le réglage impérial et la dérivation commandent les travaux disponibles. La mission se poursuit après décision; les pompes et le quartier gardent leur état réel.",
+          "implemented": "Le réglage impérial et la dérivation commandent les travaux disponibles. La mission se poursuit après décision; les pompes et le quartier gardent leur état réel. Les pièces hydrauliques peintes 0.15.6 suivent ces états; pression, trajet de l’eau et progrès ne sont pas déduits des images.",
           "limits": "Un réseau local de référence. Pas de pression distribuée à toute la planète, de fluides volumétriques ni de modèle général de rupture.",
-          "path": "src/simulation.mjs; src/content.mjs",
+          "path": "src/simulation.mjs ; src/content.mjs ; src/renderer.mjs ; src/painted-nacre-sites.mjs",
           "status": "Prototype"
         },
         {
@@ -9272,9 +9272,9 @@
           "id": "PX70",
           "link": "SY27; PR68; AS51",
           "name": "Lire le chantier",
-          "implemented": "Rendu et interface exposent soutien, intervenants, pompes, maisons et réserve; le retour distingue personnes, logements, dépense de sortie et cumul officiel.",
-          "limits": "Art procédural et interface de prototype. Finition AS48/AS52–AS56 et compréhension humaine QA115 restent ouvertes.",
-          "path": "src/renderer.mjs; src/main.mjs",
+          "implemented": "Rendu et interface exposent soutien, intervenants, pompes, maisons et réserve. 0.15.6 peint le panneau, l’hydraulique et les deux façades; niveaux d’eau, seuils, habitants et secours restent séparés. Le retour distingue personnes, logements, dépense de sortie et cumul officiel.",
+          "limits": "Peinture et interface de prototype. Finition AS48/AS52–AS56, gestes de secours, audio et compréhension humaine QA115 restent ouverts.",
+          "path": "src/renderer.mjs ; src/main.mjs ; src/painted-nacre-sites.mjs",
           "status": "Prototype"
         },
         {
@@ -9317,9 +9317,9 @@
           "id": "PX75",
           "link": "SY77; SY78; PR72",
           "name": "Rampe et technicien",
-          "implemented": "Verrou, étai et fatigue de MI06 déterminent l’accès. Un contact radio de 2,5 s avec un survivant réduit le travail de rampe de huit à quatre secondes.",
+          "implemented": "Verrou, étai et fatigue de MI06 déterminent l’accès. Un contact radio de 2,5 s avec un survivant réduit le travail de rampe de huit à quatre secondes. La rampe peinte 0.15.6 conserve les dimensions et états de cet accès; aucune aide supplémentaire n’est créée.",
           "limits": "Deux routes locales et aide par liaison. Aucun technicien physique supplémentaire ni modèle général de charge des quais.",
-          "path": "src/simulation.mjs; src/campaign.mjs",
+          "path": "src/simulation.mjs ; src/campaign.mjs ; src/renderer.mjs ; src/painted-nacre-sites.mjs",
           "status": "Prototype"
         },
         {
@@ -9344,18 +9344,18 @@
           "id": "PX78",
           "link": "SY27; PR76; AS57",
           "name": "Lire l’arrêt et le transfert",
-          "implemented": "Rendu et interface exposent les étapes, le constat disponible, la route et l’issue sanitaire. Quatre cellules peintes d’ambulance, dont une roue séparée, suivent carrosserie, dégâts et contacts; six occupants, soins et transferts restent représentés séparément.",
+          "implemented": "Rendu et interface exposent étapes, constat, route et issue sanitaire. Les quatre cellules d’ambulance 0.15.5, dont la roue séparée, restent disponibles. 0.15.6 peint rampe et postes d’accueil; six occupants, soins et transferts restent représentés séparément, selon leurs états réels.",
           "limits": "Peinture partielle et interface de prototype; finition des gestes sanitaires, audio et compréhension humaine QA137 encore ouverts.",
-          "path": "src/renderer.mjs ; src/main.mjs ; src/painted-nacre.mjs",
+          "path": "src/renderer.mjs ; src/main.mjs ; src/painted-nacre.mjs ; src/painted-nacre-sites.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX79",
           "link": "MI08; SY62; PR62",
           "name": "Deux portes sous pression",
-          "implemented": "Amenée et passage ont leurs commandes, états, mécanismes, vantaux, pression, fatigue et manœuvres. Courant calculé progressivement.",
+          "implemented": "Amenée et passage ont leurs commandes, états, mécanismes, vantaux, pression, fatigue et manœuvres. Courant calculé progressivement. Les pièces peintes 0.15.6 suivent les mécanismes existants; ouverture continue et progression restent représentées à partir de la simulation.",
           "limits": "Hydraulique locale simplifiée; aucun modèle général de fluides ni résistance complète des quais.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/renderer.mjs ; src/painted-nacre-sites.mjs",
           "status": "Prototype"
         },
         {
@@ -9380,9 +9380,9 @@
           "id": "PX82",
           "link": "SY87; NA64",
           "name": "Accueil local et avaries",
-          "implemented": "Rappel des personnes encore présentes, niche des techniciens, constats des supports perdus et obturation de secours.",
+          "implemented": "Rappel des personnes encore présentes, niche des techniciens, constats des supports perdus et obturation de secours. Les bâtiments d’accueil peints 0.15.6 restent vides : occupants, préparation et arrivées sont issus de la simulation, sans crédit supplémentaire donné par le dessin.",
           "limits": "Aucune reconstruction par dialogue; un départ déjà acquis ne peut être rappelé à travers le niveau.",
-          "path": "src/simulation.mjs",
+          "path": "src/simulation.mjs ; src/renderer.mjs ; src/painted-nacre-sites.mjs",
           "status": "Prototype"
         },
         {
@@ -9497,27 +9497,27 @@
           "id": "PX95",
           "link": "SY100; NA80; QA173",
           "name": "Écoulement chimique local",
-          "implemented": "Matière émise, retenue, en transit et livrée séparées. Deux canaux et deux maisons gardent pollution, dégâts et habitabilité.",
+          "implemented": "Matière émise, retenue, en transit et livrée séparées. Deux canaux et deux maisons gardent pollution, dégâts et habitabilité. Les cellules peintes 0.15.6 suivent les états des cuves, canaux, vannes et maisons; eau et indicateurs de pollution restent pilotés par le modèle local.",
           "limits": "Modèle local déterministe; aucune hydrologie générale ou population déduite. Rouvrir l’eau ne retire pas une pollution déjà acquise.",
-          "path": "src/chemical-simulation.mjs; src/chemical-renderer.mjs",
+          "path": "src/chemical-simulation.mjs ; src/chemical-renderer.mjs ; src/painted-chemical.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX96",
           "link": "SY99; SY101; NA79; PT02",
           "name": "Échantillon, copies et preuve",
-          "implemented": "Le prélèvement progresse vingt secondes; PT02 exige collecte, trois marquages et copie du registre. Une copie ou matière déjà acquise survit à la perte de son original.",
+          "implemented": "Le prélèvement progresse vingt secondes; PT02 exige collecte, trois marquages et copie du registre. Une copie ou matière déjà acquise survit à la perte de son original. Le prélèvement et le registre peints 0.15.6 affichent leurs états existants; aucun prélèvement ni preuve n’est acquis par le dessin.",
           "limits": "Un constat de ruines ne recrée pas les sources. Cette pièce matérielle locale ne certifie ni auteur politique unique ni chaîne financière entière.",
-          "path": "src/chemical-simulation.mjs; src/chemical-validation.mjs; src/campaign.mjs",
+          "path": "src/chemical-simulation.mjs ; src/chemical-validation.mjs ; src/campaign.mjs ; src/painted-chemical.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX97",
           "link": "AS18; QA177",
           "name": "Six pièces du terrain chimique",
-          "implemented": "Six composants et vingt-quatre états SVG partagent leur géométrie avec le renderer Canvas : cuves, canaux pontés, prélèvement, registre, vannes et maisons.",
-          "limits": "Le kit et les scènes Canvas ne certifient pas un parcours navigateur ni la lecture humaine en mouvement. Art final et essais humains restent ouverts.",
-          "path": "src/chemical-assets.mjs; src/chemical-renderer.mjs; assets/chemical/manifest.json",
+          "implemented": "Six composants et vingt-quatre états SVG/Canvas historiques conservés. 0.15.6 ajoute 5 atlas/24 cellules peintes pour cuves, canaux pontés, prélèvement, registre, vannes et maisons. Les 24 cellules suivent les états existants; les cases de grille vides ne sont pas des sprites. Géométrie physique, progression et repli vectoriel restent disponibles.",
+          "limits": "Les contrôles d’images et scènes Canvas ne certifient ni parcours navigateur ni lecture humaine en mouvement. Peinture au stade Prototype; autres environnements, animations finales et essais humains restent ouverts.",
+          "path": "src/chemical-assets.mjs ; src/chemical-renderer.mjs ; src/painted-chemical.mjs ; assets/chemical/manifest.json ; assets/painted/chemical/manifest.json",
           "status": "Prototype"
         },
         {
@@ -9542,9 +9542,9 @@
           "id": "PX100",
           "link": "SY105; SY106; QA181; QA182",
           "name": "Vibrations et appuis au-dessus de la ponte",
-          "implemented": "Trois écoutes immobiles et une corniche physique relient la recherche de source aux vrais contacts des pieds. Trois nids gardent leurs dommages.",
+          "implemented": "Trois écoutes immobiles et une corniche physique relient la recherche de source aux vrais contacts des pieds. Trois nids gardent leurs dommages. En 0.15.6, appareils, nids et repère de passage sont peints selon ces états; la surface d’appui reste physique, sans population ni phase biologique supplémentaire.",
           "limits": "La mécanique représente une recherche locale. Elle ne simule pas toute la propagation du son, l’écologie ou les phases de développement d’une espèce.",
-          "path": "src/voice-simulation.mjs; src/simulation.mjs; tests/mi11-simulation.test.mjs",
+          "path": "src/voice-simulation.mjs ; src/simulation.mjs ; src/voice-renderer.mjs ; src/painted-voice.mjs ; tests/mi11-simulation.test.mjs",
           "status": "Prototype"
         },
         {
@@ -9560,18 +9560,18 @@
           "id": "PX102",
           "link": "SY110; PR89; QA186",
           "name": "Sort matériel de l’émetteur",
-          "implemented": "La capture et la remise en service suivent une décision puis une intervention de cinq secondes. Le bilan conserve l’état réel avant l’extraction physique.",
+          "implemented": "La capture et la remise en service suivent une décision puis une intervention de cinq secondes. Le bilan conserve l’état réel avant l’extraction physique. Les cinq états peints de l’émetteur 0.15.6 suivent ce matériel; progression et disponibilité restent calculées, sans équipement supplémentaire.",
           "limits": "Les opérations ne reconstituent ni source perdue ni témoin disparu. Le matériel capturé ne devient pas un équipement de flotte librement utilisable.",
-          "path": "src/voice-simulation.mjs; src/content.mjs; src/campaign.mjs",
+          "path": "src/voice-simulation.mjs ; src/content.mjs ; src/campaign.mjs ; src/painted-voice.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX103",
           "link": "AS13; AS18; QA188",
           "name": "Éléments de la vallée et de Leth",
-          "implemented": "Six composants SVG/Canvas, vingt-six états SVG et deux planches historiques représentent écoutes, corniche, ponte, émetteur, traduction et Leth. 0.15.4 ajoute huit cellules peintes de Leth : six poses utilisées pour ses cinq états, dont deux de parole, et deux références d’outils.",
+          "implemented": "Six composants SVG/Canvas, vingt-six états SVG et deux planches historiques conservés. Leth garde ses huit cellules 0.15.4, dont six poses utilisées et deux références d’outils. 0.15.6 ajoute 3 atlas/21 cellules pour écoute, traduction, émetteur, nids et repère de passage. Ces 21 cellules suivent leurs objets et dégâts existants, avec progrès et conditions de présence séparés.",
           "limits": "La peinture ne modifie ni consentement, ni disponibilités, ni issues de la rencontre. Les outils de référence ne créent aucun équipement ou pouvoir nouveau. Réceptions graphique, gameplay, navigateur et humaine restent séparées; la langue visuelle complète des cités Khelt reste ouverte.",
-          "path": "src/voice-assets.mjs ; src/voice-renderer.mjs ; src/painted-thyr.mjs ; assets/voice/manifest.json ; assets/painted/thyr/manifest.json",
+          "path": "src/voice-assets.mjs ; src/voice-renderer.mjs ; src/painted-thyr.mjs ; src/painted-voice.mjs ; assets/voice/manifest.json ; assets/painted/voice/manifest.json",
           "status": "Prototype"
         },
         {

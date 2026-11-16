@@ -1,5 +1,13 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Préparation de publication 0.15.6
+
+La tranche ajoute treize atlas et 75 cellules de rendu aux infrastructures de Nacre, au champ chimique et aux appareils de MI11. Les [trois lots reçus](PRODUCTION_V15_6.md) portent le total à **58 atlas / 461 cellules**. Le [rapport QA](QA_PAINTED_INSTALLATIONS.md) associe les résultats aux fichiers testés : 765 tests, 174 cas SVG/Canvas, onze lots peints et 108 parcours du DOM modélisé. La Bible conserve ses 1 007 fiches et ses statuts.
+
+L’HTML autonome de **141 278 398 octets** embarque 56 modules ; son SHA-256 est `7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e`. Le ZIP distribué de **103 369 632 octets**, SHA-256 `2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67`, conserve l’entrée unique exacte. Aucune image n’est réduite pour la distribution.
+
+Le parent distant contrôlé est `5171ae2aabb74915d944f1e487bea0433f76f51f`, arbre `9f0c3ae87920b1665a25f15cb03add6a85bf3b7a`, identique à la base locale `65b14f2eb10a94c7c45ed73db944eebb5158bca5`. Cette préparation est une réception locale. Les preuves de CI distante, de fusion et de navigateur doivent ensuite identifier leurs commits réels ; les sections historiques ci-dessous restent inchangées.
+
 ## Publication 0.15.5 accomplie
 
 La [PR #4](https://github.com/darknigthmare/ImperiumMarch/pull/4) est fusionnée sur `main` au commit **`a0ae19542b384144ab4a6ce96562288c821879c4`**. Son arbre **`743dfca080436dceb0fb1c25fa5ea40061b0661c`** est identique au snapshot local vérifié **`087c49f10d615c4b9420975539220a0ea21d1ca0`**. Cette publication réunit les neuf atlas 0.15.4 récupérés et les treize atlas 0.15.5 nouvellement produits : **45 atlas / 386 cellules** au total. Le delta contre l’ancien `main`, calculé sans détection de renommage, contient 373 ajouts, 18 modifications et le remplacement de l’HTML suivi par son archive ZIP.

@@ -1,0 +1,282 @@
+{
+  "schema": 1,
+  "version": "0.15.6",
+  "checkedUtc": "2026-11-16T15:54:19.589Z",
+  "status": "passed",
+  "method": "Read-only byte comparison with selected Imagegen outputs; SHA-256/length checks against every manifest; cells summed from per-file entries rather than release totals.",
+  "generatedImagesRoot": "/workspace/scratch/fef4abaa57e0/generated_images",
+  "selectionMetadata": [
+    {
+      "family": "chemical",
+      "selectionMetadata": "assets/painted/chemical/prompts.json",
+      "sha256": "926eaaa08baaa700a2a55815ceec0bfdc583e417262fb341ac0bb309c8d89de5",
+      "runtimeCells": 24,
+      "referenceCells": 0,
+      "emptyGridCellsExcluded": 3
+    },
+    {
+      "family": "nacre-sites",
+      "selectionMetadata": "assets/painted/nacre-sites/prompts.json",
+      "sha256": "0e9cd6938eb37e1ba57e72752f5616e59e34057cab3d9cfa0ab4b7523186f3bc",
+      "runtimeCells": 30,
+      "referenceCells": 0,
+      "emptyGridCellsExcluded": 0
+    },
+    {
+      "family": "voice",
+      "selectionMetadata": "assets/painted/voice/generation.json",
+      "sha256": "725ab87c5835fa8ecbd1fd23c4678db506566633db7fbaa388cd146ad7b1b6cd",
+      "runtimeCells": 21,
+      "referenceCells": 0,
+      "emptyGridCellsExcluded": 1
+    }
+  ],
+  "new": {
+    "atlases": 13,
+    "cells": 75,
+    "runtimeCells": 75,
+    "referenceCells": 0,
+    "emptyGridCellsExcluded": 4,
+    "bytes": 22619392,
+    "sourcesAvailable": 13,
+    "byteIdentical": 13
+  },
+  "historical": {
+    "atlases": 45,
+    "cells": 386
+  },
+  "allPainted": {
+    "families": 11,
+    "atlases": 58,
+    "cells": 461,
+    "manifestFilesMatchPngInventory": true,
+    "allManifestHashesAndSizesMatch": true
+  },
+  "families": [
+    {
+      "family": "cerbere",
+      "manifest": "assets/painted/cerbere/manifest.json",
+      "atlasCount": 1,
+      "cellCount": 16
+    },
+    {
+      "family": "chemical",
+      "manifest": "assets/painted/chemical/manifest.json",
+      "atlasCount": 5,
+      "cellCount": 24
+    },
+    {
+      "family": "combat",
+      "manifest": "assets/painted/combat/manifest.json",
+      "atlasCount": 9,
+      "cellCount": 78
+    },
+    {
+      "family": "mi14",
+      "manifest": "assets/painted/mi14/manifest.json",
+      "atlasCount": 8,
+      "cellCount": 54
+    },
+    {
+      "family": "nacre",
+      "manifest": "assets/painted/nacre/manifest.json",
+      "atlasCount": 6,
+      "cellCount": 30
+    },
+    {
+      "family": "nacre-sites",
+      "manifest": "assets/painted/nacre-sites/manifest.json",
+      "atlasCount": 5,
+      "cellCount": 30
+    },
+    {
+      "family": "relay",
+      "manifest": "assets/painted/relay/manifest.json",
+      "atlasCount": 3,
+      "cellCount": 30
+    },
+    {
+      "family": "thyr",
+      "manifest": "assets/painted/thyr/manifest.json",
+      "atlasCount": 8,
+      "cellCount": 62
+    },
+    {
+      "family": "transport",
+      "manifest": "assets/painted/transport/manifest.json",
+      "atlasCount": 4,
+      "cellCount": 20
+    },
+    {
+      "family": "voice",
+      "manifest": "assets/painted/voice/manifest.json",
+      "atlasCount": 3,
+      "cellCount": 21
+    },
+    {
+      "family": "walkers",
+      "manifest": "assets/painted/walkers/manifest.json",
+      "atlasCount": 6,
+      "cellCount": 96
+    }
+  ],
+  "originals": [
+    {
+      "family": "chemical",
+      "atlas": "tanks",
+      "path": "assets/painted/chemical/tanks.png",
+      "selectedGeneratedFile": "exec-c098ea05-129f-48d1-95f2-52d0b72f8fde.png",
+      "bytes": 1829338,
+      "sha256": "0212030075bc05e581efc2766544bfee17c1905155da09046f4122ec2ddfe796",
+      "cells": 5,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    },
+    {
+      "family": "chemical",
+      "atlas": "instruments",
+      "path": "assets/painted/chemical/instruments.png",
+      "selectedGeneratedFile": "exec-10014fa3-5e15-4275-b814-95f6222c111e.png",
+      "bytes": 2127867,
+      "sha256": "a18a164242298d2aebb7147efcc39fb48f6ae5f4557e425359afbcf467c1ee7b",
+      "cells": 7,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    },
+    {
+      "family": "chemical",
+      "atlas": "valves",
+      "path": "assets/painted/chemical/valves.png",
+      "selectedGeneratedFile": "exec-e7460c2e-6445-4328-9644-a87742fdd535.png",
+      "bytes": 1614245,
+      "sha256": "8b219ba92130bfd4ee98850d5dee9e30c508dc2973379e3aa6ecbab5050c1339",
+      "cells": 4,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    },
+    {
+      "family": "chemical",
+      "atlas": "canals",
+      "path": "assets/painted/chemical/canals.png",
+      "selectedGeneratedFile": "exec-a64374c3-1d00-427b-bf82-90b47161b81d.png",
+      "bytes": 744287,
+      "sha256": "50a54d686828681af9f1ddda2956d2dae4b7a6712f82dc79c726251b7097084b",
+      "cells": 5,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    },
+    {
+      "family": "chemical",
+      "atlas": "homes",
+      "path": "assets/painted/chemical/homes.png",
+      "selectedGeneratedFile": "exec-de048485-1564-491e-8a4e-702f57956a24.png",
+      "bytes": 1525605,
+      "sha256": "6be59df742d231cecb48927a60b56e5cadfe870f147c56aec6c043e2ca4ee68c",
+      "cells": 3,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    },
+    {
+      "family": "nacre-sites",
+      "atlas": "barriers",
+      "path": "assets/painted/nacre-sites/barriers.png",
+      "selectedGeneratedFile": "exec-910a32af-467a-4286-8154-2cae445d53af.png",
+      "bytes": 1643320,
+      "sha256": "e5fd0d6c938fea2608c8082a243913725e8ba372ffcaa5e5f17948a41738af70",
+      "cells": 6,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    },
+    {
+      "family": "nacre-sites",
+      "atlas": "hydraulics",
+      "path": "assets/painted/nacre-sites/hydraulics.png",
+      "selectedGeneratedFile": "exec-e5c2e5ac-333b-4a5e-a0f3-3bfccea5b86b.png",
+      "bytes": 1571903,
+      "sha256": "d46e15cda7b99d57050aa44b88507caf5519787ffd89ec2802982337495b1240",
+      "cells": 8,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    },
+    {
+      "family": "nacre-sites",
+      "atlas": "houses",
+      "path": "assets/painted/nacre-sites/houses.png",
+      "selectedGeneratedFile": "exec-2d8d27ad-984e-4067-b141-20b1448e1578.png",
+      "bytes": 1418912,
+      "sha256": "5f1adff8ef1ceada161d91d65e5829801cba662ae573668441bfc97896f33b58",
+      "cells": 6,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    },
+    {
+      "family": "nacre-sites",
+      "atlas": "shelters",
+      "path": "assets/painted/nacre-sites/shelters.png",
+      "selectedGeneratedFile": "exec-b8fe2de1-deaf-4bf0-bacf-d87cf13c7751.png",
+      "bytes": 1918963,
+      "sha256": "979e235a3eaf4d0ee5f8d92370936709def105eb82ce2639c4bb9fc82a54b8df",
+      "cells": 4,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    },
+    {
+      "family": "nacre-sites",
+      "atlas": "quays",
+      "path": "assets/painted/nacre-sites/quays.png",
+      "selectedGeneratedFile": "exec-6058146c-e0ca-4ea8-9f8f-a2a90d9bd2e6.png",
+      "bytes": 1226572,
+      "sha256": "2cae9ba58daadf519342fb1938f9fb46ecc37ac02627dff5fe4097256518c78e",
+      "cells": 6,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    },
+    {
+      "family": "voice",
+      "atlas": "instruments",
+      "path": "assets/painted/voice/instruments.png",
+      "selectedGeneratedFile": "exec-77e74f79-54c0-4166-8a7e-349e3bbd72ef.png",
+      "bytes": 2255773,
+      "sha256": "4640eb8a5c4a07ac96ec1f98e6772fcbdb03b9c6d485f72cc69e4ade30fac002",
+      "cells": 8,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    },
+    {
+      "family": "voice",
+      "atlas": "emitter",
+      "path": "assets/painted/voice/emitter.png",
+      "selectedGeneratedFile": "exec-30e38747-33b6-4780-aaac-04889d94f1c6.png",
+      "bytes": 1875043,
+      "sha256": "0ce6fbf094e824cb3169169f0a7658ad89c981acbaee17bc227bcfe273f68c1e",
+      "cells": 5,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    },
+    {
+      "family": "voice",
+      "atlas": "terrain-sites",
+      "path": "assets/painted/voice/terrain-sites.png",
+      "selectedGeneratedFile": "exec-ace4d5e9-2ace-4efb-b5e8-ba6db01d6cd9.png",
+      "bytes": 2867564,
+      "sha256": "f5f5a593956ac1802bae794cbfe2da89e6b24e5ec4c3dd5789dbcf354cc90515",
+      "cells": 8,
+      "sourcePresent": true,
+      "byteIdentical": true,
+      "manifestHashMatches": true
+    }
+  ],
+  "scope": "Selected final generation outputs, including Imagegen transparency corrections. No PNG was modified or re-encoded by this verification."
+}

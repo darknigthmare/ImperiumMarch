@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.15.5 · Français**
+**Nom de code : ImperiumMarch · Version 0.15.6 · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -12,7 +12,7 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 Cette livraison contient un **prototype de quatorze missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant **v14**. MI12 achève la tranche de Thyr ; MI13 et MI14 ouvrent Kharon par un convoi industriel puis un atelier en grève. La Bible contient **1 007 fiches sur 21 onglets**. Les dix-huit missions MI15–MI32, les seize contrats et la qualité de production visée restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
 
-La **0.15.5 peint les transports et le troisième relais** : treize nouveaux atlas transparents et 80 cellules pour le train, le porteur industriel, l’ambulance, les bateaux de Nacre, le Prétoire et ses appareils. Avec Cerbère et la vie de Thyr récupérés de la tranche 0.15.4, le total atteint **45 planches et 386 cellules**. Le [bilan 0.15.5](docs/PRODUCTION_V15_5.md) et sa [réception graphique](docs/QA_PAINTED_MISSION_ASSETS.md) distinguent les 77 cellules utilisées et trois références de ce nouveau lot. La campagne reste à quatorze missions ; la sauvegarde reste v14. Les bilans [Thyr et Cerbère](docs/PRODUCTION_V15_4.md), [marcheurs](docs/PRODUCTION_V15_3.md), [combat](docs/PRODUCTION_V15_2.md), [atelier](docs/PRODUCTION_V15_1.md) et [reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves historiques.
+La **0.15.6 peint les installations de Nacre et de Thyr** : treize nouveaux atlas transparents et 75 cellules utilisées pour les digues, pompes, maisons, accueils, quais, cuves, appareils chimiques, postes d’écoute, émetteur et sites de ponte. Le total atteint **58 planches et 461 cellules**. Le [bilan 0.15.6](docs/PRODUCTION_V15_6.md) détaille les trois lots et leurs réceptions. La campagne reste à quatorze missions ; la sauvegarde reste v14. Les bilans [transports et relais](docs/PRODUCTION_V15_5.md), [Thyr et Cerbère](docs/PRODUCTION_V15_4.md), [marcheurs](docs/PRODUCTION_V15_3.md), [combat](docs/PRODUCTION_V15_2.md), [atelier](docs/PRODUCTION_V15_1.md) et [reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves historiques.
 
 ## Jouer à cette version
 
@@ -52,6 +52,9 @@ npm run check:cerbere
 npm run check:transport
 npm run check:relay
 npm run check:nacre
+npm run check:nacre-sites
+npm run check:chemical
+npm run check:voice
 npm run build:web
 ```
 
@@ -70,6 +73,18 @@ npm run check:assets-render
 ```
 
 Les outils `render-mi12/mi13/mi14-previews` produisent des scènes Canvas et des états atteints par commandes publiques. Ils ne remplacent pas un essai navigateur. Le [guide du classeur](docs/BIBLE_README.md) décrit la régénération du XLSX à partir de `data/bible.json`.
+
+## 0.15.6 — Les installations et leurs états
+
+Nacre reçoit ses infrastructures peintes : panneau de digue, vantaux, pompe et rotor, vannes, maisons, accueils, quais, rampes et treuils. Les ouvertures, niveaux d’eau, raccords, câbles et vraies surfaces porteuses continuent de suivre les états de mission.
+
+Le champ chimique de MI10 reçoit ses cinq atlas : cuves, prélèvement et registre, vannes, canaux et habitats. Les nappes, volumes et travaux restent simulés. Dans MI11, les instruments d’écoute et de traduction, l’émetteur, la ponte et le repère de corniche ajoutent trois atlas. Une saisie retire réellement le haut de l’émetteur du dessin ; les copies déjà conservées ne disparaissent pas avec leurs originaux.
+
+![Les sites de ponte et leurs appareils dans MI11.](docs/validation/painted-voice-v0156/mi11-nesting-route.png)
+
+*Scène Canvas obtenue par commandes publiques du pilote MI11, sans déplacement manuel des objets. Les contacts des six pieds et la corniche restent ceux de la simulation. Cette image n’est pas une capture de navigateur.*
+
+Les [lots Nacre](assets/painted/nacre-sites/README.md), [chimie](assets/painted/chemical/README.md) et [voix](assets/painted/voice/README.md) conservent les originaux, prompts, ancres et métadonnées. Le [rapport QA de la tranche](docs/QA_PAINTED_INSTALLATIONS.md) rassemble les réceptions et leurs limites. Le [complément Bible](docs/BIBLE_V15_6.md) actualise les fiches descriptives sans changer les statuts ni les critères historiques. Les autres décors et les animations finales restent à produire.
 
 ## 0.15.5 — Les machines des missions
 

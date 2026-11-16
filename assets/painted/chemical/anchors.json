@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "coordinateSystem": "Per-cell pixel coordinates before crop. Pivots lie on the visible base; nominal scales reproduce historical render envelopes. Canal origin is the channel bottom drawn at terrain + 20; the true cover is still drawn from chemicalSurfaceAt.",
+  "atlases": {
+    "tanks": {
+      "scale": [
+        0.6428571428571429,
+        0.40332640332640335
+      ],
+      "frames": {
+        "unknown": [
+          263,
+          495
+        ],
+        "identified": [
+          259,
+          495
+        ],
+        "leaking": [
+          260,
+          495
+        ],
+        "sealed": [
+          263,
+          495
+        ],
+        "destroyed": [
+          246,
+          495
+        ]
+      }
+    },
+    "instruments": {
+      "families": {
+        "sample": {
+          "scale": [
+            0.45016077170418006,
+            0.39710144927536234
+          ],
+          "frames": {
+            "idle": [
+              205,
+              438
+            ],
+            "working": [
+              205,
+              438
+            ],
+            "secured": [
+              205,
+              438
+            ],
+            "lost": [
+              205,
+              438
+            ]
+          }
+        },
+        "ledger": {
+          "scale": [
+            0.3987341772151899,
+            0.2887139107611549
+          ],
+          "frames": {
+            "unread": [
+              192,
+              446
+            ],
+            "copied": [
+              192,
+              446
+            ],
+            "lost": [
+              192,
+              446
+            ]
+          }
+        }
+      }
+    },
+    "valves": {
+      "scale": [
+        0.21,
+        0.21
+      ],
+      "frames": {
+        "normal": [
+          313,
+          593
+        ],
+        "working": [
+          313,
+          593
+        ],
+        "operated": [
+          313,
+          593
+        ],
+        "destroyed": [
+          313,
+          593
+        ]
+      }
+    },
+    "canals": {
+      "scale": [
+        0.3957968476357268,
+        0.35
+      ],
+      "frames": {
+        "open": [
+          313,
+          320
+        ],
+        "covering": [
+          313,
+          320
+        ],
+        "covered": [
+          313,
+          293
+        ],
+        "contaminated": [
+          313,
+          294
+        ],
+        "destroyed": [
+          313,
+          268
+        ]
+      },
+      "coverOverlay": {
+        "source": [
+          112,
+          609,
+          392,
+          36
+        ],
+        "target": [
+          -100,
+          -37.5,
+          200,
+          6
+        ],
+        "sourceFrame": "covered",
+        "purpose": "Thin ribbed support surface reused above either clean or contaminated channel body. The renderer still traces chemicalSurfaceAt at the exact contact height."
+      }
+    },
+    "homes": {
+      "scale": [
+        0.36231884057971014,
+        0.4358353510895884
+      ],
+      "frames": {
+        "habitable": [
+          350,
+          597
+        ],
+        "contaminated": [
+          350,
+          596
+        ],
+        "destroyed": [
+          350,
+          601
+        ]
+      }
+    }
+  }
+}

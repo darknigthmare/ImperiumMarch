@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "version": "0.15.6",
+  "generator": "image_gen built-in",
+  "purpose": "Original painted chemical installation sprites, six existing MI10 families, no gameplay changes",
+  "referenceRoles": {
+    "consoles": "assets/painted/relay/consoles.png — style and materials only",
+    "habitat": "assets/painted/thyr/habitat.png — Thyr architectural style only"
+  },
+  "prompts": [
+    {
+      "atlas": "tanks",
+      "prompt": "Use case: stylized-concept.\nAsset type: transparent production sprite atlas for the original side-scrolling game ORDRE DE CENDRE, MI10 chemical installations on Thyr.\nReference image 1 is only a material/lighting/style reference from the game's existing painted consoles; do not reproduce those consoles.\nCreate FIVE views of the SAME tall industrial chemical storage tank, in a strict 3-column by 2-row grid, landscape 1536x1024 if possible. Read cells left to right, top to bottom: unknown, identified, leaking, sealed, destroyed; bottom-right cell MUST be completely empty transparent.\nEach tank has a vertical cylindrical olive-grey steel vessel, two worn brass retaining bands, a blank small identification plate, a narrow level window, small top cap, a short outlet pipe on the RIGHT at low height, two sturdy feet on a compact metal base. Its silhouette is tall, about 1.2 times as high as its full width. Orthographic side elevation with a very slight hint of front volume, no top-down or isometric camera, consistent scale and ground baseline in all five cells.\nUNKNOWN: intact vessel, dark unread metal identification plate. IDENTIFIED: exactly same intact vessel with a light exposed plate carrying only small abstract machine markings, no readable letters. LEAKING: same tank with a damaged right outlet, yellow-green residue on the outlet and a very short attached drip; NO detached puddle or wide liquid cloud. SEALED: same intact tank with a clearly clamped, capped outlet and green mechanical indicator. DESTROYED: torn open crumpled shell and broken pipes still resting on the SAME base, lower height, no explosion, no smoke.\nPainted game art with precise worn metal edges, restrained fine scratches, sage olive and grey steel, aged brass, subtle cream edge lighting from upper left. Readable silhouettes, credible utilitarian construction, matching the reference's rendering quality.\nEvery object fully isolated with generous transparent padding inside its cell, no inter-cell overlap. TRUE RGBA transparent background everywhere outside the objects. No grid, labels, titles, letters, numbers, watermark, atmospheric haze, scenery, ground plane, drop shadows, people, weapons, or decorative extra objects. The five tank states must be unmistakably the same machine."
+    },
+    {
+      "atlas": "instruments",
+      "prompt": "Use case: stylized-concept.\nAsset type: transparent sprite atlas of laboratory field equipment for ORDRE DE CENDRE, MI10 Thyr.\nReference image 1 gives the existing game's material and painted lighting style, not a design to copy.\nCreate SEVEN isolated sprites in a strict 4-column by 2-row grid, landscape 1536x1024 if possible, identical cell sizes. First row contains four states of the SAME compact field sampling machine: idle, working, secured/empty after collection, lost. Second row contains three states of the SAME batch ledger console: unread, copied, lost; fourth cell of second row is completely empty transparency.\nSAMPLING MACHINE: squat olive steel cabinet with four short feet on a flat base, brass pump and little pressure dial, LEFT intake pipe, a small glass specimen container at upper right. Idle: quiet closed machine and empty vial. Working: same machine, amber pilot light and a small contained yellow-green sample in vial. Secured after collection: sample container visibly removed, protective empty socket closed, green pilot light; do not show a saved sample still sitting at the station. Lost: shattered machine casing and broken empty vial socket, still identifiable on the same base, no flying shards or puddles.\nLEDGER CONSOLE: a short floor-standing pedestal with a broad slanted industrial reading screen and a thick protected mechanical records cassette. Unread: dark neutral screen with restrained thin abstract lines. Copied: same intact console with green status lamp, no readable text or checkmark icons. Lost: smashed blank screen and damaged cabinet remaining on its pedestal.\nAll are side-elevation sprites viewed from the same near-orthographic game camera, no extreme perspective. Sampling machine aspect about 1:1; console aspect about 1:1. Keep an identical ground baseline and scale across each family.\nDetailed painted grounded science fiction, worn olive-grey steel, sage metal, aged brass tubing, cream highlights from upper left. Crisp readable forms at small screen sizes.\nTRUE transparent RGBA background, wide clear padding per cell, no backdrop, shadow plane, glow fog, grid lines, labels, numbers, text, watermark, characters, weapons or extra objects."
+    },
+    {
+      "atlas": "valves",
+      "prompt": "Use case: stylized-concept.\nAsset type: transparent industrial valve sprite atlas for the original game ORDRE DE CENDRE, chemical field on Thyr.\nUse reference image 1 ONLY for painted worn-material style.\nCreate FOUR isolated states of the SAME manual field valve in a strict 2 by 2 grid, square image: top-left normal, top-right working, bottom-left operated, bottom-right destroyed.\nThe valve is a squat sage-green mechanical block on a low bolted metal base, horizontal pipe stubs to left and right, a short upright spindle, one large circular brass handwheel facing the camera near the top. Small square indicator on the right. Overall object width approximately 1.3 times its height. Full side elevation / near orthographic view; same baseline and same silhouette scale in each cell.\nNormal: intact handwheel spokes vertical/horizontal, amber indicator. Working: same hardware, handwheel spokes at a diagonal, amber lamp. Operated: same intact valve, pale green indicator and handwheel turned to a different mechanical position. Destroyed: broken stem, missing broken handwheel, damaged valve block and bent right pipe, all resting on the original base; no liquid plume.\nPainterly but carefully rendered textured metal: desaturated olive steel, weathered brass, ivory highlights from upper left, grounded hand-built industrial machinery with clean readable silhouette.\nTRUE RGBA transparency outside the sprites, generous clear margin, no ground texture or projected shadows, no rectangular haze, no labels, text, numerals, border, grid, watermark, people, weapons or unrelated items. Do not connect cells."
+    },
+    {
+      "atlas": "canals",
+      "prompt": "Use case: stylized-concept.\nAsset type: transparent 2D side-view modular canal sprites for ORDRE DE CENDRE, MI10 chemical irrigation terrain on Thyr.\nReference image 1 supplies metal texture and lighting style only.\nCreate FIVE wide, shallow canal-junction sprites in a strict 2-column by 3-row grid, square image if possible. Order left to right then down: OPEN, COVERING, COVERED, CONTAMINATED, DESTROYED. Last bottom-right cell is completely transparent.\nEach sprite is the SAME horizontal narrow irrigation channel seen nearly straight from the side, a low bronze-grey metal trough with short chunky support caps at both ends, no tall backdrop. Overall aspect ratio at least 4.5 wide to 1 tall. Each spans nearly the cell width with a very flat consistent top rim, identical end positions and scale. There is no scenery or ground slab outside the object.\nOPEN: low intact channel with a very narrow subdued clean blue-green water strip visible. COVERING: same channel with an open clear gap and a ribbed retractable bridge cover extended across approximately one half from the left. COVERED: same channel with a fully closed flat ribbed metal bridge plate across the entire width. CONTAMINATED: same intact open channel with muted ochre-yellow residue and murky narrow water strip, not a spreading puddle. DESTROYED: collapsed short sections of the same channel and damaged end supports, low broken plates, no intact bridge.\nThe cover must look FLAT and walkable, not arched. Side elevation, no diagonal top-down isometric view, no raised platforms or stairs. Painted detailed industrial sage steel/brass, weathered edges, soft cream upper-left highlights, restrained palette matching the reference. Physical liquids and the exact walkable surface are separately rendered by the game, so avoid splashes, droplets and detached water.\nTRUE RGBA transparent background, empty space between cells and around every object, no grid, captions, labels, text, numbers, watermark, people, vehicles, soft surrounding shadow or atmospheric haze."
+    },
+    {
+      "atlas": "homes",
+      "prompt": "Use case: stylized-concept.\nAsset type: transparent sprite atlas of ground-supported Thyr village habitats for ORDRE DE CENDRE MI10.\nReference image 1 shows the original Thyr woven organic architecture and painterly material language. Adapt that visual language to a GROUND-SUPPORTED village building, with no suspension ropes.\nCreate THREE horizontal views of the SAME small low village house in one row of three equal cells, landscape wide atlas. Left: HABITABLE, middle: WATER SUPPLY CONTAMINATED, right: DESTROYED. Same orthographic side elevation, same ground baseline and same building scale.\nHouse: broad woven fibre wall panels on sturdy timber uprights, layered broad sage leaves as a pitched roof, one closed central door and two small windows. Crucially, the door threshold and lower wall rest directly on a narrow structural base at ground level; no floating door, no visible characters or inhabitants. At the LEFT base a short external metal water inlet pipe and a small round gauge; a few attached small leaf shoots at the RIGHT base. Overall building width about 1.4 times its height.\nHABITABLE: structurally intact, warm pale windows, green water gauge, healthy leaves. CONTAMINATED: same structurally intact building, dull closed windows, amber water gauge, visibly wilted small shoots only; no ruined walls, no disease or people. DESTROYED: collapsed roof and broken wall frame on the same base, only a low skeletal remnant, broken inlet; no fires or smoke.\nHigh quality painted game sprite textures, earthy fibres and worn timber, muted sage leaves, subdued metal water inlet, cream upper-left edge lighting matching the reference. Keep the building isolated, no full landscape or terrain.\nTRUE RGBA transparency everywhere outside the house, generous transparent gutters between cells, no ropes, tall trees, characters, animals, gardens spreading between cells, detached debris, grid, labels, words, numbers, watermark, background, vignette or ground shadow."
+    }
+  ],
+  "corrections": [
+    {
+      "atlas": "tanks",
+      "prompt": "Use case: background-extraction. Edit target: the supplied five-tank sprite atlas. Remove ONLY all background pixels, including the opaque white square panels, white haze, and the dark gradient in the bottom-right empty cell. The entire background must become true alpha-zero transparency with crisp cutout edges. Preserve all FIVE existing painted tanks pixel appearance, materials, damage shapes, size, arrangement and exact 3-column by 2-row grid. Keep row1 three tanks and row2 two tanks, bottom-right completely EMPTY transparent. The tank bodies themselves must be fully opaque solid steel, except real holes in broken tank. No added backdrop, shadows, fog, grid, labels or text. Do not recolor, redesign, move, duplicate or remove any tank. This is a production game sprite extraction; the source currently has an incorrect white background that MUST be removed completely.",
+      "reason": "Initial RGBA output retained an opaque white background. Extraction correction generated through Imagegen; no local pixel edits."
+    }
+  ],
+  "selectedOutputs": [
+    {
+      "atlas": "tanks",
+      "originalGeneratedFile": "exec-c098ea05-129f-48d1-95f2-52d0b72f8fde.png",
+      "selectedSha256": "0212030075bc05e581efc2766544bfee17c1905155da09046f4122ec2ddfe796",
+      "originalBytesUnchanged": true
+    },
+    {
+      "atlas": "instruments",
+      "originalGeneratedFile": "exec-10014fa3-5e15-4275-b814-95f6222c111e.png",
+      "selectedSha256": "a18a164242298d2aebb7147efcc39fb48f6ae5f4557e425359afbcf467c1ee7b",
+      "originalBytesUnchanged": true
+    },
+    {
+      "atlas": "valves",
+      "originalGeneratedFile": "exec-e7460c2e-6445-4328-9644-a87742fdd535.png",
+      "selectedSha256": "8b219ba92130bfd4ee98850d5dee9e30c508dc2973379e3aa6ecbab5050c1339",
+      "originalBytesUnchanged": true
+    },
+    {
+      "atlas": "canals",
+      "originalGeneratedFile": "exec-a64374c3-1d00-427b-bf82-90b47161b81d.png",
+      "selectedSha256": "50a54d686828681af9f1ddda2956d2dae4b7a6712f82dc79c726251b7097084b",
+      "originalBytesUnchanged": true
+    },
+    {
+      "atlas": "homes",
+      "originalGeneratedFile": "exec-de048485-1564-491e-8a4e-702f57956a24.png",
+      "selectedSha256": "6be59df742d231cecb48927a60b56e5cadfe870f147c56aec6c043e2ca4ee68c",
+      "originalBytesUnchanged": true
+    }
+  ]
+}

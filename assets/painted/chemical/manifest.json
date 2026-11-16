@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "version": "0.15.6",
+  "generator": "image_gen built-in",
+  "canonIds": [
+    "MI10",
+    "PL03",
+    "PT02",
+    "AS18",
+    "SY99",
+    "SY100",
+    "SY101",
+    "SY102",
+    "SY103"
+  ],
+  "atlasCount": 5,
+  "frameCount": 24,
+  "runtimeFrameCount": 24,
+  "referenceFrameCount": 0,
+  "emptyGridCellCount": 3,
+  "files": [
+    {
+      "id": "tanks",
+      "path": "assets/painted/chemical/tanks.png",
+      "bytes": 1829338,
+      "sha256": "0212030075bc05e581efc2766544bfee17c1905155da09046f4122ec2ddfe796",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 5,
+      "runtimeFrames": 5,
+      "referenceFrames": 0,
+      "emptyCells": [
+        5
+      ],
+      "transparentFraction": 0.68893,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "instruments",
+      "path": "assets/painted/chemical/instruments.png",
+      "bytes": 2127867,
+      "sha256": "a18a164242298d2aebb7147efcc39fb48f6ae5f4557e425359afbcf467c1ee7b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 7,
+      "runtimeFrames": 7,
+      "referenceFrames": 0,
+      "emptyCells": [
+        7
+      ],
+      "transparentFraction": 0.572888,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "valves",
+      "path": "assets/painted/chemical/valves.png",
+      "bytes": 1614245,
+      "sha256": "8b219ba92130bfd4ee98850d5dee9e30c508dc2973379e3aa6ecbab5050c1339",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "frames": 4,
+      "runtimeFrames": 4,
+      "referenceFrames": 0,
+      "emptyCells": [],
+      "transparentFraction": 0.569187,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "canals",
+      "path": "assets/painted/chemical/canals.png",
+      "bytes": 744287,
+      "sha256": "50a54d686828681af9f1ddda2956d2dae4b7a6712f82dc79c726251b7097084b",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "frames": 5,
+      "runtimeFrames": 5,
+      "referenceFrames": 0,
+      "emptyCells": [
+        5
+      ],
+      "transparentFraction": 0.77065,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "homes",
+      "path": "assets/painted/chemical/homes.png",
+      "bytes": 1525605,
+      "sha256": "6be59df742d231cecb48927a60b56e5cadfe870f147c56aec6c043e2ca4ee68c",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "frames": 3,
+      "runtimeFrames": 3,
+      "referenceFrames": 0,
+      "emptyCells": [],
+      "transparentFraction": 0.517717,
+      "maxCellGutterAlpha": 2,
+      "originalBytesUnchanged": true
+    }
+  ],
+  "scope": "Six existing MI10 equipment families. No bodies, populations, evidence, fluid mass or gameplay states added.",
+  "pixelPolicy": "Original selected generated PNGs copied intact. Indexing reads alpha and writes metadata only. Empty cells and gutter alpha <= 2 are not counted as sprites.",
+  "physicalSurface": "Canal bitmap slices follow real terrain. Covered channels reuse a thin region of the covered frame above the clean or contaminated body. chemicalSurfaceAt still supplies the exact cover and foot contacts. Real plumes and retained basin volume remain separately drawn."
+}
