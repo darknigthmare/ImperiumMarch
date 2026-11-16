@@ -1,0 +1,1577 @@
+{
+  "createdUtc": "2026-11-16T12:00:52.049Z",
+  "type": "Actual PNG decoding and normal renderer Canvas reception",
+  "completed": true,
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "atlases": [
+    {
+      "key": "civilian",
+      "path": "assets/painted/combat/civilian.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1711202,
+      "sha256": "5c1cd4b9f468c15e8f5c77513691a7b962d038e9437618859937d467bb2e0de1",
+      "clearPixels": 1245980,
+      "nearClearPixels": 1350530,
+      "solidPixels": 211371
+    },
+    {
+      "key": "rifle",
+      "path": "assets/painted/combat/rifle.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1703512,
+      "sha256": "49a5ef997a13a67f4cbaf51a065cd0b19daf38d87da4e76c6a0c9dba043d9249",
+      "clearPixels": 1236923,
+      "nearClearPixels": 1359866,
+      "solidPixels": 203471
+    },
+    {
+      "key": "rocket",
+      "path": "assets/painted/combat/rocket.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1805602,
+      "sha256": "c6d04961abb51e7d006b0bff780e20a2028b31b0318ac6f993fcede8879d10d1",
+      "clearPixels": 1214534,
+      "nearClearPixels": 1289897,
+      "solidPixels": 272490
+    },
+    {
+      "key": "sniper",
+      "path": "assets/painted/combat/sniper.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1766601,
+      "sha256": "6fb9c6319a5a1e8982b653af7ce71de8b22647e23f77b4472e30c8b39f2374f4",
+      "clearPixels": 1187630,
+      "nearClearPixels": 1340576,
+      "solidPixels": 221047
+    },
+    {
+      "key": "buggy",
+      "path": "assets/painted/combat/buggy.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2128516,
+      "sha256": "cfa03ab9a34efe218c99f4b5b74c9887e9a5600a79700e8a3f199486f08d380a",
+      "clearPixels": 974786,
+      "nearClearPixels": 1041453,
+      "solidPixels": 523988
+    },
+    {
+      "key": "skimmer",
+      "path": "assets/painted/combat/skimmer.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1696426,
+      "sha256": "fe1dea9afe6d7c28f39ba7d3d98b18040a632e8c67f0c7fcee1c4dd62980596e",
+      "clearPixels": 1189147,
+      "nearClearPixels": 1259460,
+      "solidPixels": 299483
+    },
+    {
+      "key": "convoy",
+      "path": "assets/painted/combat/convoy.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2215554,
+      "sha256": "2a3e6b2ca6ef0162f0b99565213e577066bac48fab78f389310d5657efa3d9c2",
+      "clearPixels": 917887,
+      "nearClearPixels": 955130,
+      "solidPixels": 610839
+    },
+    {
+      "key": "drone",
+      "path": "assets/painted/combat/drone.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1459072,
+      "sha256": "11d514211301b3313aff7afb303bc7654d287cc9caf637af9dec95830bdf9b8c",
+      "clearPixels": 1221996,
+      "nearClearPixels": 1356929,
+      "solidPixels": 209268
+    },
+    {
+      "key": "turret",
+      "path": "assets/painted/combat/turret.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2035333,
+      "sha256": "cd08afb38760921e1783313d97110f7b3034ad467b7affc9f6b73adcdb628281",
+      "clearPixels": 964298,
+      "nearClearPixels": 1074470,
+      "solidPixels": 489562
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "rifle",
+      "frame": "idle",
+      "occupiedPixels": 14804,
+      "source": [
+        153,
+        13,
+        94,
+        310
+      ],
+      "target": [
+        -3.2941176,
+        -18.2352941,
+        11.0588235,
+        36.4705882
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rifle",
+      "frame": "walk-0",
+      "occupiedPixels": 16575,
+      "source": [
+        529,
+        17,
+        102,
+        302
+      ],
+      "target": [
+        -4.4117647,
+        -17.2941176,
+        12,
+        35.5294118
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rifle",
+      "frame": "walk-1",
+      "occupiedPixels": 16620,
+      "source": [
+        890,
+        20,
+        159,
+        298
+      ],
+      "target": [
+        -7.3529412,
+        -16.8235294,
+        18.7058824,
+        35.0588235
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rifle",
+      "frame": "walk-2",
+      "occupiedPixels": 17171,
+      "source": [
+        1259,
+        24,
+        159,
+        297
+      ],
+      "target": [
+        -9.4705882,
+        -16.7058824,
+        18.7058824,
+        34.9411765
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rifle",
+      "frame": "walk-3",
+      "occupiedPixels": 15598,
+      "source": [
+        122,
+        362,
+        127,
+        299
+      ],
+      "target": [
+        -7.6470588,
+        -16.9411765,
+        14.9411765,
+        35.1764706
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rifle",
+      "frame": "walk-4",
+      "occupiedPixels": 17243,
+      "source": [
+        497,
+        362,
+        141,
+        300
+      ],
+      "target": [
+        -8.5882353,
+        -17.0588235,
+        16.5882353,
+        35.2941176
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rifle",
+      "frame": "walk-5",
+      "occupiedPixels": 17300,
+      "source": [
+        873,
+        362,
+        194,
+        296
+      ],
+      "target": [
+        -9.5882353,
+        -16.5882353,
+        22.8235294,
+        34.8235294
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rifle",
+      "frame": "walk-6",
+      "occupiedPixels": 14294,
+      "source": [
+        1297,
+        359,
+        107,
+        303
+      ],
+      "target": [
+        -5,
+        -17.4117647,
+        12.5882353,
+        35.6470588
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rifle",
+      "frame": "walk-7",
+      "occupiedPixels": 17011,
+      "source": [
+        145,
+        701,
+        107,
+        307
+      ],
+      "target": [
+        -5.1176471,
+        -17.8823529,
+        12.5882353,
+        36.1176471
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rifle",
+      "frame": "braced",
+      "occupiedPixels": 18200,
+      "source": [
+        495,
+        706,
+        161,
+        302
+      ],
+      "target": [
+        -8.0588235,
+        -17.2941176,
+        18.9411765,
+        35.5294118
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rifle",
+      "frame": "downed",
+      "occupiedPixels": 23869,
+      "source": [
+        783,
+        850,
+        342,
+        115
+      ],
+      "target": [
+        -20.1176471,
+        4.7058824,
+        40.2352941,
+        13.5294118
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rifle",
+      "frame": "weapon",
+      "occupiedPixels": 14786,
+      "source": [
+        1191,
+        786,
+        319,
+        127
+      ],
+      "target": [
+        -8.6255507,
+        -4.1674009,
+        30.9162996,
+        12.30837
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "sniper",
+      "frame": "idle",
+      "occupiedPixels": 17741,
+      "source": [
+        122,
+        20,
+        120,
+        304
+      ],
+      "target": [
+        -7.4733333,
+        -19.2533333,
+        15.2,
+        38.5066667
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "sniper",
+      "frame": "walk-0",
+      "occupiedPixels": 18759,
+      "source": [
+        495,
+        20,
+        130,
+        304
+      ],
+      "target": [
+        -8.8666667,
+        -19.2533333,
+        16.4666667,
+        38.5066667
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "sniper",
+      "frame": "walk-1",
+      "occupiedPixels": 19646,
+      "source": [
+        858,
+        22,
+        194,
+        299
+      ],
+      "target": [
+        -11.6533333,
+        -18.62,
+        24.5733333,
+        37.8733333
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "sniper",
+      "frame": "walk-2",
+      "occupiedPixels": 20690,
+      "source": [
+        1237,
+        25,
+        174,
+        297
+      ],
+      "target": [
+        -12.92,
+        -18.3666667,
+        22.04,
+        37.62
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "sniper",
+      "frame": "walk-3",
+      "occupiedPixels": 19164,
+      "source": [
+        80,
+        364,
+        169,
+        298
+      ],
+      "target": [
+        -13.9966667,
+        -18.4933333,
+        21.4066667,
+        37.7466667
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "sniper",
+      "frame": "walk-4",
+      "occupiedPixels": 19190,
+      "source": [
+        468,
+        365,
+        166,
+        297
+      ],
+      "target": [
+        -13.49,
+        -18.3666667,
+        21.0266667,
+        37.62
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "sniper",
+      "frame": "walk-5",
+      "occupiedPixels": 19670,
+      "source": [
+        855,
+        365,
+        211,
+        297
+      ],
+      "target": [
+        -12.9833333,
+        -18.3666667,
+        26.7266667,
+        37.62
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "sniper",
+      "frame": "walk-6",
+      "occupiedPixels": 19464,
+      "source": [
+        1239,
+        365,
+        173,
+        297
+      ],
+      "target": [
+        -13.0466667,
+        -18.3666667,
+        21.9133333,
+        37.62
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "sniper",
+      "frame": "walk-7",
+      "occupiedPixels": 18428,
+      "source": [
+        105,
+        707,
+        144,
+        298
+      ],
+      "target": [
+        -10.5766667,
+        -18.4933333,
+        18.24,
+        37.7466667
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "sniper",
+      "frame": "braced",
+      "occupiedPixels": 20156,
+      "source": [
+        495,
+        707,
+        152,
+        298
+      ],
+      "target": [
+        -8.74,
+        -18.4933333,
+        19.2533333,
+        37.7466667
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "sniper",
+      "frame": "downed",
+      "occupiedPixels": 19264,
+      "source": [
+        786,
+        869,
+        345,
+        93
+      ],
+      "target": [
+        -21.85,
+        7.4733333,
+        43.7,
+        11.78
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "sniper",
+      "frame": "weapon",
+      "occupiedPixels": 8875,
+      "source": [
+        1177,
+        805,
+        334,
+        87
+      ],
+      "target": [
+        -11.3319328,
+        -4.2647059,
+        40.697479,
+        10.6008403
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rocket",
+      "frame": "idle",
+      "occupiedPixels": 19626,
+      "source": [
+        128,
+        11,
+        133,
+        302
+      ],
+      "target": [
+        -5.8657718,
+        -19.2550336,
+        16.9597315,
+        38.5100671
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rocket",
+      "frame": "walk-0",
+      "occupiedPixels": 22779,
+      "source": [
+        507,
+        13,
+        139,
+        299
+      ],
+      "target": [
+        -6.3758389,
+        -18.8724832,
+        17.7248322,
+        38.1275168
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rocket",
+      "frame": "walk-1",
+      "occupiedPixels": 23462,
+      "source": [
+        863,
+        15,
+        205,
+        297
+      ],
+      "target": [
+        -10.3926174,
+        -18.6174497,
+        26.1409396,
+        37.8724832
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rocket",
+      "frame": "walk-2",
+      "occupiedPixels": 21857,
+      "source": [
+        1265,
+        16,
+        154,
+        295
+      ],
+      "target": [
+        -8.6073826,
+        -18.3624161,
+        19.6375839,
+        37.6174497
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rocket",
+      "frame": "walk-3",
+      "occupiedPixels": 21512,
+      "source": [
+        127,
+        357,
+        141,
+        297
+      ],
+      "target": [
+        -6.9496644,
+        -18.6174497,
+        17.9798658,
+        37.8724832
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rocket",
+      "frame": "walk-4",
+      "occupiedPixels": 19999,
+      "source": [
+        513,
+        359,
+        138,
+        293
+      ],
+      "target": [
+        -6.885906,
+        -18.1073826,
+        17.5973154,
+        37.3624161
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rocket",
+      "frame": "walk-5",
+      "occupiedPixels": 22645,
+      "source": [
+        868,
+        359,
+        197,
+        293
+      ],
+      "target": [
+        -10.7751678,
+        -18.1073826,
+        25.1208054,
+        37.3624161
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rocket",
+      "frame": "walk-6",
+      "occupiedPixels": 23561,
+      "source": [
+        1235,
+        361,
+        203,
+        290
+      ],
+      "target": [
+        -12.8791946,
+        -17.7248322,
+        25.885906,
+        36.9798658
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rocket",
+      "frame": "walk-7",
+      "occupiedPixels": 22167,
+      "source": [
+        109,
+        702,
+        160,
+        298
+      ],
+      "target": [
+        -9.6275168,
+        -18.7449664,
+        20.4026846,
+        38
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rocket",
+      "frame": "braced",
+      "occupiedPixels": 24269,
+      "source": [
+        474,
+        704,
+        183,
+        295
+      ],
+      "target": [
+        -9.1174497,
+        -18.3624161,
+        23.3355705,
+        37.6174497
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rocket",
+      "frame": "downed",
+      "occupiedPixels": 24471,
+      "source": [
+        784,
+        788,
+        323,
+        131
+      ],
+      "target": [
+        -20.5939597,
+        2.5503356,
+        41.1879195,
+        16.704698
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "rocket",
+      "frame": "weapon",
+      "occupiedPixels": 26142,
+      "source": [
+        1170,
+        763,
+        346,
+        168
+      ],
+      "target": [
+        -7.9087452,
+        -6.1292776,
+        34.2053232,
+        16.608365
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "civilian",
+      "frame": "idle",
+      "occupiedPixels": 15200,
+      "source": [
+        139,
+        15,
+        87,
+        312
+      ],
+      "target": [
+        -4.3051948,
+        -17.2207792,
+        9.6038961,
+        34.4415584
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "civilian",
+      "frame": "walk-0",
+      "occupiedPixels": 19213,
+      "source": [
+        487,
+        22,
+        179,
+        303
+      ],
+      "target": [
+        -8.224026,
+        -16.2272727,
+        19.7597403,
+        33.4480519
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "civilian",
+      "frame": "walk-1",
+      "occupiedPixels": 16722,
+      "source": [
+        888,
+        29,
+        133,
+        296
+      ],
+      "target": [
+        -6.788961,
+        -15.4545455,
+        14.6818182,
+        32.6753247
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "civilian",
+      "frame": "walk-2",
+      "occupiedPixels": 16312,
+      "source": [
+        1277,
+        25,
+        115,
+        299
+      ],
+      "target": [
+        -6.512987,
+        -15.7857143,
+        12.6948052,
+        33.0064935
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "civilian",
+      "frame": "walk-3",
+      "occupiedPixels": 18015,
+      "source": [
+        125,
+        364,
+        125,
+        303
+      ],
+      "target": [
+        -6.2922078,
+        -16.2272727,
+        13.7987013,
+        33.4480519
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "civilian",
+      "frame": "walk-4",
+      "occupiedPixels": 18304,
+      "source": [
+        476,
+        364,
+        201,
+        302
+      ],
+      "target": [
+        -9.9902597,
+        -16.1168831,
+        22.1883117,
+        33.3376623
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "civilian",
+      "frame": "walk-5",
+      "occupiedPixels": 16827,
+      "source": [
+        900,
+        365,
+        99,
+        302
+      ],
+      "target": [
+        -5.5194805,
+        -16.1168831,
+        10.9285714,
+        33.3376623
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "civilian",
+      "frame": "walk-6",
+      "occupiedPixels": 16354,
+      "source": [
+        1281,
+        365,
+        113,
+        302
+      ],
+      "target": [
+        -6.0162338,
+        -16.1168831,
+        12.474026,
+        33.3376623
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "civilian",
+      "frame": "walk-7",
+      "occupiedPixels": 18831,
+      "source": [
+        104,
+        710,
+        188,
+        296
+      ],
+      "target": [
+        -8.9967532,
+        -15.4545455,
+        20.7532468,
+        32.6753247
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "civilian",
+      "frame": "safe",
+      "occupiedPixels": 15318,
+      "source": [
+        526,
+        701,
+        87,
+        308
+      ],
+      "target": [
+        -4.25,
+        -16.7792208,
+        9.6038961,
+        34
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "civilian",
+      "frame": "crouch",
+      "occupiedPixels": 19730,
+      "source": [
+        854,
+        799,
+        166,
+        209
+      ],
+      "target": [
+        -10.5974026,
+        -5.8506494,
+        18.3246753,
+        23.0714286
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "civilian",
+      "frame": "downed",
+      "occupiedPixels": 20545,
+      "source": [
+        1168,
+        907,
+        332,
+        97
+      ],
+      "target": [
+        -18.3246753,
+        6.512987,
+        36.6493506,
+        10.7077922
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "buggy",
+      "frame": "idle",
+      "occupiedPixels": 89820,
+      "source": [
+        15,
+        165,
+        484,
+        267
+      ],
+      "target": [
+        -30.4117647,
+        -18.5294118,
+        74.0235294,
+        40.8352941
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "buggy",
+      "frame": "damaged",
+      "occupiedPixels": 89737,
+      "source": [
+        528,
+        164,
+        483,
+        268
+      ],
+      "target": [
+        -30.2588235,
+        -18.6823529,
+        73.8705882,
+        40.9882353
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "buggy",
+      "frame": "wreck",
+      "occupiedPixels": 87510,
+      "source": [
+        1039,
+        192,
+        482,
+        237
+      ],
+      "target": [
+        -30.4117647,
+        -14.4,
+        73.7176471,
+        36.2470588
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "buggy",
+      "frame": "weapon",
+      "occupiedPixels": 33893,
+      "source": [
+        39,
+        702,
+        467,
+        162
+      ],
+      "target": [
+        -8.1563342,
+        -4.9487871,
+        42.7978437,
+        14.8463612
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "buggy",
+      "frame": "wheel",
+      "occupiedPixels": 116673,
+      "source": [
+        567,
+        574,
+        395,
+        395
+      ],
+      "target": [
+        -14,
+        -14,
+        28,
+        28
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "buggy",
+      "frame": "detail",
+      "occupiedPixels": 106355,
+      "source": [
+        1078,
+        613,
+        394,
+        306
+      ],
+      "target": [
+        -14,
+        -10.8730964,
+        28,
+        21.7461929
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "skimmer",
+      "frame": "idle",
+      "occupiedPixels": 64882,
+      "source": [
+        11,
+        200,
+        490,
+        190
+      ],
+      "target": [
+        -39.9261364,
+        -16.3863636,
+        97.4431818,
+        37.7840909
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "skimmer",
+      "frame": "damaged",
+      "occupiedPixels": 64829,
+      "source": [
+        524,
+        200,
+        489,
+        190
+      ],
+      "target": [
+        -39.7272727,
+        -16.3863636,
+        97.2443182,
+        37.7840909
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "skimmer",
+      "frame": "wreck",
+      "occupiedPixels": 62630,
+      "source": [
+        1036,
+        211,
+        489,
+        190
+      ],
+      "target": [
+        -39.7272727,
+        -14.1988636,
+        97.2443182,
+        37.7840909
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "skimmer",
+      "frame": "weapon",
+      "occupiedPixels": 32915,
+      "source": [
+        24,
+        702,
+        470,
+        137
+      ],
+      "target": [
+        -5.4874113,
+        -8.4270959,
+        46.055059,
+        13.4245597
+      ],
+      "rotation": 0.03185196894184327
+    },
+    {
+      "atlas": "skimmer",
+      "frame": "thruster",
+      "occupiedPixels": 57118,
+      "source": [
+        606,
+        633,
+        308,
+        255
+      ],
+      "target": [
+        -14,
+        -11.5909091,
+        28,
+        23.1818182
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "skimmer",
+      "frame": "detail",
+      "occupiedPixels": 17109,
+      "source": [
+        1125,
+        719,
+        321,
+        108
+      ],
+      "target": [
+        -14,
+        -4.7102804,
+        28,
+        9.4205607
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "drone",
+      "frame": "idle",
+      "occupiedPixels": 40644,
+      "source": [
+        17,
+        184,
+        479,
+        167
+      ],
+      "target": [
+        -24.3536842,
+        -8.7642105,
+        48.4042105,
+        16.8757895
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "drone",
+      "frame": "damaged",
+      "occupiedPixels": 40647,
+      "source": [
+        529,
+        184,
+        479,
+        167
+      ],
+      "target": [
+        -24.3536842,
+        -8.7642105,
+        48.4042105,
+        16.8757895
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "drone",
+      "frame": "wreck",
+      "occupiedPixels": 41917,
+      "source": [
+        1042,
+        184,
+        481,
+        167
+      ],
+      "target": [
+        -24.2526316,
+        -8.7642105,
+        48.6063158,
+        16.8757895
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "drone",
+      "frame": "weapon",
+      "occupiedPixels": 22912,
+      "source": [
+        62,
+        709,
+        394,
+        129
+      ],
+      "target": [
+        -3.2835236,
+        -4.17903,
+        23.5219689,
+        7.7013553
+      ],
+      "rotation": -0.005970078324537531
+    },
+    {
+      "atlas": "drone",
+      "frame": "rotor",
+      "occupiedPixels": 40646,
+      "source": [
+        563,
+        704,
+        411,
+        137
+      ],
+      "target": [
+        -14,
+        -4.6666667,
+        28,
+        9.3333333
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "drone",
+      "frame": "detail",
+      "occupiedPixels": 22502,
+      "source": [
+        1173,
+        702,
+        215,
+        139
+      ],
+      "target": [
+        -14,
+        -9.0511628,
+        28,
+        18.1023256
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "turret",
+      "frame": "idle",
+      "occupiedPixels": 123526,
+      "source": [
+        32,
+        31,
+        444,
+        460
+      ],
+      "target": [
+        -29.4814815,
+        -32.8518519,
+        65.7777778,
+        68.1481481
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "turret",
+      "frame": "damaged",
+      "occupiedPixels": 123606,
+      "source": [
+        545,
+        31,
+        444,
+        460
+      ],
+      "target": [
+        -29.3333333,
+        -32.8518519,
+        65.7777778,
+        68.1481481
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "turret",
+      "frame": "wreck",
+      "occupiedPixels": 119307,
+      "source": [
+        1058,
+        44,
+        444,
+        448
+      ],
+      "target": [
+        -29.1851852,
+        -30.9259259,
+        65.7777778,
+        66.3703704
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "turret",
+      "frame": "weapon",
+      "occupiedPixels": 38294,
+      "source": [
+        16,
+        692,
+        479,
+        135
+      ],
+      "target": [
+        -7.0047909,
+        -7.9898396,
+        52.426482,
+        14.7757308
+      ],
+      "rotation": 0.02675760256432602
+    },
+    {
+      "atlas": "turret",
+      "frame": "weapon-damaged",
+      "occupiedPixels": 38252,
+      "source": [
+        528,
+        692,
+        479,
+        135
+      ],
+      "target": [
+        -7.0047909,
+        -7.9898396,
+        52.426482,
+        14.7757308
+      ],
+      "rotation": 0.02675760256432602
+    },
+    {
+      "atlas": "turret",
+      "frame": "detail",
+      "occupiedPixels": 46577,
+      "source": [
+        1166,
+        644,
+        223,
+        229
+      ],
+      "target": [
+        -13.6331878,
+        -14,
+        27.2663755,
+        28
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "convoy",
+      "frame": "idle",
+      "occupiedPixels": 102700,
+      "source": [
+        10,
+        167,
+        495,
+        262
+      ],
+      "target": [
+        -56.4562118,
+        -27.3075356,
+        112.9124236,
+        59.7637475
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "convoy",
+      "frame": "damaged",
+      "occupiedPixels": 102173,
+      "source": [
+        525,
+        167,
+        492,
+        261
+      ],
+      "target": [
+        -55.7718941,
+        -27.3075356,
+        112.2281059,
+        59.5356415
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "convoy",
+      "frame": "wreck",
+      "occupiedPixels": 99378,
+      "source": [
+        1034,
+        169,
+        494,
+        259
+      ],
+      "target": [
+        -56.4562118,
+        -26.8513238,
+        112.6843177,
+        59.0794297
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "convoy",
+      "frame": "wheel",
+      "occupiedPixels": 100906,
+      "source": [
+        75,
+        593,
+        362,
+        371
+      ],
+      "target": [
+        -13.6603774,
+        -14,
+        27.3207547,
+        28
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "convoy",
+      "frame": "cargo",
+      "occupiedPixels": 107954,
+      "source": [
+        597,
+        593,
+        341,
+        345
+      ],
+      "target": [
+        -30.3666667,
+        -19.5,
+        22.7333333,
+        23
+      ],
+      "rotation": 0
+    },
+    {
+      "atlas": "convoy",
+      "frame": "medical",
+      "occupiedPixels": 97728,
+      "source": [
+        1080,
+        641,
+        407,
+        258
+      ],
+      "target": [
+        -35,
+        -18.1425061,
+        32,
+        20.2850123
+      ],
+      "rotation": 0
+    }
+  ],
+  "views": [
+    {
+      "file": "combat-readability.png",
+      "sha256": "0bd38ff3ad06550ab6fcbf8a5069418697334da60878d12a04b5d2069156976a",
+      "type": "Isolated normal renderer comparison, not gameplay screenshot"
+    },
+    {
+      "file": "scene-op01.png",
+      "missionId": "op01",
+      "elapsed": 2.9999999999999942,
+      "stateSha256": "59afb91f7b1ec9e35e37b51239186acb93868ccd95f827b6da508fe27844b332",
+      "sha256": "0ebdfa0afb68de6ef5a5f33dd72f17f0a4ef0c65f85ff88a60e08fc7f991e375",
+      "type": "Canvas scene after 180 public update ticks"
+    },
+    {
+      "file": "scene-op02.png",
+      "missionId": "op02",
+      "elapsed": 2.9999999999999942,
+      "stateSha256": "a82bb9d8985539211edb910fa720c9384cb0a66ee549d2794f5f49f6c6ac53a7",
+      "sha256": "e927713f136ac541ef0d4dc89d392f6d08bc7672be9f275ce18765a5aa850503",
+      "type": "Canvas scene after 180 public update ticks"
+    },
+    {
+      "file": "scene-mi05.png",
+      "missionId": "MI05",
+      "elapsed": 2.9999999999999942,
+      "stateSha256": "983569233247193d8007f2ea1b65fde9436f119c12271d4faa9915be36b44fba",
+      "sha256": "5c8ec0de1b248370f3a20c51fdd47003c581d1b9b8fc367986c3f47364f37d81",
+      "type": "Canvas scene after 180 public update ticks"
+    },
+    {
+      "file": "scene-mi09.png",
+      "missionId": "MI09",
+      "elapsed": 2.9999999999999942,
+      "stateSha256": "ed59b5ce901ab1f85ffc97783c1405fc62b7b8adb8b8882de5e10071883a5a65",
+      "sha256": "9813e5abef66dce05871b0881590025b87cb54a14d10f88b1fccdfe084f2a39a",
+      "type": "Canvas scene after 180 public update ticks"
+    },
+    {
+      "file": "scene-mi13.png",
+      "missionId": "MI13",
+      "elapsed": 2.9999999999999942,
+      "stateSha256": "91f1778222de4d48c81e4877c850c1b123dad2f5586bbb377d937b6d66ff3543",
+      "sha256": "322e50996a8502726e9cc23b835d999b4586ab570fb22874bbeef19160afd48e",
+      "type": "Canvas scene after 180 public update ticks"
+    }
+  ],
+  "limitations": [
+    "Canvas decoding and geometry checks do not certify native browser UI, audio, anatomy, artistic approval or final animation quality."
+  ],
+  "sources": {
+    "src/painted-combat.mjs": "66aa27a2d6f25a1eeb714d125957c30f208428e8c66283a936ba9846b73404f5",
+    "src/painted-combat-layout.mjs": "98f354701cd661ab6a2d175563ad12aba69f1fbe1437f506bd042959acecd8bb",
+    "src/enemy-weapon-pose.mjs": "736f34c9ca9eca086e6c437d9497c322bb5efcdc7598fb3980559c854bf1ff6f",
+    "src/renderer.mjs": "36af3c871921fb1a6c8350965d98b8165a4dbc469c97956a0c68a212d78cc169",
+    "src/simulation.mjs": "25c5e62ce8b77e82073806f27ab1880f6754ef955f3cc1cf8b2fd64e1bdd54c5",
+    "tools/test-painted-combat.mjs": "7ec1290e61b484ad4d54eadf8f708d5a175d29be9ee0043be0d8d94299215c53"
+  },
+  "counts": {
+    "atlases": 9,
+    "frames": 78,
+    "views": 6
+  }
+}

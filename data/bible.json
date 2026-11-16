@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.15.2",
+    "version": "0.15.3",
     "date": "2026-11-16",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs et les 133 critères initiaux sont conservés. Neuf atlas peints de combat ajoutent 78 cellules, dont 32 poses de marche et sept armes séparées. Avec les huit atlas MI14 et leurs 54 cellules, le total atteint 17 atlas et 132 cellules. Les rôles sont génériques, sans variantes de factions complètes. Art, cycles finaux, marcheurs articulés, faune et réception humaine restent ouverts.",
+    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs, tous les statuts et les 133 critères initiaux sont conservés. Six atlas de marcheurs ajoutent 96 cellules de pièces et états; avec les dix-sept atlas de MI14 et du combat, le total peint atteint 23 atlas et 228 cellules. Appuis, collisions et visée restent liés à la simulation. Les réparations progressives du radiateur gardent leur rendu vectoriel. Factions complètes, cycles et postures finaux, faune et réception humaine restent ouverts.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Livrable partiel disponible. L’onglet Prototype et les reçus de production précisent son intégration, sa portée et les critères encore ouverts.",
@@ -5152,7 +5152,7 @@
           "id": "AS02",
           "category": "Marcheur",
           "deliverable": "Vigie — planches et pièces",
-          "spec": "Vues latérales gauche/droite, coque, tourelle, hanches, cuisses, tibias, pieds et pivots nommés. 0.9 : Rig Vigie, huit pièces séparées, pivots/couches et six poses dont gauche/droite. Limite : Relire tous les débattements et l’assemblage intégré en mouvement; finition de l’animation encore ouverte.",
+          "spec": "Vues latérales gauche/droite, coque, tourelle, hanches, cuisses, tibias, pieds et pivots nommés. Les huit pièces et poses vectorielles 0.9 sont conservées. 0.15.3 : Vigie reçoit seize cellules peintes de pièces et états, assemblées depuis ses vrais appuis. Débattements finaux, transitions et réception humaine restent ouverts.",
           "acceptance": "Connexions mécaniques cohérentes, aucune pièce flottante, débattements vérifiés.",
           "priority": "P0",
           "status": "Prototype"
@@ -5161,7 +5161,7 @@
           "id": "AS03",
           "category": "Marcheur",
           "deliverable": "Bastion — planches et pièces",
-          "spec": "Quatre pattes séparées, masques de profondeur, coque basse, ancrage et état endommagé. 0.9 : Rig Bastion, quatre chaînes de membres identifiées, couches proche/lointaine et poses. Limite : Relire profondeur et lisibilité des appuis dans le renderer intégré et pendant les transitions.",
+          "spec": "Quatre pattes séparées, masques de profondeur, coque basse, ancrage et état endommagé. Les quatre chaînes vectorielles 0.9 sont conservées. 0.15.3 : seize cellules peintes pour les pièces et états du Bastion, avec couches proche/lointaine. Finition des transitions et lisibilité humaine des appuis restent à recevoir.",
           "acceptance": "Les membres éloignés restent visibles et lisibles sans confusion d’appui.",
           "priority": "P0",
           "status": "Prototype"
@@ -5170,7 +5170,7 @@
           "id": "AS04",
           "category": "Marcheur",
           "deliverable": "Pèlerin — planches et pièces",
-          "spec": "Six pattes identifiées, tripodes colorés seulement en vue technique, nacelle et équipements amovibles. 0.9 : Rig Pèlerin, six chaînes avec groupes de tripodes et poses à échelle commune. Limite : Contrôler le gait intégré au zoom minimum et produire les équipements réellement amovibles restant hors des huit pièces.",
+          "spec": "Six pattes identifiées, tripodes colorés seulement en vue technique, nacelle et équipements amovibles. Le rig vectoriel 0.9 est conservé. 0.15.3 : seize cellules peintes pour les pièces et états du Pèlerin, assemblées sur les six appuis simulés. Cycle final, lecture au zoom minimum et équipements réellement amovibles restent ouverts.",
           "acceptance": "Gait stable et silhouettes lisibles en zoom minimum.",
           "priority": "P0",
           "status": "Prototype"
@@ -5404,7 +5404,7 @@
           "id": "AS30",
           "category": "Production",
           "deliverable": "Registre de provenance",
-          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. 0.9 : manifeste de distribution exhaustif des 351 médias sources/web, cinq inclusions de trois images et références exclues, plus manifestes des 354 fichiers de production. Les dates exactes, modèles/jobs ou licences historiques non documentés restent explicitement inconnus; PR26 reste ouvert.",
+          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. Les manifestes historiques 0.9 sont conservés. 0.15.3 : les six atlas de marcheurs disposent de prompts, fichiers retenus, dimensions, empreintes et usages documentés. Les champs historiques inconnus restent inconnus; PR26 reste ouvert.",
           "acceptance": "Tout asset livré possède une entrée; aucun média de référence embarqué sans autorisation.",
           "priority": "P0",
           "status": "Prototype"
@@ -5413,7 +5413,7 @@
           "id": "AS31",
           "category": "Marcheurs",
           "deliverable": "Rigs Caracal, Arpenteur et Cloporte",
-          "spec": "Pièces séparées, pivots, états de dégâts et couche des membres éloignés pour trois profils bas/haut/très bas. 0.9 : Trois rigs Caracal/Arpenteur/Cloporte, pièces, pivots, couches et poses. Limite : Inspection intégrée sur terrain commun et finition des mouvements/dégâts restent à effectuer.",
+          "spec": "Pièces séparées, pivots, états de dégâts et couche des membres éloignés pour trois profils bas/haut/très bas. Les rigs vectoriels 0.9 sont conservés. 0.15.3 : Caracal, Arpenteur et Cloporte reçoivent chacun seize cellules peintes, avec leurs silhouettes et appuis distincts. Postures spécialisées, finition des mouvements et réception humaine restent ouvertes.",
           "acceptance": "Inspection des pieds visibles, transition marche/ancrage et angles du canon sur un terrain commun.",
           "priority": "P1",
           "status": "Prototype"
@@ -5458,7 +5458,7 @@
           "id": "AS36",
           "category": "Animation",
           "deliverable": "Diagnostic d’une avarie",
-          "spec": "Un composant visible avec état normal, touché, dégradé et réparé. 0.9 : Quatre états de radiateur et diagnostics des six rigs; source de dessin partagée avec Canvas. Limite : Identification spontanée par un joueur et finition en contexte restent non observées; aucun autre composant adverse ajouté.",
+          "spec": "Un composant visible avec état normal, touché, dégradé et réparé. Les diagnostics vectoriels 0.9 sont conservés. 0.15.3 : les six profils ont un radiateur peint normal, endommagé et réparé; l’état touché et la réparation progressive gardent leur rendu vectoriel. Identification spontanée par un joueur et finition en contexte restent non reçues; aucun autre composant adverse ajouté.",
           "acceptance": "Le joueur identifie la pièce touchée sans ouvrir une fiche technique.",
           "priority": "P1",
           "status": "Prototype"
@@ -5476,7 +5476,7 @@
           "id": "AS38",
           "category": "Production",
           "deliverable": "Manifestes d’intégration",
-          "spec": "Registre de chaque asset avec provenance, pivots, échelle, usage, variante et dépendances. 0.9 : Six rigs documentés et manifestes donnant pivots, taille nominale, encombrement, variantes, usages et dépendances. Limite : Prouver l’intégration du remplacement dans le renderer final et poursuivre le contrat pour chaque future substitution.",
+          "spec": "Registre de chaque asset avec provenance, pivots, échelle, usage, variante et dépendances. Les six rigs documentés 0.9 sont conservés. 0.15.3 : six atlas, 96 cellules, rectangles et ancres des pièces peintes; assemblage selon les contacts et montages existants, avec repli vectoriel. Le contrat reste à recevoir pour chaque future substitution.",
           "acceptance": "Un asset peut être remplacé sans perdre collision, position du son ou identité de la source.",
           "priority": "P1",
           "status": "Prototype"
@@ -5503,7 +5503,7 @@
           "id": "AS41",
           "category": "Marcheurs",
           "deliverable": "Radiateur et réparation animés",
-          "spec": "Pièce arrière pour six profils, impact local, état dégradé et intervention de quatre secondes. Position visuelle liée à la collision simulée. 0.9 : Radiateur séparé pour six profils, quatre états et cinq étapes de réparation; radiatorBounds conservé par les tests. Limite : Validation intégrée basse/haute et animation de production complète restent ouvertes.",
+          "spec": "Pièce arrière pour six profils, impact local, état dégradé et intervention de quatre secondes. Les quatre états et cinq étapes vectoriels 0.9 sont conservés. 0.15.3 : trois états statiques peints par profil, liés à radiatorBounds; les étapes de réparation restent vectorielles. Animation de production complète et réception humaine basse/haute restent ouvertes.",
           "acceptance": "Animation lisible à hauteur basse et haute; effet n’agrandit pas fictivement la zone vulnérable.",
           "priority": "P1",
           "status": "Prototype"
@@ -5842,7 +5842,7 @@
         {
           "id": "PR12",
           "workstream": "Art prototype",
-          "deliverable": "Identité visuelle, environnements et silhouettes mécaniques lisibles. Réception partielle 0.15.2 : neuf atlas de combat, 78 cellules dont 32 poses de marche et sept armes séparées; 17 atlas et 132 cellules avec MI14. Variantes de factions, cycles finaux, marcheurs articulés et faune restent ouverts.",
+          "deliverable": "Identité visuelle, environnements et silhouettes mécaniques lisibles. Réception partielle 0.15.3 : six atlas de marcheurs et 96 cellules de pièces/états, portant le total peint avec MI14 et le combat à 23 atlas et 228 cellules. Factions complètes, postures et cycles finaux, faune et réception humaine restent ouverts.",
           "depends": "AS01–AS04; AS16–AS18",
           "acceptance": "Captures à plusieurs résolutions, contraste et unités identifiables.",
           "priority": "P0",
@@ -8608,7 +8608,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.15.2. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "description": "Portée présente dans le code de la version 0.15.3. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -8651,27 +8651,27 @@
           "id": "PX01",
           "link": "WK01; SY01",
           "name": "Vigie M-12",
-          "implemented": "Deux pieds, alternance manuelle des groupes, assistance optionnelle, longue foulée et caractéristiques de combat propres.",
-          "limits": "Pas de choix libre du point d’appui à la souris ni contrôle de chaque vérin; posture haute fixe.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Deux pieds, alternance manuelle des groupes, assistance optionnelle, longue foulée et caractéristiques de combat propres. Seize cellules peintes fournissent les pièces et états du rig; articulations, pieds et arme suivent leurs positions simulées.",
+          "limits": "Pas de choix libre du point d’appui à la souris ni contrôle de chaque vérin; posture haute fixe. Transfert de masse, transitions et cycle final restent ouverts; le lot peint conserve le pilotage existant.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/production-assets.mjs ; src/painted-walkers.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX02",
           "link": "WK05; SY02",
           "name": "Bastion Q-40",
-          "implemented": "Quatre pieds groupés par diagonales, coque basse, progression plus lente, blindage et recul distincts.",
-          "limits": "Pas de rampement à trois appuis ni modification dynamique de hauteur; réglages à équilibrer.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Quatre pieds groupés par diagonales, coque basse, progression plus lente, blindage et recul distincts. Seize cellules peintes sont assemblées par pièces, avec membres proches et lointains liés aux appuis simulés.",
+          "limits": "Pas de rampement à trois appuis ni modification dynamique de hauteur; réglages à équilibrer. Finition des transitions, réactions de masse et cycle final restent ouverts.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/production-assets.mjs ; src/painted-walkers.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX03",
           "link": "WK09; SY03",
           "name": "Pèlerin H-6",
-          "implemented": "Six pieds et deux tripodes alternés, paramètres de chaleur et armement propres.",
-          "limits": "Pas encore de marche à cinq appuis ou perte complète de membre; voies et taille réduites pour le prototype.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Six pieds et deux tripodes alternés, paramètres de chaleur et armement propres. Seize cellules peintes fournissent coque, arme, articulations, segments, pieds et radiateur; le rig suit les six appuis simulés.",
+          "limits": "Pas encore de marche à cinq appuis ou perte complète de membre; voies et taille réduites pour le prototype. Équipements amovibles et cycle final restent à produire; réception humaine de la lisibilité distincte.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/production-assets.mjs ; src/painted-walkers.mjs",
           "status": "Prototype"
         },
         {
@@ -8858,9 +8858,9 @@
           "id": "PX24",
           "link": "PR12; AS01",
           "name": "Direction visuelle initiale",
-          "implemented": "Illustration de titre, panorama Vesper, silhouettes articulées et ambiances distinctes. Neuf atlas de combat ajoutent 78 cellules, 32 poses de marche et sept armes séparées; avec MI14 : 17 atlas, 132 cellules. Découpe et ancres documentées, chargement asynchrone et repli vectoriel.",
-          "limits": "Art au stade Prototype : rôles génériques sans logo de faction, variations et transitions limitées. Factions complètes, cycles finaux, sprites de marcheurs articulés, faune et campagne entièrement peinte restent à produire. Réception navigateur et humaine distincte des contrôles automatisés.",
-          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-combat.mjs",
+          "implemented": "Illustration de titre, panorama Vesper, silhouettes articulées et ambiances distinctes. Six atlas de marcheurs ajoutent 96 cellules de pièces et états; avec MI14 et le combat : 23 atlas, 228 cellules. Découpe et ancres documentées, chargement asynchrone et repli vectoriel.",
+          "limits": "Art au stade Prototype : rôles génériques sans logo de faction, variations et transitions limitées. Factions complètes, postures et cycles finaux des marcheurs, faune et campagne entièrement peinte restent à produire. Réception navigateur et humaine distincte des contrôles automatisés.",
+          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-walkers.mjs",
           "status": "Prototype"
         },
         {
@@ -8975,27 +8975,27 @@
           "id": "PX37",
           "link": "WK02; SY01",
           "name": "Caracal C-5",
-          "implemented": "Bipède bas : coque compacte, foulée courte, vitesse et armement propres.",
-          "limits": "Posture fixe; passages sous plafond, pivots urbains et emplacements d’équipement spécialisés à produire.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Bipède bas : coque compacte, foulée courte, vitesse et armement propres. Seize cellules peintes de pièces et états s’assemblent sur son rig existant; les deux appuis et l’arme restent liés à la simulation.",
+          "limits": "Posture fixe; passages sous plafond, pivots urbains et emplacements d’équipement spécialisés à produire. Transitions, transfert de masse et cycle final restent ouverts.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/production-assets.mjs ; src/painted-walkers.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX38",
           "link": "WK06; SY02",
           "name": "Arpenteur A-17",
-          "implemented": "Quadrupède haut : longs membres, diagonales, coque élevée et réglages propres.",
-          "limits": "Pas de choix indépendant de chaque pied, de franchissement dédié ou de module de secours actif.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Quadrupède haut : longs membres, diagonales, coque élevée et réglages propres. Seize cellules peintes de pièces et états s’assemblent autour des quatre appuis simulés, avec couches de profondeur.",
+          "limits": "Pas de choix indépendant de chaque pied, de franchissement dédié ou de module de secours actif. Postures spécialisées, réactions de masse et cycle final restent à produire.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/production-assets.mjs ; src/painted-walkers.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX39",
           "link": "WK10; SY03",
           "name": "Cloporte CL-4",
-          "implemented": "Hexapode très bas : six appuis, petits pas, coque basse et paramètres de combat propres.",
-          "limits": "Tunnels, sonde de déminage et blindage local du toit ne sont pas simulés.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Hexapode très bas : six appuis, petits pas, coque basse et paramètres de combat propres. Seize cellules peintes préservent son profil ramassé; pièces et arme sont assemblées depuis le rig et les pieds simulés.",
+          "limits": "Tunnels, sonde de déminage et blindage local du toit ne sont pas simulés. Postures spécialisées et cycle final restent à produire; la peinture ne change pas ses capacités.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/production-assets.mjs ; src/painted-walkers.mjs",
           "status": "Prototype"
         },
         {
@@ -9101,9 +9101,9 @@
           "id": "PX51",
           "link": "SY36; SY50",
           "name": "Radiateur du marcheur",
-          "implemented": "Collision arrière et intégrité propres, facteur continu de refroidissement de 35 à 100 % selon les dégâts.",
-          "limits": "Premier composant joueur. Pas de circuit complet, fuite volumétrique ni composant équivalent sur une menace ennemie.",
-          "path": "src/simulation.mjs; src/renderer.mjs",
+          "implemented": "Collision arrière et intégrité propres, facteur continu de refroidissement de 35 à 100 % selon les dégâts. Trois états peints par châssis : normal, endommagé et réparé. La pièce suit radiatorBounds; la réparation progressive reste vectorielle.",
+          "limits": "Premier composant joueur. Pas de circuit complet, fuite volumétrique ni composant équivalent sur une menace ennemie. Animation finale et identification spontanée de l’avarie par un joueur restent ouvertes.",
+          "path": "src/simulation.mjs ; src/renderer.mjs ; src/painted-walkers.mjs",
           "status": "Prototype"
         },
         {
@@ -9416,9 +9416,9 @@
           "id": "PX86",
           "link": "SY92; AS02; AS31",
           "name": "Pièces, rigs et modules",
-          "implemented": "Exports vectoriels, rigs et pièces de décor partagent leur définition avec le renderer; contacts et radiateur gardent leur géométrie de simulation.",
-          "limits": "Kit procédural partiel; les planches ne démontrent ni cycle final en mouvement ni finition de tous les mondes.",
-          "path": "src/production-assets.mjs; assets/production/manifest.json",
+          "implemented": "Les exports vectoriels historiques sont conservés. Six atlas de seize cellules peintes remplacent les pièces des marcheurs dans le rendu, avec repli vectoriel. Les rigs conservent contacts, articulations, montage d’arme et zone simulée du radiateur.",
+          "limits": "Kit partiel : seize cellules par châssis décrivent des pièces et états. Cycles finaux, postures spécialisées, équipements amovibles et finition de tous les mondes restent ouverts. Les réparations progressives du radiateur gardent leur dessin vectoriel.",
+          "path": "src/production-assets.mjs ; src/painted-walkers.mjs ; assets/painted/walkers/manifest.json",
           "status": "Prototype"
         },
         {
