@@ -1,0 +1,38 @@
+[
+  {
+    "name": "build",
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "exitCode": 0,
+    "seconds": 0.843,
+    "log": "docs/validation/release-v0151/build.txt",
+    "sha256": "79ca6d03e5c4ad0fe8f084d2f41227560df268224cf8704ef549726b498d0734"
+  },
+  {
+    "name": "build-web",
+    "command": [
+      "npm",
+      "run",
+      "build:web"
+    ],
+    "exitCode": 0,
+    "seconds": 0.26,
+    "log": "docs/validation/release-v0151/build-web.txt",
+    "sha256": "a1bb9aa5d80cbd647ba340fbd5ef40dfdc9cff72a3c888cbd9a1af94d417ae7a"
+  },
+  {
+    "name": "ui-static",
+    "command": [
+      "npm",
+      "run",
+      "check:ui"
+    ],
+    "exitCode": 0,
+    "seconds": 0.405,
+    "log": "docs/validation/release-v0151/ui-static.txt",
+    "sha256": "c74ee873799569f57dba9639fe3d6846896e920737c36e3805c97c4685b46431"
+  }
+]

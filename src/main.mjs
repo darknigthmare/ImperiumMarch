@@ -4,6 +4,12 @@ import { Renderer } from './renderer.mjs';
 import { livingRouteSummary } from './thyr-renderer.mjs';
 import { chemicalSummary, chemicalTankRole } from './chemical-renderer.mjs';
 import { voiceSummary } from './voice-renderer.mjs';
+import { relaySummary } from './relay-renderer.mjs';
+import { RELAY_COMMAND_EXCERPT } from './relay-simulation.mjs';
+import { foundrySummary } from './foundry-renderer.mjs';
+import { workshopSummary } from './workshop-renderer.mjs';
+import { loadPaintedSprites, paintedSpriteStatus } from './painted-sprites.mjs';
+import { loadPaintedCombat, paintedCombatStatus } from './painted-combat.mjs';
 import { AudioEngine } from './audio.mjs';
 import { CONTROL_ACTIONS, normalizeBindings, bindingLabel, remapBinding, keyboardActions, GamepadInput, defaultBindings, formatControlText } from './controls.mjs';
 import { createCampaign, readCampaign, writeCampaign, beginCampaignMission, checkpointCampaign, restoreCampaignGame, finishCampaignMission, serviceCampaignWalker, repairCampaignPipe, campaignRepairCost, serializeCampaign, parseCampaign, nextCampaignMissionId } from './campaign.mjs';
@@ -28,6 +34,8 @@ const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp
 const audio = new AudioEngine();
 const renderer = new Renderer($('game-canvas'));
 const hangarRenderer = new Renderer($('hangar-canvas'));
+loadPaintedSprites();
+loadPaintedCombat();
 let game = null, view = 'campaign', archive = 'doctrine', inGame = false, paused = false, lastTime = 0, hudTick = 0, lastEventId = 0, radioUntil = 0, resultRecorded = false, radioQueue = [];
 let campaignStorage;
 try { campaignStorage = window.localStorage; } catch { campaignStorage = null; }
@@ -45,6 +53,24 @@ const pointer = { x: 1100, y: 570, clientX: 0, clientY: 0, visible: false, fire:
 const selectedWalker = () => WALKERS.find(w => w.id === settings.walkerId);
 const selectedMission = () => MISSIONS.find(m => m.id === settings.missionId);
 const campaignOrders = {
+  MI14: {
+    status: 'L’atelier de Kharon a cessé ses expéditions. Holt exige la reprise.',
+    description: 'Huit ouvriers occupent le passage. Ils refusent d’expédier un lot saboté, le refroidisseur est en panne et l’automate de sécurité reçoit un ordre de dégagement. Tess demande à voir les pièces.',
+    task: 'Faire évacuer les appuis, neutraliser l’automate, réparer le froid et examiner le lot avant d’agir sur la commande.',
+    caution: 'Attendez l’arrivée des ouvriers à la galerie. Une réponse à Holt ne répare pas le refroidisseur et ne remet pas la chaîne en route.',
+  },
+  MI12: {
+    status: 'Holt ordonne la purge de trois relais de commande avant le départ de Thyr.',
+    description: 'Le troisième relais conserve des ordres industriels. Ilan demande à voir les pièces avant de croire les accusations. Le Prétoire garde le poste et ses composants peuvent être visés séparément.',
+    task: 'Relever les trois relais, tenter la copie sous délai, puis accomplir les opérations choisies.',
+    caution: 'La copie demande 24 secondes dans une fenêtre de 45 secondes. Un refus ouvert aura des conséquences sur le refuge impérial.',
+  },
+  MI13: {
+    status: 'Kharon. Deux caisses de pièces doivent traverser le secteur des hauts fourneaux.',
+    description: 'Les circuits chauffent les tabliers sous les pieds du marcheur et les roues du porteur. Tess veut comparer les marquages au bordereau. Des forces privées surveillent cette route industrielle.',
+    task: 'Refroidir les ponts, escorter le porteur, relever les sources et transférer les caisses à leur destination.',
+    caution: 'Une décision ne déplace aucune caisse. Conservez les copies avant de risquer leurs originaux.',
+  },
   MI11: {
     status: 'Un signal Khelt est classé en coordination hostile. Holt demande la capture de son émetteur.',
     description: 'La voix remonte par les racines de la vallée. Trois relevés à l’arrêt peuvent en retrouver l’origine. Une corniche longe un site de ponte ; au-delà, une traduction impériale ne dit pas la même chose que la source de Leth.',
@@ -137,7 +163,7 @@ function saveCampaign({ replaceInvalid = false } = {}) {
   return result.ok;
 }
 function captureCampaign(beforeDecision = false) {
-  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game.missionId) && game.status === 'lost'))) return;
+  if (activeMode !== 'campaign' || campaignReplay || !game || (game.status !== 'playing' && !(['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11', 'MI12', 'MI13', 'MI14'].includes(game.missionId) && game.status === 'lost'))) return;
   try {
     campaign = checkpointCampaign(campaign, game, { beforeDecision });
     lastCampaignSaveAt = game.elapsed;
@@ -154,6 +180,35 @@ function renderCampaignStatus() {
   $('campaign-save-status').classList.toggle('save-warning', Boolean(campaignWarning || campaignBlocked));
 }
 function campaignReceiptFacts(receipt) {
+  if (receipt.missionId === 'MI14') return [
+    ['CONDUITE', receipt.plan === 'hold' ? 'Maintenir l’arrêt' : 'Ordonner la reprise'],
+    ['OUVRIERS', `${receipt.workersAlive} vivants · ${receipt.workersSheltered} à la galerie · ${receipt.workersLost} perdus`],
+    ['REFROIDISSEUR', receipt.coolerDestroyed ? receipt.coolerRepaired ? 'Perdu après réparation' : 'Détruit' : receipt.coolerRepaired ? 'Réparé sur place' : 'Non réparé'],
+    ['COMMANDE', receipt.execution === 'damaged' ? 'Opération impossible · matériel perdu' : receipt.controlOperated ? receipt.productionOnline ? 'Reprise accomplie · chaîne active' : receipt.strikePreserved ? 'Arrêt maintenu' : 'Commande accomplie · chaîne inactive' : 'Non opérée'],
+    ['LOT CONTESTÉ', receipt.lotRecordCopied ? 'Copie du constat local conservée' : 'Aucun relevé exploitable'],
+    ['RECOUPEMENT', receipt.pt03CrossReferenced ? 'Série rapprochée de PT03' : 'Aucun rapprochement PT03 acquis'],
+    ['COOPÉRATION', `${receipt.mechanicsAvailable} / 2 mécaniciens disponibles sur place`],
+    ['AUTOMATE', receipt.securityNeutralized ? 'Neutralisé' : 'Non neutralisé'],
+  ];
+  if (receipt.missionId === 'MI13') return [
+    ['DESTINATION', receipt.plan === 'quarantine' ? 'Quarantaine' : 'Dépôt industriel'],
+    ['PORTEUR', receipt.carrierArrived ? 'Arrivé' : receipt.carrierDestroyed ? 'Perdu' : 'En route'],
+    ['CAISSES', `${receipt.cargoIntact} intactes · ${receipt.cargoDamaged} endommagées · ${receipt.cargoLost} perdues`],
+    ['TRANSFERTS', `${receipt.cargoTransferred} / 2 caisses réellement transférées`],
+    ['SOURCES', `${receipt.markingsCopied} / 2 marquages · ${receipt.manifestCopied ? 'bordereau copié' : 'bordereau absent'}`],
+    ['ANALYSE', receipt.analysisCompleted ? 'Achevée à bord' : 'Inachevée'],
+    ['PT03', receipt.pt03Acquired ? 'Provenance industrielle établie' : 'Conditions non réunies'],
+    ['RECOUPEMENTS', `${receipt.pt01CrossReferenced ? 'PT01 rapproché' : 'Aucun rapprochement PT01'} · ${receipt.relayCrossReferenced ? 'ordres MI12 rapprochés' : 'aucun rapprochement MI12'}`],
+  ];
+  if (receipt.missionId === 'MI12') return [
+    ['CONDUITE', receipt.choice === 'refuse' ? 'Refus ouvert' : receipt.choice === 'defy' ? receipt.roster.relays[2].destroyed ? 'Conservation demandée · troisième relais perdu' : 'Troisième relais isolé' : 'Purge impériale'],
+    ['RELAIS', `${receipt.relaysErased} effacés · ${receipt.relaysIsolated} isolés · ${receipt.relaysLost} perdus`],
+    ['COMMANDES', receipt.ordersCopied ? 'Copie complète conservée' : 'Aucune copie complète'],
+    ['PRÉTOIRE', receipt.praetorNeutralized ? 'Neutralisé' : 'Non neutralisé'],
+    ['COMPOSANTS', `${receipt.sensorDisabled ? 'Capteur neutralisé' : 'Capteur intact'} · ${receipt.lockDisabled ? 'verrou neutralisé' : 'verrou intact'}`],
+    ['REFUGE IMPÉRIAL', receipt.refugeClosed ? 'Fermé après refus' : 'Pas de fermeture actée'],
+    ['HOLT', receipt.holtAlerted ? 'Alerte consignée' : 'Aucune alerte supplémentaire'],
+  ];
   if (receipt.missionId === 'MI11') return [
     ['ÉCOUTES', `${receipt.signalsRecorded} / 3 signaux exploitables · ${receipt.readingsTaken} relevés`],
     ['SOURCES', `${receipt.warningCopied ? 'Avis original copié' : 'Avis absent'} · ${receipt.translationCopied ? 'traduction copiée' : 'traduction absente'}`],
@@ -297,7 +352,19 @@ function renderCampaignUI() {
   }
   if (campaign.completed.MI11) {
     const r = campaign.completed.MI11;
-    $('campaign-transition-text').textContent = `Le relevé de la vallée est classé. ${r.te01Acquired ? 'TE01 conserve les avertissements reçus et leur traduction déformée, avec un témoignage privé consenti.' : 'Les pièces conservées ne réunissent pas les conditions de TE01 ; le rapport garde ces absences.'} ${r.witnessAvailable ? 'Leth demeure dans la vallée et peut poursuivre l’interprétation, sans rejoindre l’équipage.' : 'La disponibilité future de Leth n’est pas acquise.'} Aucune diffusion publique n’a été autorisée. Les dix rapports précédents sont conservés. « Le troisième relais » reste à produire.`;
+    $('campaign-transition-text').textContent = `Le relevé de la vallée est classé. ${r.te01Acquired ? 'TE01 conserve les avertissements reçus et leur traduction déformée, avec un témoignage privé consenti.' : 'Les pièces conservées ne réunissent pas les conditions de TE01 ; le rapport garde ces absences.'} ${r.witnessAvailable ? 'Leth demeure dans la vallée et peut poursuivre l’interprétation, sans rejoindre l’équipage.' : 'La disponibilité future de Leth n’est pas acquise.'} Aucune diffusion publique n’a été autorisée. Les dix rapports précédents sont conservés. « Le troisième relais » est maintenant accessible. La purge demandée concerne des sources encore à examiner.`;
+  }
+  if (campaign.completed.MI12) {
+    const r = campaign.completed.MI12;
+    $('campaign-transition-text').textContent = `${r.ordersCopied ? 'La copie des ordres industriels reste au dossier.' : 'Aucune copie complète des ordres industriels n’a été obtenue.'} ${r.refugeClosed ? 'Le refus ouvert a fermé le refuge impérial.' : 'La situation du refuge reste consignée dans le bilan.'} L’affectation sur Kharon est ouverte : « Pièces de rechange ». Les rapports de Vesper, Nacre et Thyr restent conservés.`;
+  }
+  if (campaign.completed.MI13) {
+    const r = campaign.completed.MI13;
+    $('campaign-transition-text').textContent = `${r.carrierDestroyed ? 'Le porteur a été perdu.' : r.carrierArrived ? `Le porteur a rejoint ${r.plan === 'quarantine' ? 'la quarantaine' : 'le dépôt industriel'}.` : 'Le trajet du porteur reste consigné au rapport.'} ${r.cargoTransferred} caisses transférées, ${r.cargoLost} perdues. ${r.pt03Acquired ? 'PT03 conserve la provenance industrielle des pièces.' : 'Les sources disponibles ne suffisent pas à constituer PT03.'} « Les mains noires » est maintenant accessible. Les ouvriers de cet atelier ont leurs propres noms et leur propre histoire.`;
+  }
+  if (campaign.completed.MI14) {
+    const r = campaign.completed.MI14;
+    $('campaign-transition-text').textContent = `Le bilan de l’atelier est classé : ${r.workersAlive} ouvriers vivants, ${r.workersLost} perdus. ${r.productionOnline ? 'La chaîne a repris.' : r.strikePreserved ? 'L’arrêt est maintenu.' : 'La chaîne reste inactive.'} ${r.mechanicsAvailable ? `${r.mechanicsAvailable} mécaniciens restent disponibles sur place après leur accord.` : 'Aucune aide future de mécanicien n’est acquise.'} ${r.lotRecordCopied ? 'Le constat local de sabotage est conservé.' : 'Aucun relevé exploitable du lot n’a été copié.'} La suite, « Sous le même numéro », reste à produire.`;
   }
   $('campaign-mission-list').innerHTML = CAMPAIGN_MISSIONS.map((m, index) => {
     const done = Boolean(campaign.completed[m.id]), active = campaign.activeMissionId === m.id;
@@ -368,7 +435,22 @@ function renderWorkshop() {
     const r = campaign.completed.MI09;
     $('workshop-thyr').textContent = `Thyr : ${r.migratorsArrived} longues-dorses au verger, ${r.migratorsDisplaced} détournées, ${r.migratorsLost} perdues ; ${r.homesHabitable} habitats habitables. ${r.localsHeard ? 'Les indications locales ont été écoutées.' : 'Aucun échange local accompli.'} Le journal conserve chaque animal, chaque support et l’arrivée du transport.`;
   }
+  $('workshop-relay').hidden = !campaign.completed.MI12;
+  if (campaign.completed.MI12) {
+    const r = campaign.completed.MI12;
+    $('workshop-relay').textContent = `Thyr : ${r.relaysErased} relais effacés, ${r.relaysIsolated} isolés et ${r.relaysLost} perdus. ${r.ordersCopied ? 'Les commandes copiées sont à bord.' : 'Aucune copie des commandes n’est disponible.'} L’atelier ne restaure pas les sources perdues.`;
+  }
+  $('workshop-foundry').hidden = !campaign.completed.MI13;
+  if (campaign.completed.MI13) {
+    const r = campaign.completed.MI13;
+    $('workshop-foundry').textContent = `Kharon : ${r.cargoTransferred} caisses transférées, ${r.cargoLost} perdues. ${r.pt03Acquired ? 'PT03 est conservé.' : 'PT03 n’a pas été constitué.'} Les quatre lots de la première dotation sont déjà compris dans le stock ; une relecture ne les attribue pas à nouveau.`;
+  }
   $('workshop-voice').hidden = !campaign.completed.MI11;
+  $('workshop-kharon').hidden = !campaign.completed.MI14;
+  if (campaign.completed.MI14) {
+    const r = campaign.completed.MI14;
+    $('workshop-kharon').textContent = `Atelier de Kharon : ${r.workersAlive} ouvriers vivants, ${r.workersLost} perdus. ${r.coolerDestroyed ? 'Le refroidisseur est perdu.' : r.coolerRepaired ? 'Le froid a été réparé.' : 'Le froid reste en panne.'} ${r.mechanicsAvailable} mécaniciens disponibles sur place. ${r.mechanicsCooperating ? 'Leur accord reste inscrit ; il ne les déplace pas à bord.' : 'Aucun accord de coopération n’est acquis.'} La première dotation est déjà comprise dans le stock.`;
+  }
   if (campaign.completed.MI11) {
     const r = campaign.completed.MI11;
     $('workshop-voice').textContent = `Vallée des résonances : ${r.nestsIntact} sites de ponte intacts, ${r.nestsLost} perdus. ${r.te01Acquired ? 'TE01 est conservé au dossier.' : 'TE01 n’a pas été constitué.'} ${r.lethAlive ? 'Leth reste sur Thyr.' : 'Leth est perdu.'} ${r.witnessAvailable ? 'La poursuite de l’interprétation demeure possible.' : 'Aucune coopération future n’est acquise.'} Les pièces d’atelier ne restaurent ni les nids ni les sources perdues.`;
@@ -495,6 +577,25 @@ const factions = [
   ['09 / COHORTE VÉTÉRANE', 'Cohorte des Serments', 'Des équipages expérimentés disposent de machines et de ravitaillement prioritaires. Leur fidélité au commandement se mesure aussi à la peur de perdre ceux qui dépendent d’eux.'],
 ];
 all('[data-archive]').forEach(el => el.addEventListener('click', () => { archive = el.dataset.archive; renderArchive(); }));
+function relayArchive() {
+  const r = campaign.completed.MI12;
+  if (!r) return '';
+  const rows = campaignReceiptFacts(r).map(([label, value]) => `<tr><th scope="row">${escapeHTML(label)}</th><td>${escapeHTML(value)}</td></tr>`).join('');
+  const wording = r.ordersCopied ? `<blockquote class="source-wording">${escapeHTML(RELAY_COMMAND_EXCERPT)}</blockquote>` : '<p>La source n’a pas été copiée intégralement. Aucun texte des commandes n’est reconstitué.</p>';
+  return `<section class="nacre-dossiers relay-dossiers" aria-label="Dossier du troisième relais"><p class="eyebrow">THYR / ORDRES INDUSTRIELS</p><details class="dossier-detail"><summary>Le troisième relais <span>${r.ordersCopied ? 'Copie conservée' : 'Copie absente'}</span></summary>${wording}<div class="dossier-table-wrap"><table><caption>Interventions réellement accomplies</caption><tbody>${rows}</tbody></table></div><p>Ces commandes concernent le traitement local de Thyr. Leur possession ne constitue ni une preuve politique globale, ni une autorisation de diffusion publique, ni une défection.</p></details></section>`;
+}
+function workshopArchive() {
+  const r = campaign.completed.MI14;
+  if (!r) return '';
+  const rows = r.roster.workers.map(w => `<tr><th scope="row">${escapeHTML(w.name)}</th><td>${w.mechanic ? 'Mécanicien' : 'Ouvrier'}${w.displaced ? ' · arrivé de Nacre avant le recensement connu' : ' · atelier local'}</td><td>${w.alive ? w.sheltered ? 'Vivant à la galerie' : 'Vivant sur le site' : 'Perdu'}</td><td>${w.mechanic && w.alive && w.sheltered && r.mechanicsAvailable > 0 ? 'Disponible sur place' : 'Aucune disponibilité acquise'}</td></tr>`).join('');
+  return `<section class="nacre-dossiers workshop-dossiers" aria-label="Dossier de l’atelier de Kharon"><p class="eyebrow">KHARON / LES MAINS NOIRES</p><details class="dossier-detail"><summary>Le lot et les ouvriers <span>${r.workersAlive} vivants · ${r.workersLost} perdus</span></summary><p>${r.workersHeard ? 'L’explication des ouvriers a été recueillie.' : 'Aucune explication ouvrière n’a été recueillie.'} ${r.nacreAccountRecorded ? 'Les déplacés racontent une arrivée antérieure dans cet atelier ; leurs noms ne sont pas ajoutés aux anciens recensements de Nacre.' : 'Aucun récit des déplacés n’a été recueilli.'}</p><div class="dossier-table-wrap"><table><caption>Personnes présentes dans l’atelier</caption><thead><tr><th scope="col">Nom</th><th scope="col">Situation</th><th scope="col">État au rapport</th><th scope="col">Coopération</th></tr></thead><tbody>${rows}</tbody></table></div><p>${r.lotRecordCopied ? 'Le constat local de sabotage a été copié à bord.' : 'Le relevé du lot est absent du dossier.'} ${r.pt03CrossReferenced ? 'La série est rapprochée de PT03 acquise lors du convoi.' : 'Aucun rapprochement avec PT03 n’est établi.'} ${r.coolerDestroyed ? r.coolerRepaired ? 'Le refroidisseur a été détruit après sa réparation.' : 'Le refroidisseur a été détruit.' : r.coolerRepaired ? 'Le refroidisseur a été réparé sur place.' : 'Le refroidisseur reste en panne.'}</p><p>${r.productionOnline ? 'La reprise de production a été accomplie.' : r.strikePreserved ? 'L’arrêt de la chaîne a été maintenu.' : 'La chaîne reste inactive.'} ${r.mechanicsAvailable} mécaniciens sont disponibles sur place. Leur accord ne constitue pas un recrutement et aucune diffusion publique n’est autorisée.</p></details></section>`;
+}
+function foundryArchive() {
+  const r = campaign.completed.MI13;
+  if (!r) return '';
+  const cargo = r.roster.cargo.map((c, i) => `<tr><th scope="row">Caisse ${i + 1}</th><td>${c.destroyed ? 'Détruite' : c.hp < c.maxHp ? 'Endommagée' : 'Intacte'}</td><td>${c.markingCopied ? 'Marquage copié' : 'Aucun marquage acquis'}</td><td>${c.transferred ? c.bay === 'quarantine' ? 'Transférée en quarantaine' : 'Transférée au dépôt' : c.destroyed ? 'Perte consignée' : 'Non transférée'}</td></tr>`).join('');
+  return `<section class="nacre-dossiers foundry-dossiers" aria-label="Dossier de provenance de Kharon"><p class="eyebrow">KHARON / PROVENANCE DES PIÈCES</p><details class="dossier-detail"><summary>Pièces de rechange <span>${r.pt03Acquired ? 'PT03 conservé' : 'PT03 absent'} · ${r.cargoTransferred} transferts</span></summary><p>${r.manifestCopied ? 'Le bordereau a été copié à bord.' : 'Aucun bordereau exploitable n’est conservé.'} ${r.analysisCompleted ? 'Tess a achevé l’analyse des pièces disponibles.' : 'L’analyse de Tess n’a pas été achevée.'}</p><div class="dossier-table-wrap"><table><caption>Sources et destination physique</caption><thead><tr><th scope="col">Source</th><th scope="col">État matériel</th><th scope="col">Copie</th><th scope="col">Destination</th></tr></thead><tbody>${cargo}</tbody></table></div><p>${r.pt03Acquired ? 'PT03 rapproche les deux marquages, le bordereau et l’analyse.' : 'Les conditions de PT03 ne sont pas réunies.'} ${r.pt01CrossReferenced ? 'Le journal PT01 déjà acquis peut être recoupé.' : 'Aucun recoupement avec PT01 n’est établi.'} ${r.relayCrossReferenced ? 'Les commandes copiées dans MI12 sont rapprochées de cette provenance.' : 'Aucun recoupement avec les commandes MI12 n’est établi.'} La chaîne politique complète et la diffusion publique restent hors de ce dossier.</p></details></section>`;
+}
 function voiceArchive() {
   const r = campaign.completed.MI11;
   if (!r) return '';
@@ -559,7 +660,7 @@ function renderArchive() {
   if (archive === 'doctrine') {
     $('archive-content').innerHTML = `<div class="doctrine-layout"><div><blockquote>« Une frontière n’est pacifiée que lorsque nos convois peuvent la traverser. »</blockquote><p>Vous êtes la lieutenante <strong>Sera Vey</strong>, pilote de marcheur au service de l’Empire d’Orthe. On vous a appris à voir une carte, un objectif et un ordre. Depuis le cockpit, les fenêtres des maisons paraissent minuscules.</p><p>Sur Vesper, votre première affectation consiste à escorter des filtres jusqu’au poste des mineurs. <strong>Tess Ardan</strong> veille sur vos appuis. <strong>Sami Pell</strong> conduit le camion. Le Major Holt attend un couloir dégagé et une livraison signée. Depuis le siège du pilote, il vous faudra aussi regarder ce qui se trouve entre les bornes de l’ordre.</p></div><div><p class="eyebrow">EXTRAIT DU MANUEL DE PILOTAGE</p><p>Préservez vos appuis. Ancrez le châssis avant un tir prolongé. Un canon surchauffé ne vaut plus rien ; une articulation détruite vous condamne à rester là.</p><p>Identifiez ce qui se trouve sous vos pieds. Les repères civils sont cyan. Une silhouette petite n’est pas une cible.</p><div class="dossier-stamp">DOSSIER PERSONNEL : SERA VEY<br>AFFECTATION : VIIe CORPS EXPÉDITIONNAIRE<br>ACCÈS : FRONTIÈRE EXTÉRIEURE</div></div></div>`;
   } else if (archive === 'worlds') {
-    $('archive-content').innerHTML = `<div class="lore-grid">${worlds.map(([id, name, biome, text]) => `<article class="lore-card"><p class="eyebrow">PL${id} / ${biome.toUpperCase()}</p><h3>${name}</h3><p>${text}</p></article>`).join('')}</div><p class="muted" style="margin-top:20px">Trois théâtres sont accessibles dans ce prototype : Vesper, Nacre et Thyr. Les autres mondes appartiennent à la campagne en conception.</p>`;
+    $('archive-content').innerHTML = `<div class="lore-grid">${worlds.map(([id, name, biome, text]) => `<article class="lore-card"><p class="eyebrow">PL${id} / ${biome.toUpperCase()}</p><h3>${name}</h3><p>${text}</p></article>`).join('')}</div><p class="muted" style="margin-top:20px">Quatre théâtres sont accessibles dans ce prototype : Vesper, Nacre, Thyr et Kharon. Les autres mondes appartiennent à la campagne en conception.</p>`;
   } else if (archive === 'factions') {
     $('archive-content').innerHTML = `<div class="lore-grid">${[...factions].sort((a, b) => a[0].localeCompare(b[0])).map(([id, name, text]) => `<article class="lore-card"><p class="eyebrow">${id}</p><h3>${name}</h3><p>${text}</p></article>`).join('')}</div><p class="muted" style="margin-top:20px">Ces notices situent les forces de la campagne. Leurs doctrines, unités et relations complètes restent à déployer dans les missions suivantes.</p>`;
   } else {
@@ -569,7 +670,7 @@ function renderArchive() {
       return `<article class="record-card"><div><p class="eyebrow">CAMPAGNE / ${r.missionId} / PREMIÈRE RÉUSSITE</p><h3>${escapeHTML(r.missionName)}</h3><p>${escapeHTML(r.walkerName)} · ${timeLabel(r.elapsed)}</p></div><div><p>${facts}<br>${escapeHTML(r.decisionLabel)}</p></div></article>`;
     }).join('');
     const simulations = finished.length ? finished.map(m => { const r = records[m.id]; return `<article class="record-card"><div><p class="eyebrow">SIMULATION / ${m.planet.toUpperCase()} / OPÉRATION ${m.number}</p><h3>${m.name}</h3><p>${escapeHTML(r.walker || 'Marcheur')} · ${timeLabel(Number(r.time) || 0)}</p></div><div><p>Preuves récupérées : ${Number(r.evidence) || 0}<br>Pertes civiles : ${Number(r.collateral) || 0}<br>Décision : ${r.choice === 'defy' ? 'Ordre contesté' : 'Ordre exécuté'}</p></div></article>`; }).join('') : '<p class="muted">Aucun rapport de simulation. Les exercices sont indépendants du dossier de campagne.</p>';
-    $('archive-content').innerHTML = voiceArchive() + chemicalArchive() + thyrArchive() + nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
+    $('archive-content').innerHTML = workshopArchive() + foundryArchive() + relayArchive() + voiceArchive() + chemicalArchive() + thyrArchive() + nacreArchive() + official + (!official && !finished.length ? '<p class="eyebrow">AUCUN RAPPORT CLASSÉ</p><h3>Votre première marche vous attend.</h3>' : '') + simulations;
   }
 }
 
@@ -660,6 +761,9 @@ function showBriefing() {
     const r = campaign.completed.MI10;
     $('briefing-description').textContent += ` ${r?.pt02Acquired ? 'PT02 est conservé dans le dossier précédent ; les paroles de cette vallée demandent encore leur propre relevé.' : 'L’absence de PT02 reste inscrite ; les sources de cette vallée peuvent être examinées séparément.'} L’écoute exige des appuis ancrés, sans déplacement ni tir. Reconnaissez la corniche avant la ponte. Rencontrer Leth, demander son accord et enregistrer l’échange sont trois actes distincts. Aucun dossier de Nacre ou du champ chimique ne remplace les personnes et les sources présentes ici.`;
   }
+  if (pendingMode === 'campaign' && m.id === 'MI12') $('briefing-description').textContent += ' Relevez les appareils, puis ouvrez la fenêtre de copie au troisième relais. Les pertes des sources restent définitives ; une copie achevée reste à bord. La réponse à Holt doit être suivie de trois interventions sur le terrain.';
+  if (pendingMode === 'campaign' && m.id === 'MI13') $('briefing-description').textContent += ` ${campaign.completed.MI12?.ordersCopied ? 'Les commandes de Thyr sont disponibles pour un recoupement.' : 'Le dossier ne contient pas les commandes de Thyr.'} Les vannes demandent quatre secondes sous ancrage. Surveillez les appuis sur les tabliers chauds. Après l’embuscade, relevez les deux caisses et le bordereau, puis achevez l’analyse avant de choisir la destination.`;
+  if (pendingMode === 'campaign' && m.id === 'MI14') $('briefing-description').textContent += ` ${campaign.completed.MI13?.pt03Acquired ? 'PT03 est conservée et pourra être rapprochée du lot local.' : 'Aucune provenance PT03 n’est disponible ; le relevé de l’atelier reste à examiner séparément.'} Demandez le passage puis attendez les ouvriers. Le diagnostic, l’isolation et la réparation du froid sont trois interventions sous ancrage. Les mécaniciens restent sur place, même après leur accord.`;
   $('briefing-walker').textContent = `${w.designation} ${w.name}`;
   $('briefing-assist').textContent = settings.assist ? 'Marche assistée' : 'Appuis manuels';
   $('briefing-difficulty').textContent = DIFFICULTIES[settings.difficulty].label;
@@ -697,7 +801,7 @@ function enterMission(nextGame) {
   $('intro-location').textContent = game.mission.intro; $('intro-title').textContent = game.mission.name;
   $('restart').textContent = activeMode === 'campaign' ? 'Recommencer la mission' : 'Recommencer l’opération';
   aimMode = 'pointer'; padAim.x = 1; padAim.y = 0;
-  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
+  audio.setScene({ planetId: game.mission.planetId, missionId: game.missionId, mood: ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11', 'MI12', 'MI13', 'MI14'].includes(game.missionId) ? 'crew' : game.missionId === 'op03' ? 'fracture' : 'imperial' });
   audio.setPaused(false); audio.update(game);
   $('game-canvas').focus({ preventScroll: true }); audio.unlock(); updateHUD();
 }
@@ -754,7 +858,8 @@ function showResult() {
   const livingRouteMission = game.missionId === 'MI09';
   const chemicalMission = game.missionId === 'MI10';
   const voiceMission = game.missionId === 'MI11';
-  const missionStat = voiceMission ? ['TÉMOIGNAGE TE01', game.campaign.te01Acquired ? 'CONSERVÉ' : 'ABSENT'] : chemicalMission ? ['PIÈCE TECHNIQUE PT02', game.campaign.pt02Acquired ? 'CONSERVÉE' : 'ABSENTE'] : livingRouteMission ? ['LONGUES-DORSES AU VERGER', `${game.campaign.migratorsArrived} / 4`] : departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
+  const relayMission = game.missionId === 'MI12', foundryMission = game.missionId === 'MI13', workshopMission = game.missionId === 'MI14';
+  const missionStat = workshopMission ? ['OUVRIERS VIVANTS', `${game.campaign.workersAlive} / 8`] : foundryMission ? ['PIÈCE TECHNIQUE PT03', game.campaign.pt03Acquired ? 'CONSERVÉE' : 'ABSENTE'] : relayMission ? ['COMMANDES INDUSTRIELLES', game.campaign.ordersCopied ? 'COPIE CONSERVÉE' : 'ABSENTES'] : voiceMission ? ['TÉMOIGNAGE TE01', game.campaign.te01Acquired ? 'CONSERVÉ' : 'ABSENT'] : chemicalMission ? ['PIÈCE TECHNIQUE PT02', game.campaign.pt02Acquired ? 'CONSERVÉE' : 'ABSENTE'] : livingRouteMission ? ['LONGUES-DORSES AU VERGER', `${game.campaign.migratorsArrived} / 4`] : departureMission ? ['ARRIVÉES AU REFUGE', `${game.campaign.peopleArrived} / ${game.campaign.peopleTotal}`] : ambulanceMission ? ['PATIENTS ARRIVÉS', `${game.campaign.patientsArrived} / ${game.campaign.patientsTotal}`] : dikeMission ? ['HABITANTS À L’ABRI', `${game.campaign.residentsSafe} / ${game.campaign.residentsTotal}`] : channelMission ? ['PASSAGERS AU QUAI', `${game.campaign.refugeesPassed} / ${game.campaign.refugeesTotal}`]
     : industrialMission ? ['JOURNAL PT01', game.campaign.technicalEvidence ? 'COPIE CONSERVÉE' : 'NON RÉCUPÉRÉ']
     : networkMission ? ['RÉSEAUX CIVILS ACTIFS', `${game.campaign.civilRelaysOnline} / 2`]
     : railMission ? ['OUVRIERS LIBÉRÉS', `${game.campaign.hostagesRescued} / ${game.campaign.hostagesTotal}`]
@@ -762,7 +867,19 @@ function showResult() {
     : ['PREUVES RÉCUPÉRÉES', game.stats.evidence];
   const stats = [['DURÉE', timeLabel(game.elapsed)], ['CIBLES NEUTRALISÉES', game.stats.kills], missionStat, ['PERTES CIVILES', game.stats.collateral]];
   let decisionText;
-  if (voiceMission) {
+  if (workshopMission) {
+    const f = game.campaign;
+    stats.push(['À LA GALERIE', f.workersSheltered], ['REFROIDISSEUR', f.coolerDestroyed ? 'PERDU' : f.coolerRepaired ? 'RÉPARÉ' : 'EN PANNE'], ['MÉCANICIENS DISPONIBLES', `${f.mechanicsAvailable} / 2`]);
+    decisionText = `${f.plan === 'hold' ? 'Maintien de l’arrêt choisi.' : f.plan === 'restart' ? 'Reprise choisie.' : 'Aucune conduite choisie.'} ${f.productionOnline ? 'La chaîne a effectivement repris.' : f.strikePreserved ? 'L’arrêt est maintenu sur place.' : 'La chaîne reste inactive.'} ${f.lotRecordCopied ? 'Constat local de sabotage conservé.' : 'Aucun relevé exploitable du lot.'} ${f.reportTransmitted ? 'Rapport transmis.' : 'Rapport non transmis.'}`;
+  } else if (foundryMission) {
+    const f = game.campaign;
+    stats.push(['CAISSES TRANSFÉRÉES', `${f.cargoTransferred} / 2`], ['CAISSES PERDUES', f.cargoLost], ['CIRCUITS ISOLÉS', `${f.circuitsOpened} / 2`]);
+    decisionText = `${f.plan === 'quarantine' ? 'Quarantaine choisie.' : f.plan === 'deliver' ? 'Livraison industrielle choisie.' : 'Aucune destination choisie.'} ${f.carrierDestroyed ? 'Le porteur est perdu.' : f.carrierArrived ? 'Le porteur est arrivé.' : 'Le porteur reste en route.'} ${f.cargoTransferred} transferts accomplis. ${f.pt03Acquired ? 'PT03 conservé à bord.' : 'PT03 absent.'} ${f.reportTransmitted ? 'Rapport transmis.' : 'Rapport non transmis.'}`;
+  } else if (relayMission) {
+    const f = game.campaign;
+    stats.push(['RELAIS EFFACÉS', f.relaysErased], ['RELAIS ISOLÉS', f.relaysIsolated], ['RELAIS PERDUS', f.relaysLost]);
+    decisionText = `${f.publicRefusal ? 'Refus ouvert consigné.' : f.plan === 'preserve' ? game.relay.relays[2].destroyed ? 'Conservation demandée ; troisième relais perdu.' : game.relay.relays[2].isolated ? 'Troisième relais isolé sur place.' : 'Isolement du troisième relais encore à accomplir.' : f.plan === 'erase' ? 'Purge impériale choisie.' : 'Aucune conduite choisie.'} ${f.ordersCopied ? 'Copie des commandes conservée.' : 'Aucune copie complète des commandes.'} ${f.praetorNeutralized ? 'Prétoire neutralisé.' : 'Prétoire non neutralisé.'} ${f.refugeClosed ? 'Refuge impérial fermé.' : 'Aucune fermeture de refuge actée.'} ${f.reportTransmitted ? 'Rapport transmis.' : 'Rapport non transmis.'}`;
+  } else if (voiceMission) {
     const f = game.campaign;
     stats.push(['PONTE', `${f.nestsIntact} sites intacts · ${f.nestsLost} perdus`], ['LETH', f.lethAlive ? 'VIVANT' : 'PERDU'], ['ENREGISTREMENT', f.testimonyRecorded ? 'CONSERVÉ' : 'ABSENT'], ['ÉMETTEUR', f.emitterLost ? 'DÉTRUIT' : f.emitterSeized ? 'SAISI' : f.emitterOnline ? 'LIAISON RÉTABLIE' : 'EN PLACE · LIAISON NON RÉTABLIE']);
     decisionText = `${f.plan === 'seize' ? 'Capture choisie.' : f.plan === 'restore' ? 'Restauration choisie.' : 'Aucune conduite choisie.'} ${f.operationsResolved ? 'Opération accomplie ou perte matérielle constatée.' : 'Opération sur l’émetteur inachevée.'} ${f.testimonyRecorded ? 'Enregistrement privé consenti conservé.' : f.consentRefused || f.consentWithdrawn ? 'Refus ou retrait de Leth consigné.' : 'Aucun témoignage achevé.'} ${f.te01Acquired ? 'TE01 établit la déformation des avertissements.' : 'TE01 n’est pas constitué.'} ${f.witnessAvailable ? 'Leth demeure disponible dans la vallée.' : 'Aucune disponibilité future du témoin n’est acquise.'} Aucune diffusion publique autorisée. ${f.reportTransmitted ? 'Rapport transmis.' : 'Rapport non transmis.'}`;
@@ -824,6 +941,24 @@ let lastObjectives = '';
 function updateHUD() {
   if (!game) return;
   const p = game.player;
+  $('atelier-instrument').hidden = !game.workshop;
+  if (game.workshop) {
+    const v = workshopSummary(game);
+    for (const id of ['stage', 'people', 'cooler', 'lot', 'security', 'operation']) $(`atelier-${id}`).textContent = v[id];
+    $('atelier-instrument').classList.toggle('mission-warning', game.campaign.workersLost > 0 || game.campaign.coolerDestroyed || game.workshop.alert.ready && !game.campaign.securityNeutralized);
+  }
+  $('relay-instrument').hidden = !game.relay;
+  if (game.relay) {
+    const v = relaySummary(game);
+    for (const id of ['stage', 'relays', 'copy', 'praetor', 'orders']) $(`relay-${id}`).textContent = v[id];
+    $('relay-instrument').classList.toggle('mission-warning', game.campaign.copyLost || game.campaign.windowExpired && !game.campaign.ordersCopied || game.campaign.relaysLost > 0);
+  }
+  $('foundry-instrument').hidden = !game.foundry;
+  if (game.foundry) {
+    const v = foundrySummary(game);
+    for (const id of ['stage', 'carrier', 'cargo', 'provenance', 'thermal', 'threats']) $(`foundry-${id}`).textContent = v[id];
+    $('foundry-instrument').classList.toggle('mission-warning', game.campaign.cargoLost > 0 || game.player.overheated);
+  }
   $('voice-instrument').hidden = !game.voice;
   if (game.voice) {
     const f = game.campaign, v = voiceSummary(game);
@@ -910,7 +1045,7 @@ function updateHUD() {
   $('assist-hint').textContent = game.assist ? 'ASSISTANCE AUX APPUIS ACTIVE' : `${keyLabel('stepA')} / ${keyLabel('stepB')} — APPUIS MANUELS`;
   $('leg-status').innerHTML = p.feet.map(f => `<span class="leg ${f.phase === 'swing' ? 'swing' : ''} ${f.health < 40 ? 'damaged' : ''}" data-label="${f.group ? 'B' : 'A'}${f.index + 1}" title="Appui ${f.index + 1} : ${Math.round(f.health)} %"></span>`).join('');
   const remainingObjectives = game.objectives.filter(o => !o.complete);
-  const hudObjectives = game.chemical || game.voice ? remainingObjectives.length ? remainingObjectives.slice(0, 3) : game.objectives.slice(-3) : game.objectives;
+  const hudObjectives = game.chemical || game.voice || game.relay || game.foundry || game.workshop ? remainingObjectives.length ? remainingObjectives.slice(0, 3) : game.objectives.slice(-3) : game.objectives;
   const objectiveHTML = hudObjectives.map(o => `<li class="${o.complete ? 'complete' : ''}"><span class="objective-symbol">${o.complete ? '✓' : '◇'}</span><span>${escapeHTML(o.label)}</span>${o.target > 1 ? `<span class="objective-progress">${o.id === "escort" ? Math.min(100, Math.round(o.current / o.target * 100)) + " %" : o.current + "/" + o.target}</span>` : ''}</li>`).join('');
   if (lastObjectives !== objectiveHTML) { $('hud-objectives').innerHTML = objectiveHTML; lastObjectives = objectiveHTML; }
   $('convoy-status').hidden = !game.convoy;
@@ -1015,7 +1150,10 @@ function input() {
   else if (pointer.visible && !pointer.touched) Object.assign(pointer, renderer.worldPoint(pointer.clientX, pointer.clientY));
   let aimX = pointer.x, aimY = pointer.y;
   if (touch.fire || touch.secondary) {
-    const targets = [...game.enemies.filter(e => !e.dead && e.active && (e.id !== 'holt-observer' || game.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !game.industrial?.retreatEscaped) && !(e.type === "boss" && (!game.bossReleased || game.decision.choice === "obey"))), ...game.relays.filter(r => !r.destroyed)];
+    const praetor = game.relay?.praetor;
+    const praetorTargets = game.relay?.alert.ready && praetor && !praetor.destroyed
+      ? [praetor.sensor, praetor.hydraulicLock, praetor].filter(part => !part.destroyed) : [];
+    const targets = [...game.enemies.filter(e => !e.dead && e.active && (e.id !== 'holt-observer' || game.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !game.industrial?.retreatEscaped) && !(e.type === "boss" && (!game.bossReleased || game.decision.choice === "obey"))), ...game.relays.filter(r => !r.destroyed), ...praetorTargets];
     targets.sort((a, b) => Math.abs(a.x - game.player.x) - Math.abs(b.x - game.player.x));
     const target = targets.find(e => Math.abs(e.x - game.player.x) < 1000);
     aimX = target?.x ?? game.player.x + 600; aimY = target?.y ?? game.player.y + 60;
@@ -1048,6 +1186,15 @@ function events() {
   }
   $('radio').classList.toggle('visible', game.elapsed < radioUntil);
 }
+function syncThermalHUD() {
+  if (!game) return;
+  const p = game.player;
+  $('heat-value').textContent = p.overheated ? 'SURCHAUFFE' : `${Math.round(p.heat)}%`;
+  $('heat-value').style.color = p.overheated ? '#ff9a79' : '';
+  $('heat-bar').style.width = `${p.heat}%`;
+  $('weapon-lock').textContent = p.overheated ? 'ARMEMENT VERROUILLÉ · REPRISE SOUS 48 %' : p.venting ? 'VENTILATION · TIR SUSPENDU' : 'ARMEMENT DISPONIBLE';
+  $('weapon-lock').classList.toggle('thermal-locked', p.overheated || p.venting);
+}
 function frame(now) {
   const dt = Math.min((now - (lastTime || now)) / 1000, .05); lastTime = now;
   try {
@@ -1056,11 +1203,12 @@ function frame(now) {
       if (!paused && game.status === 'playing' && !game.decision.active) updateGame(game, dt, input());
       if (!paused && activeMode === 'campaign' && !campaignReplay) {
         const fuelChanged = game.missionId === 'MI06' && game.campaign.fuelSpent !== campaign.checkpoint?.campaign.fuelSpent;
-        const failedSortie = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
+        const failedSortie = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11', 'MI12', 'MI13', 'MI14'].includes(game.missionId) && game.status === 'lost' && campaign.checkpoint?.status !== 'lost';
         if (fuelChanged || failedSortie || (game.status === 'playing' && game.elapsed - lastCampaignSaveAt >= 8)) captureCampaign();
       }
-      renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, departureInstrument: false, interactionPrompt: false, pointer });
+      renderer.render(game, { shake: settings.shake && !settings.motion, reducedMotion: settings.motion, highContrast: settings.contrast, tideInstrument: false, departureInstrument: false, foundryInstrument: false, workshopInstrument: false, interactionPrompt: false, pointer });
       if (!paused) { audio.update(game); events(); }
+      syncThermalHUD();
       hudTick += dt; if (hudTick > .1) { updateHUD(); hudTick = 0; }
       $('mission-intro').classList.toggle('visible', game.elapsed > .4 && game.elapsed < 4.6);
       if (game.decision.active) showDecision();
@@ -1078,5 +1226,5 @@ $('boot').hidden = true; $('menu').hidden = false;
 requestAnimationFrame(frame);
 // Read-only observation hook for the automated browser suite, never a player menu.
 if (new URLSearchParams(location.search).get('test') === '1') {
-  window.__IMPERIUM_TEST__ = Object.freeze({ snapshot: () => ({ game: game ? structuredClone(game) : null, campaign: structuredClone(campaign), activeMode, campaignReplay, campaignBlocked, campaignWarning, cameraX: renderer.cameraX, paused, inGame, view, settings: { ...settings }, storageAvailable }) });
+  window.__IMPERIUM_TEST__ = Object.freeze({ snapshot: () => ({ game: game ? structuredClone(game) : null, campaign: structuredClone(campaign), activeMode, campaignReplay, campaignBlocked, campaignWarning, cameraX: renderer.cameraX, paused, inGame, view, settings: { ...settings }, storageAvailable, paintedSprites: paintedSpriteStatus(), paintedCombatSprites: paintedCombatStatus() }) });
 }

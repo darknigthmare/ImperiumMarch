@@ -53,7 +53,7 @@ function editReceipt(save, edit) {
 }
 
 test('v9 migration preserves both native exports and adds only empty chemical and voice dossiers', () => {
-  assert.equal(CAMPAIGN_SAVE_VERSION, 11);
+  assert.equal(CAMPAIGN_SAVE_VERSION, 14);
   assert.equal(fixtureBytes.length, 246853);
   assert.equal(hash(fixtureBytes), 'd5f6f49a02e8fb40f5bf830c7fcb40c5e2677dff3e2b0e0dbb7ea1a48ce42084');
   assert.equal(history.provenance.sourceRevision, '4846d0270b2976877f9b202848bfde6d2127fb1d');
@@ -61,7 +61,7 @@ test('v9 migration preserves both native exports and adds only empty chemical an
   assert.equal(history.provenance.verifiedHistoricBlobs, 1099);
   for (const variant of ['live', 'completed']) {
     const original = history[variant], migrated = after(variant), previous = clone(migrated);
-    previous.version = 9; delete previous.world.thyr.chemical; delete previous.world.thyr.voice;
+    previous.version = 9; delete previous.world.kharon; delete previous.world.thyr.relay; delete previous.world.thyr.chemical; delete previous.world.thyr.voice;
     assert.deepEqual(previous, original, variant);
     assert.deepEqual(migrated.world.thyr.chemical, createChemicalDossier());
     assert.deepEqual(migrated.world.thyr.voice, createVoiceDossier());
@@ -100,7 +100,7 @@ test('historical stage complete still selects the first missing report, includin
   assert.equal(beginCampaignMission(save, { missionId: 'MI10' }).ok, false);
 });
 
-test('reading v9 never writes; its first write preserves the original and future version 12 stays protected', () => {
+test('reading v9 never writes; its first write preserves the original and future version 14 stays protected', () => {
   const original = JSON.stringify(history.live), storage = disk(original), loaded = readCampaign(storage);
   assert.equal(loaded.blocked, false); assert.equal(storage.getItem(CAMPAIGN_SAVE_KEY), original);
   assert.equal(storage.getItem(CAMPAIGN_BACKUP_KEY), null);

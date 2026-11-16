@@ -9,6 +9,9 @@ import {
 import { THYR_ASSET_SPECS, thyrAssetGeometry, thyrAssetSVG } from '../src/thyr-assets.mjs';
 import { CHEMICAL_ASSET_SPECS, chemicalAssetGeometry, chemicalAssetSVG } from '../src/chemical-assets.mjs';
 import { VOICE_ASSET_SPECS, voiceAssetGeometry, voiceAssetSVG } from '../src/voice-assets.mjs';
+import { RELAY_ASSET_SPECS, relayAssetGeometry, relayAssetSVG } from '../src/relay-assets.mjs';
+import { FOUNDRY_ASSET_SPECS, foundryAssetGeometry, foundryAssetSVG } from '../src/foundry-assets.mjs';
+import { WORKSHOP_ASSET_SPECS, workshopAssetGeometry, workshopAssetSVG } from '../src/workshop-assets.mjs';
 
 const require = createRequire(import.meta.url);
 let canvas;
@@ -20,6 +23,9 @@ try {
 const { createCanvas, loadImage } = canvas;
 const { version } = require('@napi-rs/canvas/package.json');
 const cases = [
+  ...Object.entries(WORKSHOP_ASSET_SPECS).flatMap(([part, spec]) => spec.states.flatMap(state => (part === 'worker' ? [false, true] : [false]).map(mechanic => ({ part, state, mechanic, progress: .5, workshop: true })))),
+  ...Object.entries(RELAY_ASSET_SPECS).flatMap(([part, spec]) => spec.states.map(state => ({ part, state, progress: .5, relay: true }))),
+  ...Object.entries(FOUNDRY_ASSET_SPECS).flatMap(([part, spec]) => spec.states.map(state => ({ part, state, progress: .5, foundry: true }))),
   { walkerId: 'WK06', part: 'hull' },
   { walkerId: 'WK10', part: 'upper' },
   { walkerId: 'WK01', part: 'radiator', state: 'damaged' },
@@ -31,9 +37,9 @@ const cases = [
 ];
 
 for (const options of cases) {
-  const geometry = options.voice ? voiceAssetGeometry(options) : options.chemical ? chemicalAssetGeometry(options) : options.thyr ? thyrAssetGeometry(options) : PRODUCTION_COMPONENT_NAMES.includes(options.part)
+  const geometry = options.workshop ? workshopAssetGeometry(options) : options.relay ? relayAssetGeometry(options) : options.foundry ? foundryAssetGeometry(options) : options.voice ? voiceAssetGeometry(options) : options.chemical ? chemicalAssetGeometry(options) : options.thyr ? thyrAssetGeometry(options) : PRODUCTION_COMPONENT_NAMES.includes(options.part)
     ? productionComponentGeometry(options) : productionPartGeometry(options);
-  const svg = options.voice ? voiceAssetSVG(geometry) : options.chemical ? chemicalAssetSVG(geometry) : options.thyr ? thyrAssetSVG(geometry) : productionGeometrySVG(geometry), [x, y, width, height] = geometry.bounds, scale = 3;
+  const svg = options.workshop ? workshopAssetSVG(geometry) : options.relay ? relayAssetSVG(geometry) : options.foundry ? foundryAssetSVG(geometry) : options.voice ? voiceAssetSVG(geometry) : options.chemical ? chemicalAssetSVG(geometry) : options.thyr ? thyrAssetSVG(geometry) : productionGeometrySVG(geometry), [x, y, width, height] = geometry.bounds, scale = 3;
   const direct = createCanvas(Math.ceil(width * scale), Math.ceil(height * scale));
   const directContext = direct.getContext('2d');
   directContext.scale(scale, scale); directContext.translate(-x, -y);

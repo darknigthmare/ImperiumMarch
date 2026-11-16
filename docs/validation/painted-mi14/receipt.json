@@ -1,0 +1,2488 @@
+{
+  "createdUtc": "2026-11-16T09:02:11.589Z",
+  "type": "Decoded PNG and Node Canvas reception",
+  "completed": true,
+  "historicalSceneSource": {
+    "path": "docs/validation/mi14/scenes.json",
+    "sha256": "fe7fd46e6649aec22750ce3f06ba0d171caf73b8fe0d5aa0980e4fea17b61a54",
+    "provenance": "Frozen v13 MI13 dossier migrated via campaign API. Every MI14 move, work, shot and choice uses public commands. No body, clock, source, temperature or outcome is assigned by the generator. Captures copy the entire state deeply and are verified unchanged after continuation."
+  },
+  "sourceHashes": {
+    "src/painted-sprites.mjs": "dfa61893d8cbc57bc9fb407af855dcab127f5c6acca1ad4a36289368f7aa4c46",
+    "src/painted-sprite-layout.mjs": "c7fd67789497c1c8d733693cc08e3a582bc433f67a4cae93c816f92403cb6fcd",
+    "src/workshop-assets.mjs": "f2b9420b67d701fb3c532b0c645599a8b9501cfbc12aab8054efea284bb3e42f",
+    "src/workshop-renderer.mjs": "82de9442d14d994af083fe7ba13121a58a6ebe7615388060ab540d26cb58cf6a",
+    "src/renderer.mjs": "6b5cb37f145863c9bde31680e3005b4a3b62ce287c36ee5362c22f7b36817921",
+    "src/simulation.mjs": "6db0f6066a2ab0a6f80790daef9cea16ea4967da2dd89d72aaef97e99cbaadf2",
+    "src/workshop-simulation.mjs": "ea4992944c6b32b8b0e4351348c8af8348d2d733ba5fb60f0d12f36ee40c12fb",
+    "tools/test-painted-sprites.mjs": "b3b2c02bc28d020c30880968d071fada9f3bc44d524669024e0f50c2f08c86e5"
+  },
+  "atlases": [
+    {
+      "key": "worker",
+      "path": "assets/painted/mi14/worker.png",
+      "bytes": 905882,
+      "sha256": "8322c17beed77d667ce04d458a8117ea451d777ee15fbec8955cc364b0e8d14a",
+      "width": 1448,
+      "height": 1086,
+      "transparentPixels": 1188022,
+      "nearlyTransparentPixels": 1310248,
+      "occupiedPixels": 248462
+    },
+    {
+      "key": "worker-mechanic",
+      "path": "assets/painted/mi14/worker-mechanic.png",
+      "bytes": 910975,
+      "sha256": "6d79427bdac080e76a1e65db9f901c8ca578345dc67c2e1b519c8d08231c2a78",
+      "width": 1448,
+      "height": 1086,
+      "transparentPixels": 1179859,
+      "nearlyTransparentPixels": 1324682,
+      "occupiedPixels": 231056
+    },
+    {
+      "key": "valve",
+      "path": "assets/painted/mi14/valve.png",
+      "bytes": 1237430,
+      "sha256": "f1a7cce3da1cb5553ba72266a8cf443b5cdd22d1727be47e35193a73fa8cc069",
+      "width": 2172,
+      "height": 724,
+      "transparentPixels": 987615,
+      "nearlyTransparentPixels": 1027379,
+      "occupiedPixels": 536066
+    },
+    {
+      "key": "cooler",
+      "path": "assets/painted/mi14/cooler.png",
+      "bytes": 2660922,
+      "sha256": "4f35734260ca8c59daedc27ff91ffcd7b9e4fcab902d7aa03b0c6d1b94b113ad",
+      "width": 1536,
+      "height": 1024,
+      "transparentPixels": 46842,
+      "nearlyTransparentPixels": 629501,
+      "occupiedPixels": 832709
+    },
+    {
+      "key": "disputed-lot",
+      "path": "assets/painted/mi14/disputed-lot.png",
+      "bytes": 2460864,
+      "sha256": "83ead0e275d7a3ba75f8d8d83bf69225096ae84a60cb29c357caab04fafdd534",
+      "width": 1536,
+      "height": 1024,
+      "transparentPixels": 654186,
+      "nearlyTransparentPixels": 749067,
+      "occupiedPixels": 813678
+    },
+    {
+      "key": "picket-post",
+      "path": "assets/painted/mi14/picket-post.png",
+      "bytes": 953094,
+      "sha256": "33976aa09333facacf5a17835755597a931e596e894d80507e07e9c1bd75be10",
+      "width": 2172,
+      "height": 724,
+      "transparentPixels": 1148597,
+      "nearlyTransparentPixels": 1200054,
+      "occupiedPixels": 359339
+    },
+    {
+      "key": "workshop-control",
+      "path": "assets/painted/mi14/workshop-control.png",
+      "bytes": 2024694,
+      "sha256": "6b534a3dcac30b1520f8b6cf0c03a64e6dc4973da2e6e80c2a08946f784d14e2",
+      "width": 1536,
+      "height": 1024,
+      "transparentPixels": 960023,
+      "nearlyTransparentPixels": 1054409,
+      "occupiedPixels": 504685
+    },
+    {
+      "key": "security-automaton",
+      "path": "assets/painted/mi14/security-automaton.png",
+      "bytes": 2022963,
+      "sha256": "d94e233cf918d0dd76259e92033f1e948df476f249c3f35cd7027dfa65ff93ee",
+      "width": 1536,
+      "height": 1024,
+      "transparentPixels": 912840,
+      "nearlyTransparentPixels": 1063939,
+      "occupiedPixels": 495310
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "worker",
+      "frame": "standing",
+      "source": [
+        144,
+        10,
+        80,
+        337
+      ],
+      "target": [
+        -7.20721,
+        -60.36036,
+        14.41441,
+        60.72072
+      ],
+      "occupiedPixels": 16287,
+      "occupiedSourceBounds": [
+        147,
+        12,
+        222,
+        344
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "dd309d04b4b22b158b1d2855308174f88ae4d064d2a41857d8a93cc3054b853c",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker",
+      "frame": "walking-0",
+      "source": [
+        437,
+        13,
+        208,
+        333
+      ],
+      "target": [
+        -19.63964,
+        -59.63964,
+        37.47748,
+        60
+      ],
+      "occupiedPixels": 23782,
+      "occupiedSourceBounds": [
+        439,
+        15,
+        643,
+        343
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "7b8f1bc2c201cf353b220fe500613086db5b125e47b3d7a0427e424efe590679",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker",
+      "frame": "walking-1",
+      "source": [
+        819,
+        13,
+        155,
+        332
+      ],
+      "target": [
+        -16.03604,
+        -59.45946,
+        27.92793,
+        59.81982
+      ],
+      "occupiedPixels": 22166,
+      "occupiedSourceBounds": [
+        822,
+        15,
+        971,
+        343
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "80b357d4555ca64c649d8c4aeb1f2d58ec2b22fefab3b33f1517f40c7aa1358b",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker",
+      "frame": "walking-2",
+      "source": [
+        1212,
+        13,
+        107,
+        333
+      ],
+      "target": [
+        -10.45045,
+        -59.63964,
+        19.27928,
+        60
+      ],
+      "occupiedPixels": 17746,
+      "occupiedSourceBounds": [
+        1215,
+        16,
+        1317,
+        344
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "467055ba9ce19a28124e5b86ae64c30cceab550c849c9630c07ca9696c776a77",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker",
+      "frame": "walking-3",
+      "source": [
+        107,
+        374,
+        151,
+        333
+      ],
+      "target": [
+        -13.87387,
+        -59.63964,
+        27.20721,
+        60
+      ],
+      "occupiedPixels": 21798,
+      "occupiedSourceBounds": [
+        110,
+        376,
+        255,
+        704
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "8b334124e2d2db088a5909be615135d5e64e405e06c98b3689a3c564985c36a5",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker",
+      "frame": "walking-4",
+      "source": [
+        444,
+        373,
+        208,
+        333
+      ],
+      "target": [
+        -18.37838,
+        -59.63964,
+        37.47748,
+        60
+      ],
+      "occupiedPixels": 24092,
+      "occupiedSourceBounds": [
+        446,
+        376,
+        649,
+        703
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "45966496222c5f07031f53518eae5ee2d0a3870077797785c8566a247184193a",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker",
+      "frame": "walking-5",
+      "source": [
+        818,
+        374,
+        155,
+        333
+      ],
+      "target": [
+        -16.21622,
+        -59.63964,
+        27.92793,
+        60
+      ],
+      "occupiedPixels": 21114,
+      "occupiedSourceBounds": [
+        821,
+        377,
+        971,
+        704
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "e24e0904d09c97ecf84094224e167202ed3ae021aa86b343b0a39e7f9b9ca3d1",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker",
+      "frame": "walking-6",
+      "source": [
+        1207,
+        372,
+        108,
+        335
+      ],
+      "target": [
+        -11.35135,
+        -60,
+        19.45946,
+        60.36036
+      ],
+      "occupiedPixels": 17565,
+      "occupiedSourceBounds": [
+        1210,
+        375,
+        1313,
+        705
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "bb60195c394d429d2066e831c3a74d44b6faa77403db5f241b1a98afa96fc0af",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker",
+      "frame": "walking-7",
+      "source": [
+        108,
+        737,
+        151,
+        333
+      ],
+      "target": [
+        -13.69369,
+        -59.63964,
+        27.20721,
+        60
+      ],
+      "occupiedPixels": 21904,
+      "occupiedSourceBounds": [
+        110,
+        739,
+        257,
+        1068
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "a6ac8201549519bab7811edd4d649fcf49e8748b35a4e170a8a019cd2fe67629",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker",
+      "frame": "safe",
+      "source": [
+        507,
+        734,
+        79,
+        337
+      ],
+      "target": [
+        -7.02703,
+        -60.36036,
+        14.23423,
+        60.72072
+      ],
+      "occupiedPixels": 16210,
+      "occupiedSourceBounds": [
+        510,
+        737,
+        583,
+        1069
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "1d7c5c0435381c603e3827cd203ed237482dace09087964c934c0051787b0160",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker",
+      "frame": "kneeling",
+      "source": [
+        771,
+        822,
+        212,
+        244
+      ],
+      "target": [
+        -24.68468,
+        -43.6036,
+        38.1982,
+        43.96396
+      ],
+      "occupiedPixels": 25144,
+      "occupiedSourceBounds": [
+        774,
+        825,
+        981,
+        1063
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "abd4ff6f61e3cea04fcc311f1b559771e36e67503248108974cc8ae297025c46",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker",
+      "frame": "lost",
+      "source": [
+        1089,
+        955,
+        341,
+        96
+      ],
+      "target": [
+        -30.72072,
+        -16.93694,
+        61.44144,
+        17.2973
+      ],
+      "occupiedPixels": 20654,
+      "occupiedSourceBounds": [
+        1091,
+        958,
+        1428,
+        1049
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "0f00834acf72c21b2433e50d2bb22a61827ef03ac6b22466af2576b974816fc5",
+      "vectorEnvelopeOverhang": [
+        3.72072,
+        0,
+        3.72072,
+        0
+      ]
+    },
+    {
+      "atlas": "worker-mechanic",
+      "frame": "standing",
+      "source": [
+        148,
+        8,
+        84,
+        326
+      ],
+      "target": [
+        -7.77778,
+        -60,
+        15.55556,
+        60.37037
+      ],
+      "occupiedPixels": 15935,
+      "occupiedSourceBounds": [
+        152,
+        11,
+        229,
+        331
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "b6ce31c9020c1dd535cb1badbf362f2c3bb7155d419320fd2dcd9d458aa3e37d",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker-mechanic",
+      "frame": "walking-0",
+      "source": [
+        458,
+        10,
+        192,
+        325
+      ],
+      "target": [
+        -17.40741,
+        -59.81481,
+        35.55556,
+        60.18519
+      ],
+      "occupiedPixels": 21569,
+      "occupiedSourceBounds": [
+        461,
+        13,
+        648,
+        332
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "f9109c75744f6f0946b009d7a850f9a25e24ab469f7be30434c57203df205c0d",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker-mechanic",
+      "frame": "walking-1",
+      "source": [
+        851,
+        12,
+        113,
+        322
+      ],
+      "target": [
+        -11.66667,
+        -59.25926,
+        20.92593,
+        59.62963
+      ],
+      "occupiedPixels": 17103,
+      "occupiedSourceBounds": [
+        854,
+        14,
+        961,
+        331
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "00d9eeb14c06afe5d26f9e0ef999ca65733aa293b0302203bbc77eb4024d67ac",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker-mechanic",
+      "frame": "walking-2",
+      "source": [
+        1218,
+        12,
+        115,
+        320
+      ],
+      "target": [
+        -10.74074,
+        -58.88889,
+        21.2963,
+        59.25926
+      ],
+      "occupiedPixels": 17262,
+      "occupiedSourceBounds": [
+        1221,
+        15,
+        1330,
+        329
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "cb3010bc22c78bcf6bd61ab4c6f500e5b42993d28e0eb048481aedf60f74b09e",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker-mechanic",
+      "frame": "walking-3",
+      "source": [
+        119,
+        373,
+        145,
+        325
+      ],
+      "target": [
+        -13.14815,
+        -59.81481,
+        26.85185,
+        60.18519
+      ],
+      "occupiedPixels": 20056,
+      "occupiedSourceBounds": [
+        122,
+        375,
+        261,
+        696
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "3900f2cea5752bc25bf630936f48de396e78bd2b42a0c67812693b9fca9512e0",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker-mechanic",
+      "frame": "walking-4",
+      "source": [
+        450,
+        373,
+        221,
+        325
+      ],
+      "target": [
+        -18.88889,
+        -59.81481,
+        40.92593,
+        60.18519
+      ],
+      "occupiedPixels": 22076,
+      "occupiedSourceBounds": [
+        453,
+        376,
+        668,
+        696
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "4b1930b40a4cfa5cff43db3b41fd04b98b6f946da96d279edc1d9a0227221005",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker-mechanic",
+      "frame": "walking-5",
+      "source": [
+        824,
+        373,
+        159,
+        321
+      ],
+      "target": [
+        -16.66667,
+        -59.07407,
+        29.44444,
+        59.44444
+      ],
+      "occupiedPixels": 20321,
+      "occupiedSourceBounds": [
+        827,
+        376,
+        980,
+        691
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "b7c8cce622cc5706e054eb53ab3e834ca101664136c9c673e07760d96b90ff97",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker-mechanic",
+      "frame": "walking-6",
+      "source": [
+        1217,
+        374,
+        127,
+        319
+      ],
+      "target": [
+        -10.92593,
+        -58.7037,
+        23.51852,
+        59.07407
+      ],
+      "occupiedPixels": 16934,
+      "occupiedSourceBounds": [
+        1220,
+        377,
+        1341,
+        691
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "c3bfde100bf2b596c4c10b63ac673579c377075757c2d09ae1a965277ab892c9",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker-mechanic",
+      "frame": "walking-7",
+      "source": [
+        127,
+        734,
+        145,
+        322
+      ],
+      "target": [
+        -11.66667,
+        -59.25926,
+        26.85185,
+        59.62963
+      ],
+      "occupiedPixels": 19977,
+      "occupiedSourceBounds": [
+        129,
+        737,
+        269,
+        1054
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "e1af7cd7b3c5c459313d311de4379e8112a7c2195dc8d5cad60da5022d7db512",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker-mechanic",
+      "frame": "safe",
+      "source": [
+        513,
+        731,
+        81,
+        329
+      ],
+      "target": [
+        -7.22222,
+        -60.55556,
+        15,
+        60.92593
+      ],
+      "occupiedPixels": 15850,
+      "occupiedSourceBounds": [
+        516,
+        734,
+        592,
+        1058
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "425f2d9587f0f8739d0366de45240eeede6b2bb145bedba5b7d5db5063f9c980",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker-mechanic",
+      "frame": "kneeling",
+      "source": [
+        785,
+        821,
+        201,
+        225
+      ],
+      "target": [
+        -23.88889,
+        -41.2963,
+        37.22222,
+        41.66667
+      ],
+      "occupiedPixels": 25955,
+      "occupiedSourceBounds": [
+        788,
+        824,
+        983,
+        1044
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "f649f413c10c5f672b30f921a040223f6e5617c23ebb58cdba61f25f3a8bd0a3",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "worker-mechanic",
+      "frame": "lost",
+      "source": [
+        1105,
+        897,
+        319,
+        88
+      ],
+      "target": [
+        -29.53704,
+        -15.92593,
+        59.07407,
+        16.2963
+      ],
+      "occupiedPixels": 18018,
+      "occupiedSourceBounds": [
+        1107,
+        900,
+        1421,
+        983
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "7c016df1404e4121df190721a8d1bb4ac57a792dcbf057f4076e77690ea7720b",
+      "vectorEnvelopeOverhang": [
+        2.537040000000001,
+        0,
+        2.5370300000000015,
+        0
+      ]
+    },
+    {
+      "atlas": "cooler",
+      "frame": "broken",
+      "source": [
+        26,
+        54,
+        443,
+        402
+      ],
+      "target": [
+        -85.82432,
+        -156.75676,
+        173.60811,
+        157.54054
+      ],
+      "occupiedPixels": 137677,
+      "occupiedSourceBounds": [
+        30,
+        59,
+        466,
+        453
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "25f16905ed546eac4e191f7f271987fdadb884a5550886ac715e0147fb3c0e87",
+      "vectorEnvelopeOverhang": [
+        0,
+        0.7567600000000141,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "cooler",
+      "frame": "isolated",
+      "source": [
+        536,
+        55,
+        444,
+        401
+      ],
+      "target": [
+        -86.60811,
+        -156.36486,
+        174,
+        157.14865
+      ],
+      "occupiedPixels": 137909,
+      "occupiedSourceBounds": [
+        542,
+        59,
+        977,
+        453
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "47cab526c31f54d754981842717eb4d6ac115239e6a58c96707f79d4001c3523",
+      "vectorEnvelopeOverhang": [
+        0,
+        0.3648599999999931,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "cooler",
+      "frame": "repairing",
+      "source": [
+        1050,
+        55,
+        443,
+        401
+      ],
+      "target": [
+        -85.82432,
+        -156.36486,
+        173.60811,
+        157.14865
+      ],
+      "occupiedPixels": 140646,
+      "occupiedSourceBounds": [
+        1053,
+        59,
+        1490,
+        453
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "dd38817aeed944dd53c5de763c1c68bb9a5bbc69b26d7b90dbd4387ae77b63bb",
+      "vectorEnvelopeOverhang": [
+        0,
+        0.3648599999999931,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "cooler",
+      "frame": "online",
+      "source": [
+        27,
+        558,
+        442,
+        410
+      ],
+      "target": [
+        -85.43243,
+        -159.89189,
+        173.21622,
+        160.67568
+      ],
+      "occupiedPixels": 138014,
+      "occupiedSourceBounds": [
+        29,
+        571,
+        466,
+        965
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "c0e17f1bc5d59bf218806c98b5d68f7dec0c6da99895b6fe487e0ff76be821b5",
+      "vectorEnvelopeOverhang": [
+        0,
+        3.8918899999999894,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "cooler",
+      "frame": "destroyed",
+      "source": [
+        533,
+        561,
+        448,
+        407
+      ],
+      "target": [
+        -87.78378,
+        -158.71622,
+        175.56757,
+        159.5
+      ],
+      "occupiedPixels": 140823,
+      "occupiedSourceBounds": [
+        537,
+        571,
+        978,
+        965
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "c551ebd0b554e140938a87ce6a8ad436b9a19d7323121ab1f6119caa148bca05",
+      "vectorEnvelopeOverhang": [
+        0,
+        2.7162199999999928,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "cooler",
+      "frame": "neutral-reference",
+      "source": [
+        1049,
+        566,
+        444,
+        402
+      ],
+      "target": [
+        -86.21622,
+        -156.75676,
+        174,
+        157.54054
+      ],
+      "occupiedPixels": 137640,
+      "occupiedSourceBounds": [
+        1053,
+        571,
+        1490,
+        965
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "a6970dbd3e2766abce6aeb17a2a304fa0aacae41b8742ef920139d3d3709c269",
+      "vectorEnvelopeOverhang": [
+        0,
+        0.7567600000000141,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "valve",
+      "frame": "open",
+      "source": [
+        86,
+        39,
+        553,
+        641
+      ],
+      "target": [
+        -43.3281,
+        -100.31397,
+        86.81319,
+        100.62794
+      ],
+      "occupiedPixels": 179265,
+      "occupiedSourceBounds": [
+        89,
+        42,
+        636,
+        677
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "6d97e98a5bb2b76d315c3c012ff187cadcc3e1875924b704d3551dfc63b2daed",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "valve",
+      "frame": "isolated",
+      "source": [
+        810,
+        39,
+        553,
+        641
+      ],
+      "target": [
+        -43.3281,
+        -100.31397,
+        86.81319,
+        100.62794
+      ],
+      "occupiedPixels": 179293,
+      "occupiedSourceBounds": [
+        813,
+        42,
+        1360,
+        677
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "3347942bccb5e84cf649a5d64894dac0412c6965930714149f5f1ed4430cc802",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "valve",
+      "frame": "destroyed",
+      "source": [
+        1535,
+        39,
+        552,
+        641
+      ],
+      "target": [
+        -43.17111,
+        -100.31397,
+        86.6562,
+        100.62794
+      ],
+      "occupiedPixels": 177508,
+      "occupiedSourceBounds": [
+        1537,
+        42,
+        2084,
+        677
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "e70f027ac7ded9ce8249dffc4d57f71b05f097d976332a391545b3514c58b3d8",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "disputed-lot",
+      "frame": "sealed",
+      "source": [
+        19,
+        120,
+        477,
+        316
+      ],
+      "target": [
+        -66,
+        -87.44304,
+        132.83544,
+        88
+      ],
+      "occupiedPixels": 136343,
+      "occupiedSourceBounds": [
+        21,
+        123,
+        494,
+        433
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "bcd864136c4374315da58bd7cd3945dedc7c6d1cc35a1266910e3519bf9b5c75",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "disputed-lot",
+      "frame": "inspected",
+      "source": [
+        530,
+        120,
+        477,
+        316
+      ],
+      "target": [
+        -66.27848,
+        -87.44304,
+        132.83544,
+        88
+      ],
+      "occupiedPixels": 136395,
+      "occupiedSourceBounds": [
+        532,
+        123,
+        1005,
+        433
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "671c36509d3293a29e4411897fe589ba75586b0f82fe150b97e7a1e12b854f31",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "disputed-lot",
+      "frame": "released",
+      "source": [
+        1041,
+        120,
+        478,
+        316
+      ],
+      "target": [
+        -66.55696,
+        -87.44304,
+        133.11392,
+        88
+      ],
+      "occupiedPixels": 136395,
+      "occupiedSourceBounds": [
+        1044,
+        123,
+        1517,
+        433
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "22c005c37b69a8b20d246a39b2f5b1834e43df9d5410665ea74f539db27257a4",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "disputed-lot",
+      "frame": "blocked",
+      "source": [
+        19,
+        633,
+        477,
+        316
+      ],
+      "target": [
+        -66,
+        -87.44304,
+        132.83544,
+        88
+      ],
+      "occupiedPixels": 136375,
+      "occupiedSourceBounds": [
+        21,
+        636,
+        494,
+        947
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "7058da67bd35a84e034abcb0c14844fe06ec04ba48f0f29a23edb593f468f64a",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "disputed-lot",
+      "frame": "destroyed",
+      "source": [
+        530,
+        630,
+        477,
+        319
+      ],
+      "target": [
+        -66.27848,
+        -88.27848,
+        132.83544,
+        88.83544
+      ],
+      "occupiedPixels": 131670,
+      "occupiedSourceBounds": [
+        532,
+        633,
+        1004,
+        947
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "44a8d92b9584833229ef9f4b32b1e38d80703522397a98da748f02a924fcb372",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "disputed-lot",
+      "frame": "neutral-reference",
+      "source": [
+        1041,
+        633,
+        478,
+        316
+      ],
+      "target": [
+        -66.55696,
+        -87.44304,
+        133.11392,
+        88
+      ],
+      "occupiedPixels": 136500,
+      "occupiedSourceBounds": [
+        1044,
+        636,
+        1517,
+        947
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "be506693cf726cffa549100e6f0fca408db198693bf17fa988d36e1dbe22039f",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "workshop-control",
+      "frame": "idle",
+      "source": [
+        145,
+        5,
+        260,
+        483
+      ],
+      "target": [
+        -33.11065,
+        -122.50939,
+        66.22129,
+        123.01879
+      ],
+      "occupiedPixels": 83120,
+      "occupiedSourceBounds": [
+        148,
+        7,
+        403,
+        486
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "3b01e69dd854950f8a7b6f3cd06489c8f92bd271fd301dc3a5b5d4cce84d997d",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "workshop-control",
+      "frame": "working",
+      "source": [
+        630,
+        5,
+        262,
+        483
+      ],
+      "target": [
+        -33.36534,
+        -122.50939,
+        66.73069,
+        123.01879
+      ],
+      "occupiedPixels": 83633,
+      "occupiedSourceBounds": [
+        632,
+        8,
+        889,
+        486
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "1933470c5f88f623ecdc17bb963f28f480d8374a0f3912a90986ffd82d8a324e",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "workshop-control",
+      "frame": "production",
+      "source": [
+        1113,
+        5,
+        263,
+        483
+      ],
+      "target": [
+        -33.49269,
+        -122.50939,
+        66.98539,
+        123.01879
+      ],
+      "occupiedPixels": 84114,
+      "occupiedSourceBounds": [
+        1115,
+        8,
+        1374,
+        486
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "05a886b013f90974f4428dd2d1d0e8da06288b3a5933409251c4c0e6bb098cc2",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "workshop-control",
+      "frame": "stopped",
+      "source": [
+        146,
+        519,
+        262,
+        485
+      ],
+      "target": [
+        -33.36534,
+        -123.01879,
+        66.73069,
+        123.52818
+      ],
+      "occupiedPixels": 84414,
+      "occupiedSourceBounds": [
+        148,
+        521,
+        406,
+        1001
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "7923abc1eaadc6149d312f556e2d8f014c435f22c1a58a53b578996cc9b1cbfc",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "workshop-control",
+      "frame": "destroyed",
+      "source": [
+        629,
+        549,
+        269,
+        455
+      ],
+      "target": [
+        -34.25678,
+        -115.37787,
+        68.51357,
+        115.88727
+      ],
+      "occupiedPixels": 85095,
+      "occupiedSourceBounds": [
+        631,
+        552,
+        896,
+        1001
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "b7dbd60824a1a81f190ff50314cbef5c4c3e16cbe8fbe420c283585f01d6ee5c",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "workshop-control",
+      "frame": "neutral-reference",
+      "source": [
+        1113,
+        519,
+        263,
+        485
+      ],
+      "target": [
+        -33.49269,
+        -123.01879,
+        66.98539,
+        123.52818
+      ],
+      "occupiedPixels": 84309,
+      "occupiedSourceBounds": [
+        1116,
+        521,
+        1374,
+        1001
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "648f1f84a124e41d3aec59fadbf86fcb86ca2a18a522b5d46f446d5f1ce520c0",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "security-automaton",
+      "frame": "dormant",
+      "source": [
+        51,
+        62,
+        413,
+        406
+      ],
+      "target": [
+        -67.63814,
+        -90.69388,
+        113.09535,
+        91.14286
+      ],
+      "occupiedPixels": 107438,
+      "occupiedSourceBounds": [
+        54,
+        65,
+        461,
+        465
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "98d7c1db65b70d816aa06020e81cda84d143159fed487c3bd46202900567690e",
+      "vectorEnvelopeOverhang": [
+        0.638140000000007,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "security-automaton",
+      "frame": "warning",
+      "source": [
+        563,
+        29,
+        413,
+        438
+      ],
+      "target": [
+        -67.63814,
+        -98.27869,
+        113.09535,
+        98.72951
+      ],
+      "occupiedPixels": 108859,
+      "occupiedSourceBounds": [
+        565,
+        32,
+        973,
+        465
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "fba8890017cebdc84cde4cc5dc47be33c71c621f8cdd54b1b916a212b0308dfb",
+      "vectorEnvelopeOverhang": [
+        0.638140000000007,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "security-automaton",
+      "frame": "active",
+      "source": [
+        1075,
+        62,
+        413,
+        405
+      ],
+      "target": [
+        -67.63814,
+        -90.84016,
+        113.09535,
+        91.29098
+      ],
+      "occupiedPixels": 107423,
+      "occupiedSourceBounds": [
+        1078,
+        65,
+        1485,
+        465
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "8c41077e209fa23e7634bfd39b5e50ca11e679b965edca1ff2341233297a0db8",
+      "vectorEnvelopeOverhang": [
+        0.638140000000007,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "security-automaton",
+      "frame": "destroyed",
+      "source": [
+        51,
+        573,
+        412,
+        406
+      ],
+      "target": [
+        -67.63814,
+        -91.06557,
+        112.82152,
+        91.51639
+      ],
+      "occupiedPixels": 109737,
+      "occupiedSourceBounds": [
+        53,
+        576,
+        461,
+        977
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "d0f6c5d82589a401be0c2e03542555eec7eee86e912a1c57cda5e22a3e29bad9",
+      "vectorEnvelopeOverhang": [
+        0.638140000000007,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "security-automaton",
+      "frame": "cannon",
+      "source": [
+        545,
+        702,
+        439,
+        119
+      ],
+      "target": [
+        -7.36082,
+        -8.51546,
+        63.36082,
+        17.17526
+      ],
+      "occupiedPixels": 30659,
+      "occupiedSourceBounds": [
+        547,
+        705,
+        982,
+        819
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "1944a91eca415f0b66cecdd13a98e1bb33533bde3ed3b7f8d77cfd99aec9646d",
+      "muzzle": {
+        "anchor": [
+          56,
+          0
+        ],
+        "opaqueRight": 55.71134022779043,
+        "sourceBoreY": 760.999965066031
+      }
+    },
+    {
+      "atlas": "security-automaton",
+      "frame": "cannon-destroyed",
+      "source": [
+        1056,
+        702,
+        453,
+        122
+      ],
+      "target": [
+        -6.94789,
+        -8.19851,
+        62.94789,
+        16.95285
+      ],
+      "occupiedPixels": 31194,
+      "occupiedSourceBounds": [
+        1059,
+        704,
+        1506,
+        822
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "594cb6411e5ce3a96a5d9fdf6c2778e505442254d40fa89d43c67aeb0fd4a63c",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "picket-post",
+      "frame": "closed",
+      "source": [
+        106,
+        66,
+        545,
+        602
+      ],
+      "target": [
+        -47.3913,
+        -104.34783,
+        94.78261,
+        104.69565
+      ],
+      "occupiedPixels": 119922,
+      "occupiedSourceBounds": [
+        109,
+        69,
+        648,
+        666
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "edef3bc5b95abd8db2affda0f88a9643e95745b64ff24f226f982be4ffbd57ba",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "picket-post",
+      "frame": "clearing",
+      "source": [
+        830,
+        66,
+        545,
+        602
+      ],
+      "target": [
+        -47.3913,
+        -104.34783,
+        94.78261,
+        104.69565
+      ],
+      "occupiedPixels": 121601,
+      "occupiedSourceBounds": [
+        833,
+        69,
+        1372,
+        666
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "627aceb74d2d5a7fea532e88007d2fa537b9b627706a9a78cdd5453bbd64f12e",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "atlas": "picket-post",
+      "frame": "open",
+      "source": [
+        1555,
+        66,
+        544,
+        602
+      ],
+      "target": [
+        -47.21739,
+        -104.34783,
+        94.6087,
+        104.69565
+      ],
+      "occupiedPixels": 117816,
+      "occupiedSourceBounds": [
+        1557,
+        69,
+        2097,
+        666
+      ],
+      "cellEdgePixels": 0,
+      "excludedCellPixels": 0,
+      "pixelSha256": "3196610a7d4ea89f6c500c5ef720cf249f753c171075453f0ffd6673c055b3d8",
+      "vectorEnvelopeOverhang": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "file": "arrival.png",
+      "title": "Arrivée à Kharon : piquet présent, machines et sources non examinées",
+      "elapsed": 0,
+      "walkerId": "WK09",
+      "sha256": "303beb5a102272fe0fadd4f8ca8f22f1980179489a6e4adbd049867f9a922797",
+      "stateSha256": "5d4874ca2d0da9fbaf3663a6c0aca096984db6fb2b0659f40a4ef98f67b67ac7",
+      "paintedDrawCalls": 9,
+      "paintedAtlases": [
+        "picket-post",
+        "worker-mechanic",
+        "worker"
+      ]
+    },
+    {
+      "file": "passage-request.png",
+      "title": "Demande de passage en cours ; les ouvriers n’ont pas encore quitté les appuis",
+      "elapsed": 8.683333333333344,
+      "walkerId": "WK09",
+      "sha256": "d639a52ec91b9f4906159f299c46fb33c5a9e330feacb56e329f8ecf3c75cf90",
+      "stateSha256": "65515b939113186d622ffdeb3350c59a965c8f30a473763f6f129e39ebbcef67",
+      "paintedDrawCalls": 9,
+      "paintedAtlases": [
+        "picket-post",
+        "worker-mechanic",
+        "worker"
+      ]
+    },
+    {
+      "file": "workers-crossing.png",
+      "title": "Déplacement réel vers la galerie commune ; attendre le dernier ouvrier",
+      "elapsed": 15.516666666667017,
+      "walkerId": "WK09",
+      "sha256": "2248c8b657df324152ae3ba2d4f1309184f92a4005882647da8a8797e5597f88",
+      "stateSha256": "29942d00a593a907570fa2378b2db6f72ceb4a0e0f297ba38f1c39260ff3bb86",
+      "paintedDrawCalls": 9,
+      "paintedAtlases": [
+        "picket-post",
+        "worker-mechanic",
+        "worker"
+      ]
+    },
+    {
+      "file": "gallery-contact.png",
+      "title": "Huit ouvriers en galerie ; échange distinct de toute copie du lot",
+      "elapsed": 40.249999999999,
+      "walkerId": "WK09",
+      "sha256": "b18d4d749549625fb958e2e1db0236a6989007b3cad2d04798c267804faf79bb",
+      "stateSha256": "9dc486a520567614fb5d9cc3ec6d28e3f7ac4d2c7d9b6006745336f2fa0331c8",
+      "paintedDrawCalls": 9,
+      "paintedAtlases": [
+        "workshop-control",
+        "worker-mechanic",
+        "worker"
+      ]
+    },
+    {
+      "file": "security-active.png",
+      "title": "Automate présent seulement après cinq secondes ; ligne de tir et corps réels",
+      "elapsed": 53.066666666664936,
+      "walkerId": "WK09",
+      "sha256": "fb7a231edd0b0bb5985c287211fc408995924aae72560d0d20bc3670d7c59321",
+      "stateSha256": "09e5db5ba3673a40bfe9df04566ee24d0394bd5bb3da8038ba080795ea6d568a",
+      "paintedDrawCalls": 9,
+      "paintedAtlases": [
+        "valve",
+        "workshop-control",
+        "worker",
+        "security-automaton"
+      ]
+    },
+    {
+      "file": "isolation.png",
+      "title": "Isolation du circuit sous ancrage ; le diagnostic et la réparation restent distincts",
+      "elapsed": 84.64999999999648,
+      "walkerId": "WK09",
+      "sha256": "91f6a9472ab3b848ac409b48a8533d3021b7ec97658eb26f744d4426044fdc67",
+      "stateSha256": "bceb0db4d706c3662c1ce05a0ae03b329b687df0bfbaf6fd6dd2f76781967b5f",
+      "paintedDrawCalls": 6,
+      "paintedAtlases": [
+        "cooler",
+        "valve",
+        "disputed-lot",
+        "workshop-control",
+        "security-automaton"
+      ]
+    },
+    {
+      "file": "repair.png",
+      "title": "Réparation interrompable : refroidisseur isolé, travail et température encore en cours",
+      "elapsed": 92.28333333332938,
+      "walkerId": "WK09",
+      "sha256": "0a17bef4c5da7790855ce35399506a12871af948714eba1095e78c0ba8092667",
+      "stateSha256": "22d68e88be29e373f7f3f5e1673e36f236d9e42a86602af4b46dd61c97ff2090",
+      "paintedDrawCalls": 6,
+      "paintedAtlases": [
+        "cooler",
+        "valve",
+        "disputed-lot",
+        "workshop-control",
+        "security-automaton"
+      ]
+    },
+    {
+      "file": "decision.png",
+      "title": "Ordre à choisir après les opérations ; aucune commande encore accomplie",
+      "elapsed": 113.54999999999484,
+      "walkerId": "WK09",
+      "sha256": "a9e573ecff20e5b4d54a64c4a79b8ff1754d277f6f707db7a0843ea97dadf2fb",
+      "stateSha256": "4e98f3fe95cc756656d9b24df6c7900a85c2862a9b5221a85dee7bd03bcc5547",
+      "paintedDrawCalls": 4,
+      "paintedAtlases": [
+        "disputed-lot",
+        "workshop-control"
+      ]
+    },
+    {
+      "file": "control.png",
+      "title": "Maintien de l’arrêt : cinq secondes de commande physique après le choix",
+      "elapsed": 117.24999999999463,
+      "walkerId": "WK09",
+      "sha256": "8ffca6763ee44b7c65cc7acac4c9340150064813ff983e0872e6c5ba59267435",
+      "stateSha256": "1b36d49f6384b240f1ef4605b57afe4a0d18ac4965d2e48c81f8481d66458402",
+      "paintedDrawCalls": 4,
+      "paintedAtlases": [
+        "disputed-lot",
+        "workshop-control"
+      ]
+    },
+    {
+      "file": "cooperation.png",
+      "title": "Accord des mécaniciens recueilli ; disponibilité locale sans recrutement",
+      "elapsed": 127.14999999999407,
+      "walkerId": "WK09",
+      "sha256": "017c92be6ce1f1e03ade978f8302dc47775d55a45c38db404030c2c9e2d21e57",
+      "stateSha256": "91851f39c0c120df07b90eeae8f228edbc287a0f8d54ebc6f8a2b98429d85cb8",
+      "paintedDrawCalls": 4,
+      "paintedAtlases": [
+        "disputed-lot",
+        "workshop-control"
+      ]
+    },
+    {
+      "file": "before-extraction.png",
+      "title": "Bilan transmis ; il faut encore rejoindre la rampe de retour",
+      "elapsed": 135.7166666666668,
+      "walkerId": "WK09",
+      "sha256": "c21f14ae279d42770548b0abc73320f73c73a8bfc911b83ec7a771e808d06b6a",
+      "stateSha256": "b242b4bcc4a88666c0fcd9b7657cca684f6b1c0c535a5eeb9ae03cabaa533d3c",
+      "paintedDrawCalls": 3,
+      "paintedAtlases": [
+        "workshop-control"
+      ]
+    },
+    {
+      "file": "production-restarted.png",
+      "title": "Bastion : reprise réellement exécutée ; aucune coopération accordée automatiquement",
+      "elapsed": 109.69999999999506,
+      "walkerId": "WK02",
+      "sha256": "99fae5a983f7fb86a3599fd5d80b51b04798120dafe806182b2ece195c9f28f6",
+      "stateSha256": "fc4c08315191c531fdb564ab1af9750c06b8841637e017e9ec3952e35021e740",
+      "paintedDrawCalls": 4,
+      "paintedAtlases": [
+        "disputed-lot",
+        "workshop-control"
+      ]
+    },
+    {
+      "file": "lot-lost.png",
+      "title": "Lot perdu avant copie : constat de perte sans relevé inventé",
+      "elapsed": 144.71666666667397,
+      "walkerId": "WK09",
+      "sha256": "45c96bc77ce63821aa8bdacece9f12db2b5683b43cde24b5a1f8075fef589b5c",
+      "stateSha256": "67e3d2c0ca96cc660c11c9eb960d77e59b4a7314e798370a4c147c304083952b",
+      "paintedDrawCalls": 4,
+      "paintedAtlases": [
+        "cooler",
+        "disputed-lot",
+        "workshop-control"
+      ]
+    },
+    {
+      "file": "copy-retained.png",
+      "title": "Copie achevée avant la perte de l’original : le constat reste conservé",
+      "elapsed": 112.58333333332823,
+      "walkerId": "WK09",
+      "sha256": "b8fd8ee5169bc299db2de04736364909eb69f8e61d0b94d95ac00f474302f2a0",
+      "stateSha256": "a270084a60a27f6f73d3085003b15007889e27460425359386cab67ff45eac6d",
+      "paintedDrawCalls": 5,
+      "paintedAtlases": [
+        "cooler",
+        "valve",
+        "disputed-lot",
+        "workshop-control"
+      ]
+    }
+  ],
+  "checks": {
+    "eightPngAtlasesDecoded": true,
+    "sourceCropsWithinImages": true,
+    "cellBoundariesUnclipped": true,
+    "noOccupiedBodyDiscardedByCrop": true,
+    "eightUniqueWalkingPosesPerRole": true,
+    "walkingGroundAnchorStable": true,
+    "allMaterialStatesRendered": true,
+    "historicalScenesUnchanged": true,
+    "rendererPreservesSimulation": true,
+    "actualPaintedImagesConsumedByMission": true
+  },
+  "nativeBrowserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "limitations": [
+    "PNG alpha, crop, rig placement and Canvas assertions do not certify anatomy, visual style, human readability, CSS, browser interactions, audio or production-ready animation."
+  ],
+  "components": [
+    {
+      "file": "worker-standing.png",
+      "part": "worker",
+      "state": "standing",
+      "mechanic": false,
+      "sha256": "9484ba658661eb2d8e2842074f0a4199d6ea4920d94f5c1c1059527f4ac2de04",
+      "visibleBounds": [
+        363,
+        335,
+        397,
+        485
+      ]
+    },
+    {
+      "file": "worker-mechanic-standing.png",
+      "part": "worker",
+      "state": "standing",
+      "mechanic": true,
+      "sha256": "0935a2a77bf87e567c12883fb10f783591d3d5407c2df1c9c6d713a89b572466",
+      "visibleBounds": [
+        364,
+        336,
+        398,
+        485
+      ]
+    },
+    {
+      "file": "worker-walking.png",
+      "part": "worker",
+      "state": "walking",
+      "mechanic": false,
+      "sha256": "03bad3a9bba02a62db86c929d09670bf26da054a4d1152255e2e061fa3afb372",
+      "visibleBounds": [
+        347,
+        337,
+        412,
+        485
+      ]
+    },
+    {
+      "file": "worker-mechanic-walking.png",
+      "part": "worker",
+      "state": "walking",
+      "mechanic": true,
+      "sha256": "48db2e2c2194846ca24a1cc497c8fbe00c5c3849a0a834e330a1836aedf106d3",
+      "visibleBounds": [
+        348,
+        337,
+        413,
+        485
+      ]
+    },
+    {
+      "file": "worker-safe.png",
+      "part": "worker",
+      "state": "safe",
+      "mechanic": false,
+      "sha256": "39a7e389ee213c3056147585ab6b969776b89c3ab9f2a52605fab9cb81ebe13c",
+      "visibleBounds": [
+        324,
+        329,
+        397,
+        485
+      ]
+    },
+    {
+      "file": "worker-mechanic-safe.png",
+      "part": "worker",
+      "state": "safe",
+      "mechanic": true,
+      "sha256": "85224d69e9c9cc0efde507de2581664736f1d1db5f0684c89759ab6f36d4d78a",
+      "visibleBounds": [
+        324,
+        329,
+        398,
+        485
+      ]
+    },
+    {
+      "file": "worker-lost.png",
+      "part": "worker",
+      "state": "lost",
+      "mechanic": false,
+      "sha256": "2da360b44a576424d997b0c21aa92b4fa95806f1bae7b421c6715f1e327f95c6",
+      "visibleBounds": [
+        304,
+        444,
+        456,
+        485
+      ]
+    },
+    {
+      "file": "worker-mechanic-lost.png",
+      "part": "worker",
+      "state": "lost",
+      "mechanic": true,
+      "sha256": "a5dbee629a23cbef706aa742fb8849f2b03d963fc2db8eb2b262c83f7fcc3602",
+      "visibleBounds": [
+        307,
+        446,
+        452,
+        485
+      ]
+    },
+    {
+      "file": "cooler-broken.png",
+      "part": "cooler",
+      "state": "broken",
+      "mechanic": false,
+      "sha256": "d739a7c9e060c45131b63088c0bf9719b92030e745cf7dd2fbf06a8dd9e1b78b",
+      "visibleBounds": [
+        169,
+        98,
+        596,
+        484
+      ]
+    },
+    {
+      "file": "cooler-isolated.png",
+      "part": "cooler",
+      "state": "isolated",
+      "mechanic": false,
+      "sha256": "df57893a220111e87ec05c3dfe372969820bec325c58a40c7375f30db842614a",
+      "visibleBounds": [
+        169,
+        98,
+        596,
+        484
+      ]
+    },
+    {
+      "file": "cooler-repairing.png",
+      "part": "cooler",
+      "state": "repairing",
+      "mechanic": false,
+      "sha256": "018b6b190b9901c7dd14df6e501014b53543d236b9c483e318ac13dc692888cf",
+      "visibleBounds": [
+        169,
+        98,
+        596,
+        484
+      ]
+    },
+    {
+      "file": "cooler-online.png",
+      "part": "cooler",
+      "state": "online",
+      "mechanic": false,
+      "sha256": "0d8a61f50c3e69cddc730acd7930447ddc4771520ef52c7c1b6e8c3a00888beb",
+      "visibleBounds": [
+        169,
+        98,
+        596,
+        484
+      ]
+    },
+    {
+      "file": "cooler-destroyed.png",
+      "part": "cooler",
+      "state": "destroyed",
+      "mechanic": false,
+      "sha256": "0bf43946ae536be9c4b08d439e925d839b522680c19becf387eec199f585c8b9",
+      "visibleBounds": [
+        165,
+        98,
+        596,
+        484
+      ]
+    },
+    {
+      "file": "valve-open.png",
+      "part": "valve",
+      "state": "open",
+      "mechanic": false,
+      "sha256": "59e1f9d616ed69fd4cbfa6fc4483fa240e1169e29a947e3fc1bf73583f13b029",
+      "visibleBounds": [
+        273,
+        235,
+        488,
+        485
+      ]
+    },
+    {
+      "file": "valve-isolated.png",
+      "part": "valve",
+      "state": "isolated",
+      "mechanic": false,
+      "sha256": "d5691e56736db7c67e8f0ac41b498906e917f02d2da5a8a33c433477a18b94e7",
+      "visibleBounds": [
+        273,
+        235,
+        487,
+        485
+      ]
+    },
+    {
+      "file": "valve-destroyed.png",
+      "part": "valve",
+      "state": "destroyed",
+      "mechanic": false,
+      "sha256": "48acda500945b65ef894c692d59b0d88e82d8c9c5f9949be062936419410ce32",
+      "visibleBounds": [
+        273,
+        235,
+        487,
+        485
+      ]
+    },
+    {
+      "file": "disputed-lot-sealed.png",
+      "part": "disputed-lot",
+      "state": "sealed",
+      "mechanic": false,
+      "sha256": "e8d749eee1a9b407c5b85874e1ccb192c93f58b4e72d193c69f4da862a49277c",
+      "visibleBounds": [
+        217,
+        268,
+        545,
+        484
+      ]
+    },
+    {
+      "file": "disputed-lot-inspected.png",
+      "part": "disputed-lot",
+      "state": "inspected",
+      "mechanic": false,
+      "sha256": "186552fe7a6b96164733e8c5c23b974d7456beb805414bfa39f206e6949db792",
+      "visibleBounds": [
+        216,
+        268,
+        545,
+        484
+      ]
+    },
+    {
+      "file": "disputed-lot-released.png",
+      "part": "disputed-lot",
+      "state": "released",
+      "mechanic": false,
+      "sha256": "0c9e37aeb8aaca8b4d9468738f304eeb61d8134b04cc230ccf1f6d30e6b8d632",
+      "visibleBounds": [
+        215,
+        268,
+        545,
+        484
+      ]
+    },
+    {
+      "file": "disputed-lot-blocked.png",
+      "part": "disputed-lot",
+      "state": "blocked",
+      "mechanic": false,
+      "sha256": "0b88a6c7f5e95e214fb1224526c0d7f189d890987a4ee7d109885e987c76c81c",
+      "visibleBounds": [
+        217,
+        268,
+        545,
+        485
+      ]
+    },
+    {
+      "file": "disputed-lot-destroyed.png",
+      "part": "disputed-lot",
+      "state": "destroyed",
+      "mechanic": false,
+      "sha256": "cbcb4ce6a6b5b5f7c7c8fb7280ffa5fa7d92eafccf4d9f47ee608b89c36402e9",
+      "visibleBounds": [
+        216,
+        267,
+        545,
+        485
+      ]
+    },
+    {
+      "file": "workshop-control-idle.png",
+      "part": "workshop-control",
+      "state": "idle",
+      "mechanic": false,
+      "sha256": "1394cfd57f050943bcf92abf090b2d1b68a464a2bd65cc557c9ba388ef74155e",
+      "visibleBounds": [
+        299,
+        180,
+        461,
+        485
+      ]
+    },
+    {
+      "file": "workshop-control-working.png",
+      "part": "workshop-control",
+      "state": "working",
+      "mechanic": false,
+      "sha256": "a5a3991a13b5ef7a2c1053cf02c57d3989ffba7fc4ab720b3f245de5db387236",
+      "visibleBounds": [
+        298,
+        181,
+        462,
+        485
+      ]
+    },
+    {
+      "file": "workshop-control-production.png",
+      "part": "workshop-control",
+      "state": "production",
+      "mechanic": false,
+      "sha256": "7a36425dbf3a11b702e3b3db95175b57210c0e645b03688aba4f1e9a484c1767",
+      "visibleBounds": [
+        298,
+        180,
+        462,
+        485
+      ]
+    },
+    {
+      "file": "workshop-control-stopped.png",
+      "part": "workshop-control",
+      "state": "stopped",
+      "mechanic": false,
+      "sha256": "73d557bb7d5dcc5d5c33dba161d5d1d03899d2e9280cc3f0c8de217986f0d2fb",
+      "visibleBounds": [
+        298,
+        179,
+        462,
+        484
+      ]
+    },
+    {
+      "file": "workshop-control-destroyed.png",
+      "part": "workshop-control",
+      "state": "destroyed",
+      "mechanic": false,
+      "sha256": "a1ab4e1cd341e3c5effe2a6765de0e2363d82c941b0eb2f8128f1dd752324cc8",
+      "visibleBounds": [
+        296,
+        198,
+        464,
+        484
+      ]
+    },
+    {
+      "file": "security-automaton-dormant.png",
+      "part": "security-automaton",
+      "state": "dormant",
+      "mechanic": false,
+      "sha256": "8b8c3c2b3d13dbbdaf788a331f9347b586aaf04d573dd52e590250d693dad9ae",
+      "visibleBounds": [
+        213,
+        260,
+        519,
+        484
+      ]
+    },
+    {
+      "file": "security-automaton-warning.png",
+      "part": "security-automaton",
+      "state": "warning",
+      "mechanic": false,
+      "sha256": "56acf0500a431f814afd52a66290dd9a5b9105ca5ae57b74c06305761ce0d165",
+      "visibleBounds": [
+        212,
+        241,
+        519,
+        485
+      ]
+    },
+    {
+      "file": "security-automaton-active.png",
+      "part": "security-automaton",
+      "state": "active",
+      "mechanic": false,
+      "sha256": "ce6fb9aed47858437affb2bf6d352b3a918a928978d92fcedf9d9e14ac86868f",
+      "visibleBounds": [
+        213,
+        259,
+        519,
+        485
+      ]
+    },
+    {
+      "file": "security-automaton-destroyed.png",
+      "part": "security-automaton",
+      "state": "destroyed",
+      "mechanic": false,
+      "sha256": "19a31ec48dcad18f6cd92304124c1910a52c3bc97e212b3a00569b7cffd129d5",
+      "visibleBounds": [
+        213,
+        259,
+        519,
+        485
+      ]
+    },
+    {
+      "file": "picket-post-closed.png",
+      "part": "picket-post",
+      "state": "closed",
+      "mechanic": false,
+      "sha256": "129cac77323c23548a45fcc1ac40b9085464cb056842027fbd4ad50b4d8b33a0",
+      "visibleBounds": [
+        263,
+        225,
+        497,
+        485
+      ]
+    },
+    {
+      "file": "picket-post-clearing.png",
+      "part": "picket-post",
+      "state": "clearing",
+      "mechanic": false,
+      "sha256": "03476ddf3b0330408763d7c25cdfa942600b3a3c5d0fc5b93f5556db8b827f2e",
+      "visibleBounds": [
+        263,
+        225,
+        497,
+        485
+      ]
+    },
+    {
+      "file": "picket-post-open.png",
+      "part": "picket-post",
+      "state": "open",
+      "mechanic": false,
+      "sha256": "51ad0cff38d13aa1f08dcc8737949fea9449dc25a2a94960f8170bb358263fbc",
+      "visibleBounds": [
+        263,
+        225,
+        498,
+        485
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+[
+  {
+    "name": "tests",
+    "command": [
+      "npm",
+      "test"
+    ],
+    "exitCode": 0,
+    "seconds": 42.364,
+    "log": "docs/validation/release-v0151/tests.txt",
+    "sha256": "3d400a5736e2e106cfe1021adbaab7ef6668ff0d65b73c20efbd0413afad9a63"
+  },
+  {
+    "name": "project",
+    "command": [
+      "npm",
+      "run",
+      "check"
+    ],
+    "exitCode": 0,
+    "seconds": 42.364,
+    "log": "docs/validation/release-v0151/project.txt",
+    "sha256": "a1ca6cdbcb8c39c2b4e08bed5edd80a5e70e47bbfb2173f50b86036757ce1a8f"
+  },
+  {
+    "name": "assets",
+    "command": [
+      "npm",
+      "run",
+      "check:assets-render"
+    ],
+    "exitCode": 0,
+    "seconds": 42.363,
+    "log": "docs/validation/release-v0151/assets.txt",
+    "sha256": "8376264531b878502c5a5afcff56dcb538351ecf0510e7a9a01c2f9242cfef08"
+  },
+  {
+    "name": "ui-runtime",
+    "command": [
+      "npm",
+      "run",
+      "check:ui-runtime"
+    ],
+    "exitCode": 0,
+    "seconds": 126.745,
+    "log": "docs/validation/release-v0151/ui-runtime.txt",
+    "sha256": "c924433fb94c58bfe6bee713c85a4a421f6c9f337be09059a50c3d9bb8d9d678"
+  }
+]

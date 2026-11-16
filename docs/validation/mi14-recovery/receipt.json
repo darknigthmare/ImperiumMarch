@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "createdUtc": "2026-11-16T08:51:23.779516+00:00",
+  "version": "0.15.0",
+  "scope": "MI14 recovery consolidation before new painted-sprite integration",
+  "runtime": "Node v24.22.1",
+  "baseLocalCommit": "55f384291a7bc00163315ae38c2b682332edf5e4",
+  "testedSourceSnapshot": {
+    "path": "docs/validation/mi14-recovery/tested-recovery-sources.json",
+    "sha256": "e25db901bb03f441e7fc8e26b5d121a9adfddca550722761c79df121409483e3"
+  },
+  "checks": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "tests": 683,
+      "passed": 683,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "durationMs": 49777.515273
+    },
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "designSheets": 20,
+      "sourceRows": 1007,
+      "playableChassis": 6,
+      "independentOperations": 3,
+      "campaignMissions": 14
+    },
+    {
+      "command": "npm run check:ui-runtime",
+      "exitCode": 0,
+      "flows": 108,
+      "mi14Flows": 5,
+      "environment": "Modeled DOM; Canvas no-op"
+    }
+  ],
+  "logs": {
+    "tests.txt": {
+      "path": "docs/validation/mi14-recovery/tests.txt",
+      "sha256": "19a46af61f95b58ef2ed32876b4689484530a4b44833ffa50da75eebac02ef91",
+      "bytes": 113267
+    },
+    "project-check.txt": {
+      "path": "docs/validation/mi14-recovery/project-check.txt",
+      "sha256": "5e172d179b50424c3e079a79b6ef61192914a294ea77e137fd7d6fd0cb3469c0",
+      "bytes": 289
+    },
+    "ui-runtime.txt": {
+      "path": "docs/validation/mi14-recovery/ui-runtime.txt",
+      "sha256": "c9d558157711b25809081bac47db7b0c64b6765cdec23a76f9de46ef1aeb26a3",
+      "bytes": 11492
+    }
+  },
+  "gameplaySourceCorrectionsRequired": false,
+  "nativeBrowserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "remotePublicationVerified": false,
+  "limitations": [
+    "New painted sprites and later rebuilt bundles require their own visual/build verification.",
+    "Existing Canvas, raster and workbook receipts retain their original date and source hashes.",
+    "No CI, Vercel, browser, CSS layout, audio, hardware controller or human acceptance is claimed."
+  ]
+}

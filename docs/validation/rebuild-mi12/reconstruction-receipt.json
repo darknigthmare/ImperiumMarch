@@ -1,0 +1,38 @@
+{
+  "version": "0.14.1",
+  "created": "2026-11-12T18:49:55.098Z",
+  "scope": "MI12 reconstruction from surviving public 0.12 and recorded 0.13 design",
+  "historicalBytesRecovered": false,
+  "simulation": {
+    "command": "node --test --test-reporter=tap tests/mi12-simulation.test.mjs",
+    "tests": 36,
+    "pass": 36,
+    "fail": 0,
+    "durationMs": 3721.764976,
+    "log": "docs/validation/rebuild-mi12/simulation-tests.tap",
+    "sha256": "7f04e1cfaa745fcf9fc3cba85bad613343ac0afae2a587dcea897b22cc17b482"
+  },
+  "canvas": {
+    "command": "node tools/render-mi12-previews.mjs",
+    "images": 22,
+    "completedRuns": 24,
+    "campaignExports": 5,
+    "proof": "docs/validation/rebuild-mi12/canvas-validation.json"
+  },
+  "assets": {
+    "command": "node tools/build-relay-assets.mjs",
+    "files": 24,
+    "svg": 22,
+    "png": 2,
+    "components": 6,
+    "bytes": 304405,
+    "manifest": "assets/relay/manifest.json"
+  },
+  "nativeBrowserExamined": false,
+  "humanPlaytestPerformed": false,
+  "notes": [
+    "All six chassis complete all three decisions through public simulation controls.",
+    "New proofs replace lost local proofs without impersonating their hashes.",
+    "The original source copy, deadline, relay damage, enemy components and signed dossier remain separate facts."
+  ]
+}

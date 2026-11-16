@@ -18,6 +18,10 @@ jobs:
         run: npm install --no-save --no-package-lock --ignore-scripts @napi-rs/canvas@0.1.100
       - name: Validate shared SVG and Canvas rendering
         run: npm run check:assets-render
+      - name: Decode and validate the painted MI14 sprites
+        run: npm run check:painted
+      - name: Decode and validate the painted combat sprites
+        run: npm run check:combat
       - run: npm run check
       - run: npm run build
       - run: npm run check:ui

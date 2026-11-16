@@ -1,0 +1,2039 @@
+{
+  "schema": 1,
+  "version": "0.15.1",
+  "date": "2026-11-16",
+  "title": "Les mains noires — sprites peints de Kharon",
+  "source": "assets/painted/mi14/prompts.json",
+  "generator": "tools/index-painted-sprites.py",
+  "runtime": "src/painted-sprites.mjs",
+  "layout": "src/painted-sprite-layout.mjs",
+  "provenance": "Eight original images generated with the built-in image_gen tool; original RGBA bytes preserved, not rasterizations of the vector kit.",
+  "status": "Prototype integrated art; not a final art or human animation approval.",
+  "authority": "All world positions, facing, state changes, losses, alert and cannon aim come from the existing simulation. Ground and muzzle anchors stay in its local coordinates.",
+  "limitations": [
+    "Atlas cells are frames and material states, not new gameplay entities.",
+    "Kneeling, neutral, dormant and warning cells are authoring references, not new actions or an early enemy spawn.",
+    "The cooler has a protected static fan grille; thermal indicators and repair states change, but the grille does not rotate.",
+    "Walk cycle art is a first production pass; full body diversity, human animation review and the remaining campaign art are open."
+  ],
+  "files": [
+    {
+      "key": "worker",
+      "file": "assets/painted/mi14/worker.png",
+      "bytes": 905882,
+      "sha256": "8322c17beed77d667ce04d458a8117ea451d777ee15fbec8955cc364b0e8d14a",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "grid": [
+        4,
+        3
+      ],
+      "frameCount": 12,
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "emptyFraction": 0.755485,
+        "clearFraction": 0.83474
+      },
+      "cells": [
+        {
+          "name": "standing",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "ink": [
+            146,
+            12,
+            222,
+            345
+          ],
+          "runtimeFrame": {
+            "source": [
+              144,
+              10,
+              80,
+              337
+            ],
+            "target": [
+              -7.20721,
+              -60.36036,
+              14.41441,
+              60.72072
+            ]
+          }
+        },
+        {
+          "name": "walking-0",
+          "origin": [
+            362,
+            0
+          ],
+          "cell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "ink": [
+            77,
+            15,
+            281,
+            344
+          ],
+          "runtimeFrame": {
+            "source": [
+              437,
+              13,
+              208,
+              333
+            ],
+            "target": [
+              -19.63964,
+              -59.63964,
+              37.47748,
+              60.0
+            ]
+          }
+        },
+        {
+          "name": "walking-1",
+          "origin": [
+            724,
+            0
+          ],
+          "cell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "ink": [
+            97,
+            15,
+            248,
+            343
+          ],
+          "runtimeFrame": {
+            "source": [
+              819,
+              13,
+              155,
+              332
+            ],
+            "target": [
+              -16.03604,
+              -59.45946,
+              27.92793,
+              59.81982
+            ]
+          }
+        },
+        {
+          "name": "walking-2",
+          "origin": [
+            1086,
+            0
+          ],
+          "cell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "ink": [
+            128,
+            15,
+            231,
+            344
+          ],
+          "runtimeFrame": {
+            "source": [
+              1212,
+              13,
+              107,
+              333
+            ],
+            "target": [
+              -10.45045,
+              -59.63964,
+              19.27928,
+              60.0
+            ]
+          }
+        },
+        {
+          "name": "walking-3",
+          "origin": [
+            0,
+            362
+          ],
+          "cell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "ink": [
+            109,
+            14,
+            256,
+            343
+          ],
+          "runtimeFrame": {
+            "source": [
+              107,
+              374,
+              151,
+              333
+            ],
+            "target": [
+              -13.87387,
+              -59.63964,
+              27.20721,
+              60.0
+            ]
+          }
+        },
+        {
+          "name": "walking-4",
+          "origin": [
+            362,
+            362
+          ],
+          "cell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "ink": [
+            84,
+            13,
+            288,
+            342
+          ],
+          "runtimeFrame": {
+            "source": [
+              444,
+              373,
+              208,
+              333
+            ],
+            "target": [
+              -18.37838,
+              -59.63964,
+              37.47748,
+              60.0
+            ]
+          }
+        },
+        {
+          "name": "walking-5",
+          "origin": [
+            724,
+            362
+          ],
+          "cell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "ink": [
+            96,
+            14,
+            247,
+            343
+          ],
+          "runtimeFrame": {
+            "source": [
+              818,
+              374,
+              155,
+              333
+            ],
+            "target": [
+              -16.21622,
+              -59.63964,
+              27.92793,
+              60.0
+            ]
+          }
+        },
+        {
+          "name": "walking-6",
+          "origin": [
+            1086,
+            362
+          ],
+          "cell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "ink": [
+            123,
+            12,
+            227,
+            343
+          ],
+          "runtimeFrame": {
+            "source": [
+              1207,
+              372,
+              108,
+              335
+            ],
+            "target": [
+              -11.35135,
+              -60.0,
+              19.45946,
+              60.36036
+            ]
+          }
+        },
+        {
+          "name": "walking-7",
+          "origin": [
+            0,
+            724
+          ],
+          "cell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "ink": [
+            110,
+            15,
+            257,
+            344
+          ],
+          "runtimeFrame": {
+            "source": [
+              108,
+              737,
+              151,
+              333
+            ],
+            "target": [
+              -13.69369,
+              -59.63964,
+              27.20721,
+              60.0
+            ]
+          }
+        },
+        {
+          "name": "safe",
+          "origin": [
+            362,
+            724
+          ],
+          "cell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "ink": [
+            147,
+            12,
+            222,
+            345
+          ],
+          "runtimeFrame": {
+            "source": [
+              507,
+              734,
+              79,
+              337
+            ],
+            "target": [
+              -7.02703,
+              -60.36036,
+              14.23423,
+              60.72072
+            ]
+          }
+        },
+        {
+          "name": "kneeling",
+          "origin": [
+            724,
+            724
+          ],
+          "cell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "ink": [
+            49,
+            100,
+            257,
+            340
+          ],
+          "runtimeFrame": {
+            "source": [
+              771,
+              822,
+              212,
+              244
+            ],
+            "target": [
+              -24.68468,
+              -43.6036,
+              38.1982,
+              43.96396
+            ]
+          }
+        },
+        {
+          "name": "lost",
+          "origin": [
+            1086,
+            724
+          ],
+          "cell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "ink": [
+            5,
+            233,
+            342,
+            325
+          ],
+          "runtimeFrame": {
+            "source": [
+              1089,
+              955,
+              341,
+              96
+            ],
+            "target": [
+              -30.72072,
+              -16.93694,
+              61.44144,
+              17.2973
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "worker-mechanic",
+      "file": "assets/painted/mi14/worker-mechanic.png",
+      "bytes": 910975,
+      "sha256": "6d79427bdac080e76a1e65db9f901c8ca578345dc67c2e1b519c8d08231c2a78",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "grid": [
+        4,
+        3
+      ],
+      "frameCount": 12,
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "emptyFraction": 0.750294,
+        "clearFraction": 0.844267
+      },
+      "cells": [
+        {
+          "name": "standing",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "ink": [
+            150,
+            10,
+            230,
+            332
+          ],
+          "runtimeFrame": {
+            "source": [
+              148,
+              8,
+              84,
+              326
+            ],
+            "target": [
+              -7.77778,
+              -60.0,
+              15.55556,
+              60.37037
+            ]
+          }
+        },
+        {
+          "name": "walking-0",
+          "origin": [
+            362,
+            0
+          ],
+          "cell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "ink": [
+            98,
+            12,
+            286,
+            333
+          ],
+          "runtimeFrame": {
+            "source": [
+              458,
+              10,
+              192,
+              325
+            ],
+            "target": [
+              -17.40741,
+              -59.81481,
+              35.55556,
+              60.18519
+            ]
+          }
+        },
+        {
+          "name": "walking-1",
+          "origin": [
+            724,
+            0
+          ],
+          "cell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "ink": [
+            129,
+            14,
+            238,
+            332
+          ],
+          "runtimeFrame": {
+            "source": [
+              851,
+              12,
+              113,
+              322
+            ],
+            "target": [
+              -11.66667,
+              -59.25926,
+              20.92593,
+              59.62963
+            ]
+          }
+        },
+        {
+          "name": "walking-2",
+          "origin": [
+            1086,
+            0
+          ],
+          "cell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "ink": [
+            134,
+            14,
+            245,
+            330
+          ],
+          "runtimeFrame": {
+            "source": [
+              1218,
+              12,
+              115,
+              320
+            ],
+            "target": [
+              -10.74074,
+              -58.88889,
+              21.2963,
+              59.25926
+            ]
+          }
+        },
+        {
+          "name": "walking-3",
+          "origin": [
+            0,
+            362
+          ],
+          "cell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "ink": [
+            121,
+            13,
+            262,
+            334
+          ],
+          "runtimeFrame": {
+            "source": [
+              119,
+              373,
+              145,
+              325
+            ],
+            "target": [
+              -13.14815,
+              -59.81481,
+              26.85185,
+              60.18519
+            ]
+          }
+        },
+        {
+          "name": "walking-4",
+          "origin": [
+            362,
+            362
+          ],
+          "cell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "ink": [
+            90,
+            13,
+            307,
+            334
+          ],
+          "runtimeFrame": {
+            "source": [
+              450,
+              373,
+              221,
+              325
+            ],
+            "target": [
+              -18.88889,
+              -59.81481,
+              40.92593,
+              60.18519
+            ]
+          }
+        },
+        {
+          "name": "walking-5",
+          "origin": [
+            724,
+            362
+          ],
+          "cell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "ink": [
+            102,
+            13,
+            257,
+            330
+          ],
+          "runtimeFrame": {
+            "source": [
+              824,
+              373,
+              159,
+              321
+            ],
+            "target": [
+              -16.66667,
+              -59.07407,
+              29.44444,
+              59.44444
+            ]
+          }
+        },
+        {
+          "name": "walking-6",
+          "origin": [
+            1086,
+            362
+          ],
+          "cell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "ink": [
+            133,
+            14,
+            256,
+            329
+          ],
+          "runtimeFrame": {
+            "source": [
+              1217,
+              374,
+              127,
+              319
+            ],
+            "target": [
+              -10.92593,
+              -58.7037,
+              23.51852,
+              59.07407
+            ]
+          }
+        },
+        {
+          "name": "walking-7",
+          "origin": [
+            0,
+            724
+          ],
+          "cell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "ink": [
+            129,
+            12,
+            270,
+            330
+          ],
+          "runtimeFrame": {
+            "source": [
+              127,
+              734,
+              145,
+              322
+            ],
+            "target": [
+              -11.66667,
+              -59.25926,
+              26.85185,
+              59.62963
+            ]
+          }
+        },
+        {
+          "name": "safe",
+          "origin": [
+            362,
+            724
+          ],
+          "cell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "ink": [
+            153,
+            9,
+            230,
+            334
+          ],
+          "runtimeFrame": {
+            "source": [
+              513,
+              731,
+              81,
+              329
+            ],
+            "target": [
+              -7.22222,
+              -60.55556,
+              15.0,
+              60.92593
+            ]
+          }
+        },
+        {
+          "name": "kneeling",
+          "origin": [
+            724,
+            724
+          ],
+          "cell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "ink": [
+            63,
+            99,
+            260,
+            320
+          ],
+          "runtimeFrame": {
+            "source": [
+              785,
+              821,
+              201,
+              225
+            ],
+            "target": [
+              -23.88889,
+              -41.2963,
+              37.22222,
+              41.66667
+            ]
+          }
+        },
+        {
+          "name": "lost",
+          "origin": [
+            1086,
+            724
+          ],
+          "cell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "ink": [
+            21,
+            175,
+            336,
+            259
+          ],
+          "runtimeFrame": {
+            "source": [
+              1105,
+              897,
+              319,
+              88
+            ],
+            "target": [
+              -29.53704,
+              -15.92593,
+              59.07407,
+              16.2963
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "cooler",
+      "file": "assets/painted/mi14/cooler.png",
+      "bytes": 2660922,
+      "sha256": "4f35734260ca8c59daedc27ff91ffcd7b9e4fcab902d7aa03b0c6d1b94b113ad",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "grid": [
+        3,
+        2
+      ],
+      "frameCount": 6,
+      "alpha": {
+        "range": [
+          0,
+          254
+        ],
+        "emptyFraction": 0.029781,
+        "clearFraction": 0.432536
+      },
+      "cells": [
+        {
+          "name": "broken",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            28,
+            56,
+            467,
+            454
+          ],
+          "runtimeFrame": {
+            "source": [
+              26,
+              54,
+              443,
+              402
+            ],
+            "target": [
+              -85.82432,
+              -156.75676,
+              173.60811,
+              157.54054
+            ]
+          }
+        },
+        {
+          "name": "isolated",
+          "origin": [
+            512,
+            0
+          ],
+          "cell": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            26,
+            57,
+            466,
+            454
+          ],
+          "runtimeFrame": {
+            "source": [
+              536,
+              55,
+              444,
+              401
+            ],
+            "target": [
+              -86.60811,
+              -156.36486,
+              174.0,
+              157.14865
+            ]
+          }
+        },
+        {
+          "name": "repairing",
+          "origin": [
+            1024,
+            0
+          ],
+          "cell": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            28,
+            57,
+            467,
+            454
+          ],
+          "runtimeFrame": {
+            "source": [
+              1050,
+              55,
+              443,
+              401
+            ],
+            "target": [
+              -85.82432,
+              -156.36486,
+              173.60811,
+              157.14865
+            ]
+          }
+        },
+        {
+          "name": "online",
+          "origin": [
+            0,
+            512
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            29,
+            48,
+            467,
+            454
+          ],
+          "runtimeFrame": {
+            "source": [
+              27,
+              558,
+              442,
+              410
+            ],
+            "target": [
+              -85.43243,
+              -159.89189,
+              173.21622,
+              160.67568
+            ]
+          }
+        },
+        {
+          "name": "destroyed",
+          "origin": [
+            512,
+            512
+          ],
+          "cell": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            23,
+            51,
+            467,
+            454
+          ],
+          "runtimeFrame": {
+            "source": [
+              533,
+              561,
+              448,
+              407
+            ],
+            "target": [
+              -87.78378,
+              -158.71622,
+              175.56757,
+              159.5
+            ]
+          }
+        },
+        {
+          "name": "neutral-reference",
+          "origin": [
+            1024,
+            512
+          ],
+          "cell": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            27,
+            56,
+            467,
+            454
+          ],
+          "runtimeFrame": {
+            "source": [
+              1049,
+              566,
+              444,
+              402
+            ],
+            "target": [
+              -86.21622,
+              -156.75676,
+              174.0,
+              157.54054
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "valve",
+      "file": "assets/painted/mi14/valve.png",
+      "bytes": 1237430,
+      "sha256": "f1a7cce3da1cb5553ba72266a8cf443b5cdd22d1727be47e35193a73fa8cc069",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "grid": [
+        3,
+        1
+      ],
+      "frameCount": 3,
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "emptyFraction": 0.628043,
+        "clearFraction": 0.654114
+      },
+      "cells": [
+        {
+          "name": "open",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            724,
+            724
+          ],
+          "ink": [
+            88,
+            41,
+            637,
+            678
+          ],
+          "runtimeFrame": {
+            "source": [
+              86,
+              39,
+              553,
+              641
+            ],
+            "target": [
+              -43.3281,
+              -100.31397,
+              86.81319,
+              100.62794
+            ]
+          }
+        },
+        {
+          "name": "isolated",
+          "origin": [
+            724,
+            0
+          ],
+          "cell": [
+            724,
+            0,
+            724,
+            724
+          ],
+          "ink": [
+            88,
+            41,
+            637,
+            678
+          ],
+          "runtimeFrame": {
+            "source": [
+              810,
+              39,
+              553,
+              641
+            ],
+            "target": [
+              -43.3281,
+              -100.31397,
+              86.81319,
+              100.62794
+            ]
+          }
+        },
+        {
+          "name": "destroyed",
+          "origin": [
+            1448,
+            0
+          ],
+          "cell": [
+            1448,
+            0,
+            724,
+            724
+          ],
+          "ink": [
+            89,
+            41,
+            637,
+            678
+          ],
+          "runtimeFrame": {
+            "source": [
+              1535,
+              39,
+              552,
+              641
+            ],
+            "target": [
+              -43.17111,
+              -100.31397,
+              86.6562,
+              100.62794
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "disputed-lot",
+      "file": "assets/painted/mi14/disputed-lot.png",
+      "bytes": 2460864,
+      "sha256": "83ead0e275d7a3ba75f8d8d83bf69225096ae84a60cb29c357caab04fafdd534",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "grid": [
+        3,
+        2
+      ],
+      "frameCount": 6,
+      "alpha": {
+        "range": [
+          0,
+          254
+        ],
+        "emptyFraction": 0.41592,
+        "clearFraction": 0.477982
+      },
+      "cells": [
+        {
+          "name": "sealed",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            21,
+            122,
+            494,
+            434
+          ],
+          "runtimeFrame": {
+            "source": [
+              19,
+              120,
+              477,
+              316
+            ],
+            "target": [
+              -66.0,
+              -87.44304,
+              132.83544,
+              88.0
+            ]
+          }
+        },
+        {
+          "name": "inspected",
+          "origin": [
+            512,
+            0
+          ],
+          "cell": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            20,
+            122,
+            493,
+            434
+          ],
+          "runtimeFrame": {
+            "source": [
+              530,
+              120,
+              477,
+              316
+            ],
+            "target": [
+              -66.27848,
+              -87.44304,
+              132.83544,
+              88.0
+            ]
+          }
+        },
+        {
+          "name": "released",
+          "origin": [
+            1024,
+            0
+          ],
+          "cell": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            19,
+            122,
+            493,
+            434
+          ],
+          "runtimeFrame": {
+            "source": [
+              1041,
+              120,
+              478,
+              316
+            ],
+            "target": [
+              -66.55696,
+              -87.44304,
+              133.11392,
+              88.0
+            ]
+          }
+        },
+        {
+          "name": "blocked",
+          "origin": [
+            0,
+            512
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            21,
+            123,
+            494,
+            435
+          ],
+          "runtimeFrame": {
+            "source": [
+              19,
+              633,
+              477,
+              316
+            ],
+            "target": [
+              -66.0,
+              -87.44304,
+              132.83544,
+              88.0
+            ]
+          }
+        },
+        {
+          "name": "destroyed",
+          "origin": [
+            512,
+            512
+          ],
+          "cell": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            20,
+            120,
+            493,
+            435
+          ],
+          "runtimeFrame": {
+            "source": [
+              530,
+              630,
+              477,
+              319
+            ],
+            "target": [
+              -66.27848,
+              -88.27848,
+              132.83544,
+              88.83544
+            ]
+          }
+        },
+        {
+          "name": "neutral-reference",
+          "origin": [
+            1024,
+            512
+          ],
+          "cell": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            19,
+            123,
+            493,
+            435
+          ],
+          "runtimeFrame": {
+            "source": [
+              1041,
+              633,
+              478,
+              316
+            ],
+            "target": [
+              -66.55696,
+              -87.44304,
+              133.11392,
+              88.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "workshop-control",
+      "file": "assets/painted/mi14/workshop-control.png",
+      "bytes": 2024694,
+      "sha256": "6b534a3dcac30b1520f8b6cf0c03a64e6dc4973da2e6e80c2a08946f784d14e2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "grid": [
+        3,
+        2
+      ],
+      "frameCount": 6,
+      "alpha": {
+        "range": [
+          0,
+          254
+        ],
+        "emptyFraction": 0.610366,
+        "clearFraction": 0.672427
+      },
+      "cells": [
+        {
+          "name": "idle",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            147,
+            7,
+            403,
+            486
+          ],
+          "runtimeFrame": {
+            "source": [
+              145,
+              5,
+              260,
+              483
+            ],
+            "target": [
+              -33.11065,
+              -122.50939,
+              66.22129,
+              123.01879
+            ]
+          }
+        },
+        {
+          "name": "working",
+          "origin": [
+            512,
+            0
+          ],
+          "cell": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            120,
+            7,
+            378,
+            486
+          ],
+          "runtimeFrame": {
+            "source": [
+              630,
+              5,
+              262,
+              483
+            ],
+            "target": [
+              -33.36534,
+              -122.50939,
+              66.73069,
+              123.01879
+            ]
+          }
+        },
+        {
+          "name": "production",
+          "origin": [
+            1024,
+            0
+          ],
+          "cell": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            91,
+            7,
+            350,
+            486
+          ],
+          "runtimeFrame": {
+            "source": [
+              1113,
+              5,
+              263,
+              483
+            ],
+            "target": [
+              -33.49269,
+              -122.50939,
+              66.98539,
+              123.01879
+            ]
+          }
+        },
+        {
+          "name": "stopped",
+          "origin": [
+            0,
+            512
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            148,
+            9,
+            406,
+            490
+          ],
+          "runtimeFrame": {
+            "source": [
+              146,
+              519,
+              262,
+              485
+            ],
+            "target": [
+              -33.36534,
+              -123.01879,
+              66.73069,
+              123.52818
+            ]
+          }
+        },
+        {
+          "name": "destroyed",
+          "origin": [
+            512,
+            512
+          ],
+          "cell": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            119,
+            39,
+            384,
+            490
+          ],
+          "runtimeFrame": {
+            "source": [
+              629,
+              549,
+              269,
+              455
+            ],
+            "target": [
+              -34.25678,
+              -115.37787,
+              68.51357,
+              115.88727
+            ]
+          }
+        },
+        {
+          "name": "neutral-reference",
+          "origin": [
+            1024,
+            512
+          ],
+          "cell": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            91,
+            9,
+            350,
+            490
+          ],
+          "runtimeFrame": {
+            "source": [
+              1113,
+              519,
+              263,
+              485
+            ],
+            "target": [
+              -33.49269,
+              -123.01879,
+              66.98539,
+              123.52818
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "security-automaton",
+      "file": "assets/painted/mi14/security-automaton.png",
+      "bytes": 2022963,
+      "sha256": "d94e233cf918d0dd76259e92033f1e948df476f249c3f35cd7027dfa65ff93ee",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "grid": [
+        3,
+        2
+      ],
+      "frameCount": 6,
+      "alpha": {
+        "range": [
+          0,
+          254
+        ],
+        "emptyFraction": 0.580368,
+        "clearFraction": 0.678677
+      },
+      "cells": [
+        {
+          "name": "dormant",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            53,
+            64,
+            462,
+            466
+          ],
+          "runtimeFrame": {
+            "source": [
+              51,
+              62,
+              413,
+              406
+            ],
+            "target": [
+              -67.63814,
+              -90.69388,
+              113.09535,
+              91.14286
+            ]
+          }
+        },
+        {
+          "name": "warning",
+          "origin": [
+            512,
+            0
+          ],
+          "cell": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            53,
+            31,
+            462,
+            465
+          ],
+          "runtimeFrame": {
+            "source": [
+              563,
+              29,
+              413,
+              438
+            ],
+            "target": [
+              -67.63814,
+              -98.27869,
+              113.09535,
+              98.72951
+            ]
+          }
+        },
+        {
+          "name": "active",
+          "origin": [
+            1024,
+            0
+          ],
+          "cell": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            53,
+            64,
+            462,
+            465
+          ],
+          "runtimeFrame": {
+            "source": [
+              1075,
+              62,
+              413,
+              405
+            ],
+            "target": [
+              -67.63814,
+              -90.84016,
+              113.09535,
+              91.29098
+            ]
+          }
+        },
+        {
+          "name": "destroyed",
+          "origin": [
+            0,
+            512
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            53,
+            63,
+            461,
+            465
+          ],
+          "runtimeFrame": {
+            "source": [
+              51,
+              573,
+              412,
+              406
+            ],
+            "target": [
+              -67.63814,
+              -91.06557,
+              112.82152,
+              91.51639
+            ]
+          }
+        },
+        {
+          "name": "cannon",
+          "origin": [
+            512,
+            512
+          ],
+          "cell": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            35,
+            192,
+            470,
+            307
+          ],
+          "runtimeFrame": {
+            "source": [
+              545,
+              702,
+              439,
+              119
+            ],
+            "target": [
+              -7.36082,
+              -8.51546,
+              63.36082,
+              17.17526
+            ],
+            "anchors": {
+              "pivot": [
+                0,
+                0
+              ],
+              "muzzle": [
+                56,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "name": "cannon-destroyed",
+          "origin": [
+            1024,
+            512
+          ],
+          "cell": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            34,
+            192,
+            483,
+            310
+          ],
+          "runtimeFrame": {
+            "source": [
+              1056,
+              702,
+              453,
+              122
+            ],
+            "target": [
+              -6.94789,
+              -8.19851,
+              62.94789,
+              16.95285
+            ],
+            "anchors": {
+              "pivot": [
+                0,
+                0
+              ],
+              "muzzle": [
+                56,
+                0
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "picket-post",
+      "file": "assets/painted/mi14/picket-post.png",
+      "bytes": 953094,
+      "sha256": "33976aa09333facacf5a17835755597a931e596e894d80507e07e9c1bd75be10",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "grid": [
+        3,
+        1
+      ],
+      "frameCount": 3,
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "emptyFraction": 0.730414,
+        "clearFraction": 0.764398
+      },
+      "cells": [
+        {
+          "name": "closed",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            724,
+            724
+          ],
+          "ink": [
+            108,
+            68,
+            649,
+            666
+          ],
+          "runtimeFrame": {
+            "source": [
+              106,
+              66,
+              545,
+              602
+            ],
+            "target": [
+              -47.3913,
+              -104.34783,
+              94.78261,
+              104.69565
+            ]
+          }
+        },
+        {
+          "name": "clearing",
+          "origin": [
+            724,
+            0
+          ],
+          "cell": [
+            724,
+            0,
+            724,
+            724
+          ],
+          "ink": [
+            108,
+            68,
+            649,
+            666
+          ],
+          "runtimeFrame": {
+            "source": [
+              830,
+              66,
+              545,
+              602
+            ],
+            "target": [
+              -47.3913,
+              -104.34783,
+              94.78261,
+              104.69565
+            ]
+          }
+        },
+        {
+          "name": "open",
+          "origin": [
+            1448,
+            0
+          ],
+          "cell": [
+            1448,
+            0,
+            724,
+            724
+          ],
+          "ink": [
+            109,
+            68,
+            649,
+            666
+          ],
+          "runtimeFrame": {
+            "source": [
+              1555,
+              66,
+              544,
+              602
+            ],
+            "target": [
+              -47.21739,
+              -104.34783,
+              94.6087,
+              104.69565
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "atlases": 8,
+    "frames": 54,
+    "walkFrames": 16,
+    "characterTypes": 2,
+    "machineFamilies": 6,
+    "bytes": 13176824
+  }
+}

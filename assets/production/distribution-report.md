@@ -1,12 +1,12 @@
 # Rapprochement exhaustif des médias distribués
 
-Snapshot : 2026-11-11T20:05:48.761Z. Révision de repère : f75e674313120094b9540603fbfa571d5df2f1d2. Le relevé porte sur les fichiers courants, y compris les travaux non commités.
+Snapshot : 2026-11-12T19:04:45.847Z. Révision de repère : 06a6b0b15c504cb5f185c407e551cb15da64270a. Le relevé porte sur les fichiers courants, y compris les travaux non commités.
 
 ## Résultat
 
-442 médias sources possèdent une entrée. Les artefacts actuellement observés contiennent 442 médias web et 5 occurrences inline (3 contenus distincts). **0 média non rapproché ou anomalie de provenance.** La source du jeu demande trois fichiers image : illustration du menu, panorama Vesper et emblème. Les formes de production sont du code Canvas ; le son est synthétisé. Aucun WAV de production n’est embarqué dans le HTML observé.
+497 médias sources possèdent une entrée. Les artefacts actuellement observés contiennent 497 médias web et 5 occurrences inline (3 contenus distincts). **0 média non rapproché ou anomalie de provenance.** La source du jeu demande trois fichiers image : illustration du menu, panorama Vesper et emblème. Les formes de production sont du code Canvas ; le son est synthétisé. Aucun WAV de production n’est embarqué dans le HTML observé.
 
-Éditions observées : source UI 0.12, HTML autonome 0.12, web 0.12. **Synchronisation des builds : oui.**
+Éditions observées : source UI 0.14.1, HTML autonome 0.14.1, web 0.14.1. **Synchronisation des builds : oui.**
 
 Les médias copiés et le graphe des modules sont synchronisés avec la source observée.
 
@@ -20,9 +20,11 @@ Le champ chimique de MI10 ajoute six composants, vingt-quatre SVG et deux planch
 
 MI11 ajoute six composants, vingt-six SVG et deux planches PNG. Les postes d’écoute, l’émetteur résonant, les sites de ponte, la corniche, Leth et le support de traduction partagent leur géométrie avec le renderer. Les appuis, pertes, copies et permissions viennent de la simulation. Cette représentation locale de Leth ne clôt pas la production de toute la civilisation Khelt.
 
+La reconstruction 0.14.1 possède ses propres déclarations et empreintes : MI12 (relais et Prétoire) : 6 composants, 22 SVG, 2 planches PNG, 304405 octets ; MI13 (Kharon) : 8 composants, 29 SVG, 2 planches PNG, 398627 octets. Les manifestes sont rapprochés des tailles et hashes réellement lus, ainsi que du hash de leur source géométrique. Le générateur et le renderer sont également identifiés par empreinte. Ces nouveaux fichiers ne remplacent pas les preuves natives historiques et ne prétendent pas retrouver les octets perdus des anciennes versions locales. Aucune licence supplémentaire n’est déduite de cette reconstruction.
+
 Les nouveaux vecteurs et sons renvoient à leurs manifestes de production datés et versionnés, avec code source et hashes. Les WAV reproduisent la synthèse du runtime ; aucune voix humaine, aucun échantillon tiers ni validation humaine de mix n’est déclaré. Aucun fichier de police n’est distribué ; les noms de polices sont des fallbacks système.
 
-La page officielle Steam de **BE-A Walker** est enregistrée comme référence de conception non distribuée. Aucun fichier local de cette référence n’est documenté : il n’existe donc pas de hash local ou d’autorisation de redistribution à inventer. Tous les octets média effectivement observés sont rapprochés des fichiers originaux du projet. Les 427 médias de documentation sont recensés séparément et exclus des deux politiques de build.
+La page officielle Steam de **BE-A Walker** est enregistrée comme référence de conception non distribuée. Aucun fichier local de cette référence n’est documenté : il n’existe donc pas de hash local ou d’autorisation de redistribution à inventer. Tous les octets média effectivement observés sont rapprochés des fichiers originaux du projet. Les 526 médias de documentation sont recensés séparément et exclus des deux politiques de build.
 
 ## Médias réellement demandés par le jeu
 
@@ -67,6 +69,37 @@ La page officielle Steam de **BE-A Walker** est enregistrée comme référence d
 | assets/chemical/village-supply-destroyed.svg | 0.11.0 | chemical-vector | MI10 reusable vector: village-supply; destroyed | non | oui |
 | assets/chemical/village-supply-habitable.svg | 0.11.0 | chemical-vector | MI10 reusable vector: village-supply; habitable | non | oui |
 | assets/emblem.svg | 0.1.0 introduction | legacy-emblem | Browser favicon and menu brand emblem. | oui | oui |
+| assets/foundry/analysis-console-complete.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: analysis-console; complete | non | oui |
+| assets/foundry/analysis-console-idle.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: analysis-console; idle | non | oui |
+| assets/foundry/analysis-console-working.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: analysis-console; working | non | oui |
+| assets/foundry/cargo-manifest-copied.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: cargo-manifest; copied | non | oui |
+| assets/foundry/cargo-manifest-destroyed.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: cargo-manifest; destroyed | non | oui |
+| assets/foundry/cargo-manifest-sealed.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: cargo-manifest; sealed | non | oui |
+| assets/foundry/foundry-stack-damaged.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: foundry-stack; damaged | non | oui |
+| assets/foundry/foundry-stack-idle.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: foundry-stack; idle | non | oui |
+| assets/foundry/foundry-stack-working.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: foundry-stack; working | non | oui |
+| assets/foundry/industrial-carrier-damaged.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: industrial-carrier; damaged | non | oui |
+| assets/foundry/industrial-carrier-destroyed.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: industrial-carrier; destroyed | non | oui |
+| assets/foundry/industrial-carrier-moving.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: industrial-carrier; moving | non | oui |
+| assets/foundry/industrial-carrier-parked.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: industrial-carrier; parked | non | oui |
+| assets/foundry/previews/foundry-kit.png | 0.14.1 | foundry-vector | Authoring sheet at varied scales, not gameplay or browser evidence | non | oui |
+| assets/foundry/previews/foundry-states.png | 0.14.1 | foundry-vector | Material state authoring bench, not browser or human reception | non | oui |
+| assets/foundry/serial-cargo-copied.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: serial-cargo; copied | non | oui |
+| assets/foundry/serial-cargo-damaged.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: serial-cargo; damaged | non | oui |
+| assets/foundry/serial-cargo-destroyed.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: serial-cargo; destroyed | non | oui |
+| assets/foundry/serial-cargo-sealed.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: serial-cargo; sealed | non | oui |
+| assets/foundry/steam-valve-closed.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: steam-valve; closed | non | oui |
+| assets/foundry/steam-valve-destroyed.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: steam-valve; destroyed | non | oui |
+| assets/foundry/steam-valve-jet.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: steam-valve; jet | non | oui |
+| assets/foundry/steam-valve-open.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: steam-valve; open | non | oui |
+| assets/foundry/steam-valve-warning.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: steam-valve; warning | non | oui |
+| assets/foundry/thermal-bridge-cooled.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: thermal-bridge; cooled | non | oui |
+| assets/foundry/thermal-bridge-cooling.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: thermal-bridge; cooling | non | oui |
+| assets/foundry/thermal-bridge-hot.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: thermal-bridge; hot | non | oui |
+| assets/foundry/transfer-crane-idle.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: transfer-crane; idle | non | oui |
+| assets/foundry/transfer-crane-quarantine.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: transfer-crane; quarantine | non | oui |
+| assets/foundry/transfer-crane-received.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: transfer-crane; received | non | oui |
+| assets/foundry/transfer-crane-working.svg | 0.14.1 | foundry-vector | Reconstructed MI13 vector: transfer-crane; working | non | oui |
 | assets/production/audio/ambience-pl01.wav | 0.9.0 | production-audio | Vesper — Cendre, conduite et ateliers lointains | non | oui |
 | assets/production/audio/ambience-pl02.wav | 0.9.0 | production-audio | Nacre — Eau contre les palées, clapot et brume saline | non | oui |
 | assets/production/audio/ambience-pl03.wav | 0.9.0 | production-audio | Thyr — Frottement végétal et appels non humains | non | oui |
@@ -415,6 +448,30 @@ La page officielle Steam de **BE-A Walker** est enregistrée comme référence d
 | assets/production/walkers/wk10/turret-near.svg | 0.9.0 | production-vector | Reusable vector component: turret; normal | non | oui |
 | assets/production/walkers/wk10/upper-far.svg | 0.9.0 | production-vector | Reusable vector component: upper; normal | non | oui |
 | assets/production/walkers/wk10/upper-near.svg | 0.9.0 | production-vector | Reusable vector component: upper; normal | non | oui |
+| assets/relay/command-post-idle.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: command-post; idle | non | oui |
+| assets/relay/command-post-transmitted.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: command-post; transmitted | non | oui |
+| assets/relay/command-post-working.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: command-post; working | non | oui |
+| assets/relay/copy-console-copied.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: copy-console; copied | non | oui |
+| assets/relay/copy-console-copying.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: copy-console; copying | non | oui |
+| assets/relay/copy-console-expired.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: copy-console; expired | non | oui |
+| assets/relay/copy-console-idle.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: copy-console; idle | non | oui |
+| assets/relay/praetor-hull-attack.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: praetor-hull; attack | non | oui |
+| assets/relay/praetor-hull-destroyed.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: praetor-hull; destroyed | non | oui |
+| assets/relay/praetor-hull-exposed.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: praetor-hull; exposed | non | oui |
+| assets/relay/praetor-hull-guard.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: praetor-hull; guard | non | oui |
+| assets/relay/praetor-lock-anchored.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: praetor-lock; anchored | non | oui |
+| assets/relay/praetor-lock-broken.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: praetor-lock; broken | non | oui |
+| assets/relay/praetor-sensor-disabled.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: praetor-sensor; disabled | non | oui |
+| assets/relay/praetor-sensor-locking.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: praetor-sensor; locking | non | oui |
+| assets/relay/praetor-sensor-tracking.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: praetor-sensor; tracking | non | oui |
+| assets/relay/previews/relay-kit.png | 0.14.1 | relay-vector | Authoring sheet with component scales; not gameplay or browser reception | non | oui |
+| assets/relay/previews/relay-states.png | 0.14.1 | relay-vector | Authored states on a bench; not a playtest | non | oui |
+| assets/relay/relay-mast-destroyed.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: relay-mast; destroyed | non | oui |
+| assets/relay/relay-mast-erased.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: relay-mast; erased | non | oui |
+| assets/relay/relay-mast-isolated.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: relay-mast; isolated | non | oui |
+| assets/relay/relay-mast-live.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: relay-mast; live | non | oui |
+| assets/relay/relay-mast-purging.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: relay-mast; purging | non | oui |
+| assets/relay/relay-mast-reviewed.svg | 0.14.1 | relay-vector | Reconstructed MI12 vector: relay-mast; reviewed | non | oui |
 | assets/thyr/breathing-vine-burnt.svg | 0.10.0 | thyr-vector | Thyr reusable vector: breathing-vine; burnt | non | oui |
 | assets/thyr/breathing-vine-normal.svg | 0.10.0 | thyr-vector | Thyr reusable vector: breathing-vine; normal | non | oui |
 | assets/thyr/breathing-vine-wilted.svg | 0.10.0 | thyr-vector | Thyr reusable vector: breathing-vine; wilted | non | oui |

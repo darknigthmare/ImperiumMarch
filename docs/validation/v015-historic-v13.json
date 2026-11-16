@@ -1,0 +1,29 @@
+{
+  "version": "0.15.0",
+  "purpose": "Verify the additive campaign v13 to v14 migration against retained, immutable reconstruction exports.",
+  "sourceCommit": "fc9f4af4e103adf93d4310053610ca69bea443b3",
+  "sourceKind": "Prepared campaign exports produced by the public-command simulation drivers for reconstruction 0.14.1. They are not native browser exports.",
+  "regeneratedWithCurrentModules": false,
+  "fixtures": [
+    {
+      "sourcePath": "docs/validation/rebuild-mi13/completed-campaign.json",
+      "sourceBlob": "2da2451d7769e935131427b05cf857bbd943a465",
+      "fixturePath": "tests/fixtures/campaign-v13-mi13.json",
+      "bytes": 142828,
+      "sha256": "8900617ce6c4496fa1c82d74ba76cd3718e0dc1df66ebdd5401650febf66208f",
+      "reports": 13,
+      "state": "completed MI13, with its original pre-decision checkpoint"
+    },
+    {
+      "sourcePath": "docs/validation/rebuild-mi13/interrupted-transfer-checkpoint.json",
+      "sourceBlob": "77050303b6d050e580d2ce1f192a3ef449712900",
+      "fixturePath": "tests/fixtures/campaign-v13-mi13-transfer.json",
+      "bytes": 155677,
+      "sha256": "3160ec519bc6817bed515b13f9bbc78be341aaa8b2ba689047d53e073e08ff55",
+      "reports": 12,
+      "state": "active MI13, interrupted first cargo transfer at progress 0.5533333333333323"
+    }
+  ],
+  "migrationContract": "Append world.kharon.workshop as an unvisited dossier and set version to 14. Preserve reports, checkpoints, resources, stage and all prior world domains exactly.",
+  "testFile": "tests/campaign-v14.test.mjs"
+}

@@ -1,0 +1,19 @@
+{
+  "version": "0.14.1",
+  "checkedAt": "2026-11-12T18:54:29.384558+00:00",
+  "command": "NODE_PATH=\"$CODEX_PRIMARY_RUNTIME_NODE_MODULES\" node tools/test-assets-render.mjs",
+  "cases": 141,
+  "passed": true,
+  "scope": "141 raster comparisons between the shared SVG and Canvas asset geometry, including 22 relay and 29 foundry states. Does not certify native browser input or human usability.",
+  "engine": "@napi-rs/canvas 0.1.100",
+  "log": "docs/validation/rebuild-global/assets-raster.txt",
+  "sourceHashes": {
+    "tools/test-assets-render.mjs": "b678eb94eb915aefeab5e4e1a05c5992f92e1ff5cf7f749ca3749e8175128f1a",
+    "src/chemical-assets.mjs": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753",
+    "src/relay-assets.mjs": "9aa0d1ba6263c59b92d2de63bfdac6208f3735682125f335e5eb6eba4b119e81",
+    "src/voice-assets.mjs": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0",
+    "src/production-assets.mjs": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0",
+    "src/foundry-assets.mjs": "963637fb4d09b582ca9760c905a2770859c44bbd2205b0043d338b7b38ab0c16",
+    "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83"
+  }
+}

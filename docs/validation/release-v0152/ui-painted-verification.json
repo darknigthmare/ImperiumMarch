@@ -1,0 +1,91 @@
+{
+  "version": "0.15.2",
+  "createdUtc": "2026-11-16T09:31:46.932113+00:00",
+  "offlineSha256": "44eb93556e7c881582634306a66ce08816d8a35ad1768fd4dc34ae54e5734b2a",
+  "packageSha256": "2ce667fe40b61ab4f3d3adb44082833ba3655c2ab3a084b6f2d12caa30e9d5d2",
+  "runtimeSourcesUnchangedSinceUnitTests": true,
+  "results": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "tests": 697,
+      "passed": 697,
+      "failed": 0,
+      "evidence": "node-tests.json"
+    },
+    {
+      "command": "npm run check:ui",
+      "exitCode": 0,
+      "htmlIds": 213,
+      "literalReferences": 185,
+      "views": 5,
+      "archiveTabs": 4,
+      "dialogs": 6,
+      "scope": "Static HTML references and offline vm.Script compilation; no execution in a browser"
+    },
+    {
+      "command": "npm run check:ui-runtime",
+      "exitCode": 0,
+      "flows": 108,
+      "scope": "Actual offline application script in a modeled DOM; not native browser UI"
+    },
+    {
+      "command": "npm run check:painted -- docs/validation/painted-mi14-v0152",
+      "exitCode": 0,
+      "atlases": 8,
+      "frames": 54,
+      "components": 33,
+      "scenes": 14,
+      "paintedDrawCalls": 85,
+      "receipt": "docs/validation/painted-mi14-v0152/receipt.json"
+    },
+    {
+      "command": "node tools/test-painted-combat-browser.mjs docs/validation/painted-combat-browser-v0152",
+      "reproductionCommand": "npm run check:combat-browser -- docs/validation/painted-combat-browser-v0152",
+      "exitCode": 1,
+      "status": "blocked-before-page-load",
+      "attempts": 1,
+      "pagesLoaded": 0,
+      "flows": 0,
+      "screenshots": 0,
+      "expectedAtlasCounts": {
+        "mi14": 8,
+        "combat": 9
+      },
+      "actualBrowserDecodingVerified": false,
+      "reason": "Chromium process_singleton_posix.cc socket() failed: Operation not permitted; crashpad ptrace: Operation not permitted; process ended SIGABRT",
+      "report": "docs/validation/painted-combat-browser-v0152/report.json"
+    }
+  ],
+  "historicalProofFoldersUnchanged": true,
+  "nativeBrowserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "logs": {
+    "node-tests.txt": {
+      "sha256": "e4c84e26eaff4798a27ad1a9d5ac0e1737a75af997d1318c1355f37f923bb27c",
+      "bytes": 114727
+    },
+    "check-ui.txt": {
+      "sha256": "ebc02b3957ee4368a3d85d834f43565188d99daf9f6fb327c3e74656b11e8352",
+      "bytes": 585
+    },
+    "check-ui-runtime.txt": {
+      "sha256": "cd004b5bd6b6e66089836f655a4e02fcb0a952043a3dafd5c95b669048929e1f",
+      "bytes": 11492
+    },
+    "check-painted-mi14.txt": {
+      "sha256": "534b36ed1a46263458f698eb7912871f7da18014a7c9a3c6ec32e6d90b4b7f81",
+      "bytes": 375
+    },
+    "check-painted-browser.txt": {
+      "sha256": "4f6b34aa0cf2efb0e74450143b5cb154f81571582cfd4dd65c7647399ae6b49b",
+      "bytes": 5081
+    }
+  },
+  "tools": {
+    "tools/test-ui.mjs": "16d682b917c7d711a833370ee23d4d56aa5674f5d77a740516586e9651182d5d",
+    "tools/test-ui-runtime.mjs": "37d98c5563ade72a285e7b532073d81f25b268ffa1037e3ee72cd5c16f705d2a",
+    "tools/test-painted-sprites.mjs": "ffc12a00c9a03bb204919f721cb2877ebd2465031913ccf80b0f7775a39907cd",
+    "tools/test-painted-combat-browser.mjs": "6ff0cd4d4b8dede07167a0edabc5aa3c9c151c39321b90094f6544b786594432"
+  }
+}

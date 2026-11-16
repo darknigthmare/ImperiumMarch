@@ -1,0 +1,1821 @@
+{
+  "schema": 1,
+  "version": "0.15.2",
+  "date": "2026-11-16",
+  "title": "Acteurs et véhicules de combat peints",
+  "generator": "image_gen.imagegen (built-in)",
+  "indexer": "tools/index-painted-combat.py",
+  "runtime": "src/painted-combat.mjs",
+  "layout": "src/painted-combat-layout.mjs",
+  "weaponAuthority": "src/enemy-weapon-pose.mjs",
+  "files": [
+    {
+      "key": "rifle",
+      "path": "assets/painted/combat/rifle.png",
+      "sha256": "49a5ef997a13a67f4cbaf51a065cd0b19daf38d87da4e76c6a0c9dba043d9249",
+      "bytes": 1703512,
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        4,
+        3
+      ],
+      "cells": [
+        {
+          "name": "idle",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            155,
+            15,
+            245,
+            321
+          ]
+        },
+        {
+          "name": "walk-0",
+          "origin": [
+            384,
+            0
+          ],
+          "cell": [
+            384,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            147,
+            19,
+            245,
+            317
+          ]
+        },
+        {
+          "name": "walk-1",
+          "origin": [
+            768,
+            0
+          ],
+          "cell": [
+            768,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            124,
+            22,
+            279,
+            316
+          ]
+        },
+        {
+          "name": "walk-2",
+          "origin": [
+            1152,
+            0
+          ],
+          "cell": [
+            1152,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            109,
+            26,
+            264,
+            319
+          ]
+        },
+        {
+          "name": "walk-3",
+          "origin": [
+            0,
+            341
+          ],
+          "cell": [
+            0,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            124,
+            23,
+            247,
+            318
+          ]
+        },
+        {
+          "name": "walk-4",
+          "origin": [
+            384,
+            341
+          ],
+          "cell": [
+            384,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            115,
+            23,
+            252,
+            319
+          ]
+        },
+        {
+          "name": "walk-5",
+          "origin": [
+            768,
+            341
+          ],
+          "cell": [
+            768,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            107,
+            23,
+            297,
+            315
+          ]
+        },
+        {
+          "name": "walk-6",
+          "origin": [
+            1152,
+            341
+          ],
+          "cell": [
+            1152,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            147,
+            20,
+            250,
+            319
+          ]
+        },
+        {
+          "name": "walk-7",
+          "origin": [
+            0,
+            683
+          ],
+          "cell": [
+            0,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            147,
+            20,
+            250,
+            323
+          ]
+        },
+        {
+          "name": "braced",
+          "origin": [
+            384,
+            683
+          ],
+          "cell": [
+            384,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            113,
+            25,
+            270,
+            323
+          ]
+        },
+        {
+          "name": "downed",
+          "origin": [
+            768,
+            683
+          ],
+          "cell": [
+            768,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            17,
+            169,
+            355,
+            280
+          ]
+        },
+        {
+          "name": "weapon",
+          "origin": [
+            1152,
+            683
+          ],
+          "cell": [
+            1152,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            41,
+            105,
+            356,
+            228
+          ]
+        }
+      ],
+      "frames": 12,
+      "runtimeFrames": [
+        "idle",
+        "walk-0",
+        "walk-1",
+        "walk-2",
+        "walk-3",
+        "walk-4",
+        "walk-5",
+        "walk-6",
+        "walk-7",
+        "braced",
+        "weapon"
+      ],
+      "referenceFrames": [
+        "downed"
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "fullyTransparentPixels": 1236923
+    },
+    {
+      "key": "sniper",
+      "path": "assets/painted/combat/sniper.png",
+      "sha256": "6fb9c6319a5a1e8982b653af7ce71de8b22647e23f77b4472e30c8b39f2374f4",
+      "bytes": 1766601,
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        4,
+        3
+      ],
+      "cells": [
+        {
+          "name": "idle",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            124,
+            22,
+            240,
+            322
+          ]
+        },
+        {
+          "name": "walk-0",
+          "origin": [
+            384,
+            0
+          ],
+          "cell": [
+            384,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            113,
+            22,
+            239,
+            322
+          ]
+        },
+        {
+          "name": "walk-1",
+          "origin": [
+            768,
+            0
+          ],
+          "cell": [
+            768,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            92,
+            24,
+            282,
+            319
+          ]
+        },
+        {
+          "name": "walk-2",
+          "origin": [
+            1152,
+            0
+          ],
+          "cell": [
+            1152,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            87,
+            27,
+            257,
+            320
+          ]
+        },
+        {
+          "name": "walk-3",
+          "origin": [
+            0,
+            341
+          ],
+          "cell": [
+            0,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            82,
+            25,
+            247,
+            319
+          ]
+        },
+        {
+          "name": "walk-4",
+          "origin": [
+            384,
+            341
+          ],
+          "cell": [
+            384,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            86,
+            26,
+            248,
+            319
+          ]
+        },
+        {
+          "name": "walk-5",
+          "origin": [
+            768,
+            341
+          ],
+          "cell": [
+            768,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            89,
+            26,
+            296,
+            319
+          ]
+        },
+        {
+          "name": "walk-6",
+          "origin": [
+            1152,
+            341
+          ],
+          "cell": [
+            1152,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            89,
+            26,
+            258,
+            319
+          ]
+        },
+        {
+          "name": "walk-7",
+          "origin": [
+            0,
+            683
+          ],
+          "cell": [
+            0,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            107,
+            26,
+            247,
+            320
+          ]
+        },
+        {
+          "name": "braced",
+          "origin": [
+            384,
+            683
+          ],
+          "cell": [
+            384,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            113,
+            26,
+            261,
+            320
+          ]
+        },
+        {
+          "name": "downed",
+          "origin": [
+            768,
+            683
+          ],
+          "cell": [
+            768,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            20,
+            188,
+            361,
+            277
+          ]
+        },
+        {
+          "name": "weapon",
+          "origin": [
+            1152,
+            683
+          ],
+          "cell": [
+            1152,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            27,
+            124,
+            357,
+            207
+          ]
+        }
+      ],
+      "frames": 12,
+      "runtimeFrames": [
+        "idle",
+        "walk-0",
+        "walk-1",
+        "walk-2",
+        "walk-3",
+        "walk-4",
+        "walk-5",
+        "walk-6",
+        "walk-7",
+        "braced",
+        "weapon"
+      ],
+      "referenceFrames": [
+        "downed"
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "fullyTransparentPixels": 1187630
+    },
+    {
+      "key": "rocket",
+      "path": "assets/painted/combat/rocket.png",
+      "sha256": "c6d04961abb51e7d006b0bff780e20a2028b31b0318ac6f993fcede8879d10d1",
+      "bytes": 1805602,
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        4,
+        3
+      ],
+      "cells": [
+        {
+          "name": "idle",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            130,
+            13,
+            259,
+            311
+          ]
+        },
+        {
+          "name": "walk-0",
+          "origin": [
+            384,
+            0
+          ],
+          "cell": [
+            384,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            125,
+            15,
+            260,
+            310
+          ]
+        },
+        {
+          "name": "walk-1",
+          "origin": [
+            768,
+            0
+          ],
+          "cell": [
+            768,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            97,
+            17,
+            298,
+            310
+          ]
+        },
+        {
+          "name": "walk-2",
+          "origin": [
+            1152,
+            0
+          ],
+          "cell": [
+            1152,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            115,
+            18,
+            265,
+            309
+          ]
+        },
+        {
+          "name": "walk-3",
+          "origin": [
+            0,
+            341
+          ],
+          "cell": [
+            0,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            129,
+            18,
+            266,
+            311
+          ]
+        },
+        {
+          "name": "walk-4",
+          "origin": [
+            384,
+            341
+          ],
+          "cell": [
+            384,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            131,
+            20,
+            265,
+            309
+          ]
+        },
+        {
+          "name": "walk-5",
+          "origin": [
+            768,
+            341
+          ],
+          "cell": [
+            768,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            102,
+            20,
+            295,
+            309
+          ]
+        },
+        {
+          "name": "walk-6",
+          "origin": [
+            1152,
+            341
+          ],
+          "cell": [
+            1152,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            85,
+            22,
+            284,
+            308
+          ]
+        },
+        {
+          "name": "walk-7",
+          "origin": [
+            0,
+            683
+          ],
+          "cell": [
+            0,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            111,
+            21,
+            267,
+            315
+          ]
+        },
+        {
+          "name": "braced",
+          "origin": [
+            384,
+            683
+          ],
+          "cell": [
+            384,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            92,
+            23,
+            271,
+            314
+          ]
+        },
+        {
+          "name": "downed",
+          "origin": [
+            768,
+            683
+          ],
+          "cell": [
+            768,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            18,
+            107,
+            337,
+            234
+          ]
+        },
+        {
+          "name": "weapon",
+          "origin": [
+            1152,
+            683
+          ],
+          "cell": [
+            1152,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            20,
+            82,
+            362,
+            246
+          ]
+        }
+      ],
+      "frames": 12,
+      "runtimeFrames": [
+        "idle",
+        "walk-0",
+        "walk-1",
+        "walk-2",
+        "walk-3",
+        "walk-4",
+        "walk-5",
+        "walk-6",
+        "walk-7",
+        "braced",
+        "weapon"
+      ],
+      "referenceFrames": [
+        "downed"
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "fullyTransparentPixels": 1214534
+    },
+    {
+      "key": "civilian",
+      "path": "assets/painted/combat/civilian.png",
+      "sha256": "5c1cd4b9f468c15e8f5c77513691a7b962d038e9437618859937d467bb2e0de1",
+      "bytes": 1711202,
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        4,
+        3
+      ],
+      "cells": [
+        {
+          "name": "idle",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            141,
+            17,
+            224,
+            325
+          ]
+        },
+        {
+          "name": "walk-0",
+          "origin": [
+            384,
+            0
+          ],
+          "cell": [
+            384,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            105,
+            24,
+            280,
+            323
+          ]
+        },
+        {
+          "name": "walk-1",
+          "origin": [
+            768,
+            0
+          ],
+          "cell": [
+            768,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            122,
+            31,
+            251,
+            323
+          ]
+        },
+        {
+          "name": "walk-2",
+          "origin": [
+            1152,
+            0
+          ],
+          "cell": [
+            1152,
+            0,
+            384,
+            341
+          ],
+          "ink": [
+            127,
+            27,
+            238,
+            322
+          ]
+        },
+        {
+          "name": "walk-3",
+          "origin": [
+            0,
+            341
+          ],
+          "cell": [
+            0,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            127,
+            25,
+            248,
+            324
+          ]
+        },
+        {
+          "name": "walk-4",
+          "origin": [
+            384,
+            341
+          ],
+          "cell": [
+            384,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            94,
+            25,
+            291,
+            323
+          ]
+        },
+        {
+          "name": "walk-5",
+          "origin": [
+            768,
+            341
+          ],
+          "cell": [
+            768,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            134,
+            26,
+            229,
+            324
+          ]
+        },
+        {
+          "name": "walk-6",
+          "origin": [
+            1152,
+            341
+          ],
+          "cell": [
+            1152,
+            341,
+            384,
+            342
+          ],
+          "ink": [
+            131,
+            26,
+            240,
+            324
+          ]
+        },
+        {
+          "name": "walk-7",
+          "origin": [
+            0,
+            683
+          ],
+          "cell": [
+            0,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            106,
+            29,
+            290,
+            321
+          ]
+        },
+        {
+          "name": "safe",
+          "origin": [
+            384,
+            683
+          ],
+          "cell": [
+            384,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            144,
+            20,
+            227,
+            324
+          ]
+        },
+        {
+          "name": "crouch",
+          "origin": [
+            768,
+            683
+          ],
+          "cell": [
+            768,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            88,
+            118,
+            250,
+            323
+          ]
+        },
+        {
+          "name": "downed",
+          "origin": [
+            1152,
+            683
+          ],
+          "cell": [
+            1152,
+            683,
+            384,
+            341
+          ],
+          "ink": [
+            18,
+            226,
+            346,
+            319
+          ]
+        }
+      ],
+      "frames": 12,
+      "runtimeFrames": [
+        "idle",
+        "walk-0",
+        "walk-1",
+        "walk-2",
+        "walk-3",
+        "walk-4",
+        "walk-5",
+        "walk-6",
+        "walk-7",
+        "safe"
+      ],
+      "referenceFrames": [
+        "crouch",
+        "downed"
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "fullyTransparentPixels": 1245980
+    },
+    {
+      "key": "buggy",
+      "path": "assets/painted/combat/buggy.png",
+      "sha256": "cfa03ab9a34efe218c99f4b5b74c9887e9a5600a79700e8a3f199486f08d380a",
+      "bytes": 2128516,
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cells": [
+        {
+          "name": "idle",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            17,
+            167,
+            497,
+            430
+          ]
+        },
+        {
+          "name": "damaged",
+          "origin": [
+            512,
+            0
+          ],
+          "cell": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            18,
+            166,
+            497,
+            430
+          ]
+        },
+        {
+          "name": "wreck",
+          "origin": [
+            1024,
+            0
+          ],
+          "cell": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            17,
+            194,
+            495,
+            427
+          ]
+        },
+        {
+          "name": "weapon",
+          "origin": [
+            0,
+            512
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            41,
+            192,
+            504,
+            350
+          ]
+        },
+        {
+          "name": "wheel",
+          "origin": [
+            512,
+            512
+          ],
+          "cell": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            57,
+            64,
+            448,
+            455
+          ]
+        },
+        {
+          "name": "detail",
+          "origin": [
+            1024,
+            512
+          ],
+          "cell": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            56,
+            103,
+            446,
+            405
+          ]
+        }
+      ],
+      "frames": 6,
+      "runtimeFrames": [
+        "idle",
+        "damaged",
+        "weapon"
+      ],
+      "referenceFrames": [
+        "wreck",
+        "wheel",
+        "detail"
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "fullyTransparentPixels": 974786
+    },
+    {
+      "key": "skimmer",
+      "path": "assets/painted/combat/skimmer.png",
+      "sha256": "fe1dea9afe6d7c28f39ba7d3d98b18040a632e8c67f0c7fcee1c4dd62980596e",
+      "bytes": 1696426,
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cells": [
+        {
+          "name": "idle",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            13,
+            202,
+            499,
+            388
+          ]
+        },
+        {
+          "name": "damaged",
+          "origin": [
+            512,
+            0
+          ],
+          "cell": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            14,
+            202,
+            499,
+            388
+          ]
+        },
+        {
+          "name": "wreck",
+          "origin": [
+            1024,
+            0
+          ],
+          "cell": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            14,
+            213,
+            499,
+            399
+          ]
+        },
+        {
+          "name": "weapon",
+          "origin": [
+            0,
+            512
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            26,
+            192,
+            492,
+            325
+          ]
+        },
+        {
+          "name": "thruster",
+          "origin": [
+            512,
+            512
+          ],
+          "cell": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            96,
+            123,
+            400,
+            374
+          ]
+        },
+        {
+          "name": "detail",
+          "origin": [
+            1024,
+            512
+          ],
+          "cell": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            103,
+            209,
+            420,
+            313
+          ]
+        }
+      ],
+      "frames": 6,
+      "runtimeFrames": [
+        "idle",
+        "damaged",
+        "weapon"
+      ],
+      "referenceFrames": [
+        "wreck",
+        "thruster",
+        "detail"
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "fullyTransparentPixels": 1189147
+    },
+    {
+      "key": "drone",
+      "path": "assets/painted/combat/drone.png",
+      "sha256": "11d514211301b3313aff7afb303bc7654d287cc9caf637af9dec95830bdf9b8c",
+      "bytes": 1459072,
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cells": [
+        {
+          "name": "idle",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            19,
+            186,
+            494,
+            349
+          ]
+        },
+        {
+          "name": "damaged",
+          "origin": [
+            512,
+            0
+          ],
+          "cell": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            19,
+            186,
+            494,
+            349
+          ]
+        },
+        {
+          "name": "wreck",
+          "origin": [
+            1024,
+            0
+          ],
+          "cell": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            20,
+            186,
+            497,
+            349
+          ]
+        },
+        {
+          "name": "weapon",
+          "origin": [
+            0,
+            512
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            64,
+            199,
+            454,
+            324
+          ]
+        },
+        {
+          "name": "rotor",
+          "origin": [
+            512,
+            512
+          ],
+          "cell": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            53,
+            194,
+            460,
+            327
+          ]
+        },
+        {
+          "name": "detail",
+          "origin": [
+            1024,
+            512
+          ],
+          "cell": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            151,
+            192,
+            362,
+            327
+          ]
+        }
+      ],
+      "frames": 6,
+      "runtimeFrames": [
+        "idle",
+        "damaged",
+        "weapon"
+      ],
+      "referenceFrames": [
+        "wreck",
+        "rotor",
+        "detail"
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "fullyTransparentPixels": 1221996
+    },
+    {
+      "key": "turret",
+      "path": "assets/painted/combat/turret.png",
+      "sha256": "cd08afb38760921e1783313d97110f7b3034ad467b7affc9f6b73adcdb628281",
+      "bytes": 2035333,
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cells": [
+        {
+          "name": "idle",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            34,
+            33,
+            474,
+            489
+          ]
+        },
+        {
+          "name": "damaged",
+          "origin": [
+            512,
+            0
+          ],
+          "cell": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            35,
+            33,
+            475,
+            489
+          ]
+        },
+        {
+          "name": "wreck",
+          "origin": [
+            1024,
+            0
+          ],
+          "cell": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            36,
+            46,
+            476,
+            490
+          ]
+        },
+        {
+          "name": "weapon",
+          "origin": [
+            0,
+            512
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            18,
+            182,
+            493,
+            313
+          ]
+        },
+        {
+          "name": "weapon-damaged",
+          "origin": [
+            512,
+            512
+          ],
+          "cell": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            18,
+            182,
+            493,
+            313
+          ]
+        },
+        {
+          "name": "detail",
+          "origin": [
+            1024,
+            512
+          ],
+          "cell": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            144,
+            134,
+            363,
+            359
+          ]
+        }
+      ],
+      "frames": 6,
+      "runtimeFrames": [
+        "idle",
+        "damaged",
+        "weapon"
+      ],
+      "referenceFrames": [
+        "wreck",
+        "weapon-damaged",
+        "detail"
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "fullyTransparentPixels": 964298
+    },
+    {
+      "key": "convoy",
+      "path": "assets/painted/combat/convoy.png",
+      "sha256": "2a3e6b2ca6ef0162f0b99565213e577066bac48fab78f389310d5657efa3d9c2",
+      "bytes": 2215554,
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cells": [
+        {
+          "name": "idle",
+          "origin": [
+            0,
+            0
+          ],
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            12,
+            169,
+            503,
+            427
+          ]
+        },
+        {
+          "name": "damaged",
+          "origin": [
+            512,
+            0
+          ],
+          "cell": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            15,
+            169,
+            503,
+            426
+          ]
+        },
+        {
+          "name": "wreck",
+          "origin": [
+            1024,
+            0
+          ],
+          "cell": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "ink": [
+            12,
+            171,
+            502,
+            426
+          ]
+        },
+        {
+          "name": "wheel",
+          "origin": [
+            0,
+            512
+          ],
+          "cell": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            77,
+            83,
+            435,
+            450
+          ]
+        },
+        {
+          "name": "cargo",
+          "origin": [
+            512,
+            512
+          ],
+          "cell": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            87,
+            83,
+            424,
+            424
+          ]
+        },
+        {
+          "name": "medical",
+          "origin": [
+            1024,
+            512
+          ],
+          "cell": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "ink": [
+            58,
+            131,
+            461,
+            385
+          ]
+        }
+      ],
+      "frames": 6,
+      "runtimeFrames": [
+        "idle",
+        "damaged",
+        "wreck",
+        "cargo",
+        "medical"
+      ],
+      "referenceFrames": [
+        "wheel"
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "fullyTransparentPixels": 917887
+    }
+  ],
+  "atlases": 9,
+  "cells": 78,
+  "walkPoses": 32,
+  "runtimeCells": 60,
+  "referenceCells": 18,
+  "status": "Prototype intégré, sans réception humaine finale.",
+  "provenance": "Originaux PNG de génération conservés sans rééchantillonnage ni retouche de pixels. Prompts complets dans prompts.json.",
+  "limits": [
+    "Les cellules ne sont pas de nouvelles entités de jeu.",
+    "Les sept armes sont séparées et suivent les pivots et bouches de la simulation.",
+    "Les corps restent dans leurs domaines et leurs dates d’arrivée. Aucun cadavre ennemi ni épave persistante n’est créé par le rendu.",
+    "Roues, rotors, turbine et panneaux isolés restent des pièces de référence. Les roues déjà peintes ne sont pas dupliquées.",
+    "Les variantes de faction, animations de rechargement et de reddition, rigs peints des marcheurs et autres biomes restent à produire."
+  ]
+}

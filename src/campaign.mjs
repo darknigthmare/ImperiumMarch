@@ -10,16 +10,22 @@ import { createDepartureDossier, departureContextFor, departureDossierFromGame, 
 import { createLivingRouteDossier, livingRouteContextFor, livingRouteDossierFromGame, validateLivingRouteMission, validateLivingRouteFacts, validateLivingRouteReceipt, validateLivingRouteSortie } from './thyr-validation.mjs';
 import { createChemicalDossier, chemicalContextFor, chemicalDossierFromGame, validateChemicalMission, validateChemicalFacts, validateChemicalReceipt, validateChemicalSortie } from './chemical-validation.mjs';
 import { createVoiceDossier, voiceContextFor, voiceDossierFromGame, validateVoiceMission, validateVoiceFacts, validateVoiceReceipt, validateVoiceSortie } from './voice-validation.mjs';
+import { createRelayDossier, relayContextFor, relayDossierFromGame, validateRelayMission, validateRelayFacts, validateRelayReceipt, validateRelaySortie } from './relay-validation.mjs';
+import { createFoundryDossier, foundryContextFor, foundryDossierFromGame, validateFoundryMission, validateFoundryFacts, validateFoundryReceipt, validateFoundrySortie } from './foundry-validation.mjs';
+import { relayDecisionBody } from './relay-simulation.mjs';
+import { foundryDecisionBody } from './foundry-simulation.mjs';
+import { createWorkshopDossier, workshopContextFor, workshopDossierFromGame, validateWorkshopMission, validateWorkshopFacts, validateWorkshopReceipt, validateWorkshopSortie } from './workshop-validation.mjs';
+import { workshopDecisionBody } from './workshop-simulation.mjs';
 
 export const CAMPAIGN_SAVE_KEY = 'imperium.campaign.v1';
 export const CAMPAIGN_BACKUP_KEY = 'imperium.campaign.v1.backup';
-export const CAMPAIGN_SAVE_VERSION = 11;
+export const CAMPAIGN_SAVE_VERSION = 14;
 const FORMAT = 'ordre-de-cendre.campaign';
 const MAX_BYTES = 2_000_000;
 const INITIAL_PARTS = 6;
 const DELIVERY_PARTS = 4;
 const PIPE_PARTS = 2;
-const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'];
+const MISSION_IDS = ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11', 'MI12', 'MI13', 'MI14'];
 const LEGACY_WALKER_IDS = ['WK01', 'WK05', 'WK09'];
 const clone = value => JSON.parse(JSON.stringify(value));
 const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
@@ -155,9 +161,9 @@ function validateGame(value, finished = false) {
     number(value.convoy.hp, 0, value.convoy.maxHp, 'intégrité du convoi');
     requireValue(finished || value.convoy.hp > 0, 'checkpoint après perte du convoi');
   } else requireValue(value.convoy === null, 'convoi inattendu');
-  requireValue(value.decision.choice === null || (value.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : ['obey', 'defy']).includes(value.decision.choice), 'décision inconnue');
+  requireValue(value.decision.choice === null || (value.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : value.missionId === 'MI12' ? ['obey', 'defy', 'refuse'] : ['obey', 'defy']).includes(value.decision.choice), 'décision inconnue');
   for (const key of ['title', 'body', 'options']) {
-    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : value.missionId === 'MI07' ? ambulanceDecisionBody : value.missionId === 'MI08' ? departureDecisionBody : value.missionId === 'MI09' ? livingRouteDecisionBody : value.missionId === 'MI10' ? chemicalDecisionBody : value.missionId === 'MI11' ? voiceDecisionBody : null;
+    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : value.missionId === 'MI07' ? ambulanceDecisionBody : value.missionId === 'MI08' ? departureDecisionBody : value.missionId === 'MI09' ? livingRouteDecisionBody : value.missionId === 'MI10' ? chemicalDecisionBody : value.missionId === 'MI11' ? voiceDecisionBody : value.missionId === 'MI12' ? relayDecisionBody : value.missionId === 'MI13' ? foundryDecisionBody : value.missionId === 'MI14' ? workshopDecisionBody : null;
     const expected = key === 'body' && dynamicBody && (value.decision.active || value.decision.resolved)
       ? dynamicBody(value) : template.decision[key];
     requireValue(JSON.stringify(value.decision[key]) === JSON.stringify(expected), 'texte de décision incompatible');
@@ -172,6 +178,18 @@ function validateGame(value, finished = false) {
     number(objective.target, 1, 100000, 'cible d’objectif');
   }
   const mission = value.campaign;
+  if (value.missionId === 'MI14') {
+    validateWorkshopMission(value, template);
+    return value;
+  }
+  if (value.missionId === 'MI13') {
+    validateFoundryMission(value, template);
+    return value;
+  }
+  if (value.missionId === 'MI12') {
+    validateRelayMission(value, template);
+    return value;
+  }
   if (value.missionId === 'MI11') {
     validateVoiceMission(value, template);
     return value;
@@ -401,7 +419,8 @@ export function createCampaign() {
       filtersDeliveredCount: 0, calesBassesExcluded: false, noticeFiled: false,
       rail: createRailDossier(), communications: createCommunicationsDossier(), industrial: createIndustrialDossier() },
       nacre: { passage: createChannelDossier(), dike: createDikeDossier(), fuelSpent: 0, ambulance: createAmbulanceDossier(), departure: createDepartureDossier() },
-      thyr: { route: createLivingRouteDossier(), chemical: createChemicalDossier(), voice: createVoiceDossier() } },
+      thyr: { route: createLivingRouteDossier(), chemical: createChemicalDossier(), voice: createVoiceDossier(), relay: createRelayDossier() },
+      kharon: { foundry: createFoundryDossier(), workshop: createWorkshopDossier() } },
     fleet: Object.fromEntries(WALKERS.map(walker => [walker.id, { hull: walker.hull, feet: Array(walker.legs).fill(100), radiator: 100 }])),
     checkpoint: null, preDecisionCheckpoint: null, lastDebrief: null, maintenanceLog: [],
   };
@@ -749,6 +768,9 @@ function validateAmbulanceMission(value, template) {
 
 function campaignContextFor(campaign, missionId) {
   const world = campaign.world.vesper;
+  if (missionId === 'MI14') return workshopContextFor(campaign);
+  if (missionId === 'MI13') return foundryContextFor(campaign);
+  if (missionId === 'MI12') return relayContextFor(campaign);
   if (missionId === 'MI11') return voiceContextFor(campaign);
   if (missionId === 'MI10') return chemicalContextFor(campaign);
   if (missionId === 'MI09') return livingRouteContextFor(campaign);
@@ -801,6 +823,18 @@ function applyDikeFuel(next, previous, game) {
 }
 
 function validateAmbulanceSortie(previous, game) {
+  if (game.missionId === 'MI14') {
+    validateWorkshopSortie(previous.checkpoint, game);
+    return;
+  }
+  if (game.missionId === 'MI13') {
+    validateFoundrySortie(previous.checkpoint, game);
+    return;
+  }
+  if (game.missionId === 'MI12') {
+    validateRelaySortie(previous.checkpoint, game);
+    return;
+  }
   if (game.missionId === 'MI11') {
     validateVoiceSortie(previous.checkpoint, game);
     return;
@@ -833,11 +867,11 @@ function validateReceipt(receipt) {
   const specificKeys = receipt.missionId === 'MI01' ? ['convoyIntegrity', 'route', 'pipeIntact', 'noticeFiled', 'filtersDeliveredCount', 'pipeRepairCost']
     : receipt.missionId === 'MI02' ? ['trainIntegrity', 'trainStopped', 'harpoonsReleased', 'hostagesTotal', 'hostagesRescued', 'hostagesLost', 'evidencePreserved', 'recordFiled']
       : receipt.missionId === 'MI03' ? ['signalsIdentified', 'militaryRelayDisabled', 'verifiedBuildings', 'networkPreserved', 'civilRelaysOnline', 'dispensaryIntact', 'witnessAvailable', 'residentsLost', 'holtAlerted', 'reportFiled']
-        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : receipt.missionId === 'MI05' ? Object.keys(createChannelDossier()) : receipt.missionId === 'MI06' ? Object.keys(createDikeDossier()) : receipt.missionId === 'MI07' ? Object.keys(createAmbulanceDossier()) : receipt.missionId === 'MI08' ? Object.keys(createDepartureDossier()) : receipt.missionId === 'MI09' ? Object.keys(createLivingRouteDossier()) : receipt.missionId === 'MI10' ? Object.keys(createChemicalDossier()) : Object.keys(createVoiceDossier());
+        : receipt.missionId === 'MI04' ? Object.keys(createIndustrialDossier()) : receipt.missionId === 'MI05' ? Object.keys(createChannelDossier()) : receipt.missionId === 'MI06' ? Object.keys(createDikeDossier()) : receipt.missionId === 'MI07' ? Object.keys(createAmbulanceDossier()) : receipt.missionId === 'MI08' ? Object.keys(createDepartureDossier()) : receipt.missionId === 'MI09' ? Object.keys(createLivingRouteDossier()) : receipt.missionId === 'MI10' ? Object.keys(createChemicalDossier()) : receipt.missionId === 'MI11' ? Object.keys(createVoiceDossier()) : receipt.missionId === 'MI12' ? Object.keys(createRelayDossier()) : receipt.missionId === 'MI13' ? Object.keys(createFoundryDossier()) : Object.keys(createWorkshopDossier());
   const expectedKeys = [...commonKeys, ...specificKeys];
   requireValue(Object.keys(receipt).length === expectedKeys.length && expectedKeys.every(key => own(receipt, key)), 'champs du rapport incompatibles');
   for (const key of ['walkerName', 'missionName', 'decisionLabel', 'tessLine', 'samiLine']) requireValue(typeof receipt[key] === 'string', `rapport ${key}`);
-  requireValue((receipt.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : ['obey', 'defy']).includes(receipt.choice), 'choix du rapport');
+  requireValue((receipt.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : receipt.missionId === 'MI12' ? ['obey', 'defy', 'refuse'] : ['obey', 'defy']).includes(receipt.choice), 'choix du rapport');
   const walker = WALKERS.find(item => item.id === receipt.walkerId);
   number(receipt.hull, 0, walker.hull, 'coque du rapport');
   number(receipt.integrity, 0, 1, 'intégrité du rapport');
@@ -846,6 +880,18 @@ function validateReceipt(receipt) {
   number(receipt.collateral, 0, 1000, 'pertes civiles', true);
   number(receipt.kills, 0, 1000, 'adversaires neutralisés', true);
   requireValue(receipt.partsGranted === DELIVERY_PARTS, 'dotation du rapport');
+  if (receipt.missionId === 'MI14') {
+    validateWorkshopFacts(receipt, true);
+    return;
+  }
+  if (receipt.missionId === 'MI13') {
+    validateFoundryFacts(receipt, true);
+    return;
+  }
+  if (receipt.missionId === 'MI12') {
+    validateRelayFacts(receipt, true);
+    return;
+  }
   if (receipt.missionId === 'MI11') {
     validateVoiceFacts(receipt, true);
     return;
@@ -960,10 +1006,10 @@ function validateCampaign(campaign) {
     number(log.cost, 1, 6, 'coût intervention', true);
   }
   if (campaign.checkpoint !== null) {
-    validateGame(campaign.checkpoint, ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(campaign.checkpoint.missionId) && campaign.checkpoint.status === 'lost');
+    validateGame(campaign.checkpoint, ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11', 'MI12', 'MI13', 'MI14'].includes(campaign.checkpoint.missionId) && campaign.checkpoint.status === 'lost');
     if (campaign.checkpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.checkpoint);
     requireValue(campaign.checkpoint.missionId === campaign.activeMissionId, 'checkpoint d’une autre mission');
-    if (['MI02', 'MI03', 'MI04', 'MI05', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(campaign.checkpoint.missionId)) {
+    if (['MI02', 'MI03', 'MI04', 'MI05', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11', 'MI12', 'MI13', 'MI14'].includes(campaign.checkpoint.missionId)) {
       requireValue(JSON.stringify(campaign.checkpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.checkpoint.missionId)), 'héritage des missions précédentes contradictoire');
     }
   }
@@ -971,8 +1017,8 @@ function validateCampaign(campaign) {
     validateGame(campaign.preDecisionCheckpoint);
     if (campaign.preDecisionCheckpoint.missionId === 'MI06') validateDikeContext(campaign, campaign.preDecisionCheckpoint, true);
     requireValue(campaign.preDecisionCheckpoint.decision.active && !campaign.preDecisionCheckpoint.decision.resolved, 'checkpoint avant décision incompatible');
-    if ((campaign.stage === 'mission' && ['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.preDecisionCheckpoint.missionId) || ['MI07','MI08','MI09','MI10','MI11'].includes(campaign.preDecisionCheckpoint.missionId))) requireValue(JSON.stringify(campaign.preDecisionCheckpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.preDecisionCheckpoint.missionId)), 'héritage du point de décision contradictoire');
-    if (['MI09', 'MI10', 'MI11'].includes(campaign.preDecisionCheckpoint.missionId)) {
+    if ((campaign.stage === 'mission' && ['MI02', 'MI03', 'MI04', 'MI05'].includes(campaign.preDecisionCheckpoint.missionId) || ['MI07','MI08','MI09','MI10','MI11','MI12','MI13','MI14'].includes(campaign.preDecisionCheckpoint.missionId))) requireValue(JSON.stringify(campaign.preDecisionCheckpoint.campaign.context) === JSON.stringify(campaignContextFor(campaign, campaign.preDecisionCheckpoint.missionId)), 'héritage du point de décision contradictoire');
+    if (['MI09', 'MI10', 'MI11', 'MI12', 'MI13', 'MI14'].includes(campaign.preDecisionCheckpoint.missionId)) {
       const missionId = campaign.preDecisionCheckpoint.missionId;
       const current = campaign.checkpoint?.missionId === missionId ? campaign.checkpoint : null;
       const reference = current || campaign.completed[missionId];
@@ -1051,6 +1097,21 @@ function validateCampaign(campaign) {
     validateVoiceReceipt(report, voiceContextFor(campaign));
     for (const key of Object.keys(createVoiceDossier())) requireValue(JSON.stringify(campaign.world.thyr.voice[key]) === JSON.stringify(report[key]), `dossier de la voix ${key}`);
   } else requireValue(JSON.stringify(campaign.world.thyr.voice) === JSON.stringify(createVoiceDossier()), 'voix de Thyr sans dossier MI11');
+  if (campaign.completed.MI12) {
+    const report = campaign.completed.MI12;
+    validateRelayReceipt(report, relayContextFor(campaign));
+    for (const key of Object.keys(createRelayDossier())) requireValue(JSON.stringify(campaign.world.thyr.relay[key]) === JSON.stringify(report[key]), `dossier du troisième relais ${key}`);
+  } else requireValue(JSON.stringify(campaign.world.thyr.relay) === JSON.stringify(createRelayDossier()), 'relais de Thyr sans dossier MI12');
+  if (campaign.completed.MI13) {
+    const report = campaign.completed.MI13;
+    validateFoundryReceipt(report, foundryContextFor(campaign));
+    for (const key of Object.keys(createFoundryDossier())) requireValue(JSON.stringify(campaign.world.kharon.foundry[key]) === JSON.stringify(report[key]), `dossier de la fonderie ${key}`);
+  } else requireValue(JSON.stringify(campaign.world.kharon.foundry) === JSON.stringify(createFoundryDossier()), 'fonderie de Kharon sans dossier MI13');
+  if (campaign.completed.MI14) {
+    const report = campaign.completed.MI14;
+    validateWorkshopReceipt(report, workshopContextFor(campaign));
+    for (const key of Object.keys(createWorkshopDossier())) requireValue(JSON.stringify(campaign.world.kharon.workshop[key]) === JSON.stringify(report[key]), `dossier de l’atelier ${key}`);
+  } else requireValue(JSON.stringify(campaign.world.kharon.workshop) === JSON.stringify(createWorkshopDossier()), 'atelier de Kharon sans dossier MI14');
   if (campaign.stage === 'mission') {
     requireValue(campaign.checkpoint !== null && MISSION_IDS.includes(campaign.activeMissionId) && !own(campaign.completed, campaign.activeMissionId), 'mission sans checkpoint ou déjà achevée');
     const previousId = MISSION_IDS[MISSION_IDS.indexOf(campaign.activeMissionId) - 1];
@@ -1081,7 +1142,7 @@ export function parseCampaign(text) {
 
 /** Add only documented fields to historical saves; completed receipts stay intact. */
 function migrateCampaign(value) {
-  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10].includes(value.version)) return value;
+  if (!isObject(value) || value.format !== FORMAT || ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].includes(value.version)) return value;
   walkJSON(value);
   requireValue(isObject(value.world) && isObject(value.world.vesper), 'Vesper absent du dossier historique');
   if (value.version === 1) {
@@ -1205,17 +1266,57 @@ function migrateCampaign(value) {
     value.world.thyr.chemical = createChemicalDossier();
     value.version = 10;
   }
-  requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09','MI10'].includes(id)), 'dossier v10 contient une mission inconnue');
-  requireValue(value.activeMissionId === null || ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09','MI10'].includes(value.activeMissionId), 'mission active v10 inconnue');
-  requireValue(isObject(value.world.thyr) && !own(value.world.thyr, 'voice'), 'voix inattendue dans le dossier historique');
-  for (const checkpoint of [value.checkpoint,value.preDecisionCheckpoint]) if (checkpoint !== null) {
-    requireValue(isObject(checkpoint) && ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09','MI10'].includes(checkpoint.missionId), 'checkpoint v10 inconnu');
-    requireValue(!own(checkpoint, 'voice'), 'scène de voix inattendue dans un checkpoint historique');
+  if (value.version === 10) {
+    requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09','MI10'].includes(id)), 'dossier v10 contient une mission inconnue');
+    requireValue(value.activeMissionId === null || ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09','MI10'].includes(value.activeMissionId), 'mission active v10 inconnue');
+    requireValue(isObject(value.world.thyr) && !own(value.world.thyr, 'voice'), 'voix inattendue dans le dossier historique');
+    for (const checkpoint of [value.checkpoint,value.preDecisionCheckpoint]) if (checkpoint !== null) {
+      requireValue(isObject(checkpoint) && ['MI01','MI02','MI03','MI04','MI05','MI06','MI07','MI08','MI09','MI10'].includes(checkpoint.missionId), 'checkpoint v10 inconnu');
+      requireValue(!own(checkpoint, 'voice'), 'scène de voix inattendue dans un checkpoint historique');
+    }
+    // The published prepared v10 exports remain exact: append only the empty
+    // voice dossier. Native MI10 reception is not inferred from this migration.
+    value.world.thyr.voice = createVoiceDossier();
+    value.version = 11;
   }
-  // The published prepared v10 exports remain exact: append only the empty
-  // voice dossier. Native MI10 reception is not inferred from this migration.
-  value.world.thyr.voice = createVoiceDossier();
-  value.version = CAMPAIGN_SAVE_VERSION;
+  if (value.version === 11) {
+    const historicalIds = MISSION_IDS.slice(0, 11);
+    requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => historicalIds.includes(id)), 'dossier v11 contient une mission inconnue');
+    requireValue(value.activeMissionId === null || historicalIds.includes(value.activeMissionId), 'mission active v11 inconnue');
+    requireValue(isObject(value.world.thyr) && !own(value.world.thyr, 'relay') && !own(value.world, 'kharon'), 'relais ou Kharon inattendu dans le dossier v11');
+    for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
+      requireValue(isObject(checkpoint) && historicalIds.includes(checkpoint.missionId), 'checkpoint v11 inconnu');
+      requireValue(!own(checkpoint, 'relay') && !own(checkpoint, 'foundry'), 'scène future dans un checkpoint v11');
+    }
+    value.world.thyr.relay = createRelayDossier();
+    value.version = 12;
+  }
+  if (value.version === 12) {
+    const historicalIds = MISSION_IDS.slice(0, 12);
+    requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => historicalIds.includes(id)), 'dossier v12 contient une mission inconnue');
+    requireValue(value.activeMissionId === null || historicalIds.includes(value.activeMissionId), 'mission active v12 inconnue');
+    requireValue(isObject(value.world.thyr?.relay) && !own(value.world, 'kharon'), 'relais absent ou Kharon inattendu dans le dossier v12');
+    for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
+      requireValue(isObject(checkpoint) && historicalIds.includes(checkpoint.missionId), 'checkpoint v12 inconnu');
+      requireValue(!own(checkpoint, 'foundry'), 'scène de fonderie dans un checkpoint v12');
+    }
+    value.world.kharon = { foundry: createFoundryDossier() };
+    value.version = 13;
+  }
+  if (value.version === 13) {
+    const historicalIds = MISSION_IDS.slice(0, 13);
+    requireValue(isObject(value.completed) && Object.keys(value.completed).every(id => historicalIds.includes(id)), 'dossier v13 contient une mission inconnue');
+    requireValue(value.activeMissionId === null || historicalIds.includes(value.activeMissionId), 'mission active v13 inconnue');
+    requireValue(isObject(value.world.kharon?.foundry) && !own(value.world.kharon, 'workshop'), 'fonderie absente ou atelier inattendu dans le dossier v13');
+    for (const checkpoint of [value.checkpoint, value.preDecisionCheckpoint]) if (checkpoint !== null) {
+      requireValue(isObject(checkpoint) && historicalIds.includes(checkpoint.missionId), 'checkpoint v13 inconnu');
+      requireValue(!own(checkpoint, 'workshop'), 'scène d’atelier dans un checkpoint v13');
+    }
+    // Append only the unvisited workshop. Published reports, fuel, inventory,
+    // stage and every historical scene remain byte-equivalent JSON values.
+    value.world.kharon.workshop = createWorkshopDossier();
+    value.version = 14;
+  }
   return value;
 }
 
@@ -1232,7 +1333,7 @@ function unsupportedDossier(text) {
   try {
     const value = JSON.parse(text);
     return isObject(value) && ((typeof value.format === 'string' && value.format !== FORMAT) ||
-      (value.format === FORMAT && ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, CAMPAIGN_SAVE_VERSION].includes(value.version)));
+      (value.format === FORMAT && ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, CAMPAIGN_SAVE_VERSION].includes(value.version)));
   } catch { return false; }
 }
 
@@ -1288,6 +1389,9 @@ export function beginCampaignMission(campaign, options = {}) {
   if (missionId === 'MI09' && !campaign.completed.MI08) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le registre de départ de Nacre avant de rejoindre la route des vivants sur Thyr.' };
   if (missionId === 'MI10' && !campaign.completed.MI09) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le rapport de la route des vivants avant de rejoindre les cuves de Thyr.' };
   if (missionId === 'MI11' && !campaign.completed.MI10) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le bilan du champ chimique avant de rechercher la voix de la vallée.' };
+  if (missionId === 'MI12' && !campaign.completed.MI11) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le dossier de la voix de Thyr avant de rejoindre le troisième relais.' };
+  if (missionId === 'MI13' && !campaign.completed.MI12) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le bilan des trois relais avant de prendre la route de Kharon.' };
+  if (missionId === 'MI14' && !campaign.completed.MI13) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le rapport du porteur avant de rejoindre le piquet de l’atelier.' };
   const walkerId = WALKERS.some(walker => walker.id === options.walkerId) ? options.walkerId : WALKERS[0].id;
   const replay = Boolean(options.replay || own(campaign.completed, missionId));
   if (!replay && campaign.stage === 'mission' && !options.restart) return { ok: false, campaign, game: null, replay: false, message: 'Une sortie est déjà en cours. Reprenez-la ou recommencez-la explicitement.' };
@@ -1310,6 +1414,9 @@ export function beginCampaignMission(campaign, options = {}) {
         : missionId === 'MI04' ? 'La station industrielle est accessible. Refroidissez les turbines et relevez ce qui reste du journal de maintenance.'
           : missionId === 'MI05' ? 'L’affectation de Nacre est ouverte. Libérez le chenal et vérifiez les deux équipages avant de signer votre rapport.'
             : missionId === 'MI06' ? 'La digue des Trois-Vannes vous attend. Relevez les seuils et soutenez le chantier avant de choisir le circuit.'
+              : missionId === 'MI14' ? 'Les mains noires vous attendent. Laissez passer le piquet, sécurisez l’atelier et examinez le lot avant d’appliquer votre décision.'
+              : missionId === 'MI13' ? 'Kharon est accessible. Protégez le porteur, refroidissez les ponts et relevez la provenance de ses deux caisses avant leur transfert.'
+              : missionId === 'MI12' ? 'Le troisième relais est accessible. Défendez la copie, affrontez le Prétoire et accomplissez le sort choisi pour chaque poste.'
               : missionId === 'MI11' ? 'La vallée des résonances est accessible. Écoutez le sol, préservez la ponte et demandez à Leth ce qu’il accepte de confier au dossier.'
                 : missionId === 'MI10' ? 'Le champ chimique est accessible. Identifiez les trois cuves, contenez la fuite et protégez le prélèvement avant les opérations sur la réserve.'
                 : missionId === 'MI09' ? 'La route des vivants est accessible sur Thyr. Relevez les hameaux, écoutez les habitants et accompagnez la migration avant le passage logistique.'
@@ -1319,7 +1426,7 @@ export function beginCampaignMission(campaign, options = {}) {
 
 export function checkpointCampaign(campaign, game, options = {}) {
   validateCampaign(campaign);
-  const terminalSortie = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game?.missionId) && game.status === 'lost';
+  const terminalSortie = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11', 'MI12', 'MI13', 'MI14'].includes(game?.missionId) && game.status === 'lost';
   if (options.replay || own(campaign.completed, game?.missionId) || (game?.status !== 'playing' && !terminalSortie)) return campaign;
   requireValue(campaign.stage === 'mission' && campaign.activeMissionId === game.missionId, 'aucune campagne active pour cette mission');
   const snapshot = clone(game);
@@ -1337,15 +1444,27 @@ export function restoreCampaignGame(campaign, options = {}) {
   validateCampaign(campaign);
   if (campaign.stage !== 'mission' || own(campaign.completed, campaign.activeMissionId)) return null;
   const snapshot = options.beforeDecision ? campaign.preDecisionCheckpoint : campaign.checkpoint;
-  if (options.beforeDecision && ['MI09', 'MI10', 'MI11'].includes(campaign.activeMissionId) && (campaign.checkpoint.status === 'lost' || !snapshot || JSON.stringify(snapshot) !== JSON.stringify(campaign.checkpoint))) return null;
+  if (options.beforeDecision && ['MI09', 'MI10', 'MI11', 'MI12', 'MI13', 'MI14'].includes(campaign.activeMissionId) && (campaign.checkpoint.status === 'lost' || !snapshot || JSON.stringify(snapshot) !== JSON.stringify(campaign.checkpoint))) return null;
   if (options.beforeDecision && campaign.activeMissionId === 'MI07' && campaign.checkpoint.status === 'lost') return null;
   if (options.beforeDecision && campaign.activeMissionId === 'MI08' && (campaign.checkpoint.status === 'lost' || snapshot && snapshot.elapsed < campaign.checkpoint.elapsed)) return null;
   if (options.beforeDecision && campaign.activeMissionId === 'MI06' && (campaign.checkpoint.status === 'lost' || (snapshot && (snapshot.elapsed < campaign.checkpoint.elapsed || snapshot.campaign.fuelSpent < campaign.checkpoint.campaign.fuelSpent)))) return null;
-  return snapshot ? clone(validateGame(snapshot, ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(snapshot.missionId) && snapshot.status === 'lost')) : null;
+  return snapshot ? clone(validateGame(snapshot, ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11', 'MI12', 'MI13', 'MI14'].includes(snapshot.missionId) && snapshot.status === 'lost')) : null;
 }
 
 function crewLines(game) {
   const mission = game.campaign;
+  if (game.missionId === 'MI14') return {
+    tessLine: `${mission.coolerDestroyed ? mission.coolerRepaired ? 'Le refroidisseur a été perdu après sa réparation.' : 'Le refroidisseur est perdu. Le compte rendu ne le remet pas en état.' : mission.coolerRepaired ? 'Le refroidisseur a été réparé sur place.' : 'Le refroidisseur n’a pas été réparé.'} ${mission.workersAlive} ouvriers restent vivants, ${mission.workersSheltered} ont rejoint l’abri et ${mission.workersLost} sont morts. ${mission.mechanicsAvailable ? `${mission.mechanicsAvailable} mécaniciens ont accepté d’aider après notre intervention.` : 'Aucune aide de mécanicien n’est acquise.'}`,
+    samiLine: `${mission.localSabotageRecorded ? 'Le relevé du lot conserve le constat local de sabotage.' : 'Aucun relevé exploitable du lot n’est conservé.'} ${mission.pt03CrossReferenced ? 'La provenance PT03 obtenue sur le porteur permet un rapprochement matériel.' : 'Le dossier n’ajoute aucun rapprochement PT03 absent.'} ${mission.nacreAccountRecorded ? 'Le récit des déplacés concerne leur arrivée antérieure dans cet atelier ; il ne modifie pas le recensement d’Aval.' : 'Aucun récit des déplacés n’a été recueilli.'} ${mission.strikePreserved ? 'L’arrêt de l’atelier est maintenu.' : mission.strikeBroken ? 'L’arrêt a été levé par la commande de production.' : 'L’atelier reste endommagé ; aucun retour à la normale n’est déclaré.'} La délégation politique et la défection restent à établir.`,
+  };
+  if (game.missionId === 'MI13') return {
+    tessLine: `${mission.pt03Acquired ? 'Les deux marquages, le bordereau et mon analyse établissent PT03 : une provenance industrielle locale.' : 'Les pièces disponibles ne suffisent pas à établir PT03.'} ${mission.cargoTransferred} caisses transférées ; ${mission.cargoIntact} intactes, ${mission.cargoDamaged} endommagées et ${mission.cargoLost} perdues au bilan.`,
+    samiLine: `${mission.plan === 'quarantine' ? 'Le porteur a rejoint le quai de quarantaine.' : 'Le porteur a rejoint le quai de livraison.'} ${mission.context.pt01Acquired ? 'La copie PT01 de Vesper permet un rapprochement explicite.' : 'Aucune copie PT01 de Vesper n’est ajoutée au dossier.'} ${mission.context.relayOrdersCopied ? 'Les commandes copiées au troisième relais sont disponibles pour comparaison.' : 'Aucune commande non copiée à Thyr n’est reconstituée.'} Ce relevé n’établit pas encore toute la chaîne politique PALINODE.`,
+  };
+  if (game.missionId === 'MI12') return {
+    tessLine: `${mission.relaysErased} relais effacés, ${mission.relaysIsolated} isolés et ${mission.relaysLost} perdus. ${mission.ordersCopied ? 'Les commandes industrielles ont été copiées avant la perte éventuelle de leur source ; elles restent à bord.' : 'Aucune copie achevée des commandes industrielles n’est conservée.'} Le Prétoire a été neutralisé dans le corridor.`,
+    samiLine: `${mission.publicRefusal ? 'Le refus a été formulé ouvertement.' : mission.plan === 'preserve' ? game.relay.relays[2].destroyed ? 'Le troisième relais a été perdu ; son isolement demandé ne recrée pas l’appareil.' : 'Le troisième relais a été isolé sans effacer son archive.' : 'L’ordre d’effacement a été exécuté sur les postes encore accessibles.'} ${mission.holtAlerted ? 'Holt a relevé l’écart au compte rendu.' : 'Le rapport ne signale aucun écart supplémentaire à Holt.'} ${mission.refugeClosed ? 'L’accès au refuge est fermé par le contrôle.' : 'Le rapport n’annonce pas de fermeture du refuge.'} Ilan réagit aux actes observés ; aucune défection n’a encore eu lieu.`,
+  };
   if (game.missionId === 'MI11') return {
     tessLine: `${mission.signalsRecorded} signaux exploitables sur trois relevés. ${mission.nestsIntact} sites de ponte restent intacts, ${mission.nestsDamaged} sont atteints et ${mission.nestsLost} sont perdus. ${mission.emitterSeized ? 'L’émetteur a été démonté et embarqué.' : mission.emitterOnline ? 'L’émetteur transmet à nouveau les avis locaux.' : 'L’émetteur est perdu ; aucune remise en service n’est déclarée.'}`,
     samiLine: `${mission.te01Acquired ? 'TE01 conserve l’avis Khelt, sa traduction impériale et l’explication privée enregistrée avec l’accord de Leth.' : mission.testimonyRecorded ? 'L’échange privé est enregistré, mais les signaux ou les copies manquants empêchent d’établir TE01.' : 'Aucun échange achevé de Leth n’est conservé.'} ${mission.lethAlive ? mission.consentWithdrawn ? `Leth a retiré sa coopération après l’atteinte au site ; ${mission.testimonyRecorded ? 'l’enregistrement antérieur reste identifié comme tel.' : 'aucun enregistrement achevé n’est conservé.'}` : mission.consentRefused ? 'Leth a refusé l’enregistrement ; ses paroles ne sont pas inventées dans le dossier.' : 'Leth demeure vivant sur ce site.' : 'Leth est mort. Les pièces déjà obtenues restent conservées, sans le déclarer encore disponible.'} Aucune diffusion publique ni aucun recrutement n’a été autorisé.`,
@@ -1447,7 +1566,7 @@ export function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(campaign);
   if (options.replay || own(campaign.completed, game?.missionId)) return { ok: true, campaign, receipt: campaign.completed[game?.missionId] || campaign.lastDebrief, applied: false, message: 'Rejeu terminé. Le rapport de campagne et les lots restent inchangés.' };
   if (game?.status !== 'won') {
-    const terminal = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11'].includes(game?.missionId) && game.status === 'lost';
+    const terminal = ['MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11', 'MI12', 'MI13', 'MI14'].includes(game?.missionId) && game.status === 'lost';
     const failed = terminal ? checkpointCampaign(campaign, game) : campaign;
     return { ok: true, campaign: failed, receipt: null, applied: false, message: terminal ? 'Sortie perdue. Le bilan est conservé ; recommencez explicitement la mission avec le stock restant.' : 'Aucune sortie validée. Le dernier checkpoint reste disponible.' };
   }
@@ -1462,7 +1581,18 @@ export function finishCampaignMission(campaign, game, options = {}) {
     elapsed: game.elapsed, collateral: game.stats.collateral, kills: game.stats.kills, choice: game.decision.choice,
     partsGranted: DELIVERY_PARTS, ...crewLines(game),
   };
-  const receipt = game.missionId === 'MI11' ? {
+  const receipt = game.missionId === 'MI14' ? {
+    ...commonReceipt, ...workshopDossierFromGame(game),
+    decisionLabel: mission.execution === 'restart' ? 'Commande de reprise exécutée, sort des ouvriers et du lot consigné'
+      : mission.execution === 'hold' ? 'Arrêt de l’atelier maintenu sur place, sort des ouvriers et du lot consigné'
+        : 'Avaries constatées, opérations possibles et pertes de l’atelier consignées',
+  } : game.missionId === 'MI13' ? {
+    ...commonReceipt, ...foundryDossierFromGame(game),
+    decisionLabel: mission.plan === 'quarantine' ? 'Transfert accompli au quai de quarantaine, pertes et provenance consignées' : 'Transfert accompli au quai de la fonderie, pertes et provenance consignées',
+  } : game.missionId === 'MI12' ? {
+    ...commonReceipt, ...relayDossierFromGame(game),
+    decisionLabel: `${mission.relaysErased} relais effacés, ${mission.relaysIsolated} isolés, ${mission.relaysLost} perdus ; copie ${mission.ordersCopied ? 'conservée' : 'absente'}`, 
+  } : game.missionId === 'MI11' ? {
     ...commonReceipt, ...voiceDossierFromGame(game),
     decisionLabel: mission.emitterSeized ? 'Émetteur capturé sur place, sources et accord de Leth consignés' : mission.emitterOnline ? 'Liaison locale rétablie, sources et accord de Leth consignés' : 'Perte de l’émetteur constatée, pièces et sort de Leth consignés',
   } : game.missionId === 'MI10' ? {
@@ -1510,7 +1640,22 @@ export function finishCampaignMission(campaign, game, options = {}) {
   next.stage = 'complete'; next.activeMissionId = null; next.checkpoint = null; next.revision++;
   next.resources.parts += DELIVERY_PARTS;
   next.fleet[game.walkerId] = { hull: game.player.hull, feet: game.player.feet.map(foot => foot.health), radiator: game.player.radiator.health };
-  if (game.missionId === 'MI11') {
+  if (game.missionId === 'MI14') {
+    next.world.kharon.workshop = workshopDossierFromGame(game);
+    next.authority.suspicion = clamp(next.authority.suspicion + (mission.strikePreserved ? 3 : 0), 0, 100);
+    next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.coolerRepaired ? 2 : 0) + (mission.strikePreserved ? 3 : mission.strikeBroken ? -3 : 0) - mission.workersLost, 0, 100);
+    next.crew.sami.trust = clamp(next.crew.sami.trust + (mission.workersHeard ? 1 : 0) - mission.workersLost, 0, 100);
+  } else if (game.missionId === 'MI13') {
+    next.world.kharon.foundry = foundryDossierFromGame(game);
+    next.authority.suspicion = clamp(next.authority.suspicion + (mission.plan === 'quarantine' ? 3 : 0), 0, 100);
+    next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.pt03Acquired ? 3 : 0), 0, 100);
+    next.crew.sami.trust = clamp(next.crew.sami.trust + (mission.pt03Acquired ? 2 : 0), 0, 100);
+  } else if (game.missionId === 'MI12') {
+    next.world.thyr.relay = relayDossierFromGame(game);
+    next.authority.suspicion = clamp(next.authority.suspicion + (mission.publicRefusal ? 6 : mission.holtAlerted ? 3 : 0), 0, 100);
+    next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.ordersCopied ? 2 : 0) - mission.relaysLost, 0, 100);
+    next.crew.sami.trust = clamp(next.crew.sami.trust + (mission.ordersCopied ? 2 : 0) + (mission.publicRefusal ? 1 : 0), 0, 100);
+  } else if (game.missionId === 'MI11') {
     next.world.thyr.voice = voiceDossierFromGame(game);
     next.authority.suspicion = clamp(next.authority.suspicion + (mission.plan === 'restore' ? 2 : 0), 0, 100);
     next.crew.tess.trust = clamp(next.crew.tess.trust + (mission.nestsIntact === 3 ? 2 : -mission.nestsLost) - Number(!mission.lethAlive), 0, 100);
@@ -1574,7 +1719,7 @@ export function finishCampaignMission(campaign, game, options = {}) {
   validateCampaign(next);
   const action = game.missionId === 'MI01' ? 'Livraison inscrite au dossier.'
     : game.missionId === 'MI02' ? 'Récupération du train inscrite au dossier.' : game.missionId === 'MI03' ? 'Constat des émetteurs inscrit au dossier.'
-      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : game.missionId === 'MI05' ? 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.' : game.missionId === 'MI06' ? 'Le bilan des Trois-Vannes est inscrit au dossier : personnes, logements, chantier et carburant.' : game.missionId === 'MI11' ? 'Le dossier de la vallée est classé : relevés, ponte, sources, accord de Leth et sort de l’émetteur.' : game.missionId === 'MI10' ? 'Le bilan du champ est classé : cuves, prélèvement, provenance matérielle et circuit d’eau.' : game.missionId === 'MI09' ? 'Le premier relevé de Thyr est classé : migration, habitats, cultures et trajet logistique.' : game.missionId === 'MI08' ? 'Le registre d’Aval est classé : personnes, départs, arrivées, replis locaux et état des deux portes.' : 'Le bilan sanitaire des Salines est inscrit au dossier : patients, équipe, véhicule, balise et destination.';
+      : game.missionId === 'MI04' ? 'Constat de maintenance inscrit au dossier. L’arc de Vesper est achevé.' : game.missionId === 'MI05' ? 'Le passage de Nacre et le sort des équipages sont inscrits au dossier.' : game.missionId === 'MI06' ? 'Le bilan des Trois-Vannes est inscrit au dossier : personnes, logements, chantier et carburant.' : game.missionId === 'MI14' ? 'Le bilan de l’atelier est classé : piquet, pertes, lot, refroidisseur, commande de production et coopération.' : game.missionId === 'MI13' ? 'Le bilan de Kharon est classé : porteur, caisses, chaleur, transfert et provenance industrielle.' : game.missionId === 'MI12' ? 'Le troisième relais est classé : copie, effacements, isolements, Prétoire et réaction du commandement.' : game.missionId === 'MI11' ? 'Le dossier de la vallée est classé : relevés, ponte, sources, accord de Leth et sort de l’émetteur.' : game.missionId === 'MI10' ? 'Le bilan du champ est classé : cuves, prélèvement, provenance matérielle et circuit d’eau.' : game.missionId === 'MI09' ? 'Le premier relevé de Thyr est classé : migration, habitats, cultures et trajet logistique.' : game.missionId === 'MI08' ? 'Le registre d’Aval est classé : personnes, départs, arrivées, replis locaux et état des deux portes.' : 'Le bilan sanitaire des Salines est inscrit au dossier : patients, équipe, véhicule, balise et destination.';
   return { ok: true, campaign: next, receipt, applied: true, message: `${action} Quatre lots d’atelier ont été affectés au retour.` };
 }
 

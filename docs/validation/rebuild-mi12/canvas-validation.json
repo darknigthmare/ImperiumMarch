@@ -1,0 +1,193 @@
+{
+  "version": "0.14.1",
+  "created": "2026-11-12",
+  "scope": "Reconstructed MI12 Canvas production verification",
+  "generatedBy": "node tools/render-mi12-previews.mjs",
+  "manifest": "docs/validation/rebuild-mi12/scenes.json",
+  "imageCount": 22,
+  "completedRuns": 24,
+  "campaignExports": 5,
+  "sourceHashes": {
+    "src/content.mjs": "e7aff40a1d90d2cb99b22ae3e6fce22a3d67ae7dc402b4901cea2262ca4a61ef",
+    "src/simulation.mjs": "9013cda8a7c90d15800dfaabcfbd5dfc3fc07cf9dc09354a6a74e723fbace2f8",
+    "src/relay-simulation.mjs": "20d64e40f534a26ef244918888b946c7076f61e07ab237ad1d5838d43e30c8ff",
+    "src/renderer.mjs": "7fe0f3be5d06413366ad6c8f7bfb05b4f3445f6c47e73f7dcd66fdccb19fc177",
+    "src/relay-renderer.mjs": "1eb8e25d93fc4ec0ff1ce2911403f18a36feb62455d0ae690635b5df1db4857e",
+    "src/relay-assets.mjs": "9aa0d1ba6263c59b92d2de63bfdac6208f3735682125f335e5eb6eba4b119e81",
+    "src/campaign.mjs": "c29bf8e55635289fb435f6ddbe89d6b89f70e7883add1b88b61d30d5266906ac",
+    "src/relay-validation.mjs": "3b67fabcca87abc022e0fc846e9a8529774f32db84504b147fc378c81e519839",
+    "tests/helpers/mi12-driver.mjs": "f61259acc7dbbed13e39832c71f9c28dc147a4899bbb5214e8071d23722aa816",
+    "tools/render-mi12-previews.mjs": "4288bddad2d90aad4eb63afaccf83fa82355379e38bdd203598e2bd7f8416d78",
+    "tests/fixtures/campaign-v11-mi11.json": "0b050e807af98718e70c957c712d24abe556d6d130d08a70b7eb534ebf03d52d"
+  },
+  "historicalFixture": "tests/fixtures/campaign-v11-mi11.json",
+  "checks": {
+    "publicControlsOnly": true,
+    "snapshotsDeepAndUnchanged": true,
+    "rendererDoesNotMutateState": true,
+    "snapshotsAcceptedByCampaignValidator": true,
+    "receiptsRoundTripExactly": true,
+    "sixChassisThreeChoicesComplete": true,
+    "windowAndLossDoNotInventCopies": true,
+    "copiedCommandsSurviveOriginalLoss": true
+  },
+  "nativeBrowserExamined": false,
+  "humanPlaytestPerformed": false,
+  "images": [
+    {
+      "file": "arrival.png",
+      "title": "Trois relais présents ; aucune copie ni intervention déjà accomplie",
+      "walkerId": "WK09",
+      "elapsed": 0,
+      "sha256": "f4e1e3d365f2703d21d2ac9ad6ded250a37f67a42ea76695b70d0433e7f934ba"
+    },
+    {
+      "file": "inspection.png",
+      "title": "Relevé réel du premier relais, ancrage et durée de trois secondes",
+      "walkerId": "WK09",
+      "elapsed": 16.450000000000347,
+      "sha256": "a79cf2fd6b9235bf6521d303429572acc29bb24887935f2e6aa3e6423f074958"
+    },
+    {
+      "file": "copy-window.png",
+      "title": "Troisième relevé achevé : fenêtre de quarante-cinq secondes ouverte",
+      "walkerId": "WK09",
+      "elapsed": 56.36666666666475,
+      "sha256": "9cf6f364e4219e6666a982f56aa65f0e479d6250a5bb2a19ba50076526b8b283"
+    },
+    {
+      "file": "copy-active.png",
+      "title": "Copie de vingt-quatre secondes réellement en cours ; Prétoire arrivé",
+      "walkerId": "WK09",
+      "elapsed": 70.63333333333061,
+      "sha256": "d2d5e2590bdadf12ee8939689ecebe1c2caf7527fa7d064153a9fd9f9ffed21e"
+    },
+    {
+      "file": "praetor-lock.png",
+      "title": "Verrou hydraulique encore intact devant la coque et capteur neutralisé",
+      "walkerId": "WK09",
+      "elapsed": 86.56666666666304,
+      "sha256": "13d5b8680e04daeba24da125a1f599272b067ab7b70c54a8a8d7cb3c003d3421"
+    },
+    {
+      "file": "praetor-exposed.png",
+      "title": "Verrou rompu : blindage réduit et recul physique du Prétoire",
+      "walkerId": "WK09",
+      "elapsed": 89.73333333332953,
+      "sha256": "6a9a673dc24ccc90e0dcd6acbbcf6eb751afa8051175473a1c2749dc6bc74e98"
+    },
+    {
+      "file": "decision.png",
+      "title": "Trois réponses disponibles ; aucun relais purgé par le choix seul",
+      "walkerId": "WK09",
+      "elapsed": 98.81666666666234,
+      "sha256": "4e32d3d73dda56ee5fe57774781e91fa0b507c1bbc363079af5d4309a7571f1f"
+    },
+    {
+      "file": "first-purge.png",
+      "title": "Purge progressive du premier relais, après le choix clandestin",
+      "walkerId": "WK09",
+      "elapsed": 139.00000000000276,
+      "sha256": "b0b841b9c7c280891274f8ae2606673b519c56562adef804b6295691596687d2"
+    },
+    {
+      "file": "third-isolation.png",
+      "title": "Isolement physique du troisième relais ; copie embarquée conservée",
+      "walkerId": "WK09",
+      "elapsed": 181.00000000003618,
+      "sha256": "f1390377150053e489af51da5a236902b1f979da8417f561a4cfb6d4b030dde4"
+    },
+    {
+      "file": "report.png",
+      "title": "Transmission des actes, composants atteints et commandes effectivement copiées",
+      "walkerId": "WK09",
+      "elapsed": 205.95000000005604,
+      "sha256": "22d9b9579ac13dcbf306572581237118d8f8cf8e87981da385e061999edd7f2e"
+    },
+    {
+      "file": "before-extraction.png",
+      "title": "Rapport transmis, sortie physique encore à rejoindre",
+      "walkerId": "WK09",
+      "elapsed": 213.81666666672896,
+      "sha256": "b65cdb876c99a2cce6f1e4419f5928007d7efa716e6d830f30d31bfd90a95fcf"
+    },
+    {
+      "file": "three-purges.png",
+      "title": "Ordre exécuté : troisième purge réelle, copie acquise avant effacement",
+      "walkerId": "WK09",
+      "elapsed": 183.25000000003797,
+      "sha256": "4f4433af2f62a46b61fc40430d53b70ba0869639747cd00e05aa7c46af483aec"
+    },
+    {
+      "file": "public-refusal.png",
+      "title": "Refus ouvert : les trois relais sont isolés, refuge impérial fermé",
+      "walkerId": "WK09",
+      "elapsed": 183.25000000003797,
+      "sha256": "d67829aa64abd983e58a29e4caa35739f6095f52c42e7ba57939890ee7ace378"
+    },
+    {
+      "file": "expired-copy.png",
+      "title": "Fenêtre expirée sans copie complète ; aucun texte industriel reconstitué",
+      "walkerId": "WK09",
+      "elapsed": 101.3666666666622,
+      "sha256": "9be884d288ac2a77c84ed774440371fa5f58c1b534f98bcc75859e9a253bd91f"
+    },
+    {
+      "file": "lost-source-before-copy.png",
+      "title": "Troisième relais détruit par de vrais tirs avant la copie",
+      "walkerId": "WK09",
+      "elapsed": 41.3666666666656,
+      "sha256": "5320b050bca65c2cf31251d1e0a8c60ec0b58700cf0f3371821ef99b2d5c0914"
+    },
+    {
+      "file": "copy-survives-source.png",
+      "title": "Source détruite après la copie ; commandes embarquées préservées",
+      "walkerId": "WK09",
+      "elapsed": 87.59999999999631,
+      "sha256": "e3c49a488fe164d769c23eacf1cb435864fe38fa026d6c1eb505f9055246961b"
+    },
+    {
+      "file": "chassis-wk01.png",
+      "title": "M-12 Vigie : copie tenue avec les appuis du châssis réel",
+      "walkerId": "WK01",
+      "elapsed": 68.9833333333307,
+      "sha256": "03543b9058b1a02f4050c1e66c8137864160ee67f9b938a0902e9376a6466833"
+    },
+    {
+      "file": "chassis-wk02.png",
+      "title": "C-5 Caracal : copie tenue avec les appuis du châssis réel",
+      "walkerId": "WK02",
+      "elapsed": 60.06666666666454,
+      "sha256": "65108f008e8f97817ee40966d8c7e23de42c7a7f56053c4c30f81db1257f9557"
+    },
+    {
+      "file": "chassis-wk05.png",
+      "title": "Q-40 Bastion : copie tenue avec les appuis du châssis réel",
+      "walkerId": "WK05",
+      "elapsed": 79.5833333333301,
+      "sha256": "2f9cbf35d310d53febc3fbebdb04aa7d5effb44f8653899fa790a39edd38fe6f"
+    },
+    {
+      "file": "chassis-wk06.png",
+      "title": "A-17 Arpenteur : copie tenue avec les appuis du châssis réel",
+      "walkerId": "WK06",
+      "elapsed": 78.03333333333019,
+      "sha256": "d0b1fc1f3a89db5948f1cbdfe75f501d2da868c0e5a80f553cc246a20108ce97"
+    },
+    {
+      "file": "chassis-wk09.png",
+      "title": "H-6 Pèlerin : copie tenue avec les appuis du châssis réel",
+      "walkerId": "WK09",
+      "elapsed": 71.83333333333054,
+      "sha256": "838c76b4edae135b2b8ec6db5cb20e7a2ba03562766a7587425de8afab0aabb7"
+    },
+    {
+      "file": "chassis-wk10.png",
+      "title": "CL-4 Cloporte : copie tenue avec les appuis du châssis réel",
+      "walkerId": "WK10",
+      "elapsed": 81.81666666666331,
+      "sha256": "aa3e54e694b839b38aea1c5922454f51f0a3d715a12fb937184ac6b4538a8fb2"
+    }
+  ],
+  "limitations": "Canvas only. No HTML HUD, CSS, real browser focus, human playtest, hardware controller, audio or performance certification."
+}

@@ -1,0 +1,248 @@
+{
+  "kind": "modeled-dom-reception",
+  "release": "0.14.1 reconstruction",
+  "campaignSaveVersion": 13,
+  "status": "passed",
+  "command": "node tools/test-ui-runtime.mjs",
+  "exitCode": 0,
+  "startedAt": "2026-11-12T18:53:14.024393+00:00",
+  "completionObservedAt": "2026-11-12T18:58:29.897627+00:00",
+  "runtime": {
+    "node": "v24.22.1",
+    "platform": "linux"
+  },
+  "workingTreeBaseCommit": "06a6b0b15c504cb5f185c407e551cb15da64270a",
+  "workingTreeNote": "The tests ran against the uncommitted reconstructed tree identified by the input hashes, not solely against this base commit.",
+  "checks": {
+    "total": 103,
+    "failed": 0,
+    "mi12": 8,
+    "mi13": 9,
+    "other": 86
+  },
+  "log": {
+    "path": "docs/validation/rebuild-campaign-ui/ui-runtime.log",
+    "bytes": 10822,
+    "sha256": "1cac5084ea5ec27d1aeb6d2e07ef3c082d173fd9ec0d3946b86f9c881b552e00"
+  },
+  "inputManifest": {
+    "path": "docs/validation/rebuild-campaign-ui/inputs-at-start.json",
+    "bytes": 4462,
+    "sha256": "ffbcfc269cd75525147ccd5ffc3604fbd0e13080f1dc07d21dcdb9026fcc1aed"
+  },
+  "inputsUnchangedAtCompletion": true,
+  "changedInputs": [],
+  "supportingInputsRecordedAtCompletion": {
+    "tests/helpers/mi02-driver.mjs": {
+      "bytes": 2837,
+      "sha256": "48a4b776f66010d94345e55a381b94897d628ad1c7c982eb756d7ee4b1080305"
+    },
+    "tests/helpers/mi03-driver.mjs": {
+      "bytes": 2440,
+      "sha256": "7215097131e8a26da02122ee066687cedf88d72aa6172b41915fa23279107d48"
+    },
+    "tests/helpers/mi04-driver.mjs": {
+      "bytes": 2950,
+      "sha256": "c10509d1f233642fc129cd7903607a61c7d59fcf25773e110edd97bb66e71ab3"
+    },
+    "tests/helpers/mi05-driver.mjs": {
+      "bytes": 3837,
+      "sha256": "ec4f6edfba77046bb6c4137f09540c370787fef4ff4ca9ae68f2ab34216117fe"
+    },
+    "tests/helpers/mi06-driver.mjs": {
+      "bytes": 6111,
+      "sha256": "c77171a3e903de9843168e7bf40c1e67cb1e46311876e448300e4137fe6edb99"
+    },
+    "tests/helpers/mi07-driver.mjs": {
+      "bytes": 6702,
+      "sha256": "2d465771f34b997e8681e74730b0249a34c184fd3370ec7418cfc5839695120c"
+    },
+    "tests/helpers/mi08-driver.mjs": {
+      "bytes": 8994,
+      "sha256": "07b577d7ad7cd860bfcd4604d19744e976f988e01a2435f6e2dc5e415a4f2088"
+    },
+    "tests/helpers/mi09-driver.mjs": {
+      "bytes": 5822,
+      "sha256": "9a5fc59291594f13491128f77b6cf15fd6768ec87308d7239ce723f4df5ab1a4"
+    },
+    "tests/helpers/mi10-driver.mjs": {
+      "bytes": 7146,
+      "sha256": "0f032cad84030513bf9a2d543ef4018f1481ef58a207173ff031c2b71102303c"
+    },
+    "tests/helpers/mi11-driver.mjs": {
+      "bytes": 6450,
+      "sha256": "05de3ff21ce7422264111f4156be5695bad399753173311979054f2b602648f3"
+    },
+    "tests/helpers/mi12-driver.mjs": {
+      "bytes": 5313,
+      "sha256": "f61259acc7dbbed13e39832c71f9c28dc147a4899bbb5214e8071d23722aa816"
+    },
+    "tests/helpers/mi13-driver.mjs": {
+      "bytes": 7108,
+      "sha256": "f6d0553d2617412b5928c624a6f99bb606fa5583800056c1912c426b3c49ebe6"
+    },
+    "tests/fixtures/campaign-v1-mi01.json": {
+      "bytes": 37769,
+      "sha256": "c6bad07aede50fe980460dc67a307bf69804d170abeeb643477358d36c02a22b"
+    },
+    "tests/fixtures/campaign-v10-mi10.json": {
+      "bytes": 414403,
+      "sha256": "a917920f3e0469d00f31e00f1a242fc183e5d0ebc4f3b4db59066fa63668aa73"
+    },
+    "tests/fixtures/campaign-v11-mi11.json": {
+      "bytes": 443100,
+      "sha256": "0b050e807af98718e70c957c712d24abe556d6d130d08a70b7eb534ebf03d52d"
+    },
+    "tests/fixtures/campaign-v2-mi02.json": {
+      "bytes": 131152,
+      "sha256": "9024310b7c33e39ed73ac30a03b7db5103be73ee472e95804c4214054ebe5cf2"
+    },
+    "tests/fixtures/campaign-v3-mi03.json": {
+      "bytes": 124642,
+      "sha256": "22793763d19477737abf7193590f00863ce32fd2fc14b1a0a49b273c81180288"
+    },
+    "tests/fixtures/campaign-v4-mi04.json": {
+      "bytes": 123266,
+      "sha256": "d34af557cc5cb280e803c289a193cbebfc1dd43146890c193a880b83381bbede"
+    },
+    "tests/fixtures/campaign-v5-mi05.json": {
+      "bytes": 150965,
+      "sha256": "7c79efb68911f1519cdae2d788e259c424c8750af9a99167ae100bcac4ecc7e3"
+    },
+    "tests/fixtures/campaign-v6-mi06.json": {
+      "bytes": 231369,
+      "sha256": "e7ea0548ce459ef3a7d378a1892b7bfde4c591630eaec1e67c99c8b75e95b12c"
+    },
+    "tests/fixtures/campaign-v7-mi07.json": {
+      "bytes": 416347,
+      "sha256": "8ca58deb11f4048039cda3a54157f7eddb2dd6af6a34450a3d177b3bdfa67a5c"
+    },
+    "tests/fixtures/campaign-v8-mi08.json": {
+      "bytes": 182074,
+      "sha256": "19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007"
+    },
+    "tests/fixtures/campaign-v9-mi09.json": {
+      "bytes": 246853,
+      "sha256": "d5f6f49a02e8fb40f5bf830c7fcb40c5e2677dff3e2b0e0dbb7ea1a48ce42084"
+    }
+  },
+  "supportingInputsNote": "Helper drivers and campaign fixtures are hashed at completion. Unlike the main input manifest, these are not a before-and-after comparison.",
+  "method": [
+    "Execute the built offline application script and its actual event handlers inside the Node vm modeled DOM supplied by tools/test-ui-runtime.mjs.",
+    "Prepare campaign checkpoints through public simulation commands and pilot helpers; import serialized saves into fresh application contexts.",
+    "Use actual modeled DOM click, key, pointer and animation-frame handlers for the asserted UI segments.",
+    "Branch tests import separately prepared decision and pre-extraction checkpoints. They do not claim a continuous full mission played solely through UI handlers.",
+    "Validate true extraction crossing, first-report reward uniqueness, independent replay, persisted source facts, interrupted work and thermal lock feedback."
+  ],
+  "limits": [
+    "No native browser or CSS layout validation; Canvas calls are modeled no-ops in this suite.",
+    "No native focus/dialog, actual file download, browser localStorage, audio playback or physical touch/controller validation.",
+    "The touch auto-aim test executes pointer handlers in the DOM model. It is not a touch-device reception.",
+    "No human gameplay, comprehension, duration or feel approval is inferred."
+  ],
+  "passedFlows": [
+    "cold start, five views, six selectable chassis and independent simulation launch",
+    "pause writes an exact campaign checkpoint; a new script context resumes it",
+    "switching to a simulation preserves the campaign and its resume button",
+    "decision, debrief, pipe repair and replay leave one official dossier",
+    "MI02 is locked initially; a real v1 MI01 dossier unlocks it and resumes its own train",
+    "MI02 decision uses its own wording and a reload preserves the signed report before extraction",
+    "MI02 extraction records both missions, displays its own debrief and keeps separate archive entries",
+    "MI03 unlocks only after MI02, migrates a historical v2 dossier and resumes a new chassis exactly",
+    "MI03 identification work survives pause and reload without becoming a filter or train objective",
+    "MI03 obey decision, extraction, world facts and three archive reports stay consistent",
+    "MI03 defy decision, extraction, world facts and three archive reports stay consistent",
+    "MI04 requires MI03 and the migrated historical dossier exposes concrete inherited briefing conditions",
+    "MI04 a partly opened valve survives pause and exact reload, then visibly completes",
+    "MI04 obey records the technical copy, contact and four reports without replay rewards",
+    "MI04 defy records the technical copy, contact and four reports without replay rewards",
+    "MI04 lost-journal UI keeps a neutral decision and records a loss without granting PT01",
+    "radiator controls show damage, pause repair, preserve finite kits and cancel on movement",
+    "an exhausted finite reserve remains empty after UI reload and displays an explicit resupply hint",
+    "unsupported saves remain untouched until an explicit new dossier",
+    "storage refusal is visible during play; session progression remains usable",
+    "an asynchronous import returns an active mission to the menu safely",
+    "importing a genuine v4 Vesper dossier unlocks Nacre in the delivered interface",
+    "Nacre tide and bridge work freeze on pause and restore through the delivered save wiring",
+    "MI05 obey debrief, archives, workshop fuel and replay keep the first report",
+    "MI05 defy debrief, archives, workshop fuel and replay keep the first report",
+    "the UI records a lost civil boat and skipped fuel without granting either arrival or stock",
+    "a genuine v5 import unlocks MI06 with its actual stock and ten distinct local residents",
+    "auxiliary work freezes on pause, resumes exactly and saves its debit before the eight-second interval",
+    "partial panel locking pauses exactly and needs renewed keyboard anchoring on resume",
+    "a refused immediate auxiliary save keeps the session debit and a visible storage warning",
+    "an auxiliary destroyed before connection is shown as lost while its two lots remain in reserve",
+    "MI06 obey requires the actual valve operation, then persists housing, people, fuel and a pure replay",
+    "MI06 defy requires the actual valve operation, then persists housing, people, fuel and a pure replay",
+    "the UI immediately persists a terminal MI06 loss and restarts without refunding its consumed auxiliary",
+    "MI07 migration imports an authentic paid v6 valve without rewriting its scene or earlier reports",
+    "MI07 main briefing uses authentic dike support and introduces four new patients without altering fuel",
+    "MI07 secondary briefing uses authentic dike support and introduces four new patients without altering fuel",
+    "MI07 partial cargo examination freezes on pause and resumes its exact physical progress after reload",
+    "MI07 partial beacon dismantling freezes on pause and resumes its exact physical progress after reload",
+    "MI07 partial ramp preparation freezes on pause and resumes its exact physical progress after reload",
+    "MI07 obey selects a destination without arrivals, then transfers physically through UI and preserves the first report on replay",
+    "MI07 defy selects a destination without arrivals, then transfers physically through UI and preserves the first report on replay",
+    "MI07 report keeps an obtained witness agreement while identifying that witness as deceased",
+    "MI07 terminal loss persists immediately, reopens as a report and requires an explicit fresh sortie",
+    "MI07 a touch interaction can be paused and saved before the next animation frame",
+    "MI08 imports a genuine v7 dossier with seven unchanged reports and exposes its inherited briefing",
+    "MI08 gate work pauses, imports and restores exactly without continuing absent keyboard anchoring",
+    "MI08 obey UI selects a plan without arrivals, records the physical result and preserves it during replay",
+    "MI08 delay UI selects a plan without arrivals, records the physical result and preserves it during replay",
+    "MI08 defy UI selects a plan without arrivals, records the physical result and preserves it during replay",
+    "MI09 migrates the native v8 dossier, preserves eight reports and presents the Thyr briefing and instrument",
+    "MI09 imported partial work releases absent anchoring and remains exactly resumable",
+    "MI09 obey UI keeps choice separate from physical travel, files the roster and preserves replay",
+    "MI09 defy UI keeps choice separate from physical travel, files the roster and preserves replay",
+    "MI10 migrates the authentic v9 dossier, retains nine reports and opens the chemical briefing",
+    "MI10 sampling resumes from real progress, pauses exactly and remains uncollected during pause",
+    "MI10 imported canal work requires a newly held anchor rather than completing on resume",
+    "MI10 obey choice performs no tank work; final UI keeps PT02, water facts and a single reward",
+    "MI10 defy choice performs no tank work; final UI keeps PT02, water facts and a single reward",
+    "Enter assigned to fullscreen leaves button activation available and operates from the Canvas",
+    "key rebinding reports conflicts, persists valid keys and keeps Escape cancellation",
+    "rebound movement drives the real simulation; old keys release and navigation cancels capture",
+    "focus navigation releases movement while HUD repair and button activation stay available",
+    "focus exits suspend held movement and fire until an explicit resume and fresh inputs",
+    "Tab and browser modifier shortcuts release commands without consuming native navigation",
+    "a remapped pause reacts once per press and cannot resume a background document",
+    "lost pointer capture stops fire while a separate held movement key stays active",
+    "synthetic standard-gamepad input drives the actual application and releases after pause or disconnect",
+    "QA05 menu selections preserve ammunition and partial reload until its real completion",
+    "QA14/QA16 OP03 obey traverses UI decision, report, persisted archive and a fresh operation",
+    "QA14/QA16 OP03 defy traverses UI decision, report, persisted archive and a fresh operation",
+    "MI11 migrates the historic v10 simulation dossier, keeps ten reports and resources, and opens the voice briefing and HUD",
+    "MI11 interrupted listening requires a fresh anchor and interaction, preserves a pause exactly and records only the completed signal",
+    "MI11 meeting and private consent complete through separate UI interactions without anticipating testimony or TE01",
+    "MI11 exchange pauses with exact progress and real threat timing, then continues after a fresh dossier resume",
+    "MI11 leaving Leth through UI interrupts the exchange, keeps consent and copies, and requires a return and a new recording start",
+    "MI11 obey selects no automatic emitter operation; physical work, extraction, one reward, sourced archives and replay stay distinct",
+    "MI11 defy selects no automatic emitter operation; physical work, extraction, one reward, sourced archives and replay stay distinct",
+    "MI11 lost imperial translation extracts with explicit absences and reveals only the French wording actually acquired",
+    "MI11 refused private recording extracts with explicit absences and reveals only the French wording actually acquired",
+    "MI11 lost translation and refused recording extracts with explicit absences and reveals only the French wording actually acquired",
+    "MI11 loss of Leth after recording preserves TE01 and both wordings while the UI withdraws future witness availability",
+    "MI11 early meeting keeps missing sources ahead of the consent instruction until both copies are actually made",
+    "MI11 early witness loss first requires source inspections and then a physical loss report before directing the pilot to orders",
+    "MI11 public no-fire defeat resumes as a loss and describes the intact emitter in place without an invented restoration or reward",
+    "MI11 withdrawal before recording files the actual damaged passage and no testimony instead of inventing a conserved recording",
+    "MI12 imports native v11 without rewriting eleven reports and exposes the reconstructed briefing and instrument",
+    "MI12 anchored copy and its forty-five-second window pause exactly and resume from a fresh application context",
+    "MI12 obey executes a real relay intervention, files one result, reveals only its copy and preserves replay",
+    "MI12 defy executes a real relay intervention, files one result, reveals only its copy and preserves replay",
+    "MI12 refuse executes a real relay intervention, files one result, reveals only its copy and preserves replay",
+    "MI12 an expired copy reveals no command wording in result or persisted archive",
+    "MI12 a lost third relay is described as lost even when its intended plan was preservation",
+    "MI12 touch auto-aim excludes the dormant Praetor and follows only its live components after arrival",
+    "MI13 opens only after MI12, displays actual cargo and thermal circuits, and keeps the thirteen-mission counter",
+    "MI13 valve pauses exact work and completes through resumed anchoring",
+    "MI13 analysis pauses exact work and completes through resumed anchoring",
+    "MI13 obey chooses no instant convoy movement, completes actual extraction and preserves one reward plus replay",
+    "MI13 defy chooses no instant convoy movement, completes actual extraction and preserves one reward plus replay",
+    "MI13 partial transfer stops at its actual position, persists through pause and reload, then resumes via E at the post",
+    "MI13 manifest lost before copy displays and persists the actual source state without fabricating or deleting PT03",
+    "MI13 originals lost after copying displays and persists the actual source state without fabricating or deleting PT03",
+    "MI13 weapon-lock follows real overheat every frame, vent inhibits firing and unlock occurs strictly below 48 percent"
+  ]
+}
