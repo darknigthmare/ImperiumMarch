@@ -1,0 +1,356 @@
+{
+  "version": "0.15.6",
+  "repository": "darknigthmare/ImperiumMarch",
+  "branch": "main",
+  "headSha": "036d6efa4be74361450f75b284e3268a12af6f50",
+  "expectedTree": "41f45209670e932ea17e5f0c37ac7ba8c7dd33fb",
+  "localSourceCommit": "70091ebca39890ee9cb19e6cbd28187301739df5",
+  "run": {
+    "id": 43906226549,
+    "name": "Validate prototype and design data",
+    "head_sha": "036d6efa4be74361450f75b284e3268a12af6f50",
+    "head_branch": "main",
+    "path": ".github/workflows/ci.yml",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "run_number": 32,
+    "run_attempt": 1,
+    "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43906226549",
+    "created_at": "2026-11-16T16:19:35Z",
+    "updated_at": "2026-11-16T16:23:28Z",
+    "tree": "41f45209670e932ea17e5f0c37ac7ba8c7dd33fb"
+  },
+  "job": {
+    "id": 133435691469,
+    "name": "validate",
+    "status": "completed",
+    "conclusion": "success",
+    "run_id": 43906226549,
+    "logs_url": null,
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2
+      },
+      {
+        "name": "Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3
+      },
+      {
+        "name": "Run npm test",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4
+      },
+      {
+        "name": "Install pinned development-only raster validator",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5
+      },
+      {
+        "name": "Validate shared SVG and Canvas rendering",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6
+      },
+      {
+        "name": "Decode and validate the painted MI14 sprites",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7
+      },
+      {
+        "name": "Decode and validate the painted combat sprites",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8
+      },
+      {
+        "name": "Decode and validate the painted walker parts",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 9
+      },
+      {
+        "name": "Decode and validate the painted Thyr life",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 10
+      },
+      {
+        "name": "Decode and validate Cerbere and its weapon mount",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 11
+      },
+      {
+        "name": "Decode and validate railway and industrial transport",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 12
+      },
+      {
+        "name": "Decode and validate the Praetor and command relays",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 13
+      },
+      {
+        "name": "Decode and validate the Nacre vehicles",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 14
+      },
+      {
+        "name": "Decode and validate the Nacre infrastructure",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 15
+      },
+      {
+        "name": "Decode and validate the chemical field equipment",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 16
+      },
+      {
+        "name": "Decode and validate the voice mission equipment and nesting sites",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 17
+      },
+      {
+        "name": "Run npm run check",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 18
+      },
+      {
+        "name": "Run npm run build",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 19
+      },
+      {
+        "name": "Run npm run check:ui",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 20
+      },
+      {
+        "name": "Run npm run check:ui-runtime",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 21
+      },
+      {
+        "name": "Run npm run build:web",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 22
+      },
+      {
+        "name": "Post Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 43
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 44
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 45
+      }
+    ]
+  },
+  "evidenceScope": "Read-only GitHub Actions run, exact main commit/tree metadata, job steps and decoded logs. No GitHub mutation or repository file modification.",
+  "receivedUtc": "2026-11-16T16:24:47.580116+00:00",
+  "logSha256": "2968875bc351878f04675ee475b5cd681cde256466e8181aa98345aa8dac335f",
+  "logBytes": 419081,
+  "logLines": 5269,
+  "proofs": {
+    "node": {
+      "value": "22.23.4",
+      "evidence": {
+        "line": 149,
+        "text": "2026-11-16T16:19:52.3327975Z node: v22.23.4"
+      }
+    },
+    "tests": {
+      "value": 765,
+      "evidence": {
+        "line": 4793,
+        "text": "2026-11-16T16:21:00.4262005Z # tests 765"
+      }
+    },
+    "passedTests": {
+      "value": 765,
+      "evidence": {
+        "line": 4795,
+        "text": "2026-11-16T16:21:00.4262157Z # pass 765"
+      }
+    },
+    "failedTests": {
+      "value": 0,
+      "evidence": {
+        "line": 4796,
+        "text": "2026-11-16T16:21:00.4262231Z # fail 0"
+      }
+    },
+    "skippedTests": {
+      "value": 0,
+      "evidence": {
+        "line": 4798,
+        "text": "2026-11-16T16:21:00.4262393Z # skipped 0"
+      }
+    },
+    "raster": {
+      "passed": 174,
+      "total": 174,
+      "evidence": {
+        "line": 4994,
+        "text": "2026-11-16T16:21:02.7921306Z Production SVG/Canvas raster validation passed: 174/174 cases, @napi-rs/canvas 0.1.100."
+      }
+    },
+    "modeledDOM": {
+      "flows": 108,
+      "evidence": {
+        "line": 5240,
+        "text": "2026-11-16T16:23:25.7599430Z UI STATE INTEGRATION PASSED: 108 flows against the actual offline application script in a modeled DOM."
+      }
+    },
+    "projectChecks": {
+      "line": 5102,
+      "text": "2026-11-16T16:21:24.6767329Z Project checks passed: 20 design sheets, 1007 source rows, 6 playable chassis, 3 independent operations, 14 campaign missions."
+    },
+    "offlineBuild": {
+      "line": 5111,
+      "text": "2026-11-16T16:21:26.4367650Z Offline game built: dist/Ordre_de_Cendre.html (134.73 MiB), 56 modules, no remote dependencies."
+    },
+    "offlineAudit": {
+      "line": 5122,
+      "text": "2026-11-16T16:21:31.7103222Z OFFLINE BUNDLE AUDIT PASSED: one inline script compiled by vm.Script without executing; all HTML/CSS/Canvas assets embedded; no unresolved imports or resource requests."
+    },
+    "webBuild": {
+      "line": 5250,
+      "text": "2026-11-16T16:23:26.1013775Z Web game built: web-dist/index.html, src/ and assets/. No runtime dependencies."
+    },
+    "offlinePackage": {
+      "metrics": {
+        "offlinePackage": "dist/Ordre_de_Cendre.zip",
+        "htmlBytes": 141278398,
+        "zipBytes": 103369632,
+        "htmlSha256": "7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e",
+        "zipSha256": "2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67",
+        "node": "22.23.4",
+        "zlib": "1.3.1-e00f703"
+      },
+      "evidence": {
+        "line": 5112,
+        "text": "2026-11-16T16:21:30.3214489Z {\"offlinePackage\":\"dist/Ordre_de_Cendre.zip\",\"htmlBytes\":141278398,\"zipBytes\":103369632,\"htmlSha256\":\"7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e\",\"zipSha256\":\"2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67\",\"node\":\"22.23.4\",\"zlib\":\"1.3.1-e00f703\"}"
+      },
+      "matchesVerifiedMaterializationBytes": true
+    },
+    "paintedLots": [
+      {
+        "lot": "mi14",
+        "evidence": {
+          "line": 5003,
+          "text": "2026-11-16T16:21:05.7965502Z {\"completed\":true,\"atlases\":8,\"frames\":54,\"components\":33,\"scenes\":14,\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-mi14\"}"
+        }
+      },
+      {
+        "lot": "combat",
+        "evidence": {
+          "line": 5012,
+          "text": "2026-11-16T16:21:07.1535083Z {\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-combat-qa\",\"completed\":true,\"atlases\":9,\"frames\":78,\"views\":6}"
+        }
+      },
+      {
+        "lot": "walkers",
+        "evidence": {
+          "line": 5021,
+          "text": "2026-11-16T16:21:10.4863549Z {\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-walkers-qa\",\"completed\":true,\"atlases\":6,\"cells\":96,\"views\":19,\"poses\":54,\"missionScenes\":6,\"hangarViews\":6}"
+        }
+      },
+      {
+        "lot": "thyr",
+        "evidence": {
+          "line": 5030,
+          "text": "2026-11-16T16:21:12.0557788Z {\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-thyr-qa\",\"completed\":true,\"atlases\":8,\"cells\":62,\"runtimeCells\":58,\"referenceCells\":4,\"views\":7}"
+        }
+      },
+      {
+        "lot": "cerbere",
+        "evidence": {
+          "line": 5039,
+          "text": "2026-11-16T16:21:12.7176862Z {\"completed\":true,\"frames\":16,\"views\":2,\"shotOrientations\":2,\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-cerbere-qa\"}"
+        }
+      },
+      {
+        "lot": "transport",
+        "evidence": {
+          "line": 5048,
+          "text": "2026-11-16T16:21:15.1631219Z Transport reception: 4 atlases, 20 cells, 5 Canvas views. Not a browser test."
+        }
+      },
+      {
+        "lot": "relay",
+        "evidence": {
+          "line": 5057,
+          "text": "2026-11-16T16:21:17.2467235Z {\"completed\":true,\"atlases\":3,\"frames\":30,\"views\":9,\"mission\":{\"mission\":\"MI12\",\"status\":\"won\",\"elapsed\":205.066666666722,\"capturedScenes\":7,\"choice\":\"defy\"},\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-relay-qa\"}"
+        }
+      },
+      {
+        "lot": "nacre",
+        "evidence": {
+          "line": 5066,
+          "text": "2026-11-16T16:21:18.2986037Z {\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-nacre-v0155\",\"completed\":true,\"atlases\":6,\"cells\":30,\"runtimeCells\":29,\"referenceCells\":1,\"views\":5}"
+        }
+      },
+      {
+        "lot": "nacre-sites",
+        "evidence": {
+          "line": 5075,
+          "text": "2026-11-16T16:21:20.2212796Z {\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-nacre-sites-v0156\",\"completed\":true,\"atlases\":5,\"cells\":30,\"runtimeCells\":30,\"referenceCells\":0,\"views\":10}"
+        }
+      },
+      {
+        "lot": "chemical",
+        "evidence": {
+          "line": 5084,
+          "text": "2026-11-16T16:21:22.6147745Z Painted chemical reception: 5 PNGs / 24 states / 11 views; MI10 defy won at 198.917 s"
+        }
+      },
+      {
+        "lot": "voice",
+        "evidence": {
+          "line": 5093,
+          "text": "2026-11-16T16:21:24.5132546Z {\"completed\":true,\"atlases\":3,\"frames\":21,\"views\":8,\"mission\":{\"mission\":\"MI11\",\"status\":\"won\",\"elapsed\":136.8166666666677,\"choice\":\"defy\",\"capturedScenes\":7,\"nestsIntact\":3,\"te01Acquired\":true},\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-voice-qa\"}"
+        }
+      }
+    ],
+    "paintedLotsCount": 11
+  },
+  "passed": true,
+  "nativeBrowserReceivedByThisCI": false,
+  "humanPlaytestReceivedByThisCI": false
+}

@@ -1,0 +1,171 @@
+{
+  "version": "0.15.6",
+  "repository": "darknigthmare/ImperiumMarch",
+  "sourceCommit": "70091ebca39890ee9cb19e6cbd28187301739df5",
+  "sourceTree": "41f45209670e932ea17e5f0c37ac7ba8c7dd33fb",
+  "expectedHead": "cad0a7285e082a206ecc4462ec80237e8daec9d6",
+  "expectedTemporaryTree": "87152741a264c9684e7a7f4caf30b1373fa401ef",
+  "expectedHtmlSha256": "7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e",
+  "expectedZipSha256": "2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67",
+  "expectedZipBlobSha": "878319f76a526bf7971668cc94b0d77ae53d0694",
+  "run": {
+    "id": 43904656099,
+    "name": "Materialize reviewed offline package 0.15.6",
+    "head_sha": "cad0a7285e082a206ecc4462ec80237e8daec9d6",
+    "head_branch": "codex/painted-installations-v0156",
+    "path": ".github/workflows/materialize-v0156.yml",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "run_number": 1,
+    "run_attempt": 1,
+    "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43904656099",
+    "created_at": "2026-11-16T16:11:06Z",
+    "updated_at": "2026-11-16T16:11:53Z",
+    "tree": "87152741a264c9684e7a7f4caf30b1373fa401ef"
+  },
+  "job": {
+    "id": 133430135581,
+    "name": "materialize",
+    "status": "completed",
+    "conclusion": "success",
+    "run_id": 43904656099,
+    "logs_url": null,
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1
+      },
+      {
+        "name": "Check out the exact source commit",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2
+      },
+      {
+        "name": "Select Node 22",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3
+      },
+      {
+        "name": "Confirm source identity and runtime",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4
+      },
+      {
+        "name": "Build the exact offline HTML and ZIP without dependencies",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5
+      },
+      {
+        "name": "Require the reviewed local SHA-256 values",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6
+      },
+      {
+        "name": "Commit only the reviewed offline ZIP",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7
+      },
+      {
+        "name": "Post Select Node 22",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 13
+      },
+      {
+        "name": "Post Check out the exact source commit",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 14
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 15
+      }
+    ]
+  },
+  "materializedCommit": {
+    "sha": "505d10021c70ab69a4230cfe8879cb95bd81a7af",
+    "parentShas": [
+      "cad0a7285e082a206ecc4462ec80237e8daec9d6"
+    ],
+    "tree": "af404430a69a21f7f3ba1e60adca568fa38040cb",
+    "url": "https://github.com/darknigthmare/ImperiumMarch/commit/505d10021c70ab69a4230cfe8879cb95bd81a7af",
+    "message": "Materialize reviewed 0.15.6 offline ZIP from cad0a7285e082a206ecc4462ec80237e8daec9d6",
+    "files": [
+      {
+        "path": "dist/Ordre_de_Cendre.zip",
+        "status": "modified",
+        "sha": "878319f76a526bf7971668cc94b0d77ae53d0694"
+      }
+    ]
+  },
+  "receivedUtc": "2026-11-16T16:15:39.570947+00:00",
+  "logSha256": "c828946753654977f6d579e5a2463b6d7d82e5d3d4cc0b505f729bb96d952d50",
+  "logBytes": 23539,
+  "logLines": 307,
+  "proofs": {
+    "node": {
+      "line": 196,
+      "text": "2026-11-16T16:11:29.0880423Z node: v22.23.4"
+    },
+    "build": {
+      "line": 231,
+      "text": "2026-11-16T16:11:31.2183051Z Offline game built: dist/Ordre_de_Cendre.html (134.73 MiB), 56 modules, no remote dependencies."
+    },
+    "package": {
+      "metrics": {
+        "offlinePackage": "dist/Ordre_de_Cendre.zip",
+        "htmlBytes": 141278398,
+        "zipBytes": 103369632,
+        "htmlSha256": "7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e",
+        "zipSha256": "2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67",
+        "node": "22.23.4",
+        "zlib": "1.3.1-e00f703"
+      },
+      "evidence": {
+        "line": 232,
+        "text": "2026-11-16T16:11:35.8678923Z {\"offlinePackage\":\"dist/Ordre_de_Cendre.zip\",\"htmlBytes\":141278398,\"zipBytes\":103369632,\"htmlSha256\":\"7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e\",\"zipSha256\":\"2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67\",\"node\":\"22.23.4\",\"zlib\":\"1.3.1-e00f703\"}"
+      }
+    },
+    "htmlSha256Check": {
+      "line": 255,
+      "text": "2026-11-16T16:11:36.0441851Z dist/Ordre_de_Cendre.html: OK"
+    },
+    "zipSha256Check": {
+      "line": 256,
+      "text": "2026-11-16T16:11:36.1317351Z dist/Ordre_de_Cendre.zip: OK"
+    },
+    "zipExtraction": {
+      "line": 257,
+      "text": "2026-11-16T16:11:37.8753503Z Independent ZIP extraction matches the reviewed standalone HTML."
+    },
+    "oneFileCommit": {
+      "line": 283,
+      "text": "2026-11-16T16:11:41.1967746Z  1 file changed, 0 insertions(+), 0 deletions(-)"
+    },
+    "commitCreated": {
+      "line": 282,
+      "text": "2026-11-16T16:11:41.1966296Z [detached HEAD 505d100] Materialize reviewed 0.15.6 offline ZIP from cad0a7285e082a206ecc4462ec80237e8daec9d6"
+    },
+    "branchPush": {
+      "line": 288,
+      "text": "2026-11-16T16:11:50.6974232Z    cad0a72..505d100  HEAD -> codex/painted-installations-v0156"
+    }
+  },
+  "onlyZipChanged": true,
+  "remoteZipBlobMatchesReviewedLocalBlob": true,
+  "htmlAndZipMatchExpectedSha256": true,
+  "scope": "Read-only verification of materialization run, job, decoded logs and resulting commit. No remote mutation or repository file modification by this receiver.",
+  "passed": true
+}

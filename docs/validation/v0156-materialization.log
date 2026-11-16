@@ -1,0 +1,307 @@
+﻿2026-11-16T16:11:10.6184037Z Current runner version: '2.338.2'
+2026-11-16T16:11:10.6209285Z ##[group]Runner Image Provisioner
+2026-11-16T16:11:10.6210118Z Hosted Compute Agent
+2026-11-16T16:11:10.6210928Z Version: 20261103.629
+2026-11-16T16:11:10.6211703Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-16T16:11:10.6212427Z Build Date: 2026-11-03T17:26:59Z
+2026-11-16T16:11:10.6213067Z Worker ID: {8f25f3e5-a813-4907-b813-24bc50aef33c}
+2026-11-16T16:11:10.6213777Z Region: eastus3
+2026-11-16T16:11:10.6214276Z Cloud: Azure
+2026-11-16T16:11:10.6214817Z ##[endgroup]
+2026-11-16T16:11:10.6216378Z ##[group]Operating System
+2026-11-16T16:11:10.6216964Z Ubuntu
+2026-11-16T16:11:10.6217518Z 26.04.1
+2026-11-16T16:11:10.6218039Z LTS
+2026-11-16T16:11:10.6218913Z ##[endgroup]
+2026-11-16T16:11:10.6219456Z ##[group]Runner Image
+2026-11-16T16:11:10.6219991Z Image: ubuntu-26.04
+2026-11-16T16:11:10.6220797Z Version: 20261111.196.1
+2026-11-16T16:11:10.6221973Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-16T16:11:10.6223460Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-16T16:11:10.6224367Z ##[endgroup]
+2026-11-16T16:11:10.6225387Z ##[group]GITHUB_TOKEN Permissions
+2026-11-16T16:11:10.6227696Z Contents: write
+2026-11-16T16:11:10.6228274Z Metadata: read
+2026-11-16T16:11:10.6228790Z ##[endgroup]
+2026-11-16T16:11:10.6230989Z Secret source: Actions
+2026-11-16T16:11:10.6231837Z Cache mode: write
+2026-11-16T16:11:10.6232769Z Prepare workflow directory
+2026-11-16T16:11:10.6765075Z Prepare all required actions
+2026-11-16T16:11:10.6835825Z Getting action download info
+2026-11-16T16:11:10.9286832Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-16T16:11:11.0434788Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-11-16T16:11:11.2423560Z Complete job name: materialize
+2026-11-16T16:11:11.3212342Z ##[group]Run actions/checkout@v4
+2026-11-16T16:11:11.3213253Z with:
+2026-11-16T16:11:11.3213824Z   ref: cad0a7285e082a206ecc4462ec80237e8daec9d6
+2026-11-16T16:11:11.3214487Z   fetch-depth: 1
+2026-11-16T16:11:11.3215008Z   persist-credentials: true
+2026-11-16T16:11:11.3215582Z   repository: darknigthmare/ImperiumMarch
+2026-11-16T16:11:11.3219680Z   token: ***
+2026-11-16T16:11:11.3220177Z   ssh-strict: true
+2026-11-16T16:11:11.3220853Z   ssh-user: git
+2026-11-16T16:11:11.3221332Z   clean: true
+2026-11-16T16:11:11.3221849Z   sparse-checkout-cone-mode: true
+2026-11-16T16:11:11.3222428Z   fetch-tags: false
+2026-11-16T16:11:11.3222943Z   show-progress: true
+2026-11-16T16:11:11.3223606Z   lfs: false
+2026-11-16T16:11:11.3224174Z   submodules: false
+2026-11-16T16:11:11.3224655Z   set-safe-directory: true
+2026-11-16T16:11:11.3225241Z   allow-unsafe-pr-checkout: false
+2026-11-16T16:11:11.3226031Z env:
+2026-11-16T16:11:11.3226624Z   MATERIALIZE_BRANCH: codex/painted-installations-v0156
+2026-11-16T16:11:11.3227660Z   EXPECTED_HTML_SHA256: 7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e
+2026-11-16T16:11:11.3228788Z   EXPECTED_ZIP_SHA256: 2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67
+2026-11-16T16:11:11.3229663Z   NPM_CONFIG_AUDIT: false
+2026-11-16T16:11:11.3230161Z   NPM_CONFIG_FUND: false
+2026-11-16T16:11:11.3231248Z   NPM_CONFIG_UPDATE_NOTIFIER: false
+2026-11-16T16:11:11.3231834Z   NPM_CONFIG_OFFLINE: true
+2026-11-16T16:11:11.3232352Z ##[endgroup]
+2026-11-16T16:11:11.5779691Z Syncing repository: darknigthmare/ImperiumMarch
+2026-11-16T16:11:11.5783261Z ##[group]Getting Git version info
+2026-11-16T16:11:11.5784754Z Working directory is '/home/runner/work/ImperiumMarch/ImperiumMarch'
+2026-11-16T16:11:11.5786811Z [command]/usr/bin/git version
+2026-11-16T16:11:11.5787863Z git version 2.56.1
+2026-11-16T16:11:11.5804257Z ##[endgroup]
+2026-11-16T16:11:11.5842890Z Temporarily overriding HOME='/home/runner/work/_temp/5d358e10-c5e9-4975-946f-c3181a596aff' before making global git config changes
+2026-11-16T16:11:11.5845472Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-16T16:11:11.5848112Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ImperiumMarch/ImperiumMarch
+2026-11-16T16:11:11.5888143Z Deleting the contents of '/home/runner/work/ImperiumMarch/ImperiumMarch'
+2026-11-16T16:11:11.5893508Z ##[group]Initializing the repository
+2026-11-16T16:11:11.5896527Z [command]/usr/bin/git init /home/runner/work/ImperiumMarch/ImperiumMarch
+2026-11-16T16:11:11.6018591Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-16T16:11:11.6020178Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-16T16:11:11.6021781Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-16T16:11:11.6022948Z hint: call:
+2026-11-16T16:11:11.6023846Z hint:
+2026-11-16T16:11:11.6024990Z hint: 	git config --global init.defaultBranch <name>
+2026-11-16T16:11:11.6025791Z hint:
+2026-11-16T16:11:11.6026612Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-16T16:11:11.6028250Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-16T16:11:11.6029656Z hint:
+2026-11-16T16:11:11.6030320Z hint: 	git branch -m <name>
+2026-11-16T16:11:11.6031337Z hint:
+2026-11-16T16:11:11.6032444Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-16T16:11:11.6034104Z Initialized empty Git repository in /home/runner/work/ImperiumMarch/ImperiumMarch/.git/
+2026-11-16T16:11:11.6044331Z [command]/usr/bin/git remote add origin https://github.com/darknigthmare/ImperiumMarch
+2026-11-16T16:11:11.6099079Z ##[endgroup]
+2026-11-16T16:11:11.6100048Z ##[group]Disabling automatic garbage collection
+2026-11-16T16:11:11.6104579Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-16T16:11:11.6137806Z ##[endgroup]
+2026-11-16T16:11:11.6138735Z ##[group]Setting up auth
+2026-11-16T16:11:11.6146208Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-16T16:11:11.6177218Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-16T16:11:11.6678211Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-16T16:11:11.6722985Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-16T16:11:11.6967202Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-16T16:11:11.6996977Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-16T16:11:11.7215554Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-16T16:11:11.7252356Z ##[endgroup]
+2026-11-16T16:11:11.7253414Z ##[group]Fetching the repository
+2026-11-16T16:11:11.7261294Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin cad0a7285e082a206ecc4462ec80237e8daec9d6
+2026-11-16T16:11:25.0296685Z From https://github.com/darknigthmare/ImperiumMarch
+2026-11-16T16:11:25.0297896Z  * branch            cad0a7285e082a206ecc4462ec80237e8daec9d6 -> FETCH_HEAD
+2026-11-16T16:11:25.0302750Z ##[endgroup]
+2026-11-16T16:11:25.0303412Z ##[group]Determining the checkout info
+2026-11-16T16:11:25.0305154Z ##[endgroup]
+2026-11-16T16:11:25.0311117Z [command]/usr/bin/git sparse-checkout disable
+2026-11-16T16:11:25.0366377Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-16T16:11:25.0397306Z ##[group]Checking out the ref
+2026-11-16T16:11:25.0401012Z [command]/usr/bin/git checkout --progress --force cad0a7285e082a206ecc4462ec80237e8daec9d6
+2026-11-16T16:11:26.0581421Z Updating files:  57% (1645/2856)
+2026-11-16T16:11:26.0832489Z Updating files:  58% (1657/2856)
+2026-11-16T16:11:26.1008251Z Updating files:  59% (1686/2856)
+2026-11-16T16:11:26.1168434Z Updating files:  60% (1714/2856)
+2026-11-16T16:11:26.1391668Z Updating files:  61% (1743/2856)
+2026-11-16T16:11:26.1500092Z Updating files:  62% (1771/2856)
+2026-11-16T16:11:26.1872519Z Updating files:  63% (1800/2856)
+2026-11-16T16:11:26.2198077Z Updating files:  64% (1828/2856)
+2026-11-16T16:11:26.2557339Z Updating files:  65% (1857/2856)
+2026-11-16T16:11:26.2684516Z Updating files:  66% (1885/2856)
+2026-11-16T16:11:26.2744976Z Updating files:  67% (1914/2856)
+2026-11-16T16:11:26.2983934Z Updating files:  68% (1943/2856)
+2026-11-16T16:11:26.3241430Z Updating files:  69% (1971/2856)
+2026-11-16T16:11:26.3261298Z Updating files:  70% (2000/2856)
+2026-11-16T16:11:26.3328841Z Updating files:  71% (2028/2856)
+2026-11-16T16:11:26.3555374Z Updating files:  72% (2057/2856)
+2026-11-16T16:11:26.3673701Z Updating files:  73% (2085/2856)
+2026-11-16T16:11:26.4058497Z Updating files:  74% (2114/2856)
+2026-11-16T16:11:26.4333067Z Updating files:  75% (2142/2856)
+2026-11-16T16:11:26.4447909Z Updating files:  76% (2171/2856)
+2026-11-16T16:11:26.4776139Z Updating files:  77% (2200/2856)
+2026-11-16T16:11:26.4973202Z Updating files:  78% (2228/2856)
+2026-11-16T16:11:26.5010299Z Updating files:  79% (2257/2856)
+2026-11-16T16:11:26.5023139Z Updating files:  80% (2285/2856)
+2026-11-16T16:11:26.5040475Z Updating files:  81% (2314/2856)
+2026-11-16T16:11:26.5083211Z Updating files:  82% (2342/2856)
+2026-11-16T16:11:26.5110320Z Updating files:  83% (2371/2856)
+2026-11-16T16:11:26.5156182Z Updating files:  84% (2400/2856)
+2026-11-16T16:11:26.5177807Z Updating files:  85% (2428/2856)
+2026-11-16T16:11:26.5192773Z Updating files:  86% (2457/2856)
+2026-11-16T16:11:26.5204057Z Updating files:  87% (2485/2856)
+2026-11-16T16:11:26.5231436Z Updating files:  88% (2514/2856)
+2026-11-16T16:11:26.5262360Z Updating files:  89% (2542/2856)
+2026-11-16T16:11:26.5279156Z Updating files:  90% (2571/2856)
+2026-11-16T16:11:26.5289276Z Updating files:  91% (2599/2856)
+2026-11-16T16:11:26.5326394Z Updating files:  92% (2628/2856)
+2026-11-16T16:11:26.5368069Z Updating files:  93% (2657/2856)
+2026-11-16T16:11:26.5385968Z Updating files:  94% (2685/2856)
+2026-11-16T16:11:26.5446656Z Updating files:  95% (2714/2856)
+2026-11-16T16:11:26.5465424Z Updating files:  96% (2742/2856)
+2026-11-16T16:11:26.5482416Z Updating files:  97% (2771/2856)
+2026-11-16T16:11:26.5500878Z Updating files:  98% (2799/2856)
+2026-11-16T16:11:26.5526525Z Updating files:  99% (2828/2856)
+2026-11-16T16:11:26.5527216Z Updating files: 100% (2856/2856)
+2026-11-16T16:11:26.5527677Z Updating files: 100% (2856/2856), done.
+2026-11-16T16:11:26.5553829Z Note: switching to 'cad0a7285e082a206ecc4462ec80237e8daec9d6'.
+2026-11-16T16:11:26.5554212Z 
+2026-11-16T16:11:26.5554552Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-16T16:11:26.5555533Z changes and commit them, and you can discard any commits you make in this
+2026-11-16T16:11:26.5556384Z state without impacting any branches by switching back to a branch.
+2026-11-16T16:11:26.5556793Z 
+2026-11-16T16:11:26.5557252Z If you want to create a new branch to retain commits you create, you may
+2026-11-16T16:11:26.5557775Z do so (now or later) by using -c with the switch command. Example:
+2026-11-16T16:11:26.5558069Z 
+2026-11-16T16:11:26.5558266Z   git switch -c <new-branch-name>
+2026-11-16T16:11:26.5558500Z 
+2026-11-16T16:11:26.5558647Z Or undo this operation with:
+2026-11-16T16:11:26.5558888Z 
+2026-11-16T16:11:26.5559079Z   git switch -
+2026-11-16T16:11:26.5559241Z 
+2026-11-16T16:11:26.5559506Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-16T16:11:26.5559827Z 
+2026-11-16T16:11:26.5560157Z HEAD is now at cad0a72 Prepare 0.15.6 painted installations and materialize the reviewed offline package
+2026-11-16T16:11:26.5606825Z ##[endgroup]
+2026-11-16T16:11:26.5653305Z [command]/usr/bin/git log -1 --format=%H
+2026-11-16T16:11:26.5684927Z cad0a7285e082a206ecc4462ec80237e8daec9d6
+2026-11-16T16:11:26.5942836Z ##[group]Run actions/setup-node@v4
+2026-11-16T16:11:26.5943190Z with:
+2026-11-16T16:11:26.5943457Z   node-version: 22
+2026-11-16T16:11:26.5943789Z   always-auth: false
+2026-11-16T16:11:26.5944115Z   check-latest: false
+2026-11-16T16:11:26.5946728Z   token: ***
+2026-11-16T16:11:26.5947086Z env:
+2026-11-16T16:11:26.5947405Z   MATERIALIZE_BRANCH: codex/painted-installations-v0156
+2026-11-16T16:11:26.5947984Z   EXPECTED_HTML_SHA256: 7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e
+2026-11-16T16:11:26.5948637Z   EXPECTED_ZIP_SHA256: 2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67
+2026-11-16T16:11:26.5949458Z   NPM_CONFIG_AUDIT: false
+2026-11-16T16:11:26.5949801Z   NPM_CONFIG_FUND: false
+2026-11-16T16:11:26.5950121Z   NPM_CONFIG_UPDATE_NOTIFIER: false
+2026-11-16T16:11:26.5950489Z   NPM_CONFIG_OFFLINE: true
+2026-11-16T16:11:26.5951081Z ##[endgroup]
+2026-11-16T16:11:26.7435517Z (node:2395) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-16T16:11:26.7436330Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-16T16:11:26.7444078Z Found in cache @ /opt/hostedtoolcache/node/22.23.4/x64
+2026-11-16T16:11:26.7445438Z ##[group]Environment details
+2026-11-16T16:11:29.0880423Z node: v22.23.4
+2026-11-16T16:11:29.0881269Z npm: 10.9.9
+2026-11-16T16:11:29.0881551Z yarn: 1.22.22
+2026-11-16T16:11:29.0882732Z ##[endgroup]
+2026-11-16T16:11:29.1002693Z ##[group]Run set -euo pipefail
+2026-11-16T16:11:29.1003240Z [36;1mset -euo pipefail[0m
+2026-11-16T16:11:29.1003656Z [36;1mtest "$(git rev-parse HEAD)" = "$GITHUB_SHA"[0m
+2026-11-16T16:11:29.1004146Z [36;1mtest "$GITHUB_REF" = "refs/heads/$MATERIALIZE_BRANCH"[0m
+2026-11-16T16:11:29.1004682Z [36;1mtest "$(node -p 'process.versions.node.split(".")[0]')" = '22'[0m
+2026-11-16T16:11:29.1049420Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-16T16:11:29.1049873Z env:
+2026-11-16T16:11:29.1050221Z   MATERIALIZE_BRANCH: codex/painted-installations-v0156
+2026-11-16T16:11:29.1051008Z   EXPECTED_HTML_SHA256: 7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e
+2026-11-16T16:11:29.1051650Z   EXPECTED_ZIP_SHA256: 2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67
+2026-11-16T16:11:29.1052198Z   NPM_CONFIG_AUDIT: false
+2026-11-16T16:11:29.1052519Z   NPM_CONFIG_FUND: false
+2026-11-16T16:11:29.1052824Z   NPM_CONFIG_UPDATE_NOTIFIER: false
+2026-11-16T16:11:29.1053321Z   NPM_CONFIG_OFFLINE: true
+2026-11-16T16:11:29.1053613Z ##[endgroup]
+2026-11-16T16:11:29.1574236Z ##[group]Run npm run build
+2026-11-16T16:11:29.1574644Z [36;1mnpm run build[0m
+2026-11-16T16:11:29.1607959Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-16T16:11:29.1608389Z env:
+2026-11-16T16:11:29.1608735Z   MATERIALIZE_BRANCH: codex/painted-installations-v0156
+2026-11-16T16:11:29.1609328Z   EXPECTED_HTML_SHA256: 7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e
+2026-11-16T16:11:29.1610006Z   EXPECTED_ZIP_SHA256: 2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67
+2026-11-16T16:11:29.1610654Z   NPM_CONFIG_AUDIT: false
+2026-11-16T16:11:29.1610979Z   NPM_CONFIG_FUND: false
+2026-11-16T16:11:29.1611282Z   NPM_CONFIG_UPDATE_NOTIFIER: false
+2026-11-16T16:11:29.1611661Z   NPM_CONFIG_OFFLINE: true
+2026-11-16T16:11:29.1611997Z ##[endgroup]
+2026-11-16T16:11:29.2965386Z 
+2026-11-16T16:11:29.2972470Z > imperium-march@0.15.6 build
+2026-11-16T16:11:29.2973313Z > node tools/build-offline.mjs && node tools/build-offline-package.mjs
+2026-11-16T16:11:29.2973889Z 
+2026-11-16T16:11:31.2183051Z Offline game built: dist/Ordre_de_Cendre.html (134.73 MiB), 56 modules, no remote dependencies.
+2026-11-16T16:11:35.8678923Z {"offlinePackage":"dist/Ordre_de_Cendre.zip","htmlBytes":141278398,"zipBytes":103369632,"htmlSha256":"7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e","zipSha256":"2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67","node":"22.23.4","zlib":"1.3.1-e00f703"}
+2026-11-16T16:11:35.9145678Z ##[group]Run set -euo pipefail
+2026-11-16T16:11:35.9146126Z [36;1mset -euo pipefail[0m
+2026-11-16T16:11:35.9146656Z [36;1mprintf '%s  %s\n' "$EXPECTED_HTML_SHA256" 'dist/Ordre_de_Cendre.html' | sha256sum --check --strict[0m
+2026-11-16T16:11:35.9147341Z [36;1mprintf '%s  %s\n' "$EXPECTED_ZIP_SHA256" 'dist/Ordre_de_Cendre.zip' | sha256sum --check --strict[0m
+2026-11-16T16:11:35.9147911Z [36;1mpython3 - <<'VERIFY'[0m
+2026-11-16T16:11:35.9148235Z [36;1mimport hashlib, os, zipfile[0m
+2026-11-16T16:11:35.9148700Z [36;1mwith zipfile.ZipFile('dist/Ordre_de_Cendre.zip') as archive:[0m
+2026-11-16T16:11:35.9149195Z [36;1m    assert archive.namelist() == ['Ordre_de_Cendre.html'][0m
+2026-11-16T16:11:35.9149651Z [36;1m    assert archive.testzip() is None[0m
+2026-11-16T16:11:35.9150226Z [36;1m    assert hashlib.sha256(archive.read('Ordre_de_Cendre.html')).hexdigest() == os.environ['EXPECTED_HTML_SHA256'][0m
+2026-11-16T16:11:35.9151291Z [36;1mprint('Independent ZIP extraction matches the reviewed standalone HTML.')[0m
+2026-11-16T16:11:35.9151771Z [36;1mVERIFY[0m
+2026-11-16T16:11:35.9186790Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-16T16:11:35.9187215Z env:
+2026-11-16T16:11:35.9187641Z   MATERIALIZE_BRANCH: codex/painted-installations-v0156
+2026-11-16T16:11:35.9188183Z   EXPECTED_HTML_SHA256: 7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e
+2026-11-16T16:11:35.9188829Z   EXPECTED_ZIP_SHA256: 2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67
+2026-11-16T16:11:35.9189353Z   NPM_CONFIG_AUDIT: false
+2026-11-16T16:11:35.9189676Z   NPM_CONFIG_FUND: false
+2026-11-16T16:11:35.9190011Z   NPM_CONFIG_UPDATE_NOTIFIER: false
+2026-11-16T16:11:35.9190366Z   NPM_CONFIG_OFFLINE: true
+2026-11-16T16:11:35.9190959Z ##[endgroup]
+2026-11-16T16:11:36.0441851Z dist/Ordre_de_Cendre.html: OK
+2026-11-16T16:11:36.1317351Z dist/Ordre_de_Cendre.zip: OK
+2026-11-16T16:11:37.8753503Z Independent ZIP extraction matches the reviewed standalone HTML.
+2026-11-16T16:11:37.8854163Z ##[group]Run set -euo pipefail
+2026-11-16T16:11:37.8854612Z [36;1mset -euo pipefail[0m
+2026-11-16T16:11:37.8854968Z [36;1mgit add -- dist/Ordre_de_Cendre.zip[0m
+2026-11-16T16:11:37.8855389Z [36;1mif git diff --cached --quiet; then[0m
+2026-11-16T16:11:37.8855886Z [36;1m  echo 'The offline ZIP already matches the reviewed local file.'[0m
+2026-11-16T16:11:37.8856292Z [36;1m  exit 0[0m
+2026-11-16T16:11:37.8856604Z [36;1mfi[0m
+2026-11-16T16:11:37.8857013Z [36;1mtest "$(git diff --cached --name-only)" = 'dist/Ordre_de_Cendre.zip'[0m
+2026-11-16T16:11:37.8857469Z [36;1mgit diff --quiet[0m
+2026-11-16T16:11:37.8857862Z [36;1mtest -z "$(git ls-files --others --exclude-standard)"[0m
+2026-11-16T16:11:37.8858305Z [36;1mgit config user.name 'github-actions[bot]'[0m
+2026-11-16T16:11:37.8858847Z [36;1mgit config user.email '41898282+github-actions[bot]@users.noreply.github.com'[0m
+2026-11-16T16:11:37.8859555Z [36;1mgit commit -m "Materialize reviewed 0.15.6 offline ZIP from $GITHUB_SHA"[0m
+2026-11-16T16:11:37.8860132Z [36;1mgit push origin "HEAD:refs/heads/$MATERIALIZE_BRANCH"[0m
+2026-11-16T16:11:37.8892959Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-16T16:11:37.8893418Z env:
+2026-11-16T16:11:37.8893764Z   MATERIALIZE_BRANCH: codex/painted-installations-v0156
+2026-11-16T16:11:37.8894354Z   EXPECTED_HTML_SHA256: 7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e
+2026-11-16T16:11:37.8895065Z   EXPECTED_ZIP_SHA256: 2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67
+2026-11-16T16:11:37.8895566Z   NPM_CONFIG_AUDIT: false
+2026-11-16T16:11:37.8895905Z   NPM_CONFIG_FUND: false
+2026-11-16T16:11:37.8896259Z   NPM_CONFIG_UPDATE_NOTIFIER: false
+2026-11-16T16:11:37.8896658Z   NPM_CONFIG_OFFLINE: true
+2026-11-16T16:11:37.8896965Z ##[endgroup]
+2026-11-16T16:11:41.1966296Z [detached HEAD 505d100] Materialize reviewed 0.15.6 offline ZIP from cad0a7285e082a206ecc4462ec80237e8daec9d6
+2026-11-16T16:11:41.1967746Z  1 file changed, 0 insertions(+), 0 deletions(-)
+2026-11-16T16:11:50.0385722Z remote: warning: See https://gh.io/lfs for more information.        
+2026-11-16T16:11:50.0387499Z remote: warning: File dist/Ordre_de_Cendre.zip is 98.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+2026-11-16T16:11:50.0388958Z remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+2026-11-16T16:11:50.6972917Z To https://github.com/darknigthmare/ImperiumMarch
+2026-11-16T16:11:50.6974232Z    cad0a72..505d100  HEAD -> codex/painted-installations-v0156
+2026-11-16T16:11:50.7199263Z Post job cleanup.
+2026-11-16T16:11:50.8395562Z (node:2520) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-16T16:11:50.8397132Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-16T16:11:50.8614510Z Post job cleanup.
+2026-11-16T16:11:50.9414052Z [command]/usr/bin/git version
+2026-11-16T16:11:50.9451546Z git version 2.56.1
+2026-11-16T16:11:50.9485767Z Temporarily overriding HOME='/home/runner/work/_temp/1a66e1ee-11b4-4540-a15f-571484d7f626' before making global git config changes
+2026-11-16T16:11:50.9487462Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-16T16:11:50.9490943Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ImperiumMarch/ImperiumMarch
+2026-11-16T16:11:50.9528349Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-16T16:11:50.9560853Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-16T16:11:50.9807717Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-16T16:11:50.9830821Z http.https://github.com/.extraheader
+2026-11-16T16:11:50.9841341Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-16T16:11:50.9874132Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-16T16:11:51.0126080Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-16T16:11:51.0163313Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-16T16:11:51.0551559Z Cleaning up orphan processes
+2026-11-16T16:11:51.0879454Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

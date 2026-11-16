@@ -1,5 +1,19 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Publication 0.15.6 accomplie
+
+La [PR #5](https://github.com/darknigthmare/ImperiumMarch/pull/5) est fusionnée sur `main` au commit **`036d6efa4be74361450f75b284e3268a12af6f50`**. Son arbre **`41f45209670e932ea17e5f0c37ac7ba8c7dd33fb`** correspond exactement au snapshot local vérifié **`70091ebca39890ee9cb19e6cbd28187301739df5`**. Le delta compte **157 ajouts, 15 modifications et aucune suppression**. Les treize nouveaux atlas apportent **75 cellules utilisées au rendu** ; les onze lots réunis contiennent **58 atlas / 461 cellules**, dont 431 cellules de rendu et 30 références historiques.
+
+La [CI de la PR](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43905183177), sur le HEAD `c460f7f6ac103829e50da229bb71e7a548883020`, puis la [CI de main](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43906226549), sur le commit fusionné, ont toutes deux réussi sous **Node 22.23.4** : **765 tests, 174 comparaisons SVG/Canvas, onze lots peints, 108 parcours du DOM modélisé et les constructions HTML, ZIP et web**. Les [reçus PR](validation/v0156-pr-ci.json) et [main](validation/v0156-main-ci.json) conservent les étapes et les lignes de preuve.
+
+La [matérialisation distante](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43904656099) a reconstruit exactement l’HTML de **141 278 398 octets** et le ZIP de **103 369 632 octets** reçus localement. Leurs SHA-256 respectifs sont `7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e` et `2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67`. L’extraction indépendante vérifie l’entrée unique et son CRC. La workflow temporaire a été retirée avant la comparaison de l’arbre final et la fusion. Les PNG originaux conservent leurs octets.
+
+Vercel a reçu le commit fusionné exact dans **`dpl_6wyMjPucped9Y5qGGfdjcks5qRBs`**, cible **production**, état **READY le 16 novembre 2026 à 16:20:09.697 UTC**. L’alias [imperium-march.vercel.app](https://imperium-march.vercel.app/) lui est associé sans erreur. Le projet, les domaines et les protections sont conservés. Le [reçu de publication](validation/v0156-publication.json) relie snapshot, PR, CI et déploiement.
+
+Chrome partagé a ensuite affiché la **0.15.6** et repris **MI06, MI10 et MI11** par l’interface, à partir des champs `live` exacts de trois fixtures historiques. Les instruments chimiques et l’émetteur peint sont visibles. Dans le cadrage MI06 reçu, le bandeau d’interaction masque presque toute la vanne : cette capture ne certifie pas seule son sprite. Déplacement, pause et reprise ont été exercés sur MI06 et MI11 ; MI10 reçoit l’affichage, la pause et le retour au menu. Le [rapport natif](QA_NATIVE_V15_6.md) et ses [preuves](validation/native-v0156/receipt.json) distinguent ces reprises courtes d’une mission achevée, d’un essai humain, d’une mesure de performance et d’une ouverture native du fichier autonome.
+
+Le dossier présent avant les essais a été restauré puis réexporté : les deux fichiers de **8 480 octets sont identiques**, SHA-256 `0fa13fe1ac7191fff04434e0bb6867137936ba43a889208f2a3a88dbb92073e5`. L’**Arpenteur**, les **0 / 14 rapports**, la difficulté **Récit**, les autres préférences et les onze commandes sont rétablis. Les sauvegardes privées ne sont pas ajoutées au dépôt. Ce suivi documentaire conserve les octets du jeu, des atlas, du ZIP et de la Bible de la livraison reçue.
+
 ## Préparation de publication 0.15.6
 
 La tranche ajoute treize atlas et 75 cellules de rendu aux infrastructures de Nacre, au champ chimique et aux appareils de MI11. Les [trois lots reçus](PRODUCTION_V15_6.md) portent le total à **58 atlas / 461 cellules**. Le [rapport QA](QA_PAINTED_INSTALLATIONS.md) associe les résultats aux fichiers testés : 765 tests, 174 cas SVG/Canvas, onze lots peints et 108 parcours du DOM modélisé. La Bible conserve ses 1 007 fiches et ses statuts.

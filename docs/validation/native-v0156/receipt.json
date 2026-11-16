@@ -1,0 +1,471 @@
+{
+  "schema": 1,
+  "version": "0.15.6",
+  "writtenUtc": "2026-11-16T16:33:46.048Z",
+  "status": "completed-limited-native-reception",
+  "environment": {
+    "browser": "Chrome",
+    "url": "https://imperium-march.vercel.app/",
+    "deploymentId": "dpl_6wyMjPucped9Y5qGGfdjcks5qRBs",
+    "commit": "036d6efa4be74361450f75b284e3268a12af6f50",
+    "tree": "41f45209670e932ea17e5f0c37ac7ba8c7dd33fb",
+    "deploymentIdentityAuthority": "Publication and native-session operator record",
+    "footerObserved": "0.15.6"
+  },
+  "captureWindowUtc": {
+    "first": "2026-11-16T16:21:10.510Z",
+    "last": "2026-11-16T16:28:28.636Z"
+  },
+  "scope": "Three short native resumes imported and confirmed through the UI from unchanged historical fixtures; no complete mission, human playtest, performance test or offline file:// reception.",
+  "nativeBrowserExecuted": true,
+  "humanPlaytestPerformed": false,
+  "performanceMeasured": false,
+  "offlineFileUrlExecuted": false,
+  "missionsCompleted": 0,
+  "inputProvenance": {
+    "metadataSha256": "c8698f254539c6eefc1b139eb5a414722941b6aea4af80db7ef41f505ec08312",
+    "fixtures": [
+      {
+        "mission": "MI06",
+        "fixture": "tests/fixtures/campaign-v6-mi06.json",
+        "fixtureSha256": "e7ea0548ce459ef3a7d378a1892b7bfde4c591630eaec1e67c99c8b75e95b12c",
+        "field": "live",
+        "preparedFileName": "mi06-historic-live.json",
+        "preparedSha256": "7ade9abdc639b2d5ff4c3e1aeb0474bb375c1b651b2dd7835487759a84e8e66e",
+        "saveVersion": 6,
+        "existingReports": 5,
+        "preparedElapsedSeconds": 87.93333333332963,
+        "preparedPlayerX": 4018.33133458683,
+        "walker": "WK09",
+        "sourceHashMatches": true,
+        "preparedHashMatches": true,
+        "preparedEqualsFixtureLive": true,
+        "preparation": "Exact historical live field, no scene edits",
+        "fixtureExtractCopiedToEvidence": false
+      },
+      {
+        "mission": "MI10",
+        "fixture": "tests/fixtures/campaign-v10-mi10.json",
+        "fixtureSha256": "a917920f3e0469d00f31e00f1a242fc183e5d0ebc4f3b4db59066fa63668aa73",
+        "field": "live",
+        "preparedFileName": "mi10-historic-live.json",
+        "preparedSha256": "61a847443fbbe6457112875620587ad5c2db59edc6e58b518401f3a10dc69abf",
+        "saveVersion": 10,
+        "existingReports": 9,
+        "preparedElapsedSeconds": 58.949999999997935,
+        "preparedPlayerX": 2691.946052753152,
+        "walker": "WK09",
+        "sourceHashMatches": true,
+        "preparedHashMatches": true,
+        "preparedEqualsFixtureLive": true,
+        "preparation": "Exact historical live field, no scene edits",
+        "fixtureExtractCopiedToEvidence": false
+      },
+      {
+        "mission": "MI11",
+        "fixture": "tests/fixtures/campaign-v11-mi11.json",
+        "fixtureSha256": "0b050e807af98718e70c957c712d24abe556d6d130d08a70b7eb534ebf03d52d",
+        "field": "live",
+        "preparedFileName": "mi11-historic-live.json",
+        "preparedSha256": "de3830deb04e12917066bb00ca65bd3c518c9b4e3e749b02b46443f3e3ef9fd1",
+        "saveVersion": 11,
+        "existingReports": 10,
+        "preparedElapsedSeconds": 78.14986666666373,
+        "preparedPlayerX": 3727.8560999754786,
+        "walker": "WK09",
+        "sourceHashMatches": true,
+        "preparedHashMatches": true,
+        "preparedEqualsFixtureLive": true,
+        "preparation": "Exact historical live field, no scene edits",
+        "fixtureExtractCopiedToEvidence": false
+      }
+    ],
+    "metadataExternalPath": "publication/native-v0156-inputs.json",
+    "metadataStoredInRepository": false
+  },
+  "operatorReportedActions": {
+    "authority": "Observations supplied by the operator of the completed native Chrome session; retained captures attest the displayed states, not every individual transition.",
+    "common": [
+      "Export existing campaign before fixture imports",
+      "Import, confirm replacement and resume each historical MI06, MI10 and MI11 checkpoint through the UI"
+    ],
+    "MI06": [
+      "Short movement with A",
+      "Pause and resume"
+    ],
+    "MI10": [
+      "Pause and return to menu"
+    ],
+    "MI11": [
+      "Short movement with A",
+      "Pause and resume"
+    ],
+    "restoration": [
+      "Import the original campaign through the UI",
+      "Restore difficulty from Pilote to Récit",
+      "Restore assigned walker from Pèlerin to Arpenteur through the UI",
+      "Compare final settings and export the restored campaign"
+    ]
+  },
+  "renderingObservations": {
+    "MI06": {
+      "captures": [
+        "04-nacre-mi06-live.jpg",
+        "05-nacre-mi06-valve.jpg"
+      ],
+      "result": "limited",
+      "visible": "Walker, terrain, three-valve command label and work indication",
+      "limitation": "HTML interaction banner hides the valve wheel and most of its painted body; this view cannot independently certify its PNG rather than its vector fallback.",
+      "screen04ApproximatePixels": {
+        "body": [
+          532,
+          618,
+          591,
+          671
+        ],
+        "wheelCenter": [
+          562,
+          646
+        ],
+        "wheelRadius": 17,
+        "interactionBanner": [
+          527,
+          624,
+          837,
+          663
+        ]
+      },
+      "rendererOrder": "Dike controls are drawn after the walker, so the HTML banner is the main occluder."
+    },
+    "MI10": {
+      "captures": [
+        "06-chemical-mi10-live.jpg"
+      ],
+      "visible": [
+        "Painted sampling rig",
+        "Painted batch ledger",
+        "Painted collector valve",
+        "Painted canal"
+      ],
+      "displayedClock": "00:59",
+      "displayedSampleProgressPercent": 46,
+      "sampleCompletionClaimed": false
+    },
+    "MI11": {
+      "captures": [
+        "07-voice-mi11-live.jpg",
+        "08-voice-mi11-emitter.jpg"
+      ],
+      "visible": "Painted emitter fully visible on the left in capture08",
+      "displayedClocks": [
+        "01:18",
+        "01:19"
+      ],
+      "displayedExchangePercent": [
+        50,
+        55
+      ],
+      "emitterOperationClaimed": false,
+      "exchangeCompletionClaimed": false
+    },
+    "preparedFacts": "Reports, inspected objects, copied sources, permissions and prior progress shown after import belong to the historical fixtures unless explicitly listed as a native action."
+  },
+  "restoration": {
+    "source": "restoration.json",
+    "observedUtc": "2026-11-16T16:28:28.208Z",
+    "campaignExport": {
+      "bytesBefore": 8480,
+      "bytesAfter": 8480,
+      "sha256Before": "0fa13fe1ac7191fff04434e0bb6867137936ba43a889208f2a3a88dbb92073e5",
+      "sha256After": "0fa13fe1ac7191fff04434e0bb6867137936ba43a889208f2a3a88dbb92073e5",
+      "byteIdentical": true
+    },
+    "privateExportsIncluded": false,
+    "assignedWalker": "A-17 Arpenteur",
+    "reports": "0 / 14",
+    "preferences": {
+      "difficulty": "Récit",
+      "assist": "1",
+      "shake": "1",
+      "motion": "0",
+      "contrast": "0",
+      "volume": "55"
+    },
+    "preferencesEqual": true,
+    "bindingsCompared": 11,
+    "bindingsEqual": true,
+    "initialPreferencesFooter": "0.15.5",
+    "restoredPreferencesFooter": "0.15.6",
+    "note": "The initial preferences accessibility snapshot precedes the 0.15.6 reception; the comparison concerns the six settings and eleven bindings, not AX node IDs or version text."
+  },
+  "consoleSample": {
+    "sourceFile": "console.json",
+    "sourceBytes": 7082,
+    "sourceSha256": "4528926830f21f1234d25f61208badde6fa60fa54bf27e320d403824eec3aefb",
+    "sourceCopied": false,
+    "entries": 30,
+    "errorEntries": 30,
+    "extensionOriginEntries": 30,
+    "applicationOriginEntriesInSample": 0,
+    "declaredOriginScheme": "chrome-extension://",
+    "distinctMessages": 1,
+    "collectionCapReportedByOperator": 30,
+    "limitation": "Capped sample only. No claim that the complete application console or entire session was error-free; origins are those declared by the entries."
+  },
+  "evidenceCounts": {
+    "screenshots": 8,
+    "accessibilityTrees": 8,
+    "preferencesSnapshots": 2,
+    "restorationRecords": 1,
+    "copiedFiles": 19
+  },
+  "captures": [
+    {
+      "name": "01-production-menu",
+      "observedUtc": "2026-11-16T16:21:10.510Z",
+      "caption": "Menu de campagne en production, pied de page 0.15.6 et confirmation d’export du dossier préalable.",
+      "visuallyInspected": true,
+      "screenshot": "01-production-menu.jpg",
+      "ax": "01-production-menu.txt"
+    },
+    {
+      "name": "04-nacre-mi06-live",
+      "observedUtc": "2026-11-16T16:24:58.386Z",
+      "caption": "MI06 à 01:29 : manœuvre de vanne affichée à 43 % ; le bandeau HTML masque le volant et presque tout le corps peint.",
+      "visuallyInspected": true,
+      "screenshot": "04-nacre-mi06-live.jpg",
+      "ax": "04-nacre-mi06-live.txt"
+    },
+    {
+      "name": "05-nacre-mi06-valve",
+      "observedUtc": "2026-11-16T16:25:28.695Z",
+      "caption": "MI06 à 01:30 après déplacement : commande E pour actionner la vanne ; silhouette toujours largement masquée par le bandeau.",
+      "visuallyInspected": true,
+      "screenshot": "05-nacre-mi06-valve.jpg",
+      "ax": "05-nacre-mi06-valve.txt"
+    },
+    {
+      "name": "06-chemical-mi10-live",
+      "observedUtc": "2026-11-16T16:26:19.423Z",
+      "caption": "MI10 à 00:59 : préleveur, registre, collecteur et canal peints visibles ; prélèvement affiché à 46 %.",
+      "visuallyInspected": true,
+      "screenshot": "06-chemical-mi10-live.jpg",
+      "ax": "06-chemical-mi10-live.txt"
+    },
+    {
+      "name": "07-voice-mi11-live",
+      "observedUtc": "2026-11-16T16:26:41.152Z",
+      "caption": "MI11 à 01:18 : reprise de l’échange préparé avec Leth, affiché à 50 % ; émetteur partiellement hors champ à gauche.",
+      "visuallyInspected": true,
+      "screenshot": "07-voice-mi11-live.jpg",
+      "ax": "07-voice-mi11-live.txt"
+    },
+    {
+      "name": "08-voice-mi11-emitter",
+      "observedUtc": "2026-11-16T16:27:00.288Z",
+      "caption": "MI11 à 01:19 après déplacement : émetteur peint entièrement visible à gauche ; échange affiché à 55 %.",
+      "visuallyInspected": true,
+      "screenshot": "08-voice-mi11-emitter.jpg",
+      "ax": "08-voice-mi11-emitter.txt"
+    },
+    {
+      "name": "09-preferences-restored",
+      "observedUtc": "2026-11-16T16:28:13.044Z",
+      "caption": "Réglages restaurés : difficulté Récit, assistance et secousses activées, mouvements réduits et contraste renforcé désactivés.",
+      "visuallyInspected": true,
+      "screenshot": "09-preferences-restored.jpg",
+      "ax": "09-preferences-restored.txt"
+    },
+    {
+      "name": "10-campaign-restored",
+      "observedUtc": "2026-11-16T16:28:28.636Z",
+      "caption": "Menu final restauré : 0 / 14 rapports, pied de page 0.15.6 et confirmation d’export ; AX avec Arpenteur assigné.",
+      "visuallyInspected": true,
+      "screenshot": "10-campaign-restored.jpg",
+      "ax": "10-campaign-restored.txt"
+    }
+  ],
+  "files": [
+    {
+      "file": "01-production-menu.jpg",
+      "kind": "native-screenshot",
+      "bytes": 129800,
+      "sha256": "cc21582c41f73b4a735e99b94095b41a5968e8f1b92067fd55de8b43562fc1ed",
+      "copiedByteForByte": true,
+      "dimensions": [
+        1348,
+        926
+      ]
+    },
+    {
+      "file": "01-production-menu.txt",
+      "kind": "accessibility-tree",
+      "bytes": 5270,
+      "sha256": "52cd1ebecf3b1bff423d1180d2ce7e1e7d505e70acaa092e749680597ee745dc",
+      "copiedByteForByte": true
+    },
+    {
+      "file": "04-nacre-mi06-live.jpg",
+      "kind": "native-screenshot",
+      "bytes": 95359,
+      "sha256": "854a76f4130733aa416c9f9fd1b7adb8578eb7df177d1bf0224d1d338da03d9f",
+      "copiedByteForByte": true,
+      "dimensions": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "04-nacre-mi06-live.txt",
+      "kind": "accessibility-tree",
+      "bytes": 3274,
+      "sha256": "e01cece0f9ce0baf03823cc1d0102dbfd7813db0e8102b92faa93a36bf0b42ab",
+      "copiedByteForByte": true
+    },
+    {
+      "file": "05-nacre-mi06-valve.jpg",
+      "kind": "native-screenshot",
+      "bytes": 94538,
+      "sha256": "296fff9839f3d3200cbd2caa092ca2f3e9c6c414e8ad2a6db0d8fdb927bb788c",
+      "copiedByteForByte": true,
+      "dimensions": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "05-nacre-mi06-valve.txt",
+      "kind": "accessibility-tree",
+      "bytes": 3161,
+      "sha256": "d46271b0c4351bde39520df4fa287b136440eb03c01d499555758c5fd9c896a6",
+      "copiedByteForByte": true
+    },
+    {
+      "file": "06-chemical-mi10-live.jpg",
+      "kind": "native-screenshot",
+      "bytes": 104293,
+      "sha256": "de6d7241c29551d51f5f5283a3fd5e3cc1db50d82f7f69b26117047c163c5fa2",
+      "copiedByteForByte": true,
+      "dimensions": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "06-chemical-mi10-live.txt",
+      "kind": "accessibility-tree",
+      "bytes": 3131,
+      "sha256": "32fea9589f42c1f5d8e4b7ef7a1786192f538b3418ebd65b9e2e94c659f355b7",
+      "copiedByteForByte": true
+    },
+    {
+      "file": "07-voice-mi11-live.jpg",
+      "kind": "native-screenshot",
+      "bytes": 99811,
+      "sha256": "c7fe669e21a8c372a2fc63f012584cf5506c084c26c6c2b1de050da1975892b4",
+      "copiedByteForByte": true,
+      "dimensions": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "07-voice-mi11-live.txt",
+      "kind": "accessibility-tree",
+      "bytes": 3147,
+      "sha256": "4ef8cb718186896711311ab5a2dd990dccfc967fbcf65186b4be478b6d58979a",
+      "copiedByteForByte": true
+    },
+    {
+      "file": "08-voice-mi11-emitter.jpg",
+      "kind": "native-screenshot",
+      "bytes": 100602,
+      "sha256": "c2d0b98c3f5a07f227c597a8cfb6ed0ae7d10e87e09f2a19d1c597db4c21ae97",
+      "copiedByteForByte": true,
+      "dimensions": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "08-voice-mi11-emitter.txt",
+      "kind": "accessibility-tree",
+      "bytes": 3147,
+      "sha256": "77188b264a5dcbb9f5d79a290d6fb198c4e3b4b1dd827cfc8868e81879a45e0f",
+      "copiedByteForByte": true
+    },
+    {
+      "file": "09-preferences-restored.jpg",
+      "kind": "native-screenshot",
+      "bytes": 77845,
+      "sha256": "84d45330f103f9cef725a3a4721d0f5b7b993fc7edb52f0d9c0fb0513a8aaaf2",
+      "copiedByteForByte": true,
+      "dimensions": [
+        1348,
+        926
+      ]
+    },
+    {
+      "file": "09-preferences-restored.txt",
+      "kind": "accessibility-tree",
+      "bytes": 4955,
+      "sha256": "e3be46f4ec6ef387701998559696b85a6d202d72b5125c5ced40d0817e3cfe83",
+      "copiedByteForByte": true
+    },
+    {
+      "file": "10-campaign-restored.jpg",
+      "kind": "native-screenshot",
+      "bytes": 129806,
+      "sha256": "c2de8dbc6bd2a47a78e00b0cd9d6709c4891f8de056e8b747b10d0413be3942b",
+      "copiedByteForByte": true,
+      "dimensions": [
+        1348,
+        926
+      ]
+    },
+    {
+      "file": "10-campaign-restored.txt",
+      "kind": "accessibility-tree",
+      "bytes": 5358,
+      "sha256": "6f30b1237acccc8b93b13503b48b6ccdd5cd04e21abd8cc33df956291872aa12",
+      "copiedByteForByte": true
+    },
+    {
+      "file": "preferences-before.txt",
+      "kind": "initial-preferences-accessibility",
+      "bytes": 4953,
+      "sha256": "6cdbc7793861834172ad4bdaa679c86ddd9e45dc892a4295c5dd1736eb168e2a",
+      "copiedByteForByte": true
+    },
+    {
+      "file": "preferences-after.txt",
+      "kind": "restored-preferences-accessibility",
+      "bytes": 4955,
+      "sha256": "e3be46f4ec6ef387701998559696b85a6d202d72b5125c5ced40d0817e3cfe83",
+      "copiedByteForByte": true
+    },
+    {
+      "file": "restoration.json",
+      "kind": "restoration-comparison",
+      "bytes": 2550,
+      "sha256": "440496c8aa96db84e6223dd4e981e8c64d0ee4df89f77dea8e2e259011264054",
+      "copiedByteForByte": true
+    }
+  ],
+  "excluded": {
+    "captureNames": [
+      "02-nacre-mi06-resume",
+      "03-nacre-mi06-pause"
+    ],
+    "reason": "Transition screenshots were temporarily desynchronized from the intended accessibility state; excluded from the retained visual evidence.",
+    "privateCampaignExports": "Excluded",
+    "importedFixtureExtracts": "Excluded"
+  },
+  "limits": [
+    "No mission completed during this native session.",
+    "No newly acquired PT02 or TE01, restored emitter or completed valve operation is claimed.",
+    "Nacre painted-valve readability remains limited by the HUD at the retained framing.",
+    "No human playtest, performance benchmark, full browser matrix or offline file:// test.",
+    "No conclusion about all application console errors from the capped extension-origin sample."
+  ]
+}
