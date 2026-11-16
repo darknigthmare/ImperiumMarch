@@ -1,0 +1,38 @@
+name: Materialize frozen offline delivery
+on:
+  push:
+    branches: [codex/painted-combat-sprites-20261116]
+permissions:
+  contents: read
+jobs:
+  materialize:
+    if: github.ref == 'refs/heads/codex/painted-combat-sprites-20261116'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Rebuild the reviewed standalone artifact
+        run: npm run build
+      - name: Verify the exact frozen artifact
+        env:
+          EXPECTED_SHA256: 44eb93556e7c881582634306a66ce08816d8a35ad1768fd4dc34ae54e5734b2a
+        run: |
+          node --input-type=module -e "import { readFileSync } from 'node:fs'; import { createHash } from 'node:crypto'; const actual = createHash('sha256').update(readFileSync('dist/Ordre_de_Cendre.html')).digest('hex'); if (actual !== process.env.EXPECTED_SHA256) throw new Error('Frozen standalone hash mismatch: ' + actual); console.log('Frozen standalone SHA-256 verified: ' + actual);"
+      - name: Commit only the verified standalone file
+        run: |
+          if git diff --quiet -- dist/Ordre_de_Cendre.html; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- dist/Ordre_de_Cendre.html
+          git commit -m 'build: materialize verified Ordre de Cendre 0.15.2 offline delivery'
+          git push origin HEAD:refs/heads/codex/painted-combat-sprites-20261116

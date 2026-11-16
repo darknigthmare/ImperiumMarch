@@ -1,8 +1,14 @@
 # ORDRE DE CENDRE — Campagne et continuité
 
-**Version de conception 0.12.0 · 11 novembre 2026**
+**Version de conception et de production 0.15.0 · 16 novembre 2026**
 
-Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. MI01–MI11 sont jouables au stade prototype, avec progression, dossier v11 et reprise. Les 21 missions MI12–MI32 et les seize contrats restent conçus. Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.9](NACRE_CONSEQUENCES_V09.md) précise les quatre sorties jouables, leurs populations et leurs arrivées distinctes. Les contrats de [MI09](CAMPAIGN_MISSION_09.md), [MI10](CAMPAIGN_MISSION_10.md) et [MI11](CAMPAIGN_MISSION_11.md) décrivent les trois sorties locales de Thyr.
+Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. **MI01–MI14 sont jouables au stade prototype**, avec progression, **dossier v14** et reprise. Les **18 missions MI15–MI32** et les seize contrats restent conçus.
+
+La source de la Bible contient **1 007 fiches** ; son contrat de classeur conserve **21 onglets, 20 tables et 126 formules**. La réception du nouvel export reste distincte de cette description de périmètre.
+
+Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.9](NACRE_CONSEQUENCES_V09.md) précise les quatre sorties jouables, leurs populations et leurs arrivées distinctes. Les contrats de [MI09](CAMPAIGN_MISSION_09.md), [MI10](CAMPAIGN_MISSION_10.md) et [MI11](CAMPAIGN_MISSION_11.md) gardent leurs détails historiques. Le [bilan de reconstruction](PRODUCTION_V14_RECONSTRUCTION.md) décrit MI12, quatrième sortie de Thyr, et MI13, première sortie de Kharon.
+
+La 0.14.1 a reconstruit MI12 et MI13 depuis la source publique 0.12 et les spécifications conservées des livraisons locales perdues. Ses [preuves de reconstruction](QA_RECONSTRUCTION_014.md) gardent cette portée historique. La 0.15 ajoute [MI14 — Les mains noires](CAMPAIGN_MISSION_14.md), deuxième sortie de Kharon, avec son [bilan de production](PRODUCTION_V15.md) et sa [réception distincte](QA_V15.md). Les missions et fins futures ci-dessous restent des objectifs de conception. La prochaine mission à produire est **MI15 — Sous le même numéro**.
 
 La campagne suit Sera Vey depuis ses premières opérations d’occupation jusqu’à une confrontation avec l’autorité qui les ordonnait. La défection est l’axe du récit. Les décisions déterminent qui part avec elle, ce qu’elle peut prouver, ce qu’elle laisse derrière elle et la forme du pouvoir après la bataille.
 
@@ -217,7 +223,7 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 #### MI12 — Le troisième relais
 
-**Lieu :** Thyr (PL03) · **État :** Conçu
+**Lieu :** Thyr (PL03) · **État :** Prototype reconstruit en 0.14.1
 
 **Ordre reçu.** Effacer les relais de la vallée avant une inspection d’Orison.
 
@@ -229,7 +235,7 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 #### MI13 — Pièces de rechange
 
-**Lieu :** Kharon (PL04) · **État :** Conçu
+**Lieu :** Kharon (PL04) · **État :** Prototype reconstruit en 0.14.1
 
 **Ordre reçu.** Escorter une cargaison prioritaire à la fonderie centrale.
 
@@ -241,15 +247,15 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 #### MI14 — Les mains noires
 
-**Lieu :** Kharon (PL04) · **État :** Conçu
+**Lieu :** Kharon (PL04) · **État :** Prototype jouable 0.15
 
 **Ordre reçu.** Réprimer l’arrêt d’un atelier jugé vital à l’effort de guerre.
 
-**Déroulement jouable.** Traverser la ligne de piquet sans écraser personne, neutraliser un automate de sécurité et réparer un refroidisseur.
+**Déroulement jouable.** Demander un passage et attendre le déplacement des huit ouvriers vers la galerie, traverser sans écraser, neutraliser l’automate après son alerte, isoler puis réparer le refroidisseur. La commande d’atelier s’accomplit sur place après le choix.
 
-**Ce que la mission révèle.** Les ouvriers refusent d’expédier un lot qu’ils savent saboté; plusieurs sont des déplacés de Nacre.
+**Ce que la mission révèle.** Les ouvriers refusent d’expédier un lot saboté. Trois sont des déplacés de Nacre arrivés avant le recensement connu, sans réemploi des habitants des MI05–MI08. L’explication et la copie du registre sont séparées ; le recoupement PT03 exige son acquisition antérieure.
 
-**Ce qui reste après la mission.** Grève sauvée ou brisée; accès à des mécaniciens et confiance de Tess.
+**Ce qui reste après la mission.** Arrêt maintenu ou redémarrage réellement accompli, refroidisseur et pertes conservés. L’accès aux mécaniciens exige une coopération achevée avec des survivants, après froid réparé et arrêt maintenu. Le [contrat MI14](CAMPAIGN_MISSION_14.md) distingue ces actes de la réaction de Tess. Aucune nouvelle preuve globale ni défection n’est accordée.
 
 #### MI15 — Sous le même numéro
 

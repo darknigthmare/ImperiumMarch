@@ -25,7 +25,7 @@ for (const legs of [2, 4, 6]) {
   assert.ok(Math.max(...family.map(w => w.height)) - Math.min(...family.map(w => w.height)) > 60);
 }
 assert.deepEqual(MISSIONS.map(m => m.planetId), ['PL01', 'PL02', 'PL03']);
-assert.deepEqual(CAMPAIGN_MISSIONS.map(m => m.id), ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11']);
+assert.deepEqual(CAMPAIGN_MISSIONS.map(m => m.id), ['MI01', 'MI02', 'MI03', 'MI04', 'MI05', 'MI06', 'MI07', 'MI08', 'MI09', 'MI10', 'MI11', 'MI12', 'MI13', 'MI14']);
 assert.equal(new Set(ALL_MISSIONS.map(m => m.id)).size, ALL_MISSIONS.length);
 for (const mission of CAMPAIGN_MISSIONS) {
   if (mission.id === 'MI01') {
@@ -74,6 +74,9 @@ for (const mission of CAMPAIGN_MISSIONS) {
     assert.equal(v.privateXs.length, 3); assert.equal(v.privateTypes.length, 3);
     assert.deepEqual(mission.civilianPositions, []);
   }
+  if (mission.id === 'MI12') { assert.equal(mission.relay.relayXs.length, 3); assert.equal(mission.relay.copyTime, 24); assert.equal(mission.relay.copyWindow, 45); assert.ok(mission.decision.refuse); }
+  if (mission.id === 'MI13') { assert.equal(mission.foundry.bridgeRanges.length, 2); assert.equal(mission.foundry.privateTypes.length, 3); assert.equal(mission.foundry.transferTime, 5); }
+  if (mission.id === 'MI14') { assert.equal(mission.type, 'workshop'); assert.equal(mission.workshop.securityDelay, 5); assert.equal(mission.workshop.repairTime, 8); assert.ok(mission.workshop.reportX < mission.extractionX); }
   assert.ok(mission.extractionX < mission.length);
   assert.equal(bible.sheets.flatMap(sheet => sheet.rows).find(row => row.id === mission.id)?.status, 'Prototype');
 }

@@ -1,0 +1,110 @@
+{
+  "version": "0.14.1",
+  "baselineVersion": "0.12.0",
+  "baselineWorkbookSha256": "e5ffbac8f2bfc252247635eeb76654894a208d12b96ca0771ceba6c1a4644b53",
+  "baselineSourceSha256": "b44100ba2d91fa2f50bfb2c75de8ff61182593d53a90cf165e524476c8d5bfc8",
+  "workbookSha256": "822c50157aac7f7b537b42a664d6091f4bb0921ea0d8a97b5a025c07762df29a",
+  "sourceSha256": "ca198b22793fd01dd5ec3d5e2aed316b8e73449993f2161d65255bd14aa79792",
+  "sheetOrderPreserved": true,
+  "stylesXmlUnchanged": true,
+  "columnGeometryUnchanged": true,
+  "viewsAndPanesUnchanged": true,
+  "unaffectedCellsCompared": 6914,
+  "unaffectedDataRowsCompared": 896,
+  "changedDataRows": [
+    {
+      "sheet": "Planètes",
+      "row": 9,
+      "id": "PL03",
+      "fields": [
+        "terrain"
+      ]
+    },
+    {
+      "sheet": "Planètes",
+      "row": 10,
+      "id": "PL04",
+      "fields": [
+        "terrain",
+        "status"
+      ]
+    },
+    {
+      "sheet": "Campagne",
+      "row": 18,
+      "id": "MI12",
+      "fields": [
+        "play",
+        "status"
+      ]
+    },
+    {
+      "sheet": "Campagne",
+      "row": 19,
+      "id": "MI13",
+      "fields": [
+        "play",
+        "status"
+      ]
+    },
+    {
+      "sheet": "Véhicules",
+      "row": 18,
+      "id": "VE12",
+      "fields": [
+        "encounter",
+        "status"
+      ]
+    },
+    {
+      "sheet": "Assets",
+      "row": 25,
+      "id": "AS19",
+      "fields": [
+        "spec",
+        "status"
+      ]
+    },
+    {
+      "sheet": "Production",
+      "row": 24,
+      "id": "PR18",
+      "fields": [
+        "deliverable"
+      ]
+    },
+    {
+      "sheet": "Production",
+      "row": 61,
+      "id": "PR55",
+      "fields": [
+        "deliverable",
+        "status"
+      ]
+    },
+    {
+      "sheet": "QA",
+      "row": 12,
+      "id": "QA06",
+      "fields": [
+        "status"
+      ]
+    }
+  ],
+  "changedDescriptions": [
+    {
+      "sheet": "Campagne",
+      "cell": "A3",
+      "before": "32 missions principales : MI01–MI11 jouables au stade prototype, 21 autres conçues. Thyr relie route vivante, terrain chimique et témoignage de Leth. OP01–OP03 restent autonomes.",
+      "after": "32 missions principales : MI01–MI13 jouables au stade prototype ; 19 autres conçues. OP01–OP03 restent autonomes."
+    },
+    {
+      "sheet": "Prototype",
+      "cell": "A3",
+      "before": "Portée présente dans le code de la version 0.12.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "after": "Portée présente dans le code de la version 0.14.1 reconstruite. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert."
+    }
+  ],
+  "scope": "Unchanged source cells, styles, row/column geometry and sheet views are compared exactly. Release labels, descriptions reconciled to source, and declared data edits are excluded only from value equality. New or changed text requires separate visual review. Summary formulas/results are independently reconciled by verify-bible-export.py.",
+  "passed": true
+}

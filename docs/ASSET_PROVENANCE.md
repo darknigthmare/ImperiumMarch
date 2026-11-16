@@ -1,6 +1,6 @@
 # Provenance des assets — Ordre de Cendre
 
-Référence mise à jour : 11 novembre 2026. Les images sont des créations visuelles produites pour ce projet. Aucune capture, texture ou bande-son de BE-A Walker ou d’une autre franchise n’a été incorporée.
+Référence mise à jour : 12 novembre 2026. Les images sont des créations visuelles produites pour ce projet. Aucune capture, texture ou bande-son de BE-A Walker ou d’une autre franchise n’a été incorporée.
 
 ## Images générées
 
@@ -86,3 +86,21 @@ Les six composants de `src/chemical-assets.mjs` sont des formes vectorielles ori
 Les [vingt-deux scènes de MI10](previews/mi10-scenes.json) sont produites par `tools/render-mi10-previews.mjs` depuis la fixture native v9 conservée. Dix-sept sorties sont conduites par les commandes publiques du moteur : six châssis, deux conduites et des variantes de dégâts. Chaque état est copié profondément avant de continuer. Le [reçu Canvas](previews/mi10-canvas-validation.json) vérifie la lecture des sauvegardes, l’absence de mutation par le renderer et les empreintes des sources. Ces images n’exercent ni le HUD HTML, ni les dialogues système, ni une commande matérielle.
 
 La comparaison raster ajoute les vingt-quatre états de ce kit aux quarante cas antérieurs. L’audit de distribution rapproche leurs octets avec les sources et la copie web. Le runtime dessine ses formes en code ; il ne télécharge pas les exports SVG pour les afficher. Les limites des illustrations historiques et des sons synthétiques restent celles de leurs sections précédentes.
+
+
+## Reconstruction des relais et de Kharon — 0.14.1
+
+Les exports locaux 0.13 et 0.14 ayant été perdus, les lots suivants ont été **réécrits à partir des exigences conservées et de la Bible du projet**. Il s’agit de nouveaux fichiers : leurs empreintes ne sont pas présentées comme celles des anciens exports. Les illustrations et les déclarations de provenance historiques décrites ci-dessus restent inchangées.
+
+| Lot reconstruit | Source de géométrie | Composants | SVG | Planches PNG | Octets des médias |
+| --- | --- | ---: | ---: | ---: | ---: |
+| MI12 — relais et Prétoire | `src/relay-assets.mjs` | 6 | 22 | 2 | 304 405 |
+| MI13 — Kharon et porteur industriel | `src/foundry-assets.mjs` | 8 | 29 | 2 | 398 627 |
+
+Le [manifeste MI12](../assets/relay/manifest.json) et le [manifeste MI13](../assets/foundry/manifest.json) conservent les versions, dates de production déclarées, auteurs ou méthode déclarés, dimensions nominales, pivots, ancres, états, tailles et SHA-256 de chaque export. Ils renvoient à `tools/build-relay-assets.mjs` et `tools/build-foundry-assets.mjs`, ainsi qu’aux renderers de leurs missions. La méthode déclarée est une géométrie vectorielle originale écrite pour ce projet et partagée entre les exports SVG et le dessin Canvas. Aucun asset d’un jeu tiers n’est déclaré dans ces lots. Cette déclaration d’originalité ne constitue pas un acte de licence supplémentaire.
+
+Dans MI12, les relais, les originaux, les copies, le Prétoire, ses composants et ses véritables appuis appartiennent à la simulation. Dans MI13, il en va de même pour le porteur, ses quatre roues, les deux caisses, leurs transferts partiels, les circuits thermiques et les phases de vapeur. Les dessins consomment ces états : ils ne produisent ni copie acquise, ni ennemi arrivé, ni PT03. Les SVG sont des exports de travail ; le runtime utilise leur géométrie en code et ne les télécharge pas comme images.
+
+Les planches PNG présentent les composants et états à des échelles indiquées. Elles ne constituent ni des captures de navigateur ni une réception artistique humaine. Les scènes Canvas de reconstruction et leurs dossiers préparés se trouvent dans `docs/validation/rebuild-mi12/` et `docs/validation/rebuild-mi13/`, avec leurs manifestes. Elles restent des preuves de simulation et de rendu distinctes des anciennes captures natives. Les médias de `docs/` sont inventoriés mais exclus du jeu autonome et du build web.
+
+`tools/audit-media-provenance.mjs --strict` enregistre les deux lots dans le registre de distribution, recalcule les comptes et les octets réellement présents, vérifie chaque hash d’export et le hash de la source géométrique déclaré par le manifeste, puis rapproche les copies web et les modules présents dans le HTML autonome. Le relevé identifie aussi le générateur et le renderer par SHA-256. Un nom de police système, une date de dépôt ou une déclaration d’originalité n’est pas transformé en fichier distribué, en date de génération certaine ou en autorisation de redistribution.

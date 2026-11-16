@@ -1,0 +1,77 @@
+{
+  "version": "0.15.1",
+  "reviewedAt": "2026-11-16T09:04:36.153Z",
+  "scope": "Five newly rendered PNG views were individually inspected: summary and all five modified source rows. Unchanged-cell/style preservation and formula/export checks are received separately. This review does not certify native spreadsheet interaction, game rendering, browser use, human usability or unshown sheet areas.",
+  "workbookSha256": "c11424ae83698ee6c46f69ba0e8a8392e78aac2ec59000817f64f1ad02cb76b4",
+  "sourceSha256": "18a3f993e12de4347c4f42b179d349fe0d3f29bbed4e9380e77e609d846b5454",
+  "reviewedViews": 5,
+  "changedRowsCovered": [
+    "AS19",
+    "PR99",
+    "PX117",
+    "PX118",
+    "PX121"
+  ],
+  "addedRowsCovered": [],
+  "previews": [
+    {
+      "file": "00-Synthese.png",
+      "path": "docs/previews/bible-v0151/00-Synthese.png",
+      "sheet": "Synthèse",
+      "range": "A1:G32",
+      "sha256": "6424472445c3489521cb489379a5ec445681086764310f8351116605b6ab7c9b",
+      "width": 1250,
+      "height": 999,
+      "method": "fresh_artifact_tool_render_individually_inspected",
+      "observation": "Version 0.15.1, titre, vingt domaines, statuts et total 1 007 lisibles ; aucun chevauchement observé."
+    },
+    {
+      "file": "kit-kharon.png",
+      "path": "docs/previews/bible-v0151/kit-kharon.png",
+      "sheet": "Assets",
+      "range": "A25:G25",
+      "sha256": "3948065b1aa6898d420b36b8177f94fcffd70f8d271a0158042464ec176fe615",
+      "width": 2380,
+      "height": 108,
+      "method": "fresh_artifact_tool_render_individually_inspected",
+      "observation": "AS19 : huit atlas, 54 cellules et limites de finition lisibles ; statut Prototype conservé."
+    },
+    {
+      "file": "production-atlas.png",
+      "path": "docs/previews/bible-v0151/production-atlas.png",
+      "sheet": "Production",
+      "range": "A105:G105",
+      "sha256": "d5495675bbf13f120e4ed0b2d7300bb8050f0b51bd898b572fb5b88c559a7b64",
+      "width": 2260,
+      "height": 89,
+      "method": "fresh_artifact_tool_render_individually_inspected",
+      "observation": "PR99 : deux tenues, seize poses de marche et états des machines lisibles ; références et statut visibles."
+    },
+    {
+      "file": "personnes-machines.png",
+      "path": "docs/previews/bible-v0151/personnes-machines.png",
+      "sheet": "Prototype",
+      "range": "A123:G124",
+      "sha256": "b7de8ab9d7c20737dc361aede768d218090f30c013c85189f20ec0f22750f437",
+      "width": 2480,
+      "height": 177,
+      "method": "fresh_artifact_tool_render_individually_inspected",
+      "observation": "PX117 et PX118 : descriptions, limites, références et chemins lisibles sans chevauchement ; poses agenouillées explicitement de référence."
+    },
+    {
+      "file": "kit-atelier.png",
+      "path": "docs/previews/bible-v0151/kit-atelier.png",
+      "sheet": "Prototype",
+      "range": "A127:G127",
+      "sha256": "922cdabba6cc5f3dcff778a120fd99a5e8790e35d87f0a179f83ddcbcc29eb01",
+      "width": 2480,
+      "height": 108,
+      "method": "fresh_artifact_tool_render_individually_inspected",
+      "observation": "PX121 : 24 cellules de personnes et 30 de machines/accessoires, sources et limites lisibles avec renvois à la ligne."
+    }
+  ],
+  "openVisualIssues": [],
+  "nativeInteractiveReviewPerformed": false,
+  "nativeRecalculationPerformedThisPatch": false,
+  "passed": true
+}

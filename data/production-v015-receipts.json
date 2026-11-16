@@ -1,0 +1,87 @@
+{
+  "version": "0.15.0",
+  "scope": "Explicit MI14 work against the immutable 133 original pending criteria. Workbook and Canvas/raster reception are complete in their stated scope; final simulation, dossier, DOM and browser reception are in progress. No human or unexecuted automatic reception is inferred. Final evidence hashes are not frozen yet.",
+  "records": [
+    {
+      "id": "AS19",
+      "state": "partial_prototype_received",
+      "statusBasis": "Le kit de l’atelier MI14 prolonge Kharon au stade prototype. Son manifeste, ses silhouettes SVG/Canvas et ses scènes de mission sont reçus séparément des contrôles navigateur et humains.",
+      "workPerformed": [
+        "Sept composants d’atelier partagent leur géométrie SVG et Canvas. Les 29 états de base et quatre variantes de mécanicien fournissent 33 SVG, 33 PNG transparents et deux planches.",
+        "Le rendu suit les positions réelles des ouvriers, la galerie commune, les opérations du refroidisseur, la copie ou la perte du lot et les deux conduites. Quatorze vues Canvas et sept exports de campagne documentent quatre parcours achevés.",
+        "Les 33 comparaisons raster passent, avec un recouvrement minimal des silhouettes SVG/Canvas de 99,89 %. La géométrie et les outils comparés disposent de leurs empreintes exactes."
+      ],
+      "deliverables": [
+        "src/workshop-assets.mjs",
+        "src/workshop-renderer.mjs",
+        "src/renderer.mjs",
+        "assets/workshop/manifest.json",
+        "assets/workshop/README.md",
+        "tools/build-workshop-assets.mjs",
+        "tools/render-mi14-previews.mjs"
+      ],
+      "evidence": [
+        "assets/workshop/manifest.json",
+        "docs/validation/mi14-canvas.json",
+        "docs/validation/mi14-raster.json"
+      ],
+      "remainingWork": "Achever l’art de Kharon et de Sereis, les décors MI15–MI16, les effets finaux et leur réception humaine. Les scènes Canvas et les comparaisons raster conservent une portée distincte du navigateur et de la validation humaine."
+    },
+    {
+      "id": "PR18",
+      "state": "prototype_implemented_validation_in_progress",
+      "statusBasis": "L’atelier MI14 est implémenté au stade prototype ; les contrôles finaux de simulation, de dossier et de DOM sont encore en cours. Le critère initial de l’acte II reste À produire.",
+      "workPerformed": [
+        "MI14 ajoute huit ouvriers, un passage physique, l’automate différé, inspection/isolation/réparation du froid, explication et copie distinctes, puis commande matérielle et coopération conditionnelle.",
+        "Le dossier v14 ajoute le domaine d’atelier et conserve les fixtures v13 issues de la reconstruction locale figée. Leur manifeste distingue exports préparés en simulation et réception navigateur.",
+        "Les deux conduites sont parcourues dans les scènes Canvas. Les tests finaux de simulation, de reprise, de falsification et de DOM demeurent en vérification et ne sont pas reçus par la seule présence de leurs fichiers."
+      ],
+      "deliverables": [
+        "docs/CAMPAIGN_MISSION_14.md",
+        "docs/CAMPAIGN_SAVE_V14.md",
+        "src/workshop-simulation.mjs",
+        "src/workshop-validation.mjs",
+        "src/campaign.mjs",
+        "src/main.mjs",
+        "tests/campaign-v14.test.mjs"
+      ],
+      "evidence": [
+        "docs/validation/v015-historic-v13.json",
+        "docs/validation/mi14-canvas.json"
+      ],
+      "remainingWork": "Recevoir les contrôles finaux MI14, puis produire MI15–MI16, CT05–CT08 et la défection de MI16. Les sensations, les parcours humains et la finition de l’acte II restent ouverts ; leurs réceptions ne se déduisent pas de tests automatiques."
+    },
+    {
+      "id": "PR02",
+      "state": "workbook_received_native_interaction_open",
+      "statusBasis": "La bible est à jour, exportée, contrôlée en ZIP/XML, relue sur ses changements et recalculée avec LibreOffice headless. QA29 garde la réception de tri, filtres, volets et édition dans une application bureautique interactive.",
+      "workPerformed": [
+        "La source et le classeur 0.15 contiennent 1 007 fiches : les 977 IDs de la reconstruction locale 0.14.1 sont conservés et 30 fiches MI14 sont ajoutées. Les 133 critères de production initiaux conservent leur texte et les reçus historiques.",
+        "L’export indépendant compare 6 767 cellules source, 21 onglets, 20 tables, 126 formules sans erreur, 20 validations, 80 règles conditionnelles et vingt feuilles de données à volets figés. Les références se résolvent et les sept mutations négatives sont rejetées.",
+        "Seize aperçus de la synthèse et des lignes modifiées ou ajoutées ont été individuellement examinés, sans texte coupé ni chevauchement observé. Les 7 385 cellules et 971 lignes historiques inchangées gardent leurs styles, géométrie et vues.",
+        "LibreOffice headless a reconstruit les 126 caches supprimés dans une copie jetable en 13,434 secondes ; résultats, valeurs et structure contrôlée concordent et le XLSX livré est resté intact.",
+        "L’outil de mise à jour lit la fixture figée sans la réécrire. Son idempotence est vérifiée dans le dépôt et dans une copie sans Git ; aucune baseline n’est recréée depuis les fiches courantes."
+      ],
+      "deliverables": [
+        "data/bible.json",
+        "data/bible-v015-previews.json",
+        "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+        "docs/BIBLE_README.md",
+        "tools/update-bible-v015.mjs",
+        "tools/verify-bible-export.py"
+      ],
+      "evidence": [
+        "docs/validation/workbook-v0.15-validation.json",
+        "docs/validation/workbook-v0.15-export.json",
+        "docs/validation/workbook-v0.15-references.json",
+        "docs/validation/production-v015-reference-probes.json",
+        "docs/validation/workbook-v0.15-layout.json",
+        "docs/validation/workbook-v0.15-visual-review.json",
+        "docs/validation/workbook-v0.15-libreoffice.json",
+        "docs/validation/bible-v015-update-tool.json",
+        "docs/validation/workbook-v0.15-baseline-check.json"
+      ],
+      "remainingWork": "Recevoir QA29 par des gestes interactifs de tri, filtre, volets et édition dans un logiciel bureautique. Aucun essai Excel desktop ni validation humaine du jeu n’est établi par cette réception du classeur."
+    }
+  ]
+}

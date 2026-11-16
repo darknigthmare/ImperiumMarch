@@ -1,0 +1,84 @@
+{
+  "version": "0.15.0",
+  "baselineVersion": "0.14.1",
+  "baselineWorkbookSha256": "822c50157aac7f7b537b42a664d6091f4bb0921ea0d8a97b5a025c07762df29a",
+  "baselineSourceSha256": "ca198b22793fd01dd5ec3d5e2aed316b8e73449993f2161d65255bd14aa79792",
+  "workbookSha256": "fad553470475550b71b96465550f6e61a0f593bd6a89c4ef131224a2c78ca254",
+  "sourceSha256": "a14243d0897c5ec0af1170c622e9f101c6a7cb075b9e68c9bdc3b1db71a12c0c",
+  "sheetOrderPreserved": true,
+  "stylesXmlUnchanged": true,
+  "columnGeometryUnchanged": true,
+  "viewsAndPanesUnchanged": true,
+  "unaffectedCellsCompared": 7385,
+  "unaffectedDataRowsCompared": 971,
+  "changedDataRows": [
+    {
+      "sheet": "Planètes",
+      "row": 10,
+      "id": "PL04",
+      "fields": [
+        "terrain"
+      ]
+    },
+    {
+      "sheet": "Campagne",
+      "row": 20,
+      "id": "MI14",
+      "fields": [
+        "play",
+        "truth",
+        "consequence",
+        "status"
+      ]
+    },
+    {
+      "sheet": "Assets",
+      "row": 25,
+      "id": "AS19",
+      "fields": [
+        "spec"
+      ]
+    },
+    {
+      "sheet": "Production",
+      "row": 24,
+      "id": "PR18",
+      "fields": [
+        "deliverable"
+      ]
+    },
+    {
+      "sheet": "Production",
+      "row": 103,
+      "id": "PR97",
+      "fields": [
+        "deliverable",
+        "acceptance"
+      ]
+    },
+    {
+      "sheet": "Prototype",
+      "row": 121,
+      "id": "PX115",
+      "fields": [
+        "limits"
+      ]
+    }
+  ],
+  "changedDescriptions": [
+    {
+      "sheet": "Campagne",
+      "cell": "A3",
+      "before": "32 missions principales : MI01–MI13 jouables au stade prototype ; 19 autres conçues. OP01–OP03 restent autonomes.",
+      "after": "32 missions principales : MI01–MI14 jouables au stade prototype ; 18 autres conçues. OP01–OP03 restent autonomes."
+    },
+    {
+      "sheet": "Prototype",
+      "cell": "A3",
+      "before": "Portée présente dans le code de la version 0.14.1 reconstruite. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "after": "Portée présente dans le code de la version 0.15.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert."
+    }
+  ],
+  "scope": "Unchanged source cells, styles, row/column geometry and sheet views are compared exactly. Release labels, descriptions reconciled to source, and declared data edits are excluded only from value equality. New or changed text requires separate visual review. Summary formulas/results are independently reconciled by verify-bible-export.py.",
+  "passed": true
+}

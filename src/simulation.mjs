@@ -1,4 +1,5 @@
 import { WALKERS, MISSIONS, ALL_MISSIONS, ENEMY_TYPES, DIFFICULTIES } from './content.mjs';
+import { ENEMY_WEAPON_RIGS, enemyWeaponPose } from './enemy-weapon-pose.mjs';
 import { createChemicalMission, chemicalSurface, chemicalSolids, refreshChemicalFacts, chemicalInteraction,
   interactChemicalMission, chooseChemicalMission, chemicalFootfall, hitChemicalPart, updateChemicalMission,
   chemicalObjectives } from './chemical-simulation.mjs';
@@ -8,6 +9,16 @@ import { createVoiceMission, voiceSurface, voiceSolids, refreshVoiceFacts, voice
   interactVoiceMission, chooseVoiceMission, voiceFootfall, hitVoicePart, updateVoiceMission, voiceObjectives } from './voice-simulation.mjs';
 export { voiceContext, voiceDecisionBody, voiceReceiptRoster, voiceDerivedFacts } from './voice-simulation.mjs';
 
+import { createRelayMission, relaySurface, relaySolids, refreshRelayFacts, relayInteraction, interactRelayMission, chooseRelayMission, hitRelayPart, updateRelayMission, relayObjectives } from './relay-simulation.mjs';
+export { relayContext, relayDecisionBody, relayReceiptRoster, relayDerivedFacts } from './relay-simulation.mjs';
+import { createFoundryMission, foundrySurface, foundrySolids, refreshFoundryFacts, foundryInteraction, interactFoundryMission, chooseFoundryMission, foundryFootfall, hitFoundryPart, updateFoundryMission, foundryObjectives } from './foundry-simulation.mjs';
+export { foundryContext, foundryDecisionBody, foundryReceiptRoster, foundryDerivedFacts } from './foundry-simulation.mjs';
+import { createWorkshopMission, workshopSurface, workshopSolids, refreshWorkshopFacts, workshopInteraction, interactWorkshopMission, chooseWorkshopMission, workshopFootfall, hitWorkshopPart, updateWorkshopMission, workshopObjectives } from './workshop-simulation.mjs';
+export { workshopContext, workshopDecisionBody, workshopReceiptRoster, workshopDerivedFacts } from './workshop-simulation.mjs';
+
+const relayRuntime = { terrainAt, emit, finish };
+const foundryRuntime = { terrainAt, emit, finish };
+const workshopRuntime = { terrainAt, emit, finish };
 const chemicalRuntime = { terrainAt, emit };
 const voiceRuntime = { terrainAt, emit };
 
@@ -24,6 +35,9 @@ export function terrainAt(x, planetId = 'PL01') {
 
 export function chemicalSurfaceAt(s, x) { return chemicalSurface(s, x, terrainAt(x, s.planetId)); }
 export function voiceSurfaceAt(s, x) { return voiceSurface(s, x, terrainAt(x, s.planetId)); }
+export function relaySurfaceAt(s, x) { return relaySurface(s, x, terrainAt(x, s.planetId)); }
+export function foundrySurfaceAt(s, x) { return foundrySurface(s, x, terrainAt(x, s.planetId)); }
+export function workshopSurfaceAt(s, x) { return workshopSurface(s, x, terrainAt(x, s.planetId)); }
 
 function random(s) {
   s.rng = (Math.imul(s.rng, 1664525) + 1013904223) >>> 0;
@@ -348,7 +362,27 @@ export function createGame(options = {}) {
   if (mission.id === 'MI09') createLivingRouteMission(state, options.campaignContext || {});
   if (mission.id === 'MI10') createChemicalMission(state, options.campaignContext || {}, chemicalRuntime);
   if (mission.id === 'MI11') createVoiceMission(state, options.campaignContext || {}, voiceRuntime);
+  if (mission.id === 'MI12') {
+    state.decision.options.push({ id: 'refuse', label: mission.decision.refuse });
+    createRelayMission(state, options.campaignContext || {}, relayRuntime);
+  }
+  if (mission.id === 'MI13') createFoundryMission(state, options.campaignContext || {}, foundryRuntime);
+  if (mission.id === 'MI14') createWorkshopMission(state, options.campaignContext || {}, workshopRuntime);
   state.enemies = spawnEnemies(state);
+  if (mission.id === 'MI14') {
+    const unit = enemy(state, 'automaton', mission.workshop.securityX, state.enemies.length);
+    unit.id = 'workshop-security-1'; state.enemies.push(unit);
+    refreshWorkshopFacts(state);
+    emit(state, 'radio', 'Tess : « Huit personnes devant nos appuis. Le poste du piquet est avant la première rangée. Demande le passage sous ancrage et laisse-les gagner la galerie. »');
+  }
+  if (mission.id === 'MI13') {
+    for (const [i, x] of mission.foundry.privateXs.entries()) {
+      const unit = enemy(state, mission.foundry.privateTypes[i], x, state.enemies.length);
+      unit.id = `foundry-private-${i + 1}`; state.enemies.push(unit);
+    }
+    refreshFoundryFacts(state);
+    emit(state, 'radio', 'Tess : « Deux caisses, deux circuits chauds. Les vannes sont en amont des ponts. Copions les marquages avant d’engager le porteur. »');
+  }
   if (mission.id === 'MI11') {
     for (const [i, x] of mission.voice.privateXs.entries()) {
       const unit = enemy(state, mission.voice.privateTypes[i], x, state.enemies.length);
@@ -709,6 +743,9 @@ function interactTrainMission(s) {
 
 function interact(s) {
   if (s.status !== 'playing' || s.decision.active) return false;
+  if (s.missionId === 'MI12') { const changed = interactRelayMission(s, relayRuntime); refreshRelayFacts(s); refreshObjectives(s); return changed; }
+  if (s.missionId === 'MI13') { const changed = interactFoundryMission(s, foundryRuntime); refreshFoundryFacts(s); refreshObjectives(s); return changed; }
+  if (s.missionId === 'MI14') { const changed = interactWorkshopMission(s, workshopRuntime); refreshWorkshopFacts(s); refreshObjectives(s); return changed; }
   if (s.missionId === 'MI11') {
     const changed = interactVoiceMission(s, voiceRuntime);
     refreshVoiceFacts(s); refreshObjectives(s); return changed;
@@ -763,8 +800,11 @@ export function commandGame(s, action, payload) {
   if (!s || s.status !== 'playing') return false;
   if (action === 'assist') { s.assist = Boolean(payload); return true; }
   if (action === 'choice') {
-    if (!s.decision.active || s.decision.resolved || !(s.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : ['obey', 'defy']).includes(payload)) return false;
+    if (!s.decision.active || s.decision.resolved || !(s.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : s.missionId === 'MI12' ? ['obey', 'defy', 'refuse'] : ['obey', 'defy']).includes(payload)) return false;
     s.decision.choice = payload; s.decision.resolved = true; s.decision.active = false;
+    if (s.missionId === 'MI12') { chooseRelayMission(s, payload, relayRuntime); refreshObjectives(s); return true; }
+    if (s.missionId === 'MI13') { chooseFoundryMission(s, payload, foundryRuntime); refreshObjectives(s); return true; }
+    if (s.missionId === 'MI14') { chooseWorkshopMission(s, payload, workshopRuntime); refreshObjectives(s); return true; }
     if (s.missionId === 'MI11') {
       chooseVoiceMission(s, payload, voiceRuntime); refreshObjectives(s); return true;
     }
@@ -913,6 +953,8 @@ function enemyPresent(s, e) {
   if (e.id.startsWith('thyr-sniper-') && !s.livingRoute?.alert.triggered) return false;
   if (e.id.startsWith('chemical-private-') && !s.chemical?.alert.ready) return false;
   if (e.id.startsWith('voice-private-') && !s.voice?.alert.ready) return false;
+  if (e.id.startsWith('foundry-private-') && !s.foundry?.alert.ready) return false;
+  if (e.id === 'workshop-security-1' && !s.workshop?.alert.ready) return false;
   if (e.id === 'private-hauler' && s.industrial?.retreatEscaped) return false;
   return e.id !== 'holt-observer' || Boolean(s.network?.scrutinyTriggered);
 }
@@ -1028,6 +1070,8 @@ function stomp(s, f) {
   if (s.livingRoute) livingRouteFootfall(s, f);
   if (s.chemical) chemicalFootfall(s, f, chemicalRuntime);
   if (s.voice) voiceFootfall(s, f, voiceRuntime);
+  if (s.foundry) foundryFootfall(s, f, foundryRuntime);
+  if (s.workshop) workshopFootfall(s, f, workshopRuntime);
   // A pipe incident is caused by a real planted foot, never by camera/body position.
   if (s.missionId === 'MI01' && f.contact && !s.campaign.passageSecured && s.campaign.pipeIntact &&
       f.x >= s.mission.passage.pipeFrom && f.x <= s.mission.passage.pipeTo &&
@@ -1095,11 +1139,11 @@ function updateWalker(s, dt, input) {
       if (f.progress >= 1) { f.phase = 'stance'; f.contact = true; f.y = walkerGroundAt(s, f.x); stomp(s, f); }
     }
   }
-  if (s.livingRoute || s.chemical || s.voice) for (const foot of p.feet) if (foot.contact) foot.y = walkerGroundAt(s, foot.x);
+  if (s.livingRoute || s.chemical || s.voice || s.relay || s.foundry || s.workshop) for (const foot of p.feet) if (foot.contact) foot.y = walkerGroundAt(s, foot.x);
   const anchor = p.feet.reduce((sum, f) => sum + f.x - f.homeOffset, 0) / p.feet.length;
   const lastX = p.x;
   p.anchorX = anchor;
-  const surfaceSpeed = s.channel ? channelSurfaceAt(s, p.x).traction : s.livingRoute ? livingRouteSurfaceAt(s, p.x).traction : s.chemical ? chemicalSurfaceAt(s, p.x).traction : s.voice ? voiceSurfaceAt(s, p.x).traction : 1;
+  const surfaceSpeed = s.channel ? channelSurfaceAt(s, p.x).traction : s.livingRoute ? livingRouteSurfaceAt(s, p.x).traction : s.chemical ? chemicalSurfaceAt(s, p.x).traction : s.voice ? voiceSurfaceAt(s, p.x).traction : s.relay ? relaySurfaceAt(s, p.x).traction : s.foundry ? foundrySurfaceAt(s, p.x).traction : s.workshop ? workshopSurfaceAt(s, p.x).traction : 1;
   p.x += clamp((anchor - p.x) * 6 * dt, -s.walker.speed * surfaceSpeed * dt, s.walker.speed * surfaceSpeed * dt);
   p.x = clamp(p.x, 110, s.mission.length - 110);
   p.speed = (p.x - lastX) / Math.max(dt, 0.0001);
@@ -1144,10 +1188,11 @@ function enemyFire(s, e) {
     if (Math.abs(e.x - s.player.x) < e.range + s.player.width / 2) damagePlayer(s, e.damage, e.x, terrainAt(e.x, s.planetId) - 30);
     return;
   }
-  const angle = Math.atan2(e.targetY - e.y, e.targetX - e.x);
+  const weapon = enemyWeaponPose(e, { aiming: true });
+  const angle = weapon?.angle ?? Math.atan2(e.targetY - e.y, e.targetX - e.x);
   const rocket = e.type === 'rocket' || e.type === 'boss';
-  const x = e.x + Math.cos(angle) * e.w / 2;
-  const y = e.y + Math.sin(angle) * e.w / 2;
+  const x = weapon?.muzzle[0] ?? e.x + Math.cos(angle) * e.w / 2;
+  const y = weapon?.muzzle[1] ?? e.y + Math.sin(angle) * e.w / 2;
   s.projectiles.push({ id: `enemy-shot-${++s.entityId}`, x, y, prevX: x, prevY: y,
     vx: Math.cos(angle) * e.projectileSpeed, vy: Math.sin(angle) * e.projectileSpeed,
     team: 'enemy', type: rocket ? 'rocket' : 'bullet', damage: e.damage,
@@ -1165,6 +1210,8 @@ function updateEnemies(s, dt) {
     if (e.id.startsWith('thyr-sniper-') && !s.livingRoute?.alert.triggered) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id.startsWith('chemical-private-') && !s.chemical?.alert.ready) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id.startsWith('voice-private-') && !s.voice?.alert.ready) { e.active = false; e.phase = 'idle'; continue; }
+    if (e.id.startsWith('foundry-private-') && !s.foundry?.alert.ready) { e.active = false; e.phase = 'idle'; continue; }
+    if (e.id === 'workshop-security-1' && !s.workshop?.alert.ready) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'holt-observer' && !s.campaign?.holtAlerted) { e.active = false; e.phase = 'idle'; continue; }
     if (e.id === 'private-hauler') {
       const site = s.industrial;
@@ -1186,7 +1233,7 @@ function updateEnemies(s, dt) {
     }
     const delta = Math.abs(e.x - p.x);
     if (s.missionId === 'MI01' && !s.notified.ambush) { e.active = false; e.phase = 'idle'; continue; }
-    e.active = delta < 1150 || Boolean(s.voice?.alert.ready && e.id.startsWith('voice-private-')) || Boolean(s.chemical?.alert.ready && e.id.startsWith('chemical-private-')) || Boolean(s.livingRoute && s.livingRoute.logistics.released && !s.livingRoute.logistics.arrived && !s.livingRoute.logistics.destroyed && Math.abs(e.x - s.livingRoute.logistics.x) < 1000) || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
+    e.active = Boolean(s.workshop?.alert.ready && e.id === 'workshop-security-1') || Boolean(s.foundry?.alert.ready && e.id.startsWith('foundry-private-')) || delta < 1150 || Boolean(s.voice?.alert.ready && e.id.startsWith('voice-private-')) || Boolean(s.chemical?.alert.ready && e.id.startsWith('chemical-private-')) || Boolean(s.livingRoute && s.livingRoute.logistics.released && !s.livingRoute.logistics.arrived && !s.livingRoute.logistics.destroyed && Math.abs(e.x - s.livingRoute.logistics.x) < 1000) || Boolean(s.convoy && Math.abs(e.x - s.convoy.x) < 900)
       || Boolean(s.channel && s.campaign.channelOpen && !s.channel.boat.arrived && !s.channel.boat.destroyed && Math.abs(e.x - s.channel.boat.x) < 900)
       || Boolean(s.dike && [...s.dike.technicians.filter(t => t.called), ...s.dike.residents.filter(r => r.phase === 'evacuating')].some(person => person.alive && !person.safe && Math.abs(e.x - person.x) < 900))
       || Boolean(s.ambulance && (s.ambulance.vehicle.called && !s.ambulance.vehicle.destroyed && Math.abs(e.x - s.ambulance.vehicle.x) < 900
@@ -1223,6 +1270,11 @@ function updateEnemies(s, dt) {
     if (s.voice?.leth.met && s.voice.leth.alive && !s.voice.leth.testimonyRecorded && !s.voice.leth.refused && !s.voice.leth.withdrawn) target = s.voice.leth;
     e.attackTarget = target === s.voice?.leth ? 'voice-leth' : target === s.chemical?.sampler ? 'chemical-sampler' : target === s.livingRoute?.logistics ? 'logistics' : target === p ? 'player' : target === s.channel?.boat ? 'boat' : s.dike?.technicians.includes(target) ? 'technician' : s.dike?.residents.includes(target) ? 'resident' : target === s.ambulance?.vehicle ? 'ambulance' : s.ambulance?.staff.includes(target) ? 'medical-staff' : s.ambulance?.patients.includes(target) ? 'patient' : s.departure?.boats.includes(target) ? 'departure-boat' : s.departure?.people.includes(target) ? 'departure-person' : 'convoy';
     const td = Math.abs(e.x - target.x);
+    // A shot and the image drawn for this same simulation tick must share the
+    // current body transform, including the drone's real altitude oscillation.
+    if (ENEMY_WEAPON_RIGS[e.type]) e.y = e.type === 'drone'
+      ? terrainAt(e.x, s.planetId) - 190 + Math.sin(s.elapsed * 1.5 + e.dronePhase) * 23
+      : terrainAt(e.x, s.planetId) - e.h / 2;
     if (e.phase === 'attack') {
       e.telegraph = Math.min(1, e.telegraph + dt / e.windup);
       if (e.telegraph >= 1) {
@@ -1317,6 +1369,21 @@ function explosion(s, shot, direct = null) {
     const distance = dist(part.x, part.y, shot.x, shot.y);
     if (distance < radius + part.w * .35) hitLivingRoutePart(s, part, shot.damage * .7 * (1 - distance / (radius + part.w * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1));
   }
+  if (s.relay) for (const part of relaySolids(s)) {
+    if (part === direct || part.destroyed) continue;
+    const distance = dist(part.x, part.y, shot.x, shot.y);
+    if (distance < radius + part.w * .35) hitRelayPart(s, part, shot.damage * .7 * (1 - distance / (radius + part.w * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1), relayRuntime);
+  }
+  if (s.foundry) for (const part of foundrySolids(s)) {
+    if (part === direct || part.destroyed) continue;
+    const distance = dist(part.x, part.y, shot.x, shot.y);
+    if (distance < radius + part.w * .35) hitFoundryPart(s, part, shot.damage * .7 * (1 - distance / (radius + part.w * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1), foundryRuntime);
+  }
+  if (s.workshop) for (const part of workshopSolids(s)) {
+    if (part === direct || part.destroyed) continue;
+    const distance = dist(part.x, part.y, shot.x, shot.y);
+    if (distance < radius + part.w * .35) hitWorkshopPart(s, part, shot.damage * .7 * (1 - distance / (radius + part.w * .35)) * (shot.team === 'enemy' ? s.difficulty.damage : 1), workshopRuntime);
+  }
   if (s.voice) for (const part of voiceSolids(s)) {
     if (part === direct || part.destroyed) continue;
     const distance = dist(part.x, part.y, shot.x, shot.y);
@@ -1395,6 +1462,9 @@ function updateProjectiles(s, dt) {
     }
     if (s.livingRoute) for (const part of livingRouteSolids(s)) if (!part.destroyed) test(part, 'living-route');
     if (s.chemical) for (const part of chemicalSolids(s)) if (!part.destroyed) test(part, 'chemical');
+    if (s.relay) for (const part of relaySolids(s)) if (!part.destroyed) test(part, 'relay-mission');
+    if (s.foundry) for (const part of foundrySolids(s)) if (!part.destroyed) test(part, 'foundry-mission');
+    if (s.workshop) for (const part of workshopSolids(s)) if (!part.destroyed) test(part, 'workshop-mission');
     if (s.voice) for (const part of voiceSolids(s)) if (!part.destroyed) test(part, 'voice');
     if (s.departure) {
       for (const part of departureSolids(s)) if (!part.destroyed) {
@@ -1423,6 +1493,9 @@ function updateProjectiles(s, dt) {
       if (hit.kind === 'radiator') damageRadiator(s, shot.damage, shot.x, shot.y);
       if (hit.kind === 'ambulance') hitAmbulancePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
       if (hit.kind === 'living-route') hitLivingRoutePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
+      if (hit.kind === 'relay-mission') hitRelayPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1), relayRuntime);
+      if (hit.kind === 'foundry-mission') hitFoundryPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1), foundryRuntime);
+      if (hit.kind === 'workshop-mission') hitWorkshopPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1), workshopRuntime);
       if (hit.kind === 'voice') hitVoicePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1), voiceRuntime);
       if (hit.kind === 'chemical') hitChemicalPart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1), chemicalRuntime);
       if (hit.kind === 'departure') hitDeparturePart(s, hit.entity, shot.damage * (shot.team === 'enemy' ? s.difficulty.damage : 1));
@@ -3050,7 +3123,7 @@ export function livingRouteSurfaceAt(s, x) {
     clearance: x >= s.mission.livingRoute.canopyFrom && x <= s.mission.livingRoute.canopyTo ? route.approach.clearance : 1000 };
 }
 
-function walkerGroundAt(s, x) { return s.livingRoute ? livingRouteSurfaceAt(s, x).groundY : s.chemical ? chemicalSurfaceAt(s, x).groundY : s.voice ? voiceSurfaceAt(s, x).groundY : terrainAt(x, s.planetId); }
+function walkerGroundAt(s, x) { return s.livingRoute ? livingRouteSurfaceAt(s, x).groundY : s.chemical ? chemicalSurfaceAt(s, x).groundY : s.voice ? voiceSurfaceAt(s, x).groundY : s.relay ? relaySurfaceAt(s, x).groundY : s.foundry ? foundrySurfaceAt(s, x).groundY : s.workshop ? workshopSurfaceAt(s, x).groundY : terrainAt(x, s.planetId); }
 function livingRouteTerminal(animal) { return ['arrived', 'displaced', 'lost'].includes(animal.phase); }
 function livingRouteSupported(s) { return s.player.braced && Math.abs(s.player.speed) <= 3 && !s.player.move && s.player.feet.every(foot => foot.contact); }
 function livingRouteSolids(s) {
@@ -3291,6 +3364,9 @@ function updateWorld(s, dt) {
   if (s.missionId === 'MI09') updateLivingRouteMission(s, dt);
   if (s.missionId === 'MI10') updateChemicalMission(s, dt, chemicalRuntime);
   if (s.missionId === 'MI11') updateVoiceMission(s, dt, voiceRuntime);
+  if (s.missionId === 'MI12') updateRelayMission(s, dt, relayRuntime);
+  if (s.missionId === 'MI13') updateFoundryMission(s, dt, foundryRuntime);
+  if (s.missionId === 'MI14') updateWorkshopMission(s, dt, workshopRuntime);
   if (s.status !== 'playing') return;
   if (e.scanning && !e.collected) {
     if (Math.abs(p.x - e.x) > (s.missionId === 'MI04' ? s.mission.industrial.interactionRadius : 250)) { e.scanning = false; e.scanProgress = 0; emit(s, 'radio', 'Lecture interrompue : terminal hors de portée.'); }
@@ -3385,6 +3461,9 @@ function updateWorld(s, dt) {
   else if (s.missionId === 'MI09') s.interaction = livingRouteInteraction(s);
   else if (s.missionId === 'MI10') s.interaction = chemicalInteraction(s);
   else if (s.missionId === 'MI11') s.interaction = voiceInteraction(s);
+  else if (s.missionId === 'MI12') s.interaction = relayInteraction(s);
+  else if (s.missionId === 'MI13') s.interaction = foundryInteraction(s);
+  else if (s.missionId === 'MI14') s.interaction = workshopInteraction(s);
   else if (s.missionId === 'MI01' && !s.campaign.passageSecured && s.campaign.pipeIntact && Math.abs(p.x - s.mission.passage.stationX) < s.mission.passage.radius) {
     s.interaction = s.campaign.passageWorking ? `Déploiement des dalles ${Math.round(s.campaign.passageProgress * 100)} % · restez près du treuil` : 'E · Déployer les dalles de protection (4,5 s)';
   } else if (!e.collected && Math.abs(p.x - e.x) < 230) {
@@ -3395,6 +3474,9 @@ function updateWorld(s, dt) {
   if (p.hull <= 0) finish(s, false, 'Marcheur immobilisé. Votre équipage a déclenché la balise de secours.');
   else if (s.convoy && s.convoy.hp <= 0) finish(s, false, s.campaign ? s.campaign.filtersDelivered ? 'Le camion de Sami est perdu au poste. Les filtres ont été livrés, mais l’escorte a échoué. Reprenez le dernier point de contrôle pour retenter la mission.' : 'Le camion de Sami est perdu. Les filtres n’atteindront pas le poste des mineurs. Reprenez le dernier point de contrôle pour retenter l’escorte.' : 'Le transport est perdu. La route du bac se ferme.');
   else if (s.extraction.active && Math.abs(p.x - s.extraction.x) < s.extraction.radius) {
+    if (s.missionId === 'MI12') { refreshRelayFacts(s); s.campaign.phase = 'complete'; finish(s, true, 'Les trois relais ont reçu une intervention matérielle. Le rapport conserve les copies effectivement obtenues, les pertes et la réponse donnée à Holt. Aucune défection n’est encore actée.'); return; }
+    if (s.missionId === 'MI13') { refreshFoundryFacts(s); s.campaign.phase = 'complete'; finish(s, true, `Porteur arrivé et opérations de transfert résolues. ${s.campaign.pt03Acquired ? 'PT03 conservé : deux marquages, bordereau et analyse achevée.' : 'Le dossier garde les pièces acquises et leurs absences ; PT03 reste incomplet.'} La chaîne politique reste à établir.`); return; }
+    if (s.missionId === 'MI14') { refreshWorkshopFacts(s); s.campaign.phase = 'complete'; finish(s, true, `Atelier consigné : ${s.campaign.workersAlive} ouvriers vivants, ${s.campaign.workersLost} pertes. ${s.campaign.productionOnline ? 'La production a repris.' : s.campaign.strikePreserved ? 'L’arrêt est maintenu.' : 'Les dommages empêchent l’opération demandée.'} ${s.campaign.mechanicsAvailable} mécaniciens disponibles localement. Le lot et les actes restent au rapport ; la défection n’est pas encore actée.`); return; }
     if (s.missionId === 'MI11') {
       refreshVoiceFacts(s); s.campaign.phase = 'complete'; const c = s.campaign;
       finish(s, true, `Vallée relevée : ${c.signalsRecorded} signaux exploitables et ${c.nestsIntact} sites de ponte intacts sur trois. ${c.testimonyRecorded ? 'Échange privé avec Leth conservé.' : 'Aucun témoignage achevé de Leth.'} ${c.te01Acquired ? 'TE01 relie l’avis, sa traduction impériale et le témoignage consenti.' : 'Les pièces disponibles ne suffisent pas à établir TE01.'} ${c.lethAlive ? 'Leth demeure vivant sur ce site.' : 'La perte de Leth reste inscrite au bilan.'} ${c.emitterSeized ? 'Émetteur embarqué.' : c.emitterOnline ? 'Émetteur remis en service.' : 'Émetteur perdu.'} Aucune diffusion publique ni aucun recrutement n’a été autorisé.`); return;
@@ -3462,6 +3544,9 @@ function refreshObjectives(s) {
   const goals = [];
   if (s.missionId === 'MI10') { s.objectives = chemicalObjectives(s); return; }
   if (s.missionId === 'MI11') { s.objectives = voiceObjectives(s); return; }
+  if (s.missionId === 'MI12') { s.objectives = relayObjectives(s); return; }
+  if (s.missionId === 'MI13') { s.objectives = foundryObjectives(s); return; }
+  if (s.missionId === 'MI14') { s.objectives = workshopObjectives(s); return; }
   if (s.missionId === 'MI09') {
     const c = s.campaign;
     goals.push({ id: 'survey', label: 'Comparer la carte aux hameaux présents', current: Number(c.routeInspected), target: 1, complete: c.routeInspected });
@@ -3612,6 +3697,9 @@ export function updateGame(s, delta, input = {}) {
     // at the guard above and advance neither the clock nor the physical scene.
     if (s.chemical) { updateChemicalMission(s, dt, chemicalRuntime); refreshObjectives(s); }
     if (s.voice) { updateVoiceMission(s, dt, voiceRuntime); refreshObjectives(s); }
+    if (s.relay) { updateRelayMission(s, dt, relayRuntime); refreshObjectives(s); }
+    if (s.foundry) { updateFoundryMission(s, dt, foundryRuntime); refreshObjectives(s); }
+    if (s.workshop) { updateWorkshopMission(s, dt, workshopRuntime); refreshObjectives(s); }
     return s;
   }
   updateWalker(s, dt, input);

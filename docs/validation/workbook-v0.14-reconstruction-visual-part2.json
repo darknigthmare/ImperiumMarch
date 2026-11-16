@@ -1,0 +1,796 @@
+{
+  "schemaVersion": 1,
+  "reviewedAtUtc": "2026-11-12T19:03:49.325919+00:00",
+  "reviewer": "/root/rebuild_mi13",
+  "project": "ORDRE DE CENDRE / ImperiumMarch",
+  "releaseVersion": "0.14.1",
+  "scope": "Deuxième moitié des 40 vues du classeur initialement annoncées : entrées 21 à 40, plus la vue rebuild-qa06.png ajoutée en fin de liste pendant la revue. Aucune modification du XLSX, des sources ni des images.",
+  "method": "Examen visuel direct de chacune des 21 images avec view_image, puis calcul SHA-256 des fichiers et comparaison aux copies du dépôt.",
+  "validationSource": {
+    "path": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/workbook-validation.json",
+    "sha256": "d02596bf97bfecdb8ced9d39d64c39ef68671154206ff7cd0186ee0116924f5d",
+    "previewCountAtSelection": 40,
+    "previewCountAtProof": 41,
+    "initiallySelectedIndicesOneBased": [
+      21,
+      40
+    ],
+    "supplementalPreview": "rebuild-qa06.png"
+  },
+  "workbookSnapshot": {
+    "path": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/ORDRE_DE_CENDRE_Bible.xlsx",
+    "sha256": "822c50157aac7f7b537b42a664d6091f4bb0921ea0d8a97b5a025c07762df29a",
+    "bytes": 208249
+  },
+  "result": "Aucun défaut visuel observé dans les 20 vues demandées et la vue complémentaire.",
+  "requestedImagesReviewed": 20,
+  "supplementalImagesReviewed": 1,
+  "reviewedImages": 21,
+  "reviewedVisibleRecords": 45,
+  "visibleStatusCounts": {
+    "Prototype": 13,
+    "Vérifié": 27,
+    "À produire": 5
+  },
+  "allRepositoryCopiesMatch": true,
+  "publicationAndOpenGates": [
+    {
+      "id": "QA206",
+      "observedStatus": "À produire",
+      "image": "rebuild-qa-210-212.png",
+      "meaning": "Réception humaine MI12 encore ouverte."
+    },
+    {
+      "id": "QA219",
+      "observedStatus": "À produire",
+      "image": "rebuild-qa-225-227.png",
+      "meaning": "Validation dans un navigateur réel encore ouverte."
+    },
+    {
+      "id": "QA220",
+      "observedStatus": "À produire",
+      "image": "rebuild-qa-225-227.png",
+      "meaning": "Réception humaine MI13 encore ouverte."
+    },
+    {
+      "id": "QA221",
+      "observedStatus": "À produire",
+      "image": "rebuild-qa-225-227.png",
+      "meaning": "Publication et vérification de la référence distante encore attendues au moment de cette revue."
+    }
+  ],
+  "defects": [],
+  "limits": [
+    "Cette revue porte sur les zones rendues des PNG listés ; elle ne couvre pas les autres vues, les cellules hors cadrage ou les feuilles entières.",
+    "Les nombres dans les noms des vues PX/QA sont des numéros de lignes, pas des plages d’IDs : les IDs ont été lus dans les images.",
+    "Ces images sont de larges vues de lignes sélectionnées ; elles ne constituent pas un essai de navigation ni une ouverture du XLSX dans Excel ou LibreOffice.",
+    "Les statuts sont constatés visuellement ; cette revue ne réexécute pas les tests de gameplay, ne certifie pas la réception humaine et ne prouve pas une publication GitHub.",
+    "Le manifeste est passé de 40 à 41 vues pendant la revue ; le complément QA06 a aussi été inspecté directement.",
+    "Aucune modification du classeur, des données sources ou des images n’a été effectuée par cette sous-tâche."
+  ],
+  "previews": [
+    {
+      "file": "rebuild-px-117-119.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-px-117-119.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-px-117-119.png",
+      "sha256": "de9d012cb0470af8f43768fbe6c470dddaac07697c23ad746dbcf1c2665931df",
+      "repositoryCopySha256": "de9d012cb0470af8f43768fbe6c470dddaac07697c23ad746dbcf1c2665931df",
+      "copiesMatch": true,
+      "bytes": 49708,
+      "dimensionsPx": [
+        2480,
+        172
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "PX111",
+        "PX112",
+        "PX113"
+      ],
+      "observedStatuses": {
+        "PX111": "Prototype",
+        "PX112": "Prototype",
+        "PX113": "Prototype"
+      },
+      "visibleRows": [
+        117,
+        118,
+        119
+      ],
+      "visibleColumns": "A:G",
+      "observations": [
+        "IDs, statuts, convoi, circuits thermiques et PT03 lisibles ; descriptions et chemins source séparés, hauteur suffisante."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-px-120-122.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-px-120-122.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-px-120-122.png",
+      "sha256": "298fe776585cfbf682cf0e961f5d07c48183cdd76fc64887fb5dca3234a09670",
+      "repositoryCopySha256": "298fe776585cfbf682cf0e961f5d07c48183cdd76fc64887fb5dca3234a09670",
+      "copiesMatch": true,
+      "bytes": 56328,
+      "dimensionsPx": [
+        2480,
+        172
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "PX114",
+        "PX115",
+        "PX116"
+      ],
+      "observedStatuses": {
+        "PX114": "Prototype",
+        "PX115": "Prototype",
+        "PX116": "Prototype"
+      },
+      "visibleRows": [
+        120,
+        121,
+        122
+      ],
+      "visibleColumns": "A:G",
+      "observations": [
+        "Les deux chemins de PX116 se replient sur deux lignes sans clipping ; reprise v13, kit Kharon et limites de la livraison lisibles."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-qa-198-200.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-qa-198-200.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-qa-198-200.png",
+      "sha256": "c61e44fe9eb9fe1da576dc7abb4f3482b021fe7a809453297ce549175d2551ef",
+      "repositoryCopySha256": "c61e44fe9eb9fe1da576dc7abb4f3482b021fe7a809453297ce549175d2551ef",
+      "copiesMatch": true,
+      "bytes": 42334,
+      "dimensionsPx": [
+        1910,
+        172
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "QA192",
+        "QA193",
+        "QA194"
+      ],
+      "observedStatuses": {
+        "QA192": "Vérifié",
+        "QA193": "Vérifié",
+        "QA194": "Vérifié"
+      },
+      "visibleRows": [
+        198,
+        199,
+        200
+      ],
+      "visibleColumns": "A:F",
+      "observations": [
+        "Le résultat de migration QA192 se replie sur deux lignes sans dépasser la hauteur ; IDs et statuts visibles."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-qa-201-203.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-qa-201-203.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-qa-201-203.png",
+      "sha256": "1bb465a11aeed560f87793fc9ef7984a15a33a3b7123714585180a59de7684f1",
+      "repositoryCopySha256": "1bb465a11aeed560f87793fc9ef7984a15a33a3b7123714585180a59de7684f1",
+      "copiesMatch": true,
+      "bytes": 40731,
+      "dimensionsPx": [
+        1910,
+        172
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "QA195",
+        "QA196",
+        "QA197"
+      ],
+      "observedStatuses": {
+        "QA195": "Vérifié",
+        "QA196": "Vérifié",
+        "QA197": "Vérifié"
+      },
+      "visibleRows": [
+        201,
+        202,
+        203
+      ],
+      "visibleColumns": "A:F",
+      "observations": [
+        "Pause, conduites et arrivée du Prétoire lisibles. Résultat des conduites sur deux lignes, sans chevauchement avec la priorité ou la ligne suivante."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-qa-204-206.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-qa-204-206.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-qa-204-206.png",
+      "sha256": "004ae1516bd5086cbcafd74f2ff103aea06fe64866d6f6051ffb3d398aeb2a07",
+      "repositoryCopySha256": "004ae1516bd5086cbcafd74f2ff103aea06fe64866d6f6051ffb3d398aeb2a07",
+      "copiesMatch": true,
+      "bytes": 40763,
+      "dimensionsPx": [
+        1910,
+        172
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "QA198",
+        "QA199",
+        "QA200"
+      ],
+      "observedStatuses": {
+        "QA198": "Vérifié",
+        "QA199": "Vérifié",
+        "QA200": "Vérifié"
+      },
+      "visibleRows": [
+        204,
+        205,
+        206
+      ],
+      "visibleColumns": "A:F",
+      "observations": [
+        "Composants, sources et équipage : textes complets. Le dernier ID est QA200, distinct du numéro de ligne 206."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-qa-207-209.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-qa-207-209.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-qa-207-209.png",
+      "sha256": "37491e0ac863e2b9d0eee391a9aa50542560be9b40b112806829f2e34d317a9c",
+      "repositoryCopySha256": "37491e0ac863e2b9d0eee391a9aa50542560be9b40b112806829f2e34d317a9c",
+      "copiesMatch": true,
+      "bytes": 37680,
+      "dimensionsPx": [
+        1910,
+        168
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "QA201",
+        "QA202",
+        "QA203"
+      ],
+      "observedStatuses": {
+        "QA201": "Vérifié",
+        "QA202": "Vérifié",
+        "QA203": "Vérifié"
+      },
+      "visibleRows": [
+        207,
+        208,
+        209
+      ],
+      "visibleColumns": "A:F",
+      "observations": [
+        "Dossier, dotation et défaite MI12 : textes complets, IDs, priorités P1 et statuts lisibles."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-qa-210-212.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-qa-210-212.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-qa-210-212.png",
+      "sha256": "faba9ba36f867bcbfe5bb22af90cdb6b628d220c981a1210ddd5309820c6e4a5",
+      "repositoryCopySha256": "faba9ba36f867bcbfe5bb22af90cdb6b628d220c981a1210ddd5309820c6e4a5",
+      "copiesMatch": true,
+      "bytes": 41684,
+      "dimensionsPx": [
+        1910,
+        172
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "QA204",
+        "QA205",
+        "QA206"
+      ],
+      "observedStatuses": {
+        "QA204": "Vérifié",
+        "QA205": "Vérifié",
+        "QA206": "À produire"
+      },
+      "visibleRows": [
+        210,
+        211,
+        212
+      ],
+      "visibleColumns": "A:F",
+      "observations": [
+        "UI et graphisme MI12 Vérifié ; QA206 Réception humaine MI12 reste À produire. L’exigence d’un essai humain documenté est visible."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-qa-213-215.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-qa-213-215.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-qa-213-215.png",
+      "sha256": "8c14add03e931535d4613eb34e5a919d65218baf62b7ea388bf2af6ccd0d843f",
+      "repositoryCopySha256": "8c14add03e931535d4613eb34e5a919d65218baf62b7ea388bf2af6ccd0d843f",
+      "copiesMatch": true,
+      "bytes": 42005,
+      "dimensionsPx": [
+        1910,
+        172
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "QA207",
+        "QA208",
+        "QA209"
+      ],
+      "observedStatuses": {
+        "QA207": "Vérifié",
+        "QA208": "Vérifié",
+        "QA209": "Vérifié"
+      },
+      "visibleRows": [
+        213,
+        214,
+        215
+      ],
+      "visibleColumns": "A:F",
+      "observations": [
+        "Migration, contacts et vannes MI13 lisibles ; durée de 4 s et plage 90 vers 28 °C entièrement visibles."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-qa-216-218.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-qa-216-218.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-qa-216-218.png",
+      "sha256": "7d248a3fc5b3b6c169d0857532118ad9eb5b60284e6ad96277414180d41dc4eb",
+      "repositoryCopySha256": "7d248a3fc5b3b6c169d0857532118ad9eb5b60284e6ad96277414180d41dc4eb",
+      "copiesMatch": true,
+      "bytes": 40771,
+      "dimensionsPx": [
+        1910,
+        172
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "QA210",
+        "QA211",
+        "QA212"
+      ],
+      "observedStatuses": {
+        "QA210": "Vérifié",
+        "QA211": "Vérifié",
+        "QA212": "Vérifié"
+      },
+      "visibleRows": [
+        216,
+        217,
+        218
+      ],
+      "visibleColumns": "A:F",
+      "observations": [
+        "Cycle vapeur 3/2/7 s, arrivée après 6 s et conservation des copies visibles ; textes, IDs et statuts séparés."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-qa-219-221.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-qa-219-221.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-qa-219-221.png",
+      "sha256": "c94019ac2ac746f1d21ce33720061e0558fae0f23db4c5d081798575c6e30c6a",
+      "repositoryCopySha256": "c94019ac2ac746f1d21ce33720061e0558fae0f23db4c5d081798575c6e30c6a",
+      "copiesMatch": true,
+      "bytes": 43582,
+      "dimensionsPx": [
+        1910,
+        172
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "QA213",
+        "QA214",
+        "QA215"
+      ],
+      "observedStatuses": {
+        "QA213": "Vérifié",
+        "QA214": "Vérifié",
+        "QA215": "Vérifié"
+      },
+      "visibleRows": [
+        219,
+        220,
+        221
+      ],
+      "visibleColumns": "A:F",
+      "observations": [
+        "IDs réellement affichés QA213–QA215. Condition PT03, parcours sans PT01 et transfert physique de 5 s lisibles."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-qa-222-224.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-qa-222-224.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-qa-222-224.png",
+      "sha256": "2939d6c9a30570744f02901c789b8eea2008dad95545cd525afd1b9a831c379c",
+      "repositoryCopySha256": "2939d6c9a30570744f02901c789b8eea2008dad95545cd525afd1b9a831c379c",
+      "copiesMatch": true,
+      "bytes": 41973,
+      "dimensionsPx": [
+        1910,
+        172
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "QA216",
+        "QA217",
+        "QA218"
+      ],
+      "observedStatuses": {
+        "QA216": "Vérifié",
+        "QA217": "Vérifié",
+        "QA218": "Vérifié"
+      },
+      "visibleRows": [
+        222,
+        223,
+        224
+      ],
+      "visibleColumns": "A:F",
+      "observations": [
+        "Pertes, dossier et rendu MI13 lisibles, y compris perte terminale du porteur et visibilité du poste indépendante de sa baie."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-qa-225-227.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-qa-225-227.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-qa-225-227.png",
+      "sha256": "3adb7e12c0831ecfd530e4b7c036f23e246e9460c8cbea85955cc4e4be2bca8f",
+      "repositoryCopySha256": "3adb7e12c0831ecfd530e4b7c036f23e246e9460c8cbea85955cc4e4be2bca8f",
+      "copiesMatch": true,
+      "bytes": 44000,
+      "dimensionsPx": [
+        1910,
+        172
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "QA219",
+        "QA220",
+        "QA221"
+      ],
+      "observedStatuses": {
+        "QA219": "À produire",
+        "QA220": "À produire",
+        "QA221": "À produire"
+      },
+      "visibleRows": [
+        225,
+        226,
+        227
+      ],
+      "visibleColumns": "A:F",
+      "observations": [
+        "QA219 Navigateur reconstruction, QA220 Réception humaine MI13 et QA221 Conservation reconstruction restent À produire. Publication et vérification distante explicitement attendues."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-mi12.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-mi12.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-mi12.png",
+      "sha256": "ed52a0dc1508307ed720c8caa72608157f1ff7756bc8f778e40db0b620ad875a",
+      "repositoryCopySha256": "ed52a0dc1508307ed720c8caa72608157f1ff7756bc8f778e40db0b620ad875a",
+      "copiesMatch": true,
+      "bytes": 30342,
+      "dimensionsPx": [
+        3330,
+        108
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "MI12"
+      ],
+      "observedStatuses": {
+        "MI12": "Prototype"
+      },
+      "visibleRows": [
+        18
+      ],
+      "visibleColumns": "A:I",
+      "observations": [
+        "MI12, PL03, Le troisième relais et Prototype lisibles. Gameplay et vérité sur deux lignes sans clipping ; 24 s dans 45 s et les trois conduites visibles."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-mi13.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-mi13.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-mi13.png",
+      "sha256": "dff16b02a2886c1f07ebacffa2b49d3e971490d63d115df91fa017d07eacb4d1",
+      "repositoryCopySha256": "dff16b02a2886c1f07ebacffa2b49d3e971490d63d115df91fa017d07eacb4d1",
+      "copiesMatch": true,
+      "bytes": 28840,
+      "dimensionsPx": [
+        3330,
+        108
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "MI13"
+      ],
+      "observedStatuses": {
+        "MI13": "Prototype"
+      },
+      "visibleRows": [
+        19
+      ],
+      "visibleColumns": "A:I",
+      "observations": [
+        "MI13, PL04, Pièces de rechange et Prototype lisibles. Deux lignes de gameplay conservent porteur, caisses, vannes, embuscade, sources et destinations. Vesper/Nacre et PT03 visibles."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-pl03.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-pl03.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-pl03.png",
+      "sha256": "0e1af093d79f4f454345d60f071a7cdbfbe0d4d51f83710103b25eaee631c95f",
+      "repositoryCopySha256": "0e1af093d79f4f454345d60f071a7cdbfbe0d4d51f83710103b25eaee631c95f",
+      "copiesMatch": true,
+      "bytes": 44859,
+      "dimensionsPx": [
+        2990,
+        164
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "PL03"
+      ],
+      "observedStatuses": {
+        "PL03": "Prototype"
+      },
+      "visibleRows": [
+        9
+      ],
+      "visibleColumns": "A:H",
+      "observations": [
+        "Thyr, MI09–MI12 et Prototype lisibles. Gameplay sur quatre lignes avec marge verticale, dont la dernière mention des relais MI12 et du Prétoire."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-pl04.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-pl04.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-pl04.png",
+      "sha256": "2e2d3e9f86a5e1a19d024956caa8fd57e28aa5fb630d2650156154f6c7a90656",
+      "repositoryCopySha256": "2e2d3e9f86a5e1a19d024956caa8fd57e28aa5fb630d2650156154f6c7a90656",
+      "copiesMatch": true,
+      "bytes": 30596,
+      "dimensionsPx": [
+        2990,
+        108
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "PL04"
+      ],
+      "observedStatuses": {
+        "PL04": "Prototype"
+      },
+      "visibleRows": [
+        10
+      ],
+      "visibleColumns": "A:H",
+      "observations": [
+        "Kharon, MI13–MI16 et Prototype lisibles. Paragraphes sur deux lignes avec hauteur suffisante ; MI14–MI16 encore conçues explicitement visibles."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-ve12.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-ve12.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-ve12.png",
+      "sha256": "5d464dcd18b1cbeddc3f51b6467d143fba984486446db6ee9cdc7576c54c69b5",
+      "repositoryCopySha256": "5d464dcd18b1cbeddc3f51b6467d143fba984486446db6ee9cdc7576c54c69b5",
+      "copiesMatch": true,
+      "bytes": 21389,
+      "dimensionsPx": [
+        2390,
+        89
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "VE12"
+      ],
+      "observedStatuses": {
+        "VE12": "Prototype"
+      },
+      "visibleRows": [
+        18
+      ],
+      "visibleColumns": "A:G",
+      "observations": [
+        "Marcheur de sécurité Prétoire, FA02 et Prototype lisibles. Arrivée différée, coque et composants sur deux lignes ; variantes et finition finale à produire visibles."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-as19.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-as19.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-as19.png",
+      "sha256": "e043463be12387e4158fdafc5b6786fc02575da1cae193fb6b1990229b85c542",
+      "repositoryCopySha256": "e043463be12387e4158fdafc5b6786fc02575da1cae193fb6b1990229b85c542",
+      "copiesMatch": true,
+      "bytes": 27035,
+      "dimensionsPx": [
+        2380,
+        108
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "AS19"
+      ],
+      "observedStatuses": {
+        "AS19": "Prototype"
+      },
+      "visibleRows": [
+        25
+      ],
+      "visibleColumns": "A:G",
+      "observations": [
+        "Kits Kharon et Sereis, P1 et Prototype lisibles. Description sur trois lignes sans clipping ; Sereis et le kit final explicitement à produire."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-pr18.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-pr18.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-pr18.png",
+      "sha256": "af035b8831d8edf71d51b654b56ab947892969b8b6aa9ef3de08ba9c8f8bc355",
+      "repositoryCopySha256": "af035b8831d8edf71d51b654b56ab947892969b8b6aa9ef3de08ba9c8f8bc355",
+      "copiesMatch": true,
+      "bytes": 24925,
+      "dimensionsPx": [
+        2260,
+        89
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "PR18"
+      ],
+      "observedStatuses": {
+        "PR18": "À produire"
+      },
+      "visibleRows": [
+        24
+      ],
+      "visibleColumns": "A:G",
+      "observations": [
+        "Acte II reste À produire. Deux lignes distinguent MI09–MI13 jouables au stade prototype de MI14–MI16, des quatre contrats et de la défection à produire ; dépendances lisibles."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-pr55.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-pr55.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-pr55.png",
+      "sha256": "f540ad35f7382df31ad41fc8e8c5036a4402cf808a8f18a44c013c768b022bd9",
+      "repositoryCopySha256": "f540ad35f7382df31ad41fc8e8c5036a4402cf808a8f18a44c013c768b022bd9",
+      "copiesMatch": true,
+      "bytes": 30179,
+      "dimensionsPx": [
+        2260,
+        108
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "PR55"
+      ],
+      "observedStatuses": {
+        "PR55": "Prototype"
+      },
+      "visibleRows": [
+        61
+      ],
+      "visibleColumns": "A:G",
+      "observations": [
+        "Chaîne de preuve future Prototype. PT03 local et recoupements conditionnels sur deux lignes ; dépôt/publication globale futurs. Réserves sur absence de PT01 et sources perdues visibles."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": false
+    },
+    {
+      "file": "rebuild-qa06.png",
+      "sourcePath": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014/rebuild-qa06.png",
+      "repositoryPath": "docs/previews/bible-v014-reconstruction/rebuild-qa06.png",
+      "sha256": "2df918e15c17f0cb4968f2c6ff3e21ed5150839c4a417f17db081e1b414e57c5",
+      "repositoryCopySha256": "2df918e15c17f0cb4968f2c6ff3e21ed5150839c4a417f17db081e1b414e57c5",
+      "copiesMatch": true,
+      "bytes": 13445,
+      "dimensionsPx": [
+        1910,
+        71
+      ],
+      "inspection": "Viewed directly with view_image in this review.",
+      "observedIds": [
+        "QA06"
+      ],
+      "observedStatuses": {
+        "QA06": "Vérifié"
+      },
+      "visibleRows": [
+        12
+      ],
+      "visibleColumns": "A:F",
+      "observations": [
+        "Vue complémentaire ajoutée durant la revue : QA06 Chaleur, priorité P0 et Vérifié lisibles. Consigne et résultat attendu sur une ligne sans chevauchement."
+      ],
+      "textClippingObserved": false,
+      "overlapObserved": false,
+      "visibleRowHeightAdequate": true,
+      "supplemental": true
+    }
+  ]
+}

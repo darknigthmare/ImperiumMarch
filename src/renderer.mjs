@@ -3,7 +3,12 @@ import { drawProductionPart, productionLegPose } from './production-assets.mjs';
 import { drawLivingRouteSite, drawLivingRouteActors, drawLivingRouteLabels } from './thyr-renderer.mjs';
 import { drawChemicalSite, drawChemicalLabels } from './chemical-renderer.mjs';
 import { drawVoiceSite, drawVoiceActor, drawVoiceLabels } from './voice-renderer.mjs';
+import { drawRelaySite, drawRelayActor, drawRelayLabels } from './relay-renderer.mjs';
+import { drawFoundrySite, drawFoundryCarrier, drawFoundryInstrument } from './foundry-renderer.mjs';
+import { drawWorkshopSite, drawWorkshopActors, drawWorkshopLabels, drawWorkshopInstrument } from './workshop-renderer.mjs';
 import { WALKERS } from './content.mjs';
+import { drawPaintedCombatEnemy, drawPaintedCombatCivilian, drawPaintedCombatConvoy, drawCombatWeapon, combatMotion } from './painted-combat.mjs';
+import { ENEMY_WEAPON_RIGS, enemyWeaponPose } from './enemy-weapon-pose.mjs';
 
 const W = 1600, H = 900;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -123,6 +128,7 @@ export class Renderer {
 
   render(s, options = {}) {
     this.prepare(W, H);
+    this.combatReducedMotion = Boolean(options.reducedMotion);
     const c = this.ctx;
     const targetCamera = clamp(s.player.x - W * 0.33, 0, s.mission.length - W + 100);
     if (this.lastGame !== s) { this.cameraX = targetCamera; this.lastGame = s; }
@@ -142,16 +148,19 @@ export class Renderer {
     if (s.livingRoute) drawLivingRouteSite(this, s, t);
     if (s.chemical) drawChemicalSite(this, s, t);
     if (s.voice) drawVoiceSite(this, s, t);
+    if (s.relay) drawRelaySite(this, s, t);
+    if (s.foundry) drawFoundrySite(this, s, t);
+    if (s.workshop) drawWorkshopSite(this, s, t);
     for (const r of s.relays) if (this.visible(r.x, 150)) this.drawRelay(r, s);
-    if (!s.train && !s.industrial && !s.dike && !s.ambulance && !s.departure && !s.livingRoute && !s.chemical && !s.voice) this.drawEvidence(s, t);
+    if (!s.train && !s.industrial && !s.dike && !s.ambulance && !s.departure && !s.livingRoute && !s.chemical && !s.voice && !s.relay && !s.foundry && !s.workshop) this.drawEvidence(s, t);
     this.drawExtraction(s, t);
     for (const item of s.pickups) if (!item.collected && this.visible(item.x, 100)) this.drawSupply(item, t);
-    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped) && (!e.id.startsWith('seizure-drone-') || s.ambulance?.raidTriggered) && (!e.id.startsWith('aval-control-drone-') || s.departure?.alert.triggered) && (!e.id.startsWith('thyr-sniper-') || s.livingRoute?.alert.triggered) && (!e.id.startsWith('chemical-private-') || s.chemical?.alert.ready) && (!e.id.startsWith('voice-private-') || s.voice?.alert.ready));
+    const visibleEnemies = s.enemies.filter(e => !e.dead && this.visible(e.x, 200) && (e.id !== 'holt-observer' || s.network?.scrutinyTriggered) && (e.id !== 'private-hauler' || !s.industrial?.retreatEscaped) && (!e.id.startsWith('seizure-drone-') || s.ambulance?.raidTriggered) && (!e.id.startsWith('aval-control-drone-') || s.departure?.alert.triggered) && (!e.id.startsWith('thyr-sniper-') || s.livingRoute?.alert.triggered) && (!e.id.startsWith('chemical-private-') || s.chemical?.alert.ready) && (!e.id.startsWith('voice-private-') || s.voice?.alert.ready) && (!e.id.startsWith('foundry-private-') || s.foundry?.alert.ready) && (e.id !== 'workshop-security-1' || s.workshop?.alert.ready));
     for (const e of visibleEnemies) this.drawTelegraph(e, s, t);
     for (const civilian of s.civilians) if (civilian.alive && !civilian.safe && this.visible(civilian.x, 100)) this.drawHuman(civilian, t, true);
     if (s.convoy && this.visible(s.convoy.x, 200)) this.drawConvoy(s.convoy, t);
     if (s.train) this.drawTrain(s, t);
-    for (const e of visibleEnemies) if (e.kind !== 'air') this.drawEnemy(e, s, t);
+    for (const e of visibleEnemies) if (e.kind !== 'air' && e.id !== 'workshop-security-1') this.drawEnemy(e, s, t);
     this.drawShadow(s.player.x, s.player.groundY, s.walker.width * 0.75, 15);
     drawWalker(c, s.player, s.walker, t);
     this.drawRadiator(s, t);
@@ -160,6 +169,9 @@ export class Renderer {
     if (s.departure) { this.drawDepartureBoats(s, t); this.drawDeparturePeople(s, t); }
     if (s.livingRoute) drawLivingRouteActors(this, s, t);
     if (s.voice) drawVoiceActor(this, s);
+    if (s.relay) drawRelayActor(this, s, t);
+    if (s.foundry) drawFoundryCarrier(this, s, t);
+    if (s.workshop) drawWorkshopActors(this, s, t);
     for (const e of visibleEnemies) if (e.kind === 'air') this.drawEnemy(e, s, t);
     this.drawShots(s);
     this.drawParticles(s);
@@ -174,11 +186,15 @@ export class Renderer {
     if (s.livingRoute) drawLivingRouteLabels(this, s);
     if (s.chemical) drawChemicalLabels(this, s);
     if (s.voice) drawVoiceLabels(this, s);
+    if (s.relay) drawRelayLabels(this, s);
+    if (s.workshop) drawWorkshopLabels(this, s);
     c.restore();
     this.drawAtmosphere(s, t);
     this.drawMarkers(s);
     if (s.channel && options.tideInstrument !== false) this.drawChannelTide(s);
     if (s.departure && options.departureInstrument !== false) this.drawDepartureInstrument(s);
+    if (s.foundry && options.foundryInstrument !== false) drawFoundryInstrument(this, s);
+    if (s.workshop && options.workshopInstrument !== false) drawWorkshopInstrument(this, s);
     if (options.pointer?.visible) this.drawReticle(options.pointer, s);
     if (s.interaction && options.interactionPrompt !== false) this.drawInteraction(s);
   }
@@ -996,6 +1012,7 @@ export class Renderer {
     }
     if (planet === 'PL02') this.drawHarbor(cam, t);
     if (planet === 'PL03') this.drawForest(cam, t);
+    if (planet === 'PL04') this.drawFoundryHorizon(cam, t);
     const haze = c.createLinearGradient(0, 470, 0, 700);
     haze.addColorStop(0, 'transparent'); haze.addColorStop(1, planet === 'PL01' ? '#d9ba8b45' : planet === 'PL02' ? '#b0c9bd30' : '#b3c59428');
     c.fillStyle = haze; c.fillRect(0, 470, W, 240);
@@ -1021,6 +1038,40 @@ export class Renderer {
       for (let j = 0; j < 5; j++) { c.fillStyle = hash(i + j) > 0.4 ? '#d2ae7455' : '#243e41'; c.fillRect(x + 156 + j * 16, 513, 6, 3); }
       line(c, x - 15, 617, x + 260, 617, '#1b363c', 10);
     }
+  }
+
+  drawFoundryHorizon(cam, t) {
+    const c = this.ctx;
+    // The refinery lives in world space at two distinct parallax depths.
+    for (let layer = 0; layer < 2; layer++) {
+      const shift = cam * (.15 + layer * .16), stride = 520;
+      for (let i = Math.floor(shift / stride) - 1; i < (shift + W) / stride + 1; i++) {
+        const x = i * stride - shift, base = 615 + layer * 35, h = 175 + hash(i + layer * 81) * 110;
+        const steel = layer ? '#302f33' : '#514044', trim = layer ? '#68514c' : '#80615a';
+        poly(c, [[x, base], [x + 18, base - h], [x + 105, base - h], [x + 133, base]], steel, trim, 1);
+        for (let b = 0; b < 4; b++) line(c, x + 15, base - 35 - b * 42, x + 111, base - 35 - b * 42, trim, 3);
+        c.fillStyle = steel; c.fillRect(x + 150, base - 124, 175, 124);
+        for (let b = 0; b < 4; b++) {
+          const fx = x + 168 + b * 38;
+          c.fillStyle = '#e9985d66'; c.fillRect(fx, base - 74, 18, 44);
+          line(c, fx + 9, base - 72, fx + 9, base - 32, '#ffbb7544', 2);
+        }
+        line(c, x + 105, base - 105, x + 350, base - 105, trim, 9);
+        line(c, x + 346, base - 105, x + 346, base, steel, 12);
+        line(c, x + 386, base, x + 386, base - h - 45, steel, 13);
+        line(c, x + 385, base - h - 40, x + 502, base - h + 10, steel, 11);
+        line(c, x + 498, base - h + 10, x + 498, base - 60, trim, 2);
+        for (let k = 0; k < 4; k++) {
+          const phase = (t * .025 + k / 4 + hash(i)) % 1;
+          c.globalAlpha = (1 - phase) * .1;
+          circle(c, x + 70 + phase * 60, base - h - phase * 140, 12 + phase * 45, '#d9a58d');
+        }
+        c.globalAlpha = 1;
+      }
+    }
+    const furnaceGlow = c.createLinearGradient(0, 470, 0, 710);
+    furnaceGlow.addColorStop(0, 'transparent'); furnaceGlow.addColorStop(1, '#d8663830');
+    c.fillStyle = furnaceGlow; c.fillRect(0, 470, W, 240);
   }
 
   drawHarbor(cam, t) {
@@ -1091,7 +1142,7 @@ export class Renderer {
     const pts = [[start, H + 30]];
     for (let x = start; x <= end; x += 20) pts.push([x, terrainAt(x, s.planetId)]);
     pts.push([end, H + 30]);
-    const colors = s.planetId === 'PL03' ? ['#607159', '#233b35'] : s.planetId === 'PL02' ? ['#7f8c82', '#263c40'] : ['#a99576', '#3a4846'];
+    const colors = s.planetId === 'PL04' ? ['#756258', '#302d32'] : s.planetId === 'PL03' ? ['#607159', '#233b35'] : s.planetId === 'PL02' ? ['#7f8c82', '#263c40'] : ['#a99576', '#3a4846'];
     const soil = c.createLinearGradient(0, 650, 0, 900); soil.addColorStop(0, colors[0]); soil.addColorStop(0.35, colors[1]); soil.addColorStop(1, '#10252d');
     poly(c, pts, soil);
     c.beginPath(); for (let x = start; x <= end; x += 14) { const y = terrainAt(x, s.planetId); if (x === start) c.moveTo(x, y); else c.lineTo(x, y); }
@@ -1126,8 +1177,13 @@ export class Renderer {
   drawHuman(e, t, civilian = false, civilianLabel = 'CIVIL') {
     const c = this.ctx, x = e.x, y = e.y, dir = civilian ? (e.fleeing ? 1 : -1) : e.facing || -1;
     this.drawShadow(x, y + e.h / 2, 13, 4);
+    if (civilian && drawPaintedCombatCivilian(c, e, { time: t, reducedMotion: this.combatReducedMotion, facing: dir })) {
+      if (civilianLabel) label(c, civilianLabel, x, y - 30, 9, '#b6dfd1', 'center');
+      return;
+    }
     c.save(); c.translate(x, y); c.scale(dir, 1);
-    const pace = civilian && e.fleeing || !civilian && e.phase !== 'attack' ? Math.sin(t * 7 + x) * 5 : 2;
+    const moving = combatMotion(e, t).moving && !this.combatReducedMotion && e.phase !== 'attack' && e.active !== false;
+    const pace = moving ? Math.sin(t * 7 + x) * 5 : 2;
     line(c, -4, 5, -5 - pace, 17, '#1e2c2d', 5); line(c, 3, 5, 5 + pace, 17, '#26393a', 5);
     line(c, -5 - pace, 17, -1 - pace, 17, '#0d242a', 4); line(c, 5 + pace, 17, 9 + pace, 17, '#0d242a', 4);
     poly(c, [[-7, -10], [6, -10], [9, 7], [-8, 7]], civilian ? '#82beb6' : '#a79d7a', '#293c3d', 1);
@@ -1138,17 +1194,20 @@ export class Renderer {
     } else {
       c.fillStyle = '#50605a'; c.fillRect(-5, -7, 9, 10); line(c, -2, -6, -2, 3, '#d9bd80', 2);
       line(c, 3, -5, 13, -1, '#838e72', 4); line(c, -4, -4, 9, -1, '#838e72', 4);
-      line(c, 7, -3, e.type === 'rocket' ? 25 : 23, -3, '#192c31', e.type === 'rocket' ? 7 : 4);
-      if (e.type === 'rocket') { c.fillStyle = '#a98c62'; c.fillRect(16, -8, 9, 9); }
+      if (!ENEMY_WEAPON_RIGS[e.type]) line(c, 7, -3, 23, -3, '#192c31', 4);
     }
     circle(c, 0, -15, 5, '#c6ad88');
     if (!civilian) { poly(c, [[-6, -17], [-4, -22], [4, -22], [7, -17]], '#455a56'); line(c, 1, -16, 5, -16, '#d6ac68', 2); }
     c.restore();
+    if (!civilian) drawCombatWeapon(c, e);
     if (civilian && civilianLabel) { label(c, civilianLabel, x, y - 30, 9, '#b6dfd1', 'center'); }
   }
 
   drawEnemy(e, s, t) {
     const c = this.ctx;
+    const painted = drawPaintedCombatEnemy(c, e, { time: t, reducedMotion: this.combatReducedMotion,
+      shadow: (x, y, width, height) => this.drawShadow(x, y, width, height) });
+    if (!painted) {
     if (e.kind === 'infantry') this.drawHuman(e, t);
     else if (e.type === 'skimmer') {
       this.drawShadow(e.x, e.y + e.h / 2, e.w * .56, 6);
@@ -1161,8 +1220,6 @@ export class Renderer {
       plate(c, [[-43, -10], [-26, -20], [24, -20], [44, -10], [37, 7], [-37, 7]], '#9a9f81', '#365852');
       plate(c, [[-19, -20], [-11, -31], [16, -31], [27, -19]], '#b2b28d', '#4d6c5d');
       poly(c, [[-9, -27], [13, -27], [20, -20], [-14, -20]], '#203e45', '#b6c6a6', 1.5);
-      line(c, 16, -29, 52, -29, '#203941', 6);
-      line(c, 19, -32, 50, -32, '#c2c7a6', 1.5);
       for (let i = 0; i < 4; i++) line(c, -33 + i * 7, -9, -30 + i * 7, 2, '#1f3e43', 3);
       bolt(c, -34, -5, 2); bolt(c, 31, -5, 2);
       c.fillStyle = '#d4b47d'; c.fillRect(34, -8, 5, 3);
@@ -1171,12 +1228,12 @@ export class Renderer {
     }
     else if (e.kind === 'vehicle') {
       this.drawShadow(e.x, e.y + e.h / 2, 53, 7);
-      c.save(); c.translate(e.x, e.y);
+      c.save(); c.translate(e.x, e.y); c.scale(e.facing || -1, 1);
       for (const x of [-29, 28]) { circle(c, x, 15, 16, '#13292d', '#5d6d61', 4); circle(c, x, 15, 7, '#79836d', '#1c363a', 3); }
       plate(c, [[-43, -10], [-25, -23], [12, -23], [41, -8], [39, 10], [-44, 10]], '#a58e70', '#4b5d54');
       poly(c, [[-22, -18], [-2, -18], [8, -6], [-30, -6]], '#293f43', '#bca784', 2);
       line(c, -41, -5, -49, -5, '#c9af72', 3); c.fillStyle = '#df8e5f'; c.fillRect(35, 0, 5, 4);
-      c.fillStyle = '#344b4c'; c.fillRect(4, -29, 22, 8); line(c, 10, -25, -25, -28, '#213e43', 6);
+      c.fillStyle = '#344b4c'; c.fillRect(-7, -22, 22, 8);
       bolt(c, -34, 4); bolt(c, 29, 4); c.restore();
     } else if (e.kind === 'air') {
       c.save(); c.translate(e.x, e.y); c.rotate(Math.sin(t * 2 + e.x) * 0.06);
@@ -1185,7 +1242,7 @@ export class Renderer {
       for (const x of [-32, 32]) { c.fillStyle = '#203d43'; c.beginPath(); c.ellipse(x, 0, 18, 5, 0, 0, TAU); c.fill(); line(c, x - 16, -2, x + 16, -2, '#98b2a1', 1.5); }
       plate(c, [[-21, -10], [13, -10], [25, -1], [17, 12], [-16, 12], [-26, 0]], '#9ba48c', '#395b59');
       circle(c, -10, 1, 5, '#192d35', '#d8ad6e', 2); circle(c, -10, 1, 2, '#f0c482');
-      line(c, -4, 12, -8, 22, '#253e43', 5); c.restore();
+      c.restore();
     } else if (e.kind === 'fauna') {
       c.save(); c.translate(e.x, e.y); c.scale(e.facing, 1);
       for (let i = 0; i < 4; i++) { const x = -20 + i * 12, step = Math.sin(t * 8 + i * 2) * 6; line(c, x, 2, x - 7 + step, 17, '#273f3d', 4); }
@@ -1196,7 +1253,6 @@ export class Renderer {
       c.save(); c.translate(e.x, e.y);
       plate(c, [[-30, 35], [-23, -11], [20, -11], [30, 35]], '#727e6c', '#304a4c');
       plate(c, [[-24, -31], [22, -31], [27, -10], [-29, -10]], '#a39e80', '#4a665d');
-      line(c, -10, -22, -53, -19, '#1d373e', 10); line(c, -10, -27, -53, -24, '#b4b59a', 2);
       line(c, -16, 9, 16, 9, '#b58b59', 4); bolt(c, -15, 23); bolt(c, 14, 23); c.restore();
     } else if (e.kind === 'walker') {
       const ground = terrainAt(e.x, s.planetId);
@@ -1207,6 +1263,8 @@ export class Renderer {
       const walker = { legs: 2, height: 173, width: 150 };
       c.save(); c.filter = 'sepia(0.25) saturate(0.8)'; drawWalker(c, p, walker, t); c.restore();
       label(c, e.phase === 'standdown' ? 'CERBÈRE · REPLI AUTORISÉ' : 'CERBÈRE', e.x, ground - 265, 13, e.phase === 'standdown' ? '#a6c3aa' : '#f2ad83', 'center');
+    }
+    if (e.kind !== 'infantry') drawCombatWeapon(c, e);
     }
     if (e.hp < e.maxHp) {
       const width = e.kind === 'walker' ? 130 : Math.max(30, Math.min(70, e.w));
@@ -1222,7 +1280,8 @@ export class Renderer {
     const c = this.ctx;
     c.save(); c.setLineDash([8, 9]);
     const color = e.type === 'rocket' || e.type === 'boss' ? '#ec9b65' : '#d9bb8677';
-    line(c, e.x, e.y, e.targetX, e.targetY, color, e.type === 'boss' ? 2 : 1);
+    const origin = enemyWeaponPose(e, { aiming: true })?.muzzle || [e.x, e.y];
+    line(c, origin[0], origin[1], e.targetX, e.targetY, color, e.type === 'boss' ? 2 : 1);
     c.setLineDash([]);
     circle(c, e.targetX, e.targetY, 17 + (1 - e.telegraph) * 13, null, color, 1.5);
     line(c, e.targetX - 7, e.targetY, e.targetX + 7, e.targetY, color, 1);
@@ -1301,7 +1360,7 @@ export class Renderer {
   }
 
   drawCampaignLandmarks(s, t) {
-    if (s.channel || s.dike || s.ambulance || s.departure || s.livingRoute || s.chemical || s.voice) return;
+    if (s.channel || s.dike || s.ambulance || s.departure || s.livingRoute || s.chemical || s.voice || s.relay || s.foundry || s.workshop) return;
     if (s.train) { this.drawRailHarpoons(s, t); return; }
     if (s.network) { this.drawNetworkStations(s, t); return; }
     if (s.industrial) { this.drawIndustrialStation(s, t); return; }
@@ -1748,6 +1807,8 @@ export class Renderer {
   drawConvoy(v, t) {
     const c = this.ctx;
     this.drawShadow(v.x, v.y + v.h / 2, 69, 8);
+    const painted = drawPaintedCombatConvoy(c, v, { time: t, reducedMotion: this.combatReducedMotion });
+    if (!painted) {
     c.save(); c.translate(v.x, v.y);
     for (const x of [-36, -9, 35]) { circle(c, x, 26, 14, '#162f35', '#667e72', 3); circle(c, x, 26, 6, '#9aa48b', '#263e43', 2); }
     plate(c, [[-59, -25], [21, -25], [21, 18], [-59, 18]], '#a0a78d', '#456a64');
@@ -1761,6 +1822,7 @@ export class Renderer {
       c.fillStyle = '#c8d7bd'; c.fillRect(-27, -14, 9, 22); c.fillRect(-34, -7, 23, 8);
     }
     c.fillStyle = '#e7d8a7'; c.fillRect(53, 5, 5, 4); c.restore();
+    }
     label(c, v.cargo ? v.arrived ? 'SAMI · LIVRAISON TERMINÉE' : v.waitTime > 0 ? `SAMI · ATTENTE ${Math.ceil(v.waitTime)} s` : 'SAMI · 24 CAISSES DE FILTRES' : v.arrived ? 'TRANSPORT À L’ABRI' : v.moving ? 'CONVOI CIVIL' : 'CONVOI · EN ATTENTE', v.x, v.y - 51, 10, '#c1ded0', 'center');
     c.fillStyle = '#183038'; c.fillRect(v.x - 45, v.y - 44, 90, 4); c.fillStyle = '#95c6b3'; c.fillRect(v.x - 45, v.y - 44, 90 * v.hp / v.maxHp, 4);
   }
@@ -1840,7 +1902,7 @@ export class Renderer {
       circle(c, toX(s.mission.passage.stationX), by, 4, s.campaign.passageSecured ? '#91bea8' : '#d4ae73');
       line(c, toX(s.mission.passage.pipeFrom), by + 5, toX(s.mission.passage.pipeTo), by + 5, s.campaign.pipeIntact ? '#afb68a' : '#d88e6b', 3);
     }
-    if (!s.livingRoute && !s.chemical && !s.voice) { const ex = toX(s.evidence.x); poly(c, [[ex, by - 5], [ex + 4, by], [ex, by + 5], [ex - 4, by]], s.evidence.collected ? '#91bea8' : '#e6c284'); }
+    if (!s.livingRoute && !s.chemical && !s.voice && !s.relay && !s.foundry && !s.workshop) { const ex = toX(s.evidence.x); poly(c, [[ex, by - 5], [ex + 4, by], [ex, by + 5], [ex - 4, by]], s.evidence.collected ? '#91bea8' : '#e6c284'); }
     if (s.convoy) { c.fillStyle = '#91d2c4'; c.fillRect(toX(s.convoy.x) - 3, by - 3, 6, 6); }
     if (s.train) {
       for (const h of s.train.harpoons) circle(c, toX(h.x), by, 4, h.released ? '#91bea8' : '#d4ae73');
@@ -1901,6 +1963,34 @@ export class Renderer {
       if (s.campaign.sourceLocated) { c.fillStyle = d.emitter.destroyed ? '#d89f7f' : d.emitter.seized ? '#b5bc9e' : '#a5d5bd'; c.fillRect(toX(d.emitter.x) - 3, by - 5, 6, 10); }
       if (d.leth.met || d.leth.encountered) circle(c, toX(d.leth.x), by - 7, 3, d.leth.alive ? '#d9d6ad' : '#ca8e70');
     }
+    if (s.relay) {
+      const d = s.relay;
+      for (const r of d.relays) circle(c, toX(r.x), by, 3, r.destroyed ? '#c88a74' : r.isolated ? '#9cd7bb' : r.erased ? '#a6aaa4' : '#efbd83');
+      c.fillStyle = d.copy.copied ? '#a6d6bb' : d.copy.lost || d.copy.expired ? '#c88a74' : '#e5ca91';
+      c.fillRect(toX(d.copy.x) - 2, by - 10, 4, 6);
+      circle(c, toX(d.report.x), by, 3, d.report.transmitted ? '#a6d6bb' : '#e5ca91');
+      if (d.alert.ready) {
+        const px = toX(d.praetor.x);
+        poly(c, [[px, by - 5], [px + 4, by], [px, by + 5], [px - 4, by]], d.praetor.destroyed ? '#82948a' : '#d88e73');
+      }
+    }
+    if (s.foundry) {
+      const d = s.foundry;
+      c.fillStyle = d.carrier.destroyed ? '#d29275' : '#bbd3b7'; c.fillRect(toX(d.carrier.x) - 5, by - 4, 10, 8);
+      for (const bridge of d.bridges) line(c, toX(bridge.start), by + 5, toX(bridge.end), by + 5, bridge.temperature > 50 ? '#ec9c6b' : '#a6d0b5', 3);
+    }
+    if (s.workshop) {
+      const d = s.workshop;
+      for (const person of d.workers) circle(c, toX(person.x), by - 6, 1.5, !person.alive ? '#d69a7e' : person.sheltered ? '#a8d3ba' : '#e4bd7e');
+      for (const body of [d.valve, d.cooler, d.lot, d.control]) {
+        c.fillStyle = body.destroyed ? '#d69a7e' : body.closed || body.repaired || body.copied || body.operated ? '#b7d4b9' : '#d8b883';
+        c.fillRect(toX(body.x) - 2, by - 3, 4, 7);
+      }
+      if (d.alert.ready) {
+        const unit = s.enemies.find(e => e.id === 'workshop-security-1');
+        if (unit) circle(c, toX(unit.x), by + 7, 3, unit.dead ? '#82948a' : '#d88e73');
+      }
+    }
     const px = toX(s.player.x); poly(c, [[px, by - 8], [px + 5, by - 15], [px - 5, by - 15]], '#e2c893');
     const exitX = toX(s.extraction.x); line(c, exitX, by - 7, exitX, by + 7, s.extraction.active ? '#c6dfb1' : '#657b73', 2);
     label(c, 'ROUTE OPÉRATIONNELLE', bx, by + 24, 9, '#899b92');
@@ -1914,7 +2004,7 @@ export class Renderer {
     if (pointer.clientX !== undefined) { const p = this.worldPoint(pointer.clientX, pointer.clientY); x = p.x - this.cameraX; y = p.y; }
     if (!Number.isFinite(x) || !Number.isFinite(y)) return;
     if (pointer.world) x -= this.cameraX;
-    const color = s.player.overheated ? '#e99b75' : '#e3cc9d';
+    const color = s.player.overheated || s.player.venting ? '#e99b75' : '#e3cc9d';
     circle(c, x, y, 13, null, color, 1);
     for (const a of [0, Math.PI / 2, Math.PI, Math.PI * 1.5]) line(c, x + Math.cos(a) * 18, y + Math.sin(a) * 18, x + Math.cos(a) * 24, y + Math.sin(a) * 24, color, 1.5);
     circle(c, x, y, 1.6, color);

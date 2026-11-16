@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.12.0 · Français**
+**Nom de code : ImperiumMarch · Version 0.15.2 · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -10,15 +10,17 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 **Ordre de Cendre** est un projet original de combat tactique en 2D, inspiré par le contrôle volontaire des appuis de BE-A Walker. Il développe ses propres mondes, machines, factions, personnages et récit. Sa proposition est de faire du pilotage une responsabilité matérielle : porter une machine, choisir une ligne de tir, vérifier une qualification hostile et retrouver les conséquences au retour.
 
-Cette livraison contient un **prototype de onze missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant. La qualité de production visée, les huit mondes et la campagne complète restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
+Cette livraison contient un **prototype de quatorze missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant **v14**. MI12 achève la tranche de Thyr ; MI13 et MI14 ouvrent Kharon par un convoi industriel puis un atelier en grève. La Bible contient **1 007 fiches sur 21 onglets**. Les dix-huit missions MI15–MI32, les seize contrats et la qualité de production visée restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
+
+La **0.15.2 ajoute neuf atlas peints transparents pour les acteurs et véhicules de combat** : 78 cellules, dont 32 poses de marche, avec sept armes séparées raccordées aux tirs physiques. Les huit atlas de MI14 sont conservés, soit **17 planches et 132 cellules** au total. Le [bilan 0.15.2](docs/PRODUCTION_V15_2.md) et sa [réception graphique](docs/QA_PAINTED_COMBAT.md) précisent ce qui est utilisé et ce qui reste à produire. La 0.15 avait ajouté Les mains noires à la reconstruction 0.14.1, issue de la source publique 0.12 et des spécifications des livraisons locales 0.13/0.14 perdues. Les [sprites MI14](docs/PRODUCTION_V15_1.md), la [consolidation MI14](docs/QA_V15.md) et le [bilan de reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves propres.
 
 ## Jouer à cette version
 
-**La version 0.12 est disponible sur le [site en ligne](https://imperium-march.vercel.app/) et dans le fichier autonome ci-dessous.** Le commit GitHub [`e59dc2c51c68ec151cbc75a37a033c2650d3b95b`](https://github.com/darknigthmare/ImperiumMarch/commit/e59dc2c51c68ec151cbc75a37a033c2650d3b95b) correspond au snapshot contrôlé. Son déploiement automatique de production est READY ; les [28 ressources HTTP vérifiées](docs/validation/v12-http-initial.json) le 11 novembre 2026 à 20:30:47 UTC sont identiques aux octets attendus. Le [reçu de publication](docs/validation/v12-publication-initial.json) et le [suivi](docs/DEPLOYMENT.md) séparent cette disponibilité, la CI encore en attente et la réception native.
+Le jeu dispose d’un [site en ligne](https://imperium-march.vercel.app/) et d’un fichier autonome. Le [suivi de publication](docs/DEPLOYMENT.md) identifie le commit distant et le déploiement effectivement contrôlé ; les rapports de [consolidation MI14](docs/QA_V15.md), des [sprites de l’atelier](docs/QA_PAINTED_MI14.md) et du [combat peint](docs/QA_PAINTED_COMBAT.md) indiquent la portée des essais. Une construction locale, un push GitHub et un déploiement disponible sont des étapes distinctes.
 
 Ouvrir [**dist/Ordre_de_Cendre.html**](dist/Ordre_de_Cendre.html) dans un navigateur de bureau récent, après l’avoir téléchargé ou extrait du pack. Le code, les styles et les images sont intégrés. Aucun serveur ni téléchargement complémentaire n’est nécessaire pour cette édition. Le son démarre après une interaction.
 
-1. **Campagne** : ouvrir le dossier de Sera, jouer MI01, puis MI02, MI03, MI04, MI05, MI06, MI07, MI08, MI09, MI10 et MI11, débloquées par le premier rapport de la mission précédente.
+1. **Campagne** : ouvrir le dossier de Sera et parcourir **MI01 à MI14**, chacune débloquée par le premier rapport de la mission précédente.
 2. **Hangar** : choisir parmi six châssis. Au retour, lire les réactions de Tess et Sami et réparer avec les pièces disponibles.
 3. **Reprendre la mission** : retrouver le dernier point de liaison, ses appuis, projectiles, travaux et objectifs.
 4. **Simulations** : jouer les trois opérations indépendantes. Elles dévoilent des éléments ultérieurs du récit et ne modifient pas le dossier officiel.
@@ -43,12 +45,91 @@ npm run build
 npm run check
 npm run check:ui
 npm run check:ui-runtime
+npm run check:combat
 npm run build:web
 ```
 
 `npm run test:browser` fournit un contrôle Chromium distinct, avec Playwright et un navigateur installés dans un environnement autorisé. Les outils de classeur et de rendu Canvas utilisent des dépendances de développement séparées ; elles ne sont pas requises pour jouer.
 
-## Nouveautés de la 0.12 — Une voix au ras du sol
+Les modules `relay-simulation.mjs`, `foundry-simulation.mjs` et `workshop-simulation.mjs` portent les domaines MI12–MI14 ; leurs modules `*-validation.mjs`, `*-renderer.mjs` et `*-assets.mjs` séparent faits, import, dessin et formes originales. Les commandes de production dédiées sont :
+
+```sh
+node tools/build-relay-assets.mjs
+node tools/build-foundry-assets.mjs
+node tools/build-workshop-assets.mjs
+node tools/render-mi12-previews.mjs
+node tools/render-mi13-previews.mjs
+node tools/render-mi14-previews.mjs
+npm run check:assets-render
+```
+
+Les outils `render-mi12/mi13/mi14-previews` produisent des scènes Canvas et des états atteints par commandes publiques. Ils ne remplacent pas un essai navigateur. Le [guide du classeur](docs/BIBLE_README.md) décrit la régénération du XLSX à partir de `data/bible.json`.
+
+## 0.15.2 — Les acteurs et véhicules peints
+
+Le fusilier, le tireur de précision, le lance-roquettes et une silhouette civile disposent chacun d’une planche de douze cellules, dont huit poses de marche. Le buggy, le patin, le drone, la tourelle et le convoi reçoivent chacun six cellules de corps, états et pièces. **60 cellules sont employées dans le rendu ; 18 restent des références.** Les effectifs, les factions, les pertes et les arrivées restent ceux de chaque mission.
+
+Les sept armes ennemies sont dessinées séparément. Leur pivot, leur visée et leur bouche viennent du même calcul que les projectiles ; les annonces de tir suivent cette géométrie. La marche repose sur le déplacement observé et s’arrête avec le corps. Le réglage de réduction des mouvements est conservé. Un échec de chargement laisse le rendu vectoriel disponible.
+
+![Neuf types peints dans le renderer du jeu, comparés dans les deux directions.](docs/validation/painted-combat-v0152/combat-readability.png)
+
+*Banc Canvas du renderer ordinaire, à l’échelle ×2. Les personnages et véhicules sont placés pour la comparaison ; cette planche n’est pas une capture de partie ni un essai navigateur. Les cinq scènes simulées et leurs empreintes figurent dans le [reçu graphique](docs/validation/painted-combat-v0152/receipt.json).*
+
+Le lot reste **Prototype**. Les variantes de faction, la diversité des civils, les rechargements, redditions et animations finales, les marcheurs peints articulés et les autres biomes restent ouverts. Les [PNG et leur manifeste](assets/painted/combat/README.md) conservent les prompts, les dimensions, les ancres et l’usage exact de chaque cellule. Les **697 tests de simulation et d’intégration** passent ; leur portée et les autres contrôles sont détaillés dans le [rapport QA](docs/QA_PAINTED_COMBAT.md).
+
+## 0.15.1 — Les sprites peints de l’atelier
+
+MI14 reçoit **huit fichiers PNG avec transparence**, rassemblant **54 cellules** de personnages, machines et accessoires. Les deux tenues d’ouvrier proposent chacune huit poses de marche, ainsi que des poses de repos, d’arrivée, de perte et une référence agenouillée. Ces images habillent les huit personnes déjà suivies individuellement par la simulation.
+
+Le refroidisseur, la vanne, le lot, la commande, le poste du piquet et l’automate possèdent leurs états peints. Le canon de l’automate reste une pièce séparée : son pivot et sa bouche suivent la visée physique. La lecture des atlas conserve les positions, les contacts et les pertes du modèle. Le rendu vectoriel reste disponible si une image ne peut pas être décodée.
+
+Les PNG sont conservés sans retouche après génération. Les rectangles et ancres sont définis dans `src/painted-sprite-layout.mjs`, puis utilisés par `src/painted-sprites.mjs`. Les images sont intégrées à l’édition HTML autonome. Ce lot reste au **stade prototype** : les deux poses agenouillées servent de références, et la réception humaine ainsi que les animations finales restent ouvertes. Le [bilan du lot](docs/PRODUCTION_V15_1.md) donne sa répartition exacte.
+
+La Bible conserve ses **1 007 fiches, 21 onglets et 133 critères initiaux**. Cinq fiches existantes sont précisées ; aucun personnage, mission ou critère supplémentaire n’est déduit du nombre de cellules graphiques.
+
+## 0.15 — Les mains noires
+
+Holt ordonne de remettre au travail un atelier de Kharon. **Huit ouvriers refusent d’expédier un lot saboté**, tandis qu’un refroidisseur en panne et un automate de sécurité rendent le site dangereux.
+
+- **Un piquet à traverser.** Une demande de passage sous ancrage prend trois secondes, puis les ouvriers gagnent réellement une galerie. Le joueur attend leur trajet avant de faire passer ses pieds. Les tirs, explosions et accidents conservent leurs pertes individuelles.
+- **Un circuit à remettre en état.** Inspecter, isoler et réparer prennent trois, quatre et huit secondes. Un diagnostic ne ferme pas la vanne. Un organe perdu laisse un constat dégradé. Le froid réparé abaisse progressivement la température.
+- **Des sources distinctes.** L’explication des ouvriers et la copie du lot exigent chacune une intervention. Le recoupement avec PT03 dépend de son acquisition dans MI13 ; une source antérieure absente reste absente.
+- **Deux ordres à exécuter.** Redémarrer ou maintenir l’arrêt fixe une conduite. Il faut ensuite agir cinq secondes sur la commande de terrain. Un arrêt maintenu avec le froid réparé permet de demander une aide aux mécaniciens survivants ; ils restent sur place.
+- **Une suite conservée.** Le dossier v14 ajoute l’atelier sans réécrire les treize rapports précédents. Le premier bilan donne quatre lots une fois. La relecture garde son résultat séparé. MI15 conserve ses révélations propres et la défection reste prévue à MI16.
+
+![MI14 : les huit ouvriers quittent le piquet et gagnent physiquement la galerie.](docs/validation/mi14/workers-crossing.png)
+
+*Vue Canvas de la 0.15 : après la demande de passage, les ouvriers suivent leur trajet réel et le marcheur attend. Les [quatorze vues et sept exports](docs/validation/mi14-canvas.json) conservent les états simulés et leurs empreintes. Cette série reste distincte de la réception dans un navigateur.*
+
+Le [contrat MI14](docs/CAMPAIGN_MISSION_14.md), le [dossier v14](docs/CAMPAIGN_SAVE_V14.md), le [registre 0.15](docs/PRODUCTION_REGISTER_V15.md) et le [rapport QA](docs/QA_V15.md) précisent la réalisation et les critères encore ouverts.
+
+## Reconstruction 0.14.1 — Le troisième relais et les pièces de rechange
+
+### MI12 — Le troisième relais
+
+Après le premier rapport de MI11, Holt ordonne d’effacer trois relais de Thyr avant l’inspection d’Orison. Le troisième conserve les commandes locales du traitement chimique.
+
+- **Une copie sous contrainte.** Relever les trois appareils ouvre une fenêtre de quarante-cinq secondes. La copie complète demande vingt-quatre secondes d’ancrage ; un départ interrompt le travail. La perte de la source avant copie ou l’expiration conserve une absence explicite. Une copie achevée reste à bord après destruction ou purge de l’original.
+- **Un Prétoire matériel.** Le quadrupède de sécurité VE12 n’arrive qu’après son délai d’alerte. Son capteur supérieur commande la visée de longue portée ; son verrou hydraulique frontal maintient l’ancrage et le blindage. Leurs dégâts modifient réellement le duel.
+- **Trois conduites à accomplir.** Purger trois relais, purger les deux premiers et isoler le troisième, ou refuser publiquement puis isoler les trois exige encore cinq secondes d’intervention par appareil. Le choix ne répare aucun relais et ne réalise aucun travail à distance.
+- **Des conséquences limitées aux faits.** Ilan distingue les commandes vues d’une archive perdue. Holt constate les écarts ; le refus ouvert ferme le refuge impérial. La mission conserve une provenance industrielle locale, sans attribuer une nouvelle preuve politique ni anticiper la défection de MI16.
+
+![Le Prétoire, ses composants et le marcheur dans MI12](docs/validation/rebuild-mi12/praetor-lock.png)
+
+*Scène Canvas de la reconstruction, atteinte par les commandes publiques. La géométrie du Prétoire et ses quatre appuis viennent de la simulation. Ce rendu n’est pas une capture de navigateur.*
+
+### MI13 — Pièces de rechange
+
+La première mission de Kharon escorte un porteur industriel chargé de deux caisses vers la fonderie centrale.
+
+- **Des ponts qui chauffent les contacts réels.** Les deux tabliers portent les vrais pieds et roues. Une vanne manœuvrée pendant quatre secondes coupe son jet et refroidit progressivement le circuit. Chaleur ambiante, conduction et vapeur restent séparées ; les jets possèdent une annonce visible.
+- **Un convoi et des sources distinctes.** Le porteur, ses deux caisses et le bordereau peuvent subir des pertes. Deux drones et une tourelle apparaissent après le délai de l’embuscade. Les marquages demandent trois secondes chacun, le bordereau quatre secondes et l’analyse embarquée de Tess huit secondes.
+- **PT03 avec sa provenance.** La preuve industrielle exige les deux marquages, le bordereau et l’analyse achevée. Les recoupements avec PT01 ou les commandes de MI12 n’existent que si ces sources ont été acquises. Les copies restent conservées quand les originaux sont ensuite perdus.
+- **Deux quais et un transfert réel.** Livrer ou mettre en quarantaine fixe une destination. Le porteur doit la rejoindre, puis chaque caisse survivante effectue son transfert de cinq secondes. Un transfert partiel conserve sa position et sa progression ; une perte n’est pas réparée par le rapport.
+
+Le [bilan de production reconstruit](docs/PRODUCTION_V14_RECONSTRUCTION.md), le [format de dossier v13](docs/CAMPAIGN_SAVE_V13.md) et le [rapport QA](docs/QA_RECONSTRUCTION_014.md) détaillent les comportements reçus et leurs limites. Les anciens comptes rendus ci-dessous gardent leur version et leur portée historiques.
+
+## Livraison historique — 0.12, une voix au ras du sol
 
 **MI11 poursuit Thyr après le premier rapport du champ chimique.** Holt ordonne de saisir un émetteur khelte. Retrouver sa source demande des écoutes dans les racines, puis un passage attentif au-dessus d’un site de ponte. La rencontre avec **Leth de la Septième Rive** permet de confronter le signal source à sa traduction impériale.
 
@@ -244,26 +325,26 @@ Les trois premières missions de Vesper établissent des faits locaux. MI04 ajou
 
 ## Dossier, atelier et migrations
 
-Le dossier de campagne s’enregistre toutes les **huit secondes de simulation**, à la pause, au retour, avant et après la décision et lors des événements de fermeture disponibles. Le raccordement de l’auxiliaire et une défaite de MI06 à MI11 déclenchent aussi une sauvegarde immédiate. Une fermeture brutale peut revenir au dernier point effectivement écrit. Les opérations indépendantes gardent leurs rapports réussis, sans sauvegarde de leur partie en cours après fermeture.
+Le dossier de campagne s’enregistre toutes les **huit secondes de simulation**, à la pause, au retour, avant et après la décision et lors des événements de fermeture disponibles. Le raccordement de l’auxiliaire et une défaite de MI06 à MI14 déclenchent aussi une sauvegarde immédiate. Une fermeture brutale peut revenir au dernier point effectivement écrit. Les opérations indépendantes gardent leurs rapports réussis, sans sauvegarde de leur partie en cours après fermeture.
 
-Le **format v11** accepte les dossiers historiques v1 à v10. La migration conserve rapports, décisions, pièces, dégâts, phase et temps de rechargement. Les anciennes versions reçoivent les champs manquants : trois châssis neufs et une réserve documentée de huit magasins pour v1/v2, puis un radiateur neuf et deux kits pour chaque ancien checkpoint. Le dossier industriel commence sans preuve ni contact inventés. Un dossier v4 gagne uniquement Nacre non visité et zéro carburant ; tous ses checkpoints et ses quatre rapports sont conservés tels quels. Un dossier v5 gagne seulement la digue non visitée et un compteur de dépense nul ; même un transfert de carburant effectué dans une MI05 encore en cours ne crédite pas prématurément la réserve. Un dossier v6 gagne seulement l’ambulance non visitée, sans réécriture des six rapports ni du registre de carburant. Un dossier v7 gagne uniquement le volet d’Aval vide et le numéro de version v8 : les sept rapports et les scènes sanitaires restent exacts. Un dossier v8 gagne uniquement le volet de Thyr vide et le numéro de version v9, sans modifier ses huit rapports, ses scènes, son ancien stage ou ses ressources. Un dossier v9 gagne seulement `world.thyr.chemical` vide et la version v10 ; son ancien `stage`, ses neuf rapports, ses scènes et ses ressources restent exacts. Un dossier v10 gagne uniquement `world.thyr.voice` vide et le numéro v11 ; ses dix rapports, ses scènes et ses ressources restent exacts. La fixture v10 provient du pilote public figé de la 0.11, sans prétendre à une réception native. La lecture ne réécrit pas l’ancien fichier ; la première sauvegarde en conserve une copie de secours.
+Le **format courant est v14**. Les migrations contrôlées partent des fixtures historiques conservées ; les étapes v12 et v13 ajoutent les dossiers des deux missions reconstruites, puis v14 ajoute l’atelier de MI14. La migration conserve rapports, décisions, pièces, dégâts, phase et temps de rechargement. Les anciennes versions reçoivent les champs manquants : trois châssis neufs et une réserve documentée de huit magasins pour v1/v2, puis un radiateur neuf et deux kits pour chaque ancien checkpoint. Le dossier industriel commence sans preuve ni contact inventés. Un dossier v4 gagne uniquement Nacre non visité et zéro carburant ; tous ses checkpoints et ses quatre rapports sont conservés tels quels. Un dossier v5 gagne seulement la digue non visitée et un compteur de dépense nul ; même un transfert de carburant effectué dans une MI05 encore en cours ne crédite pas prématurément la réserve. Un dossier v6 gagne seulement l’ambulance non visitée, sans réécriture des six rapports ni du registre de carburant. Un dossier v7 gagne uniquement le volet d’Aval vide et le numéro de version v8 : les sept rapports et les scènes sanitaires restent exacts. Un dossier v8 gagne uniquement le volet de Thyr vide et le numéro de version v9, sans modifier ses huit rapports, ses scènes, son ancien stage ou ses ressources. Un dossier v9 gagne seulement `world.thyr.chemical` vide et la version v10 ; son ancien `stage`, ses neuf rapports, ses scènes et ses ressources restent exacts. Un dossier v10 gagne uniquement `world.thyr.voice` vide et le numéro v11 ; ses dix rapports, ses scènes et ses ressources restent exacts. La fixture v10 provient du pilote public figé de la 0.11, sans prétendre à une réception native. Un dossier v11 gagne le domaine `world.thyr.relay` vide ; le passage de v12 à v13 ajoute `world.kharon.foundry` vide. Les onze premiers rapports, les ressources et les scènes historiques restent conservés. La fixture v11 vient des exports publics historiques MI11 ; les nouveaux points v12 de reconstruction portent leur provenance distincte. La compatibilité des octets locaux perdus ne peut pas être certifiée sans leurs fichiers. La migration v13→v14 ajoute seulement `world.kharon.workshop` vide et conserve les treize rapports, les ressources et les anciens checkpoints. Les deux fixtures v13 proviennent des exports préparés et figés de la reconstruction 0.14.1. La lecture ne réécrit pas l’ancien fichier ; la première sauvegarde en conserve une copie de secours.
 
 Une version future, un format étranger ou un fichier dépassant la taille admise reste protégé contre l’écrasement automatique, même avec une copie de secours lisible. L’import explicite ou la création d’un nouveau dossier est nécessaire pour le remplacer. Si le stockage refuse une écriture, la session reste jouable et l’interface indique l’échec.
 
-L’atelier commence avec **six lots de pièces**. Chaque première réussite de MI01 à MI11 ajoute **quatre lots**, une seule fois. Réparer coque, appuis et radiateur coûte de un à six lots ; réparer la conduite coûte deux lots. Aucune intervention d’atelier n’est possible pendant la sortie officielle.
+L’atelier commence avec **six lots de pièces**. Chaque première réussite de MI01 à MI14 ajoute **quatre lots**, une seule fois. Réparer coque, appuis et radiateur coûte de un à six lots ; réparer la conduite coûte deux lots. Aucune intervention d’atelier n’est possible pendant la sortie officielle.
 
 Une relecture ne remplace pas le premier rapport, ne redonne pas de dotation et n’efface pas la sortie officielle encore en cours. Réparer un service conserve l’incident dans l’histoire. Un rapport favorable ne restaure pas un bâtiment détruit après sa signature.
 
 ## Portée réelle et cible de production
 
-| Domaine | Livré dans la 0.12 | Cible encore à produire |
+| Domaine | Livré dans la 0.15.0 | Cible encore à produire |
 | --- | --- | --- |
-| Campagne | MI01–MI11, onze rapports, Vesper, Nacre et les trois premières missions de Thyr. | 21 autres missions principales et 16 contrats. |
+| Campagne | MI01–MI14, quatorze rapports, Vesper, Nacre, quatre missions de Thyr et deux sorties de Kharon. | 18 autres missions principales et 16 contrats. |
 | Opérations indépendantes | Vesper : relais ; Nacre : escorte ; Thyr : ordre et adversaire lourd. | Campagnes des autres mondes et leurs règles propres. |
 | Châssis | Six machines, deux profils par nombre d’appuis. | Six autres modèles, équipements et aptitudes spécialisées. |
-| Combat | Tirs balayés, roquettes, ancrage, chauffe, appuis, radiateur localisé, deux kits finis et réserves de munitions. | Familles d’armes complètes, composants ennemis, doctrines d’escouade. |
-| Monde et récit | Arcs de Vesper et de Nacre, route, champ chimique et rencontre avec Leth sur Thyr, équipage et faits de onze missions. | Huit planètes complètes, neuf factions, coalition et quatre familles de fins. |
-| Conception | 905 fiches, 21 onglets, concept complet, contrats causaux de Vesper et Nacre, registre des 133 critères initiaux. | Assets, voix, animations, niveaux, réglages et tests humains de production. |
+| Combat | Tirs balayés, roquettes, ancrage, chauffe, appuis, radiateur localisé, composants du Prétoire, deux kits finis et réserves de munitions. | Familles d’armes complètes, composants des autres adversaires, doctrines d’escouade. |
+| Monde et récit | Vesper et Nacre, route vivante, traitement chimique, Leth et relais de Thyr, convoi industriel et atelier en grève de Kharon. | Huit planètes complètes, neuf factions, coalition et quatre familles de fins. |
+| Conception | 1 007 fiches, 21 onglets, 977 IDs précédents conservés, 30 fiches MI14 nouvelles et 133 critères initiaux. | Assets, voix, animations, niveaux, réglages et tests humains de production. |
 
 Les statuts **Conçu**, **Prototype**, **À produire** et **Vérifié** restent distincts. Les fiches ne constituent pas un pourcentage d’achèvement. Les validations portent sur des scénarios et un environnement précis.
 
@@ -290,20 +371,26 @@ Onze actions clavier sont reconfigurables dans Réglages. Une manette standard p
 | --- | --- |
 | [Conséquences Vesper 0.5](docs/VESPER_CONSEQUENCES_V05.md) | Causalité, preuve, connaissance, composants, Nacre et critères de production. |
 | [Concept complet 0.4](docs/CONCEPT_COMPLET_V04.md) | Tous les domaines : règles, contenu, récit, économie, art, accessibilité et production. |
-| [Bible Excel](docs/ORDRE_DE_CENDRE_Bible.xlsx) | 21 onglets, 905 fiches, 20 tables filtrables et 126 formules. |
+| [Bible Excel](docs/ORDRE_DE_CENDRE_Bible.xlsx) | 21 onglets, 1 007 fiches ; source reproductible et critères de réception conservés. |
 | [Bible générale](docs/BIBLE_FR.md) | Vision et règles communes. |
 | [Campagne](docs/CAMPAIGN_FR.md) | Trente-deux missions, quatre actes et fins ; contient des révélations. |
-| [MI01](docs/CAMPAIGN_MISSION_01.md), [MI02](docs/CAMPAIGN_MISSION_02.md), [MI03](docs/CAMPAIGN_MISSION_03.md), [MI04](docs/CAMPAIGN_MISSION_04.md), [MI05](docs/CAMPAIGN_MISSION_05.md), [MI06](docs/CAMPAIGN_MISSION_06.md), [MI07](docs/CAMPAIGN_MISSION_07.md), [MI08](docs/CAMPAIGN_MISSION_08.md), [MI09](docs/CAMPAIGN_MISSION_09.md), [MI10](docs/CAMPAIGN_MISSION_10.md), [MI11](docs/CAMPAIGN_MISSION_11.md) | Contrats du contenu réellement exécuté. |
-| [Production 0.12](docs/PRODUCTION_V12.md), [registre des 133 critères](docs/PRODUCTION_REGISTER_V12.md) | Livrables reçus, preuves, dépendances et travail restant par ID. |
-| [Validation 0.12](docs/QA_V12.md) | Résultats exécutés et limites distinctes de simulation, interface, rendu, classeur et navigateur. |
-| [Sauvegarde v11](docs/CAMPAIGN_SAVE_V11.md), [Architecture](docs/ARCHITECTURE.md), [API simulation](docs/SIMULATION_API.md) | Contrats techniques et règles de migration. |
+| [MI01](docs/CAMPAIGN_MISSION_01.md), [MI02](docs/CAMPAIGN_MISSION_02.md), [MI03](docs/CAMPAIGN_MISSION_03.md), [MI04](docs/CAMPAIGN_MISSION_04.md), [MI05](docs/CAMPAIGN_MISSION_05.md), [MI06](docs/CAMPAIGN_MISSION_06.md), [MI07](docs/CAMPAIGN_MISSION_07.md), [MI08](docs/CAMPAIGN_MISSION_08.md), [MI09](docs/CAMPAIGN_MISSION_09.md), [MI10](docs/CAMPAIGN_MISSION_10.md), [MI11](docs/CAMPAIGN_MISSION_11.md), [MI12](docs/CAMPAIGN_MISSION_12.md), [MI13](docs/CAMPAIGN_MISSION_13.md), [MI14](docs/CAMPAIGN_MISSION_14.md) | Contrats du contenu réellement exécuté. |
+| [Production 0.15](docs/PRODUCTION_V15.md), [reconstruction 0.14.1](docs/PRODUCTION_V14_RECONSTRUCTION.md) | Mission de l’atelier, provenance et travail restant ; conservation des 133 critères initiaux. |
+| [QA 0.15](docs/QA_V15.md), [QA de reconstruction](docs/QA_RECONSTRUCTION_014.md) | Résultats de chaque version, avec portées distinctes de simulation, interface, rendu, classeur et navigateur. |
+| [Sauvegarde v14](docs/CAMPAIGN_SAVE_V14.md), [v13 historique](docs/CAMPAIGN_SAVE_V13.md), [Architecture](docs/ARCHITECTURE.md), [API simulation](docs/SIMULATION_API.md) | Contrat courant de migration et références techniques historiques. |
 | [Conséquences de Nacre](docs/NACRE_CONSEQUENCES_V09.md), [commandes et son](docs/CONTROLS_AUDIO_V09.md) | Personnes, capacités, arrivées, héritages et commandes disponibles. |
-| [Lots graphiques et audio](assets/production/README.md), [Thyr](assets/thyr/README.md), [champ chimique](assets/chemical/README.md), [voix de Thyr](assets/voice/README.md) | Les lots originaux, leurs variantes SVG, planches PNG et exports audio, avec sources et manifestes. |
+| [Lots graphiques et audio](assets/production/README.md), [Thyr](assets/thyr/README.md), [champ chimique](assets/chemical/README.md), [voix de Thyr](assets/voice/README.md), [relais](assets/relay/manifest.json), [fonderie](assets/foundry/manifest.json), [atelier](assets/workshop/manifest.json) | Géométries originales, variantes SVG, planches PNG et exports audio, avec leur provenance. |
 | [Direction artistique](docs/ART_DIRECTION.md), [provenance](docs/ASSET_PROVENANCE.md) | Art, animation, sons et origine des éléments. |
 | [Déploiement](docs/DEPLOYMENT.md) | Construction web, liaison distante et état réel de publication. |
-| [Données source](data/bible.json) | Les 905 fiches à identifiants stables, dont les 873 précédentes conservées. |
+| [Données source](data/bible.json) | Les 1 007 fiches à identifiants stables, dont les 977 IDs précédents conservés. |
 
 ## Vérification et prochaine étape
+
+Le [rapport QA de la 0.15](docs/QA_V15.md) rassemble les résultats exécutés sur cette tranche : simulation, dossiers, interface, dessin, classeur et navigateur. Les [preuves de reconstruction](docs/QA_RECONSTRUCTION_014.md) et les manifestes de production antérieurs gardent leur environnement et les empreintes de leurs sources. Une réception historique ne certifie pas les nouveaux fichiers.
+
+La source du classeur contient **1 007 fiches**, soit **30 ajouts aux 977 fiches précédentes conservées**. Les statuts indiquent des niveaux de conception ou de réception ; ils ne certifient pas la finition du jeu. La prochaine mission conçue est **MI15 — Sous le même numéro**. Les dix-huit missions restantes, les seize contrats, les six autres châssis, les composants des autres ennemis et les essais humains demeurent au registre.
+
+### Réception historique de la 0.12
 
 La [validation 0.12](docs/QA_V12.md) rassemble **516 tests Node réussis et 86 parcours d’interface dans un DOM modélisé** sur MI11 et les régressions des versions précédentes. La simulation dédiée vérifie 35 cas MI11, dont douze sorties complètes avec les six châssis et les deux conduites. Les 25 scènes Canvas proviennent de dix-huit sorties par commandes publiques et conservent cinq exports préparés. La comparaison SVG/Canvas porte sur 90 variantes.
 
@@ -313,7 +400,7 @@ La [réception partielle dans Chrome](docs/validation/native-v12/production-rece
 
 Le [constat natif avant publication](docs/validation/native-v12/browser-reception.json) reste conservé avec son état historique `not_run`. Le quota de l’ancienne demande explicite 0.11 n’a pas empêché le déploiement automatique 0.12 reçu. Les nouvelles observations de production disposent de leurs propres preuves.
 
-La prochaine mission conçue est **MI12 — Le troisième relais**. Les autres missions, les contrats, les composants ennemis, les animations finales et les essais humains restent à produire.
+Cette réception 0.12 précède la reconstruction de MI12 et MI13. Ses comptes et ses captures conservent cette portée historique.
 
 ### Réceptions historiques conservées
 
@@ -331,4 +418,4 @@ La continuation native MI07 de la version 0.8 reste conservée dans son [rapport
 
 L’adresse du site est [imperium-march.vercel.app](https://imperium-march.vercel.app/). Le [suivi de publication](docs/DEPLOYMENT.md) identifie le commit distant, le déploiement exact, la date du contrôle HTTP, l’état de la CI et les observations de navigateur effectivement réalisées. Les captures Canvas restent distinctes de ces observations.
 
-Les prochains chantiers comprennent les quatre contrats de l’acte I, la suite de campagne à Thyr, les six autres châssis et la finition de la mission de référence. Les voix, l’animation finale, les essais humains et les performances sur matériel déclaré gardent leurs critères dans le registre de production.
+Les prochains chantiers comprennent MI14 et la suite de Kharon, les contrats encore conçus, les six autres châssis et la finition des missions de référence. Les voix, l’animation finale, les essais humains et les performances sur matériel déclaré gardent leurs critères dans le registre de production.

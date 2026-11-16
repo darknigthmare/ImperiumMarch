@@ -1,0 +1,477 @@
+{
+  "schemaVersion": 1,
+  "version": "0.14.1",
+  "reviewer": "assistant /root/rebuild_mi12",
+  "reviewKind": "visual_review_of_rendered_pngs",
+  "reviewedAt": "2026-11-12T19:03:08Z",
+  "status": "pass_for_reviewed_ranges",
+  "selection": "Les 20 premières entrées previews de workbook-validation.json, dans leur ordre. La 41e vue ajoutée, rebuild-qa06.png, est confiée à l'autre relecteur et n'est pas revendiquée ici.",
+  "inventoryPreviewCount": 41,
+  "reviewedPreviewFiles": 20,
+  "distinctRenderedVersionsVisuallyInspected": 21,
+  "unchangedImagesCarriedForwardBySha256AfterSecondBuild": 19,
+  "changedImageReopenedAfterSecondBuild": "20-Prototype.png",
+  "provenance": {
+    "outputDirectory": "/workspace/scratch/47882a75de66/outputs/imperium-reconstruction-014",
+    "previewDirectory": "docs/previews/bible-v014-reconstruction",
+    "workbook": "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+    "workbookSha256": "822c50157aac7f7b537b42a664d6091f4bb0921ea0d8a97b5a025c07762df29a",
+    "source": "data/bible.json",
+    "sourceSha256": "ca198b22793fd01dd5ec3d5e2aed316b8e73449993f2161d65255bd14aa79792",
+    "outputValidation": "workbook-validation.json",
+    "outputValidationSha256": "d02596bf97bfecdb8ced9d39d64c39ef68671154206ff7cd0186ee0116924f5d",
+    "initialCandidate": {
+      "observedAt": "2026-11-12 19:01:29 UTC",
+      "workbookSha256": "14affdd9bf2b779bbb84dcd5b3ad47e4c2043cd3e1cee3d8e49f4c46f508515e",
+      "sourceSha256": "3fe65a59e6be4f29becc3f1a894ace42e5760ea0918f3b773f5232cf0a75d0c5",
+      "validationSha256": "a9682be97931e0eb7438205f529b83b7cab81c96d81b8b79263198802175f29c"
+    }
+  },
+  "checked": [
+    "Textes des cellules visibles et en-têtes",
+    "Retours à la ligne des descriptions longues",
+    "Absence de chevauchement visible entre lignes et colonnes",
+    "Hauteurs suffisantes pour le texte rendu",
+    "Indices de lignes, IDs et statuts dans les plages ciblées"
+  ],
+  "observations": [
+    "Les vingt fichiers ont été ouverts par view_image. Les trois sorties groupées paraissant masquer des préfixes ont été rouvertes isolément.",
+    "Le second export conserve les mêmes octets pour dix-neuf vues de cette tranche. Seule la vue Prototype a changé et a été relue.",
+    "Les comptes visibles de la Synthèse sont lus dans l'image ; cette relecture ne remplace pas la vérification des formules ou du XML."
+  ],
+  "resolvedIssues": [
+    {
+      "id": "prototype_stale_subtitle",
+      "file": "20-Prototype.png",
+      "cell": "A3",
+      "initialSha256": "08575b6879420ea8f330c03a4bb0e09e682e6050c9c2d528b6d42880d43a6121",
+      "initialObservation": "Le sous-titre indiquait la version 0.12.0 sous un en-tête de version 0.14.1.",
+      "resolution": "Le responsable a corrigé la source et régénéré le classeur. L'image corrigée a été ouverte et relue.",
+      "correctedSha256": "eb3e40934fc27a2e9423ecafe3232304b5a691cef746cc0c5af8af32d27d8964",
+      "status": "resolved"
+    },
+    {
+      "id": "grouped_tool_display_masking",
+      "files": [
+        "rebuild-sy-122-125.png",
+        "rebuild-sy-130-133.png",
+        "rebuild-na-97-100.png"
+      ],
+      "initialObservation": "La présentation groupée des résultats d'outil masquait visuellement des débuts d'IDs ou de texte.",
+      "investigation": "Les pixels des préfixes SY sont présents dans les PNG. Chaque image suspecte a été rouverte seule via view_image ; les IDs, libellés et références sont entièrement visibles.",
+      "status": "not_a_defect_in_the_png"
+    }
+  ],
+  "openVisualIssues": [],
+  "limits": [
+    "Portée limitée aux vingt plages identifiées ci-dessous ; les vingt et une autres vues du second export ne sont pas reçues par ce document.",
+    "Inspection de PNG produits par le moteur de rendu ; aucune observation dans Excel desktop ou LibreOffice GUI, aucun essai de tri, de filtre, de volet ou d'édition interactive n'est revendiqué.",
+    "Ce reçu ne certifie pas les règles de jeu, l'exactitude des formules ni la comparaison cellule par cellule du XLSX avec la source JSON.",
+    "La publication et QA221 ne sont pas reçues par cette inspection visuelle."
+  ],
+  "previews": [
+    {
+      "index": 1,
+      "file": "00-Synthese.png",
+      "sha256": "f9dd42e211ceb38ddf1f4b94c9d01c2f44725995ad12643b5073163a64043a9b",
+      "bytes": 127505,
+      "width": 1250,
+      "height": 999,
+      "repoCopyMatches": true,
+      "sheet": "Synthèse",
+      "range": "A1:G32",
+      "observations": [
+        "Les vingt domaines, les en-têtes et le total de 977 fiches sont lisibles. Les compteurs affichés sont 274 Conçu, 421 Prototype, 90 À produire, 192 Vérifié et 0 Sans statut. Aucun chevauchement ni nombre masqué observé."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/00-Synthese.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 2,
+      "file": "02-Systemes.png",
+      "sha256": "97e434743e39e46b533da7d90f5c4cd164e036cd9e8ad2c424023b7eae8cba29",
+      "bytes": 82852,
+      "width": 2500,
+      "height": 359,
+      "repoCopyMatches": true,
+      "sheet": "Systèmes",
+      "range": "A1:G9",
+      "observations": [
+        "Titre, version, sept colonnes et SY01–SY03 lisibles. Les règles et risques reviennent à la ligne dans leurs cellules avec une hauteur suffisante."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/02-Systemes.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 3,
+      "file": "06-Planetes.png",
+      "sha256": "2a040434f7395e6e9659603fc2669f96d03fac0bf58bd0f480f7e4240c975eee",
+      "bytes": 131429,
+      "width": 2990,
+      "height": 508,
+      "repoCopyMatches": true,
+      "sheet": "Planètes",
+      "range": "A1:H9",
+      "observations": [
+        "PL01–PL03 et les huit colonnes sont visibles. La description longue de Thyr, y compris l'ajout MI12, tient dans la ligne 9. Les hauteurs plus grandes conservent les textes complets."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/06-Planetes.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 4,
+      "file": "09-Campagne.png",
+      "sha256": "e18e6c55e98e2deec4ac86fe23cabe99198a56c45327693205fec53cf28a7064",
+      "bytes": 103708,
+      "width": 3330,
+      "height": 359,
+      "repoCopyMatches": true,
+      "sheet": "Campagne",
+      "range": "A1:I9",
+      "observations": [
+        "Le sous-titre distingue treize missions prototypes et dix-neuf conçues. MI01–MI03, ordres, dilemmes, conséquences et statuts sont lisibles sur les neuf colonnes."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/09-Campagne.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 5,
+      "file": "12-Vehicules.png",
+      "sha256": "098b26957f33f4861c4272875f5c135e062ec488171800373295f4a567fa92d1",
+      "bytes": 82515,
+      "width": 2390,
+      "height": 359,
+      "repoCopyMatches": true,
+      "sheet": "Véhicules",
+      "range": "A1:G9",
+      "observations": [
+        "VE01–VE03, en-têtes et statuts lisibles. Les deux lignes du rôle et les limites de l'ambulance ne débordent pas de leurs cellules."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/12-Vehicules.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 6,
+      "file": "15-Narration.png",
+      "sha256": "391e90775a09fa2b4b18814bff47c9951d295208189061a8c05eb0421fe98549",
+      "bytes": 71338,
+      "width": 2040,
+      "height": 359,
+      "repoCopyMatches": true,
+      "sheet": "Narration",
+      "range": "A1:F9",
+      "observations": [
+        "NA01–NA03, références PT/TE/PO et textes de règle lisibles. Les retours à la ligne restent dans la hauteur des trois lignes."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/15-Narration.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 7,
+      "file": "16-Assets.png",
+      "sha256": "f4d20b761d9e947f4a75d1ec4a03610ebbc8596a831115f17be354228ce9d315",
+      "bytes": 112082,
+      "width": 2380,
+      "height": 508,
+      "repoCopyMatches": true,
+      "sheet": "Assets",
+      "range": "A1:G9",
+      "observations": [
+        "AS01–AS03 et les spécifications longues des rigs sont entièrement visibles. Les hauteurs des lignes 8–9 permettent quatre lignes de texte sans chevauchement."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/16-Assets.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 8,
+      "file": "17-Production.png",
+      "sha256": "8b00d77a905c2ad47589c760928737602cdf618b53f297ebbab8191d7dce548d",
+      "bytes": 71163,
+      "width": 2260,
+      "height": 340,
+      "repoCopyMatches": true,
+      "sheet": "Production",
+      "range": "A1:G9",
+      "observations": [
+        "PR01–PR03, dépendances, critères, priorités et statuts lisibles. Les sept en-têtes tiennent sur leur bande."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/17-Production.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 9,
+      "file": "18-QA.png",
+      "sha256": "e6384de6759f48e89b708a379a386fbfb5ff3fc57a0fa1a6a2074095cb300500",
+      "bytes": 63832,
+      "width": 1910,
+      "height": 340,
+      "repoCopyMatches": true,
+      "sheet": "QA",
+      "range": "A1:F9",
+      "observations": [
+        "QA01–QA03, scénarios, résultats attendus, priorités et statuts À produire lisibles. Aucun résultat natif ou humain n'est déduit de cette vue."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/18-QA.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 10,
+      "file": "20-Prototype.png",
+      "sha256": "eb3e40934fc27a2e9423ecafe3232304b5a691cef746cc0c5af8af32d27d8964",
+      "bytes": 93163,
+      "width": 2480,
+      "height": 359,
+      "repoCopyMatches": true,
+      "sheet": "Prototype",
+      "range": "A1:G9",
+      "observations": [
+        "Sous-titre corrigé et relu : « Portée présente dans le code de la version 0.14.1 reconstruite ». PX01–PX03, leurs limites, statuts et chemins de référence restent entièrement lisibles. Aucun chevauchement ou texte tronqué observé."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/20-Prototype.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "visually_reopened_changed_image"
+    },
+    {
+      "index": 11,
+      "file": "rebuild-sy-118-121.png",
+      "sha256": "493c1e669003c23bab1d2efae08ac7ffc25e0ad59bc08028ded461c1ceaafca6",
+      "bytes": 72304,
+      "width": 2500,
+      "height": 241,
+      "repoCopyMatches": true,
+      "sheet": "Systèmes",
+      "range": "A118:G121",
+      "observations": [
+        "SY112–SY115 : fenêtre de 45 s, copie de 24 s, trois relais, arrivée après 6 s et conduites sont lisibles. Tous les indices 118–121 et les statuts restent visibles."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/rebuild-sy-118-121.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 12,
+      "file": "rebuild-sy-122-125.png",
+      "sha256": "28b5ca4f323f17d27213c9e6614bc362602d32eb3cf36e08609f164d48f5fc4f",
+      "bytes": 67655,
+      "width": 2500,
+      "height": 241,
+      "repoCopyMatches": true,
+      "sheet": "Systèmes",
+      "range": "A122:G125",
+      "observations": [
+        "SY116–SY119 : les préfixes SY et MI12 sont complets dans le PNG et à la réouverture isolée. La règle d'Ilan/Holt et le bilan reviennent à la ligne sans chevauchement."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/rebuild-sy-122-125.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 13,
+      "file": "rebuild-sy-126-129.png",
+      "sha256": "5fe0ec78836c289b210926bf67bc58981bf58ee3bf6b0d3689b604067acc77ab",
+      "bytes": 70748,
+      "width": 2500,
+      "height": 223,
+      "repoCopyMatches": true,
+      "sheet": "Systèmes",
+      "range": "A126:G129",
+      "observations": [
+        "SY120–SY123 : porteur, contacts, vanne et vapeur sont lisibles. Le passage de 90 à 28 °C et les phases de 3/2/7 s sont entièrement affichés ; le retour avant °C reste dans la cellule."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/rebuild-sy-126-129.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 14,
+      "file": "rebuild-sy-130-133.png",
+      "sha256": "ce5af6ee289ef74e02ff5076f391f5de63e2f4696183313f1345c39e495ae089",
+      "bytes": 70532,
+      "width": 2500,
+      "height": 223,
+      "repoCopyMatches": true,
+      "sheet": "Systèmes",
+      "range": "A130:G133",
+      "observations": [
+        "SY124–SY127 : provenance, transfert, migration et thermique sont lisibles à la réouverture isolée. Les préfixes d'ID et MI13 ne sont pas coupés dans le PNG. La durée de 5 s, repliée sur deux lignes, reste complète."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/rebuild-sy-130-133.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 15,
+      "file": "rebuild-na-93-96.png",
+      "sha256": "32e02533cafe2a7ee0ff6a945032ce62891f913257811d0b22ae4d1227fb8b8d",
+      "bytes": 65011,
+      "width": 2040,
+      "height": 279,
+      "repoCopyMatches": true,
+      "sheet": "Narration",
+      "range": "A93:F96",
+      "observations": [
+        "NA87–NA90 : commandes locales, réaction d'Ilan, refuge et mémoire embarquée sont lisibles. Les longs textes des colonnes D–E restent dans leurs lignes."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/rebuild-na-93-96.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 16,
+      "file": "rebuild-na-97-100.png",
+      "sha256": "ce4fe386de33dcf5f885e1c5ef259f6b53f497c285fdf9d9cbc1b654fdf7e1b5",
+      "bytes": 74406,
+      "width": 2040,
+      "height": 279,
+      "repoCopyMatches": true,
+      "sheet": "Narration",
+      "range": "A97:F100",
+      "observations": [
+        "NA91–NA94 : conditions de PT03, parcours sans PT01, recoupement et destination sont lisibles à la réouverture isolée. Les sources MI12/MI13 sont complètes."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/rebuild-na-97-100.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 17,
+      "file": "rebuild-pr-98-100.png",
+      "sha256": "d1e8c913b97b06151786a47c05dd734704ef9b823b53b260033410060381224d",
+      "bytes": 47343,
+      "width": 2260,
+      "height": 172,
+      "repoCopyMatches": true,
+      "sheet": "Production",
+      "range": "A98:G100",
+      "observations": [
+        "PR92–PR94 : réalisation, graphisme et réception MI12 lisibles. Dépendances, critères et statut Prototype ne débordent pas."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/rebuild-pr-98-100.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 18,
+      "file": "rebuild-pr-101-103.png",
+      "sha256": "a8d7b61592ad06a5347346e94a82d19ed2d0d97084f831ed764256b2e0f9c6e9",
+      "bytes": 49018,
+      "width": 2260,
+      "height": 172,
+      "repoCopyMatches": true,
+      "sheet": "Production",
+      "range": "A101:G103",
+      "observations": [
+        "PR95–PR97 : MI13, graphisme Kharon et réception finale sont lisibles. PR97 reste À produire ; son livrable MI14–MI16 et sa limite tiennent dans la hauteur de ligne."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/rebuild-pr-101-103.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 19,
+      "file": "rebuild-px-111-113.png",
+      "sha256": "31d9aeba57e9a4915f1446c4305d3b004f5321534ddb781d0aac2de1ef5565bb",
+      "bytes": 47756,
+      "width": 2480,
+      "height": 172,
+      "repoCopyMatches": true,
+      "sheet": "Prototype",
+      "range": "A111:G113",
+      "observations": [
+        "PX105–PX107 : copie, Prétoire et choix/archives sont lisibles avec leurs limites et leurs chemins de code. Aucun texte tronqué ni chevauchement."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/rebuild-px-111-113.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    },
+    {
+      "index": 20,
+      "file": "rebuild-px-114-116.png",
+      "sha256": "fe39a3caa0a5507a8167f65bd8f54296545a0bd3bbbb8713d4c6bec9f1efa33c",
+      "bytes": 51999,
+      "width": 2480,
+      "height": 168,
+      "repoCopyMatches": true,
+      "sheet": "Prototype",
+      "range": "A114:G116",
+      "observations": [
+        "PX108–PX110 : migration, SVG/Canvas et réception reconstruite sont lisibles. La référence QA_RECONSTRUCTION_014.md revient à la ligne dans F116 et demeure complète."
+      ],
+      "layoutResult": "pass",
+      "contentResult": "no_visual_content_issue_remaining",
+      "path": "docs/previews/bible-v014-reconstruction/rebuild-px-114-116.png",
+      "reviewMethod": "tools.view_image sur le PNG produit, avec réouverture isolée si la sortie groupée masque visuellement des préfixes",
+      "result": "pass",
+      "revalidatedAfterRebuild": "identical_sha256_to_visually_reviewed_image"
+    }
+  ],
+  "generatedAt": "2026-11-12 19:04:39 UTC",
+  "repositoryPreviewCopiesMatch": true
+}
+

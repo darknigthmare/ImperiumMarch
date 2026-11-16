@@ -7,7 +7,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - `data/bible.json` est la source des fiches de conception et du classeur. Garder les IDs stables.
 - `docs/BIBLE_FR.md`, `docs/CAMPAIGN_FR.md` et `docs/ART_DIRECTION.md` développent le canon du projet.
 - `src/content.mjs` décrit uniquement les données actuellement utilisées par le prototype.
-- `src/campaign.mjs` gère les dossiers MI01–MI11, leur progression et la migration des sauvegardes v1/v2/v3/v4/v5/v6/v7/v8/v9/v10 vers v11 ; les opérations OP01–OP03 restent indépendantes.
+- `src/campaign.mjs` gère les dossiers MI01–MI14, leur progression et la migration additive des sauvegardes v1 à v13 vers v14 ; les opérations OP01–OP03 restent indépendantes.
 - L’onglet Prototype précise la différence entre le comportement actuel et le comportement final conçu.
 
 ## Développement
@@ -24,7 +24,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 
 - Ne pas marquer une fiche finie parce qu’une description existe. Conçu, Prototype et Vérifié décrivent des niveaux différents.
 - Les trois opérations de prototype ne sont pas les 32 missions de la campagne finale.
-- MI01–MI11 sont jouables au stade prototype depuis les 0.2 à 0.12 ; les 21 autres missions restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation.
+- La tranche courante 0.15 ajoute MI14 aux treize missions précédentes. MI15–MI32 restent conçues. Une relecture ne remplace pas le premier dossier ni ne redonne sa dotation. La réception de chaque tranche doit être lue dans son rapport QA propre.
 - Ne pas présenter une image de concept comme une capture du jeu, un rendu Canvas comme une capture navigateur ou un test statique comme un clic exécuté.
 - Une nouvelle vérification navigateur doit préciser l’environnement réel et les parcours effectués.
 - Les références de gameplay servent la conception ; conserver les noms, assets, silhouettes et récits originaux du projet.
@@ -70,7 +70,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - MI08 distingue amenée, passage, pression, fenêtres de courant, accords, places assises, brancards, accompagnants, embarquement, départ de zone et arrivée individuelle. Un choix ne remplace pas une opération physique.
 - La migration v7 ajoute seulement le dossier `world.nacre.departure` vide. Ne jamais régénérer la fixture v7 depuis le code courant : ses octets sont attestés dans `validation/v09-historic-v7.json`.
 - Les anciens agrégats deviennent un nouveau recensement MI08 avec provenance explicite. Ne pas inventer une identité historique, ressusciter un mort, déplacer une ambulance saisie ni convertir le contact radio de Mara en présence passée.
-- Le nouveau reçu MI08 conserve sa liste de personnes et de bateaux. Départ historique, arrivée au refuge, accueil local et perte restent distincts. Le choix `delay` est autorisé uniquement dans MI08.
+- Le nouveau reçu MI08 conserve sa liste de personnes et de bateaux. Départ historique, arrivée au refuge, accueil local et perte restent distincts. Le choix `delay` appartient à MI08 ; les trois choix propres à MI12 sont `obey`, `defy` et `refuse`.
 - `production-assets.mjs` partage la géométrie SVG/Canvas ; garder pivots et positions des vrais pieds. Les WAV sont des exports : le runtime synthétise les mêmes PCM sans requête réseau.
 - Le registre v09 conserve les 133 critères À produire de la baseline. Réception d’un livrable, validation du prototype et critère humain satisfait sont trois faits différents. Ne pas transformer un test synthétique de manette en essai matériel.
 
@@ -113,3 +113,43 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - Le premier rapport attribue quatre lots une seule fois ; une relecture ne le remplace pas. Une défaite est terminale. `voice-validation.mjs` réconcilie les corps, travaux, dates, copies, permissions, pertes et reçus, y compris les changements entre checkpoints.
 - `voice-assets.mjs` partage les formes SVG/Canvas. AS13 reçoit seulement un interprète local et ses outils au stade Prototype ; les Khelt complets, leurs voix et animations finales restent à produire.
 - La 0.12 conserve les preuves natives historiques sans les renommer. Le blocage Vercel et la restriction URL `file://` de la 0.11 ne sont pas des essais 0.12 réussis. Ne pas tenter un autre chemin local pour contourner cette restriction.
+
+
+## Reconstruction historique 0.14.1
+
+- La base publique de reconstruction est `0f77235f7545f33b1a4f298b81a44ee2122d46dc` (0.12). Les anciens octets 0.13/0.14 sont perdus ; les nouveaux rapports ne reprennent pas leurs résultats comme des tests exécutés.
+- La 0.14.1 proposait MI01–MI13 au stade prototype et un dossier v13. Les migrations v11→v12 et v12→v13 ajoutent seulement les dossiers `world.thyr.relay` et `world.kharon.foundry`, puis la version, sans réécrire les rapports ni les fixtures historiques.
+- MI12 : trois choix (`obey`, `defy`, `refuse`), trois opérations physiques, copie de 24 s dans une fenêtre de 45 s. Les composants du Prétoire affectent réellement son comportement et sont absents avant l’arrivée.
+- MI13 : quatre roues physiques, deux caisses, deux circuits thermiques ; marquages, bordereau et analyse sont des acquisitions séparées. PT03 peut exister sans PT01. Les transferts ne sont pas exécutés par le choix de destination.
+- Les nouvelles données, sources, preuves et livraisons sont conservées sur GitHub à chaque tranche vérifiée. La publication demandée par l’utilisateur est explicite dans le tour de reconstruction. Si une publication échoue, signaler l’échec exact et ne pas prétendre les fichiers sauvegardés.
+
+## Les mains noires — 0.15
+
+- MI14 s’ouvre après le premier rapport MI13. Son domaine `workshop` porte huit ouvriers locaux, dont deux mécaniciens et trois déplacés de Nacre arrivés avant le recensement connu. Aucun personnage MI05–MI08 n’est transféré ou ressuscité.
+- La demande de passage prend 3 s sous ancrage, puis les personnes gagnent physiquement la galerie. Leur arrivée n’annule pas leur vulnérabilité aux tirs et explosions. Les vrais pieds restent responsables des dégâts de contact.
+- L’approche déclenche cinq secondes d’alerte. L’automate ne doit agir, être visé, intercepter de tir ou être dessiné comme unité active qu’après son activation réelle.
+- Inspection du froid (3 s), isolation (4 s), réparation (8 s), explication (4 s) et copie du lot (4 s) sont des actes distincts. Une perte d’organe permet un constat dégradé, sans reconstruction ni source inventée. Une copie acquise reste conservée après perte de son original.
+- Le choix redémarrage/arrêt exige cinq secondes d’opération sur la commande. La coopération exige ensuite une demande réelle de trois secondes, un arrêt maintenu, le froid réparé et des mécaniciens survivants. Elle n’accorde ni présence à bord ni recrutement.
+- MI14 peut recouper son constat avec PT03 acquis. Elle n’attribue aucun nouveau PT, TE ou PO, aucune diffusion publique et aucune défection anticipée. MI15 et MI16 gardent leurs révélations propres.
+- La migration v13→v14 ajoute uniquement `world.kharon.workshop` vide et la version. Les fixtures v13 sont des exports préparés de la reconstruction locale immuable `fc9f4af4e103adf93d4310053610ca69bea443b3`, attestés dans `docs/validation/v015-historic-v13.json`. Ce commit n’est pas public ; la reprise de publication transporte son arbre sous une autre révision. Ne pas régénérer les fixtures depuis les modules courants.
+- Le premier rapport attribue quatre lots une fois. Les treize rapports précédents, ressources, checkpoints et états terminaux restent conservés. Le validateur rapproche personnes, opérations, corps, acquisitions et dates du reçu.
+- `data/bible.json` conserve les 977 IDs précédents et ajoute 30 fiches. Les 133 critères initiaux restent le dénominateur du registre. QA230 désigne la réception navigateur et QA231 l’essai humain ; aucun résultat automatique ne suffit à fermer ces critères.
+
+## Sprites peints de l’atelier — 0.15.1
+
+- Les huit atlas originaux de `assets/painted/mi14/` contiennent 54 cellules de poses et d’états. Le manifeste, les prompts et les rectangles mesurés de `src/painted-sprite-layout.mjs` documentent leur provenance. Les fichiers PNG générés restent inchangés ; le moteur sélectionne les frames par `drawImage`.
+- `src/painted-sprites.mjs` ne change aucune donnée de simulation. Le chargement conserve le rendu vectoriel en cas d’absence ou d’échec. La marche, les positions, les pertes et l’arrivée de l’automate restent sous l’autorité de leurs domaines existants.
+- Le canon est une pièce séparée autour de `[0,-55]`, avec la bouche à 56 unités le long de la visée. Ne pas remplacer ce rig par une image monobloc. Les états dormant/alerte de la planche ne permettent pas de dessiner l’ennemi avant son activation.
+- `tools/test-painted-sprites.mjs` décode les PNG et rend les scènes Canvas avec ces images chargées. Cette réception reste distincte des comparaisons SVG/Canvas vectorielles, d’un navigateur et d’un essai humain. Garder les preuves historiques intactes.
+- Les références d’images du moteur restent des URL littérales pour leur intégration dans le HTML autonome. Après modification des atlas ou du layout, reconstruire l’autonome et vérifier l’absence de ressources externes.
+
+## Acteurs et véhicules peints — 0.15.2
+
+- Les neuf atlas originaux de `assets/painted/combat/` contiennent 78 cellules, dont 32 poses de marche. Le manifeste distingue 60 cellules utilisées et 18 références. Avec MI14, le total est de 17 atlas et 132 cellules ; ces nombres ne représentent ni des personnes supplémentaires ni des animations finales.
+- Les PNG sélectionnés restent inchangés. `tools/index-painted-combat.py` mesure leur alpha et produit uniquement le manifeste et les rectangles/ancres de `src/painted-combat-layout.mjs`. Les dimensions réelles sont 1536 × 1024, y compris les planches humaines à trois lignes de hauteurs arrondies.
+- `src/enemy-weapon-pose.mjs` partage les pivots et bouches des sept armes génériques entre projectiles, télégraphes et rendu. Les corrections optiques de l’image résident dans le layout. Préserver les chemins physiques distincts du boss, de la faune et de l’automate MI14.
+- Les collisions conservent leurs tailles. Les atlas ne changent ni les domaines ni les conditions d’arrivée : une unité absente avant l’alerte reste absente du rendu, des tirs, des cibles et des contacts. Les 697 tests 0.15.2 comprennent les sept groupes d’arrivée concernés et les tirs dans les deux directions.
+- La marche de `src/painted-combat.mjs` dépend du déplacement réel, avec un historique de présentation séparé de la sauvegarde. Ne pas ajouter de champs graphiques aux dossiers v14. Conserver la réduction des mouvements et le repli vectoriel après échec de décodage.
+- Les roues, rotors et réacteurs figurent déjà sur les corps : leurs cellules isolées sont des références, pas des superpositions à faire tourner sur un second exemplaire. Les poses de perte humaines et épaves ennemies ne créent aucun corps persistant absent de la simulation. Le convoi conserve son état de destruction existant.
+- Le lot couvre des rôles génériques. Ne pas déclarer AS11/AS12, les factions complètes, les marcheurs peints ou les autres biomes terminés à partir de ces silhouettes. Les critères initiaux et tous les identifiants de Bible restent conservés.
+- `npm run check:combat` décode les neuf PNG et reçoit 78 cellules, le banc de lecture et cinq scènes Canvas. Un contrôle Canvas, le DOM modélisé, Chromium et un essai humain sont des réceptions différentes. Écrire les nouvelles preuves dans des dossiers de version distincts et conserver les preuves historiques.

@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "generatedAt": "2026-11-11T20:05:48.761Z",
+  "generatedAt": "2026-11-12T19:04:45.847Z",
   "scope": "Exhaustive media inventory of source assets/, actual media files under web-dist/, and all data:...;base64 media in the observed offline HTML. Code-generated media and excluded reference/documentation media are recorded separately.",
   "repository": {
-    "head": "f75e674313120094b9540603fbfa571d5df2f1d2",
-    "packageVersion": "0.12.0",
-    "sourceUIVersion": "0.12",
+    "head": "06a6b0b15c504cb5f185c407e551cb15da64270a",
+    "packageVersion": "0.14.1",
+    "sourceUIVersion": "0.14.1",
     "workingTree": "Current files, including uncommitted work. HEAD is an identification point, not a claim that these files are committed."
   },
   "tool": "tools/audit-media-provenance.mjs",
@@ -19,13 +19,15 @@
     "offline": {
       "file": "dist/Ordre_de_Cendre.html",
       "present": true,
-      "bytes": 10507813,
-      "sha256": "9c750353adf4c61da6579dc2ee0428d32e49ae0d5e82087ac523f3ee66ca2bde",
-      "uiVersion": "0.12",
+      "bytes": 10681111,
+      "sha256": "6b24b77a673324880456d18a85d58b575a5145fa5323dc0acc64d5684a542a8b",
+      "uiVersion": "0.14.1",
       "modules": [
         "src/content.mjs",
         "src/chemical-simulation.mjs",
         "src/voice-simulation.mjs",
+        "src/relay-simulation.mjs",
+        "src/foundry-simulation.mjs",
         "src/simulation.mjs",
         "src/production-assets.mjs",
         "src/thyr-assets.mjs",
@@ -34,6 +36,10 @@
         "src/chemical-renderer.mjs",
         "src/voice-assets.mjs",
         "src/voice-renderer.mjs",
+        "src/relay-assets.mjs",
+        "src/relay-renderer.mjs",
+        "src/foundry-assets.mjs",
+        "src/foundry-renderer.mjs",
         "src/renderer.mjs",
         "src/audio.mjs",
         "src/controls.mjs",
@@ -41,6 +47,8 @@
         "src/thyr-validation.mjs",
         "src/chemical-validation.mjs",
         "src/voice-validation.mjs",
+        "src/relay-validation.mjs",
+        "src/foundry-validation.mjs",
         "src/campaign.mjs",
         "src/main.mjs"
       ],
@@ -101,8 +109,8 @@
     "web": {
       "entry": "web-dist/index.html",
       "present": true,
-      "indexSha256": "fafeee49d4863c1e191c5998ea085ce36977cd2a19577a45a0bbd7f7b5e1088d",
-      "uiVersion": "0.12",
+      "indexSha256": "c33fa55116ff05e02984e7d5e180497e75a4309b5c89969f3d4ba1e4de31a492",
+      "uiVersion": "0.14.1",
       "files": [
         {
           "file": "web-dist/assets/art/key-art.png",
@@ -333,6 +341,254 @@
           "source": "assets/emblem.svg",
           "bytes": 301,
           "sha256": "42c7b9310070c4461852e55b97a7bd6cadc00d9f4fd194af18b14643e5b4f3ce",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/analysis-console-complete.svg",
+          "source": "assets/foundry/analysis-console-complete.svg",
+          "bytes": 2353,
+          "sha256": "2287c03905ae2b46b16f94a782c689182ef25bfcd827cc1b05358b90478fd921",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/analysis-console-idle.svg",
+          "source": "assets/foundry/analysis-console-idle.svg",
+          "bytes": 2343,
+          "sha256": "3052609b5194ded14fd62499ca639aada82ef1264aef9b8ed2fd50d30cd67f95",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/analysis-console-working.svg",
+          "source": "assets/foundry/analysis-console-working.svg",
+          "bytes": 2352,
+          "sha256": "3b4257942409ffae19660fb74bfceae4144d5e5f90628dec095961f1dc58bf2c",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/cargo-manifest-copied.svg",
+          "source": "assets/foundry/cargo-manifest-copied.svg",
+          "bytes": 1694,
+          "sha256": "15ad6a7b422ecfc86e2fcda918a8d5bee9f18d054c66f70daedcc673d7b0de2e",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/cargo-manifest-destroyed.svg",
+          "source": "assets/foundry/cargo-manifest-destroyed.svg",
+          "bytes": 1753,
+          "sha256": "19b35c6d2ec0ab197081dc5479d2717b3eaaa5630c6435d6efcd31b1a94c4d19",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/cargo-manifest-sealed.svg",
+          "source": "assets/foundry/cargo-manifest-sealed.svg",
+          "bytes": 1500,
+          "sha256": "26671b75013fd67f2eea445a107f615b915d36150e940d2ab2d8543ed65c5b07",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/foundry-stack-damaged.svg",
+          "source": "assets/foundry/foundry-stack-damaged.svg",
+          "bytes": 2628,
+          "sha256": "e3d39765ae3b4bceefdf5fef733bf3cd9f62c0749f17d865fc138725ad60a27b",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/foundry-stack-idle.svg",
+          "source": "assets/foundry/foundry-stack-idle.svg",
+          "bytes": 2355,
+          "sha256": "68fded03d4f97231b976ec7d9351c1e2b63138eb217d7fcf13df550af44ee731",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/foundry-stack-working.svg",
+          "source": "assets/foundry/foundry-stack-working.svg",
+          "bytes": 2364,
+          "sha256": "d66a25a1cce583a2daf96189b3c5e4196fffdd076bd389a9aa538ff262e2ef2e",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/industrial-carrier-damaged.svg",
+          "source": "assets/foundry/industrial-carrier-damaged.svg",
+          "bytes": 6340,
+          "sha256": "b47df0577f330c30b3475cbb66a99552e3fd789e3e999479887c12279513dace",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/industrial-carrier-destroyed.svg",
+          "source": "assets/foundry/industrial-carrier-destroyed.svg",
+          "bytes": 6562,
+          "sha256": "b2e073f2a8c73a8438809d6c795286bb6bc7bfa18c22390413cf85aa28df9698",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/industrial-carrier-moving.svg",
+          "source": "assets/foundry/industrial-carrier-moving.svg",
+          "bytes": 6300,
+          "sha256": "cd361e68fcd3993736dde8ffcaaedfb17697ba1c8b6727073db1504136a5aa74",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/industrial-carrier-parked.svg",
+          "source": "assets/foundry/industrial-carrier-parked.svg",
+          "bytes": 6094,
+          "sha256": "d96b0138f8bd6e10aee766becec57ed8a112950d88723661611366da318d6b50",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/previews/foundry-kit.png",
+          "source": "assets/foundry/previews/foundry-kit.png",
+          "bytes": 140577,
+          "sha256": "2cc9d5c97a1e4c27f09f350b5ff7ce1bfd022a692300dac403fc7fe6e64bbd0b",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/previews/foundry-states.png",
+          "source": "assets/foundry/previews/foundry-states.png",
+          "bytes": 158616,
+          "sha256": "d9fc7e63f72342d4f7cd92b8d66abd89d84afb5f5e5272fe4dfcbdb64abe38c4",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/serial-cargo-copied.svg",
+          "source": "assets/foundry/serial-cargo-copied.svg",
+          "bytes": 2795,
+          "sha256": "8ce2800149a060050b21e58c84a0a5be10752184710abd27cd014c26d6bafd9b",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/serial-cargo-damaged.svg",
+          "source": "assets/foundry/serial-cargo-damaged.svg",
+          "bytes": 2742,
+          "sha256": "ec8ba71b1e832c136e503e75312ee6c1d29185112e8d4a2491f8705016c15071",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/serial-cargo-destroyed.svg",
+          "source": "assets/foundry/serial-cargo-destroyed.svg",
+          "bytes": 2992,
+          "sha256": "b1fc2f1e8f229b2c154e6c95a25c72e4b0d1ab9407de0bd5fb505c527e0c6ad5",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/serial-cargo-sealed.svg",
+          "source": "assets/foundry/serial-cargo-sealed.svg",
+          "bytes": 2494,
+          "sha256": "ddbdd8d7b7813e86fe63c8df5d73005b7dd8ecf35fb3491ec5fbd26df5493f70",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/steam-valve-closed.svg",
+          "source": "assets/foundry/steam-valve-closed.svg",
+          "bytes": 2076,
+          "sha256": "93479b9494925caf9c01261d7d8e4f89d3a89cbf588c338badfa341cbfe7e2c4",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/steam-valve-destroyed.svg",
+          "source": "assets/foundry/steam-valve-destroyed.svg",
+          "bytes": 2330,
+          "sha256": "3b39d3c317124670428b4c2a2dd23f3b4e8d4e6bd877456e4ce5671b54d14532",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/steam-valve-jet.svg",
+          "source": "assets/foundry/steam-valve-jet.svg",
+          "bytes": 2364,
+          "sha256": "2082474e4fd5324c57953d03f2f376cea09fe2bd6694895da76b32da093e2363",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/steam-valve-open.svg",
+          "source": "assets/foundry/steam-valve-open.svg",
+          "bytes": 2070,
+          "sha256": "843e240a9de1978311a5bf5327816bc258a4ce5549ca5e074f237f859931805a",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/steam-valve-warning.svg",
+          "source": "assets/foundry/steam-valve-warning.svg",
+          "bytes": 2079,
+          "sha256": "0a058f431b6de56f967f38ce0d363ded527f3671b3cfa9912acf14a19c5a0337",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/thermal-bridge-cooled.svg",
+          "source": "assets/foundry/thermal-bridge-cooled.svg",
+          "bytes": 4355,
+          "sha256": "90a5d9c3fd9472451bbaabc225b1a0a4394a4a586ef063bf8b26f1f7944c77b2",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/thermal-bridge-cooling.svg",
+          "source": "assets/foundry/thermal-bridge-cooling.svg",
+          "bytes": 4358,
+          "sha256": "53195b3176c4d7668c855c074271b36ea0d8fd975304149987906b7f2c2be07c",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/thermal-bridge-hot.svg",
+          "source": "assets/foundry/thermal-bridge-hot.svg",
+          "bytes": 4346,
+          "sha256": "31cd7f83a7e46de042d453725327fc3fa25aa9b5fc42603841d3663557c8039a",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/transfer-crane-idle.svg",
+          "source": "assets/foundry/transfer-crane-idle.svg",
+          "bytes": 4860,
+          "sha256": "fd6ebf9d86adc0a444ffa38c396b8f4cc4e602f411ebbce1f6415476672d07cb",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/transfer-crane-quarantine.svg",
+          "source": "assets/foundry/transfer-crane-quarantine.svg",
+          "bytes": 5194,
+          "sha256": "c42236c9e5b0723d3e51917834fab145f50be38082b2119a55edb0975f9ba65d",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/transfer-crane-received.svg",
+          "source": "assets/foundry/transfer-crane-received.svg",
+          "bytes": 4872,
+          "sha256": "1a1ce75a6fcf2b0224d1951ee1a0a159e9fda8b301e29a5b571201371faf3e4b",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/foundry/transfer-crane-working.svg",
+          "source": "assets/foundry/transfer-crane-working.svg",
+          "bytes": 4869,
+          "sha256": "b8a43428f996081660c9f340b52b401a7812cd3f03a2c760aaf3b92ca58e2aa1",
           "registered": true,
           "sourceHashMatches": true
         },
@@ -3121,6 +3377,198 @@
           "sourceHashMatches": true
         },
         {
+          "file": "web-dist/assets/relay/command-post-idle.svg",
+          "source": "assets/relay/command-post-idle.svg",
+          "bytes": 1513,
+          "sha256": "83b1e876c20f879cd1fd8599026b3d6a412467493530999f1277bd3519dbacb3",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/command-post-transmitted.svg",
+          "source": "assets/relay/command-post-transmitted.svg",
+          "bytes": 1537,
+          "sha256": "14582d3d29836adeea9c75d6bd02ac8e9773e7c8ce15eb28c07d4e742f8f1ad9",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/command-post-working.svg",
+          "source": "assets/relay/command-post-working.svg",
+          "bytes": 1637,
+          "sha256": "338969de58930da2fcc496972c1cce9aacb020e76c49294ae96c32ff39f1fcf8",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/copy-console-copied.svg",
+          "source": "assets/relay/copy-console-copied.svg",
+          "bytes": 2388,
+          "sha256": "10cce98e4bf7f69b227b1c92527d9947189bb83ad007b71e998eeb6d7b1872b7",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/copy-console-copying.svg",
+          "source": "assets/relay/copy-console-copying.svg",
+          "bytes": 2303,
+          "sha256": "0333dc670101df3494fd25a3b01fc9a9bcde25df4d7f923c0ed8f9195e4425c4",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/copy-console-expired.svg",
+          "source": "assets/relay/copy-console-expired.svg",
+          "bytes": 2071,
+          "sha256": "936ee0e9f26cfe1da685d077ada4634f84eff2af3ff740262c4793febabd1d46",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/copy-console-idle.svg",
+          "source": "assets/relay/copy-console-idle.svg",
+          "bytes": 2062,
+          "sha256": "5001f550eeb574c2fb492f3d966845b54c3911dde83dc7f06950ddf4596245ee",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/praetor-hull-attack.svg",
+          "source": "assets/relay/praetor-hull-attack.svg",
+          "bytes": 3591,
+          "sha256": "ada6260822834d81ea76f67ba753fa6eb98d68c956588bf36cc40c5236afa059",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/praetor-hull-destroyed.svg",
+          "source": "assets/relay/praetor-hull-destroyed.svg",
+          "bytes": 4149,
+          "sha256": "d0eb0c5005ba7fc2b09306044a2878e7e20cc1e843459cf4518cb0fca3e096f1",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/praetor-hull-exposed.svg",
+          "source": "assets/relay/praetor-hull-exposed.svg",
+          "bytes": 3910,
+          "sha256": "aa7a10807b8bae66c787977bd54899eb2ee2f45e1df7b82e5da616b9172149d5",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/praetor-hull-guard.svg",
+          "source": "assets/relay/praetor-hull-guard.svg",
+          "bytes": 3383,
+          "sha256": "ede0383b6192055735388cfc6c9c04ec5f244813032d8cbec924bd5bdb08f880",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/praetor-lock-anchored.svg",
+          "source": "assets/relay/praetor-lock-anchored.svg",
+          "bytes": 1505,
+          "sha256": "9c3a265ab58eadd41b5dbe535b480a8122332fe07775274a0760178ba93e6604",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/praetor-lock-broken.svg",
+          "source": "assets/relay/praetor-lock-broken.svg",
+          "bytes": 1537,
+          "sha256": "b85496d33e1befb7c0e3680cf255d3a6f11ec723a69b363ee1be08742d1003be",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/praetor-sensor-disabled.svg",
+          "source": "assets/relay/praetor-sensor-disabled.svg",
+          "bytes": 1215,
+          "sha256": "bc9bab6effa3642baacaf54d823c56bbef6f195838df63ea170fdcd7627e77b6",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/praetor-sensor-locking.svg",
+          "source": "assets/relay/praetor-sensor-locking.svg",
+          "bytes": 1212,
+          "sha256": "65a61fb63a43b7ac75591bb09659908c09a732e503032e8da33f3756971d66be",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/praetor-sensor-tracking.svg",
+          "source": "assets/relay/praetor-sensor-tracking.svg",
+          "bytes": 1215,
+          "sha256": "35939f80943252eed5ddab5f93b470686c90c676b409d753e772afee84e74d68",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/previews/relay-kit.png",
+          "source": "assets/relay/previews/relay-kit.png",
+          "bytes": 113402,
+          "sha256": "7057870b0dae387ce2f2e8883cc131683b742ec7ba7f653aa1fb3903a2b6421f",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/previews/relay-states.png",
+          "source": "assets/relay/previews/relay-states.png",
+          "bytes": 137302,
+          "sha256": "6a2d470703b2bbed55be6b8ffc853ea102e7ff86fa4292dbe325e85c3a35e1f1",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/relay-mast-destroyed.svg",
+          "source": "assets/relay/relay-mast-destroyed.svg",
+          "bytes": 2893,
+          "sha256": "69ed5a9eecdc69f1393dec288deb6543b9d01fb561b0599ea8baf73dab3a9ac3",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/relay-mast-erased.svg",
+          "source": "assets/relay/relay-mast-erased.svg",
+          "bytes": 2871,
+          "sha256": "1e2ad05ad31edd0bb999f75d8ac9946b816e91cb297ba0dfe6c93393fc5be320",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/relay-mast-isolated.svg",
+          "source": "assets/relay/relay-mast-isolated.svg",
+          "bytes": 3288,
+          "sha256": "79b580f12edc2f023f19657f4e166881ab334c7af2f038afd7b5180573c372f7",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/relay-mast-live.svg",
+          "source": "assets/relay/relay-mast-live.svg",
+          "bytes": 2963,
+          "sha256": "0aadffcf26accbf8a124c2a9b5acb8407877ecdae1973c2fe8603e754155a3e7",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/relay-mast-purging.svg",
+          "source": "assets/relay/relay-mast-purging.svg",
+          "bytes": 3184,
+          "sha256": "a0c4a4c657fcb6984bd5f6b00f63664b122f86f07a87b6d141da4ec2c87d9707",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
+          "file": "web-dist/assets/relay/relay-mast-reviewed.svg",
+          "source": "assets/relay/relay-mast-reviewed.svg",
+          "bytes": 3274,
+          "sha256": "82a8f61ea4baf4ea3f061750a4a72290f1e9f6546ac8518bec9dd6a0b0ca9520",
+          "registered": true,
+          "sourceHashMatches": true
+        },
+        {
           "file": "web-dist/assets/thyr/breathing-vine-burnt.svg",
           "source": "assets/thyr/breathing-vine-burnt.svg",
           "bytes": 1169,
@@ -3647,7 +4095,7 @@
   "provenance": {
     "legacy-key-art": {
       "source": "docs/ASSET_PROVENANCE.md",
-      "sourceSha256": "869a172420e011456357b7c2ffad34c34b98d2d49d7db6f7872696c816117a5d",
+      "sourceSha256": "97539ad778dd784257305a5364777b2a1e950fe75395d7ebf1643248e2473906",
       "method": "image_gen; no reference image; opaque background; PNG copied without retouching, as recorded in source document.",
       "authorOrGenerator": "image_gen (recorded in source document)",
       "prompt": "Use case: stylized-concept. Asset type: cinematic main menu key art for an original premium 2D science-fiction walker combat game, ORDRE DE CENDRE, codename ImperiumMarch. Widescreen 16:9, high resolution. No text, no logo, no UI. Hand-painted cinematic hard-surface science-fiction concept illustration, incredible thoughtful material detail, matte painted industrial war atmosphere, nuanced cinematic light, not photoreal render, not pixel art. On the right two thirds, one enormous original two-legged imperial walking combat vehicle strides across a devastated ash desert: squat angular olive-gray armored cabin, asymmetrical sensor brow with very thin amber slit, offset cannon and ammunition drums, visible articulated hydraulic knees and broad three-toed industrial feet, believable load-bearing geometry, subtle ivory identification stripe, heavily weathered steel. A smaller low quadruped support walker far behind, silhouettes of a ruined mining outpost on the horizon and tiny logistics crew at base for scale. Background: alien planet Vesper, gigantic pale ringed planet in dusty sky, chalk cliffs, distant vertical refinery stacks, dry basalt, burnt rust-orange sunlight cutting through smoke, muted ash teal shadows. Strong readable silhouette, dramatic scale and human vulnerability. Keep left third very dark and atmospheric with open smoky sky for later typography overlay. Ground line in lower quarter. No humanoid robots, no head shaped like an animal, no recognizable Star Wars AT-AT or AT-ST design, no branded franchise elements, no gore. A premium original military science-fiction game art cover, subtle grain and masterful painted textures.",
@@ -3664,7 +4112,7 @@
     },
     "legacy-vesper-panorama": {
       "source": "docs/ASSET_PROVENANCE.md",
-      "sourceSha256": "869a172420e011456357b7c2ffad34c34b98d2d49d7db6f7872696c816117a5d",
+      "sourceSha256": "97539ad778dd784257305a5364777b2a1e950fe75395d7ebf1643248e2473906",
       "method": "image_gen; no reference image; opaque background; PNG copied without retouching, as recorded in source document.",
       "authorOrGenerator": "image_gen (recorded in source document)",
       "prompt": "Use case: stylized-concept. Asset type: side-scrolling 2D game distant background panorama for original science fiction game ORDRE DE CENDRE. Ultra wide 3:1 landscape panorama, painterly 2D premium game background, no UI, no text. Alien industrial ash desert planet Vesper at dawn: desaturated slate teal sky at top fading to dust peach at horizon, giant pale planet and a very thin ring diagonally at upper left, far distant refinery silhouettes with small warm orange glows, eroded mesa cliffs and volcanic spires, heavy atmospheric perspective. Horizon and distant ground at lower 70 percent, open sky above. Foreground is empty dusty terrain in lower 25 percent, no rocks blocking a player. The playable character will be drawn separately in front. Multi-layer matte painting quality with dramatic shape design, delicate haze and exquisite texture. Distant scenery only, no humans, absolutely no walker vehicles, no robots, no cars, no spaceships. Make visual composition read as a side-view scrolling battlefield background, long continuous panorama, everything small and far away with broad open middle ground. Steel gray, muted rust, ochre, very restrained orange, sophisticated contrast, no neon. Illustration not photograph.",
@@ -3681,7 +4129,7 @@
     },
     "legacy-emblem": {
       "source": "docs/ASSET_PROVENANCE.md",
-      "sourceSha256": "869a172420e011456357b7c2ffad34c34b98d2d49d7db6f7872696c816117a5d",
+      "sourceSha256": "97539ad778dd784257305a5364777b2a1e950fe75395d7ebf1643248e2473906",
       "method": "Original geometric SVG, as recorded in source document.",
       "authorOrGenerator": "Original project vector code; named individual author not recorded.",
       "prompt": null,
@@ -3788,6 +4236,94 @@
         "Nest drawings represent local sites, not a human population or a count of Khelt citizens.",
         "Leth is one original prototype portrayal, not the complete anatomy, motion, culture or architectural production for all Khelt cities."
       ]
+    },
+    "relay-vector": {
+      "source": "assets/relay/manifest.json",
+      "sourceSha256": "71fc07e87ebdf3fe7edf7caec23ebdf9dc7fd5a790c848e3aece64c7c25de26e",
+      "code": "src/relay-assets.mjs",
+      "codeSha256": "9aa0d1ba6263c59b92d2de63bfdac6208f3735682125f335e5eb6eba4b119e81",
+      "declaredCodeSha256": "9aa0d1ba6263c59b92d2de63bfdac6208f3735682125f335e5eb6eba4b119e81",
+      "manifestSourceHashMatches": true,
+      "generator": "tools/build-relay-assets.mjs",
+      "generatorSha256": "63c73b9f6706b8433326321f0cea40fda010b560cda8be6c061883da551af0d1",
+      "runtime": "src/relay-renderer.mjs",
+      "runtimeSha256": "1eb8e25d93fc4ec0ff1ce2911403f18a36feb62455d0ae690635b5df1db4857e",
+      "version": "0.14.1",
+      "date": "2026-11-12",
+      "authorOrGenerator": "Original code and geometry authored by OpenAI assistant for Darknigthmare",
+      "method": "Reconstructed code-native vector geometry shared between SVG exports and Canvas runtime, based on surviving project design. No third-party artwork.",
+      "productionReferences": [
+        "data/bible.json",
+        "docs/CAMPAIGN_FR.md",
+        "docs/ART_DIRECTION.md"
+      ],
+      "simulationAuthority": "Relays, copies, losses, component damage, telegraphed aim and four actual Praetor feet come from relay-simulation.mjs. The renderer cannot acquire a copy or make a threat arrive.",
+      "rightsDeclaration": "Original project vector geometry declared by the production manifest; no separate license grant asserted.",
+      "rightsStatus": "Production originality declaration only; no new license or third-party authorization is inferred.",
+      "reconstruction": true,
+      "declaredCounts": {
+        "files": 24,
+        "svg": 22,
+        "png": 2,
+        "components": 6,
+        "bytes": 304405
+      },
+      "observedCounts": {
+        "files": 24,
+        "svg": 22,
+        "png": 2,
+        "components": 6,
+        "bytes": 304405
+      },
+      "limitations": [
+        "New reconstruction: these files do not claim the hashes or exact geometry of the lost 0.13 exports.",
+        "Authoring sheets use varied scales and do not constitute a browser playtest or human art approval.",
+        "MI12 records local industrial commands only; no new PT03/PT04/TE02/PO01 or political chain is assigned."
+      ]
+    },
+    "foundry-vector": {
+      "source": "assets/foundry/manifest.json",
+      "sourceSha256": "c686de0808e177e6a8c6debe0808338879ccb009b36d88545710bb88d7fd29b7",
+      "code": "src/foundry-assets.mjs",
+      "codeSha256": "963637fb4d09b582ca9760c905a2770859c44bbd2205b0043d338b7b38ab0c16",
+      "declaredCodeSha256": "963637fb4d09b582ca9760c905a2770859c44bbd2205b0043d338b7b38ab0c16",
+      "manifestSourceHashMatches": true,
+      "generator": "tools/build-foundry-assets.mjs",
+      "generatorSha256": "e1d302abd9109c5d0a32f9ff070d97acf33ffdacfc1ba1639204bab3ae4cbe9f",
+      "runtime": "src/foundry-renderer.mjs",
+      "runtimeSha256": "1a305cc5eda959757ad0c075c92f39e3b4d8385b0d4f0793c38168fb2ee7ba2d",
+      "version": "0.14.1",
+      "date": "2026-11-12",
+      "authorOrGenerator": "Original vector geometry authored for Darknigthmare",
+      "method": "Original code-native vector geometry shared by SVG exports and the Canvas runtime. Reconstruction from retained requirements, not restoration of lost 0.14 image bytes.",
+      "productionReferences": [
+        "data/bible.json",
+        "docs/CAMPAIGN_FR.md",
+        "docs/ART_DIRECTION.md"
+      ],
+      "simulationAuthority": "Carrier, four wheel contacts, cargo positions, partial transfers, thermal clocks and retained copies belong to the simulation. Visual geometry never moves cargo, opens valves or grants PT03.",
+      "rightsDeclaration": "Original project vector geometry declared by the production manifest; no separate license grant asserted.",
+      "rightsStatus": "Production originality declaration only; no new license or third-party authorization is inferred.",
+      "reconstruction": true,
+      "declaredCounts": {
+        "components": 8,
+        "files": 31,
+        "svg": 29,
+        "png": 2,
+        "bytes": 398627
+      },
+      "observedCounts": {
+        "files": 31,
+        "svg": 29,
+        "png": 2,
+        "components": 8,
+        "bytes": 398627
+      },
+      "limitations": [
+        "These are authoring sheets at stated varied scales, not screenshots of a browser or human art approval.",
+        "The industrial district is a playable prototype. The complete Kharon environment and finished animation production remain open.",
+        "The former 0.14 assets were lost; these files are a new reconstruction with new hashes and verification."
+      ]
     }
   },
   "entries": [
@@ -3799,8 +4335,8 @@
       "provenanceId": "legacy-key-art",
       "version": "0.1.0 introduction; unchanged source bytes fingerprinted here",
       "dateEvidence": {
-        "commit": "78e2b11cd5ce6eb71a31f432f3e31a191d41ec98",
-        "repositoryDate": "2026-11-10"
+        "commit": "c8f1a4dcfe1c65e15c032bac009ee249aa324469",
+        "repositoryDate": "2026-11-11"
       },
       "usage": "Main-menu illustration and background; also linked from README. Artistic target, not an articulated playable chassis.",
       "assets": [],
@@ -3843,8 +4379,8 @@
       "provenanceId": "legacy-vesper-panorama",
       "version": "0.1.0 introduction; unchanged source bytes fingerprinted here",
       "dateEvidence": {
-        "commit": "78e2b11cd5ce6eb71a31f432f3e31a191d41ec98",
-        "repositoryDate": "2026-11-10"
+        "commit": "c8f1a4dcfe1c65e15c032bac009ee249aa324469",
+        "repositoryDate": "2026-11-11"
       },
       "usage": "Distant parallax background of Vesper in the production Canvas renderer.",
       "assets": [],
@@ -3852,7 +4388,7 @@
       "sourceReferences": [
         {
           "source": "src/renderer.mjs",
-          "line": 104,
+          "line": 106,
           "kind": "module literal image URL"
         }
       ],
@@ -5246,8 +5782,8 @@
       "provenanceId": "legacy-emblem",
       "version": "0.1.0 introduction; unchanged source bytes fingerprinted here",
       "dateEvidence": {
-        "commit": "78e2b11cd5ce6eb71a31f432f3e31a191d41ec98",
-        "repositoryDate": "2026-11-10"
+        "commit": "c8f1a4dcfe1c65e15c032bac009ee249aa324469",
+        "repositoryDate": "2026-11-11"
       },
       "usage": "Browser favicon and menu brand emblem.",
       "assets": [],
@@ -5279,6 +5815,1917 @@
           "sourceHashMatches": true,
           "expectedByBuildPolicy": true,
           "runtimeRequested": true
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/analysis-console-complete.svg",
+      "extension": "svg",
+      "bytes": 2353,
+      "sha256": "2287c03905ae2b46b16f94a782c689182ef25bfcd827cc1b05358b90478fd921",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: analysis-console; complete",
+      "canonIds": [
+        "MI13",
+        "PN03"
+      ],
+      "nominalSize": [
+        100,
+        104
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -68
+        ]
+      },
+      "inkBounds": [
+        -62,
+        -125,
+        130,
+        145
+      ],
+      "part": "analysis-console",
+      "state": "complete",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/analysis-console-complete.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/analysis-console-idle.svg",
+      "extension": "svg",
+      "bytes": 2343,
+      "sha256": "3052609b5194ded14fd62499ca639aada82ef1264aef9b8ed2fd50d30cd67f95",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: analysis-console; idle",
+      "canonIds": [
+        "MI13",
+        "PN03"
+      ],
+      "nominalSize": [
+        100,
+        104
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -68
+        ]
+      },
+      "inkBounds": [
+        -62,
+        -125,
+        130,
+        145
+      ],
+      "part": "analysis-console",
+      "state": "idle",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/analysis-console-idle.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/analysis-console-working.svg",
+      "extension": "svg",
+      "bytes": 2352,
+      "sha256": "3b4257942409ffae19660fb74bfceae4144d5e5f90628dec095961f1dc58bf2c",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: analysis-console; working",
+      "canonIds": [
+        "MI13",
+        "PN03"
+      ],
+      "nominalSize": [
+        100,
+        104
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -68
+        ]
+      },
+      "inkBounds": [
+        -62,
+        -125,
+        130,
+        145
+      ],
+      "part": "analysis-console",
+      "state": "working",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/analysis-console-working.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/cargo-manifest-copied.svg",
+      "extension": "svg",
+      "bytes": 1694,
+      "sha256": "15ad6a7b422ecfc86e2fcda918a8d5bee9f18d054c66f70daedcc673d7b0de2e",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: cargo-manifest; copied",
+      "canonIds": [
+        "MI13",
+        "PT03"
+      ],
+      "nominalSize": [
+        75,
+        90
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "text": [
+          0,
+          -53
+        ]
+      },
+      "inkBounds": [
+        -48,
+        -108,
+        100,
+        125
+      ],
+      "part": "cargo-manifest",
+      "state": "copied",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/cargo-manifest-copied.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/cargo-manifest-destroyed.svg",
+      "extension": "svg",
+      "bytes": 1753,
+      "sha256": "19b35c6d2ec0ab197081dc5479d2717b3eaaa5630c6435d6efcd31b1a94c4d19",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: cargo-manifest; destroyed",
+      "canonIds": [
+        "MI13",
+        "PT03"
+      ],
+      "nominalSize": [
+        75,
+        90
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "text": [
+          0,
+          -53
+        ]
+      },
+      "inkBounds": [
+        -48,
+        -108,
+        100,
+        125
+      ],
+      "part": "cargo-manifest",
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/cargo-manifest-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/cargo-manifest-sealed.svg",
+      "extension": "svg",
+      "bytes": 1500,
+      "sha256": "26671b75013fd67f2eea445a107f615b915d36150e940d2ab2d8543ed65c5b07",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: cargo-manifest; sealed",
+      "canonIds": [
+        "MI13",
+        "PT03"
+      ],
+      "nominalSize": [
+        75,
+        90
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "text": [
+          0,
+          -53
+        ]
+      },
+      "inkBounds": [
+        -48,
+        -108,
+        100,
+        125
+      ],
+      "part": "cargo-manifest",
+      "state": "sealed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/cargo-manifest-sealed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/foundry-stack-damaged.svg",
+      "extension": "svg",
+      "bytes": 2628,
+      "sha256": "e3d39765ae3b4bceefdf5fef733bf3cd9f62c0749f17d865fc138725ad60a27b",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: foundry-stack; damaged",
+      "canonIds": [
+        "MI13",
+        "AS19"
+      ],
+      "nominalSize": [
+        170,
+        230
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "furnace": [
+          0,
+          -57
+        ],
+        "stack": [
+          27,
+          -230
+        ]
+      },
+      "inkBounds": [
+        -106,
+        -258,
+        220,
+        278
+      ],
+      "part": "foundry-stack",
+      "state": "damaged",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/foundry-stack-damaged.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/foundry-stack-idle.svg",
+      "extension": "svg",
+      "bytes": 2355,
+      "sha256": "68fded03d4f97231b976ec7d9351c1e2b63138eb217d7fcf13df550af44ee731",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: foundry-stack; idle",
+      "canonIds": [
+        "MI13",
+        "AS19"
+      ],
+      "nominalSize": [
+        170,
+        230
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "furnace": [
+          0,
+          -57
+        ],
+        "stack": [
+          27,
+          -230
+        ]
+      },
+      "inkBounds": [
+        -106,
+        -258,
+        220,
+        278
+      ],
+      "part": "foundry-stack",
+      "state": "idle",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/foundry-stack-idle.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/foundry-stack-working.svg",
+      "extension": "svg",
+      "bytes": 2364,
+      "sha256": "d66a25a1cce583a2daf96189b3c5e4196fffdd076bd389a9aa538ff262e2ef2e",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: foundry-stack; working",
+      "canonIds": [
+        "MI13",
+        "AS19"
+      ],
+      "nominalSize": [
+        170,
+        230
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "furnace": [
+          0,
+          -57
+        ],
+        "stack": [
+          27,
+          -230
+        ]
+      },
+      "inkBounds": [
+        -106,
+        -258,
+        220,
+        278
+      ],
+      "part": "foundry-stack",
+      "state": "working",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/foundry-stack-working.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/industrial-carrier-damaged.svg",
+      "extension": "svg",
+      "bytes": 6340,
+      "sha256": "b47df0577f330c30b3475cbb66a99552e3fd789e3e999479887c12279513dace",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: industrial-carrier; damaged",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        260,
+        100
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "deck": [
+          0,
+          -70
+        ],
+        "hitch": [
+          -134,
+          -32
+        ]
+      },
+      "inkBounds": [
+        -144,
+        -118,
+        292,
+        134
+      ],
+      "part": "industrial-carrier",
+      "state": "damaged",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/industrial-carrier-damaged.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/industrial-carrier-destroyed.svg",
+      "extension": "svg",
+      "bytes": 6562,
+      "sha256": "b2e073f2a8c73a8438809d6c795286bb6bc7bfa18c22390413cf85aa28df9698",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: industrial-carrier; destroyed",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        260,
+        100
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "deck": [
+          0,
+          -70
+        ],
+        "hitch": [
+          -134,
+          -32
+        ]
+      },
+      "inkBounds": [
+        -144,
+        -118,
+        292,
+        134
+      ],
+      "part": "industrial-carrier",
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/industrial-carrier-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/industrial-carrier-moving.svg",
+      "extension": "svg",
+      "bytes": 6300,
+      "sha256": "cd361e68fcd3993736dde8ffcaaedfb17697ba1c8b6727073db1504136a5aa74",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: industrial-carrier; moving",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        260,
+        100
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "deck": [
+          0,
+          -70
+        ],
+        "hitch": [
+          -134,
+          -32
+        ]
+      },
+      "inkBounds": [
+        -144,
+        -118,
+        292,
+        134
+      ],
+      "part": "industrial-carrier",
+      "state": "moving",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/industrial-carrier-moving.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/industrial-carrier-parked.svg",
+      "extension": "svg",
+      "bytes": 6094,
+      "sha256": "d96b0138f8bd6e10aee766becec57ed8a112950d88723661611366da318d6b50",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: industrial-carrier; parked",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        260,
+        100
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "deck": [
+          0,
+          -70
+        ],
+        "hitch": [
+          -134,
+          -32
+        ]
+      },
+      "inkBounds": [
+        -144,
+        -118,
+        292,
+        134
+      ],
+      "part": "industrial-carrier",
+      "state": "parked",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/industrial-carrier-parked.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/previews/foundry-kit.png",
+      "extension": "png",
+      "bytes": 140577,
+      "sha256": "2cc9d5c97a1e4c27f09f350b5ff7ce1bfd022a692300dac403fc7fe6e64bbd0b",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Authoring sheet at varied scales, not gameplay or browser evidence",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/previews/foundry-kit.png",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/previews/foundry-states.png",
+      "extension": "png",
+      "bytes": 158616,
+      "sha256": "d9fc7e63f72342d4f7cd92b8d66abd89d84afb5f5e5272fe4dfcbdb64abe38c4",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Material state authoring bench, not browser or human reception",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/previews/foundry-states.png",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/serial-cargo-copied.svg",
+      "extension": "svg",
+      "bytes": 2795,
+      "sha256": "8ce2800149a060050b21e58c84a0a5be10752184710abd27cd014c26d6bafd9b",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: serial-cargo; copied",
+      "canonIds": [
+        "MI13",
+        "PT03"
+      ],
+      "nominalSize": [
+        100,
+        76
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "marking": [
+          15,
+          -38
+        ],
+        "lift": [
+          0,
+          -76
+        ]
+      },
+      "inkBounds": [
+        -61,
+        -92,
+        124,
+        106
+      ],
+      "part": "serial-cargo",
+      "state": "copied",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/serial-cargo-copied.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/serial-cargo-damaged.svg",
+      "extension": "svg",
+      "bytes": 2742,
+      "sha256": "ec8ba71b1e832c136e503e75312ee6c1d29185112e8d4a2491f8705016c15071",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: serial-cargo; damaged",
+      "canonIds": [
+        "MI13",
+        "PT03"
+      ],
+      "nominalSize": [
+        100,
+        76
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "marking": [
+          15,
+          -38
+        ],
+        "lift": [
+          0,
+          -76
+        ]
+      },
+      "inkBounds": [
+        -61,
+        -92,
+        124,
+        106
+      ],
+      "part": "serial-cargo",
+      "state": "damaged",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/serial-cargo-damaged.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/serial-cargo-destroyed.svg",
+      "extension": "svg",
+      "bytes": 2992,
+      "sha256": "b1fc2f1e8f229b2c154e6c95a25c72e4b0d1ab9407de0bd5fb505c527e0c6ad5",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: serial-cargo; destroyed",
+      "canonIds": [
+        "MI13",
+        "PT03"
+      ],
+      "nominalSize": [
+        100,
+        76
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "marking": [
+          15,
+          -38
+        ],
+        "lift": [
+          0,
+          -76
+        ]
+      },
+      "inkBounds": [
+        -61,
+        -92,
+        124,
+        106
+      ],
+      "part": "serial-cargo",
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/serial-cargo-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/serial-cargo-sealed.svg",
+      "extension": "svg",
+      "bytes": 2494,
+      "sha256": "ddbdd8d7b7813e86fe63c8df5d73005b7dd8ecf35fb3491ec5fbd26df5493f70",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: serial-cargo; sealed",
+      "canonIds": [
+        "MI13",
+        "PT03"
+      ],
+      "nominalSize": [
+        100,
+        76
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "marking": [
+          15,
+          -38
+        ],
+        "lift": [
+          0,
+          -76
+        ]
+      },
+      "inkBounds": [
+        -61,
+        -92,
+        124,
+        106
+      ],
+      "part": "serial-cargo",
+      "state": "sealed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/serial-cargo-sealed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/steam-valve-closed.svg",
+      "extension": "svg",
+      "bytes": 2076,
+      "sha256": "93479b9494925caf9c01261d7d8e4f89d3a89cbf588c338badfa341cbfe7e2c4",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: steam-valve; closed",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        86,
+        115
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -64
+        ],
+        "jet": [
+          29,
+          -119
+        ]
+      },
+      "inkBounds": [
+        -57,
+        -139,
+        120,
+        159
+      ],
+      "part": "steam-valve",
+      "state": "closed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/steam-valve-closed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/steam-valve-destroyed.svg",
+      "extension": "svg",
+      "bytes": 2330,
+      "sha256": "3b39d3c317124670428b4c2a2dd23f3b4e8d4e6bd877456e4ce5671b54d14532",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: steam-valve; destroyed",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        86,
+        115
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -64
+        ],
+        "jet": [
+          29,
+          -119
+        ]
+      },
+      "inkBounds": [
+        -57,
+        -139,
+        120,
+        159
+      ],
+      "part": "steam-valve",
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/steam-valve-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/steam-valve-jet.svg",
+      "extension": "svg",
+      "bytes": 2364,
+      "sha256": "2082474e4fd5324c57953d03f2f376cea09fe2bd6694895da76b32da093e2363",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: steam-valve; jet",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        86,
+        115
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -64
+        ],
+        "jet": [
+          29,
+          -119
+        ]
+      },
+      "inkBounds": [
+        -57,
+        -139,
+        120,
+        159
+      ],
+      "part": "steam-valve",
+      "state": "jet",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/steam-valve-jet.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/steam-valve-open.svg",
+      "extension": "svg",
+      "bytes": 2070,
+      "sha256": "843e240a9de1978311a5bf5327816bc258a4ce5549ca5e074f237f859931805a",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: steam-valve; open",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        86,
+        115
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -64
+        ],
+        "jet": [
+          29,
+          -119
+        ]
+      },
+      "inkBounds": [
+        -57,
+        -139,
+        120,
+        159
+      ],
+      "part": "steam-valve",
+      "state": "open",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/steam-valve-open.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/steam-valve-warning.svg",
+      "extension": "svg",
+      "bytes": 2079,
+      "sha256": "0a058f431b6de56f967f38ce0d363ded527f3671b3cfa9912acf14a19c5a0337",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: steam-valve; warning",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        86,
+        115
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -64
+        ],
+        "jet": [
+          29,
+          -119
+        ]
+      },
+      "inkBounds": [
+        -57,
+        -139,
+        120,
+        159
+      ],
+      "part": "steam-valve",
+      "state": "warning",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/steam-valve-warning.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/thermal-bridge-cooled.svg",
+      "extension": "svg",
+      "bytes": 4355,
+      "sha256": "90a5d9c3fd9472451bbaabc225b1a0a4394a4a586ef063bf8b26f1f7944c77b2",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: thermal-bridge; cooled",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        310,
+        80
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "surface": [
+          0,
+          -45
+        ]
+      },
+      "inkBounds": [
+        -167,
+        -95,
+        338,
+        115
+      ],
+      "part": "thermal-bridge",
+      "state": "cooled",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/thermal-bridge-cooled.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/thermal-bridge-cooling.svg",
+      "extension": "svg",
+      "bytes": 4358,
+      "sha256": "53195b3176c4d7668c855c074271b36ea0d8fd975304149987906b7f2c2be07c",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: thermal-bridge; cooling",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        310,
+        80
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "surface": [
+          0,
+          -45
+        ]
+      },
+      "inkBounds": [
+        -167,
+        -95,
+        338,
+        115
+      ],
+      "part": "thermal-bridge",
+      "state": "cooling",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/thermal-bridge-cooling.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/thermal-bridge-hot.svg",
+      "extension": "svg",
+      "bytes": 4346,
+      "sha256": "31cd7f83a7e46de042d453725327fc3fa25aa9b5fc42603841d3663557c8039a",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: thermal-bridge; hot",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        310,
+        80
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "surface": [
+          0,
+          -45
+        ]
+      },
+      "inkBounds": [
+        -167,
+        -95,
+        338,
+        115
+      ],
+      "part": "thermal-bridge",
+      "state": "hot",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/thermal-bridge-hot.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/transfer-crane-idle.svg",
+      "extension": "svg",
+      "bytes": 4860,
+      "sha256": "fd6ebf9d86adc0a444ffa38c396b8f4cc4e602f411ebbce1f6415476672d07cb",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: transfer-crane; idle",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        250,
+        185
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "hook": [
+          70,
+          -57
+        ],
+        "post": [
+          -98,
+          -44
+        ]
+      },
+      "inkBounds": [
+        -144,
+        -207,
+        298,
+        231
+      ],
+      "part": "transfer-crane",
+      "state": "idle",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/transfer-crane-idle.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/transfer-crane-quarantine.svg",
+      "extension": "svg",
+      "bytes": 5194,
+      "sha256": "c42236c9e5b0723d3e51917834fab145f50be38082b2119a55edb0975f9ba65d",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: transfer-crane; quarantine",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        250,
+        185
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "hook": [
+          70,
+          -57
+        ],
+        "post": [
+          -98,
+          -44
+        ]
+      },
+      "inkBounds": [
+        -144,
+        -207,
+        298,
+        231
+      ],
+      "part": "transfer-crane",
+      "state": "quarantine",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/transfer-crane-quarantine.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/transfer-crane-received.svg",
+      "extension": "svg",
+      "bytes": 4872,
+      "sha256": "1a1ce75a6fcf2b0224d1951ee1a0a159e9fda8b301e29a5b571201371faf3e4b",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: transfer-crane; received",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        250,
+        185
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "hook": [
+          70,
+          -57
+        ],
+        "post": [
+          -98,
+          -44
+        ]
+      },
+      "inkBounds": [
+        -144,
+        -207,
+        298,
+        231
+      ],
+      "part": "transfer-crane",
+      "state": "received",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/transfer-crane-received.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/foundry/transfer-crane-working.svg",
+      "extension": "svg",
+      "bytes": 4869,
+      "sha256": "b8a43428f996081660c9f340b52b401a7812cd3f03a2c760aaf3b92ca58e2aa1",
+      "provenanceId": "foundry-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI13 vector: transfer-crane; working",
+      "canonIds": [
+        "MI13",
+        "PL04"
+      ],
+      "nominalSize": [
+        250,
+        185
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "hook": [
+          70,
+          -57
+        ],
+        "post": [
+          -98,
+          -44
+        ]
+      },
+      "inkBounds": [
+        -144,
+        -207,
+        298,
+        231
+      ],
+      "part": "transfer-crane",
+      "state": "working",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/foundry/transfer-crane-working.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
         }
       }
     },
@@ -20892,6 +23339,1487 @@
       }
     },
     {
+      "file": "assets/relay/command-post-idle.svg",
+      "extension": "svg",
+      "bytes": 1513,
+      "sha256": "83b1e876c20f879cd1fd8599026b3d6a412467493530999f1277bd3519dbacb3",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: command-post; idle",
+      "canonIds": [
+        "MI12"
+      ],
+      "nominalSize": [
+        64,
+        70
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -48
+        ],
+        "aerial": [
+          26,
+          -78
+        ]
+      },
+      "inkBounds": [
+        -46,
+        -92,
+        96,
+        109
+      ],
+      "part": "command-post",
+      "state": "idle",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/command-post-idle.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/command-post-transmitted.svg",
+      "extension": "svg",
+      "bytes": 1537,
+      "sha256": "14582d3d29836adeea9c75d6bd02ac8e9773e7c8ce15eb28c07d4e742f8f1ad9",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: command-post; transmitted",
+      "canonIds": [
+        "MI12"
+      ],
+      "nominalSize": [
+        64,
+        70
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -48
+        ],
+        "aerial": [
+          26,
+          -78
+        ]
+      },
+      "inkBounds": [
+        -46,
+        -92,
+        96,
+        109
+      ],
+      "part": "command-post",
+      "state": "transmitted",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/command-post-transmitted.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/command-post-working.svg",
+      "extension": "svg",
+      "bytes": 1637,
+      "sha256": "338969de58930da2fcc496972c1cce9aacb020e76c49294ae96c32ff39f1fcf8",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: command-post; working",
+      "canonIds": [
+        "MI12"
+      ],
+      "nominalSize": [
+        64,
+        70
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -48
+        ],
+        "aerial": [
+          26,
+          -78
+        ]
+      },
+      "inkBounds": [
+        -46,
+        -92,
+        96,
+        109
+      ],
+      "part": "command-post",
+      "state": "working",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/command-post-working.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/copy-console-copied.svg",
+      "extension": "svg",
+      "bytes": 2388,
+      "sha256": "10cce98e4bf7f69b227b1c92527d9947189bb83ad007b71e998eeb6d7b1872b7",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: copy-console; copied",
+      "canonIds": [
+        "MI12"
+      ],
+      "nominalSize": [
+        100,
+        86
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -60
+        ],
+        "cable": [
+          56,
+          -16
+        ]
+      },
+      "inkBounds": [
+        -64,
+        -110,
+        134,
+        126
+      ],
+      "part": "copy-console",
+      "state": "copied",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/copy-console-copied.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/copy-console-copying.svg",
+      "extension": "svg",
+      "bytes": 2303,
+      "sha256": "0333dc670101df3494fd25a3b01fc9a9bcde25df4d7f923c0ed8f9195e4425c4",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: copy-console; copying",
+      "canonIds": [
+        "MI12"
+      ],
+      "nominalSize": [
+        100,
+        86
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -60
+        ],
+        "cable": [
+          56,
+          -16
+        ]
+      },
+      "inkBounds": [
+        -64,
+        -110,
+        134,
+        126
+      ],
+      "part": "copy-console",
+      "state": "copying",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/copy-console-copying.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/copy-console-expired.svg",
+      "extension": "svg",
+      "bytes": 2071,
+      "sha256": "936ee0e9f26cfe1da685d077ada4634f84eff2af3ff740262c4793febabd1d46",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: copy-console; expired",
+      "canonIds": [
+        "MI12"
+      ],
+      "nominalSize": [
+        100,
+        86
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -60
+        ],
+        "cable": [
+          56,
+          -16
+        ]
+      },
+      "inkBounds": [
+        -64,
+        -110,
+        134,
+        126
+      ],
+      "part": "copy-console",
+      "state": "expired",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/copy-console-expired.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/copy-console-idle.svg",
+      "extension": "svg",
+      "bytes": 2062,
+      "sha256": "5001f550eeb574c2fb492f3d966845b54c3911dde83dc7f06950ddf4596245ee",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: copy-console; idle",
+      "canonIds": [
+        "MI12"
+      ],
+      "nominalSize": [
+        100,
+        86
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "screen": [
+          0,
+          -60
+        ],
+        "cable": [
+          56,
+          -16
+        ]
+      },
+      "inkBounds": [
+        -64,
+        -110,
+        134,
+        126
+      ],
+      "part": "copy-console",
+      "state": "idle",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/copy-console-idle.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/praetor-hull-attack.svg",
+      "extension": "svg",
+      "bytes": 3591,
+      "sha256": "ada6260822834d81ea76f67ba753fa6eb98d68c956588bf36cc40c5236afa059",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: praetor-hull; attack",
+      "canonIds": [
+        "MI12",
+        "VE12"
+      ],
+      "nominalSize": [
+        172,
+        92
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sensor": [
+          -13,
+          -113
+        ],
+        "cannon": [
+          -115,
+          -56
+        ],
+        "legs": [
+          -61,
+          -10
+        ]
+      },
+      "inkBounds": [
+        -128,
+        -112,
+        256,
+        130
+      ],
+      "part": "praetor-hull",
+      "state": "attack",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/praetor-hull-attack.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/praetor-hull-destroyed.svg",
+      "extension": "svg",
+      "bytes": 4149,
+      "sha256": "d0eb0c5005ba7fc2b09306044a2878e7e20cc1e843459cf4518cb0fca3e096f1",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: praetor-hull; destroyed",
+      "canonIds": [
+        "MI12",
+        "VE12"
+      ],
+      "nominalSize": [
+        172,
+        92
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sensor": [
+          -13,
+          -113
+        ],
+        "cannon": [
+          -115,
+          -56
+        ],
+        "legs": [
+          -61,
+          -10
+        ]
+      },
+      "inkBounds": [
+        -128,
+        -112,
+        256,
+        130
+      ],
+      "part": "praetor-hull",
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/praetor-hull-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/praetor-hull-exposed.svg",
+      "extension": "svg",
+      "bytes": 3910,
+      "sha256": "aa7a10807b8bae66c787977bd54899eb2ee2f45e1df7b82e5da616b9172149d5",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: praetor-hull; exposed",
+      "canonIds": [
+        "MI12",
+        "VE12"
+      ],
+      "nominalSize": [
+        172,
+        92
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sensor": [
+          -13,
+          -113
+        ],
+        "cannon": [
+          -115,
+          -56
+        ],
+        "legs": [
+          -61,
+          -10
+        ]
+      },
+      "inkBounds": [
+        -128,
+        -112,
+        256,
+        130
+      ],
+      "part": "praetor-hull",
+      "state": "exposed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/praetor-hull-exposed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/praetor-hull-guard.svg",
+      "extension": "svg",
+      "bytes": 3383,
+      "sha256": "ede0383b6192055735388cfc6c9c04ec5f244813032d8cbec924bd5bdb08f880",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: praetor-hull; guard",
+      "canonIds": [
+        "MI12",
+        "VE12"
+      ],
+      "nominalSize": [
+        172,
+        92
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "sensor": [
+          -13,
+          -113
+        ],
+        "cannon": [
+          -115,
+          -56
+        ],
+        "legs": [
+          -61,
+          -10
+        ]
+      },
+      "inkBounds": [
+        -128,
+        -112,
+        256,
+        130
+      ],
+      "part": "praetor-hull",
+      "state": "guard",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/praetor-hull-guard.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/praetor-lock-anchored.svg",
+      "extension": "svg",
+      "bytes": 1505,
+      "sha256": "9c3a265ab58eadd41b5dbe535b480a8122332fe07775274a0760178ba93e6604",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: praetor-lock; anchored",
+      "canonIds": [
+        "MI12",
+        "VE12"
+      ],
+      "nominalSize": [
+        36,
+        34
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "piston": [
+          0,
+          -18
+        ]
+      },
+      "inkBounds": [
+        -28,
+        -46,
+        58,
+        61
+      ],
+      "part": "praetor-lock",
+      "state": "anchored",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/praetor-lock-anchored.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/praetor-lock-broken.svg",
+      "extension": "svg",
+      "bytes": 1537,
+      "sha256": "b85496d33e1befb7c0e3680cf255d3a6f11ec723a69b363ee1be08742d1003be",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: praetor-lock; broken",
+      "canonIds": [
+        "MI12",
+        "VE12"
+      ],
+      "nominalSize": [
+        36,
+        34
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "piston": [
+          0,
+          -18
+        ]
+      },
+      "inkBounds": [
+        -28,
+        -46,
+        58,
+        61
+      ],
+      "part": "praetor-lock",
+      "state": "broken",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/praetor-lock-broken.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/praetor-sensor-disabled.svg",
+      "extension": "svg",
+      "bytes": 1215,
+      "sha256": "bc9bab6effa3642baacaf54d823c56bbef6f195838df63ea170fdcd7627e77b6",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: praetor-sensor; disabled",
+      "canonIds": [
+        "MI12",
+        "VE12"
+      ],
+      "nominalSize": [
+        40,
+        34
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "lens": [
+          -13,
+          -20
+        ]
+      },
+      "inkBounds": [
+        -31,
+        -42,
+        62,
+        55
+      ],
+      "part": "praetor-sensor",
+      "state": "disabled",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/praetor-sensor-disabled.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/praetor-sensor-locking.svg",
+      "extension": "svg",
+      "bytes": 1212,
+      "sha256": "65a61fb63a43b7ac75591bb09659908c09a732e503032e8da33f3756971d66be",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: praetor-sensor; locking",
+      "canonIds": [
+        "MI12",
+        "VE12"
+      ],
+      "nominalSize": [
+        40,
+        34
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "lens": [
+          -13,
+          -20
+        ]
+      },
+      "inkBounds": [
+        -31,
+        -42,
+        62,
+        55
+      ],
+      "part": "praetor-sensor",
+      "state": "locking",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/praetor-sensor-locking.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/praetor-sensor-tracking.svg",
+      "extension": "svg",
+      "bytes": 1215,
+      "sha256": "35939f80943252eed5ddab5f93b470686c90c676b409d753e772afee84e74d68",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: praetor-sensor; tracking",
+      "canonIds": [
+        "MI12",
+        "VE12"
+      ],
+      "nominalSize": [
+        40,
+        34
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "lens": [
+          -13,
+          -20
+        ]
+      },
+      "inkBounds": [
+        -31,
+        -42,
+        62,
+        55
+      ],
+      "part": "praetor-sensor",
+      "state": "tracking",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/praetor-sensor-tracking.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/previews/relay-kit.png",
+      "extension": "png",
+      "bytes": 113402,
+      "sha256": "7057870b0dae387ce2f2e8883cc131683b742ec7ba7f653aa1fb3903a2b6421f",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Authoring sheet with component scales; not gameplay or browser reception",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/previews/relay-kit.png",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/previews/relay-states.png",
+      "extension": "png",
+      "bytes": 137302,
+      "sha256": "6a2d470703b2bbed55be6b8ffc853ea102e7ff86fa4292dbe325e85c3a35e1f1",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Authored states on a bench; not a playtest",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/previews/relay-states.png",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/relay-mast-destroyed.svg",
+      "extension": "svg",
+      "bytes": 2893,
+      "sha256": "69ed5a9eecdc69f1393dec288deb6543b9d01fb561b0599ea8baf73dab3a9ac3",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: relay-mast; destroyed",
+      "canonIds": [
+        "MI12",
+        "PL03"
+      ],
+      "nominalSize": [
+        96,
+        152
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "archive": [
+          0,
+          -66
+        ],
+        "antenna": [
+          0,
+          -145
+        ]
+      },
+      "inkBounds": [
+        -66,
+        -170,
+        132,
+        184
+      ],
+      "part": "relay-mast",
+      "state": "destroyed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/relay-mast-destroyed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/relay-mast-erased.svg",
+      "extension": "svg",
+      "bytes": 2871,
+      "sha256": "1e2ad05ad31edd0bb999f75d8ac9946b816e91cb297ba0dfe6c93393fc5be320",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: relay-mast; erased",
+      "canonIds": [
+        "MI12",
+        "PL03"
+      ],
+      "nominalSize": [
+        96,
+        152
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "archive": [
+          0,
+          -66
+        ],
+        "antenna": [
+          0,
+          -145
+        ]
+      },
+      "inkBounds": [
+        -66,
+        -170,
+        132,
+        184
+      ],
+      "part": "relay-mast",
+      "state": "erased",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/relay-mast-erased.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/relay-mast-isolated.svg",
+      "extension": "svg",
+      "bytes": 3288,
+      "sha256": "79b580f12edc2f023f19657f4e166881ab334c7af2f038afd7b5180573c372f7",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: relay-mast; isolated",
+      "canonIds": [
+        "MI12",
+        "PL03"
+      ],
+      "nominalSize": [
+        96,
+        152
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "archive": [
+          0,
+          -66
+        ],
+        "antenna": [
+          0,
+          -145
+        ]
+      },
+      "inkBounds": [
+        -66,
+        -170,
+        132,
+        184
+      ],
+      "part": "relay-mast",
+      "state": "isolated",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/relay-mast-isolated.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/relay-mast-live.svg",
+      "extension": "svg",
+      "bytes": 2963,
+      "sha256": "0aadffcf26accbf8a124c2a9b5acb8407877ecdae1973c2fe8603e754155a3e7",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: relay-mast; live",
+      "canonIds": [
+        "MI12",
+        "PL03"
+      ],
+      "nominalSize": [
+        96,
+        152
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "archive": [
+          0,
+          -66
+        ],
+        "antenna": [
+          0,
+          -145
+        ]
+      },
+      "inkBounds": [
+        -66,
+        -170,
+        132,
+        184
+      ],
+      "part": "relay-mast",
+      "state": "live",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/relay-mast-live.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/relay-mast-purging.svg",
+      "extension": "svg",
+      "bytes": 3184,
+      "sha256": "a0c4a4c657fcb6984bd5f6b00f63664b122f86f07a87b6d141da4ec2c87d9707",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: relay-mast; purging",
+      "canonIds": [
+        "MI12",
+        "PL03"
+      ],
+      "nominalSize": [
+        96,
+        152
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "archive": [
+          0,
+          -66
+        ],
+        "antenna": [
+          0,
+          -145
+        ]
+      },
+      "inkBounds": [
+        -66,
+        -170,
+        132,
+        184
+      ],
+      "part": "relay-mast",
+      "state": "purging",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/relay-mast-purging.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
+      "file": "assets/relay/relay-mast-reviewed.svg",
+      "extension": "svg",
+      "bytes": 3274,
+      "sha256": "82a8f61ea4baf4ea3f061750a4a72290f1e9f6546ac8518bec9dd6a0b0ca9520",
+      "provenanceId": "relay-vector",
+      "version": "0.14.1",
+      "dateEvidence": {
+        "manifestDate": "2026-11-12"
+      },
+      "usage": "Reconstructed MI12 vector: relay-mast; reviewed",
+      "canonIds": [
+        "MI12",
+        "PL03"
+      ],
+      "nominalSize": [
+        96,
+        152
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "archive": [
+          0,
+          -66
+        ],
+        "antenna": [
+          0,
+          -145
+        ]
+      },
+      "inkBounds": [
+        -66,
+        -170,
+        132,
+        184
+      ],
+      "part": "relay-mast",
+      "state": "reviewed",
+      "runtimeMedia": false,
+      "manifestHashMatches": true,
+      "manifestBytesMatch": true,
+      "sourceReferences": [],
+      "distribution": {
+        "offline": {
+          "embedded": false,
+          "occurrences": 0,
+          "mimeTypes": [],
+          "expected": false
+        },
+        "web": {
+          "copied": true,
+          "path": "web-dist/assets/relay/relay-mast-reviewed.svg",
+          "sourceHashMatches": true,
+          "expectedByBuildPolicy": true,
+          "runtimeRequested": false
+        }
+      }
+    },
+    {
       "file": "assets/thyr/breathing-vine-burnt.svg",
       "extension": "svg",
       "bytes": 1169,
@@ -24309,6 +28237,50 @@
   ],
   "codeGeneratedMedia": [
     {
+      "file": "src/relay-assets.mjs",
+      "sha256": "9aa0d1ba6263c59b92d2de63bfdac6208f3735682125f335e5eb6eba4b119e81",
+      "provenanceId": "relay-vector",
+      "reconstruction": true,
+      "use": "New MI12 relay and Praetor vector geometry / Canvas drawing, derived from retained project requirements. Physical facts remain in the simulation.",
+      "observedOfflineModule": true,
+      "observedWebCodeCopy": true,
+      "observedWebCodeSha256": "9aa0d1ba6263c59b92d2de63bfdac6208f3735682125f335e5eb6eba4b119e81",
+      "webSourceHashMatches": true
+    },
+    {
+      "file": "src/relay-renderer.mjs",
+      "sha256": "1eb8e25d93fc4ec0ff1ce2911403f18a36feb62455d0ae690635b5df1db4857e",
+      "provenanceId": "relay-vector",
+      "reconstruction": true,
+      "use": "New MI12 relay and Praetor vector geometry / Canvas drawing, derived from retained project requirements. Physical facts remain in the simulation.",
+      "observedOfflineModule": true,
+      "observedWebCodeCopy": true,
+      "observedWebCodeSha256": "1eb8e25d93fc4ec0ff1ce2911403f18a36feb62455d0ae690635b5df1db4857e",
+      "webSourceHashMatches": true
+    },
+    {
+      "file": "src/foundry-assets.mjs",
+      "sha256": "963637fb4d09b582ca9760c905a2770859c44bbd2205b0043d338b7b38ab0c16",
+      "provenanceId": "foundry-vector",
+      "reconstruction": true,
+      "use": "New MI13 Kharon carrier and heat vector geometry / Canvas drawing, derived from retained project requirements. Physical facts remain in the simulation.",
+      "observedOfflineModule": true,
+      "observedWebCodeCopy": true,
+      "observedWebCodeSha256": "963637fb4d09b582ca9760c905a2770859c44bbd2205b0043d338b7b38ab0c16",
+      "webSourceHashMatches": true
+    },
+    {
+      "file": "src/foundry-renderer.mjs",
+      "sha256": "1a305cc5eda959757ad0c075c92f39e3b4d8385b0d4f0793c38168fb2ee7ba2d",
+      "provenanceId": "foundry-vector",
+      "reconstruction": true,
+      "use": "New MI13 Kharon carrier and heat vector geometry / Canvas drawing, derived from retained project requirements. Physical facts remain in the simulation.",
+      "observedOfflineModule": true,
+      "observedWebCodeCopy": true,
+      "observedWebCodeSha256": "1a305cc5eda959757ad0c075c92f39e3b4d8385b0d4f0793c38168fb2ee7ba2d",
+      "webSourceHashMatches": true
+    },
+    {
       "file": "src/voice-assets.mjs",
       "sha256": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0",
       "provenanceId": "voice-vector",
@@ -24374,7 +28346,7 @@
     },
     {
       "file": "src/renderer.mjs",
-      "sha256": "88831bbac02ef6171df94d0b8a3e853eb8f306474af6f58b351d067b35d946ad",
+      "sha256": "7fe0f3be5d06413366ad6c8f7bfb05b4f3445f6c47e73f7dcd66fdccb19fc177",
       "provenanceEvidence": "docs/ASSET_PROVENANCE.md",
       "use": "Original procedural drawing of world, particles, actors and remaining scenery.",
       "observedOfflineModule": true,
@@ -25488,6 +29460,334 @@
       "file": "docs/previews/bible-v012/bible-v012-systemes-117-117.png",
       "bytes": 33256,
       "sha256": "73070f86c08e9aa1374e837fc1fe59b77712a5276631db084c91cb8253710df7",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/00-Synthese.png",
+      "bytes": 127505,
+      "sha256": "f9dd42e211ceb38ddf1f4b94c9d01c2f44725995ad12643b5073163a64043a9b",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/02-Systemes.png",
+      "bytes": 82852,
+      "sha256": "97e434743e39e46b533da7d90f5c4cd164e036cd9e8ad2c424023b7eae8cba29",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/06-Planetes.png",
+      "bytes": 131429,
+      "sha256": "2a040434f7395e6e9659603fc2669f96d03fac0bf58bd0f480f7e4240c975eee",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/09-Campagne.png",
+      "bytes": 103708,
+      "sha256": "e18e6c55e98e2deec4ac86fe23cabe99198a56c45327693205fec53cf28a7064",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/12-Vehicules.png",
+      "bytes": 82515,
+      "sha256": "098b26957f33f4861c4272875f5c135e062ec488171800373295f4a567fa92d1",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/15-Narration.png",
+      "bytes": 71338,
+      "sha256": "391e90775a09fa2b4b18814bff47c9951d295208189061a8c05eb0421fe98549",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/16-Assets.png",
+      "bytes": 112082,
+      "sha256": "f4d20b761d9e947f4a75d1ec4a03610ebbc8596a831115f17be354228ce9d315",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/17-Production.png",
+      "bytes": 71163,
+      "sha256": "8b00d77a905c2ad47589c760928737602cdf618b53f297ebbab8191d7dce548d",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/18-QA.png",
+      "bytes": 63832,
+      "sha256": "e6384de6759f48e89b708a379a386fbfb5ff3fc57a0fa1a6a2074095cb300500",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/20-Prototype.png",
+      "bytes": 93163,
+      "sha256": "eb3e40934fc27a2e9423ecafe3232304b5a691cef746cc0c5af8af32d27d8964",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-as19.png",
+      "bytes": 27035,
+      "sha256": "e043463be12387e4158fdafc5b6786fc02575da1cae193fb6b1990229b85c542",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-mi12.png",
+      "bytes": 30342,
+      "sha256": "ed52a0dc1508307ed720c8caa72608157f1ff7756bc8f778e40db0b620ad875a",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-mi13.png",
+      "bytes": 28840,
+      "sha256": "dff16b02a2886c1f07ebacffa2b49d3e971490d63d115df91fa017d07eacb4d1",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-na-93-96.png",
+      "bytes": 65011,
+      "sha256": "32e02533cafe2a7ee0ff6a945032ce62891f913257811d0b22ae4d1227fb8b8d",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-na-97-100.png",
+      "bytes": 74406,
+      "sha256": "ce4fe386de33dcf5f885e1c5ef259f6b53f497c285fdf9d9cbc1b654fdf7e1b5",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-pl03.png",
+      "bytes": 44859,
+      "sha256": "0e1af093d79f4f454345d60f071a7cdbfbe0d4d51f83710103b25eaee631c95f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-pl04.png",
+      "bytes": 30596,
+      "sha256": "2e2d3e9f86a5e1a19d024956caa8fd57e28aa5fb630d2650156154f6c7a90656",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-pr-101-103.png",
+      "bytes": 49018,
+      "sha256": "a8d7b61592ad06a5347346e94a82d19ed2d0d97084f831ed764256b2e0f9c6e9",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-pr-98-100.png",
+      "bytes": 47343,
+      "sha256": "d1e8c913b97b06151786a47c05dd734704ef9b823b53b260033410060381224d",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-pr18.png",
+      "bytes": 24925,
+      "sha256": "af035b8831d8edf71d51b654b56ab947892969b8b6aa9ef3de08ba9c8f8bc355",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-pr55.png",
+      "bytes": 30179,
+      "sha256": "f540ad35f7382df31ad41fc8e8c5036a4402cf808a8f18a44c013c768b022bd9",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-px-111-113.png",
+      "bytes": 47756,
+      "sha256": "31d9aeba57e9a4915f1446c4305d3b004f5321534ddb781d0aac2de1ef5565bb",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-px-114-116.png",
+      "bytes": 51999,
+      "sha256": "fe39a3caa0a5507a8167f65bd8f54296545a0bd3bbbb8713d4c6bec9f1efa33c",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-px-117-119.png",
+      "bytes": 49708,
+      "sha256": "de9d012cb0470af8f43768fbe6c470dddaac07697c23ad746dbcf1c2665931df",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-px-120-122.png",
+      "bytes": 56328,
+      "sha256": "298fe776585cfbf682cf0e961f5d07c48183cdd76fc64887fb5dca3234a09670",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-qa-198-200.png",
+      "bytes": 42334,
+      "sha256": "c61e44fe9eb9fe1da576dc7abb4f3482b021fe7a809453297ce549175d2551ef",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-qa-201-203.png",
+      "bytes": 40731,
+      "sha256": "1bb465a11aeed560f87793fc9ef7984a15a33a3b7123714585180a59de7684f1",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-qa-204-206.png",
+      "bytes": 40763,
+      "sha256": "004ae1516bd5086cbcafd74f2ff103aea06fe64866d6f6051ffb3d398aeb2a07",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-qa-207-209.png",
+      "bytes": 37680,
+      "sha256": "37491e0ac863e2b9d0eee391a9aa50542560be9b40b112806829f2e34d317a9c",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-qa-210-212.png",
+      "bytes": 41684,
+      "sha256": "faba9ba36f867bcbfe5bb22af90cdb6b628d220c981a1210ddd5309820c6e4a5",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-qa-213-215.png",
+      "bytes": 42005,
+      "sha256": "8c14add03e931535d4613eb34e5a919d65218baf62b7ea388bf2af6ccd0d843f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-qa-216-218.png",
+      "bytes": 40771,
+      "sha256": "7d248a3fc5b3b6c169d0857532118ad9eb5b60284e6ad96277414180d41dc4eb",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-qa-219-221.png",
+      "bytes": 43582,
+      "sha256": "c94019ac2ac746f1d21ce33720061e0558fae0f23db4c5d081798575c6e30c6a",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-qa-222-224.png",
+      "bytes": 41973,
+      "sha256": "2939d6c9a30570744f02901c789b8eea2008dad95545cd525afd1b9a831c379c",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-qa-225-227.png",
+      "bytes": 44000,
+      "sha256": "3adb7e12c0831ecfd530e4b7c036f23e246e9460c8cbea85955cc4e4be2bca8f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-qa06.png",
+      "bytes": 13445,
+      "sha256": "2df918e15c17f0cb4968f2c6ff3e21ed5150839c4a417f17db081e1b414e57c5",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-sy-118-121.png",
+      "bytes": 72304,
+      "sha256": "493c1e669003c23bab1d2efae08ac7ffc25e0ad59bc08028ded461c1ceaafca6",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-sy-122-125.png",
+      "bytes": 67655,
+      "sha256": "28b5ca4f323f17d27213c9e6614bc362602d32eb3cf36e08609f164d48f5fc4f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-sy-126-129.png",
+      "bytes": 70748,
+      "sha256": "5fe0ec78836c289b210926bf67bc58981bf58ee3bf6b0d3689b604067acc77ab",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-sy-130-133.png",
+      "bytes": 70532,
+      "sha256": "ce5af6ee289ef74e02ff5076f391f5de63e2f4696183313f1345c39e495ae089",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/previews/bible-v014-reconstruction/rebuild-ve12.png",
+      "bytes": 21389,
+      "sha256": "5d464dcd18b1cbeddc3f51b6467d143fba984486446db6ee9cdc7576c54c69b5",
       "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
       "copiedInWeb": false,
       "embeddedInOffline": false
@@ -27811,6 +32111,470 @@
       "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
       "copiedInWeb": false,
       "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/archives-mi11.png",
+      "bytes": 83186,
+      "sha256": "d36cdf30058ef33fcbe7a6a5dc3cafb8f5605af20f3244233aac0ddba6b5e4be",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/campaign-completed-reloaded.png",
+      "bytes": 118477,
+      "sha256": "286a457f233f1786133f6614a80f90953aa4ed70760e2a064914854c212fb08e",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/emitter-decision.png",
+      "bytes": 55495,
+      "sha256": "1fd2002eb329b9aadf3ff07944ab879f643c63f9753669129f0bc191dcf8b62e",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/emitter-restored.png",
+      "bytes": 96729,
+      "sha256": "e412aa07832417d3596154b38b6f3ab86c76d977333a988447dfd4145de63a8e",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/exchange-after-reload.png",
+      "bytes": 105066,
+      "sha256": "8ceeaedec7d7cf8f8d83981e55b3290868aee2cb7bb6b385b51d858a4788cfd4",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/exchange-defense.png",
+      "bytes": 98027,
+      "sha256": "a2713db6cbea15795fa447d25ffae81035cd06021866e408d6f5e6cc8eae2c37",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/exchange-finished.png",
+      "bytes": 107314,
+      "sha256": "28d04f8bb8b689e5ee8e85e56afa961e414b54f915e9c51eda08a2aff295aeab",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/exchange-resumed.png",
+      "bytes": 100474,
+      "sha256": "d9354b35e176943f2d2842284e4bd3540c8a0118004aae281d7e46368e4e507b",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/listening-completed-native.png",
+      "bytes": 137337,
+      "sha256": "01e5b8e61feac2593de753804af28a159c83a1e19f0a509dee9f1135df19908d",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/migration-v9.png",
+      "bytes": 108879,
+      "sha256": "7a082b769bb1c58a9bbad8b14d7aa1abc9c47a287322648c3a89f8206cc7b8bd",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/mission-result.png",
+      "bytes": 89332,
+      "sha256": "21875e4370c5fb546384fb26c23490aefb625698fa9a65ae314fa04bbfb75096",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/mission-start.png",
+      "bytes": 99264,
+      "sha256": "f9a57056c6fe5990fa0082ecb76a7755a6adcfa2520fb26f5b084cd896d6dba9",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/native-v12/report-transmitted.png",
+      "bytes": 95887,
+      "sha256": "2050a95d2cc766140fc397b18a7319042e789b54c3a6f3320bcdee5c12cae4ec",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/arrival.png",
+      "bytes": 333508,
+      "sha256": "f4e1e3d365f2703d21d2ac9ad6ded250a37f67a42ea76695b70d0433e7f934ba",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/before-extraction.png",
+      "bytes": 341572,
+      "sha256": "b65cdb876c99a2cce6f1e4419f5928007d7efa716e6d830f30d31bfd90a95fcf",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/chassis-wk01.png",
+      "bytes": 344617,
+      "sha256": "03543b9058b1a02f4050c1e66c8137864160ee67f9b938a0902e9376a6466833",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/chassis-wk02.png",
+      "bytes": 340868,
+      "sha256": "65108f008e8f97817ee40966d8c7e23de42c7a7f56053c4c30f81db1257f9557",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/chassis-wk05.png",
+      "bytes": 349164,
+      "sha256": "2f9cbf35d310d53febc3fbebdb04aa7d5effb44f8653899fa790a39edd38fe6f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/chassis-wk06.png",
+      "bytes": 380872,
+      "sha256": "d0b1fc1f3a89db5948f1cbdfe75f501d2da868c0e5a80f553cc246a20108ce97",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/chassis-wk09.png",
+      "bytes": 367389,
+      "sha256": "838c76b4edae135b2b8ec6db5cb20e7a2ba03562766a7587425de8afab0aabb7",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/chassis-wk10.png",
+      "bytes": 343771,
+      "sha256": "aa3e54e694b839b38aea1c5922454f51f0a3d715a12fb937184ac6b4538a8fb2",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/copy-active.png",
+      "bytes": 367384,
+      "sha256": "d2d5e2590bdadf12ee8939689ecebe1c2caf7527fa7d064153a9fd9f9ffed21e",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/copy-survives-source.png",
+      "bytes": 366634,
+      "sha256": "e3c49a488fe164d769c23eacf1cb435864fe38fa026d6c1eb505f9055246961b",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/copy-window.png",
+      "bytes": 346555,
+      "sha256": "9cf6f364e4219e6666a982f56aa65f0e479d6250a5bb2a19ba50076526b8b283",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/decision.png",
+      "bytes": 347250,
+      "sha256": "4e32d3d73dda56ee5fe57774781e91fa0b507c1bbc363079af5d4309a7571f1f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/expired-copy.png",
+      "bytes": 363803,
+      "sha256": "9be884d288ac2a77c84ed774440371fa5f58c1b534f98bcc75859e9a253bd91f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/first-purge.png",
+      "bytes": 339100,
+      "sha256": "b0b841b9c7c280891274f8ae2606673b519c56562adef804b6295691596687d2",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/inspection.png",
+      "bytes": 338025,
+      "sha256": "a79cf2fd6b9235bf6521d303429572acc29bb24887935f2e6aa3e6423f074958",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/lost-source-before-copy.png",
+      "bytes": 348383,
+      "sha256": "5320b050bca65c2cf31251d1e0a8c60ec0b58700cf0f3371821ef99b2d5c0914",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/praetor-exposed.png",
+      "bytes": 366514,
+      "sha256": "6a9a673dc24ccc90e0dcd6acbbcf6eb751afa8051175473a1c2749dc6bc74e98",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/praetor-lock.png",
+      "bytes": 367985,
+      "sha256": "13d5b8680e04daeba24da125a1f599272b067ab7b70c54a8a8d7cb3c003d3421",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/public-refusal.png",
+      "bytes": 359566,
+      "sha256": "d67829aa64abd983e58a29e4caa35739f6095f52c42e7ba57939890ee7ace378",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/report.png",
+      "bytes": 349225,
+      "sha256": "22d9b9579ac13dcbf306572581237118d8f8cf8e87981da385e061999edd7f2e",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/third-isolation.png",
+      "bytes": 362585,
+      "sha256": "f1390377150053e489af51da5a236902b1f979da8417f561a4cfb6d4b030dde4",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi12/three-purges.png",
+      "bytes": 359469,
+      "sha256": "4f4433af2f62a46b61fc40430d53b70ba0869639747cd00e05aa7c46af483aec",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/ambush-arrival.png",
+      "bytes": 319662,
+      "sha256": "f6b9c25cf0b15a0db6cdc0081267acc458993db4e4e46faf1aede9496224510c",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/arrival.png",
+      "bytes": 290115,
+      "sha256": "e0bcb6a7ed480ffe327465898756ae3869984496ecd201b8a82358b65edd54fe",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/before-extraction.png",
+      "bytes": 313608,
+      "sha256": "bc3b191727352646f2f9d3733214ec5119056086025eaa08f0d1a06882d49c5d",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/bridge-contact.png",
+      "bytes": 297154,
+      "sha256": "4b36a8993431bf3bd16b36854d80ca5b27f7750502e65e2a9e29021064758eb5",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/cargo-lost-before-copy.png",
+      "bytes": 277140,
+      "sha256": "7259f90fc632b693efdbc8707fc4a5e063ecff69636e31ef42d3bff92e21056a",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/cargo-marking.png",
+      "bytes": 271202,
+      "sha256": "2665537224b7d11d23be69fc25898e098289cdf5ed3aa146e647bba3ae375c9b",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/carrier-release.png",
+      "bytes": 278394,
+      "sha256": "eada5a876e8073abb035ca62d590a865f9a5634ffbc1168674dc9e830625daf8",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/carrier-terminal-loss.png",
+      "bytes": 294410,
+      "sha256": "2e0bb5cdbc980f4c92941d7c93b72ab552187eca5ffed360e1258a71e52a97b8",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/central-arrival.png",
+      "bytes": 284832,
+      "sha256": "4f3038f6d17bebfebc68f3ceb1bbb1f8951e4f42f0d33bf9e65e9d3a1d027a9f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/central-transfer.png",
+      "bytes": 270991,
+      "sha256": "e36397fc7711da582cf73f27b629809780db9daeff75d5e28a734e2d80b4fe83",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/copies-after-original-loss.png",
+      "bytes": 302743,
+      "sha256": "5b5bb3384574f633574c6ba493f73d502dde7b4990fdf0edc2466d1b5f381a95",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/destination-decision.png",
+      "bytes": 304023,
+      "sha256": "bbb3da690e4bf92ebb6b5105d9b441a08bba5b0c97304dd47f55ee731324f2ed",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/hot-warning.png",
+      "bytes": 289833,
+      "sha256": "89edbcdee8b1e3d5791b72550ec267eb52f61b2b61bfcf520ae4e586f374a1ec",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/interrupted-transfer.png",
+      "bytes": 311131,
+      "sha256": "b4d6744097e931824586eef26a6c130a84d7261f6615fae2f4736fbbb25376c3",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/manifest-copy.png",
+      "bytes": 277325,
+      "sha256": "5826d59c531110915085cbfd7540e196ee2d171b2dda630cdd933ea5d9678025",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/manifest-lost-before-copy.png",
+      "bytes": 276035,
+      "sha256": "6bb4db9663512356805be4b69b1bd375c912573c688be7d1b68eed41f913f6f9",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/partial-transfer.png",
+      "bytes": 310951,
+      "sha256": "024f84f8fc51a9b5de202335db663f2f7a18a1a3c259608bd896c19655fd12a4",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/quarantine-arrival.png",
+      "bytes": 317493,
+      "sha256": "069122c61208c6a6d767de6d0e1827860952262dd25f3b93f46579423a00a550",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/quarantine-escort.png",
+      "bytes": 316371,
+      "sha256": "6391c136dd9e476648d33181f5856c9624659b8a00bed19f494cf95f8e447e0f",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/reception-report.png",
+      "bytes": 305016,
+      "sha256": "51b29d4e1492b38cf3ac12d82b640b73b81949d8900326a5083b0edff5e93323",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/steam-reduced-motion.png",
+      "bytes": 294480,
+      "sha256": "fbcee706511540b6210afa80a34f95799c0ec404c06595feacde83de4b1622a4",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/tess-analysis.png",
+      "bytes": 273086,
+      "sha256": "0ae077f31e39e44ea011d87537975b7dd07eda7ece89ba288daf692619b58958",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
+    },
+    {
+      "file": "docs/validation/rebuild-mi13/thermal-valve.png",
+      "bytes": 308825,
+      "sha256": "ca25b6f92cfd56cfa2f2b02b51338a325dd1f50ba4130d201ae8e5beba95f9e2",
+      "reason": "docs/ is not copied by build-web.mjs and no source media reference resolves to this file.",
+      "copiedInWeb": false,
+      "embeddedInOffline": false
     }
   ],
   "fonts": {
@@ -27836,18 +32600,21 @@
     "note": "System font names are fallbacks, not distributed font binaries. Preview rendering uses installed fonts; that does not add a font file to the game."
   },
   "coverage": {
-    "registeredSourceMedia": 442,
-    "sourceMedia": 442,
+    "registeredSourceMedia": 497,
+    "sourceMedia": 497,
     "runtimeImageFiles": 3,
     "productionGraphicsMedia": 292,
     "productionAudioMedia": 56,
     "thyrGraphicsMedia": 37,
     "chemicalGraphicsMedia": 26,
     "voiceGraphicsMedia": 28,
-    "observedWebMedia": 442,
+    "relayGraphicsMedia": 24,
+    "foundryGraphicsMedia": 31,
+    "reconstructedGraphicsMedia": 55,
+    "observedWebMedia": 497,
     "observedInlineOccurrences": 5,
     "observedInlineDistinctHashes": 3,
-    "excludedDocumentationMedia": 427,
+    "excludedDocumentationMedia": 526,
     "unregisteredSourceMedia": 0,
     "unregisteredWebMedia": 0,
     "unregisteredInlineMedia": 0,

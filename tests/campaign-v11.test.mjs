@@ -48,7 +48,7 @@ function editReceipt(save, edit) {
 }
 
 test('v11 adds only an empty voice dossier to both exact published prepared v10 exports', () => {
-  assert.equal(CAMPAIGN_SAVE_VERSION, 11);
+  assert.equal(CAMPAIGN_SAVE_VERSION, 14);
   assert.equal(fixtureBytes.length, 414403);
   assert.equal(hash(fixtureBytes), 'a917920f3e0469d00f31e00f1a242fc183e5d0ebc4f3b4db59066fa63668aa73');
   assert.equal(history.provenance.sourceRevision, 'c7f3273a60824ff4e968ea36ab956c6a41710df0');
@@ -57,7 +57,7 @@ test('v11 adds only an empty voice dossier to both exact published prepared v10 
   assert.equal(history.provenance.nativeReception, false);
   for (const variant of ['live', 'completed']) {
     const original = history[variant], migrated = after(variant), historical = clone(migrated);
-    historical.version = 10; delete historical.world.thyr.voice;
+    historical.version = 10; delete historical.world.kharon; delete historical.world.thyr.relay; delete historical.world.thyr.voice;
     assert.deepEqual(historical, original, variant);
     assert.deepEqual(migrated.world.thyr.voice, createVoiceDossier());
     assert.deepEqual(parseCampaign(serializeCampaign(migrated)), migrated);
@@ -78,21 +78,21 @@ test('nine older fixtures keep their bytes and twenty historical variants still 
     assert.equal(bytes.length, expected.bytes, path); assert.equal(hash(bytes), expected.sha256, path);
     for (const variant of ['live', 'completed']) {
       const source = JSON.parse(bytes)[variant], migrated = parseCampaign(JSON.stringify(source));
-      assert.equal(migrated.version, 11); assert.deepEqual(migrated.completed, source.completed);
+      assert.equal(migrated.version, CAMPAIGN_SAVE_VERSION); assert.deepEqual(migrated.completed, source.completed);
       assert.deepEqual(migrated.world.thyr.voice, createVoiceDossier());
       assert.deepEqual(parseCampaign(serializeCampaign(migrated)), migrated);
     }
   }
-  for (const variant of ['live', 'completed']) assert.equal(after(variant).version, 11);
+  for (const variant of ['live', 'completed']) assert.equal(after(variant).version, CAMPAIGN_SAVE_VERSION);
 });
 
-test('reading v10 is nondestructive, its first write backs up the original, future v12 is protected', () => {
+test('reading v10 is nondestructive, its first write backs up the original, future v14 is protected', () => {
   const original = JSON.stringify(history.live), storage = disk(original), loaded = readCampaign(storage);
   assert.equal(loaded.blocked, false); assert.equal(storage.getItem(CAMPAIGN_SAVE_KEY), original);
   assert.equal(storage.getItem(CAMPAIGN_BACKUP_KEY), null);
   assert.equal(writeCampaign(storage, loaded.campaign).ok, true);
   assert.equal(storage.getItem(CAMPAIGN_BACKUP_KEY), original);
-  const future = JSON.stringify({ ...createCampaign(), version: 12 });
+  const future = JSON.stringify({ ...createCampaign(), version: CAMPAIGN_SAVE_VERSION + 1 });
   storage.values.set(CAMPAIGN_SAVE_KEY, future);
   const blocked = readCampaign(storage); assert.equal(blocked.blocked, true);
   assert.equal(writeCampaign(storage, blocked.campaign).ok, false);
@@ -251,7 +251,7 @@ test('MI11 first report adds four lots, preserves ten historical reports and sep
   for (const key of ['vesper', 'nacre']) assert.deepEqual(saved.world[key], history.completed.world[key]);
   for (const key of ['route', 'chemical']) assert.deepEqual(saved.world.thyr[key], history.completed.world.thyr[key]);
   assert.equal(saved.resources.parts, 50); assert.equal(saved.resources.fuel, history.completed.resources.fuel);
-  assert.equal(nextCampaignMissionId(saved), null);
+  assert.equal(nextCampaignMissionId(saved), 'MI12');
   assert.equal(Object.hasOwn(receipt, 'palinodeProven'), false); assert.equal(Object.hasOwn(saved.crew, 'leth'), false);
   const text = serializeCampaign(saved); assert.equal(finishCampaignMission(saved, game).applied, false);
   assert.equal(serializeCampaign(saved), text); game.voice.leth.hp = 0; assert.equal(serializeCampaign(saved), text);

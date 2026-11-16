@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.12.0",
-    "date": "2026-11-11",
+    "version": "0.15.2",
+    "date": "2026-11-16",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "Bible de conception et registre de production. MI01–MI04 forment Vesper, MI05–MI08 couvrent Nacre et MI09–MI11 poursuivent Thyr par la route des vivants, le terrain chimique et la rencontre de Leth. Onze missions, six châssis, trois opérations indépendantes et dossier v11 sont disponibles au stade prototype. MI12–MI32 et les seize contrats restent conçus. Les 133 critères À produire de la 0.8 et les 873 IDs de la 0.11 restent conservés. Contrôle automatique, rendu Canvas, navigateur et essai humain gardent des portées distinctes.",
+    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs et les 133 critères initiaux sont conservés. Neuf atlas peints de combat ajoutent 78 cellules, dont 32 poses de marche et sept armes séparées. Avec les huit atlas MI14 et leurs 54 cellules, le total atteint 17 atlas et 132 cellules. Les rôles sont génériques, sans variantes de factions complètes. Art, cycles finaux, marcheurs articulés, faune et réception humaine restent ouverts.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Livrable partiel disponible. L’onglet Prototype et les reçus de production précisent son intégration, sa portée et les critères encore ouverts.",
@@ -17,7 +17,7 @@
     "balanceDisclaimer": "Dimensions, charges et valeurs de gameplay décrites ici sont des hypothèses à calibrer.",
     "qualityDisclaimer": "AAA est une ambition de qualité, pas une description du niveau de finition du prototype.",
     "sheetCount": 20,
-    "recordCount": 905,
+    "recordCount": 1007,
     "release": {
       "playableCampaignMissions": [
         "MI01",
@@ -30,7 +30,10 @@
         "MI08",
         "MI09",
         "MI10",
-        "MI11"
+        "MI11",
+        "MI12",
+        "MI13",
+        "MI14"
       ],
       "standaloneOperations": [
         "OP01",
@@ -38,8 +41,8 @@
         "OP03"
       ],
       "campaignMissionDesigns": 32,
-      "remainingCampaignMissionDesigns": 21,
-      "saveFormatVersion": 11,
+      "remainingCampaignMissionDesigns": 18,
+      "saveFormatVersion": 14,
       "playableWalkerIds": [
         "WK01",
         "WK02",
@@ -67,14 +70,25 @@
         "QA": 39
       },
       "path": "docs/validation/production-v09-baseline.json",
-      "registry": "docs/validation/production-v012-registry.json",
+      "registry": "docs/validation/production-v015-registry.json",
       "rule": "Le statut Prototype atteste une réception partielle. Le critère original et le reste sont conservés; seul un contrôle exécuté reçoit Vérifié."
     },
     "previousRelease": {
-      "version": "0.11.0",
-      "recordCount": 873,
-      "sourceRevision": "c7f3273a60824ff4e968ea36ab956c6a41710df0",
-      "ids": "tests/fixtures/bible-v011-ids.json"
+      "version": "0.14.1",
+      "recordCount": 977,
+      "sourceRevision": "fc9f4af4e103adf93d4310053610ca69bea443b3",
+      "ids": "tests/fixtures/bible-v014-ids.json"
+    },
+    "reconstruction": {
+      "date": "2026-11-12",
+      "sourceRevision": "0f77235f7545f33b1a4f298b81a44ee2122d46dc",
+      "lostVersions": [
+        "0.13.0",
+        "0.14.0"
+      ],
+      "binaryIdentityRecovered": false,
+      "note": "Les 72 IDs de travail attendus sont reconstruits depuis les spécifications connues. Les textes sont rédigés à nouveau ; les résultats perdus ne sont pas revendiqués comme exécutés.",
+      "validationScope": "QA192–QA205 et QA207–QA218 : simulations, migrations, DOM modélisé et Canvas reconstruits. QA06 : comportement et HUD automatisés. Réceptions natives et humaines séparées ; QA206, QA219 et QA220 restent ouvertes."
     }
   },
   "sheets": [
@@ -1346,6 +1360,222 @@
           "acceptance": "Migration depuis les octets historiques 0.11, reprises exactes et refus des reçus contradictoires. Les exports v10 préparés sont explicitement distincts d’une réception native.",
           "priority": "P0",
           "status": "Prototype"
+        },
+        {
+          "id": "SY112",
+          "system": "MI12 — fenêtre de copie",
+          "design": "Une fenêtre de 45 s s’ouvre au troisième relais ; une copie complète exige 24 s à portée sous ancrage.",
+          "counterplay": "Quitter les appuis interrompt le travail ; revenir ne restaure pas le temps consommé.",
+          "acceptance": "Une copie incomplète ne livre aucun texte.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY113",
+          "system": "MI12 — trois relais physiques",
+          "design": "Chaque relais possède coque, inspection, effacement ou isolement et dates propres.",
+          "counterplay": "Un appareil détruit reste une perte constatée, sans opération fictive.",
+          "acceptance": "Le choix ne modifie pas automatiquement les trois corps.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY114",
+          "system": "MI12 — Prétoire VE12",
+          "design": "Le quadrupède apparaît après une alerte de 6 s ; ses quatre pieds, sa coque, son capteur et son verrou sont simulés.",
+          "counterplay": "Désactiver le capteur ou le verrou modifie réellement son attaque ou sa mobilité.",
+          "acceptance": "Aucune cible, collision ou silhouette active avant l’arrivée.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY115",
+          "system": "MI12 — trois conduites",
+          "design": "Purge des trois relais, conservation clandestine du troisième ou refus ouvert avec isolement des trois.",
+          "counterplay": "Les pertes peuvent dégrader chaque branche ; aucune décision ne répare un relais.",
+          "acceptance": "Rapport puis extraction physique nécessaires.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY116",
+          "system": "MI12 — copie embarquée",
+          "design": "Une copie complète devient une pièce conservée à bord, distincte de son original.",
+          "counterplay": "Détruire la source avant copie interdit la lecture ; la perte après copie conserve la pièce.",
+          "acceptance": "Le rapport et les archives ne dévoilent que les mots acquis.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY117",
+          "system": "MI12 — conséquences locales",
+          "design": "Ilan réagit aux commandes réellement vues ; Holt enregistre la conduite choisie et le refus ferme le refuge impérial.",
+          "counterplay": "Aucun témoignage inventé quand la copie manque.",
+          "acceptance": "Aucune défection ou preuve politique globale anticipée.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY118",
+          "system": "Dossier v12 — migration additive",
+          "design": "Ajouter seulement le dossier vide des relais de Thyr et la version aux sauvegardes v11.",
+          "counterplay": "Les imports contradictoires sont refusés avant remplacement du dossier courant.",
+          "acceptance": "Onze rapports, ressources, équipage, flotte et checkpoints conservés.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY119",
+          "system": "MI12 — bilans et relectures",
+          "design": "Le premier rapport attribue quatre lots et devient immuable ; une relecture reste indépendante.",
+          "counterplay": "Une défaite demeure terminale à la reprise.",
+          "acceptance": "Pas de double dotation ni de réécriture d’une source perdue.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY120",
+          "system": "MI13 — porteur industriel",
+          "design": "Deux caisses distinctes suivent un porteur à quatre roues calculées depuis les surfaces du moteur.",
+          "counterplay": "La perte du porteur termine la sortie ; une caisse perdue est consignée séparément.",
+          "acceptance": "La position des roues dessinées vient de la simulation.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY121",
+          "system": "MI13 — contacts thermiques",
+          "design": "Deux tabliers fixes portent les vrais pieds et les roues. La conduction exige un contact réel.",
+          "counterplay": "Ambiance, contact et vapeur sont comptés séparément ; changer de châssis conserve ses appuis.",
+          "acceptance": "Un pied en l’air ne conduit pas la chaleur du pont.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY122",
+          "system": "MI13 — vannes et refroidissement",
+          "design": "Une manœuvre ancrée de 4 s isole un circuit et abaisse progressivement le tablier de 90 à 28 °C.",
+          "counterplay": "Un mouvement interrompt le travail ; une vanne détruite ne refroidit pas magiquement le pont.",
+          "acceptance": "La vanne coupe le jet et le pont refroidit sans saut instantané.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY123",
+          "system": "MI13 — vapeur annoncée",
+          "design": "Cycle de 3 s d’avertissement, 2 s de jet et 7 s de repos, piloté par l’horloge simulée.",
+          "counterplay": "Le réglage de mouvements réduits conserve le signe du danger réel.",
+          "acceptance": "Pause, reprise et affichage décrivent la même phase.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY124",
+          "system": "MI13 — provenance PT03",
+          "design": "Copier les deux marquages en 3 s chacun, le bordereau en 4 s, puis achever l’analyse de Tess en 8 s.",
+          "counterplay": "Les constats de pertes ne remplacent pas les sources ; les copies acquises survivent aux originaux.",
+          "acceptance": "PT03 exige toutes les pièces et reste possible sans PT01.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY125",
+          "system": "MI13 — transfert physique",
+          "design": "Choisir le dépôt ou la quarantaine, escorter le porteur puis transférer chaque caisse pendant 5 s.",
+          "counterplay": "Le transfert interrompu conserve son état physique ; reprendre exige une nouvelle interaction.",
+          "acceptance": "Aucune téléportation au choix ; rapport de 3 s puis extraction.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY126",
+          "system": "Dossier v13 — migration additive",
+          "design": "Ajouter seulement Kharon et son dossier de fonderie vide aux dossiers v12.",
+          "counterplay": "Le reçu réconcilie corps, travaux, dates, sources, stocks et destination.",
+          "acceptance": "Douze rapports et tous les états historiques conservés.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY127",
+          "system": "Armement — sécurité thermique",
+          "design": "Le HUD et le réticule suivent immédiatement ventilation et verrou de surchauffe.",
+          "counterplay": "La ventilation suspend le tir ; le verrou se lève strictement sous 48 %.",
+          "acceptance": "Aucun tir durant la sécurité ; le nombre de munitions reste indépendant.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY128",
+          "system": "MI14 — passage du piquet",
+          "design": "Une demande ancrée de 3 s ouvre le déplacement des huit ouvriers vers une galerie hors des appuis.",
+          "counterplay": "Attendre leur trajet réel. Les pas, tirs et explosions conservent leurs pertes.",
+          "acceptance": "Aucune téléportation au dialogue ; les six châssis peuvent franchir sans perte.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY129",
+          "system": "MI14 — personnes locales",
+          "design": "Huit ouvriers distincts, dont deux mécaniciens et trois déplacés de Nacre arrivés avant le recensement connu.",
+          "counterplay": "Aucun survivant, mort ou passager des MI05–MI08 n’est réemployé sous une nouvelle identité.",
+          "acceptance": "Identité, origine, vie, départ et arrivée restent suivis individuellement.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY130",
+          "system": "MI14 — automate de sécurité",
+          "design": "L’approche déclenche une alerte de 5 s avant l’activation de l’automate.",
+          "counterplay": "Aucune cible ni collision active avant son arrivée. Neutralisation physique requise.",
+          "acceptance": "Le rendu, la visée et les dégâts suivent le même état d’activation.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY131",
+          "system": "MI14 — circuit de froid",
+          "design": "Inspecter le refroidisseur 3 s, isoler sa vanne 4 s puis réparer 8 s sous ancrage.",
+          "counterplay": "Un déplacement interrompt le travail. Une machine détruite exige un constat sans résurrection.",
+          "acceptance": "Chaque opération garde sa durée et ses conditions ; pause et reprise conservent l’état.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY132",
+          "system": "MI14 — pièces et paroles",
+          "design": "Recueillir l’explication en 4 s et copier le registre du lot en 4 s sont deux actes distincts.",
+          "counterplay": "Une source perdue ne produit pas de copie. Une copie acquise reste à bord après la perte de son original.",
+          "acceptance": "Le sabotage local ne crée aucun nouvel identifiant PT, TE ou PO.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY133",
+          "system": "MI14 — commande d’atelier",
+          "design": "Choisir redémarrage ou maintien de l’arrêt, puis agir 5 s sur la commande matérielle.",
+          "counterplay": "Le choix ne répare rien et n’exécute pas la commande. Une destruction produit une issue dégradée.",
+          "acceptance": "Le bilan distingue ordre, action accomplie, froid disponible et pertes.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY134",
+          "system": "MI14 — coopération",
+          "design": "Après arrêt maintenu et froid réparé, achever une demande de coopération de 3 s aux ouvriers vivants.",
+          "counterplay": "Un mécanicien disponible n’est ni recruté ni transporté ; sa perte retire sa disponibilité future.",
+          "acceptance": "L’accès aux mécaniciens et la confiance de Tess reflètent les actes effectivement accomplis.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "SY135",
+          "system": "Dossier v14 — continuité",
+          "design": "La migration v13 ajoute seulement le dossier atelier de Kharon vide et la version.",
+          "counterplay": "Premier rapport immuable, quatre lots une seule fois, relecture indépendante et défaite terminale.",
+          "acceptance": "Treize rapports, stocks et checkpoints historiques conservés ; scènes MI14 rapprochées de leurs faits.",
+          "priority": "P1",
+          "status": "Prototype"
         }
       ]
     },
@@ -2014,7 +2244,7 @@
           "name": "Thyr",
           "biome": "Forêts de colonnes vivantes, vallées cultivées, maisons suspendues et pistes sous canopée.",
           "society": "Communautés humaines et Khelt entretiennent des sols symbiotiques; les récoltes se synchronisent avec la faune.",
-          "terrain": "Racines porteuses, clairières et branches basses. MI09 applique hauteur réelle et cadence des appuis. MI10 ajoute cuves, écoulements, collecteur et canaux. MI11 emploie des écoutes au sol et une corniche portant les pieds au-dessus de la ponte. Feu de forêt et écologie globale restent conçus.",
+          "terrain": "Racines porteuses, clairières et branches basses. MI09 applique hauteur réelle et cadence des appuis. MI10 ajoute cuves, écoulements, collecteur et canaux. MI11 emploie des écoutes au sol et une corniche portant les pieds au-dessus de la ponte. Feu de forêt et écologie globale restent conçus. MI12 ajoute les relais de commande et le Prétoire.",
           "reveal": "Les relevés de stérilité sont fabriqués pour justifier l’expulsion et la destruction des mémoires de culture.",
           "missions": "MI09–MI12",
           "status": "Prototype"
@@ -2024,10 +2254,10 @@
           "name": "Kharon",
           "biome": "Caldeiras, carrières de basalte, raffineries, conduites thermiques et ports de scories.",
           "society": "Ouvriers spécialisés, garnisons et sous-traitants se partagent une économie d’énergie dangereuse.",
-          "terrain": "Chaleur ambiante, jets de vapeur annoncés, plaques conductrices et ponts industriels étroits.",
+          "terrain": "Chaleur, vapeur annoncée et surfaces industrielles. MI13 simule convoi et tabliers ; MI14 ajoute piquet et circuit du refroidisseur. MI15–MI16 restent conçues.",
           "reveal": "Les lignes de production portent les pièces conçues pour provoquer les ruptures des terraformes.",
           "missions": "MI13–MI16",
-          "status": "Conçu"
+          "status": "Prototype"
         },
         {
           "id": "PL05",
@@ -2366,7 +2596,7 @@
     },
     {
       "name": "Campagne",
-      "description": "32 missions principales : MI01–MI11 jouables au stade prototype, 21 autres conçues. Thyr relie route vivante, terrain chimique et témoignage de Leth. OP01–OP03 restent autonomes.",
+      "description": "32 missions principales : MI01–MI14 jouables au stade prototype ; 18 autres conçues. OP01–OP03 restent autonomes.",
       "columns": [
         {
           "key": "id",
@@ -2542,10 +2772,10 @@
           "planet": "PL03",
           "title": "Le troisième relais",
           "order": "Effacer les relais de la vallée avant une inspection d’Orison.",
-          "play": "Duel contre un marcheur lourd; tenir une fenêtre de copie puis choisir destruction, conservation clandestine ou refus ouvert.",
+          "play": "Relever trois relais, tenir une copie de 24 s dans 45 s, neutraliser le Prétoire par sa coque/capteur/verrou puis accomplir purge3, purge2/isolement1 ou refus/isolement3.",
           "truth": "Le relais conserve les commandes du traitement chimique; Holt remarque une incohérence de rapport.",
           "consequence": "Copie sauvegardée, surveillance accrue ou refuge fermé; Ilan réagit aux actions observées.",
-          "status": "Conçu"
+          "status": "Prototype"
         },
         {
           "id": "MI13",
@@ -2553,10 +2783,10 @@
           "planet": "PL04",
           "title": "Pièces de rechange",
           "order": "Escorter une cargaison prioritaire à la fonderie centrale.",
-          "play": "Franchir des passerelles thermiques, gérer la surchauffe et inspecter un chargement après une embuscade ciblée.",
+          "play": "Escorter le porteur et ses deux caisses sur deux tabliers thermiques, isoler les circuits avec les vannes, défendre l’embuscade, copier les sources puis accomplir la livraison ou la quarantaine.",
           "truth": "Tess reconnaît les pièces des incidents de Vesper et Nacre; même série de fabrication.",
           "consequence": "Chaîne industrielle PT03; preuve alternative si une archive antérieure est perdue.",
-          "status": "Conçu"
+          "status": "Prototype"
         },
         {
           "id": "MI14",
@@ -2564,10 +2794,10 @@
           "planet": "PL04",
           "title": "Les mains noires",
           "order": "Réprimer l’arrêt d’un atelier jugé vital à l’effort de guerre.",
-          "play": "Traverser la ligne de piquet sans écraser personne, neutraliser un automate de sécurité et réparer un refroidisseur.",
-          "truth": "Les ouvriers refusent d’expédier un lot qu’ils savent saboté; plusieurs sont des déplacés de Nacre.",
-          "consequence": "Grève sauvée ou brisée; accès à des mécaniciens et confiance de Tess.",
-          "status": "Conçu"
+          "play": "Ouvrir un passage consenti dans le piquet, neutraliser l’automate, isoler puis réparer le refroidisseur. Agir sur la commande de l’atelier après le choix.",
+          "truth": "Huit ouvriers refusent un lot saboté. Trois viennent de Nacre, avec une arrivée antérieure au recensement MI05–MI08. Explication, copie locale et recoupement PT03 restent séparés.",
+          "consequence": "Arrêt maintenu ou redémarrage accompli. Pertes et refroidisseur persistent. Coopération et accès aux mécaniciens exigent une demande réellement achevée.",
+          "status": "Prototype"
         },
         {
           "id": "MI15",
@@ -3468,9 +3698,9 @@
           "name": "Marcheur de sécurité Prétoire",
           "faction": "FA02",
           "role": "Quadrupède bas à tourelle.",
-          "encounter": "Garde les installations et bloque un corridor par ancrage.",
+          "encounter": "MI12 : quadrupède de sécurité, arrivée différée, coque et composants visables séparément. Variantes et finition finale à produire.",
           "weakness": "Capteur supérieur et verrou hydraulique frontal.",
-          "status": "Conçu"
+          "status": "Prototype"
         },
         {
           "id": "VE13",
@@ -4769,6 +4999,102 @@
           "rule": "MI11 reprend les conséquences consignées de MI10 dans ses propos locaux. La collecte de PT02, l’eau et l’état des cuves ne créent ni rencontre antérieure avec Leth, ni population transférée, ni consentement anticipé.",
           "sources": "MI10; MI11; SY104; SY111. Les dix rapports précédents restent inchangés.",
           "status": "Prototype"
+        },
+        {
+          "id": "NA87",
+          "type": "Pièce locale",
+          "name": "Commandes du troisième relais",
+          "rule": "Une copie complète démontre des commandes industrielles locales ; elle ne résout pas toute la chaîne PALINODE.",
+          "sources": "MI12 ; copie du troisième relais.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA88",
+          "type": "Réaction",
+          "name": "Ilan devant les pièces",
+          "rule": "Ilan reconnaît les ordres seulement s’ils ont été copiés ; en leur absence il parle des faits et des limites du constat.",
+          "sources": "MI12 ; bilan réellement transmis.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA89",
+          "type": "Conséquence",
+          "name": "Holt et le refuge impérial",
+          "rule": "La purge, la conservation clandestine et le refus ouvert ont des conséquences distinctes. Le refus ferme le refuge sans réaliser la défection MI16.",
+          "sources": "MI12 ; choix et opérations physiques.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA90",
+          "type": "Provenance",
+          "name": "Mémoire embarquée",
+          "rule": "Une copie acquise reste distincte de son original. Une destruction ultérieure ne réécrit pas ce qui a été vu et copié.",
+          "sources": "MI12 ; dossier v12 ; archives conditionnelles.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA91",
+          "type": "Pièce technique",
+          "name": "PT03 — série industrielle",
+          "rule": "Les deux marquages, le bordereau et l’analyse donnent une provenance industrielle locale, distincte des preuves politiques futures.",
+          "sources": "MI13 ; deux caisses ; bordereau ; Tess.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA92",
+          "type": "Recoupement",
+          "name": "Parcours sans PT01",
+          "rule": "PT03 peut être acquis quand le journal MI04 a été perdu. Les rapports conservent explicitement cette absence.",
+          "sources": "MI04–MI13 ; sources effectivement acquises.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA93",
+          "type": "Recoupement",
+          "name": "Ordres et fabrication",
+          "rule": "Rapprocher PT01 et les commandes MI12 seulement si leurs copies existent réellement ; aucune citation n’est reconstruite après perte.",
+          "sources": "MI12 ; MI13 ; archives embarquées.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA94",
+          "type": "Conséquence",
+          "name": "Dépôt ou quarantaine",
+          "rule": "La destination choisie ne remplace pas le convoi et le transfert. Aucun dépôt n’impose une diffusion publique, un témoignage TE02 ou une défection.",
+          "sources": "MI13 ; état des caisses à l’extraction.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA95",
+          "type": "Lieu habité",
+          "name": "L’atelier des mains noires",
+          "rule": "Le piquet protège l’atelier contre l’expédition d’un lot saboté. Le travail, la grève et la sécurité matérielle restent des enjeux distincts.",
+          "sources": "MI14 ; explication recueillie ; registre effectivement copié.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA96",
+          "type": "Provenance",
+          "name": "Déplacés de Nacre",
+          "rule": "Trois ouvriers sont arrivés avant le recensement connu. Leur origine n’établit aucune identité commune avec les habitants, passagers ou patients des sorties précédentes.",
+          "sources": "MI14 ; cohorte locale propre à l’atelier.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA97",
+          "type": "Relation",
+          "name": "Tess devant le froid et le piquet",
+          "rule": "Tess réagit au refroidisseur, au traitement des ouvriers et à l’issue réelle de l’atelier. Une simple sélection de dialogue ne lui fournit aucun acte accompli.",
+          "sources": "MI14 ; réparation, pertes, commande et coopération.",
+          "status": "Prototype"
+        },
+        {
+          "id": "NA98",
+          "type": "Conséquence",
+          "name": "Un arrêt qui reste local",
+          "rule": "Le maintien de la grève peut ouvrir une coopération. Il ne constitue ni recrutement, ni diffusion publique, ni témoignage TE02, ni défection.",
+          "sources": "MI13 pour le recoupement PT03 acquis ; MI14 pour les faits locaux.",
+          "status": "Prototype"
         }
       ]
     },
@@ -4907,7 +5233,7 @@
           "id": "AS11",
           "category": "Infanterie",
           "deliverable": "Escouades impériales",
-          "spec": "Silhouettes par rôle, déplacement, couverture, tir, blessure, reddition et évacuation.",
+          "spec": "Silhouettes par rôle, déplacement, couverture, tir, blessure, reddition et évacuation. Réception partielle 0.15.2 : fusilier, tireur de précision et lancier génériques, chacun sur douze cellules peintes dont huit de marche, avec arme séparée. Aucun insigne ni variante impériale complète. Les tenues de faction, actions et cycles finaux restent à produire.",
           "acceptance": "Les rôles sont reconnaissables sans lecture du nom.",
           "priority": "P0",
           "status": "À produire"
@@ -4916,7 +5242,7 @@
           "id": "AS12",
           "category": "Infanterie",
           "deliverable": "Rebelles et pirates",
-          "spec": "Variété de protections et outils; différences de doctrine visibles sans uniformiser tous les civils.",
+          "spec": "Variété de protections et outils; différences de doctrine visibles sans uniformiser tous les civils. Réception partielle 0.15.2 : trois rôles combattants génériques et une tenue civile peinte, sans logo de faction. Les variantes rebelles et pirates, leur provenance, leur doctrine visuelle et les cycles finaux restent à produire.",
           "acceptance": "Cohérence d’équipement avec provenance et biome.",
           "priority": "P1",
           "status": "À produire"
@@ -4934,10 +5260,10 @@
           "id": "AS14",
           "category": "Véhicules",
           "deliverable": "Véhicules de prototype",
-          "spec": "Camion d’escorte, patin pirate, drone, tourelle et marcheur lourd ennemi.",
+          "spec": "Camion d’escorte, patin pirate, drone, tourelle et marcheur lourd ennemi. Réception partielle 0.15.2 : cinq atlas de six cellules pour buggy, patin, drone, tourelle et convoi; corps peints, armes séparées et références endommagées, épaves ou pièces. Collisions conservées. Marcheur lourd, pièces articulées et animations finales restent à produire.",
           "acceptance": "Points d’impact, moteurs et éléments mobiles alignés sur collisions.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS15",
@@ -4979,10 +5305,10 @@
           "id": "AS19",
           "category": "Décors",
           "deliverable": "Kits Kharon et Sereis",
-          "spec": "Roches, installations et phénomènes propres à chaleur et glace; palettes distinctes.",
+          "spec": "Roches, installations, chaleur et glace. MI13–MI14 disposent de kits SVG/Canvas. MI14 ajoute huit atlas peints transparents, 54 cellules de personnages et machines. Sereis et la finition complète restent à produire.",
           "acceptance": "Dangers annoncés avant interaction; effets climatiques réglables.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "AS20",
@@ -5516,7 +5842,7 @@
         {
           "id": "PR12",
           "workstream": "Art prototype",
-          "deliverable": "Identité visuelle, environnements et silhouettes mécaniques lisibles.",
+          "deliverable": "Identité visuelle, environnements et silhouettes mécaniques lisibles. Réception partielle 0.15.2 : neuf atlas de combat, 78 cellules dont 32 poses de marche et sept armes séparées; 17 atlas et 132 cellules avec MI14. Variantes de factions, cycles finaux, marcheurs articulés et faune restent ouverts.",
           "depends": "AS01–AS04; AS16–AS18",
           "acceptance": "Captures à plusieurs résolutions, contraste et unités identifiables.",
           "priority": "P0",
@@ -5570,7 +5896,7 @@
         {
           "id": "PR18",
           "workstream": "Acte II",
-          "deliverable": "MI09–MI16 et CT05–CT08, départ de l’Empire. Réceptions 0.10–0.12 : MI09, MI10 et MI11 ouvrent Thyr au stade prototype. MI12–MI16, les quatre contrats et la défection de MI16 restent à produire.",
+          "deliverable": "MI09–MI16 et CT05–CT08. MI09–MI14 sont jouables au stade prototype ; MI15–MI16, les quatre contrats et la défection de MI16 restent à produire.",
           "depends": "PR17; AS18; AS19",
           "acceptance": "Défection cohérente avec équipage, stocks et sources conservées.",
           "priority": "P1",
@@ -5903,11 +6229,11 @@
         {
           "id": "PR55",
           "workstream": "Chaîne de preuve future",
-          "deliverable": "Production du recoupement PT03, provenance distincte, dépôt et diffusion séparés.",
+          "deliverable": "PT03 local de MI13 reçu au stade prototype : marquages, bordereau et analyse. Recoupements conditionnels avec PT01 et les ordres MI12. Dépôt/publication globale restent futurs.",
           "depends": "NA32–NA38; MI13–MI16; PR48",
           "acceptance": "Branche sans PT01 terminable avec dossier différent; aucune source perdue recréée ni publication imposée par la seule collecte.",
           "priority": "P1",
-          "status": "À produire"
+          "status": "Prototype"
         },
         {
           "id": "PR56",
@@ -6232,6 +6558,87 @@
           "acceptance": "La personne distingue localisation, traduction, accord limité, preuve conservée et disponibilité de Leth. Les hésitations, aides et erreurs sont consignées.",
           "priority": "P1",
           "status": "À produire"
+        },
+        {
+          "id": "PR92",
+          "workstream": "Mission MI12",
+          "deliverable": "Relais, fenêtre de copie, Prétoire et trois conduites dans la campagne.",
+          "depends": "MI11 ; VE12 ; SY112–SY119",
+          "acceptance": "Les trois branches conservent leurs faits jusqu’au rapport et à la reprise.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR93",
+          "workstream": "Graphisme MI12",
+          "deliverable": "Kit original de relais et Prétoire partagé entre SVG et Canvas.",
+          "depends": "PR92 ; VE12",
+          "acceptance": "Composants visibles et réellement visables ; corps absents avant arrivée.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR94",
+          "workstream": "Réception MI12",
+          "deliverable": "Parcours automatiques, contrôles de sauvegarde et observations de la reconstruction.",
+          "depends": "PR92 ; PR93",
+          "acceptance": "Les preuves nouvellement exécutées restent distinctes des anciennes livraisons.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR95",
+          "workstream": "Mission MI13",
+          "deliverable": "Porteur, deux caisses, ponts thermiques, provenance et deux destinations.",
+          "depends": "MI12 ; SY120–SY127",
+          "acceptance": "PT03 possible sans PT01 ; transferts et pertes restent physiques.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR96",
+          "workstream": "Graphisme Kharon",
+          "deliverable": "Kit industriel, signalisation de vapeur et horizon de fonderie.",
+          "depends": "PR95 ; AS19",
+          "acceptance": "SVG/Canvas cohérents et roues/appuis provenant de la simulation.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR97",
+          "workstream": "Réception finale Kharon",
+          "deliverable": "Produire MI15–MI16, achever le kit Kharon et recevoir les sensations thermiques des missions MI13–MI14 dans des essais humains.",
+          "depends": "PR95 ; PR96 ; MI14–MI16",
+          "acceptance": "Les prototypes MI13 et MI14 ne clôturent ni le kit final ni la réception humaine de Kharon.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "PR98",
+          "workstream": "Mission MI14",
+          "deliverable": "Piquet, automate, refroidisseur, registre, deux conduites et coopération dans une sortie complète.",
+          "depends": "MI13 ; SY128–SY135",
+          "acceptance": "Chaque issue provient d’actions physiques et conserve les pertes jusqu’à l’extraction.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR99",
+          "workstream": "Atelier et interface",
+          "deliverable": "Atelier MI14 : huit atlas PNG peints, 54 cellules, dont seize poses de marche sur deux tenues. États des machines, HUD, choix et bilan reliés à la simulation.",
+          "depends": "PR98 ; AS19",
+          "acceptance": "Rendu, instruments et reçus décrivent les mêmes corps, états et travaux.",
+          "priority": "P1",
+          "status": "Prototype"
+        },
+        {
+          "id": "PR100",
+          "workstream": "Réception humaine MI14",
+          "deliverable": "Éprouver passage du piquet, protection des ouvriers, réparation et lecture des conséquences.",
+          "depends": "PR98 ; PR99 ; QA230 ; QA231",
+          "acceptance": "Parcours natif et essai humain documentés séparément, sans les déduire des tests automatiques.",
+          "priority": "P1",
+          "status": "À produire"
         }
       ]
     },
@@ -6317,7 +6724,7 @@
           "scenario": "Maintenir le tir jusqu’au seuil, attendre puis reprendre.",
           "expected": "Verrouillage et reprise signalés; pas de tir furtif pendant la sécurité.",
           "priority": "P0",
-          "status": "À produire"
+          "status": "Vérifié"
         },
         {
           "id": "QA07",
@@ -7798,6 +8205,326 @@
           "expected": "La personne distingue localisation et traduction, rencontre et accord, preuve conservée et témoin disponible. Consigner hésitations, aides et contradictions sans déduire une session des scripts. Protocole docs/PLAYTEST_VOICE_V12.md et fiche human-mi11-session-template-v12.json vierge.",
           "priority": "P1",
           "status": "À produire"
+        },
+        {
+          "id": "QA192",
+          "area": "Migration MI12",
+          "scenario": "Importer l’export natif v11 de la 0.12.",
+          "expected": "Onze rapports et leurs ressources sont préservés ; les dossiers MI12/MI13 sont ajoutés sans preuve inventée.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA193",
+          "area": "Fenêtre MI12",
+          "scenario": "Copier durant 24 s avant la fin de la fenêtre de 45 s.",
+          "expected": "Une copie achevée est acquise ; aucun fragment inachevé n’est déclaré complet.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA194",
+          "area": "Interruption MI12",
+          "scenario": "Interrompre puis reprendre la copie avant et après échéance.",
+          "expected": "Le travail incomplet repart de zéro et la fenêtre ne remonte pas.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA195",
+          "area": "Pause MI12",
+          "scenario": "Suspendre pendant une copie et reprendre depuis export.",
+          "expected": "Horloge, travail, alerte et corps identiques à la reprise.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA196",
+          "area": "Conduites MI12",
+          "scenario": "Achever les trois branches avec leurs opérations respectives.",
+          "expected": "Purge de trois relais, purge de deux avec un isolement et isolement des trois produisent des reçus distincts.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA197",
+          "area": "Prétoire MI12",
+          "scenario": "Viser avant arrivée puis après le délai d’alerte.",
+          "expected": "Aucune interaction physique avant arrivée ; vraie cible ensuite.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA198",
+          "area": "Composants MI12",
+          "scenario": "Atteindre capteur et verrou séparément.",
+          "expected": "Chaque composant modifie la fonction annoncée sans effacer les autres dégâts.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA199",
+          "area": "Sources MI12",
+          "scenario": "Détruire le troisième relais avant puis après copie.",
+          "expected": "Aucune commande inventée avant copie ; copie conservée après acquisition.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA200",
+          "area": "Ilan et Holt",
+          "scenario": "Comparer les bilans avec et sans copie et après refus.",
+          "expected": "Paroles conditionnées aux faits, refuge fermé seulement selon la conduite.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA201",
+          "area": "Dossier MI12",
+          "scenario": "Modifier les agrégats, dates, composants ou copies d’un export.",
+          "expected": "Import rejeté quand le dossier contredit les corps et travaux.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA202",
+          "area": "Dotation MI12",
+          "scenario": "Finir puis rejouer et importer à nouveau le rapport.",
+          "expected": "Quatre lots une seule fois et premier rapport inchangé.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA203",
+          "area": "Défaite MI12",
+          "scenario": "Perdre puis sauvegarder, recharger et recommencer.",
+          "expected": "La reprise reste une défaite ; recommencer est une action distincte.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA204",
+          "area": "UI MI12",
+          "scenario": "Utiliser les trois boutons, importer/exporter et ouvrir les archives.",
+          "expected": "Troisième choix distinct de MI08 ; seules les commandes acquises sont révélées.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA205",
+          "area": "Graphisme MI12",
+          "scenario": "Comparer formes SVG/Canvas et rendu des composants.",
+          "expected": "Même géométrie et états lisibles, aucune silhouette avant arrivée.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA206",
+          "area": "Réception humaine MI12",
+          "scenario": "Faire jouer les trois conduites à une personne.",
+          "expected": "Lisibilité, tension de copie et difficulté jugées sur un essai humain documenté.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA207",
+          "area": "Migration MI13",
+          "scenario": "Passer v12 vers v13 puis relire les douze rapports.",
+          "expected": "Ajout du dossier Kharon seulement ; ressources et conséquences inchangées.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA208",
+          "area": "Contacts MI13",
+          "scenario": "Comparer pieds plantés, pieds en vol et roues sur les tabliers.",
+          "expected": "Conduction seulement pour les contacts réels ; même surface dessinée et simulée.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA209",
+          "area": "Vannes MI13",
+          "scenario": "Manœuvrer, interrompre et reprendre chaque vanne.",
+          "expected": "4 s ancrées nécessaires ; refroidissement progressif de 90 vers 28 °C.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA210",
+          "area": "Vapeur MI13",
+          "scenario": "Observer avertissement, jet et repos, y compris mouvements réduits.",
+          "expected": "Cycle 3/2/7 s conservé ; danger perceptible pendant une pause visuelle.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA211",
+          "area": "Embuscade MI13",
+          "scenario": "Déclencher les forces privées et tirer avant leur arrivée.",
+          "expected": "Deux drones et une tourelle actifs seulement après 6 s.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA212",
+          "area": "Sources MI13",
+          "scenario": "Copier marquages et bordereau puis détruire les originaux.",
+          "expected": "Copies acquises conservées ; aucune copie après destruction préalable.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA213",
+          "area": "Analyse MI13",
+          "scenario": "Comparer toutes les combinaisons de pièces disponibles.",
+          "expected": "PT03 exige deux marquages, bordereau et analyse achevée de 8 s.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA214",
+          "area": "Parcours alternatif",
+          "scenario": "Jouer depuis l’ancienne MI04 avec journal détruit jusqu’à MI13.",
+          "expected": "PT03 possible sans PT01 ; absence conservée et aucun recoupement inventé.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA215",
+          "area": "Transferts MI13",
+          "scenario": "Choisir les deux destinations puis interrompre un transfert.",
+          "expected": "Le convoi rejoint la baie ; chaque transfert de 5 s conserve sa progression physique.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA216",
+          "area": "Pertes MI13",
+          "scenario": "Perdre caisse, bordereau ou porteur avant/après analyse.",
+          "expected": "Bilans dégradés cohérents ; perte du porteur terminale.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA217",
+          "area": "Dossier MI13",
+          "scenario": "Reprendre pause/transfert/défaite, falsifier un reçu et rejouer.",
+          "expected": "Reprise exacte, imports contradictoires refusés, quatre lots au premier rapport.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA218",
+          "area": "Rendu MI13",
+          "scenario": "Comparer SVG/Canvas et postes de transfert à bord d’écran.",
+          "expected": "État des caisses exact, vrais appuis, poste visible indépendamment de sa baie.",
+          "priority": "P1",
+          "status": "Vérifié"
+        },
+        {
+          "id": "QA219",
+          "area": "Navigateur reconstruction",
+          "scenario": "Exécuter les parcours MI12/MI13 dans un navigateur réel.",
+          "expected": "Entrées, DOM, rendu, pause, reprise, export et erreurs observés dans cet environnement.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA220",
+          "area": "Réception humaine MI13",
+          "scenario": "Faire jouer ponts chauds, convoi et provenance à une personne.",
+          "expected": "Lisibilité et sensations validées ; les tests automatiques ne remplacent pas cet essai.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA221",
+          "area": "Conservation reconstruction",
+          "scenario": "Publier code, jeu, Bible et preuves puis vérifier la référence distante.",
+          "expected": "Les octets reconstruits sont durables sur GitHub et distincts des artefacts perdus.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA222",
+          "area": "Parcours MI14",
+          "scenario": "Achever les deux conduites avec les six châssis.",
+          "expected": "Passage, automate, refroidisseur, commande, rapport et extraction restent atteignables.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA223",
+          "area": "Piquet MI14",
+          "scenario": "Demander le passage, suivre les personnes puis comparer tirs, explosions et pas.",
+          "expected": "Trajets réels, pertes persistantes et cohorte locale sans transfert des habitants de Nacre.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA224",
+          "area": "Automate MI14",
+          "scenario": "Approcher puis viser avant et après les 5 s d’alerte.",
+          "expected": "Comportement, cible, collisions et dessin inactifs avant arrivée ; neutralisation réelle ensuite.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA225",
+          "area": "Froid MI14",
+          "scenario": "Interrompre inspection, vanne et réparation, suspendre puis reprendre ou détruire un organe.",
+          "expected": "Durées 3/4/8 s respectées ; absence de réparation fictive ; pause et reprise exactes.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA226",
+          "area": "Sources MI14",
+          "scenario": "Dissocier explication et copie, perdre la source avant/après copie et comparer l’héritage PT03.",
+          "expected": "Aucune donnée reconstituée ; recoupement conditionnel et aucun nouveau PT, TE ou PO.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA227",
+          "area": "Conduites MI14",
+          "scenario": "Choisir les deux issues, agir sur la commande puis demander la coopération.",
+          "expected": "Le choix seul ne modifie pas l’atelier ; accès aux mécaniciens seulement après actes et survivants.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA228",
+          "area": "Dossier MI14",
+          "scenario": "Migrer le v13 historique, reprendre une scène, falsifier un reçu, rejouer puis relire le premier rapport.",
+          "expected": "Treize rapports préservés, imports contradictoires rejetés, reprise exacte et dotation unique.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA229",
+          "area": "Affichage MI14",
+          "scenario": "Rapprocher les états dessinés, le HUD, le choix et le bilan de leurs états simulés.",
+          "expected": "Les contrôles automatiques de rendu et de DOM ont une portée explicite distincte du navigateur.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA230",
+          "area": "Navigateur MI14",
+          "scenario": "Jouer les étapes MI14 dans un navigateur réel et examiner pause, reprise, petite fenêtre et export.",
+          "expected": "Environnement, gestes réellement exécutés et limites consignés ; aucun test DOM substitué.",
+          "priority": "P1",
+          "status": "À produire"
+        },
+        {
+          "id": "QA231",
+          "area": "Essai humain MI14",
+          "scenario": "Faire parcourir les deux conduites à une personne avec un châssis déclaré.",
+          "expected": "Lisibilité du piquet, protection des personnes et clarté des conséquences reçues sur cet essai.",
+          "priority": "P1",
+          "status": "À produire"
         }
       ]
     },
@@ -7881,7 +8608,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.12.0. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "description": "Portée présente dans le code de la version 0.15.2. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -7978,36 +8705,36 @@
           "id": "PX07",
           "link": "EN01",
           "name": "Fusilier",
-          "implemented": "Ennemi terrestre qui s’approche, annonce une attaque et tire un projectile.",
-          "limits": "Couvertures, escouade, repli et reddition du design final restent à produire.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Ennemi terrestre qui s’approche, annonce une attaque et tire un projectile. Atlas peint de douze cellules, huit poses de marche déclenchées par le déplacement réel et arme indépendante. Visée, avertissement et projectile partagent le même point de bouche.",
+          "limits": "Couvertures, escouade, repli et reddition du design final restent à produire. Le rôle peint est générique; variantes de factions, transitions et cycle final restent ouverts. Les cellules hors combat ne constituent pas une simulation de soins.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/painted-combat.mjs ; src/enemy-weapon-pose.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX08",
           "link": "EN02",
           "name": "Lancier antichar",
-          "implemented": "Cadence lente, préparation lisible et attaque orientée vers la partie basse du marcheur.",
-          "limits": "Pas de coopération entre lanceurs ni d’analyse tactique du cycle de chaque jambe.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Cadence lente, préparation lisible et attaque orientée vers la partie basse du marcheur. Atlas peint de douze cellules, huit poses de marche liées au déplacement réel et lanceur séparé. Le projectile part du point de bouche commun au rendu et à l’avertissement.",
+          "limits": "Pas de coopération entre lanceurs ni d’analyse tactique du cycle de chaque jambe. Le rôle peint reste générique; variantes de factions, transitions et cycles finaux restent à produire.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/painted-combat.mjs ; src/enemy-weapon-pose.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX09",
           "link": "VE09",
           "name": "Buggy de raid",
-          "implemented": "Véhicule rapide à intégrité supérieure à l’infanterie; maintient une distance d’engagement.",
-          "limits": "Véhicule de validation de la famille des raids, distinct de la moto Éclat finale; pas de roues destructibles.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Véhicule rapide à intégrité supérieure à l’infanterie; maintient une distance d’engagement. Atlas peint de six cellules, corps et arme séparés. Le point de bouche est partagé entre rendu, avertissement et projectile; collisions inchangées.",
+          "limits": "Véhicule de validation de la famille des raids, distinct de la moto Éclat finale; pas de roues destructibles. Pièces détachées et épave restent des références lorsque la simulation ne les affiche pas. Roues animées et cycle final restent à produire.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/painted-combat.mjs ; src/enemy-weapon-pose.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX10",
           "link": "EN10",
           "name": "Drone de veille",
-          "implemented": "Déplacement aérien et tir vers la coque; ne subit pas le piétinement.",
-          "limits": "Représentation de validation du drone Lynx; acquisition thermique et pathfinding avancé non réalisés.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Déplacement aérien et tir vers la coque; ne subit pas le piétinement. Atlas peint de six cellules et arme séparée. Visée, avertissement et projectile partagent le même point de bouche; le corps suit sa position simulée.",
+          "limits": "Représentation de validation du drone Lynx; acquisition thermique et pathfinding avancé non réalisés. Rotors, pièces et épave servent aussi de références de production; leur animation finale reste ouverte.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/painted-combat.mjs ; src/enemy-weapon-pose.mjs",
           "status": "Prototype"
         },
         {
@@ -8023,9 +8750,9 @@
           "id": "PX12",
           "link": "EN13",
           "name": "Tourelle de contrôle",
-          "implemented": "Arme fixe qui acquiert une cible proche, prépare puis tire.",
-          "limits": "Balayage d’arc, bloc électrique séparé et neutralisation non destructive restent à produire.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Arme fixe qui acquiert une cible proche, prépare puis tire. Atlas peint de six cellules, corps et canon séparés. Le point de bouche commun au rendu, à l’avertissement et au projectile suit la visée; collisions conservées.",
+          "limits": "Balayage d’arc, bloc électrique séparé et neutralisation non destructive restent à produire. Les références de pièces et d’épave ne constituent pas un système de destruction articulée; finition et animations finales restent ouvertes.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/painted-combat.mjs ; src/enemy-weapon-pose.mjs",
           "status": "Prototype"
         },
         {
@@ -8104,9 +8831,9 @@
           "id": "PX21",
           "link": "SY07; SY21",
           "name": "Contact, civils et escorte",
-          "implemented": "Piétinement au contact, projectiles pouvant toucher civils, pertes comptées séparément; convoi suit à portée et peut être détruit.",
-          "limits": "Corps civils et transport simplifiés; sorties de foule, soins et évacuations multiples restent à produire.",
-          "path": "src/simulation.mjs",
+          "implemented": "Piétinement au contact, projectiles pouvant toucher civils, pertes comptées séparément; convoi suit à portée et peut être détruit. Une tenue civile peinte offre huit poses de marche liées au déplacement réel. Le convoi reçoit un atlas peint de six cellules; les collisions sont conservées.",
+          "limits": "Sorties de foule, soins et évacuations multiples restent à produire. Une seule tenue civile générique; poses accroupie et hors combat ainsi que pièces du transport restent des références lorsqu’elles ne sont pas affichées par la simulation. Cycles finaux ouverts.",
+          "path": "src/simulation.mjs ; src/painted-combat.mjs",
           "status": "Prototype"
         },
         {
@@ -8131,9 +8858,9 @@
           "id": "PX24",
           "link": "PR12; AS01",
           "name": "Direction visuelle initiale",
-          "implemented": "Illustration de titre, panorama Vesper, silhouettes articulées et ambiances distinctes pour trois opérations.",
-          "limits": "Illustrations générées et dessin procédural de prototype; aucun lot complet de sprites finaux ni campagne peinte livrés.",
-          "path": "assets/art; src/renderer.mjs",
+          "implemented": "Illustration de titre, panorama Vesper, silhouettes articulées et ambiances distinctes. Neuf atlas de combat ajoutent 78 cellules, 32 poses de marche et sept armes séparées; avec MI14 : 17 atlas, 132 cellules. Découpe et ancres documentées, chargement asynchrone et repli vectoriel.",
+          "limits": "Art au stade Prototype : rôles génériques sans logo de faction, variations et transitions limitées. Factions complètes, cycles finaux, sprites de marcheurs articulés, faune et campagne entièrement peinte restent à produire. Réception navigateur et humaine distincte des contrôles automatisés.",
+          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-combat.mjs",
           "status": "Prototype"
         },
         {
@@ -8854,6 +9581,159 @@
           "implemented": "Migration v10 additive, onze premiers rapports possibles, reprise de la vallée et validation des acquisitions, consentements, opérations et pertes.",
           "limits": "Les fixtures v10 sont des exports préparés attestés, sans réception native MI10. Une relecture ne remplace pas le premier rapport; le stockage local reste lié au navigateur.",
           "path": "src/campaign.mjs; src/voice-validation.mjs; docs/CAMPAIGN_SAVE_V11.md; tests/fixtures/campaign-v10-mi10.json",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX105",
+          "link": "MI12; SY112",
+          "name": "Copie sous délai",
+          "implemented": "Fenêtre de 45 s, copie de 24 s, pertes et interruptions.",
+          "limits": "Équilibrage humain à recevoir.",
+          "path": "src/relay-simulation.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX106",
+          "link": "MI12; VE12",
+          "name": "Prétoire à composants",
+          "implemented": "Coque, capteur, verrou et quatre pieds physiques ; arrivée différée.",
+          "limits": "Animations finales et variété du véhicule à produire.",
+          "path": "src/relay-simulation.mjs; src/relay-renderer.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX107",
+          "link": "MI12; NA87–NA90",
+          "name": "Conduites et pièces locales",
+          "implemented": "Trois conduites, opérations physiques et texte conditionné à la copie.",
+          "limits": "La chaîne politique et la défection restent futures.",
+          "path": "src/campaign.mjs; src/main.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX108",
+          "link": "MI12; SY118",
+          "name": "Reprise v12",
+          "implemented": "Migration additive depuis un export natif public v11.",
+          "limits": "La fixture est historique ; les tests reconstruits sont nouveaux.",
+          "path": "src/relay-validation.mjs; tests/campaign-v12.test.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX109",
+          "link": "MI12; PR93",
+          "name": "Relais SVG et Canvas",
+          "implemented": "Géométrie commune des relais et du Prétoire.",
+          "limits": "Un banc graphique n’est pas une capture navigateur.",
+          "path": "src/relay-assets.mjs; assets/relay",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX110",
+          "link": "MI12; PR94",
+          "name": "Réception de la reconstruction",
+          "implemented": "Driver par commandes publiques et vérifications dédiées.",
+          "limits": "Les résultats perdus 0.13 ne sont pas réutilisés comme preuve.",
+          "path": "tests/mi12-simulation.test.mjs; docs/QA_RECONSTRUCTION_014.md",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX111",
+          "link": "MI13; SY120",
+          "name": "Convoi industriel",
+          "implemented": "Porteur à quatre roues, deux corps de caisses et transferts distincts.",
+          "limits": "Autres transports de Kharon encore conçus.",
+          "path": "src/foundry-simulation.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX112",
+          "link": "MI13; SY121–SY123",
+          "name": "Circuits thermiques",
+          "implemented": "Deux ponts portant les appuis et roues, vannes et vapeur annoncée.",
+          "limits": "Équilibrage et sensations humaines encore ouverts.",
+          "path": "src/foundry-simulation.mjs; src/foundry-renderer.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX113",
+          "link": "MI13; NA91–NA94",
+          "name": "Provenance PT03",
+          "implemented": "Marquages, bordereau, analyse et recoupements séparés.",
+          "limits": "Aucune chaîne politique globale ou publication automatique.",
+          "path": "src/foundry-validation.mjs; src/main.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX114",
+          "link": "MI13; SY126",
+          "name": "Reprise v13",
+          "implemented": "Migration additive, pertes terminales et premier rapport immuable.",
+          "limits": "Tous les dossiers doivent rester validés contre leurs corps physiques.",
+          "path": "src/campaign.mjs; tests/campaign-v13.test.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX115",
+          "link": "MI13; AS19",
+          "name": "Kit de Kharon",
+          "implemented": "Formes industrielles originales SVG/Canvas et horizon de fonderie.",
+          "limits": "Sereis, MI15–MI16, les effets finaux et la réception humaine du kit restent à produire. Le kit MI14 est décrit séparément.",
+          "path": "src/foundry-assets.mjs; assets/foundry; src/renderer.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX116",
+          "link": "MI13; PR95–PR97",
+          "name": "Livraison reconstruite",
+          "implemented": "Sources, HTML autonome, Bible et vérifications conservés sur GitHub.",
+          "limits": "Identité binaire des anciennes livraisons non revendiquée.",
+          "path": "docs/RECONSTRUCTION_014.md; docs/QA_RECONSTRUCTION_014.md",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX117",
+          "link": "MI14 ; SY128–SY130",
+          "name": "Piquet et sécurité",
+          "implemented": "Huit personnes locales, passage demandé et trajet vers la galerie. Deux tenues peintes, huit poses de marche chacune. Automate activé après alerte, canon séparé lié à sa visée.",
+          "limits": "Les 24 cellules des deux tenues comprennent aussi repos, arrivée, perte et deux poses agenouillées de référence. Animation finale, voix et réception humaine restent ouvertes.",
+          "path": "src/workshop-simulation.mjs ; src/painted-sprites.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX118",
+          "link": "MI14 ; SY131–SY133",
+          "name": "Atelier sous contrôle",
+          "implemented": "Inspection, vanne, réparation et commande de reprise ou d’arrêt. Les sprites peints des machines suivent leurs états simulés et leurs pertes.",
+          "limits": "Le prototype local ne couvre pas toute la production industrielle de Kharon.",
+          "path": "src/workshop-simulation.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX119",
+          "link": "MI14 ; NA95–NA98",
+          "name": "Faits et coopération",
+          "implemented": "Explication, copie, recoupement conditionnel PT03, demande aux mécaniciens et réaction de Tess.",
+          "limits": "Aucun nouvel élément global PALINODE ni recrutement.",
+          "path": "src/workshop-simulation.mjs ; src/main.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX120",
+          "link": "MI14 ; SY135",
+          "name": "Dossier v14",
+          "implemented": "Migration additive, checkpoints, validation des faits et premier rapport unique.",
+          "limits": "Le dossier conserve les absences et pertes ; les missions suivantes restent conçues.",
+          "path": "src/campaign.mjs ; src/workshop-validation.mjs",
+          "status": "Prototype"
+        },
+        {
+          "id": "PX121",
+          "link": "MI14 ; PR99",
+          "name": "Kit de l’atelier",
+          "implemented": "Huit atlas PNG transparents, 54 cellules : 24 de personnes, 30 de machines et accessoires. Découpe au rendu, ancres documentées et repli vectoriel. Images sources conservées sans retouche.",
+          "limits": "Production graphique au stade Prototype. Deux poses agenouillées restent des références. Réception du rendu, navigateur et essai humain sont distincts ; les animations finales restent ouvertes.",
+          "path": "assets/painted/mi14 ; src/painted-sprites.mjs ; src/painted-sprite-layout.mjs",
           "status": "Prototype"
         }
       ]

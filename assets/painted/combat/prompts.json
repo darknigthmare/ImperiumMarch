@@ -1,0 +1,925 @@
+{
+  "schema": 1,
+  "version": "0.15.2",
+  "date": "2026-11-16",
+  "tool": "image_gen.imagegen (built-in)",
+  "transparentBackground": true,
+  "method": "Selected original RGBA PNG bytes preserved. The convoy matte was corrected with the same built-in image tool before selection. No programmatic pixel edits. Runtime crops and transforms are separate metadata.",
+  "assets": [
+    {
+      "key": "rifle",
+      "prompt": "Use case: stylized-concept. Asset type: production animation sprite atlas for original military-science-fiction 2D game ORDRE DE CENDRE. Make ONE landscape 1536x1152 transparent RGBA image with exactly FOUR columns and THREE rows, 12 equal cells, clean invisible regular grid. Every cell fully isolated with generous transparent gutters, no labels, no text, no grid lines, no ground, no cast shadow, no background. Detailed crisp hand-painted realistic game art, worn matte surfaces, restrained ivory edge lights, neutral soft overhead lighting, readable at small scale, not pixel art, not cartoon, not a franchise character. Orthographic exact SIDE PROFILE facing RIGHT for all upright poses, no 3/4 view. Same person, same costume, same proportions and scale in every body cell, head and feet inside cell, upright height roughly 82% cell height, foot baseline near 92% cell height. Subject: original light irregular human combatant, practical dusty olive and grey modular armor over charcoal field fatigues, rounded scratched steel helmet with cloth neck scarf, small chest pouches, compact utility belt, rugged boots, no badges or flags or faction insignia. Subtle warm skin visible in profile. The first ELEVEN cells contain the unarmed BODY ONLY, with ABSOLUTELY NO GUN OR OTHER WEAPON DRAWN ON THE PERSON; arms bent comfortably at chest level, hands held in a compact empty ready-grip pose so a separate gun can be composited later, keep that grip stable through the walk. Cell 12 contains ONLY the separate firearm. Required row-major ordering: row1 cell1 idle standing; row1 cells2–4 walk cycle poses 0,1,2; row2 cells1–4 walk poses 3,4,5,6; row3 cell1 walk pose7; row3 cell2 braced standing with planted feet; row3 cell3 downed lying on side, non-graphic with no wounds or blood; row3 cell4 isolated horizontal firearm pointing RIGHT, grip and mounting pivot on its LEFT, muzzle tip on its RIGHT, no hands touching it. The eight walking frames are distinct evenly spaced phases of one coherent loop, opposing near/far legs, clear contact, compression, pass and lift phases; do not duplicate the same walk pose. Cell 12 firearm is a compact original practical science-fiction assault rifle with graphite receiver, muted olive small foregrip and worn metal barrel; recognizable muzzle exit, no muzzle flash.",
+      "file": "assets/painted/combat/rifle.png",
+      "originalFilename": "exec-3d0d97eb-557f-49d5-8ac3-7db94e24b3a6.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "sha256": "49a5ef997a13a67f4cbaf51a065cd0b19daf38d87da4e76c6a0c9dba043d9249",
+      "alphaZeroPixels": 1236923,
+      "alphaAbove32Pixels": 210618,
+      "grid": [
+        4,
+        3
+      ],
+      "visualReview": "12 separated cells; body frames weapon-free; weapon in final cell; eight candidate walk phases need runtime review.",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "frameReadback": [
+        {
+          "index": 0,
+          "cell": [
+            0,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            155,
+            15,
+            245,
+            321
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 1,
+          "cell": [
+            384,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            147,
+            19,
+            245,
+            317
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 2,
+          "cell": [
+            768,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            124,
+            22,
+            279,
+            316
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 3,
+          "cell": [
+            1152,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            109,
+            26,
+            264,
+            319
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 4,
+          "cell": [
+            0,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            124,
+            23,
+            247,
+            318
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 5,
+          "cell": [
+            384,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            115,
+            23,
+            252,
+            319
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 6,
+          "cell": [
+            768,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            107,
+            23,
+            297,
+            315
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 7,
+          "cell": [
+            1152,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            147,
+            20,
+            250,
+            319
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 8,
+          "cell": [
+            0,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            147,
+            20,
+            250,
+            323
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 9,
+          "cell": [
+            384,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            113,
+            25,
+            270,
+            323
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 10,
+          "cell": [
+            768,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            17,
+            169,
+            355,
+            280
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 11,
+          "cell": [
+            1152,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            41,
+            105,
+            356,
+            228
+          ],
+          "touchesEdge": false
+        }
+      ]
+    },
+    {
+      "key": "sniper",
+      "prompt": "Use case: stylized-concept. Asset type: production animation sprite atlas for original military-science-fiction 2D game ORDRE DE CENDRE. Make ONE landscape 1536x1152 transparent RGBA image with exactly FOUR columns and THREE rows, 12 equal cells, clean invisible regular grid. Every cell fully isolated with generous transparent gutters, no labels, no text, no grid lines, no ground, no cast shadow, no background. Detailed crisp hand-painted realistic game art, worn matte surfaces, restrained ivory edge lights, neutral soft overhead lighting, readable at small scale, not pixel art, not cartoon, not a franchise character. Orthographic exact SIDE PROFILE facing RIGHT for all upright poses, no 3/4 view. Same person, same costume, same proportions and scale in every body cell, head and feet inside cell, upright height roughly 82% cell height, foot baseline near 92% cell height. Subject: original slim human precision scout, faded desaturated blue and graphite armor, hood lowered over a low-profile helmet, long muted grey-blue split cloak behind body but both legs always visible and separate, optical monocular, compact utility gear and rugged boots, no badges or flags or faction insignia. The first ELEVEN cells contain the unarmed BODY ONLY, with ABSOLUTELY NO GUN OR OTHER WEAPON DRAWN ON THE PERSON; arms bent comfortably at chest level, hands held in a compact empty ready-grip pose so a separate gun can be composited later, keep that grip stable through the walk. Cell 12 contains ONLY the separate firearm. Required row-major ordering: row1 cell1 idle standing; row1 cells2–4 walk cycle poses 0,1,2; row2 cells1–4 walk poses 3,4,5,6; row3 cell1 walk pose7; row3 cell2 braced standing with planted feet; row3 cell3 downed lying on side, non-graphic with no wounds or blood; row3 cell4 isolated horizontal firearm pointing RIGHT, grip and mounting pivot on its LEFT, muzzle tip on its RIGHT, no hands touching it. The eight walking frames are distinct evenly spaced phases of one coherent loop, opposing near/far legs, clear contact, compression, pass and lift phases; do not duplicate the same walk pose. Cell 12 firearm is a long original precision rifle with graphite stock, compact scope, thin long barrel with modest muzzle brake; grip and shoulder stock on LEFT, muzzle to RIGHT. No muzzle flash.",
+      "file": "assets/painted/combat/sniper.png",
+      "originalFilename": "exec-e1630737-63c9-4506-9338-39c2bd4f306b.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "sha256": "6fb9c6319a5a1e8982b653af7ce71de8b22647e23f77b4472e30c8b39f2374f4",
+      "alphaZeroPixels": 1187630,
+      "alphaAbove32Pixels": 229354,
+      "grid": [
+        4,
+        3
+      ],
+      "visualReview": "12 separated cells; body frames weapon-free; weapon in final cell; eight candidate walk phases need runtime review.",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "frameReadback": [
+        {
+          "index": 0,
+          "cell": [
+            0,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            124,
+            22,
+            240,
+            322
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 1,
+          "cell": [
+            384,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            113,
+            22,
+            239,
+            322
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 2,
+          "cell": [
+            768,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            92,
+            24,
+            282,
+            319
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 3,
+          "cell": [
+            1152,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            87,
+            27,
+            257,
+            320
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 4,
+          "cell": [
+            0,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            82,
+            25,
+            247,
+            319
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 5,
+          "cell": [
+            384,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            86,
+            26,
+            248,
+            319
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 6,
+          "cell": [
+            768,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            89,
+            26,
+            296,
+            319
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 7,
+          "cell": [
+            1152,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            89,
+            26,
+            258,
+            319
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 8,
+          "cell": [
+            0,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            107,
+            26,
+            247,
+            320
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 9,
+          "cell": [
+            384,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            113,
+            26,
+            261,
+            320
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 10,
+          "cell": [
+            768,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            20,
+            188,
+            361,
+            277
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 11,
+          "cell": [
+            1152,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            27,
+            124,
+            357,
+            207
+          ],
+          "touchesEdge": false
+        }
+      ]
+    },
+    {
+      "key": "rocket",
+      "prompt": "Use case: stylized-concept. Asset type: production animation sprite atlas for original military-science-fiction 2D game ORDRE DE CENDRE. Make ONE landscape 1536x1152 transparent RGBA image with exactly FOUR columns and THREE rows, 12 equal cells, clean invisible regular grid. Every cell fully isolated with generous transparent gutters, no labels, no text, no grid lines, no ground, no cast shadow, no background. Detailed crisp hand-painted realistic game art, worn matte surfaces, restrained ivory edge lights, neutral soft overhead lighting, readable at small scale, not pixel art, not cartoon, not a franchise character. Orthographic exact SIDE PROFILE facing RIGHT for all upright poses, no 3/4 view. Same person, same costume, same proportions and scale in every body cell, head and feet inside cell, upright height roughly 82% cell height, foot baseline near 92% cell height. Subject: original heavy human anti-vehicle combatant, burnt ochre protective vest with small dark impact plates, charcoal heavy work trousers, reinforced knee pads, broad scratched protective helmet and compact boxy backpack, rugged boots, no badges or flags or faction insignia. The first ELEVEN cells contain the unarmed BODY ONLY, with ABSOLUTELY NO GUN OR OTHER WEAPON DRAWN ON THE PERSON; arms bent comfortably at chest level, hands held in a compact empty ready-grip pose so a separate gun can be composited later, keep that grip stable through the walk. Cell 12 contains ONLY the separate firearm. Required row-major ordering: row1 cell1 idle standing; row1 cells2–4 walk cycle poses 0,1,2; row2 cells1–4 walk poses 3,4,5,6; row3 cell1 walk pose7; row3 cell2 braced standing with planted feet; row3 cell3 downed lying on side, non-graphic with no wounds or blood; row3 cell4 isolated horizontal firearm pointing RIGHT, grip and mounting pivot on its LEFT, muzzle tip on its RIGHT, no hands touching it. The eight walking frames are distinct evenly spaced phases of one coherent loop, opposing near/far legs, clear contact, compression, pass and lift phases; do not duplicate the same walk pose. Cell 12 firearm is a compact original shoulder-fired rocket launcher, rectangular graphite launch tube with muted ochre grips and small rangefinder, rear pad/trigger/pivot on LEFT and circular muzzle opening at RIGHT; no rocket firing, no smoke.",
+      "file": "assets/painted/combat/rocket.png",
+      "originalFilename": "exec-4bdca1d6-ee99-4361-8e64-92fa2fcb2a4c.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "sha256": "c6d04961abb51e7d006b0bff780e20a2028b31b0318ac6f993fcede8879d10d1",
+      "alphaZeroPixels": 1214534,
+      "alphaAbove32Pixels": 280405,
+      "grid": [
+        4,
+        3
+      ],
+      "visualReview": "12 separated cells; body frames weapon-free for combatants; weapon in final combatant cell; civilian unarmed; eight candidate walk phases need runtime review.",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "frameReadback": [
+        {
+          "index": 0,
+          "cell": [
+            0,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            130,
+            13,
+            259,
+            311
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 1,
+          "cell": [
+            384,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            125,
+            15,
+            260,
+            310
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 2,
+          "cell": [
+            768,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            97,
+            17,
+            298,
+            310
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 3,
+          "cell": [
+            1152,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            115,
+            18,
+            265,
+            309
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 4,
+          "cell": [
+            0,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            129,
+            18,
+            266,
+            311
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 5,
+          "cell": [
+            384,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            131,
+            20,
+            265,
+            309
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 6,
+          "cell": [
+            768,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            102,
+            20,
+            295,
+            309
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 7,
+          "cell": [
+            1152,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            85,
+            22,
+            284,
+            308
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 8,
+          "cell": [
+            0,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            111,
+            21,
+            267,
+            315
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 9,
+          "cell": [
+            384,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            92,
+            23,
+            271,
+            314
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 10,
+          "cell": [
+            768,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            18,
+            107,
+            337,
+            234
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 11,
+          "cell": [
+            1152,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            20,
+            82,
+            362,
+            246
+          ],
+          "touchesEdge": false
+        }
+      ]
+    },
+    {
+      "key": "civilian",
+      "prompt": "Use case: stylized-concept. Asset type: production animation sprite atlas for original military-science-fiction 2D game ORDRE DE CENDRE. Make ONE landscape 1536x1152 transparent RGBA image with exactly FOUR columns and THREE rows, 12 equal cells, clean invisible regular grid. Every cell fully isolated with generous transparent gutters, no labels, no text, no grid lines, no ground, no cast shadow, no background. Detailed crisp hand-painted realistic game art, worn matte surfaces, restrained ivory edge lights, neutral soft overhead lighting, readable at small scale, not pixel art, not cartoon, not a franchise character. Orthographic exact SIDE PROFILE facing RIGHT for all upright poses, no 3/4 view. Same person, same costume, same proportions and scale in every body cell, head and feet inside cell, upright height roughly 82% cell height, foot baseline near 92% cell height. Subject: one ordinary adult civilian traveler wearing a practical worn teal-grey hooded coat ending above the knees, pale oatmeal scarf, charcoal trousers, battered boots and a small utility shoulder bag. No military armor, no helmet, no insignia, no weapon anywhere. Keep natural relaxed arms with gentle counter-swing through the walk, practical believable clothing and empathetic realistic proportions. Required row-major ordering: row1 cell1 idle standing; row1 cells2–4 walk cycle poses0,1,2; row2 cells1–4 walk poses3,4,5,6; row3 cell1 walk pose7; row3 cell2 safely stopped standing with relaxed shoulders; row3 cell3 protective crouch with hands near head; row3 cell4 downed lying on side non-graphically, eyes closed, no visible wound or blood. Eight walk poses are clearly distinct evenly spaced phases of one smooth coherent loop: near-leg contact, compression, passing, lift then opposing far-leg phases. No repeated same walk pose.",
+      "file": "assets/painted/combat/civilian.png",
+      "originalFilename": "exec-850b2701-959b-482c-a978-5eb63b75faa4.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "sha256": "5c1cd4b9f468c15e8f5c77513691a7b962d038e9437618859937d467bb2e0de1",
+      "alphaZeroPixels": 1245980,
+      "alphaAbove32Pixels": 219704,
+      "grid": [
+        4,
+        3
+      ],
+      "visualReview": "12 separated cells; body frames weapon-free for combatants; weapon in final combatant cell; civilian unarmed; eight candidate walk phases need runtime review.",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "frameReadback": [
+        {
+          "index": 0,
+          "cell": [
+            0,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            141,
+            17,
+            224,
+            325
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 1,
+          "cell": [
+            384,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            105,
+            24,
+            280,
+            323
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 2,
+          "cell": [
+            768,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            122,
+            31,
+            251,
+            323
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 3,
+          "cell": [
+            1152,
+            0,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            127,
+            27,
+            238,
+            322
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 4,
+          "cell": [
+            0,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            127,
+            25,
+            248,
+            324
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 5,
+          "cell": [
+            384,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            94,
+            25,
+            291,
+            323
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 6,
+          "cell": [
+            768,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            134,
+            26,
+            229,
+            324
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 7,
+          "cell": [
+            1152,
+            341,
+            384,
+            342
+          ],
+          "inkBoxLocal": [
+            131,
+            26,
+            240,
+            324
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 8,
+          "cell": [
+            0,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            106,
+            29,
+            290,
+            321
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 9,
+          "cell": [
+            384,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            144,
+            20,
+            227,
+            324
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 10,
+          "cell": [
+            768,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            88,
+            118,
+            250,
+            323
+          ],
+          "touchesEdge": false
+        },
+        {
+          "index": 11,
+          "cell": [
+            1152,
+            683,
+            384,
+            341
+          ],
+          "inkBoxLocal": [
+            18,
+            226,
+            346,
+            319
+          ],
+          "touchesEdge": false
+        }
+      ]
+    },
+    {
+      "key": "buggy",
+      "file": "assets/painted/combat/buggy.png",
+      "tool": "image_gen.imagegen (built-in)",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset type: original 2D side-view game sprite atlas for ORDRE DE CENDRE. Create ONE transparent RGBA PNG sprite sheet, landscape 1536x1024, EXACTLY 3 columns and 2 rows of six equally spaced cells. No text, no visible grid, no backdrop, no floor, no gradient behind objects and no shadows outside objects. Crisp detailed realistic hand-painted science-fiction industrial military art, desaturated sand/olive metal, graphite tires, tarnished copper hydraulic details, tiny ivory safety markings, subtle worn edges. Orthographic exact side view facing RIGHT, zero perspective tilt, readable at small gameplay size. Subject: compact original four-wheel armored reconnaissance BUGGY, two large chunky wheels visible in side view, low angular armored cabin on front RIGHT, open ventilated engine on rear LEFT, compact circular gun mounting socket on roof at horizontal center; absolutely NO gun or barrel attached to vehicle body. Very distinct low stocky silhouette with spring suspension, doors, external roll guard and practical stowed gear. Same vehicle dimensions, position and wheel centers in first three cells, each full body occupies 430x240 within its own 512x512 cell, ground baseline at cell-local y=400, full sprite contained with generous transparent gutters. Row-major cells: 1 intact vehicle with gun socket empty; 2 exact same vehicle moderately damaged, battered armor and cracked window, no flames; 3 disabled wreck of exact same vehicle, collapsed roof panel and deflated tires, recognizable chassis, no smoke, no gun; 4 ONE isolated matching roof machine-gun assembly pointing right, circular mounting pivot at LEFT, long horizontal barrel centerline and muzzle at RIGHT, no tripod or floor; 5 ONE isolated matching side-view wheel, circular and undistorted with complete tire and hub; 6 ONE isolated matching spare armored engine access panel with hinge and copper ventilation grille. Each object is a separate production part. Actual alpha transparency in every empty area. No baked cast shadow, no bullets, no explosions, no text or logos.",
+      "originalFilename": "exec-426332a8-6f97-4e5a-b754-d3b0aa213a6b.png",
+      "sha256": "cfa03ab9a34efe218c99f4b5b74c9887e9a5600a79700e8a3f199486f08d380a"
+    },
+    {
+      "key": "skimmer",
+      "file": "assets/painted/combat/skimmer.png",
+      "tool": "image_gen.imagegen (built-in)",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset type: production sprite atlas for original painted 2D military science-fiction game ORDRE DE CENDRE. Generate ONE genuinely transparent RGBA PNG sheet landscape 1536x1024, EXACT 3 columns by 2 rows, six equal cells. No labels, no grid lines, no backdrop or gradient, no ground, no cast shadows, no text. Precise orthographic side view facing RIGHT. Subject: original NACRE CHANNEL RAID SKIMMER, shallow elongated armored hydro-skimmer with two long narrow segmented runners/pontoons visible, low wedge nose to RIGHT, rear turbine duct at LEFT, central compact glazed cabin and empty circular cannon socket at top center. The whole hull has absolutely NO mounted gun or barrel. Salt-worn blue-green sage plates, graphite underside, pale ivory edge markings and muted copper mechanics, realistic hand-painted detailed matte metal, matching gritty industrial game art. Distinct silhouette from a wheeled vehicle, no wheels, no airborne wings. First three cells same model and scale, ~440x240 pixels within each cell, grounded bottom at y=410 relative to cell, generous transparent gutters. Row-major cells: 1 intact skimmer with empty weapon socket; 2 exact same hull moderately damaged with cracked plates and broken right lamp; 3 same hull disabled wreck with collapsed cabin and damaged runner, no smoke or flame; 4 separate isolated heavy automatic cannon assembly with circular pivot at LEFT and straight barrel pointing RIGHT, muzzle and pivot on same horizontal axis, no mount/base; 5 isolated rear turbine module viewed exactly side-on, functional duct and copper stator ring; 6 isolated short pale cyan rear-thruster exhaust plume pointed LEFT, fading to actual transparency, no surrounding halo. Original design, consistent exact engineering across body variants. All objects completely separated and fully within their cell. Empty areas must be alpha zero, no artificial checkerboard.",
+      "originalFilename": "exec-89f599f6-fe42-4e00-a32a-d708c7743844.png",
+      "sha256": "fe1dea9afe6d7c28f39ba7d3d98b18040a632e8c67f0c7fcee1c4dd62980596e"
+    },
+    {
+      "key": "drone",
+      "file": "assets/painted/combat/drone.png",
+      "tool": "image_gen.imagegen (built-in)",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset type: transparent original sprite parts sheet for 2D side scrolling military science-fiction game ORDRE DE CENDRE. ONE PNG 1536x1024 landscape with exactly 3 columns by 2 rows, six equal cells, real RGBA alpha background. Absolutely no floor, no gradient, no cast shadows outside objects, no grid, no text, no borders, no labels. Crisp detailed painterly realistic game sprites with sharp functional silhouettes, worn matte sage-grey/graphite plating, copper connectors and small amber sensor lenses, consistent neutral soft overhead light. Subject: compact original twin-duct reconnaissance combat DRONE, orthographic exact SIDE elevation facing RIGHT, horizontal low oval central body, two side-thin ducted rotors fore and aft, distinct amber optical module at right nose, short empty downward gun attachment socket under central body. No weapon/barrel integrated in body. Not a familiar franchise design, not a toy. First three cells show identical model and scale, center (256,256), width430 height220 with ample transparent margins. Row-major six cells: 1 intact drone, no gun; 2 same drone damaged with cracked rear housing and one dim optic, no gun; 3 same drone disabled wreck still side profile with buckled right duct and torn center plates, no smoke/fire, no gun; 4 separate isolated compact belly gun with circular pivot on LEFT and barrel pointing RIGHT exactly horizontal, muzzle on pivot horizontal axis, no mount or ground; 5 isolated side-elevation rotor/duct module, thin horizontal blade and oval protective ring matching the drone; 6 isolated replacement amber optical pod with dark glass lens, a tiny functional original part, no detached glow. Actual empty transparency between all six sprites. Each element fully inside its cell.",
+      "originalFilename": "exec-4480ce02-313a-4e55-8506-2efeca8d8e9e.png",
+      "sha256": "11d514211301b3313aff7afb303bc7654d287cc9caf637af9dec95830bdf9b8c"
+    },
+    {
+      "key": "turret",
+      "file": "assets/painted/combat/turret.png",
+      "tool": "image_gen.imagegen (built-in)",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset type: game-ready transparent sprite atlas of separate sentry turret components for ORDRE DE CENDRE, original 2D side view military sci-fi. One 1536x1024 landscape RGBA PNG with exactly six equal 512x512 cells arranged 3 columns by 2 rows, no drawn grid or labels. Genuine transparent empty background, no floor, no gradient, no cast shadow, no text. Detailed crisp realistic hand-painted industrial art in dark sage, graphite, tarnished copper and ivory hazard dashes. Original fixed defense TURRET BODY: tall squat armored polygonal pedestal with wide bolted ground foot, sloped rectangular head oriented RIGHT, a large circular exposed side trunnion socket near the upper third of the assembly for a separate cannon, amber narrow optics, vents and hydraulic braces. ABSOLUTELY no barrel or gun on the turret body. Exact orthographic lateral elevation, same shape/size/placement across first 3 cells, complete body occupies width300 height370, ground baseline at y450 in each cell, socket center around x256 y165. Row-major cells: 1 intact turret body with empty circular socket; 2 same turret body visibly damaged with one missing armor panel and cracked optic, same socket still usable; 3 same turret disabled wreck with bent pedestal and crushed head, recognizable complete base, no flames or smoke; 4 separate matching cannon assembly pointing RIGHT, round trunnion pivot centered at LEFT, straight chunky autocannon barrel and right muzzle on same horizontal axis, full part isolated, NO pedestal; 5 same cannon visibly damaged with cracked sleeve but exact same pivot and muzzle locations, complete piece; 6 isolated small armored service hatch with bolts and ivory diagonal safety markings. All parts in their own transparent cells, nothing crosses a cell boundary. Keep generous transparent gutters and no background texture. No franchise forms or logos.",
+      "originalFilename": "exec-a10509b1-f6f1-420d-8729-1e3366c2858c.png",
+      "sha256": "cd08afb38760921e1783313d97110f7b3034ad467b7affc9f6b73adcdb628281"
+    },
+    {
+      "key": "convoy",
+      "file": "assets/painted/combat/convoy.png",
+      "tool": "image_gen.imagegen (built-in)",
+      "transparent_background": true,
+      "prompt": "Use case: background-extraction. Edit target: the supplied six-cell convoy sprite atlas. Remove the entire white/grey backdrop and all external floor/contact/cast shadows. Output REAL clean transparent alpha, exactly zero alpha for all space around and between the sprites, including every border and corner. Keep the same six isolated game assets, exact arrangement, view, colors, scale, weathering, and details: intact right-facing truck, damaged right-facing truck, wreck truck, wheel, filter cases, ivory first-aid panel. Do not add or move parts. Keep hard mechanical edges with a fine antialias fringe only. No white matte, no haze, no glow, no blurred halo, no floor or backdrop color. Preserve the 3 columns by 2 rows structure with each object fully contained in its own cell. This is a transparent PNG production sprite sheet, not a picture of sprites on paper.",
+      "generationPrompt": "Use case: stylized-concept. Asset type: original production sprite parts atlas for a painted 2D side scrolling sci-fi game, ORDRE DE CENDRE. Create one landscape 1536x1024 transparent RGBA PNG, exactly 3 columns x2 rows six equal cells. Transparent empty areas with zero alpha, no grid lines, labels, text, gradients, background, ground, external cast shadows or scenery. Subject: CIVILIAN LOGISTICS CONVOY TRUCK, six-wheel vehicle shown exactly orthographic SIDE view facing RIGHT with THREE wheels visible, long rectangular corrugated armored cargo module on LEFT and compact forward cab on RIGHT, rounded protective front bumper, reinforced practical windscreen, functional axle and leaf-spring mechanics, front-facing lamp, no weapon. Original realistic hand-painted industrial design, desaturated sea-sage/ivory body panels, graphite tires, rusty copper couplings and road wear, warm tiny headlamps; readable crisp silhouette. No names, no writing, no logos. First three cells same truck design, dimensions, wheel centers and baseline, body width450 height240 contained in each cell with generous margins, tire contact baseline y400. Cargo side is plain neutral panel for later marker overlay. Row-major cells: 1 intact truck with three complete wheels and closed cargo module; 2 same truck moderately damaged, cracked cab window and bent container panels with three wheels still present; 3 same disabled wreck truck with buckled module, flat front tire and damaged cab, recognizable chassis, no fire or smoke; 4 isolated matching circular tire and metal hub, exact side view; 5 isolated rectangular stack of three sealed industrial filter cases, ochre latches, no lettering, cargo prop; 6 isolated dark sage rectangular first-aid panel with a pale IVORY plus mark, no red cross, simple weathered painted functional panel, for a transport carrying people. All sprites fully contained in own cells, actual transparency, consistent lighting. Never draw any ground under vehicle.",
+      "editReason": "First generated image had no fully transparent pixels. Built-in image editing removed the matte. Only the corrected transparent atlas is integrated.",
+      "originalFilename": "exec-b9162424-fb60-45c5-8a0e-3140705fba53.png",
+      "sha256": "2a3e6b2ca6ef0162f0b99565213e577066bac48fab78f389310d5657efa3d9c2"
+    }
+  ]
+}

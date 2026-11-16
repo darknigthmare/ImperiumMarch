@@ -1,0 +1,258 @@
+{
+  "version": "0.14.1",
+  "created": "2026-11-12T18:52:40.033Z",
+  "type": "Canvas-only reconstruction evidence",
+  "renderer": "@napi-rs/canvas (Skia)",
+  "manifest": "docs/validation/rebuild-mi13/scenes.json",
+  "imageCount": 23,
+  "completedRuns": 6,
+  "terminalRuns": 1,
+  "campaignExports": 7,
+  "checks": {
+    "publicControlsOnly": true,
+    "physicalCarrierWheels": true,
+    "progressiveHeatAndTransfers": true,
+    "dormantAmbushDelayed": true,
+    "deepSnapshotsUnchanged": true,
+    "rendererDoesNotMutateState": true,
+    "campaignRoundTrips": true,
+    "thermalWarningsVisibleWithReducedMotion": true,
+    "damagedCargoRetained": true,
+    "lossesDoNotFabricateSources": true,
+    "copiesSurviveOriginalLoss": true
+  },
+  "sourceHashes": {
+    "src/content.mjs": "e7aff40a1d90d2cb99b22ae3e6fce22a3d67ae7dc402b4901cea2262ca4a61ef",
+    "src/simulation.mjs": "9013cda8a7c90d15800dfaabcfbd5dfc3fc07cf9dc09354a6a74e723fbace2f8",
+    "src/renderer.mjs": "7fe0f3be5d06413366ad6c8f7bfb05b4f3445f6c47e73f7dcd66fdccb19fc177",
+    "src/foundry-simulation.mjs": "2cb9ef3d02947ba615bcfd03815b1cf0ae2ada52b088bff4145d979869cc4753",
+    "src/foundry-renderer.mjs": "1a305cc5eda959757ad0c075c92f39e3b4d8385b0d4f0793c38168fb2ee7ba2d",
+    "src/foundry-assets.mjs": "963637fb4d09b582ca9760c905a2770859c44bbd2205b0043d338b7b38ab0c16",
+    "src/foundry-validation.mjs": "7d53dfdc9315161199b8cc4e74ef908dbfe9c3a10e3288b23debbcb3e02a313d",
+    "src/campaign.mjs": "c29bf8e55635289fb435f6ddbe89d6b89f70e7883add1b88b61d30d5266906ac",
+    "tests/helpers/mi13-driver.mjs": "f6d0553d2617412b5928c624a6f99bb606fa5583800056c1912c426b3c49ebe6",
+    "tools/render-mi13-previews.mjs": "40f2960fe038cfb64e199287870a2cf225ea477fef368ef5eef7f3fcc8f50dfd",
+    "tests/fixtures/campaign-v11-mi11.json": "0b050e807af98718e70c957c712d24abe556d6d130d08a70b7eb534ebf03d52d"
+  },
+  "nativeBrowserExamined": false,
+  "humanPlaytestPerformed": false,
+  "images": [
+    {
+      "file": "arrival.png",
+      "title": "Début de Kharon : porteur, deux caisses et deux circuits physiques ; aucune preuve acquise",
+      "walkerId": "WK09",
+      "elapsed": 0,
+      "sha256": "e0bcb6a7ed480ffe327465898756ae3869984496ecd201b8a82358b65edd54fe"
+    },
+    {
+      "file": "manifest-copy.png",
+      "title": "Copie réelle du bordereau porté par le véhicule",
+      "walkerId": "WK09",
+      "elapsed": 10.116666666666749,
+      "sha256": "5826d59c531110915085cbfd7540e196ee2d171b2dda630cdd933ea5d9678025"
+    },
+    {
+      "file": "carrier-release.png",
+      "title": "Libération physique du porteur sous ancrage",
+      "walkerId": "WK09",
+      "elapsed": 14.333333333333625,
+      "sha256": "eada5a876e8073abb035ca62d590a865f9a5634ffbc1168674dc9e830625daf8"
+    },
+    {
+      "file": "thermal-valve.png",
+      "title": "Vanne en cours : la chaleur ne disparaît pas au lancement",
+      "walkerId": "WK09",
+      "elapsed": 24.18333333333324,
+      "sha256": "ca25b6f92cfd56cfa2f2b02b51338a325dd1f50ba4130d201ae8e5beba95f9e2"
+    },
+    {
+      "file": "bridge-contact.png",
+      "title": "Pieds et roues suivent le tablier réel, porté au-dessus du sol",
+      "walkerId": "WK09",
+      "elapsed": 33.86666666666603,
+      "sha256": "4b36a8993431bf3bd16b36854d80ca5b27f7750502e65e2a9e29021064758eb5"
+    },
+    {
+      "file": "ambush-arrival.png",
+      "title": "Deux drones et une tourelle n’existent dans le monde actif qu’après leur délai de six secondes",
+      "walkerId": "WK09",
+      "elapsed": 48.93333333333184,
+      "sha256": "f6b9c25cf0b15a0db6cdc0081267acc458993db4e4e46faf1aede9496224510c"
+    },
+    {
+      "file": "cargo-marking.png",
+      "title": "Marquage matériel réellement copié après l’embuscade",
+      "walkerId": "WK09",
+      "elapsed": 80.94999999999669,
+      "sha256": "2665537224b7d11d23be69fc25898e098289cdf5ed3aa146e647bba3ae375c9b"
+    },
+    {
+      "file": "tess-analysis.png",
+      "title": "Analyse en liaison de Tess ; les copies ne suffisent pas avant huit secondes",
+      "walkerId": "WK09",
+      "elapsed": 89.6999999999962,
+      "sha256": "0ae077f31e39e44ea011d87537975b7dd07eda7ece89ba288daf692619b58958"
+    },
+    {
+      "file": "destination-decision.png",
+      "title": "Choix ouvert après examen ; porteur et caisses attendent encore leur trajet",
+      "walkerId": "WK09",
+      "elapsed": 115.34999999999474,
+      "sha256": "bbb3da690e4bf92ebb6b5105d9b441a08bba5b0c97304dd47f55ee731324f2ed"
+    },
+    {
+      "file": "quarantine-escort.png",
+      "title": "Destination choisie : escorte réelle vers la quarantaine",
+      "walkerId": "WK09",
+      "elapsed": 122.06666666666102,
+      "sha256": "6391c136dd9e476648d33181f5856c9624659b8a00bed19f494cf95f8e447e0f"
+    },
+    {
+      "file": "quarantine-arrival.png",
+      "title": "Porteur physiquement arrivé avant tout transfert",
+      "walkerId": "WK09",
+      "elapsed": 133.03333333333134,
+      "sha256": "069122c61208c6a6d767de6d0e1827860952262dd25f3b93f46579423a00a550"
+    },
+    {
+      "file": "partial-transfer.png",
+      "title": "Transfert progressif : la caisse est entre la plate-forme et la baie",
+      "walkerId": "WK09",
+      "elapsed": 136.8833333333344,
+      "sha256": "024f84f8fc51a9b5de202335db663f2f7a18a1a3c259608bd896c19655fd12a4"
+    },
+    {
+      "file": "interrupted-transfer.png",
+      "title": "Interruption réelle : position de caisse et temps acquis conservés",
+      "walkerId": "WK09",
+      "elapsed": 136.90000000000109,
+      "sha256": "b4d6744097e931824586eef26a6c130a84d7261f6615fae2f4736fbbb25376c3"
+    },
+    {
+      "file": "reception-report.png",
+      "title": "Rapport réel de réception après transfert et relevé des pertes",
+      "walkerId": "WK09",
+      "elapsed": 151.78333333334626,
+      "sha256": "51b29d4e1492b38cf3ac12d82b640b73b81949d8900326a5083b0edff5e93323"
+    },
+    {
+      "file": "before-extraction.png",
+      "title": "Réception acquise ; extraction encore à rejoindre, dommages des caisses conservés",
+      "walkerId": "WK09",
+      "elapsed": 156.58333333335008,
+      "sha256": "bc3b191727352646f2f9d3733214ec5119056086025eaa08f0d1a06882d49c5d"
+    },
+    {
+      "file": "central-arrival.png",
+      "title": "Bastion à la fonderie centrale ; le choix n’avait pas téléporté la charge",
+      "walkerId": "WK02",
+      "elapsed": 121.89999999999436,
+      "sha256": "4f3038f6d17bebfebc68f3ceb1bbb1f8951e4f42f0d33bf9e65e9d3a1d027a9f"
+    },
+    {
+      "file": "central-transfer.png",
+      "title": "Bastion : transfert réel dans la baie de livraison",
+      "walkerId": "WK02",
+      "elapsed": 130.36666666666255,
+      "sha256": "e36397fc7711da582cf73f27b629809780db9daeff75d5e28a734e2d80b4fe83"
+    },
+    {
+      "file": "hot-warning.png",
+      "title": "Tablier non isolé à 90 °C, avertissement physique de vapeur",
+      "walkerId": "WK09",
+      "elapsed": 24.016666666666584,
+      "sha256": "89edbcdee8b1e3d5791b72550ec267eb52f61b2b61bfcf520ae4e586f374a1ec"
+    },
+    {
+      "file": "steam-reduced-motion.png",
+      "title": "Jet réel toujours signalé avec animations réduites ; phase issue de l’horloge simulée",
+      "walkerId": "WK09",
+      "elapsed": 27.016666666666413,
+      "sha256": "fbcee706511540b6210afa80a34f95799c0ec404c06595feacde83de4b1622a4"
+    },
+    {
+      "file": "cargo-lost-before-copy.png",
+      "title": "Caisse perdue avant copie : constat sans marquage et PT03 absent",
+      "walkerId": "WK09",
+      "elapsed": 104.63333333332868,
+      "sha256": "7259f90fc632b693efdbc8707fc4a5e063ecff69636e31ef42d3bff92e21056a"
+    },
+    {
+      "file": "manifest-lost-before-copy.png",
+      "title": "Bordereau perdu avant copie : aucun texte reconstitué",
+      "walkerId": "WK09",
+      "elapsed": 94.19999999999594,
+      "sha256": "6bb4db9663512356805be4b69b1bd375c912573c688be7d1b68eed41f913f6f9"
+    },
+    {
+      "file": "copies-after-original-loss.png",
+      "title": "Deux caisses et bordereau perdus après copie : PT03 demeure conservée",
+      "walkerId": "WK09",
+      "elapsed": 115.28333333332807,
+      "sha256": "5b5bb3384574f633574c6ba493f73d502dde7b4990fdf0edc2466d1b5f381a95"
+    },
+    {
+      "file": "carrier-terminal-loss.png",
+      "title": "Porteur détruit : défaite terminale avec marcheur encore vivant",
+      "walkerId": "WK09",
+      "elapsed": 26.116666666666465,
+      "sha256": "2e0bb5cdbc980f4c92941d7c93b72ab552187eca5ffed360e1258a71e52a97b8"
+    }
+  ],
+  "checkpoints": [
+    {
+      "file": "tess-analysis-checkpoint.json",
+      "purpose": "Resume the actually reached tess-analysis state through a separately documented UI/browser examination.",
+      "sha256": "416e7c39f95de5de74d5a99ca0e755ffc396c1e291101059feafb8559049389e",
+      "elapsed": 89.6999999999962,
+      "playerX": 3662.6906085131577,
+      "provenance": "Prepared through public simulated controls; no native browser execution claimed."
+    },
+    {
+      "file": "destination-decision-checkpoint.json",
+      "purpose": "Resume the actually reached destination-decision state through a separately documented UI/browser examination.",
+      "sha256": "5fc51a376c28a8148a329a230f17d8518b7e98fbe50e98fbc93c5c3e54eafdae",
+      "elapsed": 115.34999999999474,
+      "playerX": 4871.118069990222,
+      "provenance": "Prepared through public simulated controls; no native browser execution claimed."
+    },
+    {
+      "file": "partial-transfer-checkpoint.json",
+      "purpose": "Resume the actually reached partial-transfer state through a separately documented UI/browser examination.",
+      "sha256": "32531ebc2cc96d61493db4a0bbcb0ab75cd7bbd6f3d61df70ae3997ddd70cfd3",
+      "elapsed": 136.8833333333344,
+      "playerX": 6014.862322221794,
+      "provenance": "Prepared through public simulated controls; no native browser execution claimed."
+    },
+    {
+      "file": "interrupted-transfer-checkpoint.json",
+      "purpose": "Resume an interrupted transfer; retained time and physical cargo position must not reset.",
+      "sha256": "3160ec519bc6817bed515b13f9bbc78be341aaa8b2ba689047d53e073e08ff55",
+      "elapsed": 136.90000000000109,
+      "playerX": 6014.840494925837,
+      "provenance": "Prepared through public simulated controls; no native browser execution claimed."
+    },
+    {
+      "file": "before-extraction-checkpoint.json",
+      "purpose": "Finish physical extraction, inspect the thirteenth immutable receipt and one-time reward.",
+      "sha256": "c1a4f122db7dd09d6310b815ad7f0eceec9c6660ea55c019bde1442d8d08bb69",
+      "elapsed": 156.58333333335008,
+      "playerX": 6501.231926836063,
+      "provenance": "Prepared through public simulated controls; no native browser execution claimed."
+    },
+    {
+      "file": "completed-campaign.json",
+      "purpose": "Completed thirteen-report campaign; reconstructed through simulation, not a browser.",
+      "sha256": "8900617ce6c4496fa1c82d74ba76cd3718e0dc1df66ebdd5401650febf66208f"
+    },
+    {
+      "file": "carrier-loss-checkpoint.json",
+      "purpose": "A terminal carrier loss cannot resume as a live sortie.",
+      "sha256": "134ba4d8b681432d429d8f2094a78704e8d350edc77f3d14080f941687036be2",
+      "elapsed": 26.116666666666465,
+      "playerX": 660.22823260216,
+      "provenance": "Prepared through public simulated controls; no native browser execution claimed."
+    }
+  ],
+  "limitations": "No native browser, HTML/CSS HUD, controller hardware, audio listening, human playtest or performance certification is claimed. Former 0.14 evidence was lost; these are new reconstruction runs."
+}

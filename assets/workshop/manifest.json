@@ -1,0 +1,2750 @@
+{
+  "schema": 1,
+  "version": "0.15.0",
+  "created": "2026-11-16",
+  "title": "Kharon — Les mains noires : piquet, refroidisseur et atelier",
+  "source": "src/workshop-assets.mjs",
+  "generator": "tools/build-workshop-assets.mjs",
+  "runtime": "src/workshop-renderer.mjs",
+  "provenance": {
+    "author": "Original geometry authored for Darknigthmare",
+    "method": "Code-native original vector shapes shared by runtime Canvas, SVG export and transparent PNG rasterization.",
+    "references": [
+      "data/bible.json",
+      "docs/CAMPAIGN_MISSION_14.md",
+      "docs/ART_DIRECTION.md"
+    ]
+  },
+  "authority": "Simulation supplies all person positions, common gallery route, losses, machine state, jobs and temperature. The security unit is drawn only after activation and its cannon follows enemyFire centre/half-width origin.",
+  "limitations": [
+    "Prototype assets and authoring sheets are not final production art or human visual approval.",
+    "The 33 static states include four mechanic variants. They are not a complete animation sheet: walking and fan motion are procedural.",
+    "Dormant and warning states are authoring references; the in-game unit remains absent before alert.ready."
+  ],
+  "sourceSha256": "f2b9420b67d701fb3c532b0c645599a8b9501cfbc12aab8054efea284bb3e42f",
+  "files": [
+    {
+      "file": "assets/workshop/svg/worker-standing.svg",
+      "bytes": 2186,
+      "sha256": "1c9cd04e441f5a58726d9c1a44113c85ba8d114ee7c12cf989ff16bd638aecc0",
+      "format": "svg",
+      "part": "worker",
+      "state": "standing",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/png/worker-standing.png",
+      "bytes": 8082,
+      "sha256": "ddff766314b82fea1592cff3435cc0ffa9f0f245fcbc64664e3c10d062f2fcaf",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "worker",
+      "state": "standing",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/worker-walking.svg",
+      "bytes": 2273,
+      "sha256": "215fd32049ac24010775d89df1f19262bb5e6b5eca35306f8076082f4d00dc93",
+      "format": "svg",
+      "part": "worker",
+      "state": "walking",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/png/worker-walking.png",
+      "bytes": 6981,
+      "sha256": "4d9b2ded2d77e9d00dc84f93be98f311c65c2bad987cd5286b3f66587b7b5db1",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "worker",
+      "state": "walking",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/worker-safe.svg",
+      "bytes": 2478,
+      "sha256": "249b75c2449b04bc273cd0b76597572cae0b6fa40b8c96f1a23667a6df465a21",
+      "format": "svg",
+      "part": "worker",
+      "state": "safe",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/png/worker-safe.png",
+      "bytes": 9359,
+      "sha256": "fceff1df39c423f8c1e3e9e5bf2c3932c0456c19e58de3f429054511e0c1d309",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "worker",
+      "state": "safe",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/worker-lost.svg",
+      "bytes": 881,
+      "sha256": "50f56b548e04ae8006efe7f66e171cb4d0df6e88d343ceafc33760ce478102af",
+      "format": "svg",
+      "part": "worker",
+      "state": "lost",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/png/worker-lost.png",
+      "bytes": 3026,
+      "sha256": "fb774395b84c255740e9d7ae4a993c8055472b69c90938a9e9853c15d37fcab8",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "worker",
+      "state": "lost",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/worker-mechanic-standing.svg",
+      "bytes": 2380,
+      "sha256": "aa8958adc4aaa5eec45416896c53dd21347639b66e56630347ce7f534d2991be",
+      "format": "svg",
+      "part": "worker",
+      "state": "standing",
+      "mechanic": true,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/png/worker-mechanic-standing.png",
+      "bytes": 8689,
+      "sha256": "02c8c6acd598dfa23d99b116cceffbb5e77b959963571b61dc35bf87357ad914",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "worker",
+      "state": "standing",
+      "mechanic": true,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/worker-mechanic-walking.svg",
+      "bytes": 2467,
+      "sha256": "f408da661c26be679fcd9d4580a35f78b92fd9e201355b1442bb8ca141307edd",
+      "format": "svg",
+      "part": "worker",
+      "state": "walking",
+      "mechanic": true,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/png/worker-mechanic-walking.png",
+      "bytes": 7649,
+      "sha256": "ddb0944e80bc0e607c481907a319df7b92e90ef66046b2d3e181436562e1484d",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "worker",
+      "state": "walking",
+      "mechanic": true,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/worker-mechanic-safe.svg",
+      "bytes": 2672,
+      "sha256": "3d78187c3a44a6f4f3f764894f75c4a3075e3e0144e1d46f8e6e3a17e4911e72",
+      "format": "svg",
+      "part": "worker",
+      "state": "safe",
+      "mechanic": true,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/png/worker-mechanic-safe.png",
+      "bytes": 9966,
+      "sha256": "e65bf9931bc72be2144a9c17194affc502b2530c34413049ddb0a3e5b2f53341",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "worker",
+      "state": "safe",
+      "mechanic": true,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/worker-mechanic-lost.svg",
+      "bytes": 881,
+      "sha256": "b9249c88e23118a38074b8cea21013ca17479b0734602dac0bd4f634af13b0ba",
+      "format": "svg",
+      "part": "worker",
+      "state": "lost",
+      "mechanic": true,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/png/worker-mechanic-lost.png",
+      "bytes": 3027,
+      "sha256": "e4d9b40b8642caec476400f2a739673fd8ce14a2ac401a193c56cc20809f6d53",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "worker",
+      "state": "lost",
+      "mechanic": true,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "head": [
+          0,
+          -52
+        ],
+        "hand": [
+          18,
+          -27
+        ]
+      },
+      "nominalSize": [
+        32,
+        60
+      ],
+      "inkBounds": [
+        -27,
+        -70,
+        54,
+        80
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/cooler-broken.svg",
+      "bytes": 5852,
+      "sha256": "aac98f9390e9365a3993e6ce089753faaab3353eb1fb0ab08d469336562ebe2c",
+      "format": "svg",
+      "part": "cooler",
+      "state": "broken",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "service": [
+          45,
+          -58
+        ],
+        "inlet": [
+          -90,
+          -37
+        ],
+        "outlet": [
+          91,
+          -89
+        ]
+      },
+      "nominalSize": [
+        172,
+        142
+      ],
+      "inkBounds": [
+        -100,
+        -156,
+        204,
+        170
+      ]
+    },
+    {
+      "file": "assets/workshop/png/cooler-broken.png",
+      "bytes": 30469,
+      "sha256": "02bb44b34fe28f9af990277843ce0e85af4eee11446679ed91d7f8092e843b52",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "cooler",
+      "state": "broken",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "service": [
+          45,
+          -58
+        ],
+        "inlet": [
+          -90,
+          -37
+        ],
+        "outlet": [
+          91,
+          -89
+        ]
+      },
+      "nominalSize": [
+        172,
+        142
+      ],
+      "inkBounds": [
+        -100,
+        -156,
+        204,
+        170
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/cooler-isolated.svg",
+      "bytes": 5613,
+      "sha256": "0dbcd91d5dff66f5c728bdaba1cba59f7f2b2426f815617d99cf3fb2a4f197e5",
+      "format": "svg",
+      "part": "cooler",
+      "state": "isolated",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "service": [
+          45,
+          -58
+        ],
+        "inlet": [
+          -90,
+          -37
+        ],
+        "outlet": [
+          91,
+          -89
+        ]
+      },
+      "nominalSize": [
+        172,
+        142
+      ],
+      "inkBounds": [
+        -100,
+        -156,
+        204,
+        170
+      ]
+    },
+    {
+      "file": "assets/workshop/png/cooler-isolated.png",
+      "bytes": 25839,
+      "sha256": "689c93e2c35d5e243117600257cf85a090f6593faac26dd289d5942c80342d92",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "cooler",
+      "state": "isolated",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "service": [
+          45,
+          -58
+        ],
+        "inlet": [
+          -90,
+          -37
+        ],
+        "outlet": [
+          91,
+          -89
+        ]
+      },
+      "nominalSize": [
+        172,
+        142
+      ],
+      "inkBounds": [
+        -100,
+        -156,
+        204,
+        170
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/cooler-repairing.svg",
+      "bytes": 5928,
+      "sha256": "f116e064b2abf4e6fd5e3c8a9abfd4b703423f785d347f53bf296bab8de067a8",
+      "format": "svg",
+      "part": "cooler",
+      "state": "repairing",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "service": [
+          45,
+          -58
+        ],
+        "inlet": [
+          -90,
+          -37
+        ],
+        "outlet": [
+          91,
+          -89
+        ]
+      },
+      "nominalSize": [
+        172,
+        142
+      ],
+      "inkBounds": [
+        -100,
+        -156,
+        204,
+        170
+      ]
+    },
+    {
+      "file": "assets/workshop/png/cooler-repairing.png",
+      "bytes": 27711,
+      "sha256": "630696a34998ebb3388a78beb8d31dad9315cc352e438e4da4d4b324903cf18e",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "cooler",
+      "state": "repairing",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "service": [
+          45,
+          -58
+        ],
+        "inlet": [
+          -90,
+          -37
+        ],
+        "outlet": [
+          91,
+          -89
+        ]
+      },
+      "nominalSize": [
+        172,
+        142
+      ],
+      "inkBounds": [
+        -100,
+        -156,
+        204,
+        170
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/cooler-online.svg",
+      "bytes": 5674,
+      "sha256": "f0cd5d7aac7f00017fae8d8b10df5da454d19328a933b989d8cc8f67154fcc94",
+      "format": "svg",
+      "part": "cooler",
+      "state": "online",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "service": [
+          45,
+          -58
+        ],
+        "inlet": [
+          -90,
+          -37
+        ],
+        "outlet": [
+          91,
+          -89
+        ]
+      },
+      "nominalSize": [
+        172,
+        142
+      ],
+      "inkBounds": [
+        -100,
+        -156,
+        204,
+        170
+      ]
+    },
+    {
+      "file": "assets/workshop/png/cooler-online.png",
+      "bytes": 25809,
+      "sha256": "1607af2360035518216682a49f6011f824bfe9e17eac9095388b40b754efaddf",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "cooler",
+      "state": "online",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "service": [
+          45,
+          -58
+        ],
+        "inlet": [
+          -90,
+          -37
+        ],
+        "outlet": [
+          91,
+          -89
+        ]
+      },
+      "nominalSize": [
+        172,
+        142
+      ],
+      "inkBounds": [
+        -100,
+        -156,
+        204,
+        170
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/cooler-destroyed.svg",
+      "bytes": 6237,
+      "sha256": "ccb2115f08ab52e345919b4e8cdbbc9af245a5bee2674400e5078d169ceacd60",
+      "format": "svg",
+      "part": "cooler",
+      "state": "destroyed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "service": [
+          45,
+          -58
+        ],
+        "inlet": [
+          -90,
+          -37
+        ],
+        "outlet": [
+          91,
+          -89
+        ]
+      },
+      "nominalSize": [
+        172,
+        142
+      ],
+      "inkBounds": [
+        -100,
+        -156,
+        204,
+        170
+      ]
+    },
+    {
+      "file": "assets/workshop/png/cooler-destroyed.png",
+      "bytes": 36401,
+      "sha256": "ca14cbaa5d3f03f6e9a3a3dba51628e22df0c863554b26a653cda7c2869727f0",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "cooler",
+      "state": "destroyed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "service": [
+          45,
+          -58
+        ],
+        "inlet": [
+          -90,
+          -37
+        ],
+        "outlet": [
+          91,
+          -89
+        ]
+      },
+      "nominalSize": [
+        172,
+        142
+      ],
+      "inkBounds": [
+        -100,
+        -156,
+        204,
+        170
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/valve-open.svg",
+      "bytes": 1806,
+      "sha256": "c03fe71e9f3e3e22a2b0531ed1cb9dac9c5796e5b4a3649b3a46f33c40766b4d",
+      "format": "svg",
+      "part": "valve",
+      "state": "open",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -62
+        ]
+      },
+      "nominalSize": [
+        64,
+        98
+      ],
+      "inkBounds": [
+        -44,
+        -112,
+        94,
+        124
+      ]
+    },
+    {
+      "file": "assets/workshop/png/valve-open.png",
+      "bytes": 10816,
+      "sha256": "6643d203562f8414c73997b17ed95f97b8914b05509243d6810f9ab5bca16cd9",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "valve",
+      "state": "open",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -62
+        ]
+      },
+      "nominalSize": [
+        64,
+        98
+      ],
+      "inkBounds": [
+        -44,
+        -112,
+        94,
+        124
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/valve-isolated.svg",
+      "bytes": 1818,
+      "sha256": "aa87728df560194165cce30995a3f14d5bce1b6c4112154d07118e36e2bb963a",
+      "format": "svg",
+      "part": "valve",
+      "state": "isolated",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -62
+        ]
+      },
+      "nominalSize": [
+        64,
+        98
+      ],
+      "inkBounds": [
+        -44,
+        -112,
+        94,
+        124
+      ]
+    },
+    {
+      "file": "assets/workshop/png/valve-isolated.png",
+      "bytes": 10892,
+      "sha256": "0ba7857a5bcfc5d3f83686d10966e32c28927ce8ccd40fb2679e258fb6ce3de2",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "valve",
+      "state": "isolated",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -62
+        ]
+      },
+      "nominalSize": [
+        64,
+        98
+      ],
+      "inkBounds": [
+        -44,
+        -112,
+        94,
+        124
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/valve-destroyed.svg",
+      "bytes": 2066,
+      "sha256": "50c16ced9b16f848bd5f4e82140a19be83b325f35925af1de0bba70d89aca1d0",
+      "format": "svg",
+      "part": "valve",
+      "state": "destroyed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -62
+        ]
+      },
+      "nominalSize": [
+        64,
+        98
+      ],
+      "inkBounds": [
+        -44,
+        -112,
+        94,
+        124
+      ]
+    },
+    {
+      "file": "assets/workshop/png/valve-destroyed.png",
+      "bytes": 14086,
+      "sha256": "8b7630700ace4b5e1da73574296bcb10ca5fbf1f0383d58c5672a2106b389a5b",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "valve",
+      "state": "destroyed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "wheel": [
+          0,
+          -62
+        ]
+      },
+      "nominalSize": [
+        64,
+        98
+      ],
+      "inkBounds": [
+        -44,
+        -112,
+        94,
+        124
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/disputed-lot-sealed.svg",
+      "bytes": 3059,
+      "sha256": "b6b7b362cfc84486572e060b1c83cc8f69f1b0444e667f4a0fccb55502d8a056",
+      "format": "svg",
+      "part": "disputed-lot",
+      "state": "sealed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "serial": [
+          30,
+          -40
+        ]
+      },
+      "nominalSize": [
+        130,
+        88
+      ],
+      "inkBounds": [
+        -76,
+        -101,
+        156,
+        115
+      ]
+    },
+    {
+      "file": "assets/workshop/png/disputed-lot-sealed.png",
+      "bytes": 2777,
+      "sha256": "0abbb7e4a958f8f7598ed9759835d5ece05164beecd753aa8bb1859559427b73",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "disputed-lot",
+      "state": "sealed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "serial": [
+          30,
+          -40
+        ]
+      },
+      "nominalSize": [
+        130,
+        88
+      ],
+      "inkBounds": [
+        -76,
+        -101,
+        156,
+        115
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/disputed-lot-inspected.svg",
+      "bytes": 3367,
+      "sha256": "d7cb7102d1cd57a9f1a76a9ea40f698f1c7c3b85e32b00fc8ac3950a07279bfe",
+      "format": "svg",
+      "part": "disputed-lot",
+      "state": "inspected",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "serial": [
+          30,
+          -40
+        ]
+      },
+      "nominalSize": [
+        130,
+        88
+      ],
+      "inkBounds": [
+        -76,
+        -101,
+        156,
+        115
+      ]
+    },
+    {
+      "file": "assets/workshop/png/disputed-lot-inspected.png",
+      "bytes": 4871,
+      "sha256": "e24d1731b247ccf5da9d558fd06500a10b277409a2c873d8b2e8196283eda10e",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "disputed-lot",
+      "state": "inspected",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "serial": [
+          30,
+          -40
+        ]
+      },
+      "nominalSize": [
+        130,
+        88
+      ],
+      "inkBounds": [
+        -76,
+        -101,
+        156,
+        115
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/disputed-lot-released.svg",
+      "bytes": 3473,
+      "sha256": "cd1034006ea8652173a91ee2ad63992d2c69c1d45d6b4f317adf5a698a1870c1",
+      "format": "svg",
+      "part": "disputed-lot",
+      "state": "released",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "serial": [
+          30,
+          -40
+        ]
+      },
+      "nominalSize": [
+        130,
+        88
+      ],
+      "inkBounds": [
+        -76,
+        -101,
+        156,
+        115
+      ]
+    },
+    {
+      "file": "assets/workshop/png/disputed-lot-released.png",
+      "bytes": 3786,
+      "sha256": "66e4abc1403c0420bdb869df1248c4dc09654838ac2c43609b1029ce53f75f35",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "disputed-lot",
+      "state": "released",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "serial": [
+          30,
+          -40
+        ]
+      },
+      "nominalSize": [
+        130,
+        88
+      ],
+      "inkBounds": [
+        -76,
+        -101,
+        156,
+        115
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/disputed-lot-blocked.svg",
+      "bytes": 3258,
+      "sha256": "4c63fb6483e8991679f3000ccfb77deebc3e8a04ea130d1cd466b8aacd263fd8",
+      "format": "svg",
+      "part": "disputed-lot",
+      "state": "blocked",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "serial": [
+          30,
+          -40
+        ]
+      },
+      "nominalSize": [
+        130,
+        88
+      ],
+      "inkBounds": [
+        -76,
+        -101,
+        156,
+        115
+      ]
+    },
+    {
+      "file": "assets/workshop/png/disputed-lot-blocked.png",
+      "bytes": 12525,
+      "sha256": "23b944b8de6722d2ce34d814c1717e3585a83af9334bb3def679af193cf1fbf0",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "disputed-lot",
+      "state": "blocked",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "serial": [
+          30,
+          -40
+        ]
+      },
+      "nominalSize": [
+        130,
+        88
+      ],
+      "inkBounds": [
+        -76,
+        -101,
+        156,
+        115
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/disputed-lot-destroyed.svg",
+      "bytes": 3444,
+      "sha256": "79241beda2d3f0b661257906bda3e5e0c8b502f9a65fb0879b4059b897cc5957",
+      "format": "svg",
+      "part": "disputed-lot",
+      "state": "destroyed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "serial": [
+          30,
+          -40
+        ]
+      },
+      "nominalSize": [
+        130,
+        88
+      ],
+      "inkBounds": [
+        -76,
+        -101,
+        156,
+        115
+      ]
+    },
+    {
+      "file": "assets/workshop/png/disputed-lot-destroyed.png",
+      "bytes": 13994,
+      "sha256": "6806b245287147eff57a088510c1892ba540b76059f22fdabc426198fd7b9ba2",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "disputed-lot",
+      "state": "destroyed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "serial": [
+          30,
+          -40
+        ]
+      },
+      "nominalSize": [
+        130,
+        88
+      ],
+      "inkBounds": [
+        -76,
+        -101,
+        156,
+        115
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/workshop-control-idle.svg",
+      "bytes": 1743,
+      "sha256": "9cae6d25587c23e524a2a049b6bdc60d95647fa658d97fc887aa6298273c624a",
+      "format": "svg",
+      "part": "workshop-control",
+      "state": "idle",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "switch": [
+          0,
+          -69
+        ]
+      },
+      "nominalSize": [
+        82,
+        112
+      ],
+      "inkBounds": [
+        -53,
+        -128,
+        110,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/png/workshop-control-idle.png",
+      "bytes": 9001,
+      "sha256": "790cd17b6a17dd8b0b8b0569c735cf15bb0e350adce9fde2c05c7bfedb2246e0",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "workshop-control",
+      "state": "idle",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "switch": [
+          0,
+          -69
+        ]
+      },
+      "nominalSize": [
+        82,
+        112
+      ],
+      "inkBounds": [
+        -53,
+        -128,
+        110,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/workshop-control-working.svg",
+      "bytes": 1753,
+      "sha256": "9068ac4c454d55caf7d2011765eef4e0f42b12134d2602ae3d08e5159947bd7a",
+      "format": "svg",
+      "part": "workshop-control",
+      "state": "working",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "switch": [
+          0,
+          -69
+        ]
+      },
+      "nominalSize": [
+        82,
+        112
+      ],
+      "inkBounds": [
+        -53,
+        -128,
+        110,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/png/workshop-control-working.png",
+      "bytes": 9002,
+      "sha256": "b628f77db9ee60251689c1ca3099e011aa9adf098ecb4b80fcad01e4a2f05e7e",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "workshop-control",
+      "state": "working",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "switch": [
+          0,
+          -69
+        ]
+      },
+      "nominalSize": [
+        82,
+        112
+      ],
+      "inkBounds": [
+        -53,
+        -128,
+        110,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/workshop-control-production.svg",
+      "bytes": 1762,
+      "sha256": "5b03639f56ec90004cd937313d2be93f5774c2d9622975cb9456dc33f0ea86ba",
+      "format": "svg",
+      "part": "workshop-control",
+      "state": "production",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "switch": [
+          0,
+          -69
+        ]
+      },
+      "nominalSize": [
+        82,
+        112
+      ],
+      "inkBounds": [
+        -53,
+        -128,
+        110,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/png/workshop-control-production.png",
+      "bytes": 8996,
+      "sha256": "db19bf71e87ca40d36b5d6431dd5aef256724707dcc74d00127dcaa93acd1895",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "workshop-control",
+      "state": "production",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "switch": [
+          0,
+          -69
+        ]
+      },
+      "nominalSize": [
+        82,
+        112
+      ],
+      "inkBounds": [
+        -53,
+        -128,
+        110,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/workshop-control-stopped.svg",
+      "bytes": 1754,
+      "sha256": "b344b20058bcafe089bdccafd5efbe2ca3cd8a56b129605cb9a767100d40cee9",
+      "format": "svg",
+      "part": "workshop-control",
+      "state": "stopped",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "switch": [
+          0,
+          -69
+        ]
+      },
+      "nominalSize": [
+        82,
+        112
+      ],
+      "inkBounds": [
+        -53,
+        -128,
+        110,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/png/workshop-control-stopped.png",
+      "bytes": 8708,
+      "sha256": "aa75919f5b05c2a2a92bf22cc9a1565586048e0480574f275104bb701b941a63",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "workshop-control",
+      "state": "stopped",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "switch": [
+          0,
+          -69
+        ]
+      },
+      "nominalSize": [
+        82,
+        112
+      ],
+      "inkBounds": [
+        -53,
+        -128,
+        110,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/workshop-control-destroyed.svg",
+      "bytes": 2003,
+      "sha256": "dac5ae8eb5221b3686475f31f8991fd4079ad0fb7045f5b2035786402d9c86f6",
+      "format": "svg",
+      "part": "workshop-control",
+      "state": "destroyed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "switch": [
+          0,
+          -69
+        ]
+      },
+      "nominalSize": [
+        82,
+        112
+      ],
+      "inkBounds": [
+        -53,
+        -128,
+        110,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/png/workshop-control-destroyed.png",
+      "bytes": 11219,
+      "sha256": "9625ba81ad1e180039d73ae9bc215906e0b68632db82da3645fea845c2e7f536",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "workshop-control",
+      "state": "destroyed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "switch": [
+          0,
+          -69
+        ]
+      },
+      "nominalSize": [
+        82,
+        112
+      ],
+      "inkBounds": [
+        -53,
+        -128,
+        110,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/security-automaton-dormant.svg",
+      "bytes": 3348,
+      "sha256": "bb9c56024e6f4487b65d258d016c156758710b678dbdabbffd7a91f634ccf246",
+      "format": "svg",
+      "part": "security-automaton",
+      "state": "dormant",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "optic": [
+          0,
+          -86
+        ],
+        "cannonPivot": [
+          0,
+          -55
+        ],
+        "muzzle": [
+          56,
+          -55
+        ]
+      },
+      "nominalSize": [
+        112,
+        110
+      ],
+      "inkBounds": [
+        -67,
+        -127,
+        142,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/png/security-automaton-dormant.png",
+      "bytes": 16881,
+      "sha256": "644614a9422ed5752a073c9824d8e57c1911870a251cb6bf7aa4304b69ad3f89",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "security-automaton",
+      "state": "dormant",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "optic": [
+          0,
+          -86
+        ],
+        "cannonPivot": [
+          0,
+          -55
+        ],
+        "muzzle": [
+          56,
+          -55
+        ]
+      },
+      "nominalSize": [
+        112,
+        110
+      ],
+      "inkBounds": [
+        -67,
+        -127,
+        142,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/security-automaton-warning.svg",
+      "bytes": 3454,
+      "sha256": "1e8b0543e671bbd7b0229e2bdefb50735205ecd9ee945bb7edcbf13a893dfb65",
+      "format": "svg",
+      "part": "security-automaton",
+      "state": "warning",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "optic": [
+          0,
+          -86
+        ],
+        "cannonPivot": [
+          0,
+          -55
+        ],
+        "muzzle": [
+          56,
+          -55
+        ]
+      },
+      "nominalSize": [
+        112,
+        110
+      ],
+      "inkBounds": [
+        -67,
+        -127,
+        142,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/png/security-automaton-warning.png",
+      "bytes": 18280,
+      "sha256": "b6e1d4947373a0b6d157d2d1e8d26053ad31dbb6ca96f1cf239b8f1d47f757cb",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "security-automaton",
+      "state": "warning",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "optic": [
+          0,
+          -86
+        ],
+        "cannonPivot": [
+          0,
+          -55
+        ],
+        "muzzle": [
+          56,
+          -55
+        ]
+      },
+      "nominalSize": [
+        112,
+        110
+      ],
+      "inkBounds": [
+        -67,
+        -127,
+        142,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/security-automaton-active.svg",
+      "bytes": 3549,
+      "sha256": "5fadda34a86a40508271ed100a52ce3d23184040cf5daf086a93d1870e99fe01",
+      "format": "svg",
+      "part": "security-automaton",
+      "state": "active",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "optic": [
+          0,
+          -86
+        ],
+        "cannonPivot": [
+          0,
+          -55
+        ],
+        "muzzle": [
+          56,
+          -55
+        ]
+      },
+      "nominalSize": [
+        112,
+        110
+      ],
+      "inkBounds": [
+        -67,
+        -127,
+        142,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/png/security-automaton-active.png",
+      "bytes": 17999,
+      "sha256": "964c7a9efbd41b66bf5bdfe37b4b73158157cd76e2e61535ea73e26f6ba7bb91",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "security-automaton",
+      "state": "active",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "optic": [
+          0,
+          -86
+        ],
+        "cannonPivot": [
+          0,
+          -55
+        ],
+        "muzzle": [
+          56,
+          -55
+        ]
+      },
+      "nominalSize": [
+        112,
+        110
+      ],
+      "inkBounds": [
+        -67,
+        -127,
+        142,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/security-automaton-destroyed.svg",
+      "bytes": 3724,
+      "sha256": "990290dd94ebee4f7c20b5cf2d809efb0fc7f25fb8aaaff9b118aca284c8bbbd",
+      "format": "svg",
+      "part": "security-automaton",
+      "state": "destroyed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "optic": [
+          0,
+          -86
+        ],
+        "cannonPivot": [
+          0,
+          -55
+        ],
+        "muzzle": [
+          56,
+          -55
+        ]
+      },
+      "nominalSize": [
+        112,
+        110
+      ],
+      "inkBounds": [
+        -67,
+        -127,
+        142,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/png/security-automaton-destroyed.png",
+      "bytes": 28114,
+      "sha256": "c7524121e090679f54464c7e08b424131fd733e8b3ee9c5a81f0010af7cdb108",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "security-automaton",
+      "state": "destroyed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14",
+        "PL04"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "optic": [
+          0,
+          -86
+        ],
+        "cannonPivot": [
+          0,
+          -55
+        ],
+        "muzzle": [
+          56,
+          -55
+        ]
+      },
+      "nominalSize": [
+        112,
+        110
+      ],
+      "inkBounds": [
+        -67,
+        -127,
+        142,
+        142
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/picket-post-closed.svg",
+      "bytes": 1853,
+      "sha256": "62fbadde15af7712f67780e6678e15116045f2c054d1cc779163fbf8db825248",
+      "format": "svg",
+      "part": "picket-post",
+      "state": "closed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "radio": [
+          -28,
+          -74
+        ]
+      },
+      "nominalSize": [
+        110,
+        104
+      ],
+      "inkBounds": [
+        -67,
+        -116,
+        140,
+        130
+      ]
+    },
+    {
+      "file": "assets/workshop/png/picket-post-closed.png",
+      "bytes": 4678,
+      "sha256": "3a22ecfbc036031665f61443a17df4690ccc028584c03d7e3a8b10478ba932b5",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "picket-post",
+      "state": "closed",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "radio": [
+          -28,
+          -74
+        ]
+      },
+      "nominalSize": [
+        110,
+        104
+      ],
+      "inkBounds": [
+        -67,
+        -116,
+        140,
+        130
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/picket-post-clearing.svg",
+      "bytes": 1859,
+      "sha256": "3107e91172d64df79a216f72f2c2366015c3ce7adaf86309d5f0f1bac51f1f14",
+      "format": "svg",
+      "part": "picket-post",
+      "state": "clearing",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "radio": [
+          -28,
+          -74
+        ]
+      },
+      "nominalSize": [
+        110,
+        104
+      ],
+      "inkBounds": [
+        -67,
+        -116,
+        140,
+        130
+      ]
+    },
+    {
+      "file": "assets/workshop/png/picket-post-clearing.png",
+      "bytes": 4669,
+      "sha256": "e2706aacfa70e429263b7aaad38b59c506ff3dcf6fd07e66311e9c251cf7ae02",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "picket-post",
+      "state": "clearing",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "radio": [
+          -28,
+          -74
+        ]
+      },
+      "nominalSize": [
+        110,
+        104
+      ],
+      "inkBounds": [
+        -67,
+        -116,
+        140,
+        130
+      ]
+    },
+    {
+      "file": "assets/workshop/svg/picket-post-open.svg",
+      "bytes": 1651,
+      "sha256": "75705902199a6389127349f695dec9a2957f8a499b454458335361aa1a4c95df",
+      "format": "svg",
+      "part": "picket-post",
+      "state": "open",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "radio": [
+          -28,
+          -74
+        ]
+      },
+      "nominalSize": [
+        110,
+        104
+      ],
+      "inkBounds": [
+        -67,
+        -116,
+        140,
+        130
+      ]
+    },
+    {
+      "file": "assets/workshop/png/picket-post-open.png",
+      "bytes": 4486,
+      "sha256": "ff2296437ebb69d19f56c08213f7642fb4eb6e65edaf09c2506a119c7960b48d",
+      "format": "png",
+      "kind": "Transparent individual sprite rasterized from the shared geometry",
+      "scale": 3,
+      "part": "picket-post",
+      "state": "open",
+      "mechanic": false,
+      "canonIds": [
+        "MI14"
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0
+        ],
+        "radio": [
+          -28,
+          -74
+        ]
+      },
+      "nominalSize": [
+        110,
+        104
+      ],
+      "inkBounds": [
+        -67,
+        -116,
+        140,
+        130
+      ]
+    },
+    {
+      "file": "assets/workshop/previews/workshop-kit.png",
+      "bytes": 137327,
+      "sha256": "fd68c933798115278ddab44fc073e4bd414ee6d91f6e3d4ff7c831ee125e1a3d",
+      "format": "png",
+      "kind": "Authoring sheet at varied scales; not gameplay or browser evidence"
+    },
+    {
+      "file": "assets/workshop/previews/workshop-states.png",
+      "bytes": 152567,
+      "sha256": "599ede33f20734d9e477c009afbac912e6488e00fa9bc0fdf8dc9c57f2c4b76c",
+      "format": "png",
+      "kind": "Material state authoring sheet; not human art approval"
+    }
+  ],
+  "counts": {
+    "components": 7,
+    "states": 33,
+    "files": 68,
+    "svg": 33,
+    "transparentSprites": 33,
+    "sheets": 2,
+    "bytes": 804948
+  }
+}

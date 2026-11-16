@@ -1,0 +1,191 @@
+{
+  "version": "0.15.0",
+  "created": "2026-11-16T08:38:46.941Z",
+  "type": "Canvas-only mission evidence",
+  "renderer": "@napi-rs/canvas (Skia)",
+  "manifest": "docs/validation/mi14/scenes.json",
+  "imageCount": 14,
+  "completedRuns": 4,
+  "campaignExports": 7,
+  "checks": {
+    "publicControlsOnly": true,
+    "deepSnapshotsUnchanged": true,
+    "rendererDoesNotMutateState": true,
+    "exactCampaignRoundTrips": true,
+    "workerPositionsFromSimulation": true,
+    "commonGallerySurface": true,
+    "delayedSecurity": true,
+    "sourceLossAndRetainedCopyDistinct": true,
+    "obeyAndDefyBothComplete": true
+  },
+  "sourceHashes": {
+    "src/workshop-simulation.mjs": "ea4992944c6b32b8b0e4351348c8af8348d2d733ba5fb60f0d12f36ee40c12fb",
+    "src/workshop-validation.mjs": "a96a7b0a932f3aec858f46e424819ccd3cb299aaa41282994c2a14cacc41a0db",
+    "src/workshop-assets.mjs": "bc9a786f90865c91165fe6e37138b7af52717bd2b51c15884278f8b42bda1017",
+    "src/workshop-renderer.mjs": "82de9442d14d994af083fe7ba13121a58a6ebe7615388060ab540d26cb58cf6a",
+    "src/renderer.mjs": "6b5cb37f145863c9bde31680e3005b4a3b62ce287c36ee5362c22f7b36817921",
+    "src/content.mjs": "30308100b760741b7bd1ff8b353e000d3954e195362a85983c080143d29de0fb",
+    "src/simulation.mjs": "6db0f6066a2ab0a6f80790daef9cea16ea4967da2dd89d72aaef97e99cbaadf2",
+    "src/campaign.mjs": "f4176813bedfaf4139c428c8bd4e02b4c1dd8844eee867b2bf76fea3f9ab3c94",
+    "tests/helpers/mi14-driver.mjs": "5ccd50cc0d02fd8583897a41e9d41182aae5a1c168914747542475ab96c275fc",
+    "tools/render-mi14-previews.mjs": "7333de4921e50efce339c61646243e6cd6e8e1e90ddb7eca5833a2cdf7520165"
+  },
+  "nativeBrowserExamined": false,
+  "humanPlaytestPerformed": false,
+  "images": [
+    {
+      "file": "arrival.png",
+      "title": "Arrivée à Kharon : piquet présent, machines et sources non examinées",
+      "walkerId": "WK09",
+      "elapsed": 0,
+      "sha256": "ca7f8e7b7fa53427082a4a307e00438063ee432335fb3dea6a035b21525cd989"
+    },
+    {
+      "file": "passage-request.png",
+      "title": "Demande de passage en cours ; les ouvriers n’ont pas encore quitté les appuis",
+      "walkerId": "WK09",
+      "elapsed": 8.683333333333344,
+      "sha256": "835451cca848c407883e46e153a5c1a96afd4ba4934db7622a242d0771204d99"
+    },
+    {
+      "file": "workers-crossing.png",
+      "title": "Déplacement réel vers la galerie commune ; attendre le dernier ouvrier",
+      "walkerId": "WK09",
+      "elapsed": 15.516666666667017,
+      "sha256": "4387a0c3fc9932d747abff0ebd2efbfa63a74cf10d27b0bc03eafd68e8b5ff22"
+    },
+    {
+      "file": "gallery-contact.png",
+      "title": "Huit ouvriers en galerie ; échange distinct de toute copie du lot",
+      "walkerId": "WK09",
+      "elapsed": 40.249999999999,
+      "sha256": "3e9c68c22643915d44e49b1b867b0b4d2365efc3cd6bed5a5bd9d7d7d2c16fc7"
+    },
+    {
+      "file": "security-active.png",
+      "title": "Automate présent seulement après cinq secondes ; ligne de tir et corps réels",
+      "walkerId": "WK09",
+      "elapsed": 53.066666666664936,
+      "sha256": "99e96ad9f1c72b00592efa8a1f0c8a47f25cf5f9b5589fdd816531545e8fad9d"
+    },
+    {
+      "file": "isolation.png",
+      "title": "Isolation du circuit sous ancrage ; le diagnostic et la réparation restent distincts",
+      "walkerId": "WK09",
+      "elapsed": 84.64999999999648,
+      "sha256": "3789ebfe70780fbe37903088a4c633cc18782c66957acaff38c52a21d3716e0d"
+    },
+    {
+      "file": "repair.png",
+      "title": "Réparation interrompable : refroidisseur isolé, travail et température encore en cours",
+      "walkerId": "WK09",
+      "elapsed": 92.28333333332938,
+      "sha256": "7d072f01d586d3eea51563e7900d684bc3e6119b7d7b46e1af315fa95554f238"
+    },
+    {
+      "file": "decision.png",
+      "title": "Ordre à choisir après les opérations ; aucune commande encore accomplie",
+      "walkerId": "WK09",
+      "elapsed": 113.54999999999484,
+      "sha256": "2337ac73cf74a25608663b811034b33cb5167e76c6ed3a7f2255b64be45b7a39"
+    },
+    {
+      "file": "control.png",
+      "title": "Maintien de l’arrêt : cinq secondes de commande physique après le choix",
+      "walkerId": "WK09",
+      "elapsed": 117.24999999999463,
+      "sha256": "164add47797d3799f2467c03923cbb7a288479606144b6b4c1f4a2c10e319e79"
+    },
+    {
+      "file": "cooperation.png",
+      "title": "Accord des mécaniciens recueilli ; disponibilité locale sans recrutement",
+      "walkerId": "WK09",
+      "elapsed": 127.14999999999407,
+      "sha256": "6c4cb5e61182627ab32f96943f1bf048a6a9752ae6d1367dbf02b03609c6d0e9"
+    },
+    {
+      "file": "before-extraction.png",
+      "title": "Bilan transmis ; il faut encore rejoindre la rampe de retour",
+      "walkerId": "WK09",
+      "elapsed": 135.7166666666668,
+      "sha256": "f300a78a067ac8ce8cee0f7deea3f64d6c98c64f8bfdef755f318575de61e17f"
+    },
+    {
+      "file": "production-restarted.png",
+      "title": "Bastion : reprise réellement exécutée ; aucune coopération accordée automatiquement",
+      "walkerId": "WK02",
+      "elapsed": 109.69999999999506,
+      "sha256": "8c503456d2df8f25370eceb25f4f6d05bd0a4e832a04fef47f25e6408e47d914"
+    },
+    {
+      "file": "lot-lost.png",
+      "title": "Lot perdu avant copie : constat de perte sans relevé inventé",
+      "walkerId": "WK09",
+      "elapsed": 144.71666666667397,
+      "sha256": "a1d8e65a2a60777771024d7f58f71c18ed7bbe2009d0cdd44e6d7b6a7cb7d804"
+    },
+    {
+      "file": "copy-retained.png",
+      "title": "Copie achevée avant la perte de l’original : le constat reste conservé",
+      "walkerId": "WK09",
+      "elapsed": 112.58333333332823,
+      "sha256": "4bd14c901a88729530240a5bfaa67b1e4d9118e8c4b4f943518ca473702278a9"
+    }
+  ],
+  "checkpoints": [
+    {
+      "file": "passage-request-checkpoint.json",
+      "purpose": "Demande de passage en cours ; les ouvriers n’ont pas encore quitté les appuis",
+      "sha256": "c61f3de60d374925b8dd169b8675dcf118f71aaeb45f4eca43184dd73a4c93c8",
+      "elapsed": 8.683333333333344,
+      "playerX": 844.8574047335312,
+      "provenance": "Prepared by public simulation commands; available for a separately documented browser import/replay."
+    },
+    {
+      "file": "repair-checkpoint.json",
+      "purpose": "Réparation interrompable : refroidisseur isolé, travail et température encore en cours",
+      "sha256": "a47ad09b2368bc7da86d3226bbb74ed25d7d9da74de32c88e02b45708dd40318",
+      "elapsed": 92.28333333332938,
+      "playerX": 3845.7879650830487,
+      "provenance": "Prepared by public simulation commands; available for a separately documented browser import/replay."
+    },
+    {
+      "file": "decision-checkpoint.json",
+      "purpose": "Ordre à choisir après les opérations ; aucune commande encore accomplie",
+      "sha256": "82bda275c5c70ec0f2a00bedc7088ffebe29727fe62a6d064364fa5862069caf",
+      "elapsed": 113.54999999999484,
+      "playerX": 4732.22828132011,
+      "provenance": "Prepared by public simulation commands; available for a separately documented browser import/replay."
+    },
+    {
+      "file": "cooperation-checkpoint.json",
+      "purpose": "Accord des mécaniciens recueilli ; disponibilité locale sans recrutement",
+      "sha256": "95ff36d956a1ec88d5f81223e8737c81dc0cc61c21c45b78849fc28d759d31b7",
+      "elapsed": 127.14999999999407,
+      "playerX": 5111.115106052379,
+      "provenance": "Prepared by public simulation commands; available for a separately documented browser import/replay."
+    },
+    {
+      "file": "before-extraction-checkpoint.json",
+      "purpose": "Import the report-transmitted state, then physically reach extraction and inspect one-time reward.",
+      "sha256": "fafe935523032f74a2c320231dd8006068b2cea3b7f90275e1de0f466eb61f40",
+      "elapsed": 135.7166666666668,
+      "playerX": 5517.335264119634,
+      "provenance": "Prepared by public simulation commands; available for a separately documented browser import/replay."
+    },
+    {
+      "file": "completed-campaign.json",
+      "purpose": "Fourteen immutable receipts; prepared simulation export for browser import.",
+      "sha256": "19342b466fe56dbe0fc6aa50f61433d810eff162d1348bf03bfd632c79d648b1"
+    },
+    {
+      "file": "lot-lost-checkpoint.json",
+      "purpose": "Import an actually destroyed source. The report must retain missing local evidence.",
+      "sha256": "ffad54b7d57297e716e39b4f71c0a50f5829b3b5adb49140e22b698440bdaa76",
+      "elapsed": 144.71666666667397,
+      "playerX": 4316.182588496231,
+      "provenance": "Prepared by public simulation commands; available for a separately documented browser import/replay."
+    }
+  ],
+  "limitations": "These scenes do not claim native browser interaction, HTML/CSS verification, hardware controller tests, human playtest, audio listening or final art approval."
+}

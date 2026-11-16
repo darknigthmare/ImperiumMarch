@@ -1,5 +1,5 @@
 """Compare unaffected workbook content and layout with the exact prior export."""
-import argparse, hashlib, json, zipfile
+import argparse, hashlib, json, zipfile, os, re
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
@@ -110,6 +110,8 @@ report = {
     'scope':'Unchanged source cells, styles, row/column geometry and sheet views are compared exactly. Release labels, descriptions reconciled to source, and declared data edits are excluded only from value equality. New or changed text requires separate visual review. Summary formulas/results are independently reconciled by verify-bible-export.py.',
     'passed':True,
 }
-release = '.'.join(source['meta']['version'].split('.')[:2])
+receipt_suffix = os.environ.get('BIBLE_RECEIPT_SUFFIX', '')
+assert not receipt_suffix or re.fullmatch(r'[a-z0-9][a-z0-9-]*', receipt_suffix), 'Invalid BIBLE_RECEIPT_SUFFIX'
+release = '.'.join(source['meta']['version'].split('.')[:2]) + ('-' + receipt_suffix if receipt_suffix else '')
 (root/f'docs/validation/workbook-v{release}-layout.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps({key:report[key] for key in ['unaffectedCellsCompared','unaffectedDataRowsCompared','stylesXmlUnchanged','passed']}))

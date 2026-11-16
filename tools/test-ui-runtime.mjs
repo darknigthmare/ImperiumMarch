@@ -22,6 +22,10 @@ import { pilotMI08 } from '../tests/helpers/mi08-driver.mjs';
 import { pilotMI09 } from '../tests/helpers/mi09-driver.mjs';
 import { pilotMI10 } from '../tests/helpers/mi10-driver.mjs';
 import { pilotMI11, moveMI11, fireAtMI11 } from '../tests/helpers/mi11-driver.mjs';
+import { pilotMI12 } from '../tests/helpers/mi12-driver.mjs';
+import { pilotMI13 } from '../tests/helpers/mi13-driver.mjs';
+import { pilotMI14 } from '../tests/helpers/mi14-driver.mjs';
+import { RELAY_COMMAND_EXCERPT } from '../src/relay-simulation.mjs';
 import { WALKERS, VOICE_TRANSLATION_PAIRS } from '../src/content.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -332,7 +336,7 @@ for (const choice of ['obey', 'defy']) await check(`MI03 ${choice} decision, ext
   assert.equal(fresh.ids.get('workshop-network').hidden, false);
   await fresh.data('view', 'campaign');
   assert.match(fresh.ids.get('campaign-debrief').innerHTML, /MI03 \/ RAPPORT/);
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 11 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '3 / 14 RAPPORTS CLASSÉS');
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
   for (const id of ['MI01', 'MI02', 'MI03']) assert.match(fresh.ids.get('archive-content').innerHTML, new RegExp(`CAMPAGNE / ${id}`));
   await fresh.data('view', 'campaign'); await fresh.data('chapter', 'MI03'); await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
@@ -407,7 +411,7 @@ for (const choice of ['obey', 'defy']) await check(`MI04 ${choice} records the t
   assert.equal(fresh.ids.get('workshop-industrial').hidden, false);
   assert.match(fresh.ids.get('workshop-condition').textContent, /radiateur/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 11 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '4 / 14 RAPPORTS CLASSÉS');
   assert.equal(fresh.ids.get('campaign-transition').hidden, false);
   assert.match(fresh.ids.get('campaign-transition-text').textContent, /Nacre/);
   await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
@@ -528,7 +532,7 @@ await check('importing a genuine v4 Vesper dossier unlocks Nacre in the delivere
   assert.match(h.ids.get('campaign-import-summary').textContent, /MI04/);
   await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Le prix du passage');
-  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 11 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '4 / 14 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v4Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /journal de Vesper/);
@@ -589,7 +593,7 @@ for (const choice of ['obey', 'defy']) await check(`MI05 ${choice} debrief, arch
   assert.match(fresh.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI05/);
   assert.match(fresh.ids.get('archive-content').innerHTML, /Vann Ostre/);
   await fresh.data('view', 'campaign');
-  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 11 RAPPORTS CLASSÉS');
+  assert.equal(fresh.ids.get('campaign-progress').textContent, '5 / 14 RAPPORTS CLASSÉS');
   await fresh.data('chapter', 'MI05');
   await fresh.click('campaign-deploy'); await fresh.click('launch'); fresh.frames(2);
   assert.equal(fresh.snapshot().campaignReplay, true);
@@ -624,7 +628,7 @@ await check('a genuine v5 import unlocks MI06 with its actual stock and ten dist
   h.ids.get('campaign-file').files = [{ size: raw.length, text: async () => raw }];
   await h.ids.get('campaign-file').dispatch('change'); await h.click('campaign-confirm-import');
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Les maisons sous la ligne');
-  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 11 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '5 / 14 RAPPORTS CLASSÉS');
   assert.deepEqual(h.snapshot().campaign.completed, v5Dossier.completed.completed);
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /dix habitants/);
@@ -740,7 +744,7 @@ for (const choice of ['obey', 'defy']) await check(`MI06 ${choice} requires the 
   await h.data('view', 'archives'); await h.data('archive', 'records');
   assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI06/);
   await h.data('view', 'campaign');
-  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 11 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 14 RAPPORTS CLASSÉS');
   await h.data('chapter', 'MI06'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().campaignReplay, true);
   assert.equal(h.snapshot().game.campaign.context.fuelAvailable, 2);
@@ -813,7 +817,7 @@ for (const [variant, route, routeText] of [['completed', 'main', 'PRINCIPALE'], 
   const h = harness(); await importAmbulanceDossier(h, v6Dossier[variant]);
   const prior = h.snapshot().campaign;
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Une ambulance sans escorte');
-  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 11 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '6 / 14 RAPPORTS CLASSÉS');
   await h.click('campaign-deploy');
   const briefing = h.ids.get('briefing-description').textContent;
   assert.match(briefing, /quatre patients et deux membres/);
@@ -948,7 +952,7 @@ for (const choice of ['obey', 'defy']) await check(`MI07 ${choice} selects a des
   await h.data('view', 'archives'); await h.data('archive', 'records');
   assert.match(h.ids.get('archive-content').innerHTML, /CAMPAGNE \/ MI07/);
   await h.data('view', 'campaign');
-  assert.equal(h.ids.get('campaign-progress').textContent, '7 / 11 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '7 / 14 RAPPORTS CLASSÉS');
   assert.match(h.ids.get('campaign-debrief').innerHTML, /À recouper/);
   await h.data('chapter', 'MI07'); await h.click('campaign-deploy'); await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().campaignReplay, true);
@@ -1058,7 +1062,7 @@ function departurePoint(kind, choice = 'delay') {
 await check('MI08 imports a genuine v7 dossier with seven unchanged reports and exposes its inherited briefing',async()=>{
   const h=harness();await importAmbulanceDossier(h,v7Dossier.completed);
   const s=h.snapshot();assert.equal(s.campaign.version,CAMPAIGN_SAVE_VERSION);assert.deepEqual(s.campaign.completed,v7Dossier.completed.completed);
-  assert.equal(h.ids.get('campaign-progress').textContent,'7 / 11 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent,'7 / 14 RAPPORTS CLASSÉS');
   await h.click('campaign-deploy');assert.match(h.ids.get('briefing-title').textContent,/marée compte/);
   assert.match(h.ids.get('briefing-description').textContent,/12 passagers.*10 habitants.*4 patients/);
   await h.click('launch');assert.equal(h.snapshot().game.missionId,'MI08');
@@ -1179,7 +1183,7 @@ await check('MI10 migrates the authentic v9 dossier, retains nine reports and op
   assert.deepEqual(h.snapshot().campaign.completed, v9Dossier.completed.completed);
   assert.deepEqual(h.snapshot().campaign.resources, v9Dossier.completed.resources);
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Le champ que personne n’a semé');
-  assert.match(h.ids.get('campaign-progress').textContent, /9 \/ 11/);
+  assert.match(h.ids.get('campaign-progress').textContent, /9 \/ 14/);
   await h.click('campaign-deploy'); assert.match(h.ids.get('briefing-description').textContent, /vingt secondes/);
   await h.click('launch'); h.frames(2);
   assert.equal(h.snapshot().game.missionId, 'MI10'); assert.equal(h.ids.get('chemical-instrument').hidden, false);
@@ -1546,14 +1550,14 @@ function assertVoiceArchiveSources(html, { translationCopied, testimonyRecorded 
 await check('MI11 migrates the historic v10 simulation dossier, keeps ten reports and resources, and opens the voice briefing and HUD', async () => {
   const raw = JSON.stringify(v10Dossier.completed), h = harness(new Map([[CAMPAIGN_SAVE_KEY, raw]]));
   const migrated = h.snapshot().campaign;
-  assert.equal(migrated.version, CAMPAIGN_SAVE_VERSION); assert.equal(migrated.version, 11);
+  assert.equal(migrated.version, CAMPAIGN_SAVE_VERSION); assert.equal(migrated.version, CAMPAIGN_SAVE_VERSION);
   assert.equal(Object.keys(migrated.completed).length, 10);
   for (const field of ['completed', 'resources', 'stage', 'fleet', 'crew', 'authority', 'maintenanceLog']) assert.deepEqual(migrated[field], v10Dossier.completed[field]);
   assert.deepEqual(migrated.world.nacre, v10Dossier.completed.world.nacre);
   assert.deepEqual(migrated.world.thyr.route, v10Dossier.completed.world.thyr.route);
   assert.deepEqual(migrated.world.thyr.chemical, v10Dossier.completed.world.thyr.chemical);
   assert.equal(h.ids.get('campaign-order-title').textContent, 'Une voix au ras du sol');
-  assert.equal(h.ids.get('campaign-progress').textContent, '10 / 11 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-progress').textContent, '10 / 14 RAPPORTS CLASSÉS');
   await h.click('campaign-deploy');
   assert.match(h.ids.get('briefing-description').textContent, /PT02 est conservé/);
   assert.match(h.ids.get('briefing-description').textContent, /appuis ancrés, sans déplacement ni tir/);
@@ -1693,7 +1697,7 @@ for (const choice of ['obey', 'defy']) await check(`MI11 ${choice} selects no au
   assert.equal(receipt.nestsIntact, 3); assert.equal(receipt.witnessAvailable, true);
   assert.equal(receipt.publicConsent, false); assert.equal(receipt.recruited, false);
   const official = JSON.stringify(finished.campaign), stored = h.values.get(CAMPAIGN_SAVE_KEY);
-  await h.click('result-menu'); assert.equal(h.ids.get('campaign-progress').textContent, '11 / 11 RAPPORTS CLASSÉS');
+  await h.click('result-menu'); assert.equal(h.ids.get('campaign-progress').textContent, '11 / 14 RAPPORTS CLASSÉS');
   await h.data('view', 'archives'); await h.data('archive', 'records');
   const html = h.ids.get('archive-content').innerHTML;
   assertVoiceArchiveSources(html, receipt);
@@ -1702,7 +1706,7 @@ for (const choice of ['obey', 'defy']) await check(`MI11 ${choice} selects no au
   assert.match(html, /Dossier du champ de Thyr/); assert.match(html, /Registre des personnes d’Aval/);
   await h.data('view', 'hangar'); assert.equal(h.ids.get('workshop-voice').hidden, false);
   assert.match(h.ids.get('workshop-voice').textContent, /TE01 est conservé.*Leth reste sur Thyr/);
-  const fresh = harness(h.values); assert.equal(fresh.ids.get('campaign-progress').textContent, '11 / 11 RAPPORTS CLASSÉS');
+  const fresh = harness(h.values); assert.equal(fresh.ids.get('campaign-progress').textContent, '11 / 14 RAPPORTS CLASSÉS');
   await fresh.data('chapter', 'MI11'); await fresh.click('campaign-deploy'); await fresh.click('launch');
   assert.equal(fresh.snapshot().campaignReplay, true); assert.equal(fresh.snapshot().game.missionId, 'MI11');
   await fresh.key('KeyD'); fresh.frames(120); await fresh.key('KeyD', false); await fresh.click('pause-button');
@@ -1890,6 +1894,372 @@ await check('MI11 withdrawal before recording files the actual damaged passage a
   const fresh = harness(h.values); await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
   assert.match(fresh.ids.get('archive-content').innerHTML, /Leth a retiré sa coopération\. Aucun enregistrement achevé n’est conservé\./);
   assert.deepEqual(fresh.snapshot().campaign.completed.MI11, receipt);
+});
+
+// Reconstruction 0.14.1: public simulation commands prepare scoped checkpoints.
+// Each asserted UI operation below goes through the delivered script's handlers.
+// An explicit checkpoint import is never claimed as an uninterrupted UI route.
+const nativeV11 = JSON.parse(readFileSync(resolve(root, 'tests/fixtures/campaign-v11-mi11.json'), 'utf8'));
+const rebuiltPoints = new Map();
+let rebuiltAfterMI12;
+function rebuiltPrior(missionId) {
+  const original = parseCampaign(JSON.stringify(nativeV11.completed));
+  if (missionId === 'MI12') return original;
+  if (!rebuiltAfterMI12) {
+    const started = beginCampaignMission(original, { missionId: 'MI12', walkerId: 'WK09', difficulty: 'story', seed: 2147 });
+    pilotMI12(started.game); assert.equal(started.game.status, 'won');
+    rebuiltAfterMI12 = finishCampaignMission(started.campaign, started.game).campaign;
+  }
+  return structuredClone(rebuiltAfterMI12);
+}
+function rebuiltPoint(missionId, stage, choice = 'defy', variant = {}) {
+  const key = JSON.stringify([missionId, stage, choice, variant]);
+  if (!rebuiltPoints.has(key)) {
+    const started = beginCampaignMission(rebuiltPrior(missionId), { missionId, walkerId: 'WK09', difficulty: 'story', seed: missionId === 'MI12' ? 2147 : 2413 });
+    const stops = {
+      start: () => true,
+      copy: s => s.relay?.copy.working && s.relay.copy.progress > .2,
+      dormant: s => s.relay?.window.opened && !s.relay.alert.ready,
+      combat: s => s.campaign.ordersCopied && s.relay?.alert.ready && !s.relay.praetor.destroyed && s.player.x > s.relay.relays[2].x + 90,
+      decision: s => s.decision.active,
+      valve: s => s.foundry?.bridges[0].valve.working && s.foundry.bridges[0].valve.progress > .3,
+      analysis: s => s.foundry?.analysis.working && s.foundry.analysis.progress > .3,
+      transfer: s => s.foundry?.cargo[0].transfer.working && s.foundry.cargo[0].transfer.progress > .2,
+      extraction: s => s.campaign.reportTransmitted && s.player.x > s.extraction.x - s.extraction.radius - 55,
+    };
+    const stopAt = stops[stage]; assert.equal(typeof stopAt, 'function');
+    (missionId === 'MI12' ? pilotMI12 : pilotMI13)(started.game, { choice, ...variant, stopAt });
+    assert.ok(stopAt(started.game), `public controls reached ${key}`); assert.equal(started.game.status, 'playing');
+    rebuiltPoints.set(key, checkpointCampaign(started.campaign, started.game, { beforeDecision: stage === 'decision' }));
+  }
+  return structuredClone(rebuiltPoints.get(key));
+}
+async function moveRebuiltThroughUI(h, x) {
+  const code = h.snapshot().game.player.x > x ? 'KeyQ' : 'KeyD';
+  await h.key('Space', false); await h.key(code);
+  voiceUIUntil(h, s => Math.abs(s.player.x - x) < 18, 6000, `keyboard reached reconstructed mission position ${x}`);
+  await h.key(code, false); await h.key('Space'); h.frames(24);
+  voiceUIUntil(h, s => s.player.braced && !s.player.move && Math.abs(s.player.speed) < 3 && s.player.feet.every(f => f.contact), 300, 'real appuis settled under anchoring');
+}
+async function extractRebuiltThroughUI(h, missionId) {
+  const before = h.snapshot(), reportCount = Number(missionId.slice(2)) - 1;
+  assert.equal(before.game.status, 'playing'); assert.equal(before.game.campaign.reportTransmitted, true);
+  assert.ok(Math.abs(before.game.player.x - before.game.extraction.x) >= before.game.extraction.radius);
+  assert.equal(Object.keys(before.campaign.completed).length, reportCount);
+  await h.key('Space', false); await h.key('KeyD');
+  voiceUIUntil(h, s => s.status === 'won', 900, `${missionId} physical extraction through keydown handler`);
+  await h.key('KeyD', false);
+  const finished = h.snapshot(); assert.equal(finished.campaignWarning, '');
+  assert.equal(h.ids.get('result-dialog').open, true); assert.ok(finished.game.player.x > before.game.player.x);
+  assert.equal(Object.keys(finished.campaign.completed).length, reportCount + 1);
+  assert.equal(finished.campaign.resources.parts, before.campaign.resources.parts + 4);
+  for (const [id, receipt] of Object.entries(before.campaign.completed)) assert.deepEqual(finished.campaign.completed[id], receipt);
+  const text = JSON.stringify(finished.campaign); h.frames(120); assert.equal(JSON.stringify(h.snapshot().campaign), text);
+  assert.deepEqual(parseCampaign(h.values.get(CAMPAIGN_SAVE_KEY)).completed[missionId], finished.campaign.completed[missionId]);
+  return finished;
+}
+
+await check('MI12 imports native v11 without rewriting eleven reports and exposes the reconstructed briefing and instrument', async () => {
+  const h = harness(); await importAmbulanceDossier(h, nativeV11.completed);
+  const migrated = h.snapshot().campaign;
+  assert.equal(migrated.version, CAMPAIGN_SAVE_VERSION); assert.deepEqual(migrated.completed, nativeV11.completed.completed);
+  for (const key of ['resources', 'fleet', 'crew', 'authority', 'maintenanceLog', 'stage']) assert.deepEqual(migrated[key], nativeV11.completed[key]);
+  assert.equal(h.ids.get('campaign-progress').textContent, '11 / 14 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-order-title').textContent, 'Le troisième relais');
+  await h.click('campaign-deploy'); assert.match(h.ids.get('briefing-description').textContent, /copie|relais/);
+  await h.click('launch'); h.frames(2);
+  assert.equal(h.snapshot().game.missionId, 'MI12'); assert.equal(h.ids.get('relay-instrument').hidden, false);
+  assert.equal(h.ids.get('foundry-instrument').hidden, true); assert.equal(h.ids.get('voice-instrument').hidden, true);
+  assert.match(h.ids.get('relay-relays').textContent, /0 \/ 3 RELEVÉS/);
+  assert.match(h.ids.get('relay-copy').textContent, /TROIS REPÈRES/);
+  assert.equal(h.snapshot().campaignWarning, '');
+});
+
+await check('MI12 anchored copy and its forty-five-second window pause exactly and resume from a fresh application context', async () => {
+  const point = rebuiltPoint('MI12', 'copy'), h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]]));
+  await h.click('campaign-resume'); assert.deepEqual(h.snapshot().game, point.checkpoint);
+  await h.key('Space'); h.frames(12);
+  assert.ok(h.snapshot().game.relay.copy.progress > point.checkpoint.relay.copy.progress);
+  assert.match(h.ids.get('relay-copy').textContent, /COPIE \d+ %/);
+  await h.click('pause-button'); const paused = h.snapshot(); h.frames(900);
+  assert.deepEqual(h.snapshot().game, paused.game); assert.equal(paused.campaignWarning, '');
+  const fresh = harness(h.values); await fresh.click('campaign-resume'); assert.deepEqual(fresh.snapshot().game, paused.game);
+  await fresh.key('Space'); fresh.frames(12);
+  assert.ok(fresh.snapshot().game.relay.copy.progress > paused.game.relay.copy.progress);
+  assert.equal(fresh.snapshot().game.relay.window.deadline, paused.game.relay.window.deadline);
+  assert.equal(fresh.snapshot().game.campaign.ordersCopied, false);
+});
+
+for (const choice of ['obey', 'defy', 'refuse']) await check(`MI12 ${choice} executes a real relay intervention, files one result, reveals only its copy and preserves replay`, async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(rebuiltPoint('MI12', 'decision'))]]));
+  await h.click('campaign-resume'); h.frames(1); assert.equal(h.ids.get('decision-dialog').open, true);
+  assert.equal((h.ids.get('decision-options').innerHTML.match(/data-choice=/g) || []).length, 3);
+  const before = h.snapshot().game; h.frames(60); assert.deepEqual(h.snapshot().game, before);
+  await h.data('choice', choice); const chosen = h.snapshot().game;
+  assert.equal(chosen.decision.choice, choice); assert.deepEqual(chosen.relay.relays, before.relay.relays);
+  assert.equal(chosen.campaign.operationsResolved, false);
+  const node = chosen.relay.relays[2]; await moveRebuiltThroughUI(h, node.x - 90); await interactVoiceThroughUI(h);
+  assert.equal(h.snapshot().game.relay.relays[2].working, true); h.frames(120);
+  assert.equal(h.snapshot().game.relay.relays[2][choice === 'obey' ? 'erased' : 'isolated'], false);
+  voiceUIUntil(h, s => s.relay.relays[2][choice === 'obey' ? 'erased' : 'isolated'], 220, 'physical five-second relay operation completes');
+  assert.equal(h.snapshot().game.campaign.ordersCopied, true);
+  await h.click('pause-button'); await h.click('to-menu');
+  await importAmbulanceDossier(h, rebuiltPoint('MI12', 'extraction', choice)); await h.click('campaign-resume');
+  const finished = await extractRebuiltThroughUI(h, 'MI12'), receipt = finished.campaign.completed.MI12;
+  assert.equal(receipt.choice, choice); assert.equal(receipt.publicRefusal, choice === 'refuse');
+  assert.match(h.ids.get('result-stats').innerHTML, /COMMANDES INDUSTRIELLES/);
+  await h.click('result-menu'); await h.data('view', 'archives'); await h.data('archive', 'records');
+  assert.ok(h.ids.get('archive-content').innerHTML.includes(RELAY_COMMAND_EXCERPT));
+  assert.match(h.ids.get('archive-content').innerHTML, /aucune défection|ni une défection/);
+  await h.data('view', 'hangar'); assert.equal(h.ids.get('workshop-relay').hidden, false);
+  const official = JSON.stringify(h.snapshot().campaign), stored = h.values.get(CAMPAIGN_SAVE_KEY);
+  const fresh = harness(h.values); await fresh.data('chapter', 'MI12'); await fresh.click('campaign-deploy'); await fresh.click('launch');
+  assert.equal(fresh.snapshot().campaignReplay, true); await fresh.key('KeyD'); fresh.frames(60); await fresh.click('pause-button');
+  assert.equal(JSON.stringify(fresh.snapshot().campaign), official); assert.equal(fresh.values.get(CAMPAIGN_SAVE_KEY), stored);
+});
+
+await check('MI12 an expired copy reveals no command wording in result or persisted archive', async () => {
+  const point = rebuiltPoint('MI12', 'extraction', 'defy', { skipCopy: true });
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]])); await h.click('campaign-resume');
+  const finished = await extractRebuiltThroughUI(h, 'MI12'); assert.equal(finished.campaign.completed.MI12.ordersCopied, false);
+  await h.click('result-menu'); await h.data('view', 'archives'); await h.data('archive', 'records');
+  assert.equal(h.ids.get('archive-content').innerHTML.includes(RELAY_COMMAND_EXCERPT), false);
+  assert.match(h.ids.get('archive-content').innerHTML, /Aucun texte des commandes n’est reconstitué/);
+  const fresh = harness(h.values); await fresh.data('view', 'archives'); await fresh.data('archive', 'records');
+  assert.equal(fresh.ids.get('archive-content').innerHTML.includes(RELAY_COMMAND_EXCERPT), false);
+});
+
+await check('MI12 a lost third relay is described as lost even when its intended plan was preservation', async () => {
+  const point = rebuiltPoint('MI12', 'extraction', 'defy', { destroySourceBeforeCopy: true });
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]])); await h.click('campaign-resume');
+  const finished = await extractRebuiltThroughUI(h, 'MI12');
+  assert.equal(finished.campaign.completed.MI12.roster.relays[2].destroyed, true);
+  assert.match(h.ids.get('result-stats').innerHTML, /troisième relais perdu/);
+  assert.doesNotMatch(h.ids.get('result-stats').innerHTML, /Troisième relais conservé|Troisième relais isolé sur place/);
+  await h.click('result-menu'); await h.data('view', 'archives'); await h.data('archive', 'records');
+  assert.match(h.ids.get('archive-content').innerHTML, /Conservation demandée · troisième relais perdu/);
+  assert.equal(h.ids.get('archive-content').innerHTML.includes(RELAY_COMMAND_EXCERPT), false);
+});
+
+await check('MI12 touch auto-aim excludes the dormant Praetor and follows only its live components after arrival', async () => {
+  const dormant = rebuiltPoint('MI12', 'dormant'), h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(dormant)]]));
+  await h.click('campaign-resume'); await h.key('Space');
+  const fire = h.document.querySelector('[data-hold="fire"]');
+  await fire.dispatch('pointerdown', { pointerId: 81, pointerType: 'touch' }); h.frames(2);
+  const before = h.snapshot().game; assert.equal(before.relay.alert.ready, false);
+  assert.ok(Math.abs(before.player.aimX - before.player.x - 600) < .01, 'no dormant actor is acquired by auto-aim');
+  assert.equal(before.relay.praetor.hp, before.relay.praetor.maxHp);
+  await fire.dispatch('pointerup', { pointerId: 81, pointerType: 'touch' });
+  await h.click('pause-button'); await h.click('to-menu');
+  await importAmbulanceDossier(h, rebuiltPoint('MI12', 'combat')); await h.click('campaign-resume'); await h.key('Space');
+  await fire.dispatch('pointerdown', { pointerId: 82, pointerType: 'touch' }); h.frames(2);
+  let active = h.snapshot().game;
+  const actor = active.relay.praetor;
+  const candidates = [actor.sensor, actor.hydraulicLock, actor].filter(part => !part.destroyed)
+    .sort((a, b) => Math.abs(a.x - active.player.x) - Math.abs(b.x - active.player.x));
+  assert.equal(active.player.aimX, candidates[0].x); assert.equal(active.player.aimY, candidates[0].y);
+  assert.equal(actor.hydraulicLock.destroyed, false); const originalHP = actor.hydraulicLock.hp;
+  let venting = false;
+  for (let frame = 0; frame < 1800 && !active.relay.praetor.hydraulicLock.destroyed; frame += 6) {
+    const vent = active.player.heat > 78 || active.player.overheated;
+    if (vent !== venting) { await h.key('KeyV', vent); venting = vent; }
+    h.frames(6); active = h.snapshot().game;
+  }
+  assert.ok(active.relay.praetor.hydraulicLock.hp < originalHP, 'touch aiming delivers real impacts on the exposed component');
+  assert.equal(active.relay.praetor.hydraulicLock.destroyed, true);
+  h.frames(2); active = h.snapshot().game;
+  assert.notEqual(active.player.aimX, active.relay.praetor.hydraulicLock.x, 'the broken component is no longer selected');
+  await fire.dispatch('pointerup', { pointerId: 82, pointerType: 'touch' }); await h.key('KeyV', false);
+  assert.equal(h.snapshot().campaignWarning, '');
+});
+
+await check('MI13 opens only after MI12, displays actual cargo and thermal circuits, and keeps the fourteen-mission counter', async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(rebuiltPrior('MI13'))]]));
+  assert.equal(h.ids.get('campaign-progress').textContent, '12 / 14 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-order-title').textContent, 'Pièces de rechange');
+  await h.click('campaign-deploy'); assert.match(h.ids.get('briefing-description').textContent, /Kharon|vannes/); await h.click('launch'); h.frames(8);
+  assert.equal(h.snapshot().game.missionId, 'MI13'); assert.equal(h.ids.get('foundry-instrument').hidden, false);
+  assert.equal(h.ids.get('relay-instrument').hidden, true); assert.match(h.ids.get('foundry-cargo').textContent, /2 INTACTES/);
+  assert.match(h.ids.get('foundry-thermal').textContent, /90 °C/); assert.match(h.ids.get('foundry-provenance').textContent, /0 \/ 2 MARQUAGES/);
+  assert.equal(h.snapshot().game.campaign.pt03Acquired, false); assert.equal(h.snapshot().campaignWarning, '');
+});
+
+for (const [stage, objectPath, predicate] of [
+  ['valve', s => s.foundry.bridges[0].valve, s => s.foundry.bridges[0].circuitOpen],
+  ['analysis', s => s.foundry.analysis, s => s.foundry.analysis.completed],
+]) await check(`MI13 ${stage} pauses exact work and completes through resumed anchoring`, async () => {
+  const point = rebuiltPoint('MI13', stage), h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]]));
+  await h.click('campaign-resume'); await h.key('Space'); h.frames(12);
+  assert.ok(objectPath(h.snapshot().game).progress > objectPath(point.checkpoint).progress);
+  await h.click('pause-button'); const paused = h.snapshot(); h.frames(600); assert.deepEqual(h.snapshot().game, paused.game);
+  const fresh = harness(h.values); await fresh.click('campaign-resume'); assert.deepEqual(fresh.snapshot().game, paused.game);
+  await fresh.key('Space'); voiceUIUntil(fresh, predicate, 600, `${stage} finishes with real resumed input`); fresh.frames(8);
+  assert.equal(fresh.snapshot().campaignWarning, '');
+  if (stage === 'analysis') assert.match(fresh.ids.get('foundry-provenance').textContent, /PT03 CONSERVÉE/);
+  else { assert.ok(fresh.snapshot().game.foundry.bridges[0].temperature < 90); assert.match(fresh.ids.get('foundry-thermal').textContent, /CIRCUIT OUVERT|CIRCUIT ISOLÉ/); }
+});
+
+for (const choice of ['obey', 'defy']) await check(`MI13 ${choice} chooses no instant convoy movement, completes actual extraction and preserves one reward plus replay`, async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(rebuiltPoint('MI13', 'decision'))]]));
+  await h.click('campaign-resume'); h.frames(1); const before = h.snapshot().game;
+  assert.equal((h.ids.get('decision-options').innerHTML.match(/data-choice=/g) || []).length, 2);
+  await h.data('choice', choice); const chosen = h.snapshot().game;
+  assert.equal(chosen.decision.choice, choice); assert.equal(chosen.foundry.carrier.x, before.foundry.carrier.x);
+  assert.deepEqual(chosen.foundry.cargo, before.foundry.cargo); assert.equal(chosen.campaign.cargoTransferred, 0);
+  await h.click('pause-button'); await h.click('to-menu');
+  await importAmbulanceDossier(h, rebuiltPoint('MI13', 'extraction', choice)); await h.click('campaign-resume');
+  const finished = await extractRebuiltThroughUI(h, 'MI13'), receipt = finished.campaign.completed.MI13;
+  assert.equal(receipt.choice, choice); assert.equal(receipt.cargoTransferred, 2); assert.equal(receipt.pt03Acquired, true);
+  assert.match(h.ids.get('result-stats').innerHTML, /PIÈCE TECHNIQUE PT03/); assert.match(h.ids.get('result-stats').innerHTML, /CIRCUITS ISOLÉS/);
+  await h.click('result-menu'); assert.equal(h.ids.get('campaign-progress').textContent, '13 / 14 RAPPORTS CLASSÉS');
+  await h.data('view', 'archives'); await h.data('archive', 'records');
+  const html = h.ids.get('archive-content').innerHTML;
+  assert.match(html, /PT03 rapproche les deux marquages, le bordereau et l’analyse/);
+  assert.match(html, choice === 'obey' ? /Transférée au dépôt/ : /Transférée en quarantaine/);
+  await h.data('view', 'hangar'); assert.equal(h.ids.get('workshop-foundry').hidden, false);
+  const official = JSON.stringify(h.snapshot().campaign), stored = h.values.get(CAMPAIGN_SAVE_KEY);
+  const fresh = harness(h.values); await fresh.data('chapter', 'MI13'); await fresh.click('campaign-deploy'); await fresh.click('launch');
+  assert.equal(fresh.snapshot().campaignReplay, true); fresh.frames(90); await fresh.click('pause-button');
+  assert.equal(JSON.stringify(fresh.snapshot().campaign), official); assert.equal(fresh.values.get(CAMPAIGN_SAVE_KEY), stored);
+});
+
+await check('MI13 partial transfer stops at its actual position, persists through pause and reload, then resumes via E at the post', async () => {
+  const point = rebuiltPoint('MI13', 'transfer'), h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]]));
+  await h.click('campaign-resume'); await h.key('Space'); h.frames(12);
+  const before = h.snapshot().game.foundry.cargo[0];
+  await h.key('Space', false); await h.key('KeyQ'); h.frames(90); await h.key('KeyQ', false); h.frames(8);
+  const interrupted = h.snapshot().game.foundry.cargo[0];
+  assert.equal(interrupted.transfer.working, false); assert.equal(interrupted.transfer.elapsed, before.transfer.elapsed);
+  assert.equal(interrupted.x, before.x); assert.equal(interrupted.y, before.y);
+  assert.match(h.ids.get('foundry-stage').textContent, /TRANSFERT INTERROMPU/);
+  await h.click('pause-button'); const paused = h.snapshot(); h.frames(600); assert.deepEqual(h.snapshot().game, paused.game);
+  const fresh = harness(h.values); await fresh.click('campaign-resume'); assert.deepEqual(fresh.snapshot().game, paused.game);
+  const bay = fresh.snapshot().game.foundry.bays.find(b => b.kind === 'quarantine');
+  await moveRebuiltThroughUI(fresh, bay.postX - 30); await interactVoiceThroughUI(fresh);
+  voiceUIUntil(fresh, s => s.foundry.cargo[0].transferred, 360, 'the preserved partial transfer resumes at its real post');
+  assert.equal(fresh.snapshot().game.foundry.cargo[1].transferred, false); assert.equal(fresh.snapshot().game.campaign.cargoTransferred, 1);
+  assert.equal(fresh.snapshot().campaignWarning, '');
+});
+
+for (const [name, variant, copied] of [
+  ['manifest lost before copy', { destroyManifestBeforeCopy: true }, false],
+  ['originals lost after copying', { destroyCargoAfterCopy: true }, true],
+]) await check(`MI13 ${name} displays and persists the actual source state without fabricating or deleting PT03`, async () => {
+  const point = rebuiltPoint('MI13', 'extraction', 'defy', variant), h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]]));
+  await h.click('campaign-resume'); h.frames(8); assert.equal(h.snapshot().game.campaign.pt03Acquired, copied);
+  assert.match(h.ids.get('foundry-provenance').textContent, copied ? /PT03 CONSERVÉE/ : /SOURCES INSUFFISANTES/);
+  const finished = await extractRebuiltThroughUI(h, 'MI13'); assert.equal(finished.campaign.completed.MI13.pt03Acquired, copied);
+  await h.click('result-menu'); await h.data('view', 'archives'); await h.data('archive', 'records');
+  const html = h.ids.get('archive-content').innerHTML;
+  assert.match(html, copied ? /PT03 rapproche les deux marquages/ : /Les conditions de PT03 ne sont pas réunies/);
+  if (!copied) assert.match(html, /Aucun bordereau exploitable n’est conservé/);
+  else { assert.match(html, /Détruite/); assert.match(html, /Marquage copié/); }
+});
+
+await check('MI13 weapon-lock follows real overheat every frame, vent inhibits firing and unlock occurs strictly below 48 percent', async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(rebuiltPoint('MI13', 'start'))]]));
+  await h.click('campaign-resume'); await h.key('Space');
+  await h.ids.get('game-canvas').dispatch('pointermove', { clientX: 1400, clientY: 30, pointerType: 'mouse' });
+  const fire = h.document.querySelector('[data-hold="fire"]');
+  await fire.dispatch('pointerdown', { pointerId: 71, pointerType: 'touch' });
+  let overheated = false;
+  for (let frame = 0; frame < 1800; frame++) { h.frames(1); if (h.snapshot().game.player.overheated) { overheated = true; break; } }
+  assert.equal(overheated, true); assert.match(h.ids.get('weapon-lock').textContent, /ARMEMENT VERROUILLÉ/);
+  const blockedShots = h.snapshot().game.stats.shots; h.frames(8); assert.equal(h.snapshot().game.stats.shots, blockedShots);
+  await h.key('KeyV'); h.frames(1); assert.equal(h.snapshot().game.player.venting, true);
+  let priorHeat = h.snapshot().game.player.heat, unlocked = false;
+  for (let frame = 0; frame < 900; frame++) {
+    h.frames(1); const p = h.snapshot().game.player;
+    if (!p.overheated) { assert.ok(p.heat < 48); assert.ok(priorHeat >= 48); unlocked = true; break; }
+    assert.ok(p.heat >= 48); assert.match(h.ids.get('weapon-lock').textContent, /ARMEMENT VERROUILLÉ/); priorHeat = p.heat;
+  }
+  assert.equal(unlocked, true); assert.equal(h.snapshot().game.stats.shots, blockedShots);
+  assert.match(h.ids.get('weapon-lock').textContent, /VENTILATION · TIR SUSPENDU/);
+  await h.key('KeyV', false); h.frames(1); assert.match(h.ids.get('weapon-lock').textContent, /ARMEMENT DISPONIBLE/);
+  voiceUIUntil(h, s => s.stats.shots > blockedShots, 90, 'firing resumes only after actual thermal release');
+  await fire.dispatch('pointerup', { pointerId: 71, pointerType: 'touch' });
+  assert.equal(h.snapshot().campaignWarning, '');
+});
+
+// MI14 fixtures below are prepared through public controls, then imported through
+// the actual application. They do not stand in for an uninterrupted browser run.
+const workshopPriorText = readFileSync(resolve(root, 'tests/fixtures/campaign-v13-mi13.json'), 'utf8');
+const workshopPoints = new Map();
+function workshopPoint(stage, choice = 'defy', variant = {}) {
+  const key = JSON.stringify([stage, choice, variant]);
+  if (!workshopPoints.has(key)) {
+    const started = beginCampaignMission(parseCampaign(workshopPriorText), { missionId: 'MI14', walkerId: 'WK09', difficulty: 'story', seed: 1514 });
+    const stops = {
+      repair: s => s.workshop.cooler.repair.working && s.workshop.cooler.repair.progress > .3,
+      decision: s => s.decision.active,
+      extraction: s => s.campaign.reportTransmitted && s.player.x > s.extraction.x - s.extraction.radius - 55,
+    };
+    pilotMI14(started.game, { choice, ...variant, stopAt: stops[stage] });
+    assert.ok(stops[stage](started.game)); assert.equal(started.game.status, 'playing');
+    workshopPoints.set(key, checkpointCampaign(started.campaign, started.game, { beforeDecision: stage === 'decision' }));
+  }
+  return structuredClone(workshopPoints.get(key));
+}
+await check('MI14 migrates v13, unlocks after the thirteenth report and opens its own instrument', async () => {
+  const h = harness(); await importAmbulanceDossier(h, JSON.parse(workshopPriorText));
+  assert.equal(h.snapshot().campaign.version, 14); assert.equal(h.snapshot().campaignWarning, '');
+  assert.equal(h.ids.get('campaign-progress').textContent, '13 / 14 RAPPORTS CLASSÉS');
+  assert.equal(h.ids.get('campaign-order-title').textContent, 'Les mains noires');
+  await h.click('campaign-deploy'); assert.match(h.ids.get('briefing-description').textContent, /Demandez le passage/);
+  await h.click('launch'); h.frames(2);
+  assert.equal(h.snapshot().game.missionId, 'MI14'); assert.equal(h.ids.get('atelier-instrument').hidden, false);
+  assert.equal(h.ids.get('foundry-instrument').hidden, true); assert.equal(h.ids.get('relay-instrument').hidden, true);
+  assert.match(h.ids.get('atelier-people').textContent, /8 \/ 8 EN VIE/);
+});
+await check('MI14 real pause and reload preserve repair progress and resumed anchoring completes the work', async () => {
+  const point = workshopPoint('repair'), h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]]));
+  await h.click('campaign-resume'); await h.key('Space'); h.frames(12);
+  assert.match(h.ids.get('atelier-stage').textContent, /RÉPARATION/);
+  await h.click('pause-button'); const before = h.snapshot().game; h.frames(90);
+  assert.deepEqual(h.snapshot().game, before);
+  const fresh = harness(h.values); await fresh.click('campaign-resume');
+  assert.deepEqual(fresh.snapshot().game, before); await fresh.key('Space');
+  voiceUIUntil(fresh, s => s.workshop.cooler.repaired, 600, 'MI14 repair completes through resumed key input');
+  assert.match(fresh.ids.get('atelier-cooler').textContent, /RÉPARÉ/);
+  assert.equal(fresh.snapshot().campaignWarning, '');
+});
+for (const choice of ['obey', 'defy']) await check(`MI14 ${choice} chooses no instant work, operates the control and persists one result plus all named workers`, async () => {
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(workshopPoint('decision'))]]));
+  await h.click('campaign-resume'); h.frames(1); const before = h.snapshot().game;
+  await h.data('choice', choice); const chosen = h.snapshot().game;
+  assert.equal(chosen.decision.choice, choice); assert.equal(chosen.workshop.control.operated, false);
+  assert.deepEqual(chosen.workshop.workers, before.workshop.workers);
+  await h.key('Space');
+  voiceUIUntil(h, s => s.player.braced && !s.player.move && Math.abs(s.player.speed) < 3 && s.player.feet.every(f => f.contact), 300, 'MI14 all appuis settle before work');
+  await interactVoiceThroughUI(h);
+  voiceUIUntil(h, s => s.workshop.control.operated, 420, 'five seconds of real UI work operate the control');
+  assert.equal(h.snapshot().game.campaign.productionOnline, choice === 'obey');
+  await h.key('Space', false); await h.click('pause-button'); await h.click('to-menu');
+  await importAmbulanceDossier(h, workshopPoint('extraction', choice)); await h.click('campaign-resume');
+  const finished = await extractRebuiltThroughUI(h, 'MI14'), receipt = finished.campaign.completed.MI14;
+  assert.equal(receipt.choice, choice); assert.equal(receipt.workersAlive, 8);
+  assert.equal(receipt.mechanicsAvailable, choice === 'defy' ? 2 : 0);
+  assert.match(h.ids.get('result-stats').innerHTML, /OUVRIERS VIVANTS/);
+  await h.click('result-menu'); assert.equal(h.ids.get('campaign-progress').textContent, '14 / 14 RAPPORTS CLASSÉS');
+  await h.data('view', 'archives'); await h.data('archive', 'records');
+  const archive = h.ids.get('archive-content').innerHTML;
+  for (const person of receipt.roster.workers) assert.ok(archive.includes(person.name));
+  assert.match(archive, /avant le recensement connu/);
+  await h.data('view', 'hangar'); assert.equal(h.ids.get('workshop-kharon').hidden, false);
+  const official = JSON.stringify(h.snapshot().campaign), stored = h.values.get(CAMPAIGN_SAVE_KEY);
+  const fresh = harness(h.values); await fresh.data('chapter', 'MI14'); await fresh.click('campaign-deploy'); await fresh.click('launch');
+  assert.equal(fresh.snapshot().campaignReplay, true); fresh.frames(90); await fresh.click('pause-button');
+  assert.equal(JSON.stringify(fresh.snapshot().campaign), official); assert.equal(fresh.values.get(CAMPAIGN_SAVE_KEY), stored);
+});
+await check('MI14 original loss after copying and later worker death stay visible in the UI archive', async () => {
+  const point = workshopPoint('extraction', 'defy', { destroyLotAfterCopy: true, destroyWorkerAfterCooperation: true });
+  const h = harness(new Map([[CAMPAIGN_SAVE_KEY, serializeCampaign(point)]])); await h.click('campaign-resume'); h.frames(1);
+  assert.match(h.ids.get('atelier-lot').textContent, /RELEVÉ CONSERVÉ · ORIGINAL PERDU/);
+  assert.match(h.ids.get('atelier-people').textContent, /7 \/ 8 EN VIE.*1 PERTE/);
+  const finished = await extractRebuiltThroughUI(h, 'MI14'); assert.equal(finished.campaign.completed.MI14.mechanicsAvailable, 1);
+  await h.click('result-menu'); await h.data('view', 'archives'); await h.data('archive', 'records');
+  assert.match(h.ids.get('archive-content').innerHTML, /Doria Sen<\/th><td>Mécanicien · atelier local<\/td><td>Perdu/);
+  assert.equal(h.snapshot().campaignWarning, '');
 });
 
 console.log(`UI STATE INTEGRATION PASSED: ${checks} flows against the actual offline application script in a modeled DOM.`);

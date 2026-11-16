@@ -1,5 +1,13 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Reprise 0.15.2 — préparation du snapshot
+
+La reprise du 16 novembre 2026 rassemble MI12–MI14, les huit atlas de l’atelier et les neuf atlas de combat. La version locale est **0.15.2** ; les résultats de construction et de validation figurent dans [QA_PAINTED_COMBAT.md](QA_PAINTED_COMBAT.md). La Bible conserve 1 007 fiches et le dossier du joueur reste v14.
+
+Au contrôle initial de cette reprise, `main` pointe sur `60056ce79fd1d10749abdfc88a752cb74a3dbd44`. Le dernier déploiement de production observé est `dpl_5QCqm8qWwfcGuSvrgteNznwCZ5x7`, READY pour `06a6b0b15c504cb5f185c407e551cb15da64270a`, encore en 0.12. Ces observations décrivent l’état avant publication du nouveau snapshot. Les octets du jeu local ne sont pas une preuve de déploiement ; le reçu de publication suivant doit rattacher arbre distant, CI et Vercel à leur SHA réel.
+
+Les anciens rapports de publication ci-dessous restent historiques. Les paramètres de projet, domaines et protection Vercel existants sont conservés pendant cette reprise.
+
 ## Construction
 
 ```sh
