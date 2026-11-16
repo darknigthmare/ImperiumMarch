@@ -1,5 +1,54 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Publication 0.15.7 — sources et site reçus, Release en attente
+
+**Les sources et le site 0.15.7 sont publiés. Le ZIP n’est pas encore disponible dans une Release GitHub.** Le [reçu de publication](validation/v0157-publication.json) rassemble ces statuts séparés et leurs preuves.
+
+La [PR #6](https://github.com/darknigthmare/ImperiumMarch/pull/6) est fusionnée sur `main` au commit **`1235102b25a531a90feeb0d1b38a37482a928c5d`**. Son arbre **`0062c6bf540370195354b1df8415e8d2328509f0`** correspond au snapshot local vérifié **`86c9e6fa337e83566e64f763b0dd6bac8d581aab`**. Le [bilan de production](PRODUCTION_V15_7.md) reçoit treize nouveaux atlas et 81 cellules ; les quatorze lots réunissent **71 atlas / 542 cellules**, dont 504 utilisées au rendu et 38 références.
+
+### CI distante et identité des constructions
+
+La [CI de la PR](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43956078021) et la [CI de main](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43957129117) ont toutes deux réussi sous **Node 22.23.4** : **795 tests, 174 comparaisons SVG/Canvas, quatorze lots peints, 108 parcours du DOM modélisé, contrôles de données et d’interface, constructions autonome et web**. Les [reçus PR](validation/v0157-pr-ci.json) et [main](validation/v0157-main-ci.json) conservent chaque étape et les empreintes des logs.
+
+La CI de PR est associée au HEAD **`9b61a9f96b7308f8edb6b2b9e02ef11addac3eea`** ; GitHub y exécute sa fusion synthétique **`91e56feada55b6afa1515b9a22c079a4718fc5d6`** avec le parent `154f32961123325e40fd29b29d97b979330243ab`. La CI de `main` exécute ensuite le véritable commit fusionné **`1235102b25a531a90feeb0d1b38a37482a928c5d`**. Les deux arbres construits sont exactement `0062c6bf540370195354b1df8415e8d2328509f0`.
+
+| Construction vérifiée localement, dans la PR et sur main | Octets | SHA-256 |
+| --- | ---: | --- |
+| `Ordre_de_Cendre.html` | 170 475 459 | `ecf7eb97d83481c9dc1661f55017ef0d1f0b0a3f42980af98415db4941ab5b94` |
+| `Ordre_de_Cendre.zip` | 125 016 849 | `87b79009d6c1b57865954bcdae67524f7a6b68459e9b51226634b47dae470817` |
+
+L’archive contient exactement une entrée `Ordre_de_Cendre.html`, CRC32 **`4818945a`**, identique au fichier construit. Le [contrôle indépendant local](validation/v0157-offline-verification.json) et les deux reçus CI concordent. Le champ `workingTree: modified` des constructions CI reflète les fichiers générés par les contrôles ; ces CI ne sont pas des reçus de publication de Release. Les PNG originaux restent inchangés.
+
+### Production Vercel reçue
+
+Le déploiement **`dpl_EWsKifPhgoRLqE6ds2N1j9vhW6xm`**, cible **production**, est **READY le 16 novembre 2026 à 22:09:47.885, heure de Paris**, soit **21:09:47.885 UTC**. Il identifie le commit `1235102b25a531a90feeb0d1b38a37482a928c5d` et le projet existant `imperium-march`. Le [reçu Vercel](validation/v0157-vercel-production.json) conserve ces valeurs et les trois alias associés, sans erreur d’alias :
+
+- [imperium-march.vercel.app](https://imperium-march.vercel.app/)
+- [imperium-march-darknigthmares-projects.vercel.app](https://imperium-march-darknigthmares-projects.vercel.app/)
+- [imperium-march-git-main-darknigthmares-projects.vercel.app](https://imperium-march-git-main-darknigthmares-projects.vercel.app/)
+
+Le [contrôle HTTP](validation/v0157-production-http.json), effectué via la connexion Vercel à **21:11:00 UTC**, reçoit **HTTP 200**, la version **0.15.7** et l’index de **23 316 octets**. Son SHA-256 **`ed15722931114820d62a43d3ca13c31b4839c1c89a1ebce15def60485365a6f3`** correspond exactement à l’index local. Ce contrôle de contenu ne constitue pas une interaction de navigateur.
+
+La [réception navigateur limitée](QA_NATIVE_V15_7.md) concerne séparément l’aperçu **`dpl_ETi2p8RrLsmCeQBRxTBwoDrNMeaq`** du HEAD de PR **`9b61a9f96b7308f8edb6b2b9e02ef11addac3eea`**. Les cinq vues, le lancement de MI01, la marche, le treuil jusqu’aux dalles verrouillées, la pause, la reprise et le retour au menu y ont été observés. Aucun import MI03, MI04, MI09 ou MI13, aucune restauration après rechargement ni réception humaine complète n’est confirmé. Le [reçu navigateur](validation/v0157-native-browser.json) conserve ces observations ; les captures et l’onglet ont disparu lors de la réinitialisation, et aucun fichier image n’est annoncé comme archivé.
+
+### Unique action de publication encore en attente
+
+Le workflow [Publish the complete offline game](https://github.com/darknigthmare/ImperiumMarch/actions/workflows/offline-release.yml) a été préparé dans l’interface GitHub avec les paramètres suivants :
+
+| Paramètre | Valeur préparée |
+| --- | --- |
+| Branche du workflow | `main` |
+| Tag de version | `v0.15.7` |
+| Commit à construire et publier | `1235102b25a531a90feeb0d1b38a37482a928c5d` |
+
+**L’examen automatique d’autorisation a refusé le clic « Run workflow », faute d’autorisation de publication suffisamment explicite.** Le déclenchement n’a pas été exécuté ; aucun nouveau run de ce workflow, nouveau tag ou Release publiée n’a été confirmé. La publication binaire reste donc en attente d’une autorisation explicite pour cette action précise.
+
+Le [reçu de l’examen automatique](validation/v0157-offline-release-auto-review.json) conserve les paramètres et le motif du refus. Aucun nouvel essai ni autre voie de déclenchement n’a été utilisé. Le formulaire préparé n’est plus ouvert après la réinitialisation du navigateur.
+
+Après cette autorisation, l’action prévue consiste à lancer ce workflow avec les paramètres ci-dessus. Il reconstruira l’HTML attendu, vérifiera l’archive et ses empreintes, puis publiera les trois fichiers `Ordre_de_Cendre.zip`, `Ordre_de_Cendre.manifest.json` et `Ordre_de_Cendre.sha256` seulement après ses contrôles. Le [contrat de distribution](OFFLINE_DISTRIBUTION.md) décrit ces étapes. Un lien de téléchargement 0.15.7 ne doit être annoncé comme disponible qu’après réception de la Release et de ses trois fichiers.
+
+Les versions et preuves historiques suivantes conservent leur portée d’origine.
+
 ## Préparation de publication 0.15.7
 
 La reprise part du `main` public `154f32961123325e40fd29b29d97b979330243ab`, arbre `ac67a90e02ef4bf35051397968a66fcd220353d0`, version 0.15.6. Les anciens fichiers locaux d’une tranche 0.15.7 non publiée n’ont pas été retrouvés. Le [nouveau lot reconstruit](PRODUCTION_V15_7.md) ajoute **13 atlas et 81 cellules** à Vesper, MI09 et MI13, pour un total vérifié de **71 atlas / 542 cellules**. La réconciliation du comptage établit 504 cellules utilisées et 38 références, sans modifier les rapports historiques ci-dessous.

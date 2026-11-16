@@ -1,0 +1,389 @@
+{
+  "schema": 1,
+  "version": "0.15.7",
+  "repository": "darknigthmare/ImperiumMarch",
+  "requestedHeadSha": "9b61a9f96b7308f8edb6b2b9e02ef11addac3eea",
+  "initialConclusionObservedUtc": "2026-11-16 21:08:04 UTC",
+  "checkedUtc": "2026-11-16 21:27:35 UTC",
+  "recoveredFromExistingRun": true,
+  "conclusion": "success",
+  "workflow": {
+    "id": 43956078021,
+    "name": "Validate prototype and design data",
+    "event": "pull_request",
+    "path": ".github/workflows/ci.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "9b61a9f96b7308f8edb6b2b9e02ef11addac3eea",
+    "head_branch": "codex/painted-vesper-route-foundry-v0157",
+    "run_number": 34,
+    "run_attempt": 1,
+    "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43956078021",
+    "created_at": "2026-11-16T21:03:13Z",
+    "updated_at": "2026-11-16T21:07:17Z",
+    "run_started_at": "2026-11-16T21:03:13Z",
+    "tree": "0062c6bf540370195354b1df8415e8d2328509f0"
+  },
+  "job": {
+    "id": 133610857842,
+    "name": "validate",
+    "status": "completed",
+    "conclusion": "success",
+    "run_id": 43956078021,
+    "logs_url": null,
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2
+      },
+      {
+        "name": "Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3
+      },
+      {
+        "name": "Run npm test",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4
+      },
+      {
+        "name": "Install pinned development-only raster validator",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5
+      },
+      {
+        "name": "Validate shared SVG and Canvas rendering",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6
+      },
+      {
+        "name": "Decode and validate the painted MI14 sprites",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7
+      },
+      {
+        "name": "Decode and validate the painted combat sprites",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8
+      },
+      {
+        "name": "Decode and validate the painted walker parts",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 9
+      },
+      {
+        "name": "Decode and validate the painted Thyr life",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 10
+      },
+      {
+        "name": "Decode and validate Cerbere and its weapon mount",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 11
+      },
+      {
+        "name": "Decode and validate railway and industrial transport",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 12
+      },
+      {
+        "name": "Decode and validate the Praetor and command relays",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 13
+      },
+      {
+        "name": "Decode and validate the Nacre vehicles",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 14
+      },
+      {
+        "name": "Decode and validate the Nacre infrastructure",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 15
+      },
+      {
+        "name": "Decode and validate the chemical field equipment",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 16
+      },
+      {
+        "name": "Decode and validate the voice mission equipment and nesting sites",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 17
+      },
+      {
+        "name": "Decode and validate Vesper buildings and machinery",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 18
+      },
+      {
+        "name": "Decode and validate the living route equipment",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 19
+      },
+      {
+        "name": "Decode and validate the foundry site equipment",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 20
+      },
+      {
+        "name": "Run npm run check",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 21
+      },
+      {
+        "name": "Run npm run build",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 22
+      },
+      {
+        "name": "Run npm run check:offline-package",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 23
+      },
+      {
+        "name": "Run npm run check:ui",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 24
+      },
+      {
+        "name": "Run npm run check:ui-runtime",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 25
+      },
+      {
+        "name": "Run npm run build:web",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 26
+      },
+      {
+        "name": "Post Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 51
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 52
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 53
+      }
+    ]
+  },
+  "pullRequest": 6,
+  "checkout": {
+    "kind": "GitHub synthetic pull-request merge",
+    "headSha": "9b61a9f96b7308f8edb6b2b9e02ef11addac3eea",
+    "testedCommitSha": "91e56feada55b6afa1515b9a22c079a4718fc5d6",
+    "tree": "0062c6bf540370195354b1df8415e8d2328509f0",
+    "evidence": "HEAD is now at 91e56fe Merge 9b61a9f96b7308f8edb6b2b9e02ef11addac3eea into 154f32961123325e40fd29b29d97b979330243ab",
+    "baseSha": "154f32961123325e40fd29b29d97b979330243ab",
+    "testedMergeSha": "91e56feada55b6afa1515b9a22c079a4718fc5d6"
+  },
+  "environment": {
+    "node": "22.23.4",
+    "zlib": "1.3.1-e00f703",
+    "canvas": "0.1.100"
+  },
+  "results": {
+    "nodeTests": {
+      "tests": 795,
+      "pass": 795,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 68577.685784
+    },
+    "svgCanvas": {
+      "passed": 174,
+      "total": 174,
+      "evidence": "Production SVG/Canvas raster validation passed: 174/174 cases, @napi-rs/canvas 0.1.100."
+    },
+    "paintedLots": {
+      "count": 14,
+      "allSuccessful": true,
+      "lots": [
+        {
+          "lot": "mi14",
+          "command": "npm run check:painted",
+          "step": 7,
+          "conclusion": "success",
+          "output": "{\"completed\":true,\"atlases\":8,\"frames\":54,\"components\":33,\"scenes\":14,\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-mi14\"}"
+        },
+        {
+          "lot": "combat",
+          "command": "npm run check:combat",
+          "step": 8,
+          "conclusion": "success",
+          "output": "{\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-combat-qa\",\"completed\":true,\"atlases\":9,\"frames\":78,\"views\":6}"
+        },
+        {
+          "lot": "walkers",
+          "command": "npm run check:walkers",
+          "step": 9,
+          "conclusion": "success",
+          "output": "{\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-walkers-qa\",\"completed\":true,\"atlases\":6,\"cells\":96,\"views\":19,\"poses\":54,\"missionScenes\":6,\"hangarViews\":6}"
+        },
+        {
+          "lot": "thyr",
+          "command": "npm run check:thyr",
+          "step": 10,
+          "conclusion": "success",
+          "output": "{\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-thyr-qa\",\"completed\":true,\"atlases\":8,\"cells\":62,\"runtimeCells\":58,\"referenceCells\":4,\"views\":7}"
+        },
+        {
+          "lot": "cerbere",
+          "command": "npm run check:cerbere",
+          "step": 11,
+          "conclusion": "success",
+          "output": "{\"completed\":true,\"frames\":16,\"views\":2,\"shotOrientations\":2,\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-cerbere-qa\"}"
+        },
+        {
+          "lot": "transport",
+          "command": "npm run check:transport",
+          "step": 12,
+          "conclusion": "success",
+          "output": "Transport reception: 4 atlases, 20 cells, 5 Canvas views. Not a browser test."
+        },
+        {
+          "lot": "relay",
+          "command": "npm run check:relay",
+          "step": 13,
+          "conclusion": "success",
+          "output": "{\"completed\":true,\"atlases\":3,\"frames\":30,\"views\":9,\"mission\":{\"mission\":\"MI12\",\"status\":\"won\",\"elapsed\":205.066666666722,\"capturedScenes\":7,\"choice\":\"defy\"},\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-relay-qa\"}"
+        },
+        {
+          "lot": "nacre",
+          "command": "npm run check:nacre",
+          "step": 14,
+          "conclusion": "success",
+          "output": "{\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-nacre-v0155\",\"completed\":true,\"atlases\":6,\"cells\":30,\"runtimeCells\":29,\"referenceCells\":1,\"views\":5}"
+        },
+        {
+          "lot": "nacre-sites",
+          "command": "npm run check:nacre-sites",
+          "step": 15,
+          "conclusion": "success",
+          "output": "{\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-nacre-sites-v0156\",\"completed\":true,\"atlases\":5,\"cells\":30,\"runtimeCells\":30,\"referenceCells\":0,\"views\":10}"
+        },
+        {
+          "lot": "chemical",
+          "command": "npm run check:chemical",
+          "step": 16,
+          "conclusion": "success",
+          "output": "Painted chemical reception: 5 PNGs / 24 states / 11 views; MI10 defy won at 198.917 s"
+        },
+        {
+          "lot": "voice",
+          "command": "npm run check:voice",
+          "step": 17,
+          "conclusion": "success",
+          "output": "{\"completed\":true,\"atlases\":3,\"frames\":21,\"views\":8,\"mission\":{\"mission\":\"MI11\",\"status\":\"won\",\"elapsed\":136.8166666666677,\"choice\":\"defy\",\"capturedScenes\":7,\"nestsIntact\":3,\"te01Acquired\":true},\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-voice-qa\"}"
+        },
+        {
+          "lot": "vesper",
+          "command": "npm run check:vesper",
+          "step": 18,
+          "conclusion": "success",
+          "output": "{\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-vesper-v0157\",\"completed\":true,\"atlases\":6,\"cells\":38,\"diagnosticViews\":5,\"publicInputViews\":9,\"views\":14}"
+        },
+        {
+          "lot": "route",
+          "command": "npm run check:route",
+          "step": 19,
+          "conclusion": "success",
+          "output": "{\n\"completed\": true,\n\"counts\": {\n\"atlases\": 3,\n\"cells\": 20,\n\"runtimeCells\": 18,\n\"referenceCells\": 2,\n\"views\": 8,\n\"publicScenes\": 6\n},\n\"output\": \"/home/runner/work/ImperiumMarch/outputs/painted-route-qa\",\n\"publicRun\": {\n\"ticks\": 9792,\n\"status\": \"won\",\n\"scenes\": [\n\"arrival\",\n\"contact-working\",\n\"map-surveyed\",\n\"barrier-working\",\n\"truck-moving\",\n\"report-sent\"\n],\n\"elapsed\": 163.18333333335534,\n\"reportTransmitted\": true,\n\"arrived\": 4,\n\"logisticsArrived\": true\n}\n}"
+        },
+        {
+          "lot": "foundry-sites",
+          "command": "npm run check:foundry-sites",
+          "step": 20,
+          "conclusion": "success",
+          "output": "MI13 foundry sites: 4 original atlases, 23 cells, 8 Canvas views; public run won. Not a browser or human test."
+        }
+      ]
+    },
+    "projectCheck": "Project checks passed: 20 design sheets, 1007 source rows, 6 playable chassis, 3 independent operations, 14 campaign missions.",
+    "offlineBuild": "Offline game built: dist/Ordre_de_Cendre.html (162.58 MiB), 62 modules, no remote dependencies.",
+    "offlineVerification": {
+      "status": "verified",
+      "entry": "Ordre_de_Cendre.html",
+      "htmlFileCompared": true,
+      "html": {
+        "bytes": 170475459,
+        "sha256": "ecf7eb97d83481c9dc1661f55017ef0d1f0b0a3f42980af98415db4941ab5b94",
+        "crc32": "4818945a"
+      },
+      "zip": {
+        "bytes": 125016849,
+        "sha256": "87b79009d6c1b57865954bcdae67524f7a6b68459e9b51226634b47dae470817",
+        "entries": 1
+      },
+      "source": {
+        "version": "0.15.7",
+        "commit": "91e56feada55b6afa1515b9a22c079a4718fc5d6",
+        "tree": "0062c6bf540370195354b1df8415e8d2328509f0",
+        "workingTree": "modified"
+      }
+    },
+    "staticUi": "STATIC UI AUDIT PASSED: 213 unique HTML IDs; 185 literal JS ID references; 5 views; 4 archive tabs; 6 dialogs.",
+    "offlineBundleAudit": "OFFLINE BUNDLE AUDIT PASSED: one inline script compiled by vm.Script without executing; all HTML/CSS/Canvas assets embedded; no unresolved imports or resource requests.",
+    "domRuntime": {
+      "flows": 108,
+      "evidence": "UI STATE INTEGRATION PASSED: 108 flows against the actual offline application script in a modeled DOM."
+    },
+    "webBuild": "Web game built: web-dist/index.html, src/ and assets/. No runtime dependencies."
+  },
+  "logs": {
+    "path": "v0157-pr-ci-job.txt",
+    "sha256": "4de4465e218c82774738ac79f640fb8a6367a0823b8b72d8d3232ff5d242363d",
+    "bytes": 438556,
+    "firstTimestamp": "2026-11-16T21:03:17.9601405Z",
+    "lastTimestamp": "2026-11-16T21:07:13.8501224Z"
+  },
+  "limitations": [
+    "Existing completed GitHub run and logs re-read after workspace recovery; no workflow was triggered or repeated.",
+    "The named checkout and tree define the received CI scope. Canvas and modeled-DOM checks are not browser or human playtests.",
+    "CI validation generators leave a modified working tree; these builds are not clean GitHub Release publication receipts.",
+    "Vercel deployment and release-asset availability have separate receipts."
+  ]
+}
