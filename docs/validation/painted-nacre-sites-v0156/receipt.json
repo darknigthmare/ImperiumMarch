@@ -1,0 +1,768 @@
+{
+  "version": "0.15.6",
+  "date": "2026-11-16T15:48:46.874Z",
+  "completed": true,
+  "type": "Actual PNG decoding, original integrity, measured anchors and diagnostic Canvas renderer views",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "atlases": [
+    {
+      "key": "shelters",
+      "path": "assets/painted/nacre-sites/shelters.png",
+      "bytes": 1918963,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "979e235a3eaf4d0ee5f8d92370936709def105eb82ce2639c4bb9fc82a54b8df",
+      "clearPixels": 696234
+    },
+    {
+      "key": "barriers",
+      "path": "assets/painted/nacre-sites/barriers.png",
+      "bytes": 1643320,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "e5fd0d6c938fea2608c8082a243913725e8ba372ffcaa5e5f17948a41738af70",
+      "clearPixels": 844682
+    },
+    {
+      "key": "houses",
+      "path": "assets/painted/nacre-sites/houses.png",
+      "bytes": 1418912,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "5f1adff8ef1ceada161d91d65e5829801cba662ae573668441bfc97896f33b58",
+      "clearPixels": 986725
+    },
+    {
+      "key": "hydraulics",
+      "path": "assets/painted/nacre-sites/hydraulics.png",
+      "bytes": 1571903,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "d46e15cda7b99d57050aa44b88507caf5519787ffd89ec2802982337495b1240",
+      "clearPixels": 903628
+    },
+    {
+      "key": "quays",
+      "path": "assets/painted/nacre-sites/quays.png",
+      "bytes": 1226572,
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "2cae9ba58daadf519342fb1938f9fb46ecc37ac02627dff5fe4097256518c78e",
+      "clearPixels": 991758
+    }
+  ],
+  "frames": [
+    {
+      "key": "shelters",
+      "name": "quay-shelter",
+      "part": "quay-shelter",
+      "state": "normal",
+      "source": [
+        78,
+        258,
+        527,
+        333
+      ],
+      "target": [
+        -82.294455067,
+        -118.717325228,
+        161.223709369,
+        119.434650456
+      ],
+      "runtime": true,
+      "solidPixels": 148444
+    },
+    {
+      "key": "shelters",
+      "name": "clinic",
+      "part": "clinic",
+      "state": "normal",
+      "source": [
+        708,
+        87,
+        396,
+        503
+      ],
+      "target": [
+        -79.806122449,
+        -157.629258517,
+        159.612244898,
+        158.258517034
+      ],
+      "runtime": true,
+      "solidPixels": 177325
+    },
+    {
+      "key": "shelters",
+      "name": "imperial",
+      "part": "imperial",
+      "state": "normal",
+      "source": [
+        44,
+        666,
+        444,
+        540
+      ],
+      "target": [
+        -81.154545455,
+        -157.585820896,
+        159.436363636,
+        158.171641791
+      ],
+      "runtime": true,
+      "solidPixels": 200590
+    },
+    {
+      "key": "shelters",
+      "name": "refuge",
+      "part": "refuge",
+      "state": "normal",
+      "source": [
+        499,
+        739,
+        731,
+        466
+      ],
+      "target": [
+        -86.024759285,
+        -152.658008658,
+        213.166437414,
+        153.316017316
+      ],
+      "runtime": true,
+      "solidPixels": 299360
+    },
+    {
+      "key": "barriers",
+      "name": "panel-normal",
+      "part": "panel",
+      "state": "normal",
+      "source": [
+        94,
+        60,
+        252,
+        532
+      ],
+      "target": [
+        -39.629032258,
+        -72.545454545,
+        79.258064516,
+        145.090909091
+      ],
+      "runtime": true,
+      "solidPixels": 122751
+    },
+    {
+      "key": "barriers",
+      "name": "panel-damaged",
+      "part": "panel",
+      "state": "damaged",
+      "source": [
+        501,
+        61,
+        252,
+        532
+      ],
+      "target": [
+        -39.629032258,
+        -72.545454545,
+        79.258064516,
+        145.090909091
+      ],
+      "runtime": true,
+      "solidPixels": 122605
+    },
+    {
+      "key": "barriers",
+      "name": "panel-destroyed",
+      "part": "panel",
+      "state": "destroyed",
+      "source": [
+        882,
+        428,
+        293,
+        164
+      ],
+      "target": [
+        -45.62283737,
+        17.325,
+        91.24567474,
+        55.35
+      ],
+      "runtime": true,
+      "solidPixels": 30957
+    },
+    {
+      "key": "barriers",
+      "name": "gate-normal",
+      "part": "gate",
+      "state": "normal",
+      "source": [
+        72,
+        656,
+        300,
+        563
+      ],
+      "target": [
+        -40.540540541,
+        -85.611806798,
+        81.081081081,
+        172.223613596
+      ],
+      "runtime": true,
+      "solidPixels": 156562
+    },
+    {
+      "key": "barriers",
+      "name": "gate-damaged",
+      "part": "gate",
+      "state": "damaged",
+      "source": [
+        470,
+        656,
+        310,
+        563
+      ],
+      "target": [
+        -40.522875817,
+        -85.611806798,
+        81.045751634,
+        172.223613596
+      ],
+      "runtime": true,
+      "solidPixels": 158874
+    },
+    {
+      "key": "barriers",
+      "name": "gate-destroyed",
+      "part": "gate",
+      "state": "destroyed",
+      "source": [
+        855,
+        1039,
+        355,
+        180
+      ],
+      "target": [
+        -45.512820513,
+        46.511363636,
+        91.025641026,
+        43.977272727
+      ],
+      "runtime": true,
+      "solidPixels": 41871
+    },
+    {
+      "key": "houses",
+      "name": "house-a-normal",
+      "part": "house-a",
+      "state": "normal",
+      "source": [
+        14,
+        195,
+        391,
+        386
+      ],
+      "target": [
+        -90.051679587,
+        -144.753926702,
+        171.757105943,
+        145.507853403
+      ],
+      "runtime": true,
+      "solidPixels": 117099
+    },
+    {
+      "key": "houses",
+      "name": "house-a-damaged",
+      "part": "house-a",
+      "state": "damaged",
+      "source": [
+        428,
+        196,
+        383,
+        385
+      ],
+      "target": [
+        -89.612403101,
+        -144.376963351,
+        168.242894057,
+        145.130890052
+      ],
+      "runtime": true,
+      "solidPixels": 115124
+    },
+    {
+      "key": "houses",
+      "name": "house-a-destroyed",
+      "part": "house-a",
+      "state": "destroyed",
+      "source": [
+        848,
+        455,
+        391,
+        126
+      ],
+      "target": [
+        -85.878552972,
+        -46.743455497,
+        171.757105943,
+        47.497382199
+      ],
+      "runtime": true,
+      "solidPixels": 36037
+    },
+    {
+      "key": "houses",
+      "name": "house-b-normal",
+      "part": "house-b",
+      "state": "normal",
+      "source": [
+        5,
+        814,
+        409,
+        304
+      ],
+      "target": [
+        -91.086419753,
+        -128.853333333,
+        171.679012346,
+        129.706666667
+      ],
+      "runtime": true,
+      "solidPixels": 91881
+    },
+    {
+      "key": "houses",
+      "name": "house-b-damaged",
+      "part": "house-b",
+      "state": "damaged",
+      "source": [
+        422,
+        821,
+        409,
+        297
+      ],
+      "target": [
+        -89.827160494,
+        -125.866666667,
+        171.679012346,
+        126.72
+      ],
+      "runtime": true,
+      "solidPixels": 89896
+    },
+    {
+      "key": "houses",
+      "name": "house-b-destroyed",
+      "part": "house-b",
+      "state": "destroyed",
+      "source": [
+        845,
+        997,
+        397,
+        121
+      ],
+      "target": [
+        -83.320987654,
+        -50.773333333,
+        166.641975309,
+        51.626666667
+      ],
+      "runtime": true,
+      "solidPixels": 33120
+    },
+    {
+      "key": "hydraulics",
+      "name": "pump-normal",
+      "part": "pump",
+      "state": "normal",
+      "source": [
+        21,
+        192,
+        282,
+        382
+      ],
+      "target": [
+        -34.489208633,
+        -42,
+        73.035971223,
+        76.4
+      ],
+      "runtime": true,
+      "solidPixels": 81662
+    },
+    {
+      "key": "hydraulics",
+      "name": "pump-destroyed",
+      "part": "pump",
+      "state": "destroyed",
+      "source": [
+        329,
+        196,
+        283,
+        381
+      ],
+      "target": [
+        -36.516129032,
+        -34.360742706,
+        73.032258065,
+        68.721485411
+      ],
+      "runtime": true,
+      "solidPixels": 76096
+    },
+    {
+      "key": "hydraulics",
+      "name": "pump-rotor",
+      "part": "pump-rotor",
+      "state": "normal",
+      "source": [
+        636,
+        240,
+        294,
+        303
+      ],
+      "target": [
+        -23.475862069,
+        -23.230769231,
+        46.634482759,
+        46.615384615
+      ],
+      "runtime": true,
+      "solidPixels": 49903
+    },
+    {
+      "key": "hydraulics",
+      "name": "valve",
+      "part": "valve",
+      "state": "normal",
+      "source": [
+        941,
+        169,
+        307,
+        431
+      ],
+      "target": [
+        -34.112211221,
+        -21.285714286,
+        68.897689769,
+        61.571428571
+      ],
+      "runtime": true,
+      "solidPixels": 65448
+    },
+    {
+      "key": "hydraulics",
+      "name": "valve-wheel",
+      "part": "valve-wheel",
+      "state": "normal",
+      "source": [
+        8,
+        724,
+        306,
+        320
+      ],
+      "target": [
+        -19.251655629,
+        -19.360759494,
+        38.503311258,
+        38.481012658
+      ],
+      "runtime": true,
+      "solidPixels": 48055
+    },
+    {
+      "key": "hydraulics",
+      "name": "control-normal",
+      "part": "gate-control",
+      "state": "normal",
+      "source": [
+        324,
+        698,
+        300,
+        383
+      ],
+      "target": [
+        -28.945945946,
+        -21.413333333,
+        56.756756757,
+        47.662222222
+      ],
+      "runtime": true,
+      "solidPixels": 94214
+    },
+    {
+      "key": "hydraulics",
+      "name": "control-destroyed",
+      "part": "gate-control",
+      "state": "destroyed",
+      "source": [
+        641,
+        698,
+        302,
+        381
+      ],
+      "target": [
+        -28.375838926,
+        -26.275862069,
+        56.751677852,
+        52.551724138
+      ],
+      "runtime": true,
+      "solidPixels": 93880
+    },
+    {
+      "key": "hydraulics",
+      "name": "latch",
+      "part": "latch",
+      "state": "normal",
+      "source": [
+        1024,
+        684,
+        166,
+        358
+      ],
+      "target": [
+        -9.111111111,
+        -30.444444444,
+        18.444444444,
+        39.777777778
+      ],
+      "runtime": true,
+      "solidPixels": 30311
+    },
+    {
+      "key": "quays",
+      "name": "dock",
+      "part": "dock",
+      "state": "normal",
+      "source": [
+        31,
+        108,
+        566,
+        223
+      ],
+      "target": [
+        -120.854092527,
+        -33.543859649,
+        241.708185053,
+        78.245614035
+      ],
+      "runtime": true,
+      "solidPixels": 70370
+    },
+    {
+      "key": "quays",
+      "name": "ramp-folded",
+      "part": "ramp-folded",
+      "state": "normal",
+      "source": [
+        704,
+        134,
+        476,
+        174
+      ],
+      "target": [
+        -43.36440678,
+        -32.376470588,
+        86.728813559,
+        32.752941176
+      ],
+      "runtime": true,
+      "solidPixels": 72988
+    },
+    {
+      "key": "quays",
+      "name": "deck-slat",
+      "part": "deck-slat",
+      "state": "normal",
+      "source": [
+        120,
+        587,
+        387,
+        83
+      ],
+      "target": [
+        -10.104438642,
+        -4.202531646,
+        20.208877285,
+        8.405063291
+      ],
+      "runtime": true,
+      "solidPixels": 27753
+    },
+    {
+      "key": "quays",
+      "name": "winch-normal",
+      "part": "winch",
+      "state": "normal",
+      "source": [
+        722,
+        450,
+        436,
+        329
+      ],
+      "target": [
+        -22.101851852,
+        -22.407407407,
+        44.407407407,
+        44.679012346
+      ],
+      "runtime": true,
+      "solidPixels": 109018
+    },
+    {
+      "key": "quays",
+      "name": "winch-drum",
+      "part": "winch-drum",
+      "state": "normal",
+      "source": [
+        137,
+        861,
+        350,
+        354
+      ],
+      "target": [
+        -13.150289017,
+        -13.148571429,
+        26.300578035,
+        26.297142857
+      ],
+      "runtime": true,
+      "solidPixels": 64175
+    },
+    {
+      "key": "quays",
+      "name": "winch-destroyed",
+      "part": "winch",
+      "state": "destroyed",
+      "source": [
+        692,
+        910,
+        490,
+        263
+      ],
+      "target": [
+        -22.181069959,
+        -10.247104247,
+        44.362139918,
+        32.494208494
+      ],
+      "runtime": true,
+      "solidPixels": 78448
+    }
+  ],
+  "views": [
+    {
+      "file": "nacre-sites-state-grid.png",
+      "sha256": "214553dd10985b093ad70693920b907efbbc7feb1549aa8d51f375ddd2ce05f3",
+      "type": "Thirty measured source cells on alternating backgrounds; no gameplay claim"
+    },
+    {
+      "file": "dike-housing-water-diagnostic.png",
+      "sha256": "dfd838bb9c745be8677a8543de29145fd5835195a3b8e079bafe1b5999168b6e",
+      "type": "Imposed low/high water and ruined house copies; .65 threshold stays code-driven"
+    },
+    {
+      "file": "nacre-controls-diagnostic.png",
+      "sha256": "4ca96074a4b806da7564b3dc3b82517a6bb22cbaa470e146e705cb531076c2a8",
+      "type": "Imposed mechanical states; separate rotors, wheels, latches, winches, cables and supports"
+    },
+    {
+      "file": "gate-motion-diagnostic.png",
+      "sha256": "4a9218a8fde6142a29ac57c696ab7515d1eb8bd6a02afdf25198f9cfb3693342",
+      "type": "Imposed gate openings; cyan outline is authoritative departureGateBounds, rails and destroyed remains stay grounded"
+    },
+    {
+      "file": "ramp-preparation-diagnostic.png",
+      "sha256": "493c4eb477a4262bdc5f96077d4a8b13406a892a03c5e8438001717f5a833397",
+      "type": "Imposed ramp preparation copies; MI07 decking follows actual terrain, MI08 pitch follows progress"
+    },
+    {
+      "file": "scene-mi05-sites-camera.png",
+      "sha256": "26ca0d8249138d527514241f66a59b95e0d6b1542906ebace4a637622c443094",
+      "type": "Normal renderer with camera framing only; no actor teleportation or mission accomplishment",
+      "missionId": "MI05",
+      "cameraX": 1350,
+      "publicUpdateTicks": 120,
+      "elapsed": 1.9999999999999978,
+      "stateSha256": "feb5d15b5ae23b25e51921a41b299413b40c05342081019fdfb5ee1c58e44e96"
+    },
+    {
+      "file": "scene-mi06-sites-camera.png",
+      "sha256": "074b5ac0f66c58da98c1db96dc2c6bf38ceae6da1d4280e9f0b171f961de0fcf",
+      "type": "Normal renderer with camera framing only; no actor teleportation or mission accomplishment",
+      "missionId": "MI06",
+      "cameraX": 1120,
+      "publicUpdateTicks": 120,
+      "elapsed": 1.9999999999999978,
+      "stateSha256": "5286db50c5b9a89f96fa87f0f77e03d2dafadd10beab18abf2639734308666fe"
+    },
+    {
+      "file": "scene-mi07-sites-camera.png",
+      "sha256": "22391b694bb7d999215528064417f927b0f10e5c125afad4a6ed70271f07fc7d",
+      "type": "Normal renderer with camera framing only; no actor teleportation or mission accomplishment",
+      "missionId": "MI07",
+      "cameraX": 4050,
+      "publicUpdateTicks": 120,
+      "elapsed": 1.9999999999999978,
+      "stateSha256": "b2b95d0b63c7fe7e5b57d478ba29176ed66ffc45df98697976b7b549f91fc73a"
+    },
+    {
+      "file": "scene-mi08-quay-camera.png",
+      "sha256": "ffe6f02e0aff7f220c693e7994bf94abdd3052ddd8e696c6afbbbe7075d884a9",
+      "type": "Normal renderer with camera framing only; no actor teleportation or mission accomplishment",
+      "missionId": "MI08",
+      "cameraX": 3350,
+      "publicUpdateTicks": 120,
+      "elapsed": 1.9999999999999978,
+      "stateSha256": "2caa21c19160363bf39ae46b3957176664fc06e5a7866b939f9f51093d42a15d"
+    },
+    {
+      "file": "scene-mi08-refuge-camera.png",
+      "sha256": "9ac03176024d8ad9975c3da640cad8bcf24976a5c24f9f3b3fb75c041589bed8",
+      "type": "Normal renderer with camera framing only; no actor teleportation or mission accomplishment",
+      "missionId": "MI08",
+      "cameraX": 5200,
+      "publicUpdateTicks": 120,
+      "elapsed": 1.9999999999999978,
+      "stateSha256": "2caa21c19160363bf39ae46b3957176664fc06e5a7866b939f9f51093d42a15d"
+    }
+  ],
+  "sources": {
+    "src/painted-nacre-sites.mjs": "33e98db1963d2ede5fa759abe3d5cc1291dabaf76716b3af9199d274f7334d53",
+    "src/painted-nacre-sites-layout.mjs": "fc12ffe49d3d7b21f450f67b6d55c9ef57b7a752913d955974994b5b7d246320",
+    "src/renderer.mjs": "423ccddc1a08887e7bab423e58fdc4ae65db5d5034e7f2853f146bdb10d02f04",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "tools/index-painted-nacre-sites.py": "9bcd422a2ebd76bc9ce2127e79936475603f454f97aab6b98ca3e5334429374d",
+    "tools/test-painted-nacre-sites.mjs": "abec3e218b29a30c01160bd10c0f2cb2bacae65c17418b902031fb18fe6aab40",
+    "tests/painted-nacre-sites.test.mjs": "829d6dcd498d19cc1c737bb91f5d46e95cf62b36c68f539dd1feb579d58dcfdd"
+  },
+  "limitations": [
+    "Camera-focused scenes use ordinary renderer calls after 120 public update ticks, not complete mission walkthroughs.",
+    "Damage, high water, controls, gate openings and prepared ramps in labelled diagnostic panels are imposed on independent copies.",
+    "No occupants are painted into houses, refuges or vessels. Actual people and their arrival/loss conditions remain simulated.",
+    "Water, the .65 house threshold, tide instruments, support struts, cables and status signals remain code-driven.",
+    "Destroyed MI08 ramps retain the existing vector fallback; no invented destroyed-ramp cell exists.",
+    "No browser execution or human recognition/readability criterion is claimed by this receipt."
+  ],
+  "counts": {
+    "atlases": 5,
+    "cells": 30,
+    "runtimeCells": 30,
+    "referenceCells": 0,
+    "views": 10
+  }
+}

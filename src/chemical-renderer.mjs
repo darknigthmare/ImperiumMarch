@@ -1,8 +1,13 @@
 /** MI10 drawing consumes the physical scene; it never resolves work or evidence. */
 import { terrainAt, chemicalSurfaceAt } from './simulation.mjs';
-import { drawChemicalAsset } from './chemical-assets.mjs';
+import { drawChemicalAsset as drawVectorChemicalAsset } from './chemical-assets.mjs';
+import { drawPaintedChemicalAsset } from './painted-chemical.mjs';
 import { drawProductionPart } from './production-assets.mjs';
-import { drawThyrAsset } from './thyr-assets.mjs';
+import { drawThyrAsset as drawVectorThyrAsset } from './thyr-assets.mjs';
+import { drawPaintedThyrPart } from './painted-thyr.mjs';
+
+const drawChemicalAsset = (ctx, options) => drawPaintedChemicalAsset(ctx, options) || drawVectorChemicalAsset(ctx, options);
+const drawThyrAsset = (ctx, options) => drawPaintedThyrPart(ctx, options) || drawVectorThyrAsset(ctx, options);
 
 const pct = n => Math.round((n || 0) * 100);
 function line(c, x1, y1, x2, y2, color, width = 1) { c.beginPath(); c.moveTo(x1, y1); c.lineTo(x2, y2); c.strokeStyle = color; c.lineWidth = width; c.stroke(); }
@@ -64,7 +69,8 @@ export function drawChemicalSite(renderer, s, t) {
   for (const canal of d.canals) {
     if (!renderer.visible(canal.x, 300)) continue;
     const polluted = canal.contamination >= cfg.contaminationLimit;
-    drawChemicalAsset(c, { part: 'canal-junction', state: canal.destroyed ? 'destroyed' : polluted ? 'contaminated' : canal.covered ? 'covered' : canal.working ? 'covering' : 'open', x: canal.x, y: terrainAt(canal.x, s.planetId) + 20, width: canal.w, height: 56, progress: canal.progress });
+    drawChemicalAsset(c, { part: 'canal-junction', state: canal.destroyed ? 'destroyed' : polluted ? 'contaminated' : canal.covered ? 'covered' : canal.working ? 'covering' : 'open', x: canal.x, y: terrainAt(canal.x, s.planetId) + 20, width: canal.w, height: 56, progress: canal.progress,
+      groundAt: x => terrainAt(x, s.planetId), covered: canal.covered && !canal.destroyed });
     // A cover is the very same raised surface used by actual feet.
     if (canal.covered && !canal.destroyed) {
       const from = canal.x - canal.w / 2, to = canal.x + canal.w / 2;

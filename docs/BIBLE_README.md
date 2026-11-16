@@ -1,6 +1,6 @@
 # Bible Excel — Ordre de Cendre
 
-Le classeur `ORDRE_DE_CENDRE_Bible.xlsx` présente la conception et le registre de production d’**ImperiumMarch / ORDRE DE CENDRE**. La source courante **0.15.5**, datée du **16 novembre 2026**, contient **1 007 fiches**. La structure conserve **21 onglets**, **20 tables** et **126 formules**. Les compteurs décrivent vingt domaines ; ils ne mesurent pas un pourcentage d’achèvement du jeu.
+Le classeur `ORDRE_DE_CENDRE_Bible.xlsx` présente la conception et le registre de production d’**ImperiumMarch / ORDRE DE CENDRE**. La source courante **0.15.6**, datée du **16 novembre 2026**, contient **1 007 fiches**. La structure conserve **21 onglets**, **20 tables** et **126 formules**. Les compteurs décrivent vingt domaines ; ils ne mesurent pas un pourcentage d’achèvement du jeu.
 
 **MI01–MI14 possèdent une version au stade prototype, avec dossier v14.** Vesper et Nacre sont suivies de quatre sorties de Thyr et de deux missions de Kharon. Les **18 missions MI15–MI32** et les **16 contrats** restent conçus. Les opérations OP01–OP03 gardent leurs rapports indépendants. Six châssis sont jouables.
 
@@ -19,7 +19,15 @@ Le dossier v14 ajoute uniquement `world.kharon.workshop` vide et la version. Les
 
 Les **133 lignes initialement À produire** gardent leur [baseline immuable](validation/production-v09-baseline.json). Le [registre 0.15](PRODUCTION_REGISTER_V15.md) conserve leurs textes, reçus antérieurs et travaux restants ; les nouvelles fiches n’augmentent pas ce dénominateur. Le [bilan de production MI14](PRODUCTION_V15.md) décrit la tranche et le [rapport QA 0.15](QA_V15.md) distingue ses exécutions des réceptions historiques. Le [complément 0.15.1](PRODUCTION_V15_1.md) décrit les huit atlas peints et renvoie à leur [réception graphique](QA_PAINTED_MI14.md).
 
-## Réception du classeur courant 0.15.5
+## Réception du classeur courant 0.15.6
+
+Le [complément Bible 0.15.6](BIBLE_V15_6.md) décrit les **30 fiches existantes** mises à jour pour les infrastructures de Nacre, les six familles du terrain chimique MI10 et les appareils et nids MI11. Les **13 atlas et 75 cellules nouvelles**, toutes utilisées au rendu, portent le total à **58 atlas et 461 cellules**. Les références des lots antérieurs conservent leur rôle. Les trois cases de grille vides du lot chimique ne sont pas comptées comme sprites.
+
+Les **1 007 IDs ordonnés**, tous les critères et les statuts sont conservés : **273 Conçu, 442 Prototype, 100 À produire et 192 Vérifié**. L’export reçoit **6 767 cellules source et 126 formules sans erreur**. La comparaison avec le couple source/XLSX immuable 0.15.5 conserve **7 543 cellules non affectées et 977 fiches inchangées**, ainsi que les styles, colonnes, vues et volets. Les **18 nouvelles vues** couvrent toutes les lignes modifiées et ont été relues. Les [reçus `patch6`](BIBLE_V15_6.md#conservation-et-contrôles-du-classeur) conservent aussi les empreintes des **1 702 preuves et aperçus historiques** de la baseline.
+
+La mise à jour est graphique : niveaux d’eau, contacts physiques, ouvertures, habitants, pollution, copies, consentement et progression gardent leur simulation. Les bâtiments peints ne créent aucun occupant ni arrivée. Le registre de production 0.15 reste historique. Aucun critère humain, capacité encore conçue, mission ou format de sauvegarde n’est promu par cette tranche. Les contrôles du classeur restent distincts des réceptions du jeu, d’une utilisation bureautique native et d’une séance humaine.
+
+## Réception historique du classeur 0.15.5
 
 Le [complément Bible 0.15.5](BIBLE_V15_5.md) décrit les **28 fiches existantes** mises à jour pour les transports de MI02/MI13, l’ambulance et les bateaux de Nacre, puis le Prétoire et les relais de MI12. Les **13 atlas et 80 cellules nouvelles** portent le total à **45 atlas et 386 cellules**. Le nouveau lot distingue **77 cellules utilisées au rendu et trois références**. Roues, quilles, deux caisses, vrais pieds du Prétoire, dégâts et apparitions conservent leurs états et positions simulés. Les coques vides ne créent aucun passager.
 
@@ -110,28 +118,28 @@ Reporter les modifications dans `data/bible.json`, puis régénérer pour conser
 
 ## Régénérer et contrôler
 
-Le générateur emploie **@oai/artifact-tool** depuis le runtime primaire, sans installer de dépendance dans le dépôt. La configuration `data/bible-v0155-previews.json` sélectionne la synthèse et vingt-deux plages couvrant les vingt-huit fiches modifiées. Les configurations et aperçus antérieurs restent conservés. Le suffixe `patch5` distingue les nouveaux reçus des preuves historiques.
+Le générateur emploie **@oai/artifact-tool** depuis le runtime primaire, sans installer de dépendance dans le dépôt. La configuration `data/bible-v0156-previews.json` sélectionne la synthèse et dix-sept plages couvrant les trente fiches modifiées. Les configurations et aperçus antérieurs restent conservés. Le suffixe `patch6` distingue les nouveaux reçus des preuves historiques.
 
 ```bash
-"$CODEX_PRIMARY_RUNTIME_NODE" tools/update-bible-v0155.mjs
-BIBLE_RECEIPT_SUFFIX=patch5 BIBLE_PREVIEW_CONFIG=data/bible-v0155-previews.json \
+"$CODEX_PRIMARY_RUNTIME_NODE" tools/update-bible-v0156.mjs
+BIBLE_RECEIPT_SUFFIX=patch6 BIBLE_PREVIEW_CONFIG=data/bible-v0156-previews.json \
   "$CODEX_PRIMARY_RUNTIME_NODE" tools/build-bible.mjs . \
-  ../outputs/bible-v0155/final
+  ../outputs/bible-v0156/final
 ```
 
 Le répertoire de sortie contient le classeur, les inspections et les aperçus. Le générateur copie le XLSX courant dans `docs/ORDRE_DE_CENDRE_Bible.xlsx`. Les arguments optionnels fixent la racine du dépôt et la sortie. `BIBLE_RENDER_SHEETS` et `BIBLE_EXTRA_PREVIEWS` permettent de remplacer les sélections; `BIBLE_RECEIPT_SUFFIX` peut séparer une réception ultérieure de la réception initiale de cette version.
 
-Les reçus courants portent la version source et le suffixe de réception, par exemple `workbook-v0.15-patch5-validation.json`. Les preuves antérieures gardent leur propre version ; aucun rapport, aperçu ou fixture historique ne doit être remplacé pour décrire les nouveaux octets. Le fichier générique `workbook-validation.json` d’un répertoire de sortie décrit uniquement cette génération.
+Les reçus courants portent la version source et le suffixe de réception, par exemple `workbook-v0.15-patch6-validation.json`. Les preuves antérieures gardent leur propre version ; aucun rapport, aperçu ou fixture historique ne doit être remplacé pour décrire les nouveaux octets. Le fichier générique `workbook-validation.json` d’un répertoire de sortie décrit uniquement cette génération.
 
 ```bash
-BIBLE_RECEIPT_SUFFIX=patch5 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-export.py . \
-  --reference-report docs/validation/workbook-v0.15-patch5-references.json
-BIBLE_RECEIPT_SUFFIX=patch5 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-layout.py \
+BIBLE_RECEIPT_SUFFIX=patch6 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-export.py . \
+  --reference-report docs/validation/workbook-v0.15-patch6-references.json
+BIBLE_RECEIPT_SUFFIX=patch6 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-layout.py \
   /chemin/vers/la-bible-0.15.4.xlsx /chemin/vers/la-source-0.15.4.json
-BIBLE_RECEIPT_SUFFIX=patch5 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/audit-bible-references.py
+BIBLE_RECEIPT_SUFFIX=patch6 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/audit-bible-references.py
 ```
 
-La génération réconcilie comptes et statuts avec le JSON. Elle modifie temporairement un statut, recalcule, contrôle l’effet puis restaure la valeur. Le vérificateur indépendant lit le ZIP/XML : cellules source, caches de formules, tables, validations, règles conditionnelles et volets. Les options `--workbook` et `--source` permettent de vérifier un couple d’entrées exactes sans remplacer les fichiers courants. [BIBLE_REFERENCES.md](BIBLE_REFERENCES.md) décrit la résolution des IDs, plages et déclarations symboliques ainsi que les sept mutations négatives. Un nouveau recalcul natif, s’il est effectué, doit produire son propre reçu `patch5` ; aucun résultat historique ne peut lui être attribué.
+La génération réconcilie comptes et statuts avec le JSON. Elle modifie temporairement un statut, recalcule, contrôle l’effet puis restaure la valeur. Le vérificateur indépendant lit le ZIP/XML : cellules source, caches de formules, tables, validations, règles conditionnelles et volets. Les options `--workbook` et `--source` permettent de vérifier un couple d’entrées exactes sans remplacer les fichiers courants. [BIBLE_REFERENCES.md](BIBLE_REFERENCES.md) décrit la résolution des IDs, plages et déclarations symboliques ainsi que les sept mutations négatives. Un nouveau recalcul natif, s’il est effectué, doit produire son propre reçu `patch6` ; aucun résultat historique ne peut lui être attribué.
 
 ## Conserver les sources historiques
 
@@ -198,4 +206,4 @@ Ce contrôle ne reçoit pas le tri interactif, l’utilisation des filtres, le d
 
 Le [bilan historique de production 0.12](PRODUCTION_V12.md), le [contrat MI11](CAMPAIGN_MISSION_11.md), le [contrat du dossier v11](CAMPAIGN_SAVE_V11.md) et le [registre des 133 critères](PRODUCTION_REGISTER_V12.md) expliquent les réalisations et le travail restant. Les documents et preuves des versions précédentes conservent leurs bilans historiques.
 
-Pour la tranche courante du classeur, consulter le [complément Bible 0.15.5](BIBLE_V15_5.md). Les réceptions historiques restent dans le [complément graphique MI14](PRODUCTION_V15_1.md), le [bilan MI14](PRODUCTION_V15.md), le [dossier v14](CAMPAIGN_SAVE_V14.md), le [rapport QA de la reprise](QA_V15.md) et le [rapport des premiers sprites peints](QA_PAINTED_MI14.md). Les résultats de la reconstruction 0.14.1 restent dans son [bilan](PRODUCTION_V14_RECONSTRUCTION.md) et son [rapport QA](QA_RECONSTRUCTION_014.md).
+Pour la tranche courante du classeur, consulter le [complément Bible 0.15.6](BIBLE_V15_6.md). Les réceptions historiques restent dans le [complément graphique MI14](PRODUCTION_V15_1.md), le [bilan MI14](PRODUCTION_V15.md), le [dossier v14](CAMPAIGN_SAVE_V14.md), le [rapport QA de la reprise](QA_V15.md) et le [rapport des premiers sprites peints](QA_PAINTED_MI14.md). Les résultats de la reconstruction 0.14.1 restent dans son [bilan](PRODUCTION_V14_RECONSTRUCTION.md) et son [rapport QA](QA_RECONSTRUCTION_014.md).

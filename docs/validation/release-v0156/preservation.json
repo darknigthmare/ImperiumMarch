@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "version": "0.15.6",
+  "checkedUtc": "2026-11-16T15:54:19.589Z",
+  "status": "passed",
+  "scope": "Independent pre-release working-tree preservation check; no source or protected artifact was written.",
+  "baseline": {
+    "path": "../publication/v0156-baseline.json",
+    "sha256": "e9530a5eed0f264d6ce9bb39c680a30d1cec2c38df8cbf8ec2dc082b09eb1b0b",
+    "baseLocal": "65b14f2eb10a94c7c45ed73db944eebb5158bca5",
+    "baseRemote": "5171ae2aabb74915d944f1e487bea0433f76f51f",
+    "baseTree": "9f0c3ae87920b1665a25f15cb03add6a85bf3b7a",
+    "localTreeVerified": true,
+    "remoteObjectAvailableLocally": false
+  },
+  "observedHead": "65b14f2eb10a94c7c45ed73db944eebb5158bca5",
+  "branch": "codex/painted-installations-v0156",
+  "protected": {
+    "expected": 1819,
+    "compared": 1819,
+    "unchanged": 1819,
+    "missing": [],
+    "changed": [],
+    "groups": {
+      "assets/painted": 73,
+      "docs/previews": 560,
+      "docs/validation": 1142,
+      "src": 21,
+      "tests/fixtures": 23
+    },
+    "inventorySha256": "b466f5637cef3717602ead8557e7aa20f40a9045d9bf107a6aa87f477a0f09ac",
+    "inventoryHashEncoding": "UTF-8 canonical JSON of baseline files map, sorted keys, compact separators"
+  },
+  "gitDiff": {
+    "comparedAgainst": "65b14f2eb10a94c7c45ed73db944eebb5158bca5",
+    "trackedChangedPaths": [
+      ".github/workflows/ci.yml",
+      "AGENTS.md",
+      "README.md",
+      "data/bible.json",
+      "dist/Ordre_de_Cendre.manifest.json",
+      "dist/Ordre_de_Cendre.zip",
+      "docs/BIBLE_README.md",
+      "docs/ORDRE_DE_CENDRE_Bible.xlsx",
+      "index.html",
+      "package.json",
+      "src/chemical-renderer.mjs",
+      "src/main.mjs",
+      "src/renderer.mjs",
+      "src/voice-renderer.mjs"
+    ],
+    "stagedChangedPaths": [],
+    "simulationSaveFixtureVectorChanges": [],
+    "stagedCriticalChanges": [],
+    "untrackedCriticalFiles": [],
+    "saveUiReview": "src/main.mjs adds three image-loader imports, three loader calls and read-only image status fields; no persistence handler change."
+  },
+  "note": "Remote SHA is preserved from the supplied baseline; its commit object is not locally available."
+}

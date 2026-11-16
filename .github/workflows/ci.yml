@@ -34,6 +34,12 @@ jobs:
         run: npm run check:relay
       - name: Decode and validate the Nacre vehicles
         run: npm run check:nacre
+      - name: Decode and validate the Nacre infrastructure
+        run: npm run check:nacre-sites
+      - name: Decode and validate the chemical field equipment
+        run: npm run check:chemical
+      - name: Decode and validate the voice mission equipment and nesting sites
+        run: npm run check:voice
       - run: npm run check
       - run: npm run build
       - run: npm run check:ui

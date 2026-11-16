@@ -1,0 +1,1347 @@
+{
+  "version": "0.15.6",
+  "createdUtc": "2026-11-16T16:01:26.067083+00:00",
+  "scope": "Independent read-only audit of final HTML, current source modules, original PNG data and ZIP. Only this receipt is written. No browser or gameplay reception is inferred.",
+  "html": {
+    "file": "dist/Ordre_de_Cendre.html",
+    "bytes": 141278398,
+    "sha256": "7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e",
+    "matchesPackageManifest": true,
+    "utf8Decoded": true
+  },
+  "modules": {
+    "entry": "src/main.mjs",
+    "count": 56,
+    "uniqueCount": 56,
+    "dependencyEdges": 135,
+    "closureMatchesSources": true,
+    "orderMatchesDependencyTraversal": true,
+    "everyExpandedBodyMatchesCurrentSource": true,
+    "comparisonMethod": "Independent Python import/export/media expansion; every emitted module body and export list matches the current source.",
+    "items": [
+      {
+        "path": "src/content.mjs",
+        "sourceSha256": "30308100b760741b7bd1ff8b353e000d3954e195362a85983c080143d29de0fb",
+        "expandedBodySha256": "2e6919a96e812e438dba983f0028b17c077d236e74fc59376350b466dd897dca",
+        "exports": [
+          "WALKERS",
+          "MISSIONS",
+          "CAMPAIGN_MISSIONS",
+          "ALL_MISSIONS",
+          "VOICE_TRANSLATION_PAIRS",
+          "ENEMY_TYPES",
+          "DIFFICULTIES"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/enemy-weapon-pose.mjs",
+        "sourceSha256": "736f34c9ca9eca086e6c437d9497c322bb5efcdc7598fb3980559c854bf1ff6f",
+        "expandedBodySha256": "9597f07b4625b989d92a992c4481a1babde88e1219952bb269cde307bbfea893",
+        "exports": [
+          "ENEMY_WEAPON_RIGS",
+          "enemyWeaponPose"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/cerbere-weapon-pose.mjs",
+        "sourceSha256": "5cf7a18ad1ceb0cf3671b66ca3529d7ab7c0e3e85c2f50408597a9019b7b5269",
+        "expandedBodySha256": "386d1dc7e5a1bdb17fa772b75a299928b77faca4d24926a16464c006d9eddec3",
+        "exports": [
+          "cerbereWeaponPose"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/chemical-simulation.mjs",
+        "sourceSha256": "778651c4accc7dd78189d5613d2e06896f16f0587651b7272b269d0d7a743f34",
+        "expandedBodySha256": "f1a6280f566d732ebb126c3455ea47f699759e6c66765692cdb4e5474ec0e276",
+        "exports": [
+          "chemicalContext",
+          "createChemicalMission",
+          "chemicalReceiptRoster",
+          "chemicalSurface",
+          "chemicalSolids",
+          "refreshChemicalFacts",
+          "chemicalDecisionBody",
+          "hitChemicalPart",
+          "chemicalFootfall",
+          "chemicalInteraction",
+          "interactChemicalMission",
+          "chooseChemicalMission",
+          "updateChemicalMission",
+          "chemicalObjectives"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/voice-simulation.mjs",
+        "sourceSha256": "eefa4de80ef3fb60b8b0d07bdccec0ab2fb3ea465a44ba959deb1e221a7baff6",
+        "expandedBodySha256": "992578ecffdc16dc543e82ffa15e1f77daf0a8a4594c562b000eab4acfccafa7",
+        "exports": [
+          "voiceContext",
+          "createVoiceMission",
+          "voiceDerivedFacts",
+          "refreshVoiceFacts",
+          "voiceReceiptRoster",
+          "voiceSurface",
+          "voiceSolids",
+          "hitVoicePart",
+          "voiceFootfall",
+          "voiceDecisionBody",
+          "voiceInteraction",
+          "interactVoiceMission",
+          "chooseVoiceMission",
+          "updateVoiceMission",
+          "voiceObjectives"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/relay-simulation.mjs",
+        "sourceSha256": "20d64e40f534a26ef244918888b946c7076f61e07ab237ad1d5838d43e30c8ff",
+        "expandedBodySha256": "0153ba61b839df80d03089eea5bfb3e705827a042a09a36ac2b2d7f3a367c714",
+        "exports": [
+          "RELAY_COMMAND_EXCERPT",
+          "RELAY_FACT_FLAGS",
+          "RELAY_FACT_COUNTS",
+          "relayContext",
+          "createRelayMission",
+          "relayDerivedFacts",
+          "refreshRelayFacts",
+          "relayReceiptRoster",
+          "relaySurface",
+          "relayFootfall",
+          "relaySolids",
+          "hitRelayPart",
+          "relayDecisionBody",
+          "relayJobs",
+          "relayInteraction",
+          "interactRelayMission",
+          "chooseRelayMission",
+          "updateRelayMission",
+          "relayObjectives"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/foundry-simulation.mjs",
+        "sourceSha256": "2cb9ef3d02947ba615bcfd03815b1cf0ae2ada52b088bff4145d979869cc4753",
+        "expandedBodySha256": "7a94b6eedcdc95371acab2bdaebfe1330fb26544af1951b02ea6e26a04a3ec96",
+        "exports": [
+          "foundryContext",
+          "createFoundryMission",
+          "foundrySurface",
+          "foundryDerivedFacts",
+          "refreshFoundryFacts",
+          "foundryReceiptRoster",
+          "foundrySolids",
+          "hitFoundryPart",
+          "foundryFootfall",
+          "foundryDecisionBody",
+          "foundryAvailableJobs",
+          "foundryInteraction",
+          "interactFoundryMission",
+          "chooseFoundryMission",
+          "updateFoundryMission",
+          "foundryObjectives"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/workshop-simulation.mjs",
+        "sourceSha256": "ea4992944c6b32b8b0e4351348c8af8348d2d733ba5fb60f0d12f36ee40c12fb",
+        "expandedBodySha256": "6637a10a2d6e659a5f5f7b04ebfd9943c028192953c54df13f064af370207938",
+        "exports": [
+          "workshopContext",
+          "createWorkshopMission",
+          "workshopSurface",
+          "workshopWorkerPosition",
+          "workshopDerivedFacts",
+          "refreshWorkshopFacts",
+          "workshopReceiptRoster",
+          "workshopSolids",
+          "hitWorkshopPart",
+          "workshopFootfall",
+          "workshopDecisionBody",
+          "workshopAvailableJobs",
+          "workshopInteraction",
+          "interactWorkshopMission",
+          "chooseWorkshopMission",
+          "updateWorkshopMission",
+          "workshopObjectives"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/simulation.mjs",
+        "sourceSha256": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+        "expandedBodySha256": "0281a30d16fa97e68978342dd892d2c576a6d9fd49c689edad4b7035a7879ad7",
+        "exports": [
+          "chemicalContext",
+          "chemicalDecisionBody",
+          "chemicalReceiptRoster",
+          "voiceContext",
+          "voiceDecisionBody",
+          "voiceReceiptRoster",
+          "voiceDerivedFacts",
+          "relayContext",
+          "relayDecisionBody",
+          "relayReceiptRoster",
+          "relayDerivedFacts",
+          "foundryContext",
+          "foundryDecisionBody",
+          "foundryReceiptRoster",
+          "foundryDerivedFacts",
+          "workshopContext",
+          "workshopDecisionBody",
+          "workshopReceiptRoster",
+          "workshopDerivedFacts",
+          "terrainAt",
+          "chemicalSurfaceAt",
+          "voiceSurfaceAt",
+          "relaySurfaceAt",
+          "foundrySurfaceAt",
+          "workshopSurfaceAt",
+          "createGame",
+          "radiatorBounds",
+          "radiatorCoolingFactor",
+          "trainDecisionBody",
+          "networkDecisionBody",
+          "industrialDecisionBody",
+          "commandGame",
+          "channelTideAt",
+          "channelSurfaceAt",
+          "channelDecisionBody",
+          "dikeSupportReady",
+          "dikeDecisionBody",
+          "ambulanceStopClear",
+          "ambulanceDecisionBody",
+          "departurePersonSeeds",
+          "departureReceiptRoster",
+          "departureTideAt",
+          "departureWindow",
+          "departureGateBounds",
+          "departureDecisionBody",
+          "livingRouteContext",
+          "livingRouteSurfaceAt",
+          "livingRouteReceiptRoster",
+          "livingRouteDecisionBody",
+          "updateGame"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/production-assets.mjs",
+        "sourceSha256": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0",
+        "expandedBodySha256": "bf3c1832ad850978ab4a152474c40dc1166ad39dd43575b9dc2e32a889eddbae",
+        "exports": [
+          "PRODUCTION_RIGS",
+          "PRODUCTION_PART_NAMES",
+          "PRODUCTION_COMPONENT_NAMES",
+          "SILHOUETTE_MODELS",
+          "productionPartGeometry",
+          "drawProductionGeometry",
+          "drawProductionPart",
+          "productionGeometrySVG",
+          "PRODUCTION_COMPONENT_SPECS",
+          "productionComponentGeometry",
+          "productionLegPose",
+          "productionWalkerParts",
+          "productionSilhouetteGeometry"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-walker-layout.mjs",
+        "sourceSha256": "4cf545b92f234227451c19867301bcb1d76d18d1e0975ebbb8e08b0bf746811c",
+        "expandedBodySha256": "4c9819851a17ab5a73db6476ce9cbc2955d57f02f6546428bd97081b96ac5099",
+        "exports": [
+          "PAINTED_WALKER_LAYOUT"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-walkers.mjs",
+        "sourceSha256": "00b66e7dfd17862be23162f3acb899d4c14a5f1e853e1dff56440090dce91c8c",
+        "expandedBodySha256": "0db63e8eed610b73e78ab04709b14ecf8daa1c6be42762fb29a5e344fec759b8",
+        "exports": [
+          "PAINTED_WALKER_URLS",
+          "PAINTED_WALKER_FRAME_NAMES",
+          "PAINTED_WALKER_PART_SIZES",
+          "PAINTED_WALKER_MUZZLES",
+          "setPaintedWalkerImage",
+          "setPaintedWalkerImages",
+          "clearPaintedWalkers",
+          "paintedWalkerStatus",
+          "loadPaintedWalkers",
+          "paintedWalkerFrame",
+          "paintedWalkerPartFrame",
+          "isPaintedWalkerPartReady",
+          "drawPaintedWalkerPart"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/thyr-assets.mjs",
+        "sourceSha256": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+        "expandedBodySha256": "b62d03e6360ca4972a2dff1d5e2df44aca4dd33311873fa2b26b074edf6affbb",
+        "exports": [
+          "THYR_ASSET_SPECS",
+          "THYR_ASSET_NAMES",
+          "thyrAssetGeometry",
+          "drawThyrAsset",
+          "thyrAssetSVG"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-thyr-layout.mjs",
+        "sourceSha256": "de98aa3b7e6c4965a62df91604be28769ba52bd87e821d8a5aad5ae6e24b085d",
+        "expandedBodySha256": "77103605a66dc4664d2eec5b8fdc7a92008a3a84ce0e17ed59f0b13c063f351e",
+        "exports": [
+          "PAINTED_THYR_LAYOUT"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/voice-assets.mjs",
+        "sourceSha256": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0",
+        "expandedBodySha256": "679671de60386f5d6bd6c56174bb6d75f6b73657d6fa3af11317daf3098d2f50",
+        "exports": [
+          "VOICE_ASSET_SPECS",
+          "VOICE_ASSET_NAMES",
+          "voiceAssetGeometry",
+          "drawVoiceAsset",
+          "voiceAssetSVG"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-thyr.mjs",
+        "sourceSha256": "5156604d45cbc0693a43963dae9d18e546100b5d46d73ba2469c5aea4e88026f",
+        "expandedBodySha256": "0a9a800d95d18aea73247b9234460ea33bba925f30278b824a9f8e415cc26f0d",
+        "exports": [
+          "PAINTED_THYR_URLS",
+          "setPaintedThyrImage",
+          "setPaintedThyrImages",
+          "clearPaintedThyr",
+          "paintedThyrStatus",
+          "loadPaintedThyr",
+          "paintedThyrFrame",
+          "thyrMotion",
+          "paintedThyrPartFrame",
+          "paintedThyrAttachmentPoints",
+          "drawPaintedThyrPart",
+          "paintedThyrFaunaFrame",
+          "drawPaintedThyrFauna"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/thyr-renderer.mjs",
+        "sourceSha256": "275a038f58b1eb8b9bd2da9d3de79286ce77cda9320f11543dd80c29c03fc908",
+        "expandedBodySha256": "7a14015597fd0bbc34e752f34a8f5ac3fdc3079bb3af46d77502fe7218d22f62",
+        "exports": [
+          "drawLivingRouteSite",
+          "drawLivingRouteActors",
+          "livingRouteSummary",
+          "drawLivingRouteLabels"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/chemical-assets.mjs",
+        "sourceSha256": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753",
+        "expandedBodySha256": "ae56cce991a52f21012b37a915c5a2e1f365db5b9d401f7856265f2bac7ebfed",
+        "exports": [
+          "CHEMICAL_ASSET_SPECS",
+          "CHEMICAL_ASSET_NAMES",
+          "chemicalAssetGeometry",
+          "drawChemicalAsset",
+          "chemicalAssetSVG"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-chemical-layout.mjs",
+        "sourceSha256": "1eed64e37157a7147a6fc818b8ffd0ab7c2b865c257a2c90b0f3f7610f2b8bf8",
+        "expandedBodySha256": "8c2e10a2a4a18ea04897a58cfc3c4c3d3420f20e8b0d5f4d913f1415560c3fbb",
+        "exports": [
+          "PAINTED_CHEMICAL_LAYOUT"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-chemical.mjs",
+        "sourceSha256": "ad7df03d961d22ec702cbbfee7b14015c2b4a02de34fcc2f9204bbedd990f0d4",
+        "expandedBodySha256": "be7de9b8d526d5e9cf18de659fb3a2beec3c8130000fdc8895310cb4ae10552c",
+        "exports": [
+          "PAINTED_CHEMICAL_URLS",
+          "setPaintedChemicalImage",
+          "clearPaintedChemical",
+          "paintedChemicalStatus",
+          "loadPaintedChemical",
+          "paintedChemicalFrame",
+          "drawPaintedChemicalAsset"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/chemical-renderer.mjs",
+        "sourceSha256": "6455101fdfc529bb69e948393b7a27ba909c208e08dbe1285f50d84a90bf73fd",
+        "expandedBodySha256": "8e1884d07fdd09d0137b540706f5a111bab7c4ad13a9c47de83765b08d991604",
+        "exports": [
+          "chemicalTankRole",
+          "chemicalSummary",
+          "drawChemicalSite",
+          "drawChemicalLabels"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-voice-layout.mjs",
+        "sourceSha256": "bb15bbf88be2f4038e855168bbf00ebfbfa687afd31bfdf8b7d012bf93fc3fcf",
+        "expandedBodySha256": "d609f4e8c705e940c89f75579a81c5bc92cd8317d1fa3dddc5c827803fdab779",
+        "exports": [
+          "PAINTED_VOICE_LAYOUT"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-voice.mjs",
+        "sourceSha256": "c49e3b3d49e05504d88eee6ed011be362ccb423b4b1ae4a758f3fa529333baa1",
+        "expandedBodySha256": "3fed255e2a6d9786ad4e843be4da981c6df74cf3c1fd5d8edf40fdd2882aaf19",
+        "exports": [
+          "PAINTED_VOICE_URLS",
+          "setPaintedVoiceImage",
+          "setPaintedVoiceImages",
+          "clearPaintedVoice",
+          "paintedVoiceStatus",
+          "loadPaintedVoice",
+          "paintedVoiceFrame",
+          "paintedVoiceSiteFrame",
+          "drawPaintedVoiceAsset"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/voice-renderer.mjs",
+        "sourceSha256": "c3180fef69bffc6699397491b0f079b4058712cf18c505dadb244585d5955c2c",
+        "expandedBodySha256": "3ce5bb2bf926df2dee361a3ff2cdda53e0eb283c2835fa62fe104e74a4b3201a",
+        "exports": [
+          "voiceSummary",
+          "drawVoiceSite",
+          "drawVoiceActor",
+          "drawVoiceLabels"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/relay-assets.mjs",
+        "sourceSha256": "9aa0d1ba6263c59b92d2de63bfdac6208f3735682125f335e5eb6eba4b119e81",
+        "expandedBodySha256": "2bf7620b88ba9471398f815ec8f20f472886afe47475dbf7e0878cefabf4e04e",
+        "exports": [
+          "RELAY_ASSET_SPECS",
+          "RELAY_ASSET_NAMES",
+          "relayAssetGeometry",
+          "drawRelayAsset",
+          "relayAssetSVG"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-relay-layout.mjs",
+        "sourceSha256": "0289c80c3b4803407d284928e327511efae5d10748e0d28d9409195c5b47ee0f",
+        "expandedBodySha256": "4f9cd99e8e12326aacf8905eb811047b97ad9cd0eec99fda1b4de6b5ff5c4cff",
+        "exports": [
+          "PAINTED_RELAY_LAYOUT"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-relay.mjs",
+        "sourceSha256": "b3aa217e499f1de26ba5204b8dd7a799a042983cd1976421df1271069d008765",
+        "expandedBodySha256": "62cc577dcf4e8d878a743041f9068cf8bace67d52ac876927a6d6638fca6c724",
+        "exports": [
+          "PAINTED_RELAY_URLS",
+          "setPaintedRelayImage",
+          "setPaintedRelayImages",
+          "clearPaintedRelay",
+          "paintedRelayStatus",
+          "loadPaintedRelay",
+          "paintedRelayFrame",
+          "paintedRelaySiteFrame",
+          "drawPaintedRelaySiteAsset",
+          "praetorPresentationWeapon",
+          "praetorPresentationLeg",
+          "paintedPraetorState",
+          "drawPaintedPraetor"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/relay-renderer.mjs",
+        "sourceSha256": "8786c4490dce024efd066c58665341186c44ad7dec9c1d5592dc01e39e2bce21",
+        "expandedBodySha256": "ab924d529238ac67e15441c7978b0970f10329b56309dbe68ab7231ed94f3464",
+        "exports": [
+          "relaySummary",
+          "drawRelaySite",
+          "drawRelayActor",
+          "drawRelayLabels"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/foundry-assets.mjs",
+        "sourceSha256": "963637fb4d09b582ca9760c905a2770859c44bbd2205b0043d338b7b38ab0c16",
+        "expandedBodySha256": "6d53906363c4adb29df37cd80ee84a80f9c2e906319c8b4b5bde09317d4c6805",
+        "exports": [
+          "FOUNDRY_ASSET_SPECS",
+          "FOUNDRY_ASSET_NAMES",
+          "foundryAssetGeometry",
+          "foundryAssetSVG",
+          "drawFoundryAsset"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-transport-layout.mjs",
+        "sourceSha256": "85057bffdc36dace2e891d5fda99793fd2f24f1a91e22c5057218d0a67bebe02",
+        "expandedBodySha256": "04e106b300dd6c02017678ccba85e5b0dc0f0f00f944d3d40f2ea8b8832d0833",
+        "exports": [
+          "PAINTED_TRANSPORT_LAYOUT"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-transport.mjs",
+        "sourceSha256": "cfc4c3cefb6f536bec87dc24479f9cd85db1a5c0a3cb62d427c0c6d662f41af9",
+        "expandedBodySha256": "fcfddf9a8e0315193b895fc1d4650c587019776f883eb797406115df9ff91425",
+        "exports": [
+          "PAINTED_TRANSPORT_URLS",
+          "paintedTransportStatus",
+          "clearPaintedTransport",
+          "setPaintedTransportImage",
+          "loadPaintedTransport",
+          "paintedTransportFrame",
+          "drawPaintedTransportFrame",
+          "trainCarPaintedFrame",
+          "trainWheelPose",
+          "trainCouplerPose",
+          "trainPassengerCount",
+          "drawPaintedTrainCar",
+          "industrialCarrierPaintedFrame",
+          "industrialCargoPaintedFrame",
+          "drawPaintedIndustrialCargo",
+          "industrialWheelPose",
+          "drawPaintedIndustrialCarrier"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/foundry-renderer.mjs",
+        "sourceSha256": "114ef2454bcb947282c7955afa88c86ffbec6aad2c30f7f21c63d35d90b674fc",
+        "expandedBodySha256": "a4d120a99983539048ab583c5c43e9e3533e2f78b5f94598772ad1a6e47b2885",
+        "exports": [
+          "foundrySummary",
+          "drawFoundrySite",
+          "drawFoundryCarrier",
+          "drawFoundryInstrument"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-sprite-layout.mjs",
+        "sourceSha256": "c7fd67789497c1c8d733693cc08e3a582bc433f67a4cae93c816f92403cb6fcd",
+        "expandedBodySha256": "765e2da91d41f23547d15a46da36756f99f92a3ebeeea37d6aab97d3aa78c672",
+        "exports": [
+          "PAINTED_MI14_LAYOUT"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-sprites.mjs",
+        "sourceSha256": "dfa61893d8cbc57bc9fb407af855dcab127f5c6acca1ad4a36289368f7aa4c46",
+        "expandedBodySha256": "f23349d3addc3e92e003304d64a81636205012fd961ea5621caac33c0cc4b203",
+        "exports": [
+          "PAINTED_SPRITE_URLS",
+          "setPaintedSpriteImage",
+          "setPaintedSpriteImages",
+          "clearPaintedSprites",
+          "paintedSpriteStatus",
+          "loadPaintedSprites",
+          "paintedSpriteFrame",
+          "paintedWorkshopFrame",
+          "drawPaintedWorkshopAsset"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/workshop-assets.mjs",
+        "sourceSha256": "f2b9420b67d701fb3c532b0c645599a8b9501cfbc12aab8054efea284bb3e42f",
+        "expandedBodySha256": "d2018a486444f031ceb8e4568335785180eb8ad0ca103577b955efbdc057eae5",
+        "exports": [
+          "WORKSHOP_ASSET_SPECS",
+          "WORKSHOP_ASSET_NAMES",
+          "workshopAssetGeometry",
+          "workshopAssetSVG",
+          "drawWorkshopAsset"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/workshop-renderer.mjs",
+        "sourceSha256": "82de9442d14d994af083fe7ba13121a58a6ebe7615388060ab540d26cb58cf6a",
+        "expandedBodySha256": "2362f8b3af5797fb024891d73e0f18a9ae92f57f487aabd7ba76c9c89e566dfa",
+        "exports": [
+          "workshopSummary",
+          "drawWorkshopSite",
+          "drawWorkshopActors",
+          "drawWorkshopLabels",
+          "drawWorkshopInstrument"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-combat-layout.mjs",
+        "sourceSha256": "98f354701cd661ab6a2d175563ad12aba69f1fbe1437f506bd042959acecd8bb",
+        "expandedBodySha256": "ced09eacbd10343d6df0f40679ecd6f5bf2788b3680b191eeb42e83039606538",
+        "exports": [
+          "PAINTED_COMBAT_LAYOUT"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-combat.mjs",
+        "sourceSha256": "66aa27a2d6f25a1eeb714d125957c30f208428e8c66283a936ba9846b73404f5",
+        "expandedBodySha256": "3fbbc405722d43c60e06796d80631fe5c66b482f58540281b2da04c9f3a9efa2",
+        "exports": [
+          "PAINTED_COMBAT_URLS",
+          "COMBAT_BODY_SIZES",
+          "setPaintedCombatImage",
+          "setPaintedCombatImages",
+          "clearPaintedCombat",
+          "paintedCombatStatus",
+          "loadPaintedCombat",
+          "paintedCombatFrame",
+          "combatMotion",
+          "paintedCombatBodyFrame",
+          "drawCombatWeapon",
+          "drawPaintedCombatEnemy",
+          "drawPaintedCombatCivilian",
+          "drawPaintedCombatConvoy"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-cerbere-layout.mjs",
+        "sourceSha256": "fea5b52aa460eb92241d8388d58bffbc047e75469a260324d69f7ffdb788dce3",
+        "expandedBodySha256": "e70b54cd450a69315f4dc73e792b451cc3826779af156dc844bc6b360e97a061",
+        "exports": [
+          "PAINTED_CERBERE_LAYOUT"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-cerbere.mjs",
+        "sourceSha256": "86440fd1749fec987b3fb34b3d4eca2471f3862f9362d632af976c3133d02047",
+        "expandedBodySha256": "88e351dd40b1482c2ea99164bd83001a8195d66b54806818a3ef473f21c2f364",
+        "exports": [
+          "PAINTED_CERBERE_URL",
+          "CERBERE_FRAME_NAMES",
+          "CERBERE_PART_SIZES",
+          "setPaintedCerbereImage",
+          "clearPaintedCerbere",
+          "paintedCerbereStatus",
+          "loadPaintedCerbere",
+          "paintedCerbereFrame",
+          "paintedCerberePartFrame",
+          "drawPaintedCerberePart",
+          "cerberePresentationPose",
+          "drawCerbere"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-nacre-layout.mjs",
+        "sourceSha256": "2cc15eabb2f337e9500a79461a97c5ab0af18ecaeff3862e7b43d9a4bb0f4011",
+        "expandedBodySha256": "ad40bfa94d75e8dc2bb94790966b78eaddd923c0855d90ecabf3d7b7403b9aab",
+        "exports": [
+          "PAINTED_NACRE_LAYOUT"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-nacre.mjs",
+        "sourceSha256": "3abb8eb6c71262eb1ccfdd152b01952cdc7e6d2d6326b7a7b34309ffa77eabd3",
+        "expandedBodySha256": "1aa91aa88dc758b668502e4757b74b4526df5ff12ae4ceebff38b1db5ad46369",
+        "exports": [
+          "PAINTED_NACRE_URLS",
+          "setPaintedNacreImage",
+          "setPaintedNacreImages",
+          "paintedNacreStatus",
+          "clearPaintedNacre",
+          "loadPaintedNacre",
+          "paintedNacreFrame",
+          "paintedNacreBoatFrame",
+          "drawPaintedNacreBoat",
+          "paintedNacreAmbulanceFrame",
+          "nacreAmbulanceWheelPoses",
+          "drawPaintedNacreAmbulance",
+          "paintedNacreEquipmentFrame",
+          "drawPaintedNacreEquipment"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-nacre-sites-layout.mjs",
+        "sourceSha256": "fc12ffe49d3d7b21f450f67b6d55c9ef57b7a752913d955974994b5b7d246320",
+        "expandedBodySha256": "b13f050d1cc575c9d8588354fc9838abe33f068eeb82cef6a85e5ec71d1852fc",
+        "exports": [
+          "PAINTED_NACRE_SITE_LAYOUT"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/painted-nacre-sites.mjs",
+        "sourceSha256": "33e98db1963d2ede5fa759abe3d5cc1291dabaf76716b3af9199d274f7334d53",
+        "expandedBodySha256": "ccef809a98e298b02060d339b412d2aee7bd8b783a4b0bf2f42f3c72e44a1853",
+        "exports": [
+          "PAINTED_NACRE_SITE_URLS",
+          "setPaintedNacreSiteImage",
+          "paintedNacreSiteAssetSnapshot",
+          "clearPaintedNacreSites",
+          "loadPaintedNacreSiteAssets",
+          "paintedNacreSiteFrame",
+          "paintedNacreSiteSelection",
+          "drawPaintedNacreSitePart",
+          "nacreSiteDamageState",
+          "nacreSiteControlPoses",
+          "drawPaintedNacreSiteLatch",
+          "drawPaintedNacreSitePump",
+          "drawPaintedNacreSiteValve",
+          "drawPaintedNacreSiteGate",
+          "drawPaintedNacreSiteGateControl",
+          "drawPaintedNacreSiteWinch",
+          "drawPaintedNacreSiteDeck",
+          "drawPaintedNacreSiteDepartureRamp"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/renderer.mjs",
+        "sourceSha256": "423ccddc1a08887e7bab423e58fdc4ae65db5d5034e7f2853f146bdb10d02f04",
+        "expandedBodySha256": "2166196650b3771083457657f0a1d26002da915528e6357421c00ea15d0fc2bb",
+        "exports": [
+          "drawWalker",
+          "Renderer"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/audio.mjs",
+        "sourceSha256": "a1fe78add6c0eac7961d937afd501295d5772af6f20191b377cadd8fc7282829",
+        "expandedBodySha256": "d6918a23f4f8f7c40bf7a4c5732c8df655f9085c67091fde58af23b5af053a95",
+        "exports": [
+          "SOUND_CUES",
+          "PLANET_SOUNDS",
+          "MUSIC_MOTIFS",
+          "renderSoundCue",
+          "renderAmbience",
+          "renderMotif",
+          "collectAudioFacts",
+          "diffAudioFacts",
+          "AudioEngine"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/controls.mjs",
+        "sourceSha256": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32",
+        "expandedBodySha256": "7d3de63a25993e8f3f15191fa8a7f660a11c5884d8cfc1e9262fea45d7268513",
+        "exports": [
+          "CONTROL_ACTIONS",
+          "defaultBindings",
+          "normalizeBindings",
+          "bindingLabel",
+          "formatControlText",
+          "remapBinding",
+          "keyboardActions",
+          "GamepadInput"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/departure-validation.mjs",
+        "sourceSha256": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b",
+        "expandedBodySha256": "92341e3e0798bf6777f2b0fc1100802f32a01a91ee58426a27b152a4dd10485a",
+        "exports": [
+          "createDepartureDossier",
+          "departureContextFor",
+          "validateDepartureFacts",
+          "validateDepartureReceipt",
+          "validateDepartureMission",
+          "departureDossierFromGame"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/thyr-validation.mjs",
+        "sourceSha256": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+        "expandedBodySha256": "0fffdf08e9e7436c6126e6501319ffa7cd13813e6870bb24744e6d493815688f",
+        "exports": [
+          "createLivingRouteDossier",
+          "livingRouteContextFor",
+          "validateLivingRouteFacts",
+          "validateLivingRouteMission",
+          "validateLivingRouteReceipt",
+          "livingRouteDossierFromGame",
+          "validateLivingRouteSortie"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/chemical-validation.mjs",
+        "sourceSha256": "ed00e720b26e66b310707e589f90146bdd1309c5812a9449856dcd7980abb3ba",
+        "expandedBodySha256": "25bad25207da9cce77340cb133381030d191863e88f93e5656ca1211918232be",
+        "exports": [
+          "createChemicalDossier",
+          "chemicalContextFor",
+          "validateChemicalFacts",
+          "chemicalDossierFromGame",
+          "validateChemicalMission",
+          "validateChemicalReceipt",
+          "validateChemicalSortie"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/voice-validation.mjs",
+        "sourceSha256": "7cc3ecb9c4c3f02232795c44274e7eb5ed49d67962c0b2e72765378a582051ed",
+        "expandedBodySha256": "2a9293798548386636800e8538c3911cb621cd8510d66e97c9be70344735a980",
+        "exports": [
+          "createVoiceDossier",
+          "voiceContextFor",
+          "validateVoiceFacts",
+          "voiceDossierFromGame",
+          "validateVoiceMission",
+          "validateVoiceReceipt",
+          "validateVoiceSortie"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/relay-validation.mjs",
+        "sourceSha256": "3b67fabcca87abc022e0fc846e9a8529774f32db84504b147fc378c81e519839",
+        "expandedBodySha256": "160454a2d77cde8ae3d05c6902d6299a227dac9ef097e6c4bf97d6bf5e20b9cf",
+        "exports": [
+          "createRelayDossier",
+          "relayContextFor",
+          "validateRelayFacts",
+          "relayDossierFromGame",
+          "validateRelayMission",
+          "validateRelayReceipt",
+          "validateRelaySortie"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/foundry-validation.mjs",
+        "sourceSha256": "7d53dfdc9315161199b8cc4e74ef908dbfe9c3a10e3288b23debbcb3e02a313d",
+        "expandedBodySha256": "250a22442de94adceeb7c4c7f35bd4649107b9fa1049c4c2d0d5351df5c1f75b",
+        "exports": [
+          "createFoundryDossier",
+          "foundryContextFor",
+          "validateFoundryFacts",
+          "foundryDossierFromGame",
+          "validateFoundryMission",
+          "validateFoundryReceipt",
+          "validateFoundrySortie"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/workshop-validation.mjs",
+        "sourceSha256": "a96a7b0a932f3aec858f46e424819ccd3cb299aaa41282994c2a14cacc41a0db",
+        "expandedBodySha256": "92866762747558b1dea24b02037a672c3be3de34f0d4a7093447434bf3a34f96",
+        "exports": [
+          "createWorkshopDossier",
+          "workshopContextFor",
+          "validateWorkshopFacts",
+          "workshopDossierFromGame",
+          "validateWorkshopMission",
+          "validateWorkshopReceipt",
+          "validateWorkshopSortie"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/campaign.mjs",
+        "sourceSha256": "f4176813bedfaf4139c428c8bd4e02b4c1dd8844eee867b2bf76fea3f9ab3c94",
+        "expandedBodySha256": "cc8c9de197ec729cc6ea687ea067ebe12c74acb393e8b0ae91adf039c3f0966c",
+        "exports": [
+          "CAMPAIGN_SAVE_KEY",
+          "CAMPAIGN_BACKUP_KEY",
+          "CAMPAIGN_SAVE_VERSION",
+          "createCampaign",
+          "nextCampaignMissionId",
+          "serializeCampaign",
+          "parseCampaign",
+          "readCampaign",
+          "writeCampaign",
+          "beginCampaignMission",
+          "checkpointCampaign",
+          "restoreCampaignGame",
+          "finishCampaignMission",
+          "campaignRepairCost",
+          "serviceCampaignWalker",
+          "repairCampaignPipe"
+        ],
+        "embeddedBodyMatchesCurrentSource": true
+      },
+      {
+        "path": "src/main.mjs",
+        "sourceSha256": "4abe9cf5521d65c8151fc5af3e04bfcc9a7f045923898a5ba7fc0ebd2e9a4af3",
+        "expandedBodySha256": "156c59e60faf31da6d7699b9b640dc5b3999a57991110fc2d0b7a3d3e128a3d1",
+        "exports": [],
+        "embeddedBodyMatchesCurrentSource": true
+      }
+    ]
+  },
+  "javascript": {
+    "parsedWithoutExecution": true,
+    "engine": "Node --check",
+    "nodeVersion": "v24.22.1",
+    "inlineScripts": 1,
+    "unresolvedModuleSyntax": false
+  },
+  "paintedPngs": {
+    "originals": 58,
+    "allEmbeddedExactlyOnce": true,
+    "originalBytes": 97581063,
+    "files": [
+      {
+        "path": "assets/painted/cerbere/cerbere.png",
+        "bytes": 1502235,
+        "sha256": "3fd900a7e98bebe5b7bf99190a44404add735d8f6d3936056fbcc455b40d8465",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/chemical/canals.png",
+        "bytes": 744287,
+        "sha256": "50a54d686828681af9f1ddda2956d2dae4b7a6712f82dc79c726251b7097084b",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/chemical/homes.png",
+        "bytes": 1525605,
+        "sha256": "6be59df742d231cecb48927a60b56e5cadfe870f147c56aec6c043e2ca4ee68c",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/chemical/instruments.png",
+        "bytes": 2127867,
+        "sha256": "a18a164242298d2aebb7147efcc39fb48f6ae5f4557e425359afbcf467c1ee7b",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/chemical/tanks.png",
+        "bytes": 1829338,
+        "sha256": "0212030075bc05e581efc2766544bfee17c1905155da09046f4122ec2ddfe796",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/chemical/valves.png",
+        "bytes": 1614245,
+        "sha256": "8b219ba92130bfd4ee98850d5dee9e30c508dc2973379e3aa6ecbab5050c1339",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/combat/buggy.png",
+        "bytes": 2128516,
+        "sha256": "cfa03ab9a34efe218c99f4b5b74c9887e9a5600a79700e8a3f199486f08d380a",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/combat/civilian.png",
+        "bytes": 1711202,
+        "sha256": "5c1cd4b9f468c15e8f5c77513691a7b962d038e9437618859937d467bb2e0de1",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/combat/convoy.png",
+        "bytes": 2215554,
+        "sha256": "2a3e6b2ca6ef0162f0b99565213e577066bac48fab78f389310d5657efa3d9c2",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/combat/drone.png",
+        "bytes": 1459072,
+        "sha256": "11d514211301b3313aff7afb303bc7654d287cc9caf637af9dec95830bdf9b8c",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/combat/rifle.png",
+        "bytes": 1703512,
+        "sha256": "49a5ef997a13a67f4cbaf51a065cd0b19daf38d87da4e76c6a0c9dba043d9249",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/combat/rocket.png",
+        "bytes": 1805602,
+        "sha256": "c6d04961abb51e7d006b0bff780e20a2028b31b0318ac6f993fcede8879d10d1",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/combat/skimmer.png",
+        "bytes": 1696426,
+        "sha256": "fe1dea9afe6d7c28f39ba7d3d98b18040a632e8c67f0c7fcee1c4dd62980596e",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/combat/sniper.png",
+        "bytes": 1766601,
+        "sha256": "6fb9c6319a5a1e8982b653af7ce71de8b22647e23f77b4472e30c8b39f2374f4",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/combat/turret.png",
+        "bytes": 2035333,
+        "sha256": "cd08afb38760921e1783313d97110f7b3034ad467b7affc9f6b73adcdb628281",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/mi14/cooler.png",
+        "bytes": 2660922,
+        "sha256": "4f35734260ca8c59daedc27ff91ffcd7b9e4fcab902d7aa03b0c6d1b94b113ad",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/mi14/disputed-lot.png",
+        "bytes": 2460864,
+        "sha256": "83ead0e275d7a3ba75f8d8d83bf69225096ae84a60cb29c357caab04fafdd534",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/mi14/picket-post.png",
+        "bytes": 953094,
+        "sha256": "33976aa09333facacf5a17835755597a931e596e894d80507e07e9c1bd75be10",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/mi14/security-automaton.png",
+        "bytes": 2022963,
+        "sha256": "d94e233cf918d0dd76259e92033f1e948df476f249c3f35cd7027dfa65ff93ee",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/mi14/valve.png",
+        "bytes": 1237430,
+        "sha256": "f1a7cce3da1cb5553ba72266a8cf443b5cdd22d1727be47e35193a73fa8cc069",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/mi14/worker-mechanic.png",
+        "bytes": 910975,
+        "sha256": "6d79427bdac080e76a1e65db9f901c8ca578345dc67c2e1b519c8d08231c2a78",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/mi14/worker.png",
+        "bytes": 905882,
+        "sha256": "8322c17beed77d667ce04d458a8117ea451d777ee15fbec8955cc364b0e8d14a",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/mi14/workshop-control.png",
+        "bytes": 2024694,
+        "sha256": "6b534a3dcac30b1520f8b6cf0c03a64e6dc4973da2e6e80c2a08946f784d14e2",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/nacre/ambulance.png",
+        "bytes": 2083201,
+        "sha256": "0647dfa9f59c50ffdf0b7cbef42928d9766f3684b27b6fa75c0fe721154d7c58",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/nacre/equipment.png",
+        "bytes": 2051999,
+        "sha256": "c1b5a1aa0b5f8ef3c2555318738ac8071549cd0b8a982116253016a7ffeac8ba",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/nacre/ferry.png",
+        "bytes": 1651803,
+        "sha256": "58b9a57fbcaad94ad2dd497b7ab41b41b089648ae147fa88e7ba90a384a66cf8",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/nacre/rive-courte.png",
+        "bytes": 2317598,
+        "sha256": "fb9b6b4232a0592e65474b787aca8e5f02486b6f34d0cc929274787d0218a930",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/nacre/saisie.png",
+        "bytes": 1533930,
+        "sha256": "cfa6ca77f78ec1be710af2bbf1408d35ab3471e9088b698d1b47bc6a544e6c7b",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/nacre/veille-aval.png",
+        "bytes": 2319468,
+        "sha256": "62e1557ea367a5724de2b4faaf3e4ba6c979fe6e90b932bbd027e075a389b9d0",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/nacre-sites/barriers.png",
+        "bytes": 1643320,
+        "sha256": "e5fd0d6c938fea2608c8082a243913725e8ba372ffcaa5e5f17948a41738af70",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/nacre-sites/houses.png",
+        "bytes": 1418912,
+        "sha256": "5f1adff8ef1ceada161d91d65e5829801cba662ae573668441bfc97896f33b58",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/nacre-sites/hydraulics.png",
+        "bytes": 1571903,
+        "sha256": "d46e15cda7b99d57050aa44b88507caf5519787ffd89ec2802982337495b1240",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/nacre-sites/quays.png",
+        "bytes": 1226572,
+        "sha256": "2cae9ba58daadf519342fb1938f9fb46ecc37ac02627dff5fe4097256518c78e",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/nacre-sites/shelters.png",
+        "bytes": 1918963,
+        "sha256": "979e235a3eaf4d0ee5f8d92370936709def105eb82ce2639c4bb9fc82a54b8df",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/relay/consoles.png",
+        "bytes": 2143647,
+        "sha256": "e437e8b2f9889e776b8cc6546a2d33cb2244981ab21f8a68c35b710c61164505",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/relay/praetor.png",
+        "bytes": 1405488,
+        "sha256": "31fcbd960e86f7971d8364a3b2526c2c4e94e43bc1d7375b77596f473e19d845",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/relay/relay-mast.png",
+        "bytes": 1894101,
+        "sha256": "7cb5d091c3048fc35095401a66343919bf8ee2d9085ea9fc56a5a07fb39edc78",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/thyr/column.png",
+        "bytes": 1947365,
+        "sha256": "40ac8f273dea5129a5e3227426574c49dcc86ed97ee5ab3d1d2714cbfbf00e2b",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/thyr/fan-colony.png",
+        "bytes": 1616506,
+        "sha256": "b7fdeb151c77bdd5f6cc328db1bdcb814e592ccde7bc0378042e2c5413b7df4d",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/thyr/habitat.png",
+        "bytes": 1195351,
+        "sha256": "ca95f9594300a7eeed86b265c667c9eebc3520232ac34f0217989d5bc8e099c6",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/thyr/leth.png",
+        "bytes": 910533,
+        "sha256": "f494bcfd2bfdd71cd462e7e8faef73d328d79957263ad4845a762addefdf87c7",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/thyr/longuedorse-adult.png",
+        "bytes": 2128641,
+        "sha256": "62116c864b90a8f9268368843711a1ab99b7262f5816a21a39d7cc0b4ed03465",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/thyr/longuedorse-young.png",
+        "bytes": 1435699,
+        "sha256": "a330a1b4e7fcc2a440f785d4898c3d9fc6e3766b9ccc0ae5663f6d4da8890b45",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/thyr/plants.png",
+        "bytes": 1124082,
+        "sha256": "46533b07ef49d4aac10a0ba58fca0f8bf4ef319bc59599011fbdd4279397fb05",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/thyr/rootwatcher.png",
+        "bytes": 1292018,
+        "sha256": "bc574c19ec74403b32327199dfbdd3a3bd3229b747e0b43103853d0d06571472",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/transport/cargo.png",
+        "bytes": 1479759,
+        "sha256": "d158889c1a7c84d139b15e9e3b7badf1ecdde1ac0d6f863698b0fdd3378a141f",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/transport/carrier.png",
+        "bytes": 1667887,
+        "sha256": "2720b316ee5aef52520d34b0d9d71d51fe2bd43c342b9bd484d15ba756396dff",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/transport/locomotive.png",
+        "bytes": 1970233,
+        "sha256": "da022fc8fb829e8da2254c2da2e2d1420aa8b0f4970c4e1666a16679099e392e",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/transport/wagons.png",
+        "bytes": 1287680,
+        "sha256": "3553fea774a4cea44d296182b8c2e8b76706f8086c3f4409f07635361ae10d3c",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/voice/emitter.png",
+        "bytes": 1875043,
+        "sha256": "0ce6fbf094e824cb3169169f0a7658ad89c981acbaee17bc227bcfe273f68c1e",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/voice/instruments.png",
+        "bytes": 2255773,
+        "sha256": "4640eb8a5c4a07ac96ec1f98e6772fcbdb03b9c6d485f72cc69e4ade30fac002",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/voice/terrain-sites.png",
+        "bytes": 2867564,
+        "sha256": "f5f5a593956ac1802bae794cbfe2da89e6b24e5ec4c3dd5789dbcf354cc90515",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/walkers/wk01.png",
+        "bytes": 1379129,
+        "sha256": "49c52f8c00d552e8f4959fd78412687fa9ff4cafb6686b9f7fa30022dde540fd",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/walkers/wk02.png",
+        "bytes": 1479291,
+        "sha256": "d8de453adcccf97ba759c4501f064c26504eb7a2fc87c4867962610f6aee6a40",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/walkers/wk05.png",
+        "bytes": 1348331,
+        "sha256": "6a5097b77b6a502c5672b6cbdbe3572c139ef88bb13e795c6f0e498279c1866a",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/walkers/wk06.png",
+        "bytes": 1394649,
+        "sha256": "08ca0e850e8d1e0a04c180f3ea31eecdacde09b9bcb61665c5323b2fd6a0757b",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/walkers/wk09.png",
+        "bytes": 1386191,
+        "sha256": "672de69a17029977ef78a15f6ce7057d3cb6bc864a3158d4fd08962cd176f877",
+        "embeddedOccurrences": 1
+      },
+      {
+        "path": "assets/painted/walkers/wk10.png",
+        "bytes": 1316214,
+        "sha256": "a19847373a620d7f9939b38e81761976b5317275cab8cc40b558604063d76d3f",
+        "embeddedOccurrences": 1
+      }
+    ]
+  },
+  "otherPngs": [
+    {
+      "path": "assets/art/vesper-panorama.png",
+      "bytes": 1797938,
+      "sha256": "837363413272bb4c8ed4fc38901d127465f3a30a830d6fd001b2d0c9106e6084",
+      "embeddedOccurrences": 1
+    },
+    {
+      "path": "assets/art/key-art.png",
+      "bytes": 2621477,
+      "sha256": "8b691dcb9cce0f1a5d27737f470f3aaf7aa8e81e027639a0deb452b420fa7277",
+      "embeddedOccurrences": 2
+    }
+  ],
+  "totalEmbeddedPngOccurrences": 61,
+  "otherPngOccurrences": 3,
+  "allEmbeddedPngsMatchCurrentSources": true,
+  "network": {
+    "externalHtmlResourceAttributes": [],
+    "htmlResourceAttributesChecked": [
+      {
+        "tag": "link",
+        "attribute": "href",
+        "kind": "data:image/svg+xml;base64"
+      },
+      {
+        "tag": "a",
+        "attribute": "href",
+        "kind": "#campaign"
+      },
+      {
+        "tag": "img",
+        "attribute": "src",
+        "kind": "data:image/svg+xml;base64"
+      }
+    ],
+    "externalCssImports": [],
+    "externalCssUrls": [],
+    "externalModuleImports": [],
+    "networkOrWorkerRequestApis": [],
+    "remainingUrlLiterals": [
+      "http://www.w3.org/2000/svg"
+    ],
+    "remainingUrlMeaning": "Standard SVG namespace identifier only; it is not fetched.",
+    "finding": "No static external resource, unresolved import or network-request API is required by this standalone bundle.",
+    "nativeNetworkTracePerformed": false,
+    "audioAliasReview": "The single new Audio() call has no arguments and resolves locally to AudioContext/webkitAudioContext; sound buffers are generated procedurally."
+  },
+  "zip": {
+    "file": "dist/Ordre_de_Cendre.zip",
+    "bytes": 103369632,
+    "sha256": "2ad83ba23c1fc0f5f3cdc5ba2d929c68ba41707a9f26bd50c0fee67f553bcb67",
+    "entries": 1,
+    "entry": "Ordre_de_Cendre.html",
+    "uncompressedBytes": 141278398,
+    "compressedBytes": 103369494,
+    "method": "deflate",
+    "timestamp": "1980-01-01T00:00:00Z",
+    "crc32": "b0e75a07",
+    "pythonZipfileReadCrcPassed": true,
+    "independentCrcMatchesManifest": true,
+    "extractedHtmlSha256": "7d346e0fcfacf6507a89bc10840ed1cf370297e6dff7566d0a339e7ac0c77b8e",
+    "extractedBytesMatchHtml": true,
+    "githubFileLimitBytes": 104857600,
+    "marginBelowLimitBytes": 1487968
+  },
+  "secondBuildExecuted": false,
+  "sourceFilesModified": false,
+  "builderSha256": "4c54423c60700107a81fb39ca06974b79ae884f7f8a389408590d619ba42a1d7",
+  "packageBuilderSha256": "a044d79ac0dd96b261a99196b7f05df3375b05fce753cd7262cd2610b53d94a5",
+  "packageManifestSha256": "9014d3162db9bac43e5bf8618eee349a841a602fda468ffa207fd7ae6568d998",
+  "passed": true
+}

@@ -4,8 +4,9 @@ import { drawVoiceAsset as drawVectorVoiceAsset } from './voice-assets.mjs';
 import { drawProductionPart } from './production-assets.mjs';
 import { drawThyrAsset as drawVectorThyrAsset } from './thyr-assets.mjs';
 import { drawPaintedThyrPart } from './painted-thyr.mjs';
+import { drawPaintedVoiceAsset } from './painted-voice.mjs';
 
-const drawVoiceAsset = (ctx, options) => drawPaintedThyrPart(ctx, options) || drawVectorVoiceAsset(ctx, options);
+const drawVoiceAsset = (ctx, options) => drawPaintedVoiceAsset(ctx, options) || drawPaintedThyrPart(ctx, options) || drawVectorVoiceAsset(ctx, options);
 const drawThyrAsset = (ctx, options) => drawPaintedThyrPart(ctx, options) || drawVectorThyrAsset(ctx, options);
 
 const pct = n => Math.round((n || 0) * 100);

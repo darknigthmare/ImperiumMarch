@@ -1,0 +1,968 @@
+{
+  "version": "0.15.6",
+  "createdUtc": "2026-11-16T15:55:30.089102+00:00",
+  "type": "Regression of eight prior painted lots plus vector SVG/Canvas coverage",
+  "completed": true,
+  "headAtRun": "65b14f2eb10a94c7c45ed73db944eebb5158bca5",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "newImageCopiesCommitted": false,
+  "lots": [
+    {
+      "lot": "mi14",
+      "tool": "tools/test-painted-sprites.mjs",
+      "argv": [
+        "node",
+        "tools/test-painted-sprites.mjs",
+        "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/mi14"
+      ],
+      "exitCode": 0,
+      "wallTimeSeconds": 4.668498287,
+      "log": "docs/validation/release-v0156/regression/mi14.log",
+      "logSha256": "2caa3c4838c0acccaab802e40298b1350e955938d429ee672271cf11c0121f91",
+      "receiptPath": "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/mi14/receipt.json",
+      "receiptSha256": "dc551e99fbf5d68df2a6170a50b43b93ec9d9f65cb905ff1edc689fa82c961fd",
+      "receiptCompleted": true,
+      "receiptVersion": "0.15.6",
+      "counts": {
+        "atlases": 8,
+        "cells": 54,
+        "runtimeCells": 54,
+        "referenceCells": 0,
+        "imageFiles": 47
+      },
+      "extraCounts": {},
+      "components": 33,
+      "missionScenes": 14,
+      "shotOrientations": 0,
+      "publicInputMission": null,
+      "verifiedCurrentSourceHashes": {
+        "src/painted-sprites.mjs": "dfa61893d8cbc57bc9fb407af855dcab127f5c6acca1ad4a36289368f7aa4c46",
+        "src/painted-sprite-layout.mjs": "c7fd67789497c1c8d733693cc08e3a582bc433f67a4cae93c816f92403cb6fcd",
+        "src/workshop-assets.mjs": "f2b9420b67d701fb3c532b0c645599a8b9501cfbc12aab8054efea284bb3e42f",
+        "src/workshop-renderer.mjs": "82de9442d14d994af083fe7ba13121a58a6ebe7615388060ab540d26cb58cf6a",
+        "src/renderer.mjs": "423ccddc1a08887e7bab423e58fdc4ae65db5d5034e7f2853f146bdb10d02f04",
+        "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+        "src/workshop-simulation.mjs": "ea4992944c6b32b8b0e4351348c8af8348d2d733ba5fb60f0d12f36ee40c12fb",
+        "tools/test-painted-sprites.mjs": "ffc12a00c9a03bb204919f721cb2877ebd2465031913ccf80b0f7775a39907cd"
+      },
+      "verifiedImageHashes": [
+        {
+          "file": "arrival.png",
+          "sha256": "303beb5a102272fe0fadd4f8ca8f22f1980179489a6e4adbd049867f9a922797"
+        },
+        {
+          "file": "passage-request.png",
+          "sha256": "d639a52ec91b9f4906159f299c46fb33c5a9e330feacb56e329f8ecf3c75cf90"
+        },
+        {
+          "file": "workers-crossing.png",
+          "sha256": "2248c8b657df324152ae3ba2d4f1309184f92a4005882647da8a8797e5597f88"
+        },
+        {
+          "file": "gallery-contact.png",
+          "sha256": "b18d4d749549625fb958e2e1db0236a6989007b3cad2d04798c267804faf79bb"
+        },
+        {
+          "file": "security-active.png",
+          "sha256": "fb7a231edd0b0bb5985c287211fc408995924aae72560d0d20bc3670d7c59321"
+        },
+        {
+          "file": "isolation.png",
+          "sha256": "91f6a9472ab3b848ac409b48a8533d3021b7ec97658eb26f744d4426044fdc67"
+        },
+        {
+          "file": "repair.png",
+          "sha256": "0a17bef4c5da7790855ce35399506a12871af948714eba1095e78c0ba8092667"
+        },
+        {
+          "file": "decision.png",
+          "sha256": "a9e573ecff20e5b4d54a64c4a79b8ff1754d277f6f707db7a0843ea97dadf2fb"
+        },
+        {
+          "file": "control.png",
+          "sha256": "8ffca6763ee44b7c65cc7acac4c9340150064813ff983e0872e6c5ba59267435"
+        },
+        {
+          "file": "cooperation.png",
+          "sha256": "017c92be6ce1f1e03ade978f8302dc47775d55a45c38db404030c2c9e2d21e57"
+        },
+        {
+          "file": "before-extraction.png",
+          "sha256": "c21f14ae279d42770548b0abc73320f73c73a8bfc911b83ec7a771e808d06b6a"
+        },
+        {
+          "file": "production-restarted.png",
+          "sha256": "99fae5a983f7fb86a3599fd5d80b51b04798120dafe806182b2ece195c9f28f6"
+        },
+        {
+          "file": "lot-lost.png",
+          "sha256": "45c96bc77ce63821aa8bdacece9f12db2b5683b43cde24b5a1f8075fef589b5c"
+        },
+        {
+          "file": "copy-retained.png",
+          "sha256": "b8fd8ee5169bc299db2de04736364909eb69f8e61d0b94d95ac00f474302f2a0"
+        },
+        {
+          "file": "worker-standing.png",
+          "sha256": "9484ba658661eb2d8e2842074f0a4199d6ea4920d94f5c1c1059527f4ac2de04"
+        },
+        {
+          "file": "worker-mechanic-standing.png",
+          "sha256": "0935a2a77bf87e567c12883fb10f783591d3d5407c2df1c9c6d713a89b572466"
+        },
+        {
+          "file": "worker-walking.png",
+          "sha256": "03bad3a9bba02a62db86c929d09670bf26da054a4d1152255e2e061fa3afb372"
+        },
+        {
+          "file": "worker-mechanic-walking.png",
+          "sha256": "48db2e2c2194846ca24a1cc497c8fbe00c5c3849a0a834e330a1836aedf106d3"
+        },
+        {
+          "file": "worker-safe.png",
+          "sha256": "39a7e389ee213c3056147585ab6b969776b89c3ab9f2a52605fab9cb81ebe13c"
+        },
+        {
+          "file": "worker-mechanic-safe.png",
+          "sha256": "85224d69e9c9cc0efde507de2581664736f1d1db5f0684c89759ab6f36d4d78a"
+        },
+        {
+          "file": "worker-lost.png",
+          "sha256": "2da360b44a576424d997b0c21aa92b4fa95806f1bae7b421c6715f1e327f95c6"
+        },
+        {
+          "file": "worker-mechanic-lost.png",
+          "sha256": "a5dbee629a23cbef706aa742fb8849f2b03d963fc2db8eb2b262c83f7fcc3602"
+        },
+        {
+          "file": "cooler-broken.png",
+          "sha256": "d739a7c9e060c45131b63088c0bf9719b92030e745cf7dd2fbf06a8dd9e1b78b"
+        },
+        {
+          "file": "cooler-isolated.png",
+          "sha256": "df57893a220111e87ec05c3dfe372969820bec325c58a40c7375f30db842614a"
+        },
+        {
+          "file": "cooler-repairing.png",
+          "sha256": "018b6b190b9901c7dd14df6e501014b53543d236b9c483e318ac13dc692888cf"
+        },
+        {
+          "file": "cooler-online.png",
+          "sha256": "0d8a61f50c3e69cddc730acd7930447ddc4771520ef52c7c1b6e8c3a00888beb"
+        },
+        {
+          "file": "cooler-destroyed.png",
+          "sha256": "0bf43946ae536be9c4b08d439e925d839b522680c19becf387eec199f585c8b9"
+        },
+        {
+          "file": "valve-open.png",
+          "sha256": "59e1f9d616ed69fd4cbfa6fc4483fa240e1169e29a947e3fc1bf73583f13b029"
+        },
+        {
+          "file": "valve-isolated.png",
+          "sha256": "d5691e56736db7c67e8f0ac41b498906e917f02d2da5a8a33c433477a18b94e7"
+        },
+        {
+          "file": "valve-destroyed.png",
+          "sha256": "48acda500945b65ef894c692d59b0d88e82d8c9c5f9949be062936419410ce32"
+        },
+        {
+          "file": "disputed-lot-sealed.png",
+          "sha256": "e8d749eee1a9b407c5b85874e1ccb192c93f58b4e72d193c69f4da862a49277c"
+        },
+        {
+          "file": "disputed-lot-inspected.png",
+          "sha256": "186552fe7a6b96164733e8c5c23b974d7456beb805414bfa39f206e6949db792"
+        },
+        {
+          "file": "disputed-lot-released.png",
+          "sha256": "0c9e37aeb8aaca8b4d9468738f304eeb61d8134b04cc230ccf1f6d30e6b8d632"
+        },
+        {
+          "file": "disputed-lot-blocked.png",
+          "sha256": "0b88a6c7f5e95e214fb1224526c0d7f189d890987a4ee7d109885e987c76c81c"
+        },
+        {
+          "file": "disputed-lot-destroyed.png",
+          "sha256": "cbcb4ce6a6b5b5f7c7c8fb7280ffa5fa7d92eafccf4d9f47ee608b89c36402e9"
+        },
+        {
+          "file": "workshop-control-idle.png",
+          "sha256": "1394cfd57f050943bcf92abf090b2d1b68a464a2bd65cc557c9ba388ef74155e"
+        },
+        {
+          "file": "workshop-control-working.png",
+          "sha256": "a5a3991a13b5ef7a2c1053cf02c57d3989ffba7fc4ab720b3f245de5db387236"
+        },
+        {
+          "file": "workshop-control-production.png",
+          "sha256": "7a36425dbf3a11b702e3b3db95175b57210c0e645b03688aba4f1e9a484c1767"
+        },
+        {
+          "file": "workshop-control-stopped.png",
+          "sha256": "73d557bb7d5dcc5d5c33dba161d5d1d03899d2e9280cc3f0c8de217986f0d2fb"
+        },
+        {
+          "file": "workshop-control-destroyed.png",
+          "sha256": "a1ab4e1cd341e3c5effe2a6765de0e2363d82c941b0eb2f8128f1dd752324cc8"
+        },
+        {
+          "file": "security-automaton-dormant.png",
+          "sha256": "8b8c3c2b3d13dbbdaf788a331f9347b586aaf04d573dd52e590250d693dad9ae"
+        },
+        {
+          "file": "security-automaton-warning.png",
+          "sha256": "56acf0500a431f814afd52a66290dd9a5b9105ca5ae57b74c06305761ce0d165"
+        },
+        {
+          "file": "security-automaton-active.png",
+          "sha256": "ce6fb9aed47858437affb2bf6d352b3a918a928978d92fcedf9d9e14ac86868f"
+        },
+        {
+          "file": "security-automaton-destroyed.png",
+          "sha256": "19a31ec48dcad18f6cd92304124c1910a52c3bc97e212b3a00569b7cffd129d5"
+        },
+        {
+          "file": "picket-post-closed.png",
+          "sha256": "129cac77323c23548a45fcc1ac40b9085464cb056842027fbd4ad50b4d8b33a0"
+        },
+        {
+          "file": "picket-post-clearing.png",
+          "sha256": "03476ddf3b0330408763d7c25cdfa942600b3a3c5d0fc5b93f5556db8b827f2e"
+        },
+        {
+          "file": "picket-post-open.png",
+          "sha256": "51ad0cff38d13aa1f08dcc8737949fea9449dc25a2a94960f8170bb358263fbc"
+        }
+      ],
+      "limitations": [
+        "PNG alpha, crop, rig placement and Canvas assertions do not certify anatomy, visual style, human readability, CSS, browser interactions, audio or production-ready animation."
+      ],
+      "usageClassification": {
+        "authority": "Selected lot manifest; absence of usage in a test receipt is not interpreted as runtime",
+        "manifestPath": "assets/painted/mi14/manifest.json",
+        "manifestSha256": "72f64c528cc664bf63d0573f00da3a90a1ba4598acdc91a7bb49aee8955b2625",
+        "fieldsUsed": [
+          "counts.atlases",
+          "counts.frames",
+          "files[].cells[].runtimeFrame (explicit mapping present on all 54 cells)"
+        ],
+        "atlases": 8,
+        "cells": 54,
+        "runtimeCells": 54,
+        "referenceCells": 0,
+        "selectedPngHashesVerified": true
+      }
+    },
+    {
+      "lot": "combat",
+      "tool": "tools/test-painted-combat.mjs",
+      "argv": [
+        "node",
+        "tools/test-painted-combat.mjs",
+        "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/combat"
+      ],
+      "exitCode": 0,
+      "wallTimeSeconds": 2.3537873400000002,
+      "log": "docs/validation/release-v0156/regression/combat.log",
+      "logSha256": "86166d3f6631648ca0407f57e7a2723dfb85c065a48e32e9dbe8bd249c053ff6",
+      "receiptPath": "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/combat/receipt.json",
+      "receiptSha256": "c16e381f2850d900ab8ec0b0ee0977d1dec0fec2a6ac1e532aede578a9baad93",
+      "receiptCompleted": true,
+      "receiptVersion": null,
+      "counts": {
+        "atlases": 9,
+        "cells": 78,
+        "runtimeCells": 60,
+        "referenceCells": 18,
+        "imageFiles": 6
+      },
+      "extraCounts": {
+        "atlases": 9,
+        "frames": 78,
+        "views": 6
+      },
+      "components": 0,
+      "missionScenes": 0,
+      "shotOrientations": 0,
+      "publicInputMission": null,
+      "verifiedCurrentSourceHashes": {
+        "src/painted-combat.mjs": "66aa27a2d6f25a1eeb714d125957c30f208428e8c66283a936ba9846b73404f5",
+        "src/painted-combat-layout.mjs": "98f354701cd661ab6a2d175563ad12aba69f1fbe1437f506bd042959acecd8bb",
+        "src/enemy-weapon-pose.mjs": "736f34c9ca9eca086e6c437d9497c322bb5efcdc7598fb3980559c854bf1ff6f",
+        "src/renderer.mjs": "423ccddc1a08887e7bab423e58fdc4ae65db5d5034e7f2853f146bdb10d02f04",
+        "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+        "tools/test-painted-combat.mjs": "7ec1290e61b484ad4d54eadf8f708d5a175d29be9ee0043be0d8d94299215c53"
+      },
+      "verifiedImageHashes": [
+        {
+          "file": "combat-readability.png",
+          "sha256": "0bd38ff3ad06550ab6fcbf8a5069418697334da60878d12a04b5d2069156976a"
+        },
+        {
+          "file": "scene-op01.png",
+          "sha256": "0ebdfa0afb68de6ef5a5f33dd72f17f0a4ef0c65f85ff88a60e08fc7f991e375"
+        },
+        {
+          "file": "scene-op02.png",
+          "sha256": "e927713f136ac541ef0d4dc89d392f6d08bc7672be9f275ce18765a5aa850503"
+        },
+        {
+          "file": "scene-mi05.png",
+          "sha256": "5c8ec0de1b248370f3a20c51fdd47003c581d1b9b8fc367986c3f47364f37d81"
+        },
+        {
+          "file": "scene-mi09.png",
+          "sha256": "5ce9b4fb8a1dbce9185747aefe41dfbcb80cea855cb59ee21c80b6772438bd15"
+        },
+        {
+          "file": "scene-mi13.png",
+          "sha256": "322e50996a8502726e9cc23b835d999b4586ab570fb22874bbeef19160afd48e"
+        }
+      ],
+      "limitations": [
+        "Canvas decoding and geometry checks do not certify native browser UI, audio, anatomy, artistic approval or final animation quality."
+      ],
+      "usageClassification": {
+        "authority": "Selected lot manifest; absence of usage in a test receipt is not interpreted as runtime",
+        "manifestPath": "assets/painted/combat/manifest.json",
+        "manifestSha256": "d8c559f4f0add10153a1d28abe41fa73914cd17c4376aff76b3114c768c84a93",
+        "fieldsUsed": [
+          "atlases",
+          "cells",
+          "runtimeCells",
+          "referenceCells",
+          "files[].runtimeFrames",
+          "files[].referenceFrames (disjoint complete cell partition)"
+        ],
+        "atlases": 9,
+        "cells": 78,
+        "runtimeCells": 60,
+        "referenceCells": 18,
+        "selectedPngHashesVerified": true
+      }
+    },
+    {
+      "lot": "walkers",
+      "tool": "tools/test-painted-walkers.mjs",
+      "argv": [
+        "node",
+        "tools/test-painted-walkers.mjs",
+        "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/walkers"
+      ],
+      "exitCode": 0,
+      "wallTimeSeconds": 4.967277276,
+      "log": "docs/validation/release-v0156/regression/walkers.log",
+      "logSha256": "0fb2be4919130f16bc3329d34f049bcf2fccaecabd28945ed8137f46de12fe86",
+      "receiptPath": "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/walkers/receipt.json",
+      "receiptSha256": "c611f094d42bf7e1ca1eaafa36914c5c3594640f47053b718855ba736e33a07c",
+      "receiptCompleted": true,
+      "receiptVersion": "0.15.6",
+      "counts": {
+        "atlases": 6,
+        "cells": 96,
+        "runtimeCells": 96,
+        "referenceCells": 0,
+        "imageFiles": 19
+      },
+      "extraCounts": {
+        "atlases": 6,
+        "cells": 96,
+        "views": 19,
+        "poses": 54,
+        "missionScenes": 6,
+        "hangarViews": 6
+      },
+      "components": 0,
+      "missionScenes": 0,
+      "shotOrientations": 0,
+      "publicInputMission": null,
+      "verifiedCurrentSourceHashes": {
+        "src/painted-walkers.mjs": "00b66e7dfd17862be23162f3acb899d4c14a5f1e853e1dff56440090dce91c8c",
+        "src/painted-walker-layout.mjs": "4cf545b92f234227451c19867301bcb1d76d18d1e0975ebbb8e08b0bf746811c",
+        "src/production-assets.mjs": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0",
+        "src/renderer.mjs": "423ccddc1a08887e7bab423e58fdc4ae65db5d5034e7f2853f146bdb10d02f04",
+        "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+        "tools/test-painted-walkers.mjs": "7f32c57aa11832655220cf7fb64e1f4a41fe00a27c6062f3f123dd4277c3b328"
+      },
+      "verifiedImageHashes": [
+        {
+          "file": "walkers-common-scale.png",
+          "sha256": "2add3fb8634bf3856a691199438c36f023b95b2fee1cac2d5ac20f3c4cbb00b7"
+        },
+        {
+          "file": "poses-wk01.png",
+          "sha256": "daaf370ef34e1ceae95de7c559d858cdb9891795d2499ab7a2e400dab9998aea"
+        },
+        {
+          "file": "poses-wk02.png",
+          "sha256": "7bfc3c239a043a09a90c43e8c7d68db9c2a255dc15439d37888e133411b8c879"
+        },
+        {
+          "file": "poses-wk05.png",
+          "sha256": "6d7f26c46cd23fefdb77621783a1ac0fd6ae756fa535df2fa206759e81f3f198"
+        },
+        {
+          "file": "poses-wk06.png",
+          "sha256": "efb8e7a3b411a9d10adb96ee6c016d48cb724d0d3f202353ed5c5b8762e64d36"
+        },
+        {
+          "file": "poses-wk09.png",
+          "sha256": "752480ee553b6c803bd410502defbd2aa6e5e2317f486d5b0fcfabae7f4fa3d9"
+        },
+        {
+          "file": "poses-wk10.png",
+          "sha256": "dcfde446d4af1fdf11c19f1be1ff21f376f35fa0af5fe68e83fb8450ab7feb91"
+        },
+        {
+          "file": "scene-wk01-mi01.png",
+          "sha256": "c557b681b50d72583755525ad04c59097a2c4b1621c7f12cf29b139470e759c8"
+        },
+        {
+          "file": "hangar-wk01.png",
+          "sha256": "851b20e6178e513eae1bafc068943346c62a7820930c068e05a1fe50c3484762"
+        },
+        {
+          "file": "scene-wk02-mi05.png",
+          "sha256": "6ecfc8488416b235cc5c9c423100a0a579d55dc0ba002050f8b054a81d3bb11e"
+        },
+        {
+          "file": "hangar-wk02.png",
+          "sha256": "dc8d8f4459f623ff5fca5b2250b175244bcefe2c972f67a4f16a440bf1c13d7b"
+        },
+        {
+          "file": "scene-wk05-mi01.png",
+          "sha256": "b733cd0e3d713e739a6c881fb04a6244e856de941f18e1615221bc3d6d9c099c"
+        },
+        {
+          "file": "hangar-wk05.png",
+          "sha256": "00495db7dc7596a1831e96071f546bac45803990862aba317c14c45d30e1df27"
+        },
+        {
+          "file": "scene-wk06-mi09.png",
+          "sha256": "e0b64e8e68a6e4eea74dadbdb6cddd7117b25a72470ed7c022f11063de5393ad"
+        },
+        {
+          "file": "hangar-wk06.png",
+          "sha256": "0ee6cf69fbe5fd6bffdce39021056e32c8eb832def080219052f1257a2840f80"
+        },
+        {
+          "file": "scene-wk09-mi09.png",
+          "sha256": "07875948fe6fed8a3e61e48c87b8b13125eb7ae3e71aac8aab2fe19501170be5"
+        },
+        {
+          "file": "hangar-wk09.png",
+          "sha256": "b70185bf749b28c5ce9464743a3f4be76dec91bff06d5dc7e51dc7323d160971"
+        },
+        {
+          "file": "scene-wk10-mi14.png",
+          "sha256": "8c588f925b2e16411640b0ae7d9433f81d1dedc8523a0e37dc14d1b167d6993b"
+        },
+        {
+          "file": "hangar-wk10.png",
+          "sha256": "a42dd65cb6dafc4aa148df7502d16609def33af8bdee941ceedc60664e931156"
+        }
+      ],
+      "limitations": [
+        "Canvas decoding, source anchor checks and diagnostic poses do not certify native browser UI, audio, human art approval or final animation quality.",
+        "Damage and repair pose sheets explicitly use diagnostic copies; only the six complete mission scenes claim preparation through public movement inputs."
+      ],
+      "usageClassification": {
+        "authority": "Selected lot manifest; absence of usage in a test receipt is not interpreted as runtime",
+        "manifestPath": "assets/painted/walkers/manifest.json",
+        "manifestSha256": "8cf7d7628da6728f13bd21f4458c42bcb867929b7161e6f47c49fe8d3c1f009a",
+        "fieldsUsed": [
+          "atlases",
+          "cells",
+          "runtimeCells",
+          "referenceCells"
+        ],
+        "atlases": 6,
+        "cells": 96,
+        "runtimeCells": 96,
+        "referenceCells": 0,
+        "selectedPngHashesVerified": true
+      }
+    },
+    {
+      "lot": "thyr",
+      "tool": "tools/test-painted-thyr.mjs",
+      "argv": [
+        "node",
+        "tools/test-painted-thyr.mjs",
+        "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/thyr"
+      ],
+      "exitCode": 0,
+      "wallTimeSeconds": 2.800834358,
+      "log": "docs/validation/release-v0156/regression/thyr.log",
+      "logSha256": "ecf5b4bb9ed93cc2c1d57614aee5fd9237cec090a220522179e9a7dab98bd838",
+      "receiptPath": "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/thyr/receipt.json",
+      "receiptSha256": "b90ac47f1c671a65a71ece88e8c1bcd795752f808f25bd74982f5edf97e29b3f",
+      "receiptCompleted": true,
+      "receiptVersion": "0.15.6",
+      "counts": {
+        "atlases": 8,
+        "cells": 62,
+        "runtimeCells": 58,
+        "referenceCells": 4,
+        "imageFiles": 7
+      },
+      "extraCounts": {
+        "atlases": 8,
+        "cells": 62,
+        "runtimeCells": 58,
+        "referenceCells": 4,
+        "views": 7
+      },
+      "components": 0,
+      "missionScenes": 0,
+      "shotOrientations": 0,
+      "publicInputMission": null,
+      "verifiedCurrentSourceHashes": {
+        "src/painted-thyr.mjs": "5156604d45cbc0693a43963dae9d18e546100b5d46d73ba2469c5aea4e88026f",
+        "src/painted-thyr-layout.mjs": "de98aa3b7e6c4965a62df91604be28769ba52bd87e821d8a5aad5ae6e24b085d",
+        "src/thyr-renderer.mjs": "275a038f58b1eb8b9bd2da9d3de79286ce77cda9320f11543dd80c29c03fc908",
+        "src/voice-renderer.mjs": "c3180fef69bffc6699397491b0f079b4058712cf18c505dadb244585d5955c2c",
+        "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+        "src/voice-assets.mjs": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0",
+        "src/renderer.mjs": "423ccddc1a08887e7bab423e58fdc4ae65db5d5034e7f2853f146bdb10d02f04",
+        "tools/test-painted-thyr.mjs": "19bd3046c64866cacaad64b3acbcd1f62d02ed4028d2eeb40bbcda2b6da1bc86"
+      },
+      "verifiedImageHashes": [
+        {
+          "file": "thyr-readability.png",
+          "sha256": "11aeba10c43de10542ef91fa92eb93de57f0c2e4933a5bf80df4646a23ec648e"
+        },
+        {
+          "file": "thyr-state-grid.png",
+          "sha256": "7e90c445e99c4aba7ea1c768edde1a0262007a1d5518ccb2d9c0e2002492e6e0"
+        },
+        {
+          "file": "rootwatcher-readability.png",
+          "sha256": "f87694d9c038d1935b2616d2e799fc584429b667644098894bf36d526a8a6328"
+        },
+        {
+          "file": "scene-mi09-supports.png",
+          "sha256": "fd6deb2e784e1ef8a7b437e4504dc05bc930def55fc2570d9cb17642b99bdbc3"
+        },
+        {
+          "file": "scene-mi09.png",
+          "sha256": "9d56ad5d63f6371b4a88f853fa641c217cf3296ed1462d4b718ab6bd8e8685cc"
+        },
+        {
+          "file": "scene-mi11.png",
+          "sha256": "a95b5df355f851f5e0462eabe807fee48395d8ef14eb167a61182b53e353063f"
+        },
+        {
+          "file": "scene-op03.png",
+          "sha256": "c956e96c8629db6d067da982367454f06f4a701729a87bcffa79b25c2be567d9"
+        }
+      ],
+      "limitations": [
+        "PNG decoding, source bounds, state selection and Canvas inspection do not certify browser UI, audio, artistic approval or final animation quality.",
+        "The state boards explicitly exercise existing graphical states on diagnostic inputs. They do not report completed missions, new deaths or acquired consent.",
+        "The Guetteur-racine dead cell, separate Leth tools and flattened grass remain reference images. No persistent corpse, extra character or new flora rule is created."
+      ],
+      "usageClassification": {
+        "authority": "Selected lot manifest; absence of usage in a test receipt is not interpreted as runtime",
+        "manifestPath": "assets/painted/thyr/manifest.json",
+        "manifestSha256": "1edcc6c9a152f591ffa2c37f6299a624ab3079ef1b72b805b4cc6a85b14e0fe6",
+        "fieldsUsed": [
+          "atlases",
+          "cells",
+          "runtimeCells",
+          "referenceCells"
+        ],
+        "atlases": 8,
+        "cells": 62,
+        "runtimeCells": 58,
+        "referenceCells": 4,
+        "selectedPngHashesVerified": true
+      }
+    },
+    {
+      "lot": "cerbere",
+      "tool": "tools/test-painted-cerbere.mjs",
+      "argv": [
+        "node",
+        "tools/test-painted-cerbere.mjs",
+        "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/cerbere"
+      ],
+      "exitCode": 0,
+      "wallTimeSeconds": 1.338733239,
+      "log": "docs/validation/release-v0156/regression/cerbere.log",
+      "logSha256": "db254ea49add9c2b9bdca0442d8c9f41416b9a15ba98f26ff82f4e997d35c519",
+      "receiptPath": "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/cerbere/report.json",
+      "receiptSha256": "d8cc2b90de3fd668bfc49297eff5dc7fc6ec298659f2902216f0631f31b18610",
+      "receiptCompleted": true,
+      "receiptVersion": "0.15.6",
+      "counts": {
+        "atlases": 1,
+        "cells": 16,
+        "runtimeCells": 11,
+        "referenceCells": 5,
+        "imageFiles": 2
+      },
+      "extraCounts": {},
+      "components": 0,
+      "missionScenes": 0,
+      "shotOrientations": 2,
+      "publicInputMission": null,
+      "verifiedCurrentSourceHashes": {
+        "src/painted-cerbere.mjs": "86440fd1749fec987b3fb34b3d4eca2471f3862f9362d632af976c3133d02047",
+        "src/painted-cerbere-layout.mjs": "fea5b52aa460eb92241d8388d58bffbc047e75469a260324d69f7ffdb788dce3",
+        "src/cerbere-weapon-pose.mjs": "5cf7a18ad1ceb0cf3671b66ca3529d7ab7c0e3e85c2f50408597a9019b7b5269",
+        "src/renderer.mjs": "423ccddc1a08887e7bab423e58fdc4ae65db5d5034e7f2853f146bdb10d02f04",
+        "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+        "tools/test-painted-cerbere.mjs": "7510874f6aa5cc66af5e5f4015a5f340988f83703ef86cb3a2d173380697f996"
+      },
+      "verifiedImageHashes": [
+        {
+          "file": "cerbere-diagnostic-poses.png",
+          "sha256": "ae9aa9eb0eac95457e87f7a162c7641b7f5777181fcf2943158f68662be33d6f"
+        },
+        {
+          "file": "cerbere-op03-diagnostic.png",
+          "sha256": "aada436d82304e0e7d436b400da0d99562041ee91f73846aa0ff1502af6f206d"
+        }
+      ],
+      "limitations": [
+        "Six diagnostic poses and one diagnostic operation scene; no claim of a naturally completed mission.",
+        "Cerbère has no independent simulated foot contacts or component health. Its limb placement remains a presentation rig.",
+        "Five component damage/repair cells are references only; no persistent boss corpse is introduced."
+      ],
+      "usageClassification": {
+        "authority": "Selected lot manifest; absence of usage in a test receipt is not interpreted as runtime",
+        "manifestPath": "assets/painted/cerbere/manifest.json",
+        "manifestSha256": "ba9701de1f5a1ce29982a5bcd850e7f540d373eeffeb77f939336d4074c7ffa3",
+        "fieldsUsed": [
+          "atlases",
+          "cells",
+          "runtimeCells",
+          "referenceCells"
+        ],
+        "atlases": 1,
+        "cells": 16,
+        "runtimeCells": 11,
+        "referenceCells": 5,
+        "selectedPngHashesVerified": true
+      }
+    },
+    {
+      "lot": "transport",
+      "tool": "tools/test-painted-transport.mjs",
+      "argv": [
+        "node",
+        "tools/test-painted-transport.mjs",
+        "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/transport"
+      ],
+      "exitCode": 0,
+      "wallTimeSeconds": 3.463140798,
+      "log": "docs/validation/release-v0156/regression/transport.log",
+      "logSha256": "79e77d8c338337049594c46eaeea204e612a4d8b39c0c7f225f4cbf804071b36",
+      "receiptPath": "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/transport/receipt.json",
+      "receiptSha256": "d3a538f7884c04cb5657f702cd653fac102b98df94fe8e39740072da6d2a2bc0",
+      "receiptCompleted": true,
+      "receiptVersion": "0.15.6",
+      "counts": {
+        "atlases": 4,
+        "cells": 20,
+        "runtimeCells": 20,
+        "referenceCells": 0,
+        "imageFiles": 5
+      },
+      "extraCounts": {},
+      "components": 0,
+      "missionScenes": 0,
+      "shotOrientations": 0,
+      "publicInputMission": null,
+      "verifiedCurrentSourceHashes": {
+        "src/painted-transport.mjs": "cfc4c3cefb6f536bec87dc24479f9cd85db1a5c0a3cb62d427c0c6d662f41af9",
+        "src/painted-transport-layout.mjs": "85057bffdc36dace2e891d5fda99793fd2f24f1a91e22c5057218d0a67bebe02",
+        "src/renderer.mjs": "423ccddc1a08887e7bab423e58fdc4ae65db5d5034e7f2853f146bdb10d02f04",
+        "src/foundry-renderer.mjs": "114ef2454bcb947282c7955afa88c86ffbec6aad2c30f7f21c63d35d90b674fc",
+        "tools/test-painted-transport.mjs": "0a5e53ab11ca4c5d075b1f657c687720d6cb73701d282276083d9b53a0b86527"
+      },
+      "verifiedImageHashes": [
+        {
+          "file": "transport-state-board.png",
+          "sha256": "22e6f09cdb067b38335fb357f5cbc2e187f4ce297b0ee8d3ead5741fecf1cb59"
+        },
+        {
+          "file": "mi02-closed-wagon.png",
+          "sha256": "3cb37716dedd2fc5ca81fb0c8345e9272645f833285cda2d5ad4255601bc0d77"
+        },
+        {
+          "file": "mi02-open-wagon.png",
+          "sha256": "ec06e2ce1da2a591a7b50539509476b477e0ead99f258fc1aac6954002454d69"
+        },
+        {
+          "file": "mi13-carrier-loading.png",
+          "sha256": "ad3a594d17a120e8d766a3c1345238321117cb06b1d240d97c2393f91a7ed778"
+        },
+        {
+          "file": "mi13-carrier-escort.png",
+          "sha256": "c261647068e9ce168ee9b7ba91b26c6a19abeb116629dbac7f0d514141dd7a28"
+        }
+      ],
+      "limitations": [
+        "State boards use explicit diagnostic copies; integrated mission scenes use public controls.",
+        "Vehicle paint does not add crew, cargo, passenger counts, corpses, physics, or final gameplay systems."
+      ],
+      "usageClassification": {
+        "authority": "Selected lot manifest; absence of usage in a test receipt is not interpreted as runtime",
+        "manifestPath": "assets/painted/transport/manifest.json",
+        "manifestSha256": "0dfdc951c141b4c49d73127c69baa9283aa0657ee1f990409d70b4fab2a041b5",
+        "fieldsUsed": [
+          "atlases",
+          "cells",
+          "runtimeCells",
+          "files[].referenceCells (explicit zeros)"
+        ],
+        "atlases": 4,
+        "cells": 20,
+        "runtimeCells": 20,
+        "referenceCells": 0,
+        "selectedPngHashesVerified": true
+      }
+    },
+    {
+      "lot": "relay",
+      "tool": "tools/test-painted-relay.mjs",
+      "argv": [
+        "node",
+        "tools/test-painted-relay.mjs",
+        "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/relay"
+      ],
+      "exitCode": 0,
+      "wallTimeSeconds": 3.208139029,
+      "log": "docs/validation/release-v0156/regression/relay.log",
+      "logSha256": "3761ba0761efed68b9713ef4fe038ebb6d976e5f5463c437cb3a18ce0129f888",
+      "receiptPath": "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/relay/receipt.json",
+      "receiptSha256": "d82aeab3ae71a19e21be96f6e1b7e26553cea7d63c83323cc91b4f73aafeb6f9",
+      "receiptCompleted": true,
+      "receiptVersion": null,
+      "counts": {
+        "atlases": 3,
+        "cells": 30,
+        "runtimeCells": 28,
+        "referenceCells": 2,
+        "imageFiles": 9
+      },
+      "extraCounts": {
+        "atlases": 3,
+        "frames": 30,
+        "views": 9
+      },
+      "components": 0,
+      "missionScenes": 0,
+      "shotOrientations": 0,
+      "publicInputMission": {
+        "mission": "MI12",
+        "status": "won",
+        "elapsed": 205.066666666722,
+        "capturedScenes": 7,
+        "choice": "defy"
+      },
+      "verifiedCurrentSourceHashes": {
+        "src/painted-relay.mjs": "b3aa217e499f1de26ba5204b8dd7a799a042983cd1976421df1271069d008765",
+        "src/painted-relay-layout.mjs": "0289c80c3b4803407d284928e327511efae5d10748e0d28d9409195c5b47ee0f",
+        "src/relay-renderer.mjs": "8786c4490dce024efd066c58665341186c44ad7dec9c1d5592dc01e39e2bce21",
+        "src/relay-simulation.mjs": "20d64e40f534a26ef244918888b946c7076f61e07ab237ad1d5838d43e30c8ff",
+        "src/renderer.mjs": "423ccddc1a08887e7bab423e58fdc4ae65db5d5034e7f2853f146bdb10d02f04",
+        "src/painted-walkers.mjs": "00b66e7dfd17862be23162f3acb899d4c14a5f1e853e1dff56440090dce91c8c",
+        "src/painted-thyr.mjs": "5156604d45cbc0693a43963dae9d18e546100b5d46d73ba2469c5aea4e88026f",
+        "src/painted-combat.mjs": "66aa27a2d6f25a1eeb714d125957c30f208428e8c66283a936ba9846b73404f5",
+        "tests/helpers/mi12-driver.mjs": "f61259acc7dbbed13e39832c71f9c28dc147a4899bbb5214e8071d23722aa816",
+        "tools/test-painted-relay.mjs": "0d1115a7f814857b2db1c88f9cb3e0f9c66824939b2ed7bcdccd65c5de2481b7"
+      },
+      "verifiedImageHashes": [
+        {
+          "file": "praetor-assembly.png",
+          "sha256": "43476ac70a7b76fb00dc551e1d5170e75dd2cc18280056729380aa28964eafbd"
+        },
+        {
+          "file": "relay-site-states.png",
+          "sha256": "8b7417f9b8235cf7efa8725f4d8dac63f48eb684f58018cc8650e1873ab0ef9c"
+        },
+        {
+          "file": "mi12-arrival-before-alert.png",
+          "sha256": "4ab7ea9cc79db1b19df9e1deeccba21cac4941f562bfc9dfe84d931870373c5e"
+        },
+        {
+          "file": "mi12-praetor-arrived.png",
+          "sha256": "099854b731fa24d79fa9b64058e58ff816c4b57f787b5dea40aa31afea683f41"
+        },
+        {
+          "file": "mi12-praetor-locking.png",
+          "sha256": "5ae073969e02667f4b2a799ddd2debe6ee00ac2b2d182ecd7c3f715a45ccfb0f"
+        },
+        {
+          "file": "mi12-console-copying.png",
+          "sha256": "1c020c1feb9d4ec5e3643fe84d90eb508a47aed17aed64c17425e0f5a494a6b2"
+        },
+        {
+          "file": "mi12-components-disabled.png",
+          "sha256": "939b26fe5ab6469aac77350fe3020ee68a8f5b11763e72387dd50bc551906e30"
+        },
+        {
+          "file": "mi12-praetor-neutralized.png",
+          "sha256": "920acac5abb61ddc8c0ab7fe272bea5e799e91563a2f11604f9e299714371cfc"
+        },
+        {
+          "file": "mi12-relays-resolved.png",
+          "sha256": "1f719396e75ef76c924767f6bc409659cf5117cf4eb3dadda051837972969308"
+        }
+      ],
+      "limitations": [
+        "This reception uses Skia Canvas, not browser UI or a human playtest.",
+        "Diagnostic panels explicitly set damage/phase/facing on copies; mission scene states are separately reached by public inputs.",
+        "The damaged isolated cannon and spare cassette are references; no new component health, persons or final animation cycles are added."
+      ],
+      "usageClassification": {
+        "authority": "Selected lot manifest; absence of usage in a test receipt is not interpreted as runtime",
+        "manifestPath": "assets/painted/relay/manifest.json",
+        "manifestSha256": "3133e7664a5468a62dcad8de5ee7823bde0c68eae5a93af24ec7ade4b04d3cca",
+        "fieldsUsed": [
+          "atlasCount",
+          "cellCount",
+          "runtimeCellCount",
+          "referenceCellCount"
+        ],
+        "atlases": 3,
+        "cells": 30,
+        "runtimeCells": 28,
+        "referenceCells": 2,
+        "selectedPngHashesVerified": true
+      }
+    },
+    {
+      "lot": "nacre",
+      "tool": "tools/test-painted-nacre.mjs",
+      "argv": [
+        "node",
+        "tools/test-painted-nacre.mjs",
+        "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/nacre"
+      ],
+      "exitCode": 0,
+      "wallTimeSeconds": 1.857846329,
+      "log": "docs/validation/release-v0156/regression/nacre.log",
+      "logSha256": "8f0b63c58eed60d977f4c65d383776a0e99be5b99428f8ff2ffd73370ae4fa0b",
+      "receiptPath": "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/nacre/receipt.json",
+      "receiptSha256": "f195d75034aa2151b884e84a20f371e8b95d6a93c48d8431a48e42b52160e466",
+      "receiptCompleted": true,
+      "receiptVersion": "0.15.5",
+      "counts": {
+        "atlases": 6,
+        "cells": 30,
+        "runtimeCells": 29,
+        "referenceCells": 1,
+        "imageFiles": 5
+      },
+      "extraCounts": {
+        "atlases": 6,
+        "cells": 30,
+        "runtimeCells": 29,
+        "referenceCells": 1,
+        "views": 5
+      },
+      "components": 0,
+      "missionScenes": 0,
+      "shotOrientations": 0,
+      "publicInputMission": null,
+      "verifiedCurrentSourceHashes": {
+        "src/painted-nacre.mjs": "3abb8eb6c71262eb1ccfdd152b01952cdc7e6d2d6326b7a7b34309ffa77eabd3",
+        "src/painted-nacre-layout.mjs": "2cc15eabb2f337e9500a79461a97c5ab0af18ecaeff3862e7b43d9a4bb0f4011",
+        "src/renderer.mjs": "423ccddc1a08887e7bab423e58fdc4ae65db5d5034e7f2853f146bdb10d02f04",
+        "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+        "tools/test-painted-nacre.mjs": "6371b2ee7610cbcfb30ec02841127b5ed085e0149ba9de044121a948bae99aee"
+      },
+      "verifiedImageHashes": [
+        {
+          "file": "nacre-state-grid.png",
+          "sha256": "3afff5233a1fb9e63ac170ef0396220d2f35652f3e172236b2e6a4224cd7391a"
+        },
+        {
+          "file": "ambulance-diagnostic-states.png",
+          "sha256": "c9f0b74785e4fdc499bc6566e9bbe0edb768a208a67684e50e0cb3bb1d5c6fda"
+        },
+        {
+          "file": "scene-mi05-camera-diagnostic.png",
+          "sha256": "89ef1b6afa54212d0033d885932c2eb42c15b3cd7ec906a5804889e642c0f3c1"
+        },
+        {
+          "file": "scene-mi07-camera-diagnostic.png",
+          "sha256": "2eb1cf05f453438c60c00db6c9252c664bf799c366e3713a1cc4280180af84f9"
+        },
+        {
+          "file": "scene-mi08-camera-diagnostic.png",
+          "sha256": "27ac4328cb3be8082a50357e30d53dea5a3fffa4f74b944913a5def212c898bd"
+        }
+      ],
+      "limitations": [
+        "Camera-focused Canvas scenes are visual diagnostics, not complete mission walkthroughs.",
+        "The labelled ambulance state panel imposes damage and recovery states on copies.",
+        "No new passengers, supplies, collision, mission progress or population are created by the artwork.",
+        "The separate recovered beacon cell is a production reference only."
+      ],
+      "usageClassification": {
+        "authority": "Selected lot manifest; absence of usage in a test receipt is not interpreted as runtime",
+        "manifestPath": "assets/painted/nacre/manifest.json",
+        "manifestSha256": "2bb50df3a24baf3554c3eef89dae295ffdd1d09d5700d2fc779d56fb64489c19",
+        "fieldsUsed": [
+          "atlases",
+          "cells",
+          "runtimeCells",
+          "referenceCells"
+        ],
+        "atlases": 6,
+        "cells": 30,
+        "runtimeCells": 29,
+        "referenceCells": 1,
+        "selectedPngHashesVerified": true
+      }
+    }
+  ],
+  "assetsRender": {
+    "lot": "assets-render",
+    "tool": "tools/test-assets-render.mjs",
+    "argv": [
+      "node",
+      "tools/test-assets-render.mjs"
+    ],
+    "exitCode": 0,
+    "wallTimeSeconds": 2.2216303809999998,
+    "log": "docs/validation/release-v0156/regression/assets-render.log",
+    "logSha256": "7bb83f8ca284398b9b41296e04517af8b204c8f09938b499df9ce68d73f9cc81",
+    "passedCases": 174,
+    "totalCases": 174,
+    "minimumSharedCoveragePercent": 99.46,
+    "canvasVersion": "0.1.100.",
+    "families": {
+      "workshop": 33,
+      "relay": 22,
+      "foundry": 29,
+      "productionWalkers": 3,
+      "productionNacre": 2,
+      "thyr": 35,
+      "chemical": 24,
+      "voice": 26
+    }
+  },
+  "historicalEvidence": {
+    "trackedFilesChecked": 1142,
+    "unchanged": true,
+    "changedPaths": [],
+    "beforeSnapshotPath": "/workspace/scratch/fef4abaa57e0/outputs/v0156-regression/historical-before.json",
+    "aggregateSha256": "daaad1e64387bfe199fdff0ce74df7a729adc5943ee0fe39cc86a66c63cfc6c1"
+  },
+  "totals": {
+    "atlases": 45,
+    "cells": 386,
+    "runtimeCells": 356,
+    "referenceCells": 30,
+    "imageFiles": 100
+  },
+  "usageClassificationPolicy": "Use the eight explicit manifests; never infer runtime from absent receipt frame usage. MI14 uses its 54 explicit runtimeFrame mappings; transport uses explicit per-file referenceCells zeros."
+}

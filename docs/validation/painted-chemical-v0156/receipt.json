@@ -1,0 +1,675 @@
+{
+  "version": "0.15.6",
+  "createdUtc": "2026-11-16T15:46:04.709Z",
+  "type": "Original PNG decoding, 24-state diagnostic board and MI10 public-input Canvas scenes",
+  "completed": true,
+  "nativeBrowserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "atlases": [
+    {
+      "id": "canals",
+      "sha256": "50a54d686828681af9f1ddda2956d2dae4b7a6712f82dc79c726251b7097084b",
+      "bytes": 744287,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "transparentFraction": 0.770649710400403
+    },
+    {
+      "id": "valves",
+      "sha256": "8b219ba92130bfd4ee98850d5dee9e30c508dc2973379e3aa6ecbab5050c1339",
+      "bytes": 1614245,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "transparentFraction": 0.5691872133574476
+    },
+    {
+      "id": "instruments",
+      "sha256": "a18a164242298d2aebb7147efcc39fb48f6ae5f4557e425359afbcf467c1ee7b",
+      "bytes": 2127867,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparentFraction": 0.5728880564371744
+    },
+    {
+      "id": "homes",
+      "sha256": "6be59df742d231cecb48927a60b56e5cadfe870f147c56aec6c043e2ca4ee68c",
+      "bytes": 1525605,
+      "dimensions": [
+        2172,
+        724
+      ],
+      "transparentFraction": 0.517717331583285
+    },
+    {
+      "id": "tanks",
+      "sha256": "0212030075bc05e581efc2766544bfee17c1905155da09046f4122ec2ddfe796",
+      "bytes": 1829338,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparentFraction": 0.6889298756917318
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "canals",
+      "frame": "open",
+      "part": "canal-junction",
+      "state": "open",
+      "source": [
+        26,
+        209,
+        575,
+        114
+      ],
+      "target": [
+        -113.593695271,
+        -38.85,
+        227.583187391,
+        39.9
+      ]
+    },
+    {
+      "atlas": "canals",
+      "frame": "covering",
+      "part": "canal-junction",
+      "state": "covering",
+      "source": [
+        653,
+        209,
+        575,
+        114
+      ],
+      "target": [
+        -113.593695271,
+        -38.85,
+        227.583187391,
+        39.9
+      ]
+    },
+    {
+      "atlas": "canals",
+      "frame": "covered",
+      "part": "canal-junction",
+      "state": "covered",
+      "source": [
+        26,
+        602,
+        575,
+        112
+      ],
+      "target": [
+        -113.593695271,
+        -38.15,
+        227.583187391,
+        39.2
+      ]
+    },
+    {
+      "atlas": "canals",
+      "frame": "contaminated",
+      "part": "canal-junction",
+      "state": "contaminated",
+      "source": [
+        653,
+        602,
+        575,
+        113
+      ],
+      "target": [
+        -113.593695271,
+        -38.5,
+        227.583187391,
+        39.55
+      ]
+    },
+    {
+      "atlas": "canals",
+      "frame": "destroyed",
+      "part": "canal-junction",
+      "state": "destroyed",
+      "source": [
+        26,
+        994,
+        573,
+        113
+      ],
+      "target": [
+        -113.593695271,
+        -38.5,
+        226.791593695,
+        39.55
+      ]
+    },
+    {
+      "atlas": "valves",
+      "frame": "normal",
+      "part": "field-valve",
+      "state": "normal",
+      "source": [
+        23,
+        83,
+        582,
+        513
+      ],
+      "target": [
+        -60.9,
+        -107.1,
+        122.22,
+        107.73
+      ]
+    },
+    {
+      "atlas": "valves",
+      "frame": "working",
+      "part": "field-valve",
+      "state": "working",
+      "source": [
+        650,
+        83,
+        581,
+        513
+      ],
+      "target": [
+        -60.9,
+        -107.1,
+        122.01,
+        107.73
+      ]
+    },
+    {
+      "atlas": "valves",
+      "frame": "operated",
+      "part": "field-valve",
+      "state": "operated",
+      "source": [
+        23,
+        710,
+        581,
+        513
+      ],
+      "target": [
+        -60.9,
+        -107.1,
+        122.01,
+        107.73
+      ]
+    },
+    {
+      "atlas": "valves",
+      "frame": "destroyed",
+      "part": "field-valve",
+      "state": "destroyed",
+      "source": [
+        650,
+        845,
+        582,
+        378
+      ],
+      "target": [
+        -60.9,
+        -78.75,
+        122.22,
+        79.38
+      ]
+    },
+    {
+      "atlas": "instruments",
+      "frame": "sample-idle",
+      "part": "sampling-rig",
+      "state": "idle",
+      "source": [
+        40,
+        92,
+        315,
+        349
+      ],
+      "target": [
+        -74.276527331,
+        -137.397101449,
+        141.800643087,
+        138.588405797
+      ]
+    },
+    {
+      "atlas": "instruments",
+      "frame": "sample-working",
+      "part": "sampling-rig",
+      "state": "working",
+      "source": [
+        425,
+        92,
+        314,
+        349
+      ],
+      "target": [
+        -73.826366559,
+        -137.397101449,
+        141.350482315,
+        138.588405797
+      ]
+    },
+    {
+      "atlas": "instruments",
+      "frame": "sample-secured",
+      "part": "sampling-rig",
+      "state": "secured",
+      "source": [
+        809,
+        92,
+        314,
+        349
+      ],
+      "target": [
+        -73.826366559,
+        -137.397101449,
+        141.350482315,
+        138.588405797
+      ]
+    },
+    {
+      "atlas": "instruments",
+      "frame": "sample-lost",
+      "part": "sampling-rig",
+      "state": "lost",
+      "source": [
+        1193,
+        92,
+        312,
+        349
+      ],
+      "target": [
+        -73.826366559,
+        -137.397101449,
+        140.450160772,
+        138.588405797
+      ]
+    },
+    {
+      "atlas": "instruments",
+      "frame": "ledger-unread",
+      "part": "batch-ledger",
+      "state": "unread",
+      "source": [
+        33,
+        576,
+        320,
+        385
+      ],
+      "target": [
+        -63.398734177,
+        -110.288713911,
+        127.594936709,
+        111.154855643
+      ]
+    },
+    {
+      "atlas": "instruments",
+      "frame": "ledger-copied",
+      "part": "batch-ledger",
+      "state": "copied",
+      "source": [
+        417,
+        576,
+        320,
+        385
+      ],
+      "target": [
+        -63.398734177,
+        -110.288713911,
+        127.594936709,
+        111.154855643
+      ]
+    },
+    {
+      "atlas": "instruments",
+      "frame": "ledger-lost",
+      "part": "batch-ledger",
+      "state": "lost",
+      "source": [
+        801,
+        576,
+        320,
+        385
+      ],
+      "target": [
+        -63.398734177,
+        -110.288713911,
+        127.594936709,
+        111.154855643
+      ]
+    },
+    {
+      "atlas": "homes",
+      "frame": "habitable",
+      "part": "village-supply",
+      "state": "habitable",
+      "source": [
+        12,
+        183,
+        694,
+        417
+      ],
+      "target": [
+        -122.463768116,
+        -180.435835351,
+        251.449275362,
+        181.743341404
+      ]
+    },
+    {
+      "atlas": "homes",
+      "frame": "contaminated",
+      "part": "village-supply",
+      "state": "contaminated",
+      "source": [
+        735,
+        183,
+        692,
+        416
+      ],
+      "target": [
+        -122.826086957,
+        -180,
+        250.724637681,
+        181.307506053
+      ]
+    },
+    {
+      "atlas": "homes",
+      "frame": "destroyed",
+      "part": "village-supply",
+      "state": "destroyed",
+      "source": [
+        1471,
+        357,
+        691,
+        247
+      ],
+      "target": [
+        -118.47826087,
+        -106.343825666,
+        250.362318841,
+        107.651331719
+      ]
+    },
+    {
+      "atlas": "tanks",
+      "frame": "unknown",
+      "part": "chemical-tank",
+      "state": "unknown",
+      "source": [
+        139,
+        12,
+        278,
+        486
+      ],
+      "target": [
+        -79.714285714,
+        -194.806652807,
+        178.714285714,
+        196.016632017
+      ]
+    },
+    {
+      "atlas": "tanks",
+      "frame": "identified",
+      "part": "chemical-tank",
+      "state": "identified",
+      "source": [
+        647,
+        12,
+        278,
+        486
+      ],
+      "target": [
+        -79.714285714,
+        -194.806652807,
+        178.714285714,
+        196.016632017
+      ]
+    },
+    {
+      "atlas": "tanks",
+      "frame": "leaking",
+      "part": "chemical-tank",
+      "state": "leaking",
+      "source": [
+        1159,
+        12,
+        283,
+        486
+      ],
+      "target": [
+        -80.357142857,
+        -194.806652807,
+        181.928571429,
+        196.016632017
+      ]
+    },
+    {
+      "atlas": "tanks",
+      "frame": "sealed",
+      "part": "chemical-tank",
+      "state": "sealed",
+      "source": [
+        139,
+        524,
+        295,
+        486
+      ],
+      "target": [
+        -79.714285714,
+        -194.806652807,
+        189.642857143,
+        196.016632017
+      ]
+    },
+    {
+      "atlas": "tanks",
+      "frame": "destroyed",
+      "part": "chemical-tank",
+      "state": "destroyed",
+      "source": [
+        627,
+        640,
+        295,
+        370
+      ],
+      "target": [
+        -84.214285714,
+        -148.020790021,
+        189.642857143,
+        149.230769231
+      ]
+    }
+  ],
+  "views": [
+    {
+      "file": "chemical-state-board.png",
+      "size": [
+        2400,
+        1860
+      ],
+      "sha256": "ecc1ec20ed323915036db8110fce10140975cbf74caec50a36a9aaded91435e7",
+      "diagnostic": true,
+      "states": 24
+    },
+    {
+      "file": "chemical-canal-combinations.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "5eb59d4c9761e5e4641d64a4608bc2c3713932928f95664038b7363fbb509c6b",
+      "diagnostic": true,
+      "cases": [
+        "Couvert / eau sous le seuil",
+        "Couvert / contamination conservée",
+        "Ouvert / contaminé",
+        "Couverture perdue / canal détruit"
+      ],
+      "scope": "Explicit diagnostic copies: covered and contaminated remain independent; destroyed cover creates no support."
+    },
+    {
+      "file": "mi10-arrival.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "9366a7479c701f9dc797ef36e2b36f7cbca28771301740578d293a08d2d99362",
+      "diagnostic": false,
+      "preparation": "Unchanged public commandGame/updateGame pilot",
+      "mission": "MI10",
+      "elapsed": 0,
+      "stateSha256": "c21b740de3b0f06442b913048bbf39fbd1f2bf3f40e9c6d307e3a7f1bf3449a2"
+    },
+    {
+      "file": "mi10-collector-closed.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "bd9dbbc91b6069f4080c540bcfef14d72f3a85904cd9543c176cf1c700fe3deb",
+      "diagnostic": false,
+      "preparation": "Unchanged public commandGame/updateGame pilot",
+      "mission": "MI10",
+      "elapsed": 7.649999999999978,
+      "stateSha256": "bdd831fc5c3f6ed97244f8b57d5f048dd9f69ef471dd0f228c13b48032e8fc89"
+    },
+    {
+      "file": "mi10-tank-marks.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "c219de5c72d3e6d18951b096ed5ae2c7de1df4d315bd02f71d57248888e3ad2a",
+      "diagnostic": false,
+      "preparation": "Unchanged public commandGame/updateGame pilot",
+      "mission": "MI10",
+      "elapsed": 32.69999999999943,
+      "stateSha256": "956854b5de22b156ca12b1277e590c098610086d73102985c1b49b6776ad69c0"
+    },
+    {
+      "file": "mi10-sampler-working.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "66446db24654a87512a0e65a7e9005246ebc2c35351c86da91bc2bbd8d32d3e6",
+      "diagnostic": false,
+      "preparation": "Unchanged public commandGame/updateGame pilot",
+      "mission": "MI10",
+      "elapsed": 58.949999999997935,
+      "stateSha256": "37ad68cd832a02042add4c0fa6c11bf1582de3531ea874d00a5e63f5401e556c"
+    },
+    {
+      "file": "mi10-sample-conserved.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "8ce8a359f63b4f7be8208ae88ec9412eae7f2aa92f30d54439759711af206bfd",
+      "diagnostic": false,
+      "preparation": "Unchanged public commandGame/updateGame pilot",
+      "mission": "MI10",
+      "elapsed": 71.9499999999972,
+      "stateSha256": "57a667a65facc4a9396a0e68f556b82bc7ac8a779abd7cc113994971d8bc21f4"
+    },
+    {
+      "file": "mi10-canal-covering.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "c439e83a7ad1209527221ee2bbef54a9fa777d484e46d05784af5675ebb83b34",
+      "diagnostic": false,
+      "preparation": "Unchanged public commandGame/updateGame pilot",
+      "mission": "MI10",
+      "elapsed": 76.49999999999694,
+      "stateSha256": "b04a28976c8cb662e5b5641266e71f93def7969f5d54a51e863b913cb0ac4963"
+    },
+    {
+      "file": "mi10-canal-real-contacts.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "fdd26e738fc4fe51f303ae6f28a20ebf2e8a3397424b2002adf435399360f87e",
+      "diagnostic": false,
+      "preparation": "Unchanged public commandGame/updateGame pilot",
+      "mission": "MI10",
+      "elapsed": 78.68333333333015,
+      "stateSha256": "02fb93b3ff20314f0680941838c51f4da835364f69e6c633108649044a2fe67f"
+    },
+    {
+      "file": "mi10-water-restored.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "2630523ff040a5854adbb8d699f3a352da2fbc67e6b4984485ff1496ebbdb22e",
+      "diagnostic": false,
+      "preparation": "Unchanged public commandGame/updateGame pilot",
+      "mission": "MI10",
+      "elapsed": 178.51666666670087,
+      "stateSha256": "27ab2f87def7c55b0b7c86164f5a1c63786975e5e4c7348a5574aa34483a24c6"
+    },
+    {
+      "file": "mi10-originals-lost-copy-conserved.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "0a0d91fc7ac29c789e0ffc3100a2af3c2414f0b258c6bf90aeff1efe4c2bf03d",
+      "diagnostic": false,
+      "preparation": "Unchanged public commandGame/updateGame pilot",
+      "mission": "MI10",
+      "elapsed": 85.73333333332975,
+      "stateSha256": "4c70b9d2a89a35bd9173c079a165e4a565bf6afd536f3a719c32aa5d364500e7"
+    }
+  ],
+  "sourceHashes": {
+    "src/painted-chemical.mjs": "ad7df03d961d22ec702cbbfee7b14015c2b4a02de34fcc2f9204bbedd990f0d4",
+    "src/painted-chemical-layout.mjs": "1eed64e37157a7147a6fc818b8ffd0ab7c2b865c257a2c90b0f3f7610f2b8bf8",
+    "src/chemical-renderer.mjs": "6455101fdfc529bb69e948393b7a27ba909c208e08dbe1285f50d84a90bf73fd",
+    "src/chemical-simulation.mjs": "778651c4accc7dd78189d5613d2e06896f16f0587651b7272b269d0d7a743f34",
+    "src/chemical-assets.mjs": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753",
+    "src/renderer.mjs": "423ccddc1a08887e7bab423e58fdc4ae65db5d5034e7f2853f146bdb10d02f04",
+    "src/painted-thyr.mjs": "5156604d45cbc0693a43963dae9d18e546100b5d46d73ba2469c5aea4e88026f",
+    "tools/index-painted-chemical.py": "a5c5b9e474f42bf393d2dc6b46701b005e4eddb1dad5c948d7eb9287f47d7c79",
+    "tests/helpers/mi10-driver.mjs": "0f032cad84030513bf9a2d543ef4018f1481ef58a207173ff031c2b71102303c",
+    "tools/test-painted-chemical.mjs": "80ba6391bd27ef8c6c150000f1d7f4d07fab658da9e4107f7f3cbea008d54834"
+  },
+  "limitations": [
+    "Canvas/Skia reception, not browser interaction or human playtest.",
+    "The state board is a diagnostic presentation; mission scenes are reached by the unchanged public-input pilot.",
+    "Five selected original generated PNGs are unchanged. Three blank grid cells are not sprites.",
+    "Artwork does not add fluid mass, population, evidence or physical surfaces. Work bars and canal cover geometry remain procedural."
+  ],
+  "publicInputMission": {
+    "mission": "MI10",
+    "walker": "WK09",
+    "choice": "defy",
+    "status": "won",
+    "elapsed": 198.9166666667171,
+    "capturedScenes": 8,
+    "pt02Acquired": true,
+    "sampleCollected": true,
+    "canalsCovered": 2,
+    "homesHabitable": 2
+  },
+  "publicLossObservation": {
+    "status": "playing",
+    "elapsed": 85.73333333332975,
+    "pt02Acquired": true,
+    "missionCompleted": false
+  }
+}

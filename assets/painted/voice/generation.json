@@ -1,0 +1,35 @@
+{
+  "version": "0.15.6",
+  "method": "Built-in Imagegen",
+  "originals": {
+    "instruments": {
+      "source": "exec-77e74f79-54c0-4166-8a7e-349e3bbd72ef.png",
+      "selected": "exec-77e74f79-54c0-4166-8a7e-349e3bbd72ef.png",
+      "edits": []
+    },
+    "emitter": {
+      "source": "exec-e5088f6b-1ae1-4886-821d-1479b24df703.png",
+      "selected": "exec-30e38747-33b6-4780-aaac-04889d94f1c6.png",
+      "edits": [
+        {
+          "prompt": "Use case: background-extraction. Edit the supplied sprite atlas only to remove ALL background haze, cloudy gradients, pale white backdrop, black backdrop, halos and any cast shadow outside the actual objects. Deliver genuinely clean RGBA alpha transparency: every pixel outside the exact object silhouettes and every gap between objects must have zero opacity, including holes through their structures. Keep every existing object, its texture, color, material, scale, position and full silhouette exactly unchanged. Keep the complete 3-column 2-row layout, its five objects and the completely empty bottom-right cell in exactly the same 1536x1024 image dimensions; do not crop, resize, move, merge, add or duplicate any sprite. The only change is clean removal of the cloudy background. No new background, no checkerboard drawn into pixels. Preserve delicate edges.",
+          "output": "exec-30e38747-33b6-4780-aaac-04889d94f1c6.png"
+        }
+      ]
+    },
+    "terrain-sites": {
+      "source": "exec-d69c7f79-40c4-4f40-8aeb-e35476483a91.png",
+      "selected": "exec-ace4d5e9-2ace-4efb-b5e8-ba6db01d6cd9.png",
+      "edits": [
+        {
+          "prompt": "Use case: background-extraction. Edit the supplied sprite atlas only to remove ALL background haze, cloudy gradients, pale white backdrop, black backdrop, halos and any cast shadow outside the actual objects. Deliver genuinely clean RGBA alpha transparency: every pixel outside the exact object silhouettes and every gap between objects must have zero opacity, including holes through their structures. Keep every existing object, its texture, color, material, scale, position and full silhouette exactly unchanged. Keep the complete 2-column 4-row layout and all eight objects in exactly the same 1536x1024 image dimensions; do not crop, resize, move, merge, add or duplicate any sprite. The only change is clean removal of the cloudy background. No new background, no checkerboard drawn into pixels. Preserve delicate edges.",
+          "output": "exec-2b7ceb8c-55b2-443f-ac77-ef8412127af6.png"
+        },
+        {
+          "prompt": "Background removal, exact sprite cutouts. The supplied atlas still has a faint cloudy backdrop. Completely remove that backdrop to fully transparent alpha zero. Keep ONLY the eight individual object silhouettes, including the leaves and roots, with no rectangular background, no hazy vignette, no glow, no exterior shadows, no semitransparent wash. Empty space and the holes under the arches must be entirely empty transparent pixels. Preserve the 1536x1024 canvas, the 2-column4-row grid, all eight sprites, their exact placement, scale, detail, and colors. Do not redraw or relocate them. Output transparent PNG.",
+          "output": "exec-ace4d5e9-2ace-4efb-b5e8-ba6db01d6cd9.png"
+        }
+      ]
+    }
+  }
+}
