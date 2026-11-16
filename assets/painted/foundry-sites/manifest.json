@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "version": "0.15.7",
+  "generator": "image_gen built-in",
+  "canonIds": [
+    "MI13",
+    "PL04",
+    "PT03"
+  ],
+  "atlasCount": 4,
+  "frameCount": 23,
+  "runtimeFrameCount": 23,
+  "referenceFrameCount": 0,
+  "files": [
+    {
+      "id": "valves",
+      "path": "assets/painted/foundry-sites/valves.png",
+      "bytes": 2342810,
+      "sha256": "956f2de71d8f39c7856b0dd51c07c6730b304d7782b0d85e05b11b59c1408ee9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.449666,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "maxCellGutterAlpha": 1,
+      "emptyCells": [],
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "cranes",
+      "path": "assets/painted/foundry-sites/cranes.png",
+      "bytes": 1865484,
+      "sha256": "5349e6c19588beaa8070b7f92d7a691e0a76a68fd159ea755011f9a532c7f751",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 5,
+      "runtimeFrames": 5,
+      "referenceFrames": 0,
+      "transparentFraction": 0.515709,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "maxCellGutterAlpha": 2,
+      "emptyCells": [
+        5
+      ],
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "consoles",
+      "path": "assets/painted/foundry-sites/consoles.png",
+      "bytes": 2095377,
+      "sha256": "557cd3ec7fc7773b1bfd1e6ab28782b4f6d86731865efb0ee3587271b5f51b48",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.521776,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "maxCellGutterAlpha": 1,
+      "emptyCells": [],
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "thermal",
+      "path": "assets/painted/foundry-sites/thermal.png",
+      "bytes": 1512395,
+      "sha256": "4ad738574a31ba9e95a01ece7a6d145143e4fabc5c61b849e24dd3f71df3b359",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.701657,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "maxCellGutterAlpha": 2,
+      "emptyCells": [],
+      "originalBytesUnchanged": true
+    }
+  ],
+  "layout": "src/painted-foundry-sites-layout.mjs",
+  "anchors": "assets/painted/foundry-sites/anchors.json",
+  "scope": "MI13 existing valves, cranes, terminals, manifests, thermal decks and steam outlets; no new simulated body, stock, evidence or damage state.",
+  "pixelPolicy": "Selected original PNG files copied byte-for-byte. Indexing measures alpha, source rectangles and pivots only.",
+  "physicalSurface": "Deck slices follow foundrySurfaceAt. Warning/jet vapor and danger extents remain procedural. Crane hook is presentation only and does not change cargo positions."
+}

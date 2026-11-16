@@ -1,0 +1,130 @@
+{
+  "version": "0.15.7",
+  "checkedAt": "2026-11-16T20:46:40.839384+00:00",
+  "status": "blocked",
+  "completed": false,
+  "browserChecksPassed": 0,
+  "screenshotsCaptured": 0,
+  "headlessAttempt": {
+    "tool": "Playwright Chromium launch from the project test runner",
+    "report": "docs/validation/browser-v0157/source/report.json",
+    "reportSha256": "6b9f385648908ad2f528de4ec78f3d39d05eeef37d807458e6dc427d5b22c940",
+    "observed": "ProcessSingleton socket() failed: Operation not permitted (1); browser exited with SIGABRT before opening any page."
+  },
+  "cloudBrowserAttempt": {
+    "method": "Documented CUA cloud browser tool",
+    "inventoryObserved": true,
+    "localServerCommand": "CODEX_PRIMARY_RUNTIME_NODE tools/server.mjs --port 4317",
+    "localServerObservedStdout": "Ordre de Cendre — http://localhost:4317",
+    "url": "http://127.0.0.1:4317/?test=1",
+    "tabId": "119",
+    "observedError": "Browser Use cannot open http://127.0.0.1:4317 in tab 119. Browser reported: net::ERR_CONNECTION_REFUSED",
+    "completionSummarySent": true
+  },
+  "preparedInputs": [
+    {
+      "missionId": "MI03",
+      "file": "mi03-prepared-input.json",
+      "sha256": "8236988d17a9b9e65ed34fcba80c2ac6f9d04032f0126e9023b9487059ee7e13",
+      "fixture": "tests/fixtures/campaign-v2-mi02.json",
+      "fixtureSha256": "9024310b7c33e39ed73ac30a03b7db5103be73ee472e95804c4214054ebe5cf2",
+      "prerequisite": null,
+      "seed": 157,
+      "walkerId": "WK09",
+      "difficulty": "story",
+      "predicateDescription": "Dispensary inspection running above 45%, before identification.",
+      "elapsed": 32.88333333333275,
+      "priorReports": [
+        "MI01",
+        "MI02"
+      ],
+      "provenance": "Prepared outside Chromium through the existing public command pilot; no HP, position, time or mission-flag assignment."
+    },
+    {
+      "missionId": "MI04",
+      "file": "mi04-prepared-input.json",
+      "sha256": "d11b7d68a31335c68183e0bf4d58f63094d64bc56cf0f9a8ec1ad61d457305a5",
+      "fixture": "tests/fixtures/campaign-v3-mi03.json",
+      "fixtureSha256": "22793763d19477737abf7193590f00863ce32fd2fc14b1a0a49b273c81180288",
+      "prerequisite": null,
+      "seed": 157,
+      "walkerId": "WK09",
+      "difficulty": "story",
+      "predicateDescription": "First turbine cooling work running above 45%, before completion.",
+      "elapsed": 19.616666666666834,
+      "priorReports": [
+        "MI01",
+        "MI02",
+        "MI03"
+      ],
+      "provenance": "Prepared outside Chromium through the existing public command pilot; no HP, position, time or mission-flag assignment."
+    },
+    {
+      "missionId": "MI09",
+      "file": "mi09-prepared-input.json",
+      "sha256": "722872479fd5ac98e06f593d70ba3498b4847ed5a2d7e0f1611d671900441958",
+      "fixture": "tests/fixtures/campaign-v8-mi08.json",
+      "fixtureSha256": "19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007",
+      "prerequisite": null,
+      "seed": 157,
+      "walkerId": "WK09",
+      "difficulty": "story",
+      "predicateDescription": "Route surveyed and decision made; barrier remains physically closed and two homes exist.",
+      "elapsed": 41.61666666666559,
+      "priorReports": [
+        "MI01",
+        "MI02",
+        "MI03",
+        "MI04",
+        "MI05",
+        "MI06",
+        "MI07",
+        "MI08"
+      ],
+      "provenance": "Prepared outside Chromium through the existing public command pilot; no HP, position, time or mission-flag assignment."
+    },
+    {
+      "missionId": "MI13",
+      "file": "mi13-prepared-input.json",
+      "sha256": "6d011f900a3c4d020a3ba08edf5da149d96091dfbf77716a0cfa808e2e9ef73a",
+      "fixture": "tests/fixtures/campaign-v11-mi11.json",
+      "fixtureSha256": "0b050e807af98718e70c957c712d24abe556d6d130d08a70b7eb534ebf03d52d",
+      "prerequisite": {
+        "missionId": "MI12",
+        "method": "Unchanged pilotMI12 with public commands, then finishCampaignMission",
+        "elapsed": 213.25000000006185,
+        "status": "won"
+      },
+      "seed": 157,
+      "walkerId": "WK09",
+      "difficulty": "story",
+      "predicateDescription": "First thermal-bridge valve work above 45%, before circuit isolation.",
+      "elapsed": 23.783333333333264,
+      "priorReports": [
+        "MI01",
+        "MI02",
+        "MI03",
+        "MI04",
+        "MI05",
+        "MI06",
+        "MI07",
+        "MI08",
+        "MI09",
+        "MI10",
+        "MI11",
+        "MI12"
+      ],
+      "provenance": "Prepared outside Chromium through the existing public command pilot; no HP, position, time or mission-flag assignment."
+    }
+  ],
+  "standaloneArtifact": {
+    "path": "dist/Ordre_de_Cendre.html",
+    "bytes": 170475459,
+    "sha256": "ecf7eb97d83481c9dc1661f55017ef0d1f0b0a3f42980af98415db4941ab5b94"
+  },
+  "standaloneBrowserTest": "not_run_due_to_environment_browser_blocker",
+  "scope": "The project runner prepared and round-tripped four checkpoint dossiers through public simulation commands. No Chromium game page loaded, no browser interaction assertions ran, and no screenshot was captured. The supplied CUA browser could not reach the local server. No environment protection was changed.",
+  "humanPlaytestPerformed": false,
+  "fallbackRequestTestPerformed": false,
+  "mobileLayoutTestPerformed": false
+}

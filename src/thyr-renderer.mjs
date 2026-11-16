@@ -2,10 +2,11 @@
 import { terrainAt, livingRouteSurfaceAt } from './simulation.mjs';
 import { drawThyrAsset as drawVectorThyrAsset } from './thyr-assets.mjs';
 import { drawPaintedThyrPart, paintedThyrAttachmentPoints } from './painted-thyr.mjs';
+import { drawPaintedRouteAsset } from './painted-route.mjs';
 import { drawProductionPart } from './production-assets.mjs';
 
 // Original SVG/Canvas geometry remains unchanged and is the per-asset fallback.
-const drawThyrAsset = (ctx, options) => drawPaintedThyrPart(ctx, options) || drawVectorThyrAsset(ctx, options);
+const drawThyrAsset = (ctx, options) => drawPaintedRouteAsset(ctx, options) || drawPaintedThyrPart(ctx, options) || drawVectorThyrAsset(ctx, options);
 
 const percent = v => Math.round((v || 0) * 100);
 const damageState = o => o.destroyed ? 'destroyed' : o.hp < o.maxHp * .6 ? 'damaged' : 'normal';
@@ -13,9 +14,40 @@ function line(c, x1, y1, x2, y2, color, width = 1) { c.beginPath(); c.moveTo(x1,
 function label(c, text, x, y, size = 11, color = '#d7ddba', align = 'center') { c.font = `500 ${size}px "IBM Plex Mono", "Courier New", monospace`; c.fillStyle = color; c.textAlign = align; c.fillText(text, x, y); }
 function health(c, o, width = 64) { if (o.destroyed || o.hp >= o.maxHp) return; c.fillStyle = '#142d2a'; c.fillRect(o.x - width / 2, o.y - o.h / 2 - 10, width, 3); c.fillStyle = '#c5b180'; c.fillRect(o.x - width / 2, o.y - o.h / 2 - 10, width * Math.max(0, o.hp / o.maxHp), 3); }
 function station(c, o, name, done) {
-  drawProductionPart(c, { part: 'maintenance-post', x: o.x, y: o.y, width: o.w, height: o.h, state: o.destroyed ? 'destroyed' : 'normal' });
+  if (!drawPaintedRouteAsset(c, { part:'route-terminal', state:o.destroyed?'destroyed':done?'done':o.working?'working':'idle', x:o.x, y:o.y+o.h/2, width:o.w, height:o.h }))
+    drawProductionPart(c, { part: 'maintenance-post', x: o.x, y: o.y, width: o.w, height: o.h, state: o.destroyed ? 'destroyed' : 'normal' });
   label(c, name, o.x, o.y - o.h / 2 - 17, 10, done ? '#acd2ab' : '#dfcd97');
   if (o.working) { c.fillStyle = '#233d32'; c.fillRect(o.x - 31, o.y - o.h / 2 - 8, 62, 4); c.fillStyle = '#cee0ae'; c.fillRect(o.x - 31, o.y - o.h / 2 - 8, 62 * o.progress, 4); }
+}
+
+/** The painted frame is decorative; the surveyed contents describe the live homes only. */
+export function drawLivingRouteMap(c, { x, y, scale = 1, inspected = false, homes = [] }) {
+  const options = { part: 'route-map', state: inspected ? 'surveyed' : 'concealed', x, y, scale };
+  if (!drawPaintedRouteAsset(c, options)) return drawVectorThyrAsset(c, options);
+  if (!inspected) return true;
+  c.save();
+  try {
+    c.translate(x, y); c.scale(scale, scale);
+    // Keep the metal frame and its corner rivets. Inside the measured screen,
+    // the concealed map supplies painted terrain without the generated towns.
+    c.beginPath(); c.moveTo(-32, -92); c.lineTo(32, -92); c.lineTo(37, -86);
+    c.lineTo(37, -42); c.lineTo(32, -36); c.lineTo(-32, -36);
+    c.lineTo(-37, -42); c.lineTo(-37, -86); c.closePath(); c.clip();
+    if (!drawPaintedRouteAsset(c, { part: 'route-map', state: 'concealed', x: 0, y: 0 })) {
+      c.fillStyle = '#a8b28a'; c.fillRect(-38, -93, 76, 58);
+    }
+    c.beginPath(); c.moveTo(-33, -82); c.quadraticCurveTo(-14, -57, 1, -58);
+    c.quadraticCurveTo(18, -51, 32, -80); c.strokeStyle = '#e7d4a2'; c.lineWidth = 1.8; c.stroke();
+    const left = Math.min(...homes.map(home => home.x)), right = Math.max(...homes.map(home => home.x));
+    for (const home of homes) {
+      const fraction = right > left ? (home.x - left) / (right - left) : .5;
+      const hx = -20 + fraction * 38, hy = -70 - fraction * 3;
+      c.fillStyle = '#335c46'; c.strokeStyle = '#e3cf9a'; c.lineWidth = 1;
+      c.beginPath(); c.rect(hx - 4, hy, 8, 6); c.fill(); c.stroke();
+      c.beginPath(); c.moveTo(hx - 5, hy); c.lineTo(hx, hy - 5); c.lineTo(hx + 5, hy); c.closePath(); c.fill(); c.stroke();
+    }
+  } finally { c.restore(); }
+  return true;
 }
 
 export function drawLivingRouteSite(renderer, s, t) {
@@ -85,12 +117,14 @@ export function drawLivingRouteSite(renderer, s, t) {
   }
   if (renderer.visible(b.controlX, 100)) {
     const y = terrainAt(b.controlX, s.planetId);
-    drawProductionPart(c, { part: 'gate-mechanism', x: b.controlX, y: y - 26, state: b.destroyed ? 'destroyed' : b.working ? 'working' : 'normal', progress: b.progress });
+    if (!drawPaintedRouteAsset(c, { part:'barrier-control', state:b.destroyed?'broken':'normal', x:b.controlX, y }))
+      drawProductionPart(c, { part: 'gate-mechanism', x: b.controlX, y: y - 26, state: b.destroyed ? 'destroyed' : b.working ? 'working' : 'normal', progress: b.progress });
+    if (b.working) { c.fillStyle='#233d32'; c.fillRect(b.controlX-28,y-61,56,4); c.fillStyle='#cee0ae'; c.fillRect(b.controlX-28,y-61,56*b.progress,4); }
     label(c, b.destroyed ? 'COMMANDE PERDUE' : 'COMMANDE DE LA BARRIÈRE', b.controlX, y - 67, 9);
   }
   const m = r.maps;
   if (renderer.visible(m.x, 130)) {
-    drawThyrAsset(c, { part: 'route-map', state: m.inspected ? 'surveyed' : 'concealed', x: m.x, y: m.y + m.h / 2, scale: .85 });
+    drawLivingRouteMap(c, { x: m.x, y: m.y + m.h / 2, scale: .85, inspected: m.inspected, homes: r.homes });
     label(c, m.inspected ? 'HAMEAUX ET MIGRATION RELEVÉS' : 'CARTE MILITAIRE', m.x, m.y - m.h / 2 - 17, 9);
   }
   for (const [o, name, done] of [[r.contact, 'LIAISON DES CULTURES', r.contact.heard], [r.approach, 'BALISAGE DES APPUIS', r.approach.prepared], [r.report, r.report.transmitted ? 'BILAN TRANSMIS' : 'POSTE DE RAPPORT', r.report.transmitted]])
@@ -101,8 +135,10 @@ export function drawLivingRouteSite(renderer, s, t) {
   }
   if (renderer.visible(r.lights.x, 150)) {
     const o = r.lights, y = o.y + o.h / 2;
-    line(c, o.x, y, o.x, y - 131, '#506e54', 8);
-    c.fillStyle = o.on ? '#ded8a4' : '#3d5c48'; c.fillRect(o.x - 22, y - 138, 44, 18);
+    if (!drawPaintedRouteAsset(c, { part:'route-light', state:o.on?'on':'off', x:o.x, y })) {
+      line(c, o.x, y, o.x, y - 131, '#506e54', 8);
+      c.fillStyle = o.on ? '#ded8a4' : '#3d5c48'; c.fillRect(o.x - 22, y - 138, 44, 18);
+    }
     if (o.on) { c.beginPath(); c.moveTo(o.x - 18, y - 120); c.lineTo(o.x - 125, y - 8); c.lineTo(o.x + 125, y - 8); c.lineTo(o.x + 18, y - 120); c.closePath(); c.fillStyle = '#ddd8a00e'; c.fill(); }
     label(c, o.on ? 'PROJECTEUR ALLUMÉ' : 'PROJECTEUR COUPÉ', o.x, y - 153, 9);
   }
@@ -127,6 +163,7 @@ export function drawLivingRouteActors(renderer, s, t) {
   const convoy = r.logistics;
   if (renderer.visible(convoy.x, 180)) {
     const base = convoy.y + convoy.h / 2;
+    if (!drawPaintedRouteAsset(c,{part:'route-logistics',state:convoy.destroyed?'destroyed':convoy.hp<convoy.maxHp*.6?'damaged':'normal',x:convoy.x,y:base,width:convoy.w,height:convoy.h})) {
     c.save(); c.translate(convoy.x, base);
     c.fillStyle = convoy.destroyed ? '#455747' : '#74856b'; c.fillRect(-60, -48, 95, 34);
     c.fillStyle = convoy.destroyed ? '#35463b' : '#9aa080'; c.fillRect(21, -59, 39, 45);
@@ -135,7 +172,9 @@ export function drawLivingRouteActors(renderer, s, t) {
     for (const x of [-40, 37]) { c.beginPath(); c.arc(x, -10, 13, 0, Math.PI * 2); c.fillStyle = '#233c33'; c.fill(); c.beginPath(); c.arc(x, -10, 6, 0, Math.PI * 2); c.fillStyle = '#8b9d78'; c.fill(); }
     line(c, -65, -14, 64, -14, '#d3c79b', 3);
     if (convoy.destroyed) { line(c, -37, -46, 12, -19, '#223c32', 5); line(c, -18, -48, 22, -22, '#596e52', 3); }
-    c.restore(); health(c, convoy, 72);
+    c.restore();
+    }
+    health(c, convoy, 72);
     label(c, convoy.destroyed ? 'LOGISTIQUE PERDUE' : convoy.arrived ? 'LOGISTIQUE ARRIVÉE' : convoy.moving ? 'TRANSPORT LOGISTIQUE EN ROUTE' : 'LOGISTIQUE EN ATTENTE', convoy.x, convoy.y - convoy.h / 2 - 20, 9);
   }
 }

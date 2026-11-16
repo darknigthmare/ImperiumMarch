@@ -1,0 +1,141 @@
+{
+  "version": "0.15.7",
+  "type": "real-headless-Chromium",
+  "mode": "source",
+  "createdUtc": "2026-11-16T20:44:41.848Z",
+  "completed": false,
+  "inputPolicy": "Prepared campaign checkpoints from unchanged public-input pilots, imported through the actual file picker and confirmation dialog. Actual browser keyboard and UI controls continue local work. The test hook only returns snapshots.",
+  "limitations": [
+    "No complete browser campaign playthrough.",
+    "Prepared input dossiers are simulation exports, never presented as native browser gameplay.",
+    "No human difficulty, audio, final animation, performance or physical touch/controller reception."
+  ],
+  "sourceHashes": {
+    "tools/test-painted-installations-v0157-browser.mjs": "bb9970ee66a6ba73b3d8d5695da301c5772a10125b854393b92253a843450496",
+    "src/main.mjs": "455a361cd4803529895ded219bc212be45d416288542d993cf8d4ee8d14fd4d6",
+    "src/content.mjs": "30308100b760741b7bd1ff8b353e000d3954e195362a85983c080143d29de0fb",
+    "src/campaign.mjs": "f4176813bedfaf4139c428c8bd4e02b4c1dd8844eee867b2bf76fea3f9ab3c94",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "src/renderer.mjs": "ddd08fb24e5a42d06777f6013036f413ccc208272eae118516f272ad00080dc7",
+    "src/thyr-renderer.mjs": "3fb4421c5ebe1273cf8f55b837d45f762f730a493e9124e7b8beb32ae8b06a68",
+    "src/foundry-renderer.mjs": "54a722ca7cbdcc25cfb08609d366137bcf11ee47d1306fcec11f6f876e035625",
+    "src/painted-vesper.mjs": "93447fce2ca3f2e4413bc67fd66f2a051bdab774d8b500ac7913909846c1bbe5",
+    "src/painted-vesper-layout.mjs": "c7e6b1d0808bde034ddd7368fe48691816197be9cb35362984d90690bebc7b56",
+    "src/painted-route.mjs": "c939daa2d174c6ede3fdcccef364d71c82fce1f8244cadcfec43d308e30b1268",
+    "src/painted-route-layout.mjs": "cb7be733e16a4a444dc9ba2de3ef40d7fbb3e01ec5f7dc76eb8034f61b00d3c5",
+    "src/painted-foundry-sites.mjs": "516ba9dd30e68f274753811beeda0371ecc05fb10f20277337a7736cab1b2128",
+    "src/painted-foundry-sites-layout.mjs": "7a5d768474a3d194172c17f4d3e935d4dcbe4fbf333224d320bb128e3455028c",
+    "assets/painted/vesper/manifest.json": "4c7f64a6a4e78fd886ae3bb3b4ecc89c063d0ebd39a59e66e776aa36e8254892",
+    "assets/painted/route/manifest.json": "5bff8cef709e85b19e76c4e7af5cfe70acff2aa1b90424ab18016ab5fc9a0e9e",
+    "assets/painted/foundry-sites/manifest.json": "60361d95f8e69960a58ba4bfc5a274d133a73983ad5704c8234f52b1c937154f",
+    "tests/helpers/mi03-driver.mjs": "7215097131e8a26da02122ee066687cedf88d72aa6172b41915fa23279107d48",
+    "tests/helpers/mi04-driver.mjs": "c10509d1f233642fc129cd7903607a61c7d59fcf25773e110edd97bb66e71ab3",
+    "tests/helpers/mi09-driver.mjs": "9a5fc59291594f13491128f77b6cf15fd6768ec87308d7239ce723f4df5ab1a4",
+    "tests/helpers/mi12-driver.mjs": "f61259acc7dbbed13e39832c71f9c28dc147a4899bbb5214e8071d23722aa816",
+    "tests/helpers/mi13-driver.mjs": "f6d0553d2617412b5928c624a6f99bb606fa5583800056c1912c426b3c49ebe6"
+  },
+  "preparedInputs": [
+    {
+      "missionId": "MI03",
+      "file": "mi03-prepared-input.json",
+      "sha256": "8236988d17a9b9e65ed34fcba80c2ac6f9d04032f0126e9023b9487059ee7e13",
+      "fixture": "tests/fixtures/campaign-v2-mi02.json",
+      "fixtureSha256": "9024310b7c33e39ed73ac30a03b7db5103be73ee472e95804c4214054ebe5cf2",
+      "prerequisite": null,
+      "seed": 157,
+      "walkerId": "WK09",
+      "difficulty": "story",
+      "predicateDescription": "Dispensary inspection running above 45%, before identification.",
+      "elapsed": 32.88333333333275,
+      "priorReports": [
+        "MI01",
+        "MI02"
+      ],
+      "provenance": "Prepared outside Chromium through the existing public command pilot; no HP, position, time or mission-flag assignment."
+    },
+    {
+      "missionId": "MI04",
+      "file": "mi04-prepared-input.json",
+      "sha256": "d11b7d68a31335c68183e0bf4d58f63094d64bc56cf0f9a8ec1ad61d457305a5",
+      "fixture": "tests/fixtures/campaign-v3-mi03.json",
+      "fixtureSha256": "22793763d19477737abf7193590f00863ce32fd2fc14b1a0a49b273c81180288",
+      "prerequisite": null,
+      "seed": 157,
+      "walkerId": "WK09",
+      "difficulty": "story",
+      "predicateDescription": "First turbine cooling work running above 45%, before completion.",
+      "elapsed": 19.616666666666834,
+      "priorReports": [
+        "MI01",
+        "MI02",
+        "MI03"
+      ],
+      "provenance": "Prepared outside Chromium through the existing public command pilot; no HP, position, time or mission-flag assignment."
+    },
+    {
+      "missionId": "MI09",
+      "file": "mi09-prepared-input.json",
+      "sha256": "722872479fd5ac98e06f593d70ba3498b4847ed5a2d7e0f1611d671900441958",
+      "fixture": "tests/fixtures/campaign-v8-mi08.json",
+      "fixtureSha256": "19f66185e9a9997dae5e0e72b83954e6b3f865354ac348802045f1bc38aa6007",
+      "prerequisite": null,
+      "seed": 157,
+      "walkerId": "WK09",
+      "difficulty": "story",
+      "predicateDescription": "Route surveyed and decision made; barrier remains physically closed and two homes exist.",
+      "elapsed": 41.61666666666559,
+      "priorReports": [
+        "MI01",
+        "MI02",
+        "MI03",
+        "MI04",
+        "MI05",
+        "MI06",
+        "MI07",
+        "MI08"
+      ],
+      "provenance": "Prepared outside Chromium through the existing public command pilot; no HP, position, time or mission-flag assignment."
+    },
+    {
+      "missionId": "MI13",
+      "file": "mi13-prepared-input.json",
+      "sha256": "6d011f900a3c4d020a3ba08edf5da149d96091dfbf77716a0cfa808e2e9ef73a",
+      "fixture": "tests/fixtures/campaign-v11-mi11.json",
+      "fixtureSha256": "0b050e807af98718e70c957c712d24abe556d6d130d08a70b7eb534ebf03d52d",
+      "prerequisite": {
+        "missionId": "MI12",
+        "method": "Unchanged pilotMI12 with public commands, then finishCampaignMission",
+        "elapsed": 213.25000000006185,
+        "status": "won"
+      },
+      "seed": 157,
+      "walkerId": "WK09",
+      "difficulty": "story",
+      "predicateDescription": "First thermal-bridge valve work above 45%, before circuit isolation.",
+      "elapsed": 23.783333333333264,
+      "priorReports": [
+        "MI01",
+        "MI02",
+        "MI03",
+        "MI04",
+        "MI05",
+        "MI06",
+        "MI07",
+        "MI08",
+        "MI09",
+        "MI10",
+        "MI11",
+        "MI12"
+      ],
+      "provenance": "Prepared outside Chromium through the existing public command pilot; no HP, position, time or mission-flag assignment."
+    }
+  ],
+  "checks": [],
+  "screenshots": [],
+  "observations": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "expectedNetworkErrors": [],
+  "externalRequests": [],
+  "failure": "browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --disable-dev-shm-usage --user-data-dir=/tmp/playwright_chromiumdev_profile-eIpeJC --remote-debugging-pipe --no-startup-window\n<launched> pid=16\n[pid=16][err] /usr/bin/chromium: 9: [: 5225713664: unexpected operator\n[pid=16][err] [16:16:1116/214443.691820:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)\n[pid=16][err] [1116/214443.692013:ERROR:third_party/crashpad/crashpad/util/linux/scoped_ptrace_attach.cc:27] ptrace: Operation not permitted (1)\nCall log:\n\u001b[2m  - <launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --disable-dev-shm-usage --user-data-dir=/tmp/playwright_chromiumdev_profile-eIpeJC --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=16\u001b[22m\n\u001b[2m  - [pid=16][err] /usr/bin/chromium: 9: [: 5225713664: unexpected operator\u001b[22m\n\u001b[2m  - [pid=16][err] [16:16:1116/214443.691820:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)\u001b[22m\n\u001b[2m  - [pid=16][err] [1116/214443.692013:ERROR:third_party/crashpad/crashpad/util/linux/scoped_ptrace_attach.cc:27] ptrace: Operation not permitted (1)\u001b[22m\n\u001b[2m  - [pid=16] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=16] <kill>\u001b[22m\n\u001b[2m  - [pid=16] <will force kill>\u001b[22m\n\u001b[2m  - [pid=16] <process did exit: exitCode=null, signal=SIGABRT>\u001b[22m\n\u001b[2m  - [pid=16] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=16] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=16] <gracefully close end>\u001b[22m\n\n    at /workspace/scratch/68048c52946b/ImperiumMarch/tools/test-painted-installations-v0157-browser.mjs:162:39\n    at async node:internal/modules/esm/loader:647:26"
+}

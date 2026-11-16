@@ -2,6 +2,10 @@
 import { terrainAt, foundrySurfaceAt } from './simulation.mjs';
 import { drawFoundryAsset } from './foundry-assets.mjs';
 import { drawPaintedIndustrialCarrier, drawPaintedIndustrialCargo } from './painted-transport.mjs';
+import { drawPaintedFoundrySiteAsset, drawPaintedFoundryDeck, drawPaintedFoundrySteamOutlet } from './painted-foundry-sites.mjs';
+const drawSiteAsset = (ctx, options) => {
+  if (!drawPaintedFoundrySiteAsset(ctx, options)) drawFoundryAsset(ctx, options);
+};
 const pct = n => Math.round((n || 0) * 100);
 function line(c, x1, y1, x2, y2, color, width = 1) { c.beginPath(); c.moveTo(x1, y1); c.lineTo(x2, y2); c.strokeStyle = color; c.lineWidth = width; c.stroke(); }
 function label(c, value, x, y, size = 10, color = '#d9d2b2', max = 450) { c.font = `500 ${size}px "IBM Plex Mono", "Courier New", monospace`; c.fillStyle = color; c.textAlign = 'center'; c.fillText(value, x, y, max); }
@@ -39,21 +43,27 @@ export function drawFoundrySite(renderer, s, t = s.elapsed) {
     const from = Math.max(bridge.start, renderer.cameraX - 40), to = Math.min(bridge.end, renderer.cameraX + 1640);
     if (to > from) {
       const points = []; for (let x = from; x < to; x += 12) points.push([x, foundrySurfaceAt(s, x).groundY]); points.push([to, foundrySurfaceAt(s, to).groundY]);
+      const painted = drawPaintedFoundryDeck(c, { state: bridge.temperature > 65 ? 'hot' : bridge.temperature > s.mission.foundry.cooledTemperature + 5 ? 'cooling' : 'cooled',
+        start: bridge.start, end: bridge.end, from, to, surfaceAt: x => foundrySurfaceAt(s, x).groundY });
+      if (!painted) {
       c.beginPath(); c.moveTo(...points[0]); for (const p of points.slice(1)) c.lineTo(...p);
       for (const p of [...points].reverse()) c.lineTo(p[0], p[1] + 18); c.closePath(); c.fillStyle = '#596b70'; c.fill();
-      c.beginPath(); c.moveTo(...points[0]); for (const p of points.slice(1)) c.lineTo(...p); c.strokeStyle = bridge.temperature > 65 ? '#da9b61' : '#99c0ad'; c.lineWidth = 4; c.stroke();
       for (let x = from + 8; x < to - 12; x += 30) line(c, x, foundrySurfaceAt(s, x).groundY + 3, x + 10, foundrySurfaceAt(s, x + 10).groundY + 15, '#354b53', 2);
+      }
+      c.beginPath(); c.moveTo(...points[0]); for (const p of points.slice(1)) c.lineTo(...p); c.strokeStyle = bridge.temperature > 65 ? '#da9b61' : '#99c0ad'; c.lineWidth = 4; c.stroke();
       label(c, `TABLIER ${i + 1} · ${Math.round(bridge.temperature)} °C`, (from + to) / 2, foundrySurfaceAt(s, (from + to) / 2).groundY + 41, 9, '#e1bd82');
     }
     if (renderer.visible(bridge.valve.x, 180)) {
       const v = bridge.valve, state = v.destroyed ? 'destroyed' : bridge.circuitOpen ? 'open' : bridge.steam.phase === 'jet' ? 'jet' : bridge.steam.phase === 'warning' ? 'warning' : 'closed';
-      drawFoundryAsset(c, { part: 'steam-valve', state, x: v.x, y: v.y + v.h / 2, width: v.w, height: v.h, progress: v.progress });
+      drawSiteAsset(c, { part: 'steam-valve', state, x: v.x, y: v.y + v.h / 2, width: v.w, height: v.h, progress: v.progress });
       label(c, bridge.circuitOpen ? 'CIRCUIT ISOLÉ · REFROIDISSEMENT EN COURS' : v.destroyed ? 'VANNE PERDUE · TABLIER CHAUD' : 'VANNE DU CIRCUIT · ANCRAGE 4 S', v.x, v.y - v.h / 2 - 23, 9); work(c, v, v.x, v.y - v.h / 2 - 16); hp(c, v);
     }
     const steam = bridge.steam;
     if (renderer.visible(steam.x, 240)) {
       const y = foundrySurfaceAt(s, steam.x).groundY;
-      c.fillStyle = '#293c43'; c.fillRect(steam.x - 30, y - 10, 60, 12);
+      if (!drawPaintedFoundrySteamOutlet(c, { state: steam.phase === 'jet' ? 'jet' : steam.phase === 'warning' ? 'warning' : 'rest', x: steam.x, y })) {
+        c.fillStyle = '#293c43'; c.fillRect(steam.x - 30, y - 10, 60, 12);
+      }
       if (steam.phase === 'warning' || steam.phase === 'jet') {
         // Labels and solid hazard bounds remain visible with reduced motion.
         const active = steam.phase === 'jet', height = active ? 196 : 45;
@@ -69,15 +79,15 @@ export function drawFoundrySite(renderer, s, t = s.elapsed) {
   for (const bay of d.bays) {
     if (renderer.visible(bay.x, 360)) {
       const selected = s.campaign.plan === bay.kind, transfer = d.cargo.find(cargo => cargo.transfer.working);
-      drawFoundryAsset(c, { part: 'transfer-crane', state: bay.kind === 'quarantine' ? 'quarantine' : selected && s.campaign.operationsResolved ? 'received' : selected && transfer ? 'working' : 'idle',
-        x: bay.x + 245, y: terrainAt(bay.x + 245, s.planetId), scale: .9, progress: transfer?.transfer.progress || 0 });
+      drawSiteAsset(c, { part: 'transfer-crane', state: bay.kind === 'quarantine' ? 'quarantine' : selected && s.campaign.operationsResolved ? 'received' : selected && transfer ? 'working' : 'idle',
+        x: bay.x + 245, y: terrainAt(bay.x + 245, s.planetId), scale: .9, progress: transfer?.transfer.progress || 0, working: Boolean(selected && transfer) });
       line(c, bay.x - 170, bay.y + 5, bay.x + 170, bay.y + 5, selected ? '#d6bd85' : '#6b8682', 4);
       label(c, bay.kind === 'deliver' ? 'FONDERIE CENTRALE' : 'BAIE DE QUARANTAINE', bay.x, bay.y - 242, 12, selected ? '#e2c591' : '#97afa5');
     }
     // The control post has its own visibility bounds, independent of the bay.
     if (renderer.visible(bay.postX, 190)) {
       const y = terrainAt(bay.postX, s.planetId), selected = s.campaign.plan === bay.kind;
-      drawFoundryAsset(c, { part: 'analysis-console', state: selected && d.cargo.some(cargo => cargo.transfer.working) ? 'working' : selected && s.campaign.operationsResolved ? 'complete' : 'idle', x: bay.postX, y, scale: .45 });
+      drawSiteAsset(c, { part: 'analysis-console', state: selected && d.cargo.some(cargo => cargo.transfer.working) ? 'working' : selected && s.campaign.operationsResolved ? 'complete' : 'idle', x: bay.postX, y, scale: .45 });
       label(c, selected ? 'POSTE DE TRANSFERT · UNE CAISSE À LA FOIS' : 'POSTE DE RÉCEPTION', bay.postX, y - 69, 9);
       const pending = d.cargo.find(cargo => cargo.transfer.working || cargo.transfer.elapsed > 0 && !cargo.transferred);
       if (selected && pending) work(c, pending.transfer, bay.postX, y - 60);
@@ -86,7 +96,7 @@ export function drawFoundrySite(renderer, s, t = s.elapsed) {
   for (const [post, title, complete] of [[d.orders, s.decision.resolved ? 'DESTINATION ENREGISTRÉE' : 'POSTE DE RÉCEPTION · CHOIX DE LA BAIE', s.decision.resolved],
     [d.report, d.report.transmitted ? 'RÉCEPTION TRANSMISE' : 'LIAISON DE RAPPORT FINAL', d.report.transmitted]]) {
     if (!renderer.visible(post.x, 200)) continue;
-    drawFoundryAsset(c, { part: 'analysis-console', state: complete ? 'complete' : post.working ? 'working' : 'idle', x: post.x, y: post.y + post.h / 2, width: post.w, height: post.h, progress: post.progress || 0 });
+    drawSiteAsset(c, { part: 'analysis-console', state: complete ? 'complete' : post.working ? 'working' : 'idle', x: post.x, y: post.y + post.h / 2, width: post.w, height: post.h, progress: post.progress || 0 });
     label(c, title, post.x, post.y - post.h / 2 - 25, 9); if (post.working) work(c, post, post.x, post.y - post.h / 2 - 17);
   }
 }
@@ -108,7 +118,7 @@ export function drawFoundryCarrier(renderer, s) {
     label(c, `PORTEUR INDUSTRIEL · ${carrier.destroyed ? 'PERDU' : `${Math.round(carrier.hp / carrier.maxHp * 100)} %`}`, carrier.x, carrier.y - 145, 10);
     work(c, carrier.release, carrier.x, carrier.y - 133); hp(c, carrier);
     const m = d.manifest;
-    drawFoundryAsset(c, { part: 'cargo-manifest', state: m.destroyed ? 'destroyed' : m.copied ? 'copied' : 'sealed', x: m.x, y: m.y + m.h / 2, width: m.w, height: m.h });
+    drawSiteAsset(c, { part: 'cargo-manifest', state: m.destroyed ? 'destroyed' : m.copied ? 'copied' : 'sealed', x: m.x, y: m.y + m.h / 2, width: m.w, height: m.h });
     work(c, m, m.x, m.y - m.h / 2 - 7);
     if (d.analysis.working) { label(c, `TESS · ANALYSE ${pct(d.analysis.progress)} %`, carrier.x, carrier.y - 170, 10, '#a9d0b9'); work(c, d.analysis, carrier.x, carrier.y - 160); }
   }

@@ -1,0 +1,1611 @@
+{
+  "version": 1,
+  "mission": {
+    "id": "MI13",
+    "number": "13",
+    "campaign": true,
+    "act": "II — Le coût du silence",
+    "name": "Pièces de rechange",
+    "planetId": "PL04",
+    "planet": "Kharon",
+    "biome": "PASSERELLES DE LA FONDERIE",
+    "length": 7200,
+    "difficulty": "CONVOI THERMIQUE",
+    "duration": "8–12 min",
+    "faction": "Consortium Orison / forces de récupération",
+    "accent": "#e0a17b",
+    "sky": [
+      "#211f2d",
+      "#765347",
+      "#d5a17a"
+    ],
+    "description": "Un porteur transporte deux caisses prioritaires vers la fonderie centrale. Les ponts accumulent la chaleur et leurs conduites soufflent encore. Après l’embuscade, relevez les marquages et le bordereau que Tess peut examiner. La destination choisie doit être rejointe, puis chaque caisse survivante transférée sur place.",
+    "briefing": "« Deux caisses pour la fonderie centrale. Le porteur vous suit, les passerelles restent ouvertes. Les vannes de décharge sont votre affaire. » — Contrôle de Kharon",
+    "hint": "E sous ancrage manœuvre chaque vanne en quatre secondes ; le pont refroidit progressivement. Restez près du porteur et protégez ses deux caisses. Copiez les deux marquages et le bordereau, puis demandez l’analyse de Tess. Livrer ou mettre en quarantaine fixe une destination sans déplacer le convoi. Au quai, E transfère chaque caisse en cinq secondes. Transmettez le rapport avant l’extraction.",
+    "type": "foundry",
+    "evidenceX": 1050,
+    "decisionX": 4740,
+    "extractionX": 6800,
+    "evidenceLabel": "BORDEREAU ET SÉRIES DE FABRICATION",
+    "civilianPositions": [],
+    "supplyPositions": [
+      500,
+      1550,
+      2780,
+      4420,
+      6050
+    ],
+    "enemyPlan": [],
+    "foundry": {
+      "interactionRadius": 150,
+      "markTime": 3,
+      "manifestTime": 4,
+      "analysisTime": 8,
+      "valveTime": 4,
+      "transferTime": 5,
+      "releaseTime": 2,
+      "reportTime": 3,
+      "privateDelay": 6,
+      "carrierX": 1050,
+      "carrierSpeed": 62,
+      "escortRadius": 650,
+      "manifestX": 1050,
+      "analysisX": 4560,
+      "holdingX": 4740,
+      "ordersX": 4740,
+      "reportX": 6300,
+      "bridgeRanges": [
+        [
+          1780,
+          2390
+        ],
+        [
+          3400,
+          4020
+        ]
+      ],
+      "bridgeRise": 24,
+      "valveXs": [
+        1530,
+        3140
+      ],
+      "bridgeTemperature": 90,
+      "cooledTemperature": 28,
+      "coolingRate": 8,
+      "steamWarning": 3,
+      "steamJet": 2,
+      "steamRest": 7,
+      "ambushX": 2700,
+      "deliveryX": 5200,
+      "quarantineX": 5740,
+      "privateXs": [
+        3000,
+        4250,
+        4660
+      ],
+      "privateTypes": [
+        "drone",
+        "drone",
+        "turret"
+      ]
+    },
+    "decision": {
+      "title": "Une destination pour les pièces",
+      "body": "Les marquages, le bordereau et l’analyse n’existent au dossier que s’ils ont été recueillis. Le porteur doit rejoindre le quai choisi. Une livraison ou une quarantaine conserve les avaries et les pièces déjà perdues.",
+      "obey": "Acheminer les caisses au quai de la fonderie",
+      "defy": "Acheminer les caisses au quai de quarantaine"
+    },
+    "intro": "KHARON // ACCÈS DE LA FONDERIE CENTRALE · 05:20"
+  },
+  "walker": {
+    "id": "WK09",
+    "name": "Pèlerin",
+    "designation": "H-6",
+    "role": "TRAVERSEUR DE FRONTIÈRE",
+    "legs": 6,
+    "profile": "Hexapode médian",
+    "height": 145,
+    "width": 188,
+    "hull": 600,
+    "stride": 112,
+    "stepTime": 0.58,
+    "speed": 80,
+    "cooling": 20,
+    "armor": 0.18,
+    "damage": 17,
+    "fireRate": 0.13,
+    "shotHeat": 6.5,
+    "ammo": 18,
+    "rockets": 8,
+    "color": "#c8c6a8",
+    "silhouette": "hexapod",
+    "weight": 57,
+    "description": "Deux tripodes alternés maintiennent la coque à niveau, même sur les racines et les berges.",
+    "weapon": "Double canon P-17",
+    "secondary": "Roquettes légères",
+    "strength": "Stabilité · refroidissement",
+    "weakness": "Large empreinte au sol"
+  },
+  "missionId": "MI13",
+  "walkerId": "WK09",
+  "planetId": "PL04",
+  "difficultyId": "normal",
+  "difficulty": {
+    "label": "Pilote",
+    "damage": 0.75,
+    "enemyHealth": 1,
+    "repair": 1
+  },
+  "seed": 157,
+  "rng": 668621395,
+  "assist": true,
+  "elapsed": 149.53333333334447,
+  "status": "playing",
+  "outcome": "",
+  "player": {
+    "x": 6014.257332433528,
+    "y": 538.0077111799847,
+    "width": 188,
+    "height": 62,
+    "groundY": 683.0077111799844,
+    "facing": -1,
+    "aimAngle": 3.059273897240115,
+    "hull": 600,
+    "maxHull": 600,
+    "armor": 0.18,
+    "heat": 0.00075,
+    "energy": 100,
+    "stability": 99.99999999985279,
+    "ammo": 8,
+    "maxAmmo": 18,
+    "reserveAmmo": 144,
+    "maxReserveAmmo": 144,
+    "radiator": {
+      "health": 100,
+      "maxHealth": 100,
+      "repairKits": 2,
+      "maxRepairKits": 2,
+      "repairProgress": 0,
+      "repairing": false
+    },
+    "rockets": 8,
+    "maxRockets": 8,
+    "reloadTime": 0,
+    "venting": false,
+    "braced": true,
+    "overheated": false,
+    "speed": 0,
+    "feet": [
+      {
+        "id": "foot-0",
+        "index": 0,
+        "group": 0,
+        "side": "back",
+        "homeOffset": -88,
+        "x": 5858.590600594134,
+        "y": 672.0812861295335,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 5947.257397606257,
+        "fromY": 678.2313082465477,
+        "targetX": 5858.590600594134,
+        "targetY": 672.0812861295335,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-1",
+        "index": 1,
+        "group": 1,
+        "side": "back",
+        "homeOffset": 0,
+        "x": 6081.924064272913,
+        "y": 686.792950091762,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 5988.590730939601,
+        "fromY": 681.2491281011315,
+        "targetX": 6081.924064272913,
+        "targetY": 686.792950091762,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-2",
+        "index": 2,
+        "group": 0,
+        "side": "back",
+        "homeOffset": 88,
+        "x": 6034.590600594134,
+        "y": 684.2936419535389,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 6123.257397606257,
+        "fromY": 688.3034871204932,
+        "targetX": 6034.590600594134,
+        "targetY": 684.2936419535389,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-3",
+        "index": 3,
+        "group": 1,
+        "side": "front",
+        "homeOffset": -105,
+        "x": 5976.924064272913,
+        "y": 680.4130103086418,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 5883.590730939601,
+        "fromY": 673.6684983593295,
+        "targetX": 5976.924064272913,
+        "targetY": 680.4130103086418,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-4",
+        "index": 4,
+        "group": 0,
+        "side": "front",
+        "homeOffset": 5,
+        "x": 5951.590600594134,
+        "y": 678.5524592599547,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 6040.257397606257,
+        "fromY": 684.6315624033887,
+        "targetX": 5951.590600594134,
+        "targetY": 678.5524592599547,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-5",
+        "index": 5,
+        "group": 1,
+        "side": "front",
+        "homeOffset": 105,
+        "x": 6186.924064272913,
+        "y": 689.3664748002659,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 6093.590730939601,
+        "fromY": 687.2861169003819,
+        "targetX": 6186.924064272913,
+        "targetY": 689.3664748002659,
+        "health": 100,
+        "maxHealth": 100
+      }
+    ],
+    "stepCooldown": 0,
+    "lastGroup": 0,
+    "fireCooldown": 0,
+    "rocketCooldown": 0,
+    "flash": 0,
+    "aimX": 4660,
+    "aimY": 658.4835337681812,
+    "move": 0,
+    "anchorX": 6014.2573324335235
+  },
+  "enemies": [
+    {
+      "name": "Drone de veille",
+      "kind": "air",
+      "w": 48,
+      "h": 26,
+      "hp": 0,
+      "speed": 24,
+      "range": 710,
+      "cooldown": 2.25,
+      "damage": 13,
+      "projectileSpeed": 340,
+      "windup": 0.65,
+      "score": 120,
+      "type": "drone",
+      "id": "foundry-private-1",
+      "x": 3000,
+      "spawnX": 3000,
+      "y": 480.35451899022576,
+      "maxHp": 90,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": -0.016666666666663676,
+      "flash": 0,
+      "phase": "attack",
+      "armor": 0,
+      "targetX": 2860.1515035754933,
+      "targetY": 544.8076398916998,
+      "dronePhase": 3.2613378453433897
+    },
+    {
+      "name": "Drone de veille",
+      "kind": "air",
+      "w": 48,
+      "h": 26,
+      "hp": 0,
+      "speed": 24,
+      "range": 710,
+      "cooldown": 2.25,
+      "damage": 13,
+      "projectileSpeed": 340,
+      "windup": 0.65,
+      "score": 120,
+      "type": "drone",
+      "id": "foundry-private-2",
+      "x": 3881.6000000000913,
+      "spawnX": 4250,
+      "y": 500.6328223197397,
+      "maxHp": 90,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 1.400000000000003,
+      "flash": 0,
+      "phase": "recover",
+      "armor": 0,
+      "targetX": 3262.5173585007815,
+      "targetY": 526.2910319616258,
+      "dronePhase": 3.012387402598186
+    },
+    {
+      "name": "Tourelle de contrôle",
+      "kind": "turret",
+      "w": 58,
+      "h": 70,
+      "hp": 0,
+      "speed": 0,
+      "range": 820,
+      "cooldown": 2.4,
+      "damage": 22,
+      "projectileSpeed": 370,
+      "windup": 0.85,
+      "score": 220,
+      "type": "turret",
+      "id": "foundry-private-3",
+      "x": 4660,
+      "spawnX": 4660,
+      "y": 658.4835337681812,
+      "maxHp": 230,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0.25490196078431365,
+      "attackTarget": "player",
+      "timer": -0.01666666666666323,
+      "flash": 0,
+      "phase": "attack",
+      "armor": 0,
+      "targetX": 3956.73751653814,
+      "targetY": 518.3509720658102,
+      "dronePhase": 0.0779970734397531
+    }
+  ],
+  "projectiles": [],
+  "particles": [],
+  "events": [
+    {
+      "id": 408,
+      "type": "step",
+      "text": "",
+      "time": 119.93333333332781,
+      "x": 4975.513072971806,
+      "y": 681.869861980121
+    },
+    {
+      "id": 409,
+      "type": "step",
+      "text": "",
+      "time": 120.51666666666111,
+      "x": 4735.84640630515,
+      "y": 694.0647141057657
+    },
+    {
+      "id": 410,
+      "type": "step",
+      "text": "",
+      "time": 120.51666666666111,
+      "x": 4911.84640630515,
+      "y": 686.5603308885458
+    },
+    {
+      "id": 411,
+      "type": "step",
+      "text": "",
+      "time": 120.51666666666111,
+      "x": 4828.84640630515,
+      "y": 691.577025165148
+    },
+    {
+      "id": 412,
+      "type": "radio",
+      "text": "Sera : « Le chargement sera isolé dans la baie de quarantaine. Conduis le porteur jusque-là ; aucun mouvement ne remplace le transfert de chaque caisse. »",
+      "time": 120.73333333332776
+    },
+    {
+      "id": 413,
+      "type": "step",
+      "text": "",
+      "time": 121.09999999999441,
+      "x": 4777.179739638494,
+      "y": 693.4268768208404
+    },
+    {
+      "id": 414,
+      "type": "step",
+      "text": "",
+      "time": 121.09999999999441,
+      "x": 4672.179739638494,
+      "y": 693.7034134028058
+    },
+    {
+      "id": 415,
+      "type": "step",
+      "text": "",
+      "time": 121.09999999999441,
+      "x": 4882.179739638494,
+      "y": 688.578703646918
+    },
+    {
+      "id": 416,
+      "type": "step",
+      "text": "",
+      "time": 121.68333333332771,
+      "x": 4866.513072971838,
+      "y": 689.556402028778
+    },
+    {
+      "id": 417,
+      "type": "step",
+      "text": "",
+      "time": 121.68333333332771,
+      "x": 5042.513072971838,
+      "y": 677.2681497060381
+    },
+    {
+      "id": 418,
+      "type": "step",
+      "text": "",
+      "time": 121.68333333332771,
+      "x": 4959.513072971838,
+      "y": 683.0580774955048
+    },
+    {
+      "id": 419,
+      "type": "step",
+      "text": "",
+      "time": 122.26666666666101,
+      "x": 4961.9240642731675,
+      "y": 682.8783987118999
+    },
+    {
+      "id": 420,
+      "type": "step",
+      "text": "",
+      "time": 122.26666666666101,
+      "x": 4856.9240642731675,
+      "y": 690.1179631734487
+    },
+    {
+      "id": 421,
+      "type": "step",
+      "text": "",
+      "time": 122.26666666666101,
+      "x": 5066.9240642731675,
+      "y": 675.867966271853
+    },
+    {
+      "id": 422,
+      "type": "step",
+      "text": "",
+      "time": 122.84999999999431,
+      "x": 4920.5907309398235,
+      "y": 685.9338519292738
+    },
+    {
+      "id": 423,
+      "type": "step",
+      "text": "",
+      "time": 122.84999999999431,
+      "x": 5096.5907309398235,
+      "y": 674.4427335489078
+    },
+    {
+      "id": 424,
+      "type": "step",
+      "text": "",
+      "time": 122.84999999999431,
+      "x": 5013.5907309398235,
+      "y": 679.146704253133
+    },
+    {
+      "id": 425,
+      "type": "step",
+      "text": "",
+      "time": 123.43333333332761,
+      "x": 5055.25739760648,
+      "y": 676.5134517225864
+    },
+    {
+      "id": 426,
+      "type": "step",
+      "text": "",
+      "time": 123.43333333332761,
+      "x": 4950.25739760648,
+      "y": 683.7482135405736
+    },
+    {
+      "id": 427,
+      "type": "step",
+      "text": "",
+      "time": 123.43333333332761,
+      "x": 5160.25739760648,
+      "y": 672.5298363749154
+    },
+    {
+      "id": 428,
+      "type": "step",
+      "text": "",
+      "time": 124.01666666666091,
+      "x": 5013.924064273136,
+      "y": 679.123925077194
+    },
+    {
+      "id": 429,
+      "type": "step",
+      "text": "",
+      "time": 124.01666666666091,
+      "x": 5189.924064273136,
+      "y": 672.1638718609903
+    },
+    {
+      "id": 430,
+      "type": "step",
+      "text": "",
+      "time": 124.01666666666091,
+      "x": 5106.924064273136,
+      "y": 674.0240674795588
+    },
+    {
+      "id": 431,
+      "type": "step",
+      "text": "",
+      "time": 124.59999999999421,
+      "x": 5148.590730939792,
+      "y": 672.7618790108172
+    },
+    {
+      "id": 432,
+      "type": "step",
+      "text": "",
+      "time": 124.59999999999421,
+      "x": 5043.590730939792,
+      "y": 677.2024388371027
+    },
+    {
+      "id": 433,
+      "type": "step",
+      "text": "",
+      "time": 124.59999999999421,
+      "x": 5253.590730939792,
+      "y": 672.2655611283168
+    },
+    {
+      "id": 434,
+      "type": "step",
+      "text": "",
+      "time": 125.18333333332751,
+      "x": 5107.257397606448,
+      "y": 674.0112540596753
+    },
+    {
+      "id": 435,
+      "type": "step",
+      "text": "",
+      "time": 125.18333333332751,
+      "x": 5283.257397606448,
+      "y": 672.5781493020257
+    },
+    {
+      "id": 436,
+      "type": "step",
+      "text": "",
+      "time": 125.18333333332751,
+      "x": 5200.257397606448,
+      "y": 672.1062996897849
+    },
+    {
+      "id": 437,
+      "type": "step",
+      "text": "",
+      "time": 125.76666666666081,
+      "x": 5241.924064273104,
+      "y": 672.1765399231423
+    },
+    {
+      "id": 438,
+      "type": "step",
+      "text": "",
+      "time": 125.76666666666081,
+      "x": 5136.924064273104,
+      "y": 673.0463737836011
+    },
+    {
+      "id": 439,
+      "type": "step",
+      "text": "",
+      "time": 125.76666666666081,
+      "x": 5346.924064273104,
+      "y": 673.339629237392
+    },
+    {
+      "id": 440,
+      "type": "step",
+      "text": "",
+      "time": 126.34999999999411,
+      "x": 5200.59073093976,
+      "y": 672.1049976034191
+    },
+    {
+      "id": 441,
+      "type": "step",
+      "text": "",
+      "time": 126.34999999999411,
+      "x": 5376.59073093976,
+      "y": 673.5695796380768
+    },
+    {
+      "id": 442,
+      "type": "step",
+      "text": "",
+      "time": 126.34999999999411,
+      "x": 5293.59073093976,
+      "y": 672.7048443342758
+    },
+    {
+      "id": 443,
+      "type": "step",
+      "text": "",
+      "time": 126.93333333332741,
+      "x": 5335.257397606416,
+      "y": 673.216129334602
+    },
+    {
+      "id": 444,
+      "type": "step",
+      "text": "",
+      "time": 126.93333333332741,
+      "x": 5230.257397606416,
+      "y": 672.1140236997287
+    },
+    {
+      "id": 445,
+      "type": "step",
+      "text": "",
+      "time": 126.93333333332741,
+      "x": 5440.257397606416,
+      "y": 673.4593965717158
+    },
+    {
+      "id": 446,
+      "type": "step",
+      "text": "",
+      "time": 127.51666666666071,
+      "x": 5293.924064273072,
+      "y": 672.7090083058113
+    },
+    {
+      "id": 447,
+      "type": "step",
+      "text": "",
+      "time": 127.51666666666071,
+      "x": 5469.924064273072,
+      "y": 673.0726780769335
+    },
+    {
+      "id": 448,
+      "type": "step",
+      "text": "",
+      "time": 127.51666666666071,
+      "x": 5386.924064273072,
+      "y": 673.6134095771248
+    },
+    {
+      "id": 449,
+      "type": "step",
+      "text": "",
+      "time": 128.09999999999408,
+      "x": 5428.590730939728,
+      "y": 673.5516468882789
+    },
+    {
+      "id": 450,
+      "type": "step",
+      "text": "",
+      "time": 128.09999999999408,
+      "x": 5323.590730939728,
+      "y": 673.08009999966
+    },
+    {
+      "id": 451,
+      "type": "step",
+      "text": "",
+      "time": 128.09999999999408,
+      "x": 5533.590730939728,
+      "y": 671.5969506874562
+    },
+    {
+      "id": 452,
+      "type": "step",
+      "text": "",
+      "time": 128.68333333332788,
+      "x": 5387.257397606384,
+      "y": 673.6144656173622
+    },
+    {
+      "id": 453,
+      "type": "step",
+      "text": "",
+      "time": 128.68333333332788,
+      "x": 5563.257397606384,
+      "y": 670.7123266752002
+    },
+    {
+      "id": 454,
+      "type": "step",
+      "text": "",
+      "time": 128.68333333332788,
+      "x": 5480.257397606384,
+      "y": 672.8883867659672
+    },
+    {
+      "id": 455,
+      "type": "step",
+      "text": "",
+      "time": 129.26666666666168,
+      "x": 5521.92406427304,
+      "y": 671.9203696030071
+    },
+    {
+      "id": 456,
+      "type": "step",
+      "text": "",
+      "time": 129.26666666666168,
+      "x": 5416.92406427304,
+      "y": 673.6101837983304
+    },
+    {
+      "id": 457,
+      "type": "step",
+      "text": "",
+      "time": 129.26666666666168,
+      "x": 5626.92406427304,
+      "y": 668.828545716652
+    },
+    {
+      "id": 458,
+      "type": "step",
+      "text": "",
+      "time": 129.84999999999548,
+      "x": 5480.590730939696,
+      "y": 672.8820363546931
+    },
+    {
+      "id": 459,
+      "type": "step",
+      "text": "",
+      "time": 129.84999999999548,
+      "x": 5656.590730939696,
+      "y": 668.1438771874131
+    },
+    {
+      "id": 460,
+      "type": "step",
+      "text": "",
+      "time": 129.84999999999548,
+      "x": 5573.590730939696,
+      "y": 670.3934756425982
+    },
+    {
+      "id": 461,
+      "type": "step",
+      "text": "",
+      "time": 130.43333333332927,
+      "x": 5615.257397606352,
+      "y": 669.1452756461872
+    },
+    {
+      "id": 462,
+      "type": "step",
+      "text": "",
+      "time": 130.43333333332927,
+      "x": 5510.257397606352,
+      "y": 672.2237545647246
+    },
+    {
+      "id": 463,
+      "type": "step",
+      "text": "",
+      "time": 130.43333333332927,
+      "x": 5720.257397606352,
+      "y": 667.5641854482736
+    },
+    {
+      "id": 464,
+      "type": "step",
+      "text": "",
+      "time": 131.01666666666307,
+      "x": 5573.924064273008,
+      "y": 670.3831713965031
+    },
+    {
+      "id": 465,
+      "type": "step",
+      "text": "",
+      "time": 131.01666666666307,
+      "x": 5749.924064273008,
+      "y": 667.8367043392689
+    },
+    {
+      "id": 466,
+      "type": "step",
+      "text": "",
+      "time": 131.01666666666307,
+      "x": 5666.924064273008,
+      "y": 667.9572694409161
+    },
+    {
+      "id": 467,
+      "type": "step",
+      "text": "",
+      "time": 131.59999999999687,
+      "x": 5708.590730939664,
+      "y": 667.5588672652931
+    },
+    {
+      "id": 468,
+      "type": "step",
+      "text": "",
+      "time": 131.59999999999687,
+      "x": 5603.590730939664,
+      "y": 669.4809086211733
+    },
+    {
+      "id": 469,
+      "type": "step",
+      "text": "",
+      "time": 131.59999999999687,
+      "x": 5813.590730939664,
+      "y": 669.7348922115222
+    },
+    {
+      "id": 470,
+      "type": "step",
+      "text": "",
+      "time": 132.18333333333067,
+      "x": 5667.25739760632,
+      "y": 667.9517670867734
+    },
+    {
+      "id": 471,
+      "type": "step",
+      "text": "",
+      "time": 132.18333333333067,
+      "x": 5843.25739760632,
+      "y": 671.2000687257591
+    },
+    {
+      "id": 472,
+      "type": "step",
+      "text": "",
+      "time": 132.18333333333067,
+      "x": 5760.25739760632,
+      "y": 668.0224759789453
+    },
+    {
+      "id": 473,
+      "type": "step",
+      "text": "",
+      "time": 132.76666666666446,
+      "x": 5801.9240642729765,
+      "y": 669.254712378393
+    },
+    {
+      "id": 474,
+      "type": "step",
+      "text": "",
+      "time": 132.76666666666446,
+      "x": 5696.9240642729765,
+      "y": 667.6074819654585
+    },
+    {
+      "id": 475,
+      "type": "step",
+      "text": "",
+      "time": 132.76666666666446,
+      "x": 5906.9240642729765,
+      "y": 675.2806746907539
+    },
+    {
+      "id": 476,
+      "type": "step",
+      "text": "",
+      "time": 133.34999999999826,
+      "x": 5760.5907309396325,
+      "y": 668.0292639552217
+    },
+    {
+      "id": 477,
+      "type": "step",
+      "text": "",
+      "time": 133.34999999999826,
+      "x": 5936.5907309396325,
+      "y": 677.4411876552645
+    },
+    {
+      "id": 478,
+      "type": "step",
+      "text": "",
+      "time": 133.34999999999826,
+      "x": 5853.5907309396325,
+      "y": 671.785491997145
+    },
+    {
+      "id": 479,
+      "type": "step",
+      "text": "",
+      "time": 133.93333333333206,
+      "x": 5895.257397606289,
+      "y": 674.461603253609
+    },
+    {
+      "id": 480,
+      "type": "step",
+      "text": "",
+      "time": 133.93333333333206,
+      "x": 5790.257397606289,
+      "y": 668.8324618943768
+    },
+    {
+      "id": 481,
+      "type": "step",
+      "text": "",
+      "time": 133.93333333333206,
+      "x": 6000.257397606289,
+      "y": 682.0643736862522
+    },
+    {
+      "id": 482,
+      "type": "step",
+      "text": "",
+      "time": 134.51666666666586,
+      "x": 5853.924064272945,
+      "y": 671.8049652714668
+    },
+    {
+      "id": 483,
+      "type": "step",
+      "text": "",
+      "time": 134.51666666666586,
+      "x": 6029.924064272945,
+      "y": 684.0083476070021
+    },
+    {
+      "id": 484,
+      "type": "step",
+      "text": "",
+      "time": 134.51666666666586,
+      "x": 5946.924064272945,
+      "y": 678.2065975747554
+    },
+    {
+      "id": 485,
+      "type": "step",
+      "text": "",
+      "time": 135.09999999999965,
+      "x": 5988.590730939601,
+      "y": 681.2491281011315
+    },
+    {
+      "id": 486,
+      "type": "step",
+      "text": "",
+      "time": 135.09999999999965,
+      "x": 5883.590730939601,
+      "y": 673.6684983593295
+    },
+    {
+      "id": 487,
+      "type": "step",
+      "text": "",
+      "time": 135.09999999999965,
+      "x": 6093.590730939601,
+      "y": 687.2861169003819
+    },
+    {
+      "id": 488,
+      "type": "step",
+      "text": "",
+      "time": 135.68333333333345,
+      "x": 5947.257397606257,
+      "y": 678.2313082465477
+    },
+    {
+      "id": 489,
+      "type": "step",
+      "text": "",
+      "time": 135.68333333333345,
+      "x": 6123.257397606257,
+      "y": 688.3034871204932
+    },
+    {
+      "id": 490,
+      "type": "step",
+      "text": "",
+      "time": 135.68333333333345,
+      "x": 6040.257397606257,
+      "y": 684.6315624033887
+    },
+    {
+      "id": 491,
+      "type": "step",
+      "text": "",
+      "time": 136.26666666666725,
+      "x": 6081.924064272913,
+      "y": 686.792950091762
+    },
+    {
+      "id": 492,
+      "type": "step",
+      "text": "",
+      "time": 136.26666666666725,
+      "x": 5976.924064272913,
+      "y": 680.4130103086418
+    },
+    {
+      "id": 493,
+      "type": "step",
+      "text": "",
+      "time": 136.26666666666725,
+      "x": 6186.924064272913,
+      "y": 689.3664748002659
+    },
+    {
+      "id": 494,
+      "type": "objective",
+      "text": "Porteur arrivé à la baie de quarantaine. Chaque caisse encore présente attend son transfert.",
+      "time": 138.45000000000232
+    },
+    {
+      "id": 495,
+      "type": "step",
+      "text": "",
+      "time": 139.03333333333612,
+      "x": 5858.590600594134,
+      "y": 672.0812861295335
+    },
+    {
+      "id": 496,
+      "type": "step",
+      "text": "",
+      "time": 139.03333333333612,
+      "x": 6034.590600594134,
+      "y": 684.2936419535389
+    },
+    {
+      "id": 497,
+      "type": "step",
+      "text": "",
+      "time": 139.03333333333612,
+      "x": 5951.590600594134,
+      "y": 678.5524592599547
+    }
+  ],
+  "eventId": 497,
+  "entityId": 34,
+  "relays": [],
+  "convoy": null,
+  "civilians": [],
+  "evidence": {
+    "id": "MI13-evidence",
+    "x": 1050,
+    "y": 629.1534698917251,
+    "collected": true,
+    "scanning": false,
+    "scanProgress": 1,
+    "scanTime": 8,
+    "label": "BORDEREAU ET SÉRIES DE FABRICATION"
+  },
+  "pickups": [
+    {
+      "id": "supply-0",
+      "x": 500,
+      "y": 669.0044896515624,
+      "type": "repair",
+      "collected": false
+    },
+    {
+      "id": "supply-1",
+      "x": 1550,
+      "y": 652.3478514785425,
+      "type": "repair",
+      "collected": false
+    },
+    {
+      "id": "supply-2",
+      "x": 2780,
+      "y": 672.9643744049185,
+      "type": "repair",
+      "collected": false
+    },
+    {
+      "id": "supply-3",
+      "x": 4420,
+      "y": 668.5714666416097,
+      "type": "repair",
+      "collected": true
+    },
+    {
+      "id": "supply-4",
+      "x": 6050,
+      "y": 665.1894958189905,
+      "type": "repair",
+      "collected": false
+    }
+  ],
+  "decision": {
+    "active": false,
+    "resolved": true,
+    "choice": "defy",
+    "title": "Une destination pour les pièces",
+    "body": "2 marquages sur deux et le bordereau conservés. Tess a rapproché les deux séries du bordereau : la provenance industrielle locale est établie. La copie du journal de Vesper manque au dossier. Nous ne disposons pas des ordres du troisième relais. Livraison ou quarantaine choisit la baie ; le porteur et chaque caisse doivent encore y être conduits et transférés.",
+    "options": [
+      {
+        "id": "obey",
+        "label": "Acheminer les caisses au quai de la fonderie"
+      },
+      {
+        "id": "defy",
+        "label": "Acheminer les caisses au quai de quarantaine"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "carrier",
+      "label": "Libérer et protéger le porteur industriel",
+      "current": 1,
+      "target": 1,
+      "complete": true
+    },
+    {
+      "id": "private",
+      "label": "Neutraliser l’embuscade arrivée sur la route",
+      "current": 3,
+      "target": 3,
+      "complete": true
+    },
+    {
+      "id": "sources",
+      "label": "Relever deux marquages et le bordereau, ou leurs pertes",
+      "current": 3,
+      "target": 3,
+      "complete": true
+    },
+    {
+      "id": "analysis",
+      "label": "Achever la liaison de Tess sur les sources disponibles",
+      "current": 1,
+      "target": 1,
+      "complete": true
+    },
+    {
+      "id": "delivery",
+      "label": "Choisir la baie puis y conduire le porteur",
+      "current": 1,
+      "target": 1,
+      "complete": true
+    },
+    {
+      "id": "transfer",
+      "label": "Transférer chaque caisse restante et consigner les pertes",
+      "current": 2,
+      "target": 2,
+      "complete": true
+    },
+    {
+      "id": "report",
+      "label": "Transmettre la réception et les pièces réellement conservées",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    },
+    {
+      "id": "extract",
+      "label": "Rejoindre la rampe de retour",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    }
+  ],
+  "extraction": {
+    "x": 6800,
+    "y": 692.8462633615197,
+    "active": false,
+    "radius": 110
+  },
+  "stats": {
+    "kills": 3,
+    "shots": 28,
+    "hits": 26,
+    "steps": 149,
+    "collateral": 0,
+    "damageTaken": 46.125,
+    "evidence": 1,
+    "ordersObeyed": 0,
+    "ordersDefied": 1,
+    "score": 860
+  },
+  "interaction": "",
+  "cameraShake": 0,
+  "lastStepGroup": 0,
+  "checkpointText": "Ordre reçu. Appuis au sol.",
+  "inputHeld": {
+    "stepA": false,
+    "stepB": false,
+    "interact": false,
+    "reload": false,
+    "repair": false
+  },
+  "notified": {},
+  "nextStep": 0,
+  "bossReleased": false,
+  "campaign": {
+    "missionId": "MI13",
+    "phase": "delivery",
+    "context": {
+      "relayRecorded": false,
+      "relayChoice": "none",
+      "relayOrdersCopied": false,
+      "pt01Acquired": false
+    },
+    "tutorial": {
+      "stepped": true,
+      "braced": true
+    },
+    "plan": "quarantine",
+    "carrierReleased": true,
+    "carrierArrived": true,
+    "carrierDestroyed": false,
+    "cargoTotal": 2,
+    "cargoInspected": 2,
+    "markingsCopied": 2,
+    "cargoIntact": 2,
+    "cargoDamaged": 0,
+    "cargoLost": 0,
+    "cargoTransferred": 2,
+    "manifestInspected": true,
+    "manifestCopied": true,
+    "analysisCompleted": true,
+    "pt03Acquired": true,
+    "provenanceVerified": true,
+    "pt01CrossReferenced": false,
+    "relayCrossReferenced": false,
+    "circuitsOpened": 2,
+    "privateTriggered": true,
+    "privateReady": true,
+    "privateNeutralized": 3,
+    "manifestRead": true,
+    "operationsResolved": true,
+    "reportTransmitted": false,
+    "publicReleased": false,
+    "defected": false
+  },
+  "foundry": {
+    "carrier": {
+      "id": "foundry-carrier",
+      "x": 5740,
+      "y": 622.7452497012512,
+      "w": 242,
+      "h": 48,
+      "hp": 639,
+      "maxHp": 660,
+      "destroyed": false,
+      "destroyedAt": null,
+      "flash": 0,
+      "speed": 0,
+      "released": true,
+      "releasedAt": 15.23333333333367,
+      "release": {
+        "working": false,
+        "progress": 1,
+        "startedAt": 13.23333333333357,
+        "completedAt": 15.23333333333367
+      },
+      "arrived": true,
+      "arrivedAt": 138.45000000000232,
+      "distance": 4689.999999999559,
+      "destination": "quarantine",
+      "wheels": [
+        {
+          "id": "foundry-wheel-1",
+          "x": 5646,
+          "y": 652.3650926808423,
+          "radius": 16,
+          "contact": true,
+          "groundY": 668.3650926808423,
+          "bridgeId": null,
+          "temperature": 28
+        },
+        {
+          "id": "foundry-wheel-2",
+          "x": 5706,
+          "y": 651.5651050123782,
+          "radius": 16,
+          "contact": true,
+          "groundY": 667.5651050123782,
+          "bridgeId": null,
+          "temperature": 28
+        },
+        {
+          "id": "foundry-wheel-3",
+          "x": 5774,
+          "y": 652.3436497299496,
+          "radius": 16,
+          "contact": true,
+          "groundY": 668.3436497299496,
+          "bridgeId": null,
+          "temperature": 28
+        },
+        {
+          "id": "foundry-wheel-4",
+          "x": 5834,
+          "y": 654.7071513818344,
+          "radius": 16,
+          "contact": true,
+          "groundY": 670.7071513818344,
+          "bridgeId": null,
+          "temperature": 28
+        }
+      ],
+      "lastStep": 124
+    },
+    "cargo": [
+      {
+        "id": "foundry-cargo-1",
+        "x": 5990,
+        "y": 652.3488210992913,
+        "w": 84,
+        "h": 58,
+        "hp": 220,
+        "maxHp": 220,
+        "destroyed": false,
+        "destroyedAt": null,
+        "flash": 0,
+        "offset": -58,
+        "inspected": true,
+        "inspectedAt": 90.6666666666628,
+        "markingCopied": true,
+        "copiedAt": 90.6666666666628,
+        "marking": {
+          "working": false,
+          "progress": 1,
+          "startedAt": 87.66666666666298,
+          "completedAt": 90.6666666666628
+        },
+        "transfer": {
+          "working": false,
+          "progress": 1,
+          "startedAt": 139.53333333333651,
+          "completedAt": 144.5333333333405,
+          "elapsed": 5,
+          "fromX": 5682,
+          "fromY": 569.7452497012512
+        },
+        "transferred": true,
+        "transferredAt": 144.5333333333405,
+        "bay": "quarantine",
+        "lastStep": -1
+      },
+      {
+        "id": "foundry-cargo-2",
+        "x": 6094,
+        "y": 658.3024754199269,
+        "w": 84,
+        "h": 58,
+        "hp": 220,
+        "maxHp": 220,
+        "destroyed": false,
+        "destroyedAt": null,
+        "flash": 0,
+        "offset": 58,
+        "inspected": true,
+        "inspectedAt": 87.66666666666298,
+        "markingCopied": true,
+        "copiedAt": 87.66666666666298,
+        "marking": {
+          "working": false,
+          "progress": 1,
+          "startedAt": 84.66666666666315,
+          "completedAt": 87.66666666666298
+        },
+        "transfer": {
+          "working": false,
+          "progress": 1,
+          "startedAt": 144.5333333333405,
+          "completedAt": 149.53333333334447,
+          "elapsed": 5,
+          "fromX": 5798,
+          "fromY": 569.7452497012512
+        },
+        "transferred": true,
+        "transferredAt": 149.53333333334447,
+        "bay": "quarantine",
+        "lastStep": -1
+      }
+    ],
+    "manifest": {
+      "id": "foundry-manifest",
+      "x": 5629,
+      "y": 584.7452497012512,
+      "w": 24,
+      "h": 40,
+      "hp": 90,
+      "maxHp": 90,
+      "destroyed": false,
+      "destroyedAt": null,
+      "flash": 0,
+      "working": false,
+      "progress": 1,
+      "startedAt": 7.899999999999977,
+      "completedAt": 11.90000000000017,
+      "inspected": true,
+      "inspectedAt": 11.90000000000017,
+      "copied": true,
+      "copiedAt": 11.90000000000017
+    },
+    "analysis": {
+      "id": "foundry-analysis",
+      "working": false,
+      "progress": 1,
+      "startedAt": 90.6666666666628,
+      "completedAt": 98.66666666666235,
+      "completed": true,
+      "x": 5740,
+      "y": 512.7452497012512,
+      "w": 50,
+      "h": 70
+    },
+    "bridges": [
+      {
+        "id": "foundry-bridge-1",
+        "start": 1780,
+        "end": 2390,
+        "rise": 24,
+        "temperature": 28,
+        "circuitOpen": true,
+        "openedAt": 25.966666666666473,
+        "valve": {
+          "id": "foundry-valve-1",
+          "x": 1530,
+          "y": 641.6571636063694,
+          "w": 52,
+          "h": 62,
+          "hp": 240,
+          "maxHp": 240,
+          "destroyed": false,
+          "destroyedAt": null,
+          "flash": 0,
+          "working": false,
+          "progress": 1,
+          "startedAt": 21.9666666666667,
+          "completedAt": 25.966666666666473
+        },
+        "steam": {
+          "phase": "off",
+          "cycle": 5.533333333344473,
+          "x": 2085,
+          "y": 665.1464113402151
+        }
+      },
+      {
+        "id": "foundry-bridge-2",
+        "start": 3400,
+        "end": 4020,
+        "rise": 24,
+        "temperature": 28,
+        "circuitOpen": true,
+        "openedAt": 53.19999999999826,
+        "valve": {
+          "id": "foundry-valve-2",
+          "x": 3140,
+          "y": 641.470143483374,
+          "w": 52,
+          "h": 62,
+          "hp": 240,
+          "maxHp": 240,
+          "destroyed": false,
+          "destroyedAt": null,
+          "flash": 0,
+          "working": false,
+          "progress": 1,
+          "startedAt": 49.19999999999849,
+          "completedAt": 53.19999999999826
+        },
+        "steam": {
+          "phase": "off",
+          "cycle": 8.533333333344473,
+          "x": 3710,
+          "y": 646.2824383259559
+        }
+      }
+    ],
+    "orders": {
+      "id": "foundry-orders",
+      "x": 4740,
+      "y": 656.0340917318335,
+      "w": 62,
+      "h": 76
+    },
+    "bays": [
+      {
+        "id": "foundry-bay-deliver",
+        "kind": "deliver",
+        "x": 5200,
+        "y": 672.1073283327047,
+        "postX": 5370,
+        "w": 380,
+        "h": 34
+      },
+      {
+        "id": "foundry-bay-quarantine",
+        "kind": "quarantine",
+        "x": 5740,
+        "y": 667.7029719876798,
+        "postX": 5910,
+        "w": 380,
+        "h": 34
+      }
+    ],
+    "report": {
+      "id": "foundry-report",
+      "x": 6300,
+      "y": 650.6999890676441,
+      "w": 62,
+      "h": 76,
+      "working": false,
+      "progress": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "transmitted": false,
+      "transmittedAt": null
+    },
+    "alert": {
+      "triggered": true,
+      "triggeredAt": 42.93333333333218,
+      "reason": "route-crossed",
+      "elapsed": 6,
+      "ready": true,
+      "readyAt": 48.93333333333184
+    },
+    "thermal": {
+      "ambientAdded": 6.729000000000227,
+      "conductionAdded": 0.5246222222221737,
+      "steamAdded": 0,
+      "wheelDamage": 0,
+      "contacts": []
+    }
+  }
+}

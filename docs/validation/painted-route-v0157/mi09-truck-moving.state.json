@@ -1,0 +1,1765 @@
+{
+  "version": 1,
+  "mission": {
+    "id": "MI09",
+    "number": "09",
+    "campaign": true,
+    "act": "II — Le coût du silence",
+    "name": "La route des vivants",
+    "planetId": "PL03",
+    "planet": "Thyr",
+    "biome": "VERGERS SOUS CANOPÉE",
+    "length": 6400,
+    "difficulty": "APPUIS VIVANTS",
+    "duration": "6–10 min",
+    "faction": "Communautés de Thyr / détachement logistique impérial",
+    "accent": "#b9ce83",
+    "sky": [
+      "#182d30",
+      "#496359",
+      "#b9bd8e"
+    ],
+    "description": "Une route déclarée sauvage traverse des racines porteuses, des maisons suspendues et la migration des longues-dorses. Écoutez le poste local, préparez des appuis adaptés, puis ouvrez une route au transport. Les destinations du troupeau et les habitats encore debout feront foi.",
+    "briefing": "« Dégagez la route logistique de Thyr. Nos cartes n’indiquent aucune implantation permanente dans ce secteur. » — Major Holt",
+    "hint": "E au poste local ouvre le balisage guidé ; E au repère prépare le contournement indispensable aux coques hautes. Les pieds se posent réellement sur les racines : J/L permettent une cadence espacée, Espace stabilise les travaux. Coupez les projecteurs pour calmer les éventails. Relevez la carte et choisissez la route ; revenez manœuvrer la barrière. Attendez les destinations effectives des longues-dorses, repoussez les deux tireurs d’élite, puis libérez et escortez le transport jusqu’au dépôt. Le rapport attend son arrivée.",
+    "type": "living-route",
+    "evidenceX": 2680,
+    "decisionX": 2680,
+    "extractionX": 6060,
+    "evidenceLabel": "RELEVÉ LOCAL DES PASSAGES ET HAMEAUX",
+    "civilianPositions": [],
+    "supplyPositions": [
+      730,
+      2850,
+      3940,
+      5380,
+      5860
+    ],
+    "enemyPlan": [],
+    "livingRoute": {
+      "interactionRadius": 150,
+      "contactTime": 3,
+      "guidedTime": 4,
+      "surveyedTime": 8,
+      "inspectTime": 3,
+      "lightsTime": 2,
+      "gateTime": 6,
+      "damagedGateTime": 8,
+      "dispatchTime": 3,
+      "reportTime": 3,
+      "contactX": 540,
+      "approachX": 850,
+      "columnXs": [
+        1260,
+        3560
+      ],
+      "rootWidth": 340,
+      "rootRise": 28,
+      "canopyFrom": 960,
+      "canopyTo": 1520,
+      "initialClearance": 185,
+      "preparedClearance": 300,
+      "safeCadence": 1.15,
+      "lightsX": 1660,
+      "gateX": 2420,
+      "gateControlX": 2200,
+      "mapX": 2680,
+      "logisticsX": 2860,
+      "logisticsControlX": 3020,
+      "logisticsTargetX": 5500,
+      "reportX": 5660,
+      "migratorXs": [
+        1880,
+        1960,
+        2040,
+        2120
+      ],
+      "orchardXs": [
+        4660,
+        4740,
+        4820,
+        4900
+      ],
+      "exclusionXs": [
+        3260,
+        3340,
+        3420,
+        3500
+      ],
+      "sniperXs": [
+        4080,
+        5200
+      ]
+    },
+    "decision": {
+      "title": "Une route traverse leur saison",
+      "body": "La carte omet deux habitats suspendus. Une route directe détourne les longues-dorses vers la zone d’exclusion ; garder leur passage demande d’attendre leur arrivée au verger avant le transport. Le choix doit encore être mis en œuvre à la barrière.",
+      "obey": "Exécuter le couloir impérial ; dévier le troupeau vers l’exclusion",
+      "defy": "Préserver le passage du verger ; faire attendre la logistique"
+    },
+    "intro": "THYR // ROUTE DES VERGERS · 07:20"
+  },
+  "walker": {
+    "id": "WK09",
+    "name": "Pèlerin",
+    "designation": "H-6",
+    "role": "TRAVERSEUR DE FRONTIÈRE",
+    "legs": 6,
+    "profile": "Hexapode médian",
+    "height": 145,
+    "width": 188,
+    "hull": 600,
+    "stride": 112,
+    "stepTime": 0.58,
+    "speed": 80,
+    "cooling": 20,
+    "armor": 0.18,
+    "damage": 17,
+    "fireRate": 0.13,
+    "shotHeat": 6.5,
+    "ammo": 18,
+    "rockets": 8,
+    "color": "#c8c6a8",
+    "silhouette": "hexapod",
+    "weight": 57,
+    "description": "Deux tripodes alternés maintiennent la coque à niveau, même sur les racines et les berges.",
+    "weapon": "Double canon P-17",
+    "secondary": "Roquettes légères",
+    "strength": "Stabilité · refroidissement",
+    "weakness": "Large empreinte au sol"
+  },
+  "missionId": "MI09",
+  "walkerId": "WK09",
+  "planetId": "PL03",
+  "difficultyId": "story",
+  "difficulty": {
+    "label": "Récit",
+    "damage": 0.5,
+    "enemyHealth": 0.78,
+    "repair": 1.25
+  },
+  "seed": 157,
+  "rng": 2820746977,
+  "assist": true,
+  "elapsed": 114.3499999999948,
+  "status": "playing",
+  "outcome": "",
+  "player": {
+    "x": 2995.3627525607158,
+    "y": 521.7393202866275,
+    "width": 188,
+    "height": 62,
+    "groundY": 664.6352188745159,
+    "facing": 1,
+    "aimAngle": 3.121468382886426,
+    "hull": 600,
+    "maxHull": 600,
+    "armor": 0.18,
+    "heat": 0,
+    "energy": 100,
+    "stability": 83.92537069357765,
+    "ammo": 18,
+    "maxAmmo": 18,
+    "reserveAmmo": 144,
+    "maxReserveAmmo": 144,
+    "radiator": {
+      "health": 100,
+      "maxHealth": 100,
+      "repairKits": 2,
+      "maxRepairKits": 2,
+      "repairProgress": 0,
+      "repairing": false
+    },
+    "rockets": 8,
+    "maxRockets": 8,
+    "reloadTime": 0,
+    "venting": false,
+    "braced": false,
+    "overheated": false,
+    "speed": 80.0000000000091,
+    "feet": [
+      {
+        "id": "foot-0",
+        "index": 0,
+        "group": 0,
+        "side": "back",
+        "homeOffset": -88,
+        "x": 2961.637892168294,
+        "y": 628.9612213810304,
+        "phase": "swing",
+        "progress": 0.7183908045977014,
+        "contact": false,
+        "fromX": 2859.809261408007,
+        "fromY": 656.0130126802135,
+        "targetX": 2986.0294192273786,
+        "targetY": 663.7209620251713,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-1",
+        "index": 1,
+        "group": 1,
+        "side": "back",
+        "homeOffset": 0,
+        "x": 3036.4759273282584,
+        "y": 668.6256054630533,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 2901.142594741335,
+        "fromY": 657.1101010272105,
+        "targetX": 3036.4759273282584,
+        "targetY": 668.6256054630533,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-2",
+        "index": 2,
+        "group": 0,
+        "side": "back",
+        "homeOffset": 88,
+        "x": 3137.637892168294,
+        "y": 641.4195725215139,
+        "phase": "swing",
+        "progress": 0.7183908045977014,
+        "contact": false,
+        "fromX": 3035.809261408007,
+        "fromY": 668.5635449679281,
+        "targetX": 3162.0294192273786,
+        "targetY": 676.1572325491304,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-3",
+        "index": 3,
+        "group": 1,
+        "side": "front",
+        "homeOffset": -105,
+        "x": 2931.4759273282584,
+        "y": 658.9470803338953,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 2796.142594741335,
+        "fromY": 657.8377675919647,
+        "targetX": 2931.4759273282584,
+        "targetY": 658.9470803338953,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-4",
+        "index": 4,
+        "group": 0,
+        "side": "front",
+        "homeOffset": 5,
+        "x": 3054.637892168294,
+        "y": 636.6966927619322,
+        "phase": "swing",
+        "progress": 0.7183908045977014,
+        "contact": false,
+        "fromX": 2952.809261408007,
+        "fromY": 660.6459677842149,
+        "targetX": 3079.0294192273786,
+        "targetY": 672.1995948249614,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-5",
+        "index": 5,
+        "group": 1,
+        "side": "front",
+        "homeOffset": 105,
+        "x": 3141.4759273282584,
+        "y": 675.5611018125633,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 3006.142594741335,
+        "fromY": 665.6983242276565,
+        "targetX": 3141.4759273282584,
+        "targetY": 675.5611018125633,
+        "health": 100,
+        "maxHealth": 100
+      }
+    ],
+    "stepCooldown": 0.17999999999999983,
+    "lastGroup": 0,
+    "fireCooldown": 0,
+    "rocketCooldown": 0,
+    "flash": 0,
+    "aimX": 1000,
+    "aimY": 570,
+    "move": 1,
+    "anchorX": 3043.056909748276
+  },
+  "enemies": [
+    {
+      "name": "Tireur d’élite",
+      "kind": "infantry",
+      "w": 28,
+      "h": 38,
+      "hp": 117,
+      "speed": 0,
+      "range": 960,
+      "cooldown": 3.5,
+      "damage": 26,
+      "projectileSpeed": 720,
+      "windup": 1.4,
+      "score": 180,
+      "type": "sniper",
+      "id": "thyr-sniper-1",
+      "x": 4080,
+      "spawnX": 4080,
+      "y": 666.2067940677623,
+      "maxHp": 117,
+      "active": true,
+      "dead": false,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 0.5604940744737784,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 3.2613378453433897
+    },
+    {
+      "name": "Tireur d’élite",
+      "kind": "infantry",
+      "w": 28,
+      "h": 38,
+      "hp": 117,
+      "speed": 0,
+      "range": 960,
+      "cooldown": 3.5,
+      "damage": 26,
+      "projectileSpeed": 720,
+      "windup": 1.4,
+      "score": 180,
+      "type": "sniper",
+      "id": "thyr-sniper-2",
+      "x": 5200,
+      "spawnX": 5200,
+      "y": 679.096417732231,
+      "maxHp": 117,
+      "active": false,
+      "dead": false,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 1.4374650346115232,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 3.012387402598186
+    }
+  ],
+  "projectiles": [],
+  "particles": [
+    {
+      "x": 3051.560533436444,
+      "y": 677.4728168491712,
+      "vx": 24.91726681985578,
+      "vy": 54.16664166027297,
+      "life": 0.13872979376154626,
+      "maxLife": 0.5720631270948797,
+      "size": 5.957292729057372,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3046.632832808529,
+      "y": 677.1415081589694,
+      "vx": 16.777522866747614,
+      "vy": 53.40208314442103,
+      "life": 0.23515890054094246,
+      "maxLife": 0.6684922338742763,
+      "size": 3.2289885291829705,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3040.0959180190034,
+      "y": 624.8225687676777,
+      "vx": 5.979624080323146,
+      "vy": -67.33393083548157,
+      "life": 0.25873899953129337,
+      "maxLife": 0.6920723328646272,
+      "size": 4.543163840658963,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3041.0487229359555,
+      "y": 678.5795480813941,
+      "vx": 7.553499736915119,
+      "vy": 56.7206368115567,
+      "life": 0.12660897504227847,
+      "maxLife": 0.5599423083756119,
+      "size": 2.7110632145777345,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3055.877186581933,
+      "y": 633.9694807406355,
+      "vx": 32.0476617021288,
+      "vy": -46.2256724363491,
+      "life": 0.11071537648948526,
+      "maxLife": 0.5440487098228186,
+      "size": 4.374014508910477,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3026.4884389026633,
+      "y": 641.4704297120142,
+      "vx": -16.497673997979085,
+      "vy": -28.915790194705238,
+      "life": 0.2233113043910509,
+      "maxLife": 0.6566446377243846,
+      "size": 2.2691373424604535,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3032.73483451162,
+      "y": 651.1437825280806,
+      "vx": -6.179664701978573,
+      "vy": -6.592668311474469,
+      "life": 0.07278934288459527,
+      "maxLife": 0.5061226762179285,
+      "size": 5.7253250712528825,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 2954.7373303059303,
+      "y": 668.8952722671925,
+      "vx": 38.42397875303325,
+      "vy": 56.70736599991539,
+      "life": 0.2531469997918849,
+      "maxLife": 0.6864803331252187,
+      "size": 4.356233929283917,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 2938.311571390442,
+      "y": 630.7006501764275,
+      "vx": 11.291349986962107,
+      "vy": -31.434069594156398,
+      "life": 0.18708687629240223,
+      "maxLife": 0.6204202096257359,
+      "size": 2.5396901154890656,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 2937.394355063836,
+      "y": 667.2253209763604,
+      "vx": 9.776260777628083,
+      "vy": 52.85363225184361,
+      "life": 0.16177508821400483,
+      "maxLife": 0.5951084215473383,
+      "size": 5.7072805585339665,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 2950.3974461796984,
+      "y": 642.3053073175593,
+      "vx": 31.255210144493876,
+      "vy": -4.65409157616044,
+      "life": 0.18293999442520215,
+      "maxLife": 0.6162733277585357,
+      "size": 5.831370105035603,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 2931.383378668647,
+      "y": 637.7500417727682,
+      "vx": -0.1528750322551318,
+      "vy": -15.16624283336985,
+      "life": 0.08383551267596584,
+      "maxLife": 0.5171688460092991,
+      "size": 2.7315009208396077,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3123.45599179775,
+      "y": 646.8251615807338,
+      "vx": -29.765944067083705,
+      "vy": -32.56370822729858,
+      "life": 0.005219059806938035,
+      "maxLife": 0.4385523931402713,
+      "size": 2.321806372143328,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3136.414664720528,
+      "y": 650.1627755747347,
+      "vx": -8.36036618640895,
+      "vy": -24.86152208729652,
+      "life": 0.06447313707011448,
+      "maxLife": 0.4978064704034477,
+      "size": 5.4654582822695374,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3138.1599670550013,
+      "y": 646.2729161435183,
+      "vx": -5.47741626796232,
+      "vy": -33.83812077472001,
+      "life": 0.013545954876268966,
+      "maxLife": 0.4468792882096022,
+      "size": 4.9219285966828465,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3164.3331248181044,
+      "y": 678.60921657167,
+      "vx": 37.75629834308785,
+      "vy": 40.78411098255347,
+      "life": 0.25453786253618643,
+      "maxLife": 0.6878711958695203,
+      "size": 5.362709597684443,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3147.097098096118,
+      "y": 637.8519306710394,
+      "vx": 9.285241580602262,
+      "vy": -53.271164172747106,
+      "life": 0.2222867974049097,
+      "maxLife": 0.6556201307382434,
+      "size": 3.729208488948643,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3159.964691517536,
+      "y": 659.5203883205264,
+      "vx": 30.54037123472597,
+      "vy": -3.267031135468642,
+      "life": 0.27111960369783084,
+      "maxLife": 0.7044529370311647,
+      "size": 3.144366287626326,
+      "type": "dust",
+      "color": "#bea58c"
+    },
+    {
+      "x": 3149.3749963974137,
+      "y": 645.2860740481262,
+      "vx": 13.047951680873766,
+      "vy": -36.11544868716159,
+      "life": 0.10225071413132047,
+      "maxLife": 0.5355840474646538,
+      "size": 3.237120714969933,
+      "type": "dust",
+      "color": "#bea58c"
+    }
+  ],
+  "events": [
+    {
+      "id": 166,
+      "type": "step",
+      "text": "",
+      "time": 53.7666666666649,
+      "x": 2030.8248693209662,
+      "y": 701.6969097530913
+    },
+    {
+      "id": 167,
+      "type": "step",
+      "text": "",
+      "time": 53.7666666666649,
+      "x": 2206.824869320966,
+      "y": 696.9764945250519
+    },
+    {
+      "id": 168,
+      "type": "step",
+      "text": "",
+      "time": 53.7666666666649,
+      "x": 2123.824869320966,
+      "y": 702.9865584437964
+    },
+    {
+      "id": 169,
+      "type": "step",
+      "text": "",
+      "time": 54.3499999999982,
+      "x": 2072.158202654294,
+      "y": 703.3220866720341
+    },
+    {
+      "id": 170,
+      "type": "step",
+      "text": "",
+      "time": 54.3499999999982,
+      "x": 1967.1582026542942,
+      "y": 697.067881380816
+    },
+    {
+      "id": 171,
+      "type": "step",
+      "text": "",
+      "time": 54.3499999999982,
+      "x": 2177.158202654294,
+      "y": 699.7708415104223
+    },
+    {
+      "id": 172,
+      "type": "step",
+      "text": "",
+      "time": 54.9333333333315,
+      "x": 1937.4915359876222,
+      "y": 694.6304348419632
+    },
+    {
+      "id": 173,
+      "type": "step",
+      "text": "",
+      "time": 54.9333333333315,
+      "x": 2113.4915359876222,
+      "y": 703.2808161609692
+    },
+    {
+      "id": 174,
+      "type": "step",
+      "text": "",
+      "time": 54.9333333333315,
+      "x": 2030.4915359876222,
+      "y": 701.6781030289114
+    },
+    {
+      "id": 175,
+      "type": "step",
+      "text": "",
+      "time": 55.5166666666648,
+      "x": 1978.8248693209503,
+      "y": 698.0201292569241
+    },
+    {
+      "id": 176,
+      "type": "step",
+      "text": "",
+      "time": 55.5166666666648,
+      "x": 1873.8248693209503,
+      "y": 690.2222201393096
+    },
+    {
+      "id": 177,
+      "type": "step",
+      "text": "",
+      "time": 55.5166666666648,
+      "x": 2083.8248693209503,
+      "y": 703.4917480685393
+    },
+    {
+      "id": 178,
+      "type": "step",
+      "text": "",
+      "time": 56.0999999999981,
+      "x": 1844.158202654279,
+      "y": 688.876454236996
+    },
+    {
+      "id": 179,
+      "type": "step",
+      "text": "",
+      "time": 56.0999999999981,
+      "x": 2020.1582026542792,
+      "y": 701.0574167980354
+    },
+    {
+      "id": 180,
+      "type": "step",
+      "text": "",
+      "time": 56.0999999999981,
+      "x": 1937.1582026542792,
+      "y": 694.6035912785057
+    },
+    {
+      "id": 181,
+      "type": "step",
+      "text": "",
+      "time": 56.6833333333314,
+      "x": 1885.491535987615,
+      "y": 690.8897286866096
+    },
+    {
+      "id": 182,
+      "type": "step",
+      "text": "",
+      "time": 56.6833333333314,
+      "x": 1780.491535987615,
+      "y": 687.5712024394295
+    },
+    {
+      "id": 183,
+      "type": "step",
+      "text": "",
+      "time": 56.6833333333314,
+      "x": 1990.491535987615,
+      "y": 698.944420041674
+    },
+    {
+      "id": 184,
+      "type": "step",
+      "text": "",
+      "time": 57.73333333333134,
+      "x": 1939.5564553209497,
+      "y": 694.7972036257702
+    },
+    {
+      "id": 185,
+      "type": "step",
+      "text": "",
+      "time": 57.73333333333134,
+      "x": 2115.5564553209497,
+      "y": 703.2311141452142
+    },
+    {
+      "id": 186,
+      "type": "step",
+      "text": "",
+      "time": 57.73333333333134,
+      "x": 2032.5564553209497,
+      "y": 701.7933193942849
+    },
+    {
+      "id": 187,
+      "type": "objective",
+      "text": "Une longue-dorse atteint le verger. Son passage nourrit effectivement le sol cultivé.",
+      "time": 98.68333333332902
+    },
+    {
+      "id": 188,
+      "type": "objective",
+      "text": "Une longue-dorse atteint le verger. Son passage nourrit effectivement le sol cultivé.",
+      "time": 98.68333333332902
+    },
+    {
+      "id": 189,
+      "type": "objective",
+      "text": "Une longue-dorse atteint le verger. Son passage nourrit effectivement le sol cultivé.",
+      "time": 98.68333333332902
+    },
+    {
+      "id": 190,
+      "type": "objective",
+      "text": "Une longue-dorse atteint le verger. Son passage nourrit effectivement le sol cultivé.",
+      "time": 98.68333333332902
+    },
+    {
+      "id": 191,
+      "type": "radio",
+      "text": "Tess : « Deux tireurs d’élite dans la trouée orientale. Le troupeau a quitté le corridor ; dégage la route du transport. »",
+      "time": 98.68333333332902
+    },
+    {
+      "id": 192,
+      "type": "step",
+      "text": "",
+      "time": 99.26666666666232,
+      "x": 2068.523995654281,
+      "y": 703.241346973198
+    },
+    {
+      "id": 193,
+      "type": "step",
+      "text": "",
+      "time": 99.26666666666232,
+      "x": 1963.523995654281,
+      "y": 696.7681187566754
+    },
+    {
+      "id": 194,
+      "type": "step",
+      "text": "",
+      "time": 99.26666666666232,
+      "x": 2173.523995654281,
+      "y": 700.0712126480635
+    },
+    {
+      "id": 195,
+      "type": "step",
+      "text": "",
+      "time": 99.84999999999562,
+      "x": 2019.8092614079205,
+      "y": 701.0352441767631
+    },
+    {
+      "id": 196,
+      "type": "step",
+      "text": "",
+      "time": 99.84999999999562,
+      "x": 2195.8092614079205,
+      "y": 698.0783511428344
+    },
+    {
+      "id": 197,
+      "type": "step",
+      "text": "",
+      "time": 99.84999999999562,
+      "x": 2112.8092614079205,
+      "y": 703.2962352746597
+    },
+    {
+      "id": 198,
+      "type": "step",
+      "text": "",
+      "time": 100.43333333332892,
+      "x": 2154.4759280745848,
+      "y": 701.4648384109889
+    },
+    {
+      "id": 199,
+      "type": "step",
+      "text": "",
+      "time": 100.43333333332892,
+      "x": 2049.4759280745848,
+      "y": 702.6136285010862
+    },
+    {
+      "id": 200,
+      "type": "step",
+      "text": "",
+      "time": 100.43333333332892,
+      "x": 2259.4759280745848,
+      "y": 691.1296565113464
+    },
+    {
+      "id": 201,
+      "type": "step",
+      "text": "",
+      "time": 101.01666666666222,
+      "x": 2113.1425947412554,
+      "y": 703.2887643671618
+    },
+    {
+      "id": 202,
+      "type": "step",
+      "text": "",
+      "time": 101.01666666666222,
+      "x": 2289.1425947412554,
+      "y": 687.8162746638183
+    },
+    {
+      "id": 203,
+      "type": "step",
+      "text": "",
+      "time": 101.01666666666222,
+      "x": 2206.1425947412554,
+      "y": 697.0466183865129
+    },
+    {
+      "id": 204,
+      "type": "step",
+      "text": "",
+      "time": 101.59999999999552,
+      "x": 2247.8092614079274,
+      "y": 692.4636588652169
+    },
+    {
+      "id": 205,
+      "type": "step",
+      "text": "",
+      "time": 101.59999999999552,
+      "x": 2142.8092614079274,
+      "y": 702.1547710485186
+    },
+    {
+      "id": 206,
+      "type": "step",
+      "text": "",
+      "time": 101.59999999999552,
+      "x": 2352.8092614079274,
+      "y": 681.9780573462914
+    },
+    {
+      "id": 207,
+      "type": "step",
+      "text": "",
+      "time": 102.18333333332882,
+      "x": 2206.4759280745993,
+      "y": 697.0123874487635
+    },
+    {
+      "id": 208,
+      "type": "step",
+      "text": "",
+      "time": 102.18333333332882,
+      "x": 2382.4759280745993,
+      "y": 680.1530077320872
+    },
+    {
+      "id": 209,
+      "type": "step",
+      "text": "",
+      "time": 102.18333333332882,
+      "x": 2299.4759280745993,
+      "y": 686.7230039409388
+    },
+    {
+      "id": 210,
+      "type": "step",
+      "text": "",
+      "time": 102.76666666666212,
+      "x": 2341.1425947412713,
+      "y": 682.8643760991648
+    },
+    {
+      "id": 211,
+      "type": "step",
+      "text": "",
+      "time": 102.76666666666212,
+      "x": 2236.1425947412713,
+      "y": 693.7901527988838
+    },
+    {
+      "id": 212,
+      "type": "step",
+      "text": "",
+      "time": 102.76666666666212,
+      "x": 2446.1425947412713,
+      "y": 678.1299321284525
+    },
+    {
+      "id": 213,
+      "type": "step",
+      "text": "",
+      "time": 103.34999999999542,
+      "x": 2299.8092614079433,
+      "y": 686.6884697302039
+    },
+    {
+      "id": 214,
+      "type": "step",
+      "text": "",
+      "time": 103.34999999999542,
+      "x": 2475.8092614079433,
+      "y": 677.7667278626673
+    },
+    {
+      "id": 215,
+      "type": "step",
+      "text": "",
+      "time": 103.34999999999542,
+      "x": 2392.8092614079433,
+      "y": 679.661163663822
+    },
+    {
+      "id": 216,
+      "type": "step",
+      "text": "",
+      "time": 103.93333333332872,
+      "x": 2434.4759280746152,
+      "y": 678.3437518827237
+    },
+    {
+      "id": 217,
+      "type": "step",
+      "text": "",
+      "time": 103.93333333332872,
+      "x": 2329.4759280746152,
+      "y": 683.8415319524811
+    },
+    {
+      "id": 218,
+      "type": "step",
+      "text": "",
+      "time": 103.93333333332872,
+      "x": 2539.4759280746152,
+      "y": 676.9519914247547
+    },
+    {
+      "id": 219,
+      "type": "step",
+      "text": "",
+      "time": 104.51666666666202,
+      "x": 2393.142594741287,
+      "y": 679.6464920553884
+    },
+    {
+      "id": 220,
+      "type": "step",
+      "text": "",
+      "time": 104.51666666666202,
+      "x": 2569.142594741287,
+      "y": 676.0909673070223
+    },
+    {
+      "id": 221,
+      "type": "step",
+      "text": "",
+      "time": 104.51666666666202,
+      "x": 2486.142594741287,
+      "y": 677.6703517546199
+    },
+    {
+      "id": 222,
+      "type": "step",
+      "text": "",
+      "time": 105.09999999999532,
+      "x": 2527.809261407959,
+      "y": 677.1763795011569
+    },
+    {
+      "id": 223,
+      "type": "step",
+      "text": "",
+      "time": 105.09999999999532,
+      "x": 2422.809261407959,
+      "y": 678.616664207388
+    },
+    {
+      "id": 224,
+      "type": "step",
+      "text": "",
+      "time": 105.09999999999532,
+      "x": 2632.809261407959,
+      "y": 672.4531763955137
+    },
+    {
+      "id": 225,
+      "type": "step",
+      "text": "",
+      "time": 105.68333333332862,
+      "x": 2486.475928074631,
+      "y": 677.6672877460646
+    },
+    {
+      "id": 226,
+      "type": "step",
+      "text": "",
+      "time": 105.68333333332862,
+      "x": 2662.475928074631,
+      "y": 669.9403296720726
+    },
+    {
+      "id": 227,
+      "type": "step",
+      "text": "",
+      "time": 105.68333333332862,
+      "x": 2579.475928074631,
+      "y": 675.6747897547193
+    },
+    {
+      "id": 228,
+      "type": "step",
+      "text": "",
+      "time": 106.26666666666192,
+      "x": 2621.142594741303,
+      "y": 673.3106267432066
+    },
+    {
+      "id": 229,
+      "type": "step",
+      "text": "",
+      "time": 106.26666666666192,
+      "x": 2516.142594741303,
+      "y": 677.3521799162181
+    },
+    {
+      "id": 230,
+      "type": "step",
+      "text": "",
+      "time": 106.26666666666192,
+      "x": 2726.142594741303,
+      "y": 663.6684879700409
+    },
+    {
+      "id": 231,
+      "type": "step",
+      "text": "",
+      "time": 106.84999999999522,
+      "x": 2579.809261407975,
+      "y": 675.6602734999385
+    },
+    {
+      "id": 232,
+      "type": "step",
+      "text": "",
+      "time": 106.84999999999522,
+      "x": 2755.809261407975,
+      "y": 660.8706871598723
+    },
+    {
+      "id": 233,
+      "type": "step",
+      "text": "",
+      "time": 106.84999999999522,
+      "x": 2672.809261407975,
+      "y": 668.9737107456912
+    },
+    {
+      "id": 234,
+      "type": "step",
+      "text": "",
+      "time": 107.43333333332852,
+      "x": 2714.475928074647,
+      "y": 664.833675203933
+    },
+    {
+      "id": 235,
+      "type": "step",
+      "text": "",
+      "time": 107.43333333332852,
+      "x": 2609.475928074647,
+      "y": 674.0845823374706
+    },
+    {
+      "id": 236,
+      "type": "step",
+      "text": "",
+      "time": 107.43333333332852,
+      "x": 2819.475928074647,
+      "y": 656.6910227659868
+    },
+    {
+      "id": 237,
+      "type": "step",
+      "text": "",
+      "time": 108.01666666666182,
+      "x": 2673.142594741319,
+      "y": 668.9419147583437
+    },
+    {
+      "id": 238,
+      "type": "step",
+      "text": "",
+      "time": 108.01666666666182,
+      "x": 2849.142594741319,
+      "y": 656.023227894339
+    },
+    {
+      "id": 239,
+      "type": "step",
+      "text": "",
+      "time": 108.01666666666182,
+      "x": 2766.142594741319,
+      "y": 659.989030867556
+    },
+    {
+      "id": 240,
+      "type": "step",
+      "text": "",
+      "time": 108.59999999999512,
+      "x": 2807.809261407991,
+      "y": 657.2003066812027
+    },
+    {
+      "id": 241,
+      "type": "step",
+      "text": "",
+      "time": 108.59999999999512,
+      "x": 2702.809261407991,
+      "y": 666.0100536751057
+    },
+    {
+      "id": 242,
+      "type": "step",
+      "text": "",
+      "time": 108.59999999999512,
+      "x": 2912.809261407991,
+      "y": 657.724450878146
+    },
+    {
+      "id": 243,
+      "type": "step",
+      "text": "",
+      "time": 109.18333333332842,
+      "x": 2766.475928074663,
+      "y": 659.9616299377886
+    },
+    {
+      "id": 244,
+      "type": "step",
+      "text": "",
+      "time": 109.18333333332842,
+      "x": 2942.475928074663,
+      "y": 659.7879169587884
+    },
+    {
+      "id": 245,
+      "type": "step",
+      "text": "",
+      "time": 109.18333333332842,
+      "x": 2859.475928074663,
+      "y": 656.0114692546174
+    },
+    {
+      "id": 246,
+      "type": "step",
+      "text": "",
+      "time": 109.76666666666172,
+      "x": 2901.142594741335,
+      "y": 657.1101010272105
+    },
+    {
+      "id": 247,
+      "type": "step",
+      "text": "",
+      "time": 109.76666666666172,
+      "x": 2796.142594741335,
+      "y": 657.8377675919647
+    },
+    {
+      "id": 248,
+      "type": "step",
+      "text": "",
+      "time": 109.76666666666172,
+      "x": 3006.142594741335,
+      "y": 665.6983242276565
+    },
+    {
+      "id": 249,
+      "type": "step",
+      "text": "",
+      "time": 110.34999999999502,
+      "x": 2859.809261408007,
+      "y": 656.0130126802135
+    },
+    {
+      "id": 250,
+      "type": "step",
+      "text": "",
+      "time": 110.34999999999502,
+      "x": 3035.809261408007,
+      "y": 668.5635449679281
+    },
+    {
+      "id": 251,
+      "type": "step",
+      "text": "",
+      "time": 110.34999999999502,
+      "x": 2952.809261408007,
+      "y": 660.6459677842149
+    },
+    {
+      "id": 252,
+      "type": "radio",
+      "text": "Transport libéré. Son arrivée au dépôt n’est pas encore acquise ; ouvre ses angles face aux tireurs d’élite.",
+      "time": 113.34999999999485
+    },
+    {
+      "id": 253,
+      "type": "step",
+      "text": "",
+      "time": 113.93333333332815,
+      "x": 3036.4759273282584,
+      "y": 668.6256054630533
+    },
+    {
+      "id": 254,
+      "type": "step",
+      "text": "",
+      "time": 113.93333333332815,
+      "x": 2931.4759273282584,
+      "y": 658.9470803338953
+    },
+    {
+      "id": 255,
+      "type": "step",
+      "text": "",
+      "time": 113.93333333332815,
+      "x": 3141.4759273282584,
+      "y": 675.5611018125633
+    }
+  ],
+  "eventId": 255,
+  "entityId": 0,
+  "relays": [],
+  "convoy": null,
+  "civilians": [],
+  "evidence": {
+    "id": "MI09-evidence",
+    "x": 2680,
+    "y": 620.280462317172,
+    "collected": true,
+    "scanning": false,
+    "scanProgress": 1,
+    "scanTime": 2.4,
+    "label": "RELEVÉ LOCAL DES PASSAGES ET HAMEAUX"
+  },
+  "pickups": [
+    {
+      "id": "supply-0",
+      "x": 730,
+      "y": 667.1430312117386,
+      "type": "repair",
+      "collected": false
+    },
+    {
+      "id": "supply-1",
+      "x": 2850,
+      "y": 636.0178580609335,
+      "type": "repair",
+      "collected": false
+    },
+    {
+      "id": "supply-2",
+      "x": 3940,
+      "y": 668.0871753848595,
+      "type": "repair",
+      "collected": false
+    },
+    {
+      "id": "supply-3",
+      "x": 5380,
+      "y": 674.0575405974108,
+      "type": "repair",
+      "collected": false
+    },
+    {
+      "id": "supply-4",
+      "x": 5860,
+      "y": 645.415275757441,
+      "type": "repair",
+      "collected": false
+    }
+  ],
+  "decision": {
+    "active": false,
+    "resolved": true,
+    "choice": "defy",
+    "title": "Une route traverse leur saison",
+    "body": "Deux habitats suspendus absents de la carte militaire ont été relevés. Le poste local a expliqué la migration et balisé une meilleure approche. 2 habitats restent habitables. Le couloir impérial dévie les quatre longues-dorses vers l’exclusion ; préserver leur passage exige de les laisser atteindre le verger avant la logistique. Choisir ne manœuvre pas la barrière et ne déplace aucun animal.",
+    "options": [
+      {
+        "id": "obey",
+        "label": "Exécuter le couloir impérial ; dévier le troupeau vers l’exclusion"
+      },
+      {
+        "id": "defy",
+        "label": "Préserver le passage du verger ; faire attendre la logistique"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "survey",
+      "label": "Comparer la carte aux hameaux présents",
+      "current": 1,
+      "target": 1,
+      "complete": true
+    },
+    {
+      "id": "route",
+      "label": "Choisir puis manœuvrer réellement la barrière",
+      "current": 1,
+      "target": 1,
+      "complete": true
+    },
+    {
+      "id": "migration",
+      "label": "4 au verger · 0 déplacées · 0 perdues",
+      "current": 4,
+      "target": 4,
+      "complete": true
+    },
+    {
+      "id": "snipers",
+      "label": "Repousser les deux tireurs d’élite",
+      "current": 0,
+      "target": 2,
+      "complete": false
+    },
+    {
+      "id": "logistics",
+      "label": "Libérer puis escorter le transport jusqu’au dépôt",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    },
+    {
+      "id": "report",
+      "label": "Transmettre le bilan des faits accomplis",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    },
+    {
+      "id": "extract",
+      "label": "Rejoindre la sortie orientale",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    }
+  ],
+  "extraction": {
+    "x": 6060,
+    "y": 666.4425655782607,
+    "active": false,
+    "radius": 110
+  },
+  "stats": {
+    "kills": 0,
+    "shots": 0,
+    "hits": 0,
+    "steps": 81,
+    "collateral": 0,
+    "damageTaken": 0,
+    "evidence": 0,
+    "ordersObeyed": 0,
+    "ordersDefied": 1,
+    "score": 0
+  },
+  "interaction": "Garder le transport à moins de 850 m derrière le marcheur",
+  "cameraShake": 0,
+  "lastStepGroup": 0,
+  "checkpointText": "Ordre reçu. Appuis au sol.",
+  "inputHeld": {
+    "stepA": false,
+    "stepB": false,
+    "interact": false,
+    "reload": false,
+    "repair": false
+  },
+  "notified": {},
+  "nextStep": 0,
+  "bossReleased": false,
+  "campaign": {
+    "missionId": "MI09",
+    "phase": "logistics",
+    "route": "migration",
+    "localsHeard": true,
+    "approach": "guided",
+    "approachPrepared": true,
+    "routeInspected": true,
+    "hamletsRecorded": true,
+    "migrationObserved": true,
+    "lightsOff": true,
+    "gateOperated": true,
+    "migrationResolved": true,
+    "migratorsTotal": 4,
+    "migratorsArrived": 4,
+    "migratorsDisplaced": 0,
+    "migratorsLost": 0,
+    "columnsIntact": 2,
+    "homesHabitable": 2,
+    "pollinatorsPresent": 1,
+    "passagePreserved": true,
+    "cropsFertilized": true,
+    "harvestFragile": false,
+    "snipersTriggered": true,
+    "snipersNeutralized": 0,
+    "logisticsReleased": true,
+    "logisticsArrived": false,
+    "logisticsDestroyed": false,
+    "logisticsIntegrity": 1,
+    "reportTransmitted": false,
+    "manifestRead": true,
+    "context": {
+      "departureRecorded": false,
+      "departureChoice": "none",
+      "departureArrived": 0,
+      "departureLost": 0
+    },
+    "tutorial": {
+      "stepped": true,
+      "braced": true
+    }
+  },
+  "livingRoute": {
+    "columns": [
+      {
+        "id": "thyr-column-1",
+        "x": 1260,
+        "y": 449.9744006835664,
+        "w": 92,
+        "h": 420,
+        "hp": 620,
+        "maxHp": 620,
+        "destroyed": false,
+        "flash": 0,
+        "species": "FL07"
+      },
+      {
+        "id": "thyr-column-2",
+        "x": 3560,
+        "y": 491.5628829656499,
+        "w": 92,
+        "h": 420,
+        "hp": 620,
+        "maxHp": 620,
+        "destroyed": false,
+        "flash": 0,
+        "species": "FL07"
+      }
+    ],
+    "roots": [
+      {
+        "id": "thyr-root-1",
+        "x": 1260,
+        "y": 645.9744006835664,
+        "w": 340,
+        "h": 28,
+        "hp": 360,
+        "maxHp": 360,
+        "destroyed": false,
+        "flash": 0,
+        "columnId": "thyr-column-1",
+        "lastContactAt": 22.05000000000003,
+        "lastStep": 20
+      },
+      {
+        "id": "thyr-root-2",
+        "x": 3560,
+        "y": 687.5628829656499,
+        "w": 340,
+        "h": 28,
+        "hp": 360,
+        "maxHp": 360,
+        "destroyed": false,
+        "flash": 0,
+        "columnId": "thyr-column-2",
+        "lastContactAt": -10,
+        "lastStep": -1
+      }
+    ],
+    "homes": [
+      {
+        "id": "thyr-home-1",
+        "x": 1365,
+        "y": 349.9744006835664,
+        "w": 144,
+        "h": 94,
+        "hp": 260,
+        "maxHp": 260,
+        "destroyed": false,
+        "flash": 0,
+        "columnId": "thyr-column-1",
+        "supported": true,
+        "habitable": true
+      },
+      {
+        "id": "thyr-home-2",
+        "x": 3665,
+        "y": 391.5628829656499,
+        "w": 144,
+        "h": 94,
+        "hp": 260,
+        "maxHp": 260,
+        "destroyed": false,
+        "flash": 0,
+        "columnId": "thyr-column-2",
+        "supported": true,
+        "habitable": true
+      }
+    ],
+    "pollinators": [
+      {
+        "id": "thyr-fan-1",
+        "species": "FU08",
+        "columnId": "thyr-column-1",
+        "x": 1220,
+        "y": 354.9744006835664,
+        "w": 68,
+        "h": 36,
+        "phase": "settled",
+        "calm": 5,
+        "alive": true
+      },
+      {
+        "id": "thyr-fan-2",
+        "species": "FU08",
+        "columnId": "thyr-column-2",
+        "x": 3520,
+        "y": 396.5628829656499,
+        "w": 68,
+        "h": 36,
+        "phase": "flying",
+        "calm": 0,
+        "alive": true
+      }
+    ],
+    "migrators": [
+      {
+        "id": "thyr-longue-dorse-1",
+        "x": 4660,
+        "y": 624.041546184048,
+        "w": 132,
+        "h": 88,
+        "hp": 240,
+        "maxHp": 240,
+        "destroyed": false,
+        "flash": 0,
+        "species": "FU07",
+        "age": "adult",
+        "phase": "arrived",
+        "destination": "orchard",
+        "targetX": 4660,
+        "fear": 0,
+        "moving": false
+      },
+      {
+        "id": "thyr-longue-dorse-2",
+        "x": 4740,
+        "y": 640.455049204165,
+        "w": 84,
+        "h": 54,
+        "hp": 150,
+        "maxHp": 150,
+        "destroyed": false,
+        "flash": 0,
+        "species": "FU07",
+        "age": "young",
+        "phase": "arrived",
+        "destination": "orchard",
+        "targetX": 4740,
+        "fear": 0,
+        "moving": false
+      },
+      {
+        "id": "thyr-longue-dorse-3",
+        "x": 4820,
+        "y": 625.337550284189,
+        "w": 132,
+        "h": 88,
+        "hp": 240,
+        "maxHp": 240,
+        "destroyed": false,
+        "flash": 0,
+        "species": "FU07",
+        "age": "adult",
+        "phase": "arrived",
+        "destination": "orchard",
+        "targetX": 4820,
+        "fear": 0,
+        "moving": false
+      },
+      {
+        "id": "thyr-longue-dorse-4",
+        "x": 4900,
+        "y": 649.3258865051072,
+        "w": 84,
+        "h": 54,
+        "hp": 150,
+        "maxHp": 150,
+        "destroyed": false,
+        "flash": 0,
+        "species": "FU07",
+        "age": "young",
+        "phase": "arrived",
+        "destination": "orchard",
+        "targetX": 4900,
+        "fear": 0,
+        "moving": false
+      }
+    ],
+    "barrier": {
+      "id": "thyr-migration-barrier",
+      "x": 2420,
+      "y": 636.6924493425008,
+      "w": 38,
+      "h": 84,
+      "hp": 280,
+      "maxHp": 280,
+      "destroyed": false,
+      "flash": 0,
+      "controlX": 2200,
+      "opening": 1,
+      "operated": true,
+      "working": false,
+      "progress": 1
+    },
+    "logistics": {
+      "id": "thyr-logistics",
+      "x": 2861.1,
+      "y": 622.020121033061,
+      "w": 126,
+      "h": 68,
+      "hp": 720,
+      "maxHp": 720,
+      "destroyed": false,
+      "flash": 0,
+      "controlX": 3020,
+      "targetX": 5500,
+      "speed": 66,
+      "released": true,
+      "moving": true,
+      "arrived": false,
+      "working": false,
+      "progress": 1
+    },
+    "contact": {
+      "id": "thyr-local-post",
+      "x": 540,
+      "y": 672.2410003191255,
+      "w": 48,
+      "h": 54,
+      "working": false,
+      "progress": 1,
+      "heard": true
+    },
+    "approach": {
+      "id": "thyr-approach-marker",
+      "x": 850,
+      "y": 645.7201444571856,
+      "w": 48,
+      "h": 54,
+      "working": false,
+      "progress": 1,
+      "prepared": true,
+      "kind": "guided",
+      "clearance": 300
+    },
+    "maps": {
+      "id": "thyr-route-map",
+      "x": 2680,
+      "y": 634.280462317172,
+      "w": 68,
+      "h": 68,
+      "working": false,
+      "progress": 1,
+      "inspected": true
+    },
+    "lights": {
+      "id": "thyr-light-control",
+      "x": 1660,
+      "y": 649.072146263726,
+      "w": 44,
+      "h": 74,
+      "working": false,
+      "progress": 1,
+      "on": false
+    },
+    "report": {
+      "id": "thyr-route-report",
+      "x": 5660,
+      "y": 651.0506008561158,
+      "w": 58,
+      "h": 72,
+      "working": false,
+      "progress": 0,
+      "transmitted": false
+    },
+    "alert": {
+      "triggered": true
+    },
+    "disturbance": {
+      "x": 3141.4759273282584,
+      "remaining": 0.16666666666666646,
+      "strength": 0.22
+    }
+  }
+}

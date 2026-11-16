@@ -13,6 +13,7 @@ import { ENEMY_WEAPON_RIGS, enemyWeaponPose } from './enemy-weapon-pose.mjs';
 import { drawPaintedThyrFauna, thyrMotion } from './painted-thyr.mjs';
 import { cerbereWeaponPose } from './cerbere-weapon-pose.mjs';
 import { drawCerbere } from './painted-cerbere.mjs';
+import { drawPaintedVesperPart, drawPaintedVesperWinch, drawPaintedVesperTurbine, drawPaintedVesperGroundStrip, vesperNetworkState } from './painted-vesper.mjs';
 import { drawPaintedTrainCar, trainCouplerPose } from './painted-transport.mjs';
 import { drawPaintedNacreBoat, drawPaintedNacreAmbulance, drawPaintedNacreEquipment } from './painted-nacre.mjs';
 import { drawPaintedNacreSitePart, drawPaintedNacreSiteGate, drawPaintedNacreSiteGateControl,
@@ -1457,9 +1458,11 @@ export class Renderer {
     if (this.visible(passage.stationX, 180)) {
       const x = passage.stationX, y = terrainAt(x, s.planetId);
       c.save(); c.translate(x, y);
-      plate(c, [[-38, 0], [-29, -49], [27, -49], [36, 0]], '#9a9f85', '#354e4c');
-      circle(c, 0, -31, 16, '#273c3d', '#c7ad76', 3);
-      line(c, -15, -31, 15, -31, '#aa9870', 3); line(c, 0, -46, 0, -16, '#aa9870', 3);
+      if (!drawPaintedVesperWinch(c, { kind: 'slab', working: a.passageWorking, time: t, reducedMotion: this.combatReducedMotion })) {
+        plate(c, [[-38, 0], [-29, -49], [27, -49], [36, 0]], '#9a9f85', '#354e4c');
+        circle(c, 0, -31, 16, '#273c3d', '#c7ad76', 3);
+        line(c, -15, -31, 15, -31, '#aa9870', 3); line(c, 0, -46, 0, -16, '#aa9870', 3);
+      }
       line(c, 29, -21, passage.pipeFrom - x, -2, '#a79c77', 2);
       label(c, a.passageSecured ? 'DALLES VERROUILLÉES' : a.pipeIntact ? 'E · TREUIL DES DALLES' : 'RÉPARATION À PRÉVOIR', 0, -132, 11, a.passageSecured ? '#b7d8b9' : '#f0c78b', 'center');
       label(c, a.passageSecured ? 'CONDUITE PROTÉGÉE' : a.pipeIntact ? '4,5 s · rester à proximité' : '2 lots de pièces', 0, -113, 10, '#b9c6b0', 'center');
@@ -1475,15 +1478,19 @@ export class Renderer {
       for (let x = from; x < to; x += 20) {
         const end = Math.min(to, x + 20), y1 = terrainAt(x, s.planetId), y2 = terrainAt(end, s.planetId);
         if (!a.pipeIntact && x < mid + 28 && end > mid - 28) continue;
-        line(c, x, y1 + 8, end, y2 + 8, a.pipeIntact ? '#b9a06e' : '#5c6460', 13);
-        line(c, x, y1 + 3, end, y2 + 3, '#d3bd87', 2);
+        if (!drawPaintedVesperGroundStrip(c, { part: 'pipe', from: x, to: end, groundAt: px => terrainAt(px, s.planetId), offset: 1.5 })) {
+          line(c, x, y1 + 8, end, y2 + 8, a.pipeIntact ? '#b9a06e' : '#5c6460', 13);
+          line(c, x, y1 + 3, end, y2 + 3, '#d3bd87', 2);
+        }
       }
       if (a.passageSecured || a.passageWorking) {
         const progress = a.passageSecured ? 1 : a.passageProgress;
         for (let x = from - 14; x < from - 14 + (to - from + 28) * progress; x += 28) {
           const end = Math.min(x + 27, to + 14), y1 = terrainAt(x, s.planetId), y2 = terrainAt(end, s.planetId);
-          poly(c, [[x, y1], [end, y2], [end, y2 + 13], [x, y1 + 13]], '#6f8a7c', '#c4c19b', 1);
-          line(c, x + 5, y1 + 2, end - 4, y2 + 2, '#d8c27f', 2);
+          if (!drawPaintedVesperGroundStrip(c, { part: 'slab', from: x, to: end, groundAt: px => terrainAt(px, s.planetId) })) {
+            poly(c, [[x, y1], [end, y2], [end, y2 + 13], [x, y1 + 13]], '#6f8a7c', '#c4c19b', 1);
+            line(c, x + 5, y1 + 2, end - 4, y2 + 2, '#d8c27f', 2);
+          }
         }
       }
       if (!a.pipeIntact) {
@@ -1503,16 +1510,20 @@ export class Renderer {
     if (this.visible(s.mission.deliveryX, 260)) {
       const x = s.mission.deliveryX, y = terrainAt(x, s.planetId);
       c.save(); c.translate(x, y);
+      if (!drawPaintedVesperPart(c, { part: 'depot', x: -19 })) {
       plate(c, [[-133, 0], [-133, -100], [-99, -121], [69, -121], [95, -99], [95, 0]], '#687b73', '#2d464b');
       c.fillStyle = '#162f35'; c.fillRect(-105, -77, 88, 77);
       c.fillStyle = '#b9af83'; c.fillRect(8, -80, 60, 12);
+      }
       label(c, 'POSTE 42', -17, -137, 13, '#d8c395', 'center');
       label(c, a.filtersDelivered ? '24 CAISSES DÉCHARGÉES' : 'FILTRES ATTENDUS', -17, -155, 10, '#acd5bf', 'center');
       if (a.filtersDelivered) {
         for (let i = 0; i < 24; i++) {
           const cx = -300 + (i % 8) * 27, cy = terrainAt(x + cx + 12, s.planetId) - y - Math.floor(i / 8) * 17;
+          if (!drawPaintedVesperPart(c, { part: 'filter-crate', x: cx + 12, y: cy - 1 })) {
           c.fillStyle = '#85957d'; c.fillRect(cx, cy - 15, 24, 14); c.strokeStyle = '#c5bd95'; c.lineWidth = 1; c.strokeRect(cx, cy - 15, 24, 14);
           line(c, cx + 12, cy - 14, cx + 12, cy - 2, '#465d55', 2);
+          }
         }
       }
       c.restore();
@@ -1524,6 +1535,7 @@ export class Renderer {
     const pump = site.pump;
     if (this.visible(pump.x, 150)) {
       c.save(); c.translate(pump.x, pump.y);
+      if (!drawPaintedVesperPart(c, { part: 'pump', state: pump.connected ? 'connected' : 'disconnected', y: pump.h / 2 })) {
       plate(c, [[-pump.w / 2, pump.h / 2], [-pump.w / 2, -pump.h / 2], [pump.w / 2, -pump.h / 2], [pump.w / 2, pump.h / 2]], '#a1a182', '#344e4f');
       circle(c, -13, 0, 17, '#293f43', '#b9af83', 3);
       line(c, -25, 0, -1, 0, pump.connected ? '#afd6bd' : '#c19866', 4);
@@ -1531,6 +1543,7 @@ export class Renderer {
       c.fillStyle = '#1c343b'; c.fillRect(12, -15, 16, 23);
       circle(c, 20, -7, 3, pump.connected ? '#9cdbbd' : '#e0a272');
       line(c, 29, 13, 62, 13, '#647e72', 11); line(c, 62, 13, 75, 29, '#647e72', 11);
+      }
       label(c, 'C-42', 0, 40, 10, '#c5c9ad', 'center');
       c.restore();
     }
@@ -1538,9 +1551,11 @@ export class Renderer {
       if (!this.visible(turbine.x, 200)) continue;
       c.save(); c.translate(turbine.x, turbine.y);
       const left = -turbine.w / 2, top = -turbine.h / 2;
+      const paintedTurbine = drawPaintedVesperTurbine(c, { y: turbine.h / 2, cooled: turbine.cooled, time: t, reducedMotion: this.combatReducedMotion });
+      if (!paintedTurbine) {
       plate(c, [[left, turbine.h / 2], [left, top + 13], [left + 14, top], [-left - 14, top], [-left, top + 13], [-left, turbine.h / 2]], '#9b9c83', '#31494b');
       circle(c, 0, -8, 36, '#192f37', '#c2b083', 4);
-      c.save(); c.translate(0, -8); c.rotate(t * (turbine.cooled ? .15 : 2.3));
+      c.save(); c.translate(0, -8); c.rotate(this.combatReducedMotion ? 0 : t * (turbine.cooled ? .15 : 2.3));
       for (let i = 0; i < 5; i++) {
         c.save(); c.rotate(i * TAU / 5);
         poly(c, [[4, -6], [28, -13], [30, -3], [12, 9]], turbine.cooled ? '#6f9488' : '#a18b64', '#2b4649', 1);
@@ -1553,6 +1568,10 @@ export class Renderer {
       line(c, -35, top + 9, 35, top + 9, heatColor, 3);
       line(c, -58, 44, -42, 44, '#819682', 10); circle(c, -58, 44, 10, '#314b4b', heatColor, 2);
       label(c, turbine.id.endsWith('1') ? 'T-01' : 'T-02', 0, 61, 9, '#d0ceb1', 'center');
+      } else {
+        glow(c, 0, -8, 64, turbine.cooled ? '#91d1b014' : '#df97532a');
+        label(c, turbine.id.endsWith('1') ? 'T-01' : 'T-02', 0, 61, 9, '#d0ceb1', 'center');
+      }
       if (!turbine.cooled) for (let i = 0; i < 4; i++) {
         const phase = (t * .3 + i * .25) % 1;
         c.globalAlpha = (1 - phase) * .16;
@@ -1563,6 +1582,7 @@ export class Renderer {
     const contact = site.contact;
     if (this.visible(contact.x, 130)) {
       c.save(); c.translate(contact.x, contact.y);
+      if (!drawPaintedVesperPart(c, { part: 'radio', state: contact.contacted ? 'contacted' : contact.available ? 'available' : 'unavailable', y: contact.h / 2 })) {
       plate(c, [[-contact.w / 2, contact.h / 2], [-contact.w / 2, -contact.h / 2], [contact.w / 2, -contact.h / 2], [contact.w / 2, contact.h / 2]], '#819681', '#28484c');
       c.fillStyle = '#162d35'; c.fillRect(-16, -23, 32, 22);
       const color = contact.available ? '#a8d9c5' : '#586e66';
@@ -1570,12 +1590,15 @@ export class Renderer {
       circle(c, 0, 16, 7, '#1d363e', color, 2);
       line(c, 13, -contact.h / 2, 13, -contact.h / 2 - 43, '#9cad90', 2);
       circle(c, 13, -contact.h / 2 - 44, 3, color);
+      }
       c.restore();
     }
     const post = site.post;
     if (this.visible(post.x, 250)) {
       c.save(); c.translate(post.x, post.y);
       const half = post.w / 2, top = -post.h / 2, bottom = post.h / 2;
+      const paintedPost = drawPaintedVesperPart(c, { part: 'maintenance', state: post.destroyed ? 'destroyed' : post.hp < post.maxHp * .75 ? 'damaged' : 'normal', y: bottom });
+      if (!paintedPost) {
       if (post.destroyed) {
         poly(c, [[-half, bottom], [-half + 8, bottom - 48], [-half / 2, bottom - 28], [-10, bottom - 70], [25, bottom - 32], [half, bottom - 43], [half, bottom]], '#374649', '#8e8e76', 2);
         for (let i = 0; i < 6; i++) {
@@ -1601,6 +1624,10 @@ export class Renderer {
           line(c, half - 13, top + 37, half - 36, top + 63, '#172c32', 4);
           line(c, half - 36, top + 63, half - 18, top + 94, '#172c32', 3);
         }
+      }
+      } else if (!post.destroyed) {
+        drawPaintedVesperPart(c, { part: 'record-terminal', y: bottom });
+        for (let i = 0; i < 4; i++) line(c, -10, bottom - 48 + i * 5, 10, bottom - 48 + i * 5, s.evidence.collected ? '#b4dac1' : '#edc98b', 1);
       }
       if (post.flash > 0) glow(c, 0, 0, post.w, '#ed9b583f');
       c.restore();
@@ -1641,6 +1668,9 @@ export class Renderer {
       const live = !station.destroyed && !station.disabled;
       const color = station.kind === 'military' ? '#d5b379' : '#a4d4c5';
       c.save(); c.translate(station.x, ground);
+      const networkPart = station.kind === 'military' ? 'military' : station.kind === 'dispensary' ? 'dispensary' : 'housing';
+      const paintedStation = drawPaintedVesperPart(c, { part: networkPart, state: vesperNetworkState(station), width: station.w, height: station.h });
+      if (!paintedStation) {
       if (station.destroyed) {
         poly(c, [[-half - 10, 0], [-half + 5, -32], [-half / 2, -19], [-12, -61], [18, -24], [half - 9, -43], [half + 14, 0]], '#344345', '#8a8571', 2);
         for (let i = 0; i < 5; i++) {
@@ -1696,17 +1726,20 @@ export class Renderer {
           line(c, -half + 28, top + 100, -half + 12, top + 129, '#172c32', 3);
         }
       }
+      }
       if (!station.destroyed) {
         const secured = station.secured;
         const terminalOffset = half + 30, terminalY = terrainAt(station.x + terminalOffset, s.planetId) - ground;
         line(c, half - 5, -13, terminalOffset, terminalY - 10, '#9fa78b', 3);
         c.save(); c.translate(terminalOffset, terminalY);
+        if (!drawPaintedVesperPart(c, { part: 'ground-terminal', state: secured ? 'protected' : 'exposed' })) {
         plate(c, [[-18, 0], [-16, -25], [16, -25], [18, 0]], secured ? '#83a38f' : '#a48f68', '#2a4245');
         if (secured) {
           for (let i = -1; i <= 1; i++) line(c, i * 9 - 3, -20, i * 9 + 2, -7, '#b8d1b4', 2);
         } else {
           c.fillStyle = '#182e34'; c.fillRect(-12, -21, 24, 14);
           line(c, -10, -13, -4, -19, '#d4a264', 2); line(c, -4, -19, 10, -10, '#abccbb', 2);
+        }
         }
         c.restore();
         if (live) {
@@ -1800,12 +1833,14 @@ export class Renderer {
       }
       if (!this.visible(harpoon.x, 200)) continue;
       c.save(); c.translate(harpoon.x, harpoon.y + 22);
+      if (!drawPaintedVesperWinch(c, { kind: 'harpoon', released: harpoon.released, working: harpoon.working, time: t, reducedMotion: this.combatReducedMotion })) {
       plate(c, [[-39, 0], [-31, -48], [31, -48], [42, 0]], '#8c9278', '#2f494a');
       circle(c, 0, -27, 18, '#233c42', '#bea578', 3);
       circle(c, 0, -27, 9, harpoon.released ? '#8fbaa3' : '#886341');
       for (let j = 0; j < 4; j++) {
         const angle = j * Math.PI / 2 + (harpoon.working ? t * 2 : 0);
         line(c, Math.cos(angle) * 8, -27 + Math.sin(angle) * 8, Math.cos(angle) * 16, -27 + Math.sin(angle) * 16, '#c2ac80', 2);
+      }
       }
       label(c, harpoon.released ? `HARPON ${i + 1} LIBÉRÉ` : `E · DÉFAIRE LE HARPON ${i + 1}`, 0, -112, 11, harpoon.released ? '#b8d5b6' : '#edc180', 'center');
       label(c, harpoon.released ? 'CÂBLE DÉTENDU' : '2,5 s · rester à proximité', 0, -94, 9, '#b6c2ad', 'center');

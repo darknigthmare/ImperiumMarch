@@ -40,8 +40,15 @@ jobs:
         run: npm run check:chemical
       - name: Decode and validate the voice mission equipment and nesting sites
         run: npm run check:voice
+      - name: Decode and validate Vesper buildings and machinery
+        run: npm run check:vesper
+      - name: Decode and validate the living route equipment
+        run: npm run check:route
+      - name: Decode and validate the foundry site equipment
+        run: npm run check:foundry-sites
       - run: npm run check
       - run: npm run build
+      - run: npm run check:offline-package
       - run: npm run check:ui
       - run: npm run check:ui-runtime
       - run: npm run build:web

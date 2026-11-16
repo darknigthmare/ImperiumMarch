@@ -19,6 +19,9 @@ import { loadPaintedNacre, paintedNacreStatus } from './painted-nacre.mjs';
 import { loadPaintedChemical, paintedChemicalStatus } from './painted-chemical.mjs';
 import { loadPaintedVoice, paintedVoiceStatus } from './painted-voice.mjs';
 import { loadPaintedNacreSiteAssets, paintedNacreSiteAssetSnapshot } from './painted-nacre-sites.mjs';
+import { loadPaintedVesper, paintedVesperStatus } from './painted-vesper.mjs';
+import { loadPaintedRoute, paintedRouteStatus } from './painted-route.mjs';
+import { loadPaintedFoundrySites, paintedFoundrySitesStatus } from './painted-foundry-sites.mjs';
 import { AudioEngine } from './audio.mjs';
 import { CONTROL_ACTIONS, normalizeBindings, bindingLabel, remapBinding, keyboardActions, GamepadInput, defaultBindings, formatControlText } from './controls.mjs';
 import { createCampaign, readCampaign, writeCampaign, beginCampaignMission, checkpointCampaign, restoreCampaignGame, finishCampaignMission, serviceCampaignWalker, repairCampaignPipe, campaignRepairCost, serializeCampaign, parseCampaign, nextCampaignMissionId } from './campaign.mjs';
@@ -54,6 +57,9 @@ loadPaintedNacre();
 loadPaintedChemical();
 loadPaintedVoice();
 loadPaintedNacreSiteAssets();
+loadPaintedVesper();
+loadPaintedRoute();
+loadPaintedFoundrySites();
 let game = null, view = 'campaign', archive = 'doctrine', inGame = false, paused = false, lastTime = 0, hudTick = 0, lastEventId = 0, radioUntil = 0, resultRecorded = false, radioQueue = [];
 let campaignStorage;
 try { campaignStorage = window.localStorage; } catch { campaignStorage = null; }
@@ -1244,5 +1250,5 @@ $('boot').hidden = true; $('menu').hidden = false;
 requestAnimationFrame(frame);
 // Read-only observation hook for the automated browser suite, never a player menu.
 if (new URLSearchParams(location.search).get('test') === '1') {
-  window.__IMPERIUM_TEST__ = Object.freeze({ snapshot: () => ({ game: game ? structuredClone(game) : null, campaign: structuredClone(campaign), activeMode, campaignReplay, campaignBlocked, campaignWarning, cameraX: renderer.cameraX, paused, inGame, view, settings: { ...settings }, storageAvailable, paintedSprites: paintedSpriteStatus(), paintedCombatSprites: paintedCombatStatus(), paintedWalkerSprites: paintedWalkerStatus(), paintedThyrSprites: paintedThyrStatus(), paintedCerbereSprite: paintedCerbereStatus(), paintedTransportSprites: paintedTransportStatus(), paintedRelaySprites: paintedRelayStatus(), paintedNacreSprites: paintedNacreStatus(), paintedChemicalSprites: paintedChemicalStatus(), paintedVoiceSprites: paintedVoiceStatus(), paintedNacreSiteSprites: paintedNacreSiteAssetSnapshot() }) });
+  window.__IMPERIUM_TEST__ = Object.freeze({ snapshot: () => ({ game: game ? structuredClone(game) : null, campaign: structuredClone(campaign), activeMode, campaignReplay, campaignBlocked, campaignWarning, cameraX: renderer.cameraX, paused, inGame, view, settings: { ...settings }, storageAvailable, paintedSprites: paintedSpriteStatus(), paintedCombatSprites: paintedCombatStatus(), paintedWalkerSprites: paintedWalkerStatus(), paintedThyrSprites: paintedThyrStatus(), paintedCerbereSprite: paintedCerbereStatus(), paintedTransportSprites: paintedTransportStatus(), paintedRelaySprites: paintedRelayStatus(), paintedNacreSprites: paintedNacreStatus(), paintedChemicalSprites: paintedChemicalStatus(), paintedVoiceSprites: paintedVoiceStatus(), paintedNacreSiteSprites: paintedNacreSiteAssetSnapshot(), paintedVesperSprites: paintedVesperStatus(), paintedRouteSprites: paintedRouteStatus(), paintedFoundrySiteSprites: paintedFoundrySitesStatus() }) });
 }

@@ -1,0 +1,767 @@
+{
+  "version": "0.15.7",
+  "createdUtc": "2026-11-16T20:31:24.140Z",
+  "type": "Original PNG decoding, state diagnostics and public-input MI13 Canvas scenes",
+  "completed": true,
+  "nativeBrowserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "atlases": [
+    {
+      "id": "thermal",
+      "bytes": 1512395,
+      "sha256": "4ad738574a31ba9e95a01ece7a6d145143e4fabc5c61b849e24dd3f71df3b359",
+      "size": [
+        1536,
+        1024
+      ],
+      "transparentFraction": 0.7016569773356119
+    },
+    {
+      "id": "cranes",
+      "bytes": 1865484,
+      "sha256": "5349e6c19588beaa8070b7f92d7a691e0a76a68fd159ea755011f9a532c7f751",
+      "size": [
+        1536,
+        1024
+      ],
+      "transparentFraction": 0.5157089233398438
+    },
+    {
+      "id": "valves",
+      "bytes": 2342810,
+      "sha256": "956f2de71d8f39c7856b0dd51c07c6730b304d7782b0d85e05b11b59c1408ee9",
+      "size": [
+        1536,
+        1024
+      ],
+      "transparentFraction": 0.4496663411458333
+    },
+    {
+      "id": "consoles",
+      "bytes": 2095377,
+      "sha256": "557cd3ec7fc7773b1bfd1e6ab28782b4f6d86731865efb0ee3587271b5f51b48",
+      "size": [
+        1536,
+        1024
+      ],
+      "transparentFraction": 0.5217755635579427
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "thermal",
+      "name": "deck-hot",
+      "source": [
+        13,
+        231,
+        486,
+        125
+      ],
+      "target": [
+        -48.6,
+        -0.8,
+        97.2,
+        25
+      ]
+    },
+    {
+      "atlas": "thermal",
+      "name": "deck-cooling",
+      "source": [
+        526,
+        231,
+        486,
+        125
+      ],
+      "target": [
+        -48.4,
+        -0.8,
+        97.2,
+        25
+      ]
+    },
+    {
+      "atlas": "thermal",
+      "name": "deck-cooled",
+      "source": [
+        1039,
+        232,
+        486,
+        124
+      ],
+      "target": [
+        -48.2,
+        -0.6,
+        97.2,
+        24.8
+      ]
+    },
+    {
+      "atlas": "thermal",
+      "name": "vent-rest",
+      "source": [
+        55,
+        735,
+        404,
+        132
+      ],
+      "target": [
+        -30.3,
+        -18.06,
+        60.6,
+        18.48
+      ]
+    },
+    {
+      "atlas": "thermal",
+      "name": "vent-warning",
+      "source": [
+        567,
+        734,
+        404,
+        134
+      ],
+      "target": [
+        -30.3,
+        -18.2,
+        60.6,
+        18.76
+      ]
+    },
+    {
+      "atlas": "thermal",
+      "name": "vent-jet",
+      "source": [
+        1079,
+        735,
+        404,
+        132
+      ],
+      "target": [
+        -30.3,
+        -18.06,
+        60.6,
+        18.48
+      ]
+    },
+    {
+      "atlas": "cranes",
+      "name": "idle",
+      "source": [
+        17,
+        29,
+        478,
+        453
+      ],
+      "target": [
+        -133.84,
+        -193.07,
+        267.68,
+        194.79
+      ]
+    },
+    {
+      "atlas": "cranes",
+      "name": "working",
+      "source": [
+        529,
+        29,
+        478,
+        453
+      ],
+      "target": [
+        -133.84,
+        -193.07,
+        267.68,
+        194.79
+      ]
+    },
+    {
+      "atlas": "cranes",
+      "name": "received",
+      "source": [
+        1041,
+        29,
+        478,
+        453
+      ],
+      "target": [
+        -133.84,
+        -193.07,
+        267.68,
+        194.79
+      ]
+    },
+    {
+      "atlas": "cranes",
+      "name": "quarantine",
+      "source": [
+        17,
+        541,
+        478,
+        453
+      ],
+      "target": [
+        -133.84,
+        -193.07,
+        267.68,
+        194.79
+      ]
+    },
+    {
+      "atlas": "cranes",
+      "name": "hook",
+      "source": [
+        697,
+        632,
+        137,
+        288
+      ],
+      "target": [
+        -10.05,
+        -0.3,
+        20.55,
+        28.8
+      ]
+    },
+    {
+      "atlas": "valves",
+      "name": "closed",
+      "source": [
+        34,
+        15,
+        429,
+        463
+      ],
+      "target": [
+        -44.4,
+        -114.75,
+        85.8,
+        115.75
+      ]
+    },
+    {
+      "atlas": "valves",
+      "name": "warning",
+      "source": [
+        546,
+        15,
+        429,
+        463
+      ],
+      "target": [
+        -44.4,
+        -114.75,
+        85.8,
+        115.75
+      ]
+    },
+    {
+      "atlas": "valves",
+      "name": "jet",
+      "source": [
+        1058,
+        15,
+        444,
+        463
+      ],
+      "target": [
+        -44.4,
+        -114.75,
+        88.8,
+        115.75
+      ]
+    },
+    {
+      "atlas": "valves",
+      "name": "open",
+      "source": [
+        34,
+        527,
+        428,
+        463
+      ],
+      "target": [
+        -44.4,
+        -114.75,
+        85.6,
+        115.75
+      ]
+    },
+    {
+      "atlas": "valves",
+      "name": "destroyed",
+      "source": [
+        545,
+        617,
+        443,
+        373
+      ],
+      "target": [
+        -44.6,
+        -92.25,
+        88.6,
+        93.25
+      ]
+    },
+    {
+      "atlas": "valves",
+      "name": "wheel",
+      "source": [
+        1134,
+        614,
+        290,
+        300
+      ],
+      "target": [
+        -22.307692308,
+        -22.297297297,
+        44.615384615,
+        44.594594595
+      ]
+    },
+    {
+      "atlas": "consoles",
+      "name": "console-idle",
+      "source": [
+        40,
+        19,
+        431,
+        460
+      ],
+      "target": [
+        -54,
+        -113.75,
+        107.75,
+        115
+      ]
+    },
+    {
+      "atlas": "consoles",
+      "name": "console-working",
+      "source": [
+        553,
+        18,
+        430,
+        461
+      ],
+      "target": [
+        -53.75,
+        -114,
+        107.5,
+        115.25
+      ]
+    },
+    {
+      "atlas": "consoles",
+      "name": "console-complete",
+      "source": [
+        1065,
+        18,
+        430,
+        461
+      ],
+      "target": [
+        -53.75,
+        -114,
+        107.5,
+        115.25
+      ]
+    },
+    {
+      "atlas": "consoles",
+      "name": "manifest-sealed",
+      "source": [
+        102,
+        573,
+        305,
+        416
+      ],
+      "target": [
+        -38.25,
+        -92.7,
+        76.25,
+        93.6
+      ]
+    },
+    {
+      "atlas": "consoles",
+      "name": "manifest-copied",
+      "source": [
+        614,
+        573,
+        305,
+        416
+      ],
+      "target": [
+        -38.25,
+        -92.7,
+        76.25,
+        93.6
+      ]
+    },
+    {
+      "atlas": "consoles",
+      "name": "manifest-destroyed",
+      "source": [
+        1126,
+        679,
+        305,
+        310
+      ],
+      "target": [
+        -38.25,
+        -68.85,
+        76.25,
+        69.75
+      ]
+    }
+  ],
+  "views": [
+    {
+      "file": "foundry-sites-state-board.png",
+      "sha256": "c39c843d9f7113699a389237590158d9bb18e4595fde9243dc28c5e92f3a5aac",
+      "width": 2500,
+      "height": 2080,
+      "diagnostic": true,
+      "frames": 23
+    },
+    {
+      "file": "foundry-thermal-surface-diagnostic.png",
+      "sha256": "1a64b77f903a9214a09aa4abbefaa5ec51fcad3d896cf38bc418fc97d4841f2b",
+      "width": 1600,
+      "height": 1080,
+      "diagnostic": true,
+      "cases": [
+        "warning",
+        "jet",
+        "off"
+      ],
+      "scope": "Camera diagnostic of unchanged terrain contacts and exact existing 270-unit steam hazard width"
+    },
+    {
+      "file": "mi13-arrival.png",
+      "sha256": "c1036b707b8b6310cce0d6ab16b4646e5f615d50690e9bb80b9f6d5d42386aab",
+      "width": 1600,
+      "height": 900,
+      "diagnostic": false,
+      "source": "Unmodified pilotMI13 public commands",
+      "elapsed": 0,
+      "drawCalls": {
+        "valves": 2,
+        "consoles": 1
+      },
+      "facts": {
+        "circuits": [
+          {
+            "id": "foundry-bridge-1",
+            "temperature": 90,
+            "circuitOpen": false,
+            "steamPhase": "warning",
+            "valveDestroyed": false
+          },
+          {
+            "id": "foundry-bridge-2",
+            "temperature": 90,
+            "circuitOpen": false,
+            "steamPhase": "jet",
+            "valveDestroyed": false
+          }
+        ],
+        "manifestCopied": false,
+        "analysisComplete": false,
+        "cargo": [
+          {
+            "id": "foundry-cargo-1",
+            "x": 992,
+            "y": 578.6581556515803,
+            "transferred": false,
+            "progress": 0
+          },
+          {
+            "id": "foundry-cargo-2",
+            "x": 1108,
+            "y": 578.6581556515803,
+            "transferred": false,
+            "progress": 0
+          }
+        ],
+        "pt03": false
+      }
+    },
+    {
+      "file": "mi13-valve-working.png",
+      "sha256": "59388fd15dfcb5857a82aac39c5da0ea7acaa71f41f6bb8398d8f5b9875e3cb6",
+      "width": 1600,
+      "height": 900,
+      "diagnostic": false,
+      "source": "Unmodified pilotMI13 public commands",
+      "elapsed": 23.783333333333264,
+      "drawCalls": {
+        "thermal": 78,
+        "valves": 2,
+        "consoles": 1
+      },
+      "facts": {
+        "circuits": [
+          {
+            "id": "foundry-bridge-1",
+            "temperature": 90,
+            "circuitOpen": false,
+            "steamPhase": "rest",
+            "valveDestroyed": false
+          },
+          {
+            "id": "foundry-bridge-2",
+            "temperature": 90,
+            "circuitOpen": false,
+            "steamPhase": "warning",
+            "valveDestroyed": false
+          }
+        ],
+        "manifestCopied": true,
+        "analysisComplete": false,
+        "cargo": [
+          {
+            "id": "foundry-cargo-1",
+            "x": 1138.6732761983124,
+            "y": 572.5110318068571,
+            "transferred": false,
+            "progress": 0
+          },
+          {
+            "id": "foundry-cargo-2",
+            "x": 1254.6732761983124,
+            "y": 572.5110318068571,
+            "transferred": false,
+            "progress": 0
+          }
+        ],
+        "pt03": false
+      }
+    },
+    {
+      "file": "mi13-deck-cooling.png",
+      "sha256": "51a0893f1f3e0a34fe4406878ff9c2022038345de03ec27641cf5a069363737e",
+      "width": 1600,
+      "height": 900,
+      "diagnostic": false,
+      "source": "Unmodified pilotMI13 public commands",
+      "elapsed": 29.083333333332963,
+      "drawCalls": {
+        "thermal": 78,
+        "valves": 2,
+        "consoles": 1
+      },
+      "facts": {
+        "circuits": [
+          {
+            "id": "foundry-bridge-1",
+            "temperature": 64.93333333333209,
+            "circuitOpen": true,
+            "steamPhase": "off",
+            "valveDestroyed": false
+          },
+          {
+            "id": "foundry-bridge-2",
+            "temperature": 90,
+            "circuitOpen": false,
+            "steamPhase": "rest",
+            "valveDestroyed": false
+          }
+        ],
+        "manifestCopied": true,
+        "analysisComplete": false,
+        "cargo": [
+          {
+            "id": "foundry-cargo-1",
+            "x": 1331.90660953164,
+            "y": 573.0348473717385,
+            "transferred": false,
+            "progress": 0
+          },
+          {
+            "id": "foundry-cargo-2",
+            "x": 1447.90660953164,
+            "y": 573.0348473717385,
+            "transferred": false,
+            "progress": 0
+          }
+        ],
+        "pt03": false
+      }
+    },
+    {
+      "file": "mi13-analysis-working.png",
+      "sha256": "36c3be72dc4778267a095d081340314b6d77cf3e069588c01a07724757d2dfd9",
+      "width": 1600,
+      "height": 900,
+      "diagnostic": false,
+      "source": "Unmodified pilotMI13 public commands",
+      "elapsed": 94.28333333332927,
+      "drawCalls": {
+        "thermal": 79,
+        "valves": 2,
+        "consoles": 2
+      },
+      "facts": {
+        "circuits": [
+          {
+            "id": "foundry-bridge-1",
+            "temperature": 28,
+            "circuitOpen": true,
+            "steamPhase": "off",
+            "valveDestroyed": false
+          },
+          {
+            "id": "foundry-bridge-2",
+            "temperature": 28,
+            "circuitOpen": true,
+            "steamPhase": "off",
+            "valveDestroyed": false
+          }
+        ],
+        "manifestCopied": true,
+        "analysisComplete": false,
+        "cargo": [
+          {
+            "id": "foundry-cargo-1",
+            "x": 3587.4722607819845,
+            "y": 546.6941244226828,
+            "transferred": false,
+            "progress": 0
+          },
+          {
+            "id": "foundry-cargo-2",
+            "x": 3703.4722607819845,
+            "y": 546.6941244226828,
+            "transferred": false,
+            "progress": 0
+          }
+        ],
+        "pt03": false
+      }
+    },
+    {
+      "file": "mi13-quarantine-transfer.png",
+      "sha256": "6172747ac11a7ac276177b39a6d8da80d0162deeae0323d8510779d60b92f175",
+      "width": 1600,
+      "height": 900,
+      "diagnostic": false,
+      "source": "Unmodified pilotMI13 public commands",
+      "elapsed": 141.80000000000499,
+      "drawCalls": {
+        "cranes": 4,
+        "consoles": 4
+      },
+      "facts": {
+        "circuits": [
+          {
+            "id": "foundry-bridge-1",
+            "temperature": 28,
+            "circuitOpen": true,
+            "steamPhase": "off",
+            "valveDestroyed": false
+          },
+          {
+            "id": "foundry-bridge-2",
+            "temperature": 28,
+            "circuitOpen": true,
+            "steamPhase": "off",
+            "valveDestroyed": false
+          }
+        ],
+        "manifestCopied": true,
+        "analysisComplete": true,
+        "cargo": [
+          {
+            "id": "foundry-cargo-1",
+            "x": 5821.626666666666,
+            "y": 607.1922020683626,
+            "transferred": false,
+            "progress": 0.4533333333333327
+          },
+          {
+            "id": "foundry-cargo-2",
+            "x": 5798,
+            "y": 569.7452497012512,
+            "transferred": false,
+            "progress": 0
+          }
+        ],
+        "pt03": true
+      }
+    },
+    {
+      "file": "mi13-received.png",
+      "sha256": "ca5f4fc082f345c7d37d3e609f435ae6f82c088deb4f6714089cea8fb4c70233",
+      "width": 1600,
+      "height": 900,
+      "diagnostic": false,
+      "source": "Unmodified pilotMI13 public commands",
+      "elapsed": 149.53333333334447,
+      "drawCalls": {
+        "cranes": 4,
+        "consoles": 4
+      },
+      "facts": {
+        "circuits": [
+          {
+            "id": "foundry-bridge-1",
+            "temperature": 28,
+            "circuitOpen": true,
+            "steamPhase": "off",
+            "valveDestroyed": false
+          },
+          {
+            "id": "foundry-bridge-2",
+            "temperature": 28,
+            "circuitOpen": true,
+            "steamPhase": "off",
+            "valveDestroyed": false
+          }
+        ],
+        "manifestCopied": true,
+        "analysisComplete": true,
+        "cargo": [
+          {
+            "id": "foundry-cargo-1",
+            "x": 5990,
+            "y": 652.3488210992913,
+            "transferred": true,
+            "progress": 1
+          },
+          {
+            "id": "foundry-cargo-2",
+            "x": 6094,
+            "y": 658.3024754199269,
+            "transferred": true,
+            "progress": 1
+          }
+        ],
+        "pt03": true
+      }
+    }
+  ],
+  "sourceHashes": {
+    "src/painted-foundry-sites.mjs": "516ba9dd30e68f274753811beeda0371ecc05fb10f20277337a7736cab1b2128",
+    "src/painted-foundry-sites-layout.mjs": "7a5d768474a3d194172c17f4d3e935d4dcbe4fbf333224d320bb128e3455028c",
+    "src/foundry-renderer.mjs": "54a722ca7cbdcc25cfb08609d366137bcf11ee47d1306fcec11f6f876e035625",
+    "src/foundry-simulation.mjs": "2cb9ef3d02947ba615bcfd03815b1cf0ae2ada52b088bff4145d979869cc4753",
+    "assets/painted/foundry-sites/anchors.json": "1ec33204f8cdca351cba8fde405f0534eeddab78644001ac88d5ad4661119ca0",
+    "tools/index-painted-foundry-sites.py": "17bad9ce04b38f828577862fcbf57b66987d457f132de932358f785491aa9bb9",
+    "tools/test-painted-foundry-sites.mjs": "edfa829f5b6679f7bc6df6429da866f299fe14ed5fb3e357ab892f14a95a8439",
+    "tests/helpers/mi13-driver.mjs": "f6d0553d2617412b5928c624a6f99bb606fa5583800056c1912c426b3c49ebe6"
+  },
+  "limitations": [
+    "Diagnostic states use explicit presentation options; public-input mission snapshots are identified separately.",
+    "Crane hook is a presentation rig, not a simulated cargo constraint. Deck skin follows the exact existing physical surface.",
+    "No new population, acquisition, inventory, damage model or save field is introduced. Historical evidence and PNGs are unchanged."
+  ],
+  "publicRun": {
+    "status": "won",
+    "choice": "defy",
+    "pt03Acquired": true,
+    "sceneCount": 6
+  }
+}

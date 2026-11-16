@@ -1,0 +1,331 @@
+{
+  "version": "0.15.7",
+  "checkedAt": "2026-11-16T20:38:16.775081+00:00",
+  "lotCount": 14,
+  "baselineReconciled": {
+    "atlases": 58,
+    "cells": 461,
+    "runtimeCells": 425,
+    "referenceCells": 36
+  },
+  "added": {
+    "atlases": 13,
+    "cells": 81,
+    "runtimeCells": 79,
+    "referenceCells": 2
+  },
+  "total": {
+    "atlases": 71,
+    "cells": 542,
+    "runtimeCells": 504,
+    "referenceCells": 38
+  },
+  "lots": [
+    {
+      "lot": "cerbere",
+      "atlases": 1,
+      "cells": 16,
+      "runtimeCells": 11,
+      "referenceCells": 5,
+      "manifest": "assets/painted/cerbere/manifest.json",
+      "manifestSha256": "ba9701de1f5a1ce29982a5bcd850e7f540d373eeffeb77f939336d4074c7ffa3"
+    },
+    {
+      "lot": "chemical",
+      "atlases": 5,
+      "cells": 24,
+      "runtimeCells": 24,
+      "referenceCells": 0,
+      "manifest": "assets/painted/chemical/manifest.json",
+      "manifestSha256": "aaafee883b55d40f542381a79c4aeffdda719e118d308c9709dbdbef9155938f"
+    },
+    {
+      "lot": "combat",
+      "atlases": 9,
+      "cells": 78,
+      "runtimeCells": 60,
+      "referenceCells": 18,
+      "manifest": "assets/painted/combat/manifest.json",
+      "manifestSha256": "d8c559f4f0add10153a1d28abe41fa73914cd17c4376aff76b3114c768c84a93"
+    },
+    {
+      "lot": "foundry-sites",
+      "atlases": 4,
+      "cells": 23,
+      "runtimeCells": 23,
+      "referenceCells": 0,
+      "manifest": "assets/painted/foundry-sites/manifest.json",
+      "manifestSha256": "60361d95f8e69960a58ba4bfc5a274d133a73983ad5704c8234f52b1c937154f"
+    },
+    {
+      "lot": "mi14",
+      "atlases": 8,
+      "cells": 54,
+      "runtimeCells": 48,
+      "referenceCells": 6,
+      "manifest": "assets/painted/mi14/manifest.json",
+      "manifestSha256": "72f64c528cc664bf63d0573f00da3a90a1ba4598acdc91a7bb49aee8955b2625",
+      "usageReconciliation": [
+        {
+          "atlas": "worker",
+          "cells": 12,
+          "runtimeCells": 11,
+          "referenceCells": 1,
+          "references": [
+            "kneeling"
+          ],
+          "runtime": [
+            "standing",
+            "walking-0",
+            "walking-1",
+            "walking-2",
+            "walking-3",
+            "walking-4",
+            "walking-5",
+            "walking-6",
+            "walking-7",
+            "safe",
+            "lost"
+          ]
+        },
+        {
+          "atlas": "worker-mechanic",
+          "cells": 12,
+          "runtimeCells": 11,
+          "referenceCells": 1,
+          "references": [
+            "kneeling"
+          ],
+          "runtime": [
+            "standing",
+            "walking-0",
+            "walking-1",
+            "walking-2",
+            "walking-3",
+            "walking-4",
+            "walking-5",
+            "walking-6",
+            "walking-7",
+            "safe",
+            "lost"
+          ]
+        },
+        {
+          "atlas": "cooler",
+          "cells": 6,
+          "runtimeCells": 5,
+          "referenceCells": 1,
+          "references": [
+            "neutral-reference"
+          ],
+          "runtime": [
+            "broken",
+            "isolated",
+            "repairing",
+            "online",
+            "destroyed"
+          ]
+        },
+        {
+          "atlas": "valve",
+          "cells": 3,
+          "runtimeCells": 3,
+          "referenceCells": 0,
+          "references": [],
+          "runtime": [
+            "open",
+            "isolated",
+            "destroyed"
+          ]
+        },
+        {
+          "atlas": "disputed-lot",
+          "cells": 6,
+          "runtimeCells": 5,
+          "referenceCells": 1,
+          "references": [
+            "neutral-reference"
+          ],
+          "runtime": [
+            "sealed",
+            "inspected",
+            "released",
+            "blocked",
+            "destroyed"
+          ]
+        },
+        {
+          "atlas": "workshop-control",
+          "cells": 6,
+          "runtimeCells": 5,
+          "referenceCells": 1,
+          "references": [
+            "neutral-reference"
+          ],
+          "runtime": [
+            "idle",
+            "working",
+            "production",
+            "stopped",
+            "destroyed"
+          ]
+        },
+        {
+          "atlas": "security-automaton",
+          "cells": 6,
+          "runtimeCells": 5,
+          "referenceCells": 1,
+          "references": [
+            "dormant"
+          ],
+          "runtime": [
+            "warning",
+            "active",
+            "destroyed",
+            "cannon",
+            "cannon-destroyed"
+          ]
+        },
+        {
+          "atlas": "picket-post",
+          "cells": 3,
+          "runtimeCells": 3,
+          "referenceCells": 0,
+          "references": [],
+          "runtime": [
+            "closed",
+            "clearing",
+            "open"
+          ]
+        }
+      ]
+    },
+    {
+      "lot": "nacre",
+      "atlases": 6,
+      "cells": 30,
+      "runtimeCells": 29,
+      "referenceCells": 1,
+      "manifest": "assets/painted/nacre/manifest.json",
+      "manifestSha256": "2bb50df3a24baf3554c3eef89dae295ffdd1d09d5700d2fc779d56fb64489c19"
+    },
+    {
+      "lot": "nacre-sites",
+      "atlases": 5,
+      "cells": 30,
+      "runtimeCells": 30,
+      "referenceCells": 0,
+      "manifest": "assets/painted/nacre-sites/manifest.json",
+      "manifestSha256": "41124ab7cc1144cdc1d54d1ab3e93b26f4475e9147ab558d56fd5eb2a03a2e5a"
+    },
+    {
+      "lot": "relay",
+      "atlases": 3,
+      "cells": 30,
+      "runtimeCells": 28,
+      "referenceCells": 2,
+      "manifest": "assets/painted/relay/manifest.json",
+      "manifestSha256": "3133e7664a5468a62dcad8de5ee7823bde0c68eae5a93af24ec7ade4b04d3cca"
+    },
+    {
+      "lot": "route",
+      "atlases": 3,
+      "cells": 20,
+      "runtimeCells": 18,
+      "referenceCells": 2,
+      "manifest": "assets/painted/route/manifest.json",
+      "manifestSha256": "5bff8cef709e85b19e76c4e7af5cfe70acff2aa1b90424ab18016ab5fc9a0e9e"
+    },
+    {
+      "lot": "thyr",
+      "atlases": 8,
+      "cells": 62,
+      "runtimeCells": 58,
+      "referenceCells": 4,
+      "manifest": "assets/painted/thyr/manifest.json",
+      "manifestSha256": "1edcc6c9a152f591ffa2c37f6299a624ab3079ef1b72b805b4cc6a85b14e0fe6"
+    },
+    {
+      "lot": "transport",
+      "atlases": 4,
+      "cells": 20,
+      "runtimeCells": 20,
+      "referenceCells": 0,
+      "manifest": "assets/painted/transport/manifest.json",
+      "manifestSha256": "0dfdc951c141b4c49d73127c69baa9283aa0657ee1f990409d70b4fab2a041b5"
+    },
+    {
+      "lot": "vesper",
+      "atlases": 6,
+      "cells": 38,
+      "runtimeCells": 38,
+      "referenceCells": 0,
+      "manifest": "assets/painted/vesper/manifest.json",
+      "manifestSha256": "4c7f64a6a4e78fd886ae3bb3b4ecc89c063d0ebd39a59e66e776aa36e8254892"
+    },
+    {
+      "lot": "voice",
+      "atlases": 3,
+      "cells": 21,
+      "runtimeCells": 21,
+      "referenceCells": 0,
+      "manifest": "assets/painted/voice/manifest.json",
+      "manifestSha256": "cf775d14e7763f60801c25cf251b15090cc4ba670ebc58dff482dfa4889331c4"
+    },
+    {
+      "lot": "walkers",
+      "atlases": 6,
+      "cells": 96,
+      "runtimeCells": 96,
+      "referenceCells": 0,
+      "manifest": "assets/painted/walkers/manifest.json",
+      "manifestSha256": "8cf7d7628da6728f13bd21f4458c42bcb867929b7161e6f47c49fe8d3c1f009a"
+    }
+  ],
+  "mi14Correction": {
+    "previouslyIncludedReferenceCells": 6,
+    "oldRollup": {
+      "runtimeCells": 54,
+      "referenceCells": 0
+    },
+    "reconciled": {
+      "runtimeCells": 48,
+      "referenceCells": 6
+    },
+    "explanation": "Six MI14 reference cells were previously included by treating its total frame count as runtime: two kneeling poses, three neutral-reference cells and the dormant automaton. Current render callers never select those six. warning remains runtime: workshop-renderer selects it for a live automaton with telegraph > 0; the generic enemy attack loop advances telegraph. The historical README wording that also calls warning a reference is superseded by this current code reconciliation only; historical bytes are preserved.",
+    "evidence": [
+      {
+        "path": "src/workshop-assets.mjs",
+        "sha256": "f2b9420b67d701fb3c532b0c645599a8b9501cfbc12aab8054efea284bb3e42f"
+      },
+      {
+        "path": "src/workshop-renderer.mjs",
+        "sha256": "82de9442d14d994af083fe7ba13121a58a6ebe7615388060ab540d26cb58cf6a"
+      },
+      {
+        "path": "src/painted-sprites.mjs",
+        "sha256": "dfa61893d8cbc57bc9fb407af855dcab127f5c6acca1ad4a36289368f7aa4c46"
+      },
+      {
+        "path": "src/painted-sprite-layout.mjs",
+        "sha256": "c7fd67789497c1c8d733693cc08e3a582bc433f67a4cae93c816f92403cb6fcd"
+      },
+      {
+        "path": "src/simulation.mjs",
+        "sha256": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf"
+      },
+      {
+        "path": "assets/painted/mi14/README.md",
+        "sha256": "f1fd02fa0d5e57819bd717c6222413f19893dfc7718a402ce22af10b8c62d708"
+      }
+    ],
+    "selectors": {
+      "workers": "src/workshop-renderer.mjs: drawWorkshopActors worker alive/moving/sheltered selection; src/painted-sprites.mjs: paintedWorkshopFrame expands walking to eight frames",
+      "machines": "src/workshop-renderer.mjs: coolerState, lotState, controlState exclude neutral-reference",
+      "automaton": "src/workshop-renderer.mjs: drawWorkshopActors excludes absent/unready actors; selects destroyed/warning/active only; src/simulation.mjs enemy attack advances telegraph",
+      "cannon": "src/painted-sprites.mjs: drawAutomatonCannon chooses cannon/cannon-destroyed"
+    }
+  },
+  "scope": "Current atlas counts derived from declared lot manifest counts, with explicit MI14 usage reconciliation from renderer callers. All retained PNG bytes match their manifests. Reference cells and empty atlas grid slots do not create simulated entities or states. This is a count/provenance audit, not a new gameplay or human reception.",
+  "passed": true
+}
