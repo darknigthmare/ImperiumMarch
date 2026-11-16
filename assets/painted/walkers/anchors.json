@@ -1,0 +1,854 @@
+{
+  "schema": 1,
+  "version": "0.15.3",
+  "coordinateSpace": "Original pixel coordinates local to each rounded 4×4 cell; half-pixel boundaries round upward as in Math.round. Metadata only; original PNGs remain unchanged.",
+  "measurement": "Visual center of bearing/socket or trunnion; WK01 clear socket centroids also measured from enclosed alpha holes. Main armor box excludes antennas/raised observation pod. Foot contact is vertical ankle projection on flat sole, not image centroid.",
+  "rigs": {
+    "WK01": {
+      "hull": {
+        "bodyBox": [
+          18,
+          82,
+          299,
+          271
+        ]
+      },
+      "hull-damaged": {
+        "bodyBox": [
+          17,
+          82,
+          299,
+          271
+        ]
+      },
+      "hull-braced": {
+        "bodyBox": [
+          18,
+          82,
+          300,
+          271
+        ]
+      },
+      "turret": {
+        "pivot": [
+          62,
+          165
+        ],
+        "endpoint": [
+          298,
+          164
+        ]
+      },
+      "upper": {
+        "pivot": [
+          41.34,
+          155.52
+        ],
+        "endpoint": [
+          272.27,
+          155.25
+        ]
+      },
+      "upper-damaged": {
+        "pivot": [
+          40.51,
+          155.27
+        ],
+        "endpoint": [
+          272.1,
+          155.5
+        ]
+      },
+      "lower": {
+        "pivot": [
+          39.51,
+          155.29
+        ],
+        "endpoint": [
+          273.05,
+          155.3
+        ]
+      },
+      "lower-damaged": {
+        "pivot": [
+          39.09,
+          155.2
+        ],
+        "endpoint": [
+          272.61,
+          155.46
+        ]
+      },
+      "hip": {
+        "pivot": [
+          158,
+          156
+        ],
+        "diameter": 235
+      },
+      "knee": {
+        "pivot": [
+          156,
+          163
+        ],
+        "diameter": 159
+      },
+      "foot": {
+        "ankle": [
+          129,
+          110
+        ],
+        "soleY": 232,
+        "soleLeft": 12,
+        "soleRight": 302
+      },
+      "foot-damaged": {
+        "ankle": [
+          129,
+          110
+        ],
+        "soleY": 232,
+        "soleLeft": 11,
+        "soleRight": 301
+      },
+      "foot-braced": {
+        "ankle": [
+          130,
+          111
+        ],
+        "soleY": 234,
+        "soleLeft": 12,
+        "soleRight": 302
+      },
+      "radiator": {
+        "panelBox": [
+          72,
+          12,
+          245,
+          284
+        ]
+      },
+      "radiator-damaged": {
+        "panelBox": [
+          72,
+          12,
+          245,
+          284
+        ]
+      },
+      "radiator-repaired": {
+        "panelBox": [
+          72,
+          12,
+          245,
+          284
+        ]
+      }
+    },
+    "WK02": {
+      "hull": {
+        "bodyBox": [
+          11,
+          88,
+          304,
+          260
+        ]
+      },
+      "hull-damaged": {
+        "bodyBox": [
+          11,
+          88,
+          304,
+          260
+        ]
+      },
+      "hull-braced": {
+        "bodyBox": [
+          12,
+          88,
+          305,
+          260
+        ]
+      },
+      "turret": {
+        "pivot": [
+          57,
+          166
+        ],
+        "endpoint": [
+          302,
+          165
+        ]
+      },
+      "upper": {
+        "pivot": [
+          49,
+          164
+        ],
+        "endpoint": [
+          271,
+          164
+        ]
+      },
+      "upper-damaged": {
+        "pivot": [
+          48,
+          164
+        ],
+        "endpoint": [
+          271,
+          164
+        ]
+      },
+      "lower": {
+        "pivot": [
+          46,
+          162
+        ],
+        "endpoint": [
+          272,
+          163
+        ]
+      },
+      "lower-damaged": {
+        "pivot": [
+          46,
+          162
+        ],
+        "endpoint": [
+          272,
+          163
+        ]
+      },
+      "hip": {
+        "pivot": [
+          157,
+          162
+        ],
+        "diameter": 246
+      },
+      "knee": {
+        "pivot": [
+          156,
+          161
+        ],
+        "diameter": 178
+      },
+      "foot": {
+        "ankle": [
+          129,
+          106
+        ],
+        "soleY": 237,
+        "soleLeft": 8,
+        "soleRight": 303
+      },
+      "foot-damaged": {
+        "ankle": [
+          129,
+          106
+        ],
+        "soleY": 237,
+        "soleLeft": 8,
+        "soleRight": 303
+      },
+      "foot-braced": {
+        "ankle": [
+          128,
+          108
+        ],
+        "soleY": 236,
+        "soleLeft": 9,
+        "soleRight": 304
+      },
+      "radiator": {
+        "panelBox": [
+          63,
+          10,
+          249,
+          289
+        ]
+      },
+      "radiator-damaged": {
+        "panelBox": [
+          64,
+          10,
+          250,
+          289
+        ]
+      },
+      "radiator-repaired": {
+        "panelBox": [
+          64,
+          10,
+          249,
+          289
+        ]
+      }
+    },
+    "WK05": {
+      "hull": {
+        "bodyBox": [
+          7,
+          111,
+          303,
+          236
+        ]
+      },
+      "hull-damaged": {
+        "bodyBox": [
+          7,
+          111,
+          302,
+          236
+        ]
+      },
+      "hull-braced": {
+        "bodyBox": [
+          8,
+          111,
+          303,
+          236
+        ]
+      },
+      "turret": {
+        "pivot": [
+          55,
+          169
+        ],
+        "endpoint": [
+          305,
+          169
+        ]
+      },
+      "upper": {
+        "pivot": [
+          39,
+          156
+        ],
+        "endpoint": [
+          277,
+          155
+        ]
+      },
+      "upper-damaged": {
+        "pivot": [
+          38,
+          156
+        ],
+        "endpoint": [
+          276,
+          155
+        ]
+      },
+      "lower": {
+        "pivot": [
+          40,
+          151
+        ],
+        "endpoint": [
+          275,
+          152
+        ]
+      },
+      "lower-damaged": {
+        "pivot": [
+          39,
+          151
+        ],
+        "endpoint": [
+          275,
+          152
+        ]
+      },
+      "hip": {
+        "pivot": [
+          159,
+          158
+        ],
+        "diameter": 245
+      },
+      "knee": {
+        "pivot": [
+          157,
+          158
+        ],
+        "diameter": 178
+      },
+      "foot": {
+        "ankle": [
+          155,
+          109
+        ],
+        "soleY": 231,
+        "soleLeft": 8,
+        "soleRight": 304
+      },
+      "foot-damaged": {
+        "ankle": [
+          155,
+          109
+        ],
+        "soleY": 232,
+        "soleLeft": 7,
+        "soleRight": 303
+      },
+      "foot-braced": {
+        "ankle": [
+          157,
+          109
+        ],
+        "soleY": 230,
+        "soleLeft": 9,
+        "soleRight": 304
+      },
+      "radiator": {
+        "panelBox": [
+          67,
+          13,
+          254,
+          292
+        ]
+      },
+      "radiator-damaged": {
+        "panelBox": [
+          68,
+          13,
+          255,
+          292
+        ]
+      },
+      "radiator-repaired": {
+        "panelBox": [
+          67,
+          13,
+          254,
+          292
+        ]
+      }
+    },
+    "WK06": {
+      "hull": {
+        "bodyBox": [
+          11,
+          143,
+          300,
+          265
+        ]
+      },
+      "hull-damaged": {
+        "bodyBox": [
+          10,
+          143,
+          299,
+          265
+        ]
+      },
+      "hull-braced": {
+        "bodyBox": [
+          10,
+          143,
+          300,
+          265
+        ]
+      },
+      "turret": {
+        "pivot": [
+          52,
+          167
+        ],
+        "endpoint": [
+          303,
+          165
+        ]
+      },
+      "upper": {
+        "pivot": [
+          39,
+          161
+        ],
+        "endpoint": [
+          274,
+          161
+        ]
+      },
+      "upper-damaged": {
+        "pivot": [
+          38,
+          161
+        ],
+        "endpoint": [
+          272,
+          161
+        ]
+      },
+      "lower": {
+        "pivot": [
+          40,
+          160
+        ],
+        "endpoint": [
+          274,
+          158
+        ]
+      },
+      "lower-damaged": {
+        "pivot": [
+          40,
+          160
+        ],
+        "endpoint": [
+          273,
+          158
+        ]
+      },
+      "hip": {
+        "pivot": [
+          159,
+          167
+        ],
+        "diameter": 250
+      },
+      "knee": {
+        "pivot": [
+          158,
+          171
+        ],
+        "diameter": 175
+      },
+      "foot": {
+        "ankle": [
+          154,
+          124
+        ],
+        "soleY": 227,
+        "soleLeft": 6,
+        "soleRight": 304
+      },
+      "foot-damaged": {
+        "ankle": [
+          154,
+          124
+        ],
+        "soleY": 227,
+        "soleLeft": 6,
+        "soleRight": 303
+      },
+      "foot-braced": {
+        "ankle": [
+          154,
+          124
+        ],
+        "soleY": 228,
+        "soleLeft": 7,
+        "soleRight": 305
+      },
+      "radiator": {
+        "panelBox": [
+          73,
+          10,
+          246,
+          292
+        ]
+      },
+      "radiator-damaged": {
+        "panelBox": [
+          74,
+          10,
+          247,
+          292
+        ]
+      },
+      "radiator-repaired": {
+        "panelBox": [
+          73,
+          10,
+          246,
+          292
+        ]
+      }
+    },
+    "WK09": {
+      "hull": {
+        "bodyBox": [
+          10,
+          143,
+          303,
+          244
+        ]
+      },
+      "hull-damaged": {
+        "bodyBox": [
+          9,
+          143,
+          303,
+          244
+        ]
+      },
+      "hull-braced": {
+        "bodyBox": [
+          10,
+          143,
+          303,
+          244
+        ]
+      },
+      "turret": {
+        "pivot": [
+          64,
+          183
+        ],
+        "endpoint": [
+          305,
+          175
+        ]
+      },
+      "upper": {
+        "pivot": [
+          40,
+          170
+        ],
+        "endpoint": [
+          274,
+          170
+        ]
+      },
+      "upper-damaged": {
+        "pivot": [
+          39,
+          170
+        ],
+        "endpoint": [
+          274,
+          170
+        ]
+      },
+      "lower": {
+        "pivot": [
+          41,
+          163
+        ],
+        "endpoint": [
+          273,
+          163
+        ]
+      },
+      "lower-damaged": {
+        "pivot": [
+          41,
+          163
+        ],
+        "endpoint": [
+          273,
+          163
+        ]
+      },
+      "hip": {
+        "pivot": [
+          157,
+          169
+        ],
+        "diameter": 255
+      },
+      "knee": {
+        "pivot": [
+          156,
+          169
+        ],
+        "diameter": 193
+      },
+      "foot": {
+        "ankle": [
+          156,
+          114
+        ],
+        "soleY": 227,
+        "soleLeft": 7,
+        "soleRight": 303
+      },
+      "foot-damaged": {
+        "ankle": [
+          156,
+          114
+        ],
+        "soleY": 227,
+        "soleLeft": 7,
+        "soleRight": 303
+      },
+      "foot-braced": {
+        "ankle": [
+          157,
+          114
+        ],
+        "soleY": 230,
+        "soleLeft": 8,
+        "soleRight": 303
+      },
+      "radiator": {
+        "panelBox": [
+          63,
+          11,
+          253,
+          294
+        ]
+      },
+      "radiator-damaged": {
+        "panelBox": [
+          64,
+          11,
+          254,
+          294
+        ]
+      },
+      "radiator-repaired": {
+        "panelBox": [
+          64,
+          11,
+          253,
+          294
+        ]
+      }
+    },
+    "WK10": {
+      "hull": {
+        "bodyBox": [
+          23,
+          113,
+          307,
+          232
+        ]
+      },
+      "hull-damaged": {
+        "bodyBox": [
+          23,
+          113,
+          307,
+          232
+        ]
+      },
+      "hull-braced": {
+        "bodyBox": [
+          23,
+          113,
+          307,
+          233
+        ]
+      },
+      "turret": {
+        "pivot": [
+          74,
+          172
+        ],
+        "endpoint": [
+          301,
+          170
+        ]
+      },
+      "upper": {
+        "pivot": [
+          40,
+          160
+        ],
+        "endpoint": [
+          273,
+          160
+        ]
+      },
+      "upper-damaged": {
+        "pivot": [
+          39,
+          160
+        ],
+        "endpoint": [
+          273,
+          160
+        ]
+      },
+      "lower": {
+        "pivot": [
+          40,
+          151
+        ],
+        "endpoint": [
+          271,
+          151
+        ]
+      },
+      "lower-damaged": {
+        "pivot": [
+          40,
+          151
+        ],
+        "endpoint": [
+          271,
+          151
+        ]
+      },
+      "hip": {
+        "pivot": [
+          157,
+          165
+        ],
+        "diameter": 242
+      },
+      "knee": {
+        "pivot": [
+          158,
+          166
+        ],
+        "diameter": 187
+      },
+      "foot": {
+        "ankle": [
+          154,
+          106
+        ],
+        "soleY": 222,
+        "soleLeft": 9,
+        "soleRight": 304
+      },
+      "foot-damaged": {
+        "ankle": [
+          153,
+          106
+        ],
+        "soleY": 222,
+        "soleLeft": 9,
+        "soleRight": 304
+      },
+      "foot-braced": {
+        "ankle": [
+          153,
+          108
+        ],
+        "soleY": 226,
+        "soleLeft": 10,
+        "soleRight": 304
+      },
+      "radiator": {
+        "panelBox": [
+          74,
+          12,
+          255,
+          286
+        ]
+      },
+      "radiator-damaged": {
+        "panelBox": [
+          75,
+          12,
+          256,
+          286
+        ]
+      },
+      "radiator-repaired": {
+        "panelBox": [
+          74,
+          12,
+          255,
+          286
+        ]
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.15.2 · Français**
+**Nom de code : ImperiumMarch · Version 0.15.3 · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -12,11 +12,11 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 Cette livraison contient un **prototype de quatorze missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant **v14**. MI12 achève la tranche de Thyr ; MI13 et MI14 ouvrent Kharon par un convoi industriel puis un atelier en grève. La Bible contient **1 007 fiches sur 21 onglets**. Les dix-huit missions MI15–MI32, les seize contrats et la qualité de production visée restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
 
-La **0.15.2 ajoute neuf atlas peints transparents pour les acteurs et véhicules de combat** : 78 cellules, dont 32 poses de marche, avec sept armes séparées raccordées aux tirs physiques. Les huit atlas de MI14 sont conservés, soit **17 planches et 132 cellules** au total. Le [bilan 0.15.2](docs/PRODUCTION_V15_2.md) et sa [réception graphique](docs/QA_PAINTED_COMBAT.md) précisent ce qui est utilisé et ce qui reste à produire. La 0.15 avait ajouté Les mains noires à la reconstruction 0.14.1, issue de la source publique 0.12 et des spécifications des livraisons locales 0.13/0.14 perdues. Les [sprites MI14](docs/PRODUCTION_V15_1.md), la [consolidation MI14](docs/QA_V15.md) et le [bilan de reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves propres.
+La **0.15.3 ajoute les pièces peintes articulées des six marcheurs jouables** : six atlas transparents et 96 cellules de coques, armes, membres, articulations, pieds et radiateurs. Les atlas de MI14 et du combat sont conservés, portant le total à **23 planches et 228 cellules**. Le [bilan 0.15.3](docs/PRODUCTION_V15_3.md) et sa [réception graphique](docs/QA_PAINTED_WALKERS.md) distinguent pièces intégrées, animation existante et critères encore ouverts. La campagne reste à quatorze missions ; la sauvegarde reste v14. Les bilans [combat 0.15.2](docs/PRODUCTION_V15_2.md), [sprites MI14](docs/PRODUCTION_V15_1.md), [consolidation MI14](docs/QA_V15.md) et [reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves historiques.
 
 ## Jouer à cette version
 
-Le jeu dispose d’un [site en ligne](https://imperium-march.vercel.app/) et d’un fichier autonome. Le [suivi de publication](docs/DEPLOYMENT.md) identifie le commit distant et le déploiement effectivement contrôlé ; les rapports de [consolidation MI14](docs/QA_V15.md), des [sprites de l’atelier](docs/QA_PAINTED_MI14.md) et du [combat peint](docs/QA_PAINTED_COMBAT.md) indiquent la portée des essais. Une construction locale, un push GitHub et un déploiement disponible sont des étapes distinctes.
+Le jeu dispose d’un [site en ligne](https://imperium-march.vercel.app/) et d’un fichier autonome. Le [suivi de publication](docs/DEPLOYMENT.md) identifie le commit distant et le déploiement effectivement contrôlé ; les rapports de [consolidation MI14](docs/QA_V15.md), des [sprites de l’atelier](docs/QA_PAINTED_MI14.md) du [combat peint](docs/QA_PAINTED_COMBAT.md) et des [marcheurs peints](docs/QA_PAINTED_WALKERS.md) indiquent la portée des essais. Une construction locale, un push GitHub et un déploiement disponible sont des étapes distinctes.
 
 Ouvrir [**dist/Ordre_de_Cendre.html**](dist/Ordre_de_Cendre.html) dans un navigateur de bureau récent, après l’avoir téléchargé ou extrait du pack. Le code, les styles et les images sont intégrés. Aucun serveur ni téléchargement complémentaire n’est nécessaire pour cette édition. Le son démarre après une interaction.
 
@@ -46,6 +46,7 @@ npm run check
 npm run check:ui
 npm run check:ui-runtime
 npm run check:combat
+npm run check:walkers
 npm run build:web
 ```
 
@@ -65,6 +66,18 @@ npm run check:assets-render
 
 Les outils `render-mi12/mi13/mi14-previews` produisent des scènes Canvas et des états atteints par commandes publiques. Ils ne remplacent pas un essai navigateur. Le [guide du classeur](docs/BIBLE_README.md) décrit la régénération du XLSX à partir de `data/bible.json`.
 
+## 0.15.3 — Les six marcheurs peints
+
+Vigie, Caracal, Bastion, Arpenteur, Pèlerin et Cloporte disposent chacun de seize cellules de pièces séparées. Les coques, segments et pieds possèdent leurs états endommagés ; la coque et le pied ont un état ancré. Les radiateurs ont trois états statiques peints, avec impact et réparation progressive conservés dans leur rendu existant.
+
+Les pièces suivent les articulations et les contacts calculés par la simulation. Les canons restent séparés de la coque et raccordés à la bouche physique du tir, même lorsque la coque se retourne. Les membres éloignés sont assombris. Le hangar utilise les mêmes assemblages, et le repli vectoriel reste disponible après un échec de chargement.
+
+![Les six marcheurs peints à la même échelle, avec leurs appuis simulés.](docs/validation/painted-walkers-v0153/walkers-common-scale.png)
+
+*Banc Canvas du chemin de rendu ordinaire, à 1,55 pixel par unité. Les états initiaux fournissent les vrais pieds ; leur placement dans cette planche sert la comparaison. Il ne s’agit pas d’une capture de navigateur. Les 54 poses, six scènes et six hangars sont documentés dans le [reçu graphique](docs/validation/painted-walkers-v0153/receipt.json).*
+
+Les **96 cellules** sont des pièces et états, sans nouvelle pose complète de marche comptée. Le lot reste **Prototype** : les cycles finaux, changements de hauteur, aptitudes spécialisées et six autres châssis gardent leurs critères ouverts. Les [PNG, ancres et prompts](assets/painted/walkers/README.md), le [rapport QA](docs/QA_PAINTED_WALKERS.md) et le [complément Bible](docs/BIBLE_V15_3.md) décrivent la livraison.
+
 ## 0.15.2 — Les acteurs et véhicules peints
 
 Le fusilier, le tireur de précision, le lance-roquettes et une silhouette civile disposent chacun d’une planche de douze cellules, dont huit poses de marche. Le buggy, le patin, le drone, la tourelle et le convoi reçoivent chacun six cellules de corps, états et pièces. **60 cellules sont employées dans le rendu ; 18 restent des références.** Les effectifs, les factions, les pertes et les arrivées restent ceux de chaque mission.
@@ -75,7 +88,7 @@ Les sept armes ennemies sont dessinées séparément. Leur pivot, leur visée et
 
 *Banc Canvas du renderer ordinaire, à l’échelle ×2. Les personnages et véhicules sont placés pour la comparaison ; cette planche n’est pas une capture de partie ni un essai navigateur. Les cinq scènes simulées et leurs empreintes figurent dans le [reçu graphique](docs/validation/painted-combat-v0152/receipt.json).*
 
-Le lot reste **Prototype**. Les variantes de faction, la diversité des civils, les rechargements, redditions et animations finales, les marcheurs peints articulés et les autres biomes restent ouverts. Les [PNG et leur manifeste](assets/painted/combat/README.md) conservent les prompts, les dimensions, les ancres et l’usage exact de chaque cellule. Les **697 tests de simulation et d’intégration** passent ; leur portée et les autres contrôles sont détaillés dans le [rapport QA](docs/QA_PAINTED_COMBAT.md).
+Le lot reste **Prototype**. Les variantes de faction, la diversité des civils, les rechargements, redditions, animations finales et les autres biomes restent ouverts. Les marcheurs reçoivent leurs pièces peintes dans la tranche 0.15.3 ci-dessus. Les [PNG et leur manifeste](assets/painted/combat/README.md) conservent les prompts, les dimensions, les ancres et l’usage exact de chaque cellule. Les **697 tests de simulation et d’intégration** passent ; leur portée et les autres contrôles sont détaillés dans le [rapport QA](docs/QA_PAINTED_COMBAT.md).
 
 ## 0.15.1 — Les sprites peints de l’atelier
 

@@ -22,6 +22,8 @@ jobs:
         run: npm run check:painted
       - name: Decode and validate the painted combat sprites
         run: npm run check:combat
+      - name: Decode and validate the painted walker parts
+        run: npm run check:walkers
       - run: npm run check
       - run: npm run build
       - run: npm run check:ui

@@ -1,5 +1,6 @@
 import { terrainAt, radiatorBounds, channelSurfaceAt, departureGateBounds, departureWindow } from './simulation.mjs';
 import { drawProductionPart, productionLegPose } from './production-assets.mjs';
+import { drawPaintedWalkerPart, isPaintedWalkerPartReady } from './painted-walkers.mjs';
 import { drawLivingRouteSite, drawLivingRouteActors, drawLivingRouteLabels } from './thyr-renderer.mjs';
 import { drawChemicalSite, drawChemicalLabels } from './chemical-renderer.mjs';
 import { drawVoiceSite, drawVoiceActor, drawVoiceLabels } from './voice-renderer.mjs';
@@ -55,15 +56,26 @@ function strut(c, ax, ay, bx, by, width, back = false) {
   c.restore();
 }
 
+// Keep production-assets independent from image loading and retain its exact
+// SVG/Canvas geometry. Only the six explicitly identified playable rigs opt in.
+function drawWalkerPart(c, options) {
+  return drawPaintedWalkerPart(c, options) || drawProductionPart(c, options);
+}
+
 function drawLeg(c, p, walker, f, back) {
   const pose = productionLegPose(p, walker, f), [hx, hy] = pose.hip, [kx, ky] = pose.knee;
   const thickness = walker.legs === 2 ? 23 : 18, state = f.health < 45 ? 'damaged' : p.braced ? 'braced' : 'normal';
-  // Shared SVG/Canvas plates use the existing physical pivots and contact.
-  // The hydraulic links remain attached to the same IK, never to painted feet.
-  line(c, hx + 9, hy, kx + 10, ky, '#152123', thickness + 7);
-  line(c, kx + 10, ky, f.x + 8, f.y - 6, '#152123', thickness + 5);
+  // Painted plates already include their mechanical body. The old thick offset
+  // underlays only support vector parts; keeping them behind the PNGs creates
+  // detached dark bars and extends them below the true soles. Real hydraulic
+  // links below remain attached to exactly the existing IK in both renderers.
+  const canPaint = typeof c.drawImage === 'function';
+  if (!canPaint || !isPaintedWalkerPartReady({ walkerId: walker.id, part: 'upper', state }))
+    line(c, hx + 9, hy, kx + 10, ky, '#152123', thickness + 7);
+  if (!canPaint || !isPaintedWalkerPartReady({ walkerId: walker.id, part: 'lower', state }))
+    line(c, kx + 10, ky, f.x + 8, f.y - 6, '#152123', thickness + 5);
   for (const [part, start, end, height] of [['upper', pose.hip, pose.knee, thickness], ['lower', pose.knee, pose.ankle, thickness * .7]]) {
-    drawProductionPart(c, { walkerId: walker.id, part, x: start[0], y: start[1],
+    drawWalkerPart(c, { walkerId: walker.id, part, x: start[0], y: start[1],
       width: Math.hypot(end[0] - start[0], end[1] - start[1]), height,
       rotation: Math.atan2(end[1] - start[1], end[0] - start[0]), back, state });
   }
@@ -72,17 +84,17 @@ function drawLeg(c, p, walker, f, back) {
   line(c, hx + ox, hy + 12, kx + ox, ky + 9, back ? '#667377' : '#c6c9bd', 4);
   line(c, kx + ox, ky + 9, mix(kx, f.x, .3) + ox, mix(ky, f.y, .3), '#48595b', 6);
   for (const [part, x, y, scale] of [['hip', hx, hy, 1.24], ['knee', kx, ky, 1.3]])
-    drawProductionPart(c, { walkerId: walker.id, part, x, y, width: thickness * scale, height: thickness * scale, back, state });
-  drawProductionPart(c, { walkerId: walker.id, part: 'foot', x: f.x, y: f.y, back, state });
+    drawWalkerPart(c, { walkerId: walker.id, part, x, y, width: thickness * scale, height: thickness * scale, back, state });
+  drawWalkerPart(c, { walkerId: walker.id, part: 'foot', x: f.x, y: f.y, back, state });
 }
 
-function drawWalker(c, p, walker, t, options = {}) {
+export function drawWalker(c, p, walker, t, options = {}) {
   c.save();
   for (const f of p.feet.filter(f => f.side === 'back')) drawLeg(c, p, walker, f, true);
-  drawProductionPart(c, { walkerId: walker.id, part: 'hull', x: p.x, y: p.y, width: p.width, height: p.height,
+  drawWalkerPart(c, { walkerId: walker.id, part: 'hull', x: p.x, y: p.y, width: p.width, height: p.height,
     facing: p.facing || 1, state: p.hull / p.maxHull < .45 ? 'damaged' : p.braced ? 'braced' : 'normal' });
   for (const f of p.feet.filter(f => f.side !== 'back')) drawLeg(c, p, walker, f, false);
-  drawProductionPart(c, { walkerId: walker.id, part: 'turret', x: p.x + 9, y: p.y + 8, rotation: p.aimAngle || 0 });
+  drawWalkerPart(c, { walkerId: walker.id, part: 'turret', x: p.x + 9, y: p.y + 8, rotation: p.aimAngle || 0 });
   if (p.fireCooldown > .1 && !options.hangar) {
     const barrel = walker.legs === 4 ? 105 : walker.legs === 6 ? 94 : 85;
     c.save(); c.translate(p.x + 9, p.y + 8); c.rotate(p.aimAngle || 0);
@@ -960,7 +972,7 @@ export class Renderer {
     const c = this.ctx, part = s.player.radiator, box = radiatorBounds(s);
     c.save(); c.translate(box.x, box.y);
     // Shared fins keep the authoritative radiator bounds used by projectiles.
-    drawProductionPart(c, { walkerId: s.walkerId, part: 'radiator', x: 0, y: 0, width: box.w, height: box.h,
+    drawWalkerPart(c, { walkerId: s.walkerId, part: 'radiator', x: 0, y: 0, width: box.w, height: box.h,
       state: part.repairing ? 'repairing' : part.health < 50 ? 'damaged' : part.repairKits < part.maxRepairKits ? 'repaired' : 'normal',
       progress: part.repairProgress });
     if (part.repairing) {

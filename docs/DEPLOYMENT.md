@@ -1,5 +1,11 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Préparation de publication 0.15.3
+
+La tranche locale du 16 novembre 2026 ajoute six atlas de pièces peintes pour les six marcheurs existants : 96 cellules, soit 23 atlas et 228 cellules au total. Le [rapport QA](QA_PAINTED_WALKERS.md) reçoit 706 tests, 108 parcours du DOM modélisé, 174 cas SVG/Canvas et les trois lots de PNG. Les 19 vues de marcheurs chargent les 23 atlas ; la Bible garde 1007 fiches et ses statuts.
+
+L’HTML autonome pèse **61 591 567 octets**, 39 modules, SHA-256 **706d5593a1cd0dabafdc04e2d01fe34ea9e5dccf163c69a669d6bebfe6fd68f3**. Le parent distant vérifié avant cette tranche est `8209a74284b9e5a9be4cfbf590c6ea2fdaac5f34`. Ce paragraphe reçoit la construction locale avant publication ; la PR, sa CI et le déploiement doivent être rapprochés du snapshot exact dans un nouveau reçu. Le compte rendu 0.15.2 ci-dessous demeure historique.
+
 ## Publication 0.15.2 accomplie
 
 La [PR #2](https://github.com/darknigthmare/ImperiumMarch/pull/2) est fusionnée sur `main` au commit **`6c788a3431a3738be69a61065c0facc64379279b`**. Son arbre **`b2f66472b6e0c433a1ac92e0d1613e0ecdb2967a`** correspond exactement au snapshot local testé **`ca1f7be61af356d6a4cf7236b6bf7ba288774ba1`**. La publication réunit la reconstruction de MI12–MI13, MI14, les huit atlas de l’atelier et les neuf atlas de combat. Contre l’ancien `main`, elle contient **584 ajouts, 40 modifications et aucune suppression**.
