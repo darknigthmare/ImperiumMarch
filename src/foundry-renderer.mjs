@@ -1,6 +1,7 @@
 /** Kharon rendering follows actual bodies, contacts, transfers and thermal clocks. */
 import { terrainAt, foundrySurfaceAt } from './simulation.mjs';
 import { drawFoundryAsset } from './foundry-assets.mjs';
+import { drawPaintedIndustrialCarrier, drawPaintedIndustrialCargo } from './painted-transport.mjs';
 const pct = n => Math.round((n || 0) * 100);
 function line(c, x1, y1, x2, y2, color, width = 1) { c.beginPath(); c.moveTo(x1, y1); c.lineTo(x2, y2); c.strokeStyle = color; c.lineWidth = width; c.stroke(); }
 function label(c, value, x, y, size = 10, color = '#d9d2b2', max = 450) { c.font = `500 ${size}px "IBM Plex Mono", "Courier New", monospace`; c.fillStyle = color; c.textAlign = 'center'; c.fillText(value, x, y, max); }
@@ -93,6 +94,7 @@ export function drawFoundrySite(renderer, s, t = s.elapsed) {
 export function drawFoundryCarrier(renderer, s) {
   const c = renderer.ctx, d = s.foundry, carrier = d.carrier;
   if (renderer.visible(carrier.x, 330)) {
+    if (!drawPaintedIndustrialCarrier(c, carrier, { reducedMotion: renderer.combatReducedMotion === true })) {
     for (const wheel of carrier.wheels) {
       line(c, wheel.x, carrier.y + 15, wheel.x, wheel.y, '#354a51', 6);
       c.beginPath(); c.arc(wheel.x, wheel.y, wheel.radius, 0, Math.PI * 2); c.fillStyle = '#24383f'; c.fill(); c.strokeStyle = '#b6baa3'; c.lineWidth = 2; c.stroke();
@@ -102,6 +104,7 @@ export function drawFoundryCarrier(renderer, s) {
     }
     drawFoundryAsset(c, { part: 'industrial-carrier', state: carrier.destroyed ? 'destroyed' : carrier.hp < carrier.maxHp * .6 ? 'damaged' : carrier.speed > 0 ? 'moving' : 'parked', wheels: false,
       x: carrier.x, y: carrier.y + 50, width: carrier.w, height: 100 });
+    }
     label(c, `PORTEUR INDUSTRIEL · ${carrier.destroyed ? 'PERDU' : `${Math.round(carrier.hp / carrier.maxHp * 100)} %`}`, carrier.x, carrier.y - 145, 10);
     work(c, carrier.release, carrier.x, carrier.y - 133); hp(c, carrier);
     const m = d.manifest;
@@ -111,7 +114,7 @@ export function drawFoundryCarrier(renderer, s) {
   }
   for (const [i, cargo] of d.cargo.entries()) {
     if (!renderer.visible(cargo.x, 150)) continue;
-    drawFoundryAsset(c, { part: 'serial-cargo', state: cargoState(cargo), x: cargo.x, y: cargo.y + cargo.h / 2, width: cargo.w, height: cargo.h });
+    if (!drawPaintedIndustrialCargo(c, cargo)) drawFoundryAsset(c, { part: 'serial-cargo', state: cargoState(cargo), x: cargo.x, y: cargo.y + cargo.h / 2, width: cargo.w, height: cargo.h });
     label(c, `CAISSE ${i + 1} · ${cargoIntegrity(cargo)}`, cargo.x, cargo.y - cargo.h / 2 - 30, 8);
     label(c, cargo.transferred ? 'TRANSFERT ACQUIS' : cargo.markingCopied ? 'MARQUAGE CONSERVÉ' : cargo.inspected ? 'CONSTAT SANS MARQUAGE' : 'MARQUAGE À RELEVER', cargo.x, cargo.y - cargo.h / 2 - 18, 7, '#b6c4b2', 150);
     work(c, cargo.marking.working ? cargo.marking : cargo.transfer, cargo.x, cargo.y - cargo.h / 2 - 10); hp(c, cargo);

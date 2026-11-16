@@ -1,7 +1,11 @@
 /** MI09 drawing only. All objects, contacts and outcomes come from the live state. */
 import { terrainAt, livingRouteSurfaceAt } from './simulation.mjs';
-import { drawThyrAsset } from './thyr-assets.mjs';
+import { drawThyrAsset as drawVectorThyrAsset } from './thyr-assets.mjs';
+import { drawPaintedThyrPart, paintedThyrAttachmentPoints } from './painted-thyr.mjs';
 import { drawProductionPart } from './production-assets.mjs';
+
+// Original SVG/Canvas geometry remains unchanged and is the per-asset fallback.
+const drawThyrAsset = (ctx, options) => drawPaintedThyrPart(ctx, options) || drawVectorThyrAsset(ctx, options);
 
 const percent = v => Math.round((v || 0) * 100);
 const damageState = o => o.destroyed ? 'destroyed' : o.hp < o.maxHp * .6 ? 'damaged' : 'normal';
@@ -29,19 +33,23 @@ export function drawLivingRouteSite(renderer, s, t) {
     for (const x of [from, to]) { const y = terrainAt(x, s.planetId); line(c, x, y, x, y - 49, kind === 'orchard' ? '#b6c393' : '#86997a', 4); line(c, x - 9, y - 43, x + 9, y - 43, kind === 'orchard' ? '#d7d8a6' : '#a3a88a', 3); }
     label(c, kind === 'orchard' ? 'VERGERS SYMBIOTIQUES · PASSAGE TRADITIONNEL' : 'ZONE D’EXCLUSION · HORS DES CULTURES', (from + to) / 2, terrainAt((from + to) / 2, s.planetId) - 126, 10, kind === 'orchard' ? '#d1dfa9' : '#c4ba8e');
   }
-  for (const column of r.columns) {
+  for (const [variant, column] of r.columns.entries()) {
     if (!renderer.visible(column.x, 280)) continue;
     const base = column.y + column.h / 2;
-    drawThyrAsset(c, { part: 'column', state: damageState(column), x: column.x, y: base, scale: column.h / 470 });
-    if (!column.destroyed) drawThyrAsset(c, { part: 'breathing-vine', x: column.x + 54, y: base - 110, scale: .8, progress: (t * .12) % 1 });
+    drawThyrAsset(c, { part: 'column', state: damageState(column), x: column.x, y: base, scale: column.h / 470, variant });
+    if (!column.destroyed) drawThyrAsset(c, { part: 'breathing-vine', x: column.x + 18, y: base - 110, scale: .8, progress: (t * .12) % 1, reducedMotion: renderer.combatReducedMotion });
     health(c, column);
   }
   for (const home of r.homes) {
     if (!renderer.visible(home.x, 200)) continue;
     const column = r.columns.find(o => o.id === home.columnId);
-    if (!home.destroyed && column && !column.destroyed) line(c, column.x, column.y - column.h / 2 + 48, home.x + 50, home.y - home.h / 2 - 39, '#9aaf7c', 2);
     const homeBase = home.destroyed ? terrainAt(home.x, s.planetId) : home.y + home.h / 2;
-    drawThyrAsset(c, { part: 'suspended-home', state: damageState(home), x: home.x, y: homeBase, width: home.w, height: home.h });
+    const homeOptions = { part: 'suspended-home', state: damageState(home), x: home.x, y: homeBase, width: home.w, height: home.h };
+    if (!home.destroyed && column && !column.destroyed) {
+      const attachments = paintedThyrAttachmentPoints(homeOptions) || [[home.x + 50, home.y - home.h / 2 - 39]];
+      for (const point of attachments) line(c, column.x, column.y - column.h / 2 + 48, ...point, '#9aaf7c', 2);
+    }
+    drawThyrAsset(c, homeOptions);
     label(c, home.destroyed ? 'HABITAT EFFONDRÉ' : home.habitable ? 'HABITAT SUSPENDU' : 'HABITAT FRAGILISÉ', home.x, home.destroyed ? homeBase - 62 : home.y - home.h / 2 - 55, 9, home.destroyed ? '#c9a286' : '#c4d5ad');
     health(c, home, 48);
   }
@@ -49,13 +57,17 @@ export function drawLivingRouteSite(renderer, s, t) {
     if (!renderer.visible(root.x, 240)) continue;
     // Art is anchored at the root; the exposed contact edge is sampled from
     // the same curved surface as the feet, including the underlying terrain.
-    drawThyrAsset(c, { part: 'root', state: damageState(root), x: root.x, y: root.y + root.h / 2, scale: root.w / 340 });
-    if (!root.destroyed) {
+    const rootOptions = { part: 'root', state: damageState(root), x: root.x, y: root.y + root.h / 2, scale: root.w / 340 };
+    if (root.destroyed) drawThyrAsset(c, rootOptions);
+    else {
       const from = root.x - root.w / 2, to = root.x + root.w / 2;
       c.beginPath(); c.moveTo(from, terrainAt(from, s.planetId));
       for (let x = from; x <= to; x += 5) c.lineTo(x, livingRouteSurfaceAt(s, x).groundY);
       for (let x = to; x >= from; x -= 5) c.lineTo(x, terrainAt(x, s.planetId) + 3);
       c.closePath(); c.fillStyle = '#6f8758'; c.fill();
+      // Preserve the exact physical surface while showing the painted root's
+      // texture. The clip prevents a sprite edge from suggesting a false step.
+      c.save(); c.clip(); drawThyrAsset(c, rootOptions); c.restore();
       c.beginPath(); c.moveTo(from, livingRouteSurfaceAt(s, from).groundY);
       for (let x = from + 5; x <= to; x += 5) c.lineTo(x, livingRouteSurfaceAt(s, x).groundY);
       c.strokeStyle = '#d1cf94'; c.lineWidth = 1.6; c.stroke();
@@ -64,7 +76,7 @@ export function drawLivingRouteSite(renderer, s, t) {
   for (const fan of r.pollinators) {
     if (!renderer.visible(fan.x, 140)) continue;
     const phase = fan.phase === 'flying' ? 'dispersed' : fan.phase === 'lost' ? 'lost' : 'settled';
-    drawThyrAsset(c, { part: 'fan-colony', state: phase, x: fan.x, y: fan.y + fan.h / 2, scale: fan.w / 112, progress: (t * .3) % 1 });
+    drawThyrAsset(c, { part: 'fan-colony', state: phase, x: fan.x, y: fan.y + fan.h / 2, scale: fan.w / 112, progress: (t * .3) % 1, reducedMotion: renderer.combatReducedMotion });
   }
   const b = r.barrier;
   if (renderer.visible(b.x, 220)) {
@@ -96,7 +108,7 @@ export function drawLivingRouteSite(renderer, s, t) {
   }
   for (const x of [975, 1540, 3040, 3860, 4490, 5000]) if (renderer.visible(x, 90)) {
     const nearby = r.migrators.some(a => a.moving && Math.abs(a.x - x) < 350);
-    drawThyrAsset(c, { part: 'echo-grass', state: nearby ? 'moving' : 'calm', x, y: terrainAt(x, s.planetId) + 8, scale: .65, progress: (t * .5) % 1 });
+    drawThyrAsset(c, { part: 'echo-grass', state: nearby ? 'moving' : 'calm', x, y: terrainAt(x, s.planetId) + 8, scale: .65, progress: (t * .5) % 1, reducedMotion: renderer.combatReducedMotion });
   }
   if (r.approach.prepared) for (const x of [1000, 1450, 3320, 3820]) if (renderer.visible(x, 80))
     drawThyrAsset(c, { part: 'route-marker', state: r.approach.kind === 'guided' ? 'local' : 'imperial', x, y: terrainAt(x, s.planetId), scale: .7 });
@@ -107,7 +119,8 @@ export function drawLivingRouteActors(renderer, s, t) {
   for (const animal of r.migrators) {
     if (!renderer.visible(animal.x, 120)) continue;
     const state = animal.destroyed ? 'dead' : animal.moving ? 'moving' : animal.phase === 'arrived' ? 'arrived' : animal.phase === 'displaced' ? 'diverted' : 'waiting';
-    drawThyrAsset(c, { part: `longuedorse-${animal.age}`, state, x: animal.x, y: animal.y + animal.h / 2, width: animal.w, height: animal.h, facing: animal.targetX < animal.x ? -1 : 1, progress: (t * .8 + animal.x * .003) % 1 });
+    drawThyrAsset(c, { part: `longuedorse-${animal.age}`, state, x: animal.x, y: animal.y + animal.h / 2, width: animal.w, height: animal.h, facing: animal.targetX < animal.x ? -1 : 1, progress: (t * .8 + animal.x * .003) % 1,
+      entity: animal, time: s.elapsed, reducedMotion: renderer.combatReducedMotion });
     health(c, animal, 40);
     if (animal.flash > 0) { c.strokeStyle = '#d9c397'; c.lineWidth = 1.5; c.strokeRect(animal.x - animal.w / 2 - 3, animal.y - animal.h / 2 - 3, animal.w + 6, animal.h + 6); }
   }

@@ -1,0 +1,205 @@
+{
+  "version": "0.15.5",
+  "date": "2026-11-16",
+  "localRuntime": "Node 24.22.1",
+  "suite": {
+    "tests": 745,
+    "passed": 745,
+    "failed": 0,
+    "skipped": 0
+  },
+  "modeledDOMFlows": 108,
+  "svgCanvasCases": 174,
+  "paintedAtlases": 45,
+  "paintedCells": 386,
+  "newAtlases": 13,
+  "newCells": 80,
+  "newRuntimeCells": 77,
+  "newReferenceCells": 3,
+  "newCanvasViews": 19,
+  "modules": 50,
+  "bibleRows": 1007,
+  "bibleTabs": 21,
+  "bibleFormulas": 126,
+  "nativeBrowserExecutedByTheseGates": false,
+  "humanPlaytestPerformed": false,
+  "gates": [
+    {
+      "name": "npm-test",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exitCode": 0,
+      "seconds": 41.94
+    },
+    {
+      "name": "build-offline",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "seconds": 6.69
+    },
+    {
+      "name": "check-ui",
+      "command": [
+        "npm",
+        "run",
+        "check:ui"
+      ],
+      "exitCode": 0,
+      "seconds": 1.08
+    },
+    {
+      "name": "check-ui-runtime",
+      "command": [
+        "npm",
+        "run",
+        "check:ui-runtime"
+      ],
+      "exitCode": 0,
+      "seconds": 126.33
+    },
+    {
+      "name": "build-web",
+      "command": [
+        "npm",
+        "run",
+        "build:web"
+      ],
+      "exitCode": 0,
+      "seconds": 0.67
+    },
+    {
+      "name": "assets-render",
+      "command": [
+        "npm",
+        "run",
+        "check:assets-render"
+      ],
+      "exitCode": 0,
+      "seconds": 2.59
+    },
+    {
+      "name": "painted-mi14",
+      "command": [
+        "npm",
+        "run",
+        "check:painted",
+        "--",
+        "docs/validation/release-v0155/mi14"
+      ],
+      "exitCode": 0,
+      "seconds": 3.66
+    },
+    {
+      "name": "painted-combat",
+      "command": [
+        "npm",
+        "run",
+        "check:combat",
+        "--",
+        "docs/validation/release-v0155/combat"
+      ],
+      "exitCode": 0,
+      "seconds": 1.75
+    },
+    {
+      "name": "painted-walkers",
+      "command": [
+        "npm",
+        "run",
+        "check:walkers",
+        "--",
+        "docs/validation/release-v0155/walkers"
+      ],
+      "exitCode": 0,
+      "seconds": 4.6
+    },
+    {
+      "name": "painted-thyr",
+      "command": [
+        "npm",
+        "run",
+        "check:thyr",
+        "--",
+        "docs/validation/release-v0155/thyr"
+      ],
+      "exitCode": 0,
+      "seconds": 2.1
+    },
+    {
+      "name": "painted-cerbere",
+      "command": [
+        "npm",
+        "run",
+        "check:cerbere",
+        "--",
+        "docs/validation/release-v0155/cerbere"
+      ],
+      "exitCode": 0,
+      "seconds": 1.04
+    },
+    {
+      "name": "painted-transport",
+      "command": [
+        "npm",
+        "run",
+        "check:transport",
+        "--",
+        "docs/validation/painted-transport-v0155"
+      ],
+      "exitCode": 0,
+      "seconds": 3.01
+    },
+    {
+      "name": "painted-relay",
+      "command": [
+        "npm",
+        "run",
+        "check:relay",
+        "--",
+        "docs/validation/painted-relay-v0155"
+      ],
+      "exitCode": 0,
+      "seconds": 2.73
+    },
+    {
+      "name": "painted-nacre",
+      "command": [
+        "npm",
+        "run",
+        "check:nacre",
+        "--",
+        "docs/validation/painted-nacre-v0155"
+      ],
+      "exitCode": 0,
+      "seconds": 1.6
+    }
+  ],
+  "offline": {
+    "format": "Ordre de Cendre standalone ZIP32, one UTF-8 file",
+    "entry": "Ordre_de_Cendre.html",
+    "html": {
+      "file": "dist/Ordre_de_Cendre.html",
+      "bytes": 111037952,
+      "sha256": "bf5151bdffec8653387e1328ca2917071f5cf4870a03c9bf2fbff307364a4ba1",
+      "crc32": "92c5bde5"
+    },
+    "zip": {
+      "file": "dist/Ordre_de_Cendre.zip",
+      "bytes": 81013964,
+      "sha256": "537a123f46e21bac5a79a4b866bc34a974ffab9ae06d904291019351375d6c75",
+      "entries": 1,
+      "compressedBytes": 81013826,
+      "method": "deflate",
+      "level": 9,
+      "timestamp": "1980-01-01T00:00:00Z"
+    },
+    "fidelity": "The single ZIP entry is byte-for-byte identical to the locally generated HTML, including every embedded PNG and all gameplay code.",
+    "reproducibility": "ZIP bytes are deterministic for identical HTML and zlib implementation. Cross-runtime verification compares the extracted HTML SHA-256; compressed bytes may vary between zlib versions."
+  }
+}

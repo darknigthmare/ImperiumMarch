@@ -15,7 +15,7 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - La simulation dans `src/simulation.mjs` reste sans DOM, testable et déterministe à graine/entrées identiques.
 - Les contacts de pieds et les collisions viennent de la simulation ; le rendu ne doit pas les inventer indépendamment.
 - Préserver les contrôles AZERTY/QWERTY, la pause, les états victoire/défaite et l’absence de requêtes réseau dans le jeu autonome.
-- Reconstruire `dist/Ordre_de_Cendre.html` après tout changement de code, de style ou d’asset : `npm run build`.
+- Reconstruire `dist/Ordre_de_Cendre.html` et son édition distribuée `dist/Ordre_de_Cendre.zip` après tout changement de code, de style ou d’asset : `npm run build`. Depuis 0.15.5, le HTML dépasse 100 Mio et reste généré localement ; le ZIP, qui contient exactement cet HTML, est suivi dans Git.
 - Après modification d’une règle de gameplay : `npm test`. Après changement du contenu ou de livraison : `npm run check`. Après reconstruction autonome : `npm run check:ui`.
 - Après modification des transitions UI/campagne : reconstruire puis lancer `npm run check:ui-runtime`. Ce test exécute les gestionnaires dans un modèle de DOM, pas dans un navigateur. La suite optionnelle `npm run test:browser` reste séparée.
 - Le classeur se reconstruit avec `tools/build-bible.mjs` selon `docs/BIBLE_README.md`. Employer le skill Spreadsheets lorsqu’il est disponible.
@@ -163,3 +163,25 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - Le canon pivote toujours à `[p.x+9,p.y+8]`, indépendamment du miroir de coque. Les bouches physiques sont à 92/112/101 unités selon 2/4/6 appuis. Les corrections optiques ne changent ni le tir ni sa dispersion.
 - Le radiateur peint garde `radiatorBounds` ; ses trois états statiques sont peints, les impacts et réparations progressives restent vectoriels. Les mêmes cellules lointaines sont assombries au rendu, sans inventer un second lot d’images.
 - `npm run check:walkers` décode les vrais PNG et reçoit 96 cellules, 54 poses et 19 vues Canvas. La réception navigateur et l’essai humain gardent leur portée séparée. Ne pas réécrire les preuves antérieures. Les 1007 IDs, 133 critères initiaux, 21 onglets et statuts de Bible sont conservés.
+
+## Cerbère et vie de Thyr — 0.15.4
+
+- Neuf PNG originaux ajoutent 78 cellules, dont 69 adressables au rendu et neuf références. Le total peint atteint 32 atlas et 306 cellules. Les PNG restent inchangés; les indexeurs produisent seulement les métadonnées.
+- Les rangées de `assets/painted/thyr/habitat.png` sont inégales (0, 500, 724). Utiliser les rectangles `cell` et les points de suspension mesurés, jamais une grille régulière supposée. Les masques alpha locaux restent immuables pendant l'indexation; sérialiser leurs coordonnées absolues séparément.
+- Thyr et Leth habillent les objets déjà présents. Les wrappers des renderers conservent les exports vectoriels historiques. Les poses suivent déplacements, états, consentements et pertes réels; les historiques d'animation restent hors sauvegarde. Le Guetteur-racine mort, l'herbe aplatie et les deux outils séparés de Leth sont des références.
+- Les racines gardent le contour de `livingRouteSurfaceAt`, les cordes rejoignent le support existant et la vigne décorative reste attachée au tronc. Aucun nouvel appui, habitant ou système écologique n'est ajouté.
+- Cerbère utilise son propre atlas et `cerbere-weapon-pose.mjs`, commun au tir, au télégraphe et au canon. La bouche historique à `w/2` et les règles de projectile sont conservées. Les jambes du boss restent un rig de présentation, sans contacts individuels simulés; leur cheville peinte rejoint la chaussure proportionnée, sans changer les contacts des six marcheurs joueurs.
+- Les dégâts/réparations locales du boss restent références tant que leur simulation n'existe pas. Un atlas ne permet pas d'inventer une santé de composant ou un corps persistant.
+- Après modification de ces lots : `npm run check:thyr` et `npm run check:cerbere`, puis reconstruction autonome et contrôles UI requis. Une réception Canvas ou du DOM modélisé ne clôture pas les critères navigateur/humains. Conserver les preuves historiques et les 1007 IDs/statuts de Bible.
+
+
+## Transports, Nacre et troisième relais — 0.15.5
+
+- Treize PNG originaux ajoutent 80 cellules : transport 4 atlas / 20 cellules, Nacre 6 / 30, relais 3 / 30. Le nouveau lot comprend 77 cellules de rendu et trois références. Le total historique est 45 atlas / 386 cellules. Conserver les originaux ; les indexeurs ne produisent que métadonnées et manifestes.
+- Les cellules de locomotive et de porteur ne contiennent pas leurs roues. Dessiner les roues séparées une seule fois, aux positions de présentation ferroviaire ou aux contacts simulés du porteur. Les attelages de MI02 rejoignent les ancres mesurées ; le repli vectoriel conserve sa géométrie. Les captifs visibles et les barreaux ne sont pas prépeints et suivent les faits de MI02.
+- La cabine basse du porteur reste sous le plateau qui porte les deux caisses. Les caisses suivent leurs propres positions, pertes, copies et transferts. Ne jamais déplacer un collider ou un chargement pour masquer un défaut d’image.
+- Les coques de Nacre ne contiennent pas de personnes peintes. Les groupes, consentements, embarquements, arrivées et pertes restent simulés. La balise récupérée est une référence et disparaît de l’ambulance ; elle ne devient pas un objet visible à bord du marcheur. La caisse médicale possède son état propre.
+- Le canon du Prétoire rejoint la bouche physique à [p.x + facing × 115, p.y − 10]. Le capteur et le verrou suivent leur santé simulée. Canon endommagé et cassette isolée restent références ; ne pas leur inventer de santé ou de présence. Le Prétoire absent avant l’alerte reste absent du rendu.
+- `painted-transport.mjs`, `painted-nacre.mjs` et `painted-relay.mjs` restent hors simulation et hors sauvegarde. Les wrappers conservent le repli vectoriel, les exports historiques et la réduction des mouvements. Aucun champ graphique n’est ajouté au dossier v14.
+- Après changement, exécuter `check:transport`, `check:nacre`, `check:relay` et les contrôles requis de construction et d’interface. Les scènes Nacre sont des diagnostics caméra ; les scènes MI02/MI12/MI13 déclarées publiques doivent rester produites par commandes publiques. Conserver cette distinction dans les reçus et les futurs comptes rendus.
+- Le ZIP hors ligne possède une seule entrée, `Ordre_de_Cendre.html`, dont les octets doivent correspondre au build local. Vérifier CRC et SHA-256 après extraction. Les PNG ne doivent pas être recompressés ou réduits pour satisfaire une limite de transfert.

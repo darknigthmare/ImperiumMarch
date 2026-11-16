@@ -1,0 +1,1666 @@
+{
+  "schema": 1,
+  "version": "0.15.4",
+  "date": "2026-11-16",
+  "title": "Vie de Thyr — faune, flore, habitats et Leth",
+  "generator": "image_gen.imagegen (built-in)",
+  "indexer": "tools/index-painted-thyr.py",
+  "runtime": "src/painted-thyr.mjs",
+  "layout": "src/painted-thyr-layout.mjs",
+  "atlases": 8,
+  "cells": 62,
+  "runtimeCells": 58,
+  "referenceCells": 4,
+  "walkPoses": 16,
+  "files": [
+    {
+      "key": "longuedorse-adult",
+      "path": "assets/painted/thyr/longuedorse-adult.png",
+      "size": [
+        1774,
+        887
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "rowEdges": [
+        0,
+        444,
+        887
+      ],
+      "ids": [
+        "FU07"
+      ],
+      "sha256": "62116c864b90a8f9268368843711a1ab99b7262f5816a21a39d7cc0b4ed03465",
+      "bytes": 2128641,
+      "frames": 8,
+      "cells": [
+        {
+          "name": "waiting",
+          "cell": [
+            0,
+            0,
+            444,
+            444
+          ],
+          "source": [
+            16,
+            108,
+            413,
+            248
+          ],
+          "ink": [
+            18,
+            110,
+            409,
+            244
+          ]
+        },
+        {
+          "name": "walk-0",
+          "cell": [
+            444,
+            0,
+            443,
+            444
+          ],
+          "source": [
+            459,
+            108,
+            413,
+            247
+          ],
+          "ink": [
+            461,
+            110,
+            409,
+            243
+          ]
+        },
+        {
+          "name": "walk-1",
+          "cell": [
+            887,
+            0,
+            444,
+            444
+          ],
+          "source": [
+            903,
+            109,
+            413,
+            246
+          ],
+          "ink": [
+            905,
+            111,
+            409,
+            242
+          ]
+        },
+        {
+          "name": "walk-2",
+          "cell": [
+            1331,
+            0,
+            443,
+            444
+          ],
+          "source": [
+            1346,
+            108,
+            416,
+            247
+          ],
+          "ink": [
+            1348,
+            110,
+            412,
+            243
+          ]
+        },
+        {
+          "name": "walk-3",
+          "cell": [
+            0,
+            444,
+            444,
+            443
+          ],
+          "source": [
+            16,
+            552,
+            415,
+            247
+          ],
+          "ink": [
+            18,
+            554,
+            411,
+            243
+          ]
+        },
+        {
+          "name": "arrived",
+          "cell": [
+            444,
+            444,
+            443,
+            443
+          ],
+          "source": [
+            459,
+            555,
+            394,
+            244
+          ],
+          "ink": [
+            461,
+            557,
+            390,
+            240
+          ]
+        },
+        {
+          "name": "diverted",
+          "cell": [
+            887,
+            444,
+            444,
+            443
+          ],
+          "source": [
+            903,
+            532,
+            412,
+            267
+          ],
+          "ink": [
+            905,
+            534,
+            408,
+            263
+          ]
+        },
+        {
+          "name": "dead",
+          "cell": [
+            1331,
+            444,
+            443,
+            443
+          ],
+          "source": [
+            1343,
+            610,
+            425,
+            182
+          ],
+          "ink": [
+            1345,
+            612,
+            421,
+            178
+          ]
+        }
+      ],
+      "runtimeFrames": [
+        "waiting",
+        "walk-0",
+        "walk-1",
+        "walk-2",
+        "walk-3",
+        "arrived",
+        "diverted",
+        "dead"
+      ],
+      "referenceFrames": [],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "fullyTransparentPixels": 301182
+    },
+    {
+      "key": "longuedorse-young",
+      "path": "assets/painted/thyr/longuedorse-young.png",
+      "size": [
+        1774,
+        887
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "rowEdges": [
+        0,
+        444,
+        887
+      ],
+      "ids": [
+        "FU07"
+      ],
+      "sha256": "a330a1b4e7fcc2a440f785d4898c3d9fc6e3766b9ccc0ae5663f6d4da8890b45",
+      "bytes": 1435699,
+      "frames": 8,
+      "cells": [
+        {
+          "name": "waiting",
+          "cell": [
+            0,
+            0,
+            444,
+            444
+          ],
+          "source": [
+            25,
+            98,
+            400,
+            272
+          ],
+          "ink": [
+            27,
+            100,
+            396,
+            268
+          ]
+        },
+        {
+          "name": "walk-0",
+          "cell": [
+            444,
+            0,
+            443,
+            444
+          ],
+          "source": [
+            470,
+            98,
+            399,
+            270
+          ],
+          "ink": [
+            472,
+            100,
+            395,
+            266
+          ]
+        },
+        {
+          "name": "walk-1",
+          "cell": [
+            887,
+            0,
+            444,
+            444
+          ],
+          "source": [
+            914,
+            98,
+            398,
+            271
+          ],
+          "ink": [
+            916,
+            100,
+            394,
+            267
+          ]
+        },
+        {
+          "name": "walk-2",
+          "cell": [
+            1331,
+            0,
+            443,
+            444
+          ],
+          "source": [
+            1359,
+            99,
+            402,
+            270
+          ],
+          "ink": [
+            1361,
+            101,
+            398,
+            266
+          ]
+        },
+        {
+          "name": "walk-3",
+          "cell": [
+            0,
+            444,
+            444,
+            443
+          ],
+          "source": [
+            28,
+            543,
+            402,
+            269
+          ],
+          "ink": [
+            30,
+            545,
+            398,
+            265
+          ]
+        },
+        {
+          "name": "arrived",
+          "cell": [
+            444,
+            444,
+            443,
+            443
+          ],
+          "source": [
+            471,
+            549,
+            375,
+            264
+          ],
+          "ink": [
+            473,
+            551,
+            371,
+            260
+          ]
+        },
+        {
+          "name": "diverted",
+          "cell": [
+            887,
+            444,
+            444,
+            443
+          ],
+          "source": [
+            913,
+            536,
+            401,
+            278
+          ],
+          "ink": [
+            915,
+            538,
+            397,
+            274
+          ]
+        },
+        {
+          "name": "dead",
+          "cell": [
+            1331,
+            444,
+            443,
+            443
+          ],
+          "source": [
+            1344,
+            621,
+            420,
+            189
+          ],
+          "ink": [
+            1346,
+            623,
+            416,
+            185
+          ]
+        }
+      ],
+      "runtimeFrames": [
+        "waiting",
+        "walk-0",
+        "walk-1",
+        "walk-2",
+        "walk-3",
+        "arrived",
+        "diverted",
+        "dead"
+      ],
+      "referenceFrames": [],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "fullyTransparentPixels": 1017551
+    },
+    {
+      "key": "fan-colony",
+      "path": "assets/painted/thyr/fan-colony.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "rowEdges": [
+        0,
+        512,
+        1024
+      ],
+      "ids": [
+        "FU08"
+      ],
+      "sha256": "b7fdeb151c77bdd5f6cc328db1bdcb814e592ccde7bc0378042e2c5413b7df4d",
+      "bytes": 1616506,
+      "frames": 6,
+      "cells": [
+        {
+          "name": "settled",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "source": [
+            16,
+            182,
+            477,
+            195
+          ],
+          "ink": [
+            18,
+            184,
+            473,
+            191
+          ]
+        },
+        {
+          "name": "fly-0",
+          "cell": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "source": [
+            527,
+            139,
+            476,
+            207
+          ],
+          "ink": [
+            529,
+            141,
+            472,
+            203
+          ]
+        },
+        {
+          "name": "fly-1",
+          "cell": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "source": [
+            1052,
+            144,
+            445,
+            199
+          ],
+          "ink": [
+            1054,
+            146,
+            441,
+            195
+          ]
+        },
+        {
+          "name": "fly-2",
+          "cell": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "source": [
+            14,
+            604,
+            483,
+            222
+          ],
+          "ink": [
+            16,
+            606,
+            479,
+            218
+          ]
+        },
+        {
+          "name": "fly-3",
+          "cell": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "source": [
+            540,
+            649,
+            448,
+            197
+          ],
+          "ink": [
+            542,
+            651,
+            444,
+            193
+          ]
+        },
+        {
+          "name": "lost",
+          "cell": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "source": [
+            1055,
+            792,
+            441,
+            80
+          ],
+          "ink": [
+            1057,
+            794,
+            437,
+            76
+          ]
+        }
+      ],
+      "runtimeFrames": [
+        "settled",
+        "fly-0",
+        "fly-1",
+        "fly-2",
+        "fly-3",
+        "lost"
+      ],
+      "referenceFrames": [],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "fullyTransparentPixels": 1131812
+    },
+    {
+      "key": "column",
+      "path": "assets/painted/thyr/column.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "rowEdges": [
+        0,
+        512,
+        1024
+      ],
+      "ids": [
+        "FL07"
+      ],
+      "sha256": "40ac8f273dea5129a5e3227426574c49dcc86ed97ee5ab3d1d2714cbfbf00e2b",
+      "bytes": 1947365,
+      "frames": 6,
+      "cells": [
+        {
+          "name": "normal",
+          "cell": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "source": [
+            16,
+            10,
+            481,
+            487
+          ],
+          "ink": [
+            18,
+            12,
+            477,
+            483
+          ]
+        },
+        {
+          "name": "damaged",
+          "cell": [
+            512,
+            0,
+            512,
+            512
+          ],
+          "source": [
+            527,
+            10,
+            481,
+            487
+          ],
+          "ink": [
+            529,
+            12,
+            477,
+            483
+          ]
+        },
+        {
+          "name": "destroyed",
+          "cell": [
+            1024,
+            0,
+            512,
+            512
+          ],
+          "source": [
+            1108,
+            348,
+            357,
+            150
+          ],
+          "ink": [
+            1110,
+            350,
+            353,
+            146
+          ]
+        },
+        {
+          "name": "normal-alt",
+          "cell": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "source": [
+            18,
+            522,
+            478,
+            488
+          ],
+          "ink": [
+            20,
+            524,
+            474,
+            484
+          ]
+        },
+        {
+          "name": "damaged-alt",
+          "cell": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "source": [
+            528,
+            522,
+            480,
+            488
+          ],
+          "ink": [
+            530,
+            524,
+            476,
+            484
+          ]
+        },
+        {
+          "name": "destroyed-alt",
+          "cell": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "source": [
+            1096,
+            861,
+            356,
+            149
+          ],
+          "ink": [
+            1098,
+            863,
+            352,
+            145
+          ]
+        }
+      ],
+      "runtimeFrames": [
+        "normal",
+        "damaged",
+        "destroyed",
+        "normal-alt",
+        "damaged-alt",
+        "destroyed-alt"
+      ],
+      "referenceFrames": [],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "fullyTransparentPixels": 1122823
+    },
+    {
+      "key": "habitat",
+      "path": "assets/painted/thyr/habitat.png",
+      "size": [
+        2172,
+        724
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "rowEdges": [
+        0,
+        500,
+        724
+      ],
+      "ids": [
+        "PL03",
+        "FL07"
+      ],
+      "sha256": "ca95f9594300a7eeed86b265c667c9eebc3520232ac34f0217989d5bc8e099c6",
+      "bytes": 1195351,
+      "frames": 6,
+      "cells": [
+        {
+          "name": "home-normal",
+          "cell": [
+            0,
+            0,
+            724,
+            500
+          ],
+          "source": [
+            53,
+            10,
+            630,
+            450
+          ],
+          "ink": [
+            55,
+            12,
+            626,
+            446
+          ]
+        },
+        {
+          "name": "home-damaged",
+          "cell": [
+            724,
+            0,
+            724,
+            500
+          ],
+          "source": [
+            777,
+            10,
+            630,
+            450
+          ],
+          "ink": [
+            779,
+            12,
+            626,
+            446
+          ]
+        },
+        {
+          "name": "home-destroyed",
+          "cell": [
+            1448,
+            0,
+            724,
+            500
+          ],
+          "source": [
+            1487,
+            289,
+            645,
+            167
+          ],
+          "ink": [
+            1489,
+            291,
+            641,
+            163
+          ]
+        },
+        {
+          "name": "root-normal",
+          "cell": [
+            0,
+            500,
+            724,
+            224
+          ],
+          "source": [
+            12,
+            610,
+            700,
+            84
+          ],
+          "ink": [
+            14,
+            612,
+            696,
+            80
+          ]
+        },
+        {
+          "name": "root-damaged",
+          "cell": [
+            724,
+            500,
+            724,
+            224
+          ],
+          "source": [
+            736,
+            607,
+            700,
+            88
+          ],
+          "ink": [
+            738,
+            609,
+            696,
+            84
+          ]
+        },
+        {
+          "name": "root-destroyed",
+          "cell": [
+            1448,
+            500,
+            724,
+            224
+          ],
+          "source": [
+            1460,
+            657,
+            701,
+            40
+          ],
+          "ink": [
+            1462,
+            659,
+            697,
+            36
+          ]
+        }
+      ],
+      "runtimeFrames": [
+        "home-normal",
+        "home-damaged",
+        "home-destroyed",
+        "root-normal",
+        "root-damaged",
+        "root-destroyed"
+      ],
+      "referenceFrames": [],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "fullyTransparentPixels": 1083413
+    },
+    {
+      "key": "plants",
+      "path": "assets/painted/thyr/plants.png",
+      "size": [
+        1774,
+        887
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "rowEdges": [
+        0,
+        444,
+        887
+      ],
+      "ids": [
+        "FL08",
+        "FL09"
+      ],
+      "sha256": "46533b07ef49d4aac10a0ba58fca0f8bf4ef319bc59599011fbdd4279397fb05",
+      "bytes": 1124082,
+      "frames": 8,
+      "cells": [
+        {
+          "name": "vine-normal",
+          "cell": [
+            0,
+            0,
+            444,
+            444
+          ],
+          "source": [
+            83,
+            10,
+            292,
+            427
+          ],
+          "ink": [
+            85,
+            12,
+            288,
+            423
+          ]
+        },
+        {
+          "name": "vine-inhale",
+          "cell": [
+            444,
+            0,
+            443,
+            444
+          ],
+          "source": [
+            506,
+            10,
+            337,
+            427
+          ],
+          "ink": [
+            508,
+            12,
+            333,
+            423
+          ]
+        },
+        {
+          "name": "vine-wilted",
+          "cell": [
+            887,
+            0,
+            444,
+            444
+          ],
+          "source": [
+            986,
+            10,
+            264,
+            427
+          ],
+          "ink": [
+            988,
+            12,
+            260,
+            423
+          ]
+        },
+        {
+          "name": "vine-burnt",
+          "cell": [
+            1331,
+            0,
+            443,
+            444
+          ],
+          "source": [
+            1444,
+            10,
+            239,
+            427
+          ],
+          "ink": [
+            1446,
+            12,
+            235,
+            423
+          ]
+        },
+        {
+          "name": "grass-calm",
+          "cell": [
+            0,
+            444,
+            444,
+            443
+          ],
+          "source": [
+            98,
+            509,
+            245,
+            354
+          ],
+          "ink": [
+            100,
+            511,
+            241,
+            350
+          ]
+        },
+        {
+          "name": "grass-left",
+          "cell": [
+            444,
+            444,
+            443,
+            443
+          ],
+          "source": [
+            516,
+            518,
+            274,
+            346
+          ],
+          "ink": [
+            518,
+            520,
+            270,
+            342
+          ]
+        },
+        {
+          "name": "grass-right",
+          "cell": [
+            887,
+            444,
+            444,
+            443
+          ],
+          "source": [
+            973,
+            515,
+            279,
+            348
+          ],
+          "ink": [
+            975,
+            517,
+            275,
+            344
+          ]
+        },
+        {
+          "name": "grass-flattened",
+          "cell": [
+            1331,
+            444,
+            443,
+            443
+          ],
+          "source": [
+            1387,
+            707,
+            333,
+            156
+          ],
+          "ink": [
+            1389,
+            709,
+            329,
+            152
+          ]
+        }
+      ],
+      "runtimeFrames": [
+        "vine-normal",
+        "vine-inhale",
+        "vine-wilted",
+        "vine-burnt",
+        "grass-calm",
+        "grass-left",
+        "grass-right"
+      ],
+      "referenceFrames": [
+        "grass-flattened"
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "fullyTransparentPixels": 1177877
+    },
+    {
+      "key": "leth",
+      "path": "assets/painted/thyr/leth.png",
+      "size": [
+        1774,
+        887
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "rowEdges": [
+        0,
+        444,
+        887
+      ],
+      "ids": [
+        "PN06",
+        "MI11",
+        "FA05"
+      ],
+      "sha256": "f494bcfd2bfdd71cd462e7e8faef73d328d79957263ad4845a762addefdf87c7",
+      "bytes": 910533,
+      "frames": 8,
+      "cells": [
+        {
+          "name": "waiting",
+          "cell": [
+            0,
+            0,
+            444,
+            444
+          ],
+          "source": [
+            137,
+            11,
+            184,
+            423
+          ],
+          "ink": [
+            139,
+            13,
+            180,
+            419
+          ]
+        },
+        {
+          "name": "listening",
+          "cell": [
+            444,
+            0,
+            443,
+            444
+          ],
+          "source": [
+            579,
+            15,
+            187,
+            418
+          ],
+          "ink": [
+            581,
+            17,
+            183,
+            414
+          ]
+        },
+        {
+          "name": "speaking-0",
+          "cell": [
+            887,
+            0,
+            444,
+            444
+          ],
+          "source": [
+            1024,
+            12,
+            183,
+            422
+          ],
+          "ink": [
+            1026,
+            14,
+            179,
+            418
+          ]
+        },
+        {
+          "name": "speaking-1",
+          "cell": [
+            1331,
+            0,
+            443,
+            444
+          ],
+          "source": [
+            1468,
+            12,
+            184,
+            422
+          ],
+          "ink": [
+            1470,
+            14,
+            180,
+            418
+          ]
+        },
+        {
+          "name": "refusing",
+          "cell": [
+            0,
+            444,
+            444,
+            443
+          ],
+          "source": [
+            131,
+            455,
+            196,
+            421
+          ],
+          "ink": [
+            133,
+            457,
+            192,
+            417
+          ]
+        },
+        {
+          "name": "lost",
+          "cell": [
+            444,
+            444,
+            443,
+            443
+          ],
+          "source": [
+            447,
+            636,
+            434,
+            142
+          ],
+          "ink": [
+            449,
+            638,
+            430,
+            138
+          ]
+        },
+        {
+          "name": "recorder",
+          "cell": [
+            887,
+            444,
+            444,
+            443
+          ],
+          "source": [
+            1026,
+            598,
+            165,
+            127
+          ],
+          "ink": [
+            1028,
+            600,
+            161,
+            123
+          ]
+        },
+        {
+          "name": "staff",
+          "cell": [
+            1331,
+            444,
+            443,
+            443
+          ],
+          "source": [
+            1523,
+            457,
+            59,
+            418
+          ],
+          "ink": [
+            1525,
+            459,
+            55,
+            414
+          ]
+        }
+      ],
+      "runtimeFrames": [
+        "waiting",
+        "listening",
+        "speaking-0",
+        "speaking-1",
+        "refusing",
+        "lost"
+      ],
+      "referenceFrames": [
+        "recorder",
+        "staff"
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "fullyTransparentPixels": 1211466
+    },
+    {
+      "key": "rootwatcher",
+      "path": "assets/painted/thyr/rootwatcher.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "grid": [
+        4,
+        3
+      ],
+      "rowEdges": [
+        0,
+        362,
+        724,
+        1086
+      ],
+      "ids": [
+        "FU09",
+        "OP03"
+      ],
+      "sha256": "bc574c19ec74403b32327199dfbdd3a3bd3229b747e0b43103853d0d06571472",
+      "bytes": 1292018,
+      "frames": 12,
+      "cells": [
+        {
+          "name": "idle",
+          "cell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "source": [
+            28,
+            109,
+            299,
+            175
+          ],
+          "ink": [
+            30,
+            111,
+            295,
+            171
+          ]
+        },
+        {
+          "name": "walk-0",
+          "cell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "source": [
+            389,
+            107,
+            298,
+            177
+          ],
+          "ink": [
+            391,
+            109,
+            294,
+            173
+          ]
+        },
+        {
+          "name": "walk-1",
+          "cell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "source": [
+            756,
+            106,
+            296,
+            179
+          ],
+          "ink": [
+            758,
+            108,
+            292,
+            175
+          ]
+        },
+        {
+          "name": "walk-2",
+          "cell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "source": [
+            1121,
+            107,
+            302,
+            177
+          ],
+          "ink": [
+            1123,
+            109,
+            298,
+            173
+          ]
+        },
+        {
+          "name": "walk-3",
+          "cell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "source": [
+            31,
+            469,
+            304,
+            177
+          ],
+          "ink": [
+            33,
+            471,
+            300,
+            173
+          ]
+        },
+        {
+          "name": "walk-4",
+          "cell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "source": [
+            388,
+            468,
+            307,
+            178
+          ],
+          "ink": [
+            390,
+            470,
+            303,
+            174
+          ]
+        },
+        {
+          "name": "walk-5",
+          "cell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "source": [
+            751,
+            472,
+            308,
+            174
+          ],
+          "ink": [
+            753,
+            474,
+            304,
+            170
+          ]
+        },
+        {
+          "name": "walk-6",
+          "cell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "source": [
+            1119,
+            473,
+            304,
+            172
+          ],
+          "ink": [
+            1121,
+            475,
+            300,
+            168
+          ]
+        },
+        {
+          "name": "walk-7",
+          "cell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "source": [
+            28,
+            834,
+            306,
+            174
+          ],
+          "ink": [
+            30,
+            836,
+            302,
+            170
+          ]
+        },
+        {
+          "name": "windup",
+          "cell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "source": [
+            387,
+            844,
+            294,
+            157
+          ],
+          "ink": [
+            389,
+            846,
+            290,
+            153
+          ]
+        },
+        {
+          "name": "attack",
+          "cell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "source": [
+            732,
+            823,
+            353,
+            165
+          ],
+          "ink": [
+            734,
+            825,
+            349,
+            161
+          ]
+        },
+        {
+          "name": "dead",
+          "cell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "source": [
+            1108,
+            882,
+            321,
+            116
+          ],
+          "ink": [
+            1110,
+            884,
+            317,
+            112
+          ]
+        }
+      ],
+      "runtimeFrames": [
+        "idle",
+        "walk-0",
+        "walk-1",
+        "walk-2",
+        "walk-3",
+        "walk-4",
+        "walk-5",
+        "walk-6",
+        "walk-7",
+        "windup",
+        "attack"
+      ],
+      "referenceFrames": [
+        "dead"
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "fullyTransparentPixels": 1074676
+    }
+  ],
+  "status": "Prototype intégré. Animation finale et réception humaine ouvertes.",
+  "provenance": "Originaux RGBA inchangés. Prompts complets conservés. Rectangles mesurés sur alpha32, marge2 pixels; aucun retrait de fond ni rééchantillonnage hors moteur.",
+  "limits": [
+    "62 cellules de poses/états/références, pas 62 créatures, personnes ou nouveaux objets.",
+    "Les rangées de habitat.png sont inégales (0–500–724), décrites explicitement; aucun découpage ne traverse un autre sprite.",
+    "Les colonnes alternatives habillent les deux supports déjà présents. Les racines restent portées par livingRouteSurfaceAt.",
+    "Le Guetteur-racine reste dans OP03 et son état mort reste une référence; aucun nouveau cadavre persistant.",
+    "Bâton et enregistreur de Leth sont déjà visibles sur ses poses; cellules isolées non superposées.",
+    "Vigne flétrie/brûlée et herbe aplatie sont des images, sans nouveau système écologique ni événement simulé.",
+    "Marche liée au déplacement réel; la réduction des mouvements et le repli vectoriel sont conservés.",
+    "La mort, la peur, les issues de migration et le consentement proviennent exclusivement de leurs domaines de simulation."
+  ]
+}

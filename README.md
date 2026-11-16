@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.15.3 · Français**
+**Nom de code : ImperiumMarch · Version 0.15.5 · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -12,13 +12,13 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 Cette livraison contient un **prototype de quatorze missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant **v14**. MI12 achève la tranche de Thyr ; MI13 et MI14 ouvrent Kharon par un convoi industriel puis un atelier en grève. La Bible contient **1 007 fiches sur 21 onglets**. Les dix-huit missions MI15–MI32, les seize contrats et la qualité de production visée restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
 
-La **0.15.3 ajoute les pièces peintes articulées des six marcheurs jouables** : six atlas transparents et 96 cellules de coques, armes, membres, articulations, pieds et radiateurs. Les atlas de MI14 et du combat sont conservés, portant le total à **23 planches et 228 cellules**. Le [bilan 0.15.3](docs/PRODUCTION_V15_3.md) et sa [réception graphique](docs/QA_PAINTED_WALKERS.md) distinguent pièces intégrées, animation existante et critères encore ouverts. La campagne reste à quatorze missions ; la sauvegarde reste v14. Les bilans [combat 0.15.2](docs/PRODUCTION_V15_2.md), [sprites MI14](docs/PRODUCTION_V15_1.md), [consolidation MI14](docs/QA_V15.md) et [reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves historiques.
+La **0.15.5 peint les transports et le troisième relais** : treize nouveaux atlas transparents et 80 cellules pour le train, le porteur industriel, l’ambulance, les bateaux de Nacre, le Prétoire et ses appareils. Avec Cerbère et la vie de Thyr récupérés de la tranche 0.15.4, le total atteint **45 planches et 386 cellules**. Le [bilan 0.15.5](docs/PRODUCTION_V15_5.md) et sa [réception graphique](docs/QA_PAINTED_MISSION_ASSETS.md) distinguent les 77 cellules utilisées et trois références de ce nouveau lot. La campagne reste à quatorze missions ; la sauvegarde reste v14. Les bilans [Thyr et Cerbère](docs/PRODUCTION_V15_4.md), [marcheurs](docs/PRODUCTION_V15_3.md), [combat](docs/PRODUCTION_V15_2.md), [atelier](docs/PRODUCTION_V15_1.md) et [reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves historiques.
 
 ## Jouer à cette version
 
 Le jeu dispose d’un [site en ligne](https://imperium-march.vercel.app/) et d’un fichier autonome. Le [suivi de publication](docs/DEPLOYMENT.md) identifie le commit distant et le déploiement effectivement contrôlé ; les rapports de [consolidation MI14](docs/QA_V15.md), des [sprites de l’atelier](docs/QA_PAINTED_MI14.md) du [combat peint](docs/QA_PAINTED_COMBAT.md) et des [marcheurs peints](docs/QA_PAINTED_WALKERS.md) indiquent la portée des essais. Une construction locale, un push GitHub et un déploiement disponible sont des étapes distinctes.
 
-Ouvrir [**dist/Ordre_de_Cendre.html**](dist/Ordre_de_Cendre.html) dans un navigateur de bureau récent, après l’avoir téléchargé ou extrait du pack. Le code, les styles et les images sont intégrés. Aucun serveur ni téléchargement complémentaire n’est nécessaire pour cette édition. Le son démarre après une interaction.
+Télécharger [**dist/Ordre_de_Cendre.zip**](dist/Ordre_de_Cendre.zip), extraire `Ordre_de_Cendre.html`, puis ouvrir ce fichier dans un navigateur de bureau récent. Le code, les styles et les images sont intégrés. Aucun serveur ni téléchargement complémentaire n’est nécessaire pour cette édition. Le son démarre après une interaction. Le ZIP conserve l’HTML complet et les images originales ; `npm run build` régénère les deux fichiers.
 
 1. **Campagne** : ouvrir le dossier de Sera et parcourir **MI01 à MI14**, chacune débloquée par le premier rapport de la mission précédente.
 2. **Hangar** : choisir parmi six châssis. Au retour, lire les réactions de Tess et Sami et réparer avec les pièces disponibles.
@@ -47,6 +47,11 @@ npm run check:ui
 npm run check:ui-runtime
 npm run check:combat
 npm run check:walkers
+npm run check:thyr
+npm run check:cerbere
+npm run check:transport
+npm run check:relay
+npm run check:nacre
 npm run build:web
 ```
 
@@ -65,6 +70,30 @@ npm run check:assets-render
 ```
 
 Les outils `render-mi12/mi13/mi14-previews` produisent des scènes Canvas et des états atteints par commandes publiques. Ils ne remplacent pas un essai navigateur. Le [guide du classeur](docs/BIBLE_README.md) décrit la régénération du XLSX à partir de `data/bible.json`.
+
+## 0.15.5 — Les machines des missions
+
+Le train de MI02 reçoit une locomotive, ses wagons de minerai et de captifs, leurs avaries et leurs états ouverts. Les roues et attelages suivent le convoi ; les personnes visibles dépendent des pertes et de la libération réelles. Le porteur de MI13 conserve ses quatre roues sur le terrain et ses deux caisses indépendantes, y compris pendant le transfert vers le quai.
+
+Sur Nacre, l’ambulance et sa caisse médicale, la balise, Rive-Courte, Veille-Aval, le bateau de réfugiés et celui de saisie possèdent leurs images. La balise disparaît du véhicule après récupération. Les coques n’ajoutent aucun passager peint aux effectifs simulés. Le Prétoire de MI12 reçoit une mécanique articulée, un canon séparé, son capteur et son verrou ; les relais et consoles reflètent leur état de copie, d’isolement ou de perte.
+
+![Le Prétoire et le troisième relais peints dans MI12.](docs/validation/painted-relay-v0155/mi12-praetor-locking.png)
+
+*Scène Canvas atteinte par commandes publiques : copie en cours, Prétoire arrivé et verrouillage réel. Ce n’est pas une capture de navigateur. Les [lots transport](assets/painted/transport/README.md), [Nacre](assets/painted/nacre/README.md) et [relais](assets/painted/relay/README.md) gardent les PNG sélectionnés, prompts, ancres et empreintes.*
+
+Les 80 cellules décrivent des pièces et états des missions existantes. Le [rapport QA](docs/QA_PAINTED_MISSION_ASSETS.md) et le [complément Bible](docs/BIBLE_V15_5.md) donnent leurs contrôles et leurs limites. Les réceptions humaines, animations finales, autres factions et missions futures restent à produire.
+
+## 0.15.4 — Cerbère et vie de Thyr
+
+Cerbère dispose de sa propre coque, de ses segments, articulations, pieds, radiateur et canon peints. Son arme et son télégraphe rejoignent désormais le point de départ physique des tirs, avec les règles de combat conservées. Les chaussures gardent leurs proportions et leurs contacts au sol. Les variantes d'avarie locale restent références tant que le boss ne simule pas de santé de composants.
+
+Thyr reçoit les Longues-dorses adultes et jeunes, les colonies d'Éventails, le Guetteur-racine de OP03, les colonnes-mères, habitats suspendus, racines, vignes et Herbes d'écho. Leth possède ses poses d'attente, d'écoute, de parole, de refus et de perte. Les cycles suivent les déplacements et états réels ; aucun personnage ou résultat de mission n'est créé par le rendu.
+
+![MI09 avec ses supports peints, habitats suspendus, racines et migrateurs.](docs/validation/painted-thyr-v0154/scene-mi09-supports.png)
+
+*Scène Canvas de MI09 atteinte par commandes publiques, avec les contacts réels des pieds. Ce n'est pas une capture de navigateur. Les cordes se raccordent aux points mesurés de l'habitat et les racines restent sous le contour physique du terrain.*
+
+Les [huit atlas de Thyr](assets/painted/thyr/README.md) et [l'atlas de Cerbère](assets/painted/cerbere/README.md) conservent les PNG originaux, prompts, indexeurs, ancres et SHA-256. Les [719 tests](docs/validation/release-v0154/npm-test.txt), [réceptions Canvas](docs/QA_PAINTED_THYR_CERBERE.md) et [complément de Bible](docs/BIBLE_V15_4.md) décrivent la tranche. Chromium local a été bloqué au lancement par les permissions de l'environnement; [aucune page ni capture locale](docs/validation/browser-v0154/report.json) n'est revendiquée. Le lot reste au stade Prototype, avec réception humaine et animations finales ouvertes.
 
 ## 0.15.3 — Les six marcheurs peints
 

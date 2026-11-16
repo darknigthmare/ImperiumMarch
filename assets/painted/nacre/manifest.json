@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "version": "0.15.5",
+  "date": "2026-11-16",
+  "title": "Nacre — ambulance, matériel et quatre embarcations",
+  "generator": "image_gen.imagegen (built-in)",
+  "indexer": "tools/index-painted-nacre.py",
+  "runtime": "src/painted-nacre.mjs",
+  "layout": "src/painted-nacre-layout.mjs",
+  "atlases": 6,
+  "cells": 30,
+  "runtimeCells": 29,
+  "referenceCells": 1,
+  "imagesModifiedByIndexer": false,
+  "files": [
+    {
+      "key": "ambulance",
+      "path": "assets/painted/nacre/ambulance.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        2,
+        2
+      ],
+      "sha256": "0647dfa9f59c50ffdf0b7cbef42928d9766f3684b27b6fa75c0fe721154d7c58",
+      "bytes": 2083201,
+      "cells": 4,
+      "runtimeCells": 4,
+      "frames": [
+        "normal",
+        "damaged",
+        "destroyed",
+        "wheel"
+      ]
+    },
+    {
+      "key": "equipment",
+      "path": "assets/painted/nacre/equipment.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "sha256": "c1b5a1aa0b5f8ef3c2555318738ac8071549cd0b8a982116253016a7ffeac8ba",
+      "bytes": 2051999,
+      "cells": 6,
+      "runtimeCells": 5,
+      "frames": [
+        "case-unknown",
+        "case-verified",
+        "case-destroyed",
+        "beacon-attached",
+        "beacon-lost",
+        "beacon-recovered"
+      ]
+    },
+    {
+      "key": "rive-courte",
+      "path": "assets/painted/nacre/rive-courte.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        2,
+        3
+      ],
+      "sha256": "fb9b6b4232a0592e65474b787aca8e5f02486b6f34d0cc929274787d0218a930",
+      "bytes": 2317598,
+      "cells": 6,
+      "runtimeCells": 6,
+      "frames": [
+        "waiting",
+        "boarding",
+        "moving",
+        "arrived",
+        "damaged",
+        "destroyed"
+      ]
+    },
+    {
+      "key": "veille-aval",
+      "path": "assets/painted/nacre/veille-aval.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        2,
+        3
+      ],
+      "sha256": "62e1557ea367a5724de2b4faaf3e4ba6c979fe6e90b932bbd027e075a389b9d0",
+      "bytes": 2319468,
+      "cells": 6,
+      "runtimeCells": 6,
+      "frames": [
+        "waiting",
+        "boarding",
+        "moving",
+        "arrived",
+        "damaged",
+        "destroyed"
+      ]
+    },
+    {
+      "key": "ferry",
+      "path": "assets/painted/nacre/ferry.png",
+      "size": [
+        1774,
+        887
+      ],
+      "grid": [
+        2,
+        2
+      ],
+      "sha256": "58b9a57fbcaad94ad2dd497b7ab41b41b089648ae147fa88e7ba90a384a66cf8",
+      "bytes": 1651803,
+      "cells": 4,
+      "runtimeCells": 4,
+      "frames": [
+        "waiting",
+        "arrived",
+        "damaged",
+        "destroyed"
+      ]
+    },
+    {
+      "key": "saisie",
+      "path": "assets/painted/nacre/saisie.png",
+      "size": [
+        1774,
+        887
+      ],
+      "grid": [
+        2,
+        2
+      ],
+      "sha256": "cfa6ca77f78ec1be710af2bbf1408d35ab3471e9088b698d1b47bc6a544e6c7b",
+      "bytes": 1533930,
+      "cells": 4,
+      "runtimeCells": 4,
+      "frames": [
+        "normal",
+        "released",
+        "damaged",
+        "destroyed"
+      ]
+    }
+  ],
+  "scope": [
+    "Actual existing entities and states only",
+    "PNG originals preserved byte-for-byte",
+    "Recovered beacon cell is reference only; a removed beacon must not be drawn on the vehicle",
+    "Passengers remain simulation-owned and drawn separately; no people are painted onto vessels",
+    "Boat keels, ambulance wheel contacts and mission appearance conditions remain unchanged"
+  ]
+}

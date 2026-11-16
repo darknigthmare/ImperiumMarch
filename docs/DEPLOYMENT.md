@@ -1,5 +1,11 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Préparation de publication 0.15.5
+
+La reprise du 16 novembre 2026 récupère la 0.15.4 locale puis ajoute treize atlas aux transports et aux appareils de mission. Le parent distant contrôlé est `56a1fab0540700dd6a2de789a5577c60a30e7e6e` (0.15.3). Le [bilan de production](PRODUCTION_V15_5.md) reçoit 45 atlas / 386 cellules, et le [rapport QA](QA_PAINTED_MISSION_ASSETS.md) reçoit 745 tests, 174 comparaisons SVG/Canvas, 108 parcours DOM modélisés, les huit lots d’images et le classeur.
+
+Le HTML de 111 037 952 octets conserve toutes les images et 50 modules. Le dépôt distribue désormais `dist/Ordre_de_Cendre.zip` (81 013 964 octets), dont l’entrée unique extrait exactement l’HTML testé. Les [empreintes](../dist/Ordre_de_Cendre.manifest.json) et la [réception indépendante ZIP](../dist/Ordre_de_Cendre.zip-verification.json) en fixent le contenu. `npm run build` régénère HTML et ZIP ; la sortie web garde ses sources habituelles. Cette préparation ne revendique encore aucune CI distante, fusion ou réception native 0.15.5. Le reçu de publication suivant doit les associer au SHA exact, sans modifier les protections du projet Vercel existant.
+
 ## Publication 0.15.3 accomplie
 
 La [PR #3](https://github.com/darknigthmare/ImperiumMarch/pull/3) est fusionnée sur `main` au commit **`259351ed8fd460b040097c266fb32a82543723d2`**. Son arbre **`6ebf63194e986953958b081dab5085f9a961bd46`** est identique au snapshot local testé **`c859be17875305cdfdb9d6b7c0dd42bbc2006d7c`**. Le lot modifie 148 chemins, sans suppression, et ajoute les six marcheurs peints au jeu existant.
@@ -101,7 +107,7 @@ La sauvegarde reste locale au navigateur et à l'adresse du site. Utiliser l'adr
 
 ## Édition autonome
 
-`npm run build` conserve son rôle : produire `dist/Ordre_de_Cendre.html`, qui s'ouvre hors ligne. Ce fichier et le classeur de conception sont inclus dans le dépôt. La construction web ne les modifie pas.
+`npm run build` produit `dist/Ordre_de_Cendre.html`, puis son archive distribuée `dist/Ordre_de_Cendre.zip`. Extraire le ZIP et ouvrir l’HTML pour jouer hors ligne. Depuis 0.15.5, le ZIP remplace le suivi Git de l’HTML volumineux ; le classeur de conception reste inclus. La construction web ne modifie pas ces livrables.
 
 ## Contrôles avant publication
 

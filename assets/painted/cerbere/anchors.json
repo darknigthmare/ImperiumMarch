@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "version": "0.15.4",
+  "coordinateSpace": "Original pixels local to each rounded 4 by 4 cell; half-pixel boundaries round upward. Metadata only.",
+  "measurement": "Visually measured socket centers, flat soles and armor/panel boxes. Mechanical endpoints and the physical 89-unit cannon muzzle stay authoritative at runtime.",
+  "frames": {
+    "hull": {"bodyBox": [12, 99, 299, 244]},
+    "hull-damaged": {"bodyBox": [11, 99, 299, 244]},
+    "hull-braced": {"bodyBox": [12, 99, 300, 245]},
+    "turret": {"pivot": [43, 167], "endpoint": [303, 164]},
+    "upper": {"pivot": [42, 166], "endpoint": [274, 165]},
+    "upper-damaged": {"pivot": [41, 166], "endpoint": [273, 165]},
+    "lower": {"pivot": [51, 162], "endpoint": [267, 162]},
+    "lower-damaged": {"pivot": [50, 162], "endpoint": [266, 162]},
+    "hip": {"pivot": [156, 157], "diameter": 254},
+    "knee": {"pivot": [157, 157], "diameter": 206},
+    "foot": {"ankle": [122, 104], "soleY": 235, "soleLeft": 12, "soleRight": 302},
+    "foot-damaged": {"ankle": [121, 104], "soleY": 234, "soleLeft": 11, "soleRight": 301},
+    "foot-braced": {"ankle": [123, 104], "soleY": 235, "soleLeft": 12, "soleRight": 302},
+    "radiator": {"panelBox": [62, 32, 250, 291]},
+    "radiator-damaged": {"panelBox": [63, 32, 251, 291]},
+    "radiator-repaired": {"panelBox": [62, 32, 250, 291]}
+  }
+}

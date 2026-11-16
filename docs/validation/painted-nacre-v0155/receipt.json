@@ -1,0 +1,674 @@
+{
+  "date": "2026-11-16T14:39:36.392Z",
+  "version": "0.15.5",
+  "completed": true,
+  "type": "Actual PNG decoding, source integrity and diagnostic Canvas renderer views",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "atlases": [
+    {
+      "key": "ambulance",
+      "path": "assets/painted/nacre/ambulance.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "0647dfa9f59c50ffdf0b7cbef42928d9766f3684b27b6fa75c0fe721154d7c58",
+      "clearPixels": 871374
+    },
+    {
+      "key": "equipment",
+      "path": "assets/painted/nacre/equipment.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "c1b5a1aa0b5f8ef3c2555318738ac8071549cd0b8a982116253016a7ffeac8ba",
+      "clearPixels": 942800
+    },
+    {
+      "key": "veille-aval",
+      "path": "assets/painted/nacre/veille-aval.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "62e1557ea367a5724de2b4faaf3e4ba6c979fe6e90b932bbd027e075a389b9d0",
+      "clearPixels": 671551
+    },
+    {
+      "key": "rive-courte",
+      "path": "assets/painted/nacre/rive-courte.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "fb9b6b4232a0592e65474b787aca8e5f02486b6f34d0cc929274787d0218a930",
+      "clearPixels": 492880
+    },
+    {
+      "key": "ferry",
+      "path": "assets/painted/nacre/ferry.png",
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "58b9a57fbcaad94ad2dd497b7ab41b41b089648ae147fa88e7ba90a384a66cf8",
+      "clearPixels": 755345
+    },
+    {
+      "key": "saisie",
+      "path": "assets/painted/nacre/saisie.png",
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "cfa6ca77f78ec1be710af2bbf1408d35ab3471e9088b698d1b47bc6a544e6c7b",
+      "clearPixels": 727779
+    }
+  ],
+  "frames": [
+    {
+      "key": "ambulance",
+      "name": "normal",
+      "source": [
+        20,
+        125,
+        724,
+        288
+      ],
+      "target": [
+        -88,
+        -39,
+        176,
+        94
+      ],
+      "runtime": true,
+      "solidPixels": 160713
+    },
+    {
+      "key": "ambulance",
+      "name": "damaged",
+      "source": [
+        789,
+        124,
+        723,
+        289
+      ],
+      "target": [
+        -88,
+        -39,
+        176,
+        94
+      ],
+      "runtime": true,
+      "solidPixels": 160592
+    },
+    {
+      "key": "ambulance",
+      "name": "destroyed",
+      "source": [
+        20,
+        629,
+        724,
+        297
+      ],
+      "target": [
+        -88,
+        -20,
+        176,
+        78
+      ],
+      "runtime": true,
+      "solidPixels": 156217
+    },
+    {
+      "key": "ambulance",
+      "name": "wheel",
+      "source": [
+        1026,
+        646,
+        252,
+        263
+      ],
+      "target": [
+        -12,
+        -12,
+        24,
+        24
+      ],
+      "runtime": true,
+      "solidPixels": 49355
+    },
+    {
+      "key": "equipment",
+      "name": "case-unknown",
+      "source": [
+        32,
+        104,
+        454,
+        317
+      ],
+      "target": [
+        -37,
+        -16,
+        74,
+        32
+      ],
+      "runtime": true,
+      "solidPixels": 121753
+    },
+    {
+      "key": "equipment",
+      "name": "case-verified",
+      "source": [
+        544,
+        104,
+        453,
+        317
+      ],
+      "target": [
+        -37,
+        -16,
+        74,
+        32
+      ],
+      "runtime": true,
+      "solidPixels": 121753
+    },
+    {
+      "key": "equipment",
+      "name": "case-destroyed",
+      "source": [
+        1052,
+        128,
+        455,
+        322
+      ],
+      "target": [
+        -37,
+        -16,
+        74,
+        32
+      ],
+      "runtime": true,
+      "solidPixels": 108605
+    },
+    {
+      "key": "equipment",
+      "name": "beacon-attached",
+      "source": [
+        38,
+        536,
+        443,
+        388
+      ],
+      "target": [
+        -13,
+        -18,
+        26,
+        28
+      ],
+      "runtime": true,
+      "solidPixels": 82008
+    },
+    {
+      "key": "equipment",
+      "name": "beacon-lost",
+      "source": [
+        544,
+        537,
+        447,
+        384
+      ],
+      "target": [
+        -13,
+        -18,
+        26,
+        28
+      ],
+      "runtime": true,
+      "solidPixels": 82182
+    },
+    {
+      "key": "equipment",
+      "name": "beacon-recovered",
+      "source": [
+        1077,
+        536,
+        401,
+        415
+      ],
+      "target": [
+        -13,
+        -18,
+        26,
+        28
+      ],
+      "runtime": false,
+      "solidPixels": 74819
+    },
+    {
+      "key": "veille-aval",
+      "name": "waiting",
+      "source": [
+        12,
+        10,
+        739,
+        310
+      ],
+      "target": [
+        -82.446259,
+        -48.522876,
+        164.892517,
+        81.045752
+      ],
+      "runtime": true,
+      "solidPixels": 118519
+    },
+    {
+      "key": "veille-aval",
+      "name": "boarding",
+      "source": [
+        779,
+        10,
+        740,
+        310
+      ],
+      "target": [
+        -82.557823,
+        -48.522876,
+        165.115646,
+        81.045752
+      ],
+      "runtime": true,
+      "solidPixels": 118545
+    },
+    {
+      "key": "veille-aval",
+      "name": "moving",
+      "source": [
+        11,
+        350,
+        739,
+        311
+      ],
+      "target": [
+        -82.446259,
+        -48.784314,
+        164.892517,
+        81.30719
+      ],
+      "runtime": true,
+      "solidPixels": 119111
+    },
+    {
+      "key": "veille-aval",
+      "name": "arrived",
+      "source": [
+        779,
+        350,
+        740,
+        311
+      ],
+      "target": [
+        -82.557823,
+        -48.784314,
+        165.115646,
+        81.30719
+      ],
+      "runtime": true,
+      "solidPixels": 118960
+    },
+    {
+      "key": "veille-aval",
+      "name": "damaged",
+      "source": [
+        12,
+        692,
+        739,
+        314
+      ],
+      "target": [
+        -82.446259,
+        -49.568627,
+        164.892517,
+        82.091503
+      ],
+      "runtime": true,
+      "solidPixels": 119161
+    },
+    {
+      "key": "veille-aval",
+      "name": "destroyed",
+      "source": [
+        780,
+        689,
+        739,
+        316
+      ],
+      "target": [
+        -82.446259,
+        -50.091503,
+        164.892517,
+        82.614379
+      ],
+      "runtime": true,
+      "solidPixels": 111488
+    },
+    {
+      "key": "rive-courte",
+      "name": "waiting",
+      "source": [
+        21,
+        9,
+        728,
+        284
+      ],
+      "target": [
+        -92.508287,
+        -51.607143,
+        185.016575,
+        86.214286
+      ],
+      "runtime": true,
+      "solidPixels": 90693
+    },
+    {
+      "key": "rive-courte",
+      "name": "boarding",
+      "source": [
+        789,
+        9,
+        728,
+        285
+      ],
+      "target": [
+        -92.508287,
+        -51.910714,
+        185.016575,
+        86.517857
+      ],
+      "runtime": true,
+      "solidPixels": 90726
+    },
+    {
+      "key": "rive-courte",
+      "name": "moving",
+      "source": [
+        21,
+        350,
+        728,
+        286
+      ],
+      "target": [
+        -92.508287,
+        -52.214286,
+        185.016575,
+        86.821429
+      ],
+      "runtime": true,
+      "solidPixels": 91509
+    },
+    {
+      "key": "rive-courte",
+      "name": "arrived",
+      "source": [
+        789,
+        350,
+        728,
+        286
+      ],
+      "target": [
+        -92.508287,
+        -52.214286,
+        185.016575,
+        86.821429
+      ],
+      "runtime": true,
+      "solidPixels": 91166
+    },
+    {
+      "key": "rive-courte",
+      "name": "damaged",
+      "source": [
+        21,
+        691,
+        729,
+        286
+      ],
+      "target": [
+        -92.635359,
+        -52.214286,
+        185.270718,
+        86.821429
+      ],
+      "runtime": true,
+      "solidPixels": 92168
+    },
+    {
+      "key": "rive-courte",
+      "name": "destroyed",
+      "source": [
+        789,
+        706,
+        728,
+        271
+      ],
+      "target": [
+        -92.508287,
+        -47.660714,
+        185.016575,
+        82.267857
+      ],
+      "runtime": true,
+      "solidPixels": 85500
+    },
+    {
+      "key": "ferry",
+      "name": "waiting",
+      "source": [
+        12,
+        65,
+        862,
+        312
+      ],
+      "target": [
+        -67.312354,
+        -43.970779,
+        134.624709,
+        73.441558
+      ],
+      "runtime": true,
+      "solidPixels": 175517
+    },
+    {
+      "key": "ferry",
+      "name": "arrived",
+      "source": [
+        899,
+        65,
+        863,
+        319
+      ],
+      "target": [
+        -67.390443,
+        -43.970779,
+        134.780886,
+        75.089286
+      ],
+      "runtime": true,
+      "solidPixels": 175679
+    },
+    {
+      "key": "ferry",
+      "name": "damaged",
+      "source": [
+        13,
+        509,
+        862,
+        312
+      ],
+      "target": [
+        -67.312354,
+        -43.970779,
+        134.624709,
+        73.441558
+      ],
+      "runtime": true,
+      "solidPixels": 175604
+    },
+    {
+      "key": "ferry",
+      "name": "destroyed",
+      "source": [
+        901,
+        538,
+        862,
+        283
+      ],
+      "target": [
+        -67.312354,
+        -37.144481,
+        134.624709,
+        66.61526
+      ],
+      "runtime": true,
+      "solidPixels": 162508
+    },
+    {
+      "key": "saisie",
+      "name": "normal",
+      "source": [
+        12,
+        100,
+        861,
+        285
+      ],
+      "target": [
+        -86.4014,
+        -59.19395,
+        172.8028,
+        98.8879
+      ],
+      "runtime": true,
+      "solidPixels": 144214
+    },
+    {
+      "key": "saisie",
+      "name": "released",
+      "source": [
+        899,
+        100,
+        861,
+        285
+      ],
+      "target": [
+        -86.4014,
+        -59.19395,
+        172.8028,
+        98.8879
+      ],
+      "runtime": true,
+      "solidPixels": 144495
+    },
+    {
+      "key": "saisie",
+      "name": "damaged",
+      "source": [
+        12,
+        507,
+        861,
+        285
+      ],
+      "target": [
+        -86.4014,
+        -59.19395,
+        172.8028,
+        98.8879
+      ],
+      "runtime": true,
+      "solidPixels": 144160
+    },
+    {
+      "key": "saisie",
+      "name": "destroyed",
+      "source": [
+        899,
+        559,
+        861,
+        233
+      ],
+      "target": [
+        -86.4014,
+        -41.151246,
+        172.8028,
+        80.845196
+      ],
+      "runtime": true,
+      "solidPixels": 132961
+    }
+  ],
+  "views": [
+    {
+      "file": "nacre-state-grid.png",
+      "sha256": "3afff5233a1fb9e63ac170ef0396220d2f35652f3e172236b2e6a4224cd7391a",
+      "type": "Thirty measured source cells, labelled runtime/reference"
+    },
+    {
+      "file": "ambulance-diagnostic-states.png",
+      "sha256": "c9f0b74785e4fdc499bc6566e9bbe0edb768a208a67684e50e0cb3bb1d5c6fda",
+      "type": "Normal ambulance renderer with imposed states on independent copies, ×2.5 view"
+    },
+    {
+      "file": "scene-mi05-camera-diagnostic.png",
+      "sha256": "89ef1b6afa54212d0033d885932c2eb42c15b3cd7ec906a5804889e642c0f3c1",
+      "type": "Normal renderer, camera-focused Canvas diagnostic",
+      "missionId": "MI05",
+      "cameraX": 850,
+      "publicUpdateTicks": 120,
+      "elapsed": 1.9999999999999978,
+      "stateSha256": "e1fff262d05fb7551bd88645816ab239102c73992e8345f3d4d3f26c1c10ed60"
+    },
+    {
+      "file": "scene-mi07-camera-diagnostic.png",
+      "sha256": "2eb1cf05f453438c60c00db6c9252c664bf799c366e3713a1cc4280180af84f9",
+      "type": "Normal renderer, camera-focused Canvas diagnostic",
+      "missionId": "MI07",
+      "cameraX": 0,
+      "publicUpdateTicks": 120,
+      "elapsed": 1.9999999999999978,
+      "stateSha256": "082f1026eab8f8d2732534b7f647852567ac46319dafbb1aface1142a6f5bb3d"
+    },
+    {
+      "file": "scene-mi08-camera-diagnostic.png",
+      "sha256": "27ac4328cb3be8082a50357e30d53dea5a3fffa4f74b944913a5def212c898bd",
+      "type": "Normal renderer, camera-focused Canvas diagnostic",
+      "missionId": "MI08",
+      "cameraX": 3250,
+      "publicUpdateTicks": 120,
+      "elapsed": 1.9999999999999978,
+      "stateSha256": "6c50c61bca4f7f667de55270cb82fe0f8b0f79b82d87a8476bac999c1a041740"
+    }
+  ],
+  "sources": {
+    "src/painted-nacre.mjs": "3abb8eb6c71262eb1ccfdd152b01952cdc7e6d2d6326b7a7b34309ffa77eabd3",
+    "src/painted-nacre-layout.mjs": "2cc15eabb2f337e9500a79461a97c5ab0af18ecaeff3862e7b43d9a4bb0f4011",
+    "src/renderer.mjs": "1a838373319ab5286c7c05827ddf379c877d6e6c2f301e3dd1cf5992b4a33d7d",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "tools/test-painted-nacre.mjs": "6371b2ee7610cbcfb30ec02841127b5ed085e0149ba9de044121a948bae99aee"
+  },
+  "limitations": [
+    "Camera-focused Canvas scenes are visual diagnostics, not complete mission walkthroughs.",
+    "The labelled ambulance state panel imposes damage and recovery states on copies.",
+    "No new passengers, supplies, collision, mission progress or population are created by the artwork.",
+    "The separate recovered beacon cell is a production reference only."
+  ],
+  "counts": {
+    "atlases": 6,
+    "cells": 30,
+    "runtimeCells": 29,
+    "referenceCells": 1,
+    "views": 5
+  }
+}

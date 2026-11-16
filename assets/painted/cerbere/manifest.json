@@ -1,0 +1,404 @@
+{
+  "schema": 1,
+  "version": "0.15.4",
+  "date": "2026-11-16",
+  "title": "Cerbère — montage ennemi peint",
+  "generator": "image_gen.imagegen (built-in)",
+  "indexer": "tools/index-painted-cerbere.py",
+  "runtime": "src/painted-cerbere.mjs",
+  "layout": "src/painted-cerbere-layout.mjs",
+  "weaponAuthority": "src/cerbere-weapon-pose.mjs",
+  "anchorMeasurements": "assets/painted/cerbere/anchors.json",
+  "atlases": 1,
+  "cells": 16,
+  "runtimeCells": 11,
+  "referenceCells": 5,
+  "files": [
+    {
+      "key": "cerbere",
+      "path": "assets/painted/cerbere/cerbere.png",
+      "sha256": "3fd900a7e98bebe5b7bf99190a44404add735d8f6d3936056fbcc455b40d8465",
+      "bytes": 1502235,
+      "size": [
+        1254,
+        1254
+      ],
+      "grid": [
+        4,
+        4
+      ],
+      "frames": 16,
+      "cells": [
+        {
+          "name": "hull",
+          "cell": [
+            0,
+            0,
+            314,
+            314
+          ],
+          "ink": [
+            9,
+            91,
+            293,
+            159
+          ],
+          "source": [
+            7,
+            89,
+            297,
+            163
+          ]
+        },
+        {
+          "name": "hull-damaged",
+          "cell": [
+            314,
+            0,
+            313,
+            314
+          ],
+          "ink": [
+            322,
+            90,
+            294,
+            160
+          ],
+          "source": [
+            320,
+            88,
+            298,
+            164
+          ]
+        },
+        {
+          "name": "hull-braced",
+          "cell": [
+            627,
+            0,
+            314,
+            314
+          ],
+          "ink": [
+            636,
+            90,
+            294,
+            161
+          ],
+          "source": [
+            634,
+            88,
+            298,
+            165
+          ]
+        },
+        {
+          "name": "turret",
+          "cell": [
+            941,
+            0,
+            313,
+            314
+          ],
+          "ink": [
+            955,
+            130,
+            290,
+            75
+          ],
+          "source": [
+            953,
+            128,
+            294,
+            79
+          ]
+        },
+        {
+          "name": "upper",
+          "cell": [
+            0,
+            314,
+            314,
+            313
+          ],
+          "ink": [
+            8,
+            413,
+            298,
+            117
+          ],
+          "source": [
+            6,
+            411,
+            302,
+            121
+          ]
+        },
+        {
+          "name": "upper-damaged",
+          "cell": [
+            314,
+            314,
+            313,
+            313
+          ],
+          "ink": [
+            321,
+            413,
+            299,
+            117
+          ],
+          "source": [
+            319,
+            411,
+            303,
+            121
+          ]
+        },
+        {
+          "name": "lower",
+          "cell": [
+            627,
+            314,
+            314,
+            313
+          ],
+          "ink": [
+            643,
+            429,
+            285,
+            90
+          ],
+          "source": [
+            641,
+            427,
+            289,
+            94
+          ]
+        },
+        {
+          "name": "lower-damaged",
+          "cell": [
+            941,
+            314,
+            313,
+            313
+          ],
+          "ink": [
+            956,
+            429,
+            285,
+            90
+          ],
+          "source": [
+            954,
+            427,
+            289,
+            94
+          ]
+        },
+        {
+          "name": "hip",
+          "cell": [
+            0,
+            627,
+            314,
+            314
+          ],
+          "ink": [
+            28,
+            653,
+            256,
+            260
+          ],
+          "source": [
+            26,
+            651,
+            260,
+            264
+          ]
+        },
+        {
+          "name": "knee",
+          "cell": [
+            314,
+            627,
+            313,
+            314
+          ],
+          "ink": [
+            367,
+            679,
+            208,
+            210
+          ],
+          "source": [
+            365,
+            677,
+            212,
+            214
+          ]
+        },
+        {
+          "name": "foot",
+          "cell": [
+            627,
+            627,
+            314,
+            314
+          ],
+          "ink": [
+            636,
+            688,
+            296,
+            176
+          ],
+          "source": [
+            634,
+            686,
+            300,
+            180
+          ]
+        },
+        {
+          "name": "foot-damaged",
+          "cell": [
+            941,
+            627,
+            313,
+            314
+          ],
+          "ink": [
+            949,
+            688,
+            296,
+            175
+          ],
+          "source": [
+            947,
+            686,
+            300,
+            179
+          ]
+        },
+        {
+          "name": "foot-braced",
+          "cell": [
+            0,
+            941,
+            314,
+            313
+          ],
+          "ink": [
+            9,
+            1001,
+            296,
+            183
+          ],
+          "source": [
+            7,
+            999,
+            300,
+            187
+          ]
+        },
+        {
+          "name": "radiator",
+          "cell": [
+            314,
+            941,
+            313,
+            313
+          ],
+          "ink": [
+            374,
+            948,
+            193,
+            301
+          ],
+          "source": [
+            372,
+            946,
+            197,
+            305
+          ]
+        },
+        {
+          "name": "radiator-damaged",
+          "cell": [
+            627,
+            941,
+            314,
+            313
+          ],
+          "ink": [
+            688,
+            948,
+            193,
+            301
+          ],
+          "source": [
+            686,
+            946,
+            197,
+            305
+          ]
+        },
+        {
+          "name": "radiator-repaired",
+          "cell": [
+            941,
+            941,
+            313,
+            313
+          ],
+          "ink": [
+            1001,
+            948,
+            193,
+            301
+          ],
+          "source": [
+            999,
+            946,
+            197,
+            305
+          ]
+        }
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "fullyTransparentPixels": 832714,
+      "runtimeFrames": [
+        "hull",
+        "hull-damaged",
+        "hull-braced",
+        "turret",
+        "upper",
+        "lower",
+        "hip",
+        "knee",
+        "foot",
+        "foot-braced",
+        "radiator"
+      ],
+      "referenceFrames": [
+        "upper-damaged",
+        "lower-damaged",
+        "foot-damaged",
+        "radiator-damaged",
+        "radiator-repaired"
+      ]
+    }
+  ],
+  "status": "Prototype intégré. Réception humaine et mécanique finale ouvertes.",
+  "provenance": "PNG original conservé sans retouche. Mesures et corrections au rendu seulement. Prompt complet dans prompts.json.",
+  "limits": [
+    "Aucun nouveau boss, châssis jouable, composant destructible ni cadavre persistant.",
+    "Le rig des jambes du boss reste une présentation; il ne simule pas les appuis physiques individuels des six châssis joueurs.",
+    "Les cinq variantes de dégâts/réparation de composants restent références; aucune santé locale ennemie n’est inventée.",
+    "La bouche du canon peint suit le tir existant de portée locale 89, sans changer projectile, vitesse, dommage ou dispersion."
+  ]
+}

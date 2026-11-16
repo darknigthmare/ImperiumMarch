@@ -1,0 +1,715 @@
+{
+  "createdUtc": "2026-11-16T13:30:58.515Z",
+  "version": "0.15.4",
+  "type": "Decoded Cerbère PNG and diagnostic Canvas reception",
+  "completed": true,
+  "nativeBrowserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "sourceHashes": {
+    "src/painted-cerbere.mjs": "86440fd1749fec987b3fb34b3d4eca2471f3862f9362d632af976c3133d02047",
+    "src/painted-cerbere-layout.mjs": "fea5b52aa460eb92241d8388d58bffbc047e75469a260324d69f7ffdb788dce3",
+    "src/cerbere-weapon-pose.mjs": "5cf7a18ad1ceb0cf3671b66ca3529d7ab7c0e3e85c2f50408597a9019b7b5269",
+    "src/renderer.mjs": "ff6231feaa24929b2f095e0ee4f0b34f3997e041017770485636d62d7ae3e4e3",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "tools/test-painted-cerbere.mjs": "7510874f6aa5cc66af5e5f4015a5f340988f83703ef86cb3a2d173380697f996"
+  },
+  "frames": [
+    {
+      "name": "hull",
+      "source": [
+        7,
+        89,
+        297,
+        163
+      ],
+      "target": [
+        -77.61324042,
+        -44.37931034,
+        155.22648084,
+        87.68275862
+      ],
+      "visiblePixels": 34517,
+      "usage": "runtime"
+    },
+    {
+      "name": "hull-damaged",
+      "source": [
+        320,
+        88,
+        298,
+        164
+      ],
+      "target": [
+        -77.60416667,
+        -44.91724138,
+        155.20833333,
+        88.22068966
+      ],
+      "visiblePixels": 34484,
+      "usage": "runtime"
+    },
+    {
+      "name": "hull-braced",
+      "source": [
+        634,
+        88,
+        298,
+        165
+      ],
+      "target": [
+        -77.60416667,
+        -44.87671233,
+        155.20833333,
+        88.15068493
+      ],
+      "visiblePixels": 34509,
+      "usage": "runtime"
+    },
+    {
+      "name": "turret",
+      "source": [
+        953,
+        128,
+        294,
+        79
+      ],
+      "target": [
+        -10.61083214,
+        -13.34911141,
+        100.6317629,
+        27.04050772
+      ],
+      "visiblePixels": 11621,
+      "usage": "runtime"
+    },
+    {
+      "name": "upper",
+      "source": [
+        6,
+        411,
+        302,
+        121
+      ],
+      "target": [
+        -15.51709723,
+        -29.74110303,
+        130.17120457,
+        52.15468792
+      ],
+      "visiblePixels": 28304,
+      "usage": "runtime"
+    },
+    {
+      "name": "upper-damaged",
+      "source": [
+        319,
+        411,
+        303,
+        121
+      ],
+      "target": [
+        -15.51709723,
+        -29.74110303,
+        130.60223505,
+        52.15468792
+      ],
+      "visiblePixels": 28264,
+      "usage": "reference"
+    },
+    {
+      "name": "lower",
+      "source": [
+        641,
+        427,
+        289,
+        94
+      ],
+      "target": [
+        -17.12962963,
+        -22.68518519,
+        133.7962963,
+        43.51851852
+      ],
+      "visiblePixels": 20686,
+      "usage": "runtime"
+    },
+    {
+      "name": "lower-damaged",
+      "source": [
+        954,
+        427,
+        289,
+        94
+      ],
+      "target": [
+        -17.12962963,
+        -22.68518519,
+        133.7962963,
+        43.51851852
+      ],
+      "visiblePixels": 20667,
+      "usage": "reference"
+    },
+    {
+      "name": "hip",
+      "source": [
+        26,
+        651,
+        260,
+        264
+      ],
+      "target": [
+        -14.33070866,
+        -14.66141732,
+        28.66141732,
+        29.1023622
+      ],
+      "visiblePixels": 51606,
+      "usage": "runtime"
+    },
+    {
+      "name": "knee",
+      "source": [
+        365,
+        677,
+        212,
+        214
+      ],
+      "target": [
+        -14.40776699,
+        -14.54368932,
+        28.81553398,
+        29.08737864
+      ],
+      "visiblePixels": 33955,
+      "usage": "runtime"
+    },
+    {
+      "name": "foot",
+      "source": [
+        634,
+        686,
+        300,
+        180
+      ],
+      "target": [
+        -25.37931034,
+        -38.84137931,
+        66.20689655,
+        39.72413793
+      ],
+      "visiblePixels": 33077,
+      "usage": "runtime"
+    },
+    {
+      "name": "foot-damaged",
+      "source": [
+        947,
+        686,
+        300,
+        179
+      ],
+      "target": [
+        -25.37931034,
+        -38.62068966,
+        66.20689655,
+        39.50344828
+      ],
+      "visiblePixels": 33055,
+      "usage": "reference"
+    },
+    {
+      "name": "foot-braced",
+      "source": [
+        7,
+        999,
+        300,
+        187
+      ],
+      "target": [
+        -25.6,
+        -39.06206897,
+        66.20689655,
+        41.26896552
+      ],
+      "visiblePixels": 33870,
+      "usage": "runtime"
+    },
+    {
+      "name": "radiator",
+      "source": [
+        372,
+        946,
+        197,
+        305
+      ],
+      "target": [
+        -11.46808511,
+        -30.63532819,
+        23.05319149,
+        59.7046332
+      ],
+      "visiblePixels": 49267,
+      "usage": "runtime"
+    },
+    {
+      "name": "radiator-damaged",
+      "source": [
+        686,
+        946,
+        197,
+        305
+      ],
+      "target": [
+        -11.46808511,
+        -30.63532819,
+        23.05319149,
+        59.7046332
+      ],
+      "visiblePixels": 49225,
+      "usage": "reference"
+    },
+    {
+      "name": "radiator-repaired",
+      "source": [
+        999,
+        946,
+        197,
+        305
+      ],
+      "target": [
+        -11.46808511,
+        -30.63532819,
+        23.05319149,
+        59.7046332
+      ],
+      "visiblePixels": 49223,
+      "usage": "reference"
+    }
+  ],
+  "views": [
+    {
+      "file": "cerbere-diagnostic-poses.png",
+      "size": [
+        1500,
+        940
+      ],
+      "sha256": "ae9aa9eb0eac95457e87f7a162c7641b7f5777181fcf2943158f68662be33d6f",
+      "diagnostic": true,
+      "panels": [
+        "Garde immobile",
+        "Visée à droite",
+        "Visée à gauche",
+        "Coque endommagée",
+        "Repli autorisé",
+        "Repli vectoriel après absence"
+      ]
+    },
+    {
+      "file": "cerbere-op03-diagnostic.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "aada436d82304e0e7d436b400da0d99562041ee91f73846aa0ff1502af6f206d",
+      "diagnostic": true,
+      "mission": "op03",
+      "camera": "Player relocated only in this diagnostic copy",
+      "state": {
+        "version": 1,
+        "mission": {
+          "id": "op03",
+          "number": "03",
+          "name": "L’ordre de trop",
+          "planetId": "PL03",
+          "planet": "Thyr",
+          "biome": "FORÊT DES RÉSERVOIRS",
+          "length": 6300,
+          "difficulty": "RUPTURE",
+          "duration": "2–5 min",
+          "faction": "Consortium Orison / Empire d’Orthe",
+          "accent": "#b1bf7a",
+          "sky": [
+            "#172c31",
+            "#48635c",
+            "#a5b68b"
+          ],
+          "description": "Atteignez le régulateur PALINODE. Une escorte impériale protège l’ordre de purge. Prenez position avant de choisir votre obéissance.",
+          "briefing": "« Ce ne sont pas des accidents. Les horaires des purges sont signés avant les révoltes. Ouvre le registre, Sera. Regarde les dates. » — Veilleur Khelt",
+          "hint": "Scannez le régulateur puis tranchez l’ordre avec E. Désobéir vous oppose à Cerbère ; obéir autorise le repli. Une preuve seule ne suffit pas à tout révéler.",
+          "type": "boss",
+          "evidenceX": 3260,
+          "extractionX": 5990,
+          "decisionX": 3380,
+          "decision": {
+            "title": "Protocole PALINODE",
+            "body": "Le régulateur attend votre autorisation pour couper les filtres du bassin habité. Cerbère vous tient en joue : « Confirmez l’ordre ou vous serez relevée. »",
+            "obey": "Valider le dossier impérial et se replier",
+            "defy": "Bloquer la purge et ouvrir le registre"
+          },
+          "intro": "THYR // BASSIN DES VEILLEURS · 03:27"
+        },
+        "walker": {
+          "id": "WK01",
+          "name": "Vigie",
+          "designation": "M-12",
+          "role": "ÉCLAIREUR D’ASSAUT",
+          "legs": 2,
+          "profile": "Bipède haut",
+          "height": 180,
+          "width": 126,
+          "hull": 520,
+          "stride": 118,
+          "stepTime": 0.62,
+          "speed": 86,
+          "cooling": 16,
+          "armor": 0.12,
+          "damage": 22,
+          "fireRate": 0.18,
+          "shotHeat": 8,
+          "ammo": 12,
+          "rockets": 10,
+          "color": "#e5b16c",
+          "silhouette": "biped",
+          "weight": 34,
+          "description": "Un poste de tir élevé, une foulée longue. Ses deux genoux restent son point faible.",
+          "weapon": "Autocanon V-22",
+          "secondary": "Roquettes à charge creuse",
+          "strength": "Vue dégagée · tir précis",
+          "weakness": "Appuis exposés"
+        },
+        "missionId": "op03",
+        "walkerId": "WK01",
+        "planetId": "PL03",
+        "difficultyId": "normal",
+        "difficulty": {
+          "label": "Pilote",
+          "damage": 0.75,
+          "enemyHealth": 1,
+          "repair": 1
+        },
+        "seed": 1545,
+        "rng": 3096254685,
+        "assist": true,
+        "elapsed": 0,
+        "status": "playing",
+        "outcome": "",
+        "player": {
+          "x": 3800,
+          "y": 512.7233500516381,
+          "width": 126,
+          "height": 70,
+          "groundY": 692.7233500516381,
+          "facing": 1,
+          "aimAngle": 0,
+          "hull": 520,
+          "maxHull": 520,
+          "armor": 0.12,
+          "heat": 0,
+          "energy": 100,
+          "stability": 100,
+          "ammo": 12,
+          "maxAmmo": 12,
+          "reserveAmmo": 96,
+          "maxReserveAmmo": 96,
+          "radiator": {
+            "health": 100,
+            "maxHealth": 100,
+            "repairKits": 2,
+            "maxRepairKits": 2,
+            "repairProgress": 0,
+            "repairing": false
+          },
+          "rockets": 10,
+          "maxRockets": 10,
+          "reloadTime": 0,
+          "venting": false,
+          "braced": false,
+          "overheated": false,
+          "speed": 0,
+          "feet": [
+            {
+              "id": "foot-0",
+              "index": 0,
+              "group": 0,
+              "side": "back",
+              "homeOffset": -38,
+              "x": 3762,
+              "y": 695.5809050214473,
+              "phase": "stance",
+              "progress": 1,
+              "contact": true,
+              "fromX": 262,
+              "fromY": 695.1965758268334,
+              "targetX": 262,
+              "targetY": 695.1965758268334,
+              "health": 100,
+              "maxHealth": 100
+            },
+            {
+              "id": "foot-1",
+              "index": 1,
+              "group": 1,
+              "side": "front",
+              "homeOffset": 38,
+              "x": 3838,
+              "y": 690.4468383912911,
+              "phase": "stance",
+              "progress": 1,
+              "contact": true,
+              "fromX": 338,
+              "fromY": 693.7709570467781,
+              "targetX": 338,
+              "targetY": 693.7709570467781,
+              "health": 100,
+              "maxHealth": 100
+            }
+          ],
+          "stepCooldown": 0,
+          "lastGroup": -1,
+          "fireCooldown": 0,
+          "rocketCooldown": 0,
+          "flash": 0,
+          "aimX": 1000,
+          "aimY": 570,
+          "move": 0,
+          "anchorX": 300
+        },
+        "enemies": [
+          {
+            "name": "Cerbère",
+            "kind": "walker",
+            "w": 178,
+            "h": 218,
+            "hp": 1550,
+            "speed": 14,
+            "range": 970,
+            "cooldown": 3.6,
+            "damage": 46,
+            "projectileSpeed": 285,
+            "windup": 1.4,
+            "score": 1000,
+            "type": "boss",
+            "id": "enemy-7",
+            "x": 4250,
+            "spawnX": 4250,
+            "y": 557.7781199345263,
+            "maxHp": 1550,
+            "active": false,
+            "dead": false,
+            "facing": -1,
+            "telegraph": 0.8,
+            "attackTarget": "player",
+            "timer": 2.3429379502311347,
+            "flash": 0,
+            "phase": "attack",
+            "armor": 0.24,
+            "targetX": 3800,
+            "targetY": 512.7233500516381,
+            "dronePhase": 3.970170203147707
+          }
+        ],
+        "projectiles": [],
+        "particles": [],
+        "events": [
+          {
+            "id": 1,
+            "type": "radio",
+            "text": "« Ce ne sont pas des accidents. Les horaires des purges sont signés avant les révoltes. Ouvre le registre, Sera. Regarde les dates. » — Veilleur Khelt",
+            "time": 0
+          }
+        ],
+        "eventId": 1,
+        "entityId": 0,
+        "relays": [],
+        "convoy": null,
+        "civilians": [
+          {
+            "id": "civilian-1",
+            "x": 2150,
+            "y": 684.7449844853328,
+            "w": 18,
+            "h": 34,
+            "hp": 50,
+            "alive": true,
+            "safe": false,
+            "fleeing": false
+          },
+          {
+            "id": "civilian-2",
+            "x": 2220,
+            "y": 678.5812387658916,
+            "w": 18,
+            "h": 34,
+            "hp": 50,
+            "alive": true,
+            "safe": false,
+            "fleeing": false
+          },
+          {
+            "id": "civilian-3",
+            "x": 4580,
+            "y": 650.0140666382151,
+            "w": 18,
+            "h": 34,
+            "hp": 50,
+            "alive": true,
+            "safe": false,
+            "fleeing": false
+          }
+        ],
+        "evidence": {
+          "id": "op03-evidence",
+          "x": 3260,
+          "y": 629.4076536752331,
+          "collected": false,
+          "scanning": false,
+          "scanProgress": 0,
+          "scanTime": 2.4,
+          "label": "REGISTRE DE TRANSMISSIONS"
+        },
+        "pickups": [
+          {
+            "id": "supply-0",
+            "x": 1850,
+            "y": 669.1007739420266,
+            "type": "repair",
+            "collected": false
+          },
+          {
+            "id": "supply-1",
+            "x": 3850,
+            "y": 669.8903092945773,
+            "type": "repair",
+            "collected": false
+          },
+          {
+            "id": "supply-2",
+            "x": 5350,
+            "y": 673.8459505691458,
+            "type": "repair",
+            "collected": false
+          }
+        ],
+        "decision": {
+          "active": false,
+          "resolved": false,
+          "choice": "defy",
+          "title": "Protocole PALINODE",
+          "body": "Le régulateur attend votre autorisation pour couper les filtres du bassin habité. Cerbère vous tient en joue : « Confirmez l’ordre ou vous serez relevée. »",
+          "options": [
+            {
+              "id": "obey",
+              "label": "Valider le dossier impérial et se replier"
+            },
+            {
+              "id": "defy",
+              "label": "Bloquer la purge et ouvrir le registre"
+            }
+          ]
+        },
+        "objectives": [
+          {
+            "id": "evidence",
+            "label": "Récupérer le registre",
+            "current": 0,
+            "target": 1,
+            "complete": false
+          },
+          {
+            "id": "order",
+            "label": "Répondre à l’ordre reçu",
+            "current": 0,
+            "target": 1,
+            "complete": false
+          },
+          {
+            "id": "boss",
+            "label": "Neutraliser Cerbère",
+            "current": 0,
+            "target": 1,
+            "complete": false
+          },
+          {
+            "id": "extract",
+            "label": "Rejoindre l’extraction",
+            "current": 0,
+            "target": 1,
+            "complete": false
+          }
+        ],
+        "extraction": {
+          "x": 5990,
+          "y": 665.6040255673208,
+          "active": false,
+          "radius": 110
+        },
+        "stats": {
+          "kills": 0,
+          "shots": 0,
+          "hits": 0,
+          "steps": 0,
+          "collateral": 0,
+          "damageTaken": 0,
+          "evidence": 0,
+          "ordersObeyed": 0,
+          "ordersDefied": 0,
+          "score": 0
+        },
+        "interaction": "",
+        "cameraShake": 0,
+        "lastStepGroup": -1,
+        "checkpointText": "Ordre reçu. Appuis au sol.",
+        "inputHeld": {},
+        "notified": {},
+        "nextStep": 0,
+        "bossReleased": true,
+        "campaign": null
+      }
+    }
+  ],
+  "shots": [
+    {
+      "facing": -1,
+      "muzzle": [
+        562.8601166471943,
+        568.9247329128729
+      ],
+      "emittedFrom": [
+        562.8601166471943,
+        568.9247329128729
+      ],
+      "damage": 46,
+      "type": "rocket"
+    },
+    {
+      "facing": 1,
+      "muzzle": [
+        38.10239436207462,
+        551.8029042286734
+      ],
+      "emittedFrom": [
+        38.10239436207462,
+        551.8029042286734
+      ],
+      "damage": 46,
+      "type": "rocket"
+    }
+  ],
+  "limitations": [
+    "Six diagnostic poses and one diagnostic operation scene; no claim of a naturally completed mission.",
+    "Cerbère has no independent simulated foot contacts or component health. Its limb placement remains a presentation rig.",
+    "Five component damage/repair cells are references only; no persistent boss corpse is introduced."
+  ],
+  "atlas": {
+    "path": "assets/painted/cerbere/cerbere.png",
+    "sha256": "3fd900a7e98bebe5b7bf99190a44404add735d8f6d3936056fbcc455b40d8465",
+    "bytes": 1502235,
+    "size": [
+      1254,
+      1254
+    ],
+    "fullyTransparentPixels": 832714,
+    "solidPixels": 537582
+  }
+}

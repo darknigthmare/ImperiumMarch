@@ -1,0 +1,2050 @@
+{
+  "version": "0.15.5",
+  "createdUtc": "2026-11-16T14:39:30.640Z",
+  "type": "Actual PNG decoding and transport Canvas rendering",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "completed": true,
+  "atlases": [
+    {
+      "id": "wagons",
+      "file": "assets/painted/transport/wagons.png",
+      "width": 1774,
+      "height": 887,
+      "bytes": 1287680,
+      "sha256": "3553fea774a4cea44d296182b8c2e8b76706f8086c3f4409f07635361ae10d3c",
+      "transparentPixels": 1000921,
+      "solidPixels": 502782
+    },
+    {
+      "id": "cargo",
+      "file": "assets/painted/transport/cargo.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1479759,
+      "sha256": "d158889c1a7c84d139b15e9e3b7badf1ecdde1ac0d6f863698b0fdd3378a141f",
+      "transparentPixels": 847675,
+      "solidPixels": 632937
+    },
+    {
+      "id": "locomotive",
+      "file": "assets/painted/transport/locomotive.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1970233,
+      "sha256": "da022fc8fb829e8da2254c2da2e2d1420aa8b0f4970c4e1666a16679099e392e",
+      "transparentPixels": 1054392,
+      "solidPixels": 460204
+    },
+    {
+      "id": "carrier",
+      "file": "assets/painted/transport/carrier.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1667887,
+      "sha256": "2720b316ee5aef52520d34b0d9d71d51fe2bd43c342b9bd484d15ba756396dff",
+      "transparentPixels": 1172923,
+      "solidPixels": 358690
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "wagons",
+      "name": "ore-intact",
+      "source": [
+        13,
+        161,
+        417,
+        203
+      ],
+      "target": [
+        -75.72639225,
+        -40.54271357,
+        151.4527845,
+        55.08542714
+      ],
+      "occupiedPixels": 63938,
+      "anchors": {
+        "role": "chassis-bottom",
+        "sourcePivot": [
+          221.5,
+          362
+        ],
+        "pivot": [
+          0,
+          14
+        ],
+        "sourceCouplers": {
+          "left": [
+            20,
+            333
+          ],
+          "right": [
+            422,
+            333
+          ]
+        },
+        "couplers": {
+          "left": [
+            -73.18401937,
+            6.13065327
+          ],
+          "right": [
+            72.82082324,
+            6.13065327
+          ]
+        }
+      }
+    },
+    {
+      "atlas": "wagons",
+      "name": "ore-damaged",
+      "source": [
+        457,
+        161,
+        416,
+        203
+      ],
+      "target": [
+        -75.54479419,
+        -40.54271357,
+        151.08958838,
+        55.08542714
+      ],
+      "occupiedPixels": 62798,
+      "anchors": {
+        "role": "chassis-bottom",
+        "sourcePivot": [
+          665,
+          362
+        ],
+        "pivot": [
+          0,
+          14
+        ],
+        "sourceCouplers": {
+          "left": [
+            464,
+            333
+          ],
+          "right": [
+            866,
+            333
+          ]
+        },
+        "couplers": {
+          "left": [
+            -73.00242131,
+            6.13065327
+          ],
+          "right": [
+            73.00242131,
+            6.13065327
+          ]
+        }
+      }
+    },
+    {
+      "atlas": "wagons",
+      "name": "ore-wreck",
+      "source": [
+        900,
+        194,
+        417,
+        170
+      ],
+      "target": [
+        -75.72639225,
+        -31.5879397,
+        151.4527845,
+        46.13065327
+      ],
+      "occupiedPixels": 48125,
+      "anchors": {
+        "role": "chassis-bottom",
+        "sourcePivot": [
+          1108.5,
+          362
+        ],
+        "pivot": [
+          0,
+          14
+        ],
+        "sourceCouplers": {
+          "left": [
+            907,
+            333
+          ],
+          "right": [
+            1309,
+            333
+          ]
+        },
+        "couplers": {
+          "left": [
+            -73.18401937,
+            6.13065327
+          ],
+          "right": [
+            72.82082324,
+            6.13065327
+          ]
+        }
+      }
+    },
+    {
+      "atlas": "wagons",
+      "name": "hostages-closed",
+      "source": [
+        1340,
+        173,
+        425,
+        191
+      ],
+      "target": [
+        -80.76009501,
+        -40.6631016,
+        161.52019002,
+        63.32620321
+      ],
+      "occupiedPixels": 66460,
+      "anchors": {
+        "role": "chassis-bottom",
+        "sourcePivot": [
+          1552.5,
+          362
+        ],
+        "pivot": [
+          0,
+          22
+        ],
+        "sourceCouplers": {
+          "left": [
+            1348,
+            333
+          ],
+          "right": [
+            1758,
+            333
+          ]
+        },
+        "couplers": {
+          "left": [
+            -77.71971496,
+            12.38502674
+          ],
+          "right": [
+            78.09976247,
+            12.38502674
+          ]
+        }
+      }
+    },
+    {
+      "atlas": "wagons",
+      "name": "hostages-damaged",
+      "source": [
+        10,
+        617,
+        424,
+        191
+      ],
+      "target": [
+        -80.57007126,
+        -40.6631016,
+        161.14014252,
+        63.32620321
+      ],
+      "occupiedPixels": 66637,
+      "anchors": {
+        "role": "chassis-bottom",
+        "sourcePivot": [
+          222,
+          806
+        ],
+        "pivot": [
+          0,
+          22
+        ],
+        "sourceCouplers": {
+          "left": [
+            17,
+            777
+          ],
+          "right": [
+            428,
+            777
+          ]
+        },
+        "couplers": {
+          "left": [
+            -77.90973872,
+            12.38502674
+          ],
+          "right": [
+            78.28978622,
+            12.38502674
+          ]
+        }
+      }
+    },
+    {
+      "atlas": "wagons",
+      "name": "hostages-wreck",
+      "source": [
+        453,
+        619,
+        423,
+        189
+      ],
+      "target": [
+        -80.38004751,
+        -40,
+        160.76009501,
+        62.6631016
+      ],
+      "occupiedPixels": 61608,
+      "anchors": {
+        "role": "chassis-bottom",
+        "sourcePivot": [
+          664.5,
+          806
+        ],
+        "pivot": [
+          0,
+          22
+        ],
+        "sourceCouplers": {
+          "left": [
+            461,
+            777
+          ],
+          "right": [
+            870,
+            777
+          ]
+        },
+        "couplers": {
+          "left": [
+            -77.33966746,
+            12.38502674
+          ],
+          "right": [
+            78.09976247,
+            12.38502674
+          ]
+        }
+      }
+    },
+    {
+      "atlas": "wagons",
+      "name": "hostages-open",
+      "source": [
+        897,
+        617,
+        425,
+        191
+      ],
+      "target": [
+        -80.76009501,
+        -40.6631016,
+        161.52019002,
+        63.32620321
+      ],
+      "occupiedPixels": 66667,
+      "anchors": {
+        "role": "chassis-bottom",
+        "sourcePivot": [
+          1109.5,
+          806
+        ],
+        "pivot": [
+          0,
+          22
+        ],
+        "sourceCouplers": {
+          "left": [
+            904,
+            777
+          ],
+          "right": [
+            1315,
+            777
+          ]
+        },
+        "couplers": {
+          "left": [
+            -78.09976247,
+            12.38502674
+          ],
+          "right": [
+            78.09976247,
+            12.38502674
+          ]
+        }
+      }
+    },
+    {
+      "atlas": "wagons",
+      "name": "hostages-open-damaged",
+      "source": [
+        1340,
+        617,
+        425,
+        191
+      ],
+      "target": [
+        -80.76009501,
+        -40.6631016,
+        161.52019002,
+        63.32620321
+      ],
+      "occupiedPixels": 66549,
+      "anchors": {
+        "role": "chassis-bottom",
+        "sourcePivot": [
+          1552.5,
+          806
+        ],
+        "pivot": [
+          0,
+          22
+        ],
+        "sourceCouplers": {
+          "left": [
+            1348,
+            777
+          ],
+          "right": [
+            1758,
+            777
+          ]
+        },
+        "couplers": {
+          "left": [
+            -77.71971496,
+            12.38502674
+          ],
+          "right": [
+            78.09976247,
+            12.38502674
+          ]
+        }
+      }
+    },
+    {
+      "atlas": "cargo",
+      "name": "sealed",
+      "source": [
+        20,
+        168,
+        591,
+        310
+      ],
+      "target": [
+        -50.3407155,
+        -76.49673203,
+        100.68143101,
+        76.99346405
+      ],
+      "occupiedPixels": 158807,
+      "anchors": {
+        "role": "cargo-base",
+        "sourcePivot": [
+          315.5,
+          476
+        ],
+        "pivot": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "atlas": "cargo",
+      "name": "copied",
+      "source": [
+        646,
+        168,
+        591,
+        310
+      ],
+      "target": [
+        -50.3407155,
+        -76.49673203,
+        100.68143101,
+        76.99346405
+      ],
+      "occupiedPixels": 158941,
+      "anchors": {
+        "role": "cargo-base",
+        "sourcePivot": [
+          941.5,
+          476
+        ],
+        "pivot": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "atlas": "cargo",
+      "name": "damaged",
+      "source": [
+        20,
+        795,
+        591,
+        310
+      ],
+      "target": [
+        -50.3407155,
+        -76.49673203,
+        100.68143101,
+        76.99346405
+      ],
+      "occupiedPixels": 157619,
+      "anchors": {
+        "role": "cargo-base",
+        "sourcePivot": [
+          315.5,
+          1103
+        ],
+        "pivot": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "atlas": "cargo",
+      "name": "destroyed",
+      "source": [
+        643,
+        795,
+        593,
+        317
+      ],
+      "target": [
+        -50.51107325,
+        -78.23529412,
+        101.02214651,
+        78.73202614
+      ],
+      "occupiedPixels": 157570,
+      "anchors": {
+        "role": "cargo-base",
+        "sourcePivot": [
+          939.5,
+          1110
+        ],
+        "pivot": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "atlas": "locomotive",
+      "name": "intact",
+      "source": [
+        18,
+        167,
+        731,
+        218
+      ],
+      "target": [
+        -77.42365887,
+        -46.69158879,
+        154.84731774,
+        75.38317757
+      ],
+      "occupiedPixels": 123608,
+      "anchors": {
+        "role": "chassis-bottom",
+        "sourcePivot": [
+          383.5,
+          383
+        ],
+        "pivot": [
+          0,
+          28
+        ],
+        "sourceCouplers": {
+          "left": [
+            26,
+            355
+          ],
+          "right": [
+            739,
+            367
+          ]
+        },
+        "couplers": {
+          "left": [
+            -75.72902338,
+            18.31775701
+          ],
+          "right": [
+            75.30536451,
+            22.46728972
+          ]
+        }
+      }
+    },
+    {
+      "atlas": "locomotive",
+      "name": "damaged",
+      "source": [
+        786,
+        167,
+        731,
+        218
+      ],
+      "target": [
+        -77.42365887,
+        -46.69158879,
+        154.84731774,
+        75.38317757
+      ],
+      "occupiedPixels": 123571,
+      "anchors": {
+        "role": "chassis-bottom",
+        "sourcePivot": [
+          1151.5,
+          383
+        ],
+        "pivot": [
+          0,
+          28
+        ],
+        "sourceCouplers": {
+          "left": [
+            794,
+            355
+          ],
+          "right": [
+            1507,
+            367
+          ]
+        },
+        "couplers": {
+          "left": [
+            -75.72902338,
+            18.31775701
+          ],
+          "right": [
+            75.30536451,
+            22.46728972
+          ]
+        }
+      }
+    },
+    {
+      "atlas": "locomotive",
+      "name": "wreck",
+      "source": [
+        18,
+        684,
+        731,
+        214
+      ],
+      "target": [
+        -77.42365887,
+        -45.30841121,
+        154.84731774,
+        74
+      ],
+      "occupiedPixels": 118722,
+      "anchors": {
+        "role": "chassis-bottom",
+        "sourcePivot": [
+          383.5,
+          896
+        ],
+        "pivot": [
+          0,
+          28
+        ],
+        "sourceCouplers": {
+          "left": [
+            26,
+            867
+          ],
+          "right": [
+            739,
+            879
+          ]
+        },
+        "couplers": {
+          "left": [
+            -75.72902338,
+            17.97196262
+          ],
+          "right": [
+            75.30536451,
+            22.12149533
+          ]
+        }
+      }
+    },
+    {
+      "atlas": "locomotive",
+      "name": "wheel",
+      "source": [
+        975,
+        592,
+        350,
+        355
+      ],
+      "target": [
+        -1.01156069,
+        -1.01139601,
+        2.02312139,
+        2.02279202
+      ],
+      "occupiedPixels": 94303,
+      "anchors": {
+        "role": "axle",
+        "sourcePivot": [
+          1150,
+          769.5
+        ],
+        "pivot": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "atlas": "carrier",
+      "name": "intact",
+      "source": [
+        13,
+        272,
+        740,
+        114
+      ],
+      "target": [
+        -130.70652174,
+        -26.64,
+        261.41304348,
+        50.16
+      ],
+      "occupiedPixels": 71355,
+      "anchors": {
+        "role": "loading-deck",
+        "sourcePivot": [
+          383,
+          278
+        ],
+        "pivot": [
+          0,
+          -24
+        ]
+      }
+    },
+    {
+      "atlas": "carrier",
+      "name": "damaged",
+      "source": [
+        783,
+        267,
+        738,
+        143
+      ],
+      "target": [
+        -130.35326087,
+        -28.84,
+        260.70652174,
+        62.92
+      ],
+      "occupiedPixels": 72162,
+      "anchors": {
+        "role": "loading-deck",
+        "sourcePivot": [
+          1152,
+          278
+        ],
+        "pivot": [
+          0,
+          -24
+        ]
+      }
+    },
+    {
+      "atlas": "carrier",
+      "name": "wreck",
+      "source": [
+        13,
+        781,
+        740,
+        126
+      ],
+      "target": [
+        -130.70652174,
+        -27.96,
+        261.41304348,
+        55.44
+      ],
+      "occupiedPixels": 73908,
+      "anchors": {
+        "role": "loading-deck",
+        "sourcePivot": [
+          383,
+          790
+        ],
+        "pivot": [
+          0,
+          -24
+        ]
+      }
+    },
+    {
+      "atlas": "carrier",
+      "name": "wheel",
+      "source": [
+        933,
+        544,
+        432,
+        432
+      ],
+      "target": [
+        -1.00934579,
+        -1.00934579,
+        2.01869159,
+        2.01869159
+      ],
+      "occupiedPixels": 141265,
+      "anchors": {
+        "role": "axle",
+        "sourcePivot": [
+          1149,
+          760
+        ],
+        "pivot": [
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "views": [
+    {
+      "file": "transport-state-board.png",
+      "width": 1800,
+      "height": 1600,
+      "sha256": "22e6f09cdb067b38335fb357f5cbc2e187f4ce297b0ee8d3ead5741fecf1cb59",
+      "type": "Diagnostic states of assembled vehicles",
+      "drawCalls": [
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            18,
+            167,
+            731,
+            218
+          ],
+          "target": [
+            -77.42365887,
+            -46.69158879,
+            154.84731774,
+            75.38317757
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            786,
+            167,
+            731,
+            218
+          ],
+          "target": [
+            -77.42365887,
+            -46.69158879,
+            154.84731774,
+            75.38317757
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            18,
+            684,
+            731,
+            214
+          ],
+          "target": [
+            -77.42365887,
+            -45.30841121,
+            154.84731774,
+            74
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "wagons",
+          "source": [
+            13,
+            161,
+            417,
+            203
+          ],
+          "target": [
+            -75.72639225,
+            -40.54271357,
+            151.4527845,
+            55.08542714
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "wagons",
+          "source": [
+            1340,
+            173,
+            425,
+            191
+          ],
+          "target": [
+            -80.76009501,
+            -40.6631016,
+            161.52019002,
+            63.32620321
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "wagons",
+          "source": [
+            897,
+            617,
+            425,
+            191
+          ],
+          "target": [
+            -80.76009501,
+            -40.6631016,
+            161.52019002,
+            63.32620321
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            13,
+            272,
+            740,
+            114
+          ],
+          "target": [
+            -130.70652174,
+            -26.64,
+            261.41304348,
+            50.16
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            783,
+            267,
+            738,
+            143
+          ],
+          "target": [
+            -130.35326087,
+            -28.84,
+            260.70652174,
+            62.92
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            13,
+            781,
+            740,
+            126
+          ],
+          "target": [
+            -130.70652174,
+            -27.96,
+            261.41304348,
+            55.44
+          ]
+        },
+        {
+          "atlas": "cargo",
+          "source": [
+            20,
+            168,
+            591,
+            310
+          ],
+          "target": [
+            -50.3407155,
+            -76.49673203,
+            100.68143101,
+            76.99346405
+          ]
+        },
+        {
+          "atlas": "cargo",
+          "source": [
+            646,
+            168,
+            591,
+            310
+          ],
+          "target": [
+            -50.3407155,
+            -76.49673203,
+            100.68143101,
+            76.99346405
+          ]
+        },
+        {
+          "atlas": "cargo",
+          "source": [
+            643,
+            795,
+            593,
+            317
+          ],
+          "target": [
+            -50.51107325,
+            -78.23529412,
+            101.02214651,
+            78.73202614
+          ]
+        }
+      ]
+    },
+    {
+      "file": "mi02-closed-wagon.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "3cb37716dedd2fc5ca81fb0c8345e9272645f833285cda2d5ad4255601bc0d77",
+      "type": "Canvas mission scene reached through public controls",
+      "missionId": "MI02",
+      "elapsed": 30.483333333332883,
+      "drawCalls": [
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "wagons",
+          "source": [
+            1340,
+            173,
+            425,
+            191
+          ],
+          "target": [
+            -80.76009501,
+            -40.6631016,
+            161.52019002,
+            63.32620321
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "wagons",
+          "source": [
+            13,
+            161,
+            417,
+            203
+          ],
+          "target": [
+            -75.72639225,
+            -40.54271357,
+            151.4527845,
+            55.08542714
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            18,
+            167,
+            731,
+            218
+          ],
+          "target": [
+            -77.42365887,
+            -46.69158879,
+            154.84731774,
+            75.38317757
+          ]
+        }
+      ],
+      "facts": {
+        "trainX": 2542.53333333342,
+        "rescueResolved": false,
+        "hostagesLost": 0,
+        "hostagesRescued": 0
+      }
+    },
+    {
+      "file": "mi02-open-wagon.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "ec06e2ce1da2a591a7b50539509476b477e0ead99f258fc1aac6954002454d69",
+      "type": "Canvas mission scene reached through public controls",
+      "missionId": "MI02",
+      "elapsed": 40.616666666665644,
+      "drawCalls": [
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "wagons",
+          "source": [
+            897,
+            617,
+            425,
+            191
+          ],
+          "target": [
+            -80.76009501,
+            -40.6631016,
+            161.52019002,
+            63.32620321
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "wagons",
+          "source": [
+            13,
+            161,
+            417,
+            203
+          ],
+          "target": [
+            -75.72639225,
+            -40.54271357,
+            151.4527845,
+            55.08542714
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            975,
+            592,
+            350,
+            355
+          ],
+          "target": [
+            -1.01156069,
+            -1.01139601,
+            2.02312139,
+            2.02279202
+          ]
+        },
+        {
+          "atlas": "locomotive",
+          "source": [
+            18,
+            167,
+            731,
+            218
+          ],
+          "target": [
+            -77.42365887,
+            -46.69158879,
+            154.84731774,
+            75.38317757
+          ]
+        }
+      ],
+      "facts": {
+        "trainX": 2595.3333333334376,
+        "rescueResolved": true,
+        "hostagesLost": 0,
+        "hostagesRescued": 8
+      }
+    },
+    {
+      "file": "mi13-carrier-loading.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "ad3a594d17a120e8d766a3c1345238321117cb06b1d240d97c2393f91a7ed778",
+      "type": "Canvas mission scene reached through public controls",
+      "missionId": "MI13",
+      "elapsed": 0,
+      "drawCalls": [
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            13,
+            272,
+            740,
+            114
+          ],
+          "target": [
+            -130.70652174,
+            -26.64,
+            261.41304348,
+            50.16
+          ]
+        },
+        {
+          "atlas": "cargo",
+          "source": [
+            20,
+            168,
+            591,
+            310
+          ],
+          "target": [
+            -50.3407155,
+            -76.49673203,
+            100.68143101,
+            76.99346405
+          ]
+        },
+        {
+          "atlas": "cargo",
+          "source": [
+            20,
+            168,
+            591,
+            310
+          ],
+          "target": [
+            -50.3407155,
+            -76.49673203,
+            100.68143101,
+            76.99346405
+          ]
+        }
+      ],
+      "facts": {
+        "carrierX": 1050,
+        "carrierDistance": 0,
+        "cargo": [
+          {
+            "id": "foundry-cargo-1",
+            "x": 992,
+            "y": 578.6581556515803,
+            "transferred": false
+          },
+          {
+            "id": "foundry-cargo-2",
+            "x": 1108,
+            "y": 578.6581556515803,
+            "transferred": false
+          }
+        ],
+        "wheels": [
+          {
+            "id": "foundry-wheel-1",
+            "x": 956,
+            "y": 668.1001300118218,
+            "radius": 16,
+            "contact": true,
+            "groundY": 684.1001300118218,
+            "bridgeId": null,
+            "temperature": 28
+          },
+          {
+            "id": "foundry-wheel-2",
+            "x": 1016,
+            "y": 663.6040971446009,
+            "radius": 16,
+            "contact": true,
+            "groundY": 679.6040971446009,
+            "bridgeId": null,
+            "temperature": 28
+          },
+          {
+            "id": "foundry-wheel-3",
+            "x": 1084,
+            "y": 658.9478640854057,
+            "radius": 16,
+            "contact": true,
+            "groundY": 674.9478640854057,
+            "bridgeId": null,
+            "temperature": 28
+          },
+          {
+            "id": "foundry-wheel-4",
+            "x": 1144,
+            "y": 655.9805313644925,
+            "radius": 16,
+            "contact": true,
+            "groundY": 671.9805313644925,
+            "bridgeId": null,
+            "temperature": 28
+          }
+        ]
+      }
+    },
+    {
+      "file": "mi13-carrier-escort.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "c261647068e9ce168ee9b7ba91b26c6a19abeb116629dbac7f0d514141dd7a28",
+      "type": "Canvas mission scene reached through public controls",
+      "missionId": "MI13",
+      "elapsed": 30.816666666666197,
+      "drawCalls": [
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            933,
+            544,
+            432,
+            432
+          ],
+          "target": [
+            -1.00934579,
+            -1.00934579,
+            2.01869159,
+            2.01869159
+          ]
+        },
+        {
+          "atlas": "carrier",
+          "source": [
+            13,
+            272,
+            740,
+            114
+          ],
+          "target": [
+            -130.70652174,
+            -26.64,
+            261.41304348,
+            50.16
+          ]
+        },
+        {
+          "atlas": "cargo",
+          "source": [
+            20,
+            168,
+            591,
+            310
+          ],
+          "target": [
+            -50.3407155,
+            -76.49673203,
+            100.68143101,
+            76.99346405
+          ]
+        },
+        {
+          "atlas": "cargo",
+          "source": [
+            20,
+            168,
+            591,
+            310
+          ],
+          "target": [
+            -50.3407155,
+            -76.49673203,
+            100.68143101,
+            76.99346405
+          ]
+        }
+      ],
+      "facts": {
+        "carrierX": 1350.5212877098002,
+        "carrierDistance": 300.52128770980966,
+        "cargo": [
+          {
+            "id": "foundry-cargo-1",
+            "x": 1292.5212877098002,
+            "y": 572.5968231814084,
+            "transferred": false
+          },
+          {
+            "id": "foundry-cargo-2",
+            "x": 1408.5212877098002,
+            "y": 572.5968231814084,
+            "transferred": false
+          }
+        ],
+        "wheels": [
+          {
+            "id": "foundry-wheel-1",
+            "x": 1256.5212877098002,
+            "y": 654.2608661673789,
+            "radius": 16,
+            "contact": true,
+            "groundY": 670.2608661673789,
+            "bridgeId": null,
+            "temperature": 28
+          },
+          {
+            "id": "foundry-wheel-2",
+            "x": 1316.5212877098002,
+            "y": 654.9719217930917,
+            "radius": 16,
+            "contact": true,
+            "groundY": 670.9719217930917,
+            "bridgeId": null,
+            "temperature": 28
+          },
+          {
+            "id": "foundry-wheel-3",
+            "x": 1384.5212877098002,
+            "y": 656.2045106607924,
+            "radius": 16,
+            "contact": true,
+            "groundY": 672.2045106607924,
+            "bridgeId": null,
+            "temperature": 28
+          },
+          {
+            "id": "foundry-wheel-4",
+            "x": 1444.5212877098002,
+            "y": 656.9499941043703,
+            "radius": 16,
+            "contact": true,
+            "groundY": 672.9499941043703,
+            "bridgeId": null,
+            "temperature": 28
+          }
+        ]
+      }
+    }
+  ],
+  "sourceHashes": {
+    "src/painted-transport.mjs": "cfc4c3cefb6f536bec87dc24479f9cd85db1a5c0a3cb62d427c0c6d662f41af9",
+    "src/painted-transport-layout.mjs": "85057bffdc36dace2e891d5fda99793fd2f24f1a91e22c5057218d0a67bebe02",
+    "src/renderer.mjs": "1a838373319ab5286c7c05827ddf379c877d6e6c2f301e3dd1cf5992b4a33d7d",
+    "src/foundry-renderer.mjs": "114ef2454bcb947282c7955afa88c86ffbec6aad2c30f7f21c63d35d90b674fc",
+    "tools/test-painted-transport.mjs": "0a5e53ab11ca4c5d075b1f657c687720d6cb73701d282276083d9b53a0b86527"
+  },
+  "limitations": [
+    "State boards use explicit diagnostic copies; integrated mission scenes use public controls.",
+    "Vehicle paint does not add crew, cargo, passenger counts, corpses, physics, or final gameplay systems."
+  ]
+}
