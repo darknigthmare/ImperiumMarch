@@ -1,5 +1,19 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Publication 0.15.2 accomplie
+
+La [PR #2](https://github.com/darknigthmare/ImperiumMarch/pull/2) est fusionnée sur `main` au commit **`6c788a3431a3738be69a61065c0facc64379279b`**. Son arbre **`b2f66472b6e0c433a1ac92e0d1613e0ecdb2967a`** correspond exactement au snapshot local testé **`ca1f7be61af356d6a4cf7236b6bf7ba288774ba1`**. La publication réunit la reconstruction de MI12–MI13, MI14, les huit atlas de l’atelier et les neuf atlas de combat. Contre l’ancien `main`, elle contient **584 ajouts, 40 modifications et aucune suppression**.
+
+La [CI de la PR](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43841918922) a réussi sur son HEAD exact **`42112a5dc890330baa3c955c91f9962bbb2b5c2f`**, sous Node **22.23.4** : **697 tests**, **174 cas raster**, les deux lots d’atlas, le catalogue, les builds et **108 parcours du DOM modélisé**. Le reçu [v0152-publication.json](validation/v0152-publication.json) distingue cette validation de la CI automatique de `main`.
+
+La [CI de `main`](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43842401703) a également réussi sur le commit fusionné **`6c788a3431a3738be69a61065c0facc64379279b`**, avec l’ensemble des mêmes contrôles.
+
+L’HTML autonome de **50 445 160 octets** dépassait la limite de corps de requête du connecteur. La [run de reconstruction](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43841610596) l’a construit avec le bundler existant, puis a contrôlé son SHA-256 **`44eb93556e7c881582634306a66ce08816d8a35ad1768fd4dc34ae54e5734b2a`** avant de commiter uniquement ce fichier sur la branche de travail. La workflow temporaire a été supprimée avant la comparaison finale et la fusion. Le fichier distant est identique à celui qui a été testé localement ; aucune image n’a été réduite pour le transfert.
+
+Vercel a construit **`dpl_6ocHZAasgPEW28sr9t8Xk9Z6o9RE`**, état **READY**, cible **production**, pour le commit fusionné exact. Le domaine stable [imperium-march.vercel.app](https://imperium-march.vercel.app/) lui est associé sans erreur. Les paramètres, domaines et protections existants sont conservés.
+
+Chrome partagé a ensuite reçu la version **0.15.2**, ses **quatorze missions** et un lancement réel de **Simulation 02 — Le dernier bac**. Les sprites du convoi et des combattants s’affichent ; marche, pause et reprise répondent. Le [reçu natif et les quatre captures](validation/native-v0152/receipt.json) délimitent ce parcours court. Il n’achève pas une mission ni une réception humaine et n’efface pas le blocage distinct de Chromium local. Le suivi documentaire ajoute ces preuves sans modifier le jeu, les images de production, le HTML autonome ou la Bible.
+
 ## Reprise 0.15.2 — préparation du snapshot
 
 La reprise du 16 novembre 2026 rassemble MI12–MI14, les huit atlas de l’atelier et les neuf atlas de combat. La version locale est **0.15.2** ; les résultats de construction et de validation figurent dans [QA_PAINTED_COMBAT.md](QA_PAINTED_COMBAT.md). La Bible conserve 1 007 fiches et le dossier du joueur reste v14.

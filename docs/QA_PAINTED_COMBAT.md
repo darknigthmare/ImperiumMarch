@@ -31,11 +31,23 @@ Les cinq scènes **OP01, OP02, MI05, MI09 et MI13** viennent de `createGame`, pu
 
 La relecture du banc confirme un fond transparent, des corps lisibles dans les deux orientations et des armes raccordées, sans roue ni canon en double. OP02 et MI05 ont également été ouverts pour examiner leur échelle dans le terrain. La finesse des traits à l’échelle du jeu et la qualité des transitions restent soumises à une réception artistique et à un essai humain.
 
-## Navigateur natif
+## Tentative automatisée dans Chromium local
 
 Le nouveau script `tools/test-painted-combat-browser.mjs` attend explicitement le chargement des **huit atlas MI14 et des neuf atlas de combat**, puis prépare un parcours distinct. La tentative locale a été bloquée **au lancement de Chromium**, avant toute page : `socket() failed: Operation not permitted`, `ptrace: Operation not permitted`, puis `SIGABRT`.
 
 Le [rapport 0.15.2](validation/painted-combat-browser-v0152/report.json) conserve **une tentative, zéro page, zéro parcours exécuté et zéro capture**. Aucun autre chemin local n’a été utilisé pour contourner ce blocage. Les résultats du DOM modélisé et de Canvas restent valides dans leur périmètre, mais ne sont pas présentés comme une réception Chromium. Les anciennes preuves navigateur restent inchangées. Un essai humain n’a pas été réalisé.
+
+## Réception courte de Chrome sur la production
+
+Après publication du commit **`6c788a3431a3738be69a61065c0facc64379279b`** et confirmation du déploiement **`dpl_6ocHZAasgPEW28sr9t8Xk9Z6o9RE`** en production READY, le navigateur partagé a rechargé [imperium-march.vercel.app](https://imperium-march.vercel.app/). Il affiche **VERSION 0.15.2 et quatorze missions**, avec MI12, MI13 et MI14. Ce contrôle passe par le site public ; il ne relance pas le Chromium local bloqué.
+
+La sélection de **Simulation 02 — Le dernier bac**, le briefing et le bouton de déploiement ont ouvert le terrain avec le M-12 Vigie. Les nouveaux sprites du convoi et des fusiliers sont visibles. La commande de marche a fait passer le convoi de l’attente au mouvement et son objectif de **3 % à 4 %**. Échap ouvre la pause ; Reprendre revient au terrain ; une seconde pause est reçue. Le dossier de campagne n’a été ni importé ni réinitialisé.
+
+Le [reçu natif](validation/native-v0152/receipt.json) conserve la portée exacte et les empreintes de **quatre captures originales du navigateur** : [campagne](validation/native-v0152/campaign-v0152.jpg), [premier affichage](validation/native-v0152/combat-op02-v0152.jpg), [après reprise](validation/native-v0152/combat-op02-resumed-v0152.jpg) et [pause](validation/native-v0152/paused-v0152.jpg). La préversion Vercel demandait une connexion ; sa protection a été conservée et l’interaction a été faite sur le domaine public de production.
+
+![Les sprites du convoi et des combattants dans la version publique 0.15.2.](validation/native-v0152/combat-op02-resumed-v0152.jpg)
+
+*Capture réelle de Chrome après reprise et commande de marche. Cette réception courte ne termine pas une mission, ne contrôle pas les dix-sept états de décodage, ne mesure pas les performances et ne remplace pas un essai humain. QA230 et QA231 ne sont pas clôturées par ce parcours OP02. Le rapport local bloqué demeure conservé avec ses résultats propres.*
 
 ## Reproduction
 

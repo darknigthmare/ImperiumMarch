@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "version": "0.15.2",
+  "createdUtc": "2026-11-16T09:48:15.694264+00:00",
+  "type": "Short live production browser interaction through the shared Chrome UI",
+  "url": "https://imperium-march.vercel.app/",
+  "deployment": {
+    "id": "dpl_6ocHZAasgPEW28sr9t8Xk9Z6o9RE",
+    "gitSha": "6c788a3431a3738be69a61065c0facc64379279b",
+    "tree": "b2f66472b6e0c433a1ac92e0d1613e0ecdb2967a",
+    "state": "READY",
+    "target": "production"
+  },
+  "browserExecuted": true,
+  "humanPlaytestPerformed": false,
+  "allMissionsPlayed": false,
+  "allAtlasBrowserDecodeStatesInspected": false,
+  "observations": [
+    "Before publication the stable production URL displayed version 0.12 and eleven campaign missions.",
+    "After the verified production deployment, reload displayed version 0.15.2 and fourteen campaign missions, including MI12, MI13 and MI14.",
+    "The simulations view listed three independent operations.",
+    "Simulation 02 Le dernier bac was selected through its visible card, then its briefing and Deploy button.",
+    "The M-12 Vigie entered the visible battlefield; the painted convoy and rifle combatants rendered with transparent backgrounds.",
+    "The Right arrow was sent twice through the browser UI. The convoy changed from waiting to moving and its objective advanced from 3% to 4%.",
+    "Escape opened the pause dialog. Resume returned to the battlefield. A second Escape reopened the pause dialog.",
+    "The final live tab is left paused with Resume available and marked as a deliverable."
+  ],
+  "inputRequests": [
+    {
+      "key": "Right",
+      "requestedDurationMs": 1200
+    },
+    {
+      "key": "Escape"
+    },
+    {
+      "control": "Resume"
+    },
+    {
+      "key": "Right",
+      "requestedDurationMs": 3500
+    },
+    {
+      "key": "Escape"
+    }
+  ],
+  "inputDurationScope": "Durations describe the requests to the UI tool; actual event hold duration and native frame pacing were not measured.",
+  "campaignData": {
+    "initialReportsVisible": 0,
+    "finalCampaignCompletionNotAttempted": true,
+    "simulationOnly": true,
+    "saveImportsPerformed": 0,
+    "saveResetsPerformed": 0
+  },
+  "consoleObservation": {
+    "level": "error",
+    "requestedLimit": 20,
+    "entriesReturned": 20,
+    "allReturnedEntriesFromBrowserExtension": true,
+    "returnedMessage": "Error sending browser metadata to extension: Object",
+    "gameErrorsIdentifiedInReturnedSample": 0,
+    "exhaustive": false
+  },
+  "previewAccess": {
+    "protectedPreviewReachedLogin": true,
+    "loginAttempts": 0,
+    "protectionChanges": 0
+  },
+  "captures": [
+    {
+      "file": "campaign-v0152.jpg",
+      "bytes": 198032,
+      "sha256": "03420b0363f3d6c76d96d7cf673a3baebea8853a1b099906a7af367503ce3bfa",
+      "format": "JPEG",
+      "size": [
+        1348,
+        1669
+      ]
+    },
+    {
+      "file": "combat-op02-v0152.jpg",
+      "bytes": 86050,
+      "sha256": "758c5e1594b9dc8f218b0ebe675d5083177830321a986a5daff8043fb3177d03",
+      "format": "JPEG",
+      "size": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "combat-op02-resumed-v0152.jpg",
+      "bytes": 85111,
+      "sha256": "ffa5cbe6f05c04adc7b22da6841e3f1ee19c9be4758b1cf2dd3367e7096cbafa",
+      "format": "JPEG",
+      "size": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "paused-v0152.jpg",
+      "bytes": 32961,
+      "sha256": "cd0025d179478b59592131b44e9f179eea67ccb74331b20cf4371ca3c7cba7ce",
+      "format": "JPEG",
+      "size": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "paused-ax.txt",
+      "bytes": 669,
+      "sha256": "0fc9e54692852bd2129bc3dd929ec6588f4d6362b2064c4b50083dc389d58ca7"
+    }
+  ],
+  "limitations": [
+    "This short browser check does not complete a mission, validate every sprite, certify frame rate, test audio or replace a human playtest.",
+    "The local automated Chromium launch remains blocked-before-page-load in its separate original receipt.",
+    "MI14 native end-to-end reception and human acceptance criteria remain open.",
+    "Screenshots are original browser JPEG bytes copied unchanged, not Canvas reconstructions or generated mockups."
+  ]
+}
