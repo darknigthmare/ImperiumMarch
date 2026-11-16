@@ -1,0 +1,330 @@
+{
+  "schema": 1,
+  "version": "0.15.5",
+  "status": "completed-bounded-native-smoke",
+  "applicationCommit": "a0ae19542b384144ab4a6ce96562288c821879c4",
+  "applicationTree": "743dfca080436dceb0fb1c25fa5ea40061b0661c",
+  "productionDeployment": "dpl_rCFt5nX8QSsZQFkyvtcanAATk2fS",
+  "productionReadyAtEpochMs": 1794841154151,
+  "productionReadyAt": "2026-11-16T14:59:14.151Z",
+  "deploymentProvenance": "Révision, arbre et déploiement transmis par le contrôleur de session ; date UTC recalculée depuis le timestamp.",
+  "url": "https://imperium-march.vercel.app/",
+  "environment": {
+    "browser": "Chrome partagé, cloud cdp",
+    "tabId": "113",
+    "automation": "cua_repl",
+    "interactionScope": "Imports de dossiers par l’interface visible, commandes clavier, arbres d’accessibilité et captures natives.",
+    "receiptAssembly": "Revue des sept JPG et textes AX après fermeture de la session CUA ; aucun navigateur relancé, aucune retouche."
+  },
+  "startedCaptureUtc": "2026-11-16T14:59:57.398Z",
+  "finishedUtc": "2026-11-16T15:06:50.223Z",
+  "visibleVersion": "0.15.5",
+  "campaignReportsObserved": "0 / 14",
+  "nativeMissionScenesCount": 3,
+  "nativeMissionIds": [
+    "MI12",
+    "MI07",
+    "MI13"
+  ],
+  "humanPlaytest": false,
+  "missionCompletionClaimed": false,
+  "newIndustrialTransferClaimed": false,
+  "evidenceSources": {
+    "sessionObservationsSha256": "5a1279d9e71e9b9ca378c66d0b21ac66d23421e975d854a27c2b8dc6cf20779c",
+    "inputProvenanceSha256": "3bd9870ac298b2cab31afb7efdc681cd45dd1bf99a730517314632c07e4a34be",
+    "copiedEvidenceScope": "Sept captures JPG et sept textes AX uniquement ; ni sauvegarde privée ni checkpoint importé recopié."
+  },
+  "checkpointInputs": [
+    {
+      "missionId": "MI12",
+      "source": "docs/validation/rebuild-mi12/copy-active-checkpoint.json",
+      "sourceSha256": "3ee8a61fd37cce17093e673402ed0b4096ada72ac83be9c8d9fa3a980ff274d9",
+      "sourceBytes": 115535,
+      "selection": "whole file",
+      "importedFileName": "mi12-copy.json",
+      "inputSha256": "3ee8a61fd37cce17093e673402ed0b4096ada72ac83be9c8d9fa3a980ff274d9",
+      "inputBytes": 115535,
+      "provenanceVerified": true
+    },
+    {
+      "missionId": "MI07",
+      "source": "tests/fixtures/campaign-v7-mi07.json",
+      "sourceSha256": "8ca58deb11f4048039cda3a54157f7eddb2dd6af6a34450a3d177b3bdfa67a5c",
+      "sourceBytes": 416347,
+      "selection": "live",
+      "importedFileName": "mi07-ambulance.json",
+      "inputSha256": "b5adaf33752411b8a81a4ffc2a34cb3cce077fcfe975c52d786a06ef5b011b10",
+      "inputBytes": 96930,
+      "provenanceVerified": true
+    },
+    {
+      "missionId": "MI13",
+      "source": "docs/validation/rebuild-mi13/interrupted-transfer-checkpoint.json",
+      "sourceSha256": "3160ec519bc6817bed515b13f9bbc78be341aaa8b2ba689047d53e073e08ff55",
+      "sourceBytes": 155677,
+      "selection": "whole file",
+      "importedFileName": "mi13-transfer.json",
+      "inputSha256": "3160ec519bc6817bed515b13f9bbc78be341aaa8b2ba689047d53e073e08ff55",
+      "inputBytes": 155677,
+      "provenanceVerified": true
+    }
+  ],
+  "scenes": [
+    {
+      "missionId": "MI12",
+      "name": "Le troisième relais",
+      "observations": [
+        "Prétoire peint, relais et poste de commande visibles dans le navigateur.",
+        "HUD : capteur perdu, ancrage verrouillé ; aucune commande industrielle copiée.",
+        "Commande D demandée pendant 1200 ms ; pose du marcheur et cadrage changés entre les vues conservées.",
+        "Dialogue de pause visible puis retour au champ de bataille après reprise."
+      ],
+      "requestedInputDurationsMs": {
+        "rightD": 1200
+      },
+      "clock": {
+        "reportedSessionRange": [
+          "01:10",
+          "01:15"
+        ],
+        "reportedSessionRangeSource": "Observation de session du contrôleur ; 01:10 absent des captures conservées.",
+        "firstArchivedScreenshot": "01:11",
+        "resumedScreenshot": "01:14",
+        "resumedAccessibility": "01:15"
+      },
+      "copyCompletionClaimed": false
+    },
+    {
+      "missionId": "MI07",
+      "name": "Une ambulance sans escorte",
+      "observations": [
+        "Ambulance et caisse sanitaire peintes visibles.",
+        "HUD : cargaison sanitaire vérifiée ; balise récupérée, origine à recouper.",
+        "La balise récupérée n’est plus visible sur le véhicule.",
+        "Transfert sanitaire en cours ; zéro patient arrivé sur quatre au moment observé."
+      ],
+      "operationsNewlyPerformedClaimed": false
+    },
+    {
+      "missionId": "MI13",
+      "name": "Pièces de rechange",
+      "observations": [
+        "Porteur peint à la baie, caisse visible sur son plateau.",
+        "HUD : transfert interrompu ; deux caisses intactes, zéro endommagée, zéro perdue et zéro transfert acquis.",
+        "Invitation E — Transférer la caisse 1 dans la baie — 5 s visible."
+      ],
+      "transferAttempt": {
+        "requestedKeys": [
+          "Space",
+          "E"
+        ],
+        "requestedDurationMs": 6000,
+        "result": "Aucun transfert acquis observé lors de la tentative.",
+        "successfulTransferClaimed": false
+      },
+      "missionCompletionClaimed": false
+    }
+  ],
+  "restoration": {
+    "initialExportBytes": 8480,
+    "restoredExportBytes": 8480,
+    "initialExportSha256": "0fa13fe1ac7191fff04434e0bb6867137936ba43a889208f2a3a88dbb92073e5",
+    "restoredExportSha256": "0fa13fe1ac7191fff04434e0bb6867137936ba43a889208f2a3a88dbb92073e5",
+    "exportsByteIdentical": true,
+    "verificationMethod": "Comparaison directe des octets et SHA-256 des deux exports privés.",
+    "privateExportsPublished": false,
+    "initialAssignedWalker": "A-17 Arpenteur",
+    "finalAssignedWalker": "A-17 Arpenteur",
+    "assignedWalkerRestored": true,
+    "allInitialPreferencesCompared": false
+  },
+  "consoleSample": {
+    "entriesReturned": 30,
+    "sourceUrls": {
+      "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js": 30
+    },
+    "messages": {
+      "Error sending browser metadata to extension: Object": 30
+    },
+    "firstSampledErrorUtc": "2026-11-16T15:03:52.468Z",
+    "lastSampledErrorUtc": "2026-11-16T15:06:24.106Z",
+    "allEntriesAreBrowserExtensionMetadataErrors": true,
+    "applicationOriginErrorsInThisSample": 0,
+    "scope": "Trente erreurs d’extension échantillonnées ; aucune conclusion exhaustive sur les erreurs application."
+  },
+  "screenshots": [
+    {
+      "file": "01-campaign-v0155.jpg",
+      "bytes": 199707,
+      "sha256": "d6a0344b83431963fc0e4f972df710364570aa0395cc0c27e36e8b6a4e6dd75c",
+      "bytesUnchanged": true,
+      "capturedUtc": "2026-11-16T14:59:57.398Z",
+      "dimensions": [
+        1348,
+        1669
+      ],
+      "format": "JPEG",
+      "caption": "Écran Campagne initial : version 0.15.5, 0 / 14 rapports classés, A-17 Arpenteur assigné.",
+      "visuallyReviewed": true
+    },
+    {
+      "file": "02-mi12-praetor-copy.jpg",
+      "bytes": 103449,
+      "sha256": "9d301c3b673a43878e320dca707a1b69f997c58912a595b0929943b27bf2e328",
+      "bytesUnchanged": true,
+      "capturedUtc": "2026-11-16T15:01:28.261Z",
+      "dimensions": [
+        1363,
+        936
+      ],
+      "format": "JPEG",
+      "caption": "MI12 après import du checkpoint historique : Prétoire peint, relais et poste de commande visibles ; capteur perdu, ancrage verrouillé et aucune commande industrielle copiée affichés.",
+      "visuallyReviewed": true,
+      "visibleClock": {
+        "screenshot": "01:11",
+        "accessibility": "01:11"
+      }
+    },
+    {
+      "file": "03-mi12-paused.jpg",
+      "bytes": 32514,
+      "sha256": "ab0b5db975e8d2e47aeba5645f42032f88a0b0038561bb9e5e8e1575659fd38e",
+      "bytesUnchanged": true,
+      "capturedUtc": "2026-11-16T15:02:11.008Z",
+      "dimensions": [
+        1363,
+        936
+      ],
+      "format": "JPEG",
+      "caption": "Dialogue de pause MI12 : « La simulation est suspendue » et bouton Reprendre visibles.",
+      "visuallyReviewed": true
+    },
+    {
+      "file": "04-mi12-resumed.jpg",
+      "bytes": 101200,
+      "sha256": "bbbb34517f928e0eebd1c2e7c8b24ca8194ad91cbcde56a8fd32e19b2a81160c",
+      "bytesUnchanged": true,
+      "capturedUtc": "2026-11-16T15:02:24.790Z",
+      "dimensions": [
+        1363,
+        936
+      ],
+      "format": "JPEG",
+      "caption": "MI12 après reprise : champ de bataille actif, pose du marcheur et cadrage changés ; aucune commande industrielle copiée affichée.",
+      "visuallyReviewed": true,
+      "visibleClock": {
+        "screenshot": "01:14",
+        "accessibility": "01:15"
+      }
+    },
+    {
+      "file": "05-mi07-ambulance.jpg",
+      "bytes": 103337,
+      "sha256": "0c40d4cfd27fa7ebd3e3aa73a0e55a14b052b7c7f7f7f27704245893fb45fc22",
+      "bytesUnchanged": true,
+      "capturedUtc": "2026-11-16T15:03:27.833Z",
+      "dimensions": [
+        1363,
+        936
+      ],
+      "format": "JPEG",
+      "caption": "MI07 après import du checkpoint historique : ambulance et caisse sanitaire peintes visibles ; cargaison vérifiée, balise récupérée indiquée et balise absente du véhicule.",
+      "visuallyReviewed": true,
+      "visibleClock": {
+        "screenshot": "02:56",
+        "accessibility": "02:57"
+      }
+    },
+    {
+      "file": "06-mi13-carrier-transfer.jpg",
+      "bytes": 101724,
+      "sha256": "97a77ba2aa3ade7ea821e318fccdfa0dcc585c76852c6525bb1658d81eac1386",
+      "bytesUnchanged": true,
+      "capturedUtc": "2026-11-16T15:04:06.361Z",
+      "dimensions": [
+        1363,
+        936
+      ],
+      "format": "JPEG",
+      "caption": "MI13 après import du checkpoint historique : porteur peint et caisse sur plateau ; transfert interrompu, deux caisses intactes et zéro transfert acquis affichés.",
+      "visuallyReviewed": true,
+      "visibleClock": {
+        "screenshot": "02:17",
+        "accessibility": "02:17"
+      }
+    },
+    {
+      "file": "07-restored-campaign.jpg",
+      "bytes": 199743,
+      "sha256": "83e9ea1bd86c480a267cd5d0cf995f146a5b8997800377295eaa98d176ecd41b",
+      "bytesUnchanged": true,
+      "capturedUtc": "2026-11-16T15:06:50.214Z",
+      "dimensions": [
+        1348,
+        1669
+      ],
+      "format": "JPEG",
+      "caption": "Retour au dossier initial : écran Campagne, version 0.15.5, 0 / 14 rapports classés et A-17 Arpenteur assigné.",
+      "visuallyReviewed": true
+    }
+  ],
+  "accessibilityEvidence": [
+    {
+      "file": "01-campaign-v0155.txt",
+      "bytes": 261,
+      "sha256": "eaddbd13cd116e6830009d87efd5d27c4111f0ea2bc39d7f4f2812c1c109cc75",
+      "bytesUnchanged": true,
+      "kind": "accessibility-unchanged-summary"
+    },
+    {
+      "file": "02-mi12-praetor-copy.txt",
+      "bytes": 1360,
+      "sha256": "3e03ee7b0a1f92ab975d2051ad9bb016d99ce795b55c4fd5f7f42c399aa5d822",
+      "bytesUnchanged": true,
+      "kind": "accessibility-diff"
+    },
+    {
+      "file": "03-mi12-paused.txt",
+      "bytes": 666,
+      "sha256": "72f6784f5c6104e780a5ace46fc9df1c1bc6d4be1a1a7643bed94b80d3900b98",
+      "bytesUnchanged": true,
+      "kind": "accessibility-tree"
+    },
+    {
+      "file": "04-mi12-resumed.txt",
+      "bytes": 1252,
+      "sha256": "1ab71c97d56713a76c276a24b349059791343a8220a7ebd7d68689843ced71b6",
+      "bytesUnchanged": true,
+      "kind": "accessibility-diff"
+    },
+    {
+      "file": "05-mi07-ambulance.txt",
+      "bytes": 1317,
+      "sha256": "7f2643879656dfabb2d5d5245d2e09a3a33feb67d7248f6cb73e3ac93ab1a77f",
+      "bytesUnchanged": true,
+      "kind": "accessibility-diff"
+    },
+    {
+      "file": "06-mi13-carrier-transfer.txt",
+      "bytes": 1423,
+      "sha256": "00035100db045b75e54bc4351eed7286772e1dd01b33dac472e19a7d5493e506",
+      "bytesUnchanged": true,
+      "kind": "accessibility-diff"
+    },
+    {
+      "file": "07-restored-campaign.txt",
+      "bytes": 381,
+      "sha256": "31866890d3ee9f854496de6a3d5e94fe1409bf9b504d9e62d8f698d2d2f24c74",
+      "bytesUnchanged": true,
+      "kind": "accessibility-diff"
+    }
+  ],
+  "limitations": [
+    "Trois scènes issues de checkpoints historiques importés ; aucune progression complète rejouée, mission achevée, copie MI12 ou opération sanitaire MI07 nouvellement accomplie revendiquée.",
+    "Durées de touches demandées, sans mesure de leur maintien réel ni conclusion de performance. Aucun transfert acquis observé après Space + E demandé 6000 ms.",
+    "JPG et AX non atomiques : MI12 reprise 01:14 / 01:15 ; MI07 02:56 / 02:57. Plusieurs textes AX sont des diffs. La plage MI12 01:10–01:15 est rapportée par le contrôleur ; la première capture conservée montre 01:11.",
+    "Dossier comparé octet pour octet et sélection Arpenteur restaurée ; toutes les préférences initiales n’ont pas été comparées.",
+    "Échantillon console limité ; réception automatique native distincte d’un essai humain et d’une clôture générale des critères de conception."
+  ],
+  "checkpointImportMethod": "Interface visible — Importer un dossier ; sources et extractions vérifiées par SHA-256 et comparaison du contenu. Aucun checkpoint recopié dans ce dossier."
+}

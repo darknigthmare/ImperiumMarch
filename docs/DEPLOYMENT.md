@@ -1,5 +1,19 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Publication 0.15.5 accomplie
+
+La [PR #4](https://github.com/darknigthmare/ImperiumMarch/pull/4) est fusionnée sur `main` au commit **`a0ae19542b384144ab4a6ce96562288c821879c4`**. Son arbre **`743dfca080436dceb0fb1c25fa5ea40061b0661c`** est identique au snapshot local vérifié **`087c49f10d615c4b9420975539220a0ea21d1ca0`**. Cette publication réunit les neuf atlas 0.15.4 récupérés et les treize atlas 0.15.5 nouvellement produits : **45 atlas / 386 cellules** au total. Le delta contre l’ancien `main`, calculé sans détection de renommage, contient 373 ajouts, 18 modifications et le remplacement de l’HTML suivi par son archive ZIP.
+
+La [CI de la PR](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43890443523), sur le HEAD exact `19820b4f68c4d4a6a9a3724272fe08b13c726639`, puis la [CI de main](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43891493399), sur le commit fusionné, ont toutes deux réussi sous **Node 22.23.4** : **745 tests, 174 cas SVG/Canvas, huit lots peints, 108 parcours du DOM modélisé et les constructions HTML, ZIP et web**. Les [reçus PR](validation/v0155-pr-ci.json) et [main](validation/v0155-main-ci.json) conservent leurs identifiants, étapes et lignes de preuve.
+
+La [reconstruction distante du ZIP](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43890131557) a retrouvé exactement les **111 037 952 octets de l’HTML** et les **81 013 964 octets du ZIP** reçus localement. Les SHA-256 sont respectivement `bf5151bdffec8653387e1328ca2917071f5cf4870a03c9bf2fbff307364a4ba1` et `537a123f46e21bac5a79a4b866bc34a974ffab9ae06d904291019351375d6c75`. L’extraction indépendante confirme l’entrée unique. La workflow temporaire a été retirée avant la comparaison de l’arbre final et la fusion. Aucun sprite n’a été réduit pour le transfert.
+
+Vercel a reçu le commit fusionné exact dans **`dpl_rCFt5nX8QSsZQFkyvtcanAATk2fS`**, cible **production**, état **READY le 16 novembre 2026 à 14:59:14.151 UTC**. L’alias [imperium-march.vercel.app](https://imperium-march.vercel.app/) lui est associé, sans erreur d’alias. Le projet, les domaines et les protections existants sont conservés. Le [reçu de publication](validation/v0155-publication.json) relie snapshot, PR, CI et déploiement.
+
+Chrome partagé a affiché la **0.15.5** et les nouveaux sprites dans **MI12, MI07 et MI13**, après import par l’interface de checkpoints historiques produits par les commandes publiques. Le Prétoire et ses relais, l’ambulance avec caisse vérifiée et sans balise récupérée, puis le porteur avec ses caisses séparées sont visibles. Le déplacement, la pause et la reprise de MI12 sont reçus. Ce contrôle court ne revendique ni mission achevée, ni transfert industriel terminé, ni essai humain. Les [sept captures et le reçu natif](validation/native-v0155/receipt.json) donnent sa portée précise.
+
+Le dossier présent avant ces essais a été exporté, restauré puis réexporté : les deux fichiers de **8 480 octets sont identiques**. L’Arpenteur initial a été réassigné. Les dossiers privés de cette vérification ne sont pas ajoutés au dépôt. Le suivi documentaire ajoute les preuves de publication et de navigateur en conservant les octets du jeu, des PNG, du ZIP et de la Bible de la livraison reçue.
+
 ## Préparation de publication 0.15.5
 
 La reprise du 16 novembre 2026 récupère la 0.15.4 locale puis ajoute treize atlas aux transports et aux appareils de mission. Le parent distant contrôlé est `56a1fab0540700dd6a2de789a5577c60a30e7e6e` (0.15.3). Le [bilan de production](PRODUCTION_V15_5.md) reçoit 45 atlas / 386 cellules, et le [rapport QA](QA_PAINTED_MISSION_ASSETS.md) reçoit 745 tests, 174 comparaisons SVG/Canvas, 108 parcours DOM modélisés, les huit lots d’images et le classeur.

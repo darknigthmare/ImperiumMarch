@@ -83,6 +83,8 @@ Sur Nacre, l’ambulance et sa caisse médicale, la balise, Rive-Courte, Veille-
 
 Les 80 cellules décrivent des pièces et états des missions existantes. Le [rapport QA](docs/QA_PAINTED_MISSION_ASSETS.md) et le [complément Bible](docs/BIBLE_V15_5.md) donnent leurs contrôles et leurs limites. Les réceptions humaines, animations finales, autres factions et missions futures restent à produire.
 
+La [PR #4](https://github.com/darknigthmare/ImperiumMarch/pull/4) est fusionnée et le [site public](https://imperium-march.vercel.app/) a reçu cette version. Les CI de la PR et de `main` passent ; les [preuves de publication](docs/validation/v0155-publication.json) et les [sept captures natives](docs/validation/native-v0155/receipt.json) rattachent les résultats au commit exact. Les trois scènes Chrome sont reprises depuis des checkpoints ; le dossier initial du navigateur est restauré à l’identique après contrôle.
+
 ## 0.15.4 — Cerbère et vie de Thyr
 
 Cerbère dispose de sa propre coque, de ses segments, articulations, pieds, radiateur et canon peints. Son arme et son télégraphe rejoignent désormais le point de départ physique des tirs, avec les règles de combat conservées. Les chaussures gardent leurs proportions et leurs contacts au sol. Les variantes d'avarie locale restent références tant que le boss ne simule pas de santé de composants.

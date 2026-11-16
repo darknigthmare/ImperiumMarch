@@ -1,0 +1,1397 @@
+{
+  "schema": 1,
+  "repository": "darknigthmare/ImperiumMarch",
+  "branch": "main",
+  "mergedPullRequest": 4,
+  "headSha": "a0ae19542b384144ab4a6ce96562288c821879c4",
+  "expectedTree": "743dfca080436dceb0fb1c25fa5ea40061b0661c",
+  "run": {
+    "id": 43891493399,
+    "name": "Validate prototype and design data",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "a0ae19542b384144ab4a6ce96562288c821879c4",
+    "tree": "743dfca080436dceb0fb1c25fa5ea40061b0661c",
+    "event": "push",
+    "run_attempt": 1,
+    "created_at": "2026-11-16T14:58:49Z",
+    "updated_at": "2026-11-16T15:03:21Z",
+    "run_started_at": "2026-11-16T14:58:49Z",
+    "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43891493399"
+  },
+  "job": {
+    "id": 133383583007,
+    "name": "validate",
+    "status": "completed",
+    "conclusion": "success",
+    "run_id": 43891493399,
+    "logs_url": null,
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2
+      },
+      {
+        "name": "Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3
+      },
+      {
+        "name": "Run npm test",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4
+      },
+      {
+        "name": "Install pinned development-only raster validator",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5
+      },
+      {
+        "name": "Validate shared SVG and Canvas rendering",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6
+      },
+      {
+        "name": "Decode and validate the painted MI14 sprites",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7
+      },
+      {
+        "name": "Decode and validate the painted combat sprites",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8
+      },
+      {
+        "name": "Decode and validate the painted walker parts",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 9
+      },
+      {
+        "name": "Decode and validate the painted Thyr life",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 10
+      },
+      {
+        "name": "Decode and validate Cerbere and its weapon mount",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 11
+      },
+      {
+        "name": "Decode and validate railway and industrial transport",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 12
+      },
+      {
+        "name": "Decode and validate the Praetor and command relays",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 13
+      },
+      {
+        "name": "Decode and validate the Nacre vehicles",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 14
+      },
+      {
+        "name": "Run npm run check",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 15
+      },
+      {
+        "name": "Run npm run build",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 16
+      },
+      {
+        "name": "Run npm run check:ui",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 17
+      },
+      {
+        "name": "Run npm run check:ui-runtime",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 18
+      },
+      {
+        "name": "Run npm run build:web",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 19
+      },
+      {
+        "name": "Post Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 37
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 38
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 39
+      }
+    ]
+  },
+  "observations": [
+    {
+      "observedUtc": "2026-11-16T15:00:10.282Z",
+      "run": {
+        "id": 43891493399,
+        "name": "Validate prototype and design data",
+        "status": "in_progress",
+        "conclusion": null,
+        "head_sha": "a0ae19542b384144ab4a6ce96562288c821879c4",
+        "tree": "743dfca080436dceb0fb1c25fa5ea40061b0661c",
+        "event": "push",
+        "run_attempt": 1,
+        "created_at": "2026-11-16T14:58:49Z",
+        "updated_at": "2026-11-16T14:58:52Z",
+        "run_started_at": "2026-11-16T14:58:49Z",
+        "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43891493399"
+      },
+      "job": {
+        "id": 133383583007,
+        "name": "validate",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_id": 43891493399,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run npm test",
+            "status": "in_progress",
+            "conclusion": null,
+            "number": 4
+          },
+          {
+            "name": "Install pinned development-only raster validator",
+            "status": "pending",
+            "conclusion": null,
+            "number": 5
+          },
+          {
+            "name": "Validate shared SVG and Canvas rendering",
+            "status": "pending",
+            "conclusion": null,
+            "number": 6
+          },
+          {
+            "name": "Decode and validate the painted MI14 sprites",
+            "status": "pending",
+            "conclusion": null,
+            "number": 7
+          },
+          {
+            "name": "Decode and validate the painted combat sprites",
+            "status": "pending",
+            "conclusion": null,
+            "number": 8
+          },
+          {
+            "name": "Decode and validate the painted walker parts",
+            "status": "pending",
+            "conclusion": null,
+            "number": 9
+          },
+          {
+            "name": "Decode and validate the painted Thyr life",
+            "status": "pending",
+            "conclusion": null,
+            "number": 10
+          },
+          {
+            "name": "Decode and validate Cerbere and its weapon mount",
+            "status": "pending",
+            "conclusion": null,
+            "number": 11
+          },
+          {
+            "name": "Decode and validate railway and industrial transport",
+            "status": "pending",
+            "conclusion": null,
+            "number": 12
+          },
+          {
+            "name": "Decode and validate the Praetor and command relays",
+            "status": "pending",
+            "conclusion": null,
+            "number": 13
+          },
+          {
+            "name": "Decode and validate the Nacre vehicles",
+            "status": "pending",
+            "conclusion": null,
+            "number": 14
+          },
+          {
+            "name": "Run npm run check",
+            "status": "pending",
+            "conclusion": null,
+            "number": 15
+          },
+          {
+            "name": "Run npm run build",
+            "status": "pending",
+            "conclusion": null,
+            "number": 16
+          },
+          {
+            "name": "Run npm run check:ui",
+            "status": "pending",
+            "conclusion": null,
+            "number": 17
+          },
+          {
+            "name": "Run npm run check:ui-runtime",
+            "status": "pending",
+            "conclusion": null,
+            "number": 18
+          },
+          {
+            "name": "Run npm run build:web",
+            "status": "pending",
+            "conclusion": null,
+            "number": 19
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 37
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 38
+          }
+        ]
+      }
+    },
+    {
+      "observedUtc": "2026-11-16T15:00:46.063Z",
+      "run": {
+        "id": 43891493399,
+        "name": "Validate prototype and design data",
+        "status": "in_progress",
+        "conclusion": null,
+        "head_sha": "a0ae19542b384144ab4a6ce96562288c821879c4",
+        "tree": "743dfca080436dceb0fb1c25fa5ea40061b0661c",
+        "event": "push",
+        "run_attempt": 1,
+        "created_at": "2026-11-16T14:58:49Z",
+        "updated_at": "2026-11-16T14:58:52Z",
+        "run_started_at": "2026-11-16T14:58:49Z",
+        "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43891493399"
+      },
+      "job": {
+        "id": 133383583007,
+        "name": "validate",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_id": 43891493399,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run npm test",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Install pinned development-only raster validator",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Validate shared SVG and Canvas rendering",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Decode and validate the painted MI14 sprites",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Decode and validate the painted combat sprites",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Decode and validate the painted walker parts",
+            "status": "in_progress",
+            "conclusion": null,
+            "number": 9
+          },
+          {
+            "name": "Decode and validate the painted Thyr life",
+            "status": "pending",
+            "conclusion": null,
+            "number": 10
+          },
+          {
+            "name": "Decode and validate Cerbere and its weapon mount",
+            "status": "pending",
+            "conclusion": null,
+            "number": 11
+          },
+          {
+            "name": "Decode and validate railway and industrial transport",
+            "status": "pending",
+            "conclusion": null,
+            "number": 12
+          },
+          {
+            "name": "Decode and validate the Praetor and command relays",
+            "status": "pending",
+            "conclusion": null,
+            "number": 13
+          },
+          {
+            "name": "Decode and validate the Nacre vehicles",
+            "status": "pending",
+            "conclusion": null,
+            "number": 14
+          },
+          {
+            "name": "Run npm run check",
+            "status": "pending",
+            "conclusion": null,
+            "number": 15
+          },
+          {
+            "name": "Run npm run build",
+            "status": "pending",
+            "conclusion": null,
+            "number": 16
+          },
+          {
+            "name": "Run npm run check:ui",
+            "status": "pending",
+            "conclusion": null,
+            "number": 17
+          },
+          {
+            "name": "Run npm run check:ui-runtime",
+            "status": "pending",
+            "conclusion": null,
+            "number": 18
+          },
+          {
+            "name": "Run npm run build:web",
+            "status": "pending",
+            "conclusion": null,
+            "number": 19
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 37
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 38
+          }
+        ]
+      }
+    },
+    {
+      "observedUtc": "2026-11-16T15:01:21.751Z",
+      "run": {
+        "id": 43891493399,
+        "name": "Validate prototype and design data",
+        "status": "in_progress",
+        "conclusion": null,
+        "head_sha": "a0ae19542b384144ab4a6ce96562288c821879c4",
+        "tree": "743dfca080436dceb0fb1c25fa5ea40061b0661c",
+        "event": "push",
+        "run_attempt": 1,
+        "created_at": "2026-11-16T14:58:49Z",
+        "updated_at": "2026-11-16T14:58:52Z",
+        "run_started_at": "2026-11-16T14:58:49Z",
+        "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43891493399"
+      },
+      "job": {
+        "id": 133383583007,
+        "name": "validate",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_id": 43891493399,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run npm test",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Install pinned development-only raster validator",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Validate shared SVG and Canvas rendering",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Decode and validate the painted MI14 sprites",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Decode and validate the painted combat sprites",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Decode and validate the painted walker parts",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Decode and validate the painted Thyr life",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Decode and validate Cerbere and its weapon mount",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Decode and validate railway and industrial transport",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12
+          },
+          {
+            "name": "Decode and validate the Praetor and command relays",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13
+          },
+          {
+            "name": "Decode and validate the Nacre vehicles",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14
+          },
+          {
+            "name": "Run npm run check",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15
+          },
+          {
+            "name": "Run npm run build",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16
+          },
+          {
+            "name": "Run npm run check:ui",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17
+          },
+          {
+            "name": "Run npm run check:ui-runtime",
+            "status": "in_progress",
+            "conclusion": null,
+            "number": 18
+          },
+          {
+            "name": "Run npm run build:web",
+            "status": "pending",
+            "conclusion": null,
+            "number": 19
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 37
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 38
+          }
+        ]
+      }
+    },
+    {
+      "observedUtc": "2026-11-16T15:01:57.367Z",
+      "run": {
+        "id": 43891493399,
+        "name": "Validate prototype and design data",
+        "status": "in_progress",
+        "conclusion": null,
+        "head_sha": "a0ae19542b384144ab4a6ce96562288c821879c4",
+        "tree": "743dfca080436dceb0fb1c25fa5ea40061b0661c",
+        "event": "push",
+        "run_attempt": 1,
+        "created_at": "2026-11-16T14:58:49Z",
+        "updated_at": "2026-11-16T14:58:52Z",
+        "run_started_at": "2026-11-16T14:58:49Z",
+        "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43891493399"
+      },
+      "job": {
+        "id": 133383583007,
+        "name": "validate",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_id": 43891493399,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run npm test",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Install pinned development-only raster validator",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Validate shared SVG and Canvas rendering",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Decode and validate the painted MI14 sprites",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Decode and validate the painted combat sprites",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Decode and validate the painted walker parts",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Decode and validate the painted Thyr life",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Decode and validate Cerbere and its weapon mount",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Decode and validate railway and industrial transport",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12
+          },
+          {
+            "name": "Decode and validate the Praetor and command relays",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13
+          },
+          {
+            "name": "Decode and validate the Nacre vehicles",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14
+          },
+          {
+            "name": "Run npm run check",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15
+          },
+          {
+            "name": "Run npm run build",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16
+          },
+          {
+            "name": "Run npm run check:ui",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17
+          },
+          {
+            "name": "Run npm run check:ui-runtime",
+            "status": "in_progress",
+            "conclusion": null,
+            "number": 18
+          },
+          {
+            "name": "Run npm run build:web",
+            "status": "pending",
+            "conclusion": null,
+            "number": 19
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 37
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 38
+          }
+        ]
+      }
+    },
+    {
+      "observedUtc": "2026-11-16T15:02:32.983Z",
+      "run": {
+        "id": 43891493399,
+        "name": "Validate prototype and design data",
+        "status": "in_progress",
+        "conclusion": null,
+        "head_sha": "a0ae19542b384144ab4a6ce96562288c821879c4",
+        "tree": "743dfca080436dceb0fb1c25fa5ea40061b0661c",
+        "event": "push",
+        "run_attempt": 1,
+        "created_at": "2026-11-16T14:58:49Z",
+        "updated_at": "2026-11-16T14:58:52Z",
+        "run_started_at": "2026-11-16T14:58:49Z",
+        "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43891493399"
+      },
+      "job": {
+        "id": 133383583007,
+        "name": "validate",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_id": 43891493399,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run npm test",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Install pinned development-only raster validator",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Validate shared SVG and Canvas rendering",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Decode and validate the painted MI14 sprites",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Decode and validate the painted combat sprites",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Decode and validate the painted walker parts",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Decode and validate the painted Thyr life",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Decode and validate Cerbere and its weapon mount",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Decode and validate railway and industrial transport",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12
+          },
+          {
+            "name": "Decode and validate the Praetor and command relays",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13
+          },
+          {
+            "name": "Decode and validate the Nacre vehicles",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14
+          },
+          {
+            "name": "Run npm run check",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15
+          },
+          {
+            "name": "Run npm run build",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16
+          },
+          {
+            "name": "Run npm run check:ui",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17
+          },
+          {
+            "name": "Run npm run check:ui-runtime",
+            "status": "in_progress",
+            "conclusion": null,
+            "number": 18
+          },
+          {
+            "name": "Run npm run build:web",
+            "status": "pending",
+            "conclusion": null,
+            "number": 19
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 37
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 38
+          }
+        ]
+      }
+    },
+    {
+      "observedUtc": "2026-11-16T15:03:08.581Z",
+      "run": {
+        "id": 43891493399,
+        "name": "Validate prototype and design data",
+        "status": "in_progress",
+        "conclusion": null,
+        "head_sha": "a0ae19542b384144ab4a6ce96562288c821879c4",
+        "tree": "743dfca080436dceb0fb1c25fa5ea40061b0661c",
+        "event": "push",
+        "run_attempt": 1,
+        "created_at": "2026-11-16T14:58:49Z",
+        "updated_at": "2026-11-16T14:58:52Z",
+        "run_started_at": "2026-11-16T14:58:49Z",
+        "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43891493399"
+      },
+      "job": {
+        "id": 133383583007,
+        "name": "validate",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_id": 43891493399,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run npm test",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Install pinned development-only raster validator",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Validate shared SVG and Canvas rendering",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Decode and validate the painted MI14 sprites",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Decode and validate the painted combat sprites",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Decode and validate the painted walker parts",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Decode and validate the painted Thyr life",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Decode and validate Cerbere and its weapon mount",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Decode and validate railway and industrial transport",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12
+          },
+          {
+            "name": "Decode and validate the Praetor and command relays",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13
+          },
+          {
+            "name": "Decode and validate the Nacre vehicles",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14
+          },
+          {
+            "name": "Run npm run check",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15
+          },
+          {
+            "name": "Run npm run build",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16
+          },
+          {
+            "name": "Run npm run check:ui",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17
+          },
+          {
+            "name": "Run npm run check:ui-runtime",
+            "status": "in_progress",
+            "conclusion": null,
+            "number": 18
+          },
+          {
+            "name": "Run npm run build:web",
+            "status": "pending",
+            "conclusion": null,
+            "number": 19
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 37
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 38
+          }
+        ]
+      }
+    },
+    {
+      "observedUtc": "2026-11-16T15:03:44.138Z",
+      "run": {
+        "id": 43891493399,
+        "name": "Validate prototype and design data",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "a0ae19542b384144ab4a6ce96562288c821879c4",
+        "tree": "743dfca080436dceb0fb1c25fa5ea40061b0661c",
+        "event": "push",
+        "run_attempt": 1,
+        "created_at": "2026-11-16T14:58:49Z",
+        "updated_at": "2026-11-16T15:03:21Z",
+        "run_started_at": "2026-11-16T14:58:49Z",
+        "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/43891493399"
+      },
+      "job": {
+        "id": 133383583007,
+        "name": "validate",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 43891493399,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run npm test",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Install pinned development-only raster validator",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Validate shared SVG and Canvas rendering",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Decode and validate the painted MI14 sprites",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Decode and validate the painted combat sprites",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Decode and validate the painted walker parts",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Decode and validate the painted Thyr life",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Decode and validate Cerbere and its weapon mount",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Decode and validate railway and industrial transport",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12
+          },
+          {
+            "name": "Decode and validate the Praetor and command relays",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13
+          },
+          {
+            "name": "Decode and validate the Nacre vehicles",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14
+          },
+          {
+            "name": "Run npm run check",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15
+          },
+          {
+            "name": "Run npm run build",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16
+          },
+          {
+            "name": "Run npm run check:ui",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17
+          },
+          {
+            "name": "Run npm run check:ui-runtime",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 18
+          },
+          {
+            "name": "Run npm run build:web",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 19
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 37
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 38
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 39
+          }
+        ]
+      }
+    }
+  ],
+  "logPath": "docs/validation/v0155-main-ci.txt",
+  "logFormat": "Decoded UTF-8 GitHub Actions job log",
+  "remoteMutations": [],
+  "scope": "GitHub Actions CI on the exact merged main commit and source tree; modeled DOM and Canvas gates do not claim native-browser or human reception.",
+  "receivedUtc": "2026-11-16T15:04:23.001136+00:00",
+  "logSha256": "11377fc386c8c5d1c7d33a6b69b64860c97d3e2ed677864fa29387d8994e02f5",
+  "logBytes": 409011,
+  "logLines": 5121,
+  "proofs": {
+    "node": {
+      "value": "22.23.4",
+      "evidence": {
+        "line": 148,
+        "text": "2026-11-16T14:59:03.2889226Z node: v22.23.4"
+      }
+    },
+    "tests": {
+      "value": 745,
+      "evidence": {
+        "line": 4672,
+        "text": "2026-11-16T15:00:31.8162995Z # tests 745"
+      }
+    },
+    "passedTests": {
+      "value": 745,
+      "evidence": {
+        "line": 4674,
+        "text": "2026-11-16T15:00:31.8163164Z # pass 745"
+      }
+    },
+    "failedTests": {
+      "value": 0,
+      "evidence": {
+        "line": 4675,
+        "text": "2026-11-16T15:00:31.8163244Z # fail 0"
+      }
+    },
+    "skippedTests": {
+      "value": 0,
+      "evidence": {
+        "line": 4677,
+        "text": "2026-11-16T15:00:31.8163410Z # skipped 0"
+      }
+    },
+    "raster": {
+      "passed": 174,
+      "total": 174,
+      "evidence": {
+        "line": 4873,
+        "text": "2026-11-16T15:00:37.5071519Z Production SVG/Canvas raster validation passed: 174/174 cases, @napi-rs/canvas 0.1.100."
+      }
+    },
+    "modeledDOM": {
+      "flows": 108,
+      "evidence": {
+        "line": 5092,
+        "text": "2026-11-16T15:03:17.1976356Z UI STATE INTEGRATION PASSED: 108 flows against the actual offline application script in a modeled DOM."
+      }
+    },
+    "projectChecks": {
+      "line": 4954,
+      "text": "2026-11-16T15:00:55.7546637Z Project checks passed: 20 design sheets, 1007 source rows, 6 playable chassis, 3 independent operations, 14 campaign missions."
+    },
+    "offlineBuild": {
+      "line": 4963,
+      "text": "2026-11-16T15:00:57.3906967Z Offline game built: dist/Ordre_de_Cendre.html (105.89 MiB), 50 modules, no remote dependencies."
+    },
+    "offlineAudit": {
+      "line": 4974,
+      "text": "2026-11-16T15:01:01.8645559Z OFFLINE BUNDLE AUDIT PASSED: one inline script compiled by vm.Script without executing; all HTML/CSS/Canvas assets embedded; no unresolved imports or resource requests."
+    },
+    "webBuild": {
+      "line": 5102,
+      "text": "2026-11-16T15:03:17.5392213Z Web game built: web-dist/index.html, src/ and assets/. No runtime dependencies."
+    },
+    "offlinePackage": {
+      "metrics": {
+        "offlinePackage": "dist/Ordre_de_Cendre.zip",
+        "htmlBytes": 111037952,
+        "zipBytes": 81013964,
+        "htmlSha256": "bf5151bdffec8653387e1328ca2917071f5cf4870a03c9bf2fbff307364a4ba1",
+        "zipSha256": "537a123f46e21bac5a79a4b866bc34a974ffab9ae06d904291019351375d6c75",
+        "node": "22.23.4",
+        "zlib": "1.3.1-e00f703"
+      },
+      "evidence": {
+        "line": 4964,
+        "text": "2026-11-16T15:01:00.5701562Z {\"offlinePackage\":\"dist/Ordre_de_Cendre.zip\",\"htmlBytes\":111037952,\"zipBytes\":81013964,\"htmlSha256\":\"bf5151bdffec8653387e1328ca2917071f5cf4870a03c9bf2fbff307364a4ba1\",\"zipSha256\":\"537a123f46e21bac5a79a4b866bc34a974ffab9ae06d904291019351375d6c75\",\"node\":\"22.23.4\",\"zlib\":\"1.3.1-e00f703\"}"
+      },
+      "matchesVerifiedMaterializationBytes": true
+    },
+    "paintedLots": [
+      {
+        "lot": "mi14",
+        "evidence": {
+          "line": 4882,
+          "text": "2026-11-16T15:00:41.0090419Z {\"completed\":true,\"atlases\":8,\"frames\":54,\"components\":33,\"scenes\":14,\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-mi14\"}"
+        }
+      },
+      {
+        "lot": "combat",
+        "evidence": {
+          "line": 4891,
+          "text": "2026-11-16T15:00:42.5176297Z {\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-combat-qa\",\"completed\":true,\"atlases\":9,\"frames\":78,\"views\":6}"
+        }
+      },
+      {
+        "lot": "walkers",
+        "evidence": {
+          "line": 4900,
+          "text": "2026-11-16T15:00:46.3810906Z {\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-walkers-qa\",\"completed\":true,\"atlases\":6,\"cells\":96,\"views\":19,\"poses\":54,\"missionScenes\":6,\"hangarViews\":6}"
+        }
+      },
+      {
+        "lot": "thyr",
+        "evidence": {
+          "line": 4909,
+          "text": "2026-11-16T15:00:48.2403295Z {\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-thyr-qa\",\"completed\":true,\"atlases\":8,\"cells\":62,\"runtimeCells\":58,\"referenceCells\":4,\"views\":7}"
+        }
+      },
+      {
+        "lot": "cerbere",
+        "evidence": {
+          "line": 4918,
+          "text": "2026-11-16T15:00:49.0017856Z {\"completed\":true,\"frames\":16,\"views\":2,\"shotOrientations\":2,\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-cerbere-qa\"}"
+        }
+      },
+      {
+        "lot": "transport",
+        "evidence": {
+          "line": 4927,
+          "text": "2026-11-16T15:00:51.8731143Z Transport reception: 4 atlases, 20 cells, 5 Canvas views. Not a browser test."
+        }
+      },
+      {
+        "lot": "relay",
+        "evidence": {
+          "line": 4936,
+          "text": "2026-11-16T15:00:54.3395030Z {\"completed\":true,\"atlases\":3,\"frames\":30,\"views\":9,\"mission\":{\"mission\":\"MI12\",\"status\":\"won\",\"elapsed\":205.066666666722,\"capturedScenes\":7,\"choice\":\"defy\"},\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-relay-qa\"}"
+        }
+      },
+      {
+        "lot": "nacre",
+        "evidence": {
+          "line": 4945,
+          "text": "2026-11-16T15:00:55.5773629Z {\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-nacre-v0155\",\"completed\":true,\"atlases\":6,\"cells\":30,\"runtimeCells\":29,\"referenceCells\":1,\"views\":5}"
+        }
+      }
+    ],
+    "paintedLotsCount": 8
+  },
+  "passed": true,
+  "nativeBrowserReceivedByThisCI": false,
+  "humanPlaytestReceivedByThisCI": false
+}
