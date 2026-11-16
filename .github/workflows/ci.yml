@@ -24,6 +24,16 @@ jobs:
         run: npm run check:combat
       - name: Decode and validate the painted walker parts
         run: npm run check:walkers
+      - name: Decode and validate the painted Thyr life
+        run: npm run check:thyr
+      - name: Decode and validate Cerbere and its weapon mount
+        run: npm run check:cerbere
+      - name: Decode and validate railway and industrial transport
+        run: npm run check:transport
+      - name: Decode and validate the Praetor and command relays
+        run: npm run check:relay
+      - name: Decode and validate the Nacre vehicles
+        run: npm run check:nacre
       - run: npm run check
       - run: npm run build
       - run: npm run check:ui

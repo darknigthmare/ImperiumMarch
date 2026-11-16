@@ -1,13 +1,13 @@
 {
   "name": "imperium-march",
-  "version": "0.15.3",
+  "version": "0.15.5",
   "private": true,
   "description": "Ordre de Cendre — prototype jouable de combat de marcheurs 2D et bible de conception.",
   "type": "module",
   "scripts": {
     "start": "node tools/server.mjs",
     "dev": "node tools/server.mjs",
-    "build": "node tools/build-offline.mjs",
+    "build": "node tools/build-offline.mjs && node tools/build-offline-package.mjs",
     "build:web": "node tools/build-web.mjs",
     "test": "node --test tests/*.test.mjs",
     "check": "node tools/check-project.mjs",
@@ -19,7 +19,12 @@
     "test:browser": "node tools/test-browser.mjs",
     "check:combat": "node tools/test-painted-combat.mjs",
     "check:combat-browser": "node tools/test-painted-combat-browser.mjs",
-    "check:walkers": "node tools/test-painted-walkers.mjs"
+    "check:walkers": "node tools/test-painted-walkers.mjs",
+    "check:thyr": "node tools/test-painted-thyr.mjs",
+    "check:cerbere": "node tools/test-painted-cerbere.mjs",
+    "check:transport": "node tools/test-painted-transport.mjs",
+    "check:relay": "node tools/test-painted-relay.mjs",
+    "check:nacre": "node tools/test-painted-nacre.mjs"
   },
   "engines": {
     "node": "22.x"

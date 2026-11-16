@@ -1,0 +1,71 @@
+{
+  "version": "0.15.5",
+  "method": "Built-in image_gen; original PNG pixels retained without retouching",
+  "scope": "MI12 existing relay sites, consoles and articulated VE12 Praetor; no new simulation or people",
+  "atlasCount": 3,
+  "cellCount": 30,
+  "runtimeCellCount": 28,
+  "referenceCellCount": 2,
+  "files": [
+    {
+      "id": "praetor",
+      "path": "assets/painted/relay/praetor.png",
+      "sha256": "31fcbd960e86f7971d8364a3b2526c2c4e94e43bc1d7375b77596f473e19d845",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 1405488,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixels": 917647,
+      "cells": 16,
+      "runtimeCells": 15,
+      "referenceCells": 1
+    },
+    {
+      "id": "relay-mast",
+      "path": "assets/painted/relay/relay-mast.png",
+      "sha256": "7cb5d091c3048fc35095401a66343919bf8ee2d9085ea9fc56a5a07fb39edc78",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1894101,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixels": 1120706,
+      "cells": 6,
+      "runtimeCells": 6,
+      "referenceCells": 0
+    },
+    {
+      "id": "consoles",
+      "path": "assets/painted/relay/consoles.png",
+      "sha256": "e437e8b2f9889e776b8cc6546a2d33cb2244981ab21f8a68c35b710c61164505",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 2143647,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixels": 928174,
+      "cells": 8,
+      "runtimeCells": 7,
+      "referenceCells": 1
+    }
+  ],
+  "layout": "src/painted-relay-layout.mjs",
+  "anchors": "assets/painted/relay/anchors.json",
+  "prompts": "assets/painted/relay/prompts.json"
+}

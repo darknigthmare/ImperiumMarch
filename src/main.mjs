@@ -11,6 +11,11 @@ import { workshopSummary } from './workshop-renderer.mjs';
 import { loadPaintedSprites, paintedSpriteStatus } from './painted-sprites.mjs';
 import { loadPaintedCombat, paintedCombatStatus } from './painted-combat.mjs';
 import { loadPaintedWalkers, paintedWalkerStatus } from './painted-walkers.mjs';
+import { loadPaintedThyr, paintedThyrStatus } from './painted-thyr.mjs';
+import { loadPaintedCerbere, paintedCerbereStatus } from './painted-cerbere.mjs';
+import { loadPaintedTransport, paintedTransportStatus } from './painted-transport.mjs';
+import { loadPaintedRelay, paintedRelayStatus } from './painted-relay.mjs';
+import { loadPaintedNacre, paintedNacreStatus } from './painted-nacre.mjs';
 import { AudioEngine } from './audio.mjs';
 import { CONTROL_ACTIONS, normalizeBindings, bindingLabel, remapBinding, keyboardActions, GamepadInput, defaultBindings, formatControlText } from './controls.mjs';
 import { createCampaign, readCampaign, writeCampaign, beginCampaignMission, checkpointCampaign, restoreCampaignGame, finishCampaignMission, serviceCampaignWalker, repairCampaignPipe, campaignRepairCost, serializeCampaign, parseCampaign, nextCampaignMissionId } from './campaign.mjs';
@@ -38,6 +43,11 @@ const hangarRenderer = new Renderer($('hangar-canvas'));
 loadPaintedSprites();
 loadPaintedCombat();
 loadPaintedWalkers();
+loadPaintedThyr();
+loadPaintedCerbere();
+loadPaintedTransport();
+loadPaintedRelay();
+loadPaintedNacre();
 let game = null, view = 'campaign', archive = 'doctrine', inGame = false, paused = false, lastTime = 0, hudTick = 0, lastEventId = 0, radioUntil = 0, resultRecorded = false, radioQueue = [];
 let campaignStorage;
 try { campaignStorage = window.localStorage; } catch { campaignStorage = null; }
@@ -1228,5 +1238,5 @@ $('boot').hidden = true; $('menu').hidden = false;
 requestAnimationFrame(frame);
 // Read-only observation hook for the automated browser suite, never a player menu.
 if (new URLSearchParams(location.search).get('test') === '1') {
-  window.__IMPERIUM_TEST__ = Object.freeze({ snapshot: () => ({ game: game ? structuredClone(game) : null, campaign: structuredClone(campaign), activeMode, campaignReplay, campaignBlocked, campaignWarning, cameraX: renderer.cameraX, paused, inGame, view, settings: { ...settings }, storageAvailable, paintedSprites: paintedSpriteStatus(), paintedCombatSprites: paintedCombatStatus(), paintedWalkerSprites: paintedWalkerStatus() }) });
+  window.__IMPERIUM_TEST__ = Object.freeze({ snapshot: () => ({ game: game ? structuredClone(game) : null, campaign: structuredClone(campaign), activeMode, campaignReplay, campaignBlocked, campaignWarning, cameraX: renderer.cameraX, paused, inGame, view, settings: { ...settings }, storageAvailable, paintedSprites: paintedSpriteStatus(), paintedCombatSprites: paintedCombatStatus(), paintedWalkerSprites: paintedWalkerStatus(), paintedThyrSprites: paintedThyrStatus(), paintedCerbereSprite: paintedCerbereStatus(), paintedTransportSprites: paintedTransportStatus(), paintedRelaySprites: paintedRelayStatus(), paintedNacreSprites: paintedNacreStatus() }) });
 }

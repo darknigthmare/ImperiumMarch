@@ -12,7 +12,9 @@ function bundle(file) {
   const exports = [];
   let source = readFileSync(file, 'utf8').replace(/^import\s*\{([^}]+)\}\s*from\s*['"]([^'"]+)['"];?\s*$/gm, (_, names, path) => {
     const dependency = bundle(resolve(dirname(file), path));
-    return `const { ${names.trim()} } = __modules[${JSON.stringify(dependency)}];`;
+    const bindings = names.split(',').map(name => name.trim()).filter(Boolean);
+    if (!bindings.every(name => /^[A-Za-z_$][\w$]*(?:\s+as\s+[A-Za-z_$][\w$]*)?$/.test(name))) throw new Error(`Unsupported import binding in ${id}`);
+    return `const { ${bindings.map(name => name.replace(/\s+as\s+/, ': ')).join(', ')} } = __modules[${JSON.stringify(dependency)}];`;
   }).replace(/^export\s*\{([^}]+)\}\s*from\s*['"]([^'"]+)['"];?\s*$/gm, (_, names, path) => {
     const dependency = bundle(resolve(dirname(file), path));
     const bindings = names.split(',').map(name => name.trim()).filter(Boolean);

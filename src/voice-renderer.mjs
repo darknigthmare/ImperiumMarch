@@ -1,8 +1,12 @@
 /** MI11 scene drawing. All positions, work and permissions come from the scene. */
 import { terrainAt, voiceSurfaceAt } from './simulation.mjs';
-import { drawVoiceAsset } from './voice-assets.mjs';
+import { drawVoiceAsset as drawVectorVoiceAsset } from './voice-assets.mjs';
 import { drawProductionPart } from './production-assets.mjs';
-import { drawThyrAsset } from './thyr-assets.mjs';
+import { drawThyrAsset as drawVectorThyrAsset } from './thyr-assets.mjs';
+import { drawPaintedThyrPart } from './painted-thyr.mjs';
+
+const drawVoiceAsset = (ctx, options) => drawPaintedThyrPart(ctx, options) || drawVectorVoiceAsset(ctx, options);
+const drawThyrAsset = (ctx, options) => drawPaintedThyrPart(ctx, options) || drawVectorThyrAsset(ctx, options);
 
 const pct = n => Math.round((n || 0) * 100);
 function line(c, x1, y1, x2, y2, color, width = 1) { c.beginPath(); c.moveTo(x1, y1); c.lineTo(x2, y2); c.strokeStyle = color; c.lineWidth = width; c.stroke(); }
@@ -89,7 +93,8 @@ export function drawVoiceActor(renderer, s) {
   const c = renderer.ctx, l = s.voice.leth;
   if (!renderer.visible(l.x, 200)) return;
   const state = !l.alive ? 'lost' : l.refused || l.withdrawn ? 'refusing' : l.working && l.work === 'testimony' ? 'speaking' : l.consent || l.met ? 'listening' : 'waiting';
-  drawVoiceAsset(c, { part: 'leth-interpreter', state, x: l.x, y: l.y + l.h / 2, width: l.w * 1.12, height: l.h, progress: l.progress, facing: s.player.x < l.x ? -1 : 1 });
+  drawVoiceAsset(c, { part: 'leth-interpreter', state, x: l.x, y: l.y + l.h / 2, width: l.w * 1.12, height: l.h, progress: l.progress, facing: s.player.x < l.x ? -1 : 1,
+    time: s.elapsed, reducedMotion: renderer.combatReducedMotion });
   label(c, l.met ? 'LETH DE LA SEPTIÈME RIVE' : 'INTERPRÈTE À APPROCHER', l.x, l.y - l.h / 2 - 35, 9, '#d7dfba');
   label(c, voiceSummary(s).consent, l.x, l.y - l.h / 2 - 19, 8, !l.alive || l.withdrawn || l.refused ? '#e0ac86' : '#a4cdb8');
   work(c, l); health(c, l);

@@ -1,5 +1,7 @@
 /** MI12 view: every state, component and foot position is supplied by simulation. */
 import { drawRelayAsset } from './relay-assets.mjs';
+import { drawPaintedRelaySiteAsset, drawPaintedPraetor } from './painted-relay.mjs';
+function drawRelayPresentation(ctx, options) { return drawPaintedRelaySiteAsset(ctx, options) || drawRelayAsset(ctx, options); }
 const pct = value => Math.round(value * 100);
 function line(c, x1, y1, x2, y2, color, width = 1) { c.beginPath(); c.moveTo(x1, y1); c.lineTo(x2, y2); c.strokeStyle = color; c.lineWidth = width; c.stroke(); }
 function label(c, text, x, y, size = 10, color = '#d3d7af', max = 460) { c.font = `500 ${size}px "Courier New", monospace`; c.textAlign = 'center'; c.fillStyle = color; c.fillText(text, x, y, max); }
@@ -23,33 +25,36 @@ export function drawRelaySite(renderer, s) {
   const c = renderer.ctx, d = s.relay;
   for (const r of d.relays) if (renderer.visible(r.x, 220)) {
     const state = r.destroyed ? 'destroyed' : r.erased ? 'erased' : r.isolated ? 'isolated' : r.working && r.work === 'erase' ? 'purging' : r.inspected ? 'reviewed' : 'live';
-    drawRelayAsset(c, { part: 'relay-mast', state, x: r.x, y: r.y + r.h / 2, width: r.w, height: r.h, progress: r.progress });
+    drawRelayPresentation(c, { part: 'relay-mast', state, x: r.x, y: r.y + r.h / 2, width: r.w, height: r.h, progress: r.progress });
     label(c, `RELAIS ${r.index} · ${r.destroyed ? 'PERDU' : r.erased ? 'PURGÉ' : r.isolated ? 'ISOLÉ' : r.inspected ? 'RELEVÉ' : 'À RELEVER'}`, r.x, r.y - r.h / 2 - 24, 9);
     work(c, r); health(c, r);
   }
   if (renderer.visible(d.copy.x, 220)) {
     const state = d.copy.copied ? 'copied' : d.copy.lost || d.copy.expired ? 'expired' : d.copy.working ? 'copying' : 'idle';
-    drawRelayAsset(c, { part: 'copy-console', state, x: d.copy.x, y: d.copy.y + d.copy.h / 2, width: d.copy.w, height: d.copy.h, progress: d.copy.progress });
+    drawRelayPresentation(c, { part: 'copy-console', state, x: d.copy.x, y: d.copy.y + d.copy.h / 2, width: d.copy.w, height: d.copy.h, progress: d.copy.progress });
     label(c, 'TERMINAL DE COPIE', d.copy.x, d.copy.y - d.copy.h / 2 - 24, 9); work(c, d.copy);
   }
   for (const [p, title, done] of [[d.orders, 'POSTE D’ORDRE', s.decision.resolved], [d.report, 'LIAISON DE RAPPORT', d.report.transmitted]]) if (renderer.visible(p.x, 180)) {
-    drawRelayAsset(c, { part: 'command-post', state: done ? 'transmitted' : p.working ? 'working' : 'idle', x: p.x, y: p.y + p.h / 2, width: p.w, height: p.h, progress: p.progress || 0 });
+    drawRelayPresentation(c, { part: 'command-post', state: done ? 'transmitted' : p.working ? 'working' : 'idle', x: p.x, y: p.y + p.h / 2, width: p.w, height: p.h, progress: p.progress || 0 });
     label(c, done ? `${title} · ACQUIS` : title, p.x, p.y - p.h / 2 - 24, 9); work(c, p);
   }
 }
 export function drawRelayActor(renderer, s) {
   const c = renderer.ctx, p = s.relay.praetor;
   if (!s.relay.alert.ready || !renderer.visible(p.x, 340)) return;
-  for (const [i, f] of p.feet.entries()) {
+  const painted = drawPaintedPraetor(c, p);
+  if (!painted) for (const [i, f] of p.feet.entries()) {
     const hipX = p.x + (i < 2 ? -48 : 48), hipY = p.y + 31, kneeX = (hipX + f.x) / 2 + (i % 2 ? 11 : -11), kneeY = (hipY + f.y) / 2;
     line(c, hipX, hipY, kneeX, kneeY, p.destroyed ? '#5e6c58' : i % 2 ? '#8a9e7b' : '#5c7c64', i % 2 ? 15 : 18);
     line(c, kneeX, kneeY, f.x, f.y - 5, p.destroyed ? '#67725c' : '#b3bd94', 10);
     c.fillStyle = '#475f4c'; c.fillRect(f.x - 17, f.y - 7, 34, 9);
   }
-  drawRelayAsset(c, { part: 'praetor-hull', state: p.destroyed ? 'destroyed' : p.hydraulicLock.destroyed ? 'exposed' : p.phase === 'attack' ? 'attack' : 'guard', x: p.x, y: p.y + p.h / 2, width: p.w, height: p.h, facing: p.facing });
-  line(c, p.x + p.facing * 69, p.y + 30, p.hydraulicLock.x, p.hydraulicLock.y, p.hydraulicLock.destroyed ? '#715f4d' : '#b6bd93', p.hydraulicLock.destroyed ? 3 : 7);
+  if (!painted) {
+    drawRelayAsset(c, { part: 'praetor-hull', state: p.destroyed ? 'destroyed' : p.hydraulicLock.destroyed ? 'exposed' : p.phase === 'attack' ? 'attack' : 'guard', x: p.x, y: p.y + p.h / 2, width: p.w, height: p.h, facing: p.facing });
+    line(c, p.x + p.facing * 69, p.y + 30, p.hydraulicLock.x, p.hydraulicLock.y, p.hydraulicLock.destroyed ? '#715f4d' : '#b6bd93', p.hydraulicLock.destroyed ? 3 : 7);
+  }
   for (const [part, o, state] of [['praetor-sensor', p.sensor, p.sensor.destroyed ? 'disabled' : p.phase === 'attack' ? 'locking' : 'tracking'], ['praetor-lock', p.hydraulicLock, p.hydraulicLock.destroyed ? 'broken' : 'anchored']]) {
-    drawRelayAsset(c, { part, state, x: o.x, y: o.y + o.h / 2, width: o.w, height: o.h, facing: p.facing }); health(c, o);
+    if (!painted) drawRelayAsset(c, { part, state, x: o.x, y: o.y + o.h / 2, width: o.w, height: o.h, facing: p.facing }); health(c, o);
   }
   if (!p.destroyed && p.phase === 'attack') {
     line(c, p.sensor.destroyed ? p.x + p.facing * 115 : p.sensor.x, p.sensor.destroyed ? p.y - 10 : p.sensor.y, p.targetX, p.targetY, `rgba(230,164,112,${.25 + p.telegraph * .55})`, 1.5);

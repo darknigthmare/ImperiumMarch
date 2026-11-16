@@ -1,5 +1,6 @@
 import { WALKERS, MISSIONS, ALL_MISSIONS, ENEMY_TYPES, DIFFICULTIES } from './content.mjs';
 import { ENEMY_WEAPON_RIGS, enemyWeaponPose } from './enemy-weapon-pose.mjs';
+import { cerbereWeaponPose } from './cerbere-weapon-pose.mjs';
 import { createChemicalMission, chemicalSurface, chemicalSolids, refreshChemicalFacts, chemicalInteraction,
   interactChemicalMission, chooseChemicalMission, chemicalFootfall, hitChemicalPart, updateChemicalMission,
   chemicalObjectives } from './chemical-simulation.mjs';
@@ -1188,7 +1189,7 @@ function enemyFire(s, e) {
     if (Math.abs(e.x - s.player.x) < e.range + s.player.width / 2) damagePlayer(s, e.damage, e.x, terrainAt(e.x, s.planetId) - 30);
     return;
   }
-  const weapon = enemyWeaponPose(e, { aiming: true });
+  const weapon = enemyWeaponPose(e, { aiming: true }) || cerbereWeaponPose(e, { aiming: true });
   const angle = weapon?.angle ?? Math.atan2(e.targetY - e.y, e.targetX - e.x);
   const rocket = e.type === 'rocket' || e.type === 'boss';
   const x = weapon?.muzzle[0] ?? e.x + Math.cos(angle) * e.w / 2;

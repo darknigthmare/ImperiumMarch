@@ -1,0 +1,110 @@
+{
+  "version": "0.15.4",
+  "baseCommit": "56a1fab0540700dd6a2de789a5577c60a30e7e6e",
+  "localNode": "v24.22.1",
+  "newAtlases": 9,
+  "newCells": 78,
+  "newRuntimeCells": 69,
+  "newReferenceCells": 9,
+  "allAtlases": 32,
+  "allCells": 306,
+  "tests": {
+    "nodePassed": 719,
+    "nodeFailed": 0,
+    "modeledUIFlows": 108,
+    "svgCanvasCases": 174,
+    "thyrCanvasViews": 7,
+    "cerbereCanvasViews": 2,
+    "chromiumLaunchAttempts": 1,
+    "chromiumPages": 0,
+    "chromiumOutcome": "Blocked by OS permissions before navigation"
+  },
+  "workbook": {
+    "ids": 1007,
+    "sheets": 21,
+    "formulas": 126,
+    "formulaErrors": 0,
+    "statusesPreserved": true,
+    "baselineCriteria": 133
+  },
+  "standaloneModules": 44,
+  "sourceHashes": {
+    "package.json": {
+      "sha256": "b223cbdf6d34a8ab65b012b92d37fd9accc1d719718683f68a991625e86095c6",
+      "bytes": 1161
+    },
+    "index.html": {
+      "sha256": "18ce8dc5956ae86df7b31afe659d47fa8507f07a3767954b9441fb402e8f7444",
+      "bytes": 23316
+    },
+    "src/main.mjs": {
+      "sha256": "f3c68d396c73884bd5280b9b4f00c4b0ec4320d6da27e9a968a54e16c0c9104c",
+      "bytes": 141458
+    },
+    "src/renderer.mjs": {
+      "sha256": "ff6231feaa24929b2f095e0ee4f0b34f3997e041017770485636d62d7ae3e4e3",
+      "bytes": 143852
+    },
+    "src/simulation.mjs": {
+      "sha256": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+      "bytes": 279047
+    },
+    "src/thyr-renderer.mjs": {
+      "sha256": "275a038f58b1eb8b9bd2da9d3de79286ce77cda9320f11543dd80c29c03fc908",
+      "bytes": 14878
+    },
+    "src/voice-renderer.mjs": {
+      "sha256": "f6895c89962beaf91080240cdb5ae79761073ddd0f694d53a38e5812891e1a3c",
+      "bytes": 12921
+    },
+    "src/painted-thyr.mjs": {
+      "sha256": "5156604d45cbc0693a43963dae9d18e546100b5d46d73ba2469c5aea4e88026f",
+      "bytes": 12541
+    },
+    "src/painted-thyr-layout.mjs": {
+      "sha256": "de98aa3b7e6c4965a62df91604be28769ba52bd87e821d8a5aad5ae6e24b085d",
+      "bytes": 46872
+    },
+    "src/painted-cerbere.mjs": {
+      "sha256": "86440fd1749fec987b3fb34b3d4eca2471f3862f9362d632af976c3133d02047",
+      "bytes": 11814
+    },
+    "src/painted-cerbere-layout.mjs": {
+      "sha256": "fea5b52aa460eb92241d8388d58bffbc047e75469a260324d69f7ffdb788dce3",
+      "bytes": 9386
+    },
+    "src/cerbere-weapon-pose.mjs": {
+      "sha256": "5cf7a18ad1ceb0cf3671b66ca3529d7ab7c0e3e85c2f50408597a9019b7b5269",
+      "bytes": 1027
+    },
+    "tools/build-offline.mjs": {
+      "sha256": "4c54423c60700107a81fb39ca06974b79ae884f7f8a389408590d619ba42a1d7",
+      "bytes": 3311
+    },
+    "tools/index-painted-thyr.py": {
+      "sha256": "ade1d2302ccbe4e3b358bda0e6836563f91bcf19dc1b14fe4a8dc734d403fddf",
+      "bytes": 10919
+    },
+    "tools/index-painted-cerbere.py": {
+      "sha256": "95ed18db6fb72fca04ddcfcaef01b0344e414294f9eb637c1dc849d72fba3b41",
+      "bytes": 6388
+    },
+    "data/bible.json": {
+      "sha256": "519034f685fd6a995ef7f14d1a59d6ecdc74374cdf541299d4f55e4758f70445",
+      "bytes": 551816
+    },
+    "docs/ORDRE_DE_CENDRE_Bible.xlsx": {
+      "sha256": "281dff30c2f6fbcfe129a0a0b2ed8d519ffb3d8f544913618742a383dc1e4af8",
+      "bytes": 214782
+    },
+    "dist/Ordre_de_Cendre.html": {
+      "sha256": "e466516bf2742b8fba4cf8224b5d2e18a136224855a62d9459f17f506cefae20",
+      "bytes": 79212112
+    }
+  },
+  "limits": [
+    "Canvas and modeled DOM checks are not browser or human playtests.",
+    "New source crops register original PNG pixels without editing those files.",
+    "Publication and deployment are recorded separately after exact remote verification."
+  ]
+}

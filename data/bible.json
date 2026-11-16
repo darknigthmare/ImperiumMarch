@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.15.3",
+    "version": "0.15.5",
     "date": "2026-11-16",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs, tous les statuts et les 133 critères initiaux sont conservés. Six atlas de marcheurs ajoutent 96 cellules de pièces et états; avec les dix-sept atlas de MI14 et du combat, le total peint atteint 23 atlas et 228 cellules. Appuis, collisions et visée restent liés à la simulation. Les réparations progressives du radiateur gardent leur rendu vectoriel. Factions complètes, cycles et postures finaux, faune et réception humaine restent ouverts.",
+    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs, tous les statuts et les 133 critères initiaux sont conservés. Treize atlas de transport, Nacre et relais ajoutent 80 cellules, dont 77 utilisées au rendu et trois références; le total peint atteint 45 atlas et 386 cellules. Pièces et états ne créent aucun individu ni règle. Roues, appuis, dégâts, arrivées et décisions suivent la simulation existante. Factions complètes, autres environnements, animations finales et réception humaine restent ouverts.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Livrable partiel disponible. L’onglet Prototype et les reçus de production précisent son intégration, sa portée et les critères encore ouverts.",
@@ -3608,7 +3608,7 @@
           "name": "Ambulance Quai",
           "faction": "FA08",
           "role": "Véhicule sanitaire; roulage routier dans MI07. Capacité amphibie conçue.",
-          "encounter": "Arrêt demandé dans une aire protégée, examen avec accord, puis transfert par une rampe préparée vers un poste médical impérial ou un accueil civil.",
+          "encounter": "Arrêt demandé dans une aire protégée, examen avec accord, puis transfert par une rampe préparée vers un poste médical impérial ou un accueil civil. 0.15.5 : trois carrosseries peintes et une roue séparée suivent les positions et dégâts existants; les six occupants restent distincts du véhicule.",
           "weakness": "Véhicule et occupants exposés pendant le trajet. Les capacités amphibies et les compartiments finaux restent à produire.",
           "status": "Prototype"
         },
@@ -3698,7 +3698,7 @@
           "name": "Marcheur de sécurité Prétoire",
           "faction": "FA02",
           "role": "Quadrupède bas à tourelle.",
-          "encounter": "MI12 : quadrupède de sécurité, arrivée différée, coque et composants visables séparément. Variantes et finition finale à produire.",
+          "encounter": "MI12 : quadrupède de sécurité, arrivée différée, coque et composants visables séparément. 0.15.5 : seize cellules peintes, dont quinze au rendu, articulées sur ses quatre vrais pieds simulés. Capteur, verrou et bouche de tir gardent leurs positions physiques. Variantes et finition finale à produire.",
           "weakness": "Capteur supérieur et verrou hydraulique frontal.",
           "status": "Prototype"
         },
@@ -3743,7 +3743,7 @@
           "name": "Train Fret-Est",
           "faction": "Civil",
           "role": "Locomotive et wagons modulaires.",
-          "encounter": "MI02 : locomotive, wagon de minerai et wagon fermé sur un viaduc. Libérer deux harpons puis freiner avant la voie rompue. Dételage et aiguillages restent conçus.",
+          "encounter": "MI02 : locomotive, wagon de minerai et wagon fermé sur un viaduc. Libérer deux harpons puis freiner avant la voie rompue. 0.15.5 : deux atlas et douze cellules peignent locomotive, wagons et roue séparée selon leurs états existants. Dételage et aiguillages restent conçus.",
           "weakness": "Voie, raccords et masse; déraillement a des conséquences de zone.",
           "status": "Prototype"
         },
@@ -3858,8 +3858,8 @@
           "name": "Longue-dorse",
           "planet": "PL03",
           "ecology": "Grand brouteur migrant entre vergers symbiotiques.",
-          "behavior": "MI09 : deux adultes et deux jeunes nouveaux. Les adultes attendent un jeune trop éloigné; les tirs proches déclenchent une peur temporaire. Un animal arrivé sort des risques de la zone.",
-          "gameplay": "La barrière dirige un trajet réel vers le verger ou l’exclusion. L’arrivée au verger féconde les cultures; une exclusion vivante n’est pas un décès. Quatre issues individuelles persistent sans importer les personnes de Nacre.",
+          "behavior": "MI09 : deux adultes et deux jeunes nouveaux. Les adultes attendent un jeune trop éloigné; les tirs proches déclenchent une peur temporaire. Un animal arrivé sort des risques de la zone. 0.15.4 : deux atlas de huit cellules distinguent adultes et jeunes; les poses de marche suivent leur déplacement réel.",
+          "gameplay": "La barrière dirige un trajet réel vers le verger ou l’exclusion. L’arrivée au verger féconde les cultures; une exclusion vivante n’est pas un décès. Quatre issues individuelles persistent sans importer les personnes de Nacre. Les cellules peintes ne créent ni nouveaux individus ni nouvelles issues.",
           "status": "Prototype"
         },
         {
@@ -3867,7 +3867,7 @@
           "name": "Éventail de Thyr",
           "planet": "PL03",
           "ecology": "Pollinisateur en colonies accroché aux colonnes vivantes.",
-          "behavior": "MI09 : deux colonies sur les colonnes vivantes. Projecteurs et flashs locaux les dispersent; cinq secondes de calme permettent leur retour. Une colonne perdue détruit sa colonie.",
+          "behavior": "MI09 : deux colonies sur les colonnes vivantes. Projecteurs et flashes locaux les dispersent; cinq secondes de calme permettent leur retour. Une colonne perdue détruit sa colonie. 0.15.4 : six cellules peintes présentent les états posé, dispersé et perdu, avec quatre poses de vol.",
           "gameplay": "Éteindre les projecteurs protège le calme du passage. Le reçu distingue colonies posées, dispersées et perdues; la pollinisation générale de tous les écosystèmes reste conçue.",
           "status": "Prototype"
         },
@@ -3876,8 +3876,8 @@
           "name": "Guetteur-racine",
           "planet": "PL03",
           "ecology": "Prédateur d’affût qui repère le rythme de proies petites.",
-          "behavior": "Attaque les éclaireurs à pied, évite le grand marcheur sauf acculé.",
-          "gameplay": "Protéger des techniciens avec lumière et présence plutôt qu’éradiquer la faune.",
+          "behavior": "Le catalogue prévoit une attaque des éclaireurs à pied et l’évitement du grand marcheur sauf acculé. OP03 emploie actuellement un adversaire de mêlée générique. 0.15.4 : douze cellules peintes, dont huit poses de marche liées au déplacement, une attente et deux poses de préparation/attaque.",
+          "gameplay": "Protéger des techniciens avec lumière et présence plutôt qu’éradiquer la faune reste le comportement écologique à produire. La cellule morte est une référence : aucun cadavre persistant ni nouvelle issue de mission. Le lot ne livre ni territorialité complète ni rencontre FU09 dans MI09.",
           "status": "Prototype"
         },
         {
@@ -4117,8 +4117,8 @@
           "name": "Colonne-mère",
           "planet": "PL03",
           "ecology": "Arbre creux géant servant de support aux hameaux.",
-          "interaction": "MI09 : deux colonnes et leurs racines portent deux habitats. Les vrais appuis rencontrent la surface des racines; une cadence espacée et le guidage protègent ce support.",
-          "risk": "Une racine rompue ou une colonne détruite effondre son habitat. Le bilan distingue les deux habitabilités sans inventer de résidents ni de morts humains. Forêt complète et propagation générale restent conçues.",
+          "interaction": "MI09 : deux colonnes et leurs racines portent deux habitats. Les vrais appuis rencontrent la surface des racines; une cadence espacée et le guidage protègent ce support. 0.15.4 : un atlas de six cellules pour les colonnes et un de six pour habitats/racines habillent leurs états existants.",
+          "risk": "Une racine rompue ou une colonne détruite effondre son habitat. Le bilan distingue les deux habitabilités sans inventer de résidents ni de morts humains. Les variantes peintes ne créent pas de colonne ou d’habitat supplémentaire. Forêt complète et propagation générale restent conçues.",
           "status": "Prototype"
         },
         {
@@ -4127,7 +4127,7 @@
           "planet": "PL03",
           "ecology": "Liane à membranes purifiant l’air des sous-bois.",
           "interaction": "Offre des haltes respirables aux équipes à pied.",
-          "risk": "Interaction de filtration et fumée toxique encore conçue. La 0.10 livre seulement un élément visuel de vigne et ses variantes dans le kit Thyr; aucun effet respiratoire ou incendie de membrane n’est joué.",
+          "risk": "Interaction de filtration et fumée toxique encore conçue. Le kit Thyr 0.10 et les cellules peintes 0.15.4 fournissent une vigne visuelle et ses variantes. Les poses de respiration, flétrissement ou brûlure disponibles au dessin ne créent aucun effet respiratoire, incendie ou état écologique simulé.",
           "status": "Conçu"
         },
         {
@@ -4136,7 +4136,7 @@
           "planet": "PL03",
           "ecology": "Tiges creuses transmettant les vibrations au vent.",
           "interaction": "Annonce des mouvements derrière la végétation.",
-          "risk": "L’annonce fiable des mouvements de faune et de machines civiles reste conçue. La 0.10 fournit une réaction visuelle de brins dans le décor, sans transformer cette animation en capteur simulé.",
+          "risk": "L’annonce fiable des mouvements de faune et de machines civiles reste conçue. Le kit Thyr 0.10 et les cellules peintes 0.15.4 présentent seulement la réaction visuelle des brins. L’herbe ne devient pas un capteur simulé; la cellule aplatie est une référence sans écrasement physique ajouté.",
           "status": "Conçu"
         },
         {
@@ -5251,7 +5251,7 @@
           "id": "AS13",
           "category": "Aliens",
           "deliverable": "Khelt — langue visuelle",
-          "spec": "Anatomie, vêtements, gestes, technologies et architecture développés ensemble. Réception partielle 0.12 : un interprète original, Leth, possède cinq états SVG/Canvas et des outils locaux intégrés. Les planches et scènes ont été relues. Anatomie complète, diversité des cités, gestes et animations finaux, voix jouées et architecture restent à produire.",
+          "spec": "Anatomie, vêtements, gestes, technologies et architecture développés ensemble. Réception partielle 0.12 : Leth possède cinq états SVG/Canvas et des outils locaux. 0.15.4 : un atlas de huit cellules peintes, avec deux poses de parole et deux références d’outils déjà représentés sur le corps. Aucune population Khelt supplémentaire. Anatomie complète, diversité des cités, animations finales, voix et architecture restent à produire.",
           "acceptance": "Aucune équivalence simpliste avec peuple humain réel ou tribu primitive générique.",
           "priority": "P1",
           "status": "Prototype"
@@ -5260,7 +5260,7 @@
           "id": "AS14",
           "category": "Véhicules",
           "deliverable": "Véhicules de prototype",
-          "spec": "Camion d’escorte, patin pirate, drone, tourelle et marcheur lourd ennemi. Réception partielle 0.15.2 : cinq atlas de six cellules pour buggy, patin, drone, tourelle et convoi; corps peints, armes séparées et références endommagées, épaves ou pièces. Collisions conservées. Marcheur lourd, pièces articulées et animations finales restent à produire.",
+          "spec": "Camion d’escorte, patin pirate, drone, tourelle et marcheur lourd ennemi : cinq atlas de six cellules 0.15.2 conservés. Cerbère 0.15.4 garde seize cellules, onze au rendu et cinq références, avec bouche de tir existante. 0.15.5 ajoute train, porteur, ambulance et bateaux; Prétoire reçoit seize cellules, quinze au rendu, sur ses quatre appuis physiques. Les pièces ne sont pas de nouveaux véhicules. Phases mécaniques finales, dégâts ennemis localisés et animations complètes restent ouverts.",
           "acceptance": "Points d’impact, moteurs et éléments mobiles alignés sur collisions.",
           "priority": "P0",
           "status": "Prototype"
@@ -5287,7 +5287,7 @@
           "id": "AS17",
           "category": "Décors",
           "deliverable": "Kit Nacre",
-          "spec": "Mer en plusieurs plans, marées, digues, quais, villages, mangroves et silhouettes navales. 0.9 : Premiers modules vectoriels de repère de marée et de refuge, avec kit Nacre partagé. Limite : Mer en plusieurs plans, mangroves, matières animées et environnement complet restent à finir.",
+          "spec": "Mer en plusieurs plans, marées, digues, quais, villages, mangroves et silhouettes navales. Le kit vectoriel 0.9 de marée et refuge est conservé. 0.15.5 : six atlas/30 cellules pour ambulance, matériel et quatre embarcations; 29 servent au rendu, une balise récupérée reste référence. Coques vides et occupants séparés suivent les états existants. Mer en plusieurs plans, mangroves, matières animées et environnement complet restent à finir.",
           "acceptance": "Niveau d’eau et zones praticables correspondent au gameplay.",
           "priority": "P0",
           "status": "Prototype"
@@ -5296,7 +5296,7 @@
           "id": "AS18",
           "category": "Décors",
           "deliverable": "Kit Thyr",
-          "spec": "Canopée, colonnes-mères, hameaux suspendus, racines et pistes modulaires. Réception 0.10 : onze composants partagés SVG/Canvas, trente-cinq SVG et deux planches PNG. Supports, habitats, migrateurs, colonies, barrière, carte et jalons ont des variantes explicites. FL08 est décorative et FL09 seulement réactive visuellement; matières finales et lecture humaine restent ouvertes. Réception 0.11 : six composants chimiques et vingt-quatre états SVG partagés avec le Canvas, pour cuves, canaux, prélèvement, registre, vannes et maisons. Réception 0.12 : six composants de la vallée, vingt-six états SVG et deux planches PNG pour écoutes, émetteur, ponte, corniche, Leth et traduction. Les scènes Canvas ont été relues; art final et essai humain restent ouverts.",
+          "spec": "Canopée, colonnes-mères, hameaux, racines et pistes. Exports conservés : 0.10, onze composants/35 SVG/deux planches; 0.11, six composants chimiques/24 SVG; 0.12, six composants vallée/26 SVG/deux planches. 0.15.4 : huit atlas/62 cellules pour supports, faune, végétation et Leth. 0.15.5 : MI12 ajoute trois atlas/30 cellules de Prétoire, mâts et consoles, dont deux références. Les états existants restent distincts des dessins; art final, écologie générale et réception humaine sont ouverts.",
           "acceptance": "Arbres porteurs raccordés aux bâtiments; aucune porte flottante.",
           "priority": "P0",
           "status": "Prototype"
@@ -5305,7 +5305,7 @@
           "id": "AS19",
           "category": "Décors",
           "deliverable": "Kits Kharon et Sereis",
-          "spec": "Roches, installations, chaleur et glace. MI13–MI14 disposent de kits SVG/Canvas. MI14 ajoute huit atlas peints transparents, 54 cellules de personnages et machines. Sereis et la finition complète restent à produire.",
+          "spec": "Roches, installations, chaleur et glace. MI13–MI14 disposent de kits SVG/Canvas. MI14 conserve huit atlas peints transparents et 54 cellules de personnages et machines. 0.15.5 : le porteur et les caisses de série MI13 reçoivent deux atlas/huit cellules; roues et deux corps de caisses gardent leurs positions physiques. Sereis et la finition complète restent à produire.",
           "acceptance": "Dangers annoncés avant interaction; effets climatiques réglables.",
           "priority": "P1",
           "status": "Prototype"
@@ -5323,7 +5323,7 @@
           "id": "AS21",
           "category": "Biologie",
           "deliverable": "Faune et flore",
-          "spec": "24 espèces animales et 24 végétales; silhouettes, variations et interactions ciblées. La 0.10 reçoit une tranche de Thyr pour FL07, FU07 et FU08. FL08 et FL09 ne disposent pas de leur interaction écologique finale; le reste du catalogue et l’animation finale demeurent à produire.",
+          "spec": "Vingt-quatre espèces animales et vingt-quatre plantes décrites au catalogue. Le prototype MI09 relie FL07, FU07 et FU08; FL08 et FL09 restent décoratives ou seulement réactives visuellement. 0.15.4 peint partiellement FU07–FU09 et FL07–FL09, sans créer d’espèce ni recevoir toute leur écologie. Le reste du catalogue, les interactions et les animations finales restent à produire.",
           "acceptance": "Distribution écologique par planète et animation adaptée à son rôle.",
           "priority": "P2",
           "status": "À produire"
@@ -5404,7 +5404,7 @@
           "id": "AS30",
           "category": "Production",
           "deliverable": "Registre de provenance",
-          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. Les manifestes historiques 0.9 sont conservés. 0.15.3 : les six atlas de marcheurs disposent de prompts, fichiers retenus, dimensions, empreintes et usages documentés. Les champs historiques inconnus restent inconnus; PR26 reste ouvert.",
+          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. Les manifestes historiques sont conservés. 0.15.5 documente treize atlas/80 cellules de transport, Nacre et relais : prompts, PNG originaux inchangés, dimensions, empreintes et usages. Les 77 cellules au rendu et trois références restent distinguées. Les champs historiques inconnus restent inconnus; PR26 reste ouvert.",
           "acceptance": "Tout asset livré possède une entrée; aucun média de référence embarqué sans autorisation.",
           "priority": "P0",
           "status": "Prototype"
@@ -5467,7 +5467,7 @@
           "id": "AS37",
           "category": "Biologie",
           "deliverable": "Première relation écologique",
-          "spec": "Une surface, une plante structurante et une espèce animale dont besoins et réactions se répondent.",
+          "spec": "Une surface, une plante structurante et une espèce animale dont besoins et réactions se répondent. MI09 prototype les colonnes porteuses, migrateurs et colonies avec leurs issues propres. 0.15.4 ajoute leur présentation peinte. Cette réception graphique partielle ne reçoit ni écologie générale ni toutes les interactions attendues; FL08 et FL09 ne gagnent aucun pouvoir simulé.",
           "acceptance": "La scène montre observation, intervention et retour au calme; catalogue complet hors portée de ce lot.",
           "priority": "P1",
           "status": "À produire"
@@ -5476,7 +5476,7 @@
           "id": "AS38",
           "category": "Production",
           "deliverable": "Manifestes d’intégration",
-          "spec": "Registre de chaque asset avec provenance, pivots, échelle, usage, variante et dépendances. Les six rigs documentés 0.9 sont conservés. 0.15.3 : six atlas, 96 cellules, rectangles et ancres des pièces peintes; assemblage selon les contacts et montages existants, avec repli vectoriel. Le contrat reste à recevoir pour chaque future substitution.",
+          "spec": "Registre de provenance, pivots, échelle, usage, variantes et dépendances. Rigs et manifestes antérieurs conservés. 0.15.5 : treize atlas/80 cellules avec rectangles, ancres et distinction usage/référence. Roues, appuis réels du Prétoire, composants, deux caisses et quilles suivent leurs positions existantes; les conditions d’apparition restent actives. Repli vectoriel disponible. Chaque future substitution garde sa réception propre.",
           "acceptance": "Un asset peut être remplacé sans perdre collision, position du son ou identité de la source.",
           "priority": "P1",
           "status": "Prototype"
@@ -5539,7 +5539,7 @@
           "id": "AS45",
           "category": "Nacre",
           "deliverable": "Barges Saisie et Rive-Courte",
-          "spec": "Deux coques aux usages identifiables, pièces de treuil séparées, documents et poste radio, dommages cohérents avec leurs zones de collision. 0.9 : Coques Saisie/Rive-Courte, treuil indépendant et variantes de dommage. Limite : Inspection intégrée des collisions, documents/radio et des équipages; animations finales encore absentes.",
+          "spec": "Deux coques aux usages identifiables, treuils séparés, documents et poste radio. Le kit vectoriel 0.9 est conservé. 0.15.5 ajoute quatre cellules peintes de Saisie et six de Rive-Courte; les coques vides suivent les dégâts existants, avec treuils et constats toujours distincts. Les dessins ne créent ni équipage ni traction supplémentaire. Réception intégrée des équipages et animations finales encore ouvertes.",
           "acceptance": "Une coque préservée et un treuil coupé se reconnaissent. Une épave ne montre pas de personnel vivant ni une radio disponible.",
           "priority": "P1",
           "status": "Prototype"
@@ -5548,7 +5548,7 @@
           "id": "AS46",
           "category": "Nacre",
           "deliverable": "Dock et bateau de passage",
-          "spec": "Accès, défenses, marques de niveau, cabine de ferry et aire d’accueil. Arrivée, perte et attente ont des animations propres. 0.9 : Dock et ferry vectoriels avec variantes d’attente, arrivée et perte. Limite : Débarquement lisible, animation des passagers et absence de chevauchement doivent être observés en intégration.",
+          "spec": "Accès, défenses, marques de niveau, cabine de ferry et aire d’accueil. Le dock vectoriel est conservé. 0.15.5 : quatre cellules peintes du bateau de passage suivent attente, déplacement et dégâts existants; les douze passagers restent issus du bilan simulé. Débarquement lisible, animation individuelle et absence de chevauchement doivent encore être observés en réception humaine.",
           "acceptance": "Le bateau atteint le dock sans se superposer au quai. Une personne comptée à l’arrivée possède une sortie lisible.",
           "priority": "P1",
           "status": "Prototype"
@@ -5575,7 +5575,7 @@
           "id": "AS49",
           "category": "Nacre",
           "deliverable": "Ambulance inspectable de MI07",
-          "spec": "Véhicule avec postes de soin, accès patient, attaches de balise ajoutée et variantes de dégâts. Une silhouette sanitaire propre au monde. 0.9 : Ambulance, caisse et balise vectorielles avec dégâts et attaches. Limite : Accès des six châssis, gestes sanitaires et finition des personnes doivent être vérifiés/produits en contexte.",
+          "spec": "Véhicule avec postes de soin, accès patient, attaches de balise et dégâts. 0.15.5 : quatre cellules d’ambulance, dont une roue séparée, et six de matériel; cinq de matériel sont utilisées, la balise récupérée reste référence. Après retrait, seule l’attache existante demeure. Les six occupants et les progrès de soin restent séparés. Accès des six châssis, gestes sanitaires et finition des personnes restent à recevoir.",
           "acceptance": "Inspection et transfert possèdent une zone d’approche sûre pour chaque châssis. La balise ne flotte pas hors de la carrosserie.",
           "priority": "P1",
           "status": "Prototype"
@@ -5584,7 +5584,7 @@
           "id": "AS50",
           "category": "Nacre",
           "deliverable": "Portes d’Aval et départ de MI08",
-          "spec": "Deux portes, indicateurs de pression, niches de refuge, bateaux en file et silhouettes locales dans des états de départ distincts. 0.9 : Porte, mécanisme indépendant, Veille d’Aval, Rive-Courte et refuge vectoriels. Réception : portes, mécanismes, bateaux, quais et accueil intégrés au renderer; dix-sept scènes Canvas relues et une continuation Chrome reçue. Limite : les gestes finaux et la compréhension humaine restent ouverts; les dessins seuls ne prouvent aucune arrivée.",
+          "spec": "Deux portes, pression, refuge et départs distincts. Le kit vectoriel 0.9 est conservé, ainsi que ses dix-sept scènes Canvas et sa continuation Chrome historiques. 0.15.5 : Rive-Courte et Veille d’Aval reçoivent six cellules chacune; coques vides, occupants et passerelles restent séparés, avec positions et arrivées simulées. Les gestes finaux et la compréhension humaine restent ouverts; les dessins seuls ne prouvent aucune arrivée.",
           "acceptance": "Les portes, personnes et bateaux visibles correspondent à leurs états persistants. Aucune foule générique ne remplace le bilan.",
           "priority": "P1",
           "status": "Prototype"
@@ -5842,7 +5842,7 @@
         {
           "id": "PR12",
           "workstream": "Art prototype",
-          "deliverable": "Identité visuelle, environnements et silhouettes mécaniques lisibles. Réception partielle 0.15.3 : six atlas de marcheurs et 96 cellules de pièces/états, portant le total peint avec MI14 et le combat à 23 atlas et 228 cellules. Factions complètes, postures et cycles finaux, faune et réception humaine restent ouverts.",
+          "deliverable": "Identité visuelle, environnements et silhouettes lisibles. Réception partielle 0.15.5 : treize atlas transport/Nacre/relais et 80 cellules, portant le total peint à 45 atlas et 386 cellules. Le nouveau lot distingue 77 cellules au rendu et trois références. Ces pièces et états ne sont pas autant d’unités ou de cycles complets. Factions complètes, autres biomes, animations finales et réception humaine restent ouverts.",
           "depends": "AS01–AS04; AS16–AS18",
           "acceptance": "Captures à plusieurs résolutions, contraste et unités identifiables.",
           "priority": "P0",
@@ -6571,7 +6571,7 @@
         {
           "id": "PR93",
           "workstream": "Graphisme MI12",
-          "deliverable": "Kit original de relais et Prétoire partagé entre SVG et Canvas.",
+          "deliverable": "Kit original de relais et Prétoire partagé entre SVG et Canvas, conservé en repli. 0.15.5 : trois atlas/30 cellules peintes, dont 28 au rendu; les quatre pieds physiques, composants visables et conditions d’arrivée restent ceux de la simulation. Contrôles graphiques et réception humaine demeurent distincts.",
           "depends": "PR92 ; VE12",
           "acceptance": "Composants visibles et réellement visables ; corps absents avant arrivée.",
           "priority": "P1",
@@ -6598,7 +6598,7 @@
         {
           "id": "PR96",
           "workstream": "Graphisme Kharon",
-          "deliverable": "Kit industriel, signalisation de vapeur et horizon de fonderie.",
+          "deliverable": "Kit industriel, signalisation de vapeur et horizon de fonderie. 0.15.5 : deux atlas/huit cellules peignent porteur et caisses MI13; quatre roues et deux charges gardent leur pose physique. Le kit vectoriel et les effets de progression restent disponibles; finition de Kharon et réception humaine restent ouvertes.",
           "depends": "PR95 ; AS19",
           "acceptance": "SVG/Canvas cohérents et roues/appuis provenant de la simulation.",
           "priority": "P1",
@@ -8608,7 +8608,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.15.3. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "description": "Portée présente dans le code de la version 0.15.5. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -8741,9 +8741,9 @@
           "id": "PX11",
           "link": "FU09",
           "name": "Guetteur-racine",
-          "implemented": "Ennemi de proximité dans l’opération de Thyr, avec course et signal d’attaque.",
-          "limits": "L’écologie, la territorialité et les solutions d’évitement décrites pour FU09 restent à produire.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Adversaire de mêlée de l’opération de Thyr, avec poursuite et attaque signalée. Douze cellules peintes fournissent attente, huit poses de marche et préparation/attaque; la marche suit le déplacement réel et conserve un repli vectoriel.",
+          "limits": "La cellule morte reste une référence sans cadavre ajouté. Territorialité, détection des petites proies, évitement du marcheur et protection écologique des techniciens décrits par FU09 restent à produire. Pas de nouvelle rencontre FU09 dans MI09.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/painted-thyr.mjs",
           "status": "Prototype"
         },
         {
@@ -8759,9 +8759,9 @@
           "id": "PX13",
           "link": "NA19",
           "name": "Marcheur Cerbère",
-          "implemented": "Adversaire lourd de OP03; garde tant que l’ordre n’est pas tranché, puis repli autorisé ou affrontement.",
-          "limits": "Boss de validation indépendant du croiseur Décret VE16; phases mécaniques, équipage et reddition finale à produire.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "implemented": "Cerbère garde OP03 jusqu’au choix, puis retraite ou combat selon la décision existante. Seize cellules peintes fournissent son rig propre; onze servent au rendu. Canon et télégraphe partagent la pose du tir physique existant, sans déplacer la bouche ni changer la dispersion.",
+          "limits": "Cerbère reste distinct de Décret VE16. Cinq cellules de dégâts/réparation restent des références; aucune santé ennemie localisée créée. Les jambes sont une présentation liée au déplacement, sans pieds physiques simulés. Phases mécaniques, équipage et reddition finale restent ouverts.",
+          "path": "src/content.mjs ; src/simulation.mjs ; src/painted-cerbere.mjs ; src/cerbere-weapon-pose.mjs",
           "status": "Prototype"
         },
         {
@@ -8858,9 +8858,9 @@
           "id": "PX24",
           "link": "PR12; AS01",
           "name": "Direction visuelle initiale",
-          "implemented": "Illustration de titre, panorama Vesper, silhouettes articulées et ambiances distinctes. Six atlas de marcheurs ajoutent 96 cellules de pièces et états; avec MI14 et le combat : 23 atlas, 228 cellules. Découpe et ancres documentées, chargement asynchrone et repli vectoriel.",
-          "limits": "Art au stade Prototype : rôles génériques sans logo de faction, variations et transitions limitées. Factions complètes, postures et cycles finaux des marcheurs, faune et campagne entièrement peinte restent à produire. Réception navigateur et humaine distincte des contrôles automatisés.",
-          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-walkers.mjs",
+          "implemented": "Illustration de titre, panorama Vesper, silhouettes articulées et ambiances distinctes. Treize atlas transport/Nacre/relais ajoutent 80 cellules aux lots antérieurs : 45 atlas, 386 cellules au total. Découpe, ancres, 77 usages de rendu et trois références du nouveau lot sont documentés; chargement asynchrone et repli vectoriel.",
+          "limits": "Art au stade Prototype. Pièces, états et références ne constituent ni unités supplémentaires ni cycles complets. Factions complètes, autres biomes, écologie générale et campagne entièrement peinte restent à produire. Réceptions graphique, navigateur et humaine distinctes.",
+          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-transport.mjs ; src/painted-nacre.mjs ; src/painted-relay.mjs",
           "status": "Prototype"
         },
         {
@@ -8930,9 +8930,9 @@
           "id": "PX32",
           "link": "MI02; VE17; SY17; PR33",
           "name": "Train, harpons et freinage",
-          "implemented": "Deux treuils demandent chacun 2,5 s à proximité. Le second libère la locomotive. Freinage de 4 s près de la cabine avant la voie rompue. Positions, santé et déplacement viennent de la simulation.",
+          "implemented": "Deux treuils demandent chacun 2,5 s à proximité. Le second libère la locomotive. Freinage de 4 s près de la cabine avant la voie rompue. Deux atlas/douze cellules peignent locomotive, wagons et roue séparée; positions, santé, occupants et déplacement viennent de la simulation.",
           "limits": "Train de la famille Fret-Est partiellement prototypé. Pas de branche d’aiguillage, de dételage, de contrainte physique des câbles ni de déraillement animé définitif.",
-          "path": "src/simulation.mjs; src/renderer.mjs",
+          "path": "src/simulation.mjs ; src/renderer.mjs ; src/painted-transport.mjs",
           "status": "Prototype"
         },
         {
@@ -9164,18 +9164,18 @@
           "id": "PX58",
           "link": "SY56; SY57; NA41–NA43",
           "name": "Barges, constats et contact",
-          "implemented": "Treuils indépendants des coques, inspections de trois secondes, facture de Saisie et radio de Vann conditionnées à leur état au moment de lecture.",
+          "implemented": "Treuils indépendants des coques, inspections de trois secondes, facture de Saisie et radio de Vann conditionnées à leur état au moment de lecture. Quatre cellules peintes de Saisie et six de Rive-Courte suivent ces états; coques vides, treuils et informations demeurent séparés.",
           "limits": "Portraits animés et équipages physiques à produire. VE08 garde son système final de traction du marcheur comme conception séparée.",
-          "path": "src/simulation.mjs; src/renderer.mjs",
+          "path": "src/simulation.mjs ; src/renderer.mjs ; src/painted-nacre.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX59",
           "link": "SY58; NA44",
           "name": "Douze passagers dans le chenal",
-          "implemented": "Le bateau attend l’ouverture et l’eau suffisante. Le dock, les dégâts et les pertes déterminent son bilan.",
+          "implemented": "Le bateau attend l’ouverture et l’eau suffisante. Le dock, les dégâts et les pertes déterminent son bilan. Quatre cellules peintes présentent sa coque vide selon les états existants, sans créer de passager ni créditer une arrivée graphique.",
           "limits": "Un seul bateau de référence. Files, embarquement, destinations multiples et animations individuelles restent conçus.",
-          "path": "src/simulation.mjs; src/campaign.mjs",
+          "path": "src/simulation.mjs ; src/campaign.mjs ; src/painted-nacre.mjs",
           "status": "Prototype"
         },
         {
@@ -9299,18 +9299,18 @@
           "id": "PX73",
           "link": "SY75; SY81",
           "name": "Sources et constats",
-          "implemented": "Caisse, boîtier et état du véhicule sont constatés séparément. Les ruines gardent une issue limitée.",
+          "implemented": "Caisse, boîtier et état du véhicule sont constatés séparément. Les ruines gardent une issue limitée. Les cellules peintes du matériel suivent les états connus, examinés et détruits; elles ne révèlent aucune donnée supplémentaire.",
           "limits": "Une source perdue ne fournit pas ses données intactes. La connaissance complète de PALINODE n’est pas donnée.",
-          "path": "src/simulation.mjs; src/campaign.mjs",
+          "path": "src/simulation.mjs ; src/campaign.mjs ; src/painted-nacre.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX74",
           "link": "SY76; NA46; NA60",
           "name": "Récupération locale de balise",
-          "implemented": "Cinq secondes sous ancrage et appuis posés démontent la balise. Un boîtier détruit demande deux secondes de constat, sans données récupérées.",
+          "implemented": "Cinq secondes sous ancrage et appuis posés démontent la balise. Un boîtier détruit demande deux secondes de constat, sans données récupérées. Deux états peints servent au rendu; après retrait, l’attache existante demeure seule et la cellule récupérée reste une référence.",
           "limits": "Provenance de pose non vérifiée. Aucun auteur, PT ou PO automatique; la récupération déjà achevée reste acquise après perte du véhicule.",
-          "path": "src/simulation.mjs; src/campaign.mjs",
+          "path": "src/simulation.mjs ; src/campaign.mjs ; src/painted-nacre.mjs",
           "status": "Prototype"
         },
         {
@@ -9344,9 +9344,9 @@
           "id": "PX78",
           "link": "SY27; PR76; AS57",
           "name": "Lire l’arrêt et le transfert",
-          "implemented": "Rendu et interface exposent les étapes, le constat disponible, la route et l’issue sanitaire.",
-          "limits": "Kit procédural et interface de prototype; art, audio et compréhension humaine QA137 encore ouverts.",
-          "path": "src/renderer.mjs; src/main.mjs",
+          "implemented": "Rendu et interface exposent les étapes, le constat disponible, la route et l’issue sanitaire. Quatre cellules peintes d’ambulance, dont une roue séparée, suivent carrosserie, dégâts et contacts; six occupants, soins et transferts restent représentés séparément.",
+          "limits": "Peinture partielle et interface de prototype; finition des gestes sanitaires, audio et compréhension humaine QA137 encore ouverts.",
+          "path": "src/renderer.mjs ; src/main.mjs ; src/painted-nacre.mjs",
           "status": "Prototype"
         },
         {
@@ -9371,9 +9371,9 @@
           "id": "PX81",
           "link": "SY84; SY86; PR82",
           "name": "Places, embarquement, arrivée",
-          "implemented": "Deux bateaux, passerelles, opérateurs, accompagnants et brancards; arrivée créditée à la porte du refuge.",
+          "implemented": "Deux bateaux, passerelles, opérateurs, accompagnants et brancards; arrivée créditée à la porte du refuge. Six cellules peintes de Rive-Courte et six de Veille d’Aval suivent les états existants. Les coques vides restent distinctes des occupants et de leurs transferts simulés.",
           "limits": "Capacités locales fixes; navigation libre et animation finale des gestes d’accueil restent ouvertes.",
-          "path": "src/simulation.mjs; src/renderer.mjs",
+          "path": "src/simulation.mjs ; src/renderer.mjs ; src/painted-nacre.mjs",
           "status": "Prototype"
         },
         {
@@ -9452,18 +9452,18 @@
           "id": "PX90",
           "link": "FL07; FU07; FU08; SY93–SY95",
           "name": "Supports et vie locale",
-          "implemented": "Deux supports portent deux habitats, quatre migrateurs ont des issues individuelles et deux colonies réagissent à la lumière et au bruit locaux.",
-          "limits": "FL08 est décorative et FL09 possède seulement une réaction visuelle. FU09, écologie globale, incendie et recensement humain ne sont pas livrés.",
-          "path": "src/simulation.mjs; src/thyr-renderer.mjs; tests/mi09-simulation.test.mjs",
+          "implemented": "Deux supports portent deux habitats, quatre migrateurs ont des issues individuelles et deux colonies réagissent à la lumière et au bruit locaux. Les atlas peints de colonnes, habitats/racines, adultes, jeunes et colonies présentent ces mêmes entités et états.",
+          "limits": "FL08 reste décorative et FL09 seulement visuellement réactive. Les variantes graphiques ne créent ni habitant, ni issue humaine, ni effet écologique. FU09 demeure dans OP03; il n’est pas ajouté à MI09. Écologie générale, incendie et recensement humain restent ouverts.",
+          "path": "src/simulation.mjs ; src/thyr-renderer.mjs ; src/painted-thyr.mjs ; tests/mi09-simulation.test.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX91",
           "link": "AS18; SY92; QA166",
           "name": "Onze pièces de Thyr",
-          "implemented": "Onze composants réutilisables : trente-cinq variantes SVG et deux planches PNG. Le renderer et les exports partagent les formes, les états visibles viennent de la simulation.",
-          "limits": "Un export ou une planche ne prouve pas tout le niveau en mouvement. Vignes et herbes ne créditent aucun effet écologique absent; art final et réception humaine ouverts.",
-          "path": "src/thyr-assets.mjs; src/thyr-renderer.mjs; assets/thyr/manifest.json",
+          "implemented": "Onze composants réutilisables historiques, trente-cinq variantes SVG et deux planches PNG conservés. Les atlas peints Thyr remplacent partiellement leur présentation avec repli vectoriel; les états de supports et de faune viennent toujours de la simulation.",
+          "limits": "Un export ou une planche ne prouve pas tout le niveau en mouvement. Vignes, herbes et variantes disponibles au dessin ne créditent aucun effet écologique absent. Les cellules de référence sont distinctes des états joués. Art final et réception humaine restent ouverts.",
+          "path": "src/thyr-assets.mjs ; src/thyr-renderer.mjs ; src/painted-thyr.mjs ; assets/thyr/manifest.json ; assets/painted/thyr/manifest.json",
           "status": "Prototype"
         },
         {
@@ -9569,9 +9569,9 @@
           "id": "PX103",
           "link": "AS13; AS18; QA188",
           "name": "Éléments de la vallée et de Leth",
-          "implemented": "Six composants partagés SVG/Canvas, vingt-six états SVG et deux planches PNG représentent les écoutes, la corniche, la ponte, l’émetteur, la traduction et Leth. Les cinq états de Leth et les scènes intégrées ont été relus.",
-          "limits": "La réception graphique est suivie séparément du gameplay, du navigateur et de la lecture humaine. Le lot ne clôt pas la langue visuelle complète des cités Khelt.",
-          "path": "src/voice-assets.mjs; src/voice-renderer.mjs; assets/voice/manifest.json",
+          "implemented": "Six composants SVG/Canvas, vingt-six états SVG et deux planches historiques représentent écoutes, corniche, ponte, émetteur, traduction et Leth. 0.15.4 ajoute huit cellules peintes de Leth : six poses utilisées pour ses cinq états, dont deux de parole, et deux références d’outils.",
+          "limits": "La peinture ne modifie ni consentement, ni disponibilités, ni issues de la rencontre. Les outils de référence ne créent aucun équipement ou pouvoir nouveau. Réceptions graphique, gameplay, navigateur et humaine restent séparées; la langue visuelle complète des cités Khelt reste ouverte.",
+          "path": "src/voice-assets.mjs ; src/voice-renderer.mjs ; src/painted-thyr.mjs ; assets/voice/manifest.json ; assets/painted/thyr/manifest.json",
           "status": "Prototype"
         },
         {
@@ -9596,9 +9596,9 @@
           "id": "PX106",
           "link": "MI12; VE12",
           "name": "Prétoire à composants",
-          "implemented": "Coque, capteur, verrou et quatre pieds physiques ; arrivée différée.",
-          "limits": "Animations finales et variété du véhicule à produire.",
-          "path": "src/relay-simulation.mjs; src/relay-renderer.mjs",
+          "implemented": "Coque, capteur, verrou et quatre pieds physiques; arrivée différée. Seize cellules peintes, quinze utilisées, articulent les pièces sur les vrais contacts des pieds et les composants simulés. La bouche reste au point du projectile existant dans les deux directions.",
+          "limits": "Le canon endommagé reste une référence sans état de dommage ajouté. Animations finales, variété du véhicule et réception humaine restent à produire. Le Prétoire conserve ses vrais pieds, distincts des jambes visuelles de Cerbère.",
+          "path": "src/relay-simulation.mjs ; src/relay-renderer.mjs ; src/painted-relay.mjs",
           "status": "Prototype"
         },
         {
@@ -9623,9 +9623,9 @@
           "id": "PX109",
           "link": "MI12; PR93",
           "name": "Relais SVG et Canvas",
-          "implemented": "Géométrie commune des relais et du Prétoire.",
-          "limits": "Un banc graphique n’est pas une capture navigateur.",
-          "path": "src/relay-assets.mjs; assets/relay",
+          "implemented": "Géométrie SVG/Canvas commune conservée en repli. Trois atlas/30 cellules peignent Prétoire, mâts et consoles; 28 sont utilisées au rendu, le canon endommagé et la cassette isolée restent références. Les sites, composants et conditions d’arrivée proviennent de la simulation.",
+          "limits": "Un banc graphique ne reçoit ni navigateur ni compréhension humaine. Les cellules de référence n’ajoutent aucun composant, dégât ou donnée récupérée.",
+          "path": "src/relay-assets.mjs ; assets/relay ; src/painted-relay.mjs ; assets/painted/relay/manifest.json",
           "status": "Prototype"
         },
         {
@@ -9641,9 +9641,9 @@
           "id": "PX111",
           "link": "MI13; SY120",
           "name": "Convoi industriel",
-          "implemented": "Porteur à quatre roues, deux corps de caisses et transferts distincts.",
+          "implemented": "Porteur à quatre roues, deux corps de caisses et transferts distincts. Quatre cellules de porteur, dont une roue séparée, et quatre de caisses suivent les états existants. La cabine basse laisse la place aux deux charges sans déplacer leurs corps physiques.",
           "limits": "Autres transports de Kharon encore conçus.",
-          "path": "src/foundry-simulation.mjs",
+          "path": "src/foundry-simulation.mjs ; src/painted-transport.mjs",
           "status": "Prototype"
         },
         {
@@ -9677,9 +9677,9 @@
           "id": "PX115",
           "link": "MI13; AS19",
           "name": "Kit de Kharon",
-          "implemented": "Formes industrielles originales SVG/Canvas et horizon de fonderie.",
+          "implemented": "Formes industrielles originales SVG/Canvas et horizon de fonderie. Deux atlas/huit cellules ajoutent porteur et caisses peints de MI13. Leurs positions, dégâts, copie et transferts suivent le domaine; effets de progression et repli vectoriel restent présents.",
           "limits": "Sereis, MI15–MI16, les effets finaux et la réception humaine du kit restent à produire. Le kit MI14 est décrit séparément.",
-          "path": "src/foundry-assets.mjs; assets/foundry; src/renderer.mjs",
+          "path": "src/foundry-assets.mjs ; assets/foundry ; src/renderer.mjs ; src/painted-transport.mjs",
           "status": "Prototype"
         },
         {

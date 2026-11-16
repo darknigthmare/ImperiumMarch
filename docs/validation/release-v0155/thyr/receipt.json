@@ -1,0 +1,1569 @@
+{
+  "createdUtc": "2026-11-16T14:39:27.539Z",
+  "version": "0.15.5",
+  "type": "Actual original PNG decoding and Thyr Canvas rendering",
+  "completed": true,
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "canvasFonts": [
+    [
+      "/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf",
+      "Courier New"
+    ],
+    [
+      "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+      "ODC Sans"
+    ]
+  ],
+  "sourceHashes": {
+    "src/painted-thyr.mjs": "5156604d45cbc0693a43963dae9d18e546100b5d46d73ba2469c5aea4e88026f",
+    "src/painted-thyr-layout.mjs": "de98aa3b7e6c4965a62df91604be28769ba52bd87e821d8a5aad5ae6e24b085d",
+    "src/thyr-renderer.mjs": "275a038f58b1eb8b9bd2da9d3de79286ce77cda9320f11543dd80c29c03fc908",
+    "src/voice-renderer.mjs": "f6895c89962beaf91080240cdb5ae79761073ddd0f694d53a38e5812891e1a3c",
+    "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+    "src/voice-assets.mjs": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0",
+    "src/renderer.mjs": "1a838373319ab5286c7c05827ddf379c877d6e6c2f301e3dd1cf5992b4a33d7d",
+    "tools/test-painted-thyr.mjs": "19bd3046c64866cacaad64b3acbcd1f62d02ed4028d2eeb40bbcda2b6da1bc86"
+  },
+  "atlases": [
+    {
+      "key": "longuedorse-young",
+      "path": "assets/painted/thyr/longuedorse-young.png",
+      "width": 1774,
+      "height": 887,
+      "bytes": 1435699,
+      "sha256": "a330a1b4e7fcc2a440f785d4898c3d9fc6e3766b9ccc0ae5663f6d4da8890b45",
+      "fullyTransparentPixels": 1017551,
+      "solidPixels": 498574
+    },
+    {
+      "key": "longuedorse-adult",
+      "path": "assets/painted/thyr/longuedorse-adult.png",
+      "width": 1774,
+      "height": 887,
+      "bytes": 2128641,
+      "sha256": "62116c864b90a8f9268368843711a1ab99b7262f5816a21a39d7cc0b4ed03465",
+      "fullyTransparentPixels": 301182,
+      "solidPixels": 474868
+    },
+    {
+      "key": "fan-colony",
+      "path": "assets/painted/thyr/fan-colony.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1616506,
+      "sha256": "b7fdeb151c77bdd5f6cc328db1bdcb814e592ccde7bc0378042e2c5413b7df4d",
+      "fullyTransparentPixels": 1131812,
+      "solidPixels": 213010
+    },
+    {
+      "key": "column",
+      "path": "assets/painted/thyr/column.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1947365,
+      "sha256": "40ac8f273dea5129a5e3227426574c49dcc86ed97ee5ab3d1d2714cbfbf00e2b",
+      "fullyTransparentPixels": 1122823,
+      "solidPixels": 363873
+    },
+    {
+      "key": "habitat",
+      "path": "assets/painted/thyr/habitat.png",
+      "width": 2172,
+      "height": 724,
+      "bytes": 1195351,
+      "sha256": "ca95f9594300a7eeed86b265c667c9eebc3520232ac34f0217989d5bc8e099c6",
+      "fullyTransparentPixels": 1083413,
+      "solidPixels": 414103
+    },
+    {
+      "key": "plants",
+      "path": "assets/painted/thyr/plants.png",
+      "width": 1774,
+      "height": 887,
+      "bytes": 1124082,
+      "sha256": "46533b07ef49d4aac10a0ba58fca0f8bf4ef319bc59599011fbdd4279397fb05",
+      "fullyTransparentPixels": 1177877,
+      "solidPixels": 240678
+    },
+    {
+      "key": "leth",
+      "path": "assets/painted/thyr/leth.png",
+      "width": 1774,
+      "height": 887,
+      "bytes": 910533,
+      "sha256": "f494bcfd2bfdd71cd462e7e8faef73d328d79957263ad4845a762addefdf87c7",
+      "fullyTransparentPixels": 1211466,
+      "solidPixels": 275777
+    },
+    {
+      "key": "rootwatcher",
+      "path": "assets/painted/thyr/rootwatcher.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1292018,
+      "sha256": "bc574c19ec74403b32327199dfbdd3a3bd3229b747e0b43103853d0d06571472",
+      "fullyTransparentPixels": 1074676,
+      "solidPixels": 327455
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "longuedorse-adult",
+      "frame": "waiting",
+      "source": [
+        16,
+        108,
+        413,
+        248
+      ],
+      "target": [
+        -79.55327869,
+        -94.3852459,
+        159.10655738,
+        95.54098361
+      ],
+      "occupiedPixels": 60336,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-adult",
+      "frame": "walk-0",
+      "source": [
+        459,
+        108,
+        413,
+        247
+      ],
+      "target": [
+        -79.93852459,
+        -94,
+        159.10655738,
+        95.1557377
+      ],
+      "occupiedPixels": 60665,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-adult",
+      "frame": "walk-1",
+      "source": [
+        903,
+        109,
+        413,
+        246
+      ],
+      "target": [
+        -79.55327869,
+        -93.6147541,
+        159.10655738,
+        94.7704918
+      ],
+      "occupiedPixels": 59638,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-adult",
+      "frame": "walk-2",
+      "source": [
+        1346,
+        108,
+        416,
+        247
+      ],
+      "target": [
+        -79.93852459,
+        -94,
+        160.26229508,
+        95.1557377
+      ],
+      "occupiedPixels": 61250,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-adult",
+      "frame": "walk-3",
+      "source": [
+        16,
+        552,
+        415,
+        247
+      ],
+      "target": [
+        -79.55327869,
+        -94,
+        159.87704918,
+        95.1557377
+      ],
+      "occupiedPixels": 60398,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-adult",
+      "frame": "arrived",
+      "source": [
+        459,
+        555,
+        394,
+        244
+      ],
+      "target": [
+        -79.93852459,
+        -92.8442623,
+        151.78688525,
+        94
+      ],
+      "occupiedPixels": 61206,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-adult",
+      "frame": "diverted",
+      "source": [
+        903,
+        532,
+        412,
+        267
+      ],
+      "target": [
+        -79.55327869,
+        -101.70491803,
+        158.72131148,
+        102.86065574
+      ],
+      "occupiedPixels": 60168,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-adult",
+      "frame": "dead",
+      "source": [
+        1343,
+        610,
+        425,
+        182
+      ],
+      "target": [
+        -81.0942623,
+        -68.95901639,
+        163.7295082,
+        70.1147541
+      ],
+      "occupiedPixels": 51207,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-young",
+      "frame": "waiting",
+      "source": [
+        25,
+        98,
+        400,
+        272
+      ],
+      "target": [
+        -47.76119403,
+        -64.23880597,
+        95.52238806,
+        64.95522388
+      ],
+      "occupiedPixels": 63858,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-young",
+      "frame": "walk-0",
+      "source": [
+        470,
+        98,
+        399,
+        270
+      ],
+      "target": [
+        -47.52238806,
+        -63.76119403,
+        95.28358209,
+        64.47761194
+      ],
+      "occupiedPixels": 63440,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-young",
+      "frame": "walk-1",
+      "source": [
+        914,
+        98,
+        398,
+        271
+      ],
+      "target": [
+        -47.28358209,
+        -64,
+        95.04477612,
+        64.71641791
+      ],
+      "occupiedPixels": 60706,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-young",
+      "frame": "walk-2",
+      "source": [
+        1359,
+        99,
+        402,
+        270
+      ],
+      "target": [
+        -47.04477612,
+        -63.76119403,
+        96,
+        64.47761194
+      ],
+      "occupiedPixels": 64757,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-young",
+      "frame": "walk-3",
+      "source": [
+        28,
+        543,
+        402,
+        269
+      ],
+      "target": [
+        -47.04477612,
+        -63.52238806,
+        96,
+        64.23880597
+      ],
+      "occupiedPixels": 62553,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-young",
+      "frame": "arrived",
+      "source": [
+        471,
+        549,
+        375,
+        264
+      ],
+      "target": [
+        -47.28358209,
+        -62.32835821,
+        89.55223881,
+        63.04477612
+      ],
+      "occupiedPixels": 65621,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-young",
+      "frame": "diverted",
+      "source": [
+        913,
+        536,
+        401,
+        278
+      ],
+      "target": [
+        -47.52238806,
+        -65.67164179,
+        95.76119403,
+        66.3880597
+      ],
+      "occupiedPixels": 64026,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "longuedorse-young",
+      "frame": "dead",
+      "source": [
+        1344,
+        621,
+        420,
+        189
+      ],
+      "target": [
+        -50.62686567,
+        -44.41791045,
+        100.29850746,
+        45.13432836
+      ],
+      "occupiedPixels": 53613,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "fan-colony",
+      "frame": "settled",
+      "source": [
+        16,
+        182,
+        477,
+        195
+      ],
+      "target": [
+        -78.65961945,
+        -63.32346723,
+        157.3192389,
+        64.31289641
+      ],
+      "occupiedPixels": 45333,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "fan-colony",
+      "frame": "fly-0",
+      "source": [
+        527,
+        139,
+        476,
+        207
+      ],
+      "target": [
+        -78.98942918,
+        -77.50528541,
+        156.98942918,
+        68.27061311
+      ],
+      "occupiedPixels": 46216,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "fan-colony",
+      "frame": "fly-1",
+      "source": [
+        1052,
+        144,
+        445,
+        199
+      ],
+      "target": [
+        -74.70190275,
+        -75.85623679,
+        146.7653277,
+        65.63213531
+      ],
+      "occupiedPixels": 33364,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "fan-colony",
+      "frame": "fly-2",
+      "source": [
+        14,
+        604,
+        483,
+        222
+      ],
+      "target": [
+        -79.3192389,
+        -93.00634249,
+        159.29809725,
+        73.21775899
+      ],
+      "occupiedPixels": 45003,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "fan-colony",
+      "frame": "fly-3",
+      "source": [
+        540,
+        649,
+        448,
+        197
+      ],
+      "target": [
+        -74.70190275,
+        -78.16490486,
+        147.75475687,
+        64.97251586
+      ],
+      "occupiedPixels": 32464,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "fan-colony",
+      "frame": "lost",
+      "source": [
+        1055,
+        792,
+        441,
+        80
+      ],
+      "target": [
+        -73.71247357,
+        -25.39534884,
+        145.44608879,
+        26.38477801
+      ],
+      "occupiedPixels": 10630,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "column",
+      "frame": "normal",
+      "source": [
+        16,
+        10,
+        481,
+        487
+      ],
+      "target": [
+        -189.65408805,
+        -491.01449275,
+        373.10272537,
+        494.05797101
+      ],
+      "occupiedPixels": 80573,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "column",
+      "frame": "damaged",
+      "source": [
+        527,
+        10,
+        481,
+        487
+      ],
+      "target": [
+        -188.87840671,
+        -491.01449275,
+        373.10272537,
+        494.05797101
+      ],
+      "occupiedPixels": 80899,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "column",
+      "frame": "destroyed",
+      "source": [
+        1108,
+        348,
+        357,
+        150
+      ],
+      "target": [
+        -138.84696017,
+        -149.13043478,
+        276.91823899,
+        152.17391304
+      ],
+      "occupiedPixels": 19789,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "column",
+      "frame": "normal-alt",
+      "source": [
+        18,
+        522,
+        478,
+        488
+      ],
+      "target": [
+        -146.36075949,
+        -491.01239669,
+        373.12236287,
+        494.04958678
+      ],
+      "occupiedPixels": 81392,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "column",
+      "frame": "damaged-alt",
+      "source": [
+        528,
+        522,
+        480,
+        488
+      ],
+      "target": [
+        -147.14135021,
+        -491.01239669,
+        374.6835443,
+        494.04958678
+      ],
+      "occupiedPixels": 81545,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "column",
+      "frame": "destroyed-alt",
+      "source": [
+        1096,
+        861,
+        356,
+        149
+      ],
+      "target": [
+        -138.55485232,
+        -147.80991736,
+        277.89029536,
+        150.84710744
+      ],
+      "occupiedPixels": 19675,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "habitat",
+      "frame": "home-normal",
+      "source": [
+        53,
+        10,
+        630,
+        450
+      ],
+      "target": [
+        -87.55591054,
+        -160,
+        175.11182109,
+        161.43497758
+      ],
+      "occupiedPixels": 142464,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "habitat",
+      "frame": "home-damaged",
+      "source": [
+        777,
+        10,
+        630,
+        450
+      ],
+      "target": [
+        -87.55591054,
+        -160,
+        175.11182109,
+        161.43497758
+      ],
+      "occupiedPixels": 142411,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "habitat",
+      "frame": "home-destroyed",
+      "source": [
+        1487,
+        289,
+        645,
+        167
+      ],
+      "target": [
+        -91.44728435,
+        -58.47533632,
+        179.28115016,
+        59.9103139
+      ],
+      "occupiedPixels": 63510,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "habitat",
+      "frame": "root-normal",
+      "source": [
+        12,
+        610,
+        700,
+        84
+      ],
+      "target": [
+        -170.97701149,
+        -28.35,
+        341.95402299,
+        29.4
+      ],
+      "occupiedPixels": 25310,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "habitat",
+      "frame": "root-damaged",
+      "source": [
+        736,
+        607,
+        700,
+        88
+      ],
+      "target": [
+        -170.97701149,
+        -29.75,
+        341.95402299,
+        30.8
+      ],
+      "occupiedPixels": 25049,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "habitat",
+      "frame": "root-destroyed",
+      "source": [
+        1460,
+        657,
+        701,
+        40
+      ],
+      "target": [
+        -170.97701149,
+        -12.95,
+        342.44252874,
+        14
+      ],
+      "occupiedPixels": 15359,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "plants",
+      "frame": "vine-normal",
+      "source": [
+        83,
+        10,
+        292,
+        427
+      ],
+      "target": [
+        -52.12765957,
+        -150.35460993,
+        103.54609929,
+        151.41843972
+      ],
+      "occupiedPixels": 36423,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "plants",
+      "frame": "vine-inhale",
+      "source": [
+        506,
+        10,
+        337,
+        427
+      ],
+      "target": [
+        -59.75177305,
+        -150.35460993,
+        119.5035461,
+        151.41843972
+      ],
+      "occupiedPixels": 51759,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "plants",
+      "frame": "vine-wilted",
+      "source": [
+        986,
+        10,
+        264,
+        427
+      ],
+      "target": [
+        -37.41134752,
+        -150.35460993,
+        93.61702128,
+        151.41843972
+      ],
+      "occupiedPixels": 37563,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "plants",
+      "frame": "vine-burnt",
+      "source": [
+        1444,
+        10,
+        239,
+        427
+      ],
+      "target": [
+        -42.0212766,
+        -150.35460993,
+        84.75177305,
+        151.41843972
+      ],
+      "occupiedPixels": 29869,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "plants",
+      "frame": "grass-calm",
+      "source": [
+        98,
+        509,
+        245,
+        354
+      ],
+      "target": [
+        -45.56016598,
+        -78.22285714,
+        91.49377593,
+        78.89142857
+      ],
+      "occupiedPixels": 21831,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "plants",
+      "frame": "grass-left",
+      "source": [
+        516,
+        518,
+        274,
+        346
+      ],
+      "target": [
+        -55.08298755,
+        -76.44,
+        102.32365145,
+        77.10857143
+      ],
+      "occupiedPixels": 23014,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "plants",
+      "frame": "grass-right",
+      "source": [
+        973,
+        515,
+        279,
+        348
+      ],
+      "target": [
+        -47.80082988,
+        -76.88571429,
+        104.19087137,
+        77.55428571
+      ],
+      "occupiedPixels": 22548,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "plants",
+      "frame": "grass-flattened",
+      "source": [
+        1387,
+        707,
+        333,
+        156
+      ],
+      "target": [
+        -36.22406639,
+        -34.09714286,
+        124.35684647,
+        34.76571429
+      ],
+      "occupiedPixels": 17671,
+      "usage": "reference"
+    },
+    {
+      "atlas": "leth",
+      "frame": "waiting",
+      "source": [
+        137,
+        11,
+        184,
+        423
+      ],
+      "target": [
+        -27.56563246,
+        -150.35799523,
+        65.87112172,
+        151.43198091
+      ],
+      "occupiedPixels": 43366,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "leth",
+      "frame": "listening",
+      "source": [
+        579,
+        15,
+        187,
+        418
+      ],
+      "target": [
+        -28.28162291,
+        -148.56801909,
+        66.9451074,
+        149.64200477
+      ],
+      "occupiedPixels": 40589,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "leth",
+      "frame": "speaking-0",
+      "source": [
+        1024,
+        12,
+        183,
+        422
+      ],
+      "target": [
+        -27.56563246,
+        -150,
+        65.51312649,
+        151.07398568
+      ],
+      "occupiedPixels": 43370,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "leth",
+      "frame": "speaking-1",
+      "source": [
+        1468,
+        12,
+        184,
+        422
+      ],
+      "target": [
+        -27.56563246,
+        -150,
+        65.87112172,
+        151.07398568
+      ],
+      "occupiedPixels": 43677,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "leth",
+      "frame": "refusing",
+      "source": [
+        131,
+        455,
+        196,
+        421
+      ],
+      "target": [
+        -26.849642,
+        -149.64200477,
+        70.16706444,
+        150.71599045
+      ],
+      "occupiedPixels": 46210,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "leth",
+      "frame": "lost",
+      "source": [
+        447,
+        636,
+        434,
+        142
+      ],
+      "target": [
+        -77.6849642,
+        -49.76133652,
+        155.3699284,
+        50.8353222
+      ],
+      "occupiedPixels": 36823,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "leth",
+      "frame": "recorder",
+      "source": [
+        1026,
+        598,
+        165,
+        127
+      ],
+      "target": [
+        -14.34782609,
+        -11.04347826,
+        28.69565217,
+        22.08695652
+      ],
+      "occupiedPixels": 16144,
+      "usage": "reference"
+    },
+    {
+      "atlas": "leth",
+      "frame": "staff",
+      "source": [
+        1523,
+        457,
+        59,
+        418
+      ],
+      "target": [
+        -10.3321256,
+        -145.35024155,
+        20.66425121,
+        146.40096618
+      ],
+      "occupiedPixels": 5598,
+      "usage": "reference"
+    },
+    {
+      "atlas": "rootwatcher",
+      "frame": "idle",
+      "source": [
+        28,
+        109,
+        299,
+        175
+      ],
+      "target": [
+        -29.39322034,
+        -17.70467836,
+        58.78644068,
+        35.81871345
+      ],
+      "occupiedPixels": 28734,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "rootwatcher",
+      "frame": "walk-0",
+      "source": [
+        389,
+        107,
+        298,
+        177
+      ],
+      "target": [
+        -29.58983051,
+        -18.11403509,
+        58.58983051,
+        36.22807018
+      ],
+      "occupiedPixels": 28312,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "rootwatcher",
+      "frame": "walk-1",
+      "source": [
+        756,
+        106,
+        296,
+        179
+      ],
+      "target": [
+        -28.60677966,
+        -18.52339181,
+        58.19661017,
+        36.6374269
+      ],
+      "occupiedPixels": 28501,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "rootwatcher",
+      "frame": "walk-2",
+      "source": [
+        1121,
+        107,
+        302,
+        177
+      ],
+      "target": [
+        -28.01694915,
+        -18.11403509,
+        59.37627119,
+        36.22807018
+      ],
+      "occupiedPixels": 28522,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "rootwatcher",
+      "frame": "walk-3",
+      "source": [
+        31,
+        469,
+        304,
+        177
+      ],
+      "target": [
+        -28.80338983,
+        -18.11403509,
+        59.76949153,
+        36.22807018
+      ],
+      "occupiedPixels": 26207,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "rootwatcher",
+      "frame": "walk-4",
+      "source": [
+        388,
+        468,
+        307,
+        178
+      ],
+      "target": [
+        -29.78644068,
+        -18.31871345,
+        60.35932203,
+        36.43274854
+      ],
+      "occupiedPixels": 28900,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "rootwatcher",
+      "frame": "walk-5",
+      "source": [
+        751,
+        472,
+        308,
+        174
+      ],
+      "target": [
+        -29.58983051,
+        -17.5,
+        60.5559322,
+        35.61403509
+      ],
+      "occupiedPixels": 29158,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "rootwatcher",
+      "frame": "walk-6",
+      "source": [
+        1119,
+        473,
+        304,
+        172
+      ],
+      "target": [
+        -28.41016949,
+        -17.09064327,
+        59.76949153,
+        35.20467836
+      ],
+      "occupiedPixels": 27731,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "rootwatcher",
+      "frame": "walk-7",
+      "source": [
+        28,
+        834,
+        306,
+        174
+      ],
+      "target": [
+        -29.39322034,
+        -17.5,
+        60.16271186,
+        35.61403509
+      ],
+      "occupiedPixels": 27106,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "rootwatcher",
+      "frame": "windup",
+      "source": [
+        387,
+        844,
+        294,
+        157
+      ],
+      "target": [
+        -29.98305085,
+        -14.02046784,
+        57.80338983,
+        32.13450292
+      ],
+      "occupiedPixels": 26675,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "rootwatcher",
+      "frame": "attack",
+      "source": [
+        732,
+        823,
+        353,
+        165
+      ],
+      "target": [
+        -33.32542373,
+        -19.75146199,
+        69.40338983,
+        33.77192982
+      ],
+      "occupiedPixels": 24634,
+      "usage": "runtime"
+    },
+    {
+      "atlas": "rootwatcher",
+      "frame": "dead",
+      "source": [
+        1108,
+        882,
+        321,
+        116
+      ],
+      "target": [
+        -30.57288136,
+        -5.62865497,
+        63.11186441,
+        23.74269006
+      ],
+      "occupiedPixels": 22975,
+      "usage": "reference"
+    }
+  ],
+  "views": [
+    {
+      "file": "thyr-readability.png",
+      "width": 1800,
+      "height": 1680,
+      "sha256": "11aeba10c43de10542ef91fa92eb93de57f0c2e4933a5bf80df4646a23ec648e",
+      "type": "Isolated normal part renderers, not a gameplay screenshot",
+      "imageCalls": [
+        {
+          "atlas": "column",
+          "frame": "normal"
+        },
+        {
+          "atlas": "habitat",
+          "frame": "home-normal"
+        },
+        {
+          "atlas": "habitat",
+          "frame": "root-normal"
+        },
+        {
+          "atlas": "longuedorse-adult",
+          "frame": "waiting"
+        },
+        {
+          "atlas": "longuedorse-young",
+          "frame": "waiting"
+        },
+        {
+          "atlas": "fan-colony",
+          "frame": "settled"
+        },
+        {
+          "atlas": "plants",
+          "frame": "vine-normal"
+        },
+        {
+          "atlas": "plants",
+          "frame": "grass-calm"
+        },
+        {
+          "atlas": "leth",
+          "frame": "waiting"
+        }
+      ]
+    },
+    {
+      "file": "thyr-state-grid.png",
+      "width": 1600,
+      "height": 1920,
+      "sha256": "7e90c445e99c4aba7ea1c768edde1a0262007a1d5518ccb2d9c0e2002492e6e0",
+      "type": "Diagnostic state board; states imposed only on drawing inputs",
+      "imageCalls": [
+        {
+          "atlas": "longuedorse-adult",
+          "frame": "waiting"
+        },
+        {
+          "atlas": "longuedorse-adult",
+          "frame": "walk-1"
+        },
+        {
+          "atlas": "longuedorse-adult",
+          "frame": "arrived"
+        },
+        {
+          "atlas": "longuedorse-adult",
+          "frame": "diverted"
+        },
+        {
+          "atlas": "longuedorse-adult",
+          "frame": "dead"
+        },
+        {
+          "atlas": "fan-colony",
+          "frame": "settled"
+        },
+        {
+          "atlas": "fan-colony",
+          "frame": "fly-1"
+        },
+        {
+          "atlas": "fan-colony",
+          "frame": "lost"
+        },
+        {
+          "atlas": "leth",
+          "frame": "waiting"
+        },
+        {
+          "atlas": "leth",
+          "frame": "listening"
+        },
+        {
+          "atlas": "leth",
+          "frame": "speaking-1"
+        },
+        {
+          "atlas": "leth",
+          "frame": "refusing"
+        },
+        {
+          "atlas": "leth",
+          "frame": "lost"
+        },
+        {
+          "atlas": "habitat",
+          "frame": "home-normal"
+        },
+        {
+          "atlas": "habitat",
+          "frame": "home-damaged"
+        },
+        {
+          "atlas": "habitat",
+          "frame": "home-destroyed"
+        },
+        {
+          "atlas": "habitat",
+          "frame": "root-normal"
+        },
+        {
+          "atlas": "habitat",
+          "frame": "root-damaged"
+        },
+        {
+          "atlas": "habitat",
+          "frame": "root-destroyed"
+        },
+        {
+          "atlas": "plants",
+          "frame": "vine-normal"
+        },
+        {
+          "atlas": "plants",
+          "frame": "vine-wilted"
+        },
+        {
+          "atlas": "plants",
+          "frame": "vine-burnt"
+        },
+        {
+          "atlas": "plants",
+          "frame": "grass-calm"
+        },
+        {
+          "atlas": "plants",
+          "frame": "grass-left"
+        }
+      ]
+    },
+    {
+      "file": "rootwatcher-readability.png",
+      "width": 1600,
+      "height": 720,
+      "sha256": "f87694d9c038d1935b2616d2e799fc584429b667644098894bf36d526a8a6328",
+      "type": "Diagnostic predator poses with unchanged simulation body",
+      "imageCalls": [
+        {
+          "atlas": "rootwatcher",
+          "frame": "idle"
+        },
+        {
+          "atlas": "rootwatcher",
+          "frame": "idle"
+        },
+        {
+          "atlas": "rootwatcher",
+          "frame": "windup"
+        },
+        {
+          "atlas": "rootwatcher",
+          "frame": "attack"
+        }
+      ]
+    },
+    {
+      "file": "scene-mi09-supports.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "fd6deb2e784e1ef8a7b437e4504dc05bc930def55fc2570d9cb17642b99bdbc3",
+      "type": "Normal Canvas scene prepared through public simulation commands",
+      "missionId": "MI09",
+      "scenario": "supports",
+      "publicTicks": 891,
+      "elapsed": 14.850000000000318,
+      "status": "playing",
+      "playerX": 992.3580820102686,
+      "stateSha256": "316076ef0fd80ff71c05551632b61e17171389ffacffe59a34094d6460e300ff",
+      "imageCalls": [
+        {
+          "atlas": "column",
+          "frame": "normal"
+        },
+        {
+          "atlas": "plants",
+          "frame": "vine-inhale"
+        },
+        {
+          "atlas": "habitat",
+          "frame": "home-normal"
+        },
+        {
+          "atlas": "habitat",
+          "frame": "root-normal"
+        },
+        {
+          "atlas": "fan-colony",
+          "frame": "fly-1"
+        },
+        {
+          "atlas": "plants",
+          "frame": "grass-calm"
+        },
+        {
+          "atlas": "plants",
+          "frame": "grass-calm"
+        },
+        {
+          "atlas": "longuedorse-adult",
+          "frame": "waiting"
+        },
+        {
+          "atlas": "longuedorse-young",
+          "frame": "waiting"
+        },
+        {
+          "atlas": "longuedorse-adult",
+          "frame": "waiting"
+        },
+        {
+          "atlas": "longuedorse-young",
+          "frame": "waiting"
+        }
+      ]
+    },
+    {
+      "file": "scene-mi09.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "9d56ad5d63f6371b4a88f853fa641c217cf3296ed1462d4b718ab6bd8e8685cc",
+      "type": "Normal Canvas scene prepared through public simulation commands",
+      "missionId": "MI09",
+      "scenario": "migration",
+      "publicTicks": 2971,
+      "elapsed": 49.49999999999847,
+      "status": "playing",
+      "playerX": 2300.019939958067,
+      "stateSha256": "0ce744863cfbda95a349a233982cdf67448be8c220968363f579a80cfa0bedda",
+      "imageCalls": [
+        {
+          "atlas": "column",
+          "frame": "normal-alt"
+        },
+        {
+          "atlas": "plants",
+          "frame": "vine-inhale"
+        },
+        {
+          "atlas": "habitat",
+          "frame": "root-normal"
+        },
+        {
+          "atlas": "plants",
+          "frame": "grass-calm"
+        },
+        {
+          "atlas": "longuedorse-adult",
+          "frame": "walk-0"
+        },
+        {
+          "atlas": "longuedorse-young",
+          "frame": "walk-0"
+        },
+        {
+          "atlas": "longuedorse-adult",
+          "frame": "walk-0"
+        },
+        {
+          "atlas": "longuedorse-young",
+          "frame": "walk-0"
+        }
+      ]
+    },
+    {
+      "file": "scene-mi11.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "a95b5df355f851f5e0462eabe807fee48395d8ef14eb167a61182b53e353063f",
+      "type": "Normal Canvas scene prepared through public simulation commands",
+      "missionId": "MI11",
+      "scenario": "exchange",
+      "publicTicks": 4323,
+      "elapsed": 72.0499999999972,
+      "status": "playing",
+      "playerX": 3720.678962627311,
+      "stateSha256": "00987fadd938099808eeba80b15b089e39d313d49c2ba86375e23b6ce9fe8fa2",
+      "imageCalls": [
+        {
+          "atlas": "plants",
+          "frame": "grass-calm"
+        },
+        {
+          "atlas": "leth",
+          "frame": "speaking-0"
+        }
+      ]
+    },
+    {
+      "file": "scene-op03.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "c956e96c8629db6d067da982367454f06f4a701729a87bcffa79b25c2be567d9",
+      "type": "Normal Canvas scene prepared through public simulation commands",
+      "missionId": "op03",
+      "scenario": "fauna",
+      "publicTicks": 117,
+      "elapsed": 1.949999999999998,
+      "status": "playing",
+      "playerX": 455.2256470350201,
+      "stateSha256": "72f1334c571b29c0f3052793eb53c8c6eb0eb1fe4092d2d139033db7776c32fd",
+      "imageCalls": [
+        {
+          "atlas": "rootwatcher",
+          "frame": "walk-2"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "PNG decoding, source bounds, state selection and Canvas inspection do not certify browser UI, audio, artistic approval or final animation quality.",
+    "The state boards explicitly exercise existing graphical states on diagnostic inputs. They do not report completed missions, new deaths or acquired consent.",
+    "The Guetteur-racine dead cell, separate Leth tools and flattened grass remain reference images. No persistent corpse, extra character or new flora rule is created."
+  ],
+  "counts": {
+    "atlases": 8,
+    "cells": 62,
+    "runtimeCells": 58,
+    "referenceCells": 4,
+    "views": 7
+  }
+}
