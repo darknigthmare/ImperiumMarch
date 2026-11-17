@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { WALKERS } from '../src/content.mjs';
@@ -92,10 +92,15 @@ function renderScene(state, file, description, { reducedMotion = false, expectMu
 
 try {
   await loadPaintedWalkerFx({ loadImage: async (url, key) => {
+    try {
     const path = fileURLToPath(url), bytes = readFileSync(path), image = await loadImage(path);
     const file = manifest.files.find(f => f.id === key), selected = prompts.attempts.find(a => a.selected && a.output === file.path);
     assert.equal(sha(bytes), file.sha256); assert.equal(sha(bytes), selected.sha256);
-    assert.equal(sha(readFileSync(selected.generatedSource)), file.sha256);
+    // ImageGen source paths attest the local production session; they are not
+    // dependencies of a fresh repository checkout. Their recorded hash remains
+    // mandatory above, and the original bytes are also compared when available.
+    const originalSourceAvailable = existsSync(selected.generatedSource);
+    if (originalSourceAvailable) assert.equal(sha(readFileSync(selected.generatedSource)), file.sha256);
     assert.deepEqual([image.width, image.height], file.dimensions);
     const surface = createCanvas(image.width, image.height), ctx = surface.getContext('2d'); ctx.drawImage(image, 0, 0);
     const rgba = ctx.getImageData(0, 0, image.width, image.height).data;
@@ -128,10 +133,13 @@ try {
     }
     decoded[key] = image; ids.set(image, key);
     receipt.atlases.push({ id: key, dimensions: file.dimensions, bytes: bytes.length,
-      sha256: sha(bytes), originalBytesIdentical: true, transparentFraction: transparent / (image.width * image.height) });
+      sha256: sha(bytes), selectedSourceHashMatched: true, originalSourceAvailable,
+      originalBytesIdentical: originalSourceAvailable ? true : null, transparentFraction: transparent / (image.width * image.height) });
     return image;
+    } catch (error) { (receipt.decodingErrors ||= []).push({ atlas: key, error: error.stack || String(error) }); throw error; }
   } });
-  assert.ok(Object.values(paintedWalkerFxStatus()).every(s => s.state === 'ready'));
+  assert.ok(Object.values(paintedWalkerFxStatus()).every(s => s.state === 'ready'),
+    'Both atlases must decode and pass provenance checks: ' + JSON.stringify(receipt.decodingErrors || []));
   assert.equal(receipt.frames.length, 10);
 
   // Check exact historical support on a real raster canvas, with an enclosing

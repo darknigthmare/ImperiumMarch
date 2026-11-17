@@ -1,0 +1,63 @@
+{
+  "version": "0.15.11",
+  "scope": "Required reconstruction after test-harness portability correction; no runtime or asset change",
+  "gates": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "startedUtc": "2026-11-17T11:39:41.527139+00:00",
+      "finishedUtc": "2026-11-17T11:39:52.511896+00:00",
+      "seconds": 10.985,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-ci-portability/build.txt",
+      "logSha256": "44d3c5aac44a61b95bb3273f97a9beff7d85c5b162eff9cd15ceb797a1dd358f"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "check:offline-package"
+      ],
+      "startedUtc": "2026-11-17T11:39:52.512185+00:00",
+      "finishedUtc": "2026-11-17T11:39:54.410028+00:00",
+      "seconds": 1.898,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-ci-portability/offline-package.txt",
+      "logSha256": "852a58ac31ac3fad9431ac1c2dacc1f37ddea3c28463a01d1730808970bd9af1"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "check:ui"
+      ],
+      "startedUtc": "2026-11-17T11:39:54.410503+00:00",
+      "finishedUtc": "2026-11-17T11:39:56.104623+00:00",
+      "seconds": 1.694,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-ci-portability/ui-static.txt",
+      "logSha256": "edfd81beb61c7e7b13e9c6eb06f85ff5da27eefd5934e0702fbd41ed9a7aa909"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "startedUtc": "2026-11-17T11:39:56.104879+00:00",
+      "finishedUtc": "2026-11-17T11:39:56.267330+00:00",
+      "seconds": 0.163,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-ci-portability/project-check.txt",
+      "logSha256": "83dd1f3188e6957f1d56dfe940fbb1a3b4e2e3bc32a94310caf0cb885d478e41"
+    }
+  ],
+  "passed": true
+}
