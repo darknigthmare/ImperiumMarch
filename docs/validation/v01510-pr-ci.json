@@ -1,0 +1,296 @@
+{
+  "version": "0.15.10",
+  "recordedAt": "2026-11-17T10:47:23Z",
+  "repository": "darknigthmare/ImperiumMarch",
+  "run": {
+    "id": 44065282375,
+    "url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/44065282375",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success",
+    "associatedHead": "8f62c83289f0506b7d337ca066758297b9df7604",
+    "createdAt": "2026-11-17T10:29:24Z",
+    "finishedAt": "2026-11-17T10:34:28Z"
+  },
+  "executedCommit": "71aee5ef69dee6b5042ab4a1830e60f3f26bd068",
+  "executedTree": "ed5b81a6689e4c6fc34364155874fd3b481a83ab",
+  "localVerifiedCommit": "eea101c1ecdd793ccdd3ddac254ba888e5472e34",
+  "localVerifiedTree": "ed5b81a6689e4c6fc34364155874fd3b481a83ab",
+  "treesIdentical": true,
+  "node": "22.23.4",
+  "zlib": "1.3.1-e00f703",
+  "canvas": "0.1.100",
+  "jobs": [
+    {
+      "id": 133977294755,
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 44065282375,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Install pinned development-only raster validator",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Validate shared SVG and Canvas rendering",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Decode and validate the painted MI14 sprites",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Decode and validate the painted combat sprites",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Decode and validate the painted walker parts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Decode and validate the painted Thyr life",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Decode and validate Cerbere and its weapon mount",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Decode and validate railway and industrial transport",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Decode and validate the Praetor and command relays",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Decode and validate the Nacre vehicles",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Decode and validate the Nacre infrastructure",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Decode and validate the chemical field equipment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Decode and validate the voice mission equipment and nesting sites",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        },
+        {
+          "name": "Decode and validate Vesper buildings and machinery",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Decode and validate the living route equipment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        },
+        {
+          "name": "Decode and validate the foundry site equipment",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20
+        },
+        {
+          "name": "Decode and validate the three painted world panoramas",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21
+        },
+        {
+          "name": "Decode and validate Nacre technicians, staff and patients",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22
+        },
+        {
+          "name": "Decode and validate Vesper terrain, scenery and railway viaduct",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23
+        },
+        {
+          "name": "Decode and validate Nacre civilians and quay services",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24
+        },
+        {
+          "name": "Decode and validate Nacre terrain and shoreline scenery",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25
+        },
+        {
+          "name": "Decode and validate Thyr terrain and forest scenery",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26
+        },
+        {
+          "name": "Decode and validate Kharon terrain and industrial scenery",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27
+        },
+        {
+          "name": "Decode and validate simulated smoke and dust particles",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 28
+        },
+        {
+          "name": "Run npm run check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30
+        },
+        {
+          "name": "Run npm run check:offline-package",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31
+        },
+        {
+          "name": "Run npm run check:ui",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32
+        },
+        {
+          "name": "Run npm run check:ui-runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33
+        },
+        {
+          "name": "Run npm run build:web",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 34
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 67
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 68
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 69
+        }
+      ]
+    }
+  ],
+  "successfulSteps": 37,
+  "tests": {
+    "passed": 852,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "svgCanvasComparisons": 174,
+  "paintedAtlasLots": 21,
+  "additionalWorldPanoramaCheck": true,
+  "modeledDomFlows": 108,
+  "build": {
+    "offlinePackage": "dist/Ordre_de_Cendre.zip",
+    "htmlBytes": 221288351,
+    "zipBytes": 162460239,
+    "htmlSha256": "87c1657775462941d9c0fa1a72fa3292a8da71c1762c2ef2825d93e481133776",
+    "zipSha256": "944e3f67a41d6926013bed9d443781ecb89932a608e436ad4b8f7ae8a9d8e2ac",
+    "node": "22.23.4",
+    "zlib": "1.3.1-e00f703",
+    "htmlByteIdenticalToLocal": true,
+    "zipByteIdenticalToLocal": true
+  },
+  "log": {
+    "bytes": 470913,
+    "sha256": "2846e004a12ef947d836bd49b78a476594438e0e32378a3befd145e654bd7156",
+    "jobId": 133977294755,
+    "url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/44065282375/job/133977294755",
+    "evidence": [
+      "2026-11-17T10:31:16.3851953Z # tests 852",
+      "2026-11-17T10:31:16.3852100Z # pass 852",
+      "2026-11-17T10:31:16.3852172Z # fail 0",
+      "2026-11-17T10:31:16.3852243Z # cancelled 0",
+      "2026-11-17T10:31:16.3852318Z # skipped 0",
+      "2026-11-17T10:31:18.8028201Z Production SVG/Canvas raster validation passed: 174/174 cases, @napi-rs/canvas 0.1.100.",
+      "2026-11-17T10:32:25.6701074Z {\"offlinePackage\":\"dist/Ordre_de_Cendre.zip\",\"htmlBytes\":221288351,\"zipBytes\":162460239,\"htmlSha256\":\"87c1657775462941d9c0fa1a72fa3292a8da71c1762c2ef2825d93e481133776\",\"zipSha256\":\"944e3f67a41d6926013bed9d443781ecb89932a608e436ad4b8f7ae8a9d8e2ac\",\"node\":\"22.23.4\",\"zlib\":\"1.3.1-e00f703\"}",
+      "2026-11-17T10:34:24.1063671Z UI STATE INTEGRATION PASSED: 108 flows against the actual offline application script in a modeled DOM."
+    ]
+  },
+  "scope": "Application head received before the publication-documentation commit and normal merge. The PR CI uses a synthetic merge whose tree is independently identical to the local application tree. This does not attest hosting, native browser QA, human testing or a Release upload."
+}

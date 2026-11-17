@@ -1,0 +1,90 @@
+{
+  "version": "0.15.10",
+  "recordedAt": "2026-11-17T10:47:23Z",
+  "stage": "Application head and successful pull-request CI received before publication documentation and normal merge",
+  "repository": "darknigthmare/ImperiumMarch",
+  "localSnapshot": {
+    "commit": "eea101c1ecdd793ccdd3ddac254ba888e5472e34",
+    "tree": "ed5b81a6689e4c6fc34364155874fd3b481a83ab"
+  },
+  "sourcePublication": {
+    "commit": "8f62c83289f0506b7d337ca066758297b9df7604",
+    "tree": "ed5b81a6689e4c6fc34364155874fd3b481a83ab",
+    "byteIdenticalToVerifiedLocalTree": true,
+    "baseCommit": "2be40743cbc0ac436786882e314e6c4c289ff31f",
+    "branch": "codex/painted-thyr-kharon-v01510",
+    "prNumber": 8,
+    "prUrl": "https://github.com/darknigthmare/ImperiumMarch/pull/8",
+    "changedFiles": 189,
+    "delta": {
+      "added": 177,
+      "modified": 12,
+      "deleted": 0
+    },
+    "prStateAtReceipt": "open"
+  },
+  "catalogue": {
+    "atlases": 90,
+    "cells": 676,
+    "runtimeCells": 632,
+    "referenceCells": 44,
+    "lots": 21,
+    "panoramasSeparate": 4,
+    "newAtlases": 6,
+    "newRuntimeCells": 32,
+    "historicalFilesByteIdentical": 2938
+  },
+  "remoteCI": {
+    "runId": 44065282375,
+    "url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/44065282375",
+    "conclusion": "success",
+    "associatedHead": "8f62c83289f0506b7d337ca066758297b9df7604",
+    "executedMergeCommit": "71aee5ef69dee6b5042ab4a1830e60f3f26bd068",
+    "executedTree": "ed5b81a6689e4c6fc34364155874fd3b481a83ab",
+    "receipt": "docs/validation/v01510-pr-ci.json",
+    "tests": 852,
+    "svgCanvasComparisons": 174,
+    "modeledDomFlows": 108,
+    "htmlByteIdenticalToLocal": true,
+    "zipByteIdenticalToLocal": true
+  },
+  "vercel": {
+    "receipt": "docs/validation/v01510-vercel-preview.json",
+    "head": "8f62c83289f0506b7d337ca066758297b9df7604",
+    "newDeploymentCount": 0,
+    "status": "failure",
+    "description": "Deployment rate limited — retry in 24 hours.",
+    "currentProduction": {
+      "id": "dpl_EWsKifPhgoRLqE6ds2N1j9vhW6xm",
+      "url": "imperium-march-ik5bi4ruw-darknigthmares-projects.vercel.app",
+      "state": "READY",
+      "target": "production",
+      "commit": "1235102b25a531a90feeb0d1b38a37482a928c5d",
+      "version": "0.15.7",
+      "readyAt": "2026-11-16T21:09:47.885Z",
+      "aliases": [
+        "imperium-march.vercel.app",
+        "imperium-march-darknigthmares-projects.vercel.app",
+        "imperium-march-git-main-darknigthmares-projects.vercel.app"
+      ],
+      "aliasError": null
+    }
+  },
+  "offline": {
+    "htmlBytes": 221288351,
+    "htmlSha256": "87c1657775462941d9c0fa1a72fa3292a8da71c1762c2ef2825d93e481133776",
+    "zipBytes": 162460239,
+    "zipSha256": "944e3f67a41d6926013bed9d443781ecb89932a608e436ad4b8f7ae8a9d8e2ac",
+    "generatedLocally": true,
+    "gitTracked": false,
+    "releasePublished": false,
+    "releaseWorkflowTriggered": false,
+    "receipt": "docs/validation/v01510-final/receipt.json"
+  },
+  "limits": [
+    "This receipt stops before the publication-documentation commit and merge; subsequent events remain in the PR timeline.",
+    "No 0.15.10 Vercel deployment was created for this exact application head.",
+    "Canvas and modeled DOM are distinct from native browser and human validation.",
+    "The previously denied binary Release workflow was not triggered."
+  ]
+}
