@@ -1,0 +1,134 @@
+{
+  "version": "0.15.11",
+  "recordedAt": "2026-11-17T11:35:06Z",
+  "stage": "Preview for the application commit, before publication documentation and normal merge",
+  "project": {
+    "id": "prj_ggDB98oddkTTzVPiGQrtxnj7frcr",
+    "name": "imperium-march",
+    "teamId": "team_VrIjq2UWV6VaHZr7DdQFwvfu",
+    "nodeVersion": "22.x",
+    "ssoProtection": {
+      "enabled": true,
+      "deploymentType": "all_except_custom_domains"
+    },
+    "domains": [
+      "imperium-march.vercel.app",
+      "imperium-march-darknigthmares-projects.vercel.app",
+      "imperium-march-git-main-darknigthmares-projects.vercel.app"
+    ],
+    "protectionConfigurationChanged": false
+  },
+  "applicationHead": "4352b0725208e0a7e13c8bb187c8a6d5131f5b3f",
+  "applicationTree": "a6994a43ec38eeab76fd3cff8d8acea3c039c6ac",
+  "githubStatus": {
+    "context": "Vercel",
+    "state": "success",
+    "description": "Deployment has completed",
+    "createdAt": "2026-11-17T11:30:32Z",
+    "url": "https://vercel.com/darknigthmares-projects/imperium-march/6SUTXifwwqPxTJc7F7btJgE6BK15"
+  },
+  "preview": {
+    "id": "dpl_6SUTXifwwqPxTJc7F7btJgE6BK15",
+    "url": "https://imperium-march-oluksrp9r-darknigthmares-projects.vercel.app",
+    "source": "git",
+    "target": null,
+    "state": "READY",
+    "commit": "4352b0725208e0a7e13c8bb187c8a6d5131f5b3f",
+    "branch": "codex/painted-effects-v01511",
+    "readyAt": "2026-11-17T11:30:32.087Z",
+    "aliases": [
+      "imperium-march-git-codex-painted-643fac-darknigthmares-projects.vercel.app"
+    ],
+    "aliasError": null,
+    "createdAutomaticallyFromGit": true
+  },
+  "build": {
+    "version": "0.15.11",
+    "command": "npm run build:web",
+    "result": "success",
+    "evidence": [
+      {
+        "at": "2026-11-17T11:29:37.964Z",
+        "text": "Cloning github.com/darknigthmare/ImperiumMarch (Branch: codex/painted-effects-v01511, Commit: 4352b07)"
+      },
+      {
+        "at": "2026-11-17T11:30:25.756Z",
+        "text": "> imperium-march@0.15.11 build:web"
+      },
+      {
+        "at": "2026-11-17T11:30:25.756Z",
+        "text": "> node tools/build-web.mjs"
+      },
+      {
+        "at": "2026-11-17T11:30:25.971Z",
+        "text": "Web game built: web-dist/index.html, src/ and assets/. No runtime dependencies."
+      },
+      {
+        "at": "2026-11-17T11:30:27.041Z",
+        "text": "Build Completed in /vercel/output [2s]"
+      },
+      {
+        "at": "2026-11-17T11:30:32.188Z",
+        "text": "Deployment completed"
+      }
+    ]
+  },
+  "http": {
+    "html": {
+      "status": 200,
+      "version": "0.15.11",
+      "bytes": 23480,
+      "sha256": "952d634d7a647d6dd52d71fa52126303d73afbd97bdc6e4bc39c4186a0e423ad",
+      "localBytes": 23317,
+      "localSha256": "bb2855b73ed1d2c8c8f56e821d5856dc0c941aba1cfdea94434e2b300f146b8b",
+      "byteIdentical": false,
+      "onlyDifference": "One Vercel live-feedback toolbar script, 163 bytes, injected by the preview hosting service",
+      "identicalAfterRemovingOnlyToolbarScript": true
+    },
+    "main": {
+      "status": 200,
+      "httpBytes": 144734,
+      "httpSha256": "74d9a33e1dbb23389471aa3aba2e472498eb942a8da3094cfe2e619936630591",
+      "localSha256": "74d9a33e1dbb23389471aa3aba2e472498eb942a8da3094cfe2e619936630591",
+      "byteIdentical": true
+    },
+    "loaderCount": 25,
+    "nativeBrowserSession": false,
+    "access": "Existing Vercel connection via the authenticated deployment-fetch capability; no protection setting changed. Temporary share credentials are excluded from this receipt."
+  },
+  "productionAtThisPreMergeObservation": {
+    "id": "dpl_EWsKifPhgoRLqE6ds2N1j9vhW6xm",
+    "url": "https://imperium-march-ik5bi4ruw-darknigthmares-projects.vercel.app",
+    "state": "READY",
+    "target": "production",
+    "commit": "1235102b25a531a90feeb0d1b38a37482a928c5d",
+    "version": "0.15.7"
+  },
+  "limits": [
+    "This receipt attests the 0.15.11 application preview, not the future merged production deployment.",
+    "Earlier 0.15.10 quota failures are historical; this exact preview was accepted and reached READY.",
+    "HTTP source reception is distinct from native browser or human gameplay validation.",
+    "No manual deployment, protection change, Release upload or denied Release workflow was requested."
+  ],
+  "correctedRevisionPreview": {
+    "commit": "7d3a1e01c917614371cdabc56fbe10482b0da337",
+    "tree": "35bd6ca64d96a34f400338e7d69f558e028b9a3f",
+    "id": "dpl_3nnq5UFqXu2Sot2H1J7zp4dSPhsp",
+    "url": "https://imperium-march-fwqkgclcy-darknigthmares-projects.vercel.app",
+    "state": "READY",
+    "target": null,
+    "readyAt": "2026-11-17T11:45:13.764Z",
+    "aliases": [
+      "imperium-march-git-codex-painted-643fac-darknigthmares-projects.vercel.app"
+    ],
+    "aliasError": null,
+    "githubStatus": {
+      "state": "success",
+      "description": "Deployment has completed",
+      "createdAt": "2026-11-17T11:45:14Z"
+    },
+    "runtimeFilesByteIdenticalToInitialApplication": true,
+    "comparisonReceipt": "docs/validation/v01511-ci-portability/receipt.json",
+    "httpReceptionScope": "The HTTP reception above was performed on the initial application preview; it is not relabelled as an HTTP request to this corrected revision."
+  }
+}

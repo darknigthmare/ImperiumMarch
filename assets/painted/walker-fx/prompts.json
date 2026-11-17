@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "version": "0.15.11",
+  "generator": "image_gen built-in",
+  "purpose": "Original walker primary muzzle cores and cooling-vapor puffs; partial AS09/AS22 art only.",
+  "references": [
+    {
+      "path": "assets/painted/walkers/wk01.png",
+      "role": "Visually inspected style reference; not submitted as generation input."
+    },
+    {
+      "path": "assets/painted/particles/smoke.png",
+      "role": "Visually inspected particle scale and texture reference; not submitted as generation input."
+    },
+    {
+      "path": "docs/ART_DIRECTION.md",
+      "role": "Project art direction, machine language and effects readability."
+    },
+    {
+      "path": "src/renderer.mjs",
+      "role": "Authoritative historical core polygon, halo and five purge puff geometries."
+    }
+  ],
+  "attempts": [
+    {
+      "id": "muzzle-initial",
+      "prompt": "Use case: stylized-concept\nAsset type: original transparent 2D game sprite atlas for ORDRE DE CENDRE, a painted military science-fiction side-view game.\nPrimary request: exactly FOUR successive nonlooping frames of one small autocannon muzzle-flash CORE, arranged in a strict 2 columns by 2 rows equal-cell atlas. Frame order row-major: ignition, expansion, full discharge, dissipation. This is only the flame core; the game draws the surrounding glow separately.\nComposition: landscape canvas, approximately 1536 by 1024. Each isolated frame is entirely inside its cell with at least 65 pixels of fully transparent margin to every cell boundary. No grid lines, captions or numbers. All four jets point horizontally RIGHT with a common vertical center and their root at the left. Each core is compact, roughly 2.7 times wider than tall, with a narrow attachment/root and two or three irregular tapered rightward tongues; no radial starburst.\nStyle: controlled painterly raster brushwork and fine turbulent heat texture, legible when reduced to only 41 by 15 game pixels, matching weathered ochre military machinery. It must look like real brief propellant combustion, not magic or a comic symbol.\nColor palette: pale hot ivory/golden core close to #ffe2a2, restrained warm amber at ragged tips. No red, blue, pink, black outline, solid orange sun or giant white bloom. No surrounding halo.\nPhases: a short ignition tongue; a fuller coherent jet; the fullest compact jet; a thinner broken fading jet with a few attached wisps. Keep each root recognizable at the same left-side location and keep all content within the same slim overall envelope.\nBackdrop: actual transparent alpha, completely empty between cells. Paint only the isolated flame cores; zero background, zero ambient haze, no black rectangle, no checkerboard drawing.\nConstraints: no gun, shell casing, weapon, mech, person, muzzle hardware, text, watermark, scene, smoke cloud, explosion ring or detached sparks. Transparent PNG production asset.",
+      "transparentBackground": true,
+      "generatedSource": "/workspace/scratch/672b96792ba9/generated_images/exec-80879a0d-97aa-4d83-8101-62dd803a58e6.png",
+      "sha256": "f83071de13ffb98ef294df589bc84880745f739832b5b402548baf8dfbf0d06f",
+      "selected": false,
+      "reason": "Broad low-alpha surrounding bloom interfered with measuring the flame core. Retained original, superseded by a targeted Imagegen transparency correction."
+    },
+    {
+      "id": "vent-initial",
+      "prompt": "Use case: stylized-concept\nAsset type: original transparent 2D game sprite atlas for ORDRE DE CENDRE, a painted military science-fiction side-view game.\nPrimary request: exactly SIX successive age frames of a single small pale cooling-vapor PUFF, arranged in a strict 3 columns by 2 rows equal-cell atlas. Frame order row-major from dense newly formed puff to dispersed older puff. Each frame is one isolated roughly round irregular vapor clump, not a complete tall plume.\nComposition: landscape canvas, approximately 1536 by 1024. Six equal cells. Every puff stays comfortably inside its own cell with at least 55 pixels of fully transparent padding on all four sides. Broad clear transparent gutters. No grid, no labels. Keep the six puff centers aligned to their cell centers and their visible diameters comparable; the engine already supplies the physical growth from radius 9 to 36. Age changes internal curls and breakup, not the engine's physical shape.\nStyle: finely painted, quiet industrial steam, soft wispy edges and subtle rolled billows, with simple readable masses at only 18 to 72 game pixels diameter. Restrained natural turbulence, no dramatic volumetric lighting.\nColor palette: pale warm grey/sage/ivory close to #d2d5c6 with subtly darker internal folds. This is clean cooling vapor, not black soot, fire, yellow dust or a storm cloud. A useful solid pale interior should remain visible after the engine applies at most 18 percent opacity; do not make the entire source almost invisible.\nPhases: compact layered puff, opening curls, expanded billow, loosened ringlike curls without a literal ring, separating small lobes that remain within the puff, soft dispersed older wisps. No detached debris.\nBackdrop: actual transparent alpha. All space beyond the puffs, cell borders and gutters must be fully transparent, without ambient mist, colored haze, black rectangles, opaque backgrounds, or a painted checkerboard.\nConstraints: only six individual vapor puffs. No emitter, pipes, radiator, mech, person, ground, gun, text, watermark, environment, glowing halo or explosion. Transparent PNG production asset.",
+      "transparentBackground": true,
+      "generatedSource": "/workspace/scratch/672b96792ba9/generated_images/exec-6be2c1e7-619e-4ca6-8134-2aedbebf8e78.png",
+      "sha256": "63ced16c76f9b769e1c2d3a9281bd1ca74fea06bce3b384c5e893022fa591997",
+      "selected": false,
+      "reason": "Diffuse low-alpha ambient haze outside the useful puff silhouettes; superseded by a targeted Imagegen transparency correction."
+    },
+    {
+      "id": "muzzle-selected",
+      "prompt": "Use case: precise-object-edit\nEdit target: the attached transparent atlas of four small golden muzzle-flash cores, in a 2 by 2 grid.\nChange ONLY this: REMOVE every broad soft outer glow, bloom, radial haze and smoky illumination around each flame. Leave ONLY the crisp irregular pale-ivory and amber flame tongues themselves on genuine transparent alpha. Each individual flame should be a narrow horizontally rightward jet. The dark-looking space around every flame in the preview must become fully empty transparent pixels, not a black background.\nKeep exactly four frames and the existing 2 by 2 grid, frame order, right-facing direction, progressive sizes, shared left root positions, painterly texture and colors of the actual flame tongues. Keep the image landscape. Leave very wide completely clear transparent gutters between rows and columns, at least 60 pixels to every cell edge. No detached sparks. No rings. No weapon, lettering or new objects.\nThe game draws its own radial halo; do not paint ANY soft halo into this atlas. Preserve only the flame bodies and their fine antialiased irregular edges. True transparent PNG.",
+      "transparentBackground": true,
+      "inputImage": "muzzle-initial",
+      "generatedSource": "/workspace/scratch/672b96792ba9/generated_images/exec-03f3cc8a-1624-4f66-b750-114412d34b6d.png",
+      "sha256": "fe504ea818d12838fc90272a3fd71cea52950f2148ba94bcd450b715acfd4a57",
+      "selected": true,
+      "output": "assets/painted/walker-fx/muzzle.png"
+    },
+    {
+      "id": "vent-selected",
+      "prompt": "Use case: precise-object-edit\nEdit target: the attached transparent 3 by 2 sprite atlas of six pale cooling-vapor puffs.\nChange ONLY the empty space and outer edge treatment: remove all diffuse ambient haze and glow beyond each actual cloud silhouette. Everything between the six puffs and near every cell boundary must be completely transparent. Keep each puff's internal ivory/sage brushwork and cloud curls, its phase, its position, its shape and its present size. Keep exactly six puffs in the same equal 3 columns by 2 rows grid, on the same landscape canvas.\nRetain a small natural soft antialiased vapor edge immediately on the visible cloud, but no broad surrounding bloom, mist blanket, dark background or halo. Preserve useful pale source opacity inside each puff because the game later applies at most 18 percent opacity. No outlines, captions, grid, hardware or additional objects. True transparent PNG.",
+      "transparentBackground": true,
+      "inputImage": "vent-initial",
+      "generatedSource": "/workspace/scratch/672b96792ba9/generated_images/exec-e25cb903-3f47-4d85-ac22-27ea5e1e36c4.png",
+      "sha256": "357149d113558b51ae3d02afa6c50f81aa07993a37c46996b3069d2d50716210",
+      "selected": true,
+      "output": "assets/painted/walker-fx/vent.png"
+    }
+  ],
+  "pixelPolicy": "All selected PNGs are copied byte for byte. No recoloring, erasure, resampling, compositing or re-encoding. Alpha is measured only; runtime clips the untouched images to the historical effect envelopes."
+}

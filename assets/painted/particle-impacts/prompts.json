@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "version": "0.15.11",
+  "generator": "image_gen.imagegen (built-in)",
+  "canonIds": [
+    "AS22"
+  ],
+  "intent": "Two original atlases for existing spark/blast particles only; no new emitter, material, collision, RNG call or saved field.",
+  "prompts": [
+    {
+      "atlas": "spark",
+      "prompt": "Use case: stylized-concept. Asset type: production 2D particle sprite atlas for the original hand-painted military science-fiction game ORDRE DE CENDRE. Create a new transparent PNG atlas, landscape 1536 by 1024 pixels, exactly SIX isolated single spark filaments in a strict 3-column by 2-row grid of 512-square cells, ordered left to right then top to bottom. Each cell contains ONE horizontal warm golden spark: a small rounded bright head at the right and a slim continuous tapering tail to the left, centered around the cell center and axis y=256 relative to that cell. The spark cutout is about 300 pixels long and 70 pixels high. All six share the same left-to-right direction, centroid, size, silhouette envelope, head position, and strong readable core. Six subtle successive texture ages: compact hot core, slight internal streaking, a tiny wavering edge, restrained granular edge changes; no progressive enlargement and no large opacity loss, because the engine already sets length, width and lifetime alpha. These are individual tiny particles, not a shower or muzzle-flash icon. Palette warm pale gold around #ffd09a with cream highlights and restrained amber edges; hand-painted texture kept simple enough to remain legible when reduced to a 2-pixel-wide game streak. Rounded ends, no long spikes, extra rays, detached embers or secondary sparks. Actual RGBA alpha transparency is essential: every pixel outside the six compact spark cutouts is empty alpha exactly zero. Broad empty gutters and the entire outer border remain perfectly transparent. Any edge softening is restricted to 4 pixels at the cutout edge, then reaches alpha zero immediately. No bloom, aura, glow haze, fog or colored wash outside the cutouts. Light is painted color inside each filament, not a lighting effect across the sheet. Absolutely no background, ground, shadows, weapon, objects, explosion, smoke, lettering, labels, numbers, watermark, grid lines, borders or checkerboard. Six separated cutouts only, on genuinely transparent empty space."
+    },
+    {
+      "atlas": "blast",
+      "prompt": "Use case: stylized-concept. Asset type: production 2D particle sprite atlas for the original hand-painted military science-fiction game ORDRE DE CENDRE. Create a new transparent PNG atlas, landscape 1536 by 1024 pixels, exactly SIX isolated small warm-orange detonation particles in a strict 3-column by 2-row grid of 512-square cells, ordered left to right then top to bottom. Each cell contains ONE compact rounded fleck of hot material, with soft irregular lobes and a warm bright orange core around #f4a56d, restrained gold highlights, deeper russet internal detail. These are individual tiny blast particles that render at radius 2 to 6 game pixels, NOT complete explosions. Each fleck is centered precisely in its cell, with a roughly circular envelope no more than 280 pixels diameter. Keep nearly identical size, center, density and brightness across all six ages. Show subtle changes in its irregular lobe pattern from a coherent hot fleck to a lightly broken granular texture, without growing, fading away, expanding rings, trails or detached particles; the engine already handles physical position, radius, alpha and lifetime. Hand-painted, sober realistic game material, readable as a small rounded orange fleck at gameplay scale. No mushroom cloud, fireball scene, flames, smoke, spark shower, radial spikes, glowing ring, shockwave, fragment debris or ground impact. Actual RGBA alpha transparency is essential: every pixel outside the six small compact cutouts is empty alpha exactly zero, including broad fully transparent gutters around every cell and the entire outer border. Edge feathering only within the outermost 6 pixels of each fleck, reaching zero immediately beyond it. No global bloom, colored haze, aura, shadow or atmospheric wash. Light is painted color within each fleck only. Absolutely no background, ground, horizon, objects, lettering, labels, numbers, watermark, grid lines, borders or checkerboard. Six isolated cutouts in empty transparent space only."
+    }
+  ],
+  "selectedOutputs": [
+    {
+      "atlas": "spark",
+      "originalGeneratedFile": "exec-60c843a4-c4ab-4490-b5d1-89795b49b8ac.png",
+      "sourcePath": "/workspace/scratch/672b96792ba9/generated_images/exec-60c843a4-c4ab-4490-b5d1-89795b49b8ac.png",
+      "path": "assets/painted/particle-impacts/spark.png",
+      "sha256": "650d0efa9684b73c006468426fa88eab366cda3efd3e3b9dd2261a8675bd483c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparentFraction": 0.9356822967529297,
+      "originalBytesUnchanged": true
+    },
+    {
+      "atlas": "blast",
+      "originalGeneratedFile": "exec-c499062d-e674-494f-bcec-33f9e8dc87be.png",
+      "sourcePath": "/workspace/scratch/672b96792ba9/generated_images/exec-c499062d-e674-494f-bcec-33f9e8dc87be.png",
+      "path": "assets/painted/particle-impacts/blast.png",
+      "sha256": "94d07a95ca44f5d562504c3bb14cc0cde6f92f5b873416542db3a540e5d26dec",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparentFraction": 0.8590552012125651,
+      "originalBytesUnchanged": true
+    }
+  ],
+  "rejectedOutputs": [],
+  "constraints": [
+    "3 columns by 2 rows; dimensions measured from returned originals.",
+    "Source PNG bytes retained without pixel rewriting.",
+    "Spark uses the exact historical two-unit-wide round-capped segment, oriented on current particle velocity.",
+    "Blast uses the exact historical particle circle of radius size, not the explosion damage radius.",
+    "Caller alpha, lifetime, positions, counts and custom-color fallbacks stay unchanged."
+  ],
+  "selectionNote": "Both first-generation originals pass actual RGBA transparency and measured cell gutters. No pixel edits or re-encoding."
+}

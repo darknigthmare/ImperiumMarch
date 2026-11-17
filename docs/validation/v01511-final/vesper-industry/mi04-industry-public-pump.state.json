@@ -1,0 +1,730 @@
+{
+  "version": 1,
+  "mission": {
+    "id": "MI04",
+    "number": "04",
+    "campaign": true,
+    "act": "I — Le poids de l’ordre",
+    "name": "Ce qui reste dans les filtres",
+    "planetId": "PL01",
+    "planet": "Vesper",
+    "biome": "STATION DE TRAITEMENT",
+    "length": 5400,
+    "difficulty": "INCIDENT INDUSTRIEL",
+    "duration": "4–7 min",
+    "faction": "Unité privée d’Orison",
+    "accent": "#dbb582",
+    "sky": [
+      "#202b32",
+      "#726453",
+      "#c5ad8a"
+    ],
+    "description": "Sécurisez la station après un rejet déclaré accidentel. Les conduites du couloir, les ouvriers du train et le canal du dispensaire déterminent les moyens disponibles. Refroidissez les deux turbines, puis relevez le journal du poste de maintenance.",
+    "briefing": "« Orison se retire de la station. Reprenez les vannes et classez cet incident avant la relève. Le poste de maintenance doit être remis au dépôt. » — Major Holt",
+    "hint": "E près de la pompe rétablit le liquide si la conduite reste coupée (5 s). E près de chaque turbine lance son refroidissement (7 s, ou 4 s avec le guidage des ouvriers sauvés). Le contact du dispensaire est facultatif. Après les deux turbines, inspectez le poste avec E ; ses murs ne résistent pas aux roquettes. T répare un radiateur endommagé à l’arrêt.",
+    "type": "industrial",
+    "evidenceX": 4050,
+    "extractionX": 5070,
+    "decisionX": 4050,
+    "evidenceLabel": "JOURNAL DE MAINTENANCE",
+    "civilianPositions": [],
+    "supplyPositions": [
+      1380,
+      2480,
+      3550,
+      4590
+    ],
+    "enemyPlan": [
+      [
+        1080,
+        "rifle"
+      ],
+      [
+        2070,
+        "buggy"
+      ],
+      [
+        2360,
+        "rocket"
+      ],
+      [
+        3100,
+        "rifle"
+      ],
+      [
+        4490,
+        "drone"
+      ]
+    ],
+    "industrial": {
+      "interactionRadius": 180,
+      "pumpTime": 5,
+      "coolingTime": 7,
+      "assistedCoolingTime": 4,
+      "contactTime": 3,
+      "pumpX": 900,
+      "turbineXs": [
+        1550,
+        2720
+      ],
+      "contactX": 3320,
+      "postX": 4050
+    },
+    "decision": {
+      "title": "Le relevé de maintenance",
+      "body": "Le relevé de maintenance doit distinguer ce qui a été copié, ce qui a été détruit et les témoignages réellement obtenus. Holt réclame le dossier sous scellés. Tess demande que toute anomalie matérielle accompagne le compte rendu signé.",
+      "obey": "Remettre le dossier sous scellés",
+      "defy": "Joindre le constat technique au rapport"
+    },
+    "intro": "VESPER // STATION DES FILTRES · 05:42"
+  },
+  "walker": {
+    "id": "WK01",
+    "name": "Vigie",
+    "designation": "M-12",
+    "role": "ÉCLAIREUR D’ASSAUT",
+    "legs": 2,
+    "profile": "Bipède haut",
+    "height": 180,
+    "width": 126,
+    "hull": 520,
+    "stride": 118,
+    "stepTime": 0.62,
+    "speed": 86,
+    "cooling": 16,
+    "armor": 0.12,
+    "damage": 22,
+    "fireRate": 0.18,
+    "shotHeat": 8,
+    "ammo": 12,
+    "rockets": 10,
+    "color": "#e5b16c",
+    "silhouette": "biped",
+    "weight": 34,
+    "description": "Un poste de tir élevé, une foulée longue. Ses deux genoux restent son point faible.",
+    "weapon": "Autocanon V-22",
+    "secondary": "Roquettes à charge creuse",
+    "strength": "Vue dégagée · tir précis",
+    "weakness": "Appuis exposés"
+  },
+  "missionId": "MI04",
+  "walkerId": "WK01",
+  "planetId": "PL01",
+  "difficultyId": "story",
+  "difficulty": {
+    "label": "Récit",
+    "damage": 0.5,
+    "enemyHealth": 0.78,
+    "repair": 1.25
+  },
+  "seed": 1511,
+  "rng": 3114879054,
+  "assist": true,
+  "elapsed": 7.349999999999979,
+  "status": "playing",
+  "outcome": "",
+  "player": {
+    "x": 814.023518153938,
+    "y": 511.7331078755141,
+    "width": 126,
+    "height": 70,
+    "groundY": 691.7330616594096,
+    "facing": 1,
+    "aimAngle": 0.564885829956064,
+    "hull": 520,
+    "maxHull": 520,
+    "armor": 0.12,
+    "heat": 0,
+    "energy": 100,
+    "stability": 99.82357591432766,
+    "ammo": 9,
+    "maxAmmo": 12,
+    "reserveAmmo": 96,
+    "maxReserveAmmo": 96,
+    "radiator": {
+      "health": 100,
+      "maxHealth": 100,
+      "repairKits": 2,
+      "maxRepairKits": 2,
+      "repairProgress": 0,
+      "repairing": false
+    },
+    "rockets": 10,
+    "maxRockets": 10,
+    "reloadTime": 0,
+    "venting": false,
+    "braced": true,
+    "overheated": false,
+    "speed": 0.014192540500062023,
+    "feet": [
+      {
+        "id": "foot-0",
+        "index": 0,
+        "group": 0,
+        "side": "back",
+        "homeOffset": -38,
+        "x": 803.2589803683458,
+        "y": 692.000526226096,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 694.3256470350165,
+        "fromY": 692.2050445805513,
+        "targetX": 803.2589803683458,
+        "targetY": 692.000526226096,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-1",
+        "index": 1,
+        "group": 1,
+        "side": "front",
+        "homeOffset": 38,
+        "x": 824.7923137016811,
+        "y": 691.4160319142784,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 715.8589803683518,
+        "fromY": 692.4713515283598,
+        "targetX": 824.7923137016811,
+        "targetY": 691.4160319142784,
+        "health": 100,
+        "maxHealth": 100
+      }
+    ],
+    "stepCooldown": 0,
+    "lastGroup": 0,
+    "fireCooldown": 0,
+    "rocketCooldown": 0,
+    "flash": 0,
+    "aimX": 1043.7000000000105,
+    "aimY": 659.5929004500388,
+    "move": 0,
+    "anchorX": 814.0256470350134
+  },
+  "enemies": [
+    {
+      "name": "Fusilier",
+      "kind": "infantry",
+      "w": 24,
+      "h": 36,
+      "hp": 0,
+      "speed": 22,
+      "range": 650,
+      "cooldown": 1.65,
+      "damage": 10,
+      "projectileSpeed": 430,
+      "windup": 0.42,
+      "score": 70,
+      "type": "rifle",
+      "id": "enemy-0",
+      "x": 1043.333333333344,
+      "spawnX": 1080,
+      "y": 659.6187194925434,
+      "maxHp": 51,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 0.7766527138029578,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 2.085741502591267
+    },
+    {
+      "name": "Transport armé d’Orison",
+      "kind": "vehicle",
+      "w": 85,
+      "h": 44,
+      "hp": 172,
+      "speed": 35,
+      "range": 740,
+      "cooldown": 2.8,
+      "damage": 21,
+      "projectileSpeed": 400,
+      "windup": 0.7,
+      "score": 230,
+      "type": "buggy",
+      "id": "private-hauler",
+      "x": 2070,
+      "spawnX": 2070,
+      "y": 664.2576986089077,
+      "maxHp": 172,
+      "active": false,
+      "dead": false,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 1.62746653072536,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0.14,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 3.767371443536783
+    },
+    {
+      "name": "Lancier antichar",
+      "kind": "infantry",
+      "w": 26,
+      "h": 38,
+      "hp": 62,
+      "speed": 14,
+      "range": 790,
+      "cooldown": 4.4,
+      "damage": 43,
+      "projectileSpeed": 255,
+      "windup": 1.2,
+      "score": 130,
+      "type": "rocket",
+      "id": "enemy-2",
+      "x": 2360,
+      "spawnX": 2360,
+      "y": 670.784594964372,
+      "maxHp": 62,
+      "active": false,
+      "dead": false,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 1.6291857158765197,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 2.5945009735967757
+    },
+    {
+      "name": "Fusilier",
+      "kind": "infantry",
+      "w": 24,
+      "h": 36,
+      "hp": 51,
+      "speed": 22,
+      "range": 650,
+      "cooldown": 1.65,
+      "damage": 10,
+      "projectileSpeed": 430,
+      "windup": 0.42,
+      "score": 70,
+      "type": "rifle",
+      "id": "enemy-3",
+      "x": 3100,
+      "spawnX": 3100,
+      "y": 656.0882016403444,
+      "maxHp": 51,
+      "active": false,
+      "dead": false,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 2.0813634052872656,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 5.951187236024457
+    },
+    {
+      "name": "Drone de veille",
+      "kind": "air",
+      "w": 48,
+      "h": 26,
+      "hp": 70,
+      "speed": 24,
+      "range": 710,
+      "cooldown": 2.25,
+      "damage": 13,
+      "projectileSpeed": 340,
+      "windup": 0.65,
+      "score": 120,
+      "type": "drone",
+      "id": "enemy-4",
+      "x": 4490,
+      "spawnX": 4490,
+      "y": 486.17581600573305,
+      "maxHp": 70,
+      "active": false,
+      "dead": false,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 1.1526893863454462,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 2.4282707918424733
+    }
+  ],
+  "projectiles": [],
+  "particles": [],
+  "events": [
+    {
+      "id": 1,
+      "type": "radio",
+      "text": "« Orison se retire de la station. Reprenez les vannes et classez cet incident avant la relève. Le poste de maintenance doit être remis au dépôt. » — Major Holt",
+      "time": 0
+    },
+    {
+      "id": 2,
+      "type": "radio",
+      "text": "Tess : « La conduite n’a pas été rétablie. Arrête-toi à la pompe portative : cinq secondes pour alimenter les vannes. »",
+      "time": 0
+    },
+    {
+      "id": 3,
+      "type": "radio",
+      "text": "Sami : « Les ouvriers sortis du train nous donnent les repères des vannes depuis le poste. Quatre secondes par turbine avec leur guidage. »",
+      "time": 0
+    },
+    {
+      "id": 4,
+      "type": "radio",
+      "text": "Sami : « Le dispensaire a gardé un canal. Tu pourras appeler sa permanence au terminal après les turbines ; personne n’a encore témoigné. »",
+      "time": 0
+    },
+    {
+      "id": 5,
+      "type": "shot",
+      "text": "",
+      "time": 0.03333333333333333,
+      "x": 399.64264837764733,
+      "y": 536.0269616558342
+    },
+    {
+      "id": 6,
+      "type": "step",
+      "text": "",
+      "time": 0.6333333333333336,
+      "x": 380,
+      "y": 690.2911620096431
+    },
+    {
+      "id": 7,
+      "type": "shot",
+      "text": "",
+      "time": 0.6333333333333336,
+      "x": 441.5192512008044,
+      "y": 536.3106449440196
+    },
+    {
+      "id": 8,
+      "type": "shot",
+      "text": "",
+      "time": 1.183333333333334,
+      "x": 488.3725177961086,
+      "y": 538.6753493660058
+    },
+    {
+      "id": 9,
+      "type": "step",
+      "text": "",
+      "time": 1.266666666666667,
+      "x": 497.99231370168644,
+      "y": 689.0005738174511
+    },
+    {
+      "id": 10,
+      "type": "explosion",
+      "text": "",
+      "time": 1.6666666666666656,
+      "x": 1043.333333333344,
+      "y": 659.6187194925434
+    },
+    {
+      "id": 11,
+      "type": "step",
+      "text": "",
+      "time": 1.8999999999999981,
+      "x": 476.45898036835325,
+      "y": 689.0206883643402
+    },
+    {
+      "id": 12,
+      "type": "step",
+      "text": "",
+      "time": 2.533333333333329,
+      "x": 606.9256470350201,
+      "y": 690.4405438936978
+    },
+    {
+      "id": 13,
+      "type": "step",
+      "text": "",
+      "time": 3.1666666666666603,
+      "x": 585.3923137016868,
+      "y": 689.9998014574028
+    },
+    {
+      "id": 14,
+      "type": "step",
+      "text": "",
+      "time": 3.7999999999999914,
+      "x": 715.8589803683518,
+      "y": 692.4713515283598
+    },
+    {
+      "id": 15,
+      "type": "step",
+      "text": "",
+      "time": 4.433333333333323,
+      "x": 694.3256470350165,
+      "y": 692.2050445805513
+    },
+    {
+      "id": 16,
+      "type": "step",
+      "text": "",
+      "time": 5.066666666666654,
+      "x": 824.7923137016811,
+      "y": 691.4160319142784
+    },
+    {
+      "id": 17,
+      "type": "radio",
+      "text": "Tess : « Pompe portative branchée. Reste à portée pendant la montée en pression. »",
+      "time": 5.099999999999987
+    },
+    {
+      "id": 18,
+      "type": "step",
+      "text": "",
+      "time": 5.699999999999985,
+      "x": 803.2589803683458,
+      "y": 692.000526226096
+    }
+  ],
+  "eventId": 18,
+  "entityId": 3,
+  "relays": [],
+  "convoy": null,
+  "civilians": [],
+  "evidence": {
+    "id": "MI04-evidence",
+    "x": 4050,
+    "y": 637.140384158002,
+    "collected": false,
+    "scanning": false,
+    "scanProgress": 0,
+    "scanTime": 2.4,
+    "label": "JOURNAL DE MAINTENANCE"
+  },
+  "pickups": [
+    {
+      "id": "supply-0",
+      "x": 1380,
+      "y": 652.1270760336785,
+      "type": "repair",
+      "collected": false
+    },
+    {
+      "id": "supply-1",
+      "x": 2480,
+      "y": 668.9417050180832,
+      "type": "repair",
+      "collected": false
+    },
+    {
+      "id": "supply-2",
+      "x": 3550,
+      "y": 651.7784669209626,
+      "type": "repair",
+      "collected": false
+    },
+    {
+      "id": "supply-3",
+      "x": 4590,
+      "y": 671.6855924269857,
+      "type": "repair",
+      "collected": false
+    }
+  ],
+  "decision": {
+    "active": false,
+    "resolved": false,
+    "choice": null,
+    "title": "Le relevé de maintenance",
+    "body": "Le relevé de maintenance doit distinguer ce qui a été copié, ce qui a été détruit et les témoignages réellement obtenus. Holt réclame le dossier sous scellés. Tess demande que toute anomalie matérielle accompagne le compte rendu signé.",
+    "options": [
+      {
+        "id": "obey",
+        "label": "Remettre le dossier sous scellés"
+      },
+      {
+        "id": "defy",
+        "label": "Joindre le constat technique au rapport"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "coolant",
+      "label": "Brancher la pompe portative : conduite interrompue",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    },
+    {
+      "id": "turbines",
+      "label": "Refroidir les deux turbines",
+      "current": 0,
+      "target": 2,
+      "complete": false
+    },
+    {
+      "id": "evidence",
+      "label": "Inspecter le poste et copier son journal",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    },
+    {
+      "id": "order",
+      "label": "Établir le compte rendu technique",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    },
+    {
+      "id": "extract",
+      "label": "Rejoindre le hangar après la station",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    }
+  ],
+  "extraction": {
+    "x": 5070,
+    "y": 675.7054412018568,
+    "active": false,
+    "radius": 110
+  },
+  "stats": {
+    "kills": 1,
+    "shots": 3,
+    "hits": 3,
+    "steps": 9,
+    "collateral": 0,
+    "damageTaken": 0,
+    "evidence": 0,
+    "ordersObeyed": 0,
+    "ordersDefied": 0,
+    "score": 70
+  },
+  "interaction": "Pompe portative 45 % · restez à portée",
+  "cameraShake": 0,
+  "lastStepGroup": 0,
+  "checkpointText": "Ordre reçu. Appuis au sol.",
+  "inputHeld": {
+    "stepA": false,
+    "stepB": false,
+    "interact": false,
+    "reload": false,
+    "repair": false
+  },
+  "notified": {},
+  "nextStep": 0,
+  "bossReleased": false,
+  "campaign": {
+    "missionId": "MI04",
+    "phase": "cooling",
+    "coolantRestored": false,
+    "coolingAssistance": true,
+    "turbinesCooled": 0,
+    "maintenanceInspected": false,
+    "manifestRead": false,
+    "logRecovered": false,
+    "technicalEvidence": false,
+    "evidenceSource": "none",
+    "alternativeSourceNeeded": false,
+    "witnessContacted": false,
+    "reportFiled": false,
+    "maintenanceIntact": true,
+    "context": {
+      "pipeIntact": false,
+      "pipeRepaired": false,
+      "noticeFiled": false,
+      "servicesInterrupted": true,
+      "railRecordFiled": false,
+      "railHostagesRescued": 3,
+      "railHostagesLost": 8,
+      "dispensaryIntact": true,
+      "witnessAvailable": true,
+      "civilRelaysOnline": 2
+    },
+    "tutorial": {
+      "stepped": true,
+      "braced": true
+    }
+  },
+  "industrial": {
+    "pump": {
+      "id": "coolant-pump",
+      "x": 900,
+      "y": 662.8921609937548,
+      "w": 72,
+      "h": 50,
+      "connected": false,
+      "working": true,
+      "progress": 0.45000000000000095
+    },
+    "turbines": [
+      {
+        "id": "turbine-1",
+        "x": 1550,
+        "y": 609.3478514785425,
+        "w": 90,
+        "h": 126,
+        "temperature": 90,
+        "cooled": false,
+        "working": false,
+        "progress": 0
+      },
+      {
+        "id": "turbine-2",
+        "x": 2720,
+        "y": 630.3721832767867,
+        "w": 90,
+        "h": 126,
+        "temperature": 90,
+        "cooled": false,
+        "working": false,
+        "progress": 0
+      }
+    ],
+    "contact": {
+      "id": "dispensary-contact",
+      "x": 3320,
+      "y": 640.0443732154736,
+      "w": 44,
+      "h": 64,
+      "available": true,
+      "working": false,
+      "progress": 0,
+      "contacted": false
+    },
+    "post": {
+      "id": "maintenance-post",
+      "x": 4050,
+      "y": 605.140384158002,
+      "w": 152,
+      "h": 160,
+      "hp": 480,
+      "maxHp": 480,
+      "destroyed": false,
+      "flash": 0
+    },
+    "retreatTriggered": false,
+    "retreatEscaped": false
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "version": "0.15.11",
+  "recordedUtc": "2026-11-17T11:13:31.768905+00:00",
+  "type": "Independent assistant code review plus root review of a subsequent diagnostic-getter simplification",
+  "reviewer": "nacre_scenery; root for the exact two-getter delta",
+  "sourceHashes": {
+    "src/renderer.mjs": "756e075cdb9bba6fd03d60d5d5275b79f266ade6f14f0bcd3876e7ad9e567aa0",
+    "src/main.mjs": "74d9a33e1dbb23389471aa3aba2e472498eb942a8da3094cfe2e619936630591",
+    "src/painted-particle-impacts.mjs": "289352fb5b139907e0788fc03d4c6df30afead487045771aea06759c2740e110",
+    "src/painted-vesper-industry.mjs": "78b9ed2887f6609f3e09bf01b3cab8a5933cb2f785075a984535c872ba66f1cd",
+    "src/painted-walker-fx.mjs": "495b7137f03e239eafc29a57e6cc12b70af1cfb62ecd6a44ec3e12241709435b"
+  },
+  "walkerFxReviewDelta": {
+    "independentlyReviewedHash": "9c031d01e2c4aa4ce61928bba3a63d195e896a92324876566cc627c6e64ad64a",
+    "finalHash": "495b7137f03e239eafc29a57e6cc12b70af1cfb62ecd6a44ec3e12241709435b",
+    "exactDeltaVerifiedByReconstructingEarlierHash": true,
+    "change": "Only paintedMuzzleFlashFrame and paintedVentPuffFrame omit their artificial frame:undefined property by destructuring the private frame. Frame choice, geometry and drawing are unchanged.",
+    "includedInCombinedCanvasReceipt": true,
+    "modifiedUtc": "2026-11-17T11:05:50.817448Z",
+    "full874TestRunFinishedUtc": "2026-11-17T11:08:37.086550Z"
+  },
+  "conclusion": "No substantive anomaly identified in the requested scope.",
+  "checks": [
+    "One unchanged procedural muzzle halo; only the clipped core is painted.",
+    "Existing primary-fire visibility window and hangar exclusion; no new secondary-only flash.",
+    "Reduced-motion frame and phase handling; no autonomous timer.",
+    "Spark segment width and round caps; blast circle and caller alpha.",
+    "Canvas save/restore including failure paths.",
+    "Independent industrial fallbacks and no duplicated workshop windows.",
+    "Five literal PNG URLs, production loaders and test/CI commands connected.",
+    "No simulation, content, campaign, fixture or saved-state change in this integration."
+  ],
+  "scope": "Code review only, not an execution or human playtest; runtime results are recorded separately.",
+  "passed": true
+}

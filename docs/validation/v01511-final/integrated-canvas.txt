@@ -1,0 +1,17 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: loadPaintedCerbere: every requested image must decode
+    at file:///workspace/scratch/672b96792ba9/ImperiumMarch-v01511/tools/receive-painted-effects-v01511.mjs:108:14
+    at async Promise.all (index 4)
+    at async file:///workspace/scratch/672b96792ba9/ImperiumMarch-v01511/tools/receive-painted-effects-v01511.mjs:102:3 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

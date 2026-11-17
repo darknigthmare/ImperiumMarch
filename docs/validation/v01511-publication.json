@@ -1,0 +1,144 @@
+{
+  "version": "0.15.11",
+  "recordedAt": "2026-11-17T11:51:48Z",
+  "stage": "Corrected application head and successful pull-request CI received before publication documentation and normal merge",
+  "repository": "darknigthmare/ImperiumMarch",
+  "localSnapshot": {
+    "commit": "06c40819c8f818dd72bb64ffd19c83d9ff27862a",
+    "tree": "35bd6ca64d96a34f400338e7d69f558e028b9a3f"
+  },
+  "sourcePublication": {
+    "commit": "7d3a1e01c917614371cdabc56fbe10482b0da337",
+    "tree": "35bd6ca64d96a34f400338e7d69f558e028b9a3f",
+    "byteIdenticalToVerifiedLocalTree": true,
+    "baseCommit": "a8658969f928981fe58cee3f4088f9f711587786",
+    "branch": "codex/painted-effects-v01511",
+    "prNumber": 9,
+    "prUrl": "https://github.com/darknigthmare/ImperiumMarch/pull/9",
+    "changedFiles": 270,
+    "delta": {
+      "added": 258,
+      "modified": 12,
+      "deleted": 0
+    },
+    "prStateAtReceipt": "open",
+    "initialApplication": {
+      "localCommit": "2dbdd01279cd21c305d5811905e05c362d15d82e",
+      "remoteCommit": "4352b0725208e0a7e13c8bb187c8a6d5131f5b3f",
+      "tree": "a6994a43ec38eeab76fd3cff8d8acea3c039c6ac",
+      "changedFiles": 241
+    },
+    "testHarnessCorrection": {
+      "localCommit": "06c40819c8f818dd72bb64ffd19c83d9ff27862a",
+      "remoteCommit": "7d3a1e01c917614371cdabc56fbe10482b0da337",
+      "tree": "35bd6ca64d96a34f400338e7d69f558e028b9a3f",
+      "changedFiles": 32,
+      "gameRuntimeAndPngsUnchanged": true,
+      "receipt": "docs/validation/v01511-ci-portability/receipt.json"
+    }
+  },
+  "catalogue": {
+    "atlases": 95,
+    "cells": 700,
+    "runtimeCells": 656,
+    "referenceCells": 44,
+    "lots": 24,
+    "panoramasSeparate": 4,
+    "newAtlases": 5,
+    "newRuntimeCells": 24,
+    "historicalFilesByteIdentical": 3101
+  },
+  "remoteCI": {
+    "runId": 44076721518,
+    "url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/44076721518",
+    "conclusion": "success",
+    "associatedHead": "7d3a1e01c917614371cdabc56fbe10482b0da337",
+    "executedMergeCommit": "ed0c5a227ff0e6550e766a67fd0c558bec9e48b1",
+    "executedTree": "35bd6ca64d96a34f400338e7d69f558e028b9a3f",
+    "receipt": "docs/validation/v01511-pr-ci.json",
+    "successfulSteps": 40,
+    "tests": 874,
+    "svgCanvasComparisons": 174,
+    "modeledDomFlows": 108,
+    "htmlByteIdenticalToLocal": true,
+    "zipByteIdenticalToLocal": true,
+    "initialFailedReceipt": "docs/validation/v01511-pr-ci-initial.json"
+  },
+  "vercel": {
+    "receipt": "docs/validation/v01511-vercel-preview.json",
+    "correctedHead": "7d3a1e01c917614371cdabc56fbe10482b0da337",
+    "preview": {
+      "commit": "7d3a1e01c917614371cdabc56fbe10482b0da337",
+      "tree": "35bd6ca64d96a34f400338e7d69f558e028b9a3f",
+      "id": "dpl_3nnq5UFqXu2Sot2H1J7zp4dSPhsp",
+      "url": "https://imperium-march-fwqkgclcy-darknigthmares-projects.vercel.app",
+      "state": "READY",
+      "target": null,
+      "readyAt": "2026-11-17T11:45:13.764Z",
+      "aliases": [
+        "imperium-march-git-codex-painted-643fac-darknigthmares-projects.vercel.app"
+      ],
+      "aliasError": null,
+      "githubStatus": {
+        "state": "success",
+        "description": "Deployment has completed",
+        "createdAt": "2026-11-17T11:45:14Z"
+      },
+      "runtimeFilesByteIdenticalToInitialApplication": true,
+      "comparisonReceipt": "docs/validation/v01511-ci-portability/receipt.json",
+      "httpReceptionScope": "The HTTP reception above was performed on the initial application preview; it is not relabelled as an HTTP request to this corrected revision."
+    },
+    "initialApplicationHttpReception": {
+      "html": {
+        "status": 200,
+        "version": "0.15.11",
+        "bytes": 23480,
+        "sha256": "952d634d7a647d6dd52d71fa52126303d73afbd97bdc6e4bc39c4186a0e423ad",
+        "localBytes": 23317,
+        "localSha256": "bb2855b73ed1d2c8c8f56e821d5856dc0c941aba1cfdea94434e2b300f146b8b",
+        "byteIdentical": false,
+        "onlyDifference": "One Vercel live-feedback toolbar script, 163 bytes, injected by the preview hosting service",
+        "identicalAfterRemovingOnlyToolbarScript": true
+      },
+      "main": {
+        "status": 200,
+        "httpBytes": 144734,
+        "httpSha256": "74d9a33e1dbb23389471aa3aba2e472498eb942a8da3094cfe2e619936630591",
+        "localSha256": "74d9a33e1dbb23389471aa3aba2e472498eb942a8da3094cfe2e619936630591",
+        "byteIdentical": true
+      },
+      "loaderCount": 25,
+      "nativeBrowserSession": false,
+      "access": "Existing Vercel connection via the authenticated deployment-fetch capability; no protection setting changed. Temporary share credentials are excluded from this receipt."
+    },
+    "initialApplicationHttpHead": "4352b0725208e0a7e13c8bb187c8a6d5131f5b3f",
+    "productionAtPreMergeObservation": {
+      "id": "dpl_EWsKifPhgoRLqE6ds2N1j9vhW6xm",
+      "url": "https://imperium-march-ik5bi4ruw-darknigthmares-projects.vercel.app",
+      "state": "READY",
+      "target": "production",
+      "commit": "1235102b25a531a90feeb0d1b38a37482a928c5d",
+      "version": "0.15.7"
+    },
+    "manualDeploymentRequested": false,
+    "protectionConfigurationChanged": false
+  },
+  "offline": {
+    "htmlBytes": 230730588,
+    "htmlSha256": "e916d5c36318ab2b6eaa73942d61ce761a45c8d6089e40564120c7d5a16e9c31",
+    "zipBytes": 169470220,
+    "zipSha256": "47266dce1f59724ce8fb47d8c5c9795cd218012cec1a384c8e32c5cf85e2a9b0",
+    "generatedLocally": true,
+    "gitTracked": false,
+    "releasePublished": false,
+    "releaseWorkflowTriggered": false,
+    "initialReceipt": "docs/validation/v01511-final/receipt.json",
+    "reconstructionReceipt": "docs/validation/v01511-ci-portability/receipt.json"
+  },
+  "limits": [
+    "This receipt stops before the publication-documentation commit and merge; subsequent main CI and production observations belong in the PR timeline.",
+    "The first CI failed in a test-only local provenance-file read; the corrected full CI succeeded without removing a gate.",
+    "HTTP source reception, Canvas and modeled DOM are distinct from native browser and human validation.",
+    "The previously denied binary Release workflow was not triggered."
+  ]
+}

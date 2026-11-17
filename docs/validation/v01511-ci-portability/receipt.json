@@ -1,0 +1,202 @@
+{
+  "version": "0.15.11",
+  "recordedAt": "2026-11-17T11:41:19.237588+00:00",
+  "scope": "Portability correction in the Canvas test harness after the first GitHub CI; no game runtime or source PNG change",
+  "applicationSnapshot": {
+    "localCommit": "2dbdd01279cd21c305d5811905e05c362d15d82e",
+    "remoteCommit": "4352b0725208e0a7e13c8bb187c8a6d5131f5b3f",
+    "tree": "a6994a43ec38eeab76fd3cff8d8acea3c039c6ac"
+  },
+  "failedRemoteReceipt": "docs/validation/v01511-pr-ci-initial.json",
+  "correction": {
+    "file": "tools/test-painted-walker-fx.mjs",
+    "sha256": "17998e379279ae0d2f26f397cc5890941392a47984d53295f56969a4119cf221",
+    "mandatoryChecksRetained": [
+      "Tracked PNG bytes match the manifest SHA-256",
+      "Tracked PNG bytes match the selected ImageGen output hash",
+      "Real decoding, atlas dimensions, alpha measurements, every frame, clip support, all public scenes, pause and reduced motion"
+    ],
+    "localOriginalComparison": "Performed and recorded when the original session path exists; otherwise recorded unavailable and byte equality null",
+    "errors": "Callback exceptions retained with atlas ID before the loader returns failed",
+    "independentReview": "audit_continuite found this to be the sole mandatory external input among the three new raster validators; the other inputs are tracked in Git"
+  },
+  "localReplay": {
+    "command": [
+      "npm",
+      "run",
+      "check:walker-fx",
+      "--",
+      "docs/validation/v01511-ci-portability/walker-fx"
+    ],
+    "receipt": "docs/validation/v01511-ci-portability/walker-fx/receipt.json",
+    "receiptSha256": "f0f2349082d3a1cbe54aa880bf79dff12bf0521fee1c81ec300a6e12ce2e72fd",
+    "atlases": 2,
+    "cells": 10,
+    "clipChecks": 10,
+    "views": 11,
+    "passed": true,
+    "allViewsByteIdenticalToPreviouslyReviewed": true,
+    "comparison": [
+      {
+        "file": "walker-fx-contact-sheet.png",
+        "sha256": "dd85129b2dd537f80ee0cfe7f2ea3d7917385941436aca6d33e04a1f15abcfb9",
+        "identicalToReviewedView": true
+      },
+      {
+        "file": "wk01-public-shot-and-vent.png",
+        "sha256": "39732fe6065e8c76c70a2b70f88800f3b3e1d9f685ff99c907e41d70e8647c16",
+        "identicalToReviewedView": true
+      },
+      {
+        "file": "wk02-public-shot-and-vent.png",
+        "sha256": "11e6a306ee94b0f917b25e6bd1c2ee31bc0c22460bbadbd7bcd02f807c107983",
+        "identicalToReviewedView": true
+      },
+      {
+        "file": "wk05-public-shot-and-vent.png",
+        "sha256": "8a3846b05be3622324732f2c872fd996e31cccda192d4fc97707b87ed7bfc187",
+        "identicalToReviewedView": true
+      },
+      {
+        "file": "wk06-public-shot-and-vent.png",
+        "sha256": "e9d2d93c95dd9753497c9670782a53c0a5eac51c13e5ccdd41b86498ee1665f2",
+        "identicalToReviewedView": true
+      },
+      {
+        "file": "wk09-public-shot-and-vent.png",
+        "sha256": "1932ab4ff849e2d5b382a47e5d803f15a3895c0fc1c240115e1b6154008667f9",
+        "identicalToReviewedView": true
+      },
+      {
+        "file": "wk10-public-shot-and-vent.png",
+        "sha256": "6a6f95a76bafa2bb95a7ae66eeb46c194f9d7acbb3fc8c41776959f0b9616443",
+        "identicalToReviewedView": true
+      },
+      {
+        "file": "wk05-public-age-2.png",
+        "sha256": "0d8d71734e4a37e511dc7b12c858530926795acf7acecae5b781d531b16935be",
+        "identicalToReviewedView": true
+      },
+      {
+        "file": "wk05-reduced-motion.png",
+        "sha256": "4cb31978d2557f8d1648a1c3359ce2e1820ed248b7ceb3848497a603dd28e9dd",
+        "identicalToReviewedView": true
+      },
+      {
+        "file": "wk05-fallback.png",
+        "sha256": "fc40e8ab02931052b270a3022b810df6714e6413434c32babd849942184e8f81",
+        "identicalToReviewedView": true
+      },
+      {
+        "file": "wk05-public-hot-without-vent.png",
+        "sha256": "788929d0cc2cf4f4c205e23ca06c324930e8e76194a0133e3c060659fa7e9b58",
+        "identicalToReviewedView": true
+      }
+    ]
+  },
+  "preservation": {
+    "comparedTo": "2dbdd01279cd21c305d5811905e05c362d15d82e",
+    "paths": [
+      "src",
+      "assets",
+      "data",
+      "index.html",
+      "package.json",
+      ".github/workflows/ci.yml"
+    ],
+    "allGitBytesUnchanged": true,
+    "initialLocalReceiptPreserved": "docs/validation/v01511-final/receipt.json"
+  },
+  "reconstruction": {
+    "gates": [
+      {
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "startedUtc": "2026-11-17T11:39:41.527139+00:00",
+        "finishedUtc": "2026-11-17T11:39:52.511896+00:00",
+        "seconds": 10.985,
+        "exitCode": 0,
+        "passed": true,
+        "log": "docs/validation/v01511-ci-portability/build.txt",
+        "logSha256": "44d3c5aac44a61b95bb3273f97a9beff7d85c5b162eff9cd15ceb797a1dd358f"
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "check:offline-package"
+        ],
+        "startedUtc": "2026-11-17T11:39:52.512185+00:00",
+        "finishedUtc": "2026-11-17T11:39:54.410028+00:00",
+        "seconds": 1.898,
+        "exitCode": 0,
+        "passed": true,
+        "log": "docs/validation/v01511-ci-portability/offline-package.txt",
+        "logSha256": "852a58ac31ac3fad9431ac1c2dacc1f37ddea3c28463a01d1730808970bd9af1"
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "check:ui"
+        ],
+        "startedUtc": "2026-11-17T11:39:54.410503+00:00",
+        "finishedUtc": "2026-11-17T11:39:56.104623+00:00",
+        "seconds": 1.694,
+        "exitCode": 0,
+        "passed": true,
+        "log": "docs/validation/v01511-ci-portability/ui-static.txt",
+        "logSha256": "edfd81beb61c7e7b13e9c6eb06f85ff5da27eefd5934e0702fbd41ed9a7aa909"
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "check"
+        ],
+        "startedUtc": "2026-11-17T11:39:56.104879+00:00",
+        "finishedUtc": "2026-11-17T11:39:56.267330+00:00",
+        "seconds": 0.163,
+        "exitCode": 0,
+        "passed": true,
+        "log": "docs/validation/v01511-ci-portability/project-check.txt",
+        "logSha256": "83dd1f3188e6957f1d56dfe940fbb1a3b4e2e3bc32a94310caf0cb885d478e41"
+      }
+    ],
+    "html": {
+      "file": "dist/Ordre_de_Cendre.html",
+      "bytes": 230730588,
+      "sha256": "e916d5c36318ab2b6eaa73942d61ce761a45c8d6089e40564120c7d5a16e9c31",
+      "crc32": "d8413b6e"
+    },
+    "zip": {
+      "file": "dist/Ordre_de_Cendre.zip",
+      "bytes": 169470220,
+      "sha256": "47266dce1f59724ce8fb47d8c5c9795cd218012cec1a384c8e32c5cf85e2a9b0",
+      "entries": 1,
+      "compressedBytes": 169470082,
+      "method": "deflate",
+      "level": 9,
+      "timestamp": "1980-01-01T00:00:00Z"
+    },
+    "sourceMetadata": {
+      "version": "0.15.11",
+      "commit": "2dbdd01279cd21c305d5811905e05c362d15d82e",
+      "tree": "a6994a43ec38eeab76fd3cff8d8acea3c039c6ac",
+      "workingTree": "modified"
+    },
+    "byteIdenticalToInitialVerifiedBuild": true
+  },
+  "distributionReception": {
+    "releaseAssetUploaded": false,
+    "releaseAssetReceived": false,
+    "note": "Manifest distribution text describes the intended channel only."
+  },
+  "limits": [
+    "The corrected remote CI is still pending at this local correction receipt.",
+    "No native browser or human test is claimed."
+  ]
+}

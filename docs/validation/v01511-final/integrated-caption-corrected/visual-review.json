@@ -1,0 +1,54 @@
+{
+  "version": "0.15.11",
+  "reviewedUtc": "2026-11-17T11:07:35.327443+00:00",
+  "receipt": "docs/validation/v01511-final/integrated-caption-corrected/receipt.json",
+  "receiptSha256": "65635087f291a55de09cbda5ceeb75e4bd0654b77b464bf1e9eb2d6472ccc8c8",
+  "views": [
+    {
+      "file": "docs/validation/v01511-final/integrated-caption-corrected/primary-fire.png",
+      "sha256": "159de667ecf34b48dfa114e0b34a7411c474174cd24a24c8e5b7682754809a1e",
+      "openedAndReviewed": true,
+      "captionReadable": true,
+      "gamePixelsBelowCaptionIdenticalToPriorRun": true,
+      "finding": "Painted industry remains aligned; existing small FX stay within their historical footprint. Pale purge and initial sparks are intentionally subtle at game scale."
+    },
+    {
+      "file": "docs/validation/v01511-final/integrated-caption-corrected/ground-impact.png",
+      "sha256": "267064a1161184b616f1439792270726c2dce490a16899a2a03c7cdc628919fd",
+      "openedAndReviewed": true,
+      "captionReadable": true,
+      "gamePixelsBelowCaptionIdenticalToPriorRun": true,
+      "finding": "Painted industry remains aligned; existing small FX stay within their historical footprint. Pale purge and initial sparks are intentionally subtle at game scale."
+    },
+    {
+      "file": "docs/validation/v01511-final/integrated-caption-corrected/purge.png",
+      "sha256": "0a7dc6b62af91d38ee592fa8012149013f1a69bf7f2f25cd8f53fcb28810a98f",
+      "openedAndReviewed": true,
+      "captionReadable": true,
+      "gamePixelsBelowCaptionIdenticalToPriorRun": true,
+      "finding": "Painted industry remains aligned; existing small FX stay within their historical footprint. Pale purge and initial sparks are intentionally subtle at game scale."
+    },
+    {
+      "file": "docs/validation/v01511-final/integrated-caption-corrected/purge-reduced-motion.png",
+      "sha256": "6f00f2ebb2ee864a3074bfe678e650a67f2a842e5334340d321f633a1917f727",
+      "openedAndReviewed": true,
+      "captionReadable": true,
+      "gamePixelsBelowCaptionIdenticalToPriorRun": true,
+      "finding": "Painted industry remains aligned; existing small FX stay within their historical footprint. Pale purge and initial sparks are intentionally subtle at game scale."
+    }
+  ],
+  "allFourViewsReviewed": true,
+  "materialDefectsObserved": [],
+  "preliminaryRuns": [
+    {
+      "receipt": "docs/validation/v01511-final/integrated/receipt.json",
+      "result": "Harness initially assumed every image loader returned a map. Cerbere returns one direct state; corrected the receiver without changing runtime or assets."
+    },
+    {
+      "receipt": "docs/validation/v01511-final/integrated-final/receipt.json",
+      "result": "All runtime checks passed. Caption inherited right text alignment from Renderer; explicit left alignment fixes only the diagnostic overlay."
+    }
+  ],
+  "scope": "Assistant visual review of actual combined Canvas outputs, not a browser capture or human playtest. The four game images below their captions are byte-identical at the RGBA level to the prior successful run.",
+  "passed": true
+}

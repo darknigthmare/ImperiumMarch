@@ -1,0 +1,496 @@
+{
+  "version": "0.15.11",
+  "receivedUtc": "2026-11-17T11:17:16.374407+00:00",
+  "scope": "Local working tree received before publication; remote commits, CI and hosting have separate receipts.",
+  "baseCommit": "a8658969f928981fe58cee3f4088f9f711587786",
+  "baseTree": "8b67b86290da234dedb9c8c2a5bc1d41bbcd3e3f",
+  "workingTree": "modified",
+  "allRequiredLocalGatesPassed": true,
+  "node": "24.22.1",
+  "canvas": "0.1.100",
+  "gates": [
+    {
+      "version": "0.15.11",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "startedUtc": "2026-11-17T11:08:03.628018+00:00",
+      "finishedUtc": "2026-11-17T11:08:37.086550+00:00",
+      "seconds": 33.459,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-final/npm-test.txt",
+      "logSha256": "7496de3de2200bd021e55903cc965cf987c46f8c069cafd9a80d2378c3a29c02"
+    },
+    {
+      "version": "0.15.11",
+      "command": [
+        "npm",
+        "run",
+        "check:assets-render"
+      ],
+      "startedUtc": "2026-11-17T11:08:03.624976+00:00",
+      "finishedUtc": "2026-11-17T11:08:08.678438+00:00",
+      "seconds": 5.053,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-final/assets-render.txt",
+      "logSha256": "1a7bcd139013b17ac51fad2a92e73b6ff817c17177664c41f113fec9d5c8abbb"
+    },
+    {
+      "version": "0.15.11",
+      "command": [
+        "npm",
+        "run",
+        "check:particle-impacts",
+        "--",
+        "docs/validation/v01511-final/particle-impacts"
+      ],
+      "startedUtc": "2026-11-17T11:11:11.702136+00:00",
+      "finishedUtc": "2026-11-17T11:11:18.257514+00:00",
+      "seconds": 6.555,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-final/particle-impacts.txt",
+      "logSha256": "5ef71c351358de1c12241996195f2c7f6658b4e602ffa876d35d689d314efe85"
+    },
+    {
+      "version": "0.15.11",
+      "command": [
+        "npm",
+        "run",
+        "check:walker-fx",
+        "--",
+        "docs/validation/v01511-final/walker-fx"
+      ],
+      "startedUtc": "2026-11-17T11:11:11.731585+00:00",
+      "finishedUtc": "2026-11-17T11:11:23.488366+00:00",
+      "seconds": 11.757,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-final/walker-fx.txt",
+      "logSha256": "b08a403272d4beb0ef81c90aa6a167e2af8865ae8ac2239d0b54b8144f288947"
+    },
+    {
+      "version": "0.15.11",
+      "command": [
+        "npm",
+        "run",
+        "check:vesper-industry",
+        "--",
+        "docs/validation/v01511-final/vesper-industry"
+      ],
+      "startedUtc": "2026-11-17T11:11:11.704055+00:00",
+      "finishedUtc": "2026-11-17T11:11:17.218627+00:00",
+      "seconds": 5.515,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-final/vesper-industry.txt",
+      "logSha256": "995b9cdaf845e21e2ae67e7f9f6c2a593e3ef1a3334295ca14c877918dd9d331"
+    },
+    {
+      "version": "0.15.11",
+      "command": [
+        "node",
+        "tools/receive-painted-effects-v01511.mjs",
+        "docs/validation/v01511-final/integrated-caption-corrected"
+      ],
+      "startedUtc": "2026-11-17T11:06:28.957847+00:00",
+      "finishedUtc": "2026-11-17T11:06:35.958753+00:00",
+      "seconds": 7.001,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-final/integrated-canvas-caption-corrected.txt",
+      "logSha256": "cb42d8597bdefb6d0096def011569dd1abed5711c455903e1d55bacdedbfb5ae"
+    },
+    {
+      "version": "0.15.11",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "startedUtc": "2026-11-17T11:14:04.090490+00:00",
+      "finishedUtc": "2026-11-17T11:14:15.367207+00:00",
+      "seconds": 11.277,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-final/build.txt",
+      "logSha256": "7842a6347ac71a47091585a09f1f6c3e5d769642b0c93475e6372020b443386a"
+    },
+    {
+      "version": "0.15.11",
+      "command": [
+        "npm",
+        "run",
+        "check:offline-package"
+      ],
+      "startedUtc": "2026-11-17T11:14:43.594145+00:00",
+      "finishedUtc": "2026-11-17T11:14:47.744402+00:00",
+      "seconds": 4.15,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-final/offline-package.txt",
+      "logSha256": "84a63ef53128c5a1e6fa57afceae4de99ea58a99e02806f2eadfd01100909940"
+    },
+    {
+      "version": "0.15.11",
+      "command": [
+        "npm",
+        "run",
+        "check:ui"
+      ],
+      "startedUtc": "2026-11-17T11:14:43.573883+00:00",
+      "finishedUtc": "2026-11-17T11:14:47.865355+00:00",
+      "seconds": 4.291,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-final/ui-static.txt",
+      "logSha256": "1c7ead8700d5bfbf256bc59af8dd1d5e74d9aab75f922d1e17d4d87da5801dcd"
+    },
+    {
+      "version": "0.15.11",
+      "command": [
+        "npm",
+        "run",
+        "check:ui-runtime"
+      ],
+      "startedUtc": "2026-11-17T11:14:43.573370+00:00",
+      "finishedUtc": "2026-11-17T11:16:15.813316+00:00",
+      "seconds": 92.24,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-final/ui-runtime.txt",
+      "logSha256": "69bab274a997ec7eac074008c89f7e11de3fae84466ea9f8c44d671982f10897"
+    },
+    {
+      "version": "0.15.11",
+      "command": [
+        "npm",
+        "run",
+        "build:web"
+      ],
+      "startedUtc": "2026-11-17T11:14:43.574152+00:00",
+      "finishedUtc": "2026-11-17T11:14:44.766478+00:00",
+      "seconds": 1.192,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-final/build-web.txt",
+      "logSha256": "849c5d4a1a5e19c1e62efc86be372f235cd5dc3f279a1706151902dff9f556af"
+    },
+    {
+      "version": "0.15.11",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "startedUtc": "2026-11-17T11:15:39.922535+00:00",
+      "finishedUtc": "2026-11-17T11:15:40.187382+00:00",
+      "seconds": 0.265,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01511-final/project-check.txt",
+      "logSha256": "1d5330f2c241ec00f9d2654845382d63540a0e4c7ea30825412d6f71a7f50f36"
+    }
+  ],
+  "tests": {
+    "passed": 874,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "svgCanvasComparisons": 174,
+    "modeledDomFlows": 108
+  },
+  "artReceptions": [
+    {
+      "path": "docs/validation/v01511-final/particle-impacts/receipt.json",
+      "sha256": "3c33d6bd9259d69962de4da83e6c7bf8eefad1d2a3ba85852d015fc6ea37a849",
+      "viewCount": 10
+    },
+    {
+      "path": "docs/validation/v01511-final/walker-fx/receipt.json",
+      "sha256": "20807c9d6af81adc6035079483991ec5210577396aedd844b3ca92daabd2102f",
+      "viewCount": 11
+    },
+    {
+      "path": "docs/validation/v01511-final/vesper-industry/receipt.json",
+      "sha256": "f5978790da30a5fc53fbeba0b50f5077c44b6ef1ddf3c365cd60467457f79d8a",
+      "viewCount": 8
+    },
+    {
+      "path": "docs/validation/v01511-final/integrated-caption-corrected/receipt.json",
+      "sha256": "65635087f291a55de09cbda5ceeb75e4bd0654b77b464bf1e9eb2d6472ccc8c8",
+      "viewCount": 4
+    }
+  ],
+  "visualAndCodeReviews": [
+    {
+      "path": "docs/validation/v01511-final/reviewed-lot-replays.json",
+      "sha256": "c999b9c53740376bc4f91399f63603fb7818db3a4e2b426e4e09adfa44ab8569"
+    },
+    {
+      "path": "docs/validation/v01511-final/integrated-caption-corrected/visual-review.json",
+      "sha256": "e3395f28094cfa7ba892d71ecc92104afeceef7891971f1c395f58400e7b0f44"
+    },
+    {
+      "path": "docs/validation/v01511-final/code-review.json",
+      "sha256": "5f41a512eb4d36ed67cc5e75ae6e42b906aa12bb5960a06ff776526f836ff397"
+    }
+  ],
+  "acceptedCanvasViews": 33,
+  "combinedReception": {
+    "loaders": 25,
+    "pngs": 99,
+    "scenes": 4,
+    "allThreeNewLotsLoaded": true,
+    "pausedPixelsIdentical": true,
+    "simulationUnchangedByRendering": true
+  },
+  "canonicalCounts": {
+    "atlases": 95,
+    "cells": 700,
+    "runtimeCells": 656,
+    "referenceCells": 44,
+    "lots": 24,
+    "panoramasSeparate": 4,
+    "newAtlases": 5,
+    "newCells": 24,
+    "receipt": "docs/validation/painted-counts-v01511.json",
+    "receiptSha256": "b282dd96d9f4f10ae13a26a02dfb66c3b4a861981236c4fc8c8450dfabeecd03"
+  },
+  "preservation": {
+    "filesCompared": 3101,
+    "byteDifferences": 0,
+    "receipt": "docs/validation/v01511-final/preservation.json",
+    "receiptSha256": "25b565ad2e707c3c4ca3b1cd94935e1cc3a63a76cbeedaf7bf5eb2d9ab925825"
+  },
+  "physicalSourceFilesUnchanged": [
+    "src/simulation.mjs",
+    "src/campaign.mjs",
+    "src/content.mjs",
+    "src/controls.mjs",
+    "src/chemical-simulation.mjs",
+    "src/foundry-simulation.mjs",
+    "src/relay-simulation.mjs",
+    "src/voice-simulation.mjs",
+    "src/workshop-simulation.mjs"
+  ],
+  "bible": {
+    "records": 1007,
+    "sheets": 21,
+    "formulas": 126,
+    "initialAcceptanceCriteria": 133,
+    "allStatusesPreserved": true,
+    "changedRecords": 9,
+    "changedFields": 12,
+    "unchangedRecords": 998,
+    "freshPreviewsReviewed": 11,
+    "resolvedReferences": 2494,
+    "unaffectedCellsCompared": 7580,
+    "receipts": {
+      "source": {
+        "path": "docs/validation/workbook-v0.15-v01511-source.json",
+        "sha256": "2a8d227cb9dce5a0cb37ace70b4a340d708140116cd8cc45e85efca38ecfff32"
+      },
+      "validation": {
+        "path": "docs/validation/workbook-v0.15-v01511-validation.json",
+        "sha256": "cbd9be274cc61a1c758fba8ca166988eace414fae3aa37c696fb52b4fc859a8b"
+      },
+      "export": {
+        "path": "docs/validation/workbook-v0.15-v01511-export.json",
+        "sha256": "ef8abdc51131ddd903aa8e4e8ca6126cd6663203b1fdf413ce498c0d88a2c8ed"
+      },
+      "layout": {
+        "path": "docs/validation/workbook-v0.15-v01511-layout.json",
+        "sha256": "b2b6fdad60ba930ae7e5845264947ff290440fe9e1a609e9fbeb8810ad8d7c93"
+      },
+      "visual-review": {
+        "path": "docs/validation/workbook-v0.15-v01511-visual-review.json",
+        "sha256": "91f5ea63e14cb96c5fd198036f72083a0d97abc5e43d14b2815b7ead3f988b2c"
+      },
+      "references": {
+        "path": "docs/validation/workbook-v0.15-v01511-references.json",
+        "sha256": "a58121e9f589ad9bece44f254e59ddf2906089a6a7a83cb82f8df694575a08db"
+      }
+    }
+  },
+  "offlineManifest": {
+    "format": "Ordre de Cendre standalone ZIP32, one UTF-8 file",
+    "entry": "Ordre_de_Cendre.html",
+    "source": {
+      "version": "0.15.11",
+      "commit": "a8658969f928981fe58cee3f4088f9f711587786",
+      "tree": "8b67b86290da234dedb9c8c2a5bc1d41bbcd3e3f",
+      "workingTree": "modified"
+    },
+    "runtime": {
+      "node": "24.22.1",
+      "zlib": "1.3.2.1-motley-285e94b"
+    },
+    "distribution": {
+      "channel": "GitHub Release",
+      "gitTracked": false,
+      "note": "The complete ZIP is generated locally and attached to a release. It is not limited by Git blob size and no image is reduced."
+    },
+    "html": {
+      "file": "dist/Ordre_de_Cendre.html",
+      "bytes": 230730588,
+      "sha256": "e916d5c36318ab2b6eaa73942d61ce761a45c8d6089e40564120c7d5a16e9c31",
+      "crc32": "d8413b6e"
+    },
+    "zip": {
+      "file": "dist/Ordre_de_Cendre.zip",
+      "bytes": 169470220,
+      "sha256": "47266dce1f59724ce8fb47d8c5c9795cd218012cec1a384c8e32c5cf85e2a9b0",
+      "entries": 1,
+      "compressedBytes": 169470082,
+      "method": "deflate",
+      "level": 9,
+      "timestamp": "1980-01-01T00:00:00Z"
+    },
+    "fidelity": "The single ZIP entry is byte-for-byte identical to the locally generated HTML, including every embedded PNG and all gameplay code.",
+    "reproducibility": "ZIP bytes are deterministic for identical HTML and zlib implementation. Cross-runtime verification compares the extracted HTML SHA-256; compressed bytes may vary between zlib versions."
+  },
+  "offlineModules": 83,
+  "distributionReception": {
+    "intendedChannel": "GitHub Release",
+    "releaseAssetUploaded": false,
+    "releaseAssetReceived": false,
+    "note": "The raw build manifest describes the intended channel only. No Release asset was uploaded or received and the previously denied Release workflow was not triggered."
+  },
+  "preliminaryReceptions": [
+    {
+      "path": "docs/validation/v01511-final/integrated/receipt.json",
+      "note": "Harness initially expected a map from every image loader; corrected reception of the direct Cerbere state, with no runtime change."
+    },
+    {
+      "path": "docs/validation/v01511-final/integrated-final/receipt.json",
+      "note": "Runtime checks passed. Later diagnostic caption alignment correction changes no game pixel below the caption band."
+    },
+    {
+      "path": "docs/validation/painted-particle-impacts-v01511/receipt.json",
+      "note": "Source guard caught concurrent industry integration; later dedicated and combined receptions use stable sources."
+    },
+    {
+      "path": "docs/validation/painted-vesper-industry-v01511/initial/receipt.json",
+      "note": "MI04 test setup required explicit campaignContext for pump reconnection; no runtime or PNG changed."
+    }
+  ],
+  "sourceHashes": {
+    "src/audio.mjs": "a1fe78add6c0eac7961d937afd501295d5772af6f20191b377cadd8fc7282829",
+    "src/campaign.mjs": "f4176813bedfaf4139c428c8bd4e02b4c1dd8844eee867b2bf76fea3f9ab3c94",
+    "src/cerbere-weapon-pose.mjs": "5cf7a18ad1ceb0cf3671b66ca3529d7ab7c0e3e85c2f50408597a9019b7b5269",
+    "src/chemical-assets.mjs": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753",
+    "src/chemical-renderer.mjs": "6455101fdfc529bb69e948393b7a27ba909c208e08dbe1285f50d84a90bf73fd",
+    "src/chemical-simulation.mjs": "778651c4accc7dd78189d5613d2e06896f16f0587651b7272b269d0d7a743f34",
+    "src/chemical-validation.mjs": "ed00e720b26e66b310707e589f90146bdd1309c5812a9449856dcd7980abb3ba",
+    "src/content.mjs": "30308100b760741b7bd1ff8b353e000d3954e195362a85983c080143d29de0fb",
+    "src/controls.mjs": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32",
+    "src/departure-validation.mjs": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b",
+    "src/enemy-weapon-pose.mjs": "736f34c9ca9eca086e6c437d9497c322bb5efcdc7598fb3980559c854bf1ff6f",
+    "src/foundry-assets.mjs": "963637fb4d09b582ca9760c905a2770859c44bbd2205b0043d338b7b38ab0c16",
+    "src/foundry-renderer.mjs": "54a722ca7cbdcc25cfb08609d366137bcf11ee47d1306fcec11f6f876e035625",
+    "src/foundry-simulation.mjs": "2cb9ef3d02947ba615bcfd03815b1cf0ae2ada52b088bff4145d979869cc4753",
+    "src/foundry-validation.mjs": "7d53dfdc9315161199b8cc4e74ef908dbfe9c3a10e3288b23debbcb3e02a313d",
+    "src/main.mjs": "74d9a33e1dbb23389471aa3aba2e472498eb942a8da3094cfe2e619936630591",
+    "src/painted-cerbere-layout.mjs": "fea5b52aa460eb92241d8388d58bffbc047e75469a260324d69f7ffdb788dce3",
+    "src/painted-cerbere.mjs": "86440fd1749fec987b3fb34b3d4eca2471f3862f9362d632af976c3133d02047",
+    "src/painted-chemical-layout.mjs": "1eed64e37157a7147a6fc818b8ffd0ab7c2b865c257a2c90b0f3f7610f2b8bf8",
+    "src/painted-chemical.mjs": "ad7df03d961d22ec702cbbfee7b14015c2b4a02de34fcc2f9204bbedd990f0d4",
+    "src/painted-combat-layout.mjs": "98f354701cd661ab6a2d175563ad12aba69f1fbe1437f506bd042959acecd8bb",
+    "src/painted-combat.mjs": "66aa27a2d6f25a1eeb714d125957c30f208428e8c66283a936ba9846b73404f5",
+    "src/painted-foundry-sites-layout.mjs": "7a5d768474a3d194172c17f4d3e935d4dcbe4fbf333224d320bb128e3455028c",
+    "src/painted-foundry-sites.mjs": "516ba9dd30e68f274753811beeda0371ecc05fb10f20277337a7736cab1b2128",
+    "src/painted-kharon-scenery-layout.mjs": "4c96654e1c0bf6d2812fbe0c271d0ceef630f260ce116a275d0cbcafcbf3a77b",
+    "src/painted-kharon-scenery.mjs": "f02051acfb96637e846981abad012a933089717f3a794ef88c19e8b84726a756",
+    "src/painted-nacre-civilians-layout.mjs": "6f7a482e47889217932417a2f802b4a89d30879ce5c54fee89d50572bf54fb14",
+    "src/painted-nacre-civilians.mjs": "3d8553c81a80b6b9a111963f959c68c9a612aa0a51b0cb9171e4c373d06d433c",
+    "src/painted-nacre-layout.mjs": "2cc15eabb2f337e9500a79461a97c5ab0af18ecaeff3862e7b43d9a4bb0f4011",
+    "src/painted-nacre-people-layout.mjs": "15a1ad1b2074e3f38b52e029dc6caad832e068e21271b5bad2b3242074be39d7",
+    "src/painted-nacre-people.mjs": "ac509c72c0516cc5ca3d2a565d4a2910bdc9dad4e6d067a861229e41bbd78784",
+    "src/painted-nacre-scenery-layout.mjs": "468e7cce4099f0dd1748684448bd77115b2eb701f1f1b13b46eb01f9cc4d3b17",
+    "src/painted-nacre-scenery.mjs": "95a6a7f9043f99389cf6c458176190307740cf2f4038cbe345be6427b238a3ff",
+    "src/painted-nacre-sites-layout.mjs": "fc12ffe49d3d7b21f450f67b6d55c9ef57b7a752913d955974994b5b7d246320",
+    "src/painted-nacre-sites.mjs": "33e98db1963d2ede5fa759abe3d5cc1291dabaf76716b3af9199d274f7334d53",
+    "src/painted-nacre.mjs": "3abb8eb6c71262eb1ccfdd152b01952cdc7e6d2d6326b7a7b34309ffa77eabd3",
+    "src/painted-particle-impacts-layout.mjs": "26d6cf49bb231dc09556258f18b8e704607eb3edcb3665fc290f65c2ee3514fc",
+    "src/painted-particle-impacts.mjs": "289352fb5b139907e0788fc03d4c6df30afead487045771aea06759c2740e110",
+    "src/painted-particles-layout.mjs": "897108319750c1be2531eaf0848549eaf0bdf511db8ab8ccd5258d667a3a434b",
+    "src/painted-particles.mjs": "d3b4e19e93705799bd4a65c099154967faa8331f0f7e44de5046e1fba5bd042b",
+    "src/painted-relay-layout.mjs": "0289c80c3b4803407d284928e327511efae5d10748e0d28d9409195c5b47ee0f",
+    "src/painted-relay.mjs": "b3aa217e499f1de26ba5204b8dd7a799a042983cd1976421df1271069d008765",
+    "src/painted-route-layout.mjs": "cb7be733e16a4a444dc9ba2de3ef40d7fbb3e01ec5f7dc76eb8034f61b00d3c5",
+    "src/painted-route.mjs": "c939daa2d174c6ede3fdcccef364d71c82fce1f8244cadcfec43d308e30b1268",
+    "src/painted-sprite-layout.mjs": "c7fd67789497c1c8d733693cc08e3a582bc433f67a4cae93c816f92403cb6fcd",
+    "src/painted-sprites.mjs": "dfa61893d8cbc57bc9fb407af855dcab127f5c6acca1ad4a36289368f7aa4c46",
+    "src/painted-thyr-layout.mjs": "de98aa3b7e6c4965a62df91604be28769ba52bd87e821d8a5aad5ae6e24b085d",
+    "src/painted-thyr-scenery-layout.mjs": "987005561d45fa99082b8917024bf0c40eb4393ec8ce0c31090df137e2788b67",
+    "src/painted-thyr-scenery.mjs": "7d8456e8829e50bfd3009d5f7a5f5271e1fb94bb0d17e66cb07ebe4846c2b30d",
+    "src/painted-thyr.mjs": "5156604d45cbc0693a43963dae9d18e546100b5d46d73ba2469c5aea4e88026f",
+    "src/painted-transport-layout.mjs": "85057bffdc36dace2e891d5fda99793fd2f24f1a91e22c5057218d0a67bebe02",
+    "src/painted-transport.mjs": "cfc4c3cefb6f536bec87dc24479f9cd85db1a5c0a3cb62d427c0c6d662f41af9",
+    "src/painted-vesper-industry-layout.mjs": "15d19896be6e4480877ec68013b2f68017aacc720ed5496418e4957d71f8c792",
+    "src/painted-vesper-industry.mjs": "78b9ed2887f6609f3e09bf01b3cab8a5933cb2f785075a984535c872ba66f1cd",
+    "src/painted-vesper-layout.mjs": "c7e6b1d0808bde034ddd7368fe48691816197be9cb35362984d90690bebc7b56",
+    "src/painted-vesper-scenery-layout.mjs": "0b44b6fcaf30e8453178e71c01d5ae50ffc5964106cd6802161971b349d81901",
+    "src/painted-vesper-scenery.mjs": "72e670def02e627d3902c4ec8893d8e935464650fc06ca80628416ce598956cb",
+    "src/painted-vesper.mjs": "93447fce2ca3f2e4413bc67fd66f2a051bdab774d8b500ac7913909846c1bbe5",
+    "src/painted-voice-layout.mjs": "bb15bbf88be2f4038e855168bbf00ebfbfa687afd31bfdf8b7d012bf93fc3fcf",
+    "src/painted-voice.mjs": "c49e3b3d49e05504d88eee6ed011be362ccb423b4b1ae4a758f3fa529333baa1",
+    "src/painted-walker-fx-layout.mjs": "57ac1683477b22b6efa581f81634f25c4673102ad2e5e60bace2ab8d4ce42e7d",
+    "src/painted-walker-fx.mjs": "495b7137f03e239eafc29a57e6cc12b70af1cfb62ecd6a44ec3e12241709435b",
+    "src/painted-walker-layout.mjs": "4cf545b92f234227451c19867301bcb1d76d18d1e0975ebbb8e08b0bf746811c",
+    "src/painted-walkers.mjs": "00b66e7dfd17862be23162f3acb899d4c14a5f1e853e1dff56440090dce91c8c",
+    "src/painted-worlds.mjs": "a50c9e38b87106516e6fd14cb2932e78d3e4773d254215155e97417ad4f63041",
+    "src/production-assets.mjs": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0",
+    "src/relay-assets.mjs": "9aa0d1ba6263c59b92d2de63bfdac6208f3735682125f335e5eb6eba4b119e81",
+    "src/relay-renderer.mjs": "8786c4490dce024efd066c58665341186c44ad7dec9c1d5592dc01e39e2bce21",
+    "src/relay-simulation.mjs": "20d64e40f534a26ef244918888b946c7076f61e07ab237ad1d5838d43e30c8ff",
+    "src/relay-validation.mjs": "3b67fabcca87abc022e0fc846e9a8529774f32db84504b147fc378c81e519839",
+    "src/renderer.mjs": "756e075cdb9bba6fd03d60d5d5275b79f266ade6f14f0bcd3876e7ad9e567aa0",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+    "src/thyr-renderer.mjs": "3fb4421c5ebe1273cf8f55b837d45f762f730a493e9124e7b8beb32ae8b06a68",
+    "src/thyr-validation.mjs": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+    "src/voice-assets.mjs": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0",
+    "src/voice-renderer.mjs": "c3180fef69bffc6699397491b0f079b4058712cf18c505dadb244585d5955c2c",
+    "src/voice-simulation.mjs": "eefa4de80ef3fb60b8b0d07bdccec0ab2fb3ea465a44ba959deb1e221a7baff6",
+    "src/voice-validation.mjs": "7cc3ecb9c4c3f02232795c44274e7eb5ed49d67962c0b2e72765378a582051ed",
+    "src/workshop-assets.mjs": "f2b9420b67d701fb3c532b0c645599a8b9501cfbc12aab8054efea284bb3e42f",
+    "src/workshop-renderer.mjs": "82de9442d14d994af083fe7ba13121a58a6ebe7615388060ab540d26cb58cf6a",
+    "src/workshop-simulation.mjs": "ea4992944c6b32b8b0e4351348c8af8348d2d733ba5fb60f0d12f36ee40c12fb",
+    "src/workshop-validation.mjs": "a96a7b0a932f3aec858f46e424819ccd3cb299aaa41282994c2a14cacc41a0db",
+    "index.html": "bb2855b73ed1d2c8c8f56e821d5856dc0c941aba1cfdea94434e2b300f146b8b",
+    "package.json": "3843b53ae2fbd1c56f5cee0ab677fb14f0eadff9051151607fb37fd548a0ddbf",
+    ".github/workflows/ci.yml": "d80199dbb64200fdaf5fd05c5c21e274dec4843bca43c6ec21d875401746e1f8",
+    "data/bible.json": "6d20f04fdf0127c3cc25617405c829a9089c8c3d1b9325565e0766909c6d17ba",
+    "docs/ORDRE_DE_CENDRE_Bible.xlsx": "68fd25c4c474ef63bcf5efd1a97bb4b7ce2870e3a2ca9be85033ae3013efc76d",
+    "assets/painted/particle-impacts/README.md": "a46ae96c22331495af753defc6b368a200107f8f8da760999d8bebc1dc4c1152",
+    "assets/painted/particle-impacts/blast.png": "94d07a95ca44f5d562504c3bb14cc0cde6f92f5b873416542db3a540e5d26dec",
+    "assets/painted/particle-impacts/manifest.json": "f4cb4869e4c2e4c2524316359576c77c3237aba75a2b7b510c2564cf2a59046a",
+    "assets/painted/particle-impacts/prompts.json": "9b1d258bcbcf36c65beb61701db0fe6e7644c5b318b4383399e9078059f3d95c",
+    "assets/painted/particle-impacts/spark.png": "650d0efa9684b73c006468426fa88eab366cda3efd3e3b9dd2261a8675bd483c",
+    "assets/painted/walker-fx/README.md": "6c08ad98c0b9e79722c8643346dee3a69c439a6990cf677f525a7a71a95c7200",
+    "assets/painted/walker-fx/manifest.json": "d93418db28bd86717c904a881b50ace7ad2f2ed2340fb244726993067237a861",
+    "assets/painted/walker-fx/muzzle.png": "fe504ea818d12838fc90272a3fd71cea52950f2148ba94bcd450b715acfd4a57",
+    "assets/painted/walker-fx/prompts.json": "26a4e6f1038f9ecb70930e720295e5c47b0cc265a99e228c4845561762e846cb",
+    "assets/painted/walker-fx/vent.png": "357149d113558b51ae3d02afa6c50f81aa07993a37c46996b3069d2d50716210",
+    "assets/painted/vesper-industry/README.md": "77c8c346948d4f9a64f9a1b09818626cf6da3af617f354f411ed8afb18622b5f",
+    "assets/painted/vesper-industry/industry.png": "80e2a528226c5d3fa9a7086a78c19511d2df6808af21f860062a96f2278592b8",
+    "assets/painted/vesper-industry/manifest.json": "33b0699de3bc17bf99238ca1bbd7ac19ff36371291eec634852a396d5c2fdcfd",
+    "assets/painted/vesper-industry/prompt.txt": "a68a95d73ca2d33e16590bfdf82414f309d8119442e15d4bd3c498c7d176687c",
+    "assets/painted/vesper-industry/prompts.json": "98623a4053608c38c160c9ee35c90df8a8b79533b3bbd69de3d0abb4418bfad9",
+    "assets/painted/vesper-industry/provenance.json": "c10c80db4d3bfcb3206dcca224e255d8eb1cf616d2caebaaabf80c19c63357f2"
+  },
+  "browser": {
+    "executed": false,
+    "newNativeAttemptPerformed": false,
+    "existingEnvironmentBlockReceipt": "docs/validation/v0159-final/browser-smoke.json",
+    "note": "Historical environment denial retained; Canvas and modeled DOM do not certify native browser, audio, physical touch or hardware performance."
+  },
+  "humanSessionPerformed": false,
+  "releaseWorkflowTriggered": false,
+  "deploymentStatus": "Not inferred from local validation."
+}

@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.15.10 · Français**
+**Nom de code : ImperiumMarch · Version 0.15.11 · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -12,7 +12,9 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 Cette livraison contient un **prototype de quatorze missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant **v14**. MI12 achève la tranche de Thyr ; MI13 et MI14 ouvrent Kharon par un convoi industriel puis un atelier en grève. La Bible contient **1 007 fiches sur 21 onglets**. Les dix-huit missions MI15–MI32, les seize contrats et la qualité de production visée restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
 
-La **0.15.10 habille les sols de Thyr et de Kharon et les particules existantes du jeu** : six nouveaux atlas apportent huit matières, douze petits décors et douze phases de fumée/poussière. Le catalogue atteint **90 atlas / 676 cellules**, dont 632 utilisées au rendu et 44 références, dans 21 lots. Les quatre panoramas restent séparés. Les nouveaux sprites suivent les terrains, appuis et émissions déjà simulés. Le [bilan courant](docs/PRODUCTION_V15_10.md), la [réception QA](docs/QA_V15_10.md) et le [guide de la Bible](docs/BIBLE_README.md) précisent leur portée.
+La **0.15.11 ajoute les étincelles, les petits éclats d'impact, le flash de tir principal, la vapeur de purge et les silhouettes industrielles de Vesper**. Cinq nouveaux atlas apportent 24 cellules utilisées. Le catalogue atteint **95 atlas / 700 cellules**, dont **656 utilisées au rendu et 44 références**, dans **24 lots** ; les quatre panoramas restent séparés. Les effets suivent les émissions, visées, durées et phases actuelles. Le petit atelier industriel réutilise une image déjà acquise. Le [bilan courant](docs/PRODUCTION_V15_11.md), la [réception QA](docs/QA_V15_11.md) et le [guide de la Bible](docs/BIBLE_README.md) en précisent la portée. L'[audit des sprites restants](docs/SPRITES_REMAINING_V15_11.md) propose cinq prochains lots et les réemplois à examiner ; ces travaux futurs ne sont pas produits ou reçus dans cette tranche.
+
+La **0.15.10 habille les sols de Thyr et de Kharon et les particules existantes du jeu** : six nouveaux atlas apportent huit matières, douze petits décors et douze phases de fumée/poussière. Son catalogue compte **90 atlas / 676 cellules**, dont 632 utilisées au rendu et 44 références, dans 21 lots. Les quatre panoramas restent séparés. Les sprites suivent les terrains, appuis et émissions déjà simulés. Le [bilan 0.15.10](docs/PRODUCTION_V15_10.md) et sa [réception QA](docs/QA_V15_10.md) conservent les résultats de cette tranche.
 
 La **0.15.9 complète les habitants et les berges de Nacre** : cinq atlas de personnages proposent huit apparences et 32 poses de marche ; deux atlas ajoutent quatre matières de sol et six petits décors. Le catalogue atteint **84 atlas / 644 cellules**, dont 600 utilisées au rendu et 44 références. La reprise conserve également l'intégralité de la 0.15.8 : panoramas, décors de Vesper, techniciens, personnel sanitaire et patients. Le [bilan 0.15.9](docs/PRODUCTION_V15_9.md), la [réception QA](docs/QA_V15_9.md) et le [guide de la Bible](docs/BIBLE_README.md) précisent les réalisations et leur portée.
 
@@ -20,15 +22,23 @@ La **0.15.8 ajoute les personnes de Nacre, les sols et le viaduc de Vesper, ains
 
 ## Jouer à cette version
 
-**Les sources 0.15.10 sont disponibles dans la [PR #8](https://github.com/darknigthmare/ImperiumMarch/pull/8)**. Le commit applicatif `8f62c83289f0506b7d337ca066758297b9df7604` possède exactement l'arbre local reçu. La [CI distante](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44065282375) a réussi : **37 étapes, 852 tests, 174 comparaisons SVG/Canvas, 21 lots d'atlas, les panoramas et 108 parcours du DOM modélisé**. Elle reproduit exactement les empreintes de l'HTML et du ZIP locaux. Le [reçu de publication](docs/validation/v01510-publication.json) et le [dossier de déploiement](docs/DEPLOYMENT.md) distinguent les sources, les contrôles et l'hébergement.
+La **0.15.11 est construite et reçue localement**, et ses sources applicatives sont publiées dans la [PR #9](https://github.com/darknigthmare/ImperiumMarch/pull/9), avant fusion. La réception locale comprend **874 tests, 174 comparaisons SVG/Canvas, 108 parcours du DOM modélisé**, 29 vues dédiées et quatre vues combinées. Les nouvelles images sont intégrées à l'HTML autonome et à la sortie web.
 
-**Le site public reste en 0.15.7 lors de cette réception du 17 novembre.** Vercel refuse le commit applicatif 0.15.10 pour quota : « Deployment rate limited — retry in 24 hours. » Aucun déploiement n'est créé pour ce SHA. L'archive autonome complète 0.15.10 est construite et vérifiée ; aucune Release GitHub de cette archive n'est annoncée disponible.
+La [CI corrigée de PR](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44076721518), associée au commit `7d3a1e01c917614371cdabc56fbe10482b0da337`, a réussi le **17 novembre 2026 à 12:49:42, heure de Paris** : **40 étapes, 874 tests, 174 comparaisons SVG/Canvas, 24 lots d'atlas, les panoramas et 108 parcours du DOM modélisé**. Elle reproduit exactement les octets de l'HTML et du ZIP locaux. Le [reçu CI](docs/validation/v01511-pr-ci.json) distingue le HEAD de la PR de la fusion synthétique exécutée, dont l'arbre est identique au snapshot local corrigé. Le premier échec et le correctif portable du banc restent documentés dans la [réception QA](docs/QA_V15_11.md).
+
+Les previews Vercel initial et corrigé ont atteint **READY**. Le [preview corrigé](https://imperium-march-fwqkgclcy-darknigthmares-projects.vercel.app/) est reçu à **12:45:13, heure de Paris**, pour le même HEAD corrigé. Le [contrôle HTTP conservé](docs/validation/v01511-vercel-preview.json) porte uniquement sur le preview initial `4352b072` : version 0.15.11, réponses 200, `main.mjs` identique et 25 chargeurs. Il ne constitue ni une réception HTTP du nouveau SHA ni une session de navigateur.
+
+Le [reçu de publication](docs/validation/v01511-publication.json) s'arrête **avant le commit documentaire et la fusion**. À cette étape, aucune fusion, CI de `main` ou production 0.15.11 n'est encore reçue ; la production observée était la 0.15.7. Les suites restent consultables dans la [PR #9](https://github.com/darknigthmare/ImperiumMarch/pull/9) et le [suivi de publication](docs/DEPLOYMENT.md). Aucune archive 0.15.11 n'est reçue dans une Release GitHub.
+
+**Les sources 0.15.10 sont fusionnées sur `main` par la [PR #8](https://github.com/darknigthmare/ImperiumMarch/pull/8)**, au commit [`a8658969`](https://github.com/darknigthmare/ImperiumMarch/commit/a8658969f928981fe58cee3f4088f9f711587786). Le commit applicatif `8f62c83289f0506b7d337ca066758297b9df7604` possède exactement l'arbre local reçu. La [CI de PR](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44065282375) et la [CI de main](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44068425762) ont réussi : **37 étapes, 852 tests, 174 comparaisons SVG/Canvas, 21 lots d'atlas, les panoramas et 108 parcours du DOM modélisé**. Toutes deux reproduisent exactement les empreintes de l'HTML et du ZIP locaux. Le [reçu applicatif](docs/validation/v01510-publication.json), le [reçu de main](docs/validation/v01510-main-ci.json) et le [dossier de déploiement](docs/DEPLOYMENT.md) distinguent les sources, les contrôles et l'hébergement.
+
+**Lors de la réception historique 0.15.10 du 17 novembre, la production observée était la 0.15.7.** Vercel avait refusé le commit applicatif 0.15.10 pour quota : « Deployment rate limited — retry in 24 hours. » Aucun déploiement n'avait été créé pour ce SHA. L'archive autonome complète 0.15.10 avait été construite et vérifiée ; ce reçu n'atteste aucune Release GitHub de cette archive.
 
 **Les sources 0.15.9 sont disponibles dans la [PR #7](https://github.com/darknigthmare/ImperiumMarch/pull/7)**, qui réunit la tranche 0.15.8 récupérée et les nouveaux lots de Nacre. Son commit applicatif `17041c1cec7d9b608afe4955364569a9009c174f` possède exactement l'arbre local testé. Sa [CI distante](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44051511167) a réussi avec 836 tests, 174 comparaisons SVG/Canvas, 18 lots d'atlas, les panoramas et 108 parcours du DOM modélisé. L'HTML et le ZIP construits à distance sont identiques aux fichiers locaux. Le [dossier de déploiement](docs/DEPLOYMENT.md) en précise la portée.
 
 Lors de la réception historique 0.15.9, Vercel avait déjà refusé ce commit pour quota. Le [reçu de publication 0.15.9](docs/validation/v0159-publication.json) conserve ce constat séparé. Son archive autonome complète est construite et vérifiée ; aucune Release GitHub de cette archive n'est annoncée disponible.
 
-La **0.15.7 est publiée sur le [site du jeu](https://imperium-march.vercel.app/) et dans les sources GitHub**. La [PR #6](https://github.com/darknigthmare/ImperiumMarch/pull/6) est fusionnée sur `main` au commit [`1235102`](https://github.com/darknigthmare/ImperiumMarch/commit/1235102b25a531a90feeb0d1b38a37482a928c5d). Vercel a reçu ce même commit en production le 16 novembre 2026 à **22:09:47, heure de Paris**. Le [reçu de publication](docs/validation/v0157-publication.json) relie les sources, les deux CI réussies et le contrôle HTTP du site.
+La **0.15.7 a été reçue en production sur le [site du jeu](https://imperium-march.vercel.app/) le 16 novembre 2026 à 22:09:47, heure de Paris**. La [PR #6](https://github.com/darknigthmare/ImperiumMarch/pull/6) avait été fusionnée sur `main` au commit [`1235102`](https://github.com/darknigthmare/ImperiumMarch/commit/1235102b25a531a90feeb0d1b38a37482a928c5d), également reçu par Vercel. Le [reçu historique de publication](docs/validation/v0157-publication.json) relie les sources, les deux CI réussies et le contrôle HTTP du site à cette date.
 
 Le [rapport QA 0.15.7](docs/QA_V15_7.md) conserve **795 tests, 174 comparaisons SVG/Canvas, quatorze lots peints et 108 parcours du DOM modélisé réussis**. Une [réception navigateur limitée sur l’aperçu](docs/QA_NATIVE_V15_7.md) confirme les cinq vues, la marche et le treuil de MI01, la pause et la reprise ; ses captures n’ont pas survécu à la réinitialisation de l’environnement. Les rapports de la 0.15.6 restent dans son [reçu historique](docs/validation/v0156-publication.json) et son [rapport Chrome](docs/QA_NATIVE_V15_6.md).
 
@@ -82,6 +92,9 @@ npm run check:nacre-scenery
 npm run check:thyr-scenery
 npm run check:kharon-scenery
 npm run check:particles
+npm run check:particle-impacts
+npm run check:walker-fx
+npm run check:vesper-industry
 npm run check:offline-package
 npm run build:web
 ```
@@ -506,6 +519,7 @@ Onze actions clavier sont reconfigurables dans Réglages. Une manette standard p
 | [Bible générale](docs/BIBLE_FR.md) | Vision et règles communes. |
 | [Campagne](docs/CAMPAIGN_FR.md) | Trente-deux missions, quatre actes et fins ; contient des révélations. |
 | [MI01](docs/CAMPAIGN_MISSION_01.md), [MI02](docs/CAMPAIGN_MISSION_02.md), [MI03](docs/CAMPAIGN_MISSION_03.md), [MI04](docs/CAMPAIGN_MISSION_04.md), [MI05](docs/CAMPAIGN_MISSION_05.md), [MI06](docs/CAMPAIGN_MISSION_06.md), [MI07](docs/CAMPAIGN_MISSION_07.md), [MI08](docs/CAMPAIGN_MISSION_08.md), [MI09](docs/CAMPAIGN_MISSION_09.md), [MI10](docs/CAMPAIGN_MISSION_10.md), [MI11](docs/CAMPAIGN_MISSION_11.md), [MI12](docs/CAMPAIGN_MISSION_12.md), [MI13](docs/CAMPAIGN_MISSION_13.md), [MI14](docs/CAMPAIGN_MISSION_14.md) | Contrats du contenu réellement exécuté. |
+| [Bilan 0.15.11](docs/PRODUCTION_V15_11.md), [QA 0.15.11](docs/QA_V15_11.md), [sprites restants](docs/SPRITES_REMAINING_V15_11.md) | Lots reçus, portée des contrôles et cinq prochaines priorités graphiques encore à produire. |
 | [Production 0.15](docs/PRODUCTION_V15.md), [reconstruction 0.14.1](docs/PRODUCTION_V14_RECONSTRUCTION.md) | Mission de l’atelier, provenance et travail restant ; conservation des 133 critères initiaux. |
 | [QA 0.15](docs/QA_V15.md), [QA de reconstruction](docs/QA_RECONSTRUCTION_014.md) | Résultats de chaque version, avec portées distinctes de simulation, interface, rendu, classeur et navigateur. |
 | [Sauvegarde v14](docs/CAMPAIGN_SAVE_V14.md), [v13 historique](docs/CAMPAIGN_SAVE_V13.md), [Architecture](docs/ARCHITECTURE.md), [API simulation](docs/SIMULATION_API.md) | Contrat courant de migration et références techniques historiques. |

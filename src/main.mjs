@@ -29,6 +29,9 @@ import { loadPaintedNacreScenery, paintedNacreSceneryStatus } from './painted-na
 import { loadPaintedThyrScenery, paintedThyrSceneryStatus } from './painted-thyr-scenery.mjs';
 import { loadPaintedKharonScenery, paintedKharonSceneryStatus } from './painted-kharon-scenery.mjs';
 import { loadPaintedParticles, paintedParticlesStatus } from './painted-particles.mjs';
+import { loadPaintedParticleImpacts, paintedParticleImpactsStatus } from './painted-particle-impacts.mjs';
+import { loadPaintedVesperIndustry, paintedVesperIndustryStatus } from './painted-vesper-industry.mjs';
+import { loadPaintedWalkerFx, paintedWalkerFxStatus } from './painted-walker-fx.mjs';
 import { loadPaintedVesperScenery, paintedVesperSceneryStatus } from './painted-vesper-scenery.mjs';
 import { AudioEngine } from './audio.mjs';
 import { CONTROL_ACTIONS, normalizeBindings, bindingLabel, remapBinding, keyboardActions, GamepadInput, defaultBindings, formatControlText } from './controls.mjs';
@@ -75,6 +78,9 @@ loadPaintedNacreScenery();
 loadPaintedThyrScenery();
 loadPaintedKharonScenery();
 loadPaintedParticles();
+loadPaintedParticleImpacts();
+loadPaintedVesperIndustry();
+loadPaintedWalkerFx();
 loadPaintedVesperScenery();
 let game = null, view = 'campaign', archive = 'doctrine', inGame = false, paused = false, lastTime = 0, hudTick = 0, lastEventId = 0, radioUntil = 0, resultRecorded = false, radioQueue = [];
 let campaignStorage;
@@ -1266,5 +1272,5 @@ $('boot').hidden = true; $('menu').hidden = false;
 requestAnimationFrame(frame);
 // Read-only observation hook for the automated browser suite, never a player menu.
 if (new URLSearchParams(location.search).get('test') === '1') {
-  window.__IMPERIUM_TEST__ = Object.freeze({ snapshot: () => ({ game: game ? structuredClone(game) : null, campaign: structuredClone(campaign), activeMode, campaignReplay, campaignBlocked, campaignWarning, cameraX: renderer.cameraX, paused, inGame, view, settings: { ...settings }, storageAvailable, paintedSprites: paintedSpriteStatus(), paintedCombatSprites: paintedCombatStatus(), paintedWalkerSprites: paintedWalkerStatus(), paintedThyrSprites: paintedThyrStatus(), paintedCerbereSprite: paintedCerbereStatus(), paintedTransportSprites: paintedTransportStatus(), paintedRelaySprites: paintedRelayStatus(), paintedNacreSprites: paintedNacreStatus(), paintedChemicalSprites: paintedChemicalStatus(), paintedVoiceSprites: paintedVoiceStatus(), paintedNacreSiteSprites: paintedNacreSiteAssetSnapshot(), paintedVesperSprites: paintedVesperStatus(), paintedRouteSprites: paintedRouteStatus(), paintedFoundrySiteSprites: paintedFoundrySitesStatus(), paintedWorlds: paintedWorldStatus(), paintedNacrePeople: paintedNacrePeopleStatus(), paintedNacreCivilians: paintedNacreCivilianStatus(), paintedNacreScenery: paintedNacreSceneryStatus(), paintedThyrScenery: paintedThyrSceneryStatus(), paintedKharonScenery: paintedKharonSceneryStatus(), paintedParticles: paintedParticlesStatus(), paintedVesperScenery: paintedVesperSceneryStatus() }) });
+  window.__IMPERIUM_TEST__ = Object.freeze({ snapshot: () => ({ game: game ? structuredClone(game) : null, campaign: structuredClone(campaign), activeMode, campaignReplay, campaignBlocked, campaignWarning, cameraX: renderer.cameraX, paused, inGame, view, settings: { ...settings }, storageAvailable, paintedSprites: paintedSpriteStatus(), paintedCombatSprites: paintedCombatStatus(), paintedWalkerSprites: paintedWalkerStatus(), paintedThyrSprites: paintedThyrStatus(), paintedCerbereSprite: paintedCerbereStatus(), paintedTransportSprites: paintedTransportStatus(), paintedRelaySprites: paintedRelayStatus(), paintedNacreSprites: paintedNacreStatus(), paintedChemicalSprites: paintedChemicalStatus(), paintedVoiceSprites: paintedVoiceStatus(), paintedNacreSiteSprites: paintedNacreSiteAssetSnapshot(), paintedVesperSprites: paintedVesperStatus(), paintedRouteSprites: paintedRouteStatus(), paintedFoundrySiteSprites: paintedFoundrySitesStatus(), paintedWorlds: paintedWorldStatus(), paintedNacrePeople: paintedNacrePeopleStatus(), paintedNacreCivilians: paintedNacreCivilianStatus(), paintedNacreScenery: paintedNacreSceneryStatus(), paintedThyrScenery: paintedThyrSceneryStatus(), paintedKharonScenery: paintedKharonSceneryStatus(), paintedParticles: paintedParticlesStatus(), paintedParticleImpacts: paintedParticleImpactsStatus(), paintedVesperIndustry: paintedVesperIndustryStatus(), paintedWalkerFx: paintedWalkerFxStatus(), paintedVesperScenery: paintedVesperSceneryStatus() }) });
 }

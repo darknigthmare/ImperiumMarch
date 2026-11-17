@@ -1,6 +1,6 @@
 # Bible Excel — Ordre de Cendre
 
-Le classeur `ORDRE_DE_CENDRE_Bible.xlsx` présente la conception et le registre de production d’**ImperiumMarch / ORDRE DE CENDRE**. La source courante **0.15.10**, datée du **17 novembre 2026**, contient **1 007 fiches**. La structure conserve **21 onglets**, **20 tables** et **126 formules**. Les compteurs décrivent vingt domaines ; ils ne mesurent pas un pourcentage d’achèvement du jeu.
+Le classeur `ORDRE_DE_CENDRE_Bible.xlsx` présente la conception et le registre de production d’**ImperiumMarch / ORDRE DE CENDRE**. La source courante **0.15.11**, datée du **17 novembre 2026**, contient **1 007 fiches**. La structure conserve **21 onglets**, **20 tables** et **126 formules**. Les compteurs décrivent vingt domaines ; ils ne mesurent pas un pourcentage d’achèvement du jeu.
 
 **MI01–MI14 possèdent une version au stade prototype, avec dossier v14.** Vesper et Nacre sont suivies de quatre sorties de Thyr et de deux missions de Kharon. Les **18 missions MI15–MI32** et les **16 contrats** restent conçus. Les opérations OP01–OP03 gardent leurs rapports indépendants. Six châssis sont jouables.
 
@@ -19,7 +19,35 @@ Le dossier v14 ajoute uniquement `world.kharon.workshop` vide et la version. Les
 
 Les **133 lignes initialement À produire** gardent leur [baseline immuable](validation/production-v09-baseline.json). Le [registre 0.15](PRODUCTION_REGISTER_V15.md) conserve leurs textes, reçus antérieurs et travaux restants ; les nouvelles fiches n’augmentent pas ce dénominateur. Le [bilan de production MI14](PRODUCTION_V15.md) décrit la tranche et le [rapport QA 0.15](QA_V15.md) distingue ses exécutions des réceptions historiques. Le [complément 0.15.1](PRODUCTION_V15_1.md) décrit les huit atlas peints et renvoie à leur [réception graphique](QA_PAINTED_MI14.md).
 
-## Réception du classeur courant 0.15.10
+## Réception du classeur courant 0.15.11
+
+La source actualise **neuf fiches existantes et douze champs descriptifs** pour les effets peints et le second plan industriel de Vesper. La portée et l’en-tête de Prototype suivent la version. Aucun ID, statut, critère d’acceptation ou résultat attendu n’est changé. **AS09, AS16 et AS22 restent À produire**, avec des livrables partiels. Recul, rechargements, kit Vesper complet, effets finaux et réception humaine restent ouverts.
+
+| Lot ajouté en 0.15.11 | Atlas | Cellules | Utilisées au rendu | Références |
+| --- | ---: | ---: | ---: | ---: |
+| Étincelles et petites particules de détonation | 2 | 12 | 12 | 0 |
+| Flash primaire et vapeur de purge | 2 | 10 | 10 | 0 |
+| Industrie de Vesper | 1 | 2 | 2 | 0 |
+| **Nouvelle tranche** | **5** | **24** | **24** | **0** |
+| **Total réconcilié, 24 lots** | **95** | **700** | **656** | **44** |
+
+Les manifestes des [étincelles et détonations](../assets/painted/particle-impacts/manifest.json), du [flash et de la purge](../assets/painted/walker-fx/manifest.json) et de [l’industrie](../assets/painted/vesper-industry/manifest.json) identifient les cinq atlas, leurs dimensions, empreintes, ancres et usages. Les PNG sélectionnés sont conservés octet pour octet, avec leurs prompts et les éditions de transparence documentées. Le [décompte réconcilié](validation/painted-counts-v01511.json) conserve les 21 lots précédents et leurs 44 cellules de référence. Les **quatre panoramas** restent séparés du décompte des atlas, cellules et lots. L’atelier industriel réutilise la cellule maintenance normale du lot Vesper 0.15.7 ; cette réutilisation n’ajoute aucune cellule.
+
+Les **douze cellules de particules** représentent six âges d’étincelle et six de petite particule de détonation, sélectionnés depuis la durée de vie déjà simulée. L’étincelle suit son segment courant, sa largeur et ses extrémités rondes. La détonation reste une petite particule limitée à son cercle existant ; elle ne représente pas une explosion complète ni son rayon de dégâts. Positions, vitesses, alpha, durée et émissions restent inchangées. Le mouvement réduit fixe la première image, la pause conserve l’âge, et les palettes particulières gardent leur repli vectoriel. La [réception après intégration stable](validation/painted-particle-impacts-v01511/verified-integration/receipt.json) reste distincte du premier diagnostic conservé.
+
+Les **dix cellules de walker-fx** apportent quatre phases de noyau de flash primaire et six de vapeur. Le flash suit la bouche et la visée des six châssis, dans le polygone et la fenêtre de présence historiques. Le halo reste procédural. La fenêtre de Caracal demeure de **20 ms** ; aucun flash n’est ajouté au tir secondaire seul. La purge habille les **cinq bouffées existantes**, présentes lors de la ventilation ou au-dessus de 70 de chaleur. Leurs positions, rayons, alpha et phases sont conservés, sans nouvel objet de particule ou circuit thermique. Le mouvement réduit fixe la première phase du noyau et le temps de purge à zéro ; une pause ne fait avancer aucun âge. Le [reçu Canvas](validation/painted-walker-fx-v01511/receipt.json) et la [relecture des onze vues](validation/painted-walker-fx-v01511/visual-review.json) identifient leurs sources et leurs limites.
+
+Les **deux silhouettes industrielles** remplacent le silo et la cheminée vectoriels du second plan de Vesper. Emplacements, hauteurs, parallaxe, tuyaux, supports et fumée historique restent déterminés par le renderer. L’atelier voisin réutilise une cellule acquise. Le lot ne crée ni collision, personne, émission de fumée, interaction écologique ou état de mission. La [réception dans les contextes publics](validation/painted-vesper-industry-v01511/public-context/receipt.json) distingue ses scènes des diagnostics isolés et conserve le premier dossier interrompu.
+
+Le [contrôle de source](validation/workbook-v0.15-v01511-source.json) compare le couple JSON/XLSX **0.15.10** exact du commit publié **`a8658969f928981fe58cee3f4088f9f711587786`**, copié avant modification. Il conserve les **1 007 IDs ordonnés**, tous les critères et résultats attendus, ainsi que les statuts : **273 Conçu, 442 Prototype, 100 À produire et 192 Vérifié**. Les **133 critères initiaux** et leurs fiches sources restent exacts dans le registre historique. Les **998 autres fiches** sont identiques. Les **659 fichiers historiques de la Bible** — aperçus, reçus, fixtures, baseline et registre — sont comparés aux octets de cette référence.
+
+La [génération](validation/workbook-v0.15-v01511-validation.json) recalcule le classeur avec **@oai/artifact-tool**, éprouve un changement temporaire de statut puis le restaure avant export. L’[inspection XML indépendante](validation/workbook-v0.15-v01511-export.json) réconcilie **6 767 cellules source et 126 formules sans erreur**, **20 tables**, **20 validations de statut**, **80 règles conditionnelles** et les vingt volets de données. L’[audit des références](validation/workbook-v0.15-v01511-references.json) résout **2 494 références développées** sans anomalie. Le parseur et ses preuves de mutations négatives antérieures restent inchangés.
+
+La [comparaison avec la 0.15.10](validation/workbook-v0.15-v01511-layout.json) reçoit **7 580 cellules non affectées et 998 fiches inchangées**, avec styles, colonnes, vues et volets identiques. Les [onze vues nouvellement générées et relues](validation/workbook-v0.15-v01511-visual-review.json) couvrent les neuf fiches modifiées, la synthèse et l’en-tête de version. Aucun texte coupé ni chevauchement n’est observé dans ces plages. Les images sont conservées dans [les aperçus 0.15.11](previews/bible-v01511/00-Synthese.png), avec les [inspections](validation/workbook-v0.15-v01511-inspection.ndjson) et le [contrôle des formules](validation/workbook-v0.15-v01511-formula-check.ndjson).
+
+La campagne reste à MI01–MI14, six châssis, trois opérations et un dossier v14. Les flashes de dégâts, les impacts par matériau, les capacités encore conçues et les réceptions humaines restent ouverts. Cette réception porte sur la source, le moteur de calcul, l’export et les aperçus du classeur ; elle ne constitue ni une nouvelle session bureautique native, ni une réception navigateur du jeu, ni un essai humain.
+
+## Réception historique du classeur 0.15.10
 
 La source actualise **13 fiches existantes et 17 champs descriptifs** pour les sols et petits décors de Thyr et Kharon, la fumée et la poussière. La portée et l’en-tête de Prototype suivent la version. Aucun ID, statut, critère d’acceptation ou résultat attendu n’est changé. **AS18 et AS19 restent Prototype ; AS22 reste À produire.** Leurs livrables restent partiels. Les fiches **FL10 et FL11 restent Conçu** et conservent leur texte canonique : les apparences décoratives ne reçoivent pas leurs interactions prévues.
 
@@ -216,27 +244,27 @@ Reporter les modifications dans `data/bible.json`, puis régénérer pour conser
 
 ## Régénérer et contrôler
 
-Le générateur emploie **@oai/artifact-tool** depuis le runtime primaire, sans installer de dépendance dans le dépôt. La [configuration courante](validation/workbook-v0.15-v01510-preview-config.json) sélectionne la synthèse et treize plages couvrant les 13 fiches modifiées et l’en-tête de Prototype. La source `data/bible.json` porte déjà la version 0.15.10. Les configurations et aperçus antérieurs restent conservés. Le suffixe `v01510` distingue les nouveaux reçus des preuves historiques.
+Le générateur emploie **@oai/artifact-tool** depuis le runtime primaire, sans installer de dépendance dans le dépôt. La [configuration courante](validation/workbook-v0.15-v01511-preview-config.json) sélectionne la synthèse et dix plages couvrant les neuf fiches modifiées et l’en-tête de Prototype. La source `data/bible.json` porte déjà la version 0.15.11. Les configurations et aperçus antérieurs restent conservés. Le suffixe `v01511` distingue les nouveaux reçus des preuves historiques.
 
 ```bash
-BIBLE_RECEIPT_SUFFIX=v01510 \
-  BIBLE_PREVIEW_CONFIG=docs/validation/workbook-v0.15-v01510-preview-config.json \
+BIBLE_RECEIPT_SUFFIX=v01511 \
+  BIBLE_PREVIEW_CONFIG=docs/validation/workbook-v0.15-v01511-preview-config.json \
   "$CODEX_PRIMARY_RUNTIME_NODE" tools/build-bible.mjs . \
-  ../outputs/bible-v01510
+  ../outputs/bible-v01511
 ```
 
 Le répertoire de sortie contient le classeur, les inspections et les aperçus. Le générateur copie le XLSX courant dans `docs/ORDRE_DE_CENDRE_Bible.xlsx`. Les arguments optionnels fixent la racine du dépôt et la sortie. `BIBLE_RENDER_SHEETS` et `BIBLE_EXTRA_PREVIEWS` permettent de remplacer les sélections; `BIBLE_RECEIPT_SUFFIX` peut séparer une réception ultérieure de la réception initiale de cette version.
 
-Les reçus courants portent la version source et le suffixe de réception, par exemple `workbook-v0.15-v01510-validation.json`. Les preuves antérieures gardent leur propre version ; aucun rapport, aperçu ou fixture historique ne doit être remplacé pour décrire les nouveaux octets. Le fichier générique `workbook-validation.json` d’un répertoire de sortie décrit uniquement cette génération.
+Les reçus courants portent la version source et le suffixe de réception, par exemple `workbook-v0.15-v01511-validation.json`. Les preuves antérieures gardent leur propre version ; aucun rapport, aperçu ou fixture historique ne doit être remplacé pour décrire les nouveaux octets. Le fichier générique `workbook-validation.json` d’un répertoire de sortie décrit uniquement cette génération.
 
 ```bash
-BIBLE_RECEIPT_SUFFIX=v01510 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-export.py . 2be40743 \
-  --reference-report docs/validation/workbook-v0.15-v01510-references.json
-BIBLE_RECEIPT_SUFFIX=v01510 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-layout.py \
-  /chemin/vers/la-bible-0.15.9.xlsx /chemin/vers/la-source-0.15.9.json
+BIBLE_RECEIPT_SUFFIX=v01511 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-export.py . a8658969 \
+  --reference-report docs/validation/workbook-v0.15-v01511-references.json
+BIBLE_RECEIPT_SUFFIX=v01511 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-layout.py \
+  /chemin/vers/la-bible-0.15.10.xlsx /chemin/vers/la-source-0.15.10.json
 ```
 
-La génération réconcilie comptes et statuts avec le JSON. Elle modifie temporairement un statut, recalcule, contrôle l’effet puis restaure la valeur. Le vérificateur indépendant lit le ZIP/XML : cellules source, caches de formules, tables, validations, règles conditionnelles et volets. [BIBLE_REFERENCES.md](BIBLE_REFERENCES.md) décrit la résolution des IDs, plages et déclarations symboliques ainsi que les sept mutations négatives. Ces mutations peuvent être rééprouvées avec `tools/audit-bible-references.py` si le parseur change; leurs reçus antérieurs restent conservés. La comparaison de mise en page reçoit le couple source/XLSX 0.15.9 exact du commit publié `2be40743`, conservé avant modification et identifié par ses empreintes. Un nouveau recalcul natif, s’il est effectué, doit produire son propre reçu `v01510` ; aucun résultat historique ne peut lui être attribué.
+La génération réconcilie comptes et statuts avec le JSON. Elle modifie temporairement un statut, recalcule, contrôle l’effet puis restaure la valeur. Le vérificateur indépendant lit le ZIP/XML : cellules source, caches de formules, tables, validations, règles conditionnelles et volets. [BIBLE_REFERENCES.md](BIBLE_REFERENCES.md) décrit la résolution des IDs, plages et déclarations symboliques ainsi que les sept mutations négatives. Ces mutations peuvent être rééprouvées avec `tools/audit-bible-references.py` si le parseur change; leurs reçus antérieurs restent conservés. La comparaison de mise en page reçoit le couple source/XLSX 0.15.10 exact du commit publié `a8658969`, conservé avant modification et identifié par ses empreintes. Un nouveau recalcul natif, s’il est effectué, doit produire son propre reçu `v01511` ; aucun résultat historique ne peut lui être attribué.
 
 ## Conserver les sources historiques
 
