@@ -1,6 +1,6 @@
 {
   "name": "imperium-march",
-  "version": "0.15.7",
+  "version": "0.15.8",
   "private": true,
   "description": "Ordre de Cendre — prototype jouable de combat de marcheurs 2D et bible de conception.",
   "type": "module",
@@ -31,7 +31,10 @@
     "check:vesper": "node tools/test-painted-vesper.mjs",
     "check:route": "node tools/test-painted-route.mjs",
     "check:foundry-sites": "node tools/test-painted-foundry-sites.mjs",
-    "check:offline-package": "node tools/build-offline-package.mjs --verify"
+    "check:offline-package": "node tools/build-offline-package.mjs --verify",
+    "check:worlds": "node tools/test-painted-worlds.mjs",
+    "check:nacre-people": "node tools/test-painted-nacre-people.mjs",
+    "check:vesper-scenery": "node tools/test-painted-vesper-scenery.mjs"
   },
   "engines": {
     "node": "22.x"

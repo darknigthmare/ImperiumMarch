@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.15.7 · Français**
+**Nom de code : ImperiumMarch · Version 0.15.8 en préparation de publication · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -12,9 +12,11 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 Cette livraison contient un **prototype de quatorze missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant **v14**. MI12 achève la tranche de Thyr ; MI13 et MI14 ouvrent Kharon par un convoi industriel puis un atelier en grève. La Bible contient **1 007 fiches sur 21 onglets**. Les dix-huit missions MI15–MI32, les seize contrats et la qualité de production visée restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
 
-La **0.15.7 peint les installations de Vesper, de la route vivante et de Kharon** : treize nouveaux atlas transparents et 81 cellules pour les bâtiments, turbines, pompes, radio, treuils, harpons, barrière, camion, vannes, grues, consoles et ponts thermiques. Le total atteint **71 planches et 542 cellules**, dont 504 utilisées au rendu et 38 références. Le [bilan 0.15.7](docs/PRODUCTION_V15_7.md) détaille les trois lots et la correction du décompte historique. La campagne reste à quatorze missions ; la sauvegarde reste v14. Les bilans [installations de Nacre et Thyr](docs/PRODUCTION_V15_6.md), [transports et relais](docs/PRODUCTION_V15_5.md), [Thyr et Cerbère](docs/PRODUCTION_V15_4.md), [marcheurs](docs/PRODUCTION_V15_3.md), [combat](docs/PRODUCTION_V15_2.md), [atelier](docs/PRODUCTION_V15_1.md) et [reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves historiques.
+La **0.15.8 ajoute les personnes de Nacre, les sols et le viaduc de Vesper, ainsi que les horizons de Nacre, Thyr et Kharon**. Six atlas apportent 44 cellules, dont douze poses de marche ; trois panoramas sont comptés séparément. Le catalogue atteint **77 planches et 586 cellules**, dont 548 utilisées au rendu et 38 références. Ce lot a été retrouvé avec ses fichiers et repris sans régénérer ses images. Le [bilan 0.15.8](docs/PRODUCTION_V15_8.md) et son [rapport QA](docs/QA_V15_8.md) décrivent le contenu reçu et ses limites. La campagne reste à quatorze missions ; la sauvegarde reste v14. Les bilans [installations de Vesper à Kharon](docs/PRODUCTION_V15_7.md), [installations de Nacre et Thyr](docs/PRODUCTION_V15_6.md), [transports et relais](docs/PRODUCTION_V15_5.md), [Thyr et Cerbère](docs/PRODUCTION_V15_4.md), [marcheurs](docs/PRODUCTION_V15_3.md), [combat](docs/PRODUCTION_V15_2.md), [atelier](docs/PRODUCTION_V15_1.md) et [reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves historiques.
 
 ## Jouer à cette version
+
+**La 0.15.8 est préparée dans les sources de travail ; sa PR, sa CI distante et son déploiement restent à recevoir.** Le site sert encore la **0.15.7**, confirmée READY pendant la reprise. Le dernier commit documentaire public `ca5139b` a rencontré la limite de déploiements Vercel, avec un délai de 24 heures annoncé le 16 novembre à 22:35, heure de Paris. Ce quota ne transforme pas les vérifications locales de la 0.15.8 en publication web. Le [suivi de déploiement](docs/DEPLOYMENT.md) précise les commits et les disponibilités effectivement observés.
 
 La **0.15.7 est publiée sur le [site du jeu](https://imperium-march.vercel.app/) et dans les sources GitHub**. La [PR #6](https://github.com/darknigthmare/ImperiumMarch/pull/6) est fusionnée sur `main` au commit [`1235102`](https://github.com/darknigthmare/ImperiumMarch/commit/1235102b25a531a90feeb0d1b38a37482a928c5d). Vercel a reçu ce même commit en production le 16 novembre 2026 à **22:09:47, heure de Paris**. Le [reçu de publication](docs/validation/v0157-publication.json) relie les sources, les deux CI réussies et le contrôle HTTP du site.
 
@@ -62,6 +64,9 @@ npm run check:voice
 npm run check:vesper
 npm run check:route
 npm run check:foundry-sites
+npm run check:worlds
+npm run check:nacre-people
+npm run check:vesper-scenery
 npm run check:offline-package
 npm run build:web
 ```
@@ -81,6 +86,18 @@ npm run check:assets-render
 ```
 
 Les outils `render-mi12/mi13/mi14-previews` produisent des scènes Canvas et des états atteints par commandes publiques. Ils ne remplacent pas un essai navigateur. Le [guide du classeur](docs/BIBLE_README.md) décrit la régénération du XLSX à partir de `data/bible.json`.
+
+## 0.15.8 — Des mondes habités
+
+Les techniciens de MI06, la conductrice, le soignant et les quatre patients de MI07 reçoivent leurs images peintes. Leurs poses suivent les déplacements, opérations et pertes existants. MI08 réutilise les apparences de personnel uniquement lorsque leur identité d’origine est connue ; les corps à bord ou déjà accueillis ne sont pas dupliqués sur la route.
+
+Vesper reçoit quatre matières de terrain, six petits décors et six pièces de viaduc. Leurs contours suivent les surfaces et la structure ferroviaire existantes. La reprise corrige les raccords trop durs entre les tuiles de sol par un fondu au rendu. Les trois nouveaux horizons de Nacre, Thyr et Kharon défilent dans un cadrage proportionné ; leurs bâtiments lointains restent des éléments de décor.
+
+![Les patients et le personnel de Nacre pendant le transfert vers l’accueil.](docs/validation/painted-nacre-people-v0158/mi07-patient-transfer.png)
+
+*Scène Canvas de la première réception 0.15.8, atteinte par commandes publiques de simulation. Les positions, personnes et transferts sont ceux de MI07. Cette image n’est pas une capture de navigateur.*
+
+Les [personnes de Nacre](assets/painted/nacre-people/README.md), les [décors de Vesper](assets/painted/vesper-scenery/README.md) et les [panoramas](assets/painted/worlds/README.md) conservent leurs originaux, prompts et mesures. Le [rapport QA](docs/QA_V15_8.md) sépare tests, Canvas, DOM modélisé, navigateur et essai humain. Les animations finales, la campagne complète et MI15–MI32 restent à produire.
 
 ## 0.15.7 — Les sites de Vesper à Kharon
 

@@ -1,0 +1,222 @@
+{
+  "version": "0.15.8",
+  "startedUtc": "2026-11-17T04:32:54.037883+00:00",
+  "completed": true,
+  "scope": "Isolated exact 0.15.8 runtime snapshot excludes unintegrated nacre-civilians files prepared concurrently",
+  "runtimeSourceHashes": "runtime-source-hashes.json",
+  "testFiles": [
+    "tests/ammunition.test.mjs",
+    "tests/campaign-mission.test.mjs",
+    "tests/campaign-progression.test.mjs",
+    "tests/campaign-save.test.mjs",
+    "tests/campaign-v10.test.mjs",
+    "tests/campaign-v11.test.mjs",
+    "tests/campaign-v12.test.mjs",
+    "tests/campaign-v13.test.mjs",
+    "tests/campaign-v14.test.mjs",
+    "tests/campaign-v3.test.mjs",
+    "tests/campaign-v4.test.mjs",
+    "tests/campaign-v5.test.mjs",
+    "tests/campaign-v6.test.mjs",
+    "tests/campaign-v7.test.mjs",
+    "tests/campaign-v8.test.mjs",
+    "tests/campaign-v9.test.mjs",
+    "tests/chemical-assets.test.mjs",
+    "tests/controls.test.mjs",
+    "tests/enemy-weapon-pose.test.mjs",
+    "tests/mi02-mission.test.mjs",
+    "tests/mi03-mission.test.mjs",
+    "tests/mi04-mission.test.mjs",
+    "tests/mi05-mission.test.mjs",
+    "tests/mi06-mission.test.mjs",
+    "tests/mi07-mission.test.mjs",
+    "tests/mi08-mission.test.mjs",
+    "tests/mi09-simulation.test.mjs",
+    "tests/mi10-simulation.test.mjs",
+    "tests/mi11-simulation.test.mjs",
+    "tests/mi12-simulation.test.mjs",
+    "tests/mi13-simulation.test.mjs",
+    "tests/mi14-assets.test.mjs",
+    "tests/mi14-renderer.test.mjs",
+    "tests/mi14-simulation.test.mjs",
+    "tests/offline-package.test.mjs",
+    "tests/painted-cerbere.test.mjs",
+    "tests/painted-chemical.test.mjs",
+    "tests/painted-combat.test.mjs",
+    "tests/painted-foundry-sites.test.mjs",
+    "tests/painted-nacre-people.test.mjs",
+    "tests/painted-nacre-sites.test.mjs",
+    "tests/painted-nacre.test.mjs",
+    "tests/painted-relay.test.mjs",
+    "tests/painted-route.test.mjs",
+    "tests/painted-sprites.test.mjs",
+    "tests/painted-thyr.test.mjs",
+    "tests/painted-transport.test.mjs",
+    "tests/painted-vesper-scenery.test.mjs",
+    "tests/painted-vesper.test.mjs",
+    "tests/painted-voice.test.mjs",
+    "tests/painted-walkers.test.mjs",
+    "tests/painted-worlds.test.mjs",
+    "tests/production-assets.test.mjs",
+    "tests/production-audio.test.mjs",
+    "tests/production-backlog.test.mjs",
+    "tests/radiator.test.mjs",
+    "tests/simulation.test.mjs",
+    "tests/thyr-assets.test.mjs"
+  ],
+  "steps": [
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "seconds": 7.746,
+      "log": "build.log"
+    },
+    {
+      "name": "build-web",
+      "command": [
+        "npm",
+        "run",
+        "build:web"
+      ],
+      "exitCode": 0,
+      "seconds": 0.2,
+      "log": "build-web.log"
+    },
+    {
+      "name": "tests",
+      "command": [
+        "node",
+        "--test",
+        "explicit list from testFiles"
+      ],
+      "exitCode": 0,
+      "seconds": 30.447,
+      "log": "tests.log"
+    },
+    {
+      "name": "project",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exitCode": 0,
+      "seconds": 0.191,
+      "log": "project.log"
+    },
+    {
+      "name": "ui-static",
+      "command": [
+        "npm",
+        "run",
+        "check:ui"
+      ],
+      "exitCode": 0,
+      "seconds": 2.007,
+      "log": "ui-static.log"
+    },
+    {
+      "name": "ui-runtime",
+      "command": [
+        "npm",
+        "run",
+        "check:ui-runtime"
+      ],
+      "exitCode": 0,
+      "seconds": 85.637,
+      "log": "ui-runtime.log"
+    },
+    {
+      "name": "offline-package",
+      "command": [
+        "npm",
+        "run",
+        "check:offline-package"
+      ],
+      "exitCode": 0,
+      "seconds": 1.524,
+      "log": "offline-package.log"
+    },
+    {
+      "name": "package-provenance",
+      "command": [
+        "node",
+        "tools/build-offline-package.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 5.005,
+      "log": "package-provenance.log",
+      "purpose": "Restore checkout provenance in manifest while retaining the byte-identical isolated 0.15.8 build"
+    },
+    {
+      "name": "package-final-verify",
+      "command": [
+        "npm",
+        "run",
+        "check:offline-package"
+      ],
+      "exitCode": 0,
+      "seconds": 1.409,
+      "log": "package-final-verify.log",
+      "purpose": "Restore checkout provenance in manifest while retaining the byte-identical isolated 0.15.8 build"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "dist/Ordre_de_Cendre.html",
+      "bytes": 191880834,
+      "sha256": "cdaf3c71f60706d17d38020212cb9a2204313031906fa0a145a55437a9f4530c"
+    },
+    {
+      "path": "dist/Ordre_de_Cendre.zip",
+      "bytes": 140690055,
+      "sha256": "5a6422ee0646a797a92245ec66a646a68ded47c076b3f28d38701177f252b393"
+    },
+    {
+      "path": "dist/Ordre_de_Cendre.manifest.json",
+      "bytes": 1432,
+      "sha256": "cd53d1383e421ff68132decee1b5bda7fe04626fe8a67738a58f7e83cc373f0b"
+    },
+    {
+      "path": "dist/Ordre_de_Cendre.sha256",
+      "bytes": 182,
+      "sha256": "427e31fb1a4801a421d7c7bcd87850dfd22e469b3ce26758594a06eb4534cc30"
+    }
+  ],
+  "browserExecuted": false,
+  "runtimeSourceStable": true,
+  "finishedUtc": "2026-11-17T04:35:41.509814+00:00",
+  "source": {
+    "version": "0.15.8",
+    "commit": "ca5139b276e48be8c20d1d012ec4deefc6130a71",
+    "tree": "5cf20c6c560a58303a47052e70feb3061a8b794d",
+    "workingTree": "modified"
+  },
+  "runtime": {
+    "node": "24.22.1",
+    "zlib": "1.3.2.1-motley-285e94b"
+  },
+  "declaredNodeEngine": "22.x",
+  "tests": {
+    "passed": 820,
+    "failed": 0,
+    "skipped": 0,
+    "files": 58
+  },
+  "ui": {
+    "modeledDomFlows": 108,
+    "staticHtmlIds": 213,
+    "literalJsIdReferences": 185,
+    "nativeBrowserExecuted": false
+  },
+  "web": {
+    "files": 798,
+    "unintegrated0159Files": 0,
+    "hashes": "web-source-hashes.json"
+  }
+}

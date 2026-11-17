@@ -1,0 +1,33 @@
+✔ Nacre people crops stay within measured cells and their visible soles map to actual ground (2.344562ms)
+✔ walk poses follow real displacement, freeze on pause and stop when blocked or reduced (0.402817ms)
+✔ tech work and cover states never override death or invent new saved facts (0.147041ms)
+✔ every hidden or safe phase is excluded, including when a loss texture is allowed (0.223537ms)
+✔ MI06 keeps exactly two technician appearances and factual health and work labels (3.188032ms)
+✔ MI07 keeps six existing actors, hides those aboard or arrived, and retains labels and losses (1.361171ms)
+✔ MI08 does not invent staff identities, corpses or full-body boat passengers (2.293335ms)
+✔ decode failure preserves fallbacks and cleared stale requests cannot repopulate people images (1.082881ms)
+✔ a runtime draw failure restores Canvas state and emits only the normal fallback shadow and labels (1.006907ms)
+✔ Vesper scenery preserves 16 measured crops, original proportions and defensive anchors (1.623796ms)
+✔ Vesper textures follow real ground, clip their tops and remain anchored while the camera pans (3.972845ms)
+✔ successive rock materials blend at world boundaries without clipped crops or leaked opacity (2.838867ms)
+✔ ground props occupy only the existing decorative Vesper slots and never alter mission facts (6.304476ms)
+✔ viaduct deck follows its existing support while both beam endpoints stay fixed (0.918032ms)
+✔ MI02 painted viaduct retains the original rail break and continuous walking surface (5.923753ms)
+✔ missing or failed scenery images retain a balanced vector fallback (1.502633ms)
+✔ clearing a pending scenery decode cannot restore obsolete images (0.277949ms)
+✔ panoramas cover both edges across short and long missions without stretching or wrapping (1.740582ms)
+✔ reduced motion fixes the same panorama view at every camera position (0.542798ms)
+✔ one failed world keeps its vector fallback without disabling the other planets (0.676268ms)
+✔ a cancelled load cannot reactivate a cleared panorama bank (0.171098ms)
+✔ a lost decoded image restores the Canvas state before vector fallback (0.121042ms)
+✔ mission backgrounds consume their own planet image without changing any saved fact (12.757066ms)
+✔ the historical vector horizon is reachable when a world image is unavailable (0.419612ms)
+✔ a lost historical Vesper panorama restores opacity and renders its fallback in the same frame (0.775088ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 159.556968

@@ -1,0 +1,53 @@
+{
+  "version": "0.15.8",
+  "reviewedUtc": "2026-11-17T03:36:48.885647+00:00",
+  "method": "Tool view_image inspection of all five actual PNG/Canvas outputs; three scenes reviewed again with the integrated painted Nacre panorama",
+  "views": [
+    {
+      "file": "nacre-people-cells.png",
+      "sha256": "59c063362a031e0ba9e24c6360d33751972716aa206f5e6f343a59ce2f7bfdae",
+      "reviewed": true
+    },
+    {
+      "file": "nacre-people-grounding.png",
+      "sha256": "9acef71a1e97234f77e40d52aa74dade8ea03d7e61e8da42813fac6a08114131",
+      "reviewed": true
+    },
+    {
+      "file": "mi06-technician-locking.png",
+      "sha256": "fa3b97959ee3dbbc546a2943c88c8fefe61c0dbd5e8fbb3e8cf1a7ad4419dc89",
+      "reviewed": true
+    },
+    {
+      "file": "mi07-driver-and-medic.png",
+      "sha256": "fa2fe52b3bdd1b67d35214f371de1da6ca15b5b2c3e2aab0647edf45f20d8820",
+      "reviewed": true
+    },
+    {
+      "file": "mi07-patient-transfer.png",
+      "sha256": "23a97bec990ff46dad1233bf0f2fb63716215faa970e1bbd6ed1789c035d68f3",
+      "reviewed": true
+    }
+  ],
+  "observations": [
+    "All 28 source cells remain separated and readable; no adjacent cell is included.",
+    "Living and lost poses keep their natural proportions and the measured ground baseline.",
+    "All three mission scenes use the real painted Nacre panorama; no empty image edge or stretched background is visible.",
+    "MI07 driver and medic silhouettes and their role labels remain readable against the water in the personnel scene.",
+    "MI06 technicians and MI07 patient trolleys appear at the existing simulated positions. In locking and transfer scenes, some small bodies and labels overlap the walker legs or ambulance; the background adds no observed obstruction but does not resolve these local foreground overlaps.",
+    "Full scenes preserve original small-scale figures; source-cell and grounding boards provide the enlarged material review."
+  ],
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "open": [
+    "Human animation review and new native browser reception remain separate.",
+    "Individual figures can be difficult to distinguish during local overlaps with vehicles at the existing game scale."
+  ],
+  "environment": {
+    "planetId": "PL02",
+    "path": "assets/painted/worlds/nacre.png",
+    "sha256": "bc03fadfb3b98f7c2a44290864b4d6159f21c9bb7c889e1e7c72984f2d21f88c",
+    "state": "ready"
+  },
+  "rendererSha256": "31877c76408cc0f982929a9c22c7cb4620b7d70b7545d8d60685561e06bf580c"
+}

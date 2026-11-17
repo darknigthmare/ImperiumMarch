@@ -1,0 +1,55 @@
+{
+  "version": "0.15.8",
+  "reviewedUtc": "2026-11-17T03:36:38.502503+00:00",
+  "inspection": "Assistant visual inspection of all seven decoded Canvas PNG views",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "views": [
+    {
+      "file": "scenery-contact-sheet.png",
+      "sha256": "045b4a77d1bd6897fbdf440d31de7210eac67dab0109fa532f69f7bddf3c8b7a"
+    },
+    {
+      "file": "terrain-camera-0.png",
+      "sha256": "b3d9a3f40e8067a0f9a899013360e97eeaf66675112d81a49bcec2db80b78609"
+    },
+    {
+      "file": "terrain-camera-512.png",
+      "sha256": "fcbb5c951e0406844f8136b16f6233a66295003f8897da39464fd779be53c49c"
+    },
+    {
+      "file": "terrain-camera-1800.png",
+      "sha256": "101c92e585d309bcf8bd1a74e881c0574416d43872db886b0a658782c13d8861"
+    },
+    {
+      "file": "viaduct-break-diagnostic.png",
+      "sha256": "99909362d8deda34af89d1fda87ddc1d12cc000409ae1655668cccfb9d6881fb"
+    },
+    {
+      "file": "mi01-public-walk.png",
+      "sha256": "ba39d5e7f3bf41407b8e19ad188cb523d291cfdc1ab6fd924a8455772ced8d58"
+    },
+    {
+      "file": "mi02-public-train-stop.png",
+      "sha256": "bc33f80f1a9d572c72f15ea1328a80ad880a38e729963e3a30a680dd9a4850bf"
+    }
+  ],
+  "observations": [
+    "All sixteen contact-sheet silhouettes are complete, with clear independent cells on dark and light panels.",
+    "Three camera positions preserve the painted upper crust against the existing terrain surface; the small ground props remain below walker scale.",
+    "Changes between the four geological material panels remain visible in the cutaway face. These are texture junctions without a physical step.",
+    "MI02 girders, piers, beam endpoints and service stanchions align with the existing deck. The broken rails and continuous maintenance walking surface remain distinct.",
+    "The MI01 public movement and MI02 public train-stop scenes preserve the existing mission labels and actor positions."
+  ],
+  "targetedTests": {
+    "command": "node --test tests/painted-vesper-scenery.test.mjs",
+    "passed": 7,
+    "failed": 0
+  },
+  "limits": [
+    "No complete mission or campaign acceptance is inferred from these frames.",
+    "Diagnostic cameras do not represent reached player positions.",
+    "CPU Canvas inspection does not establish browser, GPU, audio or human-playtest results.",
+    "The sixteen sprites add presentation only; no ecology, collision, population or saved-state feature is introduced."
+  ]
+}

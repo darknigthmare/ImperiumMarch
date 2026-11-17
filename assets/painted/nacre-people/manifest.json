@@ -1,0 +1,551 @@
+{
+  "schema": 1,
+  "version": "0.15.8",
+  "date": "2026-11-17",
+  "title": "Personnes de Nacre peintes",
+  "generator": "image_gen.imagegen (built-in)",
+  "indexer": "tools/index-painted-nacre-people.py",
+  "runtime": "src/painted-nacre-people.mjs",
+  "layout": "src/painted-nacre-people-layout.mjs",
+  "files": [
+    {
+      "key": "technicians",
+      "path": "assets/painted/nacre-people/technicians.png",
+      "sha256": "f7d52a6bff76680af05fb9653f047095e44ef1c79ce244b6c679fd7083ead32e",
+      "bytes": 897299,
+      "size": [
+        1774,
+        887
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "cells": [
+        {
+          "name": "idle",
+          "cell": [
+            0,
+            0,
+            444,
+            444
+          ],
+          "ink": [
+            169,
+            16,
+            273,
+            418
+          ]
+        },
+        {
+          "name": "walk-0",
+          "cell": [
+            444,
+            0,
+            443,
+            444
+          ],
+          "ink": [
+            111,
+            20,
+            335,
+            411
+          ]
+        },
+        {
+          "name": "walk-1",
+          "cell": [
+            887,
+            0,
+            444,
+            444
+          ],
+          "ink": [
+            168,
+            20,
+            294,
+            417
+          ]
+        },
+        {
+          "name": "walk-2",
+          "cell": [
+            1331,
+            0,
+            443,
+            444
+          ],
+          "ink": [
+            108,
+            31,
+            360,
+            411
+          ]
+        },
+        {
+          "name": "walk-3",
+          "cell": [
+            0,
+            444,
+            444,
+            443
+          ],
+          "ink": [
+            161,
+            26,
+            295,
+            410
+          ]
+        },
+        {
+          "name": "locking",
+          "cell": [
+            444,
+            444,
+            443,
+            443
+          ],
+          "ink": [
+            137,
+            22,
+            328,
+            415
+          ]
+        },
+        {
+          "name": "covering",
+          "cell": [
+            887,
+            444,
+            444,
+            443
+          ],
+          "ink": [
+            109,
+            164,
+            284,
+            408
+          ]
+        },
+        {
+          "name": "downed",
+          "cell": [
+            1331,
+            444,
+            443,
+            443
+          ],
+          "ink": [
+            24,
+            284,
+            401,
+            398
+          ]
+        }
+      ],
+      "frames": 8,
+      "runtimeFrames": [
+        "idle",
+        "walk-0",
+        "walk-1",
+        "walk-2",
+        "walk-3",
+        "locking",
+        "covering",
+        "downed"
+      ],
+      "referenceFrames": [],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "fullyTransparentPixels": 1191532
+    },
+    {
+      "key": "staff",
+      "path": "assets/painted/nacre-people/staff.png",
+      "sha256": "a7258ee414aaa0724f4d011963db4ac5c66431d170560e69e0749639100ca18d",
+      "bytes": 907176,
+      "size": [
+        1448,
+        1086
+      ],
+      "grid": [
+        4,
+        3
+      ],
+      "cells": [
+        {
+          "name": "driver-idle",
+          "cell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "ink": [
+            147,
+            14,
+            221,
+            349
+          ]
+        },
+        {
+          "name": "driver-walk-0",
+          "cell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "ink": [
+            98,
+            20,
+            286,
+            346
+          ]
+        },
+        {
+          "name": "driver-walk-1",
+          "cell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "ink": [
+            118,
+            18,
+            232,
+            347
+          ]
+        },
+        {
+          "name": "driver-walk-2",
+          "cell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "ink": [
+            82,
+            22,
+            297,
+            346
+          ]
+        },
+        {
+          "name": "driver-walk-3",
+          "cell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "ink": [
+            140,
+            20,
+            241,
+            347
+          ]
+        },
+        {
+          "name": "driver-downed",
+          "cell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "ink": [
+            15,
+            153,
+            342,
+            238
+          ]
+        },
+        {
+          "name": "medic-idle",
+          "cell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "ink": [
+            127,
+            9,
+            222,
+            349
+          ]
+        },
+        {
+          "name": "medic-walk-0",
+          "cell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "ink": [
+            82,
+            14,
+            293,
+            347
+          ]
+        },
+        {
+          "name": "medic-walk-1",
+          "cell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "ink": [
+            113,
+            12,
+            227,
+            350
+          ]
+        },
+        {
+          "name": "medic-walk-2",
+          "cell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "ink": [
+            74,
+            16,
+            297,
+            349
+          ]
+        },
+        {
+          "name": "medic-walk-3",
+          "cell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "ink": [
+            110,
+            15,
+            254,
+            347
+          ]
+        },
+        {
+          "name": "medic-downed",
+          "cell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "ink": [
+            10,
+            157,
+            344,
+            241
+          ]
+        }
+      ],
+      "frames": 12,
+      "runtimeFrames": [
+        "driver-idle",
+        "driver-walk-0",
+        "driver-walk-1",
+        "driver-walk-2",
+        "driver-walk-3",
+        "driver-downed",
+        "medic-idle",
+        "medic-walk-0",
+        "medic-walk-1",
+        "medic-walk-2",
+        "medic-walk-3",
+        "medic-downed"
+      ],
+      "referenceFrames": [],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "fullyTransparentPixels": 1189328
+    },
+    {
+      "key": "patients",
+      "path": "assets/painted/nacre-people/patients.png",
+      "sha256": "45a53c13f30a9998429065a3e4b46026c0a33a8529594e499d964e99103de96d",
+      "bytes": 1946742,
+      "size": [
+        1312,
+        1199
+      ],
+      "grid": [
+        2,
+        4
+      ],
+      "cells": [
+        {
+          "name": "patient-1-resting",
+          "cell": [
+            0,
+            0,
+            656,
+            300
+          ],
+          "ink": [
+            8,
+            20,
+            635,
+            293
+          ]
+        },
+        {
+          "name": "patient-1-lost",
+          "cell": [
+            656,
+            0,
+            656,
+            300
+          ],
+          "ink": [
+            21,
+            45,
+            651,
+            294
+          ]
+        },
+        {
+          "name": "patient-2-resting",
+          "cell": [
+            0,
+            300,
+            656,
+            300
+          ],
+          "ink": [
+            8,
+            22,
+            635,
+            294
+          ]
+        },
+        {
+          "name": "patient-2-lost",
+          "cell": [
+            656,
+            300,
+            656,
+            300
+          ],
+          "ink": [
+            21,
+            46,
+            651,
+            294
+          ]
+        },
+        {
+          "name": "patient-3-resting",
+          "cell": [
+            0,
+            600,
+            656,
+            299
+          ],
+          "ink": [
+            8,
+            14,
+            635,
+            291
+          ]
+        },
+        {
+          "name": "patient-3-lost",
+          "cell": [
+            656,
+            600,
+            656,
+            299
+          ],
+          "ink": [
+            21,
+            40,
+            651,
+            291
+          ]
+        },
+        {
+          "name": "patient-4-resting",
+          "cell": [
+            0,
+            899,
+            656,
+            300
+          ],
+          "ink": [
+            8,
+            24,
+            635,
+            293
+          ]
+        },
+        {
+          "name": "patient-4-lost",
+          "cell": [
+            656,
+            899,
+            656,
+            300
+          ],
+          "ink": [
+            21,
+            44,
+            651,
+            293
+          ]
+        }
+      ],
+      "frames": 8,
+      "runtimeFrames": [
+        "patient-1-resting",
+        "patient-1-lost",
+        "patient-2-resting",
+        "patient-2-lost",
+        "patient-3-resting",
+        "patient-3-lost",
+        "patient-4-resting",
+        "patient-4-lost"
+      ],
+      "referenceFrames": [],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "fullyTransparentPixels": 730797
+    }
+  ],
+  "atlases": 3,
+  "cells": 28,
+  "runtimeCells": 28,
+  "referenceCells": 0,
+  "walkPoses": 12,
+  "status": "Prototype peint; réception humaine finale ouverte.",
+  "provenance": "Originaux PNG conservés sans retouche, sans rééchantillonnage; prompts exacts dans prompts.json.",
+  "limits": [
+    "Ces cellules ne créent aucune personne ni identité historique.",
+    "MI06 : les deux techniciens partagent une apparence de rôle; les résidents conservent leur rendu existant.",
+    "MI07 : conductrice, soignant et quatre patients conservent les faits, positions et pertes simulés.",
+    "MI08 : seuls techniciens, patients et personnel identifié reprennent ces apparences; les agrégats de personnel sans originalId ne deviennent pas des identités.",
+    "Les personnes à bord gardent leurs indicateurs existants; aucun personnage plein corps n’est superposé au bateau.",
+    "Quatre poses de marche par rôle humain, pilotées par déplacement réel; pause et réduction des mouvements conservées.",
+    "Les poses de perte sont utilisées seulement là où le rendu montrait déjà la perte; aucun cadavre supplémentaire MI08."
+  ]
+}

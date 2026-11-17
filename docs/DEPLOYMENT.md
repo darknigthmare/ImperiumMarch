@@ -1,5 +1,17 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Reprise 0.15.8 — fichiers retrouvés, publication à recevoir
+
+La reprise du **17 novembre 2026** retrouve la branche locale `codex/painted-worlds-people-v0158`, basée sur le `main` public **`ca5139b276e48be8c20d1d012ec4deefc6130a71`**, arbre **`5cf20c6c560a58303a47052e70feb3061a8b794d`**. Ses neuf nouvelles images, le code d’intégration, la Bible et les reçus de la première session sont conservés. Aucun atlas de ce lot n’est régénéré pour cette reprise. Le [bilan de production](PRODUCTION_V15_8.md) et le [rapport QA](QA_V15_8.md) décrivent la tranche : **six atlas / 44 cellules, trois panoramas**, puis **77 atlas / 586 cellules** au total.
+
+À cette étape documentaire, **aucune PR 0.15.8, aucune CI distante de cette tranche et aucun déploiement 0.15.8 ne sont reçus**. La publication des sources, leur vérification sur le commit exact et la disponibilité de l’hébergement doivent être enregistrées après leurs résultats effectifs. Les constructions locales et les contrôles Canvas ne suffisent pas à les attester.
+
+L’inspection distante de reprise confirme le dépôt en **0.15.7**, les PR précédentes fusionnées et la [CI de `ca5139b`](https://github.com/darknigthmare/ImperiumMarch/actions/runs/43961616321) réussie. Le commit `ca5139b` ne modifie que la documentation après la fusion applicative `1235102`. Vercel conserve comme dernière production **READY** le déploiement **`dpl_EWsKifPhgoRLqE6ds2N1j9vhW6xm`**, construit depuis **`1235102b25a531a90feeb0d1b38a37482a928c5d`** et associé à [imperium-march.vercel.app](https://imperium-march.vercel.app/).
+
+Le statut Vercel du commit documentaire `ca5139b` est un échec de quota : **« Deployment rate limited — retry in 24 hours. »**, enregistré le **16 novembre 2026 à 22:35:27, heure de Paris**. Le délai affiché conduit au 17 novembre vers 22:35, sans garantie d’une remise à zéro à cette heure. Le projet `prj_ggDB98oddkTTzVPiGQrtxnj7frcr`, l’équipe `team_VrIjq2UWV6VaHZr7DdQFwvfu`, les domaines, Node `22.x` et la protection SSO `all_except_custom_domains` restent conservés. Cette inspection n’a déclenché aucun déploiement.
+
+Le ZIP complet demeure une sortie générée, distribuable par Release après vérification de son HTML, de son manifeste et de ses empreintes. **Aucune Release binaire 0.15.8 n’est annoncée disponible.** Le refus d’autorisation du lancement de Release 0.15.7 décrit ci-dessous reste une observation historique distincte ; il n’est pas présenté comme un échec de transfert des sources 0.15.8.
+
 ## Publication 0.15.7 — sources et site reçus, Release en attente
 
 **Les sources et le site 0.15.7 sont publiés. Le ZIP n’est pas encore disponible dans une Release GitHub.** Le [reçu de publication](validation/v0157-publication.json) rassemble ces statuts séparés et leurs preuves.
