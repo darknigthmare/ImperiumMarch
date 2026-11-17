@@ -1,0 +1,200 @@
+{
+  "version": "0.15.10",
+  "reviewedAt": "2026-11-17T09:54:31.894606+00:00",
+  "reviewer": "Assistant visual inspection of all six final PNGs",
+  "receiptSha256": "bf7dd19da615b0d2b64fe20b76986f4b1ff6551ff65ffe49e2127bd35a729db8",
+  "sourceHashes": {
+    "src/painted-kharon-scenery.mjs": "4b23fe45fbc4f60d60426aea9285c240aba71fae237f8eb559304605eb85565a",
+    "src/painted-kharon-scenery-layout.mjs": "4c96654e1c0bf6d2812fbe0c271d0ceef630f260ce116a275d0cbcafcbf3a77b",
+    "src/renderer.mjs": "2098c824b37e0b58905e8bfcfb55b48a314b1bc40e110958b33ab9e8bbcbab73",
+    "assets/painted/kharon-scenery/manifest.json": "97e3c17ec899ef1e2253e2295fb1db8f79d43788ac8ce2edff2185f49877d879",
+    "assets/painted/kharon-scenery/prompts.json": "ee9ba584de8ec6939dc9fe3df19abab5aa112fa9f826c2c46bc056e3652a64cd",
+    "tools/index-painted-kharon-scenery.py": "a54f002f9de6307a80732988f89bf3b1862db754812da516d6bf7d36159a2474",
+    "tools/test-painted-kharon-scenery.mjs": "525ef914cadb482b68b1a81ea61e86254f1527f0fb45ee93fd642221a1561285",
+    "tests/painted-kharon-scenery.test.mjs": "d42863167e75916c5f18ddd718e7b919fbc88dff143ec7e12bea693391e2425c",
+    "src/painted-worlds.mjs": "a50c9e38b87106516e6fd14cb2932e78d3e4773d254215155e97417ad4f63041",
+    "assets/painted/worlds/manifest.json": "ebae66e9909aafbded7761b3121ab546608911e3d8b3853cd05e7fdece677c67",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "src/foundry-renderer.mjs": "54a722ca7cbdcc25cfb08609d366137bcf11ee47d1306fcec11f6f876e035625",
+    "src/workshop-renderer.mjs": "82de9442d14d994af083fe7ba13121a58a6ebe7615388060ab540d26cb58cf6a",
+    "src/painted-foundry-sites.mjs": "516ba9dd30e68f274753811beeda0371ecc05fb10f20277337a7736cab1b2128",
+    "src/painted-sprites.mjs": "dfa61893d8cbc57bc9fb407af855dcab127f5c6acca1ad4a36289368f7aa4c46",
+    "src/painted-transport.mjs": "cfc4c3cefb6f536bec87dc24479f9cd85db1a5c0a3cb62d427c0c6d662f41af9",
+    "tests/helpers/mi13-driver.mjs": "f6d0553d2617412b5928c624a6f99bb606fa5583800056c1912c426b3c49ebe6",
+    "tests/helpers/mi14-driver.mjs": "5ccd50cc0d02fd8583897a41e9d41182aae5a1c168914747542475ab96c275fc"
+  },
+  "views": [
+    {
+      "file": "kharon-scenery-contact-sheet.png",
+      "width": 1600,
+      "height": 1160,
+      "sha256": "a19949948b981e59993a0424528c63e7cc3015bd8004c3348fe0ec2ce4ec6514",
+      "type": "Isolated source frame diagnostic on light and dark backgrounds",
+      "reviewed": true,
+      "method": "Assistant opened and inspected the final PNG",
+      "observation": "Les dix cellules sont distinctes sur fonds clair et sombre ; contours complets, transparence réelle et aucun halo noir visible. Les plantes et pièces restent froides, sans lumière ou vapeur prépeinte."
+    },
+    {
+      "file": "kharon-terrain-camera-0.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "82910e4de958028d733d874f8f8bcc06f69046c263aa62c9f6f86e92d3160719",
+      "type": "Initial game state, diagnostic camera only",
+      "cameraX": 0,
+      "spriteDrawCalls": {
+        "terrain": 274,
+        "props": 7
+      },
+      "stateSha256": "4df1d1530fdc3c6c2844b5cc8d29b3d576dae00c18887d6e59b0f8b5438d551d",
+      "reviewed": true,
+      "method": "Assistant opened and inspected the final PNG",
+      "observation": "Le basalte, les scories et la maçonnerie suivent le profil existant. Les décors restent bas sur le contact de sol ; les raccords sont fondus."
+    },
+    {
+      "file": "kharon-terrain-camera-512.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "8e1a6aa0021b6f706e3a77c4144957adb21c590e3420efbeafa46718eac02c72",
+      "type": "Initial game state, diagnostic camera only",
+      "cameraX": 512,
+      "spriteDrawCalls": {
+        "terrain": 276,
+        "props": 7
+      },
+      "stateSha256": "4df1d1530fdc3c6c2844b5cc8d29b3d576dae00c18887d6e59b0f8b5438d551d",
+      "reviewed": true,
+      "method": "Assistant opened and inspected the final PNG",
+      "observation": "La vue décalée conserve la phase des matières et montre le passage vers les plaques métalliques mates, sans signal thermique."
+    },
+    {
+      "file": "kharon-terrain-camera-1800.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "0f972e76fb29fb59d09685dc649433bdcc7394a5dcf92d10ba70c4a71b5f0a01",
+      "type": "Initial game state, diagnostic camera only",
+      "cameraX": 1800,
+      "spriteDrawCalls": {
+        "terrain": 262,
+        "props": 8
+      },
+      "stateSha256": "4df1d1530fdc3c6c2844b5cc8d29b3d576dae00c18887d6e59b0f8b5438d551d",
+      "reviewed": true,
+      "method": "Assistant opened and inspected the final PNG",
+      "observation": "Les matières restent continues sur la pente, avec les petits décors posés sur le profil. Aucun déplacement de contact pour adapter une image."
+    },
+    {
+      "file": "mi13-cold-ground-active-circuit.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "c907e0a1e80891e520f0a6644672baf448eb0e41cbe8e8d957ac46f89cc01ee2",
+      "type": "Public-input Canvas scene",
+      "description": "MI13: premier circuit réellement isolé, refroidissement en cours",
+      "missionId": "MI13",
+      "elapsed": 29.083333333332963,
+      "cameraX": 1171.8601009331232,
+      "spriteDrawCalls": {
+        "terrain": 271,
+        "props": 8
+      },
+      "stateSha256": "e133e6e0e0440a25ba97bf481d8a97a0705f16e37604567c5788b00f095e118d",
+      "thermalFacts": [
+        {
+          "id": "foundry-bridge-1",
+          "temperature": 64.93333333333209,
+          "circuitOpen": true,
+          "steamPhase": "off"
+        },
+        {
+          "id": "foundry-bridge-2",
+          "temperature": 90,
+          "circuitOpen": false,
+          "steamPhase": "rest"
+        }
+      ],
+      "workerFacts": null,
+      "reviewed": true,
+      "method": "Assistant opened and inspected the final PNG",
+      "observation": "Le terrain froid reste distinct des installations thermiques. Porteur, caisses, tablier et appuis conservent leurs surfaces ; le panneau expose le refroidissement réellement en cours. Les libellés existants peuvent se superposer près du convoi."
+    },
+    {
+      "file": "mi14-workers-cleared-quarry.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "647706693820cf3c5d652d2544aa5c708b2792db3d93b8181d4248d8074cf4ea",
+      "type": "Public-input Canvas scene",
+      "description": "MI14: passage demandé, ouvriers réellement déplacés à la galerie",
+      "missionId": "MI14",
+      "elapsed": 23.33333333333329,
+      "cameraX": 390.41097310187206,
+      "spriteDrawCalls": {
+        "terrain": 270,
+        "props": 8
+      },
+      "stateSha256": "399a9875717600c316d715524afda4a243da862d60715e25dc8bb59498d4ebc6",
+      "thermalFacts": null,
+      "workerFacts": [
+        {
+          "id": "workshop-worker-1",
+          "alive": true,
+          "x": 1850,
+          "y": 522.455889325208
+        },
+        {
+          "id": "workshop-worker-2",
+          "alive": true,
+          "x": 1895,
+          "y": 524.8831803757583
+        },
+        {
+          "id": "workshop-worker-3",
+          "alive": true,
+          "x": 1939.9999999999939,
+          "y": 527.9142153646432
+        },
+        {
+          "id": "workshop-worker-4",
+          "alive": true,
+          "x": 1985,
+          "y": 531.261014084966
+        },
+        {
+          "id": "workshop-worker-5",
+          "alive": true,
+          "x": 2030,
+          "y": 534.5868377553408
+        },
+        {
+          "id": "workshop-worker-6",
+          "alive": true,
+          "x": 2075,
+          "y": 537.5617946223123
+        },
+        {
+          "id": "workshop-worker-7",
+          "alive": true,
+          "x": 2120,
+          "y": 539.9171468008389
+        },
+        {
+          "id": "workshop-worker-8",
+          "alive": true,
+          "x": 2165,
+          "y": 541.4886012652662
+        }
+      ],
+      "reviewed": true,
+      "method": "Assistant opened and inspected the final PNG",
+      "observation": "Les petits décors ne cachent pas les appuis du marcheur. La galerie conserve les ouvriers déplacés ; le cadrage ne montre pas les huit simultanément, leur compte vient de l’état joint."
+    }
+  ],
+  "counts": {
+    "atlases": 2,
+    "frames": 10,
+    "views": 6
+  },
+  "selectedOriginalPngBytesUnchanged": true,
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "scope": "New Kharon material and low scenery appearance, alpha, anchoring and selected Canvas scenes. Camera diagnostics are distinct from public-input scenes. Existing labels and offscreen workers are not a visual census. No final plant interaction, heat mechanic, browser or human acceptance is inferred.",
+  "passed": true
+}

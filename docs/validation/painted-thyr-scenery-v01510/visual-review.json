@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "version": "0.15.10",
+  "reviewedUtc": "2026-11-17T09:57:22.115176+00:00",
+  "reviewer": "assistant visual inspection",
+  "scope": "Réception initiale Thyr avant correction des coutures de rasterisation ; preuve conservée sans modification.",
+  "receiptSha256": "a3f7bc9b75639df3dddc019eb8869be2a22e50b0a77daeead658fed65cf0155f",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "allEightImagesActuallyOpened": true,
+  "conclusion": "Correction locale du rendu demandée : lignes verticales dans les sols à caméra fractionnaire. Les atlas, leurs silhouettes et leur transparence sont acceptables. Une nouvelle réception distincte vérifiera la correction.",
+  "materialAnomalies": [
+    {
+      "id": "fractional-camera-terrain-seams",
+      "status": "observed-and-reported-to-root",
+      "affected": [
+        "mi09-first-living-root.png",
+        "mi10-covered-canal.png",
+        "mi11-recognized-ridge.png",
+        "mi12-first-relay-inspected.png"
+      ],
+      "mechanicsAffected": false
+    }
+  ],
+  "views": [
+    {
+      "file": "thyr-scenery-contact-sheet.png",
+      "sha256": "7b5912aa6f82fe5a48f065eaecff253cf871d81457108f343b9a0fbbd859755f",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        1160
+      ],
+      "findings": [
+        "Les quatre matières sont distinctes dans la palette humide olive et brun-violet.",
+        "Les six silhouettes sont complètes et lisibles sur fonds clair et sombre ; pas de rectangle opaque ni de halo matériel observé.",
+        "La fougère basse, l’écorce morte et les coques de graines ne reprennent pas les silhouettes FL08/FL09 ou les sites de ponte."
+      ]
+    },
+    {
+      "file": "thyr-terrain-camera-0.png",
+      "sha256": "59585fecb82ccd20b3ed75ecc1e707b592ffc1d00f2a74e74d432d6436e69d1c",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "findings": [
+        "Le contour du sol est continu ; les décors bas restent ancrés au sol.",
+        "Les changements de matière se fondent sans trou visible avec cette caméra entière."
+      ]
+    },
+    {
+      "file": "thyr-terrain-camera-512.png",
+      "sha256": "8a9efc438af6bdbf03dfa29d2163f0674d50932d120fce77efed330515b6359b",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "findings": [
+        "Le déplacement du cadrage conserve les motifs et les petits décors dans le monde.",
+        "Pas de trou de matière visible au raccord des tuiles."
+      ]
+    },
+    {
+      "file": "thyr-terrain-camera-1800.png",
+      "sha256": "0eb1cfd996761b3af77fa3b52dfff1640e94d54770952a6a189575a54a213ddc",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "findings": [
+        "Les quatre matières et plusieurs décors bas restent cohérents dans ce cadrage avancé.",
+        "Cette vue est un diagnostic, pas une preuve de déplacement du joueur."
+      ]
+    },
+    {
+      "file": "mi09-first-living-root.png",
+      "sha256": "6392d72ac9e5791a22408fe37687c30e46451ba3636003ea3e72d19a7570504f",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "findings": [
+        "La racine porteuse et le marcheur restent lisibles devant les nouvelles matières.",
+        "De fines stries verticales apparaissent dans la partie profonde du sol avec la caméra fractionnaire."
+      ]
+    },
+    {
+      "file": "mi10-covered-canal.png",
+      "sha256": "38ad465ad4c92955c9d5955c131c96b88899a272d6bd47a9d4ff40bac7832925",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "findings": [
+        "Le pontage du canal et ses équipements restent visibles ; les nouveaux décors ne forment pas de support.",
+        "Des stries verticales de rasterisation sont nettement visibles dans le sol à caméra fractionnaire."
+      ]
+    },
+    {
+      "file": "mi11-recognized-ridge.png",
+      "sha256": "fed1f96974b51968a665d2de7a8cf668953f670c190c48fd106e58da45ee3967",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "findings": [
+        "La corniche reconnue et les trois sites de ponte existants sont visuellement distincts des petits décors nouveaux.",
+        "De fines stries verticales sont visibles dans la partie profonde du terrain."
+      ]
+    },
+    {
+      "file": "mi12-first-relay-inspected.png",
+      "sha256": "98c6e66840abc3f5483d8837b2f74844e5ba3aaa06a8d02e20cbe27ec781a141",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "findings": [
+        "Les nouveaux décors restent bas ; le relais est en partie masqué par le marcheur dans cet arrêt de jeu.",
+        "De fines stries verticales sont visibles dans le terrain à caméra fractionnaire."
+      ]
+    }
+  ],
+  "limitations": [
+    "Images Canvas statiques issues du renderer normal, hors contact sheet et diagnostics.",
+    "Aucun essai navigateur, audio, matériel, animation continue ou validation humaine.",
+    "La visibilité d’une scène seule ne prouve pas ses règles physiques ; les tests séparés vérifient la conservation des surfaces et états."
+  ]
+}

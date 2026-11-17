@@ -1,0 +1,131 @@
+{
+  "version": "0.15.10",
+  "createdUtc": "2026-11-17T10:13:26.134Z",
+  "completed": true,
+  "type": "Supplemental Canvas reception of the exact public-emission states over the painted Vesper panorama",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "priorReceipt": "docs/validation/painted-particles-v01510/corrected-anchor/receipt.json",
+  "scriptSha256": "c10e0efa6f586e3d68ba59fc1433064af2bb4f4cf62d69213604d4f158d33bf7",
+  "sourceHashes": {
+    "src/renderer.mjs": "0a8134362a832a2e7e7673f241cc05af043993a617ba1e5021f06e7db5ef1444",
+    "src/painted-particles.mjs": "d3b4e19e93705799bd4a65c099154967faa8331f0f7e44de5046e1fba5bd042b",
+    "src/painted-particles-layout.mjs": "897108319750c1be2531eaf0848549eaf0bdf511db8ab8ccd5258d667a3a434b",
+    "src/painted-walkers.mjs": "00b66e7dfd17862be23162f3acb899d4c14a5f1e853e1dff56440090dce91c8c",
+    "src/painted-combat.mjs": "66aa27a2d6f25a1eeb714d125957c30f208428e8c66283a936ba9846b73404f5",
+    "src/painted-worlds.mjs": "a50c9e38b87106516e6fd14cb2932e78d3e4773d254215155e97417ad4f63041",
+    "src/painted-vesper.mjs": "93447fce2ca3f2e4413bc67fd66f2a051bdab774d8b500ac7913909846c1bbe5",
+    "src/painted-vesper-scenery.mjs": "72e670def02e627d3902c4ec8893d8e935464650fc06ca80628416ce598956cb",
+    "assets/art/vesper-panorama.png": "837363413272bb4c8ed4fc38901d127465f3a30a830d6fd001b2d0c9106e6084",
+    "docs/validation/painted-particles-v01510/corrected-anchor/receipt.json": "044fc1b49a48c89e991abf048fefe287296154033bfb758ad84c10bcac2f9838",
+    "docs/validation/painted-particles-v01510/corrected-anchor/dust-public-emission-state.json": "e491090ae7b1e9a1610a721cd9d3b96d4e5a2a2b78c934a2a1a22b8634a9a9be",
+    "docs/validation/painted-particles-v01510/corrected-anchor/smoke-public-emission-state.json": "60e36297b0101102b21017c605ca40862ad3ecc421c7cc02f3eef3ecabd67fe8"
+  },
+  "loading": [
+    "particles",
+    "walkers",
+    "combat",
+    "worlds",
+    "vesper",
+    "vesper-scenery"
+  ],
+  "renderOptions": {
+    "reducedMotion": false,
+    "shake": false
+  },
+  "views": [
+    {
+      "file": "dust-public-emission.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "2adcf366a734f780af82bf6473efce4d4434d1c7f79095cfcc556564a6689ae5",
+      "priorImageSha256": "7a5aebd90eab93dc7f6400a6f2e7e6d783c35b5fe004fa7c3b01a6eeff318278",
+      "statePath": "docs/validation/painted-particles-v01510/corrected-anchor/dust-public-emission-state.json",
+      "stateFileSha256": "e491090ae7b1e9a1610a721cd9d3b96d4e5a2a2b78c934a2a1a22b8634a9a9be",
+      "stateSha256": "f6a26f8830a731eba6794cd777d4d7dec68f864fcf0d48880309c265edf943fc",
+      "identicalToReceivedState": true,
+      "stateUnchangedAfterRender": true,
+      "cameraX": 0,
+      "elapsed": 0.6833333333333338,
+      "missionId": "MI01",
+      "particleDrawCalls": {
+        "dust": 18
+      },
+      "particlesByType": {
+        "dust": 18
+      },
+      "totalDrawImageCalls": 375,
+      "drawCallsBySource": {
+        "assets/art/vesper-panorama.png": 1,
+        "assets/painted/vesper-scenery/terrain.png": 274,
+        "assets/painted/vesper-scenery/props.png": 7,
+        "assets/painted/vesper/civilworks.png": 50,
+        "assets/painted/combat/convoy.png": 2,
+        "assets/painted/walkers/wk05.png": 23,
+        "assets/painted/particles/dust.png": 18
+      }
+    },
+    {
+      "file": "smoke-public-emission.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "0964a9b79cddc1f2b860d5f7c19e5fb4e855bca79e442c21eaabb962d4b49555",
+      "priorImageSha256": "7d22f833a07dd7591229dfd55ceeeaa71342714e8baeee84f09d45035c75c0b8",
+      "statePath": "docs/validation/painted-particles-v01510/corrected-anchor/smoke-public-emission-state.json",
+      "stateFileSha256": "60e36297b0101102b21017c605ca40862ad3ecc421c7cc02f3eef3ecabd67fe8",
+      "stateSha256": "d03a3db9e4e883f9001af81fc6987f0a49c82a21ec865ad5de9d859372aacfa8",
+      "identicalToReceivedState": true,
+      "stateUnchangedAfterRender": true,
+      "cameraX": 0,
+      "elapsed": 0.26666666666666666,
+      "missionId": "MI01",
+      "particleDrawCalls": {
+        "smoke": 6
+      },
+      "particlesByType": {
+        "spark": 3,
+        "blast": 16,
+        "smoke": 6
+      },
+      "totalDrawImageCalls": 363,
+      "drawCallsBySource": {
+        "assets/art/vesper-panorama.png": 1,
+        "assets/painted/vesper-scenery/terrain.png": 274,
+        "assets/painted/vesper-scenery/props.png": 7,
+        "assets/painted/vesper/civilworks.png": 50,
+        "assets/painted/combat/convoy.png": 2,
+        "assets/painted/walkers/wk05.png": 23,
+        "assets/painted/particles/smoke.png": 6
+      }
+    }
+  ],
+  "limits": [
+    "Only Renderer.panorama and panoramaReady differ from the earlier Canvas harness.",
+    "The two game states are read unchanged from the accepted corrected-anchor receipt; no update, input, teleport or new emission occurs here.",
+    "The previous nine views and their receipts remain unchanged.",
+    "Canvas does not certify native browser performance, audio or human artistic approval."
+  ],
+  "panorama": {
+    "path": "assets/art/vesper-panorama.png",
+    "sha256": "837363413272bb4c8ed4fc38901d127465f3a30a830d6fd001b2d0c9106e6084",
+    "width": 2172,
+    "height": 724
+  },
+  "visualReview": {
+    "reviewedUtc": "2026-11-17T10:14:25.718050+00:00",
+    "reviewer": "assistant inspection of both rendered PNGs at their 1600x900 game framing",
+    "viewsReviewed": [
+      "dust-public-emission.png",
+      "smoke-public-emission.png"
+    ],
+    "acceptedForScopedCanvasReception": true,
+    "findings": [
+      "The painted Vesper panorama is actually present behind the exact received actors and terrain.",
+      "The smoke impact remains visibly distinct against the painted scenery, centered on the same real projectile contact and with no rectangular halo.",
+      "Footfall dust remains small and subdued against the pale terrain, consistent with its existing 2–6 pixel radius; the painted background introduces no new overlap, actor or false marker.",
+      "The same 18 dust and six smoke draw calls are retained. Three sparks and 16 blast particles stay on their earlier vector paths.",
+      "No change to simulation state, camera, render options, PNG sources or the previous nine views was required."
+    ],
+    "limitation": "Fine six-age detail of dust is more apparent on the isolated contact sheet than at its deliberately small game size; this does not close AS22 or constitute human gameplay approval."
+  }
+}

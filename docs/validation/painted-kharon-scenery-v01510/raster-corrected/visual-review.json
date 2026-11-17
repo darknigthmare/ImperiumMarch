@@ -1,0 +1,308 @@
+{
+  "version": "0.15.10",
+  "reviewedAt": "2026-11-17T10:10:22.009211+00:00",
+  "receiptSha256": "06247e994d38eaec27f1d9c5d3b79170abbbfb29babcba3add4eb204a1ff39ce",
+  "sourceHashes": {
+    "src/painted-kharon-scenery.mjs": "f02051acfb96637e846981abad012a933089717f3a794ef88c19e8b84726a756",
+    "src/painted-kharon-scenery-layout.mjs": "4c96654e1c0bf6d2812fbe0c271d0ceef630f260ce116a275d0cbcafcbf3a77b",
+    "src/renderer.mjs": "0a8134362a832a2e7e7673f241cc05af043993a617ba1e5021f06e7db5ef1444",
+    "assets/painted/kharon-scenery/manifest.json": "97e3c17ec899ef1e2253e2295fb1db8f79d43788ac8ce2edff2185f49877d879",
+    "assets/painted/kharon-scenery/prompts.json": "ee9ba584de8ec6939dc9fe3df19abab5aa112fa9f826c2c46bc056e3652a64cd",
+    "tools/index-painted-kharon-scenery.py": "a54f002f9de6307a80732988f89bf3b1862db754812da516d6bf7d36159a2474",
+    "tools/test-painted-kharon-scenery.mjs": "c9115ca0c94dd86a6f4b2cda91a506a0034bdb9335e6e7b53c0c564ea8ba0e70",
+    "tests/painted-kharon-scenery.test.mjs": "d15588343d51e41f4d979c2825d14eb24a0b9d43cc0465250b9b77435551c6b7",
+    "src/painted-worlds.mjs": "a50c9e38b87106516e6fd14cb2932e78d3e4773d254215155e97417ad4f63041",
+    "assets/painted/worlds/manifest.json": "ebae66e9909aafbded7761b3121ab546608911e3d8b3853cd05e7fdece677c67",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "src/foundry-renderer.mjs": "54a722ca7cbdcc25cfb08609d366137bcf11ee47d1306fcec11f6f876e035625",
+    "src/workshop-renderer.mjs": "82de9442d14d994af083fe7ba13121a58a6ebe7615388060ab540d26cb58cf6a",
+    "src/painted-foundry-sites.mjs": "516ba9dd30e68f274753811beeda0371ecc05fb10f20277337a7736cab1b2128",
+    "src/painted-sprites.mjs": "dfa61893d8cbc57bc9fb407af855dcab127f5c6acca1ad4a36289368f7aa4c46",
+    "src/painted-transport.mjs": "cfc4c3cefb6f536bec87dc24479f9cd85db1a5c0a3cb62d427c0c6d662f41af9",
+    "tests/helpers/mi13-driver.mjs": "f6d0553d2617412b5928c624a6f99bb606fa5583800056c1912c426b3c49ebe6",
+    "tests/helpers/mi14-driver.mjs": "5ccd50cc0d02fd8583897a41e9d41182aae5a1c168914747542475ab96c275fc"
+  },
+  "views": [
+    {
+      "file": "kharon-scenery-contact-sheet.png",
+      "width": 1600,
+      "height": 1160,
+      "sha256": "a19949948b981e59993a0424528c63e7cc3015bd8004c3348fe0ec2ce4ec6514",
+      "type": "Isolated source frame diagnostic on light and dark backgrounds",
+      "reviewed": true,
+      "method": "Byte-identical to previously opened and reviewed initial contact sheet",
+      "sameAsInitial": true,
+      "observation": "Les dix cellules sont distinctes sur fonds clair et sombre ; contours complets, transparence réelle et aucun halo noir visible. Les plantes et pièces restent froides, sans lumière ou vapeur prépeinte."
+    },
+    {
+      "file": "kharon-terrain-camera-0.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "8b4bc8490ad83edaf2841153e6002c570ea2ccf64e71624085687990c3402438",
+      "type": "Initial game state, diagnostic camera only",
+      "cameraX": 0,
+      "spriteDrawCalls": {
+        "terrain": 274,
+        "props": 7
+      },
+      "stateSha256": "4df1d1530fdc3c6c2844b5cc8d29b3d576dae00c18887d6e59b0f8b5438d551d",
+      "reviewed": true,
+      "method": "Assistant opened and inspected corrected PNG",
+      "sameAsInitial": false,
+      "observation": "Le basalte, les scories et la maçonnerie suivent le profil existant. Les décors restent bas sur le contact de sol ; les raccords sont fondus. La relecture corrigée ne montre plus de fines coutures verticales de bandes."
+    },
+    {
+      "file": "kharon-terrain-camera-512.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "f2973d99492aaf364bd0965e37ab0e9d8002d132a69379cfef96eec1763df18a",
+      "type": "Initial game state, diagnostic camera only",
+      "cameraX": 512,
+      "spriteDrawCalls": {
+        "terrain": 276,
+        "props": 7
+      },
+      "stateSha256": "4df1d1530fdc3c6c2844b5cc8d29b3d576dae00c18887d6e59b0f8b5438d551d",
+      "reviewed": true,
+      "method": "Assistant opened and inspected corrected PNG",
+      "sameAsInitial": false,
+      "observation": "La vue décalée conserve la phase des matières et montre le passage vers les plaques métalliques mates, sans signal thermique. La relecture corrigée ne montre plus de fines coutures verticales de bandes."
+    },
+    {
+      "file": "kharon-terrain-camera-1800.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "ce67929b30b66093b1764da5984b92d270193960ae432a3f170a280e4164c0ad",
+      "type": "Initial game state, diagnostic camera only",
+      "cameraX": 1800,
+      "spriteDrawCalls": {
+        "terrain": 262,
+        "props": 8
+      },
+      "stateSha256": "4df1d1530fdc3c6c2844b5cc8d29b3d576dae00c18887d6e59b0f8b5438d551d",
+      "reviewed": true,
+      "method": "Assistant opened and inspected corrected PNG",
+      "sameAsInitial": false,
+      "observation": "Les matières restent continues sur la pente, avec les petits décors posés sur le profil. Aucun déplacement de contact pour adapter une image. La relecture corrigée ne montre plus de fines coutures verticales de bandes."
+    },
+    {
+      "file": "mi13-cold-ground-active-circuit.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "77425ab42adc3e93223c09c271901706a6450d7abcb2e166bf98ca8e5122f566",
+      "type": "Public-input Canvas scene",
+      "description": "MI13: premier circuit réellement isolé, refroidissement en cours",
+      "missionId": "MI13",
+      "elapsed": 29.083333333332963,
+      "cameraX": 1171.8601009331232,
+      "spriteDrawCalls": {
+        "terrain": 271,
+        "props": 8
+      },
+      "stateSha256": "e133e6e0e0440a25ba97bf481d8a97a0705f16e37604567c5788b00f095e118d",
+      "thermalFacts": [
+        {
+          "id": "foundry-bridge-1",
+          "temperature": 64.93333333333209,
+          "circuitOpen": true,
+          "steamPhase": "off"
+        },
+        {
+          "id": "foundry-bridge-2",
+          "temperature": 90,
+          "circuitOpen": false,
+          "steamPhase": "rest"
+        }
+      ],
+      "workerFacts": null,
+      "reviewed": true,
+      "method": "Assistant opened and inspected corrected PNG",
+      "sameAsInitial": false,
+      "observation": "Le terrain froid reste distinct des installations thermiques. Porteur, caisses, tablier et appuis conservent leurs surfaces ; le panneau expose le refroidissement réellement en cours. Les libellés existants peuvent se superposer près du convoi. La relecture corrigée ne montre plus de fines coutures verticales de bandes."
+    },
+    {
+      "file": "mi14-workers-cleared-quarry.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "cd800a57f1eb60e558d417e54a141c620021e41c4685792dc475f1daec18b7fe",
+      "type": "Public-input Canvas scene",
+      "description": "MI14: passage demandé, ouvriers réellement déplacés à la galerie",
+      "missionId": "MI14",
+      "elapsed": 23.33333333333329,
+      "cameraX": 390.41097310187206,
+      "spriteDrawCalls": {
+        "terrain": 270,
+        "props": 8
+      },
+      "stateSha256": "399a9875717600c316d715524afda4a243da862d60715e25dc8bb59498d4ebc6",
+      "thermalFacts": null,
+      "workerFacts": [
+        {
+          "id": "workshop-worker-1",
+          "alive": true,
+          "x": 1850,
+          "y": 522.455889325208
+        },
+        {
+          "id": "workshop-worker-2",
+          "alive": true,
+          "x": 1895,
+          "y": 524.8831803757583
+        },
+        {
+          "id": "workshop-worker-3",
+          "alive": true,
+          "x": 1939.9999999999939,
+          "y": 527.9142153646432
+        },
+        {
+          "id": "workshop-worker-4",
+          "alive": true,
+          "x": 1985,
+          "y": 531.261014084966
+        },
+        {
+          "id": "workshop-worker-5",
+          "alive": true,
+          "x": 2030,
+          "y": 534.5868377553408
+        },
+        {
+          "id": "workshop-worker-6",
+          "alive": true,
+          "x": 2075,
+          "y": 537.5617946223123
+        },
+        {
+          "id": "workshop-worker-7",
+          "alive": true,
+          "x": 2120,
+          "y": 539.9171468008389
+        },
+        {
+          "id": "workshop-worker-8",
+          "alive": true,
+          "x": 2165,
+          "y": 541.4886012652662
+        }
+      ],
+      "reviewed": true,
+      "method": "Assistant opened and inspected corrected PNG",
+      "sameAsInitial": false,
+      "observation": "Les petits décors ne cachent pas les appuis du marcheur. La galerie conserve les ouvriers déplacés ; le cadrage ne montre pas les huit simultanément, leur compte vient de l’état joint. La relecture corrigée ne montre plus de fines coutures verticales de bandes."
+    }
+  ],
+  "counts": {
+    "atlases": 2,
+    "frames": 10,
+    "views": 6
+  },
+  "newlyOpenedViews": 5,
+  "byteIdenticalPreviouslyReviewedViews": 1,
+  "rasterContinuity": {
+    "type": "Opaque diagnostic fixture only; generated PNG bytes untouched",
+    "checks": [
+      {
+        "scale": 1,
+        "cameraX": 0,
+        "pixels": 480,
+        "continuousOpaqueColor": true,
+        "rgbTolerance": 1,
+        "alpha": 255
+      },
+      {
+        "scale": 1,
+        "cameraX": 0.1114473071375,
+        "pixels": 480,
+        "continuousOpaqueColor": true,
+        "rgbTolerance": 1,
+        "alpha": 255
+      },
+      {
+        "scale": 1,
+        "cameraX": 0.296992496895,
+        "pixels": 480,
+        "continuousOpaqueColor": true,
+        "rgbTolerance": 1,
+        "alpha": 255
+      },
+      {
+        "scale": 1,
+        "cameraX": 0.5,
+        "pixels": 480,
+        "continuousOpaqueColor": true,
+        "rgbTolerance": 1,
+        "alpha": 255
+      },
+      {
+        "scale": 1.25,
+        "cameraX": 0,
+        "pixels": 480,
+        "continuousOpaqueColor": true,
+        "rgbTolerance": 1,
+        "alpha": 255
+      },
+      {
+        "scale": 1.25,
+        "cameraX": 0.1114473071375,
+        "pixels": 480,
+        "continuousOpaqueColor": true,
+        "rgbTolerance": 1,
+        "alpha": 255
+      },
+      {
+        "scale": 1.25,
+        "cameraX": 0.296992496895,
+        "pixels": 480,
+        "continuousOpaqueColor": true,
+        "rgbTolerance": 1,
+        "alpha": 255
+      },
+      {
+        "scale": 1.25,
+        "cameraX": 0.5,
+        "pixels": 480,
+        "continuousOpaqueColor": true,
+        "rgbTolerance": 1,
+        "alpha": 255
+      },
+      {
+        "scale": 1.5,
+        "cameraX": 0,
+        "pixels": 480,
+        "continuousOpaqueColor": true,
+        "rgbTolerance": 1,
+        "alpha": 255
+      },
+      {
+        "scale": 1.5,
+        "cameraX": 0.1114473071375,
+        "pixels": 480,
+        "continuousOpaqueColor": true,
+        "rgbTolerance": 1,
+        "alpha": 255
+      },
+      {
+        "scale": 1.5,
+        "cameraX": 0.296992496895,
+        "pixels": 480,
+        "continuousOpaqueColor": true,
+        "rgbTolerance": 1,
+        "alpha": 255
+      },
+      {
+        "scale": 1.5,
+        "cameraX": 0.5,
+        "pixels": 480,
+        "continuousOpaqueColor": true,
+        "rgbTolerance": 1,
+        "alpha": 255
+      }
+    ]
+  },
+  "initialEvidenceFilesPreserved": 12,
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "scope": "Corrected strip rasterization only. Source PNGs, material samples, ground profile, physical state, camera and scale remain unchanged. Five changed images opened; byte-identical contact sheet inherits its exact prior review. No human or native-browser acceptance.",
+  "passed": true
+}

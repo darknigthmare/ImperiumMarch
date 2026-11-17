@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "version": "0.15.10",
+  "generator": "image_gen built-in",
+  "canonIds": [
+    "AS22"
+  ],
+  "atlasCount": 2,
+  "frameCount": 12,
+  "runtimeFrameCount": 12,
+  "referenceFrameCount": 0,
+  "files": [
+    {
+      "id": "smoke",
+      "path": "assets/painted/particles/smoke.png",
+      "bytes": 1600678,
+      "sha256": "e510296425c7bfa6304a7b2fbde2bab9ae0afbb118ea6f5a928b55538d1643ca",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.65856,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "dust",
+      "path": "assets/painted/particles/dust.png",
+      "bytes": 1706202,
+      "sha256": "a5ec1359d106cafca1199a313c4ce24bcc11ef19677af4345719256d90647826",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.685841,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    }
+  ],
+  "scope": "Six nonlooping ages of smoke and dust emitted by the existing simulation.",
+  "pixelPolicy": "Original generated PNG bytes retained; measurement and source rectangles only. No pixel edits.",
+  "layoutPolicy": "Measured 3 by 2 cells. Source rectangles retain every nontransparent pixel. Center and radius are measured on alpha>=2; sparse alpha-1 residue is excluded from measurement only. The complete image is clipped at runtime to the historical particle circle.",
+  "physicalPolicy": "No particle, collider, contact, emission, random value or saved field is added. Position, radius, lifetime and caller alpha retain their simulated values. Custom colors, sparks and blasts keep their vector fallback.",
+  "motionPolicy": "Age is 1 - life/maxLife, selecting one of six frames without looping. Reduced motion selects age-0; physical radius and opacity remain unchanged.",
+  "acceptance": "Partial AS22 art reception only. Material-specific impacts, ricochets, flames, debris, persistent foot traces, browser performance and human approval remain open."
+}

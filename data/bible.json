@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.15.9",
+    "version": "0.15.10",
     "date": "2026-11-17",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs, tous les statuts et les 133 critères initiaux sont conservés. Sept atlas ajoutent 58 cellules de personnes, sols et décors de Nacre, dont 52 au rendu et six références. Le total atteint 84 atlas et 644 cellules en 18 lots, dont 600 au rendu et 44 références. Les panoramas sont comptés séparément. Huit apparences et 32 poses de marche habillent les personnes déjà simulées. Les dix cellules de sol et de décor suivent les surfaces et emplacements existants. Aucun effectif, identité historique, collision ni mécanisme végétal n’est ajouté. Présences, transferts, pertes et contacts suivent les faits de mission. Animations finales et réception humaine restent ouvertes.",
+    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs, tous les statuts et les 133 critères initiaux sont conservés. Six atlas ajoutent 32 cellules au rendu : dix de sols et petits décors pour Thyr, dix pour Kharon et douze de fumée et poussière. Le total atteint 90 atlas et 676 cellules en 21 lots, dont 632 au rendu et 44 références. Les quatre panoramas sont comptés séparément. Les matières suivent le terrain et les décors ses emplacements existants. Les particules gardent émissions, position, rayon, alpha et durée simulés. Aucun effectif, collision, mécanisme végétal ni système de chaleur n’est ajouté. FL10 et FL11 restent décoratives et Conçu. AS18, AS19 et AS22 restent partiels; animations finales et réception humaine sont ouvertes.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Livrable partiel disponible. L’onglet Prototype et les reçus de production précisent son intégration, sa portée et les critères encore ouverts.",
@@ -5296,7 +5296,7 @@
           "id": "AS18",
           "category": "Décors",
           "deliverable": "Kit Thyr",
-          "spec": "Canopée, colonnes-mères, hameaux, racines et pistes. Kits SVG/Canvas 0.10–0.12 conservés. Les huit atlas/62 cellules de vie de Thyr, trois atlas/30 cellules du relais, cinq atlas/24 cellules chimiques, trois atlas/21 cellules MI11 et trois atlas/20 cellules de route MI09 restent disponibles. Le lot de route conserve 18 cellules au rendu et deux références. 0.15.8 ajoute un panorama lointain original de Thyr. États et habitats restent simulés; art final, écologie générale et réception humaine sont ouverts.",
+          "spec": "Canopée, colonnes-mères, hameaux, racines et pistes. Kits SVG/Canvas 0.10–0.12 conservés. Les huit atlas/62 cellules de vie de Thyr, trois atlas/30 cellules du relais, cinq atlas/24 cellules chimiques, trois atlas/21 cellules MI11 et trois atlas/20 cellules de route MI09 restent disponibles. Le lot de route conserve 18 cellules au rendu et deux références. 0.15.8 ajoute un panorama lointain original de Thyr. États et habitats restent simulés; art final, écologie générale et réception humaine sont ouverts. 0.15.10 ajoute deux atlas/dix cellules de sols et petits décors pour MI09–MI12 et OP03 : quatre matières et six éléments de sous-bois suivent terrain et emplacements existants, sans nouvel effet écologique.",
           "acceptance": "Arbres porteurs raccordés aux bâtiments; aucune porte flottante.",
           "priority": "P0",
           "status": "Prototype"
@@ -5305,7 +5305,7 @@
           "id": "AS19",
           "category": "Décors",
           "deliverable": "Kits Kharon et Sereis",
-          "spec": "Roches, installations, chaleur et glace. MI13–MI14 conservent leurs kits SVG/Canvas, huit atlas/54 cellules MI14, deux atlas/huit cellules du porteur et des caisses, et quatre atlas/23 cellules de fonderie. 0.15.8 ajoute un panorama lointain original de Kharon. Le porteur et ses caisses gardent leurs positions physiques; surfaces, température, pertes et transferts gardent leurs faits simulés. Sereis et la finition complète restent à produire.",
+          "spec": "Roches, installations, chaleur et glace. MI13–MI14 conservent leurs kits SVG/Canvas, huit atlas/54 cellules MI14, deux atlas/huit cellules du porteur et des caisses, et quatre atlas/23 cellules de fonderie. 0.15.8 ajoute un panorama lointain original de Kharon. Le porteur et ses caisses gardent leurs positions physiques; surfaces, température, pertes et transferts gardent leurs faits simulés. Sereis et la finition complète restent à produire. 0.15.10 ajoute deux atlas/dix cellules de sols et petits décors pour MI13–MI14 : quatre matières et six éléments au sol. FL10 et FL11 restent décoratives et Conçu, sans annonce de vapeur, effet acoustique ou croûte fragile.",
           "acceptance": "Dangers annoncés avant interaction; effets climatiques réglables.",
           "priority": "P1",
           "status": "Prototype"
@@ -5332,7 +5332,7 @@
           "id": "AS22",
           "category": "FX",
           "deliverable": "Combat et destruction",
-          "spec": "Impacts selon matériau, ricochets, poussière, flammes, fumées, débris et traces de pieds.",
+          "spec": "Impacts selon matériau, ricochets, poussière, flammes, fumées, débris et traces de pieds. Réception partielle 0.15.10 : deux atlas/douze cellules de fumée et poussière, six âges non bouclés par type. Seules les particules déjà émises sont habillées; position, rayon, alpha et durée restent simulés. Mouvement réduit et repli vectoriel conservés. Impacts par matériau, ricochets, flammes, débris, traces persistantes et réception humaine restent ouverts; statut À produire inchangé.",
           "acceptance": "Priorité à la lecture des menaces; budget de particules et réduction possibles.",
           "priority": "P0",
           "status": "À produire"
@@ -5404,7 +5404,7 @@
           "id": "AS30",
           "category": "Production",
           "deliverable": "Registre de provenance",
-          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. Manifestes historiques conservés. Les deux lots 0.15.9 documentent sept atlas/58 cellules : prompts, PNG inchangés, dimensions, empreintes, découpes et usages. Ils distinguent 52 cellules au rendu et six références. Total : 84 atlas/644 cellules en 18 lots, dont 600 au rendu et 44 références. Panoramas comptés séparément. PR26 reste ouvert.",
+          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. Manifestes historiques conservés. Les trois lots 0.15.10 documentent six atlas/32 cellules, toutes utilisées au rendu : sols et décors de Thyr et Kharon, fumée et poussière. Prompts, PNG inchangés, dimensions, empreintes, découpes et usages sont conservés. Total : 90 atlas/676 cellules en 21 lots, dont 632 au rendu et 44 références. Quatre panoramas comptés séparément. PR26 reste ouvert.",
           "acceptance": "Tout asset livré possède une entrée; aucun média de référence embarqué sans autorisation.",
           "priority": "P0",
           "status": "Prototype"
@@ -5476,7 +5476,7 @@
           "id": "AS38",
           "category": "Production",
           "deliverable": "Manifestes d’intégration",
-          "spec": "Registre de provenance, pivots, échelle, usage et dépendances. Rigs et manifestes antérieurs conservés. 0.15.9 ajoute sept atlas/58 cellules avec rectangles et ancres mesurés. Huit apparences suivent les personnes simulées; six poses de perte restent références. Quatre matières et six décors suivent les surfaces et emplacements existants. Les personnes à bord gardent leurs indicateurs uniques. Chargement asynchrone, repli vectoriel et dossier v14 conservés.",
+          "spec": "Registre de provenance, pivots, échelle, usage et dépendances. Rigs et manifestes antérieurs conservés. 0.15.10 ajoute six atlas/32 cellules avec rectangles et ancres mesurés : huit matières et douze décors suivent le terrain et ses emplacements existants sur Thyr et Kharon; douze cellules habillent la fumée et la poussière déjà simulées. Émissions, position, rayon, alpha et durée restent conservés. Aucune collision, population, mécanique végétale ou chaleur supplémentaire. Chargement asynchrone, repli vectoriel et dossier v14 conservés.",
           "acceptance": "Un asset peut être remplacé sans perdre collision, position du son ou identité de la source.",
           "priority": "P1",
           "status": "Prototype"
@@ -5842,7 +5842,7 @@
         {
           "id": "PR12",
           "workstream": "Art prototype",
-          "deliverable": "Identité visuelle, environnements et silhouettes lisibles. Réception partielle 0.15.9 : sept atlas/58 cellules de personnes, sols et décors de Nacre, dont 52 au rendu et six références. Huit apparences ont 32 poses de marche; dix cellules couvrent sols et décors. Total : 84 atlas/644 cellules en 18 lots, dont 600 au rendu et 44 références. Panoramas comptés séparément. Autres biomes, interactions végétales, animations finales et réception humaine restent ouverts.",
+          "deliverable": "Identité visuelle, environnements et silhouettes lisibles. Réception partielle 0.15.10 : six atlas/32 cellules utilisées au rendu. Thyr et Kharon reçoivent chacun quatre matières et six petits décors; fumée et poussière ont chacune six âges. Total : 90 atlas/676 cellules en 21 lots, dont 632 au rendu et 44 références. Quatre panoramas comptés séparément. Terrain, emplacements décoratifs et particules gardent leur simulation. AS18, AS19 et AS22 restent partiels; autres biomes, interactions végétales, effets et animations finaux, réception humaine restent ouverts.",
           "depends": "AS01–AS04; AS16–AS18",
           "acceptance": "Captures à plusieurs résolutions, contraste et unités identifiables.",
           "priority": "P0",
@@ -6481,7 +6481,7 @@
         {
           "id": "PR83",
           "workstream": "MI09 — route vivante",
-          "deliverable": "Approche, supports porteurs, migration, éclairage, barrière, tireurs, trajet logistique et rapport local. 0.15.7 : trois atlas/20 cellules de barrière, consoles, repères et transport, dont 18 au rendu et deux références. Les temps de travail, ouvertures, migration et résultats logistiques restent physiques.",
+          "deliverable": "Approche, supports porteurs, migration, éclairage, barrière, tireurs, trajet logistique et rapport local. 0.15.7 : trois atlas/20 cellules de barrière, consoles, repères et transport, dont 18 au rendu et deux références. Les temps de travail, ouvertures, migration et résultats logistiques restent physiques. 0.15.10 ajoute le lot partagé de Thyr : deux atlas/dix cellules pour quatre matières de terrain et six petits décors, sans modifier supports porteurs, migration ou interactions.",
           "depends": "MI09; FL07; FU07; FU08; AS18; SY93–SY96",
           "acceptance": "Les deux conduites se réalisent physiquement et conservent leurs pertes. Les six châssis possèdent une route praticable sans supprimer leur hauteur.",
           "priority": "P0",
@@ -6598,7 +6598,7 @@
         {
           "id": "PR96",
           "workstream": "Graphisme Kharon",
-          "deliverable": "Kit industriel, signalisation de vapeur et horizon de fonderie. 0.15.5 : deux atlas/huit cellules peignent porteur et caisses MI13; quatre roues et deux charges gardent leur pose physique. Le kit vectoriel et les effets de progression restent disponibles; finition de Kharon et réception humaine restent ouvertes. 0.15.7 : quatre atlas/23 cellules ajoutent vannes et volants, grues et crochets, consoles et bordereaux, tabliers et grilles vapeur. La texture suit la vraie surface; le transfert et la quarantaine restent distincts. Les quatre atlas sont utilisés au rendu, avec repli vectoriel.",
+          "deliverable": "Kit industriel, signalisation de vapeur et horizon de fonderie. 0.15.5 : deux atlas/huit cellules peignent porteur et caisses MI13; quatre roues et deux charges gardent leur pose physique. Le kit vectoriel et les effets de progression restent disponibles; finition de Kharon et réception humaine restent ouvertes. 0.15.7 : quatre atlas/23 cellules ajoutent vannes et volants, grues et crochets, consoles et bordereaux, tabliers et grilles vapeur. La texture suit la vraie surface; le transfert et la quarantaine restent distincts. Les quatre atlas sont utilisés au rendu, avec repli vectoriel. 0.15.10 ajoute le lot partagé de Kharon : deux atlas/dix cellules de sols et petits décors sur le terrain existant. FL10 et FL11 sont décoratives; aucune chaleur, vapeur ou interaction n’est créée par ces images.",
           "depends": "PR95 ; AS19",
           "acceptance": "SVG/Canvas cohérents et roues/appuis provenant de la simulation.",
           "priority": "P1",
@@ -6625,7 +6625,7 @@
         {
           "id": "PR99",
           "workstream": "Atelier et interface",
-          "deliverable": "Atelier MI14 : huit atlas PNG peints, 54 cellules, dont seize poses de marche sur deux tenues. États des machines, HUD, choix et bilan reliés à la simulation.",
+          "deliverable": "Atelier MI14 : huit atlas PNG peints, 54 cellules, dont seize poses de marche sur deux tenues. États des machines, HUD, choix et bilan reliés à la simulation. Le lot partagé de Kharon 0.15.10 ajoute deux atlas/dix cellules de sols et petits décors. Il conserve le terrain, les surfaces physiques de l’atelier et les températures simulées; FL10 et FL11 restent décoratives.",
           "depends": "PR98 ; AS19",
           "acceptance": "Rendu, instruments et reçus décrivent les mêmes corps, états et travaux.",
           "priority": "P1",
@@ -8608,7 +8608,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.15.9. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "description": "Portée présente dans le code de la version 0.15.10. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -8858,9 +8858,9 @@
           "id": "PX24",
           "link": "PR12; AS01",
           "name": "Direction visuelle initiale",
-          "implemented": "Illustration de titre, quatre panoramas et lots peints antérieurs conservés. 0.15.9 ajoute sept atlas/58 cellules de personnes, sols et décors de Nacre, dont 52 au rendu et six références. Total : 84 atlas/644 cellules en 18 lots, dont 600 au rendu et 44 références. Panoramas séparés. Huit apparences ont un arrêt et quatre poses de marche. Quatre matières et six décors suivent le terrain existant. PNG inchangés, chargement asynchrone et repli vectoriel.",
+          "implemented": "Illustration de titre, quatre panoramas et lots peints antérieurs conservés. 0.15.10 ajoute six atlas/32 cellules au rendu : sols et petits décors de Thyr et Kharon, fumée et poussière. Total : 90 atlas/676 cellules en 21 lots, dont 632 au rendu et 44 références. Panoramas séparés. Huit matières et douze décors suivent terrain et emplacements existants. Douze cellules habillent les particules simulées en six âges par type, sans nouvelle émission. PNG inchangés, chargement asynchrone, mouvement réduit et repli vectoriel.",
           "limits": "Art au stade Prototype. Pièces, états et références ne constituent ni unités supplémentaires ni cycles complets. Factions complètes, autres biomes, écologie générale et campagne entièrement peinte restent à produire. Réceptions graphique, navigateur et humaine distinctes.",
-          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-worlds.mjs ; src/painted-nacre-people.mjs ; src/painted-vesper-scenery.mjs ; src/painted-nacre-civilians.mjs ; src/painted-nacre-scenery.mjs",
+          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-worlds.mjs ; src/painted-nacre-people.mjs ; src/painted-vesper-scenery.mjs ; src/painted-nacre-civilians.mjs ; src/painted-nacre-scenery.mjs ; src/painted-thyr-scenery.mjs ; src/painted-kharon-scenery.mjs ; src/painted-particles.mjs",
           "status": "Prototype"
         },
         {
@@ -9461,9 +9461,9 @@
           "id": "PX91",
           "link": "AS18; SY92; QA166",
           "name": "Onze pièces de Thyr",
-          "implemented": "Onze composants réutilisables historiques, trente-cinq variantes SVG et deux planches PNG conservés. Les atlas peints Thyr remplacent partiellement leur présentation avec repli vectoriel; les états de supports et de faune viennent toujours de la simulation. 0.15.7 ajoute le matériel de route dans un lot séparé. Les animaux et habitats déjà peints restent conservés; la roue isolée et la borne détruite de ce nouveau lot restent des références.",
+          "implemented": "Onze composants réutilisables historiques, trente-cinq variantes SVG et deux planches PNG conservés. Les atlas peints Thyr remplacent partiellement leur présentation avec repli vectoriel; les états de supports et de faune viennent toujours de la simulation. 0.15.7 ajoute le matériel de route dans un lot séparé. Les animaux et habitats déjà peints restent conservés; la roue isolée et la borne détruite de ce nouveau lot restent des références. 0.15.10 ajoute deux atlas/dix cellules de sol et de sous-bois, partagées entre MI09–MI12 et OP03. Quatre matières et six décors suivent terrain et emplacements existants, sans remplacer racines porteuses, nids ou végétation simulée.",
           "limits": "Un export ou une planche ne prouve pas tout le niveau en mouvement. Vignes, herbes et variantes disponibles au dessin ne créditent aucun effet écologique absent. Les cellules de référence sont distinctes des états joués. Art final et réception humaine restent ouverts.",
-          "path": "src/thyr-assets.mjs ; src/thyr-renderer.mjs ; src/painted-thyr.mjs ; assets/thyr/manifest.json ; assets/painted/thyr/manifest.json ; src/painted-route.mjs ; assets/painted/route/manifest.json",
+          "path": "src/thyr-assets.mjs ; src/thyr-renderer.mjs ; src/painted-thyr.mjs ; assets/thyr/manifest.json ; assets/painted/thyr/manifest.json ; src/painted-route.mjs ; assets/painted/route/manifest.json ; src/painted-thyr-scenery.mjs ; assets/painted/thyr-scenery/manifest.json",
           "status": "Prototype"
         },
         {
@@ -9677,9 +9677,9 @@
           "id": "PX115",
           "link": "MI13; AS19",
           "name": "Kit de Kharon",
-          "implemented": "Formes industrielles originales SVG/Canvas et horizon de fonderie. Deux atlas/huit cellules ajoutent porteur et caisses peints de MI13. Leurs positions, dégâts, copie et transferts suivent le domaine; effets de progression et repli vectoriel restent présents. 0.15.7 ajoute quatre atlas/23 cellules pour vannes, grues, consoles, bordereaux, tabliers et grilles vapeur. Volants et crochets sont séparés; câbles et effets restent simulés. La grue en quarantaine garde son signal pendant le travail.",
+          "implemented": "Formes industrielles originales SVG/Canvas et horizon de fonderie. Deux atlas/huit cellules ajoutent porteur et caisses peints de MI13. Leurs positions, dégâts, copie et transferts suivent le domaine; effets de progression et repli vectoriel restent présents. 0.15.7 ajoute quatre atlas/23 cellules pour vannes, grues, consoles, bordereaux, tabliers et grilles vapeur. Volants et crochets sont séparés; câbles et effets restent simulés. La grue en quarantaine garde son signal pendant le travail. 0.15.10 ajoute deux atlas/dix cellules de sols et petits décors partagées avec MI14. Elles suivent le terrain et ses emplacements existants. FL10 et FL11 restent décoratives, sans effet de vapeur, de bruit ou de fragilité.",
           "limits": "Sereis, MI15–MI16, les effets finaux et la réception humaine du kit restent à produire. Le kit MI14 est décrit séparément.",
-          "path": "src/foundry-assets.mjs ; assets/foundry ; src/renderer.mjs ; src/painted-transport.mjs ; src/foundry-renderer.mjs ; src/painted-foundry-sites.mjs ; assets/painted/foundry-sites/manifest.json",
+          "path": "src/foundry-assets.mjs ; assets/foundry ; src/renderer.mjs ; src/painted-transport.mjs ; src/foundry-renderer.mjs ; src/painted-foundry-sites.mjs ; assets/painted/foundry-sites/manifest.json ; src/painted-kharon-scenery.mjs ; assets/painted/kharon-scenery/manifest.json",
           "status": "Prototype"
         },
         {
@@ -9731,9 +9731,9 @@
           "id": "PX121",
           "link": "MI14 ; PR99",
           "name": "Kit de l’atelier",
-          "implemented": "Huit atlas PNG transparents, 54 cellules : 24 de personnes, 30 de machines et accessoires. Découpe au rendu, ancres documentées et repli vectoriel. Images sources conservées sans retouche.",
+          "implemented": "Huit atlas PNG transparents, 54 cellules : 24 de personnes, 30 de machines et accessoires. Découpe au rendu, ancres documentées et repli vectoriel. Images sources conservées sans retouche. 0.15.10 ajoute le lot partagé de Kharon : deux atlas/dix cellules de sols et petits décors sur terrain et emplacements existants. Surfaces physiques, refroidissement et températures restent simulés; FL10 et FL11 sont décoratives.",
           "limits": "Production graphique au stade Prototype. Deux poses agenouillées restent des références. Réception du rendu, navigateur et essai humain sont distincts ; les animations finales restent ouvertes.",
-          "path": "assets/painted/mi14 ; src/painted-sprites.mjs ; src/painted-sprite-layout.mjs",
+          "path": "assets/painted/mi14 ; src/painted-sprites.mjs ; src/painted-sprite-layout.mjs ; src/painted-kharon-scenery.mjs ; assets/painted/kharon-scenery/manifest.json",
           "status": "Prototype"
         }
       ]

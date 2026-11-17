@@ -1,0 +1,783 @@
+{
+  "version": "0.15.10",
+  "checkedAt": "2026-11-17T10:10:47.263017+00:00",
+  "baselineCommit": "2be40743cbc0ac436786882e314e6c4c289ff31f",
+  "baselineTree": "749bad5644a44ff52b584c0a0caa6fc8189e3030",
+  "workingHead": "2be40743cbc0ac436786882e314e6c4c289ff31f",
+  "canonicalBaseline": {
+    "path": "docs/validation/painted-counts-v0159.json",
+    "sha256": "6958a7728b7da3b946d3266fa2535d818f8e3f83cb1c6926187ee3e3be4b38a0",
+    "version": "0.15.9",
+    "lotCount": 18,
+    "byteIdenticalToBaseline": true
+  },
+  "lotCount": 21,
+  "baselineReconciled": {
+    "atlases": 84,
+    "cells": 644,
+    "runtimeCells": 600,
+    "referenceCells": 44
+  },
+  "added": {
+    "atlases": 6,
+    "cells": 32,
+    "runtimeCells": 32,
+    "referenceCells": 0
+  },
+  "total": {
+    "atlases": 90,
+    "cells": 676,
+    "runtimeCells": 632,
+    "referenceCells": 44
+  },
+  "lots": [
+    {
+      "lot": "cerbere",
+      "atlases": 1,
+      "cells": 16,
+      "runtimeCells": 11,
+      "referenceCells": 5,
+      "manifest": "assets/painted/cerbere/manifest.json",
+      "manifestSha256": "ba9701de1f5a1ce29982a5bcd850e7f540d373eeffeb77f939336d4074c7ffa3"
+    },
+    {
+      "lot": "chemical",
+      "atlases": 5,
+      "cells": 24,
+      "runtimeCells": 24,
+      "referenceCells": 0,
+      "manifest": "assets/painted/chemical/manifest.json",
+      "manifestSha256": "aaafee883b55d40f542381a79c4aeffdda719e118d308c9709dbdbef9155938f"
+    },
+    {
+      "lot": "combat",
+      "atlases": 9,
+      "cells": 78,
+      "runtimeCells": 60,
+      "referenceCells": 18,
+      "manifest": "assets/painted/combat/manifest.json",
+      "manifestSha256": "d8c559f4f0add10153a1d28abe41fa73914cd17c4376aff76b3114c768c84a93"
+    },
+    {
+      "lot": "foundry-sites",
+      "atlases": 4,
+      "cells": 23,
+      "runtimeCells": 23,
+      "referenceCells": 0,
+      "manifest": "assets/painted/foundry-sites/manifest.json",
+      "manifestSha256": "60361d95f8e69960a58ba4bfc5a274d133a73983ad5704c8234f52b1c937154f"
+    },
+    {
+      "lot": "mi14",
+      "atlases": 8,
+      "cells": 54,
+      "runtimeCells": 48,
+      "referenceCells": 6,
+      "manifest": "assets/painted/mi14/manifest.json",
+      "manifestSha256": "72f64c528cc664bf63d0573f00da3a90a1ba4598acdc91a7bb49aee8955b2625",
+      "usageReconciliation": [
+        {
+          "atlas": "worker",
+          "cells": 12,
+          "runtimeCells": 11,
+          "referenceCells": 1,
+          "references": [
+            "kneeling"
+          ],
+          "runtime": [
+            "standing",
+            "walking-0",
+            "walking-1",
+            "walking-2",
+            "walking-3",
+            "walking-4",
+            "walking-5",
+            "walking-6",
+            "walking-7",
+            "safe",
+            "lost"
+          ]
+        },
+        {
+          "atlas": "worker-mechanic",
+          "cells": 12,
+          "runtimeCells": 11,
+          "referenceCells": 1,
+          "references": [
+            "kneeling"
+          ],
+          "runtime": [
+            "standing",
+            "walking-0",
+            "walking-1",
+            "walking-2",
+            "walking-3",
+            "walking-4",
+            "walking-5",
+            "walking-6",
+            "walking-7",
+            "safe",
+            "lost"
+          ]
+        },
+        {
+          "atlas": "cooler",
+          "cells": 6,
+          "runtimeCells": 5,
+          "referenceCells": 1,
+          "references": [
+            "neutral-reference"
+          ],
+          "runtime": [
+            "broken",
+            "isolated",
+            "repairing",
+            "online",
+            "destroyed"
+          ]
+        },
+        {
+          "atlas": "valve",
+          "cells": 3,
+          "runtimeCells": 3,
+          "referenceCells": 0,
+          "references": [],
+          "runtime": [
+            "open",
+            "isolated",
+            "destroyed"
+          ]
+        },
+        {
+          "atlas": "disputed-lot",
+          "cells": 6,
+          "runtimeCells": 5,
+          "referenceCells": 1,
+          "references": [
+            "neutral-reference"
+          ],
+          "runtime": [
+            "sealed",
+            "inspected",
+            "released",
+            "blocked",
+            "destroyed"
+          ]
+        },
+        {
+          "atlas": "workshop-control",
+          "cells": 6,
+          "runtimeCells": 5,
+          "referenceCells": 1,
+          "references": [
+            "neutral-reference"
+          ],
+          "runtime": [
+            "idle",
+            "working",
+            "production",
+            "stopped",
+            "destroyed"
+          ]
+        },
+        {
+          "atlas": "security-automaton",
+          "cells": 6,
+          "runtimeCells": 5,
+          "referenceCells": 1,
+          "references": [
+            "dormant"
+          ],
+          "runtime": [
+            "warning",
+            "active",
+            "destroyed",
+            "cannon",
+            "cannon-destroyed"
+          ]
+        },
+        {
+          "atlas": "picket-post",
+          "cells": 3,
+          "runtimeCells": 3,
+          "referenceCells": 0,
+          "references": [],
+          "runtime": [
+            "closed",
+            "clearing",
+            "open"
+          ]
+        }
+      ]
+    },
+    {
+      "lot": "nacre",
+      "atlases": 6,
+      "cells": 30,
+      "runtimeCells": 29,
+      "referenceCells": 1,
+      "manifest": "assets/painted/nacre/manifest.json",
+      "manifestSha256": "2bb50df3a24baf3554c3eef89dae295ffdd1d09d5700d2fc779d56fb64489c19"
+    },
+    {
+      "lot": "nacre-sites",
+      "atlases": 5,
+      "cells": 30,
+      "runtimeCells": 30,
+      "referenceCells": 0,
+      "manifest": "assets/painted/nacre-sites/manifest.json",
+      "manifestSha256": "41124ab7cc1144cdc1d54d1ab3e93b26f4475e9147ab558d56fd5eb2a03a2e5a"
+    },
+    {
+      "lot": "relay",
+      "atlases": 3,
+      "cells": 30,
+      "runtimeCells": 28,
+      "referenceCells": 2,
+      "manifest": "assets/painted/relay/manifest.json",
+      "manifestSha256": "3133e7664a5468a62dcad8de5ee7823bde0c68eae5a93af24ec7ade4b04d3cca"
+    },
+    {
+      "lot": "route",
+      "atlases": 3,
+      "cells": 20,
+      "runtimeCells": 18,
+      "referenceCells": 2,
+      "manifest": "assets/painted/route/manifest.json",
+      "manifestSha256": "5bff8cef709e85b19e76c4e7af5cfe70acff2aa1b90424ab18016ab5fc9a0e9e"
+    },
+    {
+      "lot": "thyr",
+      "atlases": 8,
+      "cells": 62,
+      "runtimeCells": 58,
+      "referenceCells": 4,
+      "manifest": "assets/painted/thyr/manifest.json",
+      "manifestSha256": "1edcc6c9a152f591ffa2c37f6299a624ab3079ef1b72b805b4cc6a85b14e0fe6"
+    },
+    {
+      "lot": "transport",
+      "atlases": 4,
+      "cells": 20,
+      "runtimeCells": 20,
+      "referenceCells": 0,
+      "manifest": "assets/painted/transport/manifest.json",
+      "manifestSha256": "0dfdc951c141b4c49d73127c69baa9283aa0657ee1f990409d70b4fab2a041b5"
+    },
+    {
+      "lot": "vesper",
+      "atlases": 6,
+      "cells": 38,
+      "runtimeCells": 38,
+      "referenceCells": 0,
+      "manifest": "assets/painted/vesper/manifest.json",
+      "manifestSha256": "4c7f64a6a4e78fd886ae3bb3b4ecc89c063d0ebd39a59e66e776aa36e8254892"
+    },
+    {
+      "lot": "voice",
+      "atlases": 3,
+      "cells": 21,
+      "runtimeCells": 21,
+      "referenceCells": 0,
+      "manifest": "assets/painted/voice/manifest.json",
+      "manifestSha256": "cf775d14e7763f60801c25cf251b15090cc4ba670ebc58dff482dfa4889331c4"
+    },
+    {
+      "lot": "walkers",
+      "atlases": 6,
+      "cells": 96,
+      "runtimeCells": 96,
+      "referenceCells": 0,
+      "manifest": "assets/painted/walkers/manifest.json",
+      "manifestSha256": "8cf7d7628da6728f13bd21f4458c42bcb867929b7161e6f47c49fe8d3c1f009a"
+    },
+    {
+      "lot": "nacre-people",
+      "atlases": 3,
+      "cells": 28,
+      "runtimeCells": 28,
+      "referenceCells": 0,
+      "manifest": "assets/painted/nacre-people/manifest.json",
+      "manifestSha256": "ca92774305fd46ce660dacab9d572d39de9ae4f132ce1e62ce6f85b633ef3f2d",
+      "provenanceChecked": true,
+      "runtimeUrlsPresent": true
+    },
+    {
+      "lot": "vesper-scenery",
+      "atlases": 3,
+      "cells": 16,
+      "runtimeCells": 16,
+      "referenceCells": 0,
+      "manifest": "assets/painted/vesper-scenery/manifest.json",
+      "manifestSha256": "747746b862d0b52783bbe570630e2a3cb6c6786ea3f72dfb44dec4b1cc02da07",
+      "provenanceChecked": true,
+      "runtimeUrlsPresent": true
+    },
+    {
+      "lot": "nacre-civilians",
+      "atlases": 5,
+      "cells": 48,
+      "runtimeCells": 42,
+      "referenceCells": 6,
+      "manifest": "assets/painted/nacre-civilians/manifest.json",
+      "manifestSha256": "716d31795990d568c4a5ae7fd6a846ddf79b8bda85fd4885112d486b7b875d91",
+      "provenanceChecked": true,
+      "runtimeUrlsPresent": true
+    },
+    {
+      "lot": "nacre-scenery",
+      "atlases": 2,
+      "cells": 10,
+      "runtimeCells": 10,
+      "referenceCells": 0,
+      "manifest": "assets/painted/nacre-scenery/manifest.json",
+      "manifestSha256": "c3d4652bc29973235f336ef12512e9e24c227585c68485231f69ca23564af9d4",
+      "provenanceChecked": true,
+      "runtimeUrlsPresent": true
+    },
+    {
+      "lot": "thyr-scenery",
+      "atlases": 2,
+      "cells": 10,
+      "runtimeCells": 10,
+      "referenceCells": 0,
+      "manifest": "assets/painted/thyr-scenery/manifest.json",
+      "manifestSha256": "dce7898d7c3897530f2b0ff3949e1730fca70f77ce1846445a2aeca9cde4f30d",
+      "provenanceChecked": true,
+      "runtimeUrlsPresent": true,
+      "layout": "src/painted-thyr-scenery-layout.mjs",
+      "layoutSha256": "987005561d45fa99082b8917024bf0c40eb4393ec8ce0c31090df137e2788b67",
+      "manifestMatchesLayout": true
+    },
+    {
+      "lot": "kharon-scenery",
+      "atlases": 2,
+      "cells": 10,
+      "runtimeCells": 10,
+      "referenceCells": 0,
+      "manifest": "assets/painted/kharon-scenery/manifest.json",
+      "manifestSha256": "97e3c17ec899ef1e2253e2295fb1db8f79d43788ac8ce2edff2185f49877d879",
+      "provenanceChecked": true,
+      "runtimeUrlsPresent": true,
+      "layout": "src/painted-kharon-scenery-layout.mjs",
+      "layoutSha256": "4c96654e1c0bf6d2812fbe0c271d0ceef630f260ce116a275d0cbcafcbf3a77b",
+      "manifestMatchesLayout": true
+    },
+    {
+      "lot": "particles",
+      "atlases": 2,
+      "cells": 12,
+      "runtimeCells": 12,
+      "referenceCells": 0,
+      "manifest": "assets/painted/particles/manifest.json",
+      "manifestSha256": "03d435ca7a40c5504cc938582e3496be57353756076424aabd5ac54aaf596924",
+      "provenanceChecked": true,
+      "runtimeUrlsPresent": true,
+      "layout": "src/painted-particles-layout.mjs",
+      "layoutSha256": "897108319750c1be2531eaf0848549eaf0bdf511db8ab8ccd5258d667a3a434b",
+      "manifestMatchesLayout": true
+    }
+  ],
+  "historicalManifestChecks": [
+    {
+      "lot": "cerbere",
+      "manifest": "assets/painted/cerbere/manifest.json",
+      "sha256": "ba9701de1f5a1ce29982a5bcd850e7f540d373eeffeb77f939336d4074c7ffa3",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "chemical",
+      "manifest": "assets/painted/chemical/manifest.json",
+      "sha256": "aaafee883b55d40f542381a79c4aeffdda719e118d308c9709dbdbef9155938f",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "combat",
+      "manifest": "assets/painted/combat/manifest.json",
+      "sha256": "d8c559f4f0add10153a1d28abe41fa73914cd17c4376aff76b3114c768c84a93",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "foundry-sites",
+      "manifest": "assets/painted/foundry-sites/manifest.json",
+      "sha256": "60361d95f8e69960a58ba4bfc5a274d133a73983ad5704c8234f52b1c937154f",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "mi14",
+      "manifest": "assets/painted/mi14/manifest.json",
+      "sha256": "72f64c528cc664bf63d0573f00da3a90a1ba4598acdc91a7bb49aee8955b2625",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "nacre",
+      "manifest": "assets/painted/nacre/manifest.json",
+      "sha256": "2bb50df3a24baf3554c3eef89dae295ffdd1d09d5700d2fc779d56fb64489c19",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "nacre-sites",
+      "manifest": "assets/painted/nacre-sites/manifest.json",
+      "sha256": "41124ab7cc1144cdc1d54d1ab3e93b26f4475e9147ab558d56fd5eb2a03a2e5a",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "relay",
+      "manifest": "assets/painted/relay/manifest.json",
+      "sha256": "3133e7664a5468a62dcad8de5ee7823bde0c68eae5a93af24ec7ade4b04d3cca",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "route",
+      "manifest": "assets/painted/route/manifest.json",
+      "sha256": "5bff8cef709e85b19e76c4e7af5cfe70acff2aa1b90424ab18016ab5fc9a0e9e",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "thyr",
+      "manifest": "assets/painted/thyr/manifest.json",
+      "sha256": "1edcc6c9a152f591ffa2c37f6299a624ab3079ef1b72b805b4cc6a85b14e0fe6",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "transport",
+      "manifest": "assets/painted/transport/manifest.json",
+      "sha256": "0dfdc951c141b4c49d73127c69baa9283aa0657ee1f990409d70b4fab2a041b5",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "vesper",
+      "manifest": "assets/painted/vesper/manifest.json",
+      "sha256": "4c7f64a6a4e78fd886ae3bb3b4ecc89c063d0ebd39a59e66e776aa36e8254892",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "voice",
+      "manifest": "assets/painted/voice/manifest.json",
+      "sha256": "cf775d14e7763f60801c25cf251b15090cc4ba670ebc58dff482dfa4889331c4",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "walkers",
+      "manifest": "assets/painted/walkers/manifest.json",
+      "sha256": "8cf7d7628da6728f13bd21f4458c42bcb867929b7161e6f47c49fe8d3c1f009a",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "nacre-people",
+      "manifest": "assets/painted/nacre-people/manifest.json",
+      "sha256": "ca92774305fd46ce660dacab9d572d39de9ae4f132ce1e62ce6f85b633ef3f2d",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "vesper-scenery",
+      "manifest": "assets/painted/vesper-scenery/manifest.json",
+      "sha256": "747746b862d0b52783bbe570630e2a3cb6c6786ea3f72dfb44dec4b1cc02da07",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "nacre-civilians",
+      "manifest": "assets/painted/nacre-civilians/manifest.json",
+      "sha256": "716d31795990d568c4a5ae7fd6a846ddf79b8bda85fd4885112d486b7b875d91",
+      "byteIdenticalToBaseline": true
+    },
+    {
+      "lot": "nacre-scenery",
+      "manifest": "assets/painted/nacre-scenery/manifest.json",
+      "sha256": "c3d4652bc29973235f336ef12512e9e24c227585c68485231f69ca23564af9d4",
+      "byteIdenticalToBaseline": true
+    }
+  ],
+  "panoramas": {
+    "added": 0,
+    "total": 4,
+    "classification": "Four distant world panoramas, preserved byte-for-byte and excluded from atlas/cell/lot counts.",
+    "files": [
+      "assets/painted/worlds/nacre.png",
+      "assets/painted/worlds/thyr.png",
+      "assets/painted/worlds/kharon.png",
+      "assets/art/vesper-panorama.png"
+    ],
+    "manifest": "assets/painted/worlds/manifest.json",
+    "manifestSha256": "ebae66e9909aafbded7761b3121ab546608911e3d8b3853cd05e7fdece677c67",
+    "filesPreserved": [
+      {
+        "path": "assets/painted/worlds/nacre.png",
+        "bytes": 2022628,
+        "sha256": "bc03fadfb3b98f7c2a44290864b4d6159f21c9bb7c889e1e7c72984f2d21f88c",
+        "byteIdenticalToBaseline": true
+      },
+      {
+        "path": "assets/painted/worlds/thyr.png",
+        "bytes": 2362564,
+        "sha256": "f01fb28b1326940e67f0372910325da39ba1c55aecaa2a5298e3cb0917cd31eb",
+        "byteIdenticalToBaseline": true
+      },
+      {
+        "path": "assets/painted/worlds/kharon.png",
+        "bytes": 2193242,
+        "sha256": "e8f98bb4204ac76e8a70d4ed859d9d18e0d29c3b8231290efda61a70e1c73234",
+        "byteIdenticalToBaseline": true
+      },
+      {
+        "path": "assets/art/vesper-panorama.png",
+        "bytes": 1797938,
+        "sha256": "837363413272bb4c8ed4fc38901d127465f3a30a830d6fd001b2d0c9106e6084",
+        "byteIdenticalToBaseline": true
+      }
+    ]
+  },
+  "newPngCount": 6,
+  "newPngProvenance": [
+    {
+      "path": "assets/painted/thyr-scenery/terrain.png",
+      "lot": "thyr-scenery",
+      "kind": "atlas",
+      "origin": "built-in Imagegen selected original output",
+      "bytes": 2242719,
+      "sha256": "efd80296fc08d1ef616100c80bb28f15a90e22482ea513a890a4e985bb18b134",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/672b96792ba9/generated_images/exec-0d4f010e-4df2-4120-bcfe-a08a6944665e.png",
+      "selectedSourceBytes": 2242719,
+      "selectedSourceSha256": "efd80296fc08d1ef616100c80bb28f15a90e22482ea513a890a4e985bb18b134",
+      "sourceBytesIdentical": true,
+      "selectedOutputHashMatches": true,
+      "manifest": "assets/painted/thyr-scenery/manifest.json",
+      "manifestSha256": "dce7898d7c3897530f2b0ff3949e1730fca70f77ce1846445a2aeca9cde4f30d",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/thyr-scenery/prompts.json",
+      "promptsSha256": "f1273d26c7de8b931609442dc7a033ba674cad228f7ca3c9ca6a4f19d1e0cc92",
+      "promptPresent": true,
+      "runtimeModule": "src/painted-thyr-scenery.mjs",
+      "runtimeModuleSha256": "7d8456e8829e50bfd3009d5f7a5f5271e1fb94bb0d17e66cb07ebe4846c2b30d",
+      "runtimeUrlLiteral": "../assets/painted/thyr-scenery/terrain.png",
+      "runtimeUrlPresent": true,
+      "runtimeUrlExportMatches": true,
+      "layout": "src/painted-thyr-scenery-layout.mjs",
+      "layoutSha256": "987005561d45fa99082b8917024bf0c40eb4393ec8ce0c31090df137e2788b67",
+      "layoutCells": 4,
+      "runtimeCells": 4,
+      "referenceCells": 0
+    },
+    {
+      "path": "assets/painted/thyr-scenery/props.png",
+      "lot": "thyr-scenery",
+      "kind": "atlas",
+      "origin": "built-in Imagegen selected original output",
+      "bytes": 1455337,
+      "sha256": "757fef3c6c6845b0afa307c28e633af021e7f7a585465038ee905cd5b2ece530",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/672b96792ba9/generated_images/exec-37d57983-77e2-461f-8d61-afc41bfc3b6b.png",
+      "selectedSourceBytes": 1455337,
+      "selectedSourceSha256": "757fef3c6c6845b0afa307c28e633af021e7f7a585465038ee905cd5b2ece530",
+      "sourceBytesIdentical": true,
+      "selectedOutputHashMatches": true,
+      "manifest": "assets/painted/thyr-scenery/manifest.json",
+      "manifestSha256": "dce7898d7c3897530f2b0ff3949e1730fca70f77ce1846445a2aeca9cde4f30d",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/thyr-scenery/prompts.json",
+      "promptsSha256": "f1273d26c7de8b931609442dc7a033ba674cad228f7ca3c9ca6a4f19d1e0cc92",
+      "promptPresent": true,
+      "runtimeModule": "src/painted-thyr-scenery.mjs",
+      "runtimeModuleSha256": "7d8456e8829e50bfd3009d5f7a5f5271e1fb94bb0d17e66cb07ebe4846c2b30d",
+      "runtimeUrlLiteral": "../assets/painted/thyr-scenery/props.png",
+      "runtimeUrlPresent": true,
+      "runtimeUrlExportMatches": true,
+      "layout": "src/painted-thyr-scenery-layout.mjs",
+      "layoutSha256": "987005561d45fa99082b8917024bf0c40eb4393ec8ce0c31090df137e2788b67",
+      "layoutCells": 6,
+      "runtimeCells": 6,
+      "referenceCells": 0
+    },
+    {
+      "path": "assets/painted/kharon-scenery/terrain.png",
+      "lot": "kharon-scenery",
+      "kind": "atlas",
+      "origin": "built-in Imagegen selected original output",
+      "bytes": 2980918,
+      "sha256": "69ffcda8aac0302111b1a69d5283013f47a880a34de6d69e071c70cf5e825297",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/672b96792ba9/generated_images/exec-334c55db-5224-4868-8b70-1bbd938efa5c.png",
+      "selectedSourceBytes": 2980918,
+      "selectedSourceSha256": "69ffcda8aac0302111b1a69d5283013f47a880a34de6d69e071c70cf5e825297",
+      "sourceBytesIdentical": true,
+      "selectedOutputHashMatches": true,
+      "manifest": "assets/painted/kharon-scenery/manifest.json",
+      "manifestSha256": "97e3c17ec899ef1e2253e2295fb1db8f79d43788ac8ce2edff2185f49877d879",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/kharon-scenery/prompts.json",
+      "promptsSha256": "ee9ba584de8ec6939dc9fe3df19abab5aa112fa9f826c2c46bc056e3652a64cd",
+      "promptPresent": true,
+      "runtimeModule": "src/painted-kharon-scenery.mjs",
+      "runtimeModuleSha256": "f02051acfb96637e846981abad012a933089717f3a794ef88c19e8b84726a756",
+      "runtimeUrlLiteral": "../assets/painted/kharon-scenery/terrain.png",
+      "runtimeUrlPresent": true,
+      "runtimeUrlExportMatches": true,
+      "layout": "src/painted-kharon-scenery-layout.mjs",
+      "layoutSha256": "4c96654e1c0bf6d2812fbe0c271d0ceef630f260ce116a275d0cbcafcbf3a77b",
+      "layoutCells": 4,
+      "runtimeCells": 4,
+      "referenceCells": 0
+    },
+    {
+      "path": "assets/painted/kharon-scenery/props.png",
+      "lot": "kharon-scenery",
+      "kind": "atlas",
+      "origin": "built-in Imagegen selected original output",
+      "bytes": 1434791,
+      "sha256": "e284e83cdefaff9b8c05fa94606ecab8a9da4bc1e9e4fcedade65480a04d2129",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/672b96792ba9/generated_images/exec-fa617712-2b72-4017-8153-4c5ea518bf5f.png",
+      "selectedSourceBytes": 1434791,
+      "selectedSourceSha256": "e284e83cdefaff9b8c05fa94606ecab8a9da4bc1e9e4fcedade65480a04d2129",
+      "sourceBytesIdentical": true,
+      "selectedOutputHashMatches": true,
+      "manifest": "assets/painted/kharon-scenery/manifest.json",
+      "manifestSha256": "97e3c17ec899ef1e2253e2295fb1db8f79d43788ac8ce2edff2185f49877d879",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/kharon-scenery/prompts.json",
+      "promptsSha256": "ee9ba584de8ec6939dc9fe3df19abab5aa112fa9f826c2c46bc056e3652a64cd",
+      "promptPresent": true,
+      "runtimeModule": "src/painted-kharon-scenery.mjs",
+      "runtimeModuleSha256": "f02051acfb96637e846981abad012a933089717f3a794ef88c19e8b84726a756",
+      "runtimeUrlLiteral": "../assets/painted/kharon-scenery/props.png",
+      "runtimeUrlPresent": true,
+      "runtimeUrlExportMatches": true,
+      "layout": "src/painted-kharon-scenery-layout.mjs",
+      "layoutSha256": "4c96654e1c0bf6d2812fbe0c271d0ceef630f260ce116a275d0cbcafcbf3a77b",
+      "layoutCells": 6,
+      "runtimeCells": 6,
+      "referenceCells": 0
+    },
+    {
+      "path": "assets/painted/particles/smoke.png",
+      "lot": "particles",
+      "kind": "atlas",
+      "origin": "built-in Imagegen selected original output",
+      "bytes": 1600678,
+      "sha256": "e510296425c7bfa6304a7b2fbde2bab9ae0afbb118ea6f5a928b55538d1643ca",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/672b96792ba9/generated_images/exec-3f7d2196-5b47-472e-8ec7-04c8fc4d3621.png",
+      "selectedSourceBytes": 1600678,
+      "selectedSourceSha256": "e510296425c7bfa6304a7b2fbde2bab9ae0afbb118ea6f5a928b55538d1643ca",
+      "sourceBytesIdentical": true,
+      "selectedOutputHashMatches": true,
+      "manifest": "assets/painted/particles/manifest.json",
+      "manifestSha256": "03d435ca7a40c5504cc938582e3496be57353756076424aabd5ac54aaf596924",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/particles/prompts.json",
+      "promptsSha256": "35f20af777409036f90e88a8ae8452d29feb1f4e3d37179ff0faf7c3ae9c95ab",
+      "promptPresent": true,
+      "runtimeModule": "src/painted-particles.mjs",
+      "runtimeModuleSha256": "d3b4e19e93705799bd4a65c099154967faa8331f0f7e44de5046e1fba5bd042b",
+      "runtimeUrlLiteral": "../assets/painted/particles/smoke.png",
+      "runtimeUrlPresent": true,
+      "runtimeUrlExportMatches": true,
+      "layout": "src/painted-particles-layout.mjs",
+      "layoutSha256": "897108319750c1be2531eaf0848549eaf0bdf511db8ab8ccd5258d667a3a434b",
+      "layoutCells": 6,
+      "runtimeCells": 6,
+      "referenceCells": 0
+    },
+    {
+      "path": "assets/painted/particles/dust.png",
+      "lot": "particles",
+      "kind": "atlas",
+      "origin": "built-in Imagegen selected original output",
+      "bytes": 1706202,
+      "sha256": "a5ec1359d106cafca1199a313c4ce24bcc11ef19677af4345719256d90647826",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/672b96792ba9/generated_images/exec-8c314a75-e439-422e-8526-fe54dc77d148.png",
+      "selectedSourceBytes": 1706202,
+      "selectedSourceSha256": "a5ec1359d106cafca1199a313c4ce24bcc11ef19677af4345719256d90647826",
+      "sourceBytesIdentical": true,
+      "selectedOutputHashMatches": true,
+      "manifest": "assets/painted/particles/manifest.json",
+      "manifestSha256": "03d435ca7a40c5504cc938582e3496be57353756076424aabd5ac54aaf596924",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/particles/prompts.json",
+      "promptsSha256": "35f20af777409036f90e88a8ae8452d29feb1f4e3d37179ff0faf7c3ae9c95ab",
+      "promptPresent": true,
+      "runtimeModule": "src/painted-particles.mjs",
+      "runtimeModuleSha256": "d3b4e19e93705799bd4a65c099154967faa8331f0f7e44de5046e1fba5bd042b",
+      "runtimeUrlLiteral": "../assets/painted/particles/dust.png",
+      "runtimeUrlPresent": true,
+      "runtimeUrlExportMatches": true,
+      "layout": "src/painted-particles-layout.mjs",
+      "layoutSha256": "897108319750c1be2531eaf0848549eaf0bdf511db8ab8ccd5258d667a3a434b",
+      "layoutCells": 6,
+      "runtimeCells": 6,
+      "referenceCells": 0
+    }
+  ],
+  "retainedCorrection": "The canonical 0.15.9 entries are retained unchanged, including the six MI14 reference cells reconciled in 0.15.7. Earlier proof files remain byte-identical.",
+  "sourceHashes": {
+    "docs/validation/painted-counts-v0159.json": "6958a7728b7da3b946d3266fa2535d818f8e3f83cb1c6926187ee3e3be4b38a0",
+    "assets/painted/cerbere/manifest.json": "ba9701de1f5a1ce29982a5bcd850e7f540d373eeffeb77f939336d4074c7ffa3",
+    "assets/painted/chemical/manifest.json": "aaafee883b55d40f542381a79c4aeffdda719e118d308c9709dbdbef9155938f",
+    "assets/painted/combat/manifest.json": "d8c559f4f0add10153a1d28abe41fa73914cd17c4376aff76b3114c768c84a93",
+    "assets/painted/foundry-sites/manifest.json": "60361d95f8e69960a58ba4bfc5a274d133a73983ad5704c8234f52b1c937154f",
+    "assets/painted/mi14/manifest.json": "72f64c528cc664bf63d0573f00da3a90a1ba4598acdc91a7bb49aee8955b2625",
+    "assets/painted/nacre/manifest.json": "2bb50df3a24baf3554c3eef89dae295ffdd1d09d5700d2fc779d56fb64489c19",
+    "assets/painted/nacre-sites/manifest.json": "41124ab7cc1144cdc1d54d1ab3e93b26f4475e9147ab558d56fd5eb2a03a2e5a",
+    "assets/painted/relay/manifest.json": "3133e7664a5468a62dcad8de5ee7823bde0c68eae5a93af24ec7ade4b04d3cca",
+    "assets/painted/route/manifest.json": "5bff8cef709e85b19e76c4e7af5cfe70acff2aa1b90424ab18016ab5fc9a0e9e",
+    "assets/painted/thyr/manifest.json": "1edcc6c9a152f591ffa2c37f6299a624ab3079ef1b72b805b4cc6a85b14e0fe6",
+    "assets/painted/transport/manifest.json": "0dfdc951c141b4c49d73127c69baa9283aa0657ee1f990409d70b4fab2a041b5",
+    "assets/painted/vesper/manifest.json": "4c7f64a6a4e78fd886ae3bb3b4ecc89c063d0ebd39a59e66e776aa36e8254892",
+    "assets/painted/voice/manifest.json": "cf775d14e7763f60801c25cf251b15090cc4ba670ebc58dff482dfa4889331c4",
+    "assets/painted/walkers/manifest.json": "8cf7d7628da6728f13bd21f4458c42bcb867929b7161e6f47c49fe8d3c1f009a",
+    "assets/painted/nacre-people/manifest.json": "ca92774305fd46ce660dacab9d572d39de9ae4f132ce1e62ce6f85b633ef3f2d",
+    "assets/painted/vesper-scenery/manifest.json": "747746b862d0b52783bbe570630e2a3cb6c6786ea3f72dfb44dec4b1cc02da07",
+    "assets/painted/nacre-civilians/manifest.json": "716d31795990d568c4a5ae7fd6a846ddf79b8bda85fd4885112d486b7b875d91",
+    "assets/painted/nacre-scenery/manifest.json": "c3d4652bc29973235f336ef12512e9e24c227585c68485231f69ca23564af9d4",
+    "assets/painted/thyr-scenery/manifest.json": "dce7898d7c3897530f2b0ff3949e1730fca70f77ce1846445a2aeca9cde4f30d",
+    "assets/painted/thyr-scenery/prompts.json": "f1273d26c7de8b931609442dc7a033ba674cad228f7ca3c9ca6a4f19d1e0cc92",
+    "src/painted-thyr-scenery.mjs": "7d8456e8829e50bfd3009d5f7a5f5271e1fb94bb0d17e66cb07ebe4846c2b30d",
+    "src/painted-thyr-scenery-layout.mjs": "987005561d45fa99082b8917024bf0c40eb4393ec8ce0c31090df137e2788b67",
+    "assets/painted/thyr-scenery/terrain.png": "efd80296fc08d1ef616100c80bb28f15a90e22482ea513a890a4e985bb18b134",
+    "assets/painted/thyr-scenery/props.png": "757fef3c6c6845b0afa307c28e633af021e7f7a585465038ee905cd5b2ece530",
+    "assets/painted/kharon-scenery/manifest.json": "97e3c17ec899ef1e2253e2295fb1db8f79d43788ac8ce2edff2185f49877d879",
+    "assets/painted/kharon-scenery/prompts.json": "ee9ba584de8ec6939dc9fe3df19abab5aa112fa9f826c2c46bc056e3652a64cd",
+    "src/painted-kharon-scenery.mjs": "f02051acfb96637e846981abad012a933089717f3a794ef88c19e8b84726a756",
+    "src/painted-kharon-scenery-layout.mjs": "4c96654e1c0bf6d2812fbe0c271d0ceef630f260ce116a275d0cbcafcbf3a77b",
+    "assets/painted/kharon-scenery/terrain.png": "69ffcda8aac0302111b1a69d5283013f47a880a34de6d69e071c70cf5e825297",
+    "assets/painted/kharon-scenery/props.png": "e284e83cdefaff9b8c05fa94606ecab8a9da4bc1e9e4fcedade65480a04d2129",
+    "assets/painted/particles/manifest.json": "03d435ca7a40c5504cc938582e3496be57353756076424aabd5ac54aaf596924",
+    "assets/painted/particles/prompts.json": "35f20af777409036f90e88a8ae8452d29feb1f4e3d37179ff0faf7c3ae9c95ab",
+    "src/painted-particles.mjs": "d3b4e19e93705799bd4a65c099154967faa8331f0f7e44de5046e1fba5bd042b",
+    "src/painted-particles-layout.mjs": "897108319750c1be2531eaf0848549eaf0bdf511db8ab8ccd5258d667a3a434b",
+    "assets/painted/particles/smoke.png": "e510296425c7bfa6304a7b2fbde2bab9ae0afbb118ea6f5a928b55538d1643ca",
+    "assets/painted/particles/dust.png": "a5ec1359d106cafca1199a313c4ce24bcc11ef19677af4345719256d90647826",
+    "assets/painted/worlds/manifest.json": "ebae66e9909aafbded7761b3121ab546608911e3d8b3853cd05e7fdece677c67"
+  },
+  "scope": "Catalogue/provenance/preservation audit only. Runtime URL presence does not certify every state in a native browser or human gameplay. No actor, collider, emitter, ecology or gameplay acceptance is inferred.",
+  "exceptions": [],
+  "preservationReceipt": "docs/validation/v01510-final/preservation.json",
+  "releaseEvidence": "Root confirmed corrected particles outputs and authorized finalization once its manifest existed and dedicated tests confirmed 12 cells; audit_continuite reported the frozen manifest/layout and 8/8 dedicated tests passing.",
+  "passed": true
+}

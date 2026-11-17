@@ -1,0 +1,421 @@
+{
+  "version": "0.15.10",
+  "receivedUtc": "2026-11-17T10:20:00.277258+00:00",
+  "scope": "Local working tree received before publication; remote commits, CI and hosting are separate receipts.",
+  "baseCommit": "2be40743cbc0ac436786882e314e6c4c289ff31f",
+  "baseTree": "749bad5644a44ff52b584c0a0caa6fc8189e3030",
+  "workingTree": "modified",
+  "allRequiredLocalGatesPassed": true,
+  "node": "24.22.1",
+  "canvas": "0.1.100",
+  "gates": [
+    {
+      "version": "0.15.10",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "startedUtc": "2026-11-17T10:10:22.793451+00:00",
+      "finishedUtc": "2026-11-17T10:10:59.190452+00:00",
+      "seconds": 36.397,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01510-final/npm-test.txt",
+      "logSha256": "da978bdc65a955508bb3f80493a9545f7473ee3734961c7aeffe5566641dc375"
+    },
+    {
+      "version": "0.15.10",
+      "command": [
+        "npm",
+        "run",
+        "check:assets-render"
+      ],
+      "startedUtc": "2026-11-17T10:10:22.774392+00:00",
+      "finishedUtc": "2026-11-17T10:10:27.842513+00:00",
+      "seconds": 5.068,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01510-final/assets-render.txt",
+      "logSha256": "01432bde001e452a9e8ac36f435615b1ee7b2ac3ee917bd4eaa2f923f7b4e998"
+    },
+    {
+      "version": "0.15.10",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "startedUtc": "2026-11-17T10:12:22.371566+00:00",
+      "finishedUtc": "2026-11-17T10:12:30.890668+00:00",
+      "seconds": 8.519,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01510-final/build.txt",
+      "logSha256": "4245f1b5f67157af3f4f6e223f2361c77203fe22feac3c069c2c04b91674f7ab"
+    },
+    {
+      "version": "0.15.10",
+      "command": [
+        "npm",
+        "run",
+        "check:offline-package"
+      ],
+      "startedUtc": "2026-11-17T10:13:05.997319+00:00",
+      "finishedUtc": "2026-11-17T10:13:10.617465+00:00",
+      "seconds": 4.62,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01510-final/offline-package.txt",
+      "logSha256": "3acee13a7a31ece9b8f398b3c0f62db8917b95dd29a7607a26197ce7754a2d82"
+    },
+    {
+      "version": "0.15.10",
+      "command": [
+        "npm",
+        "run",
+        "check:ui"
+      ],
+      "startedUtc": "2026-11-17T10:13:23.481629+00:00",
+      "finishedUtc": "2026-11-17T10:13:27.530530+00:00",
+      "seconds": 4.049,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01510-final/ui-static-final.txt",
+      "logSha256": "b62a5d67e167be1cd8a96064c4ddd9e26fbb96df553254ec1e69b6a8dfc67c32"
+    },
+    {
+      "version": "0.15.10",
+      "command": [
+        "npm",
+        "run",
+        "check:ui-runtime"
+      ],
+      "startedUtc": "2026-11-17T10:13:05.994802+00:00",
+      "finishedUtc": "2026-11-17T10:14:52.089064+00:00",
+      "seconds": 106.094,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01510-final/ui-runtime.txt",
+      "logSha256": "ad56048aaccdbe05e9f4cbb6250e0c8e48fd00c31c8fb644e312d050667e7bf7"
+    },
+    {
+      "version": "0.15.10",
+      "command": [
+        "npm",
+        "run",
+        "build:web"
+      ],
+      "startedUtc": "2026-11-17T10:12:22.369753+00:00",
+      "finishedUtc": "2026-11-17T10:12:23.471320+00:00",
+      "seconds": 1.102,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01510-final/build-web.txt",
+      "logSha256": "3d0a1bf79cc462a1e5e0e9ebdab085d87aed60520b62e09bc5be93117f77e662"
+    },
+    {
+      "version": "0.15.10",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "startedUtc": "2026-11-17T10:17:38.835725+00:00",
+      "finishedUtc": "2026-11-17T10:17:39.017132+00:00",
+      "seconds": 0.181,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01510-final/project.txt",
+      "logSha256": "62eb91697688cdff43e9d26b6b382ba90030ecafecdcfb7491493d01054c0752"
+    },
+    {
+      "version": "0.15.10",
+      "command": [
+        "node",
+        "tools/test-painted-thyr-scenery.mjs",
+        "docs/validation/v01510-final/thyr"
+      ],
+      "startedUtc": "2026-11-17T10:16:44.475107+00:00",
+      "finishedUtc": "2026-11-17T10:16:49.941552+00:00",
+      "seconds": 5.466,
+      "exitCode": 0,
+      "passed": true,
+      "log": "docs/validation/v01510-final/thyr-final.txt",
+      "logSha256": "e3f4f9e975a6ada91f3e62013352563aa782a100c9e24e96130cdf924e45a51c"
+    }
+  ],
+  "preliminaryGates": [
+    {
+      "path": "docs/validation/v01510-final/ui-static.json",
+      "note": "Preliminary UI check overlapped the build. The post-build ui-static-final check above is the final gate."
+    }
+  ],
+  "tests": {
+    "passed": 852,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "svgCanvasComparisons": 174,
+    "modeledDomFlows": 108
+  },
+  "artReceptions": [
+    {
+      "path": "docs/validation/v01510-final/thyr/receipt.json",
+      "sha256": "1458537612faf27a6d9ea844b972d3385fc3ff59585a1ccf5ecdccbe59b88422",
+      "viewCount": 8,
+      "type": "Original PNG decoding, forest-floor diagnostics and public-input Thyr Canvas scenes"
+    },
+    {
+      "path": "docs/validation/painted-kharon-scenery-v01510/raster-corrected/receipt.json",
+      "sha256": "06247e994d38eaec27f1d9c5d3b79170abbbfb29babcba3add4eb204a1ff39ce",
+      "viewCount": 6,
+      "type": "Original PNG decoding, quarry diagnostics and public-input Kharon Canvas scenes"
+    },
+    {
+      "path": "docs/validation/painted-particles-v01510/corrected-anchor/receipt.json",
+      "sha256": "044fc1b49a48c89e991abf048fefe287296154033bfb758ad84c10bcac2f9838",
+      "viewCount": 9,
+      "type": "Original PNG decoding, circular-support checks and public-input particle Canvas scenes"
+    },
+    {
+      "path": "docs/validation/v01510-final/particles-painted-background/receipt.json",
+      "sha256": "7a077bc2399b72f25df40b062eb5c517e7cb2601f5b67a381d96e63e2cd60a75",
+      "viewCount": 2,
+      "type": "Supplemental Canvas reception of the exact public-emission states over the painted Vesper panorama"
+    }
+  ],
+  "canonicalCounts": {
+    "atlases": 90,
+    "cells": 676,
+    "runtimeCells": 632,
+    "referenceCells": 44,
+    "lots": 21,
+    "panoramasSeparate": 4,
+    "newAtlases": 6,
+    "newCells": 32,
+    "receipt": "docs/validation/painted-counts-v01510.json",
+    "receiptSha256": "c6b5f7c74fdc6f721c020a8923484a9f0a8a9f730e4ab09b7236a3f41f5dc3a8"
+  },
+  "preservation": {
+    "filesCompared": 2938,
+    "byteDifferences": 0,
+    "receipt": "docs/validation/v01510-final/preservation.json",
+    "receiptSha256": "f9c30286e95a1bd64908bb1411ff33dd8db893cd3f383794f643b08fd7f9b820"
+  },
+  "physicalSourceFilesUnchanged": [
+    "src/simulation.mjs",
+    "src/campaign.mjs",
+    "src/content.mjs",
+    "src/controls.mjs",
+    "src/chemical-simulation.mjs",
+    "src/foundry-simulation.mjs",
+    "src/relay-simulation.mjs",
+    "src/voice-simulation.mjs",
+    "src/workshop-simulation.mjs"
+  ],
+  "bible": {
+    "records": 1007,
+    "sheets": 21,
+    "formulas": 126,
+    "initialAcceptanceCriteria": 133,
+    "allStatusesPreserved": true,
+    "changedRecords": 13,
+    "changedFields": 17,
+    "freshPreviewsReviewed": 14,
+    "receipts": {
+      "source": {
+        "path": "docs/validation/workbook-v0.15-v01510-source.json",
+        "sha256": "1787f29d2858856adbfff786fb218decece82b94de169de0ec62b1e355342647"
+      },
+      "export": {
+        "path": "docs/validation/workbook-v0.15-v01510-export.json",
+        "sha256": "98a400fcc129e5857b30b682ad5a7500423de6868f5752ec2720b1cfae5faf17"
+      },
+      "layout": {
+        "path": "docs/validation/workbook-v0.15-v01510-layout.json",
+        "sha256": "a8cf4933c99a75c550475050c8da5a39c37570d1b21e3c27fb9c82b8e835eb3d"
+      },
+      "visual-review": {
+        "path": "docs/validation/workbook-v0.15-v01510-visual-review.json",
+        "sha256": "a9e34fa2445467b6a81aa2e913cd042e1650c8906daa0b2a7779a14b51f71050"
+      },
+      "references": {
+        "path": "docs/validation/workbook-v0.15-v01510-references.json",
+        "sha256": "8690f26c4a710196d60c9fa98c902d10028e389865cbc10d3c2cf2931fa35f3d"
+      }
+    }
+  },
+  "offlineManifest": {
+    "format": "Ordre de Cendre standalone ZIP32, one UTF-8 file",
+    "entry": "Ordre_de_Cendre.html",
+    "source": {
+      "version": "0.15.10",
+      "commit": "2be40743cbc0ac436786882e314e6c4c289ff31f",
+      "tree": "749bad5644a44ff52b584c0a0caa6fc8189e3030",
+      "workingTree": "modified"
+    },
+    "runtime": {
+      "node": "24.22.1",
+      "zlib": "1.3.2.1-motley-285e94b"
+    },
+    "distribution": {
+      "channel": "GitHub Release",
+      "gitTracked": false,
+      "note": "The complete ZIP is generated locally and attached to a release. It is not limited by Git blob size and no image is reduced."
+    },
+    "html": {
+      "file": "dist/Ordre_de_Cendre.html",
+      "bytes": 221288351,
+      "sha256": "87c1657775462941d9c0fa1a72fa3292a8da71c1762c2ef2825d93e481133776",
+      "crc32": "a2f005e7"
+    },
+    "zip": {
+      "file": "dist/Ordre_de_Cendre.zip",
+      "bytes": 162460239,
+      "sha256": "944e3f67a41d6926013bed9d443781ecb89932a608e436ad4b8f7ae8a9d8e2ac",
+      "entries": 1,
+      "compressedBytes": 162460101,
+      "method": "deflate",
+      "level": 9,
+      "timestamp": "1980-01-01T00:00:00Z"
+    },
+    "fidelity": "The single ZIP entry is byte-for-byte identical to the locally generated HTML, including every embedded PNG and all gameplay code.",
+    "reproducibility": "ZIP bytes are deterministic for identical HTML and zlib implementation. Cross-runtime verification compares the extracted HTML SHA-256; compressed bytes may vary between zlib versions."
+  },
+  "offlineModules": 77,
+  "sourceHashes": {
+    "src/audio.mjs": "a1fe78add6c0eac7961d937afd501295d5772af6f20191b377cadd8fc7282829",
+    "src/campaign.mjs": "f4176813bedfaf4139c428c8bd4e02b4c1dd8844eee867b2bf76fea3f9ab3c94",
+    "src/cerbere-weapon-pose.mjs": "5cf7a18ad1ceb0cf3671b66ca3529d7ab7c0e3e85c2f50408597a9019b7b5269",
+    "src/chemical-assets.mjs": "2f03150573a31bc30a8f17bfbb8d6383325cf11fce3c5ac8f8e48f2287cb7753",
+    "src/chemical-renderer.mjs": "6455101fdfc529bb69e948393b7a27ba909c208e08dbe1285f50d84a90bf73fd",
+    "src/chemical-simulation.mjs": "778651c4accc7dd78189d5613d2e06896f16f0587651b7272b269d0d7a743f34",
+    "src/chemical-validation.mjs": "ed00e720b26e66b310707e589f90146bdd1309c5812a9449856dcd7980abb3ba",
+    "src/content.mjs": "30308100b760741b7bd1ff8b353e000d3954e195362a85983c080143d29de0fb",
+    "src/controls.mjs": "b7bdc4bc2b5cf5bd84eec909bd4a37b3ae90a66b0f68f9f27b6a8577e6e36e32",
+    "src/departure-validation.mjs": "ca3c680c78b99fa8762fc4314555f7f24901c4d28253acfd3c782b53307eff5b",
+    "src/enemy-weapon-pose.mjs": "736f34c9ca9eca086e6c437d9497c322bb5efcdc7598fb3980559c854bf1ff6f",
+    "src/foundry-assets.mjs": "963637fb4d09b582ca9760c905a2770859c44bbd2205b0043d338b7b38ab0c16",
+    "src/foundry-renderer.mjs": "54a722ca7cbdcc25cfb08609d366137bcf11ee47d1306fcec11f6f876e035625",
+    "src/foundry-simulation.mjs": "2cb9ef3d02947ba615bcfd03815b1cf0ae2ada52b088bff4145d979869cc4753",
+    "src/foundry-validation.mjs": "7d53dfdc9315161199b8cc4e74ef908dbfe9c3a10e3288b23debbcb3e02a313d",
+    "src/main.mjs": "2e2c37ce130b8e203ce5ac1b03a7aeedf554260723b7f3fff646d5724e3a6df2",
+    "src/painted-cerbere-layout.mjs": "fea5b52aa460eb92241d8388d58bffbc047e75469a260324d69f7ffdb788dce3",
+    "src/painted-cerbere.mjs": "86440fd1749fec987b3fb34b3d4eca2471f3862f9362d632af976c3133d02047",
+    "src/painted-chemical-layout.mjs": "1eed64e37157a7147a6fc818b8ffd0ab7c2b865c257a2c90b0f3f7610f2b8bf8",
+    "src/painted-chemical.mjs": "ad7df03d961d22ec702cbbfee7b14015c2b4a02de34fcc2f9204bbedd990f0d4",
+    "src/painted-combat-layout.mjs": "98f354701cd661ab6a2d175563ad12aba69f1fbe1437f506bd042959acecd8bb",
+    "src/painted-combat.mjs": "66aa27a2d6f25a1eeb714d125957c30f208428e8c66283a936ba9846b73404f5",
+    "src/painted-foundry-sites-layout.mjs": "7a5d768474a3d194172c17f4d3e935d4dcbe4fbf333224d320bb128e3455028c",
+    "src/painted-foundry-sites.mjs": "516ba9dd30e68f274753811beeda0371ecc05fb10f20277337a7736cab1b2128",
+    "src/painted-kharon-scenery-layout.mjs": "4c96654e1c0bf6d2812fbe0c271d0ceef630f260ce116a275d0cbcafcbf3a77b",
+    "src/painted-kharon-scenery.mjs": "f02051acfb96637e846981abad012a933089717f3a794ef88c19e8b84726a756",
+    "src/painted-nacre-civilians-layout.mjs": "6f7a482e47889217932417a2f802b4a89d30879ce5c54fee89d50572bf54fb14",
+    "src/painted-nacre-civilians.mjs": "3d8553c81a80b6b9a111963f959c68c9a612aa0a51b0cb9171e4c373d06d433c",
+    "src/painted-nacre-layout.mjs": "2cc15eabb2f337e9500a79461a97c5ab0af18ecaeff3862e7b43d9a4bb0f4011",
+    "src/painted-nacre-people-layout.mjs": "15a1ad1b2074e3f38b52e029dc6caad832e068e21271b5bad2b3242074be39d7",
+    "src/painted-nacre-people.mjs": "ac509c72c0516cc5ca3d2a565d4a2910bdc9dad4e6d067a861229e41bbd78784",
+    "src/painted-nacre-scenery-layout.mjs": "468e7cce4099f0dd1748684448bd77115b2eb701f1f1b13b46eb01f9cc4d3b17",
+    "src/painted-nacre-scenery.mjs": "95a6a7f9043f99389cf6c458176190307740cf2f4038cbe345be6427b238a3ff",
+    "src/painted-nacre-sites-layout.mjs": "fc12ffe49d3d7b21f450f67b6d55c9ef57b7a752913d955974994b5b7d246320",
+    "src/painted-nacre-sites.mjs": "33e98db1963d2ede5fa759abe3d5cc1291dabaf76716b3af9199d274f7334d53",
+    "src/painted-nacre.mjs": "3abb8eb6c71262eb1ccfdd152b01952cdc7e6d2d6326b7a7b34309ffa77eabd3",
+    "src/painted-particles-layout.mjs": "897108319750c1be2531eaf0848549eaf0bdf511db8ab8ccd5258d667a3a434b",
+    "src/painted-particles.mjs": "d3b4e19e93705799bd4a65c099154967faa8331f0f7e44de5046e1fba5bd042b",
+    "src/painted-relay-layout.mjs": "0289c80c3b4803407d284928e327511efae5d10748e0d28d9409195c5b47ee0f",
+    "src/painted-relay.mjs": "b3aa217e499f1de26ba5204b8dd7a799a042983cd1976421df1271069d008765",
+    "src/painted-route-layout.mjs": "cb7be733e16a4a444dc9ba2de3ef40d7fbb3e01ec5f7dc76eb8034f61b00d3c5",
+    "src/painted-route.mjs": "c939daa2d174c6ede3fdcccef364d71c82fce1f8244cadcfec43d308e30b1268",
+    "src/painted-sprite-layout.mjs": "c7fd67789497c1c8d733693cc08e3a582bc433f67a4cae93c816f92403cb6fcd",
+    "src/painted-sprites.mjs": "dfa61893d8cbc57bc9fb407af855dcab127f5c6acca1ad4a36289368f7aa4c46",
+    "src/painted-thyr-layout.mjs": "de98aa3b7e6c4965a62df91604be28769ba52bd87e821d8a5aad5ae6e24b085d",
+    "src/painted-thyr-scenery-layout.mjs": "987005561d45fa99082b8917024bf0c40eb4393ec8ce0c31090df137e2788b67",
+    "src/painted-thyr-scenery.mjs": "7d8456e8829e50bfd3009d5f7a5f5271e1fb94bb0d17e66cb07ebe4846c2b30d",
+    "src/painted-thyr.mjs": "5156604d45cbc0693a43963dae9d18e546100b5d46d73ba2469c5aea4e88026f",
+    "src/painted-transport-layout.mjs": "85057bffdc36dace2e891d5fda99793fd2f24f1a91e22c5057218d0a67bebe02",
+    "src/painted-transport.mjs": "cfc4c3cefb6f536bec87dc24479f9cd85db1a5c0a3cb62d427c0c6d662f41af9",
+    "src/painted-vesper-layout.mjs": "c7e6b1d0808bde034ddd7368fe48691816197be9cb35362984d90690bebc7b56",
+    "src/painted-vesper-scenery-layout.mjs": "0b44b6fcaf30e8453178e71c01d5ae50ffc5964106cd6802161971b349d81901",
+    "src/painted-vesper-scenery.mjs": "72e670def02e627d3902c4ec8893d8e935464650fc06ca80628416ce598956cb",
+    "src/painted-vesper.mjs": "93447fce2ca3f2e4413bc67fd66f2a051bdab774d8b500ac7913909846c1bbe5",
+    "src/painted-voice-layout.mjs": "bb15bbf88be2f4038e855168bbf00ebfbfa687afd31bfdf8b7d012bf93fc3fcf",
+    "src/painted-voice.mjs": "c49e3b3d49e05504d88eee6ed011be362ccb423b4b1ae4a758f3fa529333baa1",
+    "src/painted-walker-layout.mjs": "4cf545b92f234227451c19867301bcb1d76d18d1e0975ebbb8e08b0bf746811c",
+    "src/painted-walkers.mjs": "00b66e7dfd17862be23162f3acb899d4c14a5f1e853e1dff56440090dce91c8c",
+    "src/painted-worlds.mjs": "a50c9e38b87106516e6fd14cb2932e78d3e4773d254215155e97417ad4f63041",
+    "src/production-assets.mjs": "75e1092fd216808ecc9a3dcfafcfee724b80acb8f29f6d48b0ae521f618ab5f0",
+    "src/relay-assets.mjs": "9aa0d1ba6263c59b92d2de63bfdac6208f3735682125f335e5eb6eba4b119e81",
+    "src/relay-renderer.mjs": "8786c4490dce024efd066c58665341186c44ad7dec9c1d5592dc01e39e2bce21",
+    "src/relay-simulation.mjs": "20d64e40f534a26ef244918888b946c7076f61e07ab237ad1d5838d43e30c8ff",
+    "src/relay-validation.mjs": "3b67fabcca87abc022e0fc846e9a8529774f32db84504b147fc378c81e519839",
+    "src/renderer.mjs": "0a8134362a832a2e7e7673f241cc05af043993a617ba1e5021f06e7db5ef1444",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "src/thyr-assets.mjs": "e62777979aebe47b3a78427a4b381f4a8f91d856b22e0244ede246fe7c650f83",
+    "src/thyr-renderer.mjs": "3fb4421c5ebe1273cf8f55b837d45f762f730a493e9124e7b8beb32ae8b06a68",
+    "src/thyr-validation.mjs": "a365282f81eb792e7184605267552543498413f9087815af7fc0b574d56aba9a",
+    "src/voice-assets.mjs": "cade4f99a6f617fbb471d665d6e269c53933d6ce9b8024a69e3e5098f25e9de0",
+    "src/voice-renderer.mjs": "c3180fef69bffc6699397491b0f079b4058712cf18c505dadb244585d5955c2c",
+    "src/voice-simulation.mjs": "eefa4de80ef3fb60b8b0d07bdccec0ab2fb3ea465a44ba959deb1e221a7baff6",
+    "src/voice-validation.mjs": "7cc3ecb9c4c3f02232795c44274e7eb5ed49d67962c0b2e72765378a582051ed",
+    "src/workshop-assets.mjs": "f2b9420b67d701fb3c532b0c645599a8b9501cfbc12aab8054efea284bb3e42f",
+    "src/workshop-renderer.mjs": "82de9442d14d994af083fe7ba13121a58a6ebe7615388060ab540d26cb58cf6a",
+    "src/workshop-simulation.mjs": "ea4992944c6b32b8b0e4351348c8af8348d2d733ba5fb60f0d12f36ee40c12fb",
+    "src/workshop-validation.mjs": "a96a7b0a932f3aec858f46e424819ccd3cb299aaa41282994c2a14cacc41a0db",
+    "index.html": "1adb26bf6b4560195a7d22d190eee896e2b9f1805c81b4573850a4251eb25b61",
+    "package.json": "4a018d5a837e3a648a8f75bca6945854858439609c6fcacd8ed3fa42391afd77",
+    "data/bible.json": "bfbfa57af27a20a002c5bd039988ab25a9d53921a72411501b0e90fd499bf5f1",
+    "docs/ORDRE_DE_CENDRE_Bible.xlsx": "399b7bcbcb45f7d5ddb1e661b20ca3dd31039147e44447af4ff5c42c82bed606",
+    "assets/painted/thyr-scenery/README.md": "f4acd808d59d22fc52d9a5353586fb2812bbbe05913719ddfcd9797c7e371464",
+    "assets/painted/thyr-scenery/manifest.json": "dce7898d7c3897530f2b0ff3949e1730fca70f77ce1846445a2aeca9cde4f30d",
+    "assets/painted/thyr-scenery/prompts.json": "f1273d26c7de8b931609442dc7a033ba674cad228f7ca3c9ca6a4f19d1e0cc92",
+    "assets/painted/thyr-scenery/props.png": "757fef3c6c6845b0afa307c28e633af021e7f7a585465038ee905cd5b2ece530",
+    "assets/painted/thyr-scenery/terrain.png": "efd80296fc08d1ef616100c80bb28f15a90e22482ea513a890a4e985bb18b134",
+    "assets/painted/kharon-scenery/README.md": "2a313de8dc7e18ee28c9be38c404d5c4038328f5835036dfe699fd92b8041e2c",
+    "assets/painted/kharon-scenery/manifest.json": "97e3c17ec899ef1e2253e2295fb1db8f79d43788ac8ce2edff2185f49877d879",
+    "assets/painted/kharon-scenery/prompts.json": "ee9ba584de8ec6939dc9fe3df19abab5aa112fa9f826c2c46bc056e3652a64cd",
+    "assets/painted/kharon-scenery/props.png": "e284e83cdefaff9b8c05fa94606ecab8a9da4bc1e9e4fcedade65480a04d2129",
+    "assets/painted/kharon-scenery/terrain.png": "69ffcda8aac0302111b1a69d5283013f47a880a34de6d69e071c70cf5e825297",
+    "assets/painted/particles/README.md": "22d24de288eaa93b6a5f8ebdc9a22ee317ebb47d60d6596d051fa4463d1c7f71",
+    "assets/painted/particles/dust.png": "a5ec1359d106cafca1199a313c4ce24bcc11ef19677af4345719256d90647826",
+    "assets/painted/particles/manifest.json": "03d435ca7a40c5504cc938582e3496be57353756076424aabd5ac54aaf596924",
+    "assets/painted/particles/prompts.json": "35f20af777409036f90e88a8ae8452d29feb1f4e3d37179ff0faf7c3ae9c95ab",
+    "assets/painted/particles/smoke.png": "e510296425c7bfa6304a7b2fbde2bab9ae0afbb118ea6f5a928b55538d1643ca"
+  },
+  "browser": {
+    "executed": false,
+    "newNativeAttemptPerformed": false,
+    "existingEnvironmentBlockReceipt": "docs/validation/v0159-final/browser-smoke.json",
+    "note": "Prior environment denial preserved; no new native-browser, audio, physical touch or hardware performance acceptance."
+  },
+  "humanSessionPerformed": false,
+  "releaseWorkflowTriggered": false,
+  "deploymentStatus": "Not inferred from local validation.",
+  "formattingReview": {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "exitCode": 2,
+    "findings": [
+      {
+        "path": "src/painted-kharon-scenery.mjs",
+        "line": 133,
+        "message": "new blank line at EOF"
+      },
+      {
+        "path": "src/painted-thyr-scenery.mjs",
+        "line": 133,
+        "message": "new blank line at EOF"
+      }
+    ],
+    "disposition": "Two harmless trailing empty lines accepted in the received source snapshot. No functional gate failed and no source bytes were changed after validation."
+  },
+  "distributionReception": {
+    "intendedChannel": "GitHub Release",
+    "releaseAssetUploaded": false,
+    "releaseAssetReceived": false,
+    "note": "The embedded offlineManifest.distribution block describes the intended channel only. No Release asset was uploaded or received during this reception, and the previously denied Release workflow was not triggered. The raw build manifest is retained unchanged."
+  }
+}

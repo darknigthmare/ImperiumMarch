@@ -1,5 +1,22 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Publication 0.15.10 — sols de Thyr/Kharon et particules
+
+La tranche part du `main` publié `2be40743cbc0ac436786882e314e6c4c289ff31f`, arbre `749bad5644a44ff52b584c0a0caa6fc8189e3030`. Six PNG originaux ajoutent 32 cellules : deux lots de sols et petits décors, puis fumée et poussière. Le total est **90 atlas /676 cellules /21 lots**, dont 632 utilisées et 44 références ; les quatre panoramas sont séparés.
+
+La [réception locale](QA_V15_10.md) reçoit **852 tests, 174 comparaisons SVG/Canvas, 108 parcours du DOM modélisé**, les trois lots et la Bible. Les [preuves finales](validation/v01510-final/receipt.json) lient les empreintes aux commandes. Les 2 938 assets, aperçus, preuves et fixtures historiques sont conservés. Aucun champ de sauvegarde ni source de simulation n'est modifié.
+
+L'HTML autonome de **221 288 351 octets** possède le SHA-256 `87c1657775462941d9c0fa1a72fa3292a8da71c1762c2ef2825d93e481133776`. Le ZIP complet de **162 460 239 octets**, SHA-256 `944e3f67a41d6926013bed9d443781ecb89932a608e436ad4b8f7ae8a9d8e2ac`, contient exactement cette entrée unique. Ces fichiers générés restent hors Git. Aucun déclenchement du workflow de Release précédemment refusé n'est effectué.
+
+La [PR #8](https://github.com/darknigthmare/ImperiumMarch/pull/8) est ouverte le **17 novembre 2026 à 11:29:20, heure de Paris**. Son commit applicatif public `8f62c83289f0506b7d337ca066758297b9df7604` possède exactement l'arbre `ed5b81a6689e4c6fc34364155874fd3b481a83ab` du commit local reçu `eea101c1ecdd793ccdd3ddac254ba888e5472e34`. Il ajoute 177 fichiers et en modifie 12, sans suppression. Le [reçu de publication](validation/v01510-publication.json) s'arrête sur cette réception applicative avant le commit documentaire et la fusion normale ; les événements suivants restent consultables dans la PR.
+
+La [CI de PR](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44065282375) se termine avec **succès à 11:34:28, heure de Paris**. Ses **37 étapes** reçoivent **852 tests, 174 comparaisons SVG/Canvas, 21 lots d'atlas, les panoramas, 108 parcours du DOM modélisé**, les données, l'interface et les deux constructions. Elle exécute sous **Node 22.23.4** la fusion synthétique `71aee5ef69dee6b5042ab4a1830e60f3f26bd068`, dont l'arbre a été relu et correspond au snapshot local. Les empreintes de l'HTML et du ZIP sont identiques aux valeurs ci-dessus. Le [reçu CI](validation/v01510-pr-ci.json) conserve les étapes, l'identité des sources, l'empreinte des logs et les lignes de résultat.
+
+Le statut Vercel de ce SHA applicatif est **failure**, enregistré à **11:29:17, heure de Paris** : **« Deployment rate limited — retry in 24 hours. »** La liste des déploiements filtrée sur ce commit reste vide après la réussite CI. La dernière production **READY** est toujours `dpl_EWsKifPhgoRLqE6ds2N1j9vhW6xm`, issue de `1235102b25a531a90feeb0d1b38a37482a928c5d` (**0.15.7**), avec ses trois alias. Le [reçu Vercel](validation/v01510-vercel-preview.json) conserve le constat. Le projet, les domaines et protections restent inchangés ; aucun redéploiement manuel ni contournement du quota n'est tenté.
+
+Les contrôles Canvas et du DOM modélisé ne constituent pas une nouvelle réception navigateur. Le manifeste brut conserve son texte générique de canal de distribution ; l'annotation `distributionReception` du reçu local précise explicitement qu'aucun fichier de Release n'a été publié ou reçu pendant cette tranche.
+
+
 ## Publication 0.15.9 — sources reçues, hébergement limité par quota
 
 La [PR #7](https://github.com/darknigthmare/ImperiumMarch/pull/7) réunit la 0.15.8 récupérée et sept atlas de Nacre : **84 atlas, 644 cellules, 18 lots**, avec les panoramas comptés séparément. Elle est ouverte le **17 novembre 2026 à 09:59:53, heure de Paris**, depuis `codex/nacre-worlds-completion-v0159`. Le [reçu de publication](validation/v0159-publication.json) arrête l'observation sur le commit applicatif et la CI avant fusion ; le statut vivant de la PR donne ses suites.

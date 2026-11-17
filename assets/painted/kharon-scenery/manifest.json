@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "version": "0.15.10",
+  "generator": "image_gen built-in",
+  "canonIds": [
+    "PL04",
+    "MI13",
+    "MI14",
+    "FL10",
+    "FL11"
+  ],
+  "atlasCount": 2,
+  "frameCount": 10,
+  "runtimeFrameCount": 10,
+  "referenceFrameCount": 0,
+  "files": [
+    {
+      "id": "terrain",
+      "path": "assets/painted/kharon-scenery/terrain.png",
+      "bytes": 2980918,
+      "sha256": "69ffcda8aac0302111b1a69d5283013f47a880a34de6d69e071c70cf5e825297",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 4,
+      "runtimeFrames": 4,
+      "referenceFrames": 0,
+      "transparentFraction": 0.266651,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "props",
+      "path": "assets/painted/kharon-scenery/props.png",
+      "bytes": 1434791,
+      "sha256": "e284e83cdefaff9b8c05fa94606ecab8a9da4bc1e9e4fcedade65480a04d2129",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.819253,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    }
+  ],
+  "scope": "Kharon terrain materials and quarry scenery in existing decorative ground slots only.",
+  "pixelPolicy": "Selected original generated PNG bytes retained. Alpha measurement, material crops and metadata only. No script edits to pixels.",
+  "layoutPolicy": "Measured cells with half-pixel rounding handled independently. Visible alpha bounds and interior material rectangles are metadata; PNG bytes remain unchanged.",
+  "physicalPolicy": "Terrain is clipped at the caller-provided ground surface. Existing bridges, heat, steam, bodies and foot contacts are untouched. No collider, actor, thermal warning, plant response or damage state is introduced. FL10 and FL11 are decorative only."
+}
