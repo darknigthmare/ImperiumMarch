@@ -1,0 +1,473 @@
+{
+  "version": "0.15.11",
+  "createdUtc": "2026-11-17T10:58:18.401Z",
+  "completed": true,
+  "type": "Original PNG decoding, exact industry envelopes and public-input Vesper Canvas scenes",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "atlases": [
+    {
+      "id": "industry",
+      "sha256": "80e2a528226c5d3fa9a7086a78c19511d2df6808af21f860062a96f2278592b8",
+      "bytes": 1643956,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparentPixels": 1076421,
+      "originalSourceAvailable": true,
+      "byteForByteSourceMatch": true
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "industry",
+      "name": "silo",
+      "usage": "runtime",
+      "source": [
+        145,
+        94,
+        584,
+        853
+      ],
+      "alphaBounds": [
+        151,
+        100,
+        574,
+        839
+      ],
+      "sourceBase": [
+        438,
+        939
+      ],
+      "solidPixels": 424990,
+      "nontrivialPixels": 429755
+    },
+    {
+      "atlas": "industry",
+      "name": "chimney",
+      "usage": "runtime",
+      "source": [
+        1142,
+        95,
+        122,
+        848
+      ],
+      "alphaBounds": [
+        1146,
+        100,
+        114,
+        838
+      ],
+      "sourceBase": [
+        1203,
+        938
+      ],
+      "solidPixels": 54840,
+      "nontrivialPixels": 58166
+    }
+  ],
+  "views": [
+    {
+      "file": "vesper-industry-source-cells.png",
+      "width": 1200,
+      "height": 1100,
+      "sha256": "d10ec8eb923c290700a8c022d23fd9e9b2cbf22196d3f7e1f0548a7f8ca24705",
+      "type": "Measured source crops on two backgrounds; two cells, not four new variants"
+    },
+    {
+      "file": "vesper-industry-height-envelopes.png",
+      "width": 1500,
+      "height": 700,
+      "sha256": "c8c28762606047cd9032588cecd7c08262709477a840ab113ed3487e9950376d",
+      "type": "Imposed extreme and middle height diagnostic, historical parent transform, cyan envelope guides",
+      "heights": [
+        125,
+        185.25,
+        245
+      ]
+    },
+    {
+      "file": "vesper-industry-background-origin.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "3b855193f4fe7f4c166856b5786a435d0307735774a0a562c42a78b83d78a2d4",
+      "type": "Initial game state, background-only diagnostic camera",
+      "cameraX": 0,
+      "spriteDrawCalls": {
+        "vesper-panorama": 1,
+        "industry": 12,
+        "vesper-outposts": 6
+      },
+      "stateSha256": "d3956add831622f1caddf095773de3490a586f016fcc0d5cab96c0873b3128b3",
+      "panoramaLoaded": true,
+      "simulationUnchanged": true
+    },
+    {
+      "file": "vesper-industry-background-fractional.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "cd0f62ea7037381658d6d7be1525b6c08804716986590850b8b5ef4af0255488",
+      "type": "Initial game state, background-only diagnostic camera",
+      "cameraX": 1800.296992496895,
+      "spriteDrawCalls": {
+        "vesper-panorama": 1,
+        "industry": 12,
+        "vesper-outposts": 6
+      },
+      "stateSha256": "d3956add831622f1caddf095773de3490a586f016fcc0d5cab96c0873b3128b3",
+      "panoramaLoaded": true,
+      "simulationUnchanged": true
+    },
+    {
+      "file": "mi01-industry-public-walk.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "9659c31453cc3f80d21b774c55de8d8238906efe1617ea597d3e6d6472b886a6",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "Four seconds of actual rightward walking",
+      "missionId": "MI01",
+      "elapsed": 3.9999999999999907,
+      "status": "playing",
+      "playerX": 631.5256470350158,
+      "cameraX": 103.52564703501582,
+      "spriteDrawCalls": {
+        "vesper-panorama": 1,
+        "industry": 12,
+        "vesper-outposts": 6,
+        "vesper-civilworks": 50
+      },
+      "stateFile": "mi01-industry-public-walk.state.json",
+      "stateSha256": "063bdf8db756f0af180f75d957023f143ec9334c5ea672cdd55574d1c433f4e8",
+      "simulationUnchanged": true,
+      "panoramaLoaded": true,
+      "missionCompletionClaimed": false
+    },
+    {
+      "file": "mi02-industry-public-harpoon.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "00b7b4e12ee815eb565386e6fa594e0e427df2073125847c9530085db4be9d11",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "Second harpoon release actually working above 45 percent",
+      "missionId": "MI02",
+      "elapsed": 18.416666666666902,
+      "status": "playing",
+      "playerX": 1571.7431832390678,
+      "cameraX": 1043.7431832390678,
+      "spriteDrawCalls": {
+        "vesper-panorama": 1,
+        "industry": 12,
+        "vesper-outposts": 6,
+        "vesper-civilworks": 4
+      },
+      "stateFile": "mi02-industry-public-harpoon.state.json",
+      "stateSha256": "5ec4c68671b507ad12da5487e3adf3dcbf816c3ab7ab6385d44ccf2b22f043db",
+      "simulationUnchanged": true,
+      "panoramaLoaded": true,
+      "missionCompletionClaimed": false
+    },
+    {
+      "file": "mi03-industry-public-dispensary.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "f7231b7a85f2183f21f684aacc348b57b1df587832654d547cfddd92715c843f",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "Dispensary inspection actually above 45 percent",
+      "missionId": "MI03",
+      "elapsed": 30.633333333332875,
+      "status": "playing",
+      "playerX": 2458.014879844529,
+      "cameraX": 1930.0148798445289,
+      "spriteDrawCalls": {
+        "vesper-panorama": 1,
+        "industry": 12,
+        "vesper-outposts": 6,
+        "vesper-dispensary": 1,
+        "vesper-civilworks": 2,
+        "vesper-housing": 1
+      },
+      "stateFile": "mi03-industry-public-dispensary.state.json",
+      "stateSha256": "8d406ea9205f80be2e4b2abfdf770f424304510f98ad399d5523368d6f472915",
+      "simulationUnchanged": true,
+      "panoramaLoaded": true,
+      "missionCompletionClaimed": false
+    },
+    {
+      "file": "mi04-industry-public-pump.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "304ab42f6fd4f615802a5b2fccc2ce4556358ba81815d8295619946ff02e7a09",
+      "type": "Normal Canvas renderer, public-input checkpoint",
+      "checkpoint": "Coolant pump connection actually above 45 percent",
+      "missionId": "MI04",
+      "elapsed": 7.349999999999979,
+      "status": "playing",
+      "playerX": 814.023518153938,
+      "cameraX": 286.02351815393797,
+      "spriteDrawCalls": {
+        "vesper-panorama": 1,
+        "industry": 12,
+        "vesper-outposts": 6,
+        "vesper-machinery": 3
+      },
+      "stateFile": "mi04-industry-public-pump.state.json",
+      "stateSha256": "b40f6437cef4b851d7617b00006e504a60b66fabfef516fc233d8f8119d73a1b",
+      "simulationUnchanged": true,
+      "panoramaLoaded": true,
+      "missionCompletionClaimed": false
+    }
+  ],
+  "envelopeChecks": [
+    {
+      "part": "silo",
+      "h": 125,
+      "scale": 1,
+      "x": 620.296992496895,
+      "historicalBounds": [
+        614.296992496895,
+        459,
+        86,
+        141
+      ],
+      "outsidePixels": 0,
+      "visiblePixels": 10682,
+      "bottomInk": 234,
+      "callerOpacityPreserved": true,
+      "contextRestored": true
+    },
+    {
+      "part": "silo",
+      "h": 125,
+      "scale": 1.25,
+      "x": 620.296992496895,
+      "historicalBounds": [
+        614.296992496895,
+        459,
+        86,
+        141
+      ],
+      "outsidePixels": 0,
+      "visiblePixels": 16809,
+      "bottomInk": 196,
+      "callerOpacityPreserved": true,
+      "contextRestored": true
+    },
+    {
+      "part": "silo",
+      "h": 185.25,
+      "scale": 1,
+      "x": 620.296992496895,
+      "historicalBounds": [
+        614.296992496895,
+        398.75,
+        86,
+        201.25
+      ],
+      "outsidePixels": 0,
+      "visiblePixels": 15230,
+      "bottomInk": 156,
+      "callerOpacityPreserved": true,
+      "contextRestored": true
+    },
+    {
+      "part": "silo",
+      "h": 185.25,
+      "scale": 1.25,
+      "x": 620.296992496895,
+      "historicalBounds": [
+        614.296992496895,
+        398.75,
+        86,
+        201.25
+      ],
+      "outsidePixels": 0,
+      "visiblePixels": 23977,
+      "bottomInk": 197,
+      "callerOpacityPreserved": true,
+      "contextRestored": true
+    },
+    {
+      "part": "silo",
+      "h": 245,
+      "scale": 1,
+      "x": 620.296992496895,
+      "historicalBounds": [
+        614.296992496895,
+        339,
+        86,
+        261
+      ],
+      "outsidePixels": 0,
+      "visiblePixels": 19771,
+      "bottomInk": 234,
+      "callerOpacityPreserved": true,
+      "contextRestored": true
+    },
+    {
+      "part": "silo",
+      "h": 245,
+      "scale": 1.25,
+      "x": 620.296992496895,
+      "historicalBounds": [
+        614.296992496895,
+        339,
+        86,
+        261
+      ],
+      "outsidePixels": 0,
+      "visiblePixels": 31140,
+      "bottomInk": 196,
+      "callerOpacityPreserved": true,
+      "contextRestored": true
+    },
+    {
+      "part": "chimney",
+      "h": 125,
+      "scale": 1,
+      "x": 620.296992496895,
+      "historicalBounds": [
+        709.296992496895,
+        416,
+        25,
+        184
+      ],
+      "outsidePixels": 0,
+      "visiblePixels": 2686,
+      "bottomInk": 42,
+      "callerOpacityPreserved": true,
+      "contextRestored": true
+    },
+    {
+      "part": "chimney",
+      "h": 125,
+      "scale": 1.25,
+      "x": 620.296992496895,
+      "historicalBounds": [
+        709.296992496895,
+        416,
+        25,
+        184
+      ],
+      "outsidePixels": 0,
+      "visiblePixels": 4232,
+      "bottomInk": 54,
+      "callerOpacityPreserved": true,
+      "contextRestored": true
+    },
+    {
+      "part": "chimney",
+      "h": 185.25,
+      "scale": 1,
+      "x": 620.296992496895,
+      "historicalBounds": [
+        709.296992496895,
+        355.75,
+        25,
+        244.25
+      ],
+      "outsidePixels": 0,
+      "visiblePixels": 3568,
+      "bottomInk": 28,
+      "callerOpacityPreserved": true,
+      "contextRestored": true
+    },
+    {
+      "part": "chimney",
+      "h": 185.25,
+      "scale": 1.25,
+      "x": 620.296992496895,
+      "historicalBounds": [
+        709.296992496895,
+        355.75,
+        25,
+        244.25
+      ],
+      "outsidePixels": 0,
+      "visiblePixels": 5613,
+      "bottomInk": 36,
+      "callerOpacityPreserved": true,
+      "contextRestored": true
+    },
+    {
+      "part": "chimney",
+      "h": 245,
+      "scale": 1,
+      "x": 620.296992496895,
+      "historicalBounds": [
+        709.296992496895,
+        296,
+        25,
+        304
+      ],
+      "outsidePixels": 0,
+      "visiblePixels": 4441,
+      "bottomInk": 42,
+      "callerOpacityPreserved": true,
+      "contextRestored": true
+    },
+    {
+      "part": "chimney",
+      "h": 245,
+      "scale": 1.25,
+      "x": 620.296992496895,
+      "historicalBounds": [
+        709.296992496895,
+        296,
+        25,
+        304
+      ],
+      "outsidePixels": 0,
+      "visiblePixels": 6990,
+      "bottomInk": 54,
+      "callerOpacityPreserved": true,
+      "contextRestored": true
+    }
+  ],
+  "sourceHashes": {
+    "src/painted-vesper-industry.mjs": "78b9ed2887f6609f3e09bf01b3cab8a5933cb2f785075a984535c872ba66f1cd",
+    "src/painted-vesper-industry-layout.mjs": "15d19896be6e4480877ec68013b2f68017aacc720ed5496418e4957d71f8c792",
+    "src/renderer.mjs": "2e5eed8d4f8a244ec5108a8a6f7b327921e3a7a24759d2c69369675969e7d9e1",
+    "assets/painted/vesper-industry/manifest.json": "33b0699de3bc17bf99238ca1bbd7ac19ff36371291eec634852a396d5c2fdcfd",
+    "assets/painted/vesper-industry/prompts.json": "98623a4053608c38c160c9ee35c90df8a8b79533b3bbd69de3d0abb4418bfad9",
+    "assets/painted/vesper-industry/prompt.txt": "a68a95d73ca2d33e16590bfdf82414f309d8119442e15d4bd3c498c7d176687c",
+    "tools/index-painted-vesper-industry.py": "915690ce90877eb15ff034286ecec4f9327d8ca595d6b6559170fdc0c4aeff03",
+    "tools/test-painted-vesper-industry.mjs": "41db69b904ab93af58240a6c31cfa3bcfdf495fe13d29ebf16c33d81bcc4b766",
+    "tests/painted-vesper-industry.test.mjs": "0f9860a233131df0156cc1c6511c869d8b52a16f83992fce21a194603e90e53e",
+    "src/painted-vesper.mjs": "93447fce2ca3f2e4413bc67fd66f2a051bdab774d8b500ac7913909846c1bbe5",
+    "src/painted-vesper-layout.mjs": "c7e6b1d0808bde034ddd7368fe48691816197be9cb35362984d90690bebc7b56",
+    "assets/painted/vesper/outposts.png": "006660927ca7c7776ed8adb3d717af9eb51dfc7a81605eef3e0f70474569a571",
+    "assets/art/vesper-panorama.png": "837363413272bb4c8ed4fc38901d127465f3a30a830d6fd001b2d0c9106e6084",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "tests/helpers/mi02-driver.mjs": "48a4b776f66010d94345e55a381b94897d628ad1c7c982eb756d7ee4b1080305",
+    "tests/helpers/mi03-driver.mjs": "7215097131e8a26da02122ee066687cedf88d72aa6172b41915fa23279107d48",
+    "tests/helpers/mi04-driver.mjs": "c10509d1f233642fc129cd7903607a61c7d59fcf25773e110edd97bb66e71ab3"
+  },
+  "limitations": [
+    "The original generated PNG is unchanged; only measured source crops and historical-envelope clips are used.",
+    "The two new cells are static midground scenery. The acquired maintenance building is reused and counted separately.",
+    "Diagnostic cameras and heights are labelled; they do not mean the player reached an imposed position.",
+    "Public-input views start with createGame and use updateGame/commandGame through public control policies. No actor is teleported.",
+    "MI04 receives an explicitly configured campaignContext with a broken pipe; it is not a replay of an independently completed MI01–MI03 dossier.",
+    "No new collision, actor, smoke, ecological effect, mission fact or save field is introduced.",
+    "This lot reception loads the acquired Vesper, scenery, walker, combat, transport and smoke/dust banks. Other simultaneous 0.15.11 lots are outside its acceptance scope.",
+    "Canvas does not establish browser, audio, hardware performance, human playtesting, Release or deployment acceptance."
+  ],
+  "mi04InitialCampaignContext": {
+    "pipeIntact": false,
+    "servicesInterrupted": true,
+    "railHostagesRescued": 3,
+    "dispensaryIntact": true,
+    "witnessAvailable": true,
+    "civilRelaysOnline": 2
+  },
+  "counts": {
+    "atlases": 1,
+    "cells": 2,
+    "reusedCells": 1,
+    "envelopeChecks": 12,
+    "publicInputViews": 4,
+    "diagnosticViews": 4,
+    "views": 8
+  }
+}

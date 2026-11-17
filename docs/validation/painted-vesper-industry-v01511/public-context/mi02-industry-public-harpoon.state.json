@@ -1,0 +1,1025 @@
+{
+  "version": 1,
+  "mission": {
+    "id": "MI02",
+    "number": "02",
+    "campaign": true,
+    "act": "I — Le poids de l’ordre",
+    "name": "La dette sous la poussière",
+    "planetId": "PL01",
+    "planet": "Vesper",
+    "biome": "VIADUC DES MINES",
+    "length": 5400,
+    "difficulty": "REPRISE DE CONVOI",
+    "duration": "4–7 min",
+    "faction": "Flotte des Brisants",
+    "accent": "#e9ad67",
+    "sky": [
+      "#19232e",
+      "#8c6657",
+      "#d6a67b"
+    ],
+    "description": "Les Brisants ont arrimé un train de minerai à leurs treuils. Détachez les deux harpons, rejoignez la locomotive et coupez sa traction avant la voie rompue. Les coups portés aux wagons mettent leurs occupants et le registre de vente en danger.",
+    "briefing": "« Reprenez le train. La voie a cédé après la quatrième pile : coupez sa traction avant qu’il l’atteigne. Le minerai doit revenir au dépôt. » — Major Holt",
+    "hint": "E près de chaque treuil libère le harpon en 2,5 s. Après le second, le train roule : rejoignez la locomotive et appuyez sur E pour freiner (4 s à portée). Revenez au wagon fermé pour ouvrir les portes, puis lire son registre. Évitez de tirer dans les wagons.",
+    "type": "train",
+    "evidenceX": 1928,
+    "extractionX": 5070,
+    "decisionX": 1928,
+    "evidenceLabel": "REGISTRE DU WAGON",
+    "civilianPositions": [],
+    "supplyPositions": [
+      1700,
+      3650,
+      4610
+    ],
+    "enemyPlan": [
+      [
+        1150,
+        "rifle"
+      ],
+      [
+        1400,
+        "rocket"
+      ],
+      [
+        1810,
+        "buggy"
+      ],
+      [
+        2920,
+        "drone"
+      ],
+      [
+        3820,
+        "rifle"
+      ],
+      [
+        4220,
+        "rocket"
+      ]
+    ],
+    "train": {
+      "startX": 2280,
+      "breakX": 4550,
+      "speed": 22,
+      "brakeTime": 4,
+      "interactionRadius": 190,
+      "rescueTime": 3,
+      "harpoonTime": 2.5,
+      "harpoonPositions": [
+        880,
+        1570
+      ],
+      "hostages": 8
+    },
+    "decision": {
+      "title": "Des noms au lieu de tonnes",
+      "body": "Le wagon fermé transportait des ouvriers. Le bordereau les compte comme une dette cédée par un capitaine des Brisants. Holt exige la remise des pièces au dépôt. Sami demande que les noms et le sort des ouvriers figurent sur le compte rendu signé.",
+      "obey": "Remettre le dossier scellé au dépôt",
+      "defy": "Joindre le sort des ouvriers au rapport"
+    },
+    "intro": "VESPER // VIADUC DES MINES · 11:26"
+  },
+  "walker": {
+    "id": "WK01",
+    "name": "Vigie",
+    "designation": "M-12",
+    "role": "ÉCLAIREUR D’ASSAUT",
+    "legs": 2,
+    "profile": "Bipède haut",
+    "height": 180,
+    "width": 126,
+    "hull": 520,
+    "stride": 118,
+    "stepTime": 0.62,
+    "speed": 86,
+    "cooling": 16,
+    "armor": 0.12,
+    "damage": 22,
+    "fireRate": 0.18,
+    "shotHeat": 8,
+    "ammo": 12,
+    "rockets": 10,
+    "color": "#e5b16c",
+    "silhouette": "biped",
+    "weight": 34,
+    "description": "Un poste de tir élevé, une foulée longue. Ses deux genoux restent son point faible.",
+    "weapon": "Autocanon V-22",
+    "secondary": "Roquettes à charge creuse",
+    "strength": "Vue dégagée · tir précis",
+    "weakness": "Appuis exposés"
+  },
+  "missionId": "MI02",
+  "walkerId": "WK01",
+  "planetId": "PL01",
+  "difficultyId": "story",
+  "difficulty": {
+    "label": "Récit",
+    "damage": 0.5,
+    "enemyHealth": 0.78,
+    "repair": 1.25
+  },
+  "seed": 1511,
+  "rng": 2024522590,
+  "assist": true,
+  "elapsed": 18.416666666666902,
+  "status": "playing",
+  "outcome": "",
+  "player": {
+    "x": 1571.7431832390678,
+    "y": 491.9436728132314,
+    "width": 126,
+    "height": 70,
+    "groundY": 671.9316942207483,
+    "facing": 1,
+    "aimAngle": 1.6670622853725372,
+    "hull": 513.532,
+    "maxHull": 520,
+    "armor": 0.12,
+    "heat": 0,
+    "energy": 100,
+    "stability": 97.01358887251106,
+    "ammo": 7,
+    "maxAmmo": 12,
+    "reserveAmmo": 84,
+    "maxReserveAmmo": 96,
+    "radiator": {
+      "health": 100,
+      "maxHealth": 100,
+      "repairKits": 2,
+      "maxRepairKits": 2,
+      "repairProgress": 0,
+      "repairing": false
+    },
+    "rockets": 10,
+    "maxRockets": 10,
+    "reloadTime": 0,
+    "venting": false,
+    "braced": true,
+    "overheated": false,
+    "speed": 4.940015020506507,
+    "feet": [
+      {
+        "id": "foot-0",
+        "index": 0,
+        "group": 0,
+        "side": "back",
+        "homeOffset": -38,
+        "x": 1507.8919603188083,
+        "y": 672.900325722079,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 1398.9586269854703,
+        "fromY": 672.4366264784339,
+        "targetX": 1507.8919603188083,
+        "targetY": 672.900325722079,
+        "health": 100,
+        "maxHealth": 100
+      },
+      {
+        "id": "foot-1",
+        "index": 1,
+        "group": 1,
+        "side": "front",
+        "homeOffset": 38,
+        "x": 1637.0764106654772,
+        "y": 670.4295495732882,
+        "phase": "stance",
+        "progress": 1,
+        "contact": true,
+        "fromX": 1528.1430773321392,
+        "fromY": 672.6817680385155,
+        "targetX": 1637.0764106654772,
+        "targetY": 670.4295495732882,
+        "health": 96.89536,
+        "maxHealth": 100
+      }
+    ],
+    "stepCooldown": 0,
+    "lastGroup": 1,
+    "fireCooldown": 0,
+    "rocketCooldown": 0,
+    "flash": 0,
+    "aimX": 1566.1666666666983,
+    "aimY": 650.0452312116784,
+    "move": 0,
+    "anchorX": 1572.4841854921428
+  },
+  "enemies": [
+    {
+      "name": "Fusilier",
+      "kind": "infantry",
+      "w": 24,
+      "h": 36,
+      "hp": 0,
+      "speed": 22,
+      "range": 650,
+      "cooldown": 1.65,
+      "damage": 10,
+      "projectileSpeed": 430,
+      "windup": 0.42,
+      "score": 70,
+      "type": "rifle",
+      "id": "enemy-0",
+      "x": 1109.6666666666783,
+      "spawnX": 1150,
+      "y": 655.515291398538,
+      "maxHp": 51,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 0.6099860471362906,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 2.085741502591267
+    },
+    {
+      "name": "Lancier antichar",
+      "kind": "infantry",
+      "w": 26,
+      "h": 38,
+      "hp": 0,
+      "speed": 14,
+      "range": 790,
+      "cooldown": 4.4,
+      "damage": 43,
+      "projectileSpeed": 255,
+      "windup": 1.2,
+      "score": 130,
+      "type": "rocket",
+      "id": "enemy-1",
+      "x": 1354.7333333333304,
+      "spawnX": 1400,
+      "y": 652.6679738322543,
+      "maxHp": 62,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0.9722222222222207,
+      "attackTarget": "player",
+      "timer": -1.6058668026079719,
+      "flash": 0,
+      "phase": "attack",
+      "armor": 0,
+      "targetX": 581.0723137016844,
+      "targetY": 639.6438346212793,
+      "dronePhase": 3.767371443536783
+    },
+    {
+      "name": "Buggy de raid",
+      "kind": "vehicle",
+      "w": 85,
+      "h": 44,
+      "hp": 0,
+      "speed": 35,
+      "range": 740,
+      "cooldown": 2.8,
+      "damage": 21,
+      "projectileSpeed": 400,
+      "windup": 0.7,
+      "score": 230,
+      "type": "buggy",
+      "id": "enemy-2",
+      "x": 1565.583333333365,
+      "spawnX": 1810,
+      "y": 650.056858014791,
+      "maxHp": 172,
+      "active": true,
+      "dead": true,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 0.6166666666666717,
+      "flash": 0,
+      "phase": "recover",
+      "armor": 0.14,
+      "targetX": 919.1551853646542,
+      "targetY": 509.94273290666104,
+      "dronePhase": 2.5945009735967757
+    },
+    {
+      "name": "Drone de veille",
+      "kind": "air",
+      "w": 48,
+      "h": 26,
+      "hp": 70,
+      "speed": 24,
+      "range": 710,
+      "cooldown": 2.25,
+      "damage": 13,
+      "projectileSpeed": 340,
+      "windup": 0.65,
+      "score": 120,
+      "type": "drone",
+      "id": "enemy-3",
+      "x": 2920,
+      "spawnX": 2920,
+      "y": 483.33670905566146,
+      "maxHp": 70,
+      "active": false,
+      "dead": false,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 2.0813634052872656,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 5.951187236024457
+    },
+    {
+      "name": "Fusilier",
+      "kind": "infantry",
+      "w": 24,
+      "h": 36,
+      "hp": 51,
+      "speed": 22,
+      "range": 650,
+      "cooldown": 1.65,
+      "damage": 10,
+      "projectileSpeed": 430,
+      "windup": 0.42,
+      "score": 70,
+      "type": "rifle",
+      "id": "enemy-4",
+      "x": 3820,
+      "spawnX": 3820,
+      "y": 652.0681915740809,
+      "maxHp": 51,
+      "active": false,
+      "dead": false,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 1.1526893863454462,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 2.4282707918424733
+    },
+    {
+      "name": "Lancier antichar",
+      "kind": "infantry",
+      "w": 26,
+      "h": 38,
+      "hp": 62,
+      "speed": 14,
+      "range": 790,
+      "cooldown": 4.4,
+      "damage": 43,
+      "projectileSpeed": 255,
+      "windup": 1.2,
+      "score": 130,
+      "type": "rocket",
+      "id": "enemy-5",
+      "x": 4220,
+      "spawnX": 4220,
+      "y": 671.4049202323957,
+      "maxHp": 62,
+      "active": false,
+      "dead": false,
+      "facing": -1,
+      "telegraph": 0,
+      "attackTarget": "player",
+      "timer": 1.5523602861911059,
+      "flash": 0,
+      "phase": "idle",
+      "armor": 0,
+      "targetX": 0,
+      "targetY": 0,
+      "dronePhase": 3.0709325678221693
+    }
+  ],
+  "projectiles": [],
+  "particles": [],
+  "events": [
+    {
+      "id": 1,
+      "type": "radio",
+      "text": "« Reprenez le train. La voie a cédé après la quatrième pile : coupez sa traction avant qu’il l’atteigne. Le minerai doit revenir au dépôt. » — Major Holt",
+      "time": 0
+    },
+    {
+      "id": 2,
+      "type": "radio",
+      "text": "Tess : « La conduite du couloir tient. On a pu vérifier le matériel avant ta seconde sortie. »",
+      "time": 0
+    },
+    {
+      "id": 3,
+      "type": "radio",
+      "text": "Sami : « Aux Cales-Basses, on attend toujours une réponse. Je ne vais pas laisser le dépôt compter ce train sans regarder à l’intérieur. »",
+      "time": 0
+    },
+    {
+      "id": 4,
+      "type": "shot",
+      "text": "",
+      "time": 0.03333333333333333,
+      "x": 399.9041020648142,
+      "y": 534.4784452363608
+    },
+    {
+      "id": 5,
+      "type": "step",
+      "text": "",
+      "time": 0.6333333333333336,
+      "x": 380,
+      "y": 690.2911620096431
+    },
+    {
+      "id": 6,
+      "type": "shot",
+      "text": "",
+      "time": 0.7000000000000005,
+      "x": 447.37272234142944,
+      "y": 535.4909283347797
+    },
+    {
+      "id": 7,
+      "type": "step",
+      "text": "",
+      "time": 1.266666666666667,
+      "x": 497.99231370168644,
+      "y": 689.0005738174511
+    },
+    {
+      "id": 8,
+      "type": "shot",
+      "text": "",
+      "time": 1.3000000000000003,
+      "x": 498.8120252282502,
+      "y": 535.2680367780508
+    },
+    {
+      "id": 9,
+      "type": "explosion",
+      "text": "",
+      "time": 1.8333333333333317,
+      "x": 1109.6666666666783,
+      "y": 655.515291398538
+    },
+    {
+      "id": 10,
+      "type": "shot",
+      "text": "",
+      "time": 1.8499999999999983,
+      "x": 546.2486955664676,
+      "y": 534.517730052257
+    },
+    {
+      "id": 11,
+      "type": "step",
+      "text": "",
+      "time": 1.8999999999999981,
+      "x": 476.45898036835325,
+      "y": 689.0206883643402
+    },
+    {
+      "id": 12,
+      "type": "step",
+      "text": "",
+      "time": 2.533333333333329,
+      "x": 606.9256470350201,
+      "y": 690.4405438936978
+    },
+    {
+      "id": 13,
+      "type": "shot",
+      "text": "",
+      "time": 2.5666666666666624,
+      "x": 607.8014204497856,
+      "y": 533.9455148410245
+    },
+    {
+      "id": 14,
+      "type": "step",
+      "text": "",
+      "time": 3.1666666666666603,
+      "x": 585.3923137016868,
+      "y": 689.9998014574028
+    },
+    {
+      "id": 15,
+      "type": "shot",
+      "text": "",
+      "time": 3.2333333333333267,
+      "x": 665.6082015254734,
+      "y": 531.6913856753437
+    },
+    {
+      "id": 16,
+      "type": "radio",
+      "text": "Tess : « Deux câbles maintiennent le train. Libère les treuils avec E ; dès le second décroché, il partira dans la pente. »",
+      "time": 3.4166666666666594
+    },
+    {
+      "id": 17,
+      "type": "step",
+      "text": "",
+      "time": 3.7999999999999914,
+      "x": 715.8589803683518,
+      "y": 692.4713515283598
+    },
+    {
+      "id": 18,
+      "type": "shot",
+      "text": "",
+      "time": 3.849999999999991,
+      "x": 718.3764363972084,
+      "y": 534.3246085322609
+    },
+    {
+      "id": 19,
+      "type": "explosion",
+      "text": "",
+      "time": 4.39999999999999,
+      "x": 1354.7333333333304,
+      "y": 652.6679738322543
+    },
+    {
+      "id": 20,
+      "type": "step",
+      "text": "",
+      "time": 4.433333333333323,
+      "x": 694.3256470350165,
+      "y": 692.2050445805513
+    },
+    {
+      "id": 21,
+      "type": "step",
+      "text": "",
+      "time": 5.066666666666654,
+      "x": 824.7923137016811,
+      "y": 691.4160319142784
+    },
+    {
+      "id": 22,
+      "type": "shot",
+      "text": "",
+      "time": 5.583333333333319,
+      "x": 868.0233820345884,
+      "y": 533.7455987370066
+    },
+    {
+      "id": 23,
+      "type": "step",
+      "text": "",
+      "time": 5.699999999999985,
+      "x": 803.2589803683458,
+      "y": 692.000526226096
+    },
+    {
+      "id": 24,
+      "type": "radio",
+      "text": "Tess : « Je détends le câble. Reste près du treuil jusqu’à ce que le crochet soit libre. »",
+      "time": 6.083333333333317
+    },
+    {
+      "id": 25,
+      "type": "step",
+      "text": "",
+      "time": 6.333333333333316,
+      "x": 933.7256470350104,
+      "y": 685.6916256850769
+    },
+    {
+      "id": 26,
+      "type": "shot",
+      "text": "",
+      "time": 6.333333333333316,
+      "x": 932.5071224723836,
+      "y": 531.3061602617729
+    },
+    {
+      "id": 27,
+      "type": "shot",
+      "text": "",
+      "time": 7.016666666666647,
+      "x": 967.4379189617088,
+      "y": 531.8668954306685
+    },
+    {
+      "id": 28,
+      "type": "shot",
+      "text": "",
+      "time": 7.649999999999978,
+      "x": 968.3286649184297,
+      "y": 532.1106776415132
+    },
+    {
+      "id": 29,
+      "type": "shot",
+      "text": "",
+      "time": 8.24999999999999,
+      "x": 968.2811009919061,
+      "y": 532.5093964582281
+    },
+    {
+      "id": 30,
+      "type": "reload",
+      "text": "Rechargement du magasin.",
+      "time": 8.24999999999999
+    },
+    {
+      "id": 31,
+      "type": "objective",
+      "text": "Tess : « Premier harpon décroché. Le second retient encore le train. »",
+      "time": 8.58333333333334
+    },
+    {
+      "id": 32,
+      "type": "step",
+      "text": "",
+      "time": 9.216666666666704,
+      "x": 948.4922657413947,
+      "y": 684.6458435352151
+    },
+    {
+      "id": 33,
+      "type": "step",
+      "text": "",
+      "time": 9.850000000000069,
+      "x": 1068.2751853646546,
+      "y": 675.9295775961685
+    },
+    {
+      "id": 34,
+      "type": "reload",
+      "text": "Magasin chargé : 12 coups. Réserve : 84.",
+      "time": 10.066666666666746
+    },
+    {
+      "id": 35,
+      "type": "shot",
+      "text": "",
+      "time": 10.066666666666746,
+      "x": 1084.2879611570852,
+      "y": 531.8817793248122
+    },
+    {
+      "id": 36,
+      "type": "step",
+      "text": "",
+      "time": 10.483333333333434,
+      "x": 1046.741852031319,
+      "y": 677.3797216837124
+    },
+    {
+      "id": 37,
+      "type": "shot",
+      "text": "",
+      "time": 10.516666666666769,
+      "x": 1122.4029801724894,
+      "y": 529.9211229379885
+    },
+    {
+      "id": 38,
+      "type": "shot",
+      "text": "",
+      "time": 10.933333333333456,
+      "x": 1151.1555946913338,
+      "y": 529.0296369901029
+    },
+    {
+      "id": 39,
+      "type": "hit",
+      "text": "",
+      "time": 11.116666666666799,
+      "x": 1086.2336968116945,
+      "y": 538.1532263854754
+    },
+    {
+      "id": 40,
+      "type": "shot",
+      "text": "",
+      "time": 11.300000000000141,
+      "x": 1154.9122455835636,
+      "y": 528.6821102477898
+    },
+    {
+      "id": 41,
+      "type": "shot",
+      "text": "",
+      "time": 11.666666666666826,
+      "x": 1154.952080603222,
+      "y": 529.8358847126664
+    },
+    {
+      "id": 42,
+      "type": "explosion",
+      "text": "",
+      "time": 12.000000000000176,
+      "x": 1565.583333333365,
+      "y": 650.056858014791
+    },
+    {
+      "id": 43,
+      "type": "step",
+      "text": "",
+      "time": 12.63333333333354,
+      "x": 1212.2213568652367,
+      "y": 670.3589233227056
+    },
+    {
+      "id": 44,
+      "type": "step",
+      "text": "",
+      "time": 13.266666666666906,
+      "x": 1181.0919603187945,
+      "y": 670.8619712266869
+    },
+    {
+      "id": 45,
+      "type": "step",
+      "text": "",
+      "time": 13.90000000000027,
+      "x": 1310.2764106654633,
+      "y": 670.8682269897034
+    },
+    {
+      "id": 46,
+      "type": "step",
+      "text": "",
+      "time": 14.533333333333635,
+      "x": 1290.0252936521324,
+      "y": 670.5701108626085
+    },
+    {
+      "id": 47,
+      "type": "step",
+      "text": "",
+      "time": 15.166666666667,
+      "x": 1419.2097439988013,
+      "y": 672.7120739578293
+    },
+    {
+      "id": 48,
+      "type": "step",
+      "text": "",
+      "time": 15.800000000000365,
+      "x": 1398.9586269854703,
+      "y": 672.4366264784339
+    },
+    {
+      "id": 49,
+      "type": "step",
+      "text": "",
+      "time": 16.43333333333368,
+      "x": 1528.1430773321392,
+      "y": 672.6817680385155
+    },
+    {
+      "id": 50,
+      "type": "step",
+      "text": "",
+      "time": 17.06666666666698,
+      "x": 1507.8919603188083,
+      "y": 672.900325722079
+    },
+    {
+      "id": 51,
+      "type": "radio",
+      "text": "Tess : « Je détends le câble. Reste près du treuil jusqu’à ce que le crochet soit libre. »",
+      "time": 17.283333333333633
+    },
+    {
+      "id": 52,
+      "type": "step",
+      "text": "",
+      "time": 17.700000000000276,
+      "x": 1637.0764106654772,
+      "y": 670.4295495732882
+    }
+  ],
+  "eventId": 52,
+  "entityId": 18,
+  "relays": [],
+  "convoy": null,
+  "civilians": [],
+  "evidence": {
+    "id": "MI02-evidence",
+    "x": 1928,
+    "y": 606.0618743255329,
+    "collected": false,
+    "scanning": false,
+    "scanProgress": 0,
+    "scanTime": 2.4,
+    "label": "REGISTRE DU WAGON"
+  },
+  "pickups": [
+    {
+      "id": "supply-0",
+      "x": 1700,
+      "y": 649.2406982599899,
+      "type": "repair",
+      "collected": false
+    },
+    {
+      "id": "supply-1",
+      "x": 3650,
+      "y": 649.1859225440164,
+      "type": "repair",
+      "collected": false
+    },
+    {
+      "id": "supply-2",
+      "x": 4610,
+      "y": 672.2583504895567,
+      "type": "repair",
+      "collected": false
+    }
+  ],
+  "decision": {
+    "active": false,
+    "resolved": false,
+    "choice": null,
+    "title": "Des noms au lieu de tonnes",
+    "body": "Le wagon fermé transportait des ouvriers. Le bordereau les compte comme une dette cédée par un capitaine des Brisants. Holt exige la remise des pièces au dépôt. Sami demande que les noms et le sort des ouvriers figurent sur le compte rendu signé.",
+    "options": [
+      {
+        "id": "obey",
+        "label": "Remettre le dossier scellé au dépôt"
+      },
+      {
+        "id": "defy",
+        "label": "Joindre le sort des ouvriers au rapport"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "harpoons",
+      "label": "Libérer les deux harpons des Brisants",
+      "current": 1,
+      "target": 2,
+      "complete": false
+    },
+    {
+      "id": "train",
+      "label": "Rejoindre la locomotive et verrouiller le frein",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    },
+    {
+      "id": "rescue",
+      "label": "Ouvrir le wagon et secourir les ouvriers",
+      "current": 0,
+      "target": 8,
+      "complete": false
+    },
+    {
+      "id": "evidence",
+      "label": "Relever le registre de vente du wagon",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    },
+    {
+      "id": "order",
+      "label": "Établir le compte rendu de reprise du train",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    },
+    {
+      "id": "extract",
+      "label": "Rejoindre la rampe de retour au hangar",
+      "current": 0,
+      "target": 1,
+      "complete": false
+    }
+  ],
+  "extraction": {
+    "x": 5070,
+    "y": 675.7054412018568,
+    "active": false,
+    "radius": 110
+  },
+  "stats": {
+    "kills": 3,
+    "shots": 17,
+    "hits": 16,
+    "steps": 22,
+    "collateral": 0,
+    "damageTaken": 6.468,
+    "evidence": 0,
+    "ordersObeyed": 0,
+    "ordersDefied": 0,
+    "score": 430
+  },
+  "interaction": "Libération du harpon 45 % · restez près du treuil",
+  "cameraShake": 0,
+  "lastStepGroup": 1,
+  "checkpointText": "Ordre reçu. Appuis au sol.",
+  "inputHeld": {
+    "stepA": false,
+    "stepB": false,
+    "interact": false,
+    "reload": false,
+    "repair": false
+  },
+  "notified": {
+    "harpoons": true
+  },
+  "nextStep": 0,
+  "bossReleased": false,
+  "campaign": {
+    "missionId": "MI02",
+    "phase": "release",
+    "harpoonsReleased": 1,
+    "trainStopped": false,
+    "hostagesTotal": 8,
+    "hostagesRescued": 0,
+    "hostagesLost": 0,
+    "rescueProgress": 0,
+    "rescueWorking": false,
+    "rescueResolved": false,
+    "manifestRead": false,
+    "evidencePreserved": true,
+    "recordFiled": false,
+    "trainIntegrity": 1,
+    "context": {
+      "pipeIntact": true,
+      "pipeRepaired": false,
+      "noticeFiled": false,
+      "servicesInterrupted": false
+    },
+    "tutorial": {
+      "stepped": true,
+      "braced": true
+    }
+  },
+  "train": {
+    "id": "vesper-ore-train",
+    "x": 2280,
+    "y": 633.0435949143666,
+    "w": 154,
+    "h": 92,
+    "hp": 900,
+    "maxHp": 900,
+    "speed": 22,
+    "moving": false,
+    "stopped": false,
+    "destroyed": false,
+    "brakeProgress": 0,
+    "brakeWorking": false,
+    "breakX": 4550,
+    "wagons": [
+      {
+        "id": "ore-wagon",
+        "kind": "ore",
+        "offset": -178,
+        "x": 2102,
+        "y": 644.062600500707,
+        "w": 150,
+        "h": 64,
+        "hp": 500,
+        "maxHp": 500,
+        "destroyed": false
+      },
+      {
+        "id": "hostage-wagon",
+        "kind": "hostages",
+        "offset": -352,
+        "x": 1928,
+        "y": 624.0618743255329,
+        "w": 160,
+        "h": 80,
+        "hp": 360,
+        "maxHp": 360,
+        "destroyed": false
+      }
+    ],
+    "harpoons": [
+      {
+        "id": "harpoon-1",
+        "x": 880,
+        "y": 667.0372698960567,
+        "released": true,
+        "progress": 1,
+        "working": false
+      },
+      {
+        "id": "harpoon-2",
+        "x": 1570,
+        "y": 649.9676377919382,
+        "released": false,
+        "progress": 0.45333333333333276,
+        "working": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "version": "0.15.11",
+  "generator": "image_gen built-in",
+  "canonIds": [
+    "AS09",
+    "AS22",
+    "SY08",
+    "SY09",
+    "SY127",
+    "PX19"
+  ],
+  "atlasCount": 2,
+  "frameCount": 10,
+  "runtimeFrameCount": 10,
+  "referenceFrameCount": 0,
+  "files": [
+    {
+      "id": "muzzle",
+      "path": "assets/painted/walker-fx/muzzle.png",
+      "bytes": 1197567,
+      "sha256": "fe504ea818d12838fc90272a3fd71cea52950f2148ba94bcd450b715acfd4a57",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 4,
+      "runtimeFrames": 4,
+      "referenceFrames": 0,
+      "transparentFraction": 0.92121,
+      "maxCellGutterAlpha": 1,
+      "anchorAlphaThreshold": 2,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "vent",
+      "path": "assets/painted/walker-fx/vent.png",
+      "bytes": 1687528,
+      "sha256": "357149d113558b51ae3d02afa6c50f81aa07993a37c46996b3069d2d50716210",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.610312,
+      "maxCellGutterAlpha": 1,
+      "anchorAlphaThreshold": 4,
+      "originalBytesUnchanged": true
+    }
+  ],
+  "scope": "Four primary muzzle-core phases and six cooling-puff phases for the existing six playable walkers.",
+  "pixelPolicy": "Selected Imagegen PNG bytes copied unchanged. Metadata and runtime clipping only; no recoloring, alpha edit, resize, compositing or re-encoding.",
+  "layoutPolicy": "Muzzle roots measured at useful alpha 2, with one common scale preserving phase growth. Vent centers/radii use alpha 4: threshold 2 has sparse remote pixels, while 4/8/32 bound the same visible puff. All nonzero-alpha source pixels are retained in their cell crops; low-alpha pixels are excluded from measurement only.",
+  "physicalPolicy": "The caller retains the exact muzzle halo and core polygon; fireCooldown>.1 and !hangar remain the presence gate. No secondary-only flash. Five existing purge circles retain their condition, phase, center, radius and caller alpha. No particle, timer, random call, collider, actor or saved field is added.",
+  "muzzlePolicy": {
+    "window": "fireRate - 0.1; never extended",
+    "age": "clamp((fireRate-fireCooldown)/(fireRate-0.1),0,1)",
+    "reducedMotion": "age-0",
+    "corePolygon": [
+      [
+        0,
+        -7
+      ],
+      [
+        33,
+        -3
+      ],
+      [
+        18,
+        0
+      ],
+      [
+        41,
+        4
+      ],
+      [
+        1,
+        8
+      ]
+    ],
+    "retainedProceduralHalo": {
+      "centerFromMuzzle": [
+        8,
+        0
+      ],
+      "radius": 42,
+      "color": "#ffd58766"
+    }
+  },
+  "ventPolicy": {
+    "condition": "player.venting || player.heat > 70",
+    "count": 5,
+    "phase": "(time*0.8 + index*0.23) % 1",
+    "time": "elapsed, or 0 with reduced motion",
+    "radius": "9 + phase*27",
+    "alpha": "(1-phase)*0.18",
+    "paletteReference": "#d2d5c6",
+    "clip": "Exact historical circle; no extra halo or emitter"
+  },
+  "acceptance": "Partial AS09/AS22 art only. No enemy muzzle flashes, damage flashes, recoil mechanism, casing, reloading animation, material impacts, heat mechanic or human acceptance is added."
+}

@@ -24,6 +24,9 @@ import { drawPaintedNacreTerrain, drawPaintedNacreSceneryPart, nacreGroundProp }
 import { drawPaintedThyrTerrain, drawPaintedThyrSceneryPart, thyrGroundProp } from './painted-thyr-scenery.mjs';
 import { drawPaintedKharonTerrain, drawPaintedKharonSceneryPart, kharonGroundProp } from './painted-kharon-scenery.mjs';
 import { drawPaintedParticle } from './painted-particles.mjs';
+import { drawPaintedImpactParticle } from './painted-particle-impacts.mjs';
+import { drawPaintedVesperIndustryPart, drawPaintedVesperIndustryMaintenance } from './painted-vesper-industry.mjs';
+import { drawPaintedMuzzleFlash, drawPaintedVentPuff } from './painted-walker-fx.mjs';
 import { drawPaintedNacreSitePart, drawPaintedNacreSiteGate, drawPaintedNacreSiteGateControl,
   drawPaintedNacreSitePump, drawPaintedNacreSiteValve, drawPaintedNacreSiteLatch, drawPaintedNacreSiteWinch,
   drawPaintedNacreSiteDeck, drawPaintedNacreSiteDepartureRamp, nacreSiteDamageState } from './painted-nacre-sites.mjs';
@@ -116,14 +119,17 @@ export function drawWalker(c, p, walker, t, options = {}) {
     const barrel = walker.legs === 4 ? 105 : walker.legs === 6 ? 94 : 85;
     c.save(); c.translate(p.x + 9, p.y + 8); c.rotate(p.aimAngle || 0);
     glow(c, barrel + 15, 0, 42, '#ffd58766');
-    poly(c, [[barrel + 7, -7], [barrel + 40, -3], [barrel + 25, 0], [barrel + 48, 4], [barrel + 8, 8]], '#ffe2a2');
+    if (!drawPaintedMuzzleFlash(c, { fireCooldown: p.fireCooldown, fireRate: walker.fireRate,
+      muzzleX: barrel + 7, hangar: options.hangar, reducedMotion: options.reducedMotion }))
+      poly(c, [[barrel + 7, -7], [barrel + 40, -3], [barrel + 25, 0], [barrel + 48, 4], [barrel + 8, 8]], '#ffe2a2');
     c.restore();
   }
   if (p.venting || p.heat > 70) {
     for (let i = 0; i < 5; i++) {
       const phase = (t * .8 + i * .23) % 1;
       c.globalAlpha = (1 - phase) * .18;
-      circle(c, p.x - (p.facing || 1) * (p.width * .47 + phase * 20), p.y - 30 - phase * 85, 9 + phase * 27, '#d2d5c6');
+      const x = p.x - (p.facing || 1) * (p.width * .47 + phase * 20), y = p.y - 30 - phase * 85, radius = 9 + phase * 27;
+      if (!drawPaintedVentPuff(c, { x, y, radius, phase })) circle(c, x, y, radius, '#d2d5c6');
     }
     c.globalAlpha = 1;
   }
@@ -192,7 +198,7 @@ export class Renderer {
     if (s.train) this.drawTrain(s, t);
     for (const e of visibleEnemies) if (e.kind !== 'air' && e.id !== 'workshop-security-1') this.drawEnemy(e, s, t);
     this.drawShadow(s.player.x, s.player.groundY, s.walker.width * 0.75, 15);
-    drawWalker(c, s.player, s.walker, t);
+    drawWalker(c, s.player, s.walker, t, { reducedMotion: this.combatReducedMotion });
     this.drawRadiator(s, t);
     if (s.dike) { this.drawDikeControls(s, t); this.drawDikePeople(s, t); }
     if (s.ambulance) { this.drawAmbulanceVehicle(s, t); this.drawAmbulancePeople(s, t); }
@@ -1156,11 +1162,17 @@ export class Renderer {
     const c = this.ctx, shift = cam * 0.32;
     for (let i = Math.floor(shift / 620) - 1; i < Math.floor(shift / 620) + 5; i++) {
       const x = i * 620 - shift, height = 125 + hash(i) * 120;
-      c.fillStyle = '#354b4c'; c.fillRect(x, 600 - height, 70, height);
-      poly(c, [[x - 6, 600 - height], [x + 15, 584 - height], [x + 66, 584 - height], [x + 80, 600 - height]], '#405653');
-      for (let j = 0; j < 4; j++) line(c, x + 12 + j * 15, 602 - height, x + 12 + j * 15, 595, '#5b6960', 1.5);
-      c.fillStyle = '#324a4b'; c.fillRect(x + 93, 550 - height, 17, height + 50);
-      c.fillRect(x + 89, 541 - height, 25, 13); c.fillRect(x + 147, 498, 96, 101);
+      if (!drawPaintedVesperIndustryPart(c, { part: 'silo', x, h: height })) {
+        c.fillStyle = '#354b4c'; c.fillRect(x, 600 - height, 70, height);
+        poly(c, [[x - 6, 600 - height], [x + 15, 584 - height], [x + 66, 584 - height], [x + 80, 600 - height]], '#405653');
+        for (let j = 0; j < 4; j++) line(c, x + 12 + j * 15, 602 - height, x + 12 + j * 15, 595, '#5b6960', 1.5);
+      }
+      if (!drawPaintedVesperIndustryPart(c, { part: 'chimney', x, h: height })) {
+        c.fillStyle = '#324a4b'; c.fillRect(x + 93, 550 - height, 17, height + 50);
+        c.fillRect(x + 89, 541 - height, 25, 13);
+      }
+      const paintedWorkshop = drawPaintedVesperIndustryMaintenance(c, { x });
+      if (!paintedWorkshop) { c.fillStyle = '#324a4b'; c.fillRect(x + 147, 498, 96, 101); }
       line(c, x + 78, 554, x + 251, 554, '#405a58', 7);
       line(c, x + 135, 551, x + 135, 605, '#314a4d', 7);
       for (let j = 0; j < 4; j++) {
@@ -1169,7 +1181,7 @@ export class Renderer {
         circle(c, x + 103 + phase * 80, 535 - height - phase * 110, 9 + phase * 40, '#dfc69a');
       }
       c.globalAlpha = 1;
-      for (let j = 0; j < 5; j++) { c.fillStyle = hash(i + j) > 0.4 ? '#d2ae7455' : '#243e41'; c.fillRect(x + 156 + j * 16, 513, 6, 3); }
+      if (!paintedWorkshop) for (let j = 0; j < 5; j++) { c.fillStyle = hash(i + j) > 0.4 ? '#d2ae7455' : '#243e41'; c.fillRect(x + 156 + j * 16, 513, 6, 3); }
       line(c, x - 15, 617, x + 260, 617, '#1b363c', 10);
     }
   }
@@ -2052,6 +2064,7 @@ export class Renderer {
       if (!this.visible(p.x, 100)) continue;
       c.globalAlpha = clamp(p.life / p.maxLife, 0, 1) * (p.type === 'smoke' ? 0.32 : 1);
       if (drawPaintedParticle(c, p, { reducedMotion: this.combatReducedMotion })) continue;
+      if (drawPaintedImpactParticle(c, p, { reducedMotion: this.combatReducedMotion })) continue;
       if (p.type === 'spark') line(c, p.x, p.y, p.x - p.vx * 0.025, p.y - p.vy * 0.025, p.color, 2);
       else circle(c, p.x, p.y, p.size * (p.type === 'smoke' ? 2 - p.life / p.maxLife : 1), p.color);
     }

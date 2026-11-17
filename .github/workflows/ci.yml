@@ -62,6 +62,12 @@ jobs:
         run: npm run check:kharon-scenery
       - name: Decode and validate simulated smoke and dust particles
         run: npm run check:particles
+      - name: Decode and validate simulated spark and blast particles
+        run: npm run check:particle-impacts
+      - name: Decode and validate primary muzzle and purge effects
+        run: npm run check:walker-fx
+      - name: Decode and validate Vesper industrial silhouettes
+        run: npm run check:vesper-industry
       - run: npm run check
       - run: npm run build
       - run: npm run check:offline-package

@@ -1,0 +1,195 @@
+/** Decode original sprites and receive the Vesper midground in real Canvas. */
+import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { createRequire } from 'node:module';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { PAINTED_VESPER_INDUSTRY_LAYOUT } from '../src/painted-vesper-industry-layout.mjs';
+import { loadPaintedVesperIndustry, clearPaintedVesperIndustry, paintedVesperIndustryStatus,
+  paintedVesperIndustryFrame, vesperIndustryBounds, drawPaintedVesperIndustryPart,
+  drawPaintedVesperIndustry, drawPaintedVesperIndustryMaintenance } from '../src/painted-vesper-industry.mjs';
+import { loadPaintedVesper } from '../src/painted-vesper.mjs';
+import { loadPaintedVesperScenery } from '../src/painted-vesper-scenery.mjs';
+import { loadPaintedWalkers } from '../src/painted-walkers.mjs';
+import { loadPaintedCombat } from '../src/painted-combat.mjs';
+import { loadPaintedTransport } from '../src/painted-transport.mjs';
+import { loadPaintedParticles } from '../src/painted-particles.mjs';
+import { createGame, updateGame } from '../src/simulation.mjs';
+import { Renderer } from '../src/renderer.mjs';
+import { pilotMI02 } from '../tests/helpers/mi02-driver.mjs';
+import { pilotMI03 } from '../tests/helpers/mi03-driver.mjs';
+import { pilotMI04 } from '../tests/helpers/mi04-driver.mjs';
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const output = process.argv[2] ? resolve(process.argv[2]) : resolve(root, '../outputs/painted-vesper-industry-qa');
+const require = createRequire(import.meta.url); let api;
+try { api = require('@napi-rs/canvas'); }
+catch (cause) { if (!process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES) throw new Error('Vesper industry reception requires @napi-rs/canvas', { cause }); api = require(resolve(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES, '@napi-rs/canvas')); }
+const { createCanvas, loadImage } = api, sha = bytes => createHash('sha256').update(bytes).digest('hex');
+mkdirSync(output, { recursive: true });
+const sources = ['src/painted-vesper-industry.mjs', 'src/painted-vesper-industry-layout.mjs', 'src/renderer.mjs',
+  'assets/painted/vesper-industry/manifest.json', 'assets/painted/vesper-industry/prompts.json', 'assets/painted/vesper-industry/prompt.txt',
+  'tools/index-painted-vesper-industry.py', 'tools/test-painted-vesper-industry.mjs', 'tests/painted-vesper-industry.test.mjs',
+  'src/painted-vesper.mjs', 'src/painted-vesper-layout.mjs', 'assets/painted/vesper/outposts.png', 'assets/art/vesper-panorama.png',
+  'src/simulation.mjs', 'tests/helpers/mi02-driver.mjs', 'tests/helpers/mi03-driver.mjs', 'tests/helpers/mi04-driver.mjs'];
+const receipt = { version: '0.15.11', createdUtc: new Date().toISOString(), completed: false,
+  type: 'Original PNG decoding, exact industry envelopes and public-input Vesper Canvas scenes',
+  browserExecuted: false, humanPlaytestPerformed: false, atlases: [], frames: [], views: [], envelopeChecks: [],
+  sourceHashes: Object.fromEntries(sources.map(path => [path, sha(readFileSync(resolve(root, path)))])),
+  limitations: ['The original generated PNG is unchanged; only measured source crops and historical-envelope clips are used.',
+    'The two new cells are static midground scenery. The acquired maintenance building is reused and counted separately.',
+    'Diagnostic cameras and heights are labelled; they do not mean the player reached an imposed position.',
+    'Public-input views start with createGame and use updateGame/commandGame through public control policies. No actor is teleported.',
+    'No new collision, actor, smoke, ecological effect, mission fact or save field is introduced.',
+    'This lot reception loads the acquired Vesper, scenery, walker, combat, transport and smoke/dust banks. Other simultaneous 0.15.11 lots are outside its acceptance scope.',
+    'Canvas does not establish browser, audio, hardware performance, human playtesting, Release or deployment acceptance.'] };
+const manifest = JSON.parse(readFileSync(resolve(root, 'assets/painted/vesper-industry/manifest.json')));
+const prompts = JSON.parse(readFileSync(resolve(root, 'assets/painted/vesper-industry/prompts.json')));
+const ids = new WeakMap(); let industryImage;
+function save(canvas, file, info = {}) {
+  const bytes = canvas.toBuffer('image/png'); writeFileSync(resolve(output, file), bytes);
+  receipt.views.push({ file, width: canvas.width, height: canvas.height, sha256: sha(bytes), ...info });
+}
+function track(ctx) {
+  const calls = {}, original = ctx.drawImage;
+  ctx.drawImage = function (...args) { const key = ids.get(args[0]); if (key) calls[key] = (calls[key] || 0) + 1; return original.apply(this, args); };
+  return calls;
+}
+function caption(ctx, text, width) {
+  ctx.fillStyle = '#12262ce8'; ctx.fillRect(0, 0, width, 39);
+  ctx.fillStyle = '#e3d5b5'; ctx.font = '16px sans-serif'; ctx.textAlign = 'left'; ctx.fillText(text, 20, 26, width - 40);
+}
+function initial(missionId) { return createGame({ missionId, walkerId: 'WK01', difficulty: 'story', seed: 1511 }); }
+function matrix(ctx) { const m = ctx.getTransform(); return [m.a, m.b, m.c, m.d, m.e, m.f]; }
+try {
+  clearPaintedVesperIndustry();
+  await loadPaintedVesperIndustry({ loadImage: async (url, key) => {
+    const bytes = readFileSync(fileURLToPath(url)), image = await loadImage(fileURLToPath(url)), atlas = PAINTED_VESPER_INDUSTRY_LAYOUT[key];
+    const file = manifest.files.find(item => item.id === key), selected = prompts.selectedOutputs.find(item => item.atlas === key);
+    assert.equal(sha(bytes), file.sha256); assert.equal(sha(bytes), selected.sha256);
+    assert.deepEqual([image.width, image.height], atlas.size);
+    const originalAvailable = existsSync(selected.originalGeneratedPath);
+    if (originalAvailable) assert.deepEqual(bytes, readFileSync(selected.originalGeneratedPath));
+    const c = createCanvas(image.width, image.height).getContext('2d'); c.drawImage(image, 0, 0);
+    const pixels = c.getImageData(0, 0, image.width, image.height).data;
+    const alpha = (x, y) => pixels[(y * image.width + x) * 4 + 3]; let clear = 0;
+    for (let i = 3; i < pixels.length; i += 4) if (!pixels[i]) clear++;
+    assert.ok(clear / (image.width * image.height) > .65);
+    const countIn = ([x, y, w, h], threshold) => { let n = 0; for (let yy = y; yy < y + h; yy++) for (let xx = x; xx < x + w; xx++) if (alpha(xx, yy) >= threshold) n++; return n; };
+    for (const [name, frame] of Object.entries(atlas.frames)) {
+      const [x, y, w, h] = frame.cell;
+      for (let dx = 0; dx < w; dx++) for (const dy of [0, 1, h - 2, h - 1]) assert.ok(alpha(x + dx, y + dy) <= 1);
+      for (let dy = 0; dy < h; dy++) for (const dx of [0, 1, w - 2, w - 1]) assert.ok(alpha(x + dx, y + dy) <= 1);
+      const solidPixels = countIn(frame.source, 32), nontrivialPixels = countIn(frame.source, 2);
+      assert.ok(solidPixels > 1000); assert.equal(solidPixels, countIn(frame.cell, 32));
+      assert.equal(nontrivialPixels, countIn(frame.cell, 2), `${name}: all alpha >=2 retained within the selected crop`);
+      receipt.frames.push({ atlas: key, name, usage: 'runtime', source: frame.source, alphaBounds: frame.alphaBounds,
+        sourceBase: frame.anchors.sourceBase, solidPixels, nontrivialPixels });
+    }
+    ids.set(image, 'industry'); industryImage = image;
+    receipt.atlases.push({ id: key, sha256: sha(bytes), bytes: bytes.length, dimensions: atlas.size,
+      transparentPixels: clear, originalSourceAvailable: originalAvailable, byteForByteSourceMatch: originalAvailable ? true : null });
+    return image;
+  } });
+  assert.equal(paintedVesperIndustryStatus().industry.state, 'ready'); assert.equal(receipt.frames.length, 2);
+  for (const part of ['silo', 'chimney']) for (const h of [125, 185.25, 245]) for (const scale of [1, 1.25]) {
+    const x = 620.296992496895, bounds = vesperIndustryBounds({ part, x, h });
+    const canvas = createCanvas(256, 440), c = canvas.getContext('2d');
+    c.setTransform(scale, 0, 0, scale, 40 - bounds[0] * scale, 40 - bounds[1] * scale);
+    c.globalAlpha = .63; c.imageSmoothingEnabled = false;
+    const before = { matrix: matrix(c), alpha: c.globalAlpha, smoothing: c.imageSmoothingEnabled };
+    assert.ok(drawPaintedVesperIndustryPart(c, { part, x, h }));
+    assert.deepEqual({ matrix: matrix(c), alpha: c.globalAlpha, smoothing: c.imageSmoothingEnabled }, before);
+    const pixels = c.getImageData(0, 0, canvas.width, canvas.height).data;
+    const right = Math.ceil(40 + bounds[2] * scale), bottom = Math.ceil(40 + bounds[3] * scale);
+    let outsidePixels = 0, visiblePixels = 0, maxAlpha = 0, bottomInk = 0;
+    for (let py = 0; py < canvas.height; py++) for (let px = 0; px < canvas.width; px++) {
+      const a = pixels[(py * canvas.width + px) * 4 + 3];
+      if (px < 40 || py < 40 || px >= right || py >= bottom) { if (a) outsidePixels++; }
+      if (a >= 8) { visiblePixels++; maxAlpha = Math.max(maxAlpha, a); if (py >= bottom - 3) bottomInk++; }
+    }
+    assert.equal(outsidePixels, 0); assert.ok(visiblePixels > 900); assert.ok(maxAlpha >= 159 && maxAlpha <= 161);
+    assert.ok(bottomInk > 0, `${part}: physical-envelope baseline not floating`);
+    receipt.envelopeChecks.push({ part, h, scale, x, historicalBounds: bounds, outsidePixels,
+      visiblePixels, bottomInk, callerOpacityPreserved: true, contextRestored: true });
+  }
+  const loader = { loadImage: url => loadImage(fileURLToPath(url)) };
+  await Promise.all([loadPaintedVesper({ loadImage: async (url, key) => {
+    const image = await loadImage(fileURLToPath(url)); ids.set(image, `vesper-${key}`); return image;
+  } }), loadPaintedVesperScenery(loader), loadPaintedWalkers(loader), loadPaintedCombat(loader),
+  loadPaintedTransport(loader), loadPaintedParticles(loader)]);
+  const panorama = await loadImage(resolve(root, 'assets/art/vesper-panorama.png')); ids.set(panorama, 'vesper-panorama');
+  const oldImage = globalThis.Image, oldWindow = globalThis.window;
+  globalThis.Image = class {}; globalThis.window = { devicePixelRatio: 1 };
+  try {
+    const source = createCanvas(1200, 1100), sc = source.getContext('2d');
+    sc.fillStyle = '#192d35'; sc.fillRect(0, 0, source.width, source.height);
+    caption(sc, 'VESPER · 2 cellules sources · transparence sur fonds clair et sombre', source.width);
+    for (const [row, light] of [false, true].entries()) for (const [col, part] of ['silo', 'chimney'].entries()) {
+      const x = col * 600, y = 45 + row * 525, f = paintedVesperIndustryFrame(part), [sx, sy, sw, sh] = f.source;
+      sc.fillStyle = light ? '#b8c0b1' : '#2a414a'; sc.fillRect(x + 10, y + 8, 580, 509);
+      const scale = Math.min(500 / sw, 445 / sh);
+      sc.drawImage(industryImage, sx, sy, sw, sh, x + (600 - sw * scale) / 2, y + 20, sw * scale, sh * scale);
+      sc.fillStyle = light ? '#203740' : '#e3d5b5'; sc.font = '17px sans-serif'; sc.textAlign = 'center'; sc.fillText(part, x + 300, y + 494);
+    }
+    save(source, 'vesper-industry-source-cells.png', { type: 'Measured source crops on two backgrounds; two cells, not four new variants' });
+
+    const heights = createCanvas(1500, 700), hc = heights.getContext('2d');
+    hc.fillStyle = '#233c44'; hc.fillRect(0, 0, heights.width, heights.height);
+    caption(hc, 'VESPER · hauteurs 125 / 185,25 / 245 · mêmes enveloppes · atelier réutilisé', heights.width);
+    for (const [i, h] of [125, 185.25, 245].entries()) {
+      const panelX = i * 500;
+      hc.fillStyle = i % 2 ? '#bac0ae' : '#3b5357'; hc.fillRect(panelX + 10, 55, 480, 625);
+      hc.save(); hc.translate(panelX + 38, -439.5); hc.scale(1.65, 1.65); hc.translate(0, 180); hc.scale(1, .75);
+      assert.deepEqual(drawPaintedVesperIndustry(hc, { x: 0, h }), { silo: true, chimney: true });
+      assert.ok(drawPaintedVesperIndustryMaintenance(hc, { x: 0 }));
+      hc.strokeStyle = '#63a9a5'; hc.lineWidth = 1; hc.setLineDash([3, 3]);
+      for (const part of ['silo', 'chimney']) hc.strokeRect(...vesperIndustryBounds({ part, x: 0, h }));
+      hc.strokeRect(147, 498, 96, 101); hc.beginPath(); hc.moveTo(-6, 600); hc.lineTo(255, 600); hc.stroke();
+      hc.restore();
+      hc.fillStyle = i % 2 ? '#203740' : '#e3d5b5'; hc.font = '18px sans-serif'; hc.textAlign = 'center'; hc.fillText(`h = ${h} · assises 600 / 599`, panelX + 250, 650);
+    }
+    save(heights, 'vesper-industry-height-envelopes.png', { type: 'Imposed extreme and middle height diagnostic, historical parent transform, cyan envelope guides', heights: [125, 185.25, 245] });
+
+    for (const [cameraX, name] of [[0, 'origin'], [1800.296992496895, 'fractional']]) {
+      const state = initial('MI01'), before = JSON.stringify(state), canvas = createCanvas(1600, 900);
+      const renderer = new Renderer(canvas), c = canvas.getContext('2d'), calls = track(c);
+      renderer.panorama = panorama; renderer.panoramaReady = true; renderer.cameraX = cameraX;
+      renderer.drawBackground(state, 17);
+      caption(c, `VESPER · diagnostic du second plan · caméra ${cameraX} · panorama peint chargé`, canvas.width);
+      assert.equal(JSON.stringify(state), before); assert.equal(calls.industry, 12); assert.equal(calls['vesper-panorama'], 1);
+      save(canvas, `vesper-industry-background-${name}.png`, { type: 'Initial game state, background-only diagnostic camera',
+        cameraX, spriteDrawCalls: calls, stateSha256: sha(before), panoramaLoaded: true, simulationUnchanged: true });
+    }
+    const mi01 = initial('MI01');
+    for (let frame = 0; frame < 240; frame++) updateGame(mi01, 1 / 60, { move: 1, brace: false, fire: false, secondary: false });
+    const mi02 = initial('MI02'), railStop = s => s.train.harpoons[1].working && s.train.harpoons[1].progress > .45;
+    pilotMI02(mi02, { stopAt: railStop }); assert.ok(railStop(mi02));
+    const mi03 = initial('MI03'), dispensary = s => s.network.stations[1].scanning && s.network.stations[1].scanProgress > .45;
+    pilotMI03(mi03, { stopAt: dispensary }); assert.ok(dispensary(mi03));
+    const mi04 = initial('MI04'), pump = s => s.industrial.pump.working && s.industrial.pump.progress > .45;
+    pilotMI04(mi04, { stopAt: pump }); assert.ok(pump(mi04));
+    for (const [state, file, checkpoint] of [[mi01, 'mi01-industry-public-walk.png', 'Four seconds of actual rightward walking'],
+      [mi02, 'mi02-industry-public-harpoon.png', 'Second harpoon release actually working above 45 percent'],
+      [mi03, 'mi03-industry-public-dispensary.png', 'Dispensary inspection actually above 45 percent'],
+      [mi04, 'mi04-industry-public-pump.png', 'Coolant pump connection actually above 45 percent']]) {
+      const before = JSON.stringify(state), canvas = createCanvas(1600, 900), renderer = new Renderer(canvas);
+      const c = canvas.getContext('2d'), calls = track(c); renderer.panorama = panorama; renderer.panoramaReady = true;
+      renderer.render(state, { shake: false });
+      assert.equal(JSON.stringify(state), before); assert.equal(calls.industry, 12); assert.equal(calls['vesper-panorama'], 1);
+      caption(c, `${state.missionId} · scène par commandes publiques · industrie Vesper et panorama peints`, canvas.width);
+      const stateFile = file.replace('.png', '.state.json'), stateBytes = JSON.stringify(state, null, 2) + '\n';
+      writeFileSync(resolve(output, stateFile), stateBytes);
+      save(canvas, file, { type: 'Normal Canvas renderer, public-input checkpoint', checkpoint,
+        missionId: state.missionId, elapsed: state.elapsed, status: state.status, playerX: state.player.x, cameraX: renderer.cameraX,
+        spriteDrawCalls: calls, stateFile, stateSha256: sha(stateBytes), simulationUnchanged: true, panoramaLoaded: true,
+        missionCompletionClaimed: false });
+    }
+  } finally { globalThis.Image = oldImage; globalThis.window = oldWindow; }
+  for (const source of sources) assert.equal(sha(readFileSync(resolve(root, source))), receipt.sourceHashes[source], `${source}: stable during reception`);
+  receipt.completed = true; receipt.counts = { atlases: receipt.atlases.length, cells: receipt.frames.length,
+    reusedCells: 1, envelopeChecks: receipt.envelopeChecks.length, publicInputViews: 4, diagnosticViews: 4, views: receipt.views.length };
+  console.log(JSON.stringify({ completed: true, output, ...receipt.counts }));
+} catch (error) { receipt.error = error.stack || String(error); throw error; }
+finally { writeFileSync(resolve(output, 'receipt.json'), JSON.stringify(receipt, null, 2) + '\n'); }

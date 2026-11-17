@@ -1,0 +1,137 @@
+{
+  "version": "0.15.11",
+  "reviewedAt": "2026-11-17T10:59:33.332109+00:00",
+  "reviewer": "assistant visual inspection of rendered PNGs",
+  "accepted": true,
+  "scope": "Acceptance of this particle-impacts lot in decoded Canvas rendering; not native browser, hardware or human playtest acceptance.",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "workingHead": "a8658969f928981fe58cee3f4088f9f711587786",
+  "receipt": "receipt.json",
+  "receiptSha256": "a06f00eea90229395fa474729f0fbd8852100da405da6c03d73c0fdbe1648842",
+  "sourceHashes": {
+    "src/painted-particle-impacts.mjs": "289352fb5b139907e0788fc03d4c6df30afead487045771aea06759c2740e110",
+    "src/painted-particle-impacts-layout.mjs": "26d6cf49bb231dc09556258f18b8e704607eb3edcb3665fc290f65c2ee3514fc",
+    "assets/painted/particle-impacts/manifest.json": "f4cb4869e4c2e4c2524316359576c77c3237aba75a2b7b510c2564cf2a59046a",
+    "assets/painted/particle-impacts/prompts.json": "9b1d258bcbcf36c65beb61701db0fe6e7644c5b318b4383399e9078059f3d95c",
+    "assets/painted/particle-impacts/README.md": "a46ae96c22331495af753defc6b368a200107f8f8da760999d8bebc1dc4c1152",
+    "tools/index-painted-particle-impacts.py": "ada12a76ade1f74a6f149527280278f0f0336bfb0b1778360012448a90897b91",
+    "tools/test-painted-particle-impacts.mjs": "2736fb8a8857c1f4427752a213a72c10a1bb8d85f488f0ed3e16d47bcbc430f7",
+    "tests/painted-particle-impacts.test.mjs": "f28baa6d32ef612b059cabcc1f1c52cd50b82eadc75db2327def834fb0668122",
+    "src/renderer.mjs": "2e5eed8d4f8a244ec5108a8a6f7b327921e3a7a24759d2c69369675969e7d9e1",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "src/content.mjs": "30308100b760741b7bd1ff8b353e000d3954e195362a85983c080143d29de0fb",
+    "assets/art/vesper-panorama.png": "837363413272bb4c8ed4fc38901d127465f3a30a830d6fd001b2d0c9106e6084"
+  },
+  "counts": {
+    "atlases": 2,
+    "frames": 12,
+    "geometryChecks": 21,
+    "publicEmissions": 2,
+    "views": 10
+  },
+  "views": [
+    {
+      "file": "impact-contact-sheet.png",
+      "sha256": "304118af92fea2788cfd7964101914aeda805e9f8dd98da5664704ce6e798572",
+      "reviewed": true,
+      "finding": "Douze cellules relues sur fonds clairs et sombres : pas de plaque opaque, pas de contamination des cellules voisines ; les six âges changent les détails internes sans agrandir leur enveloppe de rendu. La seconde rangée par type expose la diminution d’alpha déjà simulée."
+    },
+    {
+      "file": "spark-directions-low-speed.png",
+      "sha256": "b16f281843237e632f2ddf750012cbc676808247f0aed7d7c3a8e2a7a7ce74f6",
+      "reviewed": true,
+      "finding": "Tête lumineuse orientée dans les quatre directions de vitesse. La vitesse presque nulle reste une très petite capsule ; aucun allongement minimal n’est ajouté. Cette vue est agrandie trente fois et ne mesure pas la taille en jeu."
+    },
+    {
+      "file": "spark-public-emission.png",
+      "sha256": "1e1bbc333307f651a1cc84b4e356ea119ceb8319459161d1f38a063e9b45926f",
+      "reviewed": true,
+      "finding": "Trois étincelles réelles de tir sont dessinées sur le panorama peint. À l’instant initial elles sont très petites et partiellement masquées par le flash de bouche vectoriel déjà présent ; le lot ne prétend pas remplacer ce flash."
+    },
+    {
+      "file": "spark-fallback.png",
+      "sha256": "d3ebe875306588880fbcf3d8275b31c3c8087502a5dbc34107f12da8eca9c717",
+      "reviewed": true,
+      "finding": "Même état public et même caméra avec les deux atlas volontairement indisponibles : le repli vectoriel reste continu, sans déplacement du tir ou du marcheur."
+    },
+    {
+      "file": "spark-age-3.png",
+      "sha256": "4a5908376f4cd8755d4a82b369c05a649c875091732ecf2e28b5b4de5906614b",
+      "reviewed": true,
+      "finding": "À la taille du jeu les étincelles sont des traits lumineux discrets autour du canon. Les détails de peinture ne sont pas individuellement résolus ; aucune augmentation de rayon ou de longueur n’est introduite pour les rendre plus voyantes."
+    },
+    {
+      "file": "spark-reduced-motion.png",
+      "sha256": "32861e46a2e2405ca6bfb923472fccff927ba100df3bec6faa24ca2c2b712807",
+      "reviewed": true,
+      "finding": "Même état simulé, même géométrie d’étincelles et texture age-0 fixe. Le panorama utilise son cadrage historique de mouvement réduit ; ce changement global préexistant ne vient pas des particules."
+    },
+    {
+      "file": "blast-public-emission.png",
+      "sha256": "669827a57b15dd5affe991cd0e6e7278621a26cb7069b4f033d0ee7ded0d62d1",
+      "reviewed": true,
+      "finding": "Seize petites particules proviennent du véritable impact de roquette. Au premier instant elles sont rassemblées près du sol et la fumée existante les recouvre partiellement. Aucune grande explosion supplémentaire n’est peinte."
+    },
+    {
+      "file": "blast-fallback.png",
+      "sha256": "ee7b3d95edb91bfc5ae44ea92968cc2128229ed12247a2d02b2530353e3a8e4e",
+      "reviewed": true,
+      "finding": "Même état public avec repli vectoriel : fumée et position de l’impact conservées ; le nombre de particules reste inchangé."
+    },
+    {
+      "file": "blast-age-3.png",
+      "sha256": "5755b5332ecd8d83ee3ddb7fbee1e04558d35bd414d875752b5a97375cc3bbba",
+      "reviewed": true,
+      "finding": "Les petites touches orangées sont lisibles une fois dispersées par la physique sur le fond Vesper peint. Leurs cercles historiques restent de quelques pixels ; le sprite n’utilise pas le rayon de dégâts."
+    },
+    {
+      "file": "blast-reduced-motion.png",
+      "sha256": "07a7b1b6e9a9ae6cdf8d968ae67738a939a781be075a53ae9f27c6938e6a9b59",
+      "reviewed": true,
+      "finding": "Texture age-0 fixe sur les positions, rayons et alpha du même état d’impact. Les touches restent discrètes et distinctes de la fumée existante."
+    }
+  ],
+  "unitTests": {
+    "command": "node --test tests/painted-particle-impacts.test.mjs",
+    "tests": 10,
+    "passed": 10,
+    "failed": 0,
+    "testFileSha256": "f28baa6d32ef612b059cabcc1f1c52cd50b82eadc75db2327def834fb0668122",
+    "moduleSha256": "289352fb5b139907e0788fc03d4c6df30afead487045771aea06759c2740e110"
+  },
+  "runtimeAccepted": {
+    "cellAgesPerKind": 6,
+    "publicEmissions": 2,
+    "pausedPixelsIdentical": true,
+    "stateUnchangedByRendering": true,
+    "historicalClipAndCallerAlphaPreserved": true,
+    "customAndMissingFallbackTested": true
+  },
+  "renderContext": {
+    "panorama": "assets/art/vesper-panorama.png",
+    "panoramaReady": true,
+    "loadedLots": [
+      "particle-impacts",
+      "particles",
+      "walkers",
+      "combat",
+      "worlds",
+      "vesper",
+      "vesper-scenery"
+    ],
+    "otherNewLotsLoaded": false,
+    "explanation": "The industry integration is present in the recorded renderer source but its new atlas is not loaded by this focused harness. Its green factory fallback is visible. Walker-fx was still being produced. This receipt does not claim complete combined acceptance of the three v0.15.11 lots."
+  },
+  "priorReception": {
+    "path": "../receipt.json",
+    "completed": false,
+    "reason": "Source stability guard caught concurrent industry integration changing renderer.mjs after the first rendering pass; all original views and the incomplete receipt are retained."
+  },
+  "limitations": [
+    "Very small spark signals can overlap the existing muzzle flash; the particles remain inside the historical two-unit capsule.",
+    "Blast is a small generic hot particle, with no classification of material, normal, ricochet or persistent trace.",
+    "Alpha-1 source pixels are retained in the original PNG and source crop but excluded from the useful alpha-2 measurement; exact runtime clips contain the drawing.",
+    "AS22 remains partially covered. No gameplay, simulation, emitter, random call, collider, sound or saved field is introduced."
+  ]
+}

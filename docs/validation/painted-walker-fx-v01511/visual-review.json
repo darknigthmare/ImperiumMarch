@@ -1,0 +1,86 @@
+{
+  "version": "0.15.11",
+  "reviewedAt": "2026-11-17T11:11:25.657484+00:00",
+  "method": "Actual inspection of all 11 PNG previews with view_image after real Canvas rendering; no browser or human play session claimed.",
+  "receiptSha256": "1a82ad6957516be995507dfa8906dbbf2b10171f98388357297daaa6e9c3180c",
+  "unitTests": {
+    "file": "unit-tests.log",
+    "passed": 8,
+    "failed": 0,
+    "sha256": "45accb755b3c77d0aa74cc68c243129b0a8212d3bf7769e516e0c1b5382f365a"
+  },
+  "views": [
+    {
+      "file": "walker-fx-contact-sheet.png",
+      "sha256": "dd85129b2dd537f80ee0cfe7f2ea3d7917385941436aca6d33e04a1f15abcfb9",
+      "observed": "Les quatre phases du noyau restent alignées sur leur origine gauche, distinctes à 4× et contenues dans le petit profil de bouche à taille réelle. Les six bouffées ont une matière ivoire grisée et des bords transparents sur fonds clair et sombre. La seconde ligne conserve la faible alpha historique ; aucun rectangle ou grille n’apparaît.",
+      "acceptedWithinScope": true
+    },
+    {
+      "file": "wk01-public-shot-and-vent.png",
+      "sha256": "39732fe6065e8c76c70a2b70f88800f3b3e1d9f685ff99c907e41d70e8647c16",
+      "observed": "Vigie vers la droite : noyau court au bout du canon, halo doux conservé ; vapeur discrète au radiateur arrière. Panorama de Vesper visible.",
+      "acceptedWithinScope": true
+    },
+    {
+      "file": "wk02-public-shot-and-vent.png",
+      "sha256": "11e6a306ee94b0f917b25e6bd1c2ee31bc0c22460bbadbd7bcd02f807c107983",
+      "observed": "Caracal vers la gauche : flash tourné avec le canon, vapeur derrière le châssis. La présence vient de la fenêtre réelle de 20 ms ; cette image ne revendique aucune durée supplémentaire.",
+      "acceptedWithinScope": true
+    },
+    {
+      "file": "wk05-public-shot-and-vent.png",
+      "sha256": "8a3846b05be3622324732f2c872fd996e31cccda192d4fc97707b87ed7bfc187",
+      "observed": "Bastion vers la droite : petite phase initiale à la bouche, cinq bouffées graduées et très peu opaques au radiateur. Aucun masque rectangulaire visible.",
+      "acceptedWithinScope": true
+    },
+    {
+      "file": "wk06-public-shot-and-vent.png",
+      "sha256": "e9d2d93c95dd9753497c9670782a53c0a5eac51c13e5ccdd41b86498ee1665f2",
+      "observed": "Arpenteur vers la gauche : origine du flash raccordée au canon long, vapeur au côté opposé. Le grand rig et les appuis restent lisibles.",
+      "acceptedWithinScope": true
+    },
+    {
+      "file": "wk09-public-shot-and-vent.png",
+      "sha256": "1932ab4ff849e2d5b382a47e5d803f15a3895c0fc1c240115e1b6154008667f9",
+      "observed": "Pèlerin vers la droite : flash fin sur le tube existant, vapeur en arrière. Les six appuis et le convoi restent inchangés.",
+      "acceptedWithinScope": true
+    },
+    {
+      "file": "wk10-public-shot-and-vent.png",
+      "sha256": "6a6f95a76bafa2bb95a7ae66eeb46c194f9d7acbb3fc8c41776959f0b9616443",
+      "observed": "Cloporte vers la gauche : flash à l’extrémité gauche, vapeur en arrière à droite ; aucun acteur peint supplémentaire.",
+      "acceptedWithinScope": true
+    },
+    {
+      "file": "wk05-public-age-2.png",
+      "sha256": "0d8d71734e4a37e511dc7b12c858530926795acf7acecae5b781d531b16935be",
+      "observed": "La phase 2 atteinte par updateGame est plus longue que l’ignition, toujours dans l’enveloppe historique. Le projectile simulé est distinct et n’est pas contenu dans l’atlas.",
+      "acceptedWithinScope": true
+    },
+    {
+      "file": "wk05-reduced-motion.png",
+      "sha256": "4cb31978d2557f8d1648a1c3359ce2e1820ed248b7ceb3848497a603dd28e9dd",
+      "observed": "À état identique, la première phase du noyau et les phases de purge à t=0 sont fixes. Le comportement du panorama en mouvement réduit appartient au renderer existant.",
+      "acceptedWithinScope": true
+    },
+    {
+      "file": "wk05-fallback.png",
+      "sha256": "fc40e8ab02931052b270a3022b810df6714e6413434c32babd849942184e8f81",
+      "observed": "Le repli vectoriel montre le polygone et les cercles historiques, avec le même état du marcheur et les autres médias chargés. Différence de matière attendue.",
+      "acceptedWithinScope": true
+    },
+    {
+      "file": "wk05-public-hot-without-vent.png",
+      "sha256": "788929d0cc2cf4f4c205e23ca06c324930e8e76194a0133e3c060659fa7e9b58",
+      "observed": "Après neuf tirs publics, chaleur supérieure à 70 et ventilation inactive : vapeur présente, noyau absent après expiration du cooldown. Pas de décor de chaleur ou d’explosion ajouté.",
+      "acceptedWithinScope": true
+    }
+  ],
+  "limits": [
+    "Les captures publiques montrent les phases 0 et 2 du flash. Les quatre phases sont inspectées sur la planche isolée et traversées par les tests publics des six châssis.",
+    "La faible visibilité de la vapeur aux derniers âges est attendue : alpha historique et nombre de bouffées sont conservés.",
+    "Réception Canvas et relecture de l’agent uniquement ; AS09 et AS22 restent partiels, réceptions natives et humaines ouvertes."
+  ],
+  "passed": true
+}

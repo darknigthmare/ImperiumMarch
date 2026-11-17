@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "version": "0.15.11",
+  "generator": "image_gen built-in",
+  "generatedAt": "2026-11-17",
+  "request": {
+    "prompt": "Create ONE original production sprite atlas for a painted 2D side-view science-fiction game, ORDRE DE CENDRE, Vesper industrial midground. Exactly TWO isolated complete structures, in a strict 2-column by 1-row grid. Use a landscape 1536 x 1024 canvas. Both cells have a genuinely transparent RGBA background, including all margins and the large center gutter. No third object, no words, no numbering, no logos, no frames, no checkerboard painted into the image.\n\nSTYLE AND PALETTE: restrained semi-realistic hand-painted game art, readable silhouettes, convincing worn industrial construction, atmospheric but crisp enough at small size. Original grounded science fiction, no recognizable existing franchise design. Desaturated slate-grey and subdued green-grey matte metal, ash-ochre weathering and sparse muted rusty brown seams, muted warm light from upper left. The objects belong against a dusty slate and ochre industrial plateau under a peach-grey sky. Keep highlights restrained: no white gleam, no emissive light, no neon, no glow. Sparse large material marks instead of busy microscopic detail.\n\nLEFT CELL: one tall ribbed sheet-metal grain/mineral storage silo. Simple straight vertical body with four to six broad vertical ribs, a very shallow trapezoidal roof cap projecting a little beyond the body, robust flush flat base without support legs. Front/side orthographic elevation, the front face almost flat, no isometric depth or receding floor. Overall silhouette width to height approximately 86:201. Let the body be slightly narrower than the roof. Entire structure visible from cap to straight bottom edge, centered horizontally in its cell, spanning roughly y=110 to y=914 with transparent margins. No staircase, ladder, balcony, railings, attached pipes, warning symbol, separate foundation, detached debris or props.\n\nRIGHT CELL: one single very narrow tall industrial chimney/vent stack. Straight slim dark slate metal shaft with sparse subtle horizontal sleeve seams and slight muted rust, small rectangular flared top cap. Flat simple base, no pedestal, no attached building or pipe. A complete orthographic front/side elevation. Overall silhouette width to height approximately 25:244; the shaft narrower than its cap. Entire silhouette visible from cap to straight bottom edge, centered horizontally in its cell, spanning roughly y=110 to y=914. No smoke, vapor, particles, flame or glow.\n\nCOMPOSITION: the silo and the chimney stand at the SAME pixel baseline but are completely separated cutouts. Use their distinct proportions faithfully: silo is roughly four times wider than the chimney while their atlas heights are similar. Keep at least 60 transparent pixels around every silhouette, and keep the entire vertical band x=720..816 empty transparent. No shared ground, no cast shadow outside an object, no painted haze, no surroundings, no scenery, no people, no vegetation. Alpha should be zero outside the solid object silhouettes except their clean antialiased edges. This is a pair of reusable static background props only, not a dramatic illustration.",
+    "transparent_background": true
+  },
+  "referenceReview": {
+    "reviewedLocalFiles": [
+      "assets/art/vesper-panorama.png",
+      "assets/painted/vesper/outposts.png"
+    ],
+    "use": "Visual palette and construction review only; no image supplied as an edit target."
+  },
+  "selectedOutputs": [
+    {
+      "atlas": "industry",
+      "originalGeneratedFile": "exec-3c4c4abd-e100-475a-8507-fbaedf7e820e.png",
+      "originalGeneratedPath": "/workspace/scratch/672b96792ba9/generated_images/exec-3c4c4abd-e100-475a-8507-fbaedf7e820e.png",
+      "path": "assets/painted/vesper-industry/industry.png",
+      "sha256": "80e2a528226c5d3fa9a7086a78c19511d2df6808af21f860062a96f2278592b8",
+      "originalBytesUnchanged": true
+    }
+  ],
+  "rejectedOutputs": [],
+  "limits": "One original atlas, two presentation-only structures. No actor, support, smoke, ecological behavior or mission state."
+}

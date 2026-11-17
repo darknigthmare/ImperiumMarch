@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.15.10",
+    "version": "0.15.11",
     "date": "2026-11-17",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs, tous les statuts et les 133 critères initiaux sont conservés. Six atlas ajoutent 32 cellules au rendu : dix de sols et petits décors pour Thyr, dix pour Kharon et douze de fumée et poussière. Le total atteint 90 atlas et 676 cellules en 21 lots, dont 632 au rendu et 44 références. Les quatre panoramas sont comptés séparément. Les matières suivent le terrain et les décors ses emplacements existants. Les particules gardent émissions, position, rayon, alpha et durée simulés. Aucun effectif, collision, mécanisme végétal ni système de chaleur n’est ajouté. FL10 et FL11 restent décoratives et Conçu. AS18, AS19 et AS22 restent partiels; animations finales et réception humaine sont ouvertes.",
+    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs, tous les statuts et les 133 critères initiaux sont conservés. Cinq atlas ajoutent 24 cellules au rendu : douze pour les étincelles et petites particules de détonation, quatre pour le flash primaire, six pour la purge et deux silhouettes industrielles de Vesper. Total : 95 atlas et 700 cellules en 24 lots, dont 656 au rendu et 44 références. Quatre panoramas séparés. Géométries, durée, alpha, émissions, chaleur et positions suivent leurs règles existantes. L’atelier industriel réutilise une cellule antérieure. Aucun acteur, collision, effet physique ou champ sauvegardé ajouté. AS09, AS16 et AS22 restent partiels et À produire ; animations finales et réception humaine restent ouvertes.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Livrable partiel disponible. L’onglet Prototype et les reçus de production précisent son intégration, sa portée et les critères encore ouverts.",
@@ -5215,7 +5215,7 @@
           "id": "AS09",
           "category": "Animation",
           "deliverable": "Recul et rechargement",
-          "spec": "Recul par point d’arme, évacuation des douilles, trappes et manipulation des grosses munitions.",
+          "spec": "Recul par point d’arme, évacuation des douilles, trappes et manipulation des grosses munitions. Réception partielle 0.15.11 : quatre phases peintes du noyau de flash primaire, raccordées au pivot et à la bouche des six châssis jouables. Le halo procédural, l’enveloppe et la fenêtre de présence existante sont conservés, dont 20 ms pour Caracal. La réduction des mouvements fixe la première phase. Recul, douilles, trappes, rechargements finaux et réception humaine restent ouverts ; statut À produire inchangé.",
           "acceptance": "Origine du tir, position du chargeur et retour en batterie cohérents.",
           "priority": "P1",
           "status": "À produire"
@@ -5278,7 +5278,7 @@
           "id": "AS16",
           "category": "Décors",
           "deliverable": "Kit Vesper",
-          "spec": "Ciel, montagnes, industrie, rues, sols, galeries, végétation, ruines et jonctions. Les six atlas/38 cellules de bâtiments et matériel 0.15.7 sont conservés. 0.15.8 ajoute trois atlas/16 cellules : quatre matières de sol, six roches ou lichens décoratifs et six pièces du viaduc MI02. Les matières suivent le sol et les emplacements existants; rails rompus et contacts restent simulés. Kit final complet et réception humaine restent ouverts.",
+          "spec": "Ciel, montagnes, industrie, rues, sols, galeries, végétation, ruines et jonctions. Les six atlas/38 cellules de bâtiments et matériel 0.15.7 et les trois atlas/16 cellules de sols, décors et viaduc 0.15.8 sont conservés. 0.15.11 ajoute un atlas/deux cellules pour le silo et la cheminée du second plan industriel. L’atelier réutilise maintenance, sans nouvelle cellule. Emplacements, hauteurs, parallaxe et fumée historiques conservés ; aucune collision ni population ajoutée. Kit final complet et réception humaine restent ouverts.",
           "acceptance": "Répétitions masquées, sol continu et plans de collision identifiables.",
           "priority": "P0",
           "status": "À produire"
@@ -5332,7 +5332,7 @@
           "id": "AS22",
           "category": "FX",
           "deliverable": "Combat et destruction",
-          "spec": "Impacts selon matériau, ricochets, poussière, flammes, fumées, débris et traces de pieds. Réception partielle 0.15.10 : deux atlas/douze cellules de fumée et poussière, six âges non bouclés par type. Seules les particules déjà émises sont habillées; position, rayon, alpha et durée restent simulés. Mouvement réduit et repli vectoriel conservés. Impacts par matériau, ricochets, flammes, débris, traces persistantes et réception humaine restent ouverts; statut À produire inchangé.",
+          "spec": "Impacts selon matériau, ricochets, poussière, flammes, fumées, débris et traces de pieds. Les douze cellules de fumée/poussière 0.15.10 restent acquises. Réception partielle 0.15.11 : douze cellules pour les étincelles et petites particules de détonation, quatre phases de flash primaire et six de purge. Les textures restent dans les segments, cercles et noyau historiques ; le halo reste procédural. Émissions, positions, alpha, durées et chaleur conservées, avec mouvement réduit et repli vectoriel. Aucun impact par matériau, flash de dégâts ou effet ennemi nouveau. Ricochets, flammes, débris, traces persistantes et réception humaine restent ouverts ; statut À produire inchangé.",
           "acceptance": "Priorité à la lecture des menaces; budget de particules et réduction possibles.",
           "priority": "P0",
           "status": "À produire"
@@ -5404,7 +5404,7 @@
           "id": "AS30",
           "category": "Production",
           "deliverable": "Registre de provenance",
-          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. Manifestes historiques conservés. Les trois lots 0.15.10 documentent six atlas/32 cellules, toutes utilisées au rendu : sols et décors de Thyr et Kharon, fumée et poussière. Prompts, PNG inchangés, dimensions, empreintes, découpes et usages sont conservés. Total : 90 atlas/676 cellules en 21 lots, dont 632 au rendu et 44 références. Quatre panoramas comptés séparément. PR26 reste ouvert.",
+          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. Manifestes historiques conservés. Les trois lots 0.15.11 documentent cinq atlas/24 cellules utilisées : étincelles et petites détonations, flash primaire et purge, industrie de Vesper. Prompts, éditions sélectionnées, PNG inchangés, dimensions, empreintes, découpes et usages sont conservés. Total : 95 atlas/700 cellules en 24 lots, dont 656 au rendu et 44 références. Quatre panoramas séparés. L’atelier industriel réutilisé ne crée pas de cellule. PR26 reste ouvert.",
           "acceptance": "Tout asset livré possède une entrée; aucun média de référence embarqué sans autorisation.",
           "priority": "P0",
           "status": "Prototype"
@@ -5476,7 +5476,7 @@
           "id": "AS38",
           "category": "Production",
           "deliverable": "Manifestes d’intégration",
-          "spec": "Registre de provenance, pivots, échelle, usage et dépendances. Rigs et manifestes antérieurs conservés. 0.15.10 ajoute six atlas/32 cellules avec rectangles et ancres mesurés : huit matières et douze décors suivent le terrain et ses emplacements existants sur Thyr et Kharon; douze cellules habillent la fumée et la poussière déjà simulées. Émissions, position, rayon, alpha et durée restent conservés. Aucune collision, population, mécanique végétale ou chaleur supplémentaire. Chargement asynchrone, repli vectoriel et dossier v14 conservés.",
+          "spec": "Registre de provenance, pivots, échelle, usage et dépendances. Rigs et manifestes antérieurs conservés. 0.15.11 ajoute cinq atlas/24 cellules : douze textures de particules dans leurs segments ou cercles, quatre phases du noyau de bouche, six de purge dans les cinq cercles existants, deux silhouettes industrielles dans leurs emplacements. Ancres et enveloppes mesurées, PNG inchangés. Halo, émissions, positions, alpha, durées, chaleur et parallaxe conservés. Aucun acteur, collision ou champ sauvegardé ajouté. Chargement asynchrone, mouvement réduit, repli vectoriel et dossier v14 conservés.",
           "acceptance": "Un asset peut être remplacé sans perdre collision, position du son ou identité de la source.",
           "priority": "P1",
           "status": "Prototype"
@@ -5842,7 +5842,7 @@
         {
           "id": "PR12",
           "workstream": "Art prototype",
-          "deliverable": "Identité visuelle, environnements et silhouettes lisibles. Réception partielle 0.15.10 : six atlas/32 cellules utilisées au rendu. Thyr et Kharon reçoivent chacun quatre matières et six petits décors; fumée et poussière ont chacune six âges. Total : 90 atlas/676 cellules en 21 lots, dont 632 au rendu et 44 références. Quatre panoramas comptés séparément. Terrain, emplacements décoratifs et particules gardent leur simulation. AS18, AS19 et AS22 restent partiels; autres biomes, interactions végétales, effets et animations finaux, réception humaine restent ouverts.",
+          "deliverable": "Identité visuelle, environnements et silhouettes lisibles. Réception partielle 0.15.11 : cinq atlas/24 cellules utilisées, répartis entre étincelles et petites détonations (12), flash primaire et purge (10), industrie de Vesper (2). L’atelier réutilise une cellule acquise. Total : 95 atlas/700 cellules en 24 lots, dont 656 au rendu et 44 références. Quatre panoramas séparés. Géométries, temps, alpha, émissions, chaleur et positions conservés. AS09, AS16 et AS22 restent partiels ; autres biomes, effets et animations finaux, réception humaine restent ouverts.",
           "depends": "AS01–AS04; AS16–AS18",
           "acceptance": "Captures à plusieurs résolutions, contraste et unités identifiables.",
           "priority": "P0",
@@ -8608,7 +8608,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.15.10. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "description": "Portée présente dans le code de la version 0.15.11. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -8768,9 +8768,9 @@
           "id": "PX14",
           "link": "AR01; WK01",
           "name": "Autocanon V-22",
-          "implemented": "Variante de validation de la famille Touraille AR01 : magasin de 12 coups, tir bref, chaleur et rechargement.",
+          "implemented": "Variante de validation de la famille Touraille AR01 : magasin de 12 coups, tir bref, chaleur et rechargement. En 0.15.11, quatre phases peintes habillent le noyau de son flash primaire dans la fenêtre existante, avec bouche, visée et halo procédural conservés. Aucun flash ajouté au tir secondaire seul. Première phase fixe en mouvement réduit, repli vectoriel disponible.",
           "limits": "Réserve finie et ravitaillement présents depuis la 0.4. Animation de chargement, économie intermissions et équipement interchangeable à produire.",
-          "path": "src/content.mjs; src/simulation.mjs",
+          "path": "src/content.mjs; src/simulation.mjs; src/renderer.mjs; src/painted-walker-fx.mjs",
           "status": "Prototype"
         },
         {
@@ -8813,9 +8813,9 @@
           "id": "PX19",
           "link": "SY09",
           "name": "Chaleur et ventilation",
-          "implemented": "Chaleur cumulative, blocage au seuil, ventilation active empêchant le tir, retour sous un seuil sûr.",
+          "implemented": "Chaleur cumulative, blocage au seuil, ventilation active empêchant le tir, retour sous un seuil sûr. En 0.15.11, six phases peintes habillent les cinq bouffées existantes lorsque la ventilation est active ou la chaleur dépasse 70. Position, rayon, alpha et phase restent ceux du renderer ; pause et mouvement réduit conservent leur temps figé. Aucun émetteur, circuit thermique ou objet de particule supplémentaire.",
           "limits": "Un seul circuit thermique agrégé; climat, fuites et circuits séparés restent à produire.",
-          "path": "src/simulation.mjs",
+          "path": "src/simulation.mjs; src/renderer.mjs; src/painted-walker-fx.mjs",
           "status": "Prototype"
         },
         {
@@ -8858,9 +8858,9 @@
           "id": "PX24",
           "link": "PR12; AS01",
           "name": "Direction visuelle initiale",
-          "implemented": "Illustration de titre, quatre panoramas et lots peints antérieurs conservés. 0.15.10 ajoute six atlas/32 cellules au rendu : sols et petits décors de Thyr et Kharon, fumée et poussière. Total : 90 atlas/676 cellules en 21 lots, dont 632 au rendu et 44 références. Panoramas séparés. Huit matières et douze décors suivent terrain et emplacements existants. Douze cellules habillent les particules simulées en six âges par type, sans nouvelle émission. PNG inchangés, chargement asynchrone, mouvement réduit et repli vectoriel.",
+          "implemented": "Illustration de titre, quatre panoramas et lots peints antérieurs conservés. 0.15.11 ajoute cinq atlas/24 cellules au rendu : étincelles et petites particules de détonation (12), flash primaire et purge (10), industrie de Vesper (2). Total : 95 atlas/700 cellules en 24 lots, dont 656 au rendu et 44 références. Panoramas séparés. L’atelier réutilise maintenance, sans nouvelle cellule. Les textures suivent les géométries, durées, alpha, émissions et emplacements existants. Aucun acteur ou mécanisme ajouté. PNG inchangés, chargement asynchrone, mouvement réduit et repli vectoriel.",
           "limits": "Art au stade Prototype. Pièces, états et références ne constituent ni unités supplémentaires ni cycles complets. Factions complètes, autres biomes, écologie générale et campagne entièrement peinte restent à produire. Réceptions graphique, navigateur et humaine distinctes.",
-          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-worlds.mjs ; src/painted-nacre-people.mjs ; src/painted-vesper-scenery.mjs ; src/painted-nacre-civilians.mjs ; src/painted-nacre-scenery.mjs ; src/painted-thyr-scenery.mjs ; src/painted-kharon-scenery.mjs ; src/painted-particles.mjs",
+          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-worlds.mjs ; src/painted-nacre-people.mjs ; src/painted-vesper-scenery.mjs ; src/painted-nacre-civilians.mjs ; src/painted-nacre-scenery.mjs ; src/painted-thyr-scenery.mjs ; src/painted-kharon-scenery.mjs ; src/painted-particles.mjs ; src/painted-particle-impacts.mjs ; src/painted-walker-fx.mjs ; src/painted-vesper-industry.mjs",
           "status": "Prototype"
         },
         {

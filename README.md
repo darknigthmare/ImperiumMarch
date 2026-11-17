@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.15.10 · Français**
+**Nom de code : ImperiumMarch · Version 0.15.11 · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -12,7 +12,9 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 Cette livraison contient un **prototype de quatorze missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant **v14**. MI12 achève la tranche de Thyr ; MI13 et MI14 ouvrent Kharon par un convoi industriel puis un atelier en grève. La Bible contient **1 007 fiches sur 21 onglets**. Les dix-huit missions MI15–MI32, les seize contrats et la qualité de production visée restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
 
-La **0.15.10 habille les sols de Thyr et de Kharon et les particules existantes du jeu** : six nouveaux atlas apportent huit matières, douze petits décors et douze phases de fumée/poussière. Le catalogue atteint **90 atlas / 676 cellules**, dont 632 utilisées au rendu et 44 références, dans 21 lots. Les quatre panoramas restent séparés. Les nouveaux sprites suivent les terrains, appuis et émissions déjà simulés. Le [bilan courant](docs/PRODUCTION_V15_10.md), la [réception QA](docs/QA_V15_10.md) et le [guide de la Bible](docs/BIBLE_README.md) précisent leur portée.
+La **0.15.11 ajoute les étincelles, les petits éclats d'impact, le flash de tir principal, la vapeur de purge et les silhouettes industrielles de Vesper**. Cinq nouveaux atlas apportent 24 cellules utilisées. Le catalogue atteint **95 atlas / 700 cellules**, dont **656 utilisées au rendu et 44 références**, dans **24 lots** ; les quatre panoramas restent séparés. Les effets suivent les émissions, visées, durées et phases actuelles. Le petit atelier industriel réutilise une image déjà acquise. Le [bilan courant](docs/PRODUCTION_V15_11.md), la [réception QA](docs/QA_V15_11.md) et le [guide de la Bible](docs/BIBLE_README.md) en précisent la portée.
+
+La **0.15.10 habille les sols de Thyr et de Kharon et les particules existantes du jeu** : six nouveaux atlas apportent huit matières, douze petits décors et douze phases de fumée/poussière. Son catalogue compte **90 atlas / 676 cellules**, dont 632 utilisées au rendu et 44 références, dans 21 lots. Les quatre panoramas restent séparés. Les sprites suivent les terrains, appuis et émissions déjà simulés. Le [bilan 0.15.10](docs/PRODUCTION_V15_10.md) et sa [réception QA](docs/QA_V15_10.md) conservent les résultats de cette tranche.
 
 La **0.15.9 complète les habitants et les berges de Nacre** : cinq atlas de personnages proposent huit apparences et 32 poses de marche ; deux atlas ajoutent quatre matières de sol et six petits décors. Le catalogue atteint **84 atlas / 644 cellules**, dont 600 utilisées au rendu et 44 références. La reprise conserve également l'intégralité de la 0.15.8 : panoramas, décors de Vesper, techniciens, personnel sanitaire et patients. Le [bilan 0.15.9](docs/PRODUCTION_V15_9.md), la [réception QA](docs/QA_V15_9.md) et le [guide de la Bible](docs/BIBLE_README.md) précisent les réalisations et leur portée.
 
@@ -20,7 +22,9 @@ La **0.15.8 ajoute les personnes de Nacre, les sols et le viaduc de Vesper, ains
 
 ## Jouer à cette version
 
-**Les sources 0.15.10 sont disponibles dans la [PR #8](https://github.com/darknigthmare/ImperiumMarch/pull/8)**. Le commit applicatif `8f62c83289f0506b7d337ca066758297b9df7604` possède exactement l'arbre local reçu. La [CI distante](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44065282375) a réussi : **37 étapes, 852 tests, 174 comparaisons SVG/Canvas, 21 lots d'atlas, les panoramas et 108 parcours du DOM modélisé**. Elle reproduit exactement les empreintes de l'HTML et du ZIP locaux. Le [reçu de publication](docs/validation/v01510-publication.json) et le [dossier de déploiement](docs/DEPLOYMENT.md) distinguent les sources, les contrôles et l'hébergement.
+La **0.15.11 est construite et reçue localement** : **874 tests, 174 comparaisons SVG/Canvas, 108 parcours du DOM modélisé**, 29 vues dédiées et quatre vues combinées réussis. Les nouvelles images sont intégrées à l'HTML autonome et à la sortie web. La [réception QA](docs/QA_V15_11.md) et le [suivi de publication](docs/DEPLOYMENT.md) distinguent cette construction de sa disponibilité publique.
+
+**Les sources 0.15.10 sont fusionnées sur `main` par la [PR #8](https://github.com/darknigthmare/ImperiumMarch/pull/8)**, au commit [`a8658969`](https://github.com/darknigthmare/ImperiumMarch/commit/a8658969f928981fe58cee3f4088f9f711587786). Le commit applicatif `8f62c83289f0506b7d337ca066758297b9df7604` possède exactement l'arbre local reçu. La [CI de PR](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44065282375) et la [CI de main](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44068425762) ont réussi : **37 étapes, 852 tests, 174 comparaisons SVG/Canvas, 21 lots d'atlas, les panoramas et 108 parcours du DOM modélisé**. Toutes deux reproduisent exactement les empreintes de l'HTML et du ZIP locaux. Le [reçu applicatif](docs/validation/v01510-publication.json), le [reçu de main](docs/validation/v01510-main-ci.json) et le [dossier de déploiement](docs/DEPLOYMENT.md) distinguent les sources, les contrôles et l'hébergement.
 
 **Le site public reste en 0.15.7 lors de cette réception du 17 novembre.** Vercel refuse le commit applicatif 0.15.10 pour quota : « Deployment rate limited — retry in 24 hours. » Aucun déploiement n'est créé pour ce SHA. L'archive autonome complète 0.15.10 est construite et vérifiée ; aucune Release GitHub de cette archive n'est annoncée disponible.
 
@@ -82,6 +86,9 @@ npm run check:nacre-scenery
 npm run check:thyr-scenery
 npm run check:kharon-scenery
 npm run check:particles
+npm run check:particle-impacts
+npm run check:walker-fx
+npm run check:vesper-industry
 npm run check:offline-package
 npm run build:web
 ```

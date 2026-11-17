@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "version": "0.15.11",
+  "createdUtc": "2026-11-17T11:00:58.969644+00:00",
+  "reviewer": "Assistant visual inspection",
+  "method": "Each of the eight accepted PNG files was opened individually through view_image after Canvas reception.",
+  "receipt": "receipt.json",
+  "receiptSha256": "0b7517992f05f8e07964017e9aff17f68439b789fa11ae02906f673ac2efe639",
+  "completed": true,
+  "visualConclusion": "Accepted for this presentation-only Vesper industry lot. No remaining material anomaly in the two new structures or reused maintenance anchor.",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "views": [
+    {
+      "file": "vesper-industry-source-cells.png",
+      "sha256": "d10ec8eb923c290700a8c022d23fd9e9b2cbf22196d3f7e1f0548a7f8ca24705",
+      "opened": true,
+      "finding": "Les deux découpes sont complètes sur fonds clair et sombre. Les nervures du silo, les manchons de cheminée et la patine restent lisibles; aucun panneau opaque ou voisin de cellule visible.",
+      "materialAnomaly": false
+    },
+    {
+      "file": "vesper-industry-height-envelopes.png",
+      "sha256": "c8c28762606047cd9032588cecd7c08262709477a840ab113ed3487e9950376d",
+      "opened": true,
+      "finding": "Les trois hauteurs gardent les enveloppes cyan et les bases 600/599. Les deux silhouettes restent cohérentes après adaptation de hauteur. L’atelier acquis est posé sur son ancre; aucun clip supplémentaire nécessaire, pas de fenêtres doublées.",
+      "materialAnomaly": false
+    },
+    {
+      "file": "vesper-industry-background-origin.png",
+      "sha256": "3b855193f4fe7f4c166856b5786a435d0307735774a0a562c42a78b83d78a2d4",
+      "opened": true,
+      "finding": "Le panorama historique est visible derrière les groupes à la caméra zéro. Le bord gauche coupe naturellement le premier silo. Les tuyaux et la semelle vectoriels restent ceux du second plan historique.",
+      "materialAnomaly": false
+    },
+    {
+      "file": "vesper-industry-background-fractional.png",
+      "sha256": "cd0f62ea7037381658d6d7be1525b6c08804716986590850b8b5ef4af0255488",
+      "opened": true,
+      "finding": "À la caméra fractionnaire, les groupes restent nets et séparés. Aucun rectangle de fond autour des sprites ni contamination du voisin. La séparation historique entre semelle et bases des structures est conservée.",
+      "materialAnomaly": false
+    },
+    {
+      "file": "mi01-industry-public-walk.png",
+      "sha256": "9659c31453cc3f80d21b774c55de8d8238906efe1617ea597d3e6d6472b886a6",
+      "opened": true,
+      "finding": "Le silo et la cheminée restent derrière le marcheur, le convoi et le treuil. Le premier plan peint et les commandes de passage restent visibles. Les structures occupent leurs slots de second plan.",
+      "materialAnomaly": false
+    },
+    {
+      "file": "mi02-industry-public-harpoon.png",
+      "sha256": "00b7b4e12ee815eb565386e6fa594e0e427df2073125847c9530085db4be9d11",
+      "opened": true,
+      "finding": "Les structures se lisent derrière le marcheur, le train et le viaduc. Les panneaux et la progression du harpon restent visibles. Aucun objet industriel ne passe devant les acteurs actifs.",
+      "materialAnomaly": false
+    },
+    {
+      "file": "mi03-industry-public-dispensary.png",
+      "sha256": "f7231b7a85f2183f21f684aacc348b57b1df587832654d547cfddd92715c843f",
+      "opened": true,
+      "finding": "Le dispensaire actif, le marcheur et le panneau d’inspection restent au premier plan; le kit industriel se répète à la profondeur historique. L’atelier réutilisé n’ajoute pas de fenêtre vectorielle superposée.",
+      "materialAnomaly": false
+    },
+    {
+      "file": "mi04-industry-public-pump.png",
+      "sha256": "304ab42f6fd4f615802a5b2fccc2ce4556358ba81815d8295619946ff02e7a09",
+      "opened": true,
+      "finding": "La pompe, le marcheur et la turbine conservent leur premier plan. Silo, cheminée et petit atelier restent derrière eux. Le contexte initial de campagne explicite est une condition du scénario, pas une mission antérieure prétendument achevée.",
+      "materialAnomaly": false
+    }
+  ],
+  "initialReception": {
+    "path": "../initial/receipt.json",
+    "completed": false,
+    "reason": "MI04 default campaignContext did not require the targeted pump reconnection. Only the test setup was corrected; original runtime module and PNG stayed unchanged.",
+    "receiptSha256": "ade28a5b4868835a9deb03ee5730af10e04ed3697d9133540a69cf6244f3ce4d",
+    "preservedViews": [
+      {
+        "file": "vesper-industry-source-cells.png",
+        "sha256": "d10ec8eb923c290700a8c022d23fd9e9b2cbf22196d3f7e1f0548a7f8ca24705",
+        "identicalInAcceptedReception": true
+      },
+      {
+        "file": "vesper-industry-height-envelopes.png",
+        "sha256": "c8c28762606047cd9032588cecd7c08262709477a840ab113ed3487e9950376d",
+        "identicalInAcceptedReception": true
+      },
+      {
+        "file": "vesper-industry-background-origin.png",
+        "sha256": "3b855193f4fe7f4c166856b5786a435d0307735774a0a562c42a78b83d78a2d4",
+        "identicalInAcceptedReception": true
+      },
+      {
+        "file": "vesper-industry-background-fractional.png",
+        "sha256": "cd0f62ea7037381658d6d7be1525b6c08804716986590850b8b5ef4af0255488",
+        "identicalInAcceptedReception": true
+      }
+    ]
+  },
+  "limits": [
+    "Canvas PNG review only; no browser, native input, audio, hardware-performance or human-playtest claim.",
+    "Only the two industry structures are newly generated. Maintenance is acquired art reused once per existing slot.",
+    "Historical vector pipes, supports, base line and smoke remain. The historical space between the base line and the structure bases is not repositioned.",
+    "The diagnostic height and camera panels are not public mission states. Public MI04 starts with an explicit campaignContext, as recorded in receipt.json.",
+    "No new actor, physical surface, ecological effect, smoke emitter, save field, Release or production deployment is inferred."
+  ]
+}

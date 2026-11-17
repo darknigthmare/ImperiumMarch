@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "version": "0.15.11",
+  "generator": "image_gen built-in",
+  "canonIds": [
+    "AS22"
+  ],
+  "atlasCount": 2,
+  "frameCount": 12,
+  "runtimeFrameCount": 12,
+  "referenceFrameCount": 0,
+  "files": [
+    {
+      "id": "spark",
+      "path": "assets/painted/particle-impacts/spark.png",
+      "bytes": 1140603,
+      "sha256": "650d0efa9684b73c006468426fa88eab366cda3efd3e3b9dd2261a8675bd483c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.935682,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "blast",
+      "path": "assets/painted/particle-impacts/blast.png",
+      "bytes": 1358077,
+      "sha256": "94d07a95ca44f5d562504c3bb14cc0cde6f92f5b873416542db3a540e5d26dec",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.859055,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    }
+  ],
+  "scope": "Six nonlooping texture ages for existing spark and blast particles only.",
+  "pixelPolicy": "Selected original PNG bytes retained. Source rectangles and measurements only; no pixel edits.",
+  "anchorPolicy": "Source crops retain every alpha>0 pixel. Centers and useful envelopes use alpha>=2 after comparing thresholds 2, 8 and 32. Alpha-1 residue is excluded from anchor measurement only.",
+  "sparkPolicy": "The particle position is the historical segment head, the tail is position minus 0.025 times current velocity. Width stays 2 with round caps of radius 1. Sprite size is not taken from particle.size. All drawing stays clipped to that capsule.",
+  "blastPolicy": "One small particle, centered on its existing position and clipped to the historical circle of radius particle.size. It is not a complete explosion and never uses the 90-unit damage radius.",
+  "physicalPolicy": "No emitter, particle, collider, material class, RNG draw, lifetime, velocity, trajectory or saved field is added. Caller alpha and simulation counts remain unchanged.",
+  "fallbackPolicy": "Custom colors, unsupported types, missing/invalid images and invalid or degenerate geometry keep the vector fallback.",
+  "motionPolicy": "Frames follow 1-life/maxLife; reduced motion fixes age-0 while positions, current spark orientation, radius, alpha and expiration stay simulated.",
+  "acceptance": "Partial AS22 reception only. Material-specific impacts, ricochets, flames, debris, persistent traces, native performance and human approval remain open."
+}

@@ -1,5 +1,15 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Préparation 0.15.11 — impacts, tir, purge et industrie
+
+La tranche part du `main` publié **`a8658969f928981fe58cee3f4088f9f711587786`**, arbre `8b67b86290da234dedb9c8c2a5bc1d41bbcd3e3f`. Cinq PNG originaux ajoutent **24 cellules utilisées** : étincelles, petits éclats, flash principal, vapeur de purge, silo et cheminée. Le catalogue atteint **95 atlas /700 cellules /24 lots**, dont 656 utilisées et 44 références ; les quatre panoramas sont séparés.
+
+La [réception locale](QA_V15_11.md) et son [reçu final](validation/v01511-final/receipt.json) reçoivent **874 tests, 174 comparaisons SVG/Canvas, 108 parcours du DOM modélisé**, 29 vues dédiées et quatre vues combinées. Les **3 101 fichiers historiques contrôlés** sont identiques à la base. La Bible conserve 1 007 IDs, tous les statuts et 133 critères initiaux, avec neuf fiches descriptives actualisées et onze aperçus relus.
+
+L'HTML de **230 730 588 octets**, SHA-256 `e916d5c36318ab2b6eaa73942d61ce761a45c8d6089e40564120c7d5a16e9c31`, contient 83 modules. Le ZIP complet de **169 470 220 octets**, SHA-256 `47266dce1f59724ce8fb47d8c5c9795cd218012cec1a384c8e32c5cf85e2a9b0`, contient exactement cet HTML. Aucun fichier de Release n'est envoyé et le workflow précédemment refusé n'est pas déclenché.
+
+Les sources, la CI et le statut Vercel de la 0.15.11 doivent être reçus sur leurs SHA exacts après publication. La dernière production reçue reste la **0.15.7** ; le refus de quota confirmé pour le main 0.15.10 est historique. Aucun déploiement manuel ni changement de projet ou de protection n'est effectué pendant cette continuation.
+
 ## Publication 0.15.10 — sols de Thyr/Kharon et particules
 
 La tranche part du `main` publié `2be40743cbc0ac436786882e314e6c4c289ff31f`, arbre `749bad5644a44ff52b584c0a0caa6fc8189e3030`. Six PNG originaux ajoutent 32 cellules : deux lots de sols et petits décors, puis fumée et poussière. Le total est **90 atlas /676 cellules /21 lots**, dont 632 utilisées et 44 références ; les quatre panoramas sont séparés.
@@ -16,6 +26,12 @@ Le statut Vercel de ce SHA applicatif est **failure**, enregistré à **11:29:17
 
 Les contrôles Canvas et du DOM modélisé ne constituent pas une nouvelle réception navigateur. Le manifeste brut conserve son texte générique de canal de distribution ; l'annotation `distributionReception` du reçu local précise explicitement qu'aucun fichier de Release n'a été publié ou reçu pendant cette tranche.
 
+
+### Réception après fusion 0.15.10
+
+La PR #8 est fusionnée normalement au commit `a8658969f928981fe58cee3f4088f9f711587786`, arbre `8b67b86290da234dedb9c8c2a5bc1d41bbcd3e3f`. Seuls les six fichiers documentaires de réception séparent cet arbre du snapshot applicatif. La [CI du main exact](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44068425762) réussit ses **37 étapes** le **17 novembre à 11:56:27, heure de Paris**, avec les mêmes **852 tests, 174 comparaisons et 108 parcours DOM**. L'HTML et le ZIP sont à nouveau identiques aux sorties reçues. Le [reçu de main](validation/v01510-main-ci.json), conservé dans la continuation 0.15.11, rapporte les logs et leurs empreintes.
+
+Vercel refuse aussi ce SHA fusionné à **11:49:54, heure de Paris** pour la même limite de déploiement. Aucun déploiement n'est créé pour le commit de fusion ; la dernière production READY demeure la 0.15.7. Aucune Release binaire n'est publiée.
 
 ## Publication 0.15.9 — sources reçues, hébergement limité par quota
 

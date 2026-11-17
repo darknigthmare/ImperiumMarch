@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "version": "0.15.11",
+  "generator": "image_gen built-in",
+  "canonIds": [
+    "PL01",
+    "MI01",
+    "MI02",
+    "MI03",
+    "MI04"
+  ],
+  "atlasCount": 1,
+  "frameCount": 2,
+  "runtimeFrameCount": 2,
+  "referenceFrameCount": 0,
+  "files": [
+    {
+      "id": "industry",
+      "path": "assets/painted/vesper-industry/industry.png",
+      "bytes": 1643956,
+      "sha256": "80e2a528226c5d3fa9a7086a78c19511d2df6808af21f860062a96f2278592b8",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 2,
+      "runtimeFrames": 2,
+      "referenceFrames": 0,
+      "transparentFraction": 0.684370041,
+      "maxCellGutterAlpha": 1,
+      "originalGeneratedFile": "exec-3c4c4abd-e100-475a-8507-fbaedf7e820e.png",
+      "originalBytesUnchanged": true
+    }
+  ],
+  "scope": "Two PL01 midground structures in the existing drawIndustry slots.",
+  "pixelPolicy": "Selected original PNG bytes retained exactly. The indexer writes metadata only.",
+  "layoutPolicy": "Alpha >=32 defines the visible envelope and base. Source crops retain all alpha >=2 plus two pixels. Residual alpha 1 outside crops is not used for placement. The runtime clips to each historical envelope; no PNG pixel is changed.",
+  "geometry": {
+    "silo": {
+      "xOffset": -6,
+      "top": "584-h",
+      "width": 86,
+      "height": "h+16",
+      "baseY": 600
+    },
+    "chimney": {
+      "xOffset": 89,
+      "top": "541-h",
+      "width": 25,
+      "height": "h+59",
+      "baseY": 600
+    }
+  },
+  "reuse": {
+    "maintenance": "Existing assets/painted/vesper/outposts.png, normal maintenance frame, 96x101 at base x+195,y599. Not a new cell."
+  },
+  "physicalPolicy": "No collider, terrain sample, actor, smoke emitter, ecological effect, mission state or saved data. The parent renderer retains translate(0,180), scale(1,.75), camera parallax .32, spacing 620 and its historical heights and smoke."
+}
