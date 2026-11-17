@@ -1,0 +1,179 @@
+{
+  "version": "0.15.9",
+  "createdUtc": "2026-11-17T08:53:59.144054+00:00",
+  "scope": "Final Nacre civilians Canvas views with the new Nacre scenery loaded. Nine images opened and visually inspected individually.",
+  "method": "Assistant review through view_image of the final unchanged PNG files.",
+  "sourceReceipt": "reception.json",
+  "sourceReceiptSha256": "167e92b13e46dea39f9e8143ad53d813c2148b2f5801d9b17abc8c33c39e9bcb",
+  "completed": true,
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "imagesModified": false,
+  "runtimeSourcesModified": false,
+  "views": [
+    {
+      "file": "residents-cells.png",
+      "sha256": "0e4956454d3580a784961e3cb7ff812a2f39c351589bccea47344a55a7b7a407",
+      "width": 1600,
+      "height": 810,
+      "openedWith": "view_image",
+      "visuallyReviewed": true,
+      "blockingVisualIssueObserved": false,
+      "observations": [
+        "Les deux apparences sont distinctes et les tenues restent cohérentes entre les poses exposées.",
+        "Têtes, mains, chaussures et sacoche sont conservés dans les cadrages ; aucun membre coupé observé.",
+        "Les deux poses allongées sont clairement marquées comme utilisées au rendu ; leur posture ne suggère pas un nouveau personnage."
+      ],
+      "limits": [
+        "Planche de poses statiques : ne reçoit ni enchaînement temporel ni fluidité de marche."
+      ]
+    },
+    {
+      "file": "refugees-cells.png",
+      "sha256": "886446fd59bd1037009f4020df4975378f262d6e7dd0948e77bd59d1d71cb432",
+      "width": 1600,
+      "height": 810,
+      "openedWith": "view_image",
+      "visuallyReviewed": true,
+      "blockingVisualIssueObserved": false,
+      "observations": [
+        "Les deux apparences conservent leurs bagages attachés et leurs tenues dans les cellules présentées.",
+        "Silhouettes visibles sur les deux couleurs de fond, sans contour rectangulaire opaque ni halo gênant observé.",
+        "Les poses allongées sont explicitement identifiées comme références hors runtime."
+      ],
+      "limits": [
+        "Les deux poses de contact sont proches visuellement ; la qualité finale du cycle doit être reçue en mouvement."
+      ]
+    },
+    {
+      "file": "dockworkers-cells.png",
+      "sha256": "016ef95510f9f69f912d1adbb803f0150070069b9942faa6c00efd225fd6b450",
+      "width": 1600,
+      "height": 810,
+      "openedWith": "view_image",
+      "visuallyReviewed": true,
+      "blockingVisualIssueObserved": false,
+      "observations": [
+        "Équipage et responsable du port gardent des silhouettes et accessoires différenciés.",
+        "Les six poses de chaque apparence restent entièrement cadrées, avec semelles et accessoires visibles.",
+        "Les deux pertes sont étiquetées comme références hors runtime."
+      ],
+      "limits": [
+        "La planche ne prouve ni une attribution de rôle dans la simulation ni un embarquement réel."
+      ]
+    },
+    {
+      "file": "mara-cells.png",
+      "sha256": "adb21ac8b77740ccca961259c59e963e99d0cda2624e32e63acd7e0f926a88fa",
+      "width": 1200,
+      "height": 540,
+      "openedWith": "view_image",
+      "visuallyReviewed": true,
+      "blockingVisualIssueObserved": false,
+      "observations": [
+        "La coiffure, la tenue et la sacoche de Mara restent cohérentes entre les six cellules.",
+        "La silhouette est entièrement visible ; aucune coupe de tête, main ou pied observée.",
+        "La pose allongée est clairement identifiée comme une référence hors runtime."
+      ],
+      "limits": [
+        "La planche ne constitue pas une preuve de présence de Mara dans une mission ; cette condition relève de la simulation."
+      ]
+    },
+    {
+      "file": "ancillary-cells.png",
+      "sha256": "5c39b3cdc39b9c04910a0b5f7d23e90edf37d55c4bfc737674225e31521837b0",
+      "width": 1200,
+      "height": 540,
+      "openedWith": "view_image",
+      "visuallyReviewed": true,
+      "blockingVisualIssueObserved": false,
+      "observations": [
+        "Le personnel sanitaire générique conserve son apparence, ses pochettes et ses bandes de tenue dans les poses visibles.",
+        "Les silhouettes restent séparées et entièrement cadrées.",
+        "La pose allongée demeure explicitement une référence hors runtime."
+      ],
+      "limits": [
+        "Cette apparence ne permet pas de restaurer une identité absente des anciens agrégats."
+      ]
+    },
+    {
+      "file": "nacre-civilians-grounding.png",
+      "sha256": "d86e03d879554f7869c7a2b81ef32bd6420d14c10973a8290f26028bd828bf82",
+      "width": 1600,
+      "height": 680,
+      "openedWith": "view_image",
+      "visuallyReviewed": true,
+      "blockingVisualIssueObserved": false,
+      "observations": [
+        "Les huit apparences ont été comparées à la taille réelle et agrandies cinq fois.",
+        "Les semelles rejoignent les lignes de sol, sans flottement ni enfouissement manifeste sur les poses d’arrêt.",
+        "Les proportions relatives restent cohérentes ; les détails fins sont naturellement peu lisibles à la petite taille du jeu."
+      ],
+      "limits": [
+        "Banc de pose imposée, sans pente, marche ni collision exécutée dans cette image."
+      ]
+    },
+    {
+      "file": "mi06-residents-evacuating.png",
+      "sha256": "4e391504c60a31ef97de3bccd39c433683d5538d2a46d9ed98a62ce1acda25e9",
+      "width": 1600,
+      "height": 900,
+      "openedWith": "view_image",
+      "visuallyReviewed": true,
+      "blockingVisualIssueObserved": false,
+      "observations": [
+        "Les habitants sont visibles près des accès des deux logements ; le marcheur occulte naturellement une partie du second groupe.",
+        "Les pieds des personnages visibles et du marcheur rejoignent le terrain ; le nouveau sol et les petits décors ne masquent pas les zones d’action.",
+        "Les deux techniciens, les maisons et la pompe demeurent lisibles, avec leurs légendes distinctes."
+      ],
+      "limits": [
+        "Image Canvas atteinte par commandes publiques avec réduction des mouvements ; ne reçoit pas le cycle de marche.",
+        "Le comptage exhaustif des personnes cachées par une machine ne peut pas être déduit de la seule image."
+      ]
+    },
+    {
+      "file": "mi08-quay-agreements.png",
+      "sha256": "9bd2d26b6d88e6a9ee934104ba6da47a48858490dedccfd01000fe68daaa2fa7",
+      "width": 1600,
+      "height": 900,
+      "openedWith": "view_image",
+      "visuallyReviewed": true,
+      "blockingVisualIssueObserved": false,
+      "observations": [
+        "Les groupes au quai apparaissent distinctement devant et à proximité de l’accueil ; les pieds des silhouettes visibles rejoignent le quai.",
+        "Le panorama, la couche d’eau et les matières de sol conservent leurs plans ; aucune silhouette peinte supplémentaire n’apparaît dans un bâtiment ou une coque.",
+        "Les panneaux de destination restent lisibles et indiquent que les places ne sont pas encore acquises."
+      ],
+      "limits": [
+        "Une partie du groupe se trouve au bord droit ou hors du champ ; cette image ne suffit pas à identifier visuellement chaque rôle nommé.",
+        "La présence factuelle de Mara et les effectifs proviennent de l’état joint, pas d’une déduction sur cette image."
+      ]
+    },
+    {
+      "file": "mi08-individual-boarding.png",
+      "sha256": "2b7cab8762ae7d8d657c0dec23eb665a572fc5438f6126c142565a468bca5458",
+      "width": 1600,
+      "height": 900,
+      "openedWith": "view_image",
+      "visuallyReviewed": true,
+      "blockingVisualIssueObserved": false,
+      "observations": [
+        "Les personnes encore au quai et les indicateurs des occupants déjà à bord restent graphiquement distincts.",
+        "Mara, le personnel sanitaire et les équipes de quai disposent de silhouettes visibles dans cette étape ; leur petite échelle limite la reconnaissance individuelle.",
+        "Les accès, la coque, la passerelle et l’eau gardent leurs plans respectifs ; aucun doublon évident de personnage complet sur un indicateur de pont observé.",
+        "Les matières et petits décors de Nacre restent en fond des actions sans ajout de surface de marche apparent."
+      ],
+      "limits": [
+        "La réception visuelle ne vérifie pas à elle seule l’identité d’un occupant ni l’ensemble de son trajet.",
+        "Image Canvas avec réduction des mouvements ; aucune session navigateur ni essai humain effectué."
+      ]
+    }
+  ],
+  "conclusion": "Aucune anomalie matérielle bloquante observée dans les neuf vues inspectées. Silhouettes, cadrages et ancrages de repos sont cohérents ; les scènes reçoivent le décor Nacre et conservent la distinction des personnes au quai et des indicateurs à bord.",
+  "limitations": [
+    "Les scènes de gameplay sont des rendus Canvas atteints par commandes publiques, avec reducedMotion=true.",
+    "Cette relecture ne valide pas la fluidité des cycles, toutes les orientations en déplacement, les performances matérielles, le son, les gestes dans un navigateur ou une campagne entière.",
+    "Les apparences et cellules graphiques ne représentent pas de nouveaux habitants ; les états et effectifs doivent être vérifiés dans la simulation et les reçus correspondants.",
+    "Les critères de finition et de réception humaine restent ouverts."
+  ]
+}

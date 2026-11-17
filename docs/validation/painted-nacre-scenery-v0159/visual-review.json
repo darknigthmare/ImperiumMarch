@@ -1,0 +1,63 @@
+{
+  "version": "0.15.9",
+  "createdUtc": "2026-11-17T08:46:53.005173+00:00",
+  "method": "Assistant inspection with view_image of each of the eight generated Canvas views; not a human playtest or browser run.",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "completed": true,
+  "views": [
+    {
+      "file": "nacre-scenery-contact-sheet.png",
+      "sha256": "eb5b232c6a472fe9c7e0eddffa8dd05c5890af6a4cbd6e013225a39be15fa140",
+      "reviewed": true,
+      "observation": "Les dix cellules sont lisibles sur fonds clair et sombre. Silhouettes et marges conservées, pas de halo visible à la taille affichée, matières distinctes."
+    },
+    {
+      "file": "nacre-terrain-camera-0.png",
+      "sha256": "be89f7bf75fdc41cacb5c2f2f44b7b555baff7ecd37608e693a0506ddb39e073",
+      "reviewed": true,
+      "observation": "Le sol reste sous son contour ; les six petits décors sont posés au sol et les matières rejoignent le fond profond sans bande vide."
+    },
+    {
+      "file": "nacre-terrain-camera-512.png",
+      "sha256": "06235c5b2ecd20290c94e5bb1547dbbd7bf7b3da2cbbcbd0e208116b0e3cb688",
+      "reviewed": true,
+      "observation": "Le déplacement de caméra conserve les motifs dans le monde. Les raccords roche/limon/maçonnerie/métal restent fondus, sans coupe verticale dure observée."
+    },
+    {
+      "file": "nacre-terrain-camera-1800.png",
+      "sha256": "a2daf9ba5ab7c58ec18e0e3e173d9184d79042acd33fdbb6c7c81adcc6639c2f",
+      "reviewed": true,
+      "observation": "La seconde zone conserve le contour du sol, les petits décors et la continuité des matières ; aucune surface physique nouvelle représentée."
+    },
+    {
+      "file": "mi05-first-bridge-raised.png",
+      "sha256": "c3ad69bfbf7ba2b6aa1a67650f4fa1d50d0ff94d59cda68872c876a65da8d5ae",
+      "reviewed": true,
+      "observation": "Le premier pont relevé et le marcheur conservent leurs contacts. Le bateau et les indications de marée restent visibles sur le panorama, sans décor masquant les zones de passage."
+    },
+    {
+      "file": "mi06-residents-on-nacre-shore.png",
+      "sha256": "ecb07b44ec248a7a9c83b2de48ee3b5482f83da9a66a9ee26ea296c59d166deb",
+      "reviewed": true,
+      "observation": "Habitants, techniciens, maisons et pompe restent distincts du décor. Les pieds du marcheur et les petites silhouettes rejoignent le terrain."
+    },
+    {
+      "file": "mi08-nacre-quay.png",
+      "sha256": "332093db51740fcc699f28867e4fd5d5a78b0c1e6aad26c7b4f119cc13866f7a",
+      "reviewed": true,
+      "observation": "La couche d’eau et les structures du quai recouvrent normalement le sol peint ; groupes et portes conservent leur présence factuelle. Aucun occupant supplémentaire peint dans les coques."
+    },
+    {
+      "file": "op02-nacre-terrain.png",
+      "sha256": "a5f8e70be71b25f7173055b92ee2a7eb18f7930440c140b55cfdd43b2fbb69a8",
+      "reviewed": true,
+      "observation": "Simulation indépendante : marcheur, convoi, ennemis et projectile restent lisibles. Décors petits et ancrés, aucun chevauchement gênant constaté dans cette vue."
+    }
+  ],
+  "scope": [
+    "No significant clipped sprite pixels or perceptible alpha halos observed in inspected views.",
+    "World-stable terrain blending and contact positions also received by the targeted tests.",
+    "These still views do not close final animation, interaction, hardware performance or human playtest criteria."
+  ]
+}

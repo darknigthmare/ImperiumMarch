@@ -19,6 +19,8 @@ import { drawPaintedVesperTerrain, drawPaintedVesperDeck, drawPaintedVesperBrace
 import { drawPaintedTrainCar, trainCouplerPose } from './painted-transport.mjs';
 import { drawPaintedNacreBoat, drawPaintedNacreAmbulance, drawPaintedNacreEquipment } from './painted-nacre.mjs';
 import { drawPaintedNacrePerson } from './painted-nacre-people.mjs';
+import { drawPaintedNacreCivilian } from './painted-nacre-civilians.mjs';
+import { drawPaintedNacreTerrain, drawPaintedNacreSceneryPart, nacreGroundProp } from './painted-nacre-scenery.mjs';
 import { drawPaintedNacreSitePart, drawPaintedNacreSiteGate, drawPaintedNacreSiteGateControl,
   drawPaintedNacreSitePump, drawPaintedNacreSiteValve, drawPaintedNacreSiteLatch, drawPaintedNacreSiteWinch,
   drawPaintedNacreSiteDeck, drawPaintedNacreSiteDepartureRamp, nacreSiteDamageState } from './painted-nacre-sites.mjs';
@@ -342,6 +344,9 @@ export class Renderer {
 
   drawDeparturePeople(s, t) {
     const c = this.ctx;
+    // Keep observing physical displacement when reduced motion freezes the
+    // decorative clock: people still turn, while their walk cycle stays idle.
+    const motionTime = s.elapsed;
     const colors = { refugee: '#9dc7b8', resident: '#d1c19a', patient: '#d7e1c8', staff: '#bed9cb', crew: '#94b0c2', technician: '#d6bd83', mara: '#cadfb3', harbourmaster: '#9eafcf' };
     for (const person of s.departure.people) {
       if (!person.alive || person.safe || ['origin', 'offsite'].includes(person.phase) || !this.visible(person.x, 60)) continue;
@@ -356,7 +361,7 @@ export class Renderer {
       const bottom = person.y + person.h / 2;
       if (person.role === 'patient') {
         this.drawShadow(person.x, bottom, 17, 3);
-        if (!drawPaintedNacrePerson(c, person, { time: t, reducedMotion: this.combatReducedMotion })) {
+        if (!drawPaintedNacrePerson(c, person, { time: motionTime, reducedMotion: this.combatReducedMotion })) {
         line(c, person.x - 15, bottom - 6, person.x + 15, bottom - 6, '#a2b6ab', 3);
         circle(c, person.x - 10, bottom - 3, 2.5, '#173740'); circle(c, person.x + 10, bottom - 3, 2.5, '#173740');
         c.fillStyle = '#d8dbb7'; c.fillRect(person.x - 10, bottom - 17, 20, 10);
@@ -366,7 +371,8 @@ export class Renderer {
       } else {
         const moving = ['joining', 'boarding', 'returning', 'landing'].includes(person.phase), pace = moving ? Math.sin(t * 8 + person.x * .13) * 3 : 0;
         this.drawShadow(person.x, bottom, 10, 3);
-        if (!drawPaintedNacrePerson(c, person, { time: t, reducedMotion: this.combatReducedMotion })) {
+        if (!drawPaintedNacrePerson(c, person, { time: motionTime, reducedMotion: this.combatReducedMotion })
+            && !drawPaintedNacreCivilian(c, person, { time: motionTime, reducedMotion: this.combatReducedMotion })) {
         line(c, person.x - 3, bottom - 13, person.x - 4 - pace, bottom - 1, '#1b3439', 3);
         line(c, person.x + 3, bottom - 13, person.x + 4 + pace, bottom - 1, '#29474a', 3);
         poly(c, [[person.x - 6, bottom - 26], [person.x + 6, bottom - 26], [person.x + 8, bottom - 11], [person.x - 7, bottom - 11]], color, '#294a4e', 1);
@@ -639,11 +645,11 @@ export class Renderer {
     for (const person of a.staff) {
       if (!this.visible(person.x, 60) || person.safe || person.phase === 'aboard') continue;
       if (!person.alive) {
-        if (!drawPaintedNacrePerson(c, person, { time: t, allowLost: true }))
+        if (!drawPaintedNacrePerson(c, person, { time: s.elapsed, allowLost: true }))
           line(c, person.x - 11, person.y + 14, person.x + 12, person.y + 14, '#9b9b81', 4);
         continue;
       }
-      if (!drawPaintedNacrePerson(c, person, { time: t, reducedMotion: this.combatReducedMotion,
+      if (!drawPaintedNacrePerson(c, person, { time: s.elapsed, reducedMotion: this.combatReducedMotion,
         shadow: (...args) => this.drawShadow(...args) })) this.drawHuman(person, t, true, null);
       const offset = person.role === 'driver' ? 0 : 14;
       label(c, person.role === 'driver' ? 'CONDUCTRICE' : 'SOIGNANT', person.x, person.y - person.h / 2 - 16 - offset, 8, '#c0dacc', 'center');
@@ -653,11 +659,11 @@ export class Renderer {
       if (!this.visible(person.x, 50) || person.safe || person.phase === 'aboard') continue;
       const x = person.x, y = person.y;
       if (!person.alive) {
-        if (!drawPaintedNacrePerson(c, person, { role: 'patient', time: t, allowLost: true }))
+        if (!drawPaintedNacrePerson(c, person, { role: 'patient', time: s.elapsed, allowLost: true }))
           line(c, x - 13, y + 9, x + 13, y + 9, '#91947b', 5);
         continue;
       }
-      if (drawPaintedNacrePerson(c, person, { role: 'patient', time: t, reducedMotion: this.combatReducedMotion })) continue;
+      if (drawPaintedNacrePerson(c, person, { role: 'patient', time: s.elapsed, reducedMotion: this.combatReducedMotion })) continue;
       line(c, x - 15, y + 5, x + 15, y + 5, '#bdc9a8', 4);
       for (const side of [-1, 1]) circle(c, x + side * 9, y + 10, 3, '#1b343c', '#a9bc9d', 1);
       c.fillStyle = '#82a99a'; c.fillRect(x - 9, y - 4, 19, 9);
@@ -883,23 +889,25 @@ export class Renderer {
       if (!this.visible(person.x, 60) || person.safe || person.phase === 'home') continue;
       const technician = !person.homeId;
       if (!person.alive) {
-        if (technician && drawPaintedNacrePerson(this.ctx, person, { role: 'technician', time: t, allowLost: true })) continue;
+        if (technician && drawPaintedNacrePerson(this.ctx, person, { role: 'technician', time: s.elapsed, allowLost: true })) continue;
+        if (!technician && drawPaintedNacreCivilian(this.ctx, person, { role: 'resident', time: s.elapsed, allowLost: true })) continue;
         const groundY = person.y + person.h / 2;
         line(this.ctx, person.x - 10, groundY - 3, person.x + 9, groundY - 3, technician ? '#b6a779' : '#7fa79b', 5);
         circle(this.ctx, person.x + 12, groundY - 5, 4, '#a69678');
         continue;
       }
-      this.drawDikePerson(person, t, technician);
+      this.drawDikePerson(person, t, technician, s.elapsed);
     }
   }
 
-  drawDikePerson(person, t, technician) {
+  drawDikePerson(person, t, technician, motionTime = t) {
     const c = this.ctx, moving = person.phase === 'moving' || person.phase === 'evacuating';
     const pace = moving ? Math.sin(t * 8 + person.x * .2) * 4 : 0;
     const bottom = person.y + person.h / 2, top = person.y - person.h / 2;
     this.drawShadow(person.x, bottom, 11, 3);
-    const paintedPerson = technician && drawPaintedNacrePerson(c, person,
-      { role: 'technician', time: t, reducedMotion: this.combatReducedMotion });
+    const paintedPerson = technician
+      ? drawPaintedNacrePerson(c, person, { role: 'technician', time: motionTime, reducedMotion: this.combatReducedMotion })
+      : drawPaintedNacreCivilian(c, person, { role: 'resident', time: motionTime, reducedMotion: this.combatReducedMotion });
     if (!paintedPerson) {
     c.save(); c.translate(person.x, bottom);
     line(c, -3, -12, -4 - pace, -1, '#1b3035', 4); line(c, 3, -12, 4 + pace, -1, '#243c3e', 4);
@@ -1268,7 +1276,9 @@ export class Renderer {
     const colors = s.planetId === 'PL04' ? ['#756258', '#302d32'] : s.planetId === 'PL03' ? ['#607159', '#233b35'] : s.planetId === 'PL02' ? ['#7f8c82', '#263c40'] : ['#a99576', '#3a4846'];
     const soil = c.createLinearGradient(0, 650, 0, 900); soil.addColorStop(0, colors[0]); soil.addColorStop(0.35, colors[1]); soil.addColorStop(1, '#10252d');
     poly(c, pts, soil);
-    const paintedGround = s.planetId === 'PL01' && drawPaintedVesperTerrain(c, { from: start, to: end, groundAt: x => terrainAt(x, s.planetId) });
+    const groundOptions = { from: start, to: end, groundAt: x => terrainAt(x, s.planetId) };
+    const paintedGround = s.planetId === 'PL01' ? drawPaintedVesperTerrain(c, groundOptions)
+      : s.planetId === 'PL02' ? drawPaintedNacreTerrain(c, groundOptions) : false;
     c.beginPath(); for (let x = start; x <= end; x += 14) { const y = terrainAt(x, s.planetId); if (x === start) c.moveTo(x, y); else c.lineTo(x, y); }
     c.strokeStyle = s.planetId === 'PL03' ? '#a8ac78' : '#d9bf8e'; c.lineWidth = 2; c.stroke();
     // Geologic layers are anchored in the world, so texture never swims with the camera.
@@ -1279,9 +1289,14 @@ export class Renderer {
         const ry = ground + 15 + hash(k * 3) * 130;
         poly(c, [[x + 8, ry], [x + 23, ry - 3], [x + 32, ry + 4], [x + 17, ry + 8]], '#afad8a17');
       }
-      if (k % 3 === 0 && !(s.planetId === 'PL01' && drawPaintedVesperSceneryPart(c, {
-        part: vesperGroundProp(k / 3), x: x + 16, y: terrainAt(x + 16, s.planetId),
-      }))) poly(c, [[x, ground], [x + 8, ground - 9], [x + 22, ground - 11], [x + 32, ground - 1]], '#65756a', '#c0b88e55', 1);
+      if (k % 3 === 0) {
+        const atGround = { x: x + 16, y: terrainAt(x + 16, s.planetId) };
+        const paintedProp = s.planetId === 'PL01'
+          ? drawPaintedVesperSceneryPart(c, { part: vesperGroundProp(k / 3), ...atGround })
+          : s.planetId === 'PL02'
+            ? drawPaintedNacreSceneryPart(c, { part: nacreGroundProp(k / 3), ...atGround }) : false;
+        if (!paintedProp) poly(c, [[x, ground], [x + 8, ground - 9], [x + 22, ground - 11], [x + 32, ground - 1]], '#65756a', '#c0b88e55', 1);
+      }
     }
     if (s.planetId === 'PL02') {
       for (let k = Math.floor(start / 145); k < end / 145; k++) {

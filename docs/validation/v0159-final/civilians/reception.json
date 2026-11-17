@@ -1,0 +1,1571 @@
+{
+  "version": "0.15.9",
+  "createdUtc": "2026-11-17T08:46:31.974Z",
+  "completed": true,
+  "type": "Actual original PNG decoding and Canvas inspection",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "sourceHashes": {
+    "src/painted-nacre-civilians.mjs": "3d8553c81a80b6b9a111963f959c68c9a612aa0a51b0cb9171e4c373d06d433c",
+    "src/painted-nacre-civilians-layout.mjs": "6f7a482e47889217932417a2f802b4a89d30879ce5c54fee89d50572bf54fb14",
+    "src/renderer.mjs": "98dd9681283bf0c9485534ceeef5fa1b7c4bf6f0b85fedaa4f1c6c850a061087",
+    "src/painted-worlds.mjs": "a50c9e38b87106516e6fd14cb2932e78d3e4773d254215155e97417ad4f63041",
+    "assets/painted/worlds/nacre.png": "bc03fadfb3b98f7c2a44290864b4d6159f21c9bb7c889e1e7c72984f2d21f88c",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "src/painted-nacre-scenery.mjs": "95a6a7f9043f99389cf6c458176190307740cf2f4038cbe345be6427b238a3ff",
+    "src/painted-nacre-scenery-layout.mjs": "468e7cce4099f0dd1748684448bd77115b2eb701f1f1b13b46eb01f9cc4d3b17",
+    "assets/painted/nacre-scenery/terrain.png": "3ca20a8f50e2df45e45341a0fde5bd43f0d1f0c93cea4e3a4566152d56adc1fc",
+    "assets/painted/nacre-scenery/props.png": "a9fee87d46163d4609918882b0f7dcfd9368d19cdbe5df9695de88a0224af4e5",
+    "tools/index-painted-nacre-civilians.py": "a13de66bad2b97ff75fa4ccf90d4cd14d2ea352fc83e1e746d18735b844baf88",
+    "tools/test-painted-nacre-civilians.mjs": "840218fda828626cd8a4afa66637106b8b6940cf2a4a63ac1f066b4e794e583b",
+    "tests/painted-nacre-civilians.test.mjs": "f71a78c6e96626e22829535ec3e13887ff0268fd3fe25ec217ec1958910e6a14",
+    "tests/helpers/mi06-driver.mjs": "c77171a3e903de9843168e7bf40c1e67cb1e46311876e448300e4137fe6edb99",
+    "tests/helpers/mi08-driver.mjs": "07b577d7ad7cd860bfcd4604d19744e976f988e01a2435f6e2dc5e415a4f2088",
+    "tests/fixtures/campaign-v7-mi07.json": "8ca58deb11f4048039cda3a54157f7eddb2dd6af6a34450a3d177b3bdfa67a5c"
+  },
+  "atlases": [
+    {
+      "key": "refugees",
+      "path": "assets/painted/nacre-civilians/refugees.png",
+      "sha256": "eef6bc5aba7b4c64e9d441f8a7ebb55afe617d36d13d505d59ee4e9ce8d9bc0f",
+      "bytes": 1085325,
+      "size": [
+        1448,
+        1086
+      ],
+      "fullyTransparentPixels": 1061689
+    },
+    {
+      "key": "residents",
+      "path": "assets/painted/nacre-civilians/residents.png",
+      "sha256": "76a8ef227beb8f16075640e37a4d23939a57bab8bdaad465fb86cbdb8848f018",
+      "bytes": 1051136,
+      "size": [
+        1448,
+        1086
+      ],
+      "fullyTransparentPixels": 1086841
+    },
+    {
+      "key": "dockworkers",
+      "path": "assets/painted/nacre-civilians/dockworkers.png",
+      "sha256": "e6a1e1536141101a54f33d07dfea256d605d250c6d3de15336aebd4b4c111560",
+      "bytes": 925719,
+      "size": [
+        1448,
+        1086
+      ],
+      "fullyTransparentPixels": 1227246
+    },
+    {
+      "key": "mara",
+      "path": "assets/painted/nacre-civilians/mara.png",
+      "sha256": "cc47728ab5b178e4453317f15e39341a62b608e1fd079724aae2ede473260eae",
+      "bytes": 1754083,
+      "size": [
+        1536,
+        1024
+      ],
+      "fullyTransparentPixels": 1214553
+    },
+    {
+      "key": "ancillary",
+      "path": "assets/painted/nacre-civilians/ancillary.png",
+      "sha256": "65b82fd37ad2f60a403efd0a7964f9a76a0da4e657f0700508e306ea80ac485e",
+      "bytes": 1707913,
+      "size": [
+        1536,
+        1024
+      ],
+      "fullyTransparentPixels": 1250642
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "refugees",
+      "frame": "refugee-1-idle",
+      "usage": "runtime",
+      "occupiedPixels": 23930,
+      "source": [
+        118,
+        6,
+        118,
+        347
+      ],
+      "target": [
+        -5.6501458,
+        -34.1982507,
+        11.696793,
+        34.3965015
+      ]
+    },
+    {
+      "atlas": "refugees",
+      "frame": "refugee-1-walk-0",
+      "usage": "runtime",
+      "occupiedPixels": 28951,
+      "source": [
+        450,
+        14,
+        209,
+        336
+      ],
+      "target": [
+        -8.1282799,
+        -33.1078717,
+        20.7172012,
+        33.3061224
+      ]
+    },
+    {
+      "atlas": "refugees",
+      "frame": "refugee-1-walk-1",
+      "usage": "runtime",
+      "occupiedPixels": 24690,
+      "source": [
+        832,
+        13,
+        144,
+        339
+      ],
+      "target": [
+        -6.4431487,
+        -33.4052478,
+        14.2740525,
+        33.6034985
+      ]
+    },
+    {
+      "atlas": "refugees",
+      "frame": "refugee-1-walk-2",
+      "usage": "runtime",
+      "occupiedPixels": 28938,
+      "source": [
+        1166,
+        15,
+        228,
+        335
+      ],
+      "target": [
+        -9.664723,
+        -33.0087464,
+        22.6005831,
+        33.2069971
+      ]
+    },
+    {
+      "atlas": "refugees",
+      "frame": "refugee-1-walk-3",
+      "usage": "runtime",
+      "occupiedPixels": 24309,
+      "source": [
+        118,
+        375,
+        143,
+        339
+      ],
+      "target": [
+        -6.3440233,
+        -33.4052478,
+        14.1749271,
+        33.6034985
+      ]
+    },
+    {
+      "atlas": "refugees",
+      "frame": "refugee-1-downed",
+      "usage": "reference",
+      "occupiedPixels": 26540,
+      "source": [
+        364,
+        480,
+        358,
+        131
+      ],
+      "target": [
+        -17.7434402,
+        -12.787172,
+        35.4868805,
+        12.9854227
+      ]
+    },
+    {
+      "atlas": "refugees",
+      "frame": "refugee-2-idle",
+      "usage": "runtime",
+      "occupiedPixels": 20078,
+      "source": [
+        855,
+        366,
+        102,
+        350
+      ],
+      "target": [
+        -4.9624277,
+        -34.1965318,
+        10.0231214,
+        34.3930636
+      ]
+    },
+    {
+      "atlas": "refugees",
+      "frame": "refugee-2-walk-0",
+      "usage": "runtime",
+      "occupiedPixels": 27093,
+      "source": [
+        1172,
+        371,
+        216,
+        344
+      ],
+      "target": [
+        -9.5809249,
+        -33.6069364,
+        21.2254335,
+        33.8034682
+      ]
+    },
+    {
+      "atlas": "refugees",
+      "frame": "refugee-2-walk-1",
+      "usage": "runtime",
+      "occupiedPixels": 22057,
+      "source": [
+        119,
+        732,
+        136,
+        347
+      ],
+      "target": [
+        -6.2398844,
+        -33.9017341,
+        13.3641618,
+        34.0982659
+      ]
+    },
+    {
+      "atlas": "refugees",
+      "frame": "refugee-2-walk-2",
+      "usage": "runtime",
+      "occupiedPixels": 29110,
+      "source": [
+        430,
+        732,
+        239,
+        347
+      ],
+      "target": [
+        -11.5462428,
+        -33.9017341,
+        23.4855491,
+        34.0982659
+      ]
+    },
+    {
+      "atlas": "refugees",
+      "frame": "refugee-2-walk-3",
+      "usage": "runtime",
+      "occupiedPixels": 21229,
+      "source": [
+        832,
+        732,
+        124,
+        347
+      ],
+      "target": [
+        -7.6156069,
+        -33.9017341,
+        12.1849711,
+        34.0982659
+      ]
+    },
+    {
+      "atlas": "refugees",
+      "frame": "refugee-2-downed",
+      "usage": "reference",
+      "occupiedPixels": 24844,
+      "source": [
+        1086,
+        876,
+        358,
+        105
+      ],
+      "target": [
+        -17.5895954,
+        -10.1213873,
+        35.1791908,
+        10.3179191
+      ]
+    },
+    {
+      "atlas": "residents",
+      "frame": "resident-1-idle",
+      "usage": "runtime",
+      "occupiedPixels": 23080,
+      "source": [
+        127,
+        6,
+        105,
+        348
+      ],
+      "target": [
+        -4.9912791,
+        -34.1976744,
+        10.377907,
+        34.3953488
+      ]
+    },
+    {
+      "atlas": "residents",
+      "frame": "resident-1-walk-0",
+      "usage": "runtime",
+      "occupiedPixels": 27069,
+      "source": [
+        441,
+        7,
+        215,
+        345
+      ],
+      "target": [
+        -9.4389535,
+        -33.9011628,
+        21.25,
+        34.0988372
+      ]
+    },
+    {
+      "atlas": "residents",
+      "frame": "resident-1-walk-1",
+      "usage": "runtime",
+      "occupiedPixels": 23299,
+      "source": [
+        825,
+        8,
+        151,
+        342
+      ],
+      "target": [
+        -8.0552326,
+        -33.6046512,
+        14.9244186,
+        33.8023256
+      ]
+    },
+    {
+      "atlas": "residents",
+      "frame": "resident-1-walk-2",
+      "usage": "runtime",
+      "occupiedPixels": 27613,
+      "source": [
+        1174,
+        11,
+        212,
+        342
+      ],
+      "target": [
+        -9.4883721,
+        -33.6046512,
+        20.9534884,
+        33.8023256
+      ]
+    },
+    {
+      "atlas": "residents",
+      "frame": "resident-1-walk-3",
+      "usage": "runtime",
+      "occupiedPixels": 24180,
+      "source": [
+        118,
+        369,
+        129,
+        347
+      ],
+      "target": [
+        -6.4244186,
+        -34.0988372,
+        12.75,
+        34.2965116
+      ]
+    },
+    {
+      "atlas": "residents",
+      "frame": "resident-1-downed",
+      "usage": "runtime",
+      "occupiedPixels": 24130,
+      "source": [
+        358,
+        511,
+        362,
+        92
+      ],
+      "target": [
+        -17.8895349,
+        -8.8953488,
+        35.7790698,
+        9.0930233
+      ]
+    },
+    {
+      "atlas": "residents",
+      "frame": "resident-2-idle",
+      "usage": "runtime",
+      "occupiedPixels": 21392,
+      "source": [
+        859,
+        363,
+        92,
+        355
+      ],
+      "target": [
+        -4.0683761,
+        -34.1937322,
+        8.9116809,
+        34.3874644
+      ]
+    },
+    {
+      "atlas": "residents",
+      "frame": "resident-2-walk-0",
+      "usage": "runtime",
+      "occupiedPixels": 27799,
+      "source": [
+        1167,
+        365,
+        214,
+        352
+      ],
+      "target": [
+        -9.3475783,
+        -33.9031339,
+        20.7293447,
+        34.0968661
+      ]
+    },
+    {
+      "atlas": "residents",
+      "frame": "resident-2-walk-1",
+      "usage": "runtime",
+      "occupiedPixels": 22111,
+      "source": [
+        92,
+        728,
+        142,
+        351
+      ],
+      "target": [
+        -8.4273504,
+        -33.8062678,
+        13.7549858,
+        34
+      ]
+    },
+    {
+      "atlas": "residents",
+      "frame": "resident-2-walk-2",
+      "usage": "runtime",
+      "occupiedPixels": 28607,
+      "source": [
+        433,
+        727,
+        230,
+        353
+      ],
+      "target": [
+        -10.3162393,
+        -34,
+        22.2792023,
+        34.1937322
+      ]
+    },
+    {
+      "atlas": "residents",
+      "frame": "resident-2-walk-3",
+      "usage": "runtime",
+      "occupiedPixels": 21960,
+      "source": [
+        811,
+        728,
+        133,
+        351
+      ],
+      "target": [
+        -8.6210826,
+        -33.8062678,
+        12.8831909,
+        34
+      ]
+    },
+    {
+      "atlas": "residents",
+      "frame": "resident-2-downed",
+      "usage": "runtime",
+      "occupiedPixels": 24639,
+      "source": [
+        1085,
+        869,
+        356,
+        100
+      ],
+      "target": [
+        -17.2421652,
+        -9.4928775,
+        34.4843305,
+        9.6866097
+      ]
+    },
+    {
+      "atlas": "dockworkers",
+      "frame": "crew-idle",
+      "usage": "runtime",
+      "occupiedPixels": 21130,
+      "source": [
+        132,
+        6,
+        94,
+        352
+      ],
+      "target": [
+        -4.1522989,
+        -34.1954023,
+        9.183908,
+        34.3908046
+      ]
+    },
+    {
+      "atlas": "dockworkers",
+      "frame": "crew-walk-0",
+      "usage": "runtime",
+      "occupiedPixels": 26910,
+      "source": [
+        436,
+        8,
+        212,
+        349
+      ],
+      "target": [
+        -9.9166667,
+        -33.9022989,
+        20.7126437,
+        34.0977011
+      ]
+    },
+    {
+      "atlas": "dockworkers",
+      "frame": "crew-walk-1",
+      "usage": "runtime",
+      "occupiedPixels": 20931,
+      "source": [
+        857,
+        8,
+        94,
+        349
+      ],
+      "target": [
+        -4.5431034,
+        -33.9022989,
+        9.183908,
+        34.0977011
+      ]
+    },
+    {
+      "atlas": "dockworkers",
+      "frame": "crew-walk-2",
+      "usage": "runtime",
+      "occupiedPixels": 27242,
+      "source": [
+        1159,
+        10,
+        222,
+        347
+      ],
+      "target": [
+        -11.4798851,
+        -33.7068966,
+        21.6896552,
+        33.9022989
+      ]
+    },
+    {
+      "atlas": "dockworkers",
+      "frame": "crew-walk-3",
+      "usage": "runtime",
+      "occupiedPixels": 21592,
+      "source": [
+        119,
+        368,
+        115,
+        350
+      ],
+      "target": [
+        -6.887931,
+        -34,
+        11.2356322,
+        34.1954023
+      ]
+    },
+    {
+      "atlas": "dockworkers",
+      "frame": "crew-downed",
+      "usage": "reference",
+      "occupiedPixels": 24641,
+      "source": [
+        368,
+        595,
+        354,
+        105
+      ],
+      "target": [
+        -17.2931034,
+        -10.0632184,
+        34.5862069,
+        10.2586207
+      ]
+    },
+    {
+      "atlas": "dockworkers",
+      "frame": "harbourmaster-idle",
+      "usage": "runtime",
+      "occupiedPixels": 21556,
+      "source": [
+        848,
+        366,
+        100,
+        354
+      ],
+      "target": [
+        -5.1971429,
+        -34.1942857,
+        9.7142857,
+        34.3885714
+      ]
+    },
+    {
+      "atlas": "dockworkers",
+      "frame": "harbourmaster-walk-0",
+      "usage": "runtime",
+      "occupiedPixels": 28996,
+      "source": [
+        1157,
+        369,
+        225,
+        349
+      ],
+      "target": [
+        -10.6371429,
+        -33.7085714,
+        21.8571429,
+        33.9028571
+      ]
+    },
+    {
+      "atlas": "dockworkers",
+      "frame": "harbourmaster-walk-1",
+      "usage": "runtime",
+      "occupiedPixels": 20709,
+      "source": [
+        127,
+        731,
+        98,
+        352
+      ],
+      "target": [
+        -5.1,
+        -34,
+        9.52,
+        34.1942857
+      ]
+    },
+    {
+      "atlas": "dockworkers",
+      "frame": "harbourmaster-walk-2",
+      "usage": "runtime",
+      "occupiedPixels": 28312,
+      "source": [
+        420,
+        729,
+        238,
+        352
+      ],
+      "target": [
+        -11.6085714,
+        -34,
+        23.12,
+        34.1942857
+      ]
+    },
+    {
+      "atlas": "dockworkers",
+      "frame": "harbourmaster-walk-3",
+      "usage": "runtime",
+      "occupiedPixels": 21666,
+      "source": [
+        839,
+        728,
+        110,
+        353
+      ],
+      "target": [
+        -5.9257143,
+        -34.0971429,
+        10.6857143,
+        34.2914286
+      ]
+    },
+    {
+      "atlas": "dockworkers",
+      "frame": "harbourmaster-downed",
+      "usage": "reference",
+      "occupiedPixels": 24254,
+      "source": [
+        1090,
+        956,
+        355,
+        108
+      ],
+      "target": [
+        -17.2428571,
+        -10.2971429,
+        34.4857143,
+        10.4914286
+      ]
+    },
+    {
+      "atlas": "mara",
+      "frame": "mara-idle",
+      "usage": "runtime",
+      "occupiedPixels": 37626,
+      "source": [
+        151,
+        10,
+        132,
+        482
+      ],
+      "target": [
+        -5.0502092,
+        -34.1422594,
+        9.3891213,
+        34.2845188
+      ]
+    },
+    {
+      "atlas": "mara",
+      "frame": "mara-walk-0",
+      "usage": "runtime",
+      "occupiedPixels": 47334,
+      "source": [
+        585,
+        12,
+        277,
+        476
+      ],
+      "target": [
+        -8.9623431,
+        -33.7154812,
+        19.7029289,
+        33.8577406
+      ]
+    },
+    {
+      "atlas": "mara",
+      "frame": "mara-walk-1",
+      "usage": "runtime",
+      "occupiedPixels": 40413,
+      "source": [
+        1124,
+        13,
+        178,
+        479
+      ],
+      "target": [
+        -7.8242678,
+        -33.9288703,
+        12.6610879,
+        34.0711297
+      ]
+    },
+    {
+      "atlas": "mara",
+      "frame": "mara-walk-2",
+      "usage": "runtime",
+      "occupiedPixels": 47193,
+      "source": [
+        73,
+        526,
+        310,
+        470
+      ],
+      "target": [
+        -10.4916318,
+        -33.2887029,
+        22.0502092,
+        33.4309623
+      ]
+    },
+    {
+      "atlas": "mara",
+      "frame": "mara-walk-3",
+      "usage": "runtime",
+      "occupiedPixels": 39781,
+      "source": [
+        582,
+        522,
+        199,
+        477
+      ],
+      "target": [
+        -9.2824268,
+        -33.7866109,
+        14.1548117,
+        33.9288703
+      ]
+    },
+    {
+      "atlas": "mara",
+      "frame": "mara-downed",
+      "usage": "reference",
+      "occupiedPixels": 56339,
+      "source": [
+        920,
+        782,
+        589,
+        164
+      ],
+      "target": [
+        -20.9476987,
+        -11.5230126,
+        41.8953975,
+        11.665272
+      ]
+    },
+    {
+      "atlas": "ancillary",
+      "frame": "ancillary-idle",
+      "usage": "runtime",
+      "occupiedPixels": 33656,
+      "source": [
+        183,
+        8,
+        114,
+        486
+      ],
+      "target": [
+        -4.0912863,
+        -34.1410788,
+        8.0414938,
+        34.2821577
+      ]
+    },
+    {
+      "atlas": "ancillary",
+      "frame": "ancillary-walk-0",
+      "usage": "runtime",
+      "occupiedPixels": 43139,
+      "source": [
+        611,
+        14,
+        253,
+        478
+      ],
+      "target": [
+        -8.8879668,
+        -33.5767635,
+        17.846473,
+        33.7178423
+      ]
+    },
+    {
+      "atlas": "ancillary",
+      "frame": "ancillary-walk-1",
+      "usage": "runtime",
+      "occupiedPixels": 44278,
+      "source": [
+        1098,
+        19,
+        260,
+        472
+      ],
+      "target": [
+        -10.1576763,
+        -33.153527,
+        18.340249,
+        33.2946058
+      ]
+    },
+    {
+      "atlas": "ancillary",
+      "frame": "ancillary-walk-2",
+      "usage": "runtime",
+      "occupiedPixels": 48709,
+      "source": [
+        97,
+        525,
+        300,
+        485
+      ],
+      "target": [
+        -10.0165975,
+        -34.0705394,
+        21.1618257,
+        34.2116183
+      ]
+    },
+    {
+      "atlas": "ancillary",
+      "frame": "ancillary-walk-3",
+      "usage": "runtime",
+      "occupiedPixels": 44514,
+      "source": [
+        597,
+        522,
+        259,
+        484
+      ],
+      "target": [
+        -10.0518672,
+        -34,
+        18.2697095,
+        34.1410788
+      ]
+    },
+    {
+      "atlas": "ancillary",
+      "frame": "ancillary-downed",
+      "usage": "reference",
+      "occupiedPixels": 51135,
+      "source": [
+        1017,
+        763,
+        501,
+        170
+      ],
+      "target": [
+        -17.6701245,
+        -11.8506224,
+        35.340249,
+        11.9917012
+      ]
+    }
+  ],
+  "views": [
+    {
+      "file": "residents-cells.png",
+      "width": 1600,
+      "height": 810,
+      "sha256": "0e4956454d3580a784961e3cb7ff812a2f39c351589bccea47344a55a7b7a407",
+      "type": "Diagnostic source atlas on opaque backgrounds; runtime and reference cells explicitly labeled",
+      "atlas": "residents"
+    },
+    {
+      "file": "refugees-cells.png",
+      "width": 1600,
+      "height": 810,
+      "sha256": "886446fd59bd1037009f4020df4975378f262d6e7dd0948e77bd59d1d71cb432",
+      "type": "Diagnostic source atlas on opaque backgrounds; runtime and reference cells explicitly labeled",
+      "atlas": "refugees"
+    },
+    {
+      "file": "dockworkers-cells.png",
+      "width": 1600,
+      "height": 810,
+      "sha256": "016ef95510f9f69f912d1adbb803f0150070069b9942faa6c00efd225fd6b450",
+      "type": "Diagnostic source atlas on opaque backgrounds; runtime and reference cells explicitly labeled",
+      "atlas": "dockworkers"
+    },
+    {
+      "file": "mara-cells.png",
+      "width": 1200,
+      "height": 540,
+      "sha256": "adb21ac8b77740ccca961259c59e963e99d0cda2624e32e63acd7e0f926a88fa",
+      "type": "Diagnostic source atlas on opaque backgrounds; runtime and reference cells explicitly labeled",
+      "atlas": "mara"
+    },
+    {
+      "file": "ancillary-cells.png",
+      "width": 1200,
+      "height": 540,
+      "sha256": "5c39b3cdc39b9c04910a0b5f7d23e90edf37d55c4bfc737674225e31521837b0",
+      "type": "Diagnostic source atlas on opaque backgrounds; runtime and reference cells explicitly labeled",
+      "atlas": "ancillary"
+    },
+    {
+      "file": "nacre-civilians-grounding.png",
+      "width": 1600,
+      "height": 680,
+      "sha256": "d86e03d879554f7869c7a2b81ef32bd6420d14c10973a8290f26028bd828bf82",
+      "type": "Eight current-roster appearances at ×5 and actual world scale on an explicit ground datum"
+    },
+    {
+      "file": "mi06-residents-evacuating.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "4e391504c60a31ef97de3bccd39c433683d5538d2a46d9ed98a62ce1acda25e9",
+      "type": "Normal Canvas scene reached through public controls; reduced motion",
+      "missionId": "MI06",
+      "elapsed": 22.599999999999998,
+      "civiliansDrawn": [
+        {
+          "atlas": "residents",
+          "source": [
+            127,
+            6,
+            105,
+            348
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            127,
+            6,
+            105,
+            348
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            127,
+            6,
+            105,
+            348
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            127,
+            6,
+            105,
+            348
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            127,
+            6,
+            105,
+            348
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        }
+      ],
+      "stage": "Residents have physically left their homes following the real evacuation call"
+    },
+    {
+      "file": "mi08-quay-agreements.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "9bd2d26b6d88e6a9ee934104ba6da47a48858490dedccfd01000fe68daaa2fa7",
+      "type": "Normal Canvas scene reached through public controls; reduced motion",
+      "missionId": "MI08",
+      "elapsed": 245.0833333334205,
+      "civiliansDrawn": [
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            855,
+            366,
+            102,
+            350
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            855,
+            366,
+            102,
+            350
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            855,
+            366,
+            102,
+            350
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            855,
+            366,
+            102,
+            350
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            855,
+            366,
+            102,
+            350
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            127,
+            6,
+            105,
+            348
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            127,
+            6,
+            105,
+            348
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            127,
+            6,
+            105,
+            348
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            127,
+            6,
+            105,
+            348
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        }
+      ],
+      "stage": "Existing groups and Mara physically at the quay before completed allocation or embarkation",
+      "historicalFixture": "tests/fixtures/campaign-v7-mi07.json"
+    },
+    {
+      "file": "mi08-individual-boarding.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "2b7cab8762ae7d8d657c0dec23eb665a572fc5438f6126c142565a468bca5458",
+      "type": "Normal Canvas scene reached through public controls; reduced motion",
+      "missionId": "MI08",
+      "elapsed": 250.61666666675825,
+      "civiliansDrawn": [
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            855,
+            366,
+            102,
+            350
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            855,
+            366,
+            102,
+            350
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            855,
+            366,
+            102,
+            350
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            855,
+            366,
+            102,
+            350
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            855,
+            366,
+            102,
+            350
+          ]
+        },
+        {
+          "atlas": "refugees",
+          "source": [
+            118,
+            6,
+            118,
+            347
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            127,
+            6,
+            105,
+            348
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            127,
+            6,
+            105,
+            348
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        },
+        {
+          "atlas": "residents",
+          "source": [
+            859,
+            363,
+            92,
+            355
+          ]
+        },
+        {
+          "atlas": "ancillary",
+          "source": [
+            183,
+            8,
+            114,
+            486
+          ]
+        },
+        {
+          "atlas": "dockworkers",
+          "source": [
+            132,
+            6,
+            94,
+            352
+          ]
+        },
+        {
+          "atlas": "dockworkers",
+          "source": [
+            132,
+            6,
+            94,
+            352
+          ]
+        },
+        {
+          "atlas": "dockworkers",
+          "source": [
+            132,
+            6,
+            94,
+            352
+          ]
+        },
+        {
+          "atlas": "dockworkers",
+          "source": [
+            132,
+            6,
+            94,
+            352
+          ]
+        },
+        {
+          "atlas": "mara",
+          "source": [
+            151,
+            10,
+            132,
+            482
+          ]
+        },
+        {
+          "atlas": "dockworkers",
+          "source": [
+            848,
+            366,
+            100,
+            354
+          ]
+        }
+      ],
+      "stage": "People still walking or boarding and single factual indicators for occupants already aboard"
+    }
+  ],
+  "publicControls": [
+    {
+      "missionId": "MI06",
+      "result": "won",
+      "elapsed": 111.29999999999497,
+      "residentsSafe": 10,
+      "residentsLost": 0,
+      "techniciansAlive": 2
+    },
+    {
+      "missionId": "MI08",
+      "result": "won",
+      "elapsed": 329.3333333333625,
+      "peopleDeparted": 34,
+      "peopleArrived": 34,
+      "peopleLocal": 2,
+      "peopleLost": 0
+    }
+  ],
+  "limitations": [
+    "Atlas and grounding boards impose graphical states; they are not campaign events.",
+    "Public-control scenes use the normal renderer and the existing simulation drivers. They do not certify browser UI, human input, audio or final animation quality.",
+    "MI06 uses an explicit input context; MI08 begins with the unchanged historical v7 MI07 fixture.",
+    "The six nonresident loss cells are inspection references and never enter runtime selections.",
+    "Appearances are current-roster variations and do not restore missing historical identities."
+  ],
+  "environment": {
+    "planetId": "PL02",
+    "path": "assets/painted/worlds/nacre.png",
+    "sha256": "bc03fadfb3b98f7c2a44290864b4d6159f21c9bb7c889e1e7c72984f2d21f88c",
+    "state": "ready"
+  }
+}

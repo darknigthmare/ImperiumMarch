@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "version": "0.15.9",
+  "generator": "image_gen built-in",
+  "canonIds": [
+    "PL02",
+    "MI05",
+    "MI06",
+    "MI07",
+    "MI08",
+    "FL06"
+  ],
+  "atlasCount": 2,
+  "frameCount": 10,
+  "runtimeFrameCount": 10,
+  "referenceFrameCount": 0,
+  "files": [
+    {
+      "id": "terrain",
+      "path": "assets/painted/nacre-scenery/terrain.png",
+      "bytes": 2344355,
+      "sha256": "3ca20a8f50e2df45e45341a0fde5bd43f0d1f0c93cea4e3a4566152d56adc1fc",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "frames": 4,
+      "runtimeFrames": 4,
+      "referenceFrames": 0,
+      "transparentFraction": 0.300192,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "props",
+      "path": "assets/painted/nacre-scenery/props.png",
+      "bytes": 1678665,
+      "sha256": "a9fee87d46163d4609918882b0f7dcfd9368d19cdbe5df9695de88a0224af4e5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.800856,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    }
+  ],
+  "scope": "Nacre terrain materials and shoreline scenery in existing decorative ground slots only.",
+  "pixelPolicy": "Selected original generated PNG bytes retained. Alpha measurement, material crops and metadata only. No script edits to pixels.",
+  "layoutPolicy": "Measured cells with half-pixel rounding handled independently. Visible alpha bounds and interior material rectangles are metadata; PNG bytes remain unchanged.",
+  "physicalPolicy": "Terrain is clipped at terrainAt. Existing Nacre water, gates, bodies and foot contacts are untouched. No collider, actor, tide marker, mooring interaction or plant response is introduced. FL06 is decorative only."
+}

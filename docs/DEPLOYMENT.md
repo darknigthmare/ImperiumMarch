@@ -1,5 +1,15 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Préparation 0.15.9 — reprise complète et nouveaux décors
+
+La tranche **0.15.9** réunit la 0.15.8 récupérée et sept atlas de Nacre : **84 atlas, 644 cellules, 18 lots**, avec les panoramas comptés séparément. Les sources, les PNG originaux, la Bible et les preuves sont préparés sur `codex/nacre-worlds-completion-v0159`. Le [rapport QA](QA_V15_9.md) reçoit localement **836 tests, 174 comparaisons SVG/Canvas et 108 parcours du DOM modélisé** ; la réception navigateur reste bloquée avant chargement. Ces contrôles ne valent pas reçu de mise en ligne.
+
+La conservation distante de la tranche 0.15.8 a été vérifiée au commit `86b6ddd35d66a147bf2b9c9d07cd6b8f8468bc5d`, parent `ca5139b276e48be8c20d1d012ec4deefc6130a71`. Son arbre `b4fa75737df7866020671fb36ee8fa0ec7e7a556` est exactement celui du commit local récupéré `95564d23ace8b6fdc12bd685428a59b532b186d0`. Les nouvelles sources doivent être publiées par-dessus ce parent ; la PR, la CI et l'hébergement sont consignés après leurs réponses effectives.
+
+L'archive autonome complète 0.15.9 est construite et vérifiée : **151 098 632 octets**, SHA-256 `5905e77a527bdab1672835689139ffcce2be3cf5bafd7aa9e38aa6c61625e3e0`. Elle contient l'HTML de **206 002 133 octets**, SHA-256 `f01e6b87fd835417cdd3ab24ca9e3d4c2ae50ff0ec0832f3077c01f2be239960`. L'archive générée reste hors Git. Aucun lancement du workflow de Release refusé antérieurement n'est effectué pour cette reprise.
+
+Lors de la vérification initiale du 17 novembre, Vercel sert toujours le commit applicatif 0.15.7 `1235102b25a531a90feeb0d1b38a37482a928c5d`. Le quota observé la veille et la liaison au projet existant restent décrits ci-dessous. La publication finale doit confirmer l'état réellement reçu sur le nouveau commit, sans modifier domaine, protection ou limite de compte.
+
 ## Reprise 0.15.8 — fichiers retrouvés, publication à recevoir
 
 La reprise du **17 novembre 2026** retrouve la branche locale `codex/painted-worlds-people-v0158`, basée sur le `main` public **`ca5139b276e48be8c20d1d012ec4deefc6130a71`**, arbre **`5cf20c6c560a58303a47052e70feb3061a8b794d`**. Ses neuf nouvelles images, le code d’intégration, la Bible et les reçus de la première session sont conservés. Aucun atlas de ce lot n’est régénéré pour cette reprise. Le [bilan de production](PRODUCTION_V15_8.md) et le [rapport QA](QA_V15_8.md) décrivent la tranche : **six atlas / 44 cellules, trois panoramas**, puis **77 atlas / 586 cellules** au total.

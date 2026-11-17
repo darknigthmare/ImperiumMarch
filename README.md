@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.15.8 en préparation de publication · Français**
+**Nom de code : ImperiumMarch · Version 0.15.9 en préparation de publication · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -12,11 +12,13 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 Cette livraison contient un **prototype de quatorze missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant **v14**. MI12 achève la tranche de Thyr ; MI13 et MI14 ouvrent Kharon par un convoi industriel puis un atelier en grève. La Bible contient **1 007 fiches sur 21 onglets**. Les dix-huit missions MI15–MI32, les seize contrats et la qualité de production visée restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
 
+La **0.15.9 complète les habitants et les berges de Nacre** : cinq atlas de personnages proposent huit apparences et 32 poses de marche ; deux atlas ajoutent quatre matières de sol et six petits décors. Le catalogue atteint **84 atlas / 644 cellules**, dont 600 utilisées au rendu et 44 références. La reprise conserve également l'intégralité de la 0.15.8 : panoramas, décors de Vesper, techniciens, personnel sanitaire et patients. Le [bilan courant](docs/PRODUCTION_V15_9.md), la [réception QA](docs/QA_V15_9.md) et le [guide de la Bible](docs/BIBLE_README.md) précisent les réalisations et leur portée.
+
 La **0.15.8 ajoute les personnes de Nacre, les sols et le viaduc de Vesper, ainsi que les horizons de Nacre, Thyr et Kharon**. Six atlas apportent 44 cellules, dont douze poses de marche ; trois panoramas sont comptés séparément. Le catalogue atteint **77 planches et 586 cellules**, dont 548 utilisées au rendu et 38 références. Ce lot a été retrouvé avec ses fichiers et repris sans régénérer ses images. Le [bilan 0.15.8](docs/PRODUCTION_V15_8.md) et son [rapport QA](docs/QA_V15_8.md) décrivent le contenu reçu et ses limites. La campagne reste à quatorze missions ; la sauvegarde reste v14. Les bilans [installations de Vesper à Kharon](docs/PRODUCTION_V15_7.md), [installations de Nacre et Thyr](docs/PRODUCTION_V15_6.md), [transports et relais](docs/PRODUCTION_V15_5.md), [Thyr et Cerbère](docs/PRODUCTION_V15_4.md), [marcheurs](docs/PRODUCTION_V15_3.md), [combat](docs/PRODUCTION_V15_2.md), [atelier](docs/PRODUCTION_V15_1.md) et [reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves historiques.
 
 ## Jouer à cette version
 
-**La 0.15.8 est préparée dans les sources de travail ; sa PR, sa CI distante et son déploiement restent à recevoir.** Le site sert encore la **0.15.7**, confirmée READY pendant la reprise. Le dernier commit documentaire public `ca5139b` a rencontré la limite de déploiements Vercel, avec un délai de 24 heures annoncé le 16 novembre à 22:35, heure de Paris. Ce quota ne transforme pas les vérifications locales de la 0.15.8 en publication web. Le [suivi de déploiement](docs/DEPLOYMENT.md) précise les commits et les disponibilités effectivement observés.
+**La 0.15.9 réunit la tranche 0.15.8 récupérée et les nouveaux lots de Nacre.** Sa publication GitHub et sa disponibilité Vercel sont suivies dans le [dossier de déploiement](docs/DEPLOYMENT.md), avec les commits effectivement reçus. Le site public servait encore la 0.15.7 lors de la vérification initiale du 17 novembre ; les résultats locaux ne constituent pas un reçu de mise en ligne.
 
 La **0.15.7 est publiée sur le [site du jeu](https://imperium-march.vercel.app/) et dans les sources GitHub**. La [PR #6](https://github.com/darknigthmare/ImperiumMarch/pull/6) est fusionnée sur `main` au commit [`1235102`](https://github.com/darknigthmare/ImperiumMarch/commit/1235102b25a531a90feeb0d1b38a37482a928c5d). Vercel a reçu ce même commit en production le 16 novembre 2026 à **22:09:47, heure de Paris**. Le [reçu de publication](docs/validation/v0157-publication.json) relie les sources, les deux CI réussies et le contrôle HTTP du site.
 
@@ -67,6 +69,8 @@ npm run check:foundry-sites
 npm run check:worlds
 npm run check:nacre-people
 npm run check:vesper-scenery
+npm run check:nacre-civilians
+npm run check:nacre-scenery
 npm run check:offline-package
 npm run build:web
 ```
@@ -98,6 +102,18 @@ Vesper reçoit quatre matières de terrain, six petits décors et six pièces de
 *Scène Canvas de la première réception 0.15.8, atteinte par commandes publiques de simulation. Les positions, personnes et transferts sont ceux de MI07. Cette image n’est pas une capture de navigateur.*
 
 Les [personnes de Nacre](assets/painted/nacre-people/README.md), les [décors de Vesper](assets/painted/vesper-scenery/README.md) et les [panoramas](assets/painted/worlds/README.md) conservent leurs originaux, prompts et mesures. Le [rapport QA](docs/QA_V15_8.md) sépare tests, Canvas, DOM modélisé, navigateur et essai humain. Les animations finales, la campagne complète et MI15–MI32 restent à produire.
+
+## 0.15.9 — Les visages et les berges de Nacre
+
+Les habitants quittent leurs maisons, les réfugiés rejoignent leur embarquement et les équipes du quai gardent leurs rôles distincts. Mara reçoit son apparence physique uniquement après sa jonction réelle dans MI08. Les personnes à bord, accueillies ou perdues conservent leurs règles de présence. Les huit silhouettes ajoutent des arrêts et des marches ; six poses de perte restent des références exclues du moteur.
+
+Les matières humides et les six décors de berge suivent les coordonnées du monde. Les pieds, les rampes, les ouvertures et le niveau d'eau gardent leurs surfaces simulées. Les fleurs de sel et les algues sont décoratives dans cette tranche. La réduction des mouvements conserve les poses d'arrêt tout en permettant aux personnes de se tourner vers leur déplacement.
+
+![Les personnes et les nouveaux décors de Nacre au quai d'Aval.](docs/validation/v0159-final/civilians/mi08-quay-agreements.png)
+
+*Scène Canvas du renderer ordinaire, atteinte par commandes publiques de simulation. Ce n'est pas une capture de navigateur ni une campagne jouée humainement. Le [rapport QA](docs/QA_V15_9.md) distingue les preuves.*
+
+Les [personnages](assets/painted/nacre-civilians/README.md) et les [matières et décors](assets/painted/nacre-scenery/README.md) conservent leurs PNG originaux, prompts, mesures et empreintes. La livraison contient également tous les fichiers récupérés de la [0.15.8](docs/PRODUCTION_V15_8.md). Les missions MI15–MI32 et les animations finales restent à produire.
 
 ## 0.15.7 — Les sites de Vesper à Kharon
 

@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.15.8",
+    "version": "0.15.9",
     "date": "2026-11-17",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs, tous les statuts et les 133 critères initiaux sont conservés. Trois panoramas originaux de Nacre, Thyr et Kharon sont ajoutés séparément des atlas. Six atlas ajoutent 44 cellules de personnes de Nacre et de décors Vesper, toutes utilisées au rendu. Le total atteint 77 atlas et 586 cellules en 16 lots, dont 548 au rendu et 38 références. Aucun individu, mission, état ou règle supplémentaire n’est créé. Positions, transferts, pertes, contacts, eau et progression restent simulés. Animations finales et réception humaine restent ouvertes.",
+    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs, tous les statuts et les 133 critères initiaux sont conservés. Sept atlas ajoutent 58 cellules de personnes, sols et décors de Nacre, dont 52 au rendu et six références. Le total atteint 84 atlas et 644 cellules en 18 lots, dont 600 au rendu et 44 références. Les panoramas sont comptés séparément. Huit apparences et 32 poses de marche habillent les personnes déjà simulées. Les dix cellules de sol et de décor suivent les surfaces et emplacements existants. Aucun effectif, identité historique, collision ni mécanisme végétal n’est ajouté. Présences, transferts, pertes et contacts suivent les faits de mission. Animations finales et réception humaine restent ouvertes.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Livrable partiel disponible. L’onglet Prototype et les reçus de production précisent son intégration, sa portée et les critères encore ouverts.",
@@ -5287,7 +5287,7 @@
           "id": "AS17",
           "category": "Décors",
           "deliverable": "Kit Nacre",
-          "spec": "Mer en plusieurs plans, marées, digues, quais, villages, mangroves et silhouettes navales. Le kit vectoriel 0.9, les six atlas/30 cellules 0.15.5 et les cinq atlas/30 cellules 0.15.6 sont conservés, dont une balise de référence. 0.15.8 ajoute un panorama lointain original de Nacre, séparé des trois atlas/28 cellules de personnes. Eau, ouvertures et présences gardent leurs états. Mangroves interactives, animations finales et réception humaine restent ouvertes.",
+          "spec": "Mer en plusieurs plans, marées, digues, quais, villages, mangroves et silhouettes navales. Kits, infrastructures, panorama et personnes antérieurs conservés. 0.15.9 ajoute cinq atlas/48 cellules civiles et deux atlas/dix cellules de sols et décors. Fleur de sel FL06 et algues restent décoratives, sans réaction de marée ou de pompe. Eau, ouvertures, appuis et présences gardent leurs états. Mangroves interactives, animations finales et réception humaine restent ouvertes.",
           "acceptance": "Niveau d’eau et zones praticables correspondent au gameplay.",
           "priority": "P0",
           "status": "Prototype"
@@ -5404,7 +5404,7 @@
           "id": "AS30",
           "category": "Production",
           "deliverable": "Registre de provenance",
-          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. Les manifestes historiques restent conservés. 0.15.8 documente trois panoramas originaux et six atlas/44 cellules de personnes de Nacre et de décors Vesper : prompts, PNG inchangés, dimensions, empreintes et usages. Les 44 cellules sont utilisées au rendu. Total : 77 atlas/586 cellules en 16 lots, dont 548 au rendu et 38 références; panoramas comptés séparément. PR26 reste ouvert.",
+          "spec": "Auteur ou générateur, prompt connu, date, droits, version et chemins sont consignés sans inventer les champs absents. Manifestes historiques conservés. Les deux lots 0.15.9 documentent sept atlas/58 cellules : prompts, PNG inchangés, dimensions, empreintes, découpes et usages. Ils distinguent 52 cellules au rendu et six références. Total : 84 atlas/644 cellules en 18 lots, dont 600 au rendu et 44 références. Panoramas comptés séparément. PR26 reste ouvert.",
           "acceptance": "Tout asset livré possède une entrée; aucun média de référence embarqué sans autorisation.",
           "priority": "P0",
           "status": "Prototype"
@@ -5476,7 +5476,7 @@
           "id": "AS38",
           "category": "Production",
           "deliverable": "Manifestes d’intégration",
-          "spec": "Registre de provenance, pivots, échelle, usage, variantes et dépendances. Rigs et manifestes antérieurs conservés. 0.15.8 ajoute trois panoramas et six atlas/44 cellules au rendu, avec rectangles et ancres mesurés. Les personnes suivent leurs positions, rôles et pertes; sol et viaduc suivent leurs surfaces existantes. Les panoramas n’ajoutent aucun contact. Chargement asynchrone et repli vectoriel; aucun changement de sauvegarde ou de réception humaine.",
+          "spec": "Registre de provenance, pivots, échelle, usage et dépendances. Rigs et manifestes antérieurs conservés. 0.15.9 ajoute sept atlas/58 cellules avec rectangles et ancres mesurés. Huit apparences suivent les personnes simulées; six poses de perte restent références. Quatre matières et six décors suivent les surfaces et emplacements existants. Les personnes à bord gardent leurs indicateurs uniques. Chargement asynchrone, repli vectoriel et dossier v14 conservés.",
           "acceptance": "Un asset peut être remplacé sans perdre collision, position du son ou identité de la source.",
           "priority": "P1",
           "status": "Prototype"
@@ -5521,7 +5521,7 @@
           "id": "AS43",
           "category": "Nacre",
           "deliverable": "Kit de chenal de référence",
-          "spec": "Premier rendu procédural d’un chenal, de bancs, de passerelles, de barges à treuil et d’un bateau civil. Les positions et états viennent de la simulation.",
+          "spec": "Chenal, bancs, passerelles, barges à treuil et bateau civil suivent leurs positions et états simulés. Les infrastructures peintes antérieures sont conservées. 0.15.9 complète Nacre par quatre matières de sol et six décors : rocher, galets salés, fleur de sel, algues, borne et planches. Ces cellules occupent le terrain et les emplacements décoratifs existants de MI05–MI08 et OP02. Collisions, amarres interactives, marée et appuis restent inchangés.",
           "acceptance": "Portée prototype explicitée par PX55–PX62. Art final, textures animées, équipages animés et audio local restent les lots AS44–AS50.",
           "priority": "P1",
           "status": "Prototype"
@@ -5530,7 +5530,7 @@
           "id": "AS44",
           "category": "Nacre",
           "deliverable": "Repères de marée et matières des bancs",
-          "spec": "Graduations fixes, eau mobile, vase découverte et tablier posé lisibles avec les trois familles de marcheurs. Le repère de marée vectoriel 0.9 et ses ancres de niveau sont conservés. 0.15.6 peint les matières des rampes et platelages; aucun nouveau repère de marée n’est ajouté. Eau et indications de submersion suivent le niveau simulé. Matières animées de vase et compréhension du risque sans seule couleur en combat restent à recevoir.",
+          "spec": "Graduations fixes, eau mobile, vase découverte et tablier posé restent lisibles avec les trois familles de marcheurs. Repère vectoriel de marée 0.9, ancres de niveau et matières de rampes et platelages 0.15.6 conservés. 0.15.9 peint quatre matières de terrain : roche humide, limon stratifié, maçonnerie salée et métal patiné. Eau, submersion, bancs et digues gardent leur simulation et leur surface. Matières animées et compréhension humaine du risque restent ouvertes.",
           "acceptance": "Lecture sans dépendre seulement de la couleur. Le contact sûr et le risque submergé restent visibles dans un cadrage de combat.",
           "priority": "P0",
           "status": "Prototype"
@@ -5584,7 +5584,7 @@
           "id": "AS50",
           "category": "Nacre",
           "deliverable": "Portes d’Aval et départ de MI08",
-          "spec": "Deux portes, pression, refuge et départs distincts. Kit vectoriel 0.9, deux bateaux de six cellules 0.15.5 et infrastructures peintes 0.15.6 conservés. 0.15.8 reprend les apparences de techniciens, patients et personnel identifié au quai ou à l’accueil; les indicateurs à bord et les origines inconnues conservent leur rendu. Ouverture, pression et présences restent simulées. Les images ne prouvent aucune arrivée; gestes finaux et compréhension humaine restent ouverts.",
+          "spec": "Deux portes, pression, refuge et départs distincts. Kits et infrastructures antérieurs conservés. 0.15.8 reprend techniciens, patients et personnel identifié. 0.15.9 peint résidents, réfugiés, équipage anonyme, responsable du port, Mara et personnel sanitaire sans identité historique. Indicateurs à bord, présence et arrivées restent simulés. Les silhouettes ne créent ni identité, ni arrivée, ni dépouille supplémentaire. Gestes finaux et compréhension humaine restent ouverts.",
           "acceptance": "Les portes, personnes et bateaux visibles correspondent à leurs états persistants. Aucune foule générique ne remplace le bilan.",
           "priority": "P1",
           "status": "Prototype"
@@ -5602,7 +5602,7 @@
           "id": "AS52",
           "category": "Nacre",
           "deliverable": "Maisons des Trois-Vannes",
-          "spec": "Deux façades originales, seuils visibles et accès au secours séparé de la silhouette de tir. Les variantes vectorielles 0.9 sont conservées. 0.15.6 ajoute six cellules peintes pour les deux maisons; eau, exposition et seuils restent indiqués selon les niveaux simulés. Les façades ne contiennent aucun occupant peint : évacuation, logement perdu et pertes de personnes demeurent séparés. Animations de secours et compréhension humaine restent ouvertes.",
+          "spec": "Deux façades originales, seuils visibles et accès au secours séparé de la silhouette de tir. Les six cellules peintes de maisons 0.15.6 restent disponibles sans occupant prépeint. 0.15.9 donne deux apparences aux dix résidents existants : arrêt, quatre poses de marche et perte pour chacune. Ils apparaissent après sortie réelle, restent au lieu de leur perte ou disparaissent après accueil. Logement perdu, évacuation et pertes de personnes restent distincts. Gestes de secours et réception humaine restent ouverts.",
           "acceptance": "La maison vide ne paraît pas encore habitée après une évacuation. Logement perdu et personnes perdues ne partagent pas la même animation.",
           "priority": "P1",
           "status": "Prototype"
@@ -5629,7 +5629,7 @@
           "id": "AS55",
           "category": "Personnages",
           "deliverable": "Mara au chantier",
-          "spec": "Portrait et mise en scène de médecin liés à une présence ou une liaison explicitement établie; variantes de constat selon maisons et habitants.",
+          "spec": "Portrait et mise en scène de médecin liés à une présence ou une liaison explicitement établie, avec variantes de constat selon maisons et habitants. 0.15.9 fournit six cellules de silhouette pour Mara : arrêt, quatre poses de marche et perte de référence exclue du rendu. Sa présence peinte est limitée à l’actrice aval-mara de MI08 après son départ réel. MI06 et MI07 restent radiophoniques. Portrait, expressions, jeu d’acteur et réception humaine restent ouverts.",
           "acceptance": "Aucune image ne suggère un recrutement ou une présence sous les tirs si le prototype ne simule qu’un contact à distance.",
           "priority": "P1",
           "status": "À produire"
@@ -5656,7 +5656,7 @@
           "id": "AS58",
           "category": "Personnages",
           "deliverable": "Patients et personnel sanitaire",
-          "spec": "Quatre patients, une conductrice et un soignant distincts des habitants de la digue. 0.15.8 fournit douze cellules de personnel (arrêt, quatre poses de marche et perte par rôle) et huit de patients (quatre apparences sur chariot et leurs états couverts de perte). Présences et transferts restent individuels. Soins animés, identité finale et réception humaine restent ouverts.",
+          "spec": "Quatre patients, une conductrice et un soignant distincts des habitants de la digue. Les douze cellules de personnel et huit cellules de patients 0.15.8 restent disponibles. 0.15.9 ajoute six cellules sanitaires génériques pour les agrégats staff sans originalId de MI08 : arrêt et quatre poses de marche au rendu, perte de référence. Le personnel identifié conserve ses apparences. Aucun passé individuel n’est reconstitué. Soins animés et réception humaine restent ouverts.",
           "acceptance": "Origine et présence lisibles; aucun personnage final revendiqué à partir d’un compteur agrégé.",
           "priority": "P1",
           "status": "À produire"
@@ -5842,7 +5842,7 @@
         {
           "id": "PR12",
           "workstream": "Art prototype",
-          "deliverable": "Identité visuelle, environnements et silhouettes lisibles. Réception partielle 0.15.8 : trois panoramas Nacre/Thyr/Kharon et six atlas/44 cellules de personnes de Nacre et de décors Vesper, toutes utilisées au rendu. Total : 77 atlas/586 cellules en 16 lots, dont 548 au rendu et 38 références; panoramas comptés séparément. Pièces et états ne sont pas autant d’unités ou de cycles complets. Autres biomes, animations finales et réception humaine restent ouverts.",
+          "deliverable": "Identité visuelle, environnements et silhouettes lisibles. Réception partielle 0.15.9 : sept atlas/58 cellules de personnes, sols et décors de Nacre, dont 52 au rendu et six références. Huit apparences ont 32 poses de marche; dix cellules couvrent sols et décors. Total : 84 atlas/644 cellules en 18 lots, dont 600 au rendu et 44 références. Panoramas comptés séparément. Autres biomes, interactions végétales, animations finales et réception humaine restent ouverts.",
           "depends": "AS01–AS04; AS16–AS18",
           "acceptance": "Captures à plusieurs résolutions, contraste et unités identifiables.",
           "priority": "P0",
@@ -6211,7 +6211,7 @@
         {
           "id": "PR53",
           "workstream": "Nacre — première surface",
-          "deliverable": "Un chenal avec banc émergent, barge, treuil et passage civil dans MI05.",
+          "deliverable": "Un chenal avec banc émergent, barge, treuil et passage civil dans MI05. Les positions et états restent simulés. 0.15.9 ajoute quatre matières de sol et six décors de rive à Nacre, en complément des infrastructures peintes antérieures. Fleur de sel, algues, borne et autres décors restent sans interaction. Matières animées, équipages finaux et réception humaine restent ouverts.",
           "depends": "SY34; SY38; AS43; MI05",
           "acceptance": "Marée lisible, alternative par passerelle, treuils séparés, inspections et bilan du bateau conservés. Effet des six appuis dans la vase. Module MD02, fatigue et charge de quais restent conçus.",
           "priority": "P1",
@@ -6364,7 +6364,7 @@
         {
           "id": "PR70",
           "workstream": "Mara — mise en scène",
-          "deliverable": "Scène de constat, voix et variantes locales, avec source de connaissance et lieu de parole explicites.",
+          "deliverable": "Scène de constat, voix et variantes locales, avec source de connaissance et lieu de parole explicites. Une silhouette peinte de Mara est disponible en 0.15.9 pour sa présence simulée en MI08. Ses contacts de MI06/MI07 restent radio. Portrait, expressions, voix et réception de la mise en scène restent ouverts.",
           "depends": "PN07; NA45; NA51; AS55",
           "acceptance": "Mara ne promet pas une alliance en remerciant une évacuation; une maison perdue conserve une réplique adaptée même sans mort.",
           "priority": "P1",
@@ -6373,7 +6373,7 @@
         {
           "id": "PR71",
           "workstream": "Secours visibles",
-          "deliverable": "Mise en scène finale des trajets déjà simulés, gestes d’accueil à l’abri, animations de secours et travail détaillé des techniciens. Les poses peintes 0.15.8 reçoivent partiellement les personnes de Nacre; elles ne clôturent ni les gestes de secours ni la réception humaine.",
+          "deliverable": "Mise en scène finale des trajets déjà simulés, gestes d’accueil à l’abri, animations de secours et travail détaillé des techniciens. Les poses peintes 0.15.8 couvrent les techniciens et le personnel sanitaire. 0.15.9 ajoute deux apparences pour les dix résidents de la digue, avec marche et pertes existantes. Gestes détaillés et réception humaine restent ouverts.",
           "depends": "AS52; AS53; NA56",
           "acceptance": "La foule visible et le compte sauvegardé correspondent. Un habitant évacué n’est pas dessiné dans la maison ensuite détruite.",
           "priority": "P1",
@@ -6472,7 +6472,7 @@
         {
           "id": "PR82",
           "workstream": "MI08 — personnes et accueil",
-          "deliverable": "Listes de personnes par origine, capacités de brancards, embarquement, départ et confirmation d’arrivée. Recensement, places, brancards et accompagnants individuels conservés. 0.15.8 reprend les apparences peintes des rôles connus au quai ou à l’accueil; indicateurs à bord et origines inconnues restent distincts.",
+          "deliverable": "Listes de personnes par origine, capacités de brancards, embarquement, départ et confirmation d’arrivée. Recensement, places et accompagnants individuels conservés. 0.15.9 ajoute des apparences de résidents, réfugiés, équipage, responsable du port, Mara et personnel sanitaire générique. Les rôles connus 0.15.8 et les indicateurs uniques à bord sont conservés. Les apparences ne rétablissent aucune identité absente des archives.",
           "depends": "NA63; NA64; PR62; AS50",
           "acceptance": "Aucune duplication entre quai, bateau et refuge. Une destination annoncée n’est pas une arrivée observée.",
           "priority": "P1",
@@ -8608,7 +8608,7 @@
     },
     {
       "name": "Prototype",
-      "description": "Portée présente dans le code de la version 0.15.8. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
+      "description": "Portée présente dans le code de la version 0.15.9. Les capacités finales des catalogues restent distinctes. Les limites de chaque fiche décrivent le travail ouvert.",
       "columns": [
         {
           "key": "id",
@@ -8858,9 +8858,9 @@
           "id": "PX24",
           "link": "PR12; AS01",
           "name": "Direction visuelle initiale",
-          "implemented": "Illustration de titre, panorama Vesper et silhouettes articulées conservés. 0.15.8 ajoute trois panoramas lointains originaux pour Nacre, Thyr et Kharon, plus six atlas/44 cellules de personnes de Nacre et de décors Vesper. Total : 77 atlas/586 cellules en 16 lots, dont 548 au rendu et 38 références; les panoramas sont séparés. PNG originaux inchangés, découpes et ancres mesurées; chargement asynchrone et repli vectoriel.",
+          "implemented": "Illustration de titre, quatre panoramas et lots peints antérieurs conservés. 0.15.9 ajoute sept atlas/58 cellules de personnes, sols et décors de Nacre, dont 52 au rendu et six références. Total : 84 atlas/644 cellules en 18 lots, dont 600 au rendu et 44 références. Panoramas séparés. Huit apparences ont un arrêt et quatre poses de marche. Quatre matières et six décors suivent le terrain existant. PNG inchangés, chargement asynchrone et repli vectoriel.",
           "limits": "Art au stade Prototype. Pièces, états et références ne constituent ni unités supplémentaires ni cycles complets. Factions complètes, autres biomes, écologie générale et campagne entièrement peinte restent à produire. Réceptions graphique, navigateur et humaine distinctes.",
-          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-worlds.mjs ; src/painted-nacre-people.mjs ; src/painted-vesper-scenery.mjs",
+          "path": "assets/art ; assets/painted ; src/renderer.mjs ; src/painted-worlds.mjs ; src/painted-nacre-people.mjs ; src/painted-vesper-scenery.mjs ; src/painted-nacre-civilians.mjs ; src/painted-nacre-scenery.mjs",
           "status": "Prototype"
         },
         {
@@ -9200,9 +9200,9 @@
           "id": "PX62",
           "link": "SY27; PR59",
           "name": "Lecture du chenal",
-          "implemented": "Eau, bancs, tabliers, treuils, barges et bateau suivent leur état simulé. Les coques peintes 0.15.5 sont complétées en 0.15.6 par les matières des tabliers, treuils et quais. Eau, câbles, passagers et progrès restent séparés. Ordre, interactions et bilan exposent les faits disponibles.",
+          "implemented": "Eau, bancs, tabliers, treuils, barges et bateau suivent leurs états simulés. Coques 0.15.5 et infrastructures 0.15.6 conservées. 0.15.9 ajoute quatre matières de sol et six décors à Nacre, dans MI05–MI08 et OP02. Fleur de sel FL06 et algues sont décoratives, sans diagnostic de pompe ou de marée. Surfaces physiques, eau, câbles, passagers et progression restent déterminés par la simulation.",
           "limits": "Peinture et interface de prototype. Repères précis conservés; matières animées, équipages, audio local AS47 et compréhension humaine QA95 restent ouverts.",
-          "path": "src/renderer.mjs ; src/main.mjs ; src/painted-nacre.mjs ; src/painted-nacre-sites.mjs",
+          "path": "src/renderer.mjs ; src/main.mjs ; src/painted-nacre.mjs ; src/painted-nacre-sites.mjs ; src/painted-nacre-scenery.mjs",
           "status": "Prototype"
         },
         {
@@ -9236,9 +9236,9 @@
           "id": "PX66",
           "link": "SY64; SY65; NA50",
           "name": "Dix habitants, deux logements",
-          "implemented": "Dix personnes distinctes, six et quatre par maison, marchent vers l’abri après appel. Arrivée, pertes et état des logements sont suivis séparément.",
+          "implemented": "Dix personnes distinctes, six et quatre par maison, marchent vers l’abri après appel. 0.15.9 leur donne deux apparences, avec arrêt, quatre poses de marche et perte chacune. La marche suit la distance réelle. Une personne accueillie disparaît et une perte exposée garde son emplacement. Arrivée, pertes et état des logements restent suivis séparément.",
           "limits": "Bilan agrégé à partir des personnes simulées. Noms, familles, gestes d’accueil et réinstallation durable restent à produire.",
-          "path": "src/simulation.mjs; src/campaign.mjs",
+          "path": "src/simulation.mjs ; src/campaign.mjs ; src/renderer.mjs ; src/painted-nacre-civilians.mjs",
           "status": "Prototype"
         },
         {
@@ -9272,9 +9272,9 @@
           "id": "PX70",
           "link": "SY27; PR68; AS51",
           "name": "Lire le chantier",
-          "implemented": "Rendu et interface exposent soutien, intervenants, pompes, maisons et réserve. Les panneaux, hydraulique et façades 0.15.6 restent disponibles; 0.15.8 ajoute les apparences des deux techniciens. Niveaux d’eau, seuils, habitants et secours restent séparés des images. Le retour distingue personnes, logements, dépense de sortie et cumul officiel.",
+          "implemented": "Rendu et interface exposent soutien, intervenants, pompes, maisons et réserve. Les installations 0.15.6 et techniciens 0.15.8 restent disponibles. 0.15.9 peint les résidents après leur sortie réelle. Niveaux d’eau, seuils, arrivée à l’abri et pertes demeurent simulés. Le retour distingue personnes, logements, dépense de sortie et cumul officiel.",
           "limits": "Peinture et interface de prototype. Finition AS48/AS52–AS56, gestes de secours, audio et compréhension humaine QA115 restent ouverts.",
-          "path": "src/renderer.mjs ; src/main.mjs ; src/painted-nacre-sites.mjs ; src/painted-nacre-people.mjs",
+          "path": "src/renderer.mjs ; src/main.mjs ; src/painted-nacre-sites.mjs ; src/painted-nacre-people.mjs ; src/painted-nacre-civilians.mjs",
           "status": "Prototype"
         },
         {
@@ -9362,18 +9362,18 @@
           "id": "PX80",
           "link": "SY83; SY85; NA69",
           "name": "Groupes retrouvés à Aval",
-          "implemented": "Contacts des trois origines, nouveaux services de Vann et des techniciens, liaison puis arrivée physique de Mara. 0.15.8 reprend les apparences des techniciens, patients et membres du personnel dont l’origine individuelle est connue. Les indicateurs à bord, personnes inconnues et autres personnages conservent leur rendu; aucune identité ni perte supplémentaire n’est créée.",
+          "implemented": "Contacts des trois origines, services de Vann et des techniciens, liaison puis arrivée physique de Mara. 0.15.8 conserve les rôles connus. 0.15.9 ajoute résidents, réfugiés, équipage anonyme, responsable du port, Mara et personnel sanitaire sans originalId. Les apparences ne rétablissent aucun passé individuel et l’équipage anonyme n’identifie pas Vann. Mara reste absente tant qu’elle est hors site. Aucun indicateur à bord ni perte supplémentaire n’est créé.",
           "limits": "Identités historiques inconnues conservées comme agrégats; aucun recrutement général ni résurrection.",
-          "path": "src/simulation.mjs ; src/departure-validation.mjs ; src/renderer.mjs ; src/painted-nacre-people.mjs",
+          "path": "src/simulation.mjs ; src/departure-validation.mjs ; src/renderer.mjs ; src/painted-nacre-people.mjs ; src/painted-nacre-civilians.mjs",
           "status": "Prototype"
         },
         {
           "id": "PX81",
           "link": "SY84; SY86; PR82",
           "name": "Places, embarquement, arrivée",
-          "implemented": "Deux bateaux, passerelles, opérateurs, accompagnants et brancards; arrivée créditée à la porte du refuge. Six cellules peintes de Rive-Courte et six de Veille d’Aval suivent les états existants. Les coques vides restent distinctes des occupants et de leurs transferts simulés.",
+          "implemented": "Deux bateaux, passerelles, opérateurs, accompagnants et brancards, avec arrivée créditée à la porte du refuge. Coques peintes 0.15.5 conservées. Les silhouettes civiles 0.15.9 suivent les personnes au quai et à terre. À bord, seuls les indicateurs uniques existants sont dessinés. Les phases embarquée, arrivée, perdue et hors site gardent leurs conditions de visibilité.",
           "limits": "Capacités locales fixes; navigation libre et animation finale des gestes d’accueil restent ouvertes.",
-          "path": "src/simulation.mjs ; src/renderer.mjs ; src/painted-nacre.mjs",
+          "path": "src/simulation.mjs ; src/renderer.mjs ; src/painted-nacre.mjs ; src/painted-nacre-civilians.mjs",
           "status": "Prototype"
         },
         {

@@ -1,6 +1,6 @@
 # Bible Excel — Ordre de Cendre
 
-Le classeur `ORDRE_DE_CENDRE_Bible.xlsx` présente la conception et le registre de production d’**ImperiumMarch / ORDRE DE CENDRE**. La source courante **0.15.8**, datée du **17 novembre 2026**, contient **1 007 fiches**. La structure conserve **21 onglets**, **20 tables** et **126 formules**. Les compteurs décrivent vingt domaines ; ils ne mesurent pas un pourcentage d’achèvement du jeu.
+Le classeur `ORDRE_DE_CENDRE_Bible.xlsx` présente la conception et le registre de production d’**ImperiumMarch / ORDRE DE CENDRE**. La source courante **0.15.9**, datée du **17 novembre 2026**, contient **1 007 fiches**. La structure conserve **21 onglets**, **20 tables** et **126 formules**. Les compteurs décrivent vingt domaines ; ils ne mesurent pas un pourcentage d’achèvement du jeu.
 
 **MI01–MI14 possèdent une version au stade prototype, avec dossier v14.** Vesper et Nacre sont suivies de quatre sorties de Thyr et de deux missions de Kharon. Les **18 missions MI15–MI32** et les **16 contrats** restent conçus. Les opérations OP01–OP03 gardent leurs rapports indépendants. Six châssis sont jouables.
 
@@ -19,7 +19,32 @@ Le dossier v14 ajoute uniquement `world.kharon.workshop` vide et la version. Les
 
 Les **133 lignes initialement À produire** gardent leur [baseline immuable](validation/production-v09-baseline.json). Le [registre 0.15](PRODUCTION_REGISTER_V15.md) conserve leurs textes, reçus antérieurs et travaux restants ; les nouvelles fiches n’augmentent pas ce dénominateur. Le [bilan de production MI14](PRODUCTION_V15.md) décrit la tranche et le [rapport QA 0.15](QA_V15.md) distingue ses exécutions des réceptions historiques. Le [complément 0.15.1](PRODUCTION_V15_1.md) décrit les huit atlas peints et renvoie à leur [réception graphique](QA_PAINTED_MI14.md).
 
-## Réception du classeur courant 0.15.8
+## Réception du classeur courant 0.15.9
+
+La source actualise **20 fiches existantes et 26 champs descriptifs** pour les habitants et services du quai, les matières de terrain et les petits décors de Nacre. La portée et l’en-tête de Prototype suivent la version. Aucun ID, statut, critère d’acceptation ou résultat attendu n’est changé. Les fiches AS55, AS58, PR70 et PR71 gardent leur statut À produire : silhouettes et poses disponibles ne clôturent ni les portraits, ni les voix, ni les gestes détaillés, ni la réception humaine.
+
+| Lot ajouté en 0.15.9 | Atlas | Cellules | Utilisées au rendu | Références |
+| --- | ---: | ---: | ---: | ---: |
+| Habitants et services du quai de Nacre | 5 | 48 | 42 | 6 |
+| Sols et petits décors de Nacre | 2 | 10 | 10 | 0 |
+| **Nouvelle tranche** | **7** | **58** | **52** | **6** |
+| **Total réconcilié, 18 lots** | **84** | **644** | **600** | **44** |
+
+Les [manifestes civils](../assets/painted/nacre-civilians/manifest.json) et [des décors de Nacre](../assets/painted/nacre-scenery/manifest.json) identifient les sept atlas, leurs dimensions, leurs empreintes et leurs usages. Les octets PNG originaux sont conservés. Les **quatre panoramas** restent comptés séparément des atlas et des cellules. Les lots et reçus historiques conservent leur propre périmètre.
+
+Les **huit apparences civiles et leurs 32 poses de marche** habillent les personnes déjà simulées. Les dix résidents de MI06 apparaissent après leur sortie réelle, rejoignent l’abri ou conservent leur position de perte. À Aval, résidents, réfugiés, équipage anonyme, responsable du port, Mara et personnel sanitaire générique suivent leurs rôles et phases existants. Le personnel identifié garde ses apparences 0.15.8; les agrégats sans identité historique n’en acquièrent pas une. L’équipage anonyme ne représente pas Vann. Mara est peinte uniquement lors de sa présence physique simulée en MI08; MI06 et MI07 restent radiophoniques. Les personnes embarquées gardent leurs indicateurs uniques. Les six poses de perte de référence ne sont pas sélectionnées par le rendu.
+
+Les **quatre matières de terrain et six petits décors** couvrent Nacre dans MI05–MI08 et OP02 : roche humide, limon stratifié, maçonnerie salée, métal patiné, rocher, galets salés, fleur de sel, algues, borne et planches. Les textures suivent la surface existante et les décors occupent ses emplacements prévus. Les surfaces physiques des digues, portes et bancs, les appuis, la marée et les interactions conservent leur simulation. **FL06 reste Conçu** : sa fleur de sel peinte est décorative et ne reçoit pas sa fonction d’indication de marée ou d’anomalie de pompe. Les algues et la borne restent également sans interaction.
+
+Le [contrôle de source](validation/workbook-v0.15-v0159-source.json) compare le couple JSON/XLSX 0.15.8 exact du commit local récupéré `95564d2`, copié avant modification. Il conserve les **1 007 IDs ordonnés**, tous les critères et résultats attendus, ainsi que les statuts : **273 Conçu, 442 Prototype, 100 À produire et 192 Vérifié**. Les **133 critères initiaux** et leurs fiches sources restent exacts dans le registre historique. Les **987 autres fiches** sont identiques. Les **608 fichiers historiques de la Bible** — aperçus, reçus, fixtures, baseline et registre — sont comparés aux octets de cette référence. Ce contrôle ne transforme pas le commit local en publication antérieure.
+
+La [génération](validation/workbook-v0.15-v0159-validation.json) recalcule le classeur avec **@oai/artifact-tool**, éprouve un changement temporaire de statut puis le restaure avant export. L’[inspection XML indépendante](validation/workbook-v0.15-v0159-export.json) réconcilie **6 767 cellules source et 126 formules sans erreur**, **20 tables**, **20 validations de statut**, **80 règles conditionnelles** et les vingt volets de données. L’[audit des références](validation/workbook-v0.15-v0159-references.json) résout **2 466 références développées** sans anomalie. Le parseur de références reste inchangé; ses preuves de mutations négatives antérieures restent historiques.
+
+La [comparaison avec la 0.15.8](validation/workbook-v0.15-v0159-layout.json) reçoit **7 566 cellules non affectées et 987 fiches inchangées**, avec styles, colonnes, vues et volets identiques. Les [19 vues nouvellement générées et relues](validation/workbook-v0.15-v0159-visual-review.json) couvrent toutes les lignes modifiées, la synthèse et l’en-tête de version. Aucun texte coupé ni chevauchement n’est observé dans ces plages. Les images sont conservées dans [les aperçus 0.15.9](previews/bible-v0159/00-Synthese.png), avec les [inspections](validation/workbook-v0.15-v0159-inspection.ndjson) et le [contrôle des formules](validation/workbook-v0.15-v0159-formula-check.ndjson).
+
+La campagne reste à MI01–MI14, six châssis, trois opérations et un dossier v14. Les animations finales, les capacités encore conçues et les réceptions humaines restent ouvertes. Cette réception porte sur la source, le moteur de calcul, l’export et les aperçus du classeur; elle ne constitue ni une nouvelle session bureautique native, ni une réception navigateur du jeu, ni un essai humain.
+
+## Réception historique du classeur 0.15.8
 
 La source actualise **23 fiches existantes et 29 champs descriptifs** pour les panoramas de Nacre, Thyr et Kharon, les personnes de Nacre et les sols, décors et pièces du viaduc de Vesper. La portée et l’en-tête de Prototype suivent la version. Aucun ID, statut, critère d’acceptation ou résultat attendu n’est changé. Les fiches AS53, AS58 et PR71 gardent leur statut À produire : les poses disponibles ne clôturent pas leurs gestes détaillés ni leur réception humaine.
 
@@ -163,27 +188,27 @@ Reporter les modifications dans `data/bible.json`, puis régénérer pour conser
 
 ## Régénérer et contrôler
 
-Le générateur emploie **@oai/artifact-tool** depuis le runtime primaire, sans installer de dépendance dans le dépôt. La [configuration courante](validation/workbook-v0.15-v0158-preview-config.json) sélectionne la synthèse et dix-huit plages couvrant les 23 fiches modifiées et l’en-tête de Prototype. La source `data/bible.json` porte déjà la version 0.15.8. Les configurations et aperçus antérieurs restent conservés. Le suffixe `v0158` distingue les nouveaux reçus des preuves historiques.
+Le générateur emploie **@oai/artifact-tool** depuis le runtime primaire, sans installer de dépendance dans le dépôt. La [configuration courante](validation/workbook-v0.15-v0159-preview-config.json) sélectionne la synthèse et dix-huit plages couvrant les 20 fiches modifiées et l’en-tête de Prototype. La source `data/bible.json` porte déjà la version 0.15.9. Les configurations et aperçus antérieurs restent conservés. Le suffixe `v0159` distingue les nouveaux reçus des preuves historiques.
 
 ```bash
-BIBLE_RECEIPT_SUFFIX=v0158 \
-  BIBLE_PREVIEW_CONFIG=docs/validation/workbook-v0.15-v0158-preview-config.json \
+BIBLE_RECEIPT_SUFFIX=v0159 \
+  BIBLE_PREVIEW_CONFIG=docs/validation/workbook-v0.15-v0159-preview-config.json \
   "$CODEX_PRIMARY_RUNTIME_NODE" tools/build-bible.mjs . \
-  ../outputs/bible-v0158/final
+  ../outputs/bible-v0159
 ```
 
 Le répertoire de sortie contient le classeur, les inspections et les aperçus. Le générateur copie le XLSX courant dans `docs/ORDRE_DE_CENDRE_Bible.xlsx`. Les arguments optionnels fixent la racine du dépôt et la sortie. `BIBLE_RENDER_SHEETS` et `BIBLE_EXTRA_PREVIEWS` permettent de remplacer les sélections; `BIBLE_RECEIPT_SUFFIX` peut séparer une réception ultérieure de la réception initiale de cette version.
 
-Les reçus courants portent la version source et le suffixe de réception, par exemple `workbook-v0.15-v0158-validation.json`. Les preuves antérieures gardent leur propre version ; aucun rapport, aperçu ou fixture historique ne doit être remplacé pour décrire les nouveaux octets. Le fichier générique `workbook-validation.json` d’un répertoire de sortie décrit uniquement cette génération.
+Les reçus courants portent la version source et le suffixe de réception, par exemple `workbook-v0.15-v0159-validation.json`. Les preuves antérieures gardent leur propre version ; aucun rapport, aperçu ou fixture historique ne doit être remplacé pour décrire les nouveaux octets. Le fichier générique `workbook-validation.json` d’un répertoire de sortie décrit uniquement cette génération.
 
 ```bash
-BIBLE_RECEIPT_SUFFIX=v0158 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-export.py . \
-  --reference-report docs/validation/workbook-v0.15-v0158-references.json
-BIBLE_RECEIPT_SUFFIX=v0158 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-layout.py \
-  /chemin/vers/la-bible-0.15.7.xlsx /chemin/vers/la-source-0.15.7.json
+BIBLE_RECEIPT_SUFFIX=v0159 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-export.py . 95564d2 \
+  --reference-report docs/validation/workbook-v0.15-v0159-references.json
+BIBLE_RECEIPT_SUFFIX=v0159 "$CODEX_PRIMARY_RUNTIME_PYTHON" tools/verify-bible-layout.py \
+  /chemin/vers/la-bible-0.15.8.xlsx /chemin/vers/la-source-0.15.8.json
 ```
 
-La génération réconcilie comptes et statuts avec le JSON. Elle modifie temporairement un statut, recalcule, contrôle l’effet puis restaure la valeur. Le vérificateur indépendant lit le ZIP/XML : cellules source, caches de formules, tables, validations, règles conditionnelles et volets. [BIBLE_REFERENCES.md](BIBLE_REFERENCES.md) décrit la résolution des IDs, plages et déclarations symboliques ainsi que les sept mutations négatives. Ces mutations peuvent être rééprouvées avec `tools/audit-bible-references.py` si le parseur change; leurs reçus antérieurs restent conservés. La comparaison de mise en page reçoit le couple source/XLSX 0.15.7 exact, conservé avant modification et identifié par ses empreintes. Un nouveau recalcul natif, s’il est effectué, doit produire son propre reçu `v0158` ; aucun résultat historique ne peut lui être attribué.
+La génération réconcilie comptes et statuts avec le JSON. Elle modifie temporairement un statut, recalcule, contrôle l’effet puis restaure la valeur. Le vérificateur indépendant lit le ZIP/XML : cellules source, caches de formules, tables, validations, règles conditionnelles et volets. [BIBLE_REFERENCES.md](BIBLE_REFERENCES.md) décrit la résolution des IDs, plages et déclarations symboliques ainsi que les sept mutations négatives. Ces mutations peuvent être rééprouvées avec `tools/audit-bible-references.py` si le parseur change; leurs reçus antérieurs restent conservés. La comparaison de mise en page reçoit le couple source/XLSX 0.15.8 exact du commit local récupéré `95564d2`, conservé avant modification et identifié par ses empreintes. Un nouveau recalcul natif, s’il est effectué, doit produire son propre reçu `v0159` ; aucun résultat historique ne peut lui être attribué.
 
 ## Conserver les sources historiques
 
@@ -250,4 +275,4 @@ Ce contrôle ne reçoit pas le tri interactif, l’utilisation des filtres, le d
 
 Le [bilan historique de production 0.12](PRODUCTION_V12.md), le [contrat MI11](CAMPAIGN_MISSION_11.md), le [contrat du dossier v11](CAMPAIGN_SAVE_V11.md) et le [registre des 133 critères](PRODUCTION_REGISTER_V12.md) expliquent les réalisations et le travail restant. Les documents et preuves des versions précédentes conservent leurs bilans historiques.
 
-Pour la tranche courante du classeur, consulter la réception 0.15.8 et ses reçus détaillés en tête de ce guide. Le [bilan 0.15.7](PRODUCTION_V15_7.md) conserve la tranche précédente. Les réceptions historiques restent dans le [complément Bible 0.15.6](BIBLE_V15_6.md), le [complément graphique MI14](PRODUCTION_V15_1.md), le [bilan MI14](PRODUCTION_V15.md), le [dossier v14](CAMPAIGN_SAVE_V14.md), le [rapport QA de la reprise](QA_V15.md) et le [rapport des premiers sprites peints](QA_PAINTED_MI14.md). Les résultats de la reconstruction 0.14.1 restent dans son [bilan](PRODUCTION_V14_RECONSTRUCTION.md) et son [rapport QA](QA_RECONSTRUCTION_014.md).
+Pour la tranche courante du classeur, consulter la réception 0.15.9 et ses reçus détaillés en tête de ce guide. La réception 0.15.8 ci-dessus et le [bilan 0.15.7](PRODUCTION_V15_7.md) conservent leurs tranches historiques. Les réceptions historiques restent dans le [complément Bible 0.15.6](BIBLE_V15_6.md), le [complément graphique MI14](PRODUCTION_V15_1.md), le [bilan MI14](PRODUCTION_V15.md), le [dossier v14](CAMPAIGN_SAVE_V14.md), le [rapport QA de la reprise](QA_V15.md) et le [rapport des premiers sprites peints](QA_PAINTED_MI14.md). Les résultats de la reconstruction 0.14.1 restent dans son [bilan](PRODUCTION_V14_RECONSTRUCTION.md) et son [rapport QA](QA_RECONSTRUCTION_014.md).
