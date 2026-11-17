@@ -1,0 +1,241 @@
+{
+  "version": "0.15.10",
+  "createdUtc": "2026-11-17T09:57:22.808Z",
+  "completed": false,
+  "type": "Original PNG decoding, forest-floor diagnostics and public-input Thyr Canvas scenes",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "atlases": [
+    {
+      "id": "terrain",
+      "sha256": "efd80296fc08d1ef616100c80bb28f15a90e22482ea513a890a4e985bb18b134",
+      "bytes": 2242719,
+      "dimensions": [
+        1774,
+        887
+      ],
+      "transparentPixels": 475687
+    },
+    {
+      "id": "props",
+      "sha256": "757fef3c6c6845b0afa307c28e633af021e7f7a585465038ee905cd5b2ece530",
+      "bytes": 1455337,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparentPixels": 1292854
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "terrain",
+      "name": "dark-humus",
+      "usage": "runtime",
+      "source": [
+        40,
+        90,
+        824,
+        331
+      ],
+      "target": [
+        -1.248780488,
+        -1.248780488,
+        514.497560976,
+        206.673170732
+      ],
+      "solidPixels": 268133
+    },
+    {
+      "atlas": "terrain",
+      "name": "fibrous-clay",
+      "usage": "runtime",
+      "source": [
+        911,
+        90,
+        825,
+        331
+      ],
+      "target": [
+        -1.24725944,
+        -1.24725944,
+        514.494518879,
+        206.421437272
+      ],
+      "solidPixels": 268415
+    },
+    {
+      "atlas": "terrain",
+      "name": "mossy-shale",
+      "usage": "runtime",
+      "source": [
+        40,
+        466,
+        824,
+        331
+      ],
+      "target": [
+        -1.248780488,
+        -1.248780488,
+        514.497560976,
+        206.673170732
+      ],
+      "solidPixels": 267356
+    },
+    {
+      "atlas": "terrain",
+      "name": "layered-peat",
+      "usage": "runtime",
+      "source": [
+        911,
+        466,
+        825,
+        330
+      ],
+      "target": [
+        -1.24725944,
+        -1.24725944,
+        514.494518879,
+        205.797807552
+      ],
+      "solidPixels": 267604
+    },
+    {
+      "atlas": "props",
+      "name": "moss-stone",
+      "usage": "runtime",
+      "source": [
+        58,
+        261,
+        406,
+        170
+      ],
+      "target": [
+        -16.15920398,
+        -13.373134328,
+        32.31840796,
+        13.532338308
+      ],
+      "solidPixels": 49974
+    },
+    {
+      "atlas": "props",
+      "name": "fallen-leaves",
+      "usage": "runtime",
+      "source": [
+        540,
+        301,
+        440,
+        133
+      ],
+      "target": [
+        -16.146788991,
+        -9.614678899,
+        32.293577982,
+        9.76146789
+      ],
+      "solidPixels": 28743
+    },
+    {
+      "atlas": "props",
+      "name": "dead-bark",
+      "usage": "runtime",
+      "source": [
+        1043,
+        304,
+        440,
+        126
+      ],
+      "target": [
+        -16.146788991,
+        -9.100917431,
+        32.293577982,
+        9.247706422
+      ],
+      "solidPixels": 39654
+    },
+    {
+      "atlas": "props",
+      "name": "ground-fern",
+      "usage": "runtime",
+      "source": [
+        56,
+        667,
+        422,
+        165
+      ],
+      "target": [
+        -16.153110048,
+        -12.4784689,
+        32.306220096,
+        12.631578947
+      ],
+      "solidPixels": 34129
+    },
+    {
+      "atlas": "props",
+      "name": "seed-husks",
+      "usage": "runtime",
+      "source": [
+        546,
+        639,
+        417,
+        181
+      ],
+      "target": [
+        -16.15496368,
+        -13.869249395,
+        32.309927361,
+        14.024213075
+      ],
+      "solidPixels": 37613
+    },
+    {
+      "atlas": "props",
+      "name": "lichen-pebble",
+      "usage": "runtime",
+      "source": [
+        1073,
+        699,
+        386,
+        129
+      ],
+      "target": [
+        -16.167539267,
+        -10.638743455,
+        32.335078534,
+        10.806282723
+      ],
+      "solidPixels": 36877
+    }
+  ],
+  "views": [],
+  "sourceHashes": {
+    "src/painted-thyr-scenery.mjs": "7d8456e8829e50bfd3009d5f7a5f5271e1fb94bb0d17e66cb07ebe4846c2b30d",
+    "src/painted-thyr-scenery-layout.mjs": "987005561d45fa99082b8917024bf0c40eb4393ec8ce0c31090df137e2788b67",
+    "src/renderer.mjs": "2098c824b37e0b58905e8bfcfb55b48a314b1bc40e110958b33ab9e8bbcbab73",
+    "assets/painted/thyr-scenery/manifest.json": "dce7898d7c3897530f2b0ff3949e1730fca70f77ce1846445a2aeca9cde4f30d",
+    "assets/painted/thyr-scenery/prompts.json": "f1273d26c7de8b931609442dc7a033ba674cad228f7ca3c9ca6a4f19d1e0cc92",
+    "tools/index-painted-thyr-scenery.py": "4583fd9f9ff36301071e3eea116db35b6edc07cce73ff6a497329e824751e3d6",
+    "tools/test-painted-thyr-scenery.mjs": "f361053215c8fb6c3811c6ff9fcef7df32fdd0876f4cc042294f6234c88e0bda",
+    "tests/painted-thyr-scenery.test.mjs": "55d09814602d1d0187a03d62ec03c8b41100e640feb2bea1570c742d30357350",
+    "src/painted-worlds.mjs": "a50c9e38b87106516e6fd14cb2932e78d3e4773d254215155e97417ad4f63041",
+    "assets/painted/worlds/manifest.json": "ebae66e9909aafbded7761b3121ab546608911e3d8b3853cd05e7fdece677c67",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "tests/helpers/mi09-driver.mjs": "9a5fc59291594f13491128f77b6cf15fd6768ec87308d7239ce723f4df5ab1a4",
+    "tests/helpers/mi10-driver.mjs": "0f032cad84030513bf9a2d543ef4018f1481ef58a207173ff031c2b71102303c",
+    "tests/helpers/mi11-driver.mjs": "05de3ff21ce7422264111f4156be5695bad399753173311979054f2b602648f3",
+    "tests/helpers/mi12-driver.mjs": "f61259acc7dbbed13e39832c71f9c28dc147a4899bbb5214e8071d23722aa816"
+  },
+  "limitations": [
+    "Diagnostic cameras reveal existing scenery; they do not claim that the player reached their position.",
+    "Public-input scenes start through createGame and use only updateGame/commandGame; no simulation actor is teleported.",
+    "Ground textures and low forest props add no collider, population, nesting site or ecology. FL07/FL08/FL09 keep their existing separate renderers and states.",
+    "No browser, audio, hardware performance, human test or complete campaign acceptance is inferred from Canvas."
+  ],
+  "rasterContinuity": {
+    "type": "Opaque diagnostic fixture only; generated PNG bytes untouched",
+    "checks": []
+  },
+  "error": "AssertionError [ERR_ASSERTION]: raster seam at scale 1, camera 0, pixel 0\n+ actual - expected\n\n  [\n    120,\n    154,\n+   189,\n-   188,\n    255\n  ]\n\n    at file:///workspace/scratch/672b96792ba9/ImperiumMarch/tools/test-painted-thyr-scenery.mjs:105:53"
+}

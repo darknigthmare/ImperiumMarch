@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "version": "0.15.10",
+  "reviewedUtc": "2026-11-17T10:00:44.076063+00:00",
+  "reviewer": "assistant visual inspection",
+  "scope": "Lot Thyr scenery, huit captures Canvas après correction de rasterisation ; cette réception ne prétend pas couvrir des ajouts FX globaux ultérieurs.",
+  "receiptSha256": "e47c8f252f44fe0c405a8c863d9344ba955a70a87d3a046ef9b0801de6f8b244",
+  "initialReceiptSha256": "a3f7bc9b75639df3dddc019eb8869be2a22e50b0a77daeead658fed65cf0155f",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "allEightImagesActuallyOpened": true,
+  "conclusion": "Accepté pour ce lot de matières et petits décors Thyr. Aucun défaut matériel restant observé dans les huit PNG ouverts. Les coutures de terrain à caméra fractionnaire sont corrigées.",
+  "materialAnomaliesRemaining": [],
+  "resolvedAnomalies": [
+    {
+      "id": "fractional-camera-terrain-seams",
+      "initialProof": "../visual-review.json",
+      "fix": "Bornes partagées des bandes alignées au pixel de sortie ; sources et échantillons du terrain conservés dans le monde.",
+      "visualResolutionObserved": true,
+      "rasterChecks": 12,
+      "opaquePixelsChecked": 5760,
+      "pngSourcesUnchanged": true
+    }
+  ],
+  "stateHashesUnchangedFromInitialReception": true,
+  "views": [
+    {
+      "file": "thyr-scenery-contact-sheet.png",
+      "sha256": "7b5912aa6f82fe5a48f065eaecff253cf871d81457108f343b9a0fbbd859755f",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        1160
+      ],
+      "conclusion": "accepté pour le lot décor Thyr",
+      "findings": [
+        "Quatre matières distinctes : humus olive, argile brun-violet, schiste humide moussu et tourbe stratifiée.",
+        "Six silhouettes complètes sur fonds clair et sombre ; pas de fond opaque, de rognage significatif ni de halo matériel observé.",
+        "La fougère rampante reste distincte des membranes FL08 et des tubes FL09 ; les coques sont des débris végétaux, sans silhouette de ponte."
+      ]
+    },
+    {
+      "file": "thyr-terrain-camera-0.png",
+      "sha256": "c46b5e541264fd7415470f0d0381a6ed44d212eb8942fee5b0e3bf7d4d1c4e45",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "conclusion": "accepté pour le lot décor Thyr",
+      "findings": [
+        "Le relief fourni reste continu ; la matière est découpée sous la ligne de sol.",
+        "Les petits décors de 32 unités sont au sol ; aucune silhouette ne suggère une nouvelle plateforme.",
+        "Les transitions entre matières ne présentent pas de trou visible."
+      ]
+    },
+    {
+      "file": "thyr-terrain-camera-512.png",
+      "sha256": "6cc240ce8ff6bbf5a2c2a51c0bbee8cb921350a1536f007c123ca8cc66c6ff9c",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "conclusion": "accepté pour le lot décor Thyr",
+      "findings": [
+        "Les motifs et emplacements décoratifs se déplacent avec le monde.",
+        "Les bords des tuiles se fondent sans bande transparente visible."
+      ]
+    },
+    {
+      "file": "thyr-terrain-camera-1800.png",
+      "sha256": "18e91ff2d3693b35410f8479809a02f0def80ec9ede456d25a5708480b989660",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "conclusion": "accepté pour le lot décor Thyr",
+      "findings": [
+        "Le cadrage avancé montre les quatre familles de matière dans la palette du panorama.",
+        "Les petits débris restent lisibles sans dominer l’espace de passage.",
+        "Cette caméra est un diagnostic, pas un déplacement public du joueur."
+      ]
+    },
+    {
+      "file": "mi09-first-living-root.png",
+      "sha256": "2ce21d982e0dfca68be60ce4722158b44da61c867adca21d70cf1f48ca038b4a",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "conclusion": "accepté pour le lot décor Thyr",
+      "findings": [
+        "La racine porteuse, la colonne, le marcheur et les bêtes existantes conservent leurs silhouettes distinctes.",
+        "Les stries verticales de la réception initiale ne sont plus visibles dans le sol profond.",
+        "Les nouveaux décors restent bas et n’ajoutent pas de support visuel à la racine."
+      ]
+    },
+    {
+      "file": "mi10-covered-canal.png",
+      "sha256": "1f417a7989b3c31f72f352fbab2b5ec240b0291c85711f1a8398ab01f7af65d6",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "conclusion": "accepté pour le lot décor Thyr",
+      "findings": [
+        "Le canal couvert, le pontage et les équipements existants restent lisibles sur le nouveau sol.",
+        "Les lignes verticales répétées nettement visibles avant correction ont disparu.",
+        "Quelques libellés existants touchent les limites du cadrage ; cette capture est une réception du décor, pas une validation exhaustive de l’interface."
+      ]
+    },
+    {
+      "file": "mi11-recognized-ridge.png",
+      "sha256": "fa901db877edc442b53a814511a0d6b4e8f3bbfe5803ef5726d504f30eef40e5",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "conclusion": "accepté pour le lot décor Thyr",
+      "findings": [
+        "La corniche reconnue reste au-dessus du sol ; les trois sites de ponte existants ne se confondent pas avec les coques décoratives.",
+        "Le sol ne présente plus les fines lignes verticales observées dans la réception initiale."
+      ]
+    },
+    {
+      "file": "mi12-first-relay-inspected.png",
+      "sha256": "7baff82a9150787aa80c2b385def27143e29893d4322744f7a5f485ff784432d",
+      "actuallyOpenedWith": "view_image",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "conclusion": "accepté pour le lot décor Thyr",
+      "findings": [
+        "Le schiste, la tourbe et l’humus restent continus sous le marcheur et les petits décors.",
+        "Les coutures verticales observées auparavant ne sont plus visibles.",
+        "Le premier relais est partiellement masqué par le marcheur à cet arrêt ; l’état inspecté est attesté séparément par le pilote public et le reçu."
+      ]
+    }
+  ],
+  "limitations": [
+    "Rendus Canvas statiques avec reducedMotion:true et shake:false ; aucun essai navigateur, audio, matériel ou animation continue.",
+    "Aucune réception humaine ou campagne complète déduite de ces captures.",
+    "Les preuves physiques sont les tests et les états publics conservés ; la relecture visuelle seule ne les démontre pas.",
+    "Le relais MI12 partiellement masqué et certains libellés en bord de cadre limitent cette réception à son lot de décor."
+  ]
+}

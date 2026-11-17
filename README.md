@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.15.9 · Français**
+**Nom de code : ImperiumMarch · Version 0.15.10 · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -12,11 +12,15 @@ Vous êtes **Sera Vey**, pilote de marcheur au service de l’Empire d’Orthe. 
 
 Cette livraison contient un **prototype de quatorze missions de campagne**, six machines jouables, trois simulations indépendantes, des munitions finies, un radiateur réparable et un dossier persistant **v14**. MI12 achève la tranche de Thyr ; MI13 et MI14 ouvrent Kharon par un convoi industriel puis un atelier en grève. La Bible contient **1 007 fiches sur 21 onglets**. Les dix-huit missions MI15–MI32, les seize contrats et la qualité de production visée restent à construire. Le [concept complet](docs/CONCEPT_COMPLET_V04.md) développe tous les domaines ; les contrats de [Vesper](docs/VESPER_CONSEQUENCES_V05.md) et de [Nacre](docs/NACRE_CONSEQUENCES_V09.md) relient leur conception à la tranche réellement jouable.
 
-La **0.15.9 complète les habitants et les berges de Nacre** : cinq atlas de personnages proposent huit apparences et 32 poses de marche ; deux atlas ajoutent quatre matières de sol et six petits décors. Le catalogue atteint **84 atlas / 644 cellules**, dont 600 utilisées au rendu et 44 références. La reprise conserve également l'intégralité de la 0.15.8 : panoramas, décors de Vesper, techniciens, personnel sanitaire et patients. Le [bilan courant](docs/PRODUCTION_V15_9.md), la [réception QA](docs/QA_V15_9.md) et le [guide de la Bible](docs/BIBLE_README.md) précisent les réalisations et leur portée.
+La **0.15.10 habille les sols de Thyr et de Kharon et les particules existantes du jeu** : six nouveaux atlas apportent huit matières, douze petits décors et douze phases de fumée/poussière. Le catalogue atteint **90 atlas / 676 cellules**, dont 632 utilisées au rendu et 44 références, dans 21 lots. Les quatre panoramas restent séparés. Les nouveaux sprites suivent les terrains, appuis et émissions déjà simulés. Le [bilan courant](docs/PRODUCTION_V15_10.md), la [réception QA](docs/QA_V15_10.md) et le [guide de la Bible](docs/BIBLE_README.md) précisent leur portée.
+
+La **0.15.9 complète les habitants et les berges de Nacre** : cinq atlas de personnages proposent huit apparences et 32 poses de marche ; deux atlas ajoutent quatre matières de sol et six petits décors. Le catalogue atteint **84 atlas / 644 cellules**, dont 600 utilisées au rendu et 44 références. La reprise conserve également l'intégralité de la 0.15.8 : panoramas, décors de Vesper, techniciens, personnel sanitaire et patients. Le [bilan 0.15.9](docs/PRODUCTION_V15_9.md), la [réception QA](docs/QA_V15_9.md) et le [guide de la Bible](docs/BIBLE_README.md) précisent les réalisations et leur portée.
 
 La **0.15.8 ajoute les personnes de Nacre, les sols et le viaduc de Vesper, ainsi que les horizons de Nacre, Thyr et Kharon**. Six atlas apportent 44 cellules, dont douze poses de marche ; trois panoramas sont comptés séparément. Le catalogue atteint **77 planches et 586 cellules**, dont 548 utilisées au rendu et 38 références. Ce lot a été retrouvé avec ses fichiers et repris sans régénérer ses images. Le [bilan 0.15.8](docs/PRODUCTION_V15_8.md) et son [rapport QA](docs/QA_V15_8.md) décrivent le contenu reçu et ses limites. La campagne reste à quatorze missions ; la sauvegarde reste v14. Les bilans [installations de Vesper à Kharon](docs/PRODUCTION_V15_7.md), [installations de Nacre et Thyr](docs/PRODUCTION_V15_6.md), [transports et relais](docs/PRODUCTION_V15_5.md), [Thyr et Cerbère](docs/PRODUCTION_V15_4.md), [marcheurs](docs/PRODUCTION_V15_3.md), [combat](docs/PRODUCTION_V15_2.md), [atelier](docs/PRODUCTION_V15_1.md) et [reconstruction](docs/PRODUCTION_V14_RECONSTRUCTION.md) gardent leurs preuves historiques.
 
 ## Jouer à cette version
+
+La **0.15.10 est construite et reçue localement** : 852 tests, 174 comparaisons SVG/Canvas et 108 parcours du DOM modélisé réussis. Sa publication et son hébergement sont suivis dans le [dossier de déploiement](docs/DEPLOYMENT.md). Les disponibilités publiques précédemment reçues figurent ci-dessous.
 
 **Les sources 0.15.9 sont disponibles dans la [PR #7](https://github.com/darknigthmare/ImperiumMarch/pull/7)**, qui réunit la tranche 0.15.8 récupérée et les nouveaux lots de Nacre. Son commit applicatif `17041c1cec7d9b608afe4955364569a9009c174f` possède exactement l'arbre local testé. Sa [CI distante](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44051511167) a réussi avec 836 tests, 174 comparaisons SVG/Canvas, 18 lots d'atlas, les panoramas et 108 parcours du DOM modélisé. L'HTML et le ZIP construits à distance sont identiques aux fichiers locaux. Le [dossier de déploiement](docs/DEPLOYMENT.md) en précise la portée.
 
@@ -73,6 +77,9 @@ npm run check:nacre-people
 npm run check:vesper-scenery
 npm run check:nacre-civilians
 npm run check:nacre-scenery
+npm run check:thyr-scenery
+npm run check:kharon-scenery
+npm run check:particles
 npm run check:offline-package
 npm run build:web
 ```
@@ -92,6 +99,14 @@ npm run check:assets-render
 ```
 
 Les outils `render-mi12/mi13/mi14-previews` produisent des scènes Canvas et des états atteints par commandes publiques. Ils ne remplacent pas un essai navigateur. Le [guide du classeur](docs/BIBLE_README.md) décrit la régénération du XLSX à partir de `data/bible.json`.
+
+## 0.15.10 — Sols et particules
+
+Thyr reçoit humus, argile fibreuse, schiste moussu et tourbe ; Kharon reçoit basalte, scorie, maçonnerie réfractaire et métal graphite. Douze petits décors accompagnent ces matières. Les raccords du sol restent liés au monde et conservent le profil physique pendant le défilement de la caméra.
+
+Les appuis et les impacts de roquette émettent les particules existantes, désormais peintes avec six phases de fumée et six phases de poussière. Leur âge sélectionne l'image ; positions, durées, rayons et opacités gardent les valeurs du moteur. Les images ne créent ni nouvelle émission ni effet thermique.
+
+Les [décors de Thyr](assets/painted/thyr-scenery/README.md), les [décors de Kharon](assets/painted/kharon-scenery/README.md) et les [particules](assets/painted/particles/README.md) conservent les PNG sélectionnés, les prompts exacts et leurs mesures. Le [rapport QA](docs/QA_V15_10.md) décrit les contrôles et leurs limites. La flore reste décorative pour les interactions encore conçues ; les kits et effets finaux ne sont pas déclarés achevés.
 
 ## 0.15.8 — Des mondes habités
 

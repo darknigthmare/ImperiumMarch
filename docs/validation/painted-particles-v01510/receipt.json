@@ -1,0 +1,872 @@
+{
+  "version": "0.15.10",
+  "createdUtc": "2026-11-17T10:03:32.405Z",
+  "completed": true,
+  "type": "Original PNG decoding, circular-support checks and public-input particle Canvas scenes",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "atlases": [
+    {
+      "id": "smoke",
+      "sha256": "e510296425c7bfa6304a7b2fbde2bab9ae0afbb118ea6f5a928b55538d1643ca",
+      "bytes": 1600678,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparentPixels": 1035826
+    },
+    {
+      "id": "dust",
+      "sha256": "a5ec1359d106cafca1199a313c4ce24bcc11ef19677af4345719256d90647826",
+      "bytes": 1706202,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparentPixels": 1078734
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "smoke",
+      "name": "age-0",
+      "usage": "runtime",
+      "source": [
+        0,
+        4,
+        512,
+        508
+      ],
+      "target": [
+        -0.7098742905048393,
+        -0.7043283976102702,
+        1.4197485810096786,
+        1.4086567952205404
+      ],
+      "visiblePixels": 83129,
+      "strongPixels": 62237,
+      "maxNormalizedRadius": 1
+    },
+    {
+      "atlas": "smoke",
+      "name": "age-1",
+      "usage": "runtime",
+      "source": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "target": [
+        -0.7071067811865475,
+        -0.7071067811865475,
+        1.414213562373095,
+        1.414213562373095
+      ],
+      "visiblePixels": 86034,
+      "strongPixels": 66423,
+      "maxNormalizedRadius": 1
+    },
+    {
+      "atlas": "smoke",
+      "name": "age-2",
+      "usage": "runtime",
+      "source": [
+        1024,
+        18,
+        504,
+        494
+      ],
+      "target": [
+        -0.7156030567710648,
+        -0.7014045834224326,
+        1.4312061135421297,
+        1.4028091668448652
+      ],
+      "visiblePixels": 86019,
+      "strongPixels": 64764,
+      "maxNormalizedRadius": 0.9999999999999999
+    },
+    {
+      "atlas": "smoke",
+      "name": "age-3",
+      "usage": "runtime",
+      "source": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "target": [
+        -0.7342843468605627,
+        -0.7342843468605627,
+        1.4685686937211253,
+        1.4685686937211253
+      ],
+      "visiblePixels": 97256,
+      "strongPixels": 68570,
+      "maxNormalizedRadius": 1
+    },
+    {
+      "atlas": "smoke",
+      "name": "age-4",
+      "usage": "runtime",
+      "source": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "target": [
+        -0.7071067811865475,
+        -0.7071067811865475,
+        1.414213562373095,
+        1.414213562373095
+      ],
+      "visiblePixels": 92887,
+      "strongPixels": 70377,
+      "maxNormalizedRadius": 1
+    },
+    {
+      "atlas": "smoke",
+      "name": "age-5",
+      "usage": "runtime",
+      "source": [
+        1024,
+        512,
+        496,
+        512
+      ],
+      "target": [
+        -0.6985666058829216,
+        -0.7211010125243061,
+        1.3971332117658433,
+        1.4422020250486123
+      ],
+      "visiblePixels": 91713,
+      "strongPixels": 69977,
+      "maxNormalizedRadius": 1
+    },
+    {
+      "atlas": "dust",
+      "name": "age-0",
+      "usage": "runtime",
+      "source": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "target": [
+        -0.7071067811865475,
+        -0.7071067811865475,
+        1.414213562373095,
+        1.414213562373095
+      ],
+      "visiblePixels": 77179,
+      "strongPixels": 60794,
+      "maxNormalizedRadius": 1
+    },
+    {
+      "atlas": "dust",
+      "name": "age-1",
+      "usage": "runtime",
+      "source": [
+        512,
+        9,
+        512,
+        503
+      ],
+      "target": [
+        -0.7133486510631473,
+        -0.7008093193061778,
+        1.4266973021262945,
+        1.4016186386123557
+      ],
+      "visiblePixels": 81025,
+      "strongPixels": 65416,
+      "maxNormalizedRadius": 1
+    },
+    {
+      "atlas": "dust",
+      "name": "age-2",
+      "usage": "runtime",
+      "source": [
+        1024,
+        21,
+        511,
+        491
+      ],
+      "target": [
+        -0.721077063021621,
+        -0.6928548687741994,
+        1.442154126043242,
+        1.3857097375483989
+      ],
+      "visiblePixels": 82357,
+      "strongPixels": 67769,
+      "maxNormalizedRadius": 1
+    },
+    {
+      "atlas": "dust",
+      "name": "age-3",
+      "usage": "runtime",
+      "source": [
+        0,
+        521,
+        512,
+        503
+      ],
+      "target": [
+        -0.7276714572230529,
+        -0.714880357389054,
+        1.4553429144461059,
+        1.429760714778108
+      ],
+      "visiblePixels": 85280,
+      "strongPixels": 69147,
+      "maxNormalizedRadius": 1
+    },
+    {
+      "atlas": "dust",
+      "name": "age-4",
+      "usage": "runtime",
+      "source": [
+        512,
+        512,
+        512,
+        490
+      ],
+      "target": [
+        -0.722457963176816,
+        -0.6914148475715621,
+        1.444915926353632,
+        1.3828296951431243
+      ],
+      "visiblePixels": 85587,
+      "strongPixels": 68921,
+      "maxNormalizedRadius": 1
+    },
+    {
+      "atlas": "dust",
+      "name": "age-5",
+      "usage": "runtime",
+      "source": [
+        1024,
+        512,
+        510,
+        512
+      ],
+      "target": [
+        -0.7057216592481431,
+        -0.7084891951667632,
+        1.4114433184962862,
+        1.4169783903335265
+      ],
+      "visiblePixels": 82702,
+      "strongPixels": 68058,
+      "maxNormalizedRadius": 1
+    }
+  ],
+  "views": [
+    {
+      "file": "particles-contact-sheet.png",
+      "width": 1800,
+      "height": 900,
+      "sha256": "8dffb99add8079d48636f4c49aefdcc69d47c3eaaef0cbfb89300e8f78d04bb9",
+      "type": "All six ages per atlas on light and dark backgrounds; isolated diagnostic"
+    },
+    {
+      "file": "dust-public-emission.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "4e2be6fd4e45e1a7ca07d1de8a9e0e469653ca2b91a0f77178276a8d3fbea05d",
+      "type": "Public-input Canvas scene",
+      "missionId": "MI01",
+      "elapsed": 0.6833333333333338,
+      "reducedMotion": false,
+      "particleDrawCalls": {
+        "dust": 18
+      },
+      "particlesByType": {
+        "dust": 18
+      },
+      "stateSha256": "f6a26f8830a731eba6794cd777d4d7dec68f864fcf0d48880309c265edf943fc",
+      "description": "poussière des deux vrais appuis"
+    },
+    {
+      "file": "dust-fallback.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "9fa578aeb262bab8395c3590d387a775a970dba86e4e33fa01a242ee3badcd59",
+      "type": "Public-input Canvas scene",
+      "missionId": "MI01",
+      "elapsed": 0.6833333333333338,
+      "reducedMotion": false,
+      "particleDrawCalls": {},
+      "particlesByType": {
+        "dust": 18
+      },
+      "stateSha256": "f6a26f8830a731eba6794cd777d4d7dec68f864fcf0d48880309c265edf943fc",
+      "description": "fallback des ressources non chargées"
+    },
+    {
+      "file": "dust-age-3.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "87bab01b5638af95d6963f3d442242a95fd1e2ba82ac8f5f88b74af462fc60d0",
+      "type": "Public-input Canvas scene",
+      "missionId": "MI01",
+      "elapsed": 1.0333333333333345,
+      "reducedMotion": false,
+      "particleDrawCalls": {
+        "dust": 10
+      },
+      "particlesByType": {
+        "dust": 10
+      },
+      "stateSha256": "7579b8dcd2350e8d2efe01862cc29d5236e2830b10817cc352caf3430265201b",
+      "description": "âge réel 3, après évolution physique"
+    },
+    {
+      "file": "dust-reduced-motion.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "35eb4608ba385f0b673dbfeebd10330c3d893dffb4447bd268f76736f4bfda3e",
+      "type": "Public-input Canvas scene",
+      "missionId": "MI01",
+      "elapsed": 1.0333333333333345,
+      "reducedMotion": true,
+      "particleDrawCalls": {
+        "dust": 10
+      },
+      "particlesByType": {
+        "dust": 10
+      },
+      "stateSha256": "7579b8dcd2350e8d2efe01862cc29d5236e2830b10817cc352caf3430265201b",
+      "description": "même état, réduction des mouvements"
+    },
+    {
+      "file": "smoke-public-emission.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "6c29a34f1420b6a2727a3fc87b8c8bb23bcd816083f3c9c25933a45407b52ddf",
+      "type": "Public-input Canvas scene",
+      "missionId": "MI01",
+      "elapsed": 0.26666666666666666,
+      "reducedMotion": false,
+      "particleDrawCalls": {
+        "smoke": 6
+      },
+      "particlesByType": {
+        "spark": 3,
+        "blast": 16,
+        "smoke": 6
+      },
+      "stateSha256": "d03a3db9e4e883f9001af81fc6987f0a49c82a21ec865ad5de9d859372aacfa8",
+      "description": "fumée du vrai impact de roquette"
+    },
+    {
+      "file": "smoke-fallback.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "fe429e67193b5d3986d2b93730d2c7b6698cb405bb9d72e1096c70d490b136e6",
+      "type": "Public-input Canvas scene",
+      "missionId": "MI01",
+      "elapsed": 0.26666666666666666,
+      "reducedMotion": false,
+      "particleDrawCalls": {},
+      "particlesByType": {
+        "spark": 3,
+        "blast": 16,
+        "smoke": 6
+      },
+      "stateSha256": "d03a3db9e4e883f9001af81fc6987f0a49c82a21ec865ad5de9d859372aacfa8",
+      "description": "fallback des ressources non chargées"
+    },
+    {
+      "file": "smoke-age-3.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "e6b981ec58782634187576e7dc6f24b542ffff62c2270f6655c020335dd56d3f",
+      "type": "Public-input Canvas scene",
+      "missionId": "MI01",
+      "elapsed": 1.100000000000001,
+      "reducedMotion": false,
+      "particleDrawCalls": {
+        "smoke": 6
+      },
+      "particlesByType": {
+        "smoke": 6
+      },
+      "stateSha256": "fa953d0c27e1e7e366739faca40bcec9077f578940a56d78dac9d758faf7de92",
+      "description": "âge réel 3, après évolution physique"
+    },
+    {
+      "file": "smoke-reduced-motion.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "4ea9959c24b1dc0cff9223d8a8e5a35a4ccc30f394827b73d22f08fbd0a5eed5",
+      "type": "Public-input Canvas scene",
+      "missionId": "MI01",
+      "elapsed": 1.100000000000001,
+      "reducedMotion": true,
+      "particleDrawCalls": {
+        "smoke": 6
+      },
+      "particlesByType": {
+        "smoke": 6
+      },
+      "stateSha256": "fa953d0c27e1e7e366739faca40bcec9077f578940a56d78dac9d758faf7de92",
+      "description": "même état, réduction des mouvements"
+    }
+  ],
+  "publicEmissions": [
+    {
+      "type": "dust",
+      "missionId": "MI01",
+      "seed": 1510,
+      "deltaSeconds": 0.016666666666666666,
+      "inputFrames": 41,
+      "inputs": [
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        },
+        {
+          "move": 1
+        }
+      ],
+      "elapsedAtEmission": 0.6833333333333338,
+      "emittedCount": 18,
+      "sourceEvents": [
+        {
+          "id": 2,
+          "type": "step",
+          "text": "",
+          "time": 0.6833333333333338,
+          "x": 325,
+          "y": 691.3830736172683
+        },
+        {
+          "id": 3,
+          "type": "step",
+          "text": "",
+          "time": 0.6833333333333338,
+          "x": 485,
+          "y": 688.999153951868
+        }
+      ],
+      "stages": [
+        {
+          "frame": "age-0",
+          "elapsed": 0.6833333333333338,
+          "life": 0.688630048035023,
+          "maxLife": 0.7052967147016898,
+          "x": 325.15853657271157,
+          "y": 689.8863264439996,
+          "size": 3.056582532823086,
+          "radius": 3.056582532823086,
+          "rendererAlpha": 0.976369283566398
+        },
+        {
+          "frame": "age-1",
+          "elapsed": 0.8000000000000008,
+          "life": 0.571963381368356,
+          "maxLife": 0.7052967147016898,
+          "x": 326.16941057915335,
+          "y": 680.5757628977846,
+          "size": 3.056582532823086,
+          "radius": 3.056582532823086,
+          "rendererAlpha": 0.810954268531184
+        },
+        {
+          "frame": "age-2",
+          "elapsed": 0.9166666666666679,
+          "life": 0.45529671470168914,
+          "maxLife": 0.7052967147016898,
+          "x": 327.0262937013004,
+          "y": 673.3068660182362,
+          "size": 3.056582532823086,
+          "radius": 3.056582532823086,
+          "rendererAlpha": 0.6455392534959703
+        },
+        {
+          "frame": "age-3",
+          "elapsed": 1.0333333333333345,
+          "life": 0.3386300480350225,
+          "maxLife": 0.7052967147016898,
+          "x": 327.75264404797224,
+          "y": 668.0796358053545,
+          "size": 3.056582532823086,
+          "radius": 3.056582532823086,
+          "rendererAlpha": 0.48012423846075686
+        },
+        {
+          "frame": "age-4",
+          "elapsed": 1.1500000000000008,
+          "life": 0.22196338136835586,
+          "maxLife": 0.7052967147016898,
+          "x": 328.36834625107826,
+          "y": 664.8940722591395,
+          "size": 3.056582532823086,
+          "radius": 3.056582532823086,
+          "rendererAlpha": 0.31470922342554347
+        },
+        {
+          "frame": "age-5",
+          "elapsed": 1.266666666666667,
+          "life": 0.10529671470168922,
+          "maxLife": 0.7052967147016898,
+          "x": 328.89025582907544,
+          "y": 663.7501753795912,
+          "size": 3.056582532823086,
+          "radius": 3.056582532823086,
+          "rendererAlpha": 0.14929420839033003
+        }
+      ],
+      "noRenderMutation": true,
+      "pausedParticlePixelsIdentical": true,
+      "expiredBySimulation": true
+    },
+    {
+      "type": "smoke",
+      "missionId": "MI01",
+      "seed": 1510,
+      "deltaSeconds": 0.016666666666666666,
+      "inputFrames": 16,
+      "inputs": [
+        {
+          "brace": true,
+          "secondary": true,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        },
+        {
+          "brace": true,
+          "secondary": false,
+          "aimX": 600,
+          "aimY": 710.2942082257717
+        }
+      ],
+      "elapsedAtEmission": 0.26666666666666666,
+      "emittedCount": 6,
+      "sourceEvents": [
+        {
+          "id": 2,
+          "type": "rocket",
+          "text": "",
+          "time": 0.016666666666666666,
+          "x": 411.8436007494218,
+          "y": 629.1485492460024
+        },
+        {
+          "id": 3,
+          "type": "explosion",
+          "text": "",
+          "time": 0.26666666666666666,
+          "x": 558.7630303914531,
+          "y": 692.510061172884
+        }
+      ],
+      "stages": [
+        {
+          "frame": "age-0",
+          "elapsed": 0.26666666666666666,
+          "life": 1.6628280631576975,
+          "maxLife": 1.679494729824364,
+          "x": 556.0115908301932,
+          "y": 693.7768091943057,
+          "size": 20.518433089600876,
+          "radius": 20.722050212509288,
+          "rendererAlpha": 0.3168244417570211
+        },
+        {
+          "frame": "age-1",
+          "elapsed": 0.5333333333333333,
+          "life": 1.3961613964910318,
+          "maxLife": 1.679494729824364,
+          "x": 519.7795182344116,
+          "y": 712.5336664259418,
+          "size": 20.518433089600876,
+          "radius": 23.979924179043905,
+          "rendererAlpha": 0.2660155098693594
+        },
+        {
+          "frame": "age-2",
+          "elapsed": 0.8166666666666675,
+          "life": 1.1128280631576994,
+          "maxLife": 1.679494729824364,
+          "x": 493.6838045114089,
+          "y": 729.3461605678885,
+          "size": 20.518433089600876,
+          "radius": 27.44141526848693,
+          "rendererAlpha": 0.21203101973871874
+        },
+        {
+          "frame": "age-3",
+          "elapsed": 1.100000000000001,
+          "life": 0.8294947298243659,
+          "maxLife": 1.679494729824364,
+          "x": 476.21523287605646,
+          "y": 742.9475435987241,
+          "size": 20.518433089600876,
+          "radius": 30.90290635792997,
+          "rendererAlpha": 0.15804652960807786
+        },
+        {
+          "frame": "age-4",
+          "elapsed": 1.3833333333333333,
+          "life": 0.5461613964910317,
+          "maxLife": 1.679494729824364,
+          "x": 464.5217035011364,
+          "y": 753.3378155184486,
+          "size": 20.518433089600876,
+          "radius": 34.36439744737302,
+          "rendererAlpha": 0.10406203947743686
+        },
+        {
+          "frame": "age-5",
+          "elapsed": 1.649999999999999,
+          "life": 0.27949472982436496,
+          "maxLife": 1.679494729824364,
+          "x": 457.0726743242925,
+          "y": 760.1835616389736,
+          "size": 20.518433089600876,
+          "radius": 37.622271413907654,
+          "rendererAlpha": 0.053253107589774897
+        }
+      ],
+      "noRenderMutation": true,
+      "pausedParticlePixelsIdentical": true,
+      "expiredBySimulation": true
+    }
+  ],
+  "sourceHashes": {
+    "src/painted-particles.mjs": "a1e647b17a415ed0070559cf5b00ac6be42a9c978dfccc1a521f0d6ef7154d31",
+    "src/painted-particles-layout.mjs": "a02723f36c24ca9c0a4987520af984f57d96d442d8e15a736020ba240f17216c",
+    "assets/painted/particles/manifest.json": "7068ec99609c7669ac654b3700fa466db42e0ef4346b5142ef53fb1bd373b132",
+    "assets/painted/particles/prompts.json": "35f20af777409036f90e88a8ae8452d29feb1f4e3d37179ff0faf7c3ae9c95ab",
+    "assets/painted/particles/README.md": "09bad888480ff2fb548b2d478a1168bdc4685190f1091efb2dcee1e3e3c0b549",
+    "tools/index-painted-particles.py": "5a03b975c19732ccff0ebac7e0655e4c3553ce36c42da65c0a90b6f741c31302",
+    "tools/test-painted-particles.mjs": "b72e3271b04156bf1eea0f89501abd1c27191e752bc9ee7341cbdba58bbedf3e",
+    "tests/painted-particles.test.mjs": "ac6a5b774d5a4c62f783b1d18d666fea970e93b7b2d63c6792c34dfe7699d9d2",
+    "src/renderer.mjs": "0a8134362a832a2e7e7673f241cc05af043993a617ba1e5021f06e7db5ef1444",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "src/content.mjs": "30308100b760741b7bd1ff8b353e000d3954e195362a85983c080143d29de0fb"
+  },
+  "limitations": [
+    "The contact sheet is an isolated artwork diagnostic; it creates no game particle.",
+    "Game scenes start through createGame and use only updateGame inputs; no actor or particle is teleported or inserted.",
+    "The painted lot changes no contact, collision, counter, lifetime, emission, RNG state or saved field.",
+    "AS22 remains partial: material-specific impacts, ricochets, flames, debris and persistent traces are not added.",
+    "Canvas does not certify native browser behavior, audio, hardware performance or human artistic approval."
+  ],
+  "counts": {
+    "atlases": 2,
+    "frames": 12,
+    "publicEmissions": 2,
+    "views": 9
+  }
+}

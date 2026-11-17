@@ -21,6 +21,9 @@ import { drawPaintedNacreBoat, drawPaintedNacreAmbulance, drawPaintedNacreEquipm
 import { drawPaintedNacrePerson } from './painted-nacre-people.mjs';
 import { drawPaintedNacreCivilian } from './painted-nacre-civilians.mjs';
 import { drawPaintedNacreTerrain, drawPaintedNacreSceneryPart, nacreGroundProp } from './painted-nacre-scenery.mjs';
+import { drawPaintedThyrTerrain, drawPaintedThyrSceneryPart, thyrGroundProp } from './painted-thyr-scenery.mjs';
+import { drawPaintedKharonTerrain, drawPaintedKharonSceneryPart, kharonGroundProp } from './painted-kharon-scenery.mjs';
+import { drawPaintedParticle } from './painted-particles.mjs';
 import { drawPaintedNacreSitePart, drawPaintedNacreSiteGate, drawPaintedNacreSiteGateControl,
   drawPaintedNacreSitePump, drawPaintedNacreSiteValve, drawPaintedNacreSiteLatch, drawPaintedNacreSiteWinch,
   drawPaintedNacreSiteDeck, drawPaintedNacreSiteDepartureRamp, nacreSiteDamageState } from './painted-nacre-sites.mjs';
@@ -1278,7 +1281,9 @@ export class Renderer {
     poly(c, pts, soil);
     const groundOptions = { from: start, to: end, groundAt: x => terrainAt(x, s.planetId) };
     const paintedGround = s.planetId === 'PL01' ? drawPaintedVesperTerrain(c, groundOptions)
-      : s.planetId === 'PL02' ? drawPaintedNacreTerrain(c, groundOptions) : false;
+      : s.planetId === 'PL02' ? drawPaintedNacreTerrain(c, groundOptions)
+        : s.planetId === 'PL03' ? drawPaintedThyrTerrain(c, groundOptions)
+          : s.planetId === 'PL04' ? drawPaintedKharonTerrain(c, groundOptions) : false;
     c.beginPath(); for (let x = start; x <= end; x += 14) { const y = terrainAt(x, s.planetId); if (x === start) c.moveTo(x, y); else c.lineTo(x, y); }
     c.strokeStyle = s.planetId === 'PL03' ? '#a8ac78' : '#d9bf8e'; c.lineWidth = 2; c.stroke();
     // Geologic layers are anchored in the world, so texture never swims with the camera.
@@ -1294,7 +1299,11 @@ export class Renderer {
         const paintedProp = s.planetId === 'PL01'
           ? drawPaintedVesperSceneryPart(c, { part: vesperGroundProp(k / 3), ...atGround })
           : s.planetId === 'PL02'
-            ? drawPaintedNacreSceneryPart(c, { part: nacreGroundProp(k / 3), ...atGround }) : false;
+            ? drawPaintedNacreSceneryPart(c, { part: nacreGroundProp(k / 3), ...atGround })
+            : s.planetId === 'PL03'
+              ? drawPaintedThyrSceneryPart(c, { part: thyrGroundProp(k / 3), ...atGround })
+              : s.planetId === 'PL04'
+                ? drawPaintedKharonSceneryPart(c, { part: kharonGroundProp(k / 3), ...atGround }) : false;
         if (!paintedProp) poly(c, [[x, ground], [x + 8, ground - 9], [x + 22, ground - 11], [x + 32, ground - 1]], '#65756a', '#c0b88e55', 1);
       }
     }
@@ -2042,6 +2051,7 @@ export class Renderer {
     for (const p of s.particles) {
       if (!this.visible(p.x, 100)) continue;
       c.globalAlpha = clamp(p.life / p.maxLife, 0, 1) * (p.type === 'smoke' ? 0.32 : 1);
+      if (drawPaintedParticle(c, p, { reducedMotion: this.combatReducedMotion })) continue;
       if (p.type === 'spark') line(c, p.x, p.y, p.x - p.vx * 0.025, p.y - p.vy * 0.025, p.color, 2);
       else circle(c, p.x, p.y, p.size * (p.type === 'smoke' ? 2 - p.life / p.maxLife : 1), p.color);
     }

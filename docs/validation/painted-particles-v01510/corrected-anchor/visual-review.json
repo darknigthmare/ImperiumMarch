@@ -1,0 +1,71 @@
+{
+  "version": "0.15.10",
+  "reviewedUtc": "2026-11-17T10:09:55.069764+00:00",
+  "reviewer": "assistant visual inspection of all nine actual Canvas PNGs",
+  "humanPlaytestPerformed": false,
+  "nativeBrowserExecuted": false,
+  "accepted": true,
+  "scope": "Two original smoke/dust atlases, twelve runtime ages; partial AS22 reception only.",
+  "receipt": "receipt.json",
+  "reviewedViews": [
+    {
+      "file": "particles-contact-sheet.png",
+      "sha256": "0c78004c59ad0d91ee228a210fd9dce4836d99b53e56c0ddd1deeaa3bad3ceae"
+    },
+    {
+      "file": "dust-public-emission.png",
+      "sha256": "7a5aebd90eab93dc7f6400a6f2e7e6d783c35b5fe004fa7c3b01a6eeff318278"
+    },
+    {
+      "file": "dust-fallback.png",
+      "sha256": "9fa578aeb262bab8395c3590d387a775a970dba86e4e33fa01a242ee3badcd59"
+    },
+    {
+      "file": "dust-age-3.png",
+      "sha256": "5f615b36d78ba67772770f6628ed65bcab3ddf4993e76294599b9352b9c6b9c6"
+    },
+    {
+      "file": "dust-reduced-motion.png",
+      "sha256": "fc51168846ad5419e6485698da3c85a8279e13e806d99fb5aee9e7ed880a8f42"
+    },
+    {
+      "file": "smoke-public-emission.png",
+      "sha256": "7d22f833a07dd7591229dfd55ceeeaa71342714e8baeee84f09d45035c75c0b8"
+    },
+    {
+      "file": "smoke-fallback.png",
+      "sha256": "fe429e67193b5d3986d2b93730d2c7b6698cb405bb9d72e1096c70d490b136e6"
+    },
+    {
+      "file": "smoke-age-3.png",
+      "sha256": "0a43e71dcd7538dbe24257afa59c6f1d0adbe002bf17ca9f58cac0294abf6e17"
+    },
+    {
+      "file": "smoke-reduced-motion.png",
+      "sha256": "29e4533ea1f82e56f2031d5218e50f6cc07860b93ea8ac88bd109f4e6827d886"
+    }
+  ],
+  "findings": [
+    "All twelve authored cells are isolated on light and dark backgrounds, without neighboring-cell bleed or a visible rectangular background.",
+    "The corrected alpha>=2 measurement restores the visible cloud scale; thresholds 2, 8 and 32 identify substantially the same authored envelope. Sparse remote alpha-1 residue no longer shrinks the clouds.",
+    "Runtime draws retain every source pixel but clip at the historical circle. Twelve real Canvas tests verify the rendered radius, caller alpha, smoothing and enclosing clip.",
+    "The real MI01 rocket impact produces six smoke particles that follow their simulated trajectories and fade; the texture no longer appears as an undersized grey pebble.",
+    "The eighteen particles emitted by two real footfalls remain deliberately small (historical radius 2–6 world pixels). At game size their dust flecks are visible near the actual feet and on dispersal; no artificial size boost or new emission is used.",
+    "The same simulated age-3 snapshots retain physical positions/radii/alpha under reduced motion; only the authored frame becomes age-0.",
+    "Fallback views show the original smoke circles and dust dots when the two image resources are cleared.",
+    "The initial nine underscaled views, receipt and source snapshot remain preserved in the parent validation directory."
+  ],
+  "limits": [
+    "No material-specific impact, ricochet, flame, debris, persistent footprint, new particle or gameplay mechanic is added.",
+    "The dust is subtle at its existing game size, especially over pale soil; six-stage texture detail is most evident on the diagnostic contact sheet.",
+    "A Canvas review does not certify native browser performance, audio or human artistic approval."
+  ],
+  "counts": {
+    "atlases": 2,
+    "frames": 12,
+    "publicEmissions": 2,
+    "views": 9
+  },
+  "simulationMutationObserved": false,
+  "sourceHashesStillMatch": true
+}

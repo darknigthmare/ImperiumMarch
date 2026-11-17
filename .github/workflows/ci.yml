@@ -56,6 +56,12 @@ jobs:
         run: npm run check:nacre-civilians
       - name: Decode and validate Nacre terrain and shoreline scenery
         run: npm run check:nacre-scenery
+      - name: Decode and validate Thyr terrain and forest scenery
+        run: npm run check:thyr-scenery
+      - name: Decode and validate Kharon terrain and industrial scenery
+        run: npm run check:kharon-scenery
+      - name: Decode and validate simulated smoke and dust particles
+        run: npm run check:particles
       - run: npm run check
       - run: npm run build
       - run: npm run check:offline-package

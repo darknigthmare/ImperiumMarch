@@ -1,5 +1,16 @@
 # Déploiement web — ORDRE DE CENDRE
 
+## Préparation 0.15.10 — sols de Thyr/Kharon et particules
+
+La tranche part du `main` publié `2be40743cbc0ac436786882e314e6c4c289ff31f`, arbre `749bad5644a44ff52b584c0a0caa6fc8189e3030`. Six PNG originaux ajoutent 32 cellules : deux lots de sols et petits décors, puis fumée et poussière. Le total est **90 atlas /676 cellules /21 lots**, dont 632 utilisées et 44 références ; les quatre panoramas sont séparés.
+
+La [réception locale](QA_V15_10.md) reçoit **852 tests, 174 comparaisons SVG/Canvas, 108 parcours du DOM modélisé**, les trois lots et la Bible. Les [preuves finales](validation/v01510-final/receipt.json) lient les empreintes aux commandes. Les 2 938 assets, aperçus, preuves et fixtures historiques sont conservés. Aucun champ de sauvegarde ni source de simulation n'est modifié.
+
+L'HTML autonome de **221 288 351 octets** possède le SHA-256 `87c1657775462941d9c0fa1a72fa3292a8da71c1762c2ef2825d93e481133776`. Le ZIP complet de **162 460 239 octets**, SHA-256 `944e3f67a41d6926013bed9d443781ecb89932a608e436ad4b8f7ae8a9d8e2ac`, contient exactement cette entrée unique. Ces fichiers générés restent hors Git. Aucun déclenchement du workflow de Release précédemment refusé n'est effectué.
+
+L'inspection Vercel avant publication confirme le projet et ses protections existantes, ainsi que la dernière production READY `dpl_EWsKifPhgoRLqE6ds2N1j9vhW6xm`, issue de `1235102b25a531a90feeb0d1b38a37482a928c5d` (0.15.7). Les refus de quota reçus pour la 0.15.9 restent historiques. Le statut de la nouvelle version doit être observé sur son SHA exact après publication, sans déploiement manuel ni contournement du quota.
+
+
 ## Publication 0.15.9 — sources reçues, hébergement limité par quota
 
 La [PR #7](https://github.com/darknigthmare/ImperiumMarch/pull/7) réunit la 0.15.8 récupérée et sept atlas de Nacre : **84 atlas, 644 cellules, 18 lots**, avec les panoramas comptés séparément. Elle est ouverte le **17 novembre 2026 à 09:59:53, heure de Paris**, depuis `codex/nacre-worlds-completion-v0159`. Le [reçu de publication](validation/v0159-publication.json) arrête l'observation sur le commit applicatif et la CI avant fusion ; le statut vivant de la PR donne ses suites.

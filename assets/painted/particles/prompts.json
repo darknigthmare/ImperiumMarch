@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "version": "0.15.10",
+  "generator": "image_gen.imagegen (built-in)",
+  "canonIds": [
+    "AS22"
+  ],
+  "intent": "New original game sprite atlases for the existing smoke and dust particles; no new emitter or simulation behavior.",
+  "prompts": [
+    {
+      "atlas": "smoke",
+      "prompt": "Use case: stylized-concept. Asset type: production 2D particle sprite atlas for the original painted military science-fiction game ORDRE DE CENDRE. Create one brand-new transparent PNG atlas, landscape 1536 x 1024 pixels, containing exactly six successive smoke-puff texture phases in a clean 3-column by 2-row grid. Every cell is 512 x 512 with its puff centered at the exact cell center. Frame order is left to right across the top, then left to right across the bottom. The smoke is cool muted ash grey around #6d7478, with painterly soft billowing lobes, subtle charcoal internal shading and feathered translucent edges, suitable over both dark forest and copper industrial backgrounds. All six puffs have a similar compact circular envelope, roughly 340 pixels diameter, safely inside the cell with at least 64 fully transparent pixels of separation on every side. The six frames subtly roll and loosen internally from a coherent puff to more broken lobes; do NOT strongly enlarge or fade the shape, because the engine already controls lifetime, radius and opacity. Keep density, centroid, lighting and palette consistent across the six phases, with no visible jumps. Pure side-view 2D VFX texture, quiet realistic hand-painted material matching a detailed painted game, not a glossy icon. Absolutely no fire, sparks, flash, glow, ring, ground, horizon, cast shadow, border, labels, letters, numbers, watermark, grid lines or scenery. Actual alpha transparency outside the smoke and gradual alpha inside its feathered edges; do not paint a checkerboard or opaque background. Do not let one puff or stray particle touch another cell."
+    },
+    {
+      "atlas": "dust",
+      "prompt": "Use case: stylized-concept. Asset type: production 2D particle sprite atlas for the original painted military science-fiction game ORDRE DE CENDRE. Create one brand-new transparent PNG atlas, landscape 1536 x 1024 pixels, containing exactly six successive small dust-puff texture phases in a clean 3-column by 2-row grid. Every cell is 512 x 512 with its puff centered at the exact cell center. Frame order is left to right across the top, then left to right across the bottom. The dust is muted warm mineral buff-grey around #bea58c, with fine irregular granular lobes, restrained ochre variation and soft translucent feathering, suitable for foot contact and projectile-ground dust in a detailed painted game. All six puffs have a similar compact, roughly circular envelope around 340 pixels diameter and at least 64 fully transparent pixels of separation on every side. The six frames subtly change internal turbulence from a compact broken puff to lightly loosened granular lobes; do NOT strongly enlarge or fade the shape, because the engine already controls lifetime, radius and opacity. Keep centroid, scale, density, lighting and palette consistent across all phases. Quiet realistic hand-painted 2D texture; not a comic burst, icon or explosion. Absolutely no rock chunks, fire, sparks, flash, glow, ring, ground strip, impact spike, horizon, cast shadow, border, labels, letters, numbers, watermark, grid lines or scenery. Actual alpha transparency outside the dust and partial alpha within feathered edges; no checkerboard or opaque background. No stray marks outside each central puff and no touching adjacent cells."
+    }
+  ],
+  "selectedOutputs": [
+    {
+      "atlas": "smoke",
+      "originalGeneratedFile": "exec-3f7d2196-5b47-472e-8ec7-04c8fc4d3621.png",
+      "sourcePath": "/workspace/scratch/672b96792ba9/generated_images/exec-3f7d2196-5b47-472e-8ec7-04c8fc4d3621.png",
+      "path": "assets/painted/particles/smoke.png",
+      "sha256": "e510296425c7bfa6304a7b2fbde2bab9ae0afbb118ea6f5a928b55538d1643ca",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "originalBytesUnchanged": true,
+      "generationPass": "transparency correction using the recorded edit prompt",
+      "transparentFraction": 0.6585604349772135
+    },
+    {
+      "atlas": "dust",
+      "originalGeneratedFile": "exec-8c314a75-e439-422e-8526-fe54dc77d148.png",
+      "sourcePath": "/workspace/scratch/672b96792ba9/generated_images/exec-8c314a75-e439-422e-8526-fe54dc77d148.png",
+      "path": "assets/painted/particles/dust.png",
+      "sha256": "a5ec1359d106cafca1199a313c4ce24bcc11ef19677af4345719256d90647826",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "originalBytesUnchanged": true,
+      "generationPass": "transparency correction using the recorded edit prompt",
+      "transparentFraction": 0.6858406066894531
+    }
+  ],
+  "constraints": [
+    "PNG originals retained byte-for-byte.",
+    "3 columns by 2 rows; actual returned dimensions measured before indexing.",
+    "Runtime retains existing particle positions, radius, alpha, lifetime and count.",
+    "Custom colors, unknown particle types and failed images retain the vector fallback."
+  ],
+  "rejectedOutputs": [
+    {
+      "atlas": "smoke",
+      "sourceFile": "exec-e9198f0c-9470-450c-b4f1-d3751d9fd2cc.png",
+      "sha256": "c5937f32fd2f3c9a1494e31431a34995145d57fe550c349d51a69d4f3b14f7e0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparentFraction": 0.0005156199137369791,
+      "reason": "Diffuse alpha halo outside individual puffs; insufficient transparent gutters. Not indexed and not used at runtime."
+    },
+    {
+      "atlas": "dust",
+      "sourceFile": "exec-2230f7c6-7dce-4763-ad66-08d48be1fa59.png",
+      "sha256": "3ff958a63dbe22a93764c9b01d4b41a1dea3c15724b7f341a00d215aee274bb6",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparentFraction": 0.10303497314453125,
+      "reason": "Diffuse alpha halo outside individual puffs; insufficient transparent gutters. Not indexed and not used at runtime."
+    }
+  ],
+  "editPrompts": [
+    {
+      "atlas": "smoke",
+      "referencedSourceFile": "exec-e9198f0c-9470-450c-b4f1-d3751d9fd2cc.png",
+      "prompt": "Edit the provided particle sprite atlas, retaining the six painted central puffs and their subtle phase-to-phase variation. This is a game production cutout transparency correction. Keep the output exactly 1536 by 1024, with six 512 by 512 cells in a 3-column, 2-row grid. The previous result has a visible haze spanning the entire sheet; eliminate that haze completely. Each puff must occupy ONLY a compact circular area, diameter no more than 300 pixels, centered in its cell. Every pixel outside those six compact circles must be completely empty, alpha exactly zero. In particular the outer border and broad 100-pixel gutters all around every cell are perfectly transparent with no cloud, fog, aura, noise, tint, grey background, cast shadow, or any stray translucent pixels. Preserve a natural irregular painterly silhouette and a short soft alpha transition restricted to the outermost 12 pixels of each puff; beyond it alpha immediately reaches zero. It must look like six small isolated individual cutout puffs widely separated by clear empty space, not a wallpaper of clouds. Do not add text, numbers, grid lines, flames, sparks, rings, ground, scenery, or a checkerboard. Preserve the muted palette and non-glowing internal texture. Actual transparent PNG alpha, no opaque background. Do not increase or decrease scale progressively between frames; keep density and size similar. The six smoke puffs have cool muted ash-grey lobes around #6d7478."
+    },
+    {
+      "atlas": "dust",
+      "referencedSourceFile": "exec-2230f7c6-7dce-4763-ad66-08d48be1fa59.png",
+      "prompt": "Edit the provided particle sprite atlas, retaining the six painted central puffs and their subtle phase-to-phase variation. This is a game production cutout transparency correction. Keep the output exactly 1536 by 1024, with six 512 by 512 cells in a 3-column, 2-row grid. The previous result has a visible haze spanning the entire sheet; eliminate that haze completely. Each puff must occupy ONLY a compact circular area, diameter no more than 300 pixels, centered in its cell. Every pixel outside those six compact circles must be completely empty, alpha exactly zero. In particular the outer border and broad 100-pixel gutters all around every cell are perfectly transparent with no cloud, fog, aura, noise, tint, grey background, cast shadow, or any stray translucent pixels. Preserve a natural irregular painterly silhouette and a short soft alpha transition restricted to the outermost 12 pixels of each puff; beyond it alpha immediately reaches zero. It must look like six small isolated individual cutout puffs widely separated by clear empty space, not a wallpaper of clouds. Do not add text, numbers, grid lines, flames, sparks, rings, ground, scenery, or a checkerboard. Preserve the muted palette and non-glowing internal texture. Actual transparent PNG alpha, no opaque background. Do not increase or decrease scale progressively between frames; keep density and size similar. The six dust puffs have muted warm mineral buff-grey granular lobes around #bea58c."
+    }
+  ],
+  "selectionNote": "The first outputs were rejected for diffuse alpha across cell gutters. The two edited ImageGen originals have more than 65 percent fully transparent pixels and cell-gutter alpha at most 1/255. Selected PNG bytes are copied without any retouch or re-encoding."
+}
