@@ -2,7 +2,7 @@
 
 ### Chaque pas laisse une trace.
 
-**Nom de code : ImperiumMarch · Version 0.15.9 en préparation de publication · Français**
+**Nom de code : ImperiumMarch · Version 0.15.9 · Français**
 
 ![Direction artistique originale : marcheur impérial sur Vesper](assets/art/key-art.png)
 
@@ -18,7 +18,9 @@ La **0.15.8 ajoute les personnes de Nacre, les sols et le viaduc de Vesper, ains
 
 ## Jouer à cette version
 
-**La 0.15.9 réunit la tranche 0.15.8 récupérée et les nouveaux lots de Nacre.** Sa publication GitHub et sa disponibilité Vercel sont suivies dans le [dossier de déploiement](docs/DEPLOYMENT.md), avec les commits effectivement reçus. Le site public servait encore la 0.15.7 lors de la vérification initiale du 17 novembre ; les résultats locaux ne constituent pas un reçu de mise en ligne.
+**Les sources 0.15.9 sont disponibles dans la [PR #7](https://github.com/darknigthmare/ImperiumMarch/pull/7)**, qui réunit la tranche 0.15.8 récupérée et les nouveaux lots de Nacre. Son commit applicatif `17041c1cec7d9b608afe4955364569a9009c174f` possède exactement l'arbre local testé. Sa [CI distante](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44051511167) a réussi avec 836 tests, 174 comparaisons SVG/Canvas, 18 lots d'atlas, les panoramas et 108 parcours du DOM modélisé. L'HTML et le ZIP construits à distance sont identiques aux fichiers locaux. Le [dossier de déploiement](docs/DEPLOYMENT.md) en précise la portée.
+
+**Le site public reste en 0.15.7 lors du contrôle du 17 novembre.** Vercel refuse le nouveau commit pour quota : « Deployment rate limited — retry in 24 hours. » Aucun déploiement 0.15.9 n'est reçu. Le [reçu de publication](docs/validation/v0159-publication.json) distingue les sources conservées, les contrôles et l'hébergement. L'archive autonome complète 0.15.9 est construite et vérifiée ; aucune Release GitHub de cette archive n'est annoncée disponible.
 
 La **0.15.7 est publiée sur le [site du jeu](https://imperium-march.vercel.app/) et dans les sources GitHub**. La [PR #6](https://github.com/darknigthmare/ImperiumMarch/pull/6) est fusionnée sur `main` au commit [`1235102`](https://github.com/darknigthmare/ImperiumMarch/commit/1235102b25a531a90feeb0d1b38a37482a928c5d). Vercel a reçu ce même commit en production le 16 novembre 2026 à **22:09:47, heure de Paris**. Le [reçu de publication](docs/validation/v0157-publication.json) relie les sources, les deux CI réussies et le contrôle HTTP du site.
 

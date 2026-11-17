@@ -1,14 +1,33 @@
 # Déploiement web — ORDRE DE CENDRE
 
-## Préparation 0.15.9 — reprise complète et nouveaux décors
+## Publication 0.15.9 — sources reçues, hébergement limité par quota
 
-La tranche **0.15.9** réunit la 0.15.8 récupérée et sept atlas de Nacre : **84 atlas, 644 cellules, 18 lots**, avec les panoramas comptés séparément. Les sources, les PNG originaux, la Bible et les preuves sont préparés sur `codex/nacre-worlds-completion-v0159`. Le [rapport QA](QA_V15_9.md) reçoit localement **836 tests, 174 comparaisons SVG/Canvas et 108 parcours du DOM modélisé** ; la réception navigateur reste bloquée avant chargement. Ces contrôles ne valent pas reçu de mise en ligne.
+La [PR #7](https://github.com/darknigthmare/ImperiumMarch/pull/7) réunit la 0.15.8 récupérée et sept atlas de Nacre : **84 atlas, 644 cellules, 18 lots**, avec les panoramas comptés séparément. Elle est ouverte le **17 novembre 2026 à 09:59:53, heure de Paris**, depuis `codex/nacre-worlds-completion-v0159`. Le [reçu de publication](validation/v0159-publication.json) arrête l'observation sur le commit applicatif et la CI avant fusion ; le statut vivant de la PR donne ses suites.
 
-La conservation distante de la tranche 0.15.8 a été vérifiée au commit `86b6ddd35d66a147bf2b9c9d07cd6b8f8468bc5d`, parent `ca5139b276e48be8c20d1d012ec4deefc6130a71`. Son arbre `b4fa75737df7866020671fb36ee8fa0ec7e7a556` est exactement celui du commit local récupéré `95564d23ace8b6fdc12bd685428a59b532b186d0`. Les nouvelles sources doivent être publiées par-dessus ce parent ; la PR, la CI et l'hébergement sont consignés après leurs réponses effectives.
+### Identité des sources conservées
 
-L'archive autonome complète 0.15.9 est construite et vérifiée : **151 098 632 octets**, SHA-256 `5905e77a527bdab1672835689139ffcce2be3cf5bafd7aa9e38aa6c61625e3e0`. Elle contient l'HTML de **206 002 133 octets**, SHA-256 `f01e6b87fd835417cdd3ab24ca9e3d4c2ae50ff0ec0832f3077c01f2be239960`. L'archive générée reste hors Git. Aucun lancement du workflow de Release refusé antérieurement n'est effectué pour cette reprise.
+| Étape | Commit local reçu | Commit GitHub | Arbre identique |
+| --- | --- | --- | --- |
+| Reprise 0.15.8 | `95564d23ace8b6fdc12bd685428a59b532b186d0` | `86b6ddd35d66a147bf2b9c9d07cd6b8f8468bc5d` | `b4fa75737df7866020671fb36ee8fa0ec7e7a556` |
+| Jeu et preuves 0.15.9 | `094010ef166a6405b873663c855ce10c8ba3c884` | `17041c1cec7d9b608afe4955364569a9009c174f` | `319fcd4c84b14772fc96e4b0558b2c1031240d03` |
 
-Lors de la vérification initiale du 17 novembre, Vercel sert toujours le commit applicatif 0.15.7 `1235102b25a531a90feeb0d1b38a37482a928c5d`. Le quota observé la veille et la liaison au projet existant restent décrits ci-dessous. La publication finale doit confirmer l'état réellement reçu sur le nouveau commit, sans modifier domaine, protection ou limite de compte.
+Le parent public reste `ca5139b276e48be8c20d1d012ec4deefc6130a71`. Les deux commits applicatifs de la PR couvrent **292 fichiers modifiés ou ajoutés, sans suppression**. PNG originaux, prompts, code, Bible, fixtures et preuves sont présents dans l'arbre reçu. Les sources récupérées ne dépendent plus d'un checkout local non publié.
+
+Le [rapport QA](QA_V15_9.md) reçoit localement **836 tests, 174 comparaisons SVG/Canvas et 108 parcours du DOM modélisé**. La [CI de PR](https://github.com/darknigthmare/ImperiumMarch/actions/runs/44051511167) porte sur le HEAD `17041c1cec7d9b608afe4955364569a9009c174f` et se termine avec **succès à 10:09:51, heure de Paris**. Les logs confirment le checkout de la fusion synthétique `8ed74617462672ffc9992bb9be0dc2c947c2d564`, dont l'arbre est lui aussi `319fcd4c84b14772fc96e4b0558b2c1031240d03`. Les 34 étapes réussissent sous Node 22 : **836 tests, 174 comparaisons, 18 lots d'atlas, contrôle des panoramas, 108 parcours DOM, données, interface, archive et sortie web**. Le [reçu CI](validation/v0159-pr-ci.json) conserve les résultats, étapes, version de Node et empreintes des logs.
+
+Pour cette construction, les empreintes distantes de l'HTML et du ZIP concordent exactement avec les fichiers locaux reçus ci-dessous. Cette concordance est mesurée ; elle ne suppose pas que toute autre version de zlib produira systématiquement les mêmes octets compressés.
+
+### Vercel : refus de quota, ancienne production conservée
+
+Le statut Vercel du HEAD 0.15.9 est **failure** à **09:59:54, heure de Paris**, avec le message **« Deployment rate limited — retry in 24 hours. »** Aucun déploiement n'est créé pour ce SHA. L'indication de délai est celle du service ; elle ne garantit pas une heure de réouverture.
+
+La dernière production **READY** reste `dpl_EWsKifPhgoRLqE6ds2N1j9vhW6xm`, issue du commit **`1235102b25a531a90feeb0d1b38a37482a928c5d`**, version **0.15.7**, avec [imperium-march.vercel.app](https://imperium-march.vercel.app/) parmi ses trois alias et sans erreur d'alias. Le projet `prj_ggDB98oddkTTzVPiGQrtxnj7frcr`, l'équipe `team_VrIjq2UWV6VaHZr7DdQFwvfu`, les domaines et protections restent conservés. Aucune tentative manuelle de redéploiement ou de contournement du quota n'est effectuée.
+
+### Archive complète et portée de la réception
+
+L'archive autonome complète 0.15.9 est construite et vérifiée : **151 098 632 octets**, SHA-256 `5905e77a527bdab1672835689139ffcce2be3cf5bafd7aa9e38aa6c61625e3e0`. Elle contient l'HTML de **206 002 133 octets**, SHA-256 `f01e6b87fd835417cdd3ab24ca9e3d4c2ae50ff0ec0832f3077c01f2be239960`, avec 71 modules et les images originales. La sortie générée reste hors Git. Aucun workflow de Release précédemment refusé n'est lancé et aucune Release binaire 0.15.9 n'est annoncée disponible.
+
+La réception navigateur locale reste bloquée avant chargement. Les contrôles Canvas, les 108 parcours du DOM modélisé et les essais de simulation ont la portée précisée dans le rapport QA. Les fichiers documentaires de publication n'altèrent ni le jeu testé, ni ses PNG, ni la Bible, ni les empreintes de l'HTML et du ZIP.
 
 ## Reprise 0.15.8 — fichiers retrouvés, publication à recevoir
 
