@@ -1,0 +1,544 @@
+{
+  "version": "0.15.9",
+  "checkedAt": "2026-11-17T08:54:01.558360+00:00",
+  "baselineCommit": "95564d23ace8b6fdc12bd685428a59b532b186d0",
+  "publicBaselineCommit": "ca5139b276e48be8c20d1d012ec4deefc6130a71",
+  "canonicalBaseline": {
+    "path": "docs/validation/painted-counts-v0158.json",
+    "sha256": "f7413289b5aed907897cb093fb66dbf930c5e73c2b8fa85c10cd2f3c8084ef8d",
+    "version": "0.15.8",
+    "lotCount": 16,
+    "byteIdenticalToBaseline": true
+  },
+  "lotCount": 18,
+  "baselineReconciled": {
+    "atlases": 77,
+    "cells": 586,
+    "runtimeCells": 548,
+    "referenceCells": 38
+  },
+  "added": {
+    "atlases": 7,
+    "cells": 58,
+    "runtimeCells": 52,
+    "referenceCells": 6
+  },
+  "total": {
+    "atlases": 84,
+    "cells": 644,
+    "runtimeCells": 600,
+    "referenceCells": 44
+  },
+  "lots": [
+    {
+      "lot": "cerbere",
+      "atlases": 1,
+      "cells": 16,
+      "runtimeCells": 11,
+      "referenceCells": 5,
+      "manifest": "assets/painted/cerbere/manifest.json",
+      "manifestSha256": "ba9701de1f5a1ce29982a5bcd850e7f540d373eeffeb77f939336d4074c7ffa3"
+    },
+    {
+      "lot": "chemical",
+      "atlases": 5,
+      "cells": 24,
+      "runtimeCells": 24,
+      "referenceCells": 0,
+      "manifest": "assets/painted/chemical/manifest.json",
+      "manifestSha256": "aaafee883b55d40f542381a79c4aeffdda719e118d308c9709dbdbef9155938f"
+    },
+    {
+      "lot": "combat",
+      "atlases": 9,
+      "cells": 78,
+      "runtimeCells": 60,
+      "referenceCells": 18,
+      "manifest": "assets/painted/combat/manifest.json",
+      "manifestSha256": "d8c559f4f0add10153a1d28abe41fa73914cd17c4376aff76b3114c768c84a93"
+    },
+    {
+      "lot": "foundry-sites",
+      "atlases": 4,
+      "cells": 23,
+      "runtimeCells": 23,
+      "referenceCells": 0,
+      "manifest": "assets/painted/foundry-sites/manifest.json",
+      "manifestSha256": "60361d95f8e69960a58ba4bfc5a274d133a73983ad5704c8234f52b1c937154f"
+    },
+    {
+      "lot": "mi14",
+      "atlases": 8,
+      "cells": 54,
+      "runtimeCells": 48,
+      "referenceCells": 6,
+      "manifest": "assets/painted/mi14/manifest.json",
+      "manifestSha256": "72f64c528cc664bf63d0573f00da3a90a1ba4598acdc91a7bb49aee8955b2625",
+      "usageReconciliation": [
+        {
+          "atlas": "worker",
+          "cells": 12,
+          "runtimeCells": 11,
+          "referenceCells": 1,
+          "references": [
+            "kneeling"
+          ],
+          "runtime": [
+            "standing",
+            "walking-0",
+            "walking-1",
+            "walking-2",
+            "walking-3",
+            "walking-4",
+            "walking-5",
+            "walking-6",
+            "walking-7",
+            "safe",
+            "lost"
+          ]
+        },
+        {
+          "atlas": "worker-mechanic",
+          "cells": 12,
+          "runtimeCells": 11,
+          "referenceCells": 1,
+          "references": [
+            "kneeling"
+          ],
+          "runtime": [
+            "standing",
+            "walking-0",
+            "walking-1",
+            "walking-2",
+            "walking-3",
+            "walking-4",
+            "walking-5",
+            "walking-6",
+            "walking-7",
+            "safe",
+            "lost"
+          ]
+        },
+        {
+          "atlas": "cooler",
+          "cells": 6,
+          "runtimeCells": 5,
+          "referenceCells": 1,
+          "references": [
+            "neutral-reference"
+          ],
+          "runtime": [
+            "broken",
+            "isolated",
+            "repairing",
+            "online",
+            "destroyed"
+          ]
+        },
+        {
+          "atlas": "valve",
+          "cells": 3,
+          "runtimeCells": 3,
+          "referenceCells": 0,
+          "references": [],
+          "runtime": [
+            "open",
+            "isolated",
+            "destroyed"
+          ]
+        },
+        {
+          "atlas": "disputed-lot",
+          "cells": 6,
+          "runtimeCells": 5,
+          "referenceCells": 1,
+          "references": [
+            "neutral-reference"
+          ],
+          "runtime": [
+            "sealed",
+            "inspected",
+            "released",
+            "blocked",
+            "destroyed"
+          ]
+        },
+        {
+          "atlas": "workshop-control",
+          "cells": 6,
+          "runtimeCells": 5,
+          "referenceCells": 1,
+          "references": [
+            "neutral-reference"
+          ],
+          "runtime": [
+            "idle",
+            "working",
+            "production",
+            "stopped",
+            "destroyed"
+          ]
+        },
+        {
+          "atlas": "security-automaton",
+          "cells": 6,
+          "runtimeCells": 5,
+          "referenceCells": 1,
+          "references": [
+            "dormant"
+          ],
+          "runtime": [
+            "warning",
+            "active",
+            "destroyed",
+            "cannon",
+            "cannon-destroyed"
+          ]
+        },
+        {
+          "atlas": "picket-post",
+          "cells": 3,
+          "runtimeCells": 3,
+          "referenceCells": 0,
+          "references": [],
+          "runtime": [
+            "closed",
+            "clearing",
+            "open"
+          ]
+        }
+      ]
+    },
+    {
+      "lot": "nacre",
+      "atlases": 6,
+      "cells": 30,
+      "runtimeCells": 29,
+      "referenceCells": 1,
+      "manifest": "assets/painted/nacre/manifest.json",
+      "manifestSha256": "2bb50df3a24baf3554c3eef89dae295ffdd1d09d5700d2fc779d56fb64489c19"
+    },
+    {
+      "lot": "nacre-sites",
+      "atlases": 5,
+      "cells": 30,
+      "runtimeCells": 30,
+      "referenceCells": 0,
+      "manifest": "assets/painted/nacre-sites/manifest.json",
+      "manifestSha256": "41124ab7cc1144cdc1d54d1ab3e93b26f4475e9147ab558d56fd5eb2a03a2e5a"
+    },
+    {
+      "lot": "relay",
+      "atlases": 3,
+      "cells": 30,
+      "runtimeCells": 28,
+      "referenceCells": 2,
+      "manifest": "assets/painted/relay/manifest.json",
+      "manifestSha256": "3133e7664a5468a62dcad8de5ee7823bde0c68eae5a93af24ec7ade4b04d3cca"
+    },
+    {
+      "lot": "route",
+      "atlases": 3,
+      "cells": 20,
+      "runtimeCells": 18,
+      "referenceCells": 2,
+      "manifest": "assets/painted/route/manifest.json",
+      "manifestSha256": "5bff8cef709e85b19e76c4e7af5cfe70acff2aa1b90424ab18016ab5fc9a0e9e"
+    },
+    {
+      "lot": "thyr",
+      "atlases": 8,
+      "cells": 62,
+      "runtimeCells": 58,
+      "referenceCells": 4,
+      "manifest": "assets/painted/thyr/manifest.json",
+      "manifestSha256": "1edcc6c9a152f591ffa2c37f6299a624ab3079ef1b72b805b4cc6a85b14e0fe6"
+    },
+    {
+      "lot": "transport",
+      "atlases": 4,
+      "cells": 20,
+      "runtimeCells": 20,
+      "referenceCells": 0,
+      "manifest": "assets/painted/transport/manifest.json",
+      "manifestSha256": "0dfdc951c141b4c49d73127c69baa9283aa0657ee1f990409d70b4fab2a041b5"
+    },
+    {
+      "lot": "vesper",
+      "atlases": 6,
+      "cells": 38,
+      "runtimeCells": 38,
+      "referenceCells": 0,
+      "manifest": "assets/painted/vesper/manifest.json",
+      "manifestSha256": "4c7f64a6a4e78fd886ae3bb3b4ecc89c063d0ebd39a59e66e776aa36e8254892"
+    },
+    {
+      "lot": "voice",
+      "atlases": 3,
+      "cells": 21,
+      "runtimeCells": 21,
+      "referenceCells": 0,
+      "manifest": "assets/painted/voice/manifest.json",
+      "manifestSha256": "cf775d14e7763f60801c25cf251b15090cc4ba670ebc58dff482dfa4889331c4"
+    },
+    {
+      "lot": "walkers",
+      "atlases": 6,
+      "cells": 96,
+      "runtimeCells": 96,
+      "referenceCells": 0,
+      "manifest": "assets/painted/walkers/manifest.json",
+      "manifestSha256": "8cf7d7628da6728f13bd21f4458c42bcb867929b7161e6f47c49fe8d3c1f009a"
+    },
+    {
+      "lot": "nacre-people",
+      "atlases": 3,
+      "cells": 28,
+      "runtimeCells": 28,
+      "referenceCells": 0,
+      "manifest": "assets/painted/nacre-people/manifest.json",
+      "manifestSha256": "ca92774305fd46ce660dacab9d572d39de9ae4f132ce1e62ce6f85b633ef3f2d",
+      "provenanceChecked": true,
+      "runtimeUrlsPresent": true
+    },
+    {
+      "lot": "vesper-scenery",
+      "atlases": 3,
+      "cells": 16,
+      "runtimeCells": 16,
+      "referenceCells": 0,
+      "manifest": "assets/painted/vesper-scenery/manifest.json",
+      "manifestSha256": "747746b862d0b52783bbe570630e2a3cb6c6786ea3f72dfb44dec4b1cc02da07",
+      "provenanceChecked": true,
+      "runtimeUrlsPresent": true
+    },
+    {
+      "lot": "nacre-civilians",
+      "atlases": 5,
+      "cells": 48,
+      "runtimeCells": 42,
+      "referenceCells": 6,
+      "manifest": "assets/painted/nacre-civilians/manifest.json",
+      "manifestSha256": "716d31795990d568c4a5ae7fd6a846ddf79b8bda85fd4885112d486b7b875d91",
+      "provenanceChecked": true,
+      "runtimeUrlsPresent": true
+    },
+    {
+      "lot": "nacre-scenery",
+      "atlases": 2,
+      "cells": 10,
+      "runtimeCells": 10,
+      "referenceCells": 0,
+      "manifest": "assets/painted/nacre-scenery/manifest.json",
+      "manifestSha256": "c3d4652bc29973235f336ef12512e9e24c227585c68485231f69ca23564af9d4",
+      "provenanceChecked": true,
+      "runtimeUrlsPresent": true
+    }
+  ],
+  "panoramas": {
+    "added": 0,
+    "total": 4,
+    "classification": "Distant world panoramas, excluded from atlas and cell counts. The three 0.15.8 panoramas and historical Vesper panorama are preserved.",
+    "files": [
+      "assets/painted/worlds/nacre.png",
+      "assets/painted/worlds/thyr.png",
+      "assets/painted/worlds/kharon.png",
+      "assets/art/vesper-panorama.png"
+    ],
+    "manifest": "assets/painted/worlds/manifest.json",
+    "manifestSha256": "ebae66e9909aafbded7761b3121ab546608911e3d8b3853cd05e7fdece677c67"
+  },
+  "newPngCount": 7,
+  "newPngProvenance": [
+    {
+      "path": "assets/painted/nacre-civilians/residents.png",
+      "lot": "nacre-civilians",
+      "kind": "atlas",
+      "origin": "recovered prior generation",
+      "bytes": 1051136,
+      "sha256": "76a8ef227beb8f16075640e37a4d23939a57bab8bdaad465fb86cbdb8848f018",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/58cab664c70b/generated_images/exec-4ab290a8-7bac-4372-82bd-8a5a2c75b5a9.png",
+      "selectedSourceSha256": "76a8ef227beb8f16075640e37a4d23939a57bab8bdaad465fb86cbdb8848f018",
+      "sourceBytesIdentical": true,
+      "manifest": "assets/painted/nacre-civilians/manifest.json",
+      "manifestSha256": "716d31795990d568c4a5ae7fd6a846ddf79b8bda85fd4885112d486b7b875d91",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/nacre-civilians/prompts.json",
+      "promptsSha256": "0f4f0a3c446e881861c03c6be93957a2b69852076abb1e27c480d3b0e729a8d8",
+      "runtimeModule": "src/painted-nacre-civilians.mjs",
+      "runtimeModuleSha256": "3d8553c81a80b6b9a111963f959c68c9a612aa0a51b0cb9171e4c373d06d433c",
+      "runtimeUrlLiteral": "../assets/painted/nacre-civilians/residents.png",
+      "runtimeUrlPresent": true
+    },
+    {
+      "path": "assets/painted/nacre-civilians/refugees.png",
+      "lot": "nacre-civilians",
+      "kind": "atlas",
+      "origin": "recovered prior generation",
+      "bytes": 1085325,
+      "sha256": "eef6bc5aba7b4c64e9d441f8a7ebb55afe617d36d13d505d59ee4e9ce8d9bc0f",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/58cab664c70b/generated_images/exec-07384918-dab6-4cc6-aaf6-c1248d8c5ce5.png",
+      "selectedSourceSha256": "eef6bc5aba7b4c64e9d441f8a7ebb55afe617d36d13d505d59ee4e9ce8d9bc0f",
+      "sourceBytesIdentical": true,
+      "manifest": "assets/painted/nacre-civilians/manifest.json",
+      "manifestSha256": "716d31795990d568c4a5ae7fd6a846ddf79b8bda85fd4885112d486b7b875d91",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/nacre-civilians/prompts.json",
+      "promptsSha256": "0f4f0a3c446e881861c03c6be93957a2b69852076abb1e27c480d3b0e729a8d8",
+      "runtimeModule": "src/painted-nacre-civilians.mjs",
+      "runtimeModuleSha256": "3d8553c81a80b6b9a111963f959c68c9a612aa0a51b0cb9171e4c373d06d433c",
+      "runtimeUrlLiteral": "../assets/painted/nacre-civilians/refugees.png",
+      "runtimeUrlPresent": true
+    },
+    {
+      "path": "assets/painted/nacre-civilians/dockworkers.png",
+      "lot": "nacre-civilians",
+      "kind": "atlas",
+      "origin": "recovered prior generation",
+      "bytes": 925719,
+      "sha256": "e6a1e1536141101a54f33d07dfea256d605d250c6d3de15336aebd4b4c111560",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/58cab664c70b/generated_images/exec-6163b57c-0f3b-4e8e-ae4f-9b67a9648e65.png",
+      "selectedSourceSha256": "e6a1e1536141101a54f33d07dfea256d605d250c6d3de15336aebd4b4c111560",
+      "sourceBytesIdentical": true,
+      "manifest": "assets/painted/nacre-civilians/manifest.json",
+      "manifestSha256": "716d31795990d568c4a5ae7fd6a846ddf79b8bda85fd4885112d486b7b875d91",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/nacre-civilians/prompts.json",
+      "promptsSha256": "0f4f0a3c446e881861c03c6be93957a2b69852076abb1e27c480d3b0e729a8d8",
+      "runtimeModule": "src/painted-nacre-civilians.mjs",
+      "runtimeModuleSha256": "3d8553c81a80b6b9a111963f959c68c9a612aa0a51b0cb9171e4c373d06d433c",
+      "runtimeUrlLiteral": "../assets/painted/nacre-civilians/dockworkers.png",
+      "runtimeUrlPresent": true
+    },
+    {
+      "path": "assets/painted/nacre-civilians/mara.png",
+      "lot": "nacre-civilians",
+      "kind": "atlas",
+      "origin": "recovered prior generation",
+      "bytes": 1754083,
+      "sha256": "cc47728ab5b178e4453317f15e39341a62b608e1fd079724aae2ede473260eae",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/58cab664c70b/generated_images/exec-c2980901-b40c-4bdd-a2ee-9888df15b676.png",
+      "selectedSourceSha256": "cc47728ab5b178e4453317f15e39341a62b608e1fd079724aae2ede473260eae",
+      "sourceBytesIdentical": true,
+      "manifest": "assets/painted/nacre-civilians/manifest.json",
+      "manifestSha256": "716d31795990d568c4a5ae7fd6a846ddf79b8bda85fd4885112d486b7b875d91",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/nacre-civilians/prompts.json",
+      "promptsSha256": "0f4f0a3c446e881861c03c6be93957a2b69852076abb1e27c480d3b0e729a8d8",
+      "runtimeModule": "src/painted-nacre-civilians.mjs",
+      "runtimeModuleSha256": "3d8553c81a80b6b9a111963f959c68c9a612aa0a51b0cb9171e4c373d06d433c",
+      "runtimeUrlLiteral": "../assets/painted/nacre-civilians/mara.png",
+      "runtimeUrlPresent": true
+    },
+    {
+      "path": "assets/painted/nacre-civilians/ancillary.png",
+      "lot": "nacre-civilians",
+      "kind": "atlas",
+      "origin": "recovered prior generation",
+      "bytes": 1707913,
+      "sha256": "65b82fd37ad2f60a403efd0a7964f9a76a0da4e657f0700508e306ea80ac485e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/58cab664c70b/generated_images/exec-96c26983-b2f5-4e5b-acb4-b0054ce6c555.png",
+      "selectedSourceSha256": "65b82fd37ad2f60a403efd0a7964f9a76a0da4e657f0700508e306ea80ac485e",
+      "sourceBytesIdentical": true,
+      "manifest": "assets/painted/nacre-civilians/manifest.json",
+      "manifestSha256": "716d31795990d568c4a5ae7fd6a846ddf79b8bda85fd4885112d486b7b875d91",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/nacre-civilians/prompts.json",
+      "promptsSha256": "0f4f0a3c446e881861c03c6be93957a2b69852076abb1e27c480d3b0e729a8d8",
+      "runtimeModule": "src/painted-nacre-civilians.mjs",
+      "runtimeModuleSha256": "3d8553c81a80b6b9a111963f959c68c9a612aa0a51b0cb9171e4c373d06d433c",
+      "runtimeUrlLiteral": "../assets/painted/nacre-civilians/ancillary.png",
+      "runtimeUrlPresent": true
+    },
+    {
+      "path": "assets/painted/nacre-scenery/terrain.png",
+      "lot": "nacre-scenery",
+      "kind": "atlas",
+      "origin": "generated during this continuation",
+      "bytes": 2344355,
+      "sha256": "3ca20a8f50e2df45e45341a0fde5bd43f0d1f0c93cea4e3a4566152d56adc1fc",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/672b96792ba9/generated_images/exec-c01ee55c-e81d-461f-8c12-90a45147d233.png",
+      "selectedSourceSha256": "3ca20a8f50e2df45e45341a0fde5bd43f0d1f0c93cea4e3a4566152d56adc1fc",
+      "sourceBytesIdentical": true,
+      "manifest": "assets/painted/nacre-scenery/manifest.json",
+      "manifestSha256": "c3d4652bc29973235f336ef12512e9e24c227585c68485231f69ca23564af9d4",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/nacre-scenery/prompts.json",
+      "promptsSha256": "a0a351a1dc01cbbf1ffb670b85d0e7b6c141c66f681c042d39a8bc95faa752ee",
+      "runtimeModule": "src/painted-nacre-scenery.mjs",
+      "runtimeModuleSha256": "95a6a7f9043f99389cf6c458176190307740cf2f4038cbe345be6427b238a3ff",
+      "runtimeUrlLiteral": "../assets/painted/nacre-scenery/terrain.png",
+      "runtimeUrlPresent": true
+    },
+    {
+      "path": "assets/painted/nacre-scenery/props.png",
+      "lot": "nacre-scenery",
+      "kind": "atlas",
+      "origin": "generated during this continuation",
+      "bytes": 1678665,
+      "sha256": "a9fee87d46163d4609918882b0f7dcfd9368d19cdbe5df9695de88a0224af4e5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "selectedGeneratedSource": "/workspace/scratch/672b96792ba9/generated_images/exec-1db34bfd-a27a-4246-970c-bb481730810b.png",
+      "selectedSourceSha256": "a9fee87d46163d4609918882b0f7dcfd9368d19cdbe5df9695de88a0224af4e5",
+      "sourceBytesIdentical": true,
+      "manifest": "assets/painted/nacre-scenery/manifest.json",
+      "manifestSha256": "c3d4652bc29973235f336ef12512e9e24c227585c68485231f69ca23564af9d4",
+      "manifestHashMatches": true,
+      "prompts": "assets/painted/nacre-scenery/prompts.json",
+      "promptsSha256": "a0a351a1dc01cbbf1ffb670b85d0e7b6c141c66f681c042d39a8bc95faa752ee",
+      "runtimeModule": "src/painted-nacre-scenery.mjs",
+      "runtimeModuleSha256": "95a6a7f9043f99389cf6c458176190307740cf2f4038cbe345be6427b238a3ff",
+      "runtimeUrlLiteral": "../assets/painted/nacre-scenery/props.png",
+      "runtimeUrlPresent": true
+    }
+  ],
+  "publicBaselineDelta": {
+    "atlases": 13,
+    "cells": 102,
+    "runtimeCells": 96,
+    "referenceCells": 6,
+    "panoramas": 3,
+    "pngFiles": 16,
+    "recoveredGeneratedPngs": 14,
+    "newlyGeneratedPngsThisContinuation": 2
+  },
+  "retainedCorrection": "The 0.15.7 reconciliation of six MI14 reference cells is preserved. Historical receipts remain unchanged.",
+  "preservationReceipt": "docs/validation/v0159-final/preservation.json",
+  "scope": "Presence in the runtime catalogue does not certify every state in native-browser gameplay or human acceptance. No mission, actor, collision, consent, transfer or biological interaction is created by these images.",
+  "exceptions": [],
+  "passed": true
+}

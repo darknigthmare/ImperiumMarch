@@ -1,0 +1,125 @@
+{
+  "version": "0.15.8",
+  "createdUtc": "2026-11-17T04:25:46.189Z",
+  "type": "original world panoramas and Canvas mission openings",
+  "completed": true,
+  "nativeBrowserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "sourceHashes": {
+    "src/painted-worlds.mjs": "a50c9e38b87106516e6fd14cb2932e78d3e4773d254215155e97417ad4f63041",
+    "src/renderer.mjs": "43a948556b3630cd970dd9d4162197394e9cc05f107d613a16e3de7e7508ac8c",
+    "tools/test-painted-worlds.mjs": "6a387384518fa44aeb01a1eaba9d07575dc604216ae919b0f5c59ae1b07a4c91",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf"
+  },
+  "images": [
+    {
+      "planetId": "PL02",
+      "sha256": "bc03fadfb3b98f7c2a44290864b4d6159f21c9bb7c889e1e7c72984f2d21f88c",
+      "bytes": 2022628,
+      "dimensions": [
+        2172,
+        724
+      ]
+    },
+    {
+      "planetId": "PL03",
+      "sha256": "f01fb28b1326940e67f0372910325da39ba1c55aecaa2a5298e3cb0917cd31eb",
+      "bytes": 2362564,
+      "dimensions": [
+        2172,
+        724
+      ]
+    },
+    {
+      "planetId": "PL04",
+      "sha256": "e8f98bb4204ac76e8a70d4ed859d9d18e0d29c3b8231290efda61a70e1c73234",
+      "bytes": 2193242,
+      "dimensions": [
+        2172,
+        724
+      ]
+    }
+  ],
+  "views": [
+    {
+      "file": "world-horizons.png",
+      "dimensions": [
+        1602,
+        963
+      ],
+      "sha256": "1e180056f47b1a731a58dac242e7dcaa181961e18b53049c76c7ef8b44222f21",
+      "diagnostic": true,
+      "cameraFractions": [
+        0,
+        0.5,
+        1
+      ],
+      "worlds": [
+        "PL02",
+        "PL03",
+        "PL04"
+      ]
+    },
+    {
+      "file": "mi05-painted-world.png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "sha256": "ee0c36bb1edbf8f4d0ec539c6c95850fe3c8c41e399250783c8037a9d7310984",
+      "missionId": "MI05",
+      "walkerId": "WK02",
+      "publicInputs": true,
+      "scope": "Unmodified mission opening returned by createGame",
+      "stateSha256": "ae9318a16288b0f801b1a56a9ac585ca077bef19fccbbb325eb9f5c4aa61fdf0",
+      "cameraX": 0
+    },
+    {
+      "file": "mi09-painted-world.png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "sha256": "c29f97c8bb87019bc8009d91428cac51ebe7ec3a473fcc85f0baaa78bd8e8120",
+      "missionId": "MI09",
+      "walkerId": "WK09",
+      "publicInputs": true,
+      "scope": "Unmodified mission opening returned by createGame",
+      "stateSha256": "5d952c1aa623d884b648450a9aadeba23b913e00c61f10d1f804a6ce650a0e08",
+      "cameraX": 0
+    },
+    {
+      "file": "mi13-painted-world.png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "sha256": "32af7b15d822dc9ef0b0641394b126670caade6717f442543afe1e9dea29e78c",
+      "missionId": "MI13",
+      "walkerId": "WK01",
+      "publicInputs": true,
+      "scope": "Unmodified mission opening returned by createGame",
+      "stateSha256": "573fe379e6958efa5d27726dd92628d0ee0f9c8216b05786b6207a17e1f54714",
+      "cameraX": 0
+    },
+    {
+      "file": "mi14-painted-world.png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "sha256": "44cda3aff22952083cbdbed6898241fcffe87e3484a81e5ea9e244fc70db60d4",
+      "missionId": "MI14",
+      "walkerId": "WK05",
+      "publicInputs": true,
+      "scope": "Unmodified mission opening returned by createGame",
+      "stateSha256": "7ed7c1c28ffe151e634c8f1a9f4c5127b384cb47c7484d0d2ef357d1e47cedee",
+      "cameraX": 0
+    }
+  ],
+  "limitations": [
+    "The horizon board is diagnostic and exercises camera ranges explicitly.",
+    "Mission scenes show unchanged states returned by createGame; no campaign completion is claimed.",
+    "The panoramas contain distant decorative settlements, not interactable buildings or additional people."
+  ]
+}

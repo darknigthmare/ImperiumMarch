@@ -8,14 +8,19 @@ import { drawRelaySite, drawRelayActor, drawRelayLabels } from './relay-renderer
 import { drawFoundrySite, drawFoundryCarrier, drawFoundryInstrument } from './foundry-renderer.mjs';
 import { drawWorkshopSite, drawWorkshopActors, drawWorkshopLabels, drawWorkshopInstrument } from './workshop-renderer.mjs';
 import { WALKERS } from './content.mjs';
+import { drawPaintedWorld, worldPanoramaProjection } from './painted-worlds.mjs';
 import { drawPaintedCombatEnemy, drawPaintedCombatCivilian, drawPaintedCombatConvoy, drawCombatWeapon, combatMotion } from './painted-combat.mjs';
 import { ENEMY_WEAPON_RIGS, enemyWeaponPose } from './enemy-weapon-pose.mjs';
 import { drawPaintedThyrFauna, thyrMotion } from './painted-thyr.mjs';
 import { cerbereWeaponPose } from './cerbere-weapon-pose.mjs';
 import { drawCerbere } from './painted-cerbere.mjs';
 import { drawPaintedVesperPart, drawPaintedVesperWinch, drawPaintedVesperTurbine, drawPaintedVesperGroundStrip, vesperNetworkState } from './painted-vesper.mjs';
+import { drawPaintedVesperTerrain, drawPaintedVesperDeck, drawPaintedVesperBrace, drawPaintedVesperSceneryPart, vesperGroundProp } from './painted-vesper-scenery.mjs';
 import { drawPaintedTrainCar, trainCouplerPose } from './painted-transport.mjs';
 import { drawPaintedNacreBoat, drawPaintedNacreAmbulance, drawPaintedNacreEquipment } from './painted-nacre.mjs';
+import { drawPaintedNacrePerson } from './painted-nacre-people.mjs';
+import { drawPaintedNacreCivilian } from './painted-nacre-civilians.mjs';
+import { drawPaintedNacreTerrain, drawPaintedNacreSceneryPart, nacreGroundProp } from './painted-nacre-scenery.mjs';
 import { drawPaintedNacreSitePart, drawPaintedNacreSiteGate, drawPaintedNacreSiteGateControl,
   drawPaintedNacreSitePump, drawPaintedNacreSiteValve, drawPaintedNacreSiteLatch, drawPaintedNacreSiteWinch,
   drawPaintedNacreSiteDeck, drawPaintedNacreSiteDepartureRamp, nacreSiteDamageState } from './painted-nacre-sites.mjs';
@@ -127,9 +132,10 @@ export class Renderer {
   constructor(canvas) {
     this.canvas = canvas; this.ctx = canvas.getContext('2d'); this.cameraX = 0;
     this.width = W; this.height = H; this.lastGame = null;
-    this.panorama = new Image(); this.panorama.src = new URL('../assets/art/vesper-panorama.png', import.meta.url).href;
+    this.panorama = new Image();
     this.panoramaReady = false; this.panorama.onload = () => { this.panoramaReady = true; };
     this.panorama.onerror = () => { this.panoramaReady = false; };
+    this.panorama.src = new URL('../assets/art/vesper-panorama.png', import.meta.url).href;
   }
 
   worldPoint(clientX, clientY) {
@@ -338,6 +344,9 @@ export class Renderer {
 
   drawDeparturePeople(s, t) {
     const c = this.ctx;
+    // Keep observing physical displacement when reduced motion freezes the
+    // decorative clock: people still turn, while their walk cycle stays idle.
+    const motionTime = s.elapsed;
     const colors = { refugee: '#9dc7b8', resident: '#d1c19a', patient: '#d7e1c8', staff: '#bed9cb', crew: '#94b0c2', technician: '#d6bd83', mara: '#cadfb3', harbourmaster: '#9eafcf' };
     for (const person of s.departure.people) {
       if (!person.alive || person.safe || ['origin', 'offsite'].includes(person.phase) || !this.visible(person.x, 60)) continue;
@@ -352,14 +361,18 @@ export class Renderer {
       const bottom = person.y + person.h / 2;
       if (person.role === 'patient') {
         this.drawShadow(person.x, bottom, 17, 3);
+        if (!drawPaintedNacrePerson(c, person, { time: motionTime, reducedMotion: this.combatReducedMotion })) {
         line(c, person.x - 15, bottom - 6, person.x + 15, bottom - 6, '#a2b6ab', 3);
         circle(c, person.x - 10, bottom - 3, 2.5, '#173740'); circle(c, person.x + 10, bottom - 3, 2.5, '#173740');
         c.fillStyle = '#d8dbb7'; c.fillRect(person.x - 10, bottom - 17, 20, 10);
         circle(c, person.x + 9, bottom - 18, 3.6, '#d5bc98');
         line(c, person.x - 2, bottom - 16, person.x - 2, bottom - 9, '#639487', 2);
+        }
       } else {
         const moving = ['joining', 'boarding', 'returning', 'landing'].includes(person.phase), pace = moving ? Math.sin(t * 8 + person.x * .13) * 3 : 0;
         this.drawShadow(person.x, bottom, 10, 3);
+        if (!drawPaintedNacrePerson(c, person, { time: motionTime, reducedMotion: this.combatReducedMotion })
+            && !drawPaintedNacreCivilian(c, person, { time: motionTime, reducedMotion: this.combatReducedMotion })) {
         line(c, person.x - 3, bottom - 13, person.x - 4 - pace, bottom - 1, '#1b3439', 3);
         line(c, person.x + 3, bottom - 13, person.x + 4 + pace, bottom - 1, '#29474a', 3);
         poly(c, [[person.x - 6, bottom - 26], [person.x + 6, bottom - 26], [person.x + 8, bottom - 11], [person.x - 7, bottom - 11]], color, '#294a4e', 1);
@@ -367,6 +380,7 @@ export class Renderer {
         if (person.role === 'technician') line(c, person.x - 6, bottom - 33, person.x + 6, bottom - 33, '#d8c88f', 3);
         if (['staff', 'mara'].includes(person.role)) { line(c, person.x - 3, bottom - 21, person.x + 3, bottom - 21, '#456d60', 1.5); line(c, person.x, bottom - 24, person.x, bottom - 18, '#456d60', 1.5); }
         if (person.role === 'crew') line(c, person.x - 5, bottom - 33, person.x + 4, bottom - 33, '#456b79', 3);
+        }
       }
       if (person.phase === 'boarding' && person.boardingProgress > 0) {
         c.fillStyle = '#1c3b40'; c.fillRect(person.x - 9, person.y - person.h / 2 - 8, 18, 3);
@@ -630,8 +644,13 @@ export class Renderer {
     const c = this.ctx, a = s.ambulance;
     for (const person of a.staff) {
       if (!this.visible(person.x, 60) || person.safe || person.phase === 'aboard') continue;
-      if (!person.alive) { line(c, person.x - 11, person.y + 14, person.x + 12, person.y + 14, '#9b9b81', 4); continue; }
-      this.drawHuman(person, t, true, null);
+      if (!person.alive) {
+        if (!drawPaintedNacrePerson(c, person, { time: s.elapsed, allowLost: true }))
+          line(c, person.x - 11, person.y + 14, person.x + 12, person.y + 14, '#9b9b81', 4);
+        continue;
+      }
+      if (!drawPaintedNacrePerson(c, person, { time: s.elapsed, reducedMotion: this.combatReducedMotion,
+        shadow: (...args) => this.drawShadow(...args) })) this.drawHuman(person, t, true, null);
       const offset = person.role === 'driver' ? 0 : 14;
       label(c, person.role === 'driver' ? 'CONDUCTRICE' : 'SOIGNANT', person.x, person.y - person.h / 2 - 16 - offset, 8, '#c0dacc', 'center');
       if (person.hp < person.maxHp) { c.fillStyle = '#d0b18a'; c.fillRect(person.x - 13, person.y - person.h / 2 - 8, 26 * person.hp / person.maxHp, 3); }
@@ -639,7 +658,12 @@ export class Renderer {
     for (const person of a.patients) {
       if (!this.visible(person.x, 50) || person.safe || person.phase === 'aboard') continue;
       const x = person.x, y = person.y;
-      if (!person.alive) { line(c, x - 13, y + 9, x + 13, y + 9, '#91947b', 5); continue; }
+      if (!person.alive) {
+        if (!drawPaintedNacrePerson(c, person, { role: 'patient', time: s.elapsed, allowLost: true }))
+          line(c, x - 13, y + 9, x + 13, y + 9, '#91947b', 5);
+        continue;
+      }
+      if (drawPaintedNacrePerson(c, person, { role: 'patient', time: s.elapsed, reducedMotion: this.combatReducedMotion })) continue;
       line(c, x - 15, y + 5, x + 15, y + 5, '#bdc9a8', 4);
       for (const side of [-1, 1]) circle(c, x + side * 9, y + 10, 3, '#1b343c', '#a9bc9d', 1);
       c.fillStyle = '#82a99a'; c.fillRect(x - 9, y - 4, 19, 9);
@@ -865,20 +889,26 @@ export class Renderer {
       if (!this.visible(person.x, 60) || person.safe || person.phase === 'home') continue;
       const technician = !person.homeId;
       if (!person.alive) {
+        if (technician && drawPaintedNacrePerson(this.ctx, person, { role: 'technician', time: s.elapsed, allowLost: true })) continue;
+        if (!technician && drawPaintedNacreCivilian(this.ctx, person, { role: 'resident', time: s.elapsed, allowLost: true })) continue;
         const groundY = person.y + person.h / 2;
         line(this.ctx, person.x - 10, groundY - 3, person.x + 9, groundY - 3, technician ? '#b6a779' : '#7fa79b', 5);
         circle(this.ctx, person.x + 12, groundY - 5, 4, '#a69678');
         continue;
       }
-      this.drawDikePerson(person, t, technician);
+      this.drawDikePerson(person, t, technician, s.elapsed);
     }
   }
 
-  drawDikePerson(person, t, technician) {
+  drawDikePerson(person, t, technician, motionTime = t) {
     const c = this.ctx, moving = person.phase === 'moving' || person.phase === 'evacuating';
     const pace = moving ? Math.sin(t * 8 + person.x * .2) * 4 : 0;
     const bottom = person.y + person.h / 2, top = person.y - person.h / 2;
     this.drawShadow(person.x, bottom, 11, 3);
+    const paintedPerson = technician
+      ? drawPaintedNacrePerson(c, person, { role: 'technician', time: motionTime, reducedMotion: this.combatReducedMotion })
+      : drawPaintedNacreCivilian(c, person, { role: 'resident', time: motionTime, reducedMotion: this.combatReducedMotion });
+    if (!paintedPerson) {
     c.save(); c.translate(person.x, bottom);
     line(c, -3, -12, -4 - pace, -1, '#1b3035', 4); line(c, 3, -12, 4 + pace, -1, '#243c3e', 4);
     poly(c, [[-7, -26], [6, -26], [8, -11], [-7, -11]], technician ? '#bdad79' : '#83bab0', '#254247', 1);
@@ -891,6 +921,7 @@ export class Renderer {
     if (technician) { poly(c, [[-6, -31], [-4, -36], [4, -36], [6, -31]], '#ded0a3', '#48615c', 1); }
     else line(c, -5, -33, 4, -33, '#c8cdb1', 3);
     c.restore();
+    }
     if (technician) {
       const state = person.covering ? 'À COUVERT' : person.phase === 'locking' ? 'VERROUILLE' : person.arrived ? 'AUX VANNES' : person.called ? 'EN ROUTE' : 'EN ATTENTE';
       const y = top - (person.id.endsWith('2') ? 38 : 22);
@@ -1068,16 +1099,25 @@ export class Renderer {
     const sky = c.createLinearGradient(0, 0, 0, 720);
     sky.addColorStop(0, s.mission.sky[0]); sky.addColorStop(0.54, s.mission.sky[1]); sky.addColorStop(1, s.mission.sky[2]);
     c.fillStyle = sky; c.fillRect(0, 0, W, H);
-    if (planet === 'PL01' && this.panoramaReady) {
-      const imageRatio = this.panorama.width / this.panorama.height;
-      const ih = 710, iw = ih * imageRatio;
-      const ix = -cam * 0.075;
-      c.globalAlpha = 0.8;
-      c.drawImage(this.panorama, ix - 140, 30, Math.max(W + 700, iw), ih);
-      c.globalAlpha = 1;
-      const tint = c.createLinearGradient(0, 0, 0, 720); tint.addColorStop(0, '#10232b55'); tint.addColorStop(1, '#d3a37811');
-      c.fillStyle = tint; c.fillRect(0, 0, W, 720);
-    } else {
+    const worldPainted = drawPaintedWorld(c, { planetId: planet, cameraX: cam, worldLength: s.mission.length,
+      width: W, height: 740, reducedMotion: this.combatReducedMotion });
+    const vesperPose = planet === 'PL01' && this.panoramaReady
+      ? worldPanoramaProjection({ imageWidth: this.panorama.width, imageHeight: this.panorama.height,
+        cameraX: cam, worldLength: s.mission.length, width: W, height: 740, reducedMotion: this.combatReducedMotion }) : null;
+    let vesperPainted = false;
+    if (vesperPose) {
+      c.save();
+      try {
+        c.globalAlpha = 0.8;
+        c.drawImage(this.panorama, vesperPose.x, vesperPose.y, vesperPose.width, vesperPose.height);
+        c.globalAlpha = 1;
+        const tint = c.createLinearGradient(0, 0, 0, 720); tint.addColorStop(0, '#10232b55'); tint.addColorStop(1, '#d3a37811');
+        c.fillStyle = tint; c.fillRect(0, 0, W, 720);
+        vesperPainted = true;
+      } catch { this.panoramaReady = false; }
+      finally { c.restore(); }
+    }
+    if (!vesperPainted && !worldPainted) {
       const moonX = 1190 - cam * 0.02, moonY = planet === 'PL03' ? 180 : 210;
       glow(c, moonX, moonY, 180, planet === 'PL02' ? '#d1edce18' : '#ddb98e18');
       circle(c, moonX, moonY, planet === 'PL02' ? 69 : 94, planet === 'PL02' ? '#d4d9b539' : '#c6bc8d2a');
@@ -1087,7 +1127,7 @@ export class Renderer {
     }
     // Several independent ridgelines retain depth as the camera moves.
     const colors = planet === 'PL03' ? ['#38514f', '#2b4745', '#213f3d'] : planet === 'PL02' ? ['#446b73', '#325b66', '#244b56'] : ['#7a7770', '#656c66', '#3f5050'];
-    for (let layer = 0; layer < (planet === 'PL01' && this.panoramaReady ? 0 : 3); layer++) {
+    for (let layer = 0; layer < (vesperPainted || worldPainted ? 0 : 3); layer++) {
       const pts = [[-50, 730]]; const step = 120, shift = cam * (0.09 + layer * 0.065);
       const start = Math.floor(shift / step) - 1;
       for (let i = start; i < start + 18; i++) {
@@ -1101,9 +1141,9 @@ export class Renderer {
       c.save(); c.translate(0, 180); c.scale(1, 0.75); c.globalAlpha = 0.82;
       this.drawIndustry(cam, t); c.restore();
     }
-    if (planet === 'PL02') this.drawHarbor(cam, t);
-    if (planet === 'PL03') this.drawForest(cam, t);
-    if (planet === 'PL04') this.drawFoundryHorizon(cam, t);
+    if (!worldPainted && planet === 'PL02') this.drawHarbor(cam, t);
+    if (!worldPainted && planet === 'PL03') this.drawForest(cam, t);
+    if (!worldPainted && planet === 'PL04') this.drawFoundryHorizon(cam, t);
     const haze = c.createLinearGradient(0, 470, 0, 700);
     haze.addColorStop(0, 'transparent'); haze.addColorStop(1, planet === 'PL01' ? '#d9ba8b45' : planet === 'PL02' ? '#b0c9bd30' : '#b3c59428');
     c.fillStyle = haze; c.fillRect(0, 470, W, 240);
@@ -1236,15 +1276,27 @@ export class Renderer {
     const colors = s.planetId === 'PL04' ? ['#756258', '#302d32'] : s.planetId === 'PL03' ? ['#607159', '#233b35'] : s.planetId === 'PL02' ? ['#7f8c82', '#263c40'] : ['#a99576', '#3a4846'];
     const soil = c.createLinearGradient(0, 650, 0, 900); soil.addColorStop(0, colors[0]); soil.addColorStop(0.35, colors[1]); soil.addColorStop(1, '#10252d');
     poly(c, pts, soil);
+    const groundOptions = { from: start, to: end, groundAt: x => terrainAt(x, s.planetId) };
+    const paintedGround = s.planetId === 'PL01' ? drawPaintedVesperTerrain(c, groundOptions)
+      : s.planetId === 'PL02' ? drawPaintedNacreTerrain(c, groundOptions) : false;
     c.beginPath(); for (let x = start; x <= end; x += 14) { const y = terrainAt(x, s.planetId); if (x === start) c.moveTo(x, y); else c.lineTo(x, y); }
     c.strokeStyle = s.planetId === 'PL03' ? '#a8ac78' : '#d9bf8e'; c.lineWidth = 2; c.stroke();
     // Geologic layers are anchored in the world, so texture never swims with the camera.
     for (let k = Math.floor(start / 83); k < end / 83; k++) {
       const x = k * 83 + hash(k * 2) * 25, ground = terrainAt(x, s.planetId);
-      line(c, x, ground + 35 + hash(k * 13) * 20, x + 40 + hash(k) * 45, ground + 42 + hash(k * 13) * 20, '#132a2e44', 2);
-      const ry = ground + 15 + hash(k * 3) * 130;
-      poly(c, [[x + 8, ry], [x + 23, ry - 3], [x + 32, ry + 4], [x + 17, ry + 8]], '#afad8a17');
-      if (k % 3 === 0) poly(c, [[x, ground], [x + 8, ground - 9], [x + 22, ground - 11], [x + 32, ground - 1]], '#65756a', '#c0b88e55', 1);
+      if (!paintedGround) {
+        line(c, x, ground + 35 + hash(k * 13) * 20, x + 40 + hash(k) * 45, ground + 42 + hash(k * 13) * 20, '#132a2e44', 2);
+        const ry = ground + 15 + hash(k * 3) * 130;
+        poly(c, [[x + 8, ry], [x + 23, ry - 3], [x + 32, ry + 4], [x + 17, ry + 8]], '#afad8a17');
+      }
+      if (k % 3 === 0) {
+        const atGround = { x: x + 16, y: terrainAt(x + 16, s.planetId) };
+        const paintedProp = s.planetId === 'PL01'
+          ? drawPaintedVesperSceneryPart(c, { part: vesperGroundProp(k / 3), ...atGround })
+          : s.planetId === 'PL02'
+            ? drawPaintedNacreSceneryPart(c, { part: nacreGroundProp(k / 3), ...atGround }) : false;
+        if (!paintedProp) poly(c, [[x, ground], [x + 8, ground - 9], [x + 22, ground - 11], [x + 32, ground - 1]], '#65756a', '#c0b88e55', 1);
+      }
     }
     if (s.planetId === 'PL02') {
       for (let k = Math.floor(start / 145); k < end / 145; k++) {
@@ -1786,28 +1838,38 @@ export class Renderer {
     c.fillStyle = ravine; c.fillRect(start, 705, end - start, H - 705);
     for (let x = Math.floor(start / 320) * 320; x < end; x += 320) {
       const y = terrainAt(x, s.planetId);
-      poly(c, [[x - 44, y + 31], [x + 44, y + 31], [x + 32, H + 30], [x - 27, H + 30]], '#34494a', '#718477', 2);
-      line(c, x - 18, y + 48, x - 9, H, '#9a9c7f44', 3);
-      line(c, x + 28, y + 52, x + 255, terrainAt(x + 320, s.planetId) + 135, '#344d4e', 10);
-      line(c, x + 28, y + 130, x + 255, terrainAt(x + 320, s.planetId) + 47, '#5d6d60', 5);
+      if (!drawPaintedVesperSceneryPart(c, { part: 'pier', x, y: y + 31, width: 88, height: H + 30 - (y + 31) })) {
+        poly(c, [[x - 44, y + 31], [x + 44, y + 31], [x + 32, H + 30], [x - 27, H + 30]], '#34494a', '#718477', 2);
+        line(c, x - 18, y + 48, x - 9, H, '#9a9c7f44', 3);
+      }
+      if (!drawPaintedVesperBrace(c, { x1: x + 28, y1: y + 52, x2: x + 255, y2: terrainAt(x + 320, s.planetId) + 135, thickness: 10 }))
+        line(c, x + 28, y + 52, x + 255, terrainAt(x + 320, s.planetId) + 135, '#344d4e', 10);
+      if (!drawPaintedVesperBrace(c, { part: 'tie-rod', x1: x + 28, y1: y + 130, x2: x + 255, y2: terrainAt(x + 320, s.planetId) + 47, thickness: 5 }))
+        line(c, x + 28, y + 130, x + 255, terrainAt(x + 320, s.planetId) + 47, '#5d6d60', 5);
       label(c, `V-${Math.floor(x / 320 + 1).toString().padStart(2, '0')}`, x - 21, y + 88, 10, '#b6ad87');
     }
+    const paintedDeck = drawPaintedVesperDeck(c, { from: start, to: end, groundAt: x => terrainAt(x, s.planetId) });
     for (let x = start; x < end; x += 24) {
       const y = terrainAt(x, s.planetId), ny = terrainAt(x + 24, s.planetId);
-      poly(c, [[x, y], [x + 24, ny], [x + 24, ny + 37], [x, y + 37]], '#6c7668', '#334d4c', 1);
-      line(c, x, y + 31, x + 24, ny + 31, '#b5a576', 3);
+      if (!paintedDeck) {
+        poly(c, [[x, y], [x + 24, ny], [x + 24, ny + 37], [x, y + 37]], '#6c7668', '#334d4c', 1);
+        line(c, x, y + 31, x + 24, ny + 31, '#b5a576', 3);
+      }
       // A narrow service walkway stays continuous at the exact foot-contact height.
       line(c, x, y, x + 24, ny, '#c9b78c', 3);
       if (Math.abs(x - breakX) > 64) {
         line(c, x, y + 7, x + 24, ny + 7, '#293f43', 4);
         line(c, x, y + 11, x + 24, ny + 11, '#b5b7a0', 2);
-        line(c, x + 4, y + 1, x + 11, y + 13, '#243c42', 4);
+        if (!drawPaintedVesperBrace(c, { part: 'sleeper', x1: x + 4, y1: y + 1, x2: x + 11, y2: y + 13, thickness: 4 }))
+          line(c, x + 4, y + 1, x + 11, y + 13, '#243c42', 4);
       } else {
         line(c, x, y + 9, x + 17, y + 20 + Math.sin(x) * 7, '#293f43', 5);
       }
       if (Math.floor(x / 24) % 7 === 0) {
-        line(c, x + 5, y + 1, x + 5, y - 37, '#455c59', 3);
-        circle(c, x + 5, y - 37, 2, '#d7b46d');
+        if (!drawPaintedVesperSceneryPart(c, { part: 'stanchion', x: x + 5, y: y + 1, height: 39 })) {
+          line(c, x + 5, y + 1, x + 5, y - 37, '#455c59', 3);
+          circle(c, x + 5, y - 37, 2, '#d7b46d');
+        }
       }
     }
     if (this.visible(breakX, 210)) {

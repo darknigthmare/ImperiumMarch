@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "version": "0.15.8",
+  "generator": "image_gen built-in",
+  "canonIds": [
+    "PL01",
+    "MI01",
+    "MI02",
+    "MI03",
+    "MI04"
+  ],
+  "atlasCount": 3,
+  "frameCount": 16,
+  "runtimeFrameCount": 16,
+  "referenceFrameCount": 0,
+  "files": [
+    {
+      "id": "terrain",
+      "path": "assets/painted/vesper-scenery/terrain.png",
+      "bytes": 2682685,
+      "sha256": "67d47ae952edc5fb84b5f65920b43a990d7ddb658573a60ac7f7d38b0b8bd31c",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "frames": 4,
+      "runtimeFrames": 4,
+      "referenceFrames": 0,
+      "transparentFraction": 0.337668,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "props",
+      "path": "assets/painted/vesper-scenery/props.png",
+      "bytes": 1429046,
+      "sha256": "2680d447f885354cef093bb6404f52f98a82d301aa467217f85b51ee0a88d354",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.816905,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    },
+    {
+      "id": "viaduct",
+      "path": "assets/painted/vesper-scenery/viaduct.png",
+      "bytes": 1570429,
+      "sha256": "47eb2a63b9397793b93fb897c380375d1936011c453a555f97278848df7c556e",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "frames": 6,
+      "runtimeFrames": 6,
+      "referenceFrames": 0,
+      "transparentFraction": 0.763383,
+      "maxCellGutterAlpha": 1,
+      "originalBytesUnchanged": true
+    }
+  ],
+  "scope": "Vesper terrain material, existing decorative ground slots, and MI02 viaduct presentation only.",
+  "pixelPolicy": "Selected original generated PNG bytes retained. Alpha measurement, material crops and metadata only. No script edits to pixels.",
+  "layoutPolicy": "Measured cells. Viaduct columns 0/365/930/1536 and rows 0/596/1024 are intentionally not an equal grid.",
+  "physicalPolicy": "Terrain is clipped at terrainAt. Maintenance deck follows the same surface; railway gaps and vector rail endpoints are unchanged. No new collider, actor, light mechanic or plant interaction."
+}

@@ -1,0 +1,748 @@
+{
+  "schema": 1,
+  "version": "0.15.9",
+  "repository": "darknigthmare/ImperiumMarch",
+  "pullRequest": 7,
+  "requestedHeadSha": "17041c1cec7d9b608afe4955364569a9009c174f",
+  "checkedUtc": "2026-11-17 09:11:25 UTC",
+  "conclusion": "success",
+  "remoteActions": "Read-only observation of the existing pull_request run; no rerun, merge, workflow dispatch or ref update performed.",
+  "workflow": {
+    "id": 44051511167,
+    "name": "Validate prototype and design data",
+    "event": "pull_request",
+    "path": ".github/workflows/ci.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "17041c1cec7d9b608afe4955364569a9009c174f",
+    "head_branch": "codex/nacre-worlds-completion-v0159",
+    "run_number": 37,
+    "run_attempt": 1,
+    "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/44051511167",
+    "created_at": "2026-11-17T08:59:57Z",
+    "updated_at": "2026-11-17T09:09:51Z",
+    "run_started_at": "2026-11-17T08:59:57Z"
+  },
+  "job": {
+    "id": 133930237825,
+    "name": "validate",
+    "status": "completed",
+    "conclusion": "success",
+    "run_id": 44051511167,
+    "html_url": "https://github.com/darknigthmare/ImperiumMarch/actions/runs/44051511167/job/133930237825",
+    "started_at": "2026-11-17T09:04:11Z",
+    "completed_at": "2026-11-17T09:09:51Z",
+    "runner_name": "GitHub Actions 1000035335",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-11-17T09:04:13Z",
+        "completed_at": "2026-11-17T09:04:13Z"
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-11-17T09:04:13Z",
+        "completed_at": "2026-11-17T09:04:37Z"
+      },
+      {
+        "name": "Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-11-17T09:04:37Z",
+        "completed_at": "2026-11-17T09:04:37Z"
+      },
+      {
+        "name": "Run npm test",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-11-17T09:04:37Z",
+        "completed_at": "2026-11-17T09:06:10Z"
+      },
+      {
+        "name": "Install pinned development-only raster validator",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5,
+        "started_at": "2026-11-17T09:06:10Z",
+        "completed_at": "2026-11-17T09:06:11Z"
+      },
+      {
+        "name": "Validate shared SVG and Canvas rendering",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6,
+        "started_at": "2026-11-17T09:06:11Z",
+        "completed_at": "2026-11-17T09:06:14Z"
+      },
+      {
+        "name": "Decode and validate the painted MI14 sprites",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7,
+        "started_at": "2026-11-17T09:06:14Z",
+        "completed_at": "2026-11-17T09:06:17Z"
+      },
+      {
+        "name": "Decode and validate the painted combat sprites",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8,
+        "started_at": "2026-11-17T09:06:17Z",
+        "completed_at": "2026-11-17T09:06:19Z"
+      },
+      {
+        "name": "Decode and validate the painted walker parts",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 9,
+        "started_at": "2026-11-17T09:06:19Z",
+        "completed_at": "2026-11-17T09:06:23Z"
+      },
+      {
+        "name": "Decode and validate the painted Thyr life",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 10,
+        "started_at": "2026-11-17T09:06:23Z",
+        "completed_at": "2026-11-17T09:06:24Z"
+      },
+      {
+        "name": "Decode and validate Cerbere and its weapon mount",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 11,
+        "started_at": "2026-11-17T09:06:24Z",
+        "completed_at": "2026-11-17T09:06:25Z"
+      },
+      {
+        "name": "Decode and validate railway and industrial transport",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 12,
+        "started_at": "2026-11-17T09:06:25Z",
+        "completed_at": "2026-11-17T09:06:28Z"
+      },
+      {
+        "name": "Decode and validate the Praetor and command relays",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 13,
+        "started_at": "2026-11-17T09:06:28Z",
+        "completed_at": "2026-11-17T09:06:31Z"
+      },
+      {
+        "name": "Decode and validate the Nacre vehicles",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 14,
+        "started_at": "2026-11-17T09:06:31Z",
+        "completed_at": "2026-11-17T09:06:32Z"
+      },
+      {
+        "name": "Decode and validate the Nacre infrastructure",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 15,
+        "started_at": "2026-11-17T09:06:32Z",
+        "completed_at": "2026-11-17T09:06:34Z"
+      },
+      {
+        "name": "Decode and validate the chemical field equipment",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 16,
+        "started_at": "2026-11-17T09:06:34Z",
+        "completed_at": "2026-11-17T09:06:37Z"
+      },
+      {
+        "name": "Decode and validate the voice mission equipment and nesting sites",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 17,
+        "started_at": "2026-11-17T09:06:37Z",
+        "completed_at": "2026-11-17T09:06:39Z"
+      },
+      {
+        "name": "Decode and validate Vesper buildings and machinery",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 18,
+        "started_at": "2026-11-17T09:06:39Z",
+        "completed_at": "2026-11-17T09:06:44Z"
+      },
+      {
+        "name": "Decode and validate the living route equipment",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 19,
+        "started_at": "2026-11-17T09:06:44Z",
+        "completed_at": "2026-11-17T09:06:47Z"
+      },
+      {
+        "name": "Decode and validate the foundry site equipment",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 20,
+        "started_at": "2026-11-17T09:06:47Z",
+        "completed_at": "2026-11-17T09:06:49Z"
+      },
+      {
+        "name": "Decode and validate the three painted world panoramas",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 21,
+        "started_at": "2026-11-17T09:06:49Z",
+        "completed_at": "2026-11-17T09:06:52Z"
+      },
+      {
+        "name": "Decode and validate Nacre technicians, staff and patients",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 22,
+        "started_at": "2026-11-17T09:06:52Z",
+        "completed_at": "2026-11-17T09:06:55Z"
+      },
+      {
+        "name": "Decode and validate Vesper terrain, scenery and railway viaduct",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 23,
+        "started_at": "2026-11-17T09:06:55Z",
+        "completed_at": "2026-11-17T09:06:59Z"
+      },
+      {
+        "name": "Decode and validate Nacre civilians and quay services",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 24,
+        "started_at": "2026-11-17T09:06:59Z",
+        "completed_at": "2026-11-17T09:07:03Z"
+      },
+      {
+        "name": "Decode and validate Nacre terrain and shoreline scenery",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 25,
+        "started_at": "2026-11-17T09:07:03Z",
+        "completed_at": "2026-11-17T09:07:09Z"
+      },
+      {
+        "name": "Run npm run check",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 26,
+        "started_at": "2026-11-17T09:07:09Z",
+        "completed_at": "2026-11-17T09:07:10Z"
+      },
+      {
+        "name": "Run npm run build",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 27,
+        "started_at": "2026-11-17T09:07:10Z",
+        "completed_at": "2026-11-17T09:07:19Z"
+      },
+      {
+        "name": "Run npm run check:offline-package",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 28,
+        "started_at": "2026-11-17T09:07:19Z",
+        "completed_at": "2026-11-17T09:07:21Z"
+      },
+      {
+        "name": "Run npm run check:ui",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 29,
+        "started_at": "2026-11-17T09:07:21Z",
+        "completed_at": "2026-11-17T09:07:23Z"
+      },
+      {
+        "name": "Run npm run check:ui-runtime",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 30,
+        "started_at": "2026-11-17T09:07:23Z",
+        "completed_at": "2026-11-17T09:09:46Z"
+      },
+      {
+        "name": "Run npm run build:web",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 31,
+        "started_at": "2026-11-17T09:09:46Z",
+        "completed_at": "2026-11-17T09:09:46Z"
+      },
+      {
+        "name": "Post Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 61,
+        "started_at": "2026-11-17T09:09:46Z",
+        "completed_at": "2026-11-17T09:09:47Z"
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 62,
+        "started_at": "2026-11-17T09:09:47Z",
+        "completed_at": "2026-11-17T09:09:47Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 63,
+        "started_at": "2026-11-17T09:09:47Z",
+        "completed_at": "2026-11-17T09:09:47Z"
+      }
+    ]
+  },
+  "checkout": {
+    "kind": "GitHub synthetic pull-request merge",
+    "headSha": "17041c1cec7d9b608afe4955364569a9009c174f",
+    "baseSha": "ca5139b276e48be8c20d1d012ec4deefc6130a71",
+    "testedCommitSha": "8ed74617462672ffc9992bb9be0dc2c947c2d564",
+    "testedMergeSha": "8ed74617462672ffc9992bb9be0dc2c947c2d564",
+    "tree": "319fcd4c84b14772fc96e4b0558b2c1031240d03",
+    "parents": [
+      "ca5139b276e48be8c20d1d012ec4deefc6130a71",
+      "17041c1cec7d9b608afe4955364569a9009c174f"
+    ],
+    "treeMatchesRequestedHead": true,
+    "headTree": "319fcd4c84b14772fc96e4b0558b2c1031240d03",
+    "evidence": "HEAD is now at 8ed7461 Merge 17041c1cec7d9b608afe4955364569a9009c174f into ca5139b276e48be8c20d1d012ec4deefc6130a71",
+    "logCommitEvidence": "8ed74617462672ffc9992bb9be0dc2c947c2d564"
+  },
+  "environment": {
+    "os": "Ubuntu 26.04.1 LTS",
+    "runnerImage": "ubuntu-26.04",
+    "runnerImageVersion": "20261111.196.1",
+    "node": "22.23.4",
+    "zlib": "1.3.1-e00f703",
+    "canvas": "0.1.100"
+  },
+  "results": {
+    "nodeTests": {
+      "tests": 836,
+      "pass": 836,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 92294.497989
+    },
+    "svgCanvas": {
+      "passed": 174,
+      "total": 174,
+      "evidence": "Production SVG/Canvas raster validation passed: 174/174 cases, @napi-rs/canvas 0.1.100."
+    },
+    "paintedLots": {
+      "count": 18,
+      "allSuccessful": true,
+      "lots": [
+        {
+          "lot": "mi14",
+          "command": "npm run check:painted",
+          "step": 7,
+          "conclusion": "success",
+          "output": "{\"completed\":true,\"atlases\":8,\"frames\":54,\"components\":33,\"scenes\":14,\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-mi14\"}",
+          "result": {
+            "completed": true,
+            "atlases": 8,
+            "frames": 54,
+            "components": 33,
+            "scenes": 14,
+            "output": "/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-mi14"
+          }
+        },
+        {
+          "lot": "combat",
+          "command": "npm run check:combat",
+          "step": 8,
+          "conclusion": "success",
+          "output": "{\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-combat-qa\",\"completed\":true,\"atlases\":9,\"frames\":78,\"views\":6}",
+          "result": {
+            "output": "/home/runner/work/ImperiumMarch/outputs/painted-combat-qa",
+            "completed": true,
+            "atlases": 9,
+            "frames": 78,
+            "views": 6
+          }
+        },
+        {
+          "lot": "walkers",
+          "command": "npm run check:walkers",
+          "step": 9,
+          "conclusion": "success",
+          "output": "{\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-walkers-qa\",\"completed\":true,\"atlases\":6,\"cells\":96,\"views\":19,\"poses\":54,\"missionScenes\":6,\"hangarViews\":6}",
+          "result": {
+            "output": "/home/runner/work/ImperiumMarch/outputs/painted-walkers-qa",
+            "completed": true,
+            "atlases": 6,
+            "cells": 96,
+            "views": 19,
+            "poses": 54,
+            "missionScenes": 6,
+            "hangarViews": 6
+          }
+        },
+        {
+          "lot": "thyr",
+          "command": "npm run check:thyr",
+          "step": 10,
+          "conclusion": "success",
+          "output": "{\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-thyr-qa\",\"completed\":true,\"atlases\":8,\"cells\":62,\"runtimeCells\":58,\"referenceCells\":4,\"views\":7}",
+          "result": {
+            "output": "/home/runner/work/ImperiumMarch/outputs/painted-thyr-qa",
+            "completed": true,
+            "atlases": 8,
+            "cells": 62,
+            "runtimeCells": 58,
+            "referenceCells": 4,
+            "views": 7
+          }
+        },
+        {
+          "lot": "cerbere",
+          "command": "npm run check:cerbere",
+          "step": 11,
+          "conclusion": "success",
+          "output": "{\"completed\":true,\"frames\":16,\"views\":2,\"shotOrientations\":2,\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-cerbere-qa\"}",
+          "result": {
+            "completed": true,
+            "frames": 16,
+            "views": 2,
+            "shotOrientations": 2,
+            "output": "/home/runner/work/ImperiumMarch/outputs/painted-cerbere-qa"
+          }
+        },
+        {
+          "lot": "transport",
+          "command": "npm run check:transport",
+          "step": 12,
+          "conclusion": "success",
+          "output": "Transport reception: 4 atlases, 20 cells, 5 Canvas views. Not a browser test."
+        },
+        {
+          "lot": "relay",
+          "command": "npm run check:relay",
+          "step": 13,
+          "conclusion": "success",
+          "output": "{\"completed\":true,\"atlases\":3,\"frames\":30,\"views\":9,\"mission\":{\"mission\":\"MI12\",\"status\":\"won\",\"elapsed\":205.066666666722,\"capturedScenes\":7,\"choice\":\"defy\"},\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-relay-qa\"}",
+          "result": {
+            "completed": true,
+            "atlases": 3,
+            "frames": 30,
+            "views": 9,
+            "mission": {
+              "mission": "MI12",
+              "status": "won",
+              "elapsed": 205.066666666722,
+              "capturedScenes": 7,
+              "choice": "defy"
+            },
+            "output": "/home/runner/work/ImperiumMarch/outputs/painted-relay-qa"
+          }
+        },
+        {
+          "lot": "nacre",
+          "command": "npm run check:nacre",
+          "step": 14,
+          "conclusion": "success",
+          "output": "{\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-nacre-v0155\",\"completed\":true,\"atlases\":6,\"cells\":30,\"runtimeCells\":29,\"referenceCells\":1,\"views\":5}",
+          "result": {
+            "output": "/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-nacre-v0155",
+            "completed": true,
+            "atlases": 6,
+            "cells": 30,
+            "runtimeCells": 29,
+            "referenceCells": 1,
+            "views": 5
+          }
+        },
+        {
+          "lot": "nacre-sites",
+          "command": "npm run check:nacre-sites",
+          "step": 15,
+          "conclusion": "success",
+          "output": "{\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-nacre-sites-v0156\",\"completed\":true,\"atlases\":5,\"cells\":30,\"runtimeCells\":30,\"referenceCells\":0,\"views\":10}",
+          "result": {
+            "output": "/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-nacre-sites-v0156",
+            "completed": true,
+            "atlases": 5,
+            "cells": 30,
+            "runtimeCells": 30,
+            "referenceCells": 0,
+            "views": 10
+          }
+        },
+        {
+          "lot": "chemical",
+          "command": "npm run check:chemical",
+          "step": 16,
+          "conclusion": "success",
+          "output": "Painted chemical reception: 5 PNGs / 24 states / 11 views; MI10 defy won at 198.917 s"
+        },
+        {
+          "lot": "voice",
+          "command": "npm run check:voice",
+          "step": 17,
+          "conclusion": "success",
+          "output": "{\"completed\":true,\"atlases\":3,\"frames\":21,\"views\":8,\"mission\":{\"mission\":\"MI11\",\"status\":\"won\",\"elapsed\":136.8166666666677,\"choice\":\"defy\",\"capturedScenes\":7,\"nestsIntact\":3,\"te01Acquired\":true},\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-voice-qa\"}",
+          "result": {
+            "completed": true,
+            "atlases": 3,
+            "frames": 21,
+            "views": 8,
+            "mission": {
+              "mission": "MI11",
+              "status": "won",
+              "elapsed": 136.8166666666677,
+              "choice": "defy",
+              "capturedScenes": 7,
+              "nestsIntact": 3,
+              "te01Acquired": true
+            },
+            "output": "/home/runner/work/ImperiumMarch/outputs/painted-voice-qa"
+          }
+        },
+        {
+          "lot": "vesper",
+          "command": "npm run check:vesper",
+          "step": 18,
+          "conclusion": "success",
+          "output": "{\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-vesper-v0157\",\"completed\":true,\"atlases\":6,\"cells\":38,\"diagnosticViews\":5,\"publicInputViews\":9,\"views\":14}",
+          "result": {
+            "output": "/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-vesper-v0157",
+            "completed": true,
+            "atlases": 6,
+            "cells": 38,
+            "diagnosticViews": 5,
+            "publicInputViews": 9,
+            "views": 14
+          }
+        },
+        {
+          "lot": "route",
+          "command": "npm run check:route",
+          "step": 19,
+          "conclusion": "success",
+          "output": "{\n  \"completed\": true,\n  \"counts\": {\n    \"atlases\": 3,\n    \"cells\": 20,\n    \"runtimeCells\": 18,\n    \"referenceCells\": 2,\n    \"views\": 8,\n    \"publicScenes\": 6\n  },\n  \"output\": \"/home/runner/work/ImperiumMarch/outputs/painted-route-qa\",\n  \"publicRun\": {\n    \"ticks\": 9792,\n    \"status\": \"won\",\n    \"scenes\": [\n      \"arrival\",\n      \"contact-working\",\n      \"map-surveyed\",\n      \"barrier-working\",\n      \"truck-moving\",\n      \"report-sent\"\n    ],\n    \"elapsed\": 163.18333333335534,\n    \"reportTransmitted\": true,\n    \"arrived\": 4,\n    \"logisticsArrived\": true\n  }\n}",
+          "result": {
+            "completed": true,
+            "counts": {
+              "atlases": 3,
+              "cells": 20,
+              "runtimeCells": 18,
+              "referenceCells": 2,
+              "views": 8,
+              "publicScenes": 6
+            },
+            "output": "/home/runner/work/ImperiumMarch/outputs/painted-route-qa",
+            "publicRun": {
+              "ticks": 9792,
+              "status": "won",
+              "scenes": [
+                "arrival",
+                "contact-working",
+                "map-surveyed",
+                "barrier-working",
+                "truck-moving",
+                "report-sent"
+              ],
+              "elapsed": 163.18333333335534,
+              "reportTransmitted": true,
+              "arrived": 4,
+              "logisticsArrived": true
+            }
+          }
+        },
+        {
+          "lot": "foundry-sites",
+          "command": "npm run check:foundry-sites",
+          "step": 20,
+          "conclusion": "success",
+          "output": "MI13 foundry sites: 4 original atlases, 23 cells, 8 Canvas views; public run won. Not a browser or human test."
+        },
+        {
+          "lot": "nacre-people",
+          "command": "npm run check:nacre-people",
+          "step": 22,
+          "conclusion": "success",
+          "output": "{\n  \"completed\": true,\n  \"atlases\": 3,\n  \"cells\": 28,\n  \"views\": 5,\n  \"publicControls\": [\n    {\n      \"missionId\": \"MI06\",\n      \"result\": \"won\",\n      \"elapsed\": 111.29999999999497,\n      \"residentsSafe\": 10,\n      \"techniciansAlive\": 2\n    },\n    {\n      \"missionId\": \"MI07\",\n      \"result\": \"won\",\n      \"elapsed\": 203.1666666667205,\n      \"patientsArrived\": 4,\n      \"staffArrived\": 2\n    }\n  ],\n  \"output\": \"/home/runner/work/ImperiumMarch/outputs/painted-nacre-people-qa\"\n}",
+          "result": {
+            "completed": true,
+            "atlases": 3,
+            "cells": 28,
+            "views": 5,
+            "publicControls": [
+              {
+                "missionId": "MI06",
+                "result": "won",
+                "elapsed": 111.29999999999497,
+                "residentsSafe": 10,
+                "techniciansAlive": 2
+              },
+              {
+                "missionId": "MI07",
+                "result": "won",
+                "elapsed": 203.1666666667205,
+                "patientsArrived": 4,
+                "staffArrived": 2
+              }
+            ],
+            "output": "/home/runner/work/ImperiumMarch/outputs/painted-nacre-people-qa"
+          }
+        },
+        {
+          "lot": "vesper-scenery",
+          "command": "npm run check:vesper-scenery",
+          "step": 23,
+          "conclusion": "success",
+          "output": "{\"completed\":true,\"output\":\"/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-vesper-scenery-v0158\",\"atlases\":3,\"frames\":16,\"views\":7}",
+          "result": {
+            "completed": true,
+            "output": "/home/runner/work/ImperiumMarch/ImperiumMarch/docs/validation/painted-vesper-scenery-v0158",
+            "atlases": 3,
+            "frames": 16,
+            "views": 7
+          }
+        },
+        {
+          "lot": "nacre-civilians",
+          "command": "npm run check:nacre-civilians",
+          "step": 24,
+          "conclusion": "success",
+          "output": "{\n  \"completed\": true,\n  \"atlases\": 5,\n  \"cells\": 48,\n  \"runtimeCells\": 42,\n  \"referenceCells\": 6,\n  \"views\": 9,\n  \"publicControls\": [\n    {\n      \"missionId\": \"MI06\",\n      \"result\": \"won\",\n      \"elapsed\": 111.29999999999497,\n      \"residentsSafe\": 10,\n      \"residentsLost\": 0,\n      \"techniciansAlive\": 2\n    },\n    {\n      \"missionId\": \"MI08\",\n      \"result\": \"won\",\n      \"elapsed\": 329.3333333333625,\n      \"peopleDeparted\": 34,\n      \"peopleArrived\": 34,\n      \"peopleLocal\": 2,\n      \"peopleLost\": 0\n    }\n  ],\n  \"output\": \"/home/runner/work/ImperiumMarch/outputs/painted-nacre-civilians-qa\"\n}",
+          "result": {
+            "completed": true,
+            "atlases": 5,
+            "cells": 48,
+            "runtimeCells": 42,
+            "referenceCells": 6,
+            "views": 9,
+            "publicControls": [
+              {
+                "missionId": "MI06",
+                "result": "won",
+                "elapsed": 111.29999999999497,
+                "residentsSafe": 10,
+                "residentsLost": 0,
+                "techniciansAlive": 2
+              },
+              {
+                "missionId": "MI08",
+                "result": "won",
+                "elapsed": 329.3333333333625,
+                "peopleDeparted": 34,
+                "peopleArrived": 34,
+                "peopleLocal": 2,
+                "peopleLost": 0
+              }
+            ],
+            "output": "/home/runner/work/ImperiumMarch/outputs/painted-nacre-civilians-qa"
+          }
+        },
+        {
+          "lot": "nacre-scenery",
+          "command": "npm run check:nacre-scenery",
+          "step": 25,
+          "conclusion": "success",
+          "output": "{\"completed\":true,\"output\":\"/home/runner/work/ImperiumMarch/outputs/painted-nacre-scenery-qa\",\"atlases\":2,\"frames\":10,\"views\":8}",
+          "result": {
+            "completed": true,
+            "output": "/home/runner/work/ImperiumMarch/outputs/painted-nacre-scenery-qa",
+            "atlases": 2,
+            "frames": 10,
+            "views": 8
+          }
+        }
+      ]
+    },
+    "panoramas": {
+      "command": "npm run check:worlds",
+      "step": 21,
+      "conclusion": "success",
+      "result": {
+        "completed": true,
+        "panoramas": 3,
+        "views": 5,
+        "output": "/home/runner/work/ImperiumMarch/outputs/painted-worlds-qa"
+      },
+      "classification": "Three painted world panoramas are checked separately and excluded from the eighteen atlas lots."
+    },
+    "projectCheck": "Project checks passed: 20 design sheets, 1007 source rows, 6 playable chassis, 3 independent operations, 14 campaign missions.",
+    "offlineBuild": "Offline game built: dist/Ordre_de_Cendre.html (196.46 MiB), 71 modules, no remote dependencies.",
+    "offlineBuildSummary": {
+      "offlinePackage": "dist/Ordre_de_Cendre.zip",
+      "htmlBytes": 206002133,
+      "zipBytes": 151098632,
+      "htmlSha256": "f01e6b87fd835417cdd3ab24ca9e3d4c2ae50ff0ec0832f3077c01f2be239960",
+      "zipSha256": "5905e77a527bdab1672835689139ffcce2be3cf5bafd7aa9e38aa6c61625e3e0",
+      "node": "22.23.4",
+      "zlib": "1.3.1-e00f703"
+    },
+    "offlineVerification": {
+      "status": "verified",
+      "entry": "Ordre_de_Cendre.html",
+      "htmlFileCompared": true,
+      "html": {
+        "bytes": 206002133,
+        "sha256": "f01e6b87fd835417cdd3ab24ca9e3d4c2ae50ff0ec0832f3077c01f2be239960",
+        "crc32": "ee02bf94"
+      },
+      "zip": {
+        "bytes": 151098632,
+        "sha256": "5905e77a527bdab1672835689139ffcce2be3cf5bafd7aa9e38aa6c61625e3e0",
+        "entries": 1
+      },
+      "source": {
+        "version": "0.15.9",
+        "commit": "8ed74617462672ffc9992bb9be0dc2c947c2d564",
+        "tree": "319fcd4c84b14772fc96e4b0558b2c1031240d03",
+        "workingTree": "modified"
+      }
+    },
+    "distributionMatchesLocal": {
+      "manifest": "dist/Ordre_de_Cendre.manifest.json",
+      "manifestSha256": "1c56ca6bd81f857059b98a6175ab3e3b80620c0014bbad25e41863585c313390",
+      "htmlBytesMatch": true,
+      "htmlSha256Match": true,
+      "zipBytesMatch": true,
+      "zipSha256Match": true,
+      "sourceOfComparison": "Local manifest read after the job completed; its HTML and ZIP fingerprints match the received CI build."
+    },
+    "staticUi": "STATIC UI AUDIT PASSED: 213 unique HTML IDs; 185 literal JS ID references; 5 views; 4 archive tabs; 6 dialogs.",
+    "offlineBundleAudit": "OFFLINE BUNDLE AUDIT PASSED: one inline script compiled by vm.Script without executing; all HTML/CSS/Canvas assets embedded; no unresolved imports or resource requests.",
+    "domRuntime": {
+      "flows": 108,
+      "evidence": "UI STATE INTEGRATION PASSED: 108 flows against the actual offline application script in a modeled DOM."
+    },
+    "webBuild": "Web game built: web-dist/index.html, src/ and assets/. No runtime dependencies."
+  },
+  "logs": {
+    "path": "v0159-pr-ci-job.txt",
+    "sha256": "e1d2588259fbefb506a038eb13f714d3c596038bfeff04aab64956171a302c48",
+    "bytes": 462472,
+    "sourceJobId": 133930237825,
+    "firstTimestamp": "2026-11-17T09:04:13.0193993Z",
+    "lastTimestamp": "2026-11-17T09:09:47.4371862Z"
+  },
+  "limitations": [
+    "This receipt applies only to PR head 17041c1cec7d9b608afe4955364569a9009c174f and synthetic merge 8ed74617462672ffc9992bb9be0dc2c947c2d564. A later documentation commit has its own CI result.",
+    "PNG/Canvas inspections and the 108 modeled-DOM flows do not certify native-browser gameplay or human acceptance.",
+    "Validation tools generate files in the runner working tree; the offline verifier reports workingTree: modified. This is a CI build receipt, not a clean Release publication receipt.",
+    "No GitHub Release assets, Vercel deployment or public production update are certified by this receipt."
+  ]
+}

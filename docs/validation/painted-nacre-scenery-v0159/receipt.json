@@ -1,0 +1,353 @@
+{
+  "version": "0.15.9",
+  "createdUtc": "2026-11-17T08:44:57.563Z",
+  "completed": true,
+  "type": "Original PNG decoding, shoreline diagnostics and public-input Nacre Canvas scenes",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "atlases": [
+    {
+      "id": "terrain",
+      "sha256": "3ca20a8f50e2df45e45341a0fde5bd43f0d1f0c93cea4e3a4566152d56adc1fc",
+      "bytes": 2344355,
+      "dimensions": [
+        1774,
+        887
+      ],
+      "transparentPixels": 472363
+    },
+    {
+      "id": "props",
+      "sha256": "a9fee87d46163d4609918882b0f7dcfd9368d19cdbe5df9695de88a0224af4e5",
+      "bytes": 1678665,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "transparentPixels": 1259637
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "terrain",
+      "name": "wet-rock",
+      "usage": "runtime",
+      "source": [
+        47,
+        95,
+        825,
+        331
+      ],
+      "target": [
+        -1.24725944,
+        -1.24725944,
+        514.494518879,
+        206.421437272
+      ],
+      "solidPixels": 266812
+    },
+    {
+      "atlas": "terrain",
+      "name": "layered-silt",
+      "usage": "runtime",
+      "source": [
+        903,
+        95,
+        824,
+        331
+      ],
+      "target": [
+        -1.248780488,
+        -1.248780488,
+        514.497560976,
+        206.673170732
+      ],
+      "solidPixels": 266922
+    },
+    {
+      "atlas": "terrain",
+      "name": "salt-masonry",
+      "usage": "runtime",
+      "source": [
+        48,
+        460,
+        824,
+        331
+      ],
+      "target": [
+        -1.248780488,
+        -1.248780488,
+        514.497560976,
+        206.673170732
+      ],
+      "solidPixels": 267366
+    },
+    {
+      "atlas": "terrain",
+      "name": "patinated-metal",
+      "usage": "runtime",
+      "source": [
+        903,
+        460,
+        824,
+        331
+      ],
+      "target": [
+        -1.248780488,
+        -1.248780488,
+        514.497560976,
+        206.673170732
+      ],
+      "solidPixels": 267211
+    },
+    {
+      "atlas": "props",
+      "name": "shore-rock",
+      "usage": "runtime",
+      "source": [
+        58,
+        207,
+        427,
+        199
+      ],
+      "target": [
+        -16.151300236,
+        -14.903073286,
+        32.302600473,
+        15.054373522
+      ],
+      "solidPixels": 62370
+    },
+    {
+      "atlas": "props",
+      "name": "salt-pebbles",
+      "usage": "runtime",
+      "source": [
+        596,
+        299,
+        337,
+        104
+      ],
+      "target": [
+        -16.192192192,
+        -9.801801802,
+        32.384384384,
+        9.993993994
+      ],
+      "solidPixels": 20036
+    },
+    {
+      "atlas": "props",
+      "name": "salt-flower",
+      "usage": "runtime",
+      "source": [
+        1093,
+        129,
+        353,
+        278
+      ],
+      "target": [
+        -16.183381089,
+        -25.306590258,
+        32.366762178,
+        25.489971347
+      ],
+      "solidPixels": 31407
+    },
+    {
+      "atlas": "props",
+      "name": "shore-algae",
+      "usage": "runtime",
+      "source": [
+        62,
+        664,
+        421,
+        210
+      ],
+      "target": [
+        -16.153477218,
+        -15.961630695,
+        32.306954436,
+        16.115107914
+      ],
+      "solidPixels": 45029
+    },
+    {
+      "atlas": "props",
+      "name": "mooring-bollard",
+      "usage": "runtime",
+      "source": [
+        568,
+        616,
+        420,
+        260
+      ],
+      "target": [
+        -16.153846154,
+        -19.846153846,
+        32.307692308,
+        20
+      ],
+      "solidPixels": 57700
+    },
+    {
+      "atlas": "props",
+      "name": "weathered-planks",
+      "usage": "runtime",
+      "source": [
+        1048,
+        719,
+        447,
+        159
+      ],
+      "target": [
+        -16.144469526,
+        -11.340857788,
+        32.288939052,
+        11.485327314
+      ],
+      "solidPixels": 45715
+    }
+  ],
+  "views": [
+    {
+      "file": "nacre-scenery-contact-sheet.png",
+      "width": 1600,
+      "height": 1160,
+      "sha256": "eb5b232c6a472fe9c7e0eddffa8dd05c5890af6a4cbd6e013225a39be15fa140",
+      "type": "Isolated source frame diagnostic on light and dark backgrounds"
+    },
+    {
+      "file": "nacre-terrain-camera-0.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "be89f7bf75fdc41cacb5c2f2f44b7b555baff7ecd37608e693a0506ddb39e073",
+      "type": "Initial game state, diagnostic camera only",
+      "cameraX": 0,
+      "spriteDrawCalls": {
+        "terrain": 274,
+        "props": 7
+      },
+      "stateSha256": "b1aefce19905e4ea9cb02dd4e98ad585cce6431db4c7f745ce5ed064a3ce5342"
+    },
+    {
+      "file": "nacre-terrain-camera-512.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "06235c5b2ecd20290c94e5bb1547dbbd7bf7b3da2cbbcbd0e208116b0e3cb688",
+      "type": "Initial game state, diagnostic camera only",
+      "cameraX": 512,
+      "spriteDrawCalls": {
+        "terrain": 276,
+        "props": 7
+      },
+      "stateSha256": "b1aefce19905e4ea9cb02dd4e98ad585cce6431db4c7f745ce5ed064a3ce5342"
+    },
+    {
+      "file": "nacre-terrain-camera-1800.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "a2daf9ba5ab7c58ec18e0e3e173d9184d79042acd33fdbb6c7c81adcc6639c2f",
+      "type": "Initial game state, diagnostic camera only",
+      "cameraX": 1800,
+      "spriteDrawCalls": {
+        "terrain": 262,
+        "props": 8
+      },
+      "stateSha256": "b1aefce19905e4ea9cb02dd4e98ad585cce6431db4c7f745ce5ed064a3ce5342"
+    },
+    {
+      "file": "mi05-first-bridge-raised.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "c3ad69bfbf7ba2b6aa1a67650f4fa1d50d0ff94d59cda68872c876a65da8d5ae",
+      "type": "Public-input Canvas scene",
+      "description": "MI05: premier pont réellement relevé",
+      "missionId": "MI05",
+      "elapsed": 8.950000000000024,
+      "cameraX": 146.63897594687364,
+      "spriteDrawCalls": {
+        "terrain": 271,
+        "props": 8
+      },
+      "stateSha256": "868a6f530edc1ae1dc95541c4d02ae07a65f9249a07f70e36864e82f997cbb56"
+    },
+    {
+      "file": "mi06-residents-on-nacre-shore.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "ecb07b44ec248a7a9c83b2de48ee3b5482f83da9a66a9ee26ea296c59d166deb",
+      "type": "Public-input Canvas scene",
+      "description": "MI06: appel et évacuation réellement commencés",
+      "missionId": "MI06",
+      "elapsed": 22.599999999999998,
+      "cameraX": 1015.0510551780694,
+      "spriteDrawCalls": {
+        "terrain": 276,
+        "props": 7
+      },
+      "stateSha256": "58060bd7240c0f2ceabca018bf052c8325dda82b4976f33a496e594556d394ec"
+    },
+    {
+      "file": "mi08-nacre-quay.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "332093db51740fcc699f28867e4fd5d5a78b0c1e6aad26c7b4f119cc13866f7a",
+      "type": "Public-input Canvas scene",
+      "description": "MI08: groupes au quai depuis la fixture historique MI07",
+      "missionId": "MI08",
+      "elapsed": 246.23333333342143,
+      "cameraX": 2218.6164119011555,
+      "spriteDrawCalls": {
+        "terrain": 270,
+        "props": 7
+      },
+      "stateSha256": "488e268a266ea27ab38c5d4d711d8d49fc91fd5e5753e213249300a9aa014bc5"
+    },
+    {
+      "file": "op02-nacre-terrain.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "a5f8e70be71b25f7173055b92ee2a7eb18f7930440c140b55cfdd43b2fbb69a8",
+      "type": "Public-input Canvas scene",
+      "description": "OP02: simulation indépendante après 180 commandes de marche",
+      "missionId": "op02",
+      "elapsed": 2.9999999999999942,
+      "cameraX": 0,
+      "spriteDrawCalls": {
+        "terrain": 274,
+        "props": 7
+      },
+      "stateSha256": "2c4171bc42dbd180ff65dba0dacf63ea5f2149d93be927d91059162f38581aea"
+    }
+  ],
+  "sourceHashes": {
+    "src/painted-nacre-scenery.mjs": "95a6a7f9043f99389cf6c458176190307740cf2f4038cbe345be6427b238a3ff",
+    "src/painted-nacre-scenery-layout.mjs": "468e7cce4099f0dd1748684448bd77115b2eb701f1f1b13b46eb01f9cc4d3b17",
+    "src/renderer.mjs": "98dd9681283bf0c9485534ceeef5fa1b7c4bf6f0b85fedaa4f1c6c850a061087",
+    "assets/painted/nacre-scenery/manifest.json": "c3d4652bc29973235f336ef12512e9e24c227585c68485231f69ca23564af9d4",
+    "assets/painted/nacre-scenery/prompts.json": "a0a351a1dc01cbbf1ffb670b85d0e7b6c141c66f681c042d39a8bc95faa752ee",
+    "tools/index-painted-nacre-scenery.py": "999ce3286fb090857e7d587b359aec75fc84318de82d2b85d02154d2206e40af",
+    "tools/test-painted-nacre-scenery.mjs": "99252a271bdedabef8446ee1d05020456df394a74ddb9412b6de219ac4145e98",
+    "tests/painted-nacre-scenery.test.mjs": "dd5f3e6e051308c603b6c1164c45a86dc8da0ec309b5ca0b4f46a86a5e9dec27",
+    "src/painted-worlds.mjs": "a50c9e38b87106516e6fd14cb2932e78d3e4773d254215155e97417ad4f63041",
+    "assets/painted/worlds/manifest.json": "ebae66e9909aafbded7761b3121ab546608911e3d8b3853cd05e7fdece677c67",
+    "src/simulation.mjs": "5fe3c5d056602f47520775a54d0bf5fec3ca4e0e209b719cf644b37bc2ead3bf",
+    "tests/helpers/mi05-driver.mjs": "ec4f6edfba77046bb6c4137f09540c370787fef4ff4ca9ae68f2ab34216117fe",
+    "tests/helpers/mi06-driver.mjs": "c77171a3e903de9843168e7bf40c1e67cb1e46311876e448300e4137fe6edb99",
+    "tests/helpers/mi08-driver.mjs": "07b577d7ad7cd860bfcd4604d19744e976f988e01a2435f6e2dc5e415a4f2088",
+    "src/campaign.mjs": "f4176813bedfaf4139c428c8bd4e02b4c1dd8844eee867b2bf76fea3f9ab3c94",
+    "tests/fixtures/campaign-v7-mi07.json": "8ca58deb11f4048039cda3a54157f7eddb2dd6af6a34450a3d177b3bdfa67a5c"
+  },
+  "limitations": [
+    "Diagnostic cameras reveal existing scenery; they do not claim that the player reached their position.",
+    "Public-input scenes start through createGame and use only updateGame/commandGame; no simulation actor is teleported.",
+    "Terrain textures and shoreline props introduce no collider, population, tide marker or mission state. FL06 remains decorative.",
+    "No browser, audio, hardware performance, human test or complete campaign acceptance is inferred from Canvas."
+  ],
+  "counts": {
+    "atlases": 2,
+    "frames": 10,
+    "views": 8
+  }
+}

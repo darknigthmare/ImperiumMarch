@@ -46,6 +46,16 @@ jobs:
         run: npm run check:route
       - name: Decode and validate the foundry site equipment
         run: npm run check:foundry-sites
+      - name: Decode and validate the three painted world panoramas
+        run: npm run check:worlds
+      - name: Decode and validate Nacre technicians, staff and patients
+        run: npm run check:nacre-people
+      - name: Decode and validate Vesper terrain, scenery and railway viaduct
+        run: npm run check:vesper-scenery
+      - name: Decode and validate Nacre civilians and quay services
+        run: npm run check:nacre-civilians
+      - name: Decode and validate Nacre terrain and shoreline scenery
+        run: npm run check:nacre-scenery
       - run: npm run check
       - run: npm run build
       - run: npm run check:offline-package

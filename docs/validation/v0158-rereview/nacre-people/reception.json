@@ -1,0 +1,701 @@
+{
+  "version": "0.15.8",
+  "createdUtc": "2026-11-17T04:25:46.184Z",
+  "completed": true,
+  "type": "Actual original PNG decoding and Canvas inspection",
+  "browserExecuted": false,
+  "humanPlaytestPerformed": false,
+  "sourceHashes": {
+    "src/painted-nacre-people.mjs": "ac509c72c0516cc5ca3d2a565d4a2910bdc9dad4e6d067a861229e41bbd78784",
+    "src/painted-nacre-people-layout.mjs": "15a1ad1b2074e3f38b52e029dc6caad832e068e21271b5bad2b3242074be39d7",
+    "src/renderer.mjs": "43a948556b3630cd970dd9d4162197394e9cc05f107d613a16e3de7e7508ac8c",
+    "src/painted-worlds.mjs": "a50c9e38b87106516e6fd14cb2932e78d3e4773d254215155e97417ad4f63041",
+    "assets/painted/worlds/nacre.png": "bc03fadfb3b98f7c2a44290864b4d6159f21c9bb7c889e1e7c72984f2d21f88c",
+    "tools/index-painted-nacre-people.py": "824c11bfba5ff49550a7eca2adfea713fc227641f012925b45edd204c65c0ab9",
+    "tools/test-painted-nacre-people.mjs": "2c213d4896a68fa817096519b5ec945996fec36b010c336a1c155e2f5f64b09e",
+    "tests/painted-nacre-people.test.mjs": "79b9d52f6a2a6964b9e8e30d9d2284645363c06c22b22dc17b77506b10758f21"
+  },
+  "atlases": [
+    {
+      "key": "technicians",
+      "path": "assets/painted/nacre-people/technicians.png",
+      "sha256": "f7d52a6bff76680af05fb9653f047095e44ef1c79ce244b6c679fd7083ead32e",
+      "bytes": 897299,
+      "size": [
+        1774,
+        887
+      ],
+      "fullyTransparentPixels": 1191532
+    },
+    {
+      "key": "staff",
+      "path": "assets/painted/nacre-people/staff.png",
+      "sha256": "a7258ee414aaa0724f4d011963db4ac5c66431d170560e69e0749639100ca18d",
+      "bytes": 907176,
+      "size": [
+        1448,
+        1086
+      ],
+      "fullyTransparentPixels": 1189328
+    },
+    {
+      "key": "patients",
+      "path": "assets/painted/nacre-people/patients.png",
+      "sha256": "45a53c13f30a9998429065a3e4b46026c0a33a8529594e499d964e99103de96d",
+      "bytes": 1946742,
+      "size": [
+        1312,
+        1199
+      ],
+      "fullyTransparentPixels": 730797
+    }
+  ],
+  "frames": [
+    {
+      "atlas": "technicians",
+      "frame": "idle",
+      "occupiedPixels": 29388,
+      "source": [
+        167,
+        14,
+        108,
+        406
+      ],
+      "target": [
+        -4.4402985,
+        -34.1691542,
+        9.1343284,
+        34.3383085
+      ]
+    },
+    {
+      "atlas": "technicians",
+      "frame": "walk-0",
+      "occupiedPixels": 34746,
+      "source": [
+        553,
+        18,
+        228,
+        395
+      ],
+      "target": [
+        -9.3457711,
+        -33.238806,
+        19.2835821,
+        33.4079602
+      ]
+    },
+    {
+      "atlas": "technicians",
+      "frame": "walk-1",
+      "occupiedPixels": 29682,
+      "source": [
+        1053,
+        18,
+        130,
+        401
+      ],
+      "target": [
+        -5.2014925,
+        -33.7462687,
+        10.9950249,
+        33.9154229
+      ]
+    },
+    {
+      "atlas": "technicians",
+      "frame": "walk-2",
+      "occupiedPixels": 33996,
+      "source": [
+        1437,
+        29,
+        256,
+        384
+      ],
+      "target": [
+        -10.2338308,
+        -32.3084577,
+        21.6517413,
+        32.4776119
+      ]
+    },
+    {
+      "atlas": "technicians",
+      "frame": "walk-3",
+      "occupiedPixels": 25799,
+      "source": [
+        159,
+        468,
+        138,
+        388
+      ],
+      "target": [
+        -6.1318408,
+        -32.6467662,
+        11.6716418,
+        32.8159204
+      ]
+    },
+    {
+      "atlas": "technicians",
+      "frame": "locking",
+      "occupiedPixels": 32958,
+      "source": [
+        579,
+        464,
+        195,
+        397
+      ],
+      "target": [
+        -6.3432836,
+        -33.4079602,
+        16.4925373,
+        33.5771144
+      ]
+    },
+    {
+      "atlas": "technicians",
+      "frame": "covering",
+      "occupiedPixels": 24990,
+      "source": [
+        994,
+        606,
+        179,
+        248
+      ],
+      "target": [
+        -9.8532338,
+        -20.8059701,
+        15.1393035,
+        20.9751244
+      ]
+    },
+    {
+      "atlas": "technicians",
+      "frame": "downed",
+      "occupiedPixels": 30814,
+      "source": [
+        1353,
+        726,
+        381,
+        118
+      ],
+      "target": [
+        -16.1119403,
+        -9.8109453,
+        32.2238806,
+        9.9800995
+      ]
+    },
+    {
+      "atlas": "staff",
+      "frame": "driver-idle",
+      "occupiedPixels": 17543,
+      "source": [
+        145,
+        12,
+        78,
+        339
+      ],
+      "target": [
+        -4.2626866,
+        -34.2029851,
+        7.9164179,
+        34.4059701
+      ]
+    },
+    {
+      "atlas": "staff",
+      "frame": "driver-walk-0",
+      "occupiedPixels": 23611,
+      "source": [
+        458,
+        18,
+        192,
+        330
+      ],
+      "target": [
+        -9.1850746,
+        -33.2895522,
+        19.4865672,
+        33.4925373
+      ]
+    },
+    {
+      "atlas": "staff",
+      "frame": "driver-walk-1",
+      "occupiedPixels": 17892,
+      "source": [
+        840,
+        16,
+        118,
+        333
+      ],
+      "target": [
+        -7.2567164,
+        -33.5940299,
+        11.9761194,
+        33.7970149
+      ]
+    },
+    {
+      "atlas": "staff",
+      "frame": "driver-walk-2",
+      "occupiedPixels": 23298,
+      "source": [
+        1166,
+        20,
+        219,
+        328
+      ],
+      "target": [
+        -10.9104478,
+        -33.0865672,
+        22.2268657,
+        33.2895522
+      ]
+    },
+    {
+      "atlas": "staff",
+      "frame": "driver-walk-3",
+      "occupiedPixels": 17830,
+      "source": [
+        138,
+        380,
+        105,
+        331
+      ],
+      "target": [
+        -5.0238806,
+        -33.3910448,
+        10.6567164,
+        33.5940299
+      ]
+    },
+    {
+      "atlas": "staff",
+      "frame": "driver-downed",
+      "occupiedPixels": 17906,
+      "source": [
+        375,
+        513,
+        331,
+        89
+      ],
+      "target": [
+        -16.7970149,
+        -8.8298507,
+        33.5940299,
+        9.0328358
+      ]
+    },
+    {
+      "atlas": "staff",
+      "frame": "medic-idle",
+      "occupiedPixels": 19991,
+      "source": [
+        849,
+        369,
+        99,
+        344
+      ],
+      "target": [
+        -5.3,
+        -34.2,
+        9.9,
+        34.4
+      ]
+    },
+    {
+      "atlas": "staff",
+      "frame": "medic-walk-0",
+      "occupiedPixels": 24903,
+      "source": [
+        1166,
+        374,
+        215,
+        337
+      ],
+      "target": [
+        -10.6,
+        -33.5,
+        21.5,
+        33.7
+      ]
+    },
+    {
+      "atlas": "staff",
+      "frame": "medic-walk-1",
+      "occupiedPixels": 19596,
+      "source": [
+        111,
+        734,
+        118,
+        342
+      ],
+      "target": [
+        -7.3,
+        -34,
+        11.8,
+        34.2
+      ]
+    },
+    {
+      "atlas": "staff",
+      "frame": "medic-walk-2",
+      "occupiedPixels": 25735,
+      "source": [
+        434,
+        738,
+        227,
+        337
+      ],
+      "target": [
+        -11.3,
+        -33.5,
+        22.7,
+        33.7
+      ]
+    },
+    {
+      "atlas": "staff",
+      "frame": "medic-walk-3",
+      "occupiedPixels": 20964,
+      "source": [
+        832,
+        737,
+        148,
+        336
+      ],
+      "target": [
+        -7.5,
+        -33.4,
+        14.8,
+        33.6
+      ]
+    },
+    {
+      "atlas": "staff",
+      "frame": "medic-downed",
+      "occupiedPixels": 19544,
+      "source": [
+        1094,
+        879,
+        338,
+        88
+      ],
+      "target": [
+        -16.9,
+        -8.6,
+        33.8,
+        8.8
+      ]
+    },
+    {
+      "atlas": "patients",
+      "frame": "patient-1-resting",
+      "occupiedPixels": 98021,
+      "source": [
+        6,
+        18,
+        631,
+        277
+      ],
+      "target": [
+        -17.108453,
+        -14.9122807,
+        34.2169059,
+        15.0207337
+      ]
+    },
+    {
+      "atlas": "patients",
+      "frame": "patient-1-lost",
+      "occupiedPixels": 99200,
+      "source": [
+        675,
+        43,
+        634,
+        253
+      ],
+      "target": [
+        -17.1897927,
+        -13.6108453,
+        34.3795853,
+        13.7192982
+      ]
+    },
+    {
+      "atlas": "patients",
+      "frame": "patient-2-resting",
+      "occupiedPixels": 98272,
+      "source": [
+        6,
+        320,
+        631,
+        276
+      ],
+      "target": [
+        -17.108453,
+        -14.8580542,
+        34.2169059,
+        14.9665072
+      ]
+    },
+    {
+      "atlas": "patients",
+      "frame": "patient-2-lost",
+      "occupiedPixels": 99524,
+      "source": [
+        675,
+        344,
+        634,
+        252
+      ],
+      "target": [
+        -17.1897927,
+        -13.5566188,
+        34.3795853,
+        13.6650718
+      ]
+    },
+    {
+      "atlas": "patients",
+      "frame": "patient-3-resting",
+      "occupiedPixels": 99721,
+      "source": [
+        6,
+        612,
+        631,
+        281
+      ],
+      "target": [
+        -17.108453,
+        -15.1291866,
+        34.2169059,
+        15.2376396
+      ]
+    },
+    {
+      "atlas": "patients",
+      "frame": "patient-3-lost",
+      "occupiedPixels": 99468,
+      "source": [
+        675,
+        638,
+        634,
+        255
+      ],
+      "target": [
+        -17.1897927,
+        -13.7192982,
+        34.3795853,
+        13.8277512
+      ]
+    },
+    {
+      "atlas": "patients",
+      "frame": "patient-4-resting",
+      "occupiedPixels": 98086,
+      "source": [
+        6,
+        921,
+        631,
+        273
+      ],
+      "target": [
+        -17.108453,
+        -14.6953748,
+        34.2169059,
+        14.8038278
+      ]
+    },
+    {
+      "atlas": "patients",
+      "frame": "patient-4-lost",
+      "occupiedPixels": 99126,
+      "source": [
+        675,
+        941,
+        634,
+        253
+      ],
+      "target": [
+        -17.1897927,
+        -13.6108453,
+        34.3795853,
+        13.7192982
+      ]
+    }
+  ],
+  "views": [
+    {
+      "file": "nacre-people-cells.png",
+      "width": 1680,
+      "height": 1680,
+      "sha256": "9979b6105db887a8a729fe2d71aa51f6a06d4d5eb033668712bfc15984185325",
+      "type": "Diagnostic source cells; crop and original proportions at comparison scales"
+    },
+    {
+      "file": "nacre-people-grounding.png",
+      "width": 1440,
+      "height": 650,
+      "sha256": "9acef71a1e97234f77e40d52aa74dade8ea03d7e61e8da42813fac6a08114131",
+      "type": "Normal person renderer, living/loss diagnostics with a visible ground datum"
+    },
+    {
+      "file": "mi06-technician-locking.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "fa3b97959ee3dbbc546a2943c88c8fefe61c0dbd5e8fbb3e8cf1a7ad4419dc89",
+      "type": "Normal Canvas scene reached by public controls; reduced motion",
+      "missionId": "MI06",
+      "elapsed": 57.61666666666468,
+      "peopleDrawn": [
+        {
+          "atlas": "technicians",
+          "source": [
+            579,
+            464,
+            195,
+            397
+          ]
+        },
+        {
+          "atlas": "technicians",
+          "source": [
+            579,
+            464,
+            195,
+            397
+          ]
+        }
+      ],
+      "stage": "Technician physically locking the supported panel"
+    },
+    {
+      "file": "mi07-driver-and-medic.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "fa2fe52b3bdd1b67d35214f371de1da6ca15b5b2c3e2aab0647edf45f20d8820",
+      "type": "Normal Canvas scene reached by public controls; reduced motion",
+      "missionId": "MI07",
+      "elapsed": 49.13333333333183,
+      "peopleDrawn": [
+        {
+          "atlas": "staff",
+          "source": [
+            145,
+            12,
+            78,
+            339
+          ]
+        },
+        {
+          "atlas": "staff",
+          "source": [
+            849,
+            369,
+            99,
+            344
+          ]
+        }
+      ],
+      "stage": "Actual personnel outside the stopped ambulance after consent"
+    },
+    {
+      "file": "mi07-patient-transfer.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "23a97bec990ff46dad1233bf0f2fb63716215faa970e1bbd6ed1789c035d68f3",
+      "type": "Normal Canvas scene reached by public controls; reduced motion",
+      "missionId": "MI07",
+      "elapsed": 179.9000000000353,
+      "peopleDrawn": [
+        {
+          "atlas": "staff",
+          "source": [
+            145,
+            12,
+            78,
+            339
+          ]
+        },
+        {
+          "atlas": "staff",
+          "source": [
+            849,
+            369,
+            99,
+            344
+          ]
+        },
+        {
+          "atlas": "patients",
+          "source": [
+            6,
+            18,
+            631,
+            277
+          ]
+        },
+        {
+          "atlas": "patients",
+          "source": [
+            6,
+            320,
+            631,
+            276
+          ]
+        },
+        {
+          "atlas": "patients",
+          "source": [
+            6,
+            612,
+            631,
+            281
+          ]
+        },
+        {
+          "atlas": "patients",
+          "source": [
+            6,
+            921,
+            631,
+            273
+          ]
+        }
+      ],
+      "stage": "Existing patients travelling to the receiving door"
+    }
+  ],
+  "publicControls": [
+    {
+      "missionId": "MI06",
+      "result": "won",
+      "elapsed": 111.29999999999497,
+      "residentsSafe": 10,
+      "techniciansAlive": 2
+    },
+    {
+      "missionId": "MI07",
+      "result": "won",
+      "elapsed": 203.1666666667205,
+      "patientsArrived": 4,
+      "staffArrived": 2
+    }
+  ],
+  "limitations": [
+    "The source-cell board uses imposed graphical states, not completed campaign events.",
+    "Public-control scenes use the normal renderer. They do not certify browser UI, human input, audio or final animation quality.",
+    "The MI06 context is an explicit simulation input. MI07 starts from the historical v6 fixture, unchanged.",
+    "MI08 role/visibility behavior is covered by the targeted tests; no new MI08 full mission is claimed."
+  ],
+  "environment": {
+    "planetId": "PL02",
+    "path": "assets/painted/worlds/nacre.png",
+    "sha256": "bc03fadfb3b98f7c2a44290864b4d6159f21c9bb7c889e1e7c72984f2d21f88c",
+    "state": "ready"
+  }
+}

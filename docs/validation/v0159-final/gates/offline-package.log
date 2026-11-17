@@ -1,0 +1,26 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> imperium-march@0.15.9 check:offline-package
+> node tools/build-offline-package.mjs --verify
+
+{
+  "status": "verified",
+  "entry": "Ordre_de_Cendre.html",
+  "htmlFileCompared": true,
+  "html": {
+    "bytes": 206002133,
+    "sha256": "f01e6b87fd835417cdd3ab24ca9e3d4c2ae50ff0ec0832f3077c01f2be239960",
+    "crc32": "ee02bf94"
+  },
+  "zip": {
+    "bytes": 151098632,
+    "sha256": "5905e77a527bdab1672835689139ffcce2be3cf5bafd7aa9e38aa6c61625e3e0",
+    "entries": 1
+  },
+  "source": {
+    "version": "0.15.9",
+    "commit": "95564d23ace8b6fdc12bd685428a59b532b186d0",
+    "tree": "b4fa75737df7866020671fb36ee8fa0ec7e7a556",
+    "workingTree": "modified"
+  }
+}
