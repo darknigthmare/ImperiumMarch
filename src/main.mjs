@@ -1,4 +1,4 @@
-import { WALKERS, MISSIONS, CAMPAIGN_MISSIONS, DIFFICULTIES, VOICE_TRANSLATION_PAIRS } from './content.mjs';
+import { WALKERS, PLAYABLE_WALKERS, MISSIONS, CAMPAIGN_MISSIONS, DIFFICULTIES, VOICE_TRANSLATION_PAIRS } from './content.mjs';
 import { createGame, updateGame, commandGame } from './simulation.mjs';
 import { Renderer } from './renderer.mjs';
 import { livingRouteSummary } from './thyr-renderer.mjs';
@@ -36,6 +36,9 @@ import { loadPaintedVesperScenery, paintedVesperSceneryStatus } from './painted-
 import { AudioEngine } from './audio.mjs';
 import { CONTROL_ACTIONS, normalizeBindings, bindingLabel, remapBinding, keyboardActions, GamepadInput, defaultBindings, formatControlText } from './controls.mjs';
 import { createCampaign, readCampaign, writeCampaign, beginCampaignMission, checkpointCampaign, restoreCampaignGame, finishCampaignMission, serviceCampaignWalker, repairCampaignPipe, campaignRepairCost, serializeCampaign, parseCampaign, nextCampaignMissionId } from './campaign.mjs';
+import { renderArenaView, illustrationLot } from './arena-ui.mjs';
+import { renderWalkerCorps } from './walker-corps-ui.mjs';
+import { corpsChassis } from './walker-corps.mjs';
 
 const $ = id => document.getElementById(id);
 const all = selector => [...document.querySelectorAll(selector)];
@@ -47,7 +50,7 @@ const settings = { ...defaults, bindings: normalizeBindings(saved.bindings) };
 for (const key of ['assist', 'shake', 'motion', 'contrast']) if (typeof saved[key] === 'boolean') settings[key] = saved[key];
 if (Object.hasOwn(DIFFICULTIES, saved.difficulty)) settings.difficulty = saved.difficulty;
 if (Number.isFinite(saved.volume)) settings.volume = clamp(saved.volume, 0, 100);
-if (WALKERS.some(w => w.id === saved.walkerId)) settings.walkerId = saved.walkerId;
+if (PLAYABLE_WALKERS.some(w => w.id === saved.walkerId)) settings.walkerId = saved.walkerId;
 if (MISSIONS.some(m => m.id === saved.missionId)) settings.missionId = saved.missionId;
 const records = load('imperium.records.v1', {});
 let storageAvailable = true;
@@ -96,7 +99,7 @@ const padAim = { x: 1, y: 0 };
 const keyLabel = id => bindingLabel(settings.bindings[id]);
 const controlsText = text => formatControlText(text, settings.bindings);
 const pointer = { x: 1100, y: 570, clientX: 0, clientY: 0, visible: false, fire: false, secondary: false, touched: false };
-const selectedWalker = () => WALKERS.find(w => w.id === settings.walkerId);
+const selectedWalker = () => PLAYABLE_WALKERS.find(w => w.id === settings.walkerId);
 const selectedMission = () => MISSIONS.find(m => m.id === settings.missionId);
 const campaignOrders = {
   MI14: {
@@ -429,7 +432,9 @@ function renderCampaignUI() {
   renderCampaignStatus();
 }
 function renderWorkshop() {
-  const w = selectedWalker(), condition = campaign.fleet[w.id];
+  const w = selectedWalker();
+  // A chassis newer than the loaded dossier has no workshop record until its first deployment.
+  const condition = campaign.fleet[w.id] || { hull: w.hull, feet: Array(w.legs).fill(100), radiator: 100 };
   const active = campaign.stage === 'mission';
   const cost = campaignRepairCost(campaign, w.id);
   const feet = condition.feet.map(n => Math.round(n));
@@ -566,14 +571,31 @@ $('campaign-new').addEventListener('click', () => { closeDialogs(); $('campaign-
 $('campaign-confirm-new').addEventListener('click', () => { replaceCampaign(createCampaign()); toast('Nouveau dossier ouvert. Tess vous attend au hangar.'); });
 window.addEventListener('pagehide', () => captureCampaign());
 
+let arenaView = 'tournament', arenaFighter = 'CER', arenaIllustrationLot = 'all';
+function renderArena() {
+  all('[data-arena]').forEach(el => { const active = arenaView === el.dataset.arena; el.classList.toggle('active', active); el.setAttribute('aria-selected', String(active)); });
+  $('arena-content').innerHTML = renderArenaView(arenaView, { fighter: arenaFighter, lot: arenaIllustrationLot });
+}
+all('[data-arena]').forEach(el => el.addEventListener('click', () => { arenaView = el.dataset.arena; renderArena(); }));
+$('arena-content').addEventListener('click', event => {
+  const fighter = event.target.closest('[data-fighter]');
+  if (fighter) { arenaFighter = fighter.dataset.fighter; renderArena(); return; }
+  const lot = event.target.closest('[data-illustration-lot]');
+  if (lot) { arenaIllustrationLot = lot.dataset.illustrationLot; renderArena(); return; }
+  const illustration = event.target.closest('[data-arena-illustration]');
+  if (illustration) { arenaIllustrationLot = illustrationLot(illustration.dataset.arenaIllustration); arenaView = 'gallery'; renderArena(); return; }
+  if (event.target.closest('[data-arena-action="start"]')) toast('Le bracket et les récits sont livrés. Le duel 1 contre 1 reste au stade de la conception : aucune simulation de ring n’est encore branchée.');
+});
+
 function showView(next) {
-  if (!['campaign', 'operations', 'hangar', 'archives', 'settings'].includes(next)) return;
+  if (!['campaign', 'operations', 'arena', 'hangar', 'archives', 'settings'].includes(next)) return;
   view = next;
   if (next !== 'settings' && bindingCapture) { bindingCapture = null; renderBindings(); $('binding-status').textContent = 'Modification annulée.'; }
   all('.view').forEach(el => el.hidden = el.id !== `view-${next}`);
   all('.nav-item').forEach(el => { const active = el.dataset.view === next; el.classList.toggle('active', active); if (active) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
   $('menu').classList.toggle('interior', !['campaign', 'operations'].includes(next));
   if (next === 'campaign') renderCampaignUI();
+  if (next === 'arena') renderArena();
   if (next === 'hangar') renderHangarUI();
   if (next === 'archives') renderArchive();
   window.scrollTo({ top: 0, behavior: 'instant' });
@@ -595,11 +617,25 @@ function renderHangarUI() {
   $('rig-weapon').textContent = w.weapon; $('rig-secondary').textContent = w.secondary;
   $('rig-strength').textContent = `${w.strength}. Point de vigilance : ${w.weakness.toLowerCase()}. Départ avec ${w.ammo} tirs chargés, ${w.ammo * 8} en réserve et ${w.rockets} roquettes. Les dépôts ne servent qu’une fois.`;
   $('rig-stats').innerHTML = [['BLINDAGE', Math.round(w.armor * 250)], ['MOBILITÉ', Math.round(w.speed)], ['DISSIPATION', Math.round(w.cooling * 4)]].map(([label, value]) => `<div class="rig-stat"><span>${label}</span><div class="meter"><i style="width:${clamp(value, 0, 100)}%"></i></div><b>${value}</b></div>`).join('');
-  $('walker-cards').innerHTML = WALKERS.map(rig => `<button class="walker-card ${w.id === rig.id ? 'active' : ''}" data-walker="${rig.id}" aria-pressed="${w.id === rig.id}"><span class="legs-icon">${rig.legs === 2 ? 'II' : rig.legs === 4 ? 'IV' : 'VI'}</span><span><strong>${rig.designation} ${rig.name}</strong><small>${rig.profile.toUpperCase()}</small></span></button>`).join('');
+  $('walker-cards').innerHTML = PLAYABLE_WALKERS.map(rig => `<button class="walker-card ${w.id === rig.id ? 'active' : ''}" data-walker="${rig.id}" aria-pressed="${w.id === rig.id}"><span class="legs-icon">${rig.legs === 2 ? 'II' : rig.legs === 4 ? 'IV' : 'VI'}</span><span><strong>${rig.designation} ${rig.name}</strong><small>${rig.profile.toUpperCase()}</small></span></button>`).join('');
   all('[data-walker]').forEach(el => el.addEventListener('click', () => { settings.walkerId = el.dataset.walker; saveSettings(); renderHangarUI(); renderMissionCards(); renderCampaignUI(); audio.event('reload'); }));
+  renderCorps();
   renderWorkshop();
 }
 $('confirm-rig').addEventListener('click', () => { showView('campaign'); toast(`${selectedWalker().name} assigné à votre prochain déploiement.`); });
+
+let corpsFilter = 'all', corpsSelected = 'WK14';
+function renderCorps() {
+  const allowed = corpsChassis(corpsFilter);
+  if (!allowed.some(chassis => chassis.id === corpsSelected)) corpsSelected = allowed[0].id;
+  $('walker-corps').innerHTML = renderWalkerCorps({ filter: corpsFilter, selected: corpsSelected });
+}
+$('walker-corps').addEventListener('click', event => {
+  const filter = event.target.closest('[data-corps-filter]');
+  if (filter) { corpsFilter = filter.dataset.corpsFilter; renderCorps(); return; }
+  const chassis = event.target.closest('[data-corps-chassis]');
+  if (chassis) { corpsSelected = chassis.dataset.corpsChassis; renderCorps(); }
+});
 
 const worlds = [
   ['01', 'Vesper', 'Poussière et acier', 'Des villes minières vivent sous les filtres d’Orison. Les relais transmettent autre chose que des slogans.'],

@@ -144,7 +144,46 @@ function turretGeometry(d,rig,p,state){
   if(state==='damaged')scars(d,16,-7,13,10,p);
 }
 
+/** Sentinelle S-3 — septième châssis pilotable, hors du lot 0.9 ci-dessus.
+ * Sa géométrie est livrée dans son propre lot `assets/production/sentinelle/`
+ * afin de ne réécrire ni les 298 fichiers du manifeste 0.9 ni ses empreintes.
+ * Les masses, pivots et semelles suivent le même flux Canvas/SVG que les six.
+ */
+export const SENTINELLE_RIG = Object.freeze({id:'WK14',name:'Sentinelle',designation:'S-3',legs:2,width:138,bodyHeight:70,height:196,
+  color:'#b9c3ac',assets:['AS31','AS36','AS41'],role:'Bipède de patrouille, cabine angulaire et canon de menton',
+  footWidth:66,upper:196*.62,lower:196*.64,offsets:[-52,52]});
+function sentinelleHull(d,rig,p,state){
+  const w=rig.width;
+  // Cabin: sloped cheeks, high sensor deck and a short chin mount. The rotating
+  // cannon stays in the turret part, at the shared +9/+8 mounting pivot.
+  plate(d,[[-w*.44,-20],[-w*.30,-32],[w*.22,-34],[w*.40,-24],[w*.46,-6],[w*.36,24],[w*.06,32],[-w*.30,30],[-w*.44,12]],p);
+  plate(d,[[-w*.30,-32],[w*.22,-34],[w*.31,-27],[-w*.36,-26]],p,p.light,p.mid);
+  for(const x of [-w*.20,w*.06]){d.circle(x,-8,8,p.glass,p.dark,2.2);d.circle(x,-8,3.2,p.edge);d.line(x-7,-8,x+7,-8,p.edge,1.1);}
+  plate(d,[[w*.24,10],[w*.46,6],[w*.47,20],[w*.28,24]],p,p.mid,p.edge);d.rect(w*.30,14,10,5,p.steel);
+  grille(d,-w*.40,-2,16,22,p,5,true);
+  plate(d,[[-w*.34,4],[-w*.14,4],[-w*.12,22],[-w*.35,22]],p,p.mid,p.low);d.line(-w*.24,6,-w*.23,20,p.steel,1);
+  d.rect(-w*.05,-25,w*.16,4,p.accent);d.text('S–3',-w*.13,26,7,p.light);
+  for(const [x,y]of [[-w*.38,-20],[-w*.34,26],[w*.10,28],[w*.30,-26]])rivet(d,x,y,p);
+  d.line(-w*.42,26,w*.28,28,p.dark,3);
+  d.line(-w*.36,-24,-w*.40,-56,p.edge,3);d.circle(-w*.40,-57,3,p.light,p.dark,1.2);
+  if(state==='damaged'||state==='hit')scars(d,-22,-10,26,20,p);
+  if(state==='repaired')scars(d,-22,-10,26,20,p,true);
+  if(state==='braced'){d.line(-w*.34,30,-w*.42,42,p.steel,3);d.line(w*.30,30,w*.38,42,p.steel,3);}
+}
+export function sentinellePartGeometry({part='hull',back=false,state='normal',progress=0}={}){
+  const rig=SENTINELLE_RIG,d=painter(),p=palette(rig,back);let size,bounds;
+  if(part==='hull'){sentinelleHull(d,rig,p,state);size=[rig.width,rig.bodyHeight];bounds=[-rig.width*.7,-80,rig.width*1.4,126];}
+  else if(part==='upper'||part==='lower'){limbGeometry(d,part,rig,p,state);size=[100,24];bounds=[-3,-16,106,32];}
+  else if(part==='foot'){footGeometry(d,rig,p,state);size=[rig.footWidth,18];bounds=[-rig.footWidth/2-2,-21,rig.footWidth+4,24];}
+  else if(part==='radiator'){radiatorGeometry(d,rig,p,state,progress);size=[22,rig.bodyHeight*.65];bounds=[-13,-rig.bodyHeight*.325-3,26,rig.bodyHeight*.65+6];}
+  else if(part==='turret'){turretGeometry(d,rig,p,state);size=[85,42];bounds=[-24,-25,122,50];}
+  else if(part==='hip'||part==='knee'){d.circle(0,0,14,p.dark,p.mid,1.8);d.circle(0,0,8,p.light,p.dark,1.8);d.line(-5,0,5,0,p.edge,2);for(let i=0;i<4;i++){const a=i*Math.PI/2;rivet(d,Math.cos(a)*11,Math.sin(a)*11,p,.9);}size=[28,28];bounds=[-16,-16,32,32];}
+  else throw new RangeError(`Unknown production part: ${part}`);
+  return {id:`WK14-${part}-${back?'far':'near'}-${state}`,walkerId:'WK14',part,state,size,pivot:[0,0],bounds,shapes:d.shapes};
+}
+
 export function productionPartGeometry({walkerId='WK01',part='hull',back=false,state='normal',progress=0}={}){
+  if(walkerId==='WK14')return sentinellePartGeometry({part,back,state,progress});
   const rig=PRODUCTION_RIGS[walkerId];if(!rig)throw new RangeError(`Unknown production rig: ${walkerId}`);
   const d=painter(),p=palette(rig,back);let size,bounds;
   if(part==='hull'){hullGeometry(d,rig,p,state);size=[rig.width,rig.bodyHeight];bounds=[-rig.width*.7,-86,rig.width*1.4,136];}

@@ -3,11 +3,11 @@
     "title": "ORDRE DE CENDRE",
     "tagline": "Chaque pas laisse une trace.",
     "codename": "ImperiumMarch",
-    "version": "0.15.11",
-    "date": "2026-11-17",
+    "version": "0.16.0",
+    "date": "2026-11-18",
     "language": "fr-FR",
     "owner": "Darknigthmare",
-    "scope": "MI01–MI14 jouables au stade prototype, six châssis, trois opérations autonomes et dossier v14. MI15–MI32 et les seize contrats restent conçus. Les 1 007 IDs, tous les statuts et les 133 critères initiaux sont conservés. Cinq atlas ajoutent 24 cellules au rendu : douze pour les étincelles et petites particules de détonation, quatre pour le flash primaire, six pour la purge et deux silhouettes industrielles de Vesper. Total : 95 atlas et 700 cellules en 24 lots, dont 656 au rendu et 44 références. Quatre panoramas séparés. Géométries, durée, alpha, émissions, chaleur et positions suivent leurs règles existantes. L’atelier industriel réutilise une cellule antérieure. Aucun acteur, collision, effet physique ou champ sauvegardé ajouté. AS09, AS16 et AS22 restent partiels et À produire ; animations finales et réception humaine restent ouvertes.",
+    "scope": "MI01–MI14 jouables au stade prototype ; MI15–MI32, les seize contrats et les huit épreuves de châssis restent conçus. La 0.16 ajoute 61 fiches au canon de la Continuité : cinq principes de représentation, quatre systèmes de classement et de dette, quatre unités de répression, huit portraits d’exécutants et de victimes, trente-deux documents (décrets, formulaires, registres, propagande, témoignages, lieux) et huit épreuves de châssis. 1 068 fiches, 20 onglets de conception, 133 critères initiaux conservés. Aucun statut promu, aucune fiche ni aucun ID retiré, aucune mission rendue jouable.",
     "statusDefinitions": {
       "Conçu": "Spécifié dans la bible, sans revendication d’implémentation complète.",
       "Prototype": "Livrable partiel disponible. L’onglet Prototype et les reçus de production précisent son intégration, sa portée et les critères encore ouverts.",
@@ -17,7 +17,7 @@
     "balanceDisclaimer": "Dimensions, charges et valeurs de gameplay décrites ici sont des hypothèses à calibrer.",
     "qualityDisclaimer": "AAA est une ambition de qualité, pas une description du niveau de finition du prototype.",
     "sheetCount": 20,
-    "recordCount": 1007,
+    "recordCount": 1068,
     "release": {
       "playableCampaignMissions": [
         "MI01",
@@ -74,10 +74,8 @@
       "rule": "Le statut Prototype atteste une réception partielle. Le critère original et le reste sont conservés; seul un contrôle exécuté reçoit Vérifié."
     },
     "previousRelease": {
-      "version": "0.14.1",
-      "recordCount": 977,
-      "sourceRevision": "fc9f4af4e103adf93d4310053610ca69bea443b3",
-      "ids": "tests/fixtures/bible-v014-ids.json"
+      "version": "0.15.11",
+      "recordCount": 1007
     },
     "reconstruction": {
       "date": "2026-11-12",
@@ -89,6 +87,11 @@
       "binaryIdentityRecovered": false,
       "note": "Les 72 IDs de travail attendus sont reconstruits depuis les spécifications connues. Les textes sont rédigés à nouveau ; les résultats perdus ne sont pas revendiqués comme exécutés.",
       "validationScope": "QA192–QA205 et QA207–QA218 : simulations, migrations, DOM modélisé et Canvas reconstruits. QA06 : comportement et HUD automatisés. Réceptions natives et humaines séparées ; QA206, QA219 et QA220 restent ouvertes."
+    },
+    "canon": {
+      "regime": "docs/CANON_EMPIRE.md",
+      "chassisTrials": "docs/EPREUVES_CHASSIS.md",
+      "campaign": "docs/CAMPAIGN_FR.md"
     }
   },
   "sheets": [
@@ -317,6 +320,41 @@
           "theme": "L’histoire change la route",
           "decision": "Une infrastructure endommagée doit transformer un trajet ou un travail, pas seulement une phrase de briefing. Le repli garde un coût visible et une issue praticable.",
           "acceptance": "Deux états du panneau produisent deux accès sanitaires différents. La route longue ne recrée ni technicien, ni matériel, ni stock perdu.",
+          "status": "Conçu"
+        },
+        {
+          "id": "VI29",
+          "theme": "L’abominable administratif",
+          "decision": "L’Empire d’Orthe ne tue pas par fureur mais par classement : recensement, catégories, titres révoqués, colonnes, stations de rendement. La terreur est un service public qui tient des registres.",
+          "acceptance": "Chaque violence visible possède en amont un document, un agent et un délai. Le joueur peut retrouver la fiche avant de voir la fosse.",
+          "status": "Conçu"
+        },
+        {
+          "id": "VI30",
+          "theme": "Complicité de la machine",
+          "decision": "Le marcheur est l’instrument du classement : il bloque une rue, escorte une colonne, porte des charges, tire sur un cordon. Sa masse rend la participation physique et non abstraite.",
+          "acceptance": "Une mission d’occupation ne peut pas être terminée sans que le joueur ait vu ce que sa coque empêche ou permet.",
+          "status": "Conçu"
+        },
+        {
+          "id": "VI31",
+          "theme": "Euphemisme jouable",
+          "decision": "Le vocabulaire impérial est employé sans traduction automatique. « Transfert de rendement », « charge non récupérable », « continuité rétablie » sont dits tels quels ; le joueur apprend ce qu’ils couvrent par les faits.",
+          "acceptance": "Aucun sous-titre ne moralise le terme à la place du joueur. Le glossaire reste consultable hors mission.",
+          "status": "Conçu"
+        },
+        {
+          "id": "VI32",
+          "theme": "Victimes agissantes",
+          "decision": "Les personnes classées ne sont pas un décor de compassion : elles marchandent, mentent, cachent, résistent, cousent des noms, choisissent qui monte. Leur survie n’est pas une récompense morale.",
+          "acceptance": "Au moins deux victimes refusent une aide, une autre négocie un prix, une autre collabore par peur ; aucune n’existe seulement pour valider Sera.",
+          "status": "Conçu"
+        },
+        {
+          "id": "VI33",
+          "theme": "Représentation du crime",
+          "decision": "Aucun symbole, uniforme ou emblème d’un régime historique réel. Pas de spectacle de charnier, pas de torture montrée. Le canon cite les pièces du monde — pages d’école, formulaires, feuilles de greffe, affiches, calendriers d’entretien — sans traduire les termes officiels à la place des personnages. La peur vient de ce que ces documents sont sincères et de ce qu’ils permettent.",
+          "acceptance": "Une scène de crime de masse peut être lue sans image explicite ; les avertissements de contenu et l’occultation des corps restent disponibles.",
           "status": "Conçu"
         }
       ]
@@ -1576,6 +1614,42 @@
           "acceptance": "Treize rapports, stocks et checkpoints historiques conservés ; scènes MI14 rapprochées de leurs faits.",
           "priority": "P1",
           "status": "Prototype"
+        },
+        {
+          "id": "SY136",
+          "system": "Titres et catégories",
+          "design": "Le titre de présence relie identité, ration et travail. La catégorie A (rendement utile), B (charge récupérable) ou C (non récupérable) ouvre ou ferme les portes, les dialogues et les convois. Révoquer un titre ne déplace personne : cela rend le déplacement légal.",
+          "counterplay": "Copier un registre, restaurer un titre, cacher une fiche ou faire témoigner un agent. Détruire le registre libère du classement et efface aussi des droits à la ration.",
+          "acceptance": "Un titre modifie l’accès au monde et le sort d’un groupe, pas seulement un indicateur. Aucune fiche détruite ne réapparaît sans copie.",
+          "priority": "P0",
+          "status": "Conçu"
+        },
+        {
+          "id": "SY137",
+          "system": "Dette de protection",
+          "design": "Un secours impérial crée une dette : travail, récolte, filiation ou nom donnés en garantie. La dette se contracte avant le sauvetage et se rembourse après, parfois par des personnes qui n’ont pas consenti.",
+          "counterplay": "Refuser l’aide et tenir une voie locale, payer avec du matériel, contester la créance ou la rendre publique. Chaque issue conserve un coût daté.",
+          "acceptance": "Le joueur voit la créance avant d’accepter. Un sauvetage réussi ne l’annule jamais silencieusement.",
+          "priority": "P1",
+          "status": "Conçu"
+        },
+        {
+          "id": "SY138",
+          "system": "Effacement mémoriel",
+          "design": "Les archives sont des objets : papiers, cristaux, jardins de mémoire et porteurs vivants. Une copie survit à son original ; un porteur tué ne se reconstitue pas. L’effacement vise des écoles, des langues et des filiations, pas seulement des fichiers.",
+          "counterplay": "Copier, répartir, confier à des dépositaires indépendants, protéger les porteurs. Publier sans précaution expose les personnes nommées.",
+          "acceptance": "Aucune archive ni aucun porteur perdu ne revient sans source conservée. La restitution reste une dette vérifiable, pas une générosité.",
+          "priority": "P0",
+          "status": "Conçu"
+        },
+        {
+          "id": "SY139",
+          "system": "Chambres de vérité",
+          "design": "Un tribunal de confirmation exige que l’accusé prononce la cause officielle d’une catastrophe. La phrase enregistrée vaut preuve ; le doute vaut catégorie C. Le juge ne torture pas : il attend, il corrige la formulation, il tamponne.",
+          "counterplay": "Refuser et payer le prix, enregistrer la séance, substituer un aveu, faire parler un greffier. Une confirmation obtenue sous peur reste utilisable par l’Empire.",
+          "acceptance": "Refuser n’est jamais gratuit et accepter ne produit pas une vérité. Le dossier distingue aveu, confirmation et témoignage spontané.",
+          "priority": "P1",
+          "status": "Conçu"
         }
       ]
     },
@@ -2223,9 +2297,9 @@
           "id": "PL01",
           "name": "Vesper",
           "biome": "Déserts de cendres, bassins miniers, cités en briques sombres, viaducs de minerai.",
-          "society": "Mineurs, convoyeurs et garnisons partagent des filtres fournis à crédit par Orison.",
+          "society": "Mineurs, convoyeurs et garnisons vivent de filtres fournis à crédit par Orison. Le Bureau des Poids tient un registre par rue ; une rue sans fiche n’a droit ni à l’eau ni au convoi. Les Cales-Basses existent dans les murs et pas sur le manifeste.",
           "terrain": "Croûte de scories fragile, poussière thermique et routes élevées; bien poser les pieds près des galeries.",
-          "reveal": "Un rejet prétendument accidentel suit une commande de maintenance militaire antidatée.",
+          "reveal": "Un rejet prétendument accidentel suit une commande de maintenance militaire antidatée. La même circulaire classe la rue voisine en charge non récupérable avant l’incident.",
           "missions": "MI01–MI04",
           "status": "Conçu"
         },
@@ -2233,9 +2307,9 @@
           "id": "PL02",
           "name": "Nacre",
           "biome": "Archipels, récifs lumineux, digues habitées, plateformes et docks de récupération.",
-          "society": "Les communes de marée dépendent des pompes; pirates prédateurs et capitaines de secours se disputent les routes.",
+          "society": "Les communes de marée dépendent des pompes et des titres de présence. Les noyades servent à transformer des habitants sans titre en main-d’œuvre sous contrat ; les enfants sont rattachés au rendement d’un adulte, pas à leurs parents.",
           "terrain": "Quatre situations locales : bancs et marée du chenal, soutien de la digue, rampe sanitaire héritée, puis deux portes et courant progressif à Aval. La simulation détermine dommages et trajets. Fluides volumétriques, résistance générale des quais et navigation de l’archipel restent conçus.",
-          "reveal": "Les inondations servent à transformer des habitants sans titre en main-d’œuvre sous contrat.",
+          "reveal": "Les inondations ne sont pas seulement des accidents : elles précèdent les colonnes et les contrats de dette. Une maison sauvée reste une maison sans titre si le registre a brûlé.",
           "missions": "MI05–MI08",
           "status": "Prototype"
         },
@@ -2243,9 +2317,9 @@
           "id": "PL03",
           "name": "Thyr",
           "biome": "Forêts de colonnes vivantes, vallées cultivées, maisons suspendues et pistes sous canopée.",
-          "society": "Communautés humaines et Khelt entretiennent des sols symbiotiques; les récoltes se synchronisent avec la faune.",
+          "society": "Communautés humaines et Khelt entretiennent des sols symbiotiques. L’Empire y voit des rendements non déclarés. Les jardins de mémoire et les porteurs sont classés supports non autorisés ; les récoltes se synchronisent avec une faune que les colonnes déplacent.",
           "terrain": "Racines porteuses, clairières et branches basses. MI09 applique hauteur réelle et cadence des appuis. MI10 ajoute cuves, écoulements, collecteur et canaux. MI11 emploie des écoutes au sol et une corniche portant les pieds au-dessus de la ponte. Feu de forêt et écologie globale restent conçus. MI12 ajoute les relais de commande et le Prétoire.",
-          "reveal": "Les relevés de stérilité sont fabriqués pour justifier l’expulsion et la destruction des mémoires de culture.",
+          "reveal": "Les relevés de stérilité sont fabriqués pour justifier l’expulsion et la destruction des mémoires de culture. Effacer une langue est traité comme une opération d’assainissement, pas comme un dommage.",
           "missions": "MI09–MI12",
           "status": "Prototype"
         },
@@ -2253,9 +2327,9 @@
           "id": "PL04",
           "name": "Kharon",
           "biome": "Caldeiras, carrières de basalte, raffineries, conduites thermiques et ports de scories.",
-          "society": "Ouvriers spécialisés, garnisons et sous-traitants se partagent une économie d’énergie dangereuse.",
+          "society": "Ouvriers spécialisés, garnisons et sous-traitants partagent une économie d’énergie dangereuse. Les stations de continuité fournissent la main-d’œuvre que les ateliers ne déclarent pas ; la chaleur sert aussi à mesurer la tolérance des châssis.",
           "terrain": "Chaleur, vapeur annoncée et surfaces industrielles. MI13 simule convoi et tabliers ; MI14 ajoute piquet et circuit du refroidisseur. MI15–MI16 restent conçues.",
-          "reveal": "Les lignes de production portent les pièces conçues pour provoquer les ruptures des terraformes.",
+          "reveal": "Les lignes de production portent les pièces conçues pour provoquer les ruptures des terraformes. L’instruction 27 autorise la calibration sur des charges non récupérables.",
           "missions": "MI13–MI16",
           "status": "Prototype"
         },
@@ -2263,9 +2337,9 @@
           "id": "PL05",
           "name": "Sereis",
           "biome": "Banquise, mers sous glace, antennes polaires et refuges creusés dans le sel.",
-          "society": "Observateurs climatiques et caravanes de secours conservent des historiques que l’Empire veut purger.",
+          "society": "Observateurs climatiques et caravanes de secours conservent des historiques que l’Empire veut purger. Les stations de la banquise « perdent » leurs charges dans les tempêtes ; les bracelets de conduite signalent les fuyards sous la neige.",
           "terrain": "Glace fissurée, traction limitée et tempêtes réduisant l’observation; chaleur attire certains prédateurs.",
-          "reveal": "Une archive météorologique indépendante prouve la simultanéité planifiée des désastres.",
+          "reveal": "Une archive météorologique indépendante prouve la simultanéité planifiée des désastres. Le dégel a ouvert une fosse que l’Empire classe en aléa climatique.",
           "missions": "MI17–MI20",
           "status": "Conçu"
         },
@@ -2273,9 +2347,9 @@
           "id": "PL06",
           "name": "Ilex",
           "biome": "Falaises de silice, jardins d’ondes, cités basses en anneaux et canyons de résonance.",
-          "society": "Les Accords Khelt organisent des cités indépendantes autour d’archives matérielles partagées.",
+          "society": "Les Accords Khelt organisent des cités indépendantes autour d’archives matérielles partagées. L’Institut de la Mémoire Matérielle y voit des supports à déclarer ; les porteurs vivants sont des catégories C à « préserver » sous contrôle.",
           "terrain": "Cristaux fragiles porteurs de mémoire, vibrations dangereuses et terrains qui transmettent le bruit.",
-          "reveal": "L’effacement des archives n’est pas un dommage secondaire : les ordres nomment des écoles, lignées et langues.",
+          "reveal": "L’effacement des archives n’est pas un dommage secondaire : les ordres nomment des écoles, des lignées, des langues et des porteurs. La restitution est une dette, pas une faveur.",
           "missions": "MI21–MI24",
           "status": "Conçu"
         },
@@ -2283,9 +2357,9 @@
           "id": "PL07",
           "name": "Méridien",
           "biome": "Plaines agricoles mécanisées, canaux, périphéries de mégapoles et serres collectives.",
-          "society": "Grenier impérial protégé par milices locales; les villes du cœur ignorent souvent l’origine de leur abondance.",
+          "society": "Grenier impérial protégé par des milices locales ; les villes du cœur ignorent l’origine de leur abondance. Le code des bouches attache la ration au rendement, et la Chambre des Dettes convertit les sécheresses en créances.",
           "terrain": "Machines agricoles civiles, routes bondées et infrastructures dont la destruction affame plusieurs quartiers.",
-          "reveal": "Les contrats révèlent le financement de PALINODE par les rations et crédits du centre.",
+          "reveal": "Les contrats révèlent le financement de PALINODE par les rations et crédits du centre. La famine d’un secteur est le prix comptable du ravitaillement d’un autre.",
           "missions": "MI25–MI28",
           "status": "Conçu"
         },
@@ -2293,9 +2367,9 @@
           "id": "PL08",
           "name": "Orthe",
           "biome": "Capitale en terrasses, ateliers enterrés, parvis monumentaux et stations de transmission.",
-          "society": "Fonctionnaires, vétérans, familles et dissidents vivent sous une surveillance normalisée.",
+          "society": "Fonctionnaires, vétérans, familles et dissidents vivent sous une surveillance normalisée. Le Bureau des Poids tient le mur des charges ; les Chambres de Vérité enregistrent les confirmations ; les stations de continuité ont une adresse et un rendement affiché.",
           "terrain": "Étagement urbain, tunnels de service, ponts fragiles, tir croisé et très nombreux non-combattants.",
-          "reveal": "Les décisions signées et les journaux de délégation relient le programme à la hiérarchie dirigeante.",
+          "reveal": "Les décisions signées et les journaux de délégation relient le programme à la hiérarchie dirigeante. Détruire le registre libère du classement et efface des droits : la vérité et la protection ne sont pas le même acte.",
           "missions": "MI29–MI32",
           "status": "Conçu"
         }
@@ -2591,6 +2665,78 @@
           "arc": "Réapparaît avec son véhicule réparé, des noms et des témoins selon les secours accordés.",
           "faction": "FA08",
           "status": "Prototype"
+        },
+        {
+          "id": "PN15",
+          "name": "Orlan Voss",
+          "role": "Commissaire des Poids et des Conduites",
+          "desire": "Que le compte tombe juste. Il croit que l’arithmétique est une miséricorde : un chiffre exact vaut mieux qu’une foule incertaine.",
+          "arc": "Révoque un quartier entier sans élever la voix. Confronté à une fiche portant son propre nom, il cherche d’abord l’erreur de procédure avant de reconnaître la machine.",
+          "faction": "FA01",
+          "status": "Conçu"
+        },
+        {
+          "id": "PN16",
+          "name": "Ilse Varne",
+          "role": "Médecin des commissions de tri",
+          "desire": "Sauver ceux qu’on peut. Son tri exige d’en condamner d’autres, et elle préfère ce calcul à l’absence de calcul.",
+          "arc": "Justifie chaque sélection par une statistique. Un patient classé C qui revient vivant fissure son récit ; elle peut livrer ses feuilles de tri ou les brûler.",
+          "faction": "FA01",
+          "status": "Conçu"
+        },
+        {
+          "id": "PN17",
+          "name": "Berth Malen",
+          "role": "Juge des Chambres de Vérité",
+          "desire": "Prévenir le désordre en faisant confirmer la version officielle, une phrase à la fois.",
+          "arc": "Ne torture pas : il attend, corrige la formulation, tamponne. Sa signature transforme un doute en catégorie C. Il croit que sans lui, les garnisons feraient pire.",
+          "faction": "FA01",
+          "status": "Conçu"
+        },
+        {
+          "id": "PN18",
+          "name": "Néra Sand",
+          "role": "Voix de la Continuité",
+          "desire": "Croire que la propagande évite la panique, et donc des morts. Ancienne infirmière, elle parle des rendements comme d’autres parlent de fièvre.",
+          "arc": "Découvre que ses bulletins ont préparé les colonnes. Sa voix peut publier le dossier ou le couvrir ; elle choisit selon ce qu’on lui montre et ce qu’on protège.",
+          "faction": "FA01",
+          "status": "Conçu"
+        },
+        {
+          "id": "PN19",
+          "name": "Sarre Kadak",
+          "role": "Colonel d’une station de continuité",
+          "desire": "Tenir le rendement et les vivres. Il ne se voit pas comme un bourreau mais comme un gestionnaire de pénurie.",
+          "arc": "Peut livrer un registre pour sauver sa station et son personnel. Ne reconnaît aucun crime personnel : les colonnes venaient d’ailleurs.",
+          "faction": "FA01",
+          "status": "Conçu"
+        },
+        {
+          "id": "PN20",
+          "name": "Nell Ash",
+          "role": "Enfant de la station 4",
+          "desire": "Retrouver le nom de sa sœur et le faire dire à voix haute par quelqu’un qui ait le droit de parler.",
+          "arc": "Témoin TE03. Garde les noms cousus dans la doublure de son manteau. Ne témoigne que si un adulte garant et un lieu sûr existent ; sinon elle marchande sa mémoire.",
+          "faction": "FA03",
+          "status": "Conçu"
+        },
+        {
+          "id": "PN21",
+          "name": "Tava",
+          "role": "Porteuse de mémoire Khelt",
+          "desire": "Transmettre avant de mourir et refuser d’être un échantillon dans un rapport humain.",
+          "arc": "Ses souvenirs se lisent par gestes et vibrations. Une copie peut être extraite sans consentement ; elle exige que la restitution soit écrite et que le jardin survive.",
+          "faction": "FA05",
+          "status": "Conçu"
+        },
+        {
+          "id": "PN22",
+          "name": "Deni Vorel",
+          "role": "Archiviste des effacements",
+          "desire": "Que quelqu’un sache ce qu’il a classé. Il n’a jamais signé une mort, seulement des transferts.",
+          "arc": "Fournit l’index des destructions. Sa coopération dépend d’une garantie pour sa famille, pas d’un pardon ; il ment tant qu’il croit négocier.",
+          "faction": "FA01",
+          "status": "Conçu"
         }
       ]
     },
@@ -2805,9 +2951,9 @@
           "planet": "PL04",
           "title": "Sous le même numéro",
           "order": "Saisir l’ingénieure Aline Serrat pour interrogatoire.",
-          "play": "Extraire Aline d’un laboratoire que la sécurité privée détruit étage par étage; maintenir un passage pour son équipe.",
-          "truth": "Les ordres d’arrêt des sécurités portent une délégation de la Continuité; Aline reconnaît sa responsabilité.",
-          "consequence": "Témoin TE02 vivant, schémas PT04 et dissension ouverte dans l’équipage.",
+          "play": "Descendre un laboratoire que la sécurité privée purge étage par étage. Les salles de calibration retiennent des charges C utilisées pour mesurer la tolérance thermique des châssis ; chaque porte ouverte coûte du temps et de la place. Extraire Aline, ses schémas et, si la coque le permet, les personnes encore vivantes.",
+          "truth": "L’instruction 27 porte la signature d’Aline : les essais ont été autorisés, pas seulement subis. Les ordres d’arrêt viennent d’une délégation de la Continuité. Aline reconnaît sa part et refuse de la réduire à une erreur de laboratoire.",
+          "consequence": "TE02 vivant, PT04 copié, et des corps que l’équipage doit décider d’embarquer. La dissension avec Ilan devient ouverte : il a vu les salles et compte les places disponibles.",
           "status": "Conçu"
         },
         {
@@ -2816,9 +2962,9 @@
           "planet": "PL04",
           "title": "Le rapport qui ne part pas",
           "order": "Remettre les pièces, témoins et journaux au vaisseau de commandement.",
-          "play": "Préparer deux voies de sortie, répartir matériel et passagers puis tenir le hangar pendant le départ d’une navette.",
-          "truth": "Sera découvre l’ordre de disparition d’Aline; le joueur choisit les copies et personnes qu’il peut réellement sauver.",
-          "consequence": "Défection opérationnelle; perte des dépôts impériaux, équipage retenu ou réuni, poursuite de la Cohorte.",
+          "play": "Préparer deux voies de sortie et répartir un poids fini entre caisses de preuves, personnes et pièces de rechange. Une colonne de trois cent quarante charges attend au hangar voisin ; l’ordre de disparition d’Aline circule déjà dans les transmissions.",
+          "truth": "Le Directoire ne veut ni procès ni témoins. Le rapport signé doit déclarer « continuité rétablie » ; la navette n’a pas de place pour tout, et chaque caisse montée retire une place.",
+          "consequence": "Défection opérationnelle. Ce qui monte à bord existe et est nommé ; ce qui reste est compté et poursuivi par la Cohorte. Perte des dépôts impériaux.",
           "status": "Conçu"
         },
         {
@@ -2827,9 +2973,9 @@
           "planet": "PL05",
           "title": "Sans balise amie",
           "order": "Rejoindre un observatoire de secours avant la tempête.",
-          "play": "Marcher sur glace sondée, choisir un itinéraire lent sûr ou une route exposée et couvrir le ravitaillement.",
-          "truth": "La Ligue aide sous conditions; ses réserves sont insuffisantes et l’accueil n’est pas un pardon.",
-          "consequence": "Carburant, confiance locale et intégrité du marcheur portent le coût de la fuite.",
+          "play": "Marcher sur une banquise sondée, choisir la route lente ou la crête exposée, et décider si les fuyards d’une colonne prennent la place du ravitaillement. La glace porte mal deux charges ; chaque personne embarquée retire une caisse.",
+          "truth": "La station voisine a « perdu » ses charges dans la tempête. Les fuyards ont des numéros cousus et aucun titre de présence. La Ligue aide sous conditions : ce n’est pas un pardon.",
+          "consequence": "Carburant, chaleur, places et intégrité du marcheur. Le froid tue ce qu’on laisse ; une caisse abandonnée n’est pas un choix neutre.",
           "status": "Conçu"
         },
         {
@@ -2838,9 +2984,9 @@
           "planet": "PL05",
           "title": "La neige a gardé la date",
           "order": "Récupérer l’historique climatique hors réseau impérial.",
-          "play": "Réaligner une antenne, protéger trois batteries et transférer une archive avant la perte d’alimentation.",
-          "truth": "Plusieurs catastrophes ont été déclenchées dans un ordre incompatible avec la version accidentelle.",
-          "consequence": "PT05 corrèle les dates; publication partielle attire la Cohorte sur le refuge.",
+          "play": "Rétablir une antenne, protéger trois batteries et copier l’archive avant la coupure. Le dégel a ouvert une fosse que l’ordre impérial classe en aléa climatique ; les relevés doivent être sortis avant la perte d’alimentation.",
+          "truth": "Les ordres de semis précèdent les demandes d’aide. Les dates rendent la thèse accidentelle intenable, et la fosse n’est pas un accident non plus.",
+          "consequence": "PT05 corrélé. Publier les dates expose les fuyards ; les taire laisse la fosse sans nom. La copie survit à la perte de l’antenne.",
           "status": "Conçu"
         },
         {
@@ -2849,9 +2995,9 @@
           "planet": "PL05",
           "title": "Les noms du convoi",
           "order": "Évacuer les familles que l’Empire a localisées en suivant un message.",
-          "play": "Organiser une traversée, immobiliser des traqueurs et réserver les plaques de glace solides aux véhicules de secours.",
-          "truth": "Un membre de la Ligue a transmis trop tôt des coordonnées; le mouvement doit aussi répondre de ses erreurs.",
-          "consequence": "Nombre d’évacués, confiance de Mara et responsabilité du réseau deviennent des états séparés.",
+          "play": "Organiser une traversée sur les plaques solides, immobiliser les traqueurs et choisir quelles familles montent avant la fermeture. Les bracelets de conduite signalent les enfants ; les chiens suivent les titres révoqués à travers la foule.",
+          "truth": "Un membre de la Ligue a transmis les coordonnées trop tôt. La colonne n’emporte pas des travailleurs : elle prend les dépendants pour séparer les familles productives.",
+          "consequence": "Comptage nominal des évacués et des laissés. Mara juge les lits, pas les intentions. Le réseau doit répondre de sa fuite.",
           "status": "Conçu"
         },
         {
@@ -2860,9 +3006,9 @@
           "planet": "PL05",
           "title": "Celle qui tient encore",
           "order": "Faire sortir l’équipage avant l’encerclement de la Cohorte.",
-          "play": "Duel contre Edda Renn sur une station fissurée; permettre une reddition ou immobiliser sa machine sans tuer l’équipage.",
-          "truth": "Edda reçoit la preuve des faux ordres mais ne veut pas abandonner ses blessés.",
-          "consequence": "Un passage négocié, une prisonnière ou une ennemie durable selon conduite du duel.",
+          "play": "Duel contre Edda Renn sur une station fissurée. La chambre de vérité du niveau bas enregistre des confirmations ; on peut la libérer, la sceller ou passer. Chaque choix laisse des personnes derrière une porte ou sur la glace.",
+          "truth": "Edda a reçu les preuves et ne peut pas abandonner ses blessés. Les prisonniers ne demandent pas une libération spectaculaire mais un enregistrement qui ne soit pas retourné contre eux.",
+          "consequence": "Passage négocié, prisonnière ou ennemie durable. Libérer la chambre sans protection produit une fuite sur la glace ; la sceller laisse les confirmations intactes.",
           "status": "Conçu"
         },
         {
@@ -2871,9 +3017,9 @@
           "planet": "PL06",
           "title": "Entrer sans laisser d’empreinte",
           "order": "Demander asile et accès aux archives d’une cité Khelt.",
-          "play": "Traverser des sols résonants à cadence basse, stopper un automate intrus et respecter les voies signalées.",
-          "truth": "Les habitants connaissent les traces d’autres marcheurs; votre machine leur rappelle une destruction précise.",
-          "consequence": "Accès négocié; endommager les archives peut fermer une voie diplomatique sans bloquer le jeu.",
+          "play": "Traverser des sols résonants à cadence basse, arrêter un automate intrus et respecter les voies signalées. Les porteurs reconnaissent la silhouette du châssis avant de reconnaître la pilote.",
+          "truth": "Votre machine ressemble à celle qui a scellé un jardin. Le titre de présence est une dette ; les Khelt comptent autrement, et le disent.",
+          "consequence": "Accès négocié. Endommager les archives ferme une voie diplomatique sans bloquer la campagne ; la confiance de Leth et celle d’Hadr restent séparées.",
           "status": "Conçu"
         },
         {
@@ -2882,9 +3028,9 @@
           "planet": "PL06",
           "title": "Ce qu’on efface en premier",
           "order": "Empêcher une équipe de purge d’atteindre les jardins de mémoire.",
-          "play": "Protéger des supports fragiles, isoler les brouilleurs et récupérer l’ordre de purge sur un poste de commandement.",
-          "truth": "Les cibles sont des écoles, langues et filiations : l’effacement culturel fait partie du programme.",
-          "consequence": "Ordre politique PO01 et archive culturelle préservée; confiance de Leth et Hadr évolue séparément.",
+          "play": "Protéger des supports fragiles, isoler les brouilleurs et récupérer l’ordre de purge. Les porteurs dont le corps garde la mémoire sont classés catégorie C ; les sortir coûte des places et du temps.",
+          "truth": "Les cibles nommées sont des écoles, des langues, des filiations et des porteurs. L’effacement n’est pas un dommage collatéral : c’est le programme.",
+          "consequence": "PO01 et TE04. Une archive copiée survit ; un porteur tué ne se reconstitue pas. La restitution reste une dette vérifiable, pas une générosité.",
           "status": "Conçu"
         },
         {
@@ -2893,9 +3039,9 @@
           "planet": "PL06",
           "title": "L’accord n’est pas le silence",
           "order": "Obtenir une coalition sans imposer les objectifs de la Ligue.",
-          "play": "Tenir un périmètre pendant une rencontre; empêcher un attentat de radicaux puis escorter les délégations sans confisquer leurs armes.",
-          "truth": "Hadr exige autonomie et restitution des archives, pas seulement une place dans la propagande humaine.",
-          "consequence": "Pacte de coalition, engagement de restitution et capacité à tenir un cessez-le-feu.",
+          "play": "Tenir un périmètre pendant une rencontre, empêcher un attentat de radicaux et escorter les délégations sans confisquer leurs armes. Un prisonnier impérial veut parler ; une faction veut le pendre devant les caméras.",
+          "truth": "Hadr exige autonomie et restitution. La Ligue n’est pas innocente : elle a transmis des coordonnées et veut une vengeance. Les deux vérités tiennent ensemble.",
+          "consequence": "Pacte, engagement de restitution et capacité à tenir un cessez-le-feu. Sera doit appliquer à ses alliés les règles qu’elle imposait à l’Empire.",
           "status": "Conçu"
         },
         {
@@ -2904,9 +3050,9 @@
           "planet": "PL06",
           "title": "Le monde répond",
           "order": "Transmettre un dossier vérifiable avant la fermeture du réseau interplanétaire.",
-          "play": "Défendre plusieurs relais; choisir entre protéger les témoins sur place et renforcer un canal de diffusion.",
-          "truth": "Les trois familles de preuve peuvent être recoupées; publier les sources brutes expose certaines personnes.",
-          "consequence": "Qualité et portée de publication distinctes de la survie des témoins; l’insurrection devient publique.",
+          "play": "Défendre plusieurs relais et choisir entre protéger les témoins sur place et renforcer le canal de diffusion. Le dossier contient le registre des charges et les noms cousus ; le diffuser expose des familles entières.",
+          "truth": "Les trois familles de preuves se recoupent. Publier les sources brutes livre des personnes au reclassement ; publier seulement les conclusions laisse le Directoire nier.",
+          "consequence": "Portée et qualité distinctes de la survie des témoins. L’insurrection devient publique ; le Directoire aussi.",
           "status": "Conçu"
         },
         {
@@ -2915,9 +3061,9 @@
           "planet": "PL07",
           "title": "Le pain des autres",
           "order": "Ouvrir un passage vers les dépôts agricoles sans interrompre les récoltes.",
-          "play": "Protéger des machines civiles, contourner des serres et désarmer une batterie qui utilise un silo comme bouclier.",
-          "truth": "Les habitants craignent une famine immédiate plus qu’ils ne connaissent PALINODE.",
-          "consequence": "Stocks préservés et alliance avec Jo; dégâts de silo se répercutent dans les quartiers.",
+          "play": "Protéger des machines civiles, contourner des serres et désarmer une batterie qui utilise un silo comme bouclier. La ration punitive est déjà appliquée au secteur voisin ; le quota du centre exige que d’autres restent sous le seuil.",
+          "truth": "La famine est administrée. Jo connaît le chiffre et le cache parce qu’il doit choisir quel quartier mange. Personne ne propose une solution sans perte.",
+          "consequence": "Stocks et confiance. Un silo touché affame un quartier nommé ; les rations sont une arme, pas une générosité.",
           "status": "Conçu"
         },
         {
@@ -2926,9 +3072,9 @@
           "planet": "PL07",
           "title": "Les comptes de la pluie",
           "order": "Saisir le centre de gestion des crédits de terraformation.",
-          "play": "Neutraliser sa défense par les alimentations militaires, maintenir les pompes civiles et copier les contrats.",
-          "truth": "Les bénéfices des catastrophes alimentent les rations bon marché de la capitale.",
-          "consequence": "Preuve financière PO02, réseaux d’eau maintenus et soutien de fonctionnaires dissidents.",
+          "play": "Neutraliser la défense par les alimentations militaires, maintenir les pompes civiles et copier les contrats. Le mur des fiches relie chaque catastrophe à une dette et chaque dette à une signature.",
+          "truth": "Les bénéfices des catastrophes financent les rations bon marché d’Orthe. Des fonctionnaires signent sans lire ; d’autres lisent et appellent cela de la continuité.",
+          "consequence": "PO02, réseaux d’eau tenus, soutien de fonctionnaires dissidents. Détruire les fiches efface des droits autant que des crimes.",
           "status": "Conçu"
         },
         {
@@ -2937,9 +3083,9 @@
           "planet": "PL07",
           "title": "Une ville ne se prend pas",
           "order": "Obtenir la sortie d’une garnison sans bataille dans les rues.",
-          "play": "Couvrir une négociation, tenir les groupes impatients et escorter les soldats désarmés jusqu’au point convenu.",
-          "truth": "Une cellule de la Ligue veut violer l’accord; Sera doit appliquer à ses alliés les règles qu’elle exigeait de l’Empire.",
-          "consequence": "Fiabilité du pacte, survivants de la garnison et attitude d’Ilan à la veille d’Orthe.",
+          "play": "Couvrir une négociation, tenir les groupes impatients et escorter les soldats désarmés jusqu’au point convenu. Une cellule de la Ligue veut violer l’accord et filmer une exécution.",
+          "truth": "La garnison a exécuté la circulaire 9-B la semaine précédente. Les soldats sont des exécutants et des voisins ; les deux faits tiennent ensemble.",
+          "consequence": "Fiabilité du pacte, survivants de la garnison et attitude d’Ilan. Une exécution rend la reddition impossible ailleurs.",
           "status": "Conçu"
         },
         {
@@ -2948,9 +3094,9 @@
           "planet": "PL07",
           "title": "La ligne que nous choisissons",
           "order": "Empêcher le rationnement punitif et préparer la route de la capitale.",
-          "play": "Séparer un train de ravitaillement d’une batterie mobile, protéger les aiguillages et répartir les wagons.",
-          "truth": "Approvisionner l’offensive seule gagnerait du temps en affamant des secteurs déjà fragiles.",
-          "consequence": "Logistique du dernier acte, confiance des communes et population évacuée.",
+          "play": "Séparer un train de ravitaillement d’une batterie mobile, protéger les aiguillages et répartir les wagons. Chaque wagon envoyé au front est retiré à un secteur nommé.",
+          "truth": "Approvisionner l’offensive seule gagnerait du temps en affamant des secteurs déjà fragiles. Le choix est un partage, pas une collecte.",
+          "consequence": "Logistique du dernier acte, confiance des communes et population évacuée. Aucune répartition ne satisfait tout le monde.",
           "status": "Conçu"
         },
         {
@@ -2959,9 +3105,9 @@
           "planet": "PL08",
           "title": "Retour par les ateliers",
           "order": "Entrer sur Orthe par les installations où la machine a été construite.",
-          "play": "Progression basse sous portiques, coopération avec ateliers en grève et désactivation d’identifiants impériaux.",
-          "truth": "Les ouvriers découvrent l’usage de leurs machines; certains refusent d’aider tant que les faits restent vagues.",
-          "consequence": "Accès de secours ouvert; anciens contacts réapparaissent selon les preuves diffusées.",
+          "play": "Progression basse sous les portiques, coopération avec les ateliers en grève et désactivation d’identifiants impériaux. Sous la chaîne, une chambre de mesure où les châssis étaient calibrés sur des charges C.",
+          "truth": "Les ouvriers ont fabriqué les berceaux de calibration sans savoir. Certains refusent d’aider tant que les faits restent vagues ; d’autres veulent que la chambre soit montrée, pas seulement détruite.",
+          "consequence": "Accès de secours ouvert. Les anciens contacts réapparaissent selon les preuves diffusées. La chambre reste un lieu de la campagne, pas un niveau supplémentaire.",
           "status": "Conçu"
         },
         {
@@ -2970,9 +3116,9 @@
           "planet": "PL08",
           "title": "Les marches du ministère",
           "order": "Extraire les délégations signées et protéger les agents prêts à témoigner.",
-          "play": "Franchir des terrasses sans effondrer les voies basses, contenir une contre-attaque et tenir les ascenseurs civils.",
-          "truth": "La responsabilité est distribuée entre signatures et choix individuels; aucun unique ordinateur maléfique ne suffit à tout expliquer.",
-          "consequence": "PO03 relie la direction au programme; témoins du centre et archives préservés.",
+          "play": "Franchir les terrasses sans effondrer les voies basses, contenir la contre-attaque et tenir les ascenseurs civils. Le bureau des charges est un mur de fiches, un nom par fiche, classé par rue et par rendement.",
+          "truth": "La responsabilité est distribuée entre signatures, délégations et tampons. Détruire le mur libère du classement et efface des droits à la ration ; le copier conserve les deux.",
+          "consequence": "PO03 et le choix du mur : copier, saisir, détruire ou publier. Les témoins du centre et les archives ne sont pas la même protection.",
           "status": "Conçu"
         },
         {
@@ -2981,9 +3127,9 @@
           "planet": "PL08",
           "title": "Le dernier ordre de Holt",
           "order": "Atteindre le centre de diffusion avant le verrouillage des quartiers.",
-          "play": "Affronter le marcheur de Holt; casser son armement ou obtenir un passage en tenant un corridor de secours sous ses yeux.",
-          "truth": "Holt peut reconnaître les faits tout en refusant l’effondrement de l’armée; Sera doit montrer une capacité à protéger après la rupture.",
-          "consequence": "Sort de Holt, de la Cohorte et du corridor; aucune discussion ne ressuscite les pertes précédentes.",
+          "play": "Affronter le marcheur de Holt ; casser son armement ou obtenir un passage en tenant un corridor de secours sous ses yeux. Il a ordonné le verrouillage de trois districts après un sabotage.",
+          "truth": "Holt peut reconnaître les faits et refuser l’effondrement de l’armée. Le verrouillage est une représaille collective : un acte, trois districts, aucun nom.",
+          "consequence": "Sort de Holt, de la Cohorte et du corridor. Aucune discussion ne ressuscite les pertes ; aucun ordre ne les annule.",
           "status": "Conçu"
         },
         {
@@ -2992,9 +3138,9 @@
           "planet": "PL08",
           "title": "Après le fracas",
           "order": "Arrêter la purge des réseaux et rendre le dossier accessible à des dépositaires indépendants.",
-          "play": "Tenir trois sites interdépendants : arrêt des terraformes, station de preuves et voie d’évacuation; engager les alliés effectivement acquis.",
-          "truth": "Norn propose de sauver le réseau en effaçant les ordres; le résultat dépend des moyens conservés durant toute la campagne.",
-          "consequence": "Fin FI01–FI04 déterminée par preuves, survie, coalition et continuité des services; épilogues locaux.",
+          "play": "Tenir trois sites : arrêt des terraformes, station de preuves et voie d’évacuation. La station de continuité d’Orthe retient quatre mille charges ; Norn propose de sauver le réseau en effaçant les ordres.",
+          "truth": "Le réseau peut survivre sans les archives ; les archives peuvent survivre sans le réseau. Nell et les noms cousus peuvent être publiés ou protégés, pas les deux sans coût.",
+          "consequence": "FI01–FI04 selon preuves, survie, coalition et continuité. Les épilogues montrent les lieux et les noms, pas un score.",
           "status": "Conçu"
         }
       ]
@@ -3182,6 +3328,78 @@
           "requester": "Collectif des locataires",
           "action": "Ouvrir une administration verrouillée et préserver les registres de logement contre la purge.",
           "outcome": "Empêche une expulsion collective après la bataille; contrepoint à la grande histoire politique.",
+          "status": "Conçu"
+        },
+        {
+          "id": "CT17",
+          "planet": "PL01",
+          "title": "L’épreuve du guet",
+          "requester": "Bureau des Poids et des Conduites (épreuve WK13)",
+          "action": "Courir trois checkpoints de couvre-feu sans être identifié, en portant des titres de présence à un quartier promis au reclassement. Le Chacal n’a ni blindage ni place pour un passager.",
+          "outcome": "Le quartier garde ses titres ou perd une nuit. Une chute coûte le pilote, pas la coque.",
+          "status": "Conçu"
+        },
+        {
+          "id": "CT18",
+          "planet": "PL01",
+          "title": "Le carrefour des trois conduites",
+          "requester": "Garnison d’Orthe (épreuve WK14)",
+          "action": "Tenir un carrefour de contrôle, trier une foule selon les fiches et décider d’ouvrir ou de fermer le cordon à une famille sans titre. La Sentinelle bloque la rue par sa seule présence.",
+          "outcome": "Le carrefour reste ouvert ou devient une souricière. La fiche de la famille existe encore, ou a été copiée.",
+          "status": "Conçu"
+        },
+        {
+          "id": "CT19",
+          "planet": "PL03",
+          "title": "La hauteur du guet",
+          "requester": "Cohorte des Serments (épreuve WK15)",
+          "action": "Depuis un viaduc, marquer une colonne de reclassement pour une batterie. Le Cormoran voit des silhouettes, pas des visages ; une marque décalée tue dans le rang voisin.",
+          "outcome": "La batterie frappe la colonne, le convoi de vivres ou le refuge. Le marquage est conservé dans le journal.",
+          "status": "Conçu"
+        },
+        {
+          "id": "CT20",
+          "planet": "PL04",
+          "title": "La soute de douze",
+          "requester": "Service des Rations (épreuve WK16)",
+          "action": "Transporter douze charges dans une soute non aménagée : la chaleur, le poids et les secousses changent la marche du Bison. Ouvrir la soute en route ou livrer au quai.",
+          "outcome": "Les personnes livrées, évadées ou mortes de chaleur restent comptées séparément. La soute garde les traces.",
+          "status": "Conçu"
+        },
+        {
+          "id": "CT21",
+          "planet": "PL06",
+          "title": "La paroi des Tisserands",
+          "requester": "Institut de la Mémoire Matérielle (épreuve WK17)",
+          "action": "Escalader une falaise de silice de deux cent dix mètres pour ouvrir une cellule d’archive scellée. Quatre appuis rayonnants, aucune plateforme, des prises de hasard et un jet de caloporteur depuis la lèvre.",
+          "outcome": "La cellule est ouverte, copiée ou refermée. Une chute laisse la machine et l’équipage sur la paroi ; les noms du jardin restent scellés.",
+          "status": "Conçu"
+        },
+        {
+          "id": "CT22",
+          "planet": "PL05",
+          "title": "La batterie derrière la digue",
+          "requester": "Garnison de Sereis (épreuve WK18)",
+          "action": "Détruire une station de continuité au tir indirect sans écraser le quartier ouvrier adossé. La Baliste doit mordre la glace avec sa bêche avant chaque salve.",
+          "outcome": "La station tombe, le quartier encaisse ou la batterie se déplace trop tard. Les dégâts civils restent inscrits.",
+          "status": "Conçu"
+        },
+        {
+          "id": "CT23",
+          "planet": "PL08",
+          "title": "La porte de la Continuité",
+          "requester": "Directoire de la Continuité (épreuve WK19)",
+          "action": "Enfoncer la porte d’une station pour reprendre six cents charges. La ruée rencontre les automates de tri ; le Broyeur peut tenir la porte ouverte ou la refermer sur la file.",
+          "outcome": "Les charges sortent, restent enfermées ou se dispersent dans les tunnels. Le bélier d’épaule ne distingue pas un garde d’un fuyard.",
+          "status": "Conçu"
+        },
+        {
+          "id": "CT24",
+          "planet": "PL02",
+          "title": "Les douze de la rampe",
+          "requester": "Compagnies de secours libres (épreuve WK20)",
+          "action": "Monter douze personnes par une rampe noyée avant que l’eau ne la ferme. Chaque passager change l’appui du Mulet ; deux enfants et un informateur demandent une place.",
+          "outcome": "Le nombre réellement monté, les laissés et l’état de la rampe sont conservés. Le treuil ne remplace pas une place.",
           "status": "Conçu"
         }
       ]
@@ -3549,6 +3767,42 @@
           "behavior": "Transporte une charge de brèche sous protection pour détruire une voie de fuite.",
           "telegraph": "Masse portée, progression lente et escorte resserrée.",
           "response": "Immobiliser la charge loin des civils avant de la neutraliser.",
+          "status": "Conçu"
+        },
+        {
+          "id": "EN37",
+          "name": "Commissaire des Poids",
+          "faction": "FA01",
+          "behavior": "Avance avec quatre gardes, ne tire pas : il lit des numéros et tamponne des révocations. Sa présence transforme une foule en files. Abattu, il devient un martyr et la garnison durcit le couvre-feu.",
+          "telegraph": "Formulaire levé, tampon en main, lecture lente du registre ; les gardes écartent les personnes.",
+          "response": "Interrompre le tampon, confisquer le registre, ouvrir une porte ou faire parler un greffier. Le tuer ferme des dialogues et accélère les représailles.",
+          "status": "Conçu"
+        },
+        {
+          "id": "EN38",
+          "name": "Escouade de reclassement",
+          "faction": "FA01",
+          "behavior": "Quatre soldats et un camion à ridelles : ils appellent des numéros au haut-parleur, séparent les dépendants des productifs et chargent les catégories C. Ils ne poursuivent pas un marcheur, ils bouclent un pâté de maisons.",
+          "telegraph": "Haut-parleur, barrières posées, moteur du camion maintenu au ralenti.",
+          "response": "Bloquer le camion, ouvrir le cordon, couper le haut-parleur, détourner l’escorte. Tirer dans la file tue les personnes que l’on prétend libérer.",
+          "status": "Conçu"
+        },
+        {
+          "id": "EN39",
+          "name": "Chien de conduite",
+          "faction": "FA01",
+          "behavior": "Quadrupède de pistage accouplé aux bracelets de conduite. Il suit un titre révoqué à travers les foules et signale la position sans combattre. Les civils le craignent plus qu’une patrouille.",
+          "telegraph": "Oreilles qui pivotent, pulsation basse, arrêt net devant une piste.",
+          "response": "Couper les bracelets, masquer une odeur, noyer le signal sous un bruit industriel. L’abattre attire l’escouade sans supprimer les fiches.",
+          "status": "Conçu"
+        },
+        {
+          "id": "EN40",
+          "name": "Automate de tri",
+          "faction": "FA02",
+          "behavior": "Bras de tri sur convoyeur, dans une station : il mesure chaleur, masse et démarche, puis oriente vers l’atelier, l’infirmerie ou la colonne. Il ne poursuit personne et continue de classer sous le feu.",
+          "telegraph": "Cône de balayage, aiguillage qui s’oriente, tampon automatique avant le basculement.",
+          "response": "Enrayer le convoyeur, couper l’aiguillage, sortir des files. Le détruire arrête le tri local sans restaurer les fiches déjà émises.",
           "status": "Conçu"
         }
       ]
@@ -5095,6 +5349,262 @@
           "rule": "Le maintien de la grève peut ouvrir une coopération. Il ne constitue ni recrutement, ni diffusion publique, ni témoignage TE02, ni défection.",
           "sources": "MI13 pour le recoupement PT03 acquis ; MI14 pour les faits locaux.",
           "status": "Prototype"
+        },
+        {
+          "id": "NA99",
+          "type": "Décret",
+          "name": "DC-7 — Décret de Continuité",
+          "rule": "Tout monde dont les services passent sous le seuil est placé sous tutelle de rendement. Ses habitants reçoivent des titres provisoires. La tutelle ne s’éteint que par l’extinction de la dette, jamais par le retour à l’autonomie.",
+          "sources": "Vesper, Nacre, Thyr; MI01, MI05, MI26.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA100",
+          "type": "Décret",
+          "name": "OC-12 — Ordonnance des charges",
+          "rule": "Trois catégories : A rendement utile, B charge récupérable, C charge non récupérable. La catégorie se transmet aux dépendants et se révise sur formulaire 12, sans recours.",
+          "sources": "Bureau des Poids; MI08, MI16, MI19.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA101",
+          "type": "Décret",
+          "name": "DT-3 — Décret des titres de présence",
+          "rule": "Le titre lie identité, ration et travail. Sa révocation ne déplace personne : elle rend le déplacement légal. Un sans-titre n’existe plus pour la route, le quai ou l’hôpital.",
+          "sources": "MI08, MI16, MI30.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA102",
+          "type": "Décret",
+          "name": "CB-3 — Code des bouches",
+          "rule": "La ration est proportionnelle au rendement. Un enfant, un vieillard ou un blessé exige un garant productif. Sans garant, la bouche est dite non productive et rattachée à une colonne.",
+          "sources": "Méridien; MI25, MI28.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA103",
+          "type": "Règlement",
+          "name": "R-44 — Supports de mémoire",
+          "rule": "Toute archive non déclarée est un support non autorisé. Les porteurs Khelt dont le corps conserve une mémoire sont classés supports vivants et soumis à l’Institut de la Mémoire Matérielle.",
+          "sources": "Ilex; MI21–MI22.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA104",
+          "type": "Procédure",
+          "name": "Circulaire 9-B — Reclassement de voisinage",
+          "rule": "Un sabotage non résolu entraîne le reclassement du pâté de maisons. L’enquête est remplacée par l’arithmétique : un acte, un quartier, une colonne.",
+          "sources": "Vesper, Orthe; MI01, MI24, MI27.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA105",
+          "type": "Procédure",
+          "name": "Instruction 27 — Calibration",
+          "rule": "Les charges C peuvent servir à mesurer la tolérance thermique, chimique et mécanique des châssis. La signature d’un ingénieur vaut autorisation ; le nombre de sujets est fixé par le rendement attendu.",
+          "sources": "Kharon; MI15.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA106",
+          "type": "Procédure",
+          "name": "Règlement 61 — Chambres de vérité",
+          "rule": "L’accusé confirme la cause officielle d’un désastre. La confirmation enregistrée vaut preuve ; le doute vaut catégorie C. Le greffier corrige la formulation jusqu’à ce qu’elle soit recevable.",
+          "sources": "Sereis, Orthe; MI20, MI30.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA107",
+          "type": "Formulaire",
+          "name": "Formulaire 12 — Changement de catégorie",
+          "rule": "Trois cases, un motif, un tampon, aucun recours. C’est le seul instant où l’administration touche une personne ; tout le reste est du transport.",
+          "sources": "Tous les mondes occupés.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA108",
+          "type": "Formulaire",
+          "name": "Bordereau de colonne",
+          "rule": "Nombre de charges, tonnage, destination, Garde, pertes en route comptées en unités. Une colonne n’a pas de passagers ; elle a un chargement et un rendement prévisionnel.",
+          "sources": "MI16, MI19, MI32.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA109",
+          "type": "Registre",
+          "name": "Registre des noms confisqués",
+          "rule": "À l’entrée d’une station, chaque nom est remplacé par un numéro. Les noms ne sont pas détruits : ils sont conservés dans un hangar, au cas où un ayant droit les réclamerait contre paiement.",
+          "sources": "MI16, MI30, MI32.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA110",
+          "type": "Registre",
+          "name": "Registre de rendement",
+          "rule": "Chaque station affiche le rendement par charge. Une baisse justifie la réduction de ration, puis le transfert des bouches non productives. La faim est présentée comme une mesure technique.",
+          "sources": "MI20, MI29; NA102.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA111",
+          "type": "Propagande",
+          "name": "Slogan — « La Continuité ne pardonne pas ; elle compte. »",
+          "rule": "Affiché aux entrées de stations et sur les formulaires. Le verbe compter est employé à la fois comme calcul et comme énumération des personnes.",
+          "sources": "Orthe; MI29–MI32.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA112",
+          "type": "Propagande",
+          "name": "Slogan — « Ton nom est une dette. »",
+          "rule": "Campagne du Bureau des Poids. Le nom se mérite par le rendement et se perd par la conduite. Les enfants l’apprennent avant de savoir écrire leur propre nom.",
+          "sources": "Tous les mondes; MI08, MI21.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA113",
+          "type": "Affiche",
+          "name": "« Une main tient le filtre »",
+          "rule": "Un adulte tend un filtre à un enfant derrière une vitre. Légende : « Nous ne vous abandonnons pas. » Le filtre est vendu à crédit ; la vitre est celle d’une station de tri.",
+          "sources": "Vesper, Nacre; MI01, MI08.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA114",
+          "type": "Radio",
+          "name": "Voix de la Continuité — bulletin des rendements",
+          "rule": "Liste quotidienne des mondes reliés, des interruptions et des charges reclassées. Lue par Néra Sand sur un ton de météo. Les noms des morts ne sont jamais prononcés, seulement les totaux.",
+          "sources": "Toutes les planètes; PN18.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA115",
+          "type": "Radio",
+          "name": "Causerie — « La pitié est un gaspillage de rations »",
+          "rule": "Sand explique qu’une compassion non comptée met en danger le monde entier. Elle cite des chiffres exacts et une famille qu’elle dit avoir sauvée.",
+          "sources": "Méridien; MI25, MI28.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA116",
+          "type": "École",
+          "name": "Leçon de calcul des charges",
+          "rule": "Les enfants comptent les unités d’un convoi : si douze charges consomment trois rations, combien en reste-t-il pour la garnison ? Le corrigé est affiché au tableau.",
+          "sources": "Orthe; MI29.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA117",
+          "type": "École",
+          "name": "Leçon de la Dislocation",
+          "rule": "La Dislocation est enseignée comme la faute des autonomies. L’Empire est la seule continuité possible ; douter est un privilège de monde relié.",
+          "sources": "Orthe; MI30.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA118",
+          "type": "Témoignage",
+          "name": "Nell Ash — « J’ai cousu les noms »",
+          "rule": "« Ils nous ont appelés 4-17. J’ai cousu les noms dans la doublure. Le fil a tenu mieux qu’eux. » Le témoignage nomme des personnes, pas seulement un système.",
+          "sources": "MI32; PN20; TE03.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA119",
+          "type": "Témoignage",
+          "name": "Tava — « Ils ont brûlé le jardin, pas la saison »",
+          "rule": "« Ce que je porte ne s’éteint pas avec moi, mais il s’éteint si personne ne l’écoute. » La restitution et la copie sont deux actes distincts.",
+          "sources": "MI22; PN21; TE04.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA120",
+          "type": "Témoignage",
+          "name": "Deni Vorel — « Je n’ai jamais signé une mort »",
+          "rule": "« J’ai signé des transferts. Le tampon ne dit pas où l’on arrive. » Un archiviste complice peut fournir l’index sans devenir innocent.",
+          "sources": "MI30; PN22.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA121",
+          "type": "Témoignage",
+          "name": "Ouvrier de Kharon — « La pièce revenait toujours »",
+          "rule": "« On la remettait. On ne demandait pas où elle allait. » La chaîne industrielle est faite de gestes répétés, pas de vocations criminelles.",
+          "sources": "MI13–MI15.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA122",
+          "type": "Chanson",
+          "name": "« Le compte des absents »",
+          "rule": "Comptine de station. Les enfants y glissent les numéros de ceux qui ne sont pas revenus. La chanter est interdit ; la savoir par cœur est une preuve de séjour.",
+          "sources": "MI32; NA109.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA123",
+          "type": "Chanson",
+          "name": "« La relève »",
+          "rule": "Chant de garnison sur la fatigue et la propreté des machines. Les soldats le chantent sans écouter les paroles ; les civils l’entendent comme une horloge.",
+          "sources": "MI27, MI31.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA124",
+          "type": "Note interne",
+          "name": "« Ne pas employer le mot déportation »",
+          "rule": "Le mot officiel est transfert de rendement. Colonne est préféré à convoi, station à camp, charge à personne. Le Directoire vérifie la formulation des rapports avant diffusion.",
+          "sources": "Directoire; NA99–NA108.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA125",
+          "type": "Note interne",
+          "name": "« Le témoin est une charge »",
+          "rule": "Un témoin vivant coûte plus qu’un dossier. Le Directoire ordonne la disparition d’Aline et de quiconque peut relier les signatures aux colonnes.",
+          "sources": "MI16; FA07.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA126",
+          "type": "Archive",
+          "name": "Ordre de semis",
+          "rule": "Un échec de récolte programmé, présenté comme sécheresse. La date précède la demande d’aide de plusieurs semaines ; le rendement attendu est calculé avant le semis.",
+          "sources": "PT02, PT05; MI18, MI26.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA127",
+          "type": "Archive",
+          "name": "Délégation signée",
+          "rule": "Une seule signature autorise une opération sans nommer son objet. La chaîne passe par trois bureaux : poids, dettes, continuité. Chacun peut affirmer n’avoir signé qu’un principe.",
+          "sources": "PO03; MI30.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA128",
+          "type": "Procédure",
+          "name": "Confirmation de continuité",
+          "rule": "Avant de quitter un monde, la garnison fait signer aux notables une déclaration de continuité rétablie. Les absents ne signent pas ; leur absence est comptée comme accord tacite.",
+          "sources": "MI08, MI27, MI32.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA129",
+          "type": "Lieu",
+          "name": "Station de continuité",
+          "rule": "Hangar de tri, atelier, infirmerie de fortune, hangar aux noms. Le rendement s’affiche à l’entrée ; les numéros remplacent les noms à la porte. Ce n’est pas un lieu secret : il a une adresse postale.",
+          "sources": "MI16, MI19, MI32.",
+          "status": "Conçu"
+        },
+        {
+          "id": "NA130",
+          "type": "Lieu",
+          "name": "Bureau des charges",
+          "rule": "Un mur de fiches, un nom par fiche, classées par rue et par rendement. Détruire le mur libère du classement et efface des droits à la ration ; copier le mur conserve les deux.",
+          "sources": "MI30, MI32.",
+          "status": "Conçu"
         }
       ]
     },

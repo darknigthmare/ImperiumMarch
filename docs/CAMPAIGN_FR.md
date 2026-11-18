@@ -1,10 +1,10 @@
 # ORDRE DE CENDRE — Campagne et continuité
 
-**Version de conception et de production 0.15.0 · 16 novembre 2026**
+**Version de conception et de production 0.16.0 · 18 novembre 2026**
 
-Ce document décrit la campagne cible : **32 missions principales, 16 contrats, 4 actes et 4 familles de fins**. **MI01–MI14 sont jouables au stade prototype**, avec progression, **dossier v14** et reprise. Les **18 missions MI15–MI32** et les seize contrats restent conçus.
+Ce document décrit la campagne cible : **32 missions principales, 16 contrats de campagne, 8 épreuves de châssis, 4 actes et 4 familles de fins**. **MI01–MI14 sont jouables au stade prototype**, avec progression, **dossier v14** et reprise. Les **18 missions MI15–MI32**, les seize contrats et les huit épreuves restent conçus.
 
-La source de la Bible contient **1 007 fiches** ; son contrat de classeur conserve **21 onglets, 20 tables et 126 formules**. La réception du nouvel export reste distincte de cette description de périmètre.
+La source de la Bible contient **1 068 fiches** depuis la 0.16 ; elle conserve **20 onglets de conception**, soit **21 onglets avec la synthèse**, **20 tables** et **126 formules**. Le canon de l’appareil impérial est détaillé dans [CANON_EMPIRE.md](CANON_EMPIRE.md) et les épreuves dans [EPREUVES_CHASSIS.md](EPREUVES_CHASSIS.md). L’export XLSX de cette tranche n’a pas été reconstruit : la réception de l’export reste distincte de cette description de périmètre.
 
 Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.9](NACRE_CONSEQUENCES_V09.md) précise les quatre sorties jouables, leurs populations et leurs arrivées distinctes. Les contrats de [MI09](CAMPAIGN_MISSION_09.md), [MI10](CAMPAIGN_MISSION_10.md) et [MI11](CAMPAIGN_MISSION_11.md) gardent leurs détails historiques. Le [bilan de reconstruction](PRODUCTION_V14_RECONSTRUCTION.md) décrit MI12, quatrième sortie de Thyr, et MI13, première sortie de Kharon.
 
@@ -261,27 +261,25 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Lieu :** Kharon (PL04) · **État :** Conçu
 
-**Ordre reçu.** Saisir l’ingénieure Aline Serrat pour interrogatoire.
+**Ordre reçu.** Saisir l’ingénieure Aline Serrat pour interrogatoire, avant que la sécurité privée n’efface le laboratoire.
 
-**Déroulement jouable.** Extraire Aline d’un laboratoire que la sécurité privée détruit étage par étage; maintenir un passage pour son équipe.
+**Déroulement jouable.** Descendre un laboratoire que la sécurité purge étage par étage. Les salles de calibration retiennent des charges C utilisées pour mesurer la tolérance thermique des châssis : chaque porte ouverte coûte du temps et de la place. Extraire Aline, ses schémas et, si la coque le permet, les personnes encore vivantes.
 
-**Ce que la mission révèle.** Les ordres d’arrêt des sécurités portent une délégation de la Continuité; Aline reconnaît sa responsabilité.
+**Ce que la mission révèle.** L’instruction 27 porte la signature d’Aline : les essais ont été autorisés, pas seulement subis. Les ordres d’arrêt viennent d’une délégation de la Continuité. Aline reconnaît sa part et refuse de la réduire à une erreur de laboratoire.
 
-**Ce qui reste après la mission.** Témoin TE02 vivant, schémas PT04 et dissension ouverte dans l’équipage.
+**Ce qui reste après la mission.** TE02 vivant, PT04 copié, et des corps que l’équipage doit décider d’embarquer. La dissension avec Ilan devient ouverte : il a vu les salles et compte les places disponibles.
 
 #### MI16 — Le rapport qui ne part pas
 
 **Lieu :** Kharon (PL04) · **État :** Conçu
 
-**Ordre reçu.** Remettre les pièces, témoins et journaux au vaisseau de commandement.
+**Ordre reçu.** Remettre les pièces, témoins et journaux au vaisseau de commandement, et déclarer la continuité rétablie.
 
-**Déroulement jouable.** Préparer deux voies de sortie, répartir matériel et passagers puis tenir le hangar pendant le départ d’une navette.
+**Déroulement jouable.** Préparer deux voies de sortie et répartir un poids fini entre caisses de preuves, personnes et pièces de rechange. Une colonne de trois cent quarante charges attend au hangar voisin ; l’ordre de disparition d’Aline circule déjà dans les transmissions.
 
-**Ce que la mission révèle.** Sera découvre l’ordre de disparition d’Aline; le joueur choisit les copies et personnes qu’il peut réellement sauver.
+**Ce que la mission révèle.** Le Directoire ne veut ni procès ni témoins. Le rapport signé doit déclarer « continuité rétablie » ; la navette n’a pas de place pour tout, et chaque caisse montée retire une place.
 
-**Ce qui reste après la mission.** Défection opérationnelle; perte des dépôts impériaux, équipage retenu ou réuni, poursuite de la Cohorte.
-
-### Acte III — La fracture
+**Ce qui reste après la mission.** Défection opérationnelle. Ce qui monte à bord existe et est nommé ; ce qui reste est compté et poursuivi par la Cohorte. Perte des dépôts impériaux.
 
 #### MI17 — Sans balise amie
 
@@ -289,11 +287,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Rejoindre un observatoire de secours avant la tempête.
 
-**Déroulement jouable.** Marcher sur glace sondée, choisir un itinéraire lent sûr ou une route exposée et couvrir le ravitaillement.
+**Déroulement jouable.** Marcher sur une banquise sondée, choisir la route lente ou la crête exposée, et décider si les fuyards d’une colonne prennent la place du ravitaillement. La glace porte mal deux charges ; chaque personne embarquée retire une caisse.
 
-**Ce que la mission révèle.** La Ligue aide sous conditions; ses réserves sont insuffisantes et l’accueil n’est pas un pardon.
+**Ce que la mission révèle.** La station voisine a « perdu » ses charges dans la tempête. Les fuyards ont des numéros cousus et aucun titre de présence. La Ligue aide sous conditions : ce n’est pas un pardon.
 
-**Ce qui reste après la mission.** Carburant, confiance locale et intégrité du marcheur portent le coût de la fuite.
+**Ce qui reste après la mission.** Carburant, chaleur, places et intégrité du marcheur. Le froid tue ce qu’on laisse ; une caisse abandonnée n’est pas un choix neutre.
 
 #### MI18 — La neige a gardé la date
 
@@ -301,11 +299,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Récupérer l’historique climatique hors réseau impérial.
 
-**Déroulement jouable.** Réaligner une antenne, protéger trois batteries et transférer une archive avant la perte d’alimentation.
+**Déroulement jouable.** Rétablir une antenne, protéger trois batteries et copier l’archive avant la coupure. Le dégel a ouvert une fosse que l’ordre impérial classe en aléa climatique ; les relevés doivent être sortis avant la perte d’alimentation.
 
-**Ce que la mission révèle.** Plusieurs catastrophes ont été déclenchées dans un ordre incompatible avec la version accidentelle.
+**Ce que la mission révèle.** Les ordres de semis précèdent les demandes d’aide. Les dates rendent la thèse accidentelle intenable, et la fosse n’est pas un accident non plus.
 
-**Ce qui reste après la mission.** PT05 corrèle les dates; publication partielle attire la Cohorte sur le refuge.
+**Ce qui reste après la mission.** PT05 corrélé. Publier les dates expose les fuyards ; les taire laisse la fosse sans nom. La copie survit à la perte de l’antenne.
 
 #### MI19 — Les noms du convoi
 
@@ -313,11 +311,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Évacuer les familles que l’Empire a localisées en suivant un message.
 
-**Déroulement jouable.** Organiser une traversée, immobiliser des traqueurs et réserver les plaques de glace solides aux véhicules de secours.
+**Déroulement jouable.** Organiser une traversée sur les plaques solides, immobiliser les traqueurs et choisir quelles familles montent avant la fermeture. Les bracelets de conduite signalent les enfants ; les chiens suivent les titres révoqués à travers la foule.
 
-**Ce que la mission révèle.** Un membre de la Ligue a transmis trop tôt des coordonnées; le mouvement doit aussi répondre de ses erreurs.
+**Ce que la mission révèle.** Un membre de la Ligue a transmis les coordonnées trop tôt. La colonne n’emporte pas des travailleurs : elle prend les dépendants pour séparer les familles productives.
 
-**Ce qui reste après la mission.** Nombre d’évacués, confiance de Mara et responsabilité du réseau deviennent des états séparés.
+**Ce qui reste après la mission.** Comptage nominal des évacués et des laissés. Mara juge les lits, pas les intentions. Le réseau doit répondre de sa fuite.
 
 #### MI20 — Celle qui tient encore
 
@@ -325,11 +323,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Faire sortir l’équipage avant l’encerclement de la Cohorte.
 
-**Déroulement jouable.** Duel contre Edda Renn sur une station fissurée; permettre une reddition ou immobiliser sa machine sans tuer l’équipage.
+**Déroulement jouable.** Duel contre Edda Renn sur une station fissurée. La chambre de vérité du niveau bas enregistre des confirmations ; on peut la libérer, la sceller ou passer. Chaque choix laisse des personnes derrière une porte ou sur la glace.
 
-**Ce que la mission révèle.** Edda reçoit la preuve des faux ordres mais ne veut pas abandonner ses blessés.
+**Ce que la mission révèle.** Edda a reçu les preuves et ne peut pas abandonner ses blessés. Les prisonniers ne demandent pas une libération spectaculaire mais un enregistrement qui ne soit pas retourné contre eux.
 
-**Ce qui reste après la mission.** Un passage négocié, une prisonnière ou une ennemie durable selon conduite du duel.
+**Ce qui reste après la mission.** Passage négocié, prisonnière ou ennemie durable. Libérer la chambre sans protection produit une fuite sur la glace ; la sceller laisse les confirmations intactes.
 
 #### MI21 — Entrer sans laisser d’empreinte
 
@@ -337,11 +335,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Demander asile et accès aux archives d’une cité Khelt.
 
-**Déroulement jouable.** Traverser des sols résonants à cadence basse, stopper un automate intrus et respecter les voies signalées.
+**Déroulement jouable.** Traverser des sols résonants à cadence basse, arrêter un automate intrus et respecter les voies signalées. Les porteurs reconnaissent la silhouette du châssis avant de reconnaître la pilote.
 
-**Ce que la mission révèle.** Les habitants connaissent les traces d’autres marcheurs; votre machine leur rappelle une destruction précise.
+**Ce que la mission révèle.** Votre machine ressemble à celle qui a scellé un jardin. Le titre de présence est une dette ; les Khelt comptent autrement, et le disent.
 
-**Ce qui reste après la mission.** Accès négocié; endommager les archives peut fermer une voie diplomatique sans bloquer le jeu.
+**Ce qui reste après la mission.** Accès négocié. Endommager les archives ferme une voie diplomatique sans bloquer la campagne ; la confiance de Leth et celle d’Hadr restent séparées.
 
 #### MI22 — Ce qu’on efface en premier
 
@@ -349,11 +347,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Empêcher une équipe de purge d’atteindre les jardins de mémoire.
 
-**Déroulement jouable.** Protéger des supports fragiles, isoler les brouilleurs et récupérer l’ordre de purge sur un poste de commandement.
+**Déroulement jouable.** Protéger des supports fragiles, isoler les brouilleurs et récupérer l’ordre de purge. Les porteurs dont le corps garde la mémoire sont classés catégorie C ; les sortir coûte des places et du temps.
 
-**Ce que la mission révèle.** Les cibles sont des écoles, langues et filiations : l’effacement culturel fait partie du programme.
+**Ce que la mission révèle.** Les cibles nommées sont des écoles, des langues, des filiations et des porteurs. L’effacement n’est pas un dommage collatéral : c’est le programme.
 
-**Ce qui reste après la mission.** Ordre politique PO01 et archive culturelle préservée; confiance de Leth et Hadr évolue séparément.
+**Ce qui reste après la mission.** PO01 et TE04. Une archive copiée survit ; un porteur tué ne se reconstitue pas. La restitution reste une dette vérifiable, pas une générosité.
 
 #### MI23 — L’accord n’est pas le silence
 
@@ -361,11 +359,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Obtenir une coalition sans imposer les objectifs de la Ligue.
 
-**Déroulement jouable.** Tenir un périmètre pendant une rencontre; empêcher un attentat de radicaux puis escorter les délégations sans confisquer leurs armes.
+**Déroulement jouable.** Tenir un périmètre pendant une rencontre, empêcher un attentat de radicaux et escorter les délégations sans confisquer leurs armes. Un prisonnier impérial veut parler ; une faction veut le pendre devant les caméras.
 
-**Ce que la mission révèle.** Hadr exige autonomie et restitution des archives, pas seulement une place dans la propagande humaine.
+**Ce que la mission révèle.** Hadr exige autonomie et restitution. La Ligue n’est pas innocente : elle a transmis des coordonnées et veut une vengeance. Les deux vérités tiennent ensemble.
 
-**Ce qui reste après la mission.** Pacte de coalition, engagement de restitution et capacité à tenir un cessez-le-feu.
+**Ce qui reste après la mission.** Pacte, engagement de restitution et capacité à tenir un cessez-le-feu. Sera doit appliquer à ses alliés les règles qu’elle imposait à l’Empire.
 
 #### MI24 — Le monde répond
 
@@ -373,13 +371,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Transmettre un dossier vérifiable avant la fermeture du réseau interplanétaire.
 
-**Déroulement jouable.** Défendre plusieurs relais; choisir entre protéger les témoins sur place et renforcer un canal de diffusion.
+**Déroulement jouable.** Défendre plusieurs relais et choisir entre protéger les témoins sur place et renforcer le canal de diffusion. Le dossier contient le registre des charges et les noms cousus ; le diffuser expose des familles entières.
 
-**Ce que la mission révèle.** Les trois familles de preuve peuvent être recoupées; publier les sources brutes expose certaines personnes.
+**Ce que la mission révèle.** Les trois familles de preuves se recoupent. Publier les sources brutes livre des personnes au reclassement ; publier seulement les conclusions laisse le Directoire nier.
 
-**Ce qui reste après la mission.** Qualité et portée de publication distinctes de la survie des témoins; l’insurrection devient publique.
-
-### Acte IV — Une autre marche
+**Ce qui reste après la mission.** Portée et qualité distinctes de la survie des témoins. L’insurrection devient publique ; le Directoire aussi.
 
 #### MI25 — Le pain des autres
 
@@ -387,11 +383,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Ouvrir un passage vers les dépôts agricoles sans interrompre les récoltes.
 
-**Déroulement jouable.** Protéger des machines civiles, contourner des serres et désarmer une batterie qui utilise un silo comme bouclier.
+**Déroulement jouable.** Protéger des machines civiles, contourner des serres et désarmer une batterie qui utilise un silo comme bouclier. La ration punitive est déjà appliquée au secteur voisin ; le quota du centre exige que d’autres restent sous le seuil.
 
-**Ce que la mission révèle.** Les habitants craignent une famine immédiate plus qu’ils ne connaissent PALINODE.
+**Ce que la mission révèle.** La famine est administrée. Jo connaît le chiffre et le cache parce qu’il doit choisir quel quartier mange. Personne ne propose une solution sans perte.
 
-**Ce qui reste après la mission.** Stocks préservés et alliance avec Jo; dégâts de silo se répercutent dans les quartiers.
+**Ce qui reste après la mission.** Stocks et confiance. Un silo touché affame un quartier nommé ; les rations sont une arme, pas une générosité.
 
 #### MI26 — Les comptes de la pluie
 
@@ -399,11 +395,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Saisir le centre de gestion des crédits de terraformation.
 
-**Déroulement jouable.** Neutraliser sa défense par les alimentations militaires, maintenir les pompes civiles et copier les contrats.
+**Déroulement jouable.** Neutraliser la défense par les alimentations militaires, maintenir les pompes civiles et copier les contrats. Le mur des fiches relie chaque catastrophe à une dette et chaque dette à une signature.
 
-**Ce que la mission révèle.** Les bénéfices des catastrophes alimentent les rations bon marché de la capitale.
+**Ce que la mission révèle.** Les bénéfices des catastrophes financent les rations bon marché d’Orthe. Des fonctionnaires signent sans lire ; d’autres lisent et appellent cela de la continuité.
 
-**Ce qui reste après la mission.** Preuve financière PO02, réseaux d’eau maintenus et soutien de fonctionnaires dissidents.
+**Ce qui reste après la mission.** PO02, réseaux d’eau tenus, soutien de fonctionnaires dissidents. Détruire les fiches efface des droits autant que des crimes.
 
 #### MI27 — Une ville ne se prend pas
 
@@ -411,11 +407,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Obtenir la sortie d’une garnison sans bataille dans les rues.
 
-**Déroulement jouable.** Couvrir une négociation, tenir les groupes impatients et escorter les soldats désarmés jusqu’au point convenu.
+**Déroulement jouable.** Couvrir une négociation, tenir les groupes impatients et escorter les soldats désarmés jusqu’au point convenu. Une cellule de la Ligue veut violer l’accord et filmer une exécution.
 
-**Ce que la mission révèle.** Une cellule de la Ligue veut violer l’accord; Sera doit appliquer à ses alliés les règles qu’elle exigeait de l’Empire.
+**Ce que la mission révèle.** La garnison a exécuté la circulaire 9-B la semaine précédente. Les soldats sont des exécutants et des voisins ; les deux faits tiennent ensemble.
 
-**Ce qui reste après la mission.** Fiabilité du pacte, survivants de la garnison et attitude d’Ilan à la veille d’Orthe.
+**Ce qui reste après la mission.** Fiabilité du pacte, survivants de la garnison et attitude d’Ilan. Une exécution rend la reddition impossible ailleurs.
 
 #### MI28 — La ligne que nous choisissons
 
@@ -423,11 +419,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Empêcher le rationnement punitif et préparer la route de la capitale.
 
-**Déroulement jouable.** Séparer un train de ravitaillement d’une batterie mobile, protéger les aiguillages et répartir les wagons.
+**Déroulement jouable.** Séparer un train de ravitaillement d’une batterie mobile, protéger les aiguillages et répartir les wagons. Chaque wagon envoyé au front est retiré à un secteur nommé.
 
-**Ce que la mission révèle.** Approvisionner l’offensive seule gagnerait du temps en affamant des secteurs déjà fragiles.
+**Ce que la mission révèle.** Approvisionner l’offensive seule gagnerait du temps en affamant des secteurs déjà fragiles. Le choix est un partage, pas une collecte.
 
-**Ce qui reste après la mission.** Logistique du dernier acte, confiance des communes et population évacuée.
+**Ce qui reste après la mission.** Logistique du dernier acte, confiance des communes et population évacuée. Aucune répartition ne satisfait tout le monde.
 
 #### MI29 — Retour par les ateliers
 
@@ -435,11 +431,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Entrer sur Orthe par les installations où la machine a été construite.
 
-**Déroulement jouable.** Progression basse sous portiques, coopération avec ateliers en grève et désactivation d’identifiants impériaux.
+**Déroulement jouable.** Progression basse sous les portiques, coopération avec les ateliers en grève et désactivation d’identifiants impériaux. Sous la chaîne, une salle de calibration où les châssis étaient éprouvés sur des charges C.
 
-**Ce que la mission révèle.** Les ouvriers découvrent l’usage de leurs machines; certains refusent d’aider tant que les faits restent vagues.
+**Ce que la mission révèle.** Les ouvriers ont fabriqué les berceaux de calibration sans savoir. Certains refusent d’aider tant que les faits restent vagues ; d’autres veulent que la chambre soit montrée, pas seulement détruite.
 
-**Ce qui reste après la mission.** Accès de secours ouvert; anciens contacts réapparaissent selon les preuves diffusées.
+**Ce qui reste après la mission.** Accès de secours ouvert. Les anciens contacts réapparaissent selon les preuves diffusées. La chambre reste un lieu de la campagne, pas un niveau supplémentaire.
 
 #### MI30 — Les marches du ministère
 
@@ -447,11 +443,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Extraire les délégations signées et protéger les agents prêts à témoigner.
 
-**Déroulement jouable.** Franchir des terrasses sans effondrer les voies basses, contenir une contre-attaque et tenir les ascenseurs civils.
+**Déroulement jouable.** Franchir les terrasses sans effondrer les voies basses, contenir la contre-attaque et tenir les ascenseurs civils. Le bureau des charges est un mur de fiches, un nom par fiche, classé par rue et par rendement.
 
-**Ce que la mission révèle.** La responsabilité est distribuée entre signatures et choix individuels; aucun unique ordinateur maléfique ne suffit à tout expliquer.
+**Ce que la mission révèle.** La responsabilité est distribuée entre signatures, délégations et tampons. Détruire le mur libère du classement et efface des droits à la ration ; le copier conserve les deux.
 
-**Ce qui reste après la mission.** PO03 relie la direction au programme; témoins du centre et archives préservés.
+**Ce qui reste après la mission.** PO03 et le choix du mur : copier, saisir, détruire ou publier. Les témoins du centre et les archives ne sont pas la même protection.
 
 #### MI31 — Le dernier ordre de Holt
 
@@ -459,11 +455,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Atteindre le centre de diffusion avant le verrouillage des quartiers.
 
-**Déroulement jouable.** Affronter le marcheur de Holt; casser son armement ou obtenir un passage en tenant un corridor de secours sous ses yeux.
+**Déroulement jouable.** Affronter le marcheur de Holt ; casser son armement ou obtenir un passage en tenant un corridor de secours sous ses yeux. Il a ordonné le verrouillage de trois districts après un sabotage.
 
-**Ce que la mission révèle.** Holt peut reconnaître les faits tout en refusant l’effondrement de l’armée; Sera doit montrer une capacité à protéger après la rupture.
+**Ce que la mission révèle.** Holt peut reconnaître les faits et refuser l’effondrement de l’armée. Le verrouillage est une représaille collective : un acte, trois districts, aucun nom.
 
-**Ce qui reste après la mission.** Sort de Holt, de la Cohorte et du corridor; aucune discussion ne ressuscite les pertes précédentes.
+**Ce qui reste après la mission.** Sort de Holt, de la Cohorte et du corridor. Aucune discussion ne ressuscite les pertes ; aucun ordre ne les annule.
 
 #### MI32 — Après le fracas
 
@@ -471,11 +467,11 @@ Une ponte abîmée avant l’accord peut conduire au refus. Un dommage après ac
 
 **Ordre reçu.** Arrêter la purge des réseaux et rendre le dossier accessible à des dépositaires indépendants.
 
-**Déroulement jouable.** Tenir trois sites interdépendants : arrêt des terraformes, station de preuves et voie d’évacuation; engager les alliés effectivement acquis.
+**Déroulement jouable.** Tenir trois sites : arrêt des terraformes, station de preuves et voie d’évacuation. La station de continuité d’Orthe retient quatre mille charges ; Norn propose de sauver le réseau en effaçant les ordres.
 
-**Ce que la mission révèle.** Norn propose de sauver le réseau en effaçant les ordres; le résultat dépend des moyens conservés durant toute la campagne.
+**Ce que la mission révèle.** Le réseau peut survivre sans les archives ; les archives peuvent survivre sans le réseau. Nell et les noms cousus peuvent être publiés ou protégés, pas les deux sans coût.
 
-**Ce qui reste après la mission.** Fin FI01–FI04 déterminée par preuves, survie, coalition et continuité des services; épilogues locaux.
+**Ce qui reste après la mission.** FI01–FI04 selon preuves, survie, coalition et continuité. Les épilogues montrent les lieux et les noms, pas un score.
 
 ## 5. Les contrats : une raison de revenir
 
@@ -500,6 +496,23 @@ Un contrat secondaire part d’une personne qui a un problème local. Il ne remp
 | CT15 | Orthe | L’atelier reste ouvert | **Anciens collègues de Tess :** Protéger un atelier civil pendant l’évacuation de ses ouvriers et de leurs familles. **Retour :** Point de réparation accessible au dernier acte; noms cités dans l’épilogue. |
 | CT16 | Orthe | Les archives de ceux d’en bas | **Collectif des locataires :** Ouvrir une administration verrouillée et préserver les registres de logement contre la purge. **Retour :** Empêche une expulsion collective après la bataille; contrepoint à la grande histoire politique. |
 
+### Les huit épreuves de châssis
+
+Huit exercices de qualification éprouvent un châssis sur un terrain réel, avec des personnes réelles. L’Empire les appelle des « exercices de continuité » ; le joueur y découvre une machine et un crime dans le même geste. Ils se débloquent au Hangar après MI14 et restent **conçus**. Le détail des parcours, des appuis et des issues figure dans [EPREUVES_CHASSIS.md](EPREUVES_CHASSIS.md).
+
+| ID | Châssis | Épreuve | Monde | Thèse de conduite |
+| --- | --- | --- | --- | --- |
+| CT17 | WK13 Chacal | L’épreuve du guet | Vesper | Vitesse sans blindage, renseignement contre temps |
+| CT18 | WK14 Sentinelle | Le carrefour des trois conduites | Vesper | Tenir un point, trier une foule, ouvrir ou fermer |
+| CT19 | WK15 Cormoran | La hauteur du guet | Thyr | Observation haute, marquage, main qui ne voit pas |
+| CT20 | WK16 Bison | La soute de douze | Kharon | Masse, chaleur, passagers non aménagés |
+| CT21 | WK17 Tisserand | La paroi des Tisserands | Ilex | Ascension verticale, quatre appuis rayonnants |
+| CT22 | WK18 Baliste | La batterie derrière la digue | Sereis | Tir indirect, bêche, zone civile |
+| CT23 | WK19 Broyeur | La porte de la Continuité | Orthe | Bélier, seuil, ruée |
+| CT24 | WK20 Mulet | Les douze de la rampe | Nacre | Charge variable, pente noyée, choix des passagers |
+
+**CT21 — La paroi des Tisserands** est l’ascension demandée pour l’araignée : le WK17 Tisserand, quadrupède bas à pattes rayonnantes, escalade une falaise de silice de deux cent dix mètres pour ouvrir une cellule d’archive scellée. Quatre appuis réels, trois postures (croix, plaque, rampe), des prises qui cèdent, un jet de caloporteur et un grappin qui coupe les ancrages. La descente est un second parcours. Aucune plateforme, aucun treuil, aucune place pour un passager : le châssis ne peut sauver que ce qu’il copie.
+
 ## 6. La chaîne des preuves
 
 PALINODE n’est établi ni par le nombre de terminaux ouverts ni par la parole d’un personnage omniscient. Les découvertes forment une chaîne dont chaque pièce répond à une question différente.
@@ -516,6 +529,9 @@ PALINODE n’est établi ni par le nombre de terminaux ouverts ni par la parole 
 | PO01 | MI22, Ilex | La purge cible explicitement archives, écoles, langues et filiations. | Le financement interplanétaire complet. |
 | PO02 | MI26, Méridien | Les contrats relient catastrophes, dettes et approvisionnement du centre. | La responsabilité pénale détaillée de chaque personne. |
 | PO03 | MI30, Orthe | Des délégations signées et journaux d’autorisation relient les décisions à la direction. | Une justice immédiate ou une reconstruction automatique. |
+| PO04 | MI16, Kharon | Un bordereau de colonne et le registre des noms confisqués relient le transfert au Bureau des Poids. | La responsabilité pénale de chaque agent, ni le nombre exact de personnes déplacées. |
+| TE03 | MI32, Orthe | Nell Ash décrit la station 4, les numéros, les noms cousus et la séparation des familles. | La chaîne de décision politique ; son récit reste celui d’une enfant. |
+| TE04 | MI22, Ilex | Tava relie la destruction des jardins à l’Institut de la Mémoire Matérielle et aux porteurs vivants. | La totalité des cités Khelt ni l’accord de toutes les cités. |
 
 La perte de PT01 n’empêche pas de comprendre la série industrielle grâce à PT03 et à un témoignage. En revanche, détruire toutes les sources techniques ne doit pas produire le même dossier que les préserver. La publication peut masquer des identités sensibles tout en confiant les originaux à des dépositaires indépendants. Cette séparation est importante : tout rendre public n’est pas automatiquement la meilleure protection des personnes.
 

@@ -2,7 +2,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
-import { WALKERS, MISSIONS, CAMPAIGN_MISSIONS, ALL_MISSIONS } from '../src/content.mjs';
+import { WALKERS, PLAYABLE_WALKERS, MISSIONS, CAMPAIGN_MISSIONS, ALL_MISSIONS } from '../src/content.mjs';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 for (const file of ['index.html', 'src/main.mjs', 'src/style.css', 'src/ui.css', 'src/audio.mjs', 'src/renderer.mjs', 'src/simulation.mjs', 'src/campaign.mjs', 'assets/art/key-art.png', 'assets/art/vesper-panorama.png', 'data/bible.json', 'docs/ORDRE_DE_CENDRE_Bible.xlsx']) assert.ok(existsSync(resolve(root, file)), `Missing ${file}`);
 const bible = JSON.parse(readFileSync(resolve(root, 'data/bible.json'), 'utf8'));
@@ -19,9 +19,10 @@ for (const sheet of bible.sheets) {
   }
 }
 assert.deepEqual(WALKERS.map(w => w.id), ['WK01', 'WK02', 'WK05', 'WK06', 'WK09', 'WK10']);
+assert.deepEqual(PLAYABLE_WALKERS.map(w => w.id), ['WK01', 'WK02', 'WK05', 'WK06', 'WK09', 'WK10', 'WK14']);
 for (const legs of [2, 4, 6]) {
-  const family = WALKERS.filter(w => w.legs === legs);
-  assert.equal(family.length, 2, `Two playable profiles expected for ${legs} legs`);
+  const family = PLAYABLE_WALKERS.filter(w => w.legs === legs);
+  assert.ok(family.length >= 2, `At least two playable profiles expected for ${legs} legs`);
   assert.ok(Math.max(...family.map(w => w.height)) - Math.min(...family.map(w => w.height)) > 60);
 }
 assert.deepEqual(MISSIONS.map(m => m.planetId), ['PL01', 'PL02', 'PL03']);
@@ -81,4 +82,4 @@ for (const mission of CAMPAIGN_MISSIONS) {
   assert.equal(bible.sheets.flatMap(sheet => sheet.rows).find(row => row.id === mission.id)?.status, 'Prototype');
 }
 for (const walker of WALKERS) assert.equal(bible.sheets.find(sheet => sheet.name === 'Marcheurs').rows.find(row => row.id === walker.id)?.status, 'Prototype');
-console.log(`Project checks passed: ${bible.sheets.length} design sheets, ${rows} source rows, ${WALKERS.length} playable chassis, ${MISSIONS.length} independent operations, ${CAMPAIGN_MISSIONS.length} campaign missions.`);
+console.log(`Project checks passed: ${bible.sheets.length} design sheets, ${rows} source rows, ${PLAYABLE_WALKERS.length} playable chassis, ${MISSIONS.length} independent operations, ${CAMPAIGN_MISSIONS.length} campaign missions.`);

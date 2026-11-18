@@ -1,0 +1,354 @@
+{
+  "id": "WK14",
+  "name": "Sentinelle",
+  "designation": "S-3",
+  "legs": 2,
+  "width": 138,
+  "bodyHeight": 70,
+  "height": 196,
+  "color": "#b9c3ac",
+  "assets": [
+    "AS31",
+    "AS36",
+    "AS41"
+  ],
+  "role": "Bipède de patrouille, cabine angulaire et canon de menton",
+  "footWidth": 66,
+  "upper": 121.52,
+  "lower": 125.44,
+  "offsets": [
+    -52,
+    52
+  ],
+  "playable": true,
+  "savedWalkerId": "WK14",
+  "stats": {
+    "hull": 560,
+    "stride": 124,
+    "stepTime": 0.66,
+    "speed": 88,
+    "cooling": 15,
+    "armor": 0.15,
+    "damage": 24,
+    "fireRate": 0.2,
+    "shotHeat": 8.5,
+    "ammo": 12,
+    "rockets": 8,
+    "weight": 41
+  },
+  "unit": "game-world-unit",
+  "rootPivot": [
+    0,
+    0
+  ],
+  "parts": [
+    {
+      "part": "hull",
+      "size": [
+        138,
+        70
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -96.6,
+        -80,
+        193.2,
+        126
+      ]
+    },
+    {
+      "part": "turret",
+      "size": [
+        85,
+        42
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -24,
+        -25,
+        122,
+        50
+      ]
+    },
+    {
+      "part": "upper",
+      "size": [
+        100,
+        24
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -3,
+        -16,
+        106,
+        32
+      ]
+    },
+    {
+      "part": "lower",
+      "size": [
+        100,
+        24
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -3,
+        -16,
+        106,
+        32
+      ]
+    },
+    {
+      "part": "hip",
+      "size": [
+        28,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -16,
+        -16,
+        32,
+        32
+      ]
+    },
+    {
+      "part": "knee",
+      "size": [
+        28,
+        28
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -16,
+        -16,
+        32,
+        32
+      ]
+    },
+    {
+      "part": "foot",
+      "size": [
+        66,
+        18
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -35,
+        -21,
+        70,
+        24
+      ]
+    },
+    {
+      "part": "radiator",
+      "size": [
+        22,
+        45.5
+      ],
+      "pivot": [
+        0,
+        0
+      ],
+      "bounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ]
+    }
+  ],
+  "footInstances": [
+    {
+      "id": "foot-0",
+      "homeOffset": -52,
+      "depth": "far",
+      "group": 0,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    },
+    {
+      "id": "foot-1",
+      "homeOffset": 52,
+      "depth": "near",
+      "group": 1,
+      "chain": [
+        "hip",
+        "upper",
+        "knee",
+        "lower",
+        "foot"
+      ],
+      "contactAuthority": "player.feet[index]"
+    }
+  ],
+  "hierarchy": [
+    "far leg",
+    "cradle and hull",
+    "near leg",
+    "independent turret",
+    "rear radiator"
+  ],
+  "damage": "Health is supplied by simulation; art states do not inflict damage.",
+  "poses": [
+    {
+      "file": "assets/production/sentinelle/assembly-stand-right.svg",
+      "pose": "stand-right",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -52,
+          "y": 0.4133320186685978,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 52,
+          "y": -0.9379258387845084,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/sentinelle/assembly-stand-left.svg",
+      "pose": "stand-left",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -52,
+          "y": 0.4133320186685978,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 52,
+          "y": -0.9379258387845084,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/sentinelle/assembly-brace.svg",
+      "pose": "brace",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -52,
+          "y": 0.4133320186685978,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 52,
+          "y": -0.9379258387845084,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/sentinelle/assembly-walk.svg",
+      "pose": "walk",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -11.23902723809357,
+          "y": -64.48527014792455,
+          "contact": false
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 39.192227457623915,
+          "y": -0.7388532083681412,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/sentinelle/assembly-aim-up.svg",
+      "pose": "aim-up",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -52,
+          "y": 0.4133320186685978,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 52,
+          "y": -0.9379258387845084,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "file": "assets/production/sentinelle/assembly-damaged.svg",
+      "pose": "damaged",
+      "feet": [
+        {
+          "id": "foot-0",
+          "side": "back",
+          "group": 0,
+          "x": -52,
+          "y": 0.4133320186685978,
+          "contact": true
+        },
+        {
+          "id": "foot-1",
+          "side": "front",
+          "group": 1,
+          "x": 52,
+          "y": -0.9379258387845084,
+          "contact": true
+        }
+      ]
+    }
+  ]
+}

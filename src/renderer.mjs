@@ -2269,7 +2269,7 @@ export class Renderer {
     this.drawShadow(centre, floor, 205, 22);
     glow(c, centre, floor - 100, 260, '#b0bea016');
     c.save(); c.translate(centre, floor); c.scale(scale, scale);
-    const offsets = walker.legs === 2 ? [-40, 40] : walker.legs === 4 ? [-71, 71, -89, 89] : [-88, 0, 88, -105, 5, 105];
+    const offsets = walker.footOffsets || (walker.legs === 2 ? [-40, 40] : walker.legs === 4 ? [-71, 71, -89, 89] : [-88, 0, 88, -105, 5, 105]);
     const bob = Math.sin(t * 0.8) * 0.8;
     const p = { x: 0, y: -walker.height + bob, width: walker.width, height: walker.legs === 2 ? 70 : 62,
       aimAngle: -0.045 + Math.sin(t * 0.3) * 0.02, heat: 0, flash: 0,

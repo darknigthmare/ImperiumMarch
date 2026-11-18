@@ -26,7 +26,7 @@ import { pilotMI12 } from '../tests/helpers/mi12-driver.mjs';
 import { pilotMI13 } from '../tests/helpers/mi13-driver.mjs';
 import { pilotMI14 } from '../tests/helpers/mi14-driver.mjs';
 import { RELAY_COMMAND_EXCERPT } from '../src/relay-simulation.mjs';
-import { WALKERS, VOICE_TRANSLATION_PAIRS } from '../src/content.mjs';
+import { WALKERS, PLAYABLE_WALKERS, VOICE_TRANSLATION_PAIRS } from '../src/content.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const source = readFileSync(resolve(root, 'dist/Ordre_de_Cendre.html'), 'utf8');
@@ -156,11 +156,11 @@ let checks = 0;
 const flowFilter = process.env.IMPERIUM_UI_FILTER ? new RegExp(process.env.IMPERIUM_UI_FILTER) : null;
 async function check(name, fn) { if (flowFilter && !flowFilter.test(name)) return; await fn(); checks++; console.log(`PASS ${name}`); }
 
-await check('cold start, five views, six selectable chassis and independent simulation launch', async () => {
+await check('cold start, five views, seven selectable chassis and independent simulation launch', async () => {
   const h = harness(); assert.equal(h.snapshot().view, 'campaign'); assert.equal(h.ids.get('menu').hidden, false);
   for (const view of ['hangar', 'archives', 'settings', 'operations', 'campaign']) { await h.data('view', view); assert.equal(h.snapshot().view, view); h.frames(1); }
   await h.data('view', 'hangar');
-  for (const walker of WALKERS) {
+  for (const walker of PLAYABLE_WALKERS) {
     await h.data('walker', walker.id); h.frames(1);
     assert.equal(h.snapshot().settings.walkerId, walker.id);
     assert.match(h.ids.get('rig-class').textContent, new RegExp(`${walker.legs} APPUIS`));

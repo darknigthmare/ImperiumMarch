@@ -1,4 +1,4 @@
-import { WALKERS, MISSIONS, ALL_MISSIONS, ENEMY_TYPES, DIFFICULTIES } from './content.mjs';
+import { PLAYABLE_WALKERS, MISSIONS, ALL_MISSIONS, ENEMY_TYPES, DIFFICULTIES } from './content.mjs';
 import { ENEMY_WEAPON_RIGS, enemyWeaponPose } from './enemy-weapon-pose.mjs';
 import { cerbereWeaponPose } from './cerbere-weapon-pose.mjs';
 import { createChemicalMission, chemicalSurface, chemicalSolids, refreshChemicalFacts, chemicalInteraction,
@@ -88,10 +88,12 @@ function spawnEnemies(s) {
 }
 
 export function createGame(options = {}) {
-  const walker = WALKERS.find(w => w.id === options.walkerId) || WALKERS[0];
+  const walker = PLAYABLE_WALKERS.find(w => w.id === options.walkerId) || PLAYABLE_WALKERS[0];
   const mission = ALL_MISSIONS.find(m => m.id === options.missionId) || MISSIONS[0];
   const difficultyId = Object.hasOwn(DIFFICULTIES, options.difficulty) ? options.difficulty : 'normal';
-  const offsets = walker.legs === 2 ? [-38, 38] : walker.legs === 4 ? [-71, 71, -89, 89] : [-88, 0, 88, -105, 5, 105];
+  // A chassis may declare its own stance; the six painted profiles keep their
+  // historical offsets so saved foot chains and fixtures remain byte-identical.
+  const offsets = walker.footOffsets || (walker.legs === 2 ? [-38, 38] : walker.legs === 4 ? [-71, 71, -89, 89] : [-88, 0, 88, -105, 5, 105]);
   const startX = 300;
   const feet = offsets.map((homeOffset, index) => ({
     id: `foot-${index}`, index, group: walker.legs === 4 ? [0, 1, 1, 0][index] : index % 2, side: index < walker.legs / 2 ? 'back' : 'front',

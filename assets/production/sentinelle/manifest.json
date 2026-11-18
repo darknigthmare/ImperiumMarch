@@ -1,0 +1,1287 @@
+{
+  "schema": 1,
+  "version": "0.15.12",
+  "created": "2026-11-17",
+  "title": "Ordre de Cendre — Sentinelle S-3, pièces vectorielles de production",
+  "source": "src/production-assets.mjs",
+  "generator": "tools/build-sentinelle-assets.mjs",
+  "provenance": {
+    "author": "OpenAI assistant, original code and geometry for Darknigthmare",
+    "method": "Authored vector geometry. No image generation, stock images, traced references or third-party artwork.",
+    "rights": "Original project assets; no third-party art dependency.",
+    "inputs": [
+      "docs/ART_DIRECTION.md",
+      "docs/MARCHEURS_FR.md",
+      "src/content.mjs",
+      "src/production-assets.mjs",
+      "src/simulation.mjs"
+    ],
+    "prompt": "Rendre la Sentinelle S-3 pilotable : géométrie de production, contacts réels, assignation au départ."
+  },
+  "units": "1 local vector unit = 1 game-world unit; x/y is a named mechanical pivot.",
+  "constraints": [
+    "Feet, collisions and damage remain simulation-owned; this lot adds no contact rule.",
+    "Only WK14 leaves the design catalogue; WK13 and WK15–WK20 stay non-playable.",
+    "No painted atlas exists for WK14; the runtime keeps its vector parts as the fallback.",
+    "These SVGs are an authoring bench, not a browser screenshot or a final art approval."
+  ],
+  "files": [
+    {
+      "file": "assets/production/sentinelle/parts/hull-near.svg",
+      "bytes": 5753,
+      "sha256": "9d9df7e69b460e310f923188585e898d22909ff3c5eda2a9d788e12bf031b1f2",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        138,
+        70
+      ],
+      "inkBounds": [
+        -96.6,
+        -80,
+        193.2,
+        126
+      ],
+      "part": "hull",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "near"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/hull-far.svg",
+      "bytes": 5750,
+      "sha256": "6a59f98f1ea4299bae9fe4e1d05c1b36bb598e484f134fbbb1c830da4e6c04ac",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        138,
+        70
+      ],
+      "inkBounds": [
+        -96.6,
+        -80,
+        193.2,
+        126
+      ],
+      "part": "hull",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "far"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/turret-near.svg",
+      "bytes": 2601,
+      "sha256": "4f3170570cb5406ce4e3c1cf9d54877a6c9654839ccd9ad0252d97b74e96db6d",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        85,
+        42
+      ],
+      "inkBounds": [
+        -24,
+        -25,
+        122,
+        50
+      ],
+      "part": "turret",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "near"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/turret-far.svg",
+      "bytes": 2598,
+      "sha256": "2b10b1acd220a4ea459f65efab41760dca6330db5fbfe53be8bf61b552933729",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        85,
+        42
+      ],
+      "inkBounds": [
+        -24,
+        -25,
+        122,
+        50
+      ],
+      "part": "turret",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "far"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/upper-near.svg",
+      "bytes": 2546,
+      "sha256": "e7a622cf080303c3ab3bf8d3d69fa082be8fbd95541cbc4de4b7e8f1d2e70a05",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        100,
+        24
+      ],
+      "inkBounds": [
+        -3,
+        -16,
+        106,
+        32
+      ],
+      "part": "upper",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "near"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/upper-far.svg",
+      "bytes": 2543,
+      "sha256": "493136285d585474ad552ce9ccd45b456d8e7067d2ecb0dd4b70774a9fe3d40f",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        100,
+        24
+      ],
+      "inkBounds": [
+        -3,
+        -16,
+        106,
+        32
+      ],
+      "part": "upper",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "far"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/lower-near.svg",
+      "bytes": 2546,
+      "sha256": "dc40736589d4a2117b985034390289f7e82cdb6c4754f7152c0dbd0238ff04bb",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        100,
+        24
+      ],
+      "inkBounds": [
+        -3,
+        -16,
+        106,
+        32
+      ],
+      "part": "lower",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "near"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/lower-far.svg",
+      "bytes": 2543,
+      "sha256": "c89456458476cc343a170fd3f4898cc141651a16f402bb1a908d6166e4e1964f",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        100,
+        24
+      ],
+      "inkBounds": [
+        -3,
+        -16,
+        106,
+        32
+      ],
+      "part": "lower",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "far"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/hip-near.svg",
+      "bytes": 2288,
+      "sha256": "90500064300c97e0b5cca0d9515685a0e51eca493ca858516c199b701c6d0829",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        28,
+        28
+      ],
+      "inkBounds": [
+        -16,
+        -16,
+        32,
+        32
+      ],
+      "part": "hip",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "near"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/hip-far.svg",
+      "bytes": 2285,
+      "sha256": "4514c62a082b4c717c26e5c602d695a5305191c391774aeb443bb2b281541864",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        28,
+        28
+      ],
+      "inkBounds": [
+        -16,
+        -16,
+        32,
+        32
+      ],
+      "part": "hip",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "far"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/knee-near.svg",
+      "bytes": 2291,
+      "sha256": "5c1944240ca9c309ee2829757692ba98a16bea39f24ab6935c3ffe67ae9b8844",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        28,
+        28
+      ],
+      "inkBounds": [
+        -16,
+        -16,
+        32,
+        32
+      ],
+      "part": "knee",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "near"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/knee-far.svg",
+      "bytes": 2288,
+      "sha256": "9fcfb32b1a3700cf7c2ad698caa23a0cef68e8df192a34aca189302150b433e5",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        28,
+        28
+      ],
+      "inkBounds": [
+        -16,
+        -16,
+        32,
+        32
+      ],
+      "part": "knee",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "far"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/foot-near.svg",
+      "bytes": 2535,
+      "sha256": "6402b28707dcfe9f5b8de21d5dd1f19f0affab1db3169c31fdbafa6a47e3548c",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        66,
+        18
+      ],
+      "inkBounds": [
+        -35,
+        -21,
+        70,
+        24
+      ],
+      "part": "foot",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "near"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/foot-far.svg",
+      "bytes": 2532,
+      "sha256": "d2b1ae4c4f73cb506bf25fc2fcf88473950da9401966dad1a77227fe526c56b2",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        66,
+        18
+      ],
+      "inkBounds": [
+        -35,
+        -21,
+        70,
+        24
+      ],
+      "part": "foot",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "far"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/radiator-near.svg",
+      "bytes": 3492,
+      "sha256": "95e490b1bdfe06df62634d86e4b718e8ad5a522e701e079f11b091be5c6b5bb9",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        22,
+        45.5
+      ],
+      "inkBounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ],
+      "part": "radiator",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "near"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/radiator-far.svg",
+      "bytes": 3489,
+      "sha256": "f0c02ac0efd3b731cd4e716926f716d1d77a22dfa97277178f57ecfe0d9011a7",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        22,
+        45.5
+      ],
+      "inkBounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ],
+      "part": "radiator",
+      "state": "normal",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "layer": "far"
+    },
+    {
+      "file": "assets/production/sentinelle/parts/hull-damaged.svg",
+      "bytes": 6115,
+      "sha256": "3b7bffed32c91eeb2fc30dddbbfba00c1086c3bd3fd72306adeff8cf2cf2136b",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        138,
+        70
+      ],
+      "inkBounds": [
+        -96.6,
+        -80,
+        193.2,
+        126
+      ],
+      "part": "hull",
+      "state": "damaged",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ]
+    },
+    {
+      "file": "assets/production/sentinelle/parts/hull-repaired.svg",
+      "bytes": 7466,
+      "sha256": "73d79a770f7f853c8ec26b4216bce2de144f4018a77ee10b8158ff41d43c4a92",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        138,
+        70
+      ],
+      "inkBounds": [
+        -96.6,
+        -80,
+        193.2,
+        126
+      ],
+      "part": "hull",
+      "state": "repaired",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ]
+    },
+    {
+      "file": "assets/production/sentinelle/parts/hull-braced.svg",
+      "bytes": 5956,
+      "sha256": "ebe2f938a909a9d2103971f44ba8705d16262cda2e1cce79f3ebeb2713c8f911",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        138,
+        70
+      ],
+      "inkBounds": [
+        -96.6,
+        -80,
+        193.2,
+        126
+      ],
+      "part": "hull",
+      "state": "braced",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ]
+    },
+    {
+      "file": "assets/production/sentinelle/parts/radiator-hit.svg",
+      "bytes": 4057,
+      "sha256": "311c4cdc5f0ca6bf33e3b6336b93e176591985cf60e29e27088ab1f443dca13d",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        22,
+        45.5
+      ],
+      "inkBounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ],
+      "part": "radiator",
+      "state": "hit",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ]
+    },
+    {
+      "file": "assets/production/sentinelle/parts/radiator-damaged.svg",
+      "bytes": 3881,
+      "sha256": "d94cb749d908eab08770e06912f8783332569dde996f4a8dbf07588042f5710f",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        22,
+        45.5
+      ],
+      "inkBounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ],
+      "part": "radiator",
+      "state": "damaged",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ]
+    },
+    {
+      "file": "assets/production/sentinelle/parts/radiator-repaired.svg",
+      "bytes": 4244,
+      "sha256": "461d1f1219c9c93cc182840614d765851d87077d4efad1a535543ea1c565899d",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        22,
+        45.5
+      ],
+      "inkBounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ],
+      "part": "radiator",
+      "state": "repaired",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ]
+    },
+    {
+      "file": "assets/production/sentinelle/parts/radiator-repair-0s.svg",
+      "bytes": 3819,
+      "sha256": "f11246b004435f7b7beabb8636af60efb82add126053efae7baf5130de702725",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        22,
+        45.5
+      ],
+      "inkBounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ],
+      "part": "radiator",
+      "state": "repairing",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "timeSeconds": 0,
+      "meaning": "Authoring sample of the four-second repair; runtime follows repairProgress."
+    },
+    {
+      "file": "assets/production/sentinelle/parts/radiator-repair-1s.svg",
+      "bytes": 4061,
+      "sha256": "43a2fc7e61d558f73b361a3484222651de9bd54d24949fe69268da50b80647b4",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        22,
+        45.5
+      ],
+      "inkBounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ],
+      "part": "radiator",
+      "state": "repairing",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "timeSeconds": 1,
+      "meaning": "Authoring sample of the four-second repair; runtime follows repairProgress."
+    },
+    {
+      "file": "assets/production/sentinelle/parts/radiator-repair-2s.svg",
+      "bytes": 4318,
+      "sha256": "1752a0542dbed7ec4df7a9cb766128e4ac3bf6e639d82b2c22c21d4a5ffecbe6",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        22,
+        45.5
+      ],
+      "inkBounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ],
+      "part": "radiator",
+      "state": "repairing",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "timeSeconds": 2,
+      "meaning": "Authoring sample of the four-second repair; runtime follows repairProgress."
+    },
+    {
+      "file": "assets/production/sentinelle/parts/radiator-repair-3s.svg",
+      "bytes": 4575,
+      "sha256": "88913ff228ff2581d32ab50f3b6430093d6bf66e2381b74d93a1b51e51a3854a",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        22,
+        45.5
+      ],
+      "inkBounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ],
+      "part": "radiator",
+      "state": "repairing",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "timeSeconds": 3,
+      "meaning": "Authoring sample of the four-second repair; runtime follows repairProgress."
+    },
+    {
+      "file": "assets/production/sentinelle/parts/radiator-repair-4s.svg",
+      "bytes": 4803,
+      "sha256": "941fc9915b72bd71a5354090ea7d8f7c39616e15b3d2efaf1033110a658676ca",
+      "format": "svg",
+      "pivot": [
+        0,
+        0
+      ],
+      "nominalSize": [
+        22,
+        45.5
+      ],
+      "inkBounds": [
+        -13,
+        -25.75,
+        26,
+        51.5
+      ],
+      "part": "radiator",
+      "state": "repairing",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "timeSeconds": 4,
+      "meaning": "Authoring sample of the four-second repair; runtime follows repairProgress."
+    },
+    {
+      "file": "assets/production/sentinelle/assembly-stand-right.svg",
+      "bytes": 33065,
+      "sha256": "5323f96afb3ce7da0a4ff55c16632fc60128bbf30a88f49e64c2c11685d9e5bb",
+      "format": "svg",
+      "walkerId": "WK14",
+      "pose": "stand-right",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "sourceState": "Simulation-created contacts through public update inputs",
+      "collisionAuthority": "src/simulation.mjs",
+      "groundY": 0
+    },
+    {
+      "file": "assets/production/sentinelle/assembly-stand-left.svg",
+      "bytes": 33097,
+      "sha256": "2a7325169e5597d03ce718f383b289af552bb903e1dcd05210bfc23c37d53c37",
+      "format": "svg",
+      "walkerId": "WK14",
+      "pose": "stand-left",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "sourceState": "Simulation-created contacts through public update inputs",
+      "collisionAuthority": "src/simulation.mjs",
+      "groundY": 0
+    },
+    {
+      "file": "assets/production/sentinelle/assembly-brace.svg",
+      "bytes": 33639,
+      "sha256": "17fbc14422360ead4320a97841622ec7b08c9e3330ebdbe24f1b3cd20d8ee6fc",
+      "format": "svg",
+      "walkerId": "WK14",
+      "pose": "brace",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "sourceState": "Simulation-created contacts through public update inputs",
+      "collisionAuthority": "src/simulation.mjs",
+      "groundY": 0
+    },
+    {
+      "file": "assets/production/sentinelle/assembly-walk.svg",
+      "bytes": 33268,
+      "sha256": "a125807a043d4b198a8e7eca339c0554480d4ef76f0b2ddc78b17773e71d18dd",
+      "format": "svg",
+      "walkerId": "WK14",
+      "pose": "walk",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "sourceState": "Simulation-created contacts through public update inputs",
+      "collisionAuthority": "src/simulation.mjs",
+      "groundY": 0
+    },
+    {
+      "file": "assets/production/sentinelle/assembly-aim-up.svg",
+      "bytes": 32992,
+      "sha256": "7e39a38114426e256d79b6229209140916f8eb5e891167aef5236df8938efd89",
+      "format": "svg",
+      "walkerId": "WK14",
+      "pose": "aim-up",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "sourceState": "Simulation-created contacts through public update inputs",
+      "collisionAuthority": "src/simulation.mjs",
+      "groundY": 0
+    },
+    {
+      "file": "assets/production/sentinelle/assembly-damaged.svg",
+      "bytes": 34824,
+      "sha256": "4c8044eeb602c0030539459d5f47a48518e56f4749e1372466463294bb1c3243",
+      "format": "svg",
+      "walkerId": "WK14",
+      "pose": "damaged",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "sourceState": "Explicit art diagnostic, not gameplay proof",
+      "collisionAuthority": "src/simulation.mjs",
+      "groundY": 0
+    },
+    {
+      "file": "assets/production/sentinelle/rig.json",
+      "bytes": 6081,
+      "sha256": "f7a3c99e1f7b66cee09ef44d96ea7a1dc21792f2506a0ceca96ad293fbcd5d55",
+      "format": "json",
+      "walkerId": "WK14",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41",
+        "AS30",
+        "AS38"
+      ]
+    }
+  ],
+  "rigs": [
+    {
+      "id": "WK14",
+      "name": "Sentinelle",
+      "designation": "S-3",
+      "legs": 2,
+      "width": 138,
+      "bodyHeight": 70,
+      "height": 196,
+      "color": "#b9c3ac",
+      "assets": [
+        "AS31",
+        "AS36",
+        "AS41"
+      ],
+      "role": "Bipède de patrouille, cabine angulaire et canon de menton",
+      "footWidth": 66,
+      "upper": 121.52,
+      "lower": 125.44,
+      "offsets": [
+        -52,
+        52
+      ],
+      "playable": true,
+      "savedWalkerId": "WK14",
+      "stats": {
+        "hull": 560,
+        "stride": 124,
+        "stepTime": 0.66,
+        "speed": 88,
+        "cooling": 15,
+        "armor": 0.15,
+        "damage": 24,
+        "fireRate": 0.2,
+        "shotHeat": 8.5,
+        "ammo": 12,
+        "rockets": 8,
+        "weight": 41
+      },
+      "unit": "game-world-unit",
+      "rootPivot": [
+        0,
+        0
+      ],
+      "parts": [
+        {
+          "part": "hull",
+          "size": [
+            138,
+            70
+          ],
+          "pivot": [
+            0,
+            0
+          ],
+          "bounds": [
+            -96.6,
+            -80,
+            193.2,
+            126
+          ]
+        },
+        {
+          "part": "turret",
+          "size": [
+            85,
+            42
+          ],
+          "pivot": [
+            0,
+            0
+          ],
+          "bounds": [
+            -24,
+            -25,
+            122,
+            50
+          ]
+        },
+        {
+          "part": "upper",
+          "size": [
+            100,
+            24
+          ],
+          "pivot": [
+            0,
+            0
+          ],
+          "bounds": [
+            -3,
+            -16,
+            106,
+            32
+          ]
+        },
+        {
+          "part": "lower",
+          "size": [
+            100,
+            24
+          ],
+          "pivot": [
+            0,
+            0
+          ],
+          "bounds": [
+            -3,
+            -16,
+            106,
+            32
+          ]
+        },
+        {
+          "part": "hip",
+          "size": [
+            28,
+            28
+          ],
+          "pivot": [
+            0,
+            0
+          ],
+          "bounds": [
+            -16,
+            -16,
+            32,
+            32
+          ]
+        },
+        {
+          "part": "knee",
+          "size": [
+            28,
+            28
+          ],
+          "pivot": [
+            0,
+            0
+          ],
+          "bounds": [
+            -16,
+            -16,
+            32,
+            32
+          ]
+        },
+        {
+          "part": "foot",
+          "size": [
+            66,
+            18
+          ],
+          "pivot": [
+            0,
+            0
+          ],
+          "bounds": [
+            -35,
+            -21,
+            70,
+            24
+          ]
+        },
+        {
+          "part": "radiator",
+          "size": [
+            22,
+            45.5
+          ],
+          "pivot": [
+            0,
+            0
+          ],
+          "bounds": [
+            -13,
+            -25.75,
+            26,
+            51.5
+          ]
+        }
+      ],
+      "footInstances": [
+        {
+          "id": "foot-0",
+          "homeOffset": -52,
+          "depth": "far",
+          "group": 0,
+          "chain": [
+            "hip",
+            "upper",
+            "knee",
+            "lower",
+            "foot"
+          ],
+          "contactAuthority": "player.feet[index]"
+        },
+        {
+          "id": "foot-1",
+          "homeOffset": 52,
+          "depth": "near",
+          "group": 1,
+          "chain": [
+            "hip",
+            "upper",
+            "knee",
+            "lower",
+            "foot"
+          ],
+          "contactAuthority": "player.feet[index]"
+        }
+      ],
+      "hierarchy": [
+        "far leg",
+        "cradle and hull",
+        "near leg",
+        "independent turret",
+        "rear radiator"
+      ],
+      "damage": "Health is supplied by simulation; art states do not inflict damage.",
+      "poses": [
+        {
+          "file": "assets/production/sentinelle/assembly-stand-right.svg",
+          "pose": "stand-right",
+          "feet": [
+            {
+              "id": "foot-0",
+              "side": "back",
+              "group": 0,
+              "x": -52,
+              "y": 0.4133320186685978,
+              "contact": true
+            },
+            {
+              "id": "foot-1",
+              "side": "front",
+              "group": 1,
+              "x": 52,
+              "y": -0.9379258387845084,
+              "contact": true
+            }
+          ]
+        },
+        {
+          "file": "assets/production/sentinelle/assembly-stand-left.svg",
+          "pose": "stand-left",
+          "feet": [
+            {
+              "id": "foot-0",
+              "side": "back",
+              "group": 0,
+              "x": -52,
+              "y": 0.4133320186685978,
+              "contact": true
+            },
+            {
+              "id": "foot-1",
+              "side": "front",
+              "group": 1,
+              "x": 52,
+              "y": -0.9379258387845084,
+              "contact": true
+            }
+          ]
+        },
+        {
+          "file": "assets/production/sentinelle/assembly-brace.svg",
+          "pose": "brace",
+          "feet": [
+            {
+              "id": "foot-0",
+              "side": "back",
+              "group": 0,
+              "x": -52,
+              "y": 0.4133320186685978,
+              "contact": true
+            },
+            {
+              "id": "foot-1",
+              "side": "front",
+              "group": 1,
+              "x": 52,
+              "y": -0.9379258387845084,
+              "contact": true
+            }
+          ]
+        },
+        {
+          "file": "assets/production/sentinelle/assembly-walk.svg",
+          "pose": "walk",
+          "feet": [
+            {
+              "id": "foot-0",
+              "side": "back",
+              "group": 0,
+              "x": -11.23902723809357,
+              "y": -64.48527014792455,
+              "contact": false
+            },
+            {
+              "id": "foot-1",
+              "side": "front",
+              "group": 1,
+              "x": 39.192227457623915,
+              "y": -0.7388532083681412,
+              "contact": true
+            }
+          ]
+        },
+        {
+          "file": "assets/production/sentinelle/assembly-aim-up.svg",
+          "pose": "aim-up",
+          "feet": [
+            {
+              "id": "foot-0",
+              "side": "back",
+              "group": 0,
+              "x": -52,
+              "y": 0.4133320186685978,
+              "contact": true
+            },
+            {
+              "id": "foot-1",
+              "side": "front",
+              "group": 1,
+              "x": 52,
+              "y": -0.9379258387845084,
+              "contact": true
+            }
+          ]
+        },
+        {
+          "file": "assets/production/sentinelle/assembly-damaged.svg",
+          "pose": "damaged",
+          "feet": [
+            {
+              "id": "foot-0",
+              "side": "back",
+              "group": 0,
+              "x": -52,
+              "y": 0.4133320186685978,
+              "contact": true
+            },
+            {
+              "id": "foot-1",
+              "side": "front",
+              "group": 1,
+              "x": 52,
+              "y": -0.9379258387845084,
+              "contact": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceSha256": "9d41ad326b5475a47836bc04af23251dc34abf260753edc977b5e668ebe58bb3",
+  "contentSha256": "01bd34ced7132b05b1e35e7c95eaf7e015d919e2fb78b4d419cbd4f79f2f07b2",
+  "counts": {
+    "files": 34,
+    "svg": 33,
+    "rigs": 1,
+    "parts": 8,
+    "assemblies": 6
+  }
+}

@@ -1,8 +1,8 @@
 # Bible Excel — Ordre de Cendre
 
-Le classeur `ORDRE_DE_CENDRE_Bible.xlsx` présente la conception et le registre de production d’**ImperiumMarch / ORDRE DE CENDRE**. La source courante **0.15.11**, datée du **17 novembre 2026**, contient **1 007 fiches**. La structure conserve **21 onglets**, **20 tables** et **126 formules**. Les compteurs décrivent vingt domaines ; ils ne mesurent pas un pourcentage d’achèvement du jeu.
+Le classeur `ORDRE_DE_CENDRE_Bible.xlsx` présente la conception et le registre de production d’**ImperiumMarch / ORDRE DE CENDRE**. La source courante **0.16.0**, datée du **18 novembre 2026**, contient **1 068 fiches**. La structure conserve **20 onglets de conception**, soit **21 avec la synthèse**, **20 tables** et **126 formules**. L’export XLSX n’a pas été reconstruit pour cette tranche : le générateur exige `@oai/artifact-tool`, absent de l’environnement ; les sections de réception ci-dessous restent historiques et décrivent l’export 0.15.11. Les compteurs décrivent vingt domaines ; ils ne mesurent pas un pourcentage d’achèvement du jeu.
 
-**MI01–MI14 possèdent une version au stade prototype, avec dossier v14.** Vesper et Nacre sont suivies de quatre sorties de Thyr et de deux missions de Kharon. Les **18 missions MI15–MI32** et les **16 contrats** restent conçus. Les opérations OP01–OP03 gardent leurs rapports indépendants. Six châssis sont jouables.
+**MI01–MI14 possèdent une version au stade prototype, avec dossier v14.** Vesper et Nacre sont suivies de quatre sorties de Thyr et de deux missions de Kharon. Les **18 missions MI15–MI32**, les **16 contrats de campagne** et les **8 épreuves de châssis** restent conçus. Les opérations OP01–OP03 gardent leurs rapports indépendants. Sept châssis sont assignables au départ, dont WK14 Sentinelle.
 
 La 0.15 prolonge la reconstruction locale immuable **0.14.1**, commit `fc9f4af4e103adf93d4310053610ca69bea443b3`. Cette référence n’est pas un commit public ; ses preuves et empreintes restent conservées pendant la reprise de publication de son arbre. Ses **977 identifiants** sont conservés dans leur ordre. Les **30 fiches supplémentaires** couvrent MI14, le piquet, le refroidisseur, les sources locales, la coopération, le dossier v14 et leurs critères de réception.
 
@@ -14,6 +14,8 @@ La 0.15 prolonge la reconstruction locale immuable **0.14.1**, commit `fc9f4af4e
 | Prototype | PX117–PX121 | 5 |
 | QA | QA222–QA231 | 10 |
 | **Total** | | **30** |
+
+La 0.16 ajoute 61 fiches narratives et de conception au canon de la Continuité (décrets, formulaires, registres, propagande, témoignages, portraits, épreuves) sans retirer aucun ID et sans promouvoir aucun statut. Voir [CANON_EMPIRE.md](CANON_EMPIRE.md) et [EPREUVES_CHASSIS.md](EPREUVES_CHASSIS.md).
 
 Le dossier v14 ajoute uniquement `world.kharon.workshop` vide et la version. Les treize rapports précédents, ressources, scènes et marqueur historique `stage` restent exacts. MI14 distingue explication, copie locale, recoupement conditionnel avec PT03, travaux sur le froid, ordre et commande physique. Elle ne produit aucun nouveau PT, TE ou PO et n’avance pas la défection prévue à MI16.
 

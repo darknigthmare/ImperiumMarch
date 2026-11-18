@@ -3,8 +3,8 @@
  * This module has no DOM, clock, network or implicit access to localStorage.
  * Every campaign transition returns a new value; gameplay remains in simulation.mjs.
  */
-import { WALKERS, DIFFICULTIES, ENEMY_TYPES } from './content.mjs';
-import { createGame, trainDecisionBody, networkDecisionBody, industrialDecisionBody, channelDecisionBody, channelTideAt, terrainAt, dikeDecisionBody, dikeSupportReady, ambulanceDecisionBody, ambulanceStopClear, departureDecisionBody, livingRouteDecisionBody, chemicalDecisionBody, voiceDecisionBody } from './simulation.mjs';
+import { WALKERS, PLAYABLE_WALKERS, DIFFICULTIES, ENEMY_TYPES } from './content.mjs';
+import { createGame, channelTideAt, terrainAt, dikeSupportReady, ambulanceStopClear } from './simulation.mjs';
 
 import { createDepartureDossier, departureContextFor, departureDossierFromGame, validateDepartureMission, validateDepartureFacts, validateDepartureReceipt } from './departure-validation.mjs';
 import { createLivingRouteDossier, livingRouteContextFor, livingRouteDossierFromGame, validateLivingRouteMission, validateLivingRouteFacts, validateLivingRouteReceipt, validateLivingRouteSortie } from './thyr-validation.mjs';
@@ -12,10 +12,7 @@ import { createChemicalDossier, chemicalContextFor, chemicalDossierFromGame, val
 import { createVoiceDossier, voiceContextFor, voiceDossierFromGame, validateVoiceMission, validateVoiceFacts, validateVoiceReceipt, validateVoiceSortie } from './voice-validation.mjs';
 import { createRelayDossier, relayContextFor, relayDossierFromGame, validateRelayMission, validateRelayFacts, validateRelayReceipt, validateRelaySortie } from './relay-validation.mjs';
 import { createFoundryDossier, foundryContextFor, foundryDossierFromGame, validateFoundryMission, validateFoundryFacts, validateFoundryReceipt, validateFoundrySortie } from './foundry-validation.mjs';
-import { relayDecisionBody } from './relay-simulation.mjs';
-import { foundryDecisionBody } from './foundry-simulation.mjs';
 import { createWorkshopDossier, workshopContextFor, workshopDossierFromGame, validateWorkshopMission, validateWorkshopFacts, validateWorkshopReceipt, validateWorkshopSortie } from './workshop-validation.mjs';
-import { workshopDecisionBody } from './workshop-simulation.mjs';
 
 export const CAMPAIGN_SAVE_KEY = 'imperium.campaign.v1';
 export const CAMPAIGN_BACKUP_KEY = 'imperium.campaign.v1.backup';
@@ -78,10 +75,20 @@ function matchesShape(value, template, path = '') {
   requireValue(typeof value === typeof template, path);
 }
 
+// Les textes des missions se révisent indépendamment du contrat de sauvegarde :
+// une correction de registre ne doit invalider ni un point de reprise ni une fixture.
+// Les champs mécaniques et les identifiants restent comparés strictement.
+const MISSION_PROSE_KEYS = ['act', 'name', 'planet', 'biome', 'difficulty', 'duration', 'faction',
+  'description', 'briefing', 'hint', 'convoyLabel', 'evidenceLabel', 'intro', 'decision'];
+
+function missionDefinitionKey(mission) {
+  return JSON.stringify(Object.fromEntries(Object.entries(mission).filter(([key]) => !MISSION_PROSE_KEYS.includes(key))));
+}
+
 function validateGame(value, finished = false) {
   requireValue(isObject(value), 'état de mission absent');
   requireValue(value.version === 1 && MISSION_IDS.includes(value.missionId), 'version ou mission inconnue');
-  const walker = WALKERS.find(item => item.id === value.walkerId);
+  const walker = PLAYABLE_WALKERS.find(item => item.id === value.walkerId);
   requireValue(Boolean(walker) && own(DIFFICULTIES, value.difficultyId), 'châssis ou difficulté inconnus');
   number(value.seed, 0, 0xffffffff, 'graine', true);
   number(value.rng, 0, 0xffffffff, 'générateur aléatoire', true);
@@ -90,7 +97,7 @@ function validateGame(value, finished = false) {
   requireValue(template.missionId === value.missionId, 'mission indisponible dans cette version');
   matchesShape(value, template, 'mission');
   requireValue(value.planetId === template.planetId, 'planète incohérente');
-  requireValue(JSON.stringify(value.mission) === JSON.stringify(template.mission), 'définition de mission incompatible');
+  requireValue(missionDefinitionKey(value.mission) === missionDefinitionKey(template.mission), 'définition de mission incompatible');
   requireValue(JSON.stringify(value.walker) === JSON.stringify(template.walker), 'définition de châssis incompatible');
   requireValue(JSON.stringify(value.difficulty) === JSON.stringify(template.difficulty), 'paramètres de difficulté incompatibles');
   requireValue((finished ? ['playing', 'won', 'lost'] : ['playing']).includes(value.status), 'état de mission incompatible');
@@ -162,12 +169,12 @@ function validateGame(value, finished = false) {
     requireValue(finished || value.convoy.hp > 0, 'checkpoint après perte du convoi');
   } else requireValue(value.convoy === null, 'convoi inattendu');
   requireValue(value.decision.choice === null || (value.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : value.missionId === 'MI12' ? ['obey', 'defy', 'refuse'] : ['obey', 'defy']).includes(value.decision.choice), 'décision inconnue');
-  for (const key of ['title', 'body', 'options']) {
-    const dynamicBody = value.missionId === 'MI02' ? trainDecisionBody : value.missionId === 'MI03' ? networkDecisionBody : value.missionId === 'MI04' ? industrialDecisionBody : value.missionId === 'MI05' ? channelDecisionBody : value.missionId === 'MI06' ? dikeDecisionBody : value.missionId === 'MI07' ? ambulanceDecisionBody : value.missionId === 'MI08' ? departureDecisionBody : value.missionId === 'MI09' ? livingRouteDecisionBody : value.missionId === 'MI10' ? chemicalDecisionBody : value.missionId === 'MI11' ? voiceDecisionBody : value.missionId === 'MI12' ? relayDecisionBody : value.missionId === 'MI13' ? foundryDecisionBody : value.missionId === 'MI14' ? workshopDecisionBody : null;
-    const expected = key === 'body' && dynamicBody && (value.decision.active || value.decision.resolved)
-      ? dynamicBody(value) : template.decision[key];
-    requireValue(JSON.stringify(value.decision[key]) === JSON.stringify(expected), 'texte de décision incompatible');
-  }
+  // Le texte des options et du constat est révisable : il n'entre pas dans les faits simulés.
+  // Les identifiants d'options restent stricts, et l'état (active/resolved/choice) est vérifié plus bas.
+  requireValue(typeof value.decision.title === 'string' && typeof value.decision.body === 'string', 'texte de décision incompatible');
+  requireValue(Array.isArray(value.decision.options) && value.decision.options.length === template.decision.options.length
+    && value.decision.options.every(option => isObject(option) && typeof option.id === 'string' && typeof option.label === 'string'), 'options de décision incompatibles');
+  requireValue(JSON.stringify(value.decision.options.map(option => option.id)) === JSON.stringify(template.decision.options.map(option => option.id)), 'options de décision incompatibles');
   requireValue(value.decision.resolved === (value.decision.choice !== null), 'décision incohérente');
   requireValue(!(value.decision.active && value.decision.resolved), 'décision active déjà résolue');
   requireValue(Array.isArray(value.objectives) && value.objectives.length > 0 && value.objectives.length <= 12, 'objectifs absents');
@@ -421,7 +428,7 @@ export function createCampaign() {
       nacre: { passage: createChannelDossier(), dike: createDikeDossier(), fuelSpent: 0, ambulance: createAmbulanceDossier(), departure: createDepartureDossier() },
       thyr: { route: createLivingRouteDossier(), chemical: createChemicalDossier(), voice: createVoiceDossier(), relay: createRelayDossier() },
       kharon: { foundry: createFoundryDossier(), workshop: createWorkshopDossier() } },
-    fleet: Object.fromEntries(WALKERS.map(walker => [walker.id, { hull: walker.hull, feet: Array(walker.legs).fill(100), radiator: 100 }])),
+    fleet: Object.fromEntries(PLAYABLE_WALKERS.map(walker => [walker.id, { hull: walker.hull, feet: Array(walker.legs).fill(100), radiator: 100 }])),
     checkpoint: null, preDecisionCheckpoint: null, lastDebrief: null, maintenanceLog: [],
   };
 }
@@ -862,7 +869,7 @@ export function nextCampaignMissionId(campaign) {
 }
 
 function validateReceipt(receipt) {
-  requireValue(isObject(receipt) && MISSION_IDS.includes(receipt.missionId) && WALKERS.some(item => item.id === receipt.walkerId), 'rapport incompatible');
+  requireValue(isObject(receipt) && MISSION_IDS.includes(receipt.missionId) && PLAYABLE_WALKERS.some(item => item.id === receipt.walkerId), 'rapport incompatible');
   const commonKeys = ['missionId', 'missionName', 'walkerId', 'walkerName', 'hull', 'integrity', 'elapsed', 'collateral', 'kills', 'choice', 'partsGranted', 'tessLine', 'samiLine', 'decisionLabel'];
   const specificKeys = receipt.missionId === 'MI01' ? ['convoyIntegrity', 'route', 'pipeIntact', 'noticeFiled', 'filtersDeliveredCount', 'pipeRepairCost']
     : receipt.missionId === 'MI02' ? ['trainIntegrity', 'trainStopped', 'harpoonsReleased', 'hostagesTotal', 'hostagesRescued', 'hostagesLost', 'evidencePreserved', 'recordFiled']
@@ -872,7 +879,7 @@ function validateReceipt(receipt) {
   requireValue(Object.keys(receipt).length === expectedKeys.length && expectedKeys.every(key => own(receipt, key)), 'champs du rapport incompatibles');
   for (const key of ['walkerName', 'missionName', 'decisionLabel', 'tessLine', 'samiLine']) requireValue(typeof receipt[key] === 'string', `rapport ${key}`);
   requireValue((receipt.missionId === 'MI08' ? ['obey', 'delay', 'defy'] : receipt.missionId === 'MI12' ? ['obey', 'defy', 'refuse'] : ['obey', 'defy']).includes(receipt.choice), 'choix du rapport');
-  const walker = WALKERS.find(item => item.id === receipt.walkerId);
+  const walker = PLAYABLE_WALKERS.find(item => item.id === receipt.walkerId);
   number(receipt.hull, 0, walker.hull, 'coque du rapport');
   number(receipt.integrity, 0, 1, 'intégrité du rapport');
   requireValue(Math.abs(receipt.integrity - receipt.hull / walker.hull) < 1e-9, 'coque du rapport contradictoire');
@@ -966,7 +973,14 @@ function validateCampaign(campaign) {
   requireValue(isObject(campaign) && campaign.format === FORMAT, 'format inconnu');
   requireValue(campaign.version === CAMPAIGN_SAVE_VERSION, 'version non prise en charge, conservez votre fichier');
   walkJSON(campaign);
-  matchesShape(campaign, createCampaign(), 'campagne');
+  // A save may predate a newly playable chassis. Its fleet is validated below
+  // against the historical six and any known additional condition, so old
+  // fixtures keep their exact bytes while WK14 can be assigned on deployment.
+  const fleetTemplate = Object.fromEntries(Object.keys(isObject(campaign.fleet) ? campaign.fleet : {}).map(id => {
+    const known = PLAYABLE_WALKERS.find(walker => walker.id === id);
+    return [id, known ? { hull: 0, feet: Array(known.legs).fill(0), radiator: 0 } : null];
+  }));
+  matchesShape(campaign, { ...createCampaign(), fleet: fleetTemplate }, 'campagne');
   number(campaign.revision, 0, 1_000_000_000, 'révision', true);
   requireValue(['hangar', 'mission', 'complete'].includes(campaign.stage), 'séquence inconnue');
   requireValue(campaign.activeMissionId === null || MISSION_IDS.includes(campaign.activeMissionId), 'mission active inconnue');
@@ -992,9 +1006,12 @@ function validateCampaign(campaign) {
   number(world.communications.verifiedBuildings, 0, 2, 'Vesper bâtiments vérifiés', true);
   number(world.communications.civilRelaysOnline, 0, 2, 'Vesper relais civils en ligne', true);
   number(world.communications.residentsLost, 0, 1000, 'Vesper habitants perdus', true);
-  requireValue(Object.keys(campaign.fleet).length === WALKERS.length, 'parc de marcheurs');
-  for (const walker of WALKERS) {
+  requireValue(isObject(campaign.fleet) && WALKERS.every(walker => own(campaign.fleet, walker.id)), 'parc de marcheurs');
+  for (const id of Object.keys(campaign.fleet))
+    requireValue(PLAYABLE_WALKERS.some(walker => walker.id === id), 'châssis inconnu au parc');
+  for (const walker of PLAYABLE_WALKERS) {
     const condition = campaign.fleet[walker.id];
+    if (!condition) continue;
     requireValue(isObject(condition) && Array.isArray(condition.feet) && condition.feet.length === walker.legs, 'état d’atelier absent');
     number(condition.hull, 0, walker.hull, 'coque atelier');
     number(condition.radiator, 0, 100, 'radiateur atelier');
@@ -1392,7 +1409,7 @@ export function beginCampaignMission(campaign, options = {}) {
   if (missionId === 'MI12' && !campaign.completed.MI11) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le dossier de la voix de Thyr avant de rejoindre le troisième relais.' };
   if (missionId === 'MI13' && !campaign.completed.MI12) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le bilan des trois relais avant de prendre la route de Kharon.' };
   if (missionId === 'MI14' && !campaign.completed.MI13) return { ok: false, campaign, game: null, replay: false, message: 'Terminez le rapport du porteur avant de rejoindre le piquet de l’atelier.' };
-  const walkerId = WALKERS.some(walker => walker.id === options.walkerId) ? options.walkerId : WALKERS[0].id;
+  const walkerId = PLAYABLE_WALKERS.some(walker => walker.id === options.walkerId) ? options.walkerId : PLAYABLE_WALKERS[0].id;
   const replay = Boolean(options.replay || own(campaign.completed, missionId));
   if (!replay && campaign.stage === 'mission' && !options.restart) return { ok: false, campaign, game: null, replay: false, message: 'Une sortie est déjà en cours. Reprenez-la ou recommencez-la explicitement.' };
   const campaignContext = campaignContextFor(campaign, missionId);
@@ -1401,6 +1418,9 @@ export function beginCampaignMission(campaign, options = {}) {
   requireValue(game.missionId === missionId, 'mission de campagne indisponible');
   if (replay) return { ok: true, campaign, game, replay: true, message: 'Rejeu d’entraînement : le dossier de campagne reste inchangé.' };
   const next = clone(campaign);
+  // Assignment is the moment a chassis enters an older dossier: the six
+  // historical conditions stay untouched, WK14 starts intact on first deployment.
+  if (!own(next.fleet, walkerId)) next.fleet[walkerId] = { hull: game.walker.hull, feet: Array(game.walker.legs).fill(100), radiator: 100 };
   const condition = next.fleet[walkerId];
   game.player.hull = condition.hull;
   game.player.radiator.health = condition.radiator;
@@ -1724,7 +1744,7 @@ export function finishCampaignMission(campaign, game, options = {}) {
 }
 
 export function campaignRepairCost(campaign, walkerId) {
-  const walker = WALKERS.find(item => item.id === walkerId);
+  const walker = PLAYABLE_WALKERS.find(item => item.id === walkerId);
   const condition = campaign?.fleet?.[walkerId];
   if (!walker || !condition || !Array.isArray(condition.feet)) return 0;
   const hullDamage = Math.max(0, 1 - condition.hull / walker.hull);
@@ -1735,7 +1755,7 @@ export function campaignRepairCost(campaign, walkerId) {
 
 export function serviceCampaignWalker(campaign, walkerId) {
   validateCampaign(campaign);
-  const walker = WALKERS.find(item => item.id === walkerId);
+  const walker = PLAYABLE_WALKERS.find(item => item.id === walkerId);
   if (!walker) return { ok: false, campaign, cost: 0, message: 'Ce châssis ne figure pas au registre du hangar.' };
   if (campaign.stage === 'mission') return { ok: false, campaign, cost: 0, message: 'Le marcheur doit revenir au hangar avant une intervention.' };
   const cost = campaignRepairCost(campaign, walkerId);

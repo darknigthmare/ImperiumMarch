@@ -1,9 +1,9 @@
 # Contrat de simulation — prototype 0.12
 
-La simulation est un ensemble de modules JavaScript sans DOM, exécuté en secondes et en pixels monde. `WALKERS` et `MISSIONS` sont des tableaux ; les IDs sont stables. Les six châssis disponibles sont WK01, WK02, WK05, WK06, WK09 et WK10. `MISSIONS` garde OP01–OP03 ; `CAMPAIGN_MISSIONS` contient les onze missions MI01–MI11 ; `ALL_MISSIONS` sert à `createGame`. Les trois opérations restent indépendantes de la progression des missions de campagne. Le format de dossier courant est v11 ; les 21 missions MI12–MI32 restent conçues. Les sections v4 à v9 conservent les contrats de leur introduction historique, sans réduire cette portée actuelle.
+La simulation est un ensemble de modules JavaScript sans DOM, exécuté en secondes et en pixels monde. `WALKERS` et `MISSIONS` sont des tableaux ; les IDs sont stables. `WALKERS` porte les six profils peints du lot 0.4 (WK01, WK02, WK05, WK06, WK09, WK10) ; `PLAYABLE_WALKERS` ajoute WK14 Sentinelle, seul châssis du répertoire assignable au départ. `createGame` et le parc de campagne emploient `PLAYABLE_WALKERS`. `MISSIONS` garde OP01–OP03 ; `CAMPAIGN_MISSIONS` contient les onze missions MI01–MI11 ; `ALL_MISSIONS` sert à `createGame`. Les trois opérations restent indépendantes de la progression des missions de campagne. Le format de dossier courant est v11 ; les 21 missions MI12–MI32 restent conçues. Les sections v4 à v9 conservent les contrats de leur introduction historique, sans réduire cette portée actuelle.
 
 ```js
-import { WALKERS, MISSIONS, ENEMY_TYPES, DIFFICULTIES } from './content.mjs';
+import { WALKERS, PLAYABLE_WALKERS, MISSIONS, ENEMY_TYPES, DIFFICULTIES } from './content.mjs';
 import { createGame, updateGame, commandGame, terrainAt } from './simulation.mjs';
 const game = createGame({ walkerId: 'WK01', missionId: 'op01', difficulty: 'normal', assist: true, seed: 1847 });
 updateGame(game, 1 / 60, { move: 1, aimX: 1000, aimY: 580, fire: true });

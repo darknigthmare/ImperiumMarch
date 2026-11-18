@@ -2,7 +2,7 @@
 
 ## Chaque pas laisse une trace.
 
-**Nom de code :** ImperiumMarch · **Version de conception :** 0.15.1 · **Date :** 16 novembre 2026
+**Nom de code :** ImperiumMarch · **Version de conception :** 0.16.0 · **Date :** 18 novembre 2026
 
 **ORDRE DE CENDRE** est un jeu d’action tactique en 2D dans lequel le joueur pilote les machines d’occupation de l’Empire d’Orthe. D’abord chargé de « pacifier » ses mondes périphériques, il découvre que les catastrophes justifiant ces interventions sont en partie organisées par ceux qui prétendent les réparer. Sa machine ne change pas soudainement de nature lorsqu’il refuse un ordre : elle reste lourde, dangereuse et dépendante de pièces fabriquées par l’Empire. Il doit apprendre à s’en servir pour autre chose que contraindre.
 
@@ -241,3 +241,13 @@ Le contrat du classeur reste **21 onglets, 20 tables et 126 formules**. Le [guid
 **Conçu** signifie spécifié; **Prototype** signifie présent dans la portée détaillée de l’onglet éponyme; **À produire** désigne le travail identifié mais non livré; **Vérifié** doit toujours se rapporter à un contrôle réellement exécuté. Un test prévu dans QA ne devient pas vérifié parce que le code existe. Un asset illustré ne devient pas une animation intégrée parce qu’il est beau.
 
 La source structurée, les documents narratifs, le code et le rapport de validation doivent évoluer ensemble. C’est cette cohérence qui permettra de développer le projet au-delà de la première version sans perdre la direction du jeu.
+
+## 15. Le canon de la Continuité — 0.16
+
+La 0.16 complète la bible narrative par un canon explicite de l’appareil impérial : [CANON_EMPIRE.md](CANON_EMPIRE.md). Il décrit la doctrine de la Continuité, le lexique officiel et ce qu’il couvre, les décrets et règlements, les neuf organes, la chaîne ordinaire du crime en sept étapes, les lieux, la langue, les exécutants et les victimes. Il fixe aussi les règles de représentation : aucun symbole réel, aucune torture montrée, aucun charnier en spectacle, aucune animalisation des victimes. Le canon cite les pièces du monde — pages d’école, formulaires, feuilles de greffe, affiches, calendriers d’entretien — sans traduire les termes officiels à la place des personnages. La peur vient de ce que ces documents sont sincères et de ce qu’ils permettent.
+
+**Ce que la source contient désormais.** `data/bible.json` passe de 1 007 à **1 068 fiches**, sans retirer aucun ID ni promouvoir aucun statut. Les ajouts sont : cinq principes de représentation (`VI29–VI33`), quatre systèmes de classement, dette, effacement et confirmation (`SY136–SY139`), quatre unités de répression (`EN37–EN40`), huit portraits d’exécutants et de victimes (`PN15–PN22`), trente-deux documents, formulaires, registres, slogans, témoignages et lieux (`NA99–NA130`), et huit épreuves de châssis (`CT17–CT24`). Les planètes et les factions gagnent des descriptions de l’occupation ; les missions `MI15–MI32` reçoivent un déroulement, une vérité et une conséquence détaillés.
+
+**Épreuves de châssis.** [EPREUVES_CHASSIS.md](EPREUVES_CHASSIS.md) décrit huit missions liées à une machine, dont **CT21 — La paroi des Tisserands** : une ascension verticale de deux cent dix mètres pour le WK17 Tisserand, quadrupède bas à pattes rayonnantes, avec quatre appuis réels, trois postures, des prises qui cèdent et une descente qui est un second parcours. Aucune épreuve n’est implémentée ; seul WK14 est pilotable.
+
+**Limites.** Aucune mission `MI15–MI32` n’est jouable, aucun châssis `WK13, WK15–WK20` n’a de marche simulée, et l’export `docs/ORDRE_DE_CENDRE_Bible.xlsx` n’a pas été reconstruit : le générateur exige le runtime `@oai/artifact-tool`, absent de l’environnement. La source JSON fait foi ; l’écart d’export est signalé, pas masqué. Les avertissements de contenu et les options de représentation restent à éprouver avec des joueurs concernés.

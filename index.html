@@ -19,6 +19,7 @@
       <nav aria-label="Navigation principale">
         <button class="nav-item active" data-view="campaign">Campagne</button>
         <button class="nav-item" data-view="operations">Simulations</button>
+        <button class="nav-item" data-view="arena">Affrontements</button>
         <button class="nav-item" data-view="hangar">Hangar</button>
         <button class="nav-item" data-view="archives">Archives</button>
         <button class="nav-item" data-view="settings">Réglages</button>
@@ -65,6 +66,18 @@
       <div class="mission-selector"><div class="section-label"><span>THÉÂTRES D’OPÉRATIONS</span><span>03 SIGNAUX DISPONIBLES</span></div><div id="mission-cards" class="mission-cards"></div></div>
     </section>
 
+    <section id="view-arena" class="view arena-view" aria-label="Affrontements" hidden>
+      <div class="view-heading"><p class="eyebrow">BANC D’ESSAI / CARRIÈRE DES CENDRES, VESPER</p><h2>Affrontements.<br><em>Sept appuis, aucune excuse.</em></h2></div>
+      <p class="arena-lede">Le rite des carrières, bridé et diffusé par l’Empire : huit combattants, sept pierres, des marques au lieu de morts. Les machines chauffent et boitent comme en mission. Les bêtes ne sont jamais capturées : le banc rejoue leurs habitudes en ombres et consigne ses échecs.</p>
+      <div class="arena-tabs" role="tablist" aria-label="Affrontements">
+        <button class="active" role="tab" aria-selected="true" data-arena="tournament">Tournoi</button>
+        <button role="tab" aria-selected="false" data-arena="story">Histoire</button>
+        <button role="tab" aria-selected="false" data-arena="gallery">Chroniques</button>
+        <button role="tab" aria-selected="false" data-arena="rules">Règlement</button>
+      </div>
+      <div id="arena-content" class="arena-content"></div>
+    </section>
+
     <section id="view-hangar" class="view hangar-view" aria-label="Hangar des marcheurs" hidden>
       <div class="view-heading"><p class="eyebrow">PONT 04 / ATELIER DES APPUIS</p><h2>La machine.<br><em>Votre responsabilité.</em></h2></div>
       <div class="hangar-layout">
@@ -72,6 +85,7 @@
         <div class="rig-details"><p class="eyebrow" id="rig-role"></p><h3 id="rig-name"></h3><p id="rig-description"></p><div id="rig-stats"></div><dl class="weapon-details"><dt>ARMEMENT PRINCIPAL</dt><dd id="rig-weapon"></dd><dt>ARMEMENT SECONDAIRE</dt><dd id="rig-secondary"></dd></dl><p class="rig-note" id="rig-strength"></p><button id="confirm-rig" class="primary-button">ASSIGNER CE MARCHEUR <span>→</span></button></div>
       </div>
       <div id="walker-cards" class="walker-cards"></div>
+      <section class="corps-panel" aria-label="Répertoire des appuis"><div id="walker-corps" class="walker-corps"></div></section>
       <section class="workshop-panel" aria-label="Atelier et équipage"><div class="workshop-heading"><div><p class="eyebrow">TESS ARDAN / ÉTAT AU RETOUR</p><h3>Avant la prochaine marche.</h3></div><div class="workshop-stocks"><span id="workshop-parts" class="workshop-parts"></span><span id="workshop-fuel" class="workshop-fuel" hidden></span><span id="workshop-fuel-used" class="workshop-fuel" hidden></span></div></div><div class="workshop-grid"><article><p id="workshop-condition"></p><p id="workshop-repair-note" class="muted"></p><button id="campaign-repair" class="secondary-button">Réparer le marcheur</button></article><article><p id="workshop-pipe"></p><p id="workshop-sami" class="muted"></p><p id="workshop-network" class="muted" hidden></p><p id="workshop-industrial" class="muted" hidden></p><p id="workshop-nacre" class="muted" hidden></p><p id="workshop-dike" class="muted" hidden></p><p id="workshop-ambulance" class="muted" hidden></p><p id="workshop-departure" class="muted" hidden></p><p id="workshop-thyr" class="muted" hidden></p><p id="workshop-chemical" class="muted" hidden></p><p id="workshop-relay" hidden></p><p id="workshop-kharon" class="muted" hidden></p><p id="workshop-foundry" hidden></p><p id="workshop-voice" class="muted" hidden></p><button id="campaign-repair-pipe" class="secondary-button" hidden>Envoyer une équipe de réparation</button></article></div><p id="workshop-active-note" class="muted" hidden>Une mission est en cours. Reprenez-la pour retrouver le châssis déjà déployé. L’atelier sera disponible au retour.</p></section>
     </section>
 

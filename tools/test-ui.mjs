@@ -23,7 +23,7 @@ for (const id of ['briefing-dialog', 'pause-dialog', 'decision-dialog', 'result-
 for (const match of html.matchAll(/\bdata-close=["']([^"']+)["']/g)) assert.ok(dialogs.includes(match[1]), `Close button targets absent dialog: ${match[1]}`);
 
 const views = [...new Set([...html.matchAll(/\bdata-view=["']([^"']+)["']/g)].map(m => m[1]))];
-assert.deepEqual(views.sort(), ['archives', 'campaign', 'hangar', 'operations', 'settings']);
+assert.deepEqual(views.sort(), ['archives', 'arena', 'campaign', 'hangar', 'operations', 'settings']);
 for (const view of views) assert.ok(idSet.has(`view-${view}`), `Missing view ${view}`);
 const archives = [...new Set([...html.matchAll(/\bdata-archive=["']([^"']+)["']/g)].map(m => m[1]))];
 assert.deepEqual(archives.sort(), ['doctrine', 'factions', 'records', 'worlds']);
