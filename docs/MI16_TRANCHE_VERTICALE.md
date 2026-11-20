@@ -208,7 +208,7 @@ Aucun état ne rend la mission **impossible à terminer** sans échec explicite 
 | Source | Cible | Dégât | Signal | Évitement |
 | --- | --- | --- | --- | --- |
 | Rafale de Cohorte | personne la plus exposée | 1 touche = blessé, 2 = hors service, 3 = mort | ligne de visée **2 s** | s’abriter 1 s derrière une caisse, ou reculer hors de portée |
-| Charge de brèche (une seule, 60 s après alerte) | navette | coque −25, rampe −30 | sifflement et marquage au sol **5 s** | fermer la rampe ou se placer derrière la cloison |
+| Charge de brèche (une seule, 60 s après alerte) | navette | coque −80, rampe −30 | sifflement et marquage au sol **5 s** | fermer la rampe ou se placer derrière la cloison |
 | Broyage de rampe | ce qui est sur la rampe | candidat mort ; équipage blessé ; rampe −15 | avertissement de fermeture **2 s** | vérifier la rampe avant de fermer |
 | Chute de caisse | caisse et assistant | caisse endommagée (`proofDamaged`) ; assistant blessé | la caisse penche **2 s** | reposer la caisse ou dégager |
 | Envahissement | tout ce qui est dehors | mort ou capture | compte à rebours **10 s** | fermer la rampe et partir |
@@ -237,6 +237,8 @@ Un candidat touché est **blessé** à la première touche, **mort** à la secon
 **Réparation** : une caisse de pièces peut être consommée sur place (6 s, 4 s avec Dara Morn à bord) pour rendre **+20** au système le plus bas. Elle ne monte alors pas à bord et libère sa place. Une seule réparation par sortie.
 
 La navette n’est pas La Veilleuse : ses dégâts sont propres à la sortie. Le reçu les consigne ; la campagne ne retient que le départ accompli ou non.
+
+**Conséquence de la brèche** : non réparée, la navette reste au sol (coque 20, sous le seuil 25) ; réparée une fois, elle repart à 40, encore `damaged`. Une caisse non arrimée est alors perdue (coque < 50), ce qui rend `QA263` éprouvable en jeu. `lost` (coque 0) reste une borne de validation, produite par état construit : aucun parcours complet ne la déclenche aujourd’hui.
 
 ### 8.5 États d’échec
 
@@ -460,7 +462,7 @@ Aucune preuve perdue n’est reconstituée ; aucune personne morte n’est ressu
 | `tests/mi16-simulation.test.mjs` | 16 places allouables ; coûts 1/2/2/1 ; refus de dépassement avec motif ; arrimage interrompu non crédité ; 340 charges comptées avec 12 silhouettes ; Cohorte absente avant alerte ; déterminisme à graine fixe | lot 1 |
 | `tests/mi16-report.test.mjs` | 3 clauses × 3 s ; extraction refusée sans rapport ; rapport incomplet interdit `obey` ; les faits ne sont pas réécrits | lot 1 |
 | `tests/mi16-dossier.test.mjs` | `PO04` exige 2 écoutes + bordereau + clause 3 ; sinon constat seul ; reçu = dossier ; effectifs réconciliés ; `PT04`/`TE02` jamais créés ; blessés et morts comptés | lot 1 |
-| `tests/mi16-vulnerability.test.mjs` | états 3/2/1/0 ; paliers 1/2/3 touches ; Hela et Sera jamais mortes ; effets chiffrés de §8.2 ; télégraphe ≥ 2 s pour chaque source ; chute de caisse et broyage de rampe ; réparation unique par caisse de pièces | lot 1 |
+| `tests/mi16-vulnerability.test.mjs` | états 3/2/1/0 ; paliers 1/2/3 touches ; Hela et Sera jamais mortes ; effets chiffrés de §8.2 ; télégraphe ≥ 2 s pour chaque source ; chute de caisse et broyage de rampe ; réparation unique par sortie, une caisse consommée | lot 1 |
 | `tests/mi16-failure.test.mjs` | les sept motifs ; `lastFailure` sans champ de victoire ; avertissement d’abandon à 1 050 et motif à 900 ; reprise restaurant blessés, morts et dégâts ; `left-behind` exige rapport + preuve ; `shuttle-grounded` sans reçu | lot 2 |
 | `tests/mi16-cargo-persistence.test.mjs` | après victoire, `ship.cargo` = exactement ce qui est arrivé ; `free = 16 − Σ slots` ; `obey` sort les preuves et libère les places ; `defy` les conserve ; défaite et relecture laissent la cale identique ; aucun doublon d’`id` ; `hold.requires` refusé au briefing ; une preuve `left` ou `damaged` n’est jamais reconstituée | lot 2 |
 | `tests/mi16-defection.test.mjs` | `defy` sans preuve/rapport/accord/navette départable refusé ; `defected` et `depots.sealed` seulement sur reçu valide ; aucune dotation en défection | lot 2 |
@@ -543,7 +545,7 @@ Si le journal est reporté, ces deux faits restent dans `world.kharon.withdrawal
 | Navette | Seuils de départ | **25 / 30 / 20 / 20** |
 | Navette | Bandes d’état | `nominal` > 60 ; `damaged` ≤ 60 ; `critical` ≤ 25 ou moteur ≤ 30 |
 | Navette | Réparation | **6 s** (**4 s** avec Dara), **+20**, une seule fois |
-| Navette | Dommages | brèche **−25** coque / **−30** rampe ; broyage **−15** rampe |
+| Navette | Dommages | brèche **−80** coque / **−30** rampe ; broyage **−15** rampe |
 | Navette | Caisse non arrimée | perdue au départ si coque **< 50** |
 | Rapport | Clauses | personnes / preuves et pièces / état de la relève |
 | Défection | Conditions | rapport + **≥ 1** preuve + accord de Hela + navette départable |
@@ -590,7 +592,7 @@ Ces trois profils sont les cas d’entrée du lot 0 et les scénarios de `QA258`
 | Lot | Contenu | Jours | Dépend de | Risque principal |
 | --- | --- | ---: | --- | --- |
 | **0** | Lot 0 clos : décisions §16.1, constantes §16.2, profils §16.3, écriture des 8 candidats et des 5 caisses | **1** | — | Équilibre 16/23 injouable |
-| **1** | `withdrawal-simulation.mjs`, `withdrawal-validation.mjs`, configuration de mission, blessures, signaux, seuils de navette | **7** | Lot 0 | Domaine trop large, piège de performance de la colonne |
+| **1** | `withdrawal-simulation.mjs`, `withdrawal-validation.mjs`, configuration de mission, blessures, signaux, seuils de navette — détail §17.7 | **7** | Lot 0 | Domaine trop large, piège de performance de la colonne |
 | **2** | Save v15, migration v14→v15, reçu, défection, `lastFailure`, cale persistante, progression | **4** | Lot 1 (contrat de validation stable) | Migration qui réécrit un reçu ; fixture v14 absente |
 | **3** | Renderer, HUD, panneau de places, dialogue de rapport | **4** | Lots 1 et 2 | Rendu qui invente des positions ; double vérité des places |
 | **4** | Lignes d’équipage, archives minimales, audio | **2** | Lots 2 et 3 | Texte hors canon ; dérive audio |
@@ -626,7 +628,7 @@ Chemin critique : **0 → 1 → 2 → 3 → 5**, soit **18 jours**. Le lot 4 peu
 | Lot | Sortie vérifiable |
 | --- | --- |
 | **0** | §16.1 sans question ouverte ; §16.2 figé ; les trois profils de §16.3 recalculés à la main (P1 = 19 refusé, P2 = 14 accepté, P3 = 15 accepté) et reproductibles sans interface. |
-| **1** | Quatre suites headless passent (`mi16-simulation`, `mi16-report`, `mi16-dossier`, `mi16-vulnerability`) ; deux exécutions à graine fixe donnent le même état sérialisé ; les 7 motifs d’échec, les 8 candidats et les 5 caisses sont couverts ; trois chargements types terminent en victoire sans DOM. |
+| **1** | Quatre suites headless passent (`mi16-simulation`, `mi16-report`, `mi16-dossier`, `mi16-vulnerability`) ; deux exécutions à graine fixe donnent le même état sérialisé ; les 7 motifs d’échec, les 8 candidats et les 5 caisses sont couverts ; trois profils rejoués, dont un refusé à 19 places et deux victoires, sans DOM. Détail, ordre et sorties intermédiaires au §17.7. |
 | **2** | Quatre suites passent (`campaign-v15`, `mi16-defection`, `mi16-failure`, `mi16-cargo-persistence`) ; les 14 reçus sont identiques **valeurs et clés** ; deux fixtures v15 produites par migration (`campaign-v15-migrated`, `campaign-v15-chain`) avec leurs SHA-256, plus la fixture MI16 figée après réception ; une double migration donne le même octet ; un v15 sans MI16 est valide. |
 | **3** | `check:ui` et `check:ui-runtime` passent ; un parcours clavier complet gagne MI16 ; trois refus visibles (capacité, rapport absent, navette au sol) ; aucun état graphique ajouté au dossier ; aucune constante de position dans le renderer. |
 | **4** | Le reçu porte six lignes d’équipage nommées ; deux entrées de journal existent (preuve et perte) ; l’onglet Archives nomme les personnes laissées ; cinq repères audio — rampe, caisse, tampon du rapport, sirène de Cohorte, départ — sont déclenchés par des événements simulés ; aucun nouveau champ de sauvegarde. |
@@ -647,6 +649,78 @@ Chaque lot se termine par une revue de statut : tant qu’un lot n’est pas re�
 | **Total** | **20** | **100 %** |
 
 Un glissement du lot 2 décale le lot 3 d’autant ; il ne se compense jamais par une compression du lot 5. Si le lot 1 dépasse J8, la marge passe de 4 à 2 jours et le lot 2 démarre sur le contrat de validation déjà figé, pas sur une version mouvante. Un lot 0 qui dépasse un jour est un signal de conception, pas un retard d’exécution : les décisions se tranchent avant d’écrire la simulation.
+
+### 17.7 Lot 1 — plan d’exécution détaillé (7 jours)
+
+**Principe.** Un seul domaine, cinq étapes fonctionnelles puis une étape d’intégration, dans l’ordre imposé, **tests écrits dans la même journée que l’étape** : une étape n’est pas « finie » parce que le code tourne, mais parce que ses scénarios passent et que l’étape suivante peut consommer son contrat. Aucune étape ne touche la sauvegarde, l’interface ou le rendu.
+
+#### Fichiers touchés
+
+| Fichier | Nature | Rôle |
+| --- | --- | --- |
+| `src/content.mjs` | modifié | entrée `MI16`, bloc `withdrawal`, 8 candidats, 5 caisses, constantes du §16.2 |
+| `src/withdrawal-simulation.mjs` | **nouveau** | état `s.withdrawal`, cargaison, rapport, PO04, décision, dommages |
+| `src/withdrawal-validation.mjs` | **nouveau** | sept fonctions du contrat, dossier, reçu, sortie |
+| `src/simulation.mjs` | modifié | import/export, runtime, création, interaction, choix, mise à jour, solides, pieds, garde des ennemis |
+| `tests/helpers/mi16-driver.mjs` | **nouveau** | pilote par `commandGame`/`updateGame`, aucun déplacement direct d’état |
+| `tests/mi16-simulation.test.mjs` | **nouveau** | cargaison, décision, motifs, déterminisme |
+| `tests/mi16-report.test.mjs` | **nouveau** | rapport bloquant |
+| `tests/mi16-dossier.test.mjs` | **nouveau** | PO04, dossier, reçu |
+| `tests/mi16-vulnerability.test.mjs` | **nouveau** | blessures, télégraphes, navette, abandon |
+
+**Non touchés au lot 1** : `src/campaign.mjs` (lot 2), `src/main.mjs`, `src/ui.mjs`, `index.html`, les renderers et les assets (lot 3), `CAMPAIGN_SAVE_VERSION`, `data/bible.json`. Le domaine est testé seul, sans campagne et sans DOM.
+
+#### Contrat d’interface à figer (fin J6)
+
+`withdrawal-simulation.mjs` expose : `createWithdrawalMission`, `withdrawalSurface`, `withdrawalSolids`, `refreshWithdrawalFacts`, `withdrawalInteraction`, `interactWithdrawalMission`, `chooseWithdrawalMission`, `withdrawalFootfall`, `hitWithdrawalPart`, `updateWithdrawalMission`, `withdrawalObjectives`, `withdrawalDerivedFacts`, `withdrawalReceiptRoster`, `withdrawalContext`, `withdrawalDecisionBody` — mêmes rôles que le domaine `workshop`.
+
+État minimal `s.withdrawal` : `places {total, reserved, free}`, `cargo`, `operations`, `report`, `proofs`, `po04`, `decision`, `shuttle`, `crew`, `candidates`, `column`, `alert`, `abandon`. Aucun de ces champs ne sort du domaine avant le lot 2.
+
+#### Étape 1 — Cargaison (J1–J2)
+
+- **État et opérations** : inventaire réel (5 preuves si `PO04` est acquise, sinon 4 ; 4 pièces, 8 candidats), affectation des 16 places, arrimage de caisse (2 s), embarquement (1,5 s), brancard (4 s), arrêt et reprise sans crédit partiel, refus motivés `capacité`, `réservé`, `déjà chargé`.
+- **Fichiers** : `content.mjs` (bloc et constantes), `withdrawal-simulation.mjs` (places, opérations), `simulation.mjs` (création, interaction, mise à jour), `mi16-driver.mjs` (déplacement et chargement).
+- **Tests** : `mi16-simulation` — 20/4/16, coûts 1/2/2/1, trois profils §16.3 (P1 refusé à 19 avec `PO04`, 17 sans ; P2 accepté à 14 ou 12 ; P3 accepté à 15), trois motifs de refus (`capacité`, `réservé`, `déjà chargé`), libération d’une place autorisant exactement son coût, arrimage interrompu non crédité, quatre places réservées non débarquables, aucune place créée par reprise.
+- **Sortie mesurable** : P1 produit exactement `capacité` avec 3 places de trop ; P2 et P3 laissent 2 et 1 place ; interrompre à 50 % laisse 0 place créditée et la caisse au quai ; le total recalculé après chaque opération égale l’affichage ; libérer une place ne rend jamais plus que son coût.
+
+#### Étape 2 — Rapport (J3)
+
+- **État et opérations** : trois clauses de 3 s, transmission obligatoire, verrou de fermeture de rampe, rapport incomplet, refus d’extraction, sortie perdue terminale.
+- **Fichiers** : `withdrawal-simulation.mjs` (console, clauses, verrou), `simulation.mjs` (interaction console, statut perdu), `mi16-report.test.mjs`.
+- **Tests** : `mi16-report` — trois clauses, 9 s cumulées, fermeture refusée sans transmission, sortie perdue sans reçu, clause vide interdit `obey`, `defy` interdit sans preuve, le rapport ne modifie ni morts ni caisses, `reportFiled`, les trois booléens et `reportWording` consignés.
+- **Sortie mesurable** : 0 fermeture acceptée sans transmission ; 0 `obey` accepté avec une clause vide ; 1 sortie perdue avec checkpoint et reprise sans crédit ; 3 booléens de clauses et 2 libellés testés ; aucun fait modifié par la rédaction.
+
+#### Étape 3 — PO04 (J4)
+
+- **État et opérations** : deux écoutes de 5 s (+1 exposition chacune), copie du bordereau (3 s, 2 s avec Nad), certification de la clause 3, assemblage conditionnel de `PO04`.
+- **Fichiers** : `withdrawal-simulation.mjs` (écoutes, bordereau, assemblage), `withdrawal-validation.mjs` (preuve et constat), `mi16-dossier.test.mjs`.
+- **Tests** : `mi16-dossier` — les 8 combinaisons des trois actes, une seule donne `PO04` ; chaque absence produit un constat avec l’acte manquant, sa date et sa source ; `PO04` ne clôt pas la chaîne PALINODE ; `PT04` et `TE02` jamais créés ; caisse endommagée conservée mais non certifiée.
+- **Sortie mesurable** : 1 chemin sur 8 produit `PO04` ; 7 constats nomment l’acte manquant ; 3 actes portent date et source dans le dossier ; 0 occurrence de `PT04`/`TE02` dans le dossier sérialisé.
+
+#### Étape 4 — Défection (J5)
+
+- **État et opérations** : options `obey`/`defy`, accord de Hela (3 s), quatre conditions cumulatives, quatre motifs de refus (`no-report`, `no-proof`, `no-accord`, `shuttle-down`), `defected` et `ilanPosition` dans le domaine.
+- **Fichiers** : `withdrawal-simulation.mjs` (décision, accord), `withdrawal-validation.mjs` (`validateWithdrawalSortie`), `mi16-simulation` et `mi16-dossier` (cas de décision de domaine). La persistance `defected`/`depots.sealed` et la dotation restent dans `mi16-defection`, lot 2.
+- **Tests** : quatre refus, `obey` valide, `defy` valide avec rapport + preuve + accord + navette départable, aucune troisième option, reçu `defy` incohérent rejeté.
+- **Sortie mesurable** : 4 motifs distincts ; 2 décisions valides ; 0 reçu `defy` accepté sans preuve ; 0 `defected` sans sortie validée.
+
+#### Étape 5 — Vulnérabilité (J6)
+
+- **État et opérations** : états 3/2/1/0, paliers de touches, effets chiffrés §8.2, alerte à la première écoute ou au premier tir, arrivée à 75 s, brèche à 60 s, broyage de rampe, chute de caisse, seuils de navette, réparation unique, ligne d’abandon 1 050/900, sept motifs d’échec.
+- **Fichiers** : `withdrawal-simulation.mjs` (dégâts, signaux, horloges), `withdrawal-validation.mjs` (états et bornes), `mi16-vulnerability.test.mjs`, extension `mi16-simulation`.
+- **Tests** : chaque source a un télégraphe ≥ 2 s et un évitement ; Hela et Sera jamais mortes ; Kader, Milo, Jun, Ilan et candidats mortels ; réparation une seule fois ; caisse non arrimée perdue si coque < 50 ; `grounded` et `lost` distincts ; abandon après avertissement ; 7 motifs atteignables.
+- **Sortie mesurable** : 7 motifs déclenchés en headless, dont `shuttle-lost` par état construit ; 0 mort sans signal ≥ 2 s ; 1 seule réparation acceptée ; brèche non réparée → coque 20 et `grounded`, réparée → 40 et départ possible ; 4 refus de départ (coque par la brèche ; moteur, rampe et verrou par état construit) ; abandon uniquement après l’avertissement à 1 050 et la ligne à 900 ; les 7 motifs restent des états de domaine, `lastFailure` appartient au lot 2.
+
+#### Étape 6 — Intégration du lot (J7)
+
+- **Contenu** : pilote complet, trois profils de bout en bout, durcissement des bornes, revue du contrat d’interface, documentation des scénarios dans le reçu de lot.
+- **Fichiers** : `tests/helpers/mi16-driver.mjs`, les quatre suites, `withdrawal-validation.mjs` (bornes finales).
+- **Tests** : `mi16-driver` gagne P2 et P3 avec `obey` et `defy` ; P1 s’arrête sur `capacité` ; deux exécutions à graine fixe donnent le même état sérialisé ; aucune importation DOM dans les deux modules du domaine.
+- **Sortie mesurable** : 4 suites vertes ; 3 profils rejoués ; 2 sérialisations identiques ; 0 référence à `document`/`window` dans le domaine et la validation ; suite complète sous 60 s ; contrat d’interface listé ci-dessus figé pour le lot 2.
+
+#### Règle de dépassement du lot 1
+
+Si l’étape 1 dépasse J2, l’étape 2 démarre quand même J3 : le rapport ne dépend pas de l’équilibre des places, seulement du compteur. Si l’étape 4 dépasse J5, la vulnérabilité commence J6 sur les dégâts de navette seuls, et la défection est reprise J7. Un lot 1 qui atteint J8 sans les 4 suites déclenche la revue de périmètre prévue au §17.4 : on retire la chute de caisse et le broyage de rampe du lot, jamais les 16 places ni le rapport.
 
 ---
 
