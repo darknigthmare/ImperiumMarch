@@ -4,7 +4,7 @@
 
 Ce dossier est une liasse. On y a rangé ce que l’équipage a pu copier, photographier ou entendre entre Vesper et Orthe : des papiers officiels, des pages d’école, des formulaires, des bribes de radio, des phrases de file d’attente. Les pièces sont citées telles quelles. Ce qui les entoure est de nous.
 
-Il complète [la bible narrative](BIBLE_FR.md) et [la campagne](CAMPAIGN_FR.md). La source structurée est [data/bible.json](../data/bible.json) : `NA99–NA130` pour les pièces, `PN15–PN22` pour les personnes, `SY136–SY139` pour les mécanismes, `EN37–EN40` pour les unités, `VI29–VI33` pour les principes de représentation, `MI15–MI32` pour les missions.
+Il complète [la bible narrative](BIBLE_FR.md), [la campagne](CAMPAIGN_FR.md) et [la chronique des mondes](CHRONIQUE_DES_MONDES.md), qui date l’appareil, explique le titre (`NA138`, `NA159`) et décrit les cultures des huit planètes. La source structurée est [data/bible.json](../data/bible.json) : `NA99–NA130` pour les pièces, `PN15–PN22` pour les personnes, `SY136–SY139` pour les mécanismes, `EN37–EN40` pour les unités, `VI29–VI33` pour les principes de représentation, `MI15–MI32` pour les missions.
 
 **Statut :** tout est **Conçu**. Rien de ce dossier n’est implémenté : ni scène, ni dialogue joué, ni niveau. `MI01–MI14` restent seules jouables au stade prototype.
 

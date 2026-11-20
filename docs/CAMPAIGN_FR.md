@@ -1,10 +1,10 @@
 # ORDRE DE CENDRE — Campagne et continuité
 
-**Version de conception et de production 0.16.0 · 18 novembre 2026**
+**Version de conception et de production 0.16.0 · complément de chronique 0.16.1 · 20 novembre 2026**
 
 Ce document décrit la campagne cible : **32 missions principales, 16 contrats de campagne, 8 épreuves de châssis, 4 actes et 4 familles de fins**. **MI01–MI14 sont jouables au stade prototype**, avec progression, **dossier v14** et reprise. Les **18 missions MI15–MI32**, les seize contrats et les huit épreuves restent conçus.
 
-La source de la Bible contient **1 068 fiches** depuis la 0.16 ; elle conserve **20 onglets de conception**, soit **21 onglets avec la synthèse**, **20 tables** et **126 formules**. Le canon de l’appareil impérial est détaillé dans [CANON_EMPIRE.md](CANON_EMPIRE.md) et les épreuves dans [EPREUVES_CHASSIS.md](EPREUVES_CHASSIS.md). L’export XLSX de cette tranche n’a pas été reconstruit : la réception de l’export reste distincte de cette description de périmètre.
+La source de la Bible contient **1 157 fiches** depuis le complément de chronique 0.16.1 ; elle conserve **20 onglets de conception**, soit **21 onglets avec la synthèse**, **20 tables** et **126 formules**. Le canon de l’appareil impérial est détaillé dans [CANON_EMPIRE.md](CANON_EMPIRE.md) et les épreuves dans [EPREUVES_CHASSIS.md](EPREUVES_CHASSIS.md). L’export XLSX de cette tranche n’a pas été reconstruit : la réception de l’export reste distincte de cette description de périmètre.
 
 Les trois opérations OP01–OP03 du prototype servent à éprouver des systèmes et des situations; elles ne constituent pas trois missions finales de cette campagne. Le [concept complet](CONCEPT_COMPLET_V04.md) précise leur cadence; la [matrice de Vesper](VESPER_CONSEQUENCES_V05.md) décrit les conséquences exécutées sur Vesper. Le [contrat de Nacre 0.9](NACRE_CONSEQUENCES_V09.md) précise les quatre sorties jouables, leurs populations et leurs arrivées distinctes. Les contrats de [MI09](CAMPAIGN_MISSION_09.md), [MI10](CAMPAIGN_MISSION_10.md) et [MI11](CAMPAIGN_MISSION_11.md) gardent leurs détails historiques. Le [bilan de reconstruction](PRODUCTION_V14_RECONSTRUCTION.md) décrit MI12, quatrième sortie de Thyr, et MI13, première sortie de Kharon.
 
@@ -588,3 +588,13 @@ Avant validation d’une mission, vérifier que l’ordre peut être compris, qu
 Chaque mission doit aussi survivre à la perte d’une source secondaire, à la destruction d’un objet trop tôt et à un ordre d’exécution différent des objectifs indépendants. Ces événements peuvent fermer une variante, mais ne doivent pas créer une campagne impossible à terminer sans avertissement.
 
 Le langage reste incarné. Une médecin parle d’un trajet de brancard, un mécanicien d’une pièce qui ne tiendra pas et un habitant d’une maison qui prend l’eau. Les termes du système narratif — confiance, preuve, état, embranchement — appartiennent à la conception; ils ne doivent pas envahir artificiellement leurs dialogues.
+
+## 10. Chronologie, cultures et fins détaillées (0.16.1)
+
+La campagne est désormais datée. Elle commence le **12 Compte EC 61**, neuf jours avant la clôture du recompte décennal (`NA137`), et s’achève le **21 Fonte EC 61**, au dégel. Les quatre actes se répartissent en six mois et quatre-vingt-un jours de transit : Vesper et Nacre à l’acte I, Thyr et Kharon à l’acte II, Sereis et Ilex à l’acte III, Méridien et Orthe à l’acte IV. La date de chaque mission, la saison et le temps de route viennent de [CHRONIQUE_DES_MONDES.md](CHRONIQUE_DES_MONDES.md) et du système `SY141`.
+
+Les huit mondes ont maintenant une culture, un métier, une manière de compter ses morts et un mot pour l’Empire. Les Khelt comptent par douze ; le khelt se parle par résonances et ne se traduit jamais entièrement (`NA144`). Les humains n’ont pas de monnaie commune, mais des rations, des créances et des lots (`NA145`). Ces faits ne changent aucun nombre de mission : ils changent ce que les personnages peuvent dire et ce que le joueur peut comprendre.
+
+L’équipage prend corps : **La Veilleuse**, remorqueur-atelier de secours converti, deux berceaux, une cale, des places comptées (`NA161`, `SY142`). Hela Brunt, Kader Oyun, Milo Traen et Jun Otxoa rejoignent Sera, Ilan, Tess et Nima (`PN23–PN26`). La défection de MI16 devient un choix de cargaison : chaque caisse montée retire une place, chaque personne embarquée retire une caisse.
+
+Les fins `FI01–FI04` reçoivent leurs conditions, leur coût et sept épilogues locaux (quai d’Aval, verger de Thyr, atelier de Kharon, banquise, jardin d’Ilex, silo de Méridien, Mur d’Orthe). Leur résolution est déterministe (`SY143`) et ne passe jamais par un dernier dialogue. Les pertes restent nommées, y compris dans la meilleure issue. Voir aussi [COMPLETUDE_FR.md](COMPLETUDE_FR.md) pour ce qui reste à produire.
