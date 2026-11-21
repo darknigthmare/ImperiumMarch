@@ -208,7 +208,7 @@ Aucun état ne rend la mission **impossible à terminer** sans échec explicite 
 | Source | Cible | Dégât | Signal | Évitement |
 | --- | --- | --- | --- | --- |
 | Rafale de Cohorte | personne la plus exposée | 1 touche = blessé, 2 = hors service, 3 = mort | ligne de visée **2 s** | s’abriter 1 s derrière une caisse, ou reculer hors de portée |
-| Charge de brèche (une seule, 60 s après alerte) | navette | coque −80, rampe −30 | sifflement et marquage au sol **5 s** | fermer la rampe ou se placer derrière la cloison |
+| Charge de brèche (une seule, 60 s après alerte) | navette | coque −60, rampe −30 | sifflement et marquage au sol **5 s** | fermer la rampe ou se placer derrière la cloison |
 | Broyage de rampe | ce qui est sur la rampe | candidat mort ; équipage blessé ; rampe −15 | avertissement de fermeture **2 s** | vérifier la rampe avant de fermer |
 | Chute de caisse | caisse et assistant | caisse endommagée (`proofDamaged`) ; assistant blessé | la caisse penche **2 s** | reposer la caisse ou dégager |
 | Envahissement | tout ce qui est dehors | mort ou capture | compte à rebours **10 s** | fermer la rampe et partir |
@@ -236,9 +236,11 @@ Un candidat touché est **blessé** à la première touche, **mort** à la secon
 
 **Réparation** : une caisse de pièces peut être consommée sur place (6 s, 4 s avec Dara Morn à bord) pour rendre **+20** au système le plus bas. Elle ne monte alors pas à bord et libère sa place. Une seule réparation par sortie.
 
+**Fenêtre de sortie** : après une brèche à 60 s, **Ilan ferme la rampe (8 s) pendant que Kader répare (6 s)** ; les deux tâches sont parallèles. La navette est prête à **70 s** (73 s en `critical`), dans la fenêtre de 75 s. En séquence, 8 + 6 + 2 = **76 s** : la réparation ne tiendrait pas. Le parallélisme est une règle, pas une optimisation.
+
 La navette n’est pas La Veilleuse : ses dégâts sont propres à la sortie. Le reçu les consigne ; la campagne ne retient que le départ accompli ou non.
 
-**Conséquence de la brèche** : non réparée, la navette reste au sol (coque 20, sous le seuil 25) ; réparée une fois, elle repart à 40, encore `damaged`. Une caisse non arrimée est alors perdue (coque < 50), ce qui rend `QA263` éprouvable en jeu. `lost` (coque 0) reste une borne de validation, produite par état construit : aucun parcours complet ne la déclenche aujourd’hui.
+**Conséquence de la brèche** : non réparée, la coque tombe à 40 — au-dessus du seuil 25, donc le départ reste possible en `damaged` (+2 s) ; les caisses non arrimées sont perdues (coque < 50), ce qui rend `QA263` éprouvable en jeu. Réparée une fois (+20), la coque remonte à 60 : les caisses non arrimées arrivent, la navette reste `damaged`. P3, sans pièce, part donc toujours mais ne peut pas sauver ses caisses non arrimées. `grounded` et `lost` restent des bornes de validation, produites par état construit : aucun parcours complet ne les déclenche aujourd’hui.
 
 ### 8.5 États d’échec
 
@@ -545,7 +547,7 @@ Si le journal est reporté, ces deux faits restent dans `world.kharon.withdrawal
 | Navette | Seuils de départ | **25 / 30 / 20 / 20** |
 | Navette | Bandes d’état | `nominal` > 60 ; `damaged` ≤ 60 ; `critical` ≤ 25 ou moteur ≤ 30 |
 | Navette | Réparation | **6 s** (**4 s** avec Dara), **+20**, une seule fois |
-| Navette | Dommages | brèche **−80** coque / **−30** rampe ; broyage **−15** rampe |
+| Navette | Dommages | brèche **−60** coque / **−30** rampe ; broyage **−15** rampe |
 | Navette | Caisse non arrimée | perdue au départ si coque **< 50** |
 | Rapport | Clauses | personnes / preuves et pièces / état de la relève |
 | Défection | Conditions | rapport + **≥ 1** preuve + accord de Hela + navette départable |
@@ -709,7 +711,7 @@ Un glissement du lot 2 décale le lot 3 d’autant ; il ne se compense jamais pa
 - **État et opérations** : états 3/2/1/0, paliers de touches, effets chiffrés §8.2, alerte à la première écoute ou au premier tir, arrivée à 75 s, brèche à 60 s, broyage de rampe, chute de caisse, seuils de navette, réparation unique, ligne d’abandon 1 050/900, sept motifs d’échec.
 - **Fichiers** : `withdrawal-simulation.mjs` (dégâts, signaux, horloges), `withdrawal-validation.mjs` (états et bornes), `mi16-vulnerability.test.mjs`, extension `mi16-simulation`.
 - **Tests** : chaque source a un télégraphe ≥ 2 s et un évitement ; Hela et Sera jamais mortes ; Kader, Milo, Jun, Ilan et candidats mortels ; réparation une seule fois ; caisse non arrimée perdue si coque < 50 ; `grounded` et `lost` distincts ; abandon après avertissement ; 7 motifs atteignables.
-- **Sortie mesurable** : 7 motifs déclenchés en headless, dont `shuttle-lost` par état construit ; 0 mort sans signal ≥ 2 s ; 1 seule réparation acceptée ; brèche non réparée → coque 20 et `grounded`, réparée → 40 et départ possible ; 4 refus de départ (coque par la brèche ; moteur, rampe et verrou par état construit) ; abandon uniquement après l’avertissement à 1 050 et la ligne à 900 ; les 7 motifs restent des états de domaine, `lastFailure` appartient au lot 2.
+- **Sortie mesurable** : 7 motifs déclenchés en headless, dont `shuttle-grounded` et `shuttle-lost` par état construit ; 0 mort sans signal ≥ 2 s ; 1 seule réparation acceptée ; brèche non réparée → coque 40, départ possible en `damaged` ; réparée → coque 60 et caisses non arrimées sauvées, fermeture 8 s et réparation 6 s en parallèle, prêt à 70 s ; 4 refus de départ par état construit (coque, moteur, rampe, verrou) ; abandon uniquement après l’avertissement à 1 050 et la ligne à 900 ; les 7 motifs restent des états de domaine, `lastFailure` appartient au lot 2.
 
 #### Étape 6 — Intégration du lot (J7)
 
