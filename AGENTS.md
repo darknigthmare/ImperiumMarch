@@ -277,3 +277,49 @@ Le jeu s’appelle **ORDRE DE CENDRE**. Signature : **Chaque pas laisse une trac
 - Les 89 fiches ajoutées sont `VI34–VI37`, `SY140–SY143`, `FA10–FA12`, `PN23–PN34`, `NA131–NA170`, les 26 critères `QA232–QA257` et le texte détaillé des quatre fins. La source passe à **1 157 fiches** ; aucun ID retiré, aucun statut promu, aucune mission rendue jouable. L'export XLSX reste en retard et doit être signalé comme tel.
 - Les 26 critères de la tranche restent **À produire** : chronologie EC 61 (`QA232–QA236`), journal des faits `SY140` (`QA237–QA242`), cargaison `SY142` (`QA243–QA247`), résolution `SY143` (`QA248–QA252`), atteignabilité des quatre fins (`QA253–QA257`). Aucun n'est exécuté ; ne pas les présenter comme vérifiés. L'onglet QA passe à 257 lignes, les 133 critères initiaux restent le dénominateur.
 - Les cultures, les rites et les langues servent l'écriture : les Khelt comptent par douze, le khelt se parle par résonances, la Veillée se fait une nuit avec un objet de métier. Ne pas les expliquer dans une réplique ; les faire exister.
+
+<!-- BEGIN:shared-ai-tooling -->
+## Outils de développement IA
+
+Ce dépôt peut utiliser [Spec Kit](https://github.com/github/spec-kit),
+[Superpowers](https://github.com/obra/superpowers) et, avec Claude Code,
+[Claude Code Game Studios](https://github.com/Donchitos/Claude-Code-Game-Studios).
+
+Lire le [guide d'intégration](.ai-tools/README.md) et les
+[révisions de référence](.ai-tools/sources.json) avant leur première utilisation.
+
+- **Spec Kit** : cadrer une fonctionnalité ou une évolution importante en
+  spécification, plan et tâches ; réutiliser les documents et le suivi existants.
+- **Superpowers** : choisir les pratiques pertinentes pour l'implémentation,
+  le diagnostic, la revue et la vérification. Garder un seul plan de travail.
+- **Claude Code Game Studios** : utiliser les agents spécialisés dans les
+  sessions Claude Code pour les tâches de jeu concernées. Pour un autre type de
+  projet, conserver cette possibilité sans imposer une organisation de studio.
+- Adapter ces outils à la demande en cours et aux contrats du projet. Préserver
+  l'architecture, les conventions, les consignes et les autorisations existantes.
+- Vérifier leur disponibilité réelle avant d'annoncer une commande ou un plugin
+  comme installé. Le guide fournit les étapes d'activation et un diagnostic local.
+
+Ces consignes ajoutent des outils au projet ; leurs références externes ne
+constituent pas une autorisation de modifier les permissions ou de publier.
+<!-- END:shared-ai-tooling -->
+
+<!-- BEGIN:3dviz-pro-max -->
+## 3Dviz Pro Max
+
+Pour une tâche de 3D, de perspective, de proportions, de caméra, de matériaux,
+d'éclairage ou d'interaction spatiale, lire le
+[skill complet 3dviz-pro-max](.ai-tools/3dviz-pro-max/skill/SKILL.md) et son
+[guide d'intégration](.ai-tools/3dviz-pro-max/README.md).
+La copie commune contient les données, références, scripts et modèles amont ;
+les points d'entrée Codex et Claude Code sont dans `.agents/skills/3dviz-pro-max/`
+et `.claude/skills/3dviz-pro-max/`.
+
+Combiner les parties pertinentes avec les autres compétences déjà disponibles.
+Reprendre les plans, le moteur, la direction artistique, les contrôles et les
+autorisations du projet. Résoudre les chemins du skill depuis son dossier
+commun. Vérifier les fichiers avec
+`python3 -B .ai-tools/3dviz-pro-max/verify.py` et observer le rendu réel avant
+de déclarer une amélioration visuelle. Les dépendances et outils facultatifs
+du skill ne sont pas des dépendances à ajouter automatiquement au jeu.
+<!-- END:3dviz-pro-max -->
