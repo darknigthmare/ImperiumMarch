@@ -161,3 +161,27 @@ plugins dans un client ni le gameplay du projet.
 - [Claude Code : sources de plugins et révisions verrouillées](https://code.claude.com/docs/en/plugins/marketplace-reference).
 
 Ces trois projets utilisent une licence MIT. Conserver leurs mentions de licence lors de la copie de leurs fichiers. Les adresses exactes des sources à la révision vérifiée figurent dans [sources.json](sources.json).
+
+<!-- BEGIN:3dviz-pro-max-guide -->
+## 3Dviz Pro Max : scènes et raisonnement 3D
+
+[3dviz-pro-max](https://github.com/viettranx/3dviz-pro-max) est intégré à la
+révision `d077e0e68915c25be8e71d74684d3144fd1c2aca` (catalogue `0.1.0`).
+Une copie complète dans `3dviz-pro-max/skill/` est partagée par les entrées
+Codex et Claude Code. Elle apporte les références, données, scripts, modèles
+et quatre assets GLB nécessaires au skill, avec la licence MIT de l'auteur.
+
+Consulter le [guide dédié](3dviz-pro-max/README.md) et la
+[provenance détaillée](3dviz-pro-max/source.json). Depuis la racine du dépôt :
+
+```bash
+python3 -B .ai-tools/3dviz-pro-max/verify.py
+python3 -B .ai-tools/3dviz-pro-max/skill/scripts/search.py "fantasy village" --collection recipes --limit 3
+```
+
+Employer cette compétence pour la géométrie, les proportions, les raccords,
+les caméras, les matériaux, l'éclairage et les interactions spatiales.
+Elle complète les compétences existantes et conserve le moteur du projet.
+Vérifier sa découverte dans le client avant invocation ; la présence des
+fichiers et une recherche réussie ne certifient pas l'observation d'un rendu.
+<!-- END:3dviz-pro-max-guide -->
